@@ -4,12 +4,12 @@ description: Eseguire il monitoraggio e l'aggiornamento in blocco utilizzando la
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
-ms.openlocfilehash: ebd993733c1aca9cd4f7d92f0a75e22d68a87ffe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a9c86a7ae510d9657f64c71db2aa8c4e3e558f52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518063"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968593"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Correzione rapida per Advisor
 La **correzione rapida** consente un modo più semplice e rapido per la correzione per consigli su più risorse. Offre funzionalità di monitoraggio e aggiornamento bulk per le risorse e consente di ottimizzare le sottoscrizioni più velocemente con la correzione su larga scala per le risorse.
@@ -20,13 +20,13 @@ La funzionalità è disponibile solo per alcune indicazioni, tramite portale di 
 
 1. Dall'elenco di raccomandazioni con l'etichetta **correzione rapida** , fare clic sull'indicazione.
 
-   ![Correzione rapida Advisor](./media/quick-fix-1.png)
+   :::image type="content" source="./media/quick-fix-1.png" alt-text="{Screenshot della Azure Advisor che mostra le etichette di correzione rapida nei consigli.}":::
    
    *I prezzi nell'immagine sono solo a scopo esemplificativo*
 
 2. Nella pagina Dettagli raccomandazione verrà visualizzato un elenco di risorse per cui si dispone di questa raccomandazione. Selezionare tutte le risorse che si vuole correggere per la raccomandazione.
 
-   ![Correzione rapida Advisor](./media/quick-fix-2.png)
+   :::image type="content" source="./media/quick-fix-2.png" alt-text="Screenshot della finestra risorse interessate con elementi elenco e pulsante correzione rapida evidenziati.":::
    
    *I prezzi nell'immagine sono solo a scopo esemplificativo*
 
@@ -44,7 +44,7 @@ La funzionalità è disponibile solo per alcune indicazioni, tramite portale di 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sui consigli di Advisor, vedere:
-* [Introduction to Azure Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
+* [Introduzione ad Azure Advisor](advisor-overview.md)
 * [Introduzione ad Advisor](advisor-get-started.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
 * [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)

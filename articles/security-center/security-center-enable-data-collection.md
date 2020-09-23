@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: c6a779deef3ed1dc0a4d5e83c38f483776adf6fe
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 132e21c861f50caca37fb6fc5df660ff413d07a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387371"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905494"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Il Centro sicurezza raccoglie i dati dalle macchine virtuali (VM) di Azure, dai set di scalabilità di macchine virtuali, dai contenitori IaaS e dai computer non Azure (inclusi quelli locali) per monitorare le vulnerabilità e le minacce alla sicurezza. I dati vengono raccolti tramite l'agente di Log Analytics, che legge diverse configurazioni correlate alla sicurezza oltre ai log eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i log del sistema operativo (log eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso.
@@ -34,20 +34,23 @@ Per raccogliere i dati dai computer, è consigliabile avere installato l'agente 
 Dopo aver attivato il provisioning automatico, il Centro sicurezza distribuisce l'agente di Log Analytics in tutte le macchine virtuali di Azure supportate e nelle nuove macchine create. È consigliabile eseguire il provisioning automatico, ma è possibile installare l'agente manualmente, se necessario (vedere [Installazione manuale dell'agente di Log Analytics](#manual-agent)).
 
 
+
 Per abilitare il provisioning automatico dell'agente di Log Analytics:
-1. Dal menu del Centro sicurezza nel portale selezionare **Prezzi e impostazioni**.
-2. Selezionare la sottoscrizione pertinente.
 
-   ![Seleziona sottoscrizione][7]
+1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.
+1. Selezionare la sottoscrizione pertinente.
+1. Nella pagina **Raccolta dati** impostare **Provisioning automatico** su **Sì**.
+1. Selezionare **Salva**.
 
-3. Selezionare **Raccolta di dati**.
-4. In **Provisioning automatico** selezionare **Attivato** per abilitare il provisioning automatico.
-5. Selezionare **Salva**. L'agente verrà distribuito in tutte le macchine virtuali entro 15 minuti. 
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Abilitare il provisioning automatico dell'agente di Log Analytics":::
 
 >[!TIP]
 > Se è necessario eseguire il provisioning di un'area di lavoro, l'installazione dell'agente potrebbe richiedere fino a 25 minuti.
 
-   ![Abilitare il provisioning automatico][1]
+Una volta distribuito l'agente nei computer, il Centro sicurezza può offrire altri suggerimenti correlati allo stato di aggiornamento del sistema, alle configurazioni di sicurezza del sistema operativo e alla protezione di endpoint, nonché generare avvisi di sicurezza aggiuntivi.
+
+>[!NOTE]
+> Se si imposta il provisioning automatico su **No**, l'agente di Log Analytics non viene rimosso dalle macchine virtuali di Azure in cui ne è già stato effettuato il provisioning. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.
 
 >[!NOTE]
 > - Per istruzioni su come effettuare il provisioning di un'installazione pre-esistente, vedere [Provisioning automatico nel caso di installazione di un agente preesistente](#preexisting).
@@ -78,7 +81,7 @@ Per selezionare un'area di lavoro creata dal Centro sicurezza:
 1. Il Centro sicurezza abiliterà automaticamente una soluzione del Centro sicurezza nell'area di lavoro in base al piano tariffario impostato per la sottoscrizione. 
 
 > [!NOTE]
-> Il piano tariffario di Log Analytics per le aree di lavoro create dal Centro sicurezza non influisce sulla fatturazione del Centro sicurezza. Questa è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro. Per il livello Gratuito, il Centro sicurezza abilita la soluzione *SecurityCenterFree* nell'area di lavoro predefinita. Per il livello standard, il Centro sicurezza Abilita la soluzione di *sicurezza* nell'area di lavoro predefinita.
+> Il piano tariffario di Log Analytics per le aree di lavoro create dal Centro sicurezza non influisce sulla fatturazione del Centro sicurezza. Questa è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro. Per le sottoscrizioni senza Azure Defender, il Centro sicurezza Abilita la soluzione *SecurityCenterFree* nell'area di lavoro predefinita. Per le sottoscrizioni con Azure Defender, il Centro sicurezza Abilita la soluzione di *sicurezza* nell'area di lavoro predefinita.
 > L'archiviazione di dati in Log Analytics può comportare costi aggiuntivi. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 Per altre informazioni sugli account di Log Analytics esistenti, vedere [Clienti di Log Analytics esistenti](./faq-azure-monitor-logs.md).
@@ -97,7 +100,7 @@ Per selezionare l'area di lavoro Log Analytics esistente:
 
 1. In **Configurazione dell'area di lavoro predefinita** selezionare **Usa un'altra area di lavoro**.
 
-   ![Selezionare un'area di lavoro esistente][2]
+   ![Usare un'altra area di lavoro][2]
 
 2. Nel menu a discesa selezionare un'area di lavoro dove archiviare i dati raccolti.
 
@@ -119,21 +122,26 @@ Per selezionare l'area di lavoro Log Analytics esistente:
 
    - Selezionare **Annulla** per annullare l'operazione.
 
-     ![Selezionare un'area di lavoro esistente][3]
+     ![Rivedere le opzioni per riconfigurare le macchine virtuali monitorate][3]
 
-5. Selezionare il piano tariffario per l'area di lavoro in cui si intende impostare l'agente di Log Analytics. <br>Per usare un'area di lavoro esistente, impostare il piano tariffario per l'area di lavoro. Verrà installata nell'area di lavoro una soluzione del Centro sicurezza, se non ne è già presente una.
+5. Consente di indicare se l'area di lavoro è abilitata per Azure Defender.
 
-    a.  Scegliere **Prezzi e impostazioni** dal menu principale del Centro sicurezza.
+    Per usare un'area di lavoro esistente, impostare il piano tariffario per l'area di lavoro. Verrà installata nell'area di lavoro una soluzione del Centro sicurezza, se non ne è già presente una.
+
+    1. Scegliere **Prezzi e impostazioni** dal menu principale del Centro sicurezza.
      
-    b.  Selezionare l'area di lavoro desiderata a cui si intende connettere l'agente.
-        ![Selezionare un'area di lavoro][7] c. Impostare il piano tariffario.
-        ![Selezionare un piano tariffario][9]
+    1. Selezionare l'area di lavoro a cui si connetterà l'agente.
+
+    1. Selezionare **Azure Defender in** o **Azure Defender disattivato**.
+
    
    >[!NOTE]
    >Se l'area di lavoro dispone già di una soluzione **Security**  o **SecurityCenterFree** abilitata, il piano tariffario verrà impostato automaticamente. 
 
+
 ## <a name="cross-subscription-workspace-selection"></a>Selezione di un'area di lavoro tra sottoscrizioni
 Quando si seleziona un'area di lavoro in cui archiviare i dati, sono disponibili tutte le aree di lavoro di tutte le sottoscrizioni. La selezione di un'area di lavoro tra sottoscrizioni consente di raccogliere i dati da macchine virtuali in esecuzione in sottoscrizioni diverse e di archiviarli nell'area di lavoro scelta. Questa selezione è utile se si usa un'area di lavoro centralizzata all'interno dell'organizzazione e si vuole usarla per la raccolta di dati sulla sicurezza. Per altre informazioni su come gestire le aree di lavoro, vedere [Gestire l'accesso alle aree di lavoro](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access).
+
 
 
 ## <a name="data-collection-tier"></a>Livello della raccolta dati
@@ -150,7 +158,7 @@ La selezione di un livello di raccolta dati nel Centro sicurezza di Azure avrà 
 
 
 > [!NOTE]
-> Questi set di eventi di sicurezza sono disponibili solo nel livello standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
+> Questi set di eventi di sicurezza sono disponibili solo con Azure Defender. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
 Questi insiemi sono stati progettati per soddisfare gli scenari tipici. Assicurarsi di valutare quale di questi si adatti alle proprie esigenze prima di implementarlo.
 >
 >
@@ -244,19 +252,16 @@ Esistono diversi modi per installare manualmente l'agente di Log Analytics. Quan
 
 1. Facoltativamente, creare un'area di lavoro.
 
-1. Impostare l'area di lavoro in cui si sta installando l'agente di Log Analytics al piano tariffario standard:
+1. Abilitare Azure Defender nell'area di lavoro in cui si sta installando l'agente di Log Analytics:
 
-    1. Dal menu del Centro sicurezza selezionare **prezzi & impostazioni**.
+    1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.
 
     1. Impostare l'area di lavoro in cui si sta installando l'agente. Assicurarsi che l'area di lavoro si trovi nella stessa sottoscrizione che si usa nel Centro sicurezza e di disporre delle autorizzazioni di lettura/scrittura nell'area di lavoro.
 
-    1. Impostare il piano tariffario standard e selezionare **Salva**.
-
-        ![Impostare un'area di lavoro sul piano tariffario standard](.\media\security-center-enable-data-collection\workspace-to-standard-tier.gif)
+    1. Impostare Azure Defender su on e selezionare **Save (Salva**).
 
        >[!NOTE]
        >Se l'area di lavoro dispone già di una soluzione **Security**  o **SecurityCenterFree** abilitata, il piano tariffario verrà impostato automaticamente. 
-   > 
 
 1. Se si vuole distribuire gli agenti nelle nuove macchine virtuali usando un modello di Gestione risorse, installare l'agente Log Analytics:
 
@@ -274,7 +279,7 @@ Esistono diversi modi per installare manualmente l'agente di Log Analytics. Quan
 
     - [Per macchine Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
 
-    - [Per macchine Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+    - [Per i computer Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
 
 
 
@@ -308,7 +313,6 @@ In questo articolo è stato illustrato il funzionamento della raccolta dati e de
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
 [7]: ./media/security-center-enable-data-collection/select-subscription.png
 [8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png

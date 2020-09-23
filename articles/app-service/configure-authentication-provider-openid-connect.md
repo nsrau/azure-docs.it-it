@@ -4,14 +4,14 @@ description: Informazioni su come configurare un provider OpenID Connect come pr
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
-ms.openlocfilehash: 89164061a968e37f928f8c21f5323c418e85361f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e8112f2dc20175e81cfa8388440b2d9aef6a419c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413919"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983877"
 ---
-# <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Configurare il servizio app o l'app funzioni di Azure per l'accesso tramite un provider OpenID Connect (anteprima)
+# <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Configurare il servizio app o l'app Funzioni di Azure per l'accesso tramite un provider OpenID Connect (anteprima)
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
@@ -53,7 +53,7 @@ Se non si riesce a usare un documento di metadati di configurazione, sarà neces
 In questa sezione viene illustrato come aggiornare la configurazione per includere il nuovo IDP. Di seguito è riportata una configurazione di esempio.
 
 1. All'interno dell' `identityProviders` oggetto aggiungere un `openIdConnectProviders` oggetto, se non ne esiste già uno.
-1. All'interno dell' `openIdConnectProviders` oggetto aggiungere una chiave per il nuovo provider. Si tratta di un nome descrittivo utilizzato per fare riferimento al provider nel resto della configurazione. Se, ad esempio, si desidera che tutte le richieste vengano autenticate con questo provider, impostare `globalValidation.unauthenticatedClientAction` su "RedirectToLoginPage" e impostare `globalValidation.unauthenticatedClientAction` su questo stesso nome descrittivo.
+1. All'interno dell' `openIdConnectProviders` oggetto aggiungere una chiave per il nuovo provider. Si tratta di un nome descrittivo utilizzato per fare riferimento al provider nel resto della configurazione. Se, ad esempio, si desidera che tutte le richieste vengano autenticate con questo provider, impostare `globalValidation.unauthenticatedClientAction` su "RedirectToLoginPage" e impostare `redirectToProvider` su questo stesso nome descrittivo.
 1. Assegnare un oggetto alla chiave con un `registration` oggetto al suo interno e, facoltativamente, un `login` oggetto:
     
     ```json

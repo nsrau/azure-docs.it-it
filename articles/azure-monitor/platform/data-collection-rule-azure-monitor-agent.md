@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 97ba976c841e192646ebb484fe4d004556e34c54
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: aa3225378f921792d1e8ba0442f2c555d095fb9d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640838"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968402"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configurare la raccolta dati per l'agente di monitoraggio di Azure (anteprima)
 Le regole di raccolta dati (DCR) definiscono i dati in arrivo in monitoraggio di Azure e specificano la posizione in cui devono essere inviati. Questo articolo descrive come creare una regola di raccolta dati per raccogliere dati dalle macchine virtuali usando l'agente di monitoraggio di Azure.
@@ -26,7 +26,7 @@ Per applicare un DCR a una macchina virtuale, è necessario creare un'associazio
 
 Si consideri, ad esempio, un ambiente con un set di macchine virtuali che eseguono un'applicazione line-of-business e altri che eseguono SQL Server. Potrebbe essere presente una regola di raccolta dati predefinita che si applica a tutte le macchine virtuali e a regole di raccolta dati separate che raccolgono i dati in modo specifico per l'applicazione line-of-business e per SQL Server. Le associazioni per le macchine virtuali alle regole di raccolta dati saranno simili a quelle del diagramma seguente.
 
-![Associazioni](media/data-collection-rule-azure-monitor-agent/associations.png)
+![Il diagramma mostra le macchine virtuali che ospitano le applicazioni line-of-business e SQL Server associate alle regole di raccolta dati denominate Central-i t-default e LOB-app per l'applicazione line-of-business e i t-i t-default centrali e s q l per SQL Server.](media/data-collection-rule-azure-monitor-agent/associations.png)
 
 ## <a name="create-using-the-azure-portal"></a>Creare usando il portale di Azure
 È possibile utilizzare il portale di Azure per creare una regola di raccolta dati e associare le macchine virtuali nella sottoscrizione a tale regola. L'agente di monitoraggio di Azure verrà installato automaticamente e verrà creata un'identità gestita per le macchine virtuali in cui non è già installato.
@@ -54,7 +54,7 @@ Per specificare altri log e contatori delle prestazioni, selezionare **personali
 
 Nella scheda **destinazione** aggiungere una o più destinazioni per l'origine dati. Le origini dati degli eventi di Windows e syslog possono essere inviate solo ai log di monitoraggio di Azure. I contatori delle prestazioni possono inviare le metriche di monitoraggio di Azure e i log di monitoraggio di Azure.
 
-[![Destinazione](media/azure-monitor-agent/data-collection-rule-destination.png)](media/azure-monitor-agent/data-collection-rule-destination.png#lightbox)
+[![Destination](media/azure-monitor-agent/data-collection-rule-destination.png)](media/azure-monitor-agent/data-collection-rule-destination.png#lightbox)
 
 Fare clic su **Aggiungi origine dati** , quindi su **+ Crea** per esaminare i dettagli della regola di raccolta dati e l'associazione con il set di macchine virtuali. Fare clic su **Crea** per crearlo.
 

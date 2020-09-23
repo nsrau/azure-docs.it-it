@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: af935aeaaeee11ab50b327b7f7b5b77246cb974b
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: e6b12c2bac4a9732f868f6a6ac3491ef993f54c3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566047"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976556"
 ---
 # <a name="limitations"></a>Limitazioni
 
@@ -28,7 +28,7 @@ Diverse funzionalità prevedono delle limitazioni in termini di dimensioni, cont
 
 ## <a name="geometry"></a>Geometria
 
-* Totale materiali consentiti in un asset: 65.535.
+* Totale materiali consentiti in un asset: 65.535. Per ulteriori informazioni, vedere [deduplicazione materiali](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) .
 * Dimensione massima di una singola trama: 16.384 x 16.384. Le trame di origine più grandi verranno ridimensionate in base al processo di conversione.
 
 ## <a name="overall-number-of-polygons"></a>Numero complessivo di poligoni

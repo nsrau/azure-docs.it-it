@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 808cf713cc34f90224cb3d5ce8a714fbafdcedbc
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5b1e5c73f3d43ca2627729149256f3e9362d58c2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202944"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984260"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Raccomandazioni sulla sicurezza per archiviazione BLOB
 
@@ -30,7 +30,7 @@ Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
 | Usare il modello di distribuzione Azure Resource Manager | Creare nuovi account di archiviazione usando il modello di distribuzione Azure Resource Manager per importanti miglioramenti della sicurezza, tra cui controllo degli accessi in base al controllo (RBAC) e controllo, distribuzione e governance basati su Gestione risorse, accesso alle identità gestite, accesso ai Azure Key Vault per i segreti e autenticazione basata su Azure AD e autorizzazione per l'accesso ai dati e alle risorse di archiviazione di Azure. Se possibile, eseguire la migrazione degli account di archiviazione esistenti che usano il modello di distribuzione classica per usare Azure Resource Manager. Per ulteriori informazioni su Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
-| Abilitare Advanced Threat Protection per tutti gli account di archiviazione | Advanced Threat Protection per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli account di archiviazione. Gli avvisi di sicurezza vengono attivati nel centro sicurezza di Azure quando si verificano anomalie nelle attività e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con dettagli relativi a attività sospette e consigli su come analizzare e correggere le minacce. Per altre informazioni, vedere [Advanced Threat Protection per archiviazione di Azure](../common/storage-advanced-threat-protection.md). | [Sì](../../security-center/security-center-sql-service-recommendations.md) |
+| Abilitare Azure Defender per tutti gli account di archiviazione | Azure Defender per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli account di archiviazione. Gli avvisi di sicurezza vengono attivati nel centro sicurezza di Azure quando si verificano anomalie nelle attività e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con dettagli relativi a attività sospette e consigli su come analizzare e correggere le minacce. Per altre informazioni, vedere [configurare Azure Defender per archiviazione di Azure](../common/azure-defender-storage-configure.md). | [Sì](../../security-center/security-center-sql-service-recommendations.md) |
 | Attivare l'eliminazione temporanea per i dati BLOB | L'eliminazione temporanea consente di ripristinare i dati BLOB dopo l'eliminazione. Per altre informazioni sull'eliminazione temporanea, vedere [eliminazione temporanea per i BLOB di archiviazione di Azure](storage-blob-soft-delete.md). | - |
 | Archiviare dati critici per l'azienda in BLOB non modificabili | Configurare i criteri di conservazione validi e temporali per archiviare i dati BLOB in un WORM (scrivere una sola volta, leggere molti) stato. I BLOB archiviati immutabilmente possono essere letti, ma non possono essere modificati o eliminati per la durata dell'intervallo di conservazione. Per altre informazioni, vedere [archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md). | - |
 | Limitare i token di firma di accesso condiviso solo alle connessioni HTTPS | Richiesta di HTTPS quando un client utilizza un token di firma di accesso condiviso per accedere ai dati BLOB consente di ridurre al minimo il rischio di intercettazione. Per altre informazioni, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../common/storage-sas-overview.md). | - |

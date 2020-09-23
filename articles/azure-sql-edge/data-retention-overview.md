@@ -1,6 +1,6 @@
 ---
-title: Cenni preliminari sui criteri di conservazione dei dati-Azure SQL Edge (anteprima)
-description: Informazioni sui criteri di conservazione dei dati in Azure SQL Edge (anteprima)
+title: Cenni preliminari sui criteri di conservazione dei dati-Azure SQL Edge
+description: Informazioni sui criteri di conservazione dei dati in Azure SQL Edge
 keywords: SQL Edge, conservazione dei dati
 services: sql-edge
 ms.service: sql-edge
@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 3649d4f77e5b57ab14accacd87fbaa867ba2742f
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: bb059a946c03f41e5b65944eec67070f84ee6b08
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550659"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976345"
 ---
-# <a name="data-retention-policy-overview"></a>Cenni preliminari sui criteri di conservazione dei dati
+# <a name="data-retention-overview"></a>Panoramica della conservazione dei dati
 
 La raccolta e l'archiviazione di dati da dispositivi Internet connessi è importante per ottenere informazioni operative e aziendali. Tuttavia, dato il volume di dati provenienti da questi dispositivi, diventa importante per le organizzazioni pianificare con attenzione la quantità di dati che si desidera mantenere e la granularità. Sebbene sia consigliabile mantenere tutti i dati a ogni granularità, non è sempre pratico. Inoltre, il volume di dati che è possibile conservare è vincolato dalla quantità di spazio di archiviazione disponibile nei dispositivi Internet o Internet. 
 
-Azure SQL Edge (anteprima) CTP 2.3 aggiunge una nuova funzionalità che consente agli amministratori di database di definire i criteri di conservazione dei dati in un database Edge SQL e nelle tabelle sottostanti. Una volta definiti i criteri di conservazione dei dati, viene eseguita un'attività di sistema in background per eliminare tutti i dati obsoleti dalle tabelle utente. 
+In Azure SQL Edge Database Administrators può definire i criteri di conservazione dei dati in un database Edge SQL e nelle tabelle sottostanti. Una volta definiti i criteri di conservazione dei dati, viene eseguita un'attività di sistema in background per eliminare tutti i dati obsoleti dalle tabelle utente. 
 
 > [!Note]
 > I dati eliminati dalla tabella non sono recuperabili. L'unico modo possibile per recuperare i dati eliminati consiste nel ripristinare il database da un backup precedente.
@@ -40,9 +40,10 @@ Una volta configurata la conservazione dei dati per una tabella, viene eseguita 
 
 - La conservazione dei dati, se abilitata, viene disabilitata automaticamente quando il database viene ripristinato da un backup completo o viene ricollegato. 
 - Non è possibile abilitare la conservazione dei dati per una tabella di cronologia temporale
+- Non è possibile modificare il filtro di conservazione dei dati Colomn. Per modificare la colonna, disabilitare la conservazione dei dati nella tabella.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Machine Learning e intelligenza artificiale con ONNX in SQL Edge](onnx-overview.md).
 - [Creazione di una soluzione IoT end-to-end con SQL Edge usando IoT Edge](tutorial-deploy-azure-resources.md).
-- [Streaming dei dati in Azure SQL Edge](stream-data.md)
+- [Streaming dei dati in SQL Edge di Azure](stream-data.md)

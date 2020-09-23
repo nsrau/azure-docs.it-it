@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 93401ee32da8218fa53568a3f46cae3805a5d939
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875320"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890175"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opzioni di inserimento dei dati per flussi di lavoro Azure Machine Learning
 
@@ -25,7 +25,7 @@ In questo articolo vengono illustrati i vantaggi e gli svantaggi delle opzioni d
 Scegliere tra:
 + Pipeline di [Azure Data Factory](#azure-data-factory) , appositamente create per estrarre, caricare e trasformare i dati
 
-+ [Azure Machine Learning Python SDK](#azure-machine-learning-python-sdk), che fornisce una soluzione di codice personalizzata per le attività di inserimento dei dati di base.
++ [Azure Machine Learning Python SDK](#azure-machine-learning-python-sdk), che fornisce una soluzione di codice personalizzata per le attività di inserimento di dati.
 
 + una combinazione di entrambi
 
@@ -70,7 +70,7 @@ Configurare gli script Python | Non supporta in modo nativo l'attivazione delle 
 Preparazione dei dati nell'ambito di ogni esecuzione del training del modello|Richiede competenze di sviluppo per creare uno script di inserimento dei dati
 Supporta gli script di preparazione dei dati in varie destinazioni di calcolo, tra cui [Azure Machine Learning calcolo](concept-compute-target.md#azure-machine-learning-compute-managed) |Non fornisce un'interfaccia utente per la creazione del meccanismo di inserimento
 
-Nel diagramma seguente, la pipeline Azure Machine Learning è costituita da due passaggi: inserimento dei dati e training del modello. Il passaggio di inserimento dei dati include le attività che possono essere eseguite usando le librerie Python e Python SDK, ad esempio l'estrazione di dati da origini locali/Web e trasformazioni di dati di base, come l'imputazione di valori mancanti. Il passaggio di training usa quindi i dati preparati come input per lo script di training per eseguire il training del modello di machine learning. 
+Nel diagramma seguente, la pipeline Azure Machine Learning è costituita da due passaggi: inserimento dei dati e training del modello. Il passaggio di inserimento dei dati include le attività che possono essere eseguite usando le librerie Python e Python SDK, ad esempio l'estrazione di dati da origini locali/Web e trasformazioni di dati, come la mancata imputazione di valori. Il passaggio di training usa quindi i dati preparati come input per lo script di training per eseguire il training del modello di machine learning. 
 
 ![Inserimento di dati in pipeline di Azure e SDK](media/concept-data-ingestion/data-ingest-option-two.png)
 

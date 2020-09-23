@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: 51b05ea016880d04fd6a2123962afefbdb229be1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 69368500a99b47238e74a960fdd5381c0339430a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101784"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905863"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurare e accedere ai log di query lente dal portale di Azure
 
@@ -28,7 +28,7 @@ Configurare l'accesso al log di query lente MySQL.
 2. Selezionare il server del Database di Azure per MySQL.
 
 3. Nella sezione **monitoraggio** della barra laterale selezionare log del **Server**. 
-   ![Screenshot delle opzioni dei log del server](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot delle opzioni dei log del server":::
 
 4. Per visualizzare i parametri del server, selezionare **fare clic qui per abilitare i log e configurare i parametri del log**.
 
@@ -53,7 +53,7 @@ Una volta iniziata la registrazione, è possibile visualizzare un elenco di log 
 
 3. Nella sezione **monitoraggio** della barra laterale selezionare log del **Server**. La pagina Visualizza un elenco dei file di log.
 
-   ![Screenshot della pagina log del server con elenco dei log evidenziato](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Screenshot della pagina log del server con elenco dei log evidenziato":::
 
    > [!TIP]
    > La convenzione di denominazione del log è **mysql-slow-< nome server>-yyyymmddhh.log**. La data e l'ora utilizzate nel nome del file corrispondono all'ora in cui è stato emesso il log. I file di log vengono ruotati ogni 24 ore o 7,5 GB, a seconda di quale si verifichi per primo. 
@@ -62,23 +62,23 @@ Una volta iniziata la registrazione, è possibile visualizzare un elenco di log 
 
 5. Per scaricare i singoli file di log, selezionare l'icona della freccia rivolta verso il basso accanto a ogni file di log nella riga della tabella.
 
-   ![Screenshot della pagina log del server con icona con la freccia giù evidenziata](./media/howto-configure-server-logs-in-portal/5-download.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-download.png" alt-text="Screenshot della pagina log del server con icona con la freccia giù evidenziata":::
 
 ## <a name="set-up-diagnostic-logs"></a>Configurare i log di diagnostica
 
 1. Nella sezione **monitoraggio** della barra laterale selezionare impostazioni di **diagnostica**  >  **Aggiungi impostazioni di diagnostica**.
 
-   ![Screenshot delle opzioni delle impostazioni di diagnostica](./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot delle opzioni delle impostazioni di diagnostica":::
 
 1. Specificare un nome per l'impostazione di diagnostica.
 
 1. Specificare i sink di dati per l'invio dei log delle query lente (account di archiviazione, Hub eventi o area di lavoro Log Analytics).
 
 1. Selezionare **MySqlSlowLogs** come tipo di log.
-![Screenshot delle opzioni di configurazione delle impostazioni di diagnostica](./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png)
+:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot delle opzioni di configurazione delle impostazioni di diagnostica":::
 
 1. Dopo aver configurato i sink di dati per inviare tramite pipe i log delle query lente a, selezionare **Salva**.
-![Screenshot delle opzioni di configurazione delle impostazioni di diagnostica con il salvataggio evidenziato](./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png)
+:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot delle opzioni di configurazione delle impostazioni di diagnostica con il salvataggio evidenziato":::
 
 1. Per accedere ai log di query lente, esplorarli nei sink di dati configurati. Possono essere necessari fino a 10 minuti per la visualizzazione dei log.
 

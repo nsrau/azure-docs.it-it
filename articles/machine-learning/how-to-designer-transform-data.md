@@ -1,7 +1,7 @@
 ---
-title: Trasformare i dati nella finestra di progettazione (anteprima)
+title: Trasformare i dati nella finestra di progettazione
 titleSuffix: Azure Machine Learning
-description: Informazioni su come trasformare i dati in Azure Machine Learning Designer (anteprima) per creare set di dati personalizzati.
+description: Informazioni su come trasformare i dati nella finestra di progettazione Azure Machine Learning per creare set di dati personalizzati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 05a21ce10db2822c963f1b375842e9a7233e0816
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 9124bbfc7300f3a5116c572d569b41e15356ab8f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457822"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983841"
 ---
-# <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Trasformare i dati nella finestra di progettazione di Azure Machine Learning (anteprima)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="transform-data-in-azure-machine-learning-designer"></a>Trasformare i dati in Azure Machine Learning Designer
+
 
 Questo articolo illustra come trasformare e salvare i set di dati nella finestra di progettazione Azure Machine Learning in modo da poter preparare dati personalizzati per il Machine Learning.
 
@@ -112,7 +112,7 @@ Ora che la pipeline è configurata per dividere i dati, è necessario specificar
     **Formato file**: csv
 
     > [!NOTE]
-    > Questo articolo presuppone che l'utente abbia accesso a un archivio dati registrato alla corrente area di lavoro di Azure Machine Learning. Per istruzioni su come configurare un archivio dati, vedere [Connettersi ai servizi di archiviazione di Azure](how-to-access-data.md#studio).
+    > Questo articolo presuppone che l'utente abbia accesso a un archivio dati registrato alla corrente area di lavoro di Azure Machine Learning. Per istruzioni su come configurare un archivio dati, vedere [Connettersi ai servizi di archiviazione di Azure](how-to-connect-data-ui.md#create-datastores).
 
     Se non è disponibile alcun archivio dati, è possibile crearne uno in questa fase. A titolo esemplificativo, in questo articolo i set di dati vengono salvati nell'account di archiviazione BLOB predefinito associato all'area di lavoro. I set di dati vengono salvati nel contenitore `azureml` in una nuova cartella denominata `data`.
 

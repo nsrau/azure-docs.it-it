@@ -1,6 +1,6 @@
 ---
-title: Gestione delle condivisioni GPU Azure Stack Edge | Microsoft Docs
-description: Viene descritto come usare la portale di Azure per gestire le condivisioni sulla GPU di Azure Stack Edge.
+title: Gestione delle condivisioni GPU Pro Azure Stack Edge | Microsoft Docs
+description: Viene descritto come usare la portale di Azure per gestire le condivisioni sulla GPU di Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,25 +8,25 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 6448ac002482751052310532989278e3b88b5915
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 44f22f365699ddc345849df78d6e27c2703d785b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268843"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904695"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge"></a>Usare il portale di Azure per gestire le condivisioni sul Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Usare il portale di Azure per gestire le condivisioni nella versione Pro di Azure Stack Edge
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Questo articolo descrive come gestire le condivisioni sul Azure Stack Edge. È possibile gestire il Azure Stack Edge tramite l'portale di Azure o tramite l'interfaccia utente Web locale. Usare il portale di Azure per aggiungere, eliminare o aggiornare le condivisioni o per sincronizzare la chiave di archiviazione dell'account di archiviazione associato alle condivisioni.
+Questo articolo descrive come gestire le condivisioni in Azure Stack Edge Pro. È possibile gestire il Azure Stack Edge Pro tramite la portale di Azure o tramite l'interfaccia utente Web locale. Usare il portale di Azure per aggiungere, eliminare o aggiornare le condivisioni o per sincronizzare la chiave di archiviazione dell'account di archiviazione associato alle condivisioni.
 
 ## <a name="about-shares"></a>Informazioni sulle condivisioni
 
-Per trasferire i dati in Azure, è necessario creare condivisioni sul Azure Stack Edge. Le condivisioni aggiunte al dispositivo Azure Stack Edge possono essere condivisioni locali o condivisioni che effettuano il push dei dati nel cloud.
+Per trasferire i dati in Azure, è necessario creare condivisioni sul Azure Stack Edge Pro. Le condivisioni aggiunte al dispositivo Azure Stack Edge Pro possono essere condivisioni locali o condivisioni che effettuano il push dei dati nel cloud.
 
  - **Condivisioni locali**: usare queste condivisioni quando si desidera che i dati vengano elaborati localmente nel dispositivo.
- - **Condivisioni**: usare queste condivisioni quando si desidera che i dati del dispositivo vengano inseriti automaticamente nell'account di archiviazione nel cloud. Tutte le funzioni del cloud, come **Aggiorna** e **Sincronizza chiavi di archiviazione**, si applicano a queste condivisioni.
+ - **Condivisioni**: usare queste condivisioni quando si desidera che i dati del dispositivo vengano inseriti automaticamente nell'account di archiviazione nel cloud. Tutte le funzioni cloud, ad esempio le **chiavi di archiviazione** di **aggiornamento** e sincronizzazione, si applicano alle condivisioni.
 
 
 ## <a name="add-a-share"></a>Aggiungere una condivisione
@@ -45,7 +45,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 4. Specificare un **account di archiviazione** in cui risiede la condivisione. Nell'account di archiviazione viene creato un contenitore con il nome della condivisione, se non esiste già. Se esiste già un contenitore, viene usato quello.
 
-5. Dall'elenco a discesa **Servizio di archiviazione** selezionare BLOB in blocchi, BLOB di pagine o File. Il tipo di servizio scelto dipende dal formato che si vuole applicare ai dati che risiederanno in Azure. In questo esempio si vuole che i dati vengano trasferiti in Azure come **BLOB in blocchi**, quindi è questa l'opzione da selezionare. Se si sceglie il **BLOB di pagine**, è necessario assicurarsi che i dati siano allineati a 512 byte. Usare **Blob di pagine** per dischi VHD o VHDX, che sono sempre allineati su 512 byte.
+5. Dall'elenco a discesa scegliere il **servizio di archiviazione** da BLOB in blocchi, BLOB di pagine o file. Il tipo di servizio scelto dipende dal formato che si vuole applicare ai dati che risiederanno in Azure. Ad esempio, in questo caso, si vuole che i dati si trovino come BLOB in blocchi in Azure, quindi si seleziona **BLOB in blocchi**. Se si sceglie il **BLOB di pagine**, è necessario assicurarsi che i dati siano allineati a 512 byte. Usare il **BLOB di pagine** per i dischi rigidi virtuali o VHDX sempre allineati a 512 byte.
 
 6. Questo passaggio varia a seconda che si stia creando una condivisione SMB o NFS.
     - **Se si crea una condivisione SMB**: nel campo **Utente locale con tutti i privilegi** selezionare **Crea nuovo** o **Usa esistente**. Se si crea un nuovo utente locale, compilare i campi **Nome utente**, **Password** e Conferma password. Vengono così assegnate le autorizzazioni all'utente locale. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
@@ -74,7 +74,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 3. Selezionare un **Tipo** per la condivisione. Il tipo può essere **SMB** o **NFS**. L'impostazione predefinita è SMB. SMB è l'opzione standard per i client Windows, mentre NFS è l'opzione usata per i client Linux. Le opzioni visualizzate variano leggermente a seconda che si scelgano condivisioni SMB o NFS.
 
    > [!IMPORTANT]
-   > Verificare che per l'account di archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Azure Stack Edge o Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Verificare che per l'account di archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 4. Per accedere facilmente alle condivisioni dai moduli di calcolo Edge, usare il punto di montaggio locale. Selezionare **Usa la condivisione con il calcolo Edge** per consentire al modulo Edge di usare il calcolo con il punto di montaggio locale.
 
@@ -96,7 +96,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 ## <a name="mount-a-share"></a>Montare una condivisione
 
-Se è stata creata una condivisione prima di configurare il calcolo nel dispositivo Azure Stack Edge, sarà necessario montare la condivisione. Per montare una condivisione, seguire questa procedura.
+Se è stata creata una condivisione prima di configurare il calcolo nel dispositivo Azure Stack Edge Pro, sarà necessario montare la condivisione. Per montare una condivisione, seguire questa procedura.
 
 
 1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Gateway > condivisioni**. Nell'elenco delle condivisioni selezionare la condivisione da montare. Per la condivisione selezionata, nella colonna **Usata per il calcolo** verrà visualizzato lo stato **Disabilitata**.

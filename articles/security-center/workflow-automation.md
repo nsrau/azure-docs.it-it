@@ -6,16 +6,16 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: ff358f3c90edfcdabb5a1225ad1efa122818b070
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 7933cc692ebc3b40e5f608a917dce51f5298fbe3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375262"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904633"
 ---
-# <a name="workflow-automation"></a>Automazione del flusso di lavoro
+# <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Creare risposte automatiche agli avvisi e alle raccomandazioni con l'automazione dei flussi di lavoro
 
 Ogni programma di sicurezza include più flussi di lavoro per la risposta agli eventi imprevisti. Questi processi possono includere la notifica a stakeholder di rilievo, l'avvio di un processo di gestione delle modifiche e l'applicazione di procedure di correzione specifiche. Gli esperti di sicurezza raccomandano di automatizzare quante più procedure possibili. L'automazione riduce i costi. Consente inoltre di migliorare la sicurezza garantendo che i passaggi del processo vengano eseguiti rapidamente, in modo coerente e in base ai requisiti predefiniti.
 
@@ -42,7 +42,7 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
 
 1. Dall'intestazione laterale del Centro sicurezza selezionare **automazione del flusso di lavoro**.
 
-    [![Elenco di automazione del flusso di lavoro](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Elenco di automazione del flusso di lavoro":::
 
     Da questa pagina è possibile creare nuove regole di automazione, nonché abilitare, disabilitare o eliminare quelle esistenti.
 
@@ -53,7 +53,7 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
     1. Trigger che avvierà questo flusso di lavoro automatico. Ad esempio, potrebbe essere necessario che l'app per la logica venga eseguita quando viene generato un avviso di sicurezza che contiene "SQL".
     1. App per la logica che verrà eseguita quando vengono soddisfatte le condizioni del trigger. 
 
-        [![Elenco di automazione del flusso di lavoro](media/workflow-automation/add-workflow.png)](media/workflow-automation/add-workflow.png#lightbox)
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Riquadro Aggiungi automazione flussi di lavoro":::
 
 1. Nella sezione azioni fare clic su **Crea nuovo** per avviare il processo di creazione dell'app per la logica.
 
@@ -101,7 +101,7 @@ Per visualizzare gli schemi di eventi non elaborati degli avvisi di sicurezza o 
 
 In questo articolo si è appreso come creare app per la logica, automatizzare l'esecuzione nel centro sicurezza ed eseguirle manualmente. 
 
-Per altri materiali correlati, vedere: 
+Per materiale correlato, vedere: 
 
 - [Il modulo Microsoft Learn su come usare l'automazione dei flussi di lavoro per automatizzare una risposta di sicurezza](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 - [Raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md)

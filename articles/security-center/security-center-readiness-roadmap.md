@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 4a62520a9807cd99b5c353c32bb13058fc471a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a3dd1c0df32e7d6a67e63c9e148327d30f0082c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771360"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904721"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Guida di orientamento alla preparazione del Centro sicurezza di Azure
 Questo documento fornisce una guida di orientamento alla preparazione utile per iniziare a usare il Centro sicurezza di Azure.
@@ -29,12 +29,12 @@ Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la pr
 Usare le risorse seguenti per iniziare a usare il Centro sicurezza.
 
 Articoli
-* [Introduzione al Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* [Guida introduttiva per il Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Introduzione al Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Guida introduttiva per il Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
 Video
-* [Breve video introduttivo](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
-* [Overview of Security Center Prevention, Detection and Response Capabilities](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/) (Panoramica delle funzionalità di prevenzione, rilevamento e risposta del Centro sicurezza)
+- [Breve video introduttivo](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
+- [Overview of Security Center Prevention, Detection and Response Capabilities](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/) (Panoramica delle funzionalità di prevenzione, rilevamento e risposta del Centro sicurezza)
 
 ## <a name="planning-and-operations"></a>Pianificazione e gestione
 
@@ -42,20 +42,16 @@ Per sfruttare tutti i vantaggi del Centro sicurezza, è importante sapere come i
 
 Usare le risorse seguenti per semplificare i processi di pianificazione e gestione.
 
-Articolo
-* [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Onboarding di computer nel Centro sicurezza
-Il Centro sicurezza rileva automaticamente le sottoscrizioni o le aree di lavoro di Azure non abilitate per il livello Standard del Centro sicurezza di Azure. Sono incluse le sottoscrizioni Azure che usano il livello Gratuito del Centro di sicurezza e le aree di lavoro che non dispongono della soluzione di sicurezza abilitata.
+Il Centro sicurezza rileva automaticamente le sottoscrizioni o le aree di lavoro di Azure non protette da Azure Defender. Sono incluse le sottoscrizioni di Azure che usano il Centro sicurezza gratuito e le aree di lavoro in cui non è abilitata la soluzione di sicurezza.
 
 Usare le risorse seguenti per semplificare i processi di onboarding.
 
-Articolo
-* [Onboarding nel Centro sicurezza di Azure Standard per la sicurezza avanzata](https://docs.microsoft.com/azure/security-center/security-center-onboarding)
-
-Video
-* [Azure Security Center Hybrid - Overview](https://youtu.be/NMa4L_M597k) (Centro sicurezza di Azure ibrido - Panoramica)
+- [Eseguire il caricamento di computer non Azure](quickstart-onboard-machines.md)
+- [Azure Security Center Hybrid - Overview](https://youtu.be/NMa4L_M597k) (Centro sicurezza di Azure ibrido - Panoramica)
 
 ## <a name="mitigating-security-issues-using-security-center"></a>Riduzione dei problemi di sicurezza tramite il Centro sicurezza
 Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log delle risorse di Azure, della rete e delle soluzioni dei partner connesse, come soluzioni di protezione endpoint e firewall, per rilevare le minacce reali e ridurre i falsi positivi.
@@ -63,14 +59,13 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
 Usare le risorse seguenti per semplificare la gestione degli avvisi di sicurezza e la protezione delle risorse.
 
 Articoli    
-* [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-* [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
-* [Protezione della rete nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-* [Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
+- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
+- [Protezione della rete nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
 Video    
-* [Mitigating Security Issues using Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center) (Riduzione dei problemi di sicurezza tramite il Centro sicurezza di Azure)
+- [Mitigating Security Issues using Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center) (Riduzione dei problemi di sicurezza tramite il Centro sicurezza di Azure)
 
 ### <a name="security-center-for-incident-response"></a>Centro sicurezza per la risposta agli eventi imprevisti
 Per ridurre i costi e i danni è importante implementare un piano di risposta agli eventi imprevisti prima che si verifichi un attacco. Centro sicurezza di Azure può essere usato nelle diverse fasi della risposta agli eventi imprevisti.
@@ -119,6 +114,4 @@ Articoli
 ## <a name="community-resources"></a>Risorse della community
 
 * [UserVoice per il Centro sicurezza](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Pagina di domande e risposte di Microsoft sul Centro sicurezza](https://docs.microsoft.com/answers/topics/azure-security-center.html)
-
-
+* [D&una pagina per il Centro sicurezza](https://docs.microsoft.com/answers/topics/azure-security-center.html)

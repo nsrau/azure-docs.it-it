@@ -3,12 +3,12 @@ title: Dettagli della struttura di esenzione dei criteri
 description: Descrive la definizione di esenzione dei criteri usata da criteri di Azure per esentare le risorse dalla valutazione di iniziative o definizioni.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3e6a6c9bc7993161697187b6131994c1973b49d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938595"
+ms.locfileid: "90968039"
 ---
 # <a name="azure-policy-exemption-structure"></a>Struttura di esenzione dei criteri di Azure
 
@@ -99,11 +99,12 @@ Questo campo deve essere il nome del percorso completo di un'assegnazione di cri
 
 Se `policyAssignmentId` è per un'assegnazione di iniziativa, è `policyDefinitionReferenceIds` possibile usare la proprietà per specificare le definizioni dei criteri nell'iniziativa a cui la risorsa oggetto ha un'esenzione. Poiché la risorsa può essere esentata da una o più definizioni di criteri incluse, questa proprietà è una _matrice_. I valori devono corrispondere ai valori nella definizione Initiative nei `policyDefinitions.policyDefinitionReferenceId` campi.
 
-## <a name="required-permissions"></a>Autorizzazioni necessarie
+## <a name="exemption-category"></a>Categoria esenzione
 
-Le autorizzazioni controllo degli accessi in base al ruolo di Azure necessarie per gestire gli oggetti di esenzione dei criteri si trovano nel `Microsoft.Authorization/policyExemptions` gruppo I ruoli predefiniti [collaboratore criteri risorse](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) e [amministratore sicurezza](../../../role-based-access-control/built-in-roles.md#security-admin) hanno l' `read` autorizzazione e le `write` autorizzazioni e e il [writer di dati di policy Insights (anteprima)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) `read` .
+Esistono due categorie di esenzione e vengono usate per raggruppare le esenzioni:
 
-Le esenzioni dispongono di misure di sicurezza aggiuntive a causa dell'effetto della concessione di un'esenzione. Oltre a richiedere l' `Microsoft.Authorization/policyExemptions/write` operazione alla gerarchia delle risorse o a una singola risorsa, l'autore di un'esenzione deve avere il `exempt/Action` verbo nell'assegnazione di destinazione.
+- **Mitigato**: l'esenzione viene concessa perché la finalità del criterio viene soddisfatta tramite un altro metodo.
+- **Deroga**: l'esenzione è concessa perché lo stato di non conformità della risorsa è temporaneamente accettato. Un altro motivo per usare questa categoria riguarda una risorsa o una gerarchia di risorse che deve essere esclusa da una o più definizioni in un'iniziativa, ma non deve essere esclusa dall'intera iniziativa.
 
 ## <a name="expiration"></a>Scadenza
 
@@ -111,6 +112,12 @@ Per impostare quando una gerarchia di risorse o una singola risorsa non è più 
 
 > [!NOTE]
 > Le esenzioni dei criteri non vengono eliminate quando `expiresOn` viene raggiunta la data. L'oggetto viene mantenuto per la conservazione dei record, ma l'esenzione non viene più rispettata.
+
+## <a name="required-permissions"></a>Autorizzazioni necessarie
+
+Le autorizzazioni controllo degli accessi in base al ruolo di Azure necessarie per gestire gli oggetti di esenzione dei criteri si trovano nel `Microsoft.Authorization/policyExemptions` gruppo I ruoli predefiniti [collaboratore criteri risorse](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) e [amministratore sicurezza](../../../role-based-access-control/built-in-roles.md#security-admin) hanno l' `read` autorizzazione e le `write` autorizzazioni e e il [writer di dati di policy Insights (anteprima)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) `read` .
+
+Le esenzioni dispongono di misure di sicurezza aggiuntive a causa dell'effetto della concessione di un'esenzione. Oltre a richiedere l' `Microsoft.Authorization/policyExemptions/write` operazione alla gerarchia delle risorse o a una singola risorsa, l'autore di un'esenzione deve avere il `exempt/Action` verbo nell'assegnazione di destinazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

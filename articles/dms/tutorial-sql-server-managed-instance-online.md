@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 08/04/2020
-ms.openlocfilehash: 5bd78f2db8ea1f2a26d26269822ec78978a3cfde
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: ce63d86c3256646782775c84636c4d248e0a6735
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553309"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984324"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Esercitazione: eseguire la migrazione di SQL Server a un Istanza gestita SQL di Azure in linea con DMS
 
@@ -35,7 +35,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 > [!IMPORTANT]
 > Per le migrazioni online da SQL Server a SQL Istanza gestita tramite il servizio migrazione del database di Azure, è necessario fornire il backup completo del database e i backup del log successivi nella condivisione di rete SMB che il servizio può utilizzare per eseguire la migrazione dei database. Servizio Migrazione del database di Azure non avvia alcun backup, ma usa i backup esistenti, che potrebbero già fare parte del piano di ripristino di emergenza, per la migrazione.
-> Assicurarsi di eseguire i [backup usando l'opzione WITH CHECKSUM](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). Assicurarsi anche di non accodare più backup (ad esempio, backup completi e della parte finale del log) in un singolo supporto di backup, ma eseguire ogni backup in un file di backup separato. È infine possibile usare backup compressi per ridurre la probabilità di potenziali problemi associati alla migrazione di backup di grandi dimensioni.
+> Assicurarsi di eseguire i [backup usando l'opzione WITH CHECKSUM](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017&preserve-view=true). Assicurarsi anche di non accodare più backup (ad esempio, backup completi e della parte finale del log) in un singolo supporto di backup, ma eseguire ogni backup in un file di backup separato. È infine possibile usare backup compressi per ridurre la probabilità di potenziali problemi associati alla migrazione di backup di grandi dimensioni.
 
 > [!NOTE]
 > L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium.
@@ -245,7 +245,7 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
 
     È possibile espandere ulteriormente le categorie di database e account di accesso per monitorare lo stato di migrazione dei rispettivi oggetti server.
 
-   ![Attività di migrazione in corso](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
+   ![Stato dell'attività di migrazione](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
 
 ## <a name="performing-migration-cutover"></a>Eseguire il cutover della migrazione
 
@@ -264,7 +264,7 @@ Al termine del ripristino del backup completo del database nell'istanza di desti
     ![Preparazione per il completamento del cutover](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
     > [!IMPORTANT]
-    > Dopo il cutover, la disponibilità del Istanza gestita SQL con business critical livello di servizio può richiedere solo molto più tempo del per utilizzo generico perché tre repliche secondarie devono essere sottoposte a seeding per il gruppo di disponibilità elevata AlwaysOn. La durata dell'operazione dipende dalle dimensioni dei dati. per altre informazioni, vedere [durata delle operazioni di gestione](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration).
+    > Dopo il cutover, la disponibilità del Istanza gestita SQL con business critical livello di servizio può richiedere solo molto più tempo del per utilizzo generico perché tre repliche secondarie devono essere sottoposte a seeding per il gruppo di disponibilità elevata AlwaysOn. La durata dell'operazione dipende dalle dimensioni dei dati. per altre informazioni, vedere [durata delle operazioni di gestione](../azure-sql/managed-instance/management-operations-overview.md#duration).
 
 5. Quando lo stato della migrazione del database viene visualizzato **completato**, connettere le applicazioni alla nuova istanza di destinazione di SQL istanza gestita.
 

@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: dfb1ca4fc8f550c8ed6955adaca9082f0b6b79e6
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e0bb3c3f3a6a1a38f974acf361937928ad4e2cfd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89379002"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983302"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault concetti di base
 
-Azure Key Vault è uno strumento che consente di archiviare i segreti e di accedervi in modo sicuro. Un segreto è qualsiasi elemento per cui si vuole controllare rigorosamente l'accesso, ad esempio chiavi API, password o certificati. Un insieme di credenziali è un gruppo logico di segreti.
+Azure Key Vault è un servizio cloud per archiviare e accedere in modo sicuro ai segreti. Un segreto è qualsiasi elemento a cui si vuole controllare rigorosamente l'accesso, ad esempio chiavi API, password, certificati o chiavi crittografiche. Key Vault servizio supporta due tipi di contenitori: insiemi di credenziali e pool HSM gestiti. Gli insiemi di credenziali supportano l'archiviazione di chiavi, segreti e certificati basati sul modulo di protezione hardware. I pool HSM gestiti supportano solo le chiavi supportate da HSM. Per informazioni complete, vedere [Panoramica dell'API REST di Azure Key Vault](about-keys-secrets-certificates.md) .
 
 Ecco altri termini importanti:
 
@@ -28,6 +28,12 @@ Ecco altri termini importanti:
 - **Proprietario dell'insieme di credenziali**: il proprietario può creare un insieme di credenziali delle chiavi e ottenerne un accesso e controllo completi. Il proprietario dell'insieme di credenziali può anche configurare il controllo per registrare chi accede a segreti e chiavi. Gli amministratori possono controllare il ciclo di vita delle chiavi. Possono passare a una nuova versione della chiave, eseguirne il backup e svolgere attività correlate.
 
 - **Consumer dell'insieme di credenziali**: quando il proprietario dell'insieme di credenziali gli concede l'accesso, il consumer può eseguire azioni sulle risorse nell'insieme di credenziali delle chiavi. Le azioni disponibili dipendono dalle autorizzazioni concesse.
+
+- **Amministratori HSM gestiti**: gli utenti a cui è assegnato il ruolo di amministratore hanno il controllo completo su un pool di moduli di protezione hardware gestito. Possono creare più assegnazioni di ruolo per delegare l'accesso controllato ad altri utenti.
+
+- **Amministratore o utente crittografico HSM gestito**: ruoli predefiniti che in genere sono assegnati a utenti o entità servizio che eseguiranno operazioni di crittografia usando le chiavi del modulo di protezione hardware gestito. L'utente crittografico può creare nuove chiavi, ma non può eliminare chiavi.
+
+- **Crittografia del servizio di crittografia HSM gestita**: ruolo predefinito che viene generalmente assegnato a un'identità del servizio gestito degli account di servizio, ad esempio un account di archiviazione, per la crittografia dei dati inattivi con la chiave gestita dal cliente.
 
 - **Risorsa**: una risorsa è un elemento gestibile disponibile tramite Azure. Esempi comuni sono la macchina virtuale, l'account di archiviazione, l'app Web, il database e la rete virtuale. Sono disponibili molte altre.
 
@@ -59,7 +65,7 @@ La seguente tabella permette di capire meglio come l'insieme di credenziali chia
 | --- | --- | --- |
 | Sviluppatore di un'applicazione Azure |"Desidero scrivere un'applicazione per Azure che usa chiavi per la firma e la crittografia. Tuttavia, desidero che queste chiavi siano esterne all'applicazione, in modo che la soluzione sia adatta a un'applicazione geograficamente distribuita. <br/><br/>Voglio che queste chiavi e questi segreti siano protetti, senza dover scrivere manualmente il codice, Desidero anche che le chiavi e i segreti siano facili da usare dalle mie applicazioni, con prestazioni ottimali. " |√ Le chiavi vengono archiviate in un insieme di credenziali e richiamate dall'URI quando è necessario.<br/><br/> √ Le chiavi vengono protette da Azure con algoritmi standard del settore, lunghezze delle chiavi e moduli di protezione hardware.<br/><br/>  √ Le chiavi vengono elaborate in moduli di protezione hardware che risiedono negli stessi data center di Azure in cui si trovano le applicazioni. In questo modo si ottiene una migliore affidabilità e una latenza ridotta rispetto a chiavi che si trovano in una posizione diversa, ad esempio in locale. |
 | Sviluppatore di software come un servizio (SaaS) |"Non desidero avere la responsabilità o la responsabilità potenziale per le chiavi del tenant e i segreti dei miei clienti. <br/><br/>Desidero che i clienti possano dedicarsi e gestire le proprie chiavi, in modo da potersi concentrare su ciò che preferisco, che fornisce le funzionalità di base del software. " |√ I clienti possono importare le loro chiavi in Azure e gestirle. Quando un'applicazione SaaS deve eseguire operazioni di crittografia usando le chiavi dei clienti, Key Vault esegue queste operazioni per conto dell'applicazione. L'applicazione non Visualizza le chiavi dei clienti. |
-| Responsabile della sicurezza |"Desidero capire che le nostre applicazioni sono conformi a FIPS 140-2 livello 2 HSM per la gestione delle chiavi sicure. <br/><br/>Voglio assicurarmi che la mia organizzazione abbia il controllo del ciclo di vita delle chiavi e possa monitorare l'utilizzo delle chiavi. <br/><br/>Anche se usiamo più servizi e risorse di Azure, voglio gestire le chiavi da un'unica posizione in Azure. " |√ I moduli di protezione hardware hanno la certificazione FIPS 140-2 livello 2.<br/><br/>√ L'insieme di credenziali delle chiavi è progettato in modo che Microsoft non possa vedere o estrarre le chiavi.<br/><br/>√ L'utilizzo delle chiavi viene registrato quasi in tempo reale.<br/><br/>√ L'insieme di credenziali offre un'unica interfaccia, indipendentemente dal numero di insiemi di credenziali disponibili in Azure, dalle aree supportate e dalle applicazioni che li usano. |
+| Responsabile della sicurezza |"Desidero essere consapevole che le nostre applicazioni sono conformi a FIPS 140-2 Level 2 o FIPS 140-2 Level 3 HSM per la gestione delle chiavi sicure. <br/><br/>Voglio assicurarmi che la mia organizzazione abbia il controllo del ciclo di vita delle chiavi e possa monitorare l'utilizzo delle chiavi. <br/><br/>Anche se usiamo più servizi e risorse di Azure, voglio gestire le chiavi da un'unica posizione in Azure. " |√ Scegliere **gli** insiemi di credenziali per FIPS 140-2 livello 2 convalidato HSM.<br/>√ Scegliere i **pool di HSM gestiti** per FIPS 140-2 livello 3 convalidato HSM.<br/><br/>√ L'insieme di credenziali delle chiavi è progettato in modo che Microsoft non possa vedere o estrarre le chiavi.<br/>√ L'utilizzo delle chiavi viene registrato quasi in tempo reale.<br/><br/>√ L'insieme di credenziali offre un'unica interfaccia, indipendentemente dal numero di insiemi di credenziali disponibili in Azure, dalle aree supportate e dalle applicazioni che li usano. |
 
 Chiunque abbia una sottoscrizione di Azure può creare e usare insiemi di credenziali delle chiavi. Sebbene Key Vault vantaggi per gli sviluppatori e gli amministratori della sicurezza, può essere implementato e gestito dall'amministratore di un'organizzazione che gestisce altri servizi di Azure. Questo amministratore può ad esempio accedere con una sottoscrizione di Azure, creare un insieme di credenziali per l'organizzazione in cui archiviare le chiavi e quindi essere responsabile delle attività operative come le seguenti:
 
@@ -77,7 +83,8 @@ Gli sviluppatori possono gestire le chiavi anche direttamente, usando le API. Pe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [proteggere l'](secure-your-key-vault.md)insieme di credenziali.
+- Informazioni su come [proteggere l'](secure-your-key-vault.md)insieme di credenziali.
+- Informazioni su come [proteggere i pool di HSM gestiti](../managed-hsm/access-control.md)
 
 <!--Image references-->
 [1]: ../media/key-vault-whatis/AzureKeyVault_overview.png
