@@ -1,6 +1,6 @@
 ---
-title: Esercitazione per preparare il portale di Azure e l'ambiente data center per la distribuzione di Azure Stack Edge | Microsoft Docs
-description: La prima esercitazione sulla distribuzione di Azure Stack Edge include la preparazione del portale di Azure.
+title: Esercitazione per preparare il portale di Azure e l'ambiente del data center per la distribuzione di Azure Stack Edge Pro | Microsoft Docs
+description: La prima esercitazione sulla distribuzione di Azure Stack Edge Pro include la preparazione del portale di Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: c8f64bc81afb941e13dd310a7efd9432639ec281
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: 224131d1b17c4ed34ee847638633a5a1a494ccaf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131838"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894131"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-stack-edge"></a>Esercitazione: Preparare la distribuzione di Azure Stack Edge  
+# <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Esercitazione: Preparare la distribuzione di Azure Stack Edge Pro  
 
-Questa è la prima di una serie di esercitazioni sulla distribuzione necessarie per distribuire completamente Azure Stack Edge. Questa esercitazione descrive come preparare il portale di Azure per la distribuzione di una risorsa Azure Stack Edge.
+Questa è la prima di una serie di esercitazioni sulla distribuzione necessarie per distribuire completamente Azure Stack Edge Pro. Questa esercitazione descrive come preparare il portale di Azure per la distribuzione di una risorsa Azure Stack Edge.
 
 Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. La preparazione del portale richiede meno di 10 minuti.
 
@@ -33,21 +33,21 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="get-started"></a>Introduzione
 
-Per distribuire Azure Stack Edge, fare riferimento alle esercitazioni seguenti nella sequenza indicata.
+Per distribuire Azure Stack Edge Pro, fare riferimento alle esercitazioni seguenti nella sequenza indicata.
 
 | **#** | **In questo passaggio** | **Usare questi documenti** |
 | --- | --- | --- | 
-| 1. |**[Preparare il portale di Azure per Azure Stack Edge](azure-stack-edge-deploy-prep.md)** |Creare e configurare la risorsa Azure Stack Edge prima di installare un dispositivo fisico Azure Stack Edge. |
-| 2. |**[Installare Azure Stack Edge](azure-stack-edge-deploy-install.md)**|Disimballare, installare in rack e cablare il dispositivo fisico Azure Stack Edge.  |
-| 3. |**[Connettere, configurare e attivare Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md)** |Connettersi all'interfaccia utente Web locale, completare la configurazione del dispositivo e attivare il dispositivo. Il dispositivo è pronto per la configurazione di condivisioni SMB o NFS.  |
-| 4. |**[Trasferire i dati con Azure Stack Edge](azure-stack-edge-deploy-add-shares.md)** |Aggiungere condivisioni e connettersi alle condivisioni da SMB o NFS. |
-| 5. |**[Trasformare i dati con Azure Stack Edge](azure-stack-edge-deploy-configure-compute.md)** |Configurare i moduli di calcolo nel dispositivo per trasformare i dati durante lo spostamento in Azure. |
+| 1. |**[Preparare il portale di Azure per Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)** |Creare e configurare la risorsa Azure Stack Edge prima di installare un dispositivo fisico Azure Stack Edge. |
+| 2. |**[Installare Azure Stack Edge Pro](azure-stack-edge-deploy-install.md)**|Disimballare, installare in rack e cablare il dispositivo fisico Azure Stack Edge Pro.  |
+| 3. |**[Connettere, configurare e attivare Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md)** |Connettersi all'interfaccia utente Web locale, completare la configurazione del dispositivo e attivare il dispositivo. Il dispositivo è pronto per la configurazione di condivisioni SMB o NFS.  |
+| 4. |**[Trasferire i dati con Azure Stack Edge Pro](azure-stack-edge-deploy-add-shares.md)** |Aggiungere condivisioni e connettersi alle condivisioni da SMB o NFS. |
+| 5. |**[Trasformare i dati con Azure Stack Edge Pro](azure-stack-edge-deploy-configure-compute.md)** |Configurare i moduli di calcolo nel dispositivo per trasformare i dati durante lo spostamento in Azure. |
 
 È ora possibile iniziare a configurare il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Di seguito sono indicati i prerequisiti di configurazione per la risorsa Azure Stack Edge, il dispositivo Azure Stack Edge e la rete del data center.
+Di seguito sono indicati i prerequisiti di configurazione per la risorsa Azure Stack Edge, il dispositivo Azure Stack Edge Pro e la rete del data center.
 
 ### <a name="for-the-azure-stack-edge-resource"></a>Per la risorsa Azure Stack Edge
 
@@ -66,7 +66,7 @@ Prima di iniziare, verificare che:
 * Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
 * Non si è bloccati da alcun criterio di Azure configurato dall'amministratore di sistema. Per altre informazioni sui criteri, vedere [Avvio rapido: Creare un'assegnazione di criteri per identificare le risorse non conformi](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal).
 
-### <a name="for-the-azure-stack-edge-device"></a>Per il dispositivo Azure Stack Edge
+### <a name="for-the-azure-stack-edge-pro-device"></a>Per il dispositivo Azure Stack Edge Pro
 
 Prima di distribuire un dispositivo fisico, è necessario:
 
@@ -80,9 +80,9 @@ Prima di distribuire un dispositivo fisico, è necessario:
 
 Prima di iniziare, verificare che:
 
-* La rete nel data center sia configurata in base ai requisiti di rete per il dispositivo Azure Stack Edge. Per altre informazioni, vedere [Requisiti di sistema di Azure Stack Edge](azure-stack-edge-system-requirements.md).
+* La rete nel data center sia configurata in base ai requisiti di rete per il dispositivo Azure Stack Edge Pro. Per altre informazioni, vedere [Requisiti di sistema di Azure Stack Edge Pro](azure-stack-edge-system-requirements.md).
 
-* Per le normali condizioni di funzionamento di Azure Stack Edge siano disponibili:
+* Per le normali condizioni di funzionamento di Azure Stack Edge Pro, siano disponibili:
 
   * Larghezza di banda minima di download di 10 Mbps per assicurarsi che il dispositivo rimanga aggiornato.
   * Larghezza di banda minima di upload e download dedicata di 20 Mbps per trasferire i file.
@@ -99,11 +99,11 @@ Per creare la risorsa Azure Stack Edge, completare i passaggi seguenti nel porta
     - Portale di Azure per enti pubblici all'URL [https://portal.azure.us](https://portal.azure.us). Per altri dettagli, vedere l'articolo su come [connettersi ad Azure per enti pubblici con il portale](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. Nel riquadro sinistro selezionare **Crea una risorsa**. Cercare e selezionare **Azure Stack Edge/Data Box Gateway**. Selezionare **Crea**.
-3. Selezionare la sottoscrizione che si vuole usare per il dispositivo Azure Stack Edge. Selezionare l'area in cui si vuole distribuire la risorsa Azure Stack Edge. Per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
+3. Selezionare la sottoscrizione che si vuole usare per il dispositivo Azure Stack Edge Pro. Selezionare l'area in cui si vuole distribuire la risorsa Azure Stack Edge. Per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
     Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo. L'area archivia solo i metadati per la gestione del dispositivo. I dati effettivi possono essere archiviati in qualsiasi account di archiviazione.
     
-    Nell'opzione **Azure Stack Edge** selezionare **Crea**.
+    Nell'opzione **Azure Stack Edge Pro** selezionare **Crea**.
 
     ![Cercare il servizio Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-sku.png)
 
@@ -125,7 +125,7 @@ Per creare la risorsa Azure Stack Edge, completare i passaggi seguenti nel porta
 
 5. Selezionare **Avanti: Indirizzo di spedizione**.
 
-    - Se si ha già un dispositivo, selezionare la casella combinata **Ho un dispositivo Azure Stack Edge**.
+    - Se si ha già un dispositivo, selezionare la casella combinata **Ho un dispositivo Azure Stack Edge Pro**.
     - Se si sta ordinando un nuovo dispositivo, immettere il nome del contatto, la società, l'indirizzo a cui spedire il dispositivo e le informazioni di contatto.
 
     ![Indirizzo di spedizione per il nuovo dispositivo](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
@@ -144,11 +144,11 @@ La creazione della risorsa richiede alcuni minuti. Al termine della creazione e 
 
 Dopo che l'ordine è stato inviato, Microsoft lo verifica e invia quindi all'utente un messaggio di posta elettronica con i dettagli della spedizione.
 
-![Notifica della verifica dell'ordine di Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
+![Notifica della verifica dell'ordine di Azure Stack Edge Pro](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
 
 ## <a name="get-the-activation-key"></a>Ottenere la chiave di attivazione
 
-Quando la risorsa Azure Stack Edge è configurata e operativa, è necessario ottenere la chiave di attivazione. Questa chiave viene usata per attivare il dispositivo Azure Stack Edge e connetterlo alla risorsa. È possibile ottenere questa chiave ora nel portale di Azure.
+Quando la risorsa Azure Stack Edge è configurata e operativa, è necessario ottenere la chiave di attivazione. Questa chiave viene usata per attivare il dispositivo Azure Stack Edge Pro e connetterlo alla risorsa. È possibile ottenere questa chiave ora nel portale di Azure.
 
 1. Selezionare la risorsa creata. Selezionare **Panoramica** e quindi **Configurazione dispositivo**.
 
@@ -165,14 +165,14 @@ Quando la risorsa Azure Stack Edge è configurata e operativa, è necessario ott
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono stati presentati argomenti relativi ad Azure Stack Edge, ad esempio:
+In questa esercitazione sono stati presentati argomenti relativi ad Azure Stack Edge Pro, ad esempio:
 
 > [!div class="checklist"]
 >
 > * Creare una nuova risorsa
 > * Ottenere la chiave di attivazione
 
-Passare all'esercitazione successiva per informazioni su come installare Azure Stack Edge.
+Passare all'esercitazione successiva per informazioni su come installare Azure Stack Edge Pro.
 
 > [!div class="nextstepaction"]
-> [Installare Azure Stack Edge](./azure-stack-edge-deploy-install.md)
+> [Installare Azure Stack Edge Pro](./azure-stack-edge-deploy-install.md)

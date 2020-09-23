@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 62b60afb7dc4adb70a0963984ee7848ab056e823
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 023864e23c0cd23df0de603e76acac651bd2458e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447818"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987574"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gestire runbook in Automazione di Azure
 
@@ -293,7 +293,7 @@ Il riepilogo visualizza un conteggio e una rappresentazione grafica dello stato 
 
 Se si fa clic sul riquadro, viene visualizzata la pagina Processi, che include un elenco riepilogativo di tutti i processi eseguiti. In questa pagina vengono visualizzati lo stato, il nome del runbook e l'ora di inizio e di completamento di ogni processo.
 
-![Pagina Processi dell'account di Automazione](./media/manage-runbooks/automation-account-jobs-status-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="Screenshot della pagina processi.":::
 
 È possibile filtrare l'elenco dei processi selezionando **Filtra processi**. Applicare il filtro in base a un runbook specifico, allo stato del processo oppure a una scelta nell'elenco a discesa e specificare l'intervallo di tempo per la ricerca.
 
@@ -301,7 +301,7 @@ Se si fa clic sul riquadro, viene visualizzata la pagina Processi, che include u
 
 In alternativa, è possibile visualizzare i dettagli di riepilogo dei processi per un runbook specifico selezionandolo nella pagina Runbook nel proprio account di Automazione e quindi selezionare il riquadro **Processi**. Viene visualizzata la pagina Processi. In tale pagina è possibile fare clic su un record del processo per visualizzarne i dettagli e l'output.
 
-![Pagina Processi dell'account di Automazione](./media/manage-runbooks/automation-runbook-job-summary-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Screenshot della pagina processi con il pulsante errori evidenziato.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperare gli stati del processo tramite PowerShell
 

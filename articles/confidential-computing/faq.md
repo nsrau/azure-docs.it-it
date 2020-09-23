@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: bb821d00a168e3b8f0636b93696376dc8b5d492e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 519b5b669cfc8140b837743d694184a5cb859f20
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772899"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988002"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Domande frequenti su Confidential computing di Azure
 
-Questo articolo offre le risposte ad alcune delle domande più comuni sull'esecuzione di [carichi di lavoro di confidential computing di Azure](overview.md).
+Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'esecuzione di [carichi di lavoro di elaborazione riservati in macchine virtuali di Azure](overview.md).
 
 Se il problema riguardante Azure non viene risolto in questo articolo, visitare i forum di Azure su [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). È possibile pubblicare il problema in questi forum o in [@AzureSupport su Twitter](https://twitter.com/AzureSupport). È anche possibile inviare una richiesta di supporto tecnico di Azure. Per inviare una richiesta di supporto tecnico, selezionare Supporto nella pagina [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
 

@@ -3,12 +3,12 @@ title: Automatizzare i processi di applicazione Azure Insights usando app per la
 description: Informazioni su come automatizzare in poco tempo i processi ripetibili aggiungendo il connettore di Application Insights all'app per la logica.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: d023d774c130a9db513fbcf9452b05fa030a967a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f6406c2e6fb933c561a8ae54009499768c81a204
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323197"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970859"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizzare i processi di Application Insights con app per la logica
 
@@ -53,7 +53,7 @@ Questa esercitazione illustra come creare un'app per la logica che usa l'algorit
 
 Per completare questo passaggio, sono necessari un ID applicazione e una chiave API per la risorsa. È possibile recuperare queste informazioni dal portale di Azure, come illustrato nell'immagine seguente:
 
-![ID applicazione nel portale di Azure](./media/automate-with-logic-apps/5apiaccess.png)
+![Screenshot mostra la pagina di accesso all'API nel portale di Azure con il pulsante Crea chiave API selezionato.](./media/automate-with-logic-apps/5apiaccess.png)
 
 ![ID applicazione nel portale di Azure](./media/automate-with-logic-apps/6apikey.png)
 
@@ -103,7 +103,7 @@ Quando si creano query, verificare che funzionino correttamente in Analisi prima
     
    d. Fare clic sull'elenco a discesa **Aggiungi nuovo parametro** e selezionare allegati ed è HTML.
 
-      ![Configurazione di Office 365 Outlook](./media/automate-with-logic-apps/10emailbody.png)
+      ![Screenshot mostra la finestra Invia un messaggio di posta elettronica con la casella corpo evidenziata e il menu contenuto dinamico con il corpo evidenziato sul lato destro.](./media/automate-with-logic-apps/10emailbody.png)
 
       ![Configurazione di Office 365 Outlook](./media/automate-with-logic-apps/11emailparameter.png)
 

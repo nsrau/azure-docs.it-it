@@ -10,21 +10,21 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
-ms.reviewer: vanto, carlrab, emlisa
-ms.date: 05/14/2019
-ms.openlocfilehash: a9e563f32f2b8f38af7ab86be82cd18ef1c2309c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.reviewer: vanto, emlisa
+ms.date: 09/21/2020
+ms.openlocfilehash: f3ae5e1ef4dc2968724daeafb32f26cf445b0d2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088409"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885299"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Panoramica delle funzionalità di sicurezza del database SQL di Azure e di SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Questo articolo illustra le nozioni di base per la protezione del livello dati di un'applicazione tramite il [database SQL di Azure](sql-database-paas-overview.md) e [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md). La strategia di sicurezza descritta segue l'approccio a più livelli di difesa avanzata come illustrato nell'immagine seguente e si sposta dall'esterno in:
 
-![sql-security-layer.png](./media/security-overview/sql-security-layer.png)
+![layer.png sicurezza SQL](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Sicurezza di rete
 
@@ -77,7 +77,7 @@ Come procedura consigliata, creare ruoli personalizzati quando necessario. Aggiu
 
 La sicurezza a livello di riga consente ai clienti di controllare l'accesso alle righe in una tabella del database in base alle caratteristiche dell'utente che esegue una query (ad esempio l'appartenenza al gruppo o il contesto di esecuzione). La sicurezza a livello di riga può essere usata anche per implementare concetti di sicurezza personalizzati basati su etichetta. Per ulteriori informazioni, vedere [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security).
 
-![azure-database-rls.png](./media/security-overview/azure-database-rls.png)
+![rls.png di database di Azure](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Protezione dalle minacce
 
@@ -91,7 +91,7 @@ Il controllo del database SQL e di SQL Istanza gestita tiene traccia delle attiv
 
 Advanced Threat Protection sta analizzando i log per rilevare comportamenti insoliti e tentativi potenzialmente dannosi di accesso o exploit dei database. Gli avvisi vengono creati per attività sospette, ad esempio SQL injection, potenziali infiltrazione dei dati e attacchi di forza bruta o per le anomalie nei modelli di accesso per intercettare le escalation dei privilegi e l'uso delle credenziali violate. Gli avvisi vengono visualizzati dal  [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), in cui vengono forniti i dettagli delle attività sospette e le raccomandazioni per un'ulteriore analisi fornita insieme alle azioni per attenuare la minaccia. Advanced Threat Protection può essere abilitato per ogni server per un costo aggiuntivo. Per altre informazioni, vedere [Introduzione al database SQL Advanced Threat Protection](threat-detection-configure.md).
 
-![azure-database-td.jpg](./media/security-overview/azure-database-td.jpg)
+![td.jpg di database di Azure](./media/security-overview/azure-database-td.jpg)
 
 ## <a name="information-protection-and-encryption"></a>Crittografia e protezione delle informazioni
 
@@ -122,13 +122,13 @@ Il supporto [Bring your own key](transparent-data-encryption-byok-overview.md) (
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (crittografia in uso)
 
-![azure-database-ae.png](./media/security-overview/azure-database-ae.png)
+![ae.png di database di Azure](./media/security-overview/azure-database-ae.png)
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) è una funzionalità progettata per proteggere da accessi i dati sensibili archiviati in colonne specifiche del database (ad esempio, i numeri delle carte di credito o i numeri di identificazione nazionale o dati sulla base della _necessità di conoscere_). Sono inclusi gli amministratori del database o altri utenti con privilegi che sono autorizzati ad accedere al database per eseguire attività di gestione, ma che non hanno esigenza di accedere a dati particolari nelle colonne crittografate. I dati vengono sempre crittografati, ossia i dati crittografati vengono decrittografati solo per l'elaborazione da parte di applicazioni client con accesso alla chiave di crittografia. La chiave di crittografia non viene mai esposta al database SQL o a SQL Istanza gestita e può essere archiviata nell' [archivio certificati di Windows](always-encrypted-certificate-store-configure.md) o in [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Maschera dati dinamica
 
-![azure-database-ddm.png](./media/security-overview/azure-database-ddm.png)
+![ddm.png di database di Azure](./media/security-overview/azure-database-ddm.png)
 
 La maschera dati dinamica limita l'esposizione dei dati sensibili nascondendoli agli utenti senza privilegi. La maschera dati dinamica individua automaticamente dati potenzialmente sensibili nel database SQL di Azure e in SQL Istanza gestita e fornisce indicazioni utili per mascherare questi campi, con un minimo effetto sul livello dell'applicazione. Questa funzionalità si basa sull'offuscamento dei dati sensibili nel set dei risultati di una query su campi designati del database, mentre i dati del database non subiscono modifiche. Per altre informazioni, vedere [Introduzione al database SQL e alla maschera dati dinamica di sql istanza gestita](dynamic-data-masking-overview.md).
 
@@ -136,7 +136,7 @@ La maschera dati dinamica limita l'esposizione dei dati sensibili nascondendoli 
 
 ### <a name="vulnerability-assessment"></a>Valutazione della vulnerabilità
 
-[Valutazione della vulnerabilità](sql-vulnerability-assessment.md) è un servizio semplice da configurare che consente di individuare, tenere traccia e risolvere potenziali vulnerabilità del database, con l'obiettivo di migliorare in modo proattivo la sicurezza generale del database. La valutazione della vulnerabilità (VA) fa parte dell'offerta avanzata di sicurezza dei dati, un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. È possibile accedere e gestire la valutazione della vulnerabilità tramite il portale SQL Advanced Data Security centrale.
+[Valutazione della vulnerabilità](sql-vulnerability-assessment.md) è un servizio semplice da configurare che consente di individuare, tenere traccia e risolvere potenziali vulnerabilità del database, con l'obiettivo di migliorare in modo proattivo la sicurezza generale del database. La valutazione della vulnerabilità (VA) fa parte dell'offerta Azure Defender for SQL, un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. La valutazione della vulnerabilità può essere accessibile e gestita tramite il portale di Azure Defender centrale per SQL.
 
 ### <a name="data-discovery-and-classification"></a>Individuazione e classificazione dei dati
 

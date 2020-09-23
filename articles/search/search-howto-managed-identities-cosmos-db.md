@@ -1,25 +1,22 @@
 ---
-title: Configurare una connessione a un account Cosmos DB usando un'identità gestita (anteprima)
+title: Configurare una connessione a un account Cosmos DB usando un'identità gestita
 titleSuffix: Azure Cognitive Search
-description: Informazioni su come configurare una connessione dell'indicizzatore a un account Cosmos DB usando un'identità gestita (anteprima)
+description: Informazioni su come configurare una connessione dell'indicizzatore a un account Cosmos DB usando un'identità gestita
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: df37b7f1c5b1ed35b6c3779eea470b2fb0936ecf
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: b295c4f8380d59d8824049e8050605cb66fbae65
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936657"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971653"
 ---
-# <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity-preview"></a>Configurare una connessione dell'indicizzatore a un database Cosmos DB usando un'identità gestita (anteprima)
-
-> [!IMPORTANT] 
-> Il supporto per la configurazione di una connessione a un'origine dati tramite un'identità gestita è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
+# <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configurare una connessione dell'indicizzatore a un database Cosmos DB usando un'identità gestita
 
 Questa pagina descrive come configurare una connessione dell'indicizzatore a un database Azure Cosmos DB usando un'identità gestita invece di immettere le credenziali nella stringa di connessione dell'oggetto origine dati.
 
@@ -57,7 +54,7 @@ In questo passaggio si autorizza il servizio Ricerca cognitiva di Azure a legger
 
 ### <a name="3---create-the-data-source"></a>3 - Creare l'origine dati
 
-L' [API REST](/rest/api/searchservice/create-data-source), portale di Azure e [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) supportano la stringa di connessione dell'identità gestita. Di seguito è riportato un esempio di come creare un'origine dati per indicizzare i dati da Cosmos DB usando l' [API REST](/rest/api/searchservice/create-data-source) e una stringa di connessione identità gestita. Il formato della stringa di connessione identità gestita è lo stesso per l'API REST, .NET SDK e il portale di Azure.
+L' [API REST](/rest/api/searchservice/create-data-source), portale di Azure e [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource) supportano la stringa di connessione dell'identità gestita. Di seguito è riportato un esempio di come creare un'origine dati per indicizzare i dati da Cosmos DB usando l' [API REST](/rest/api/searchservice/create-data-source) e una stringa di connessione identità gestita. Il formato della stringa di connessione identità gestita è lo stesso per l'API REST, .NET SDK e il portale di Azure.
 
 Quando si usano identità gestite per l'autenticazione, le **credenziali** non includeranno una chiave dell'account.
 

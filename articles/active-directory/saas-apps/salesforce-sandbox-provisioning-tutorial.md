@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4666768d7e975e976601810bbbfadb1685fa91ff
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5fa40e954c84d4d2d70974bc799a198c6bf7d3e9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543524"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979762"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Esercitazione: Configurare Salesforce Sandbox per il provisioning utenti automatico
 
@@ -63,7 +63,7 @@ In questa sezione viene descritto come abilitare il provisioning utente degli ac
 
 1. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![provisioning](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
+    ![Screenshot mostra la pagina di provisioning di Salesforce Sandbox con la modalità di provisioning impostata su automatico e altri valori che è possibile impostare.](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 1. Nella sezione **Credenziali di amministratore** specificare le impostazioni di configurazione seguenti:
    

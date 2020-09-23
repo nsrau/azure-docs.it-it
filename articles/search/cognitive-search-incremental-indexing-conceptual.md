@@ -8,17 +8,18 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 5596a2db32a0fe5b6b5eddf3ae20501e6edb0b99
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9fb76c5c96795b8092c86e22acbab4ea5963b42e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935382"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971625"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Arricchimento e Caching incrementali in Azure ricerca cognitiva
 
 > [!IMPORTANT] 
-> L'arricchimento incrementale è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Le [versioni dell'API REST 2019-05-06-Preview e 2020-06-30-Preview](search-api-preview.md) forniscono questa funzionalità. Al momento non è disponibile alcun supporto per il portale o .NET SDK.
+> L'arricchimento incrementale è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> Le [versioni di anteprima dell'API REST](search-api-preview.md) forniscono questa funzionalità. Al momento non è disponibile alcun supporto per il portale o .NET SDK.
 
 L' *arricchimento incrementale* è una funzionalità destinata a [skillsets](cognitive-search-working-with-skillsets.md). Si avvale di archiviazione di Azure per salvare l'output di elaborazione emesso da una pipeline di arricchimento per il riutilizzo in future esecuzioni di indicizzatore. Laddove possibile, l'indicizzatore riutilizza eventuali output memorizzati nella cache che sono ancora validi. 
 
@@ -166,7 +167,7 @@ La versione dell'API REST `2020-06-30-Preview` fornisce l'arricchimento incremen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'arricchimento incrementale è una funzionalità potente che estende il rilevamento delle modifiche per l'arricchimento di skillsets e intelligenza artificiale. L'arricchimento AIncremental consente il riutilizzo del contenuto elaborato esistente durante l'iterazione della progettazione di competenze.
+L'arricchimento incrementale è una funzionalità potente che estende il rilevamento delle modifiche per l'arricchimento di skillsets e intelligenza artificiale. L'arricchimento incrementale consente di riutilizzare il contenuto elaborato esistente durante l'iterazione della progettazione di competenze.
 
 Come passaggio successivo, abilitare la memorizzazione nella cache su un indicizzatore esistente o aggiungere una cache quando si definisce un nuovo indicizzatore.
 

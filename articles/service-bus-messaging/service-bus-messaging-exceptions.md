@@ -3,12 +3,12 @@ title: Bus di servizio di Azure-eccezioni di messaggistica | Microsoft Docs
 description: Questo articolo fornisce un elenco delle eccezioni di messaggistica del bus di servizio di Azure e le azioni consigliate da intraprendere quando si verifica l'eccezione.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 3c648cdce87b26e6258ff8bc25506ca2ebd3bbd9
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 4813ad7386af3d9dd730b74e6b815ff173cfe809
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064605"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885729"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Eccezioni di messaggistica del bus di servizio
 Questo articolo elenca le eccezioni .NET generate dalle API .NET Framework. 
@@ -16,21 +16,21 @@ Questo articolo elenca le eccezioni .NET generate dalle API .NET Framework.
 ## <a name="exception-categories"></a>Categorie di eccezioni
 Le API di messaggistica generano eccezioni che possono essere raggruppate nelle categorie seguenti e a ognuna delle quali è associata un'azione che è possibile eseguire per tentare di risolverla. Il significato e le cause di un'eccezione possono variare a seconda del tipo di entità di messaggistica:
 
-1. Errore di codifica utente ([System. ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1), [System. InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1), [System. OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1), [System. Runtime. Serialization. SerializationException](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1)). Azione generale: provare a correggere il codice prima di continuare.
-2. Errore di installazione/configurazione ([Microsoft. ServiceBus. Messaging. MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System. UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1). Azione generale: controllare la configurazione e modificarla, se necessario.
+1. Errore di codifica utente ([System. ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true), [System. InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1&preserve-view=true), [System. OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1&preserve-view=true), [System. Runtime. Serialization. SerializationException](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1&preserve-view=true)). Azione generale: provare a correggere il codice prima di continuare.
+2. Errore di installazione/configurazione ([Microsoft. ServiceBus. Messaging. MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System. UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1&preserve-view=true). Azione generale: controllare la configurazione e modificarla, se necessario.
 3. Eccezioni temporanee ([Microsoft. ServiceBus. Messaging. MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft. ServiceBus. Messaging. ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [Microsoft. ServiceBus. Messaging. MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)). Azione generale: ripetere l'operazione o inviare una notifica agli utenti. La `RetryPolicy` classe nell'SDK client può essere configurata in modo da gestire i tentativi automaticamente. Per altre informazioni, vedere [linee guida](/azure/architecture/best-practices/retry-service-specific#service-bus)per i tentativi.
-4. Altre eccezioni ([System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1), [System.TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). Azione generale: specifica del tipo di eccezione; vedere la tabella nella sezione seguente: 
+4. Altre eccezioni ([System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1&preserve-view=true), [System.TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). Azione generale: specifica del tipo di eccezione; vedere la tabella nella sezione seguente: 
 
 ## <a name="exception-types"></a>Tipi di eccezioni
 La tabella seguente elenca i tipi di eccezioni di messaggistica, ne riporta le possibili cause, e indica l'azione suggerita che è possibile eseguire.
 
 | **Tipo di eccezione** | **Descrizione/Causa/Esempi** | **Azione suggerita** | **Nota sulla ripetizione automatica/immediata** |
 | --- | --- | --- | --- |
-| [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) |Il server non ha risposto all'operazione richiesta entro il tempo specificato, che è controllato da [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). Il server può aver completato l'operazione richiesta. Ciò può verificarsi a causa di ritardi di rete o di altri ritardi nell'infrastruttura. |Controllare lo stato del sistema per verificarne la coerenza e, se necessario, ripetere l'operazione. Vedere [Eccezioni di timeout](#timeoutexception). |In alcuni casi può essere utile ripetere l'operazione; aggiungere al codice la logica di ripetizione dei tentativi. |
-| [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1) |L'operazione richiesta dall'utente non è consentita all'interno del server o del servizio. Per informazioni dettagliate, vedere il messaggio di eccezione. Ad esempio, [complete ()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) genera questa eccezione se il messaggio è stato ricevuto in modalità [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) . |Controllare il codice e la documentazione. Assicurarsi che l'operazione richiesta sia valida. |Il tentativo non è più utile. |
-| [OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1) |È stato eseguito un tentativo di richiamare un'operazione su un oggetto già chiuso, interrotto o eliminato. In alcuni casi rari, la transazione di ambiente è già stata eliminata. |Controllare il codice e assicurarsi che non richiami le operazioni su un oggetto eliminato. |Il tentativo non è più utile. |
-| [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1) |L'oggetto [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) non è riuscito ad acquisire un token, il token non è valido oppure il token non contiene le attestazioni necessarie per eseguire l'operazione. |Assicurarsi che il provider di token sia stato creato con i valori corretti. Controllare la configurazione del servizio di controllo di accesso. |In alcuni casi può essere utile ripetere l'operazione; aggiungere al codice la logica di ripetizione dei tentativi. |
-| [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1) |Uno o più argomenti forniti al metodo non sono validi.<br /> L'URI fornito a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) o [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contiene segmenti di percorso.<br /> Lo schema URI fornito a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) o [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) non è valido. <br />Il valore della proprietà è maggiore di 32 KB. |Controllare il codice chiamante e assicurarsi che gli argomenti siano corretti. |Il tentativo non è più utile. |
+| [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) |Il server non ha risposto all'operazione richiesta entro il tempo specificato, che è controllato da [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). Il server può aver completato l'operazione richiesta. Ciò può verificarsi a causa di ritardi di rete o di altri ritardi nell'infrastruttura. |Controllare lo stato del sistema per verificarne la coerenza e, se necessario, ripetere l'operazione. Vedere [Eccezioni di timeout](#timeoutexception). |In alcuni casi può essere utile ripetere l'operazione; aggiungere al codice la logica di ripetizione dei tentativi. |
+| [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1&preserve-view=true) |L'operazione richiesta dall'utente non è consentita all'interno del server o del servizio. Per informazioni dettagliate, vedere il messaggio di eccezione. Ad esempio, [complete ()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) genera questa eccezione se il messaggio è stato ricevuto in modalità [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) . |Controllare il codice e la documentazione. Assicurarsi che l'operazione richiesta sia valida. |Il tentativo non è più utile. |
+| [OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1&preserve-view=true) |È stato eseguito un tentativo di richiamare un'operazione su un oggetto già chiuso, interrotto o eliminato. In alcuni casi rari, la transazione di ambiente è già stata eliminata. |Controllare il codice e assicurarsi che non richiami le operazioni su un oggetto eliminato. |Il tentativo non è più utile. |
+| [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1&preserve-view=true) |L'oggetto [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) non è riuscito ad acquisire un token, il token non è valido oppure il token non contiene le attestazioni necessarie per eseguire l'operazione. |Assicurarsi che il provider di token sia stato creato con i valori corretti. Controllare la configurazione del servizio di controllo di accesso. |In alcuni casi può essere utile ripetere l'operazione; aggiungere al codice la logica di ripetizione dei tentativi. |
+| [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1&preserve-view=true)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1&preserve-view=true) |Uno o più argomenti forniti al metodo non sono validi.<br /> L'URI fornito a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) o [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contiene segmenti di percorso.<br /> Lo schema URI fornito a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) o [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) non è valido. <br />Il valore della proprietà è maggiore di 32 KB. |Controllare il codice chiamante e assicurarsi che gli argomenti siano corretti. |Il tentativo non è più utile. |
 | [MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception) |L'entità associata all'operazione non esiste o è stata eliminata. |Assicurarsi che l'entità esista. |Il tentativo non è più utile. |
 | [MessageNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |Tentativo di ricevere un messaggio con un particolare numero di sequenza. Questo messaggio non è stato trovato. |Verificare che il messaggio non sia già stato ricevuto. Controllare la coda dei messaggi non recapitabili per verificare che il messaggio non si trovi al suo interno. |Il tentativo non è più utile. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |Il client non è in grado di stabilire una connessione al bus di servizio. |Assicurarsi che il nome host fornito sia corretto e l'host sia raggiungibile. |Se sono presenti problemi di connettività intermittente, può essere utile ripetere l'operazione. |
@@ -45,8 +45,8 @@ La tabella seguente elenca i tipi di eccezioni di messaggistica, ne riporta le p
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.azure.servicebus.messagingentitydisabledexception) |È stata inoltrata una richiesta per un'operazione di runtime su un'entità disattivata. |Attivare l'entità. |Se nel frattempo l'entità è stata attivata, può essere utile ripetere l'operazione. |
 | [NoMatchingSubscriptionException](/dotnet/api/microsoft.servicebus.messaging.nomatchingsubscriptionexception) |Il bus di servizio restituisce questa eccezione se si invia un messaggio a un argomento in cui è abilitato il filtro preliminare e nessuno dei filtri corrisponde. |Assicurarsi che almeno un filtro corrisponda. |Il tentativo non è più utile. |
 | [MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |Un payload del messaggio supera il limite di 256 KB. Il limite di 256 KB rappresenta la dimensione totale del messaggio, che può includere proprietà di sistema ed eventuali overhead .NET. |Ridurre le dimensioni del payload del messaggio e quindi ripetere l'operazione. |Il tentativo non è più utile. |
-| [TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1) |La transazione di ambiente (*Transaction.Current*) non è valida. È possibile che nel frattempo sia stata interrotta o completata. L'eccezione interna può fornire informazioni aggiuntive. | |Il tentativo non è più utile. |
-| [TransactionInDoubtException](/dotnet/api/system.transactions.transactionindoubtexception?view=netcore-3.1) |È stata tentata un'operazione su una transazione in dubbio oppure è stato tentato di eseguire il commit della transazione e la transazione è diventata in dubbio. |L'applicazione deve gestire questa eccezione (come caso speciale), poiché è possibile che sia già stato eseguito il commit della transazione. |- |
+| [TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1&preserve-view=true) |La transazione di ambiente (*Transaction.Current*) non è valida. È possibile che nel frattempo sia stata interrotta o completata. L'eccezione interna può fornire informazioni aggiuntive. | |Il tentativo non è più utile. |
+| [TransactionInDoubtException](/dotnet/api/system.transactions.transactionindoubtexception?view=netcore-3.1&preserve-view=true) |È stata tentata un'operazione su una transazione in dubbio oppure è stato tentato di eseguire il commit della transazione e la transazione è diventata in dubbio. |L'applicazione deve gestire questa eccezione (come caso speciale), poiché è possibile che sia già stato eseguito il commit della transazione. |- |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) indica che è stata superata la quota di un'entità specifica.
@@ -83,9 +83,12 @@ Per questo errore, esistono due cause comuni: la coda dei messaggi non recapitab
 2. **Interruzione da parte del destinatario**. Un destinatario ha interrotto la ricezione di messaggi da una coda o da una sottoscrizione. Per identificare questo problema, è necessario osservare la proprietà [QueueDescription.MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) , che mostra la suddivisione completa dei messaggi. Se la proprietà [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) è alta o in crescita, i messaggi non vengono letti con la stessa velocità con cui vengono scritti.
 
 ## <a name="timeoutexception"></a>TimeoutException
-Un'eccezione di tipo [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) indica che un'operazione avviata dall'utente richiede più tempo rispetto al timeout dell'operazione. 
+Un'eccezione di tipo [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) indica che un'operazione avviata dall'utente richiede più tempo rispetto al timeout dell'operazione. 
 
-Controllare il valore della proprietà [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit?view=netcore-3.1), in quanto il raggiungimento di questo limite può anche causare un evento di [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1).
+Controllare il valore della proprietà [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit?view=netcore-3.1&preserve-view=true), in quanto il raggiungimento di questo limite può anche causare un evento di [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true).
+
+Si prevede che i timeout avvengano durante o tra le operazioni di manutenzione, ad esempio gli aggiornamenti del servizio del bus di servizio o gli aggiornamenti del sistema operativo sulle risorse che eseguono il servizio. Durante gli aggiornamenti del sistema operativo, le entità vengono spostate e i nodi vengono aggiornati o riavviati, operazione che può causare timeout. Per informazioni dettagliate sui contratti di servizio per il servizio bus di servizio di Azure, vedere [contratto di servizio per il bus di servizio](https://azure.microsoft.com/support/legal/sla/service-bus/).
+
 
 ### <a name="queues-and-topics"></a>Code e argomenti
 Per le code e gli argomenti, il timeout è specificato nella proprietà [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings), come parte della stringa di connessione, o tramite [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). Il messaggio di errore stesso può variare, ma contiene sempre il valore di timeout specificato per l'operazione corrente. 
@@ -101,7 +104,7 @@ Il blocco di un messaggio può scadere a causa di vari motivi:
   * Il timer di blocco è scaduto prima che sia stato rinnovato dall'applicazione client.
   * L'applicazione client ha acquisito il blocco, salvato in un archivio permanente e quindi riavviato. Una volta riavviato, l'applicazione client ha esaminato i messaggi in fase di esecuzione e ha tentato di completarli.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Nel caso di un **MessageLockLostException**, l'applicazione client non è più in grado di elaborare il messaggio. L'applicazione client può facoltativamente prendere in considerazione la registrazione dell'eccezione per l'analisi, ma il client *deve* eliminare il messaggio.
 
@@ -120,7 +123,7 @@ Il blocco di una sessione può scadere per vari motivi:
   * Il timer di blocco è scaduto prima che sia stato rinnovato dall'applicazione client.
   * L'applicazione client ha acquisito il blocco, salvato in un archivio permanente e quindi riavviato. Una volta riavviato, l'applicazione client esamina le sessioni in corso e tenta di elaborare i messaggi in tali sessioni.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 In caso di **SessionLockLostException**, l'applicazione client non è più in grado di elaborare i messaggi della sessione. L'applicazione client può prendere in considerazione la registrazione dell'eccezione per l'analisi, ma il client *deve* eliminare il messaggio.
 
@@ -136,7 +139,7 @@ Viene generata un'eccezione **SocketException** nei casi seguenti:
    * Si è verificato un errore durante l'elaborazione del messaggio oppure il timeout è stato superato dall'host remoto.
    * Problema di risorse di rete sottostante.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Gli errori di **SocketException** indicano che la macchina virtuale che ospita le applicazioni non è in grado di convertire il nome nell' `<mynamespace>.servicebus.windows.net` indirizzo IP corrispondente. 
 
@@ -173,7 +176,7 @@ Se la risoluzione dei nomi **funziona come previsto**, verificare se le connessi
 > [!NOTE]
 > L'elenco di eccezioni precedente non è esaustivo.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 La procedura di risoluzione dipende da ciò che ha causato la generazione della **messaggisticaexception** .
 

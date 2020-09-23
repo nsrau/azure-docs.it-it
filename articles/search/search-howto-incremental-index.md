@@ -9,17 +9,18 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: c432b89574949b31612aeba862ece7687c12dde4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a1b317b651b0e17c07eb17dbdb8a7c6657d39564
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922838"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971612"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Come configurare la memorizzazione nella cache per l'arricchimento incrementale in Azure ricerca cognitiva
 
 > [!IMPORTANT] 
-> L'arricchimento incrementale è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Le [versioni dell'API REST 2019-05-06-Preview e 2020-06-30-Preview](search-api-preview.md) forniscono questa funzionalità. Al momento non è disponibile alcun supporto per il portale o .NET SDK.
+> L'arricchimento incrementale è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> Le [versioni di anteprima dell'API REST](search-api-preview.md) forniscono questa funzionalità. Al momento non è disponibile alcun supporto per il portale o .NET SDK.
 
 Questo articolo illustra come aggiungere la memorizzazione nella cache a una pipeline di arricchimento per poter modificare in modo incrementale i passaggi senza dover ricompilare ogni volta. Per impostazione predefinita, un insieme di competenze è senza stato e la modifica di qualsiasi parte della relativa composizione richiede una ripetizione completa dell'indicizzatore. Con l'arricchimento incrementale, l'indicizzatore è in grado di determinare quali parti dell'albero del documento devono essere aggiornate in base alle modifiche rilevate nelle definizioni di skillt o indicizzatore. L'output elaborato esistente viene mantenuto e riutilizzato laddove possibile. 
 

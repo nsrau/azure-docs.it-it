@@ -1,5 +1,5 @@
 ---
-title: Metriche di log nella finestra di progettazione (anteprima)
+title: Metriche di log nella finestra di progettazione
 titleSuffix: Azure Machine Learning
 description: Monitorare gli esperimenti di progettazione di Azure ML. Abilitare la registrazione usando il modulo Execute Python script e visualizzare i risultati registrati in studio.
 services: machine-learning
@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 20845a6f1238095b40c9b05b5f5d8d85217b6db5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950409"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885976"
 ---
-# <a name="enable-logging-in-azure-machine-learning-designer-preview-pipelines"></a>Abilitare la registrazione nelle pipeline di Azure Machine Learning Designer (anteprima)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Abilitare la registrazione nelle pipeline di Azure Machine Learning Designer
+
 
 Questo articolo illustra come aggiungere codice di registrazione alle pipeline di progettazione. Si apprenderà anche come visualizzare i log usando il portale Web di Azure Machine Learning Studio.
 
@@ -78,5 +78,6 @@ Al termine dell'esecuzione della pipeline, è possibile visualizzare il *Mean_Ab
 
 In questo articolo si è appreso come usare i log nella finestra di progettazione. Per i passaggi successivi, vedere gli articoli correlati:
 
-* Per informazioni su come risolvere i problemi relativi alle pipeline di progettazione, vedere [Debug & risolvere i problemi delle pipeline di ml](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview).
+
+* Per informazioni su come risolvere i problemi relativi alle pipeline di progettazione, vedere [Debug & risolvere i problemi delle pipeline di ml](how-to-debug-pipelines.md#azure-machine-learning-designer).
 * Per informazioni su come usare Python SDK per registrare le metriche nell'esperienza di creazione dell'SDK, vedere [abilitare la registrazione nelle esecuzioni di training di Azure ml](how-to-track-experiments.md).

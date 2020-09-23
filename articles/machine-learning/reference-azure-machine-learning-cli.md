@@ -10,15 +10,15 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3803b9770d3caf3f45f109b62145677a38c5bcc2
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 794e2c8b436b6a6dfa736bef59eb2ad0bda83bc2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657199"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893128"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installare e usare l'estensione dell'interfaccia della riga di comando per Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 L'interfaccia della riga di comando di Azure Machine Learning è un'estensione dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), un'interfaccia della riga di comando multipiattaforma per la piattaforma Azure. Questa estensione offre i comandi per lavorare con Azure Machine Learning. Consente di automatizzare le attività di Machine Learning. L'elenco seguente fornisce alcune azioni di esempio che è possibile eseguire con l'estensione dell'interfaccia della riga di comando:
 
@@ -110,9 +110,6 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
-
-    > [!TIP]
-    > Questo comando crea un'area di lavoro edizione Basic. Per creare un'area di lavoro aziendale, usare l'opzione `--sku enterprise` con il comando `az ml workspace create`. Per altre informazioni sulle edizioni di Azure Machine Learning, vedere [Informazioni su Azure Machine Learning](overview-what-is-azure-ml.md#sku).
 
     Per altre informazioni, vedere [az ml workspace create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 

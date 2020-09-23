@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: 4e818617b70e874153e026bcf40b6dfee8a8e04e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad1476847874f7cea53c6e9c0c3d9f142c949dac
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744239"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987710"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiare e incollare in una macchina virtuale: Azure Bastion
 
@@ -37,7 +37,7 @@ Dopo aver eseguito la connessione alla macchina virtuale usando il [portale di A
 
    ![tavolozza degli strumenti](./media/bastion-vm-manage/left.png)
 
-   ![Appunti](./media/bastion-vm-manage/clipboard.png)
+   ![Screenshot Mostra gli Appunti per il testo copiato in Bastion.](./media/bastion-vm-manage/clipboard.png)
 1. Il testo copiato viene in genere visualizzato automaticamente nella tavolozza copia Bastion. Se il testo non è presente, incollare il testo nell'area di testo della tavolozza.
 1. Una volta che il testo è nell'area di testo, è possibile incollarlo nella sessione remota.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: d3937eaa5017ed66641d886ecd45e812f7070b83
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566285"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979693"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Spostare un'area di lavoro Log Analytics in una sottoscrizione o in un gruppo di risorse diverso
 
@@ -40,9 +40,9 @@ Soluzioni che devono essere rimosse prima di poter scollegare l'account di autom
 
 >[!IMPORTANT]
 > **Clienti di Azure Sentinel:**
-> - Una volta distribuita in un'area di lavoro, Azure Sentinel non **supporta attualmente** lo stato di trasferimento dell'area di lavoro ad altri gruppi di risorse o sottoscrizioni. 
+> - Una volta distribuito in un'area di lavoro, Azure Sentinel **non supporta al momento** il trasferimento di tale area di lavoro in altri gruppi di risorse o sottoscrizioni. 
 >
->   Se l'area di lavoro è già stata spostata, disabilitare tutte le regole attive in **Analytics** e abilitarle di nuovo dopo cinque minuti. Questa operazione dovrebbe essere efficace nella maggior parte dei casi, tuttavia, per ripetere l'iterazione, non è supportata e non è stata eseguita a proprio rischio.
+>   Se l'area di lavoro è già stata spostata, disabilitare tutte le regole attive in **Analytics** e abilitarle di nuovo dopo cinque minuti. Questa operazione dovrebbe essere efficace nella maggior parte dei casi, tuttavia, come già detto, non è supportata e viene eseguita a proprio rischio.
 
 ### <a name="delete-solutions-in-azure-portal"></a>Eliminare soluzioni in portale di Azure
 Usare la procedura seguente per rimuovere le soluzioni usando il portale di Azure:
@@ -96,7 +96,7 @@ Usare la procedura seguente per spostare l'area di lavoro usando il portale di A
 4. Selezionare una **sottoscrizione** di destinazione e un **gruppo di risorse**. Se si sta migrando l'area di lavoro a un altro gruppo di risorse nella stessa sottoscrizione, non verrà visualizzata l'opzione di **sottoscrizione** .
 5. Fare clic su **OK** per spostare l'area di lavoro e le risorse selezionate.
 
-    ![Portale](media/move-workspace/portal.png)
+    ![Screenshot mostra il riquadro Panoramica nell'area di lavoro Log Analytics con le opzioni per modificare il gruppo di risorse e il nome della sottoscrizione.](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
 Per spostare l'area di lavoro usando PowerShell, usare il comando [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) come nell'esempio seguente:

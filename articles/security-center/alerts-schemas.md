@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85126213"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901334"
 ---
 # <a name="security-alerts-schemas"></a>Schemi degli avvisi di sicurezza
 
-Gli utenti del livello standard del Centro sicurezza di Azure ricevono avvisi di sicurezza quando il Centro sicurezza rileva le minacce per le risorse.
+Se Azure Defender è abilitato per la sottoscrizione, si riceveranno avvisi di sicurezza quando il Centro sicurezza rileva le minacce per le risorse.
 
 È possibile visualizzare questi avvisi di sicurezza nelle pagine di **protezione dalle minacce** del Centro sicurezza di Azure o tramite strumenti esterni, ad esempio:
 
@@ -144,13 +144,13 @@ Per visualizzare gli eventi di avviso di sicurezza nel log attività, cercare l'
 |----|----|
 |**canali**|Costante, "Operation"|
 |**correlationId**|ID avviso del Centro sicurezza di Azure|
-|**Descrizione**|Descrizione dell'avviso|
+|**description**|Descrizione dell'avviso|
 |**eventDataId**|Vedere correlationId|
 |**eventName**|I sottocampi valore e localizedValue contengono il nome visualizzato dell'avviso|
 |**category**|I sottocampi value e localizedValue sono Constant-"Security"|
 |**eventTimestamp**|Timestamp UTC per la generazione dell'avviso|
 |**id**|ID di avviso completo|
-|**livello**|Costante, "informativo"|
+|**level**|Costante, "informativo"|
 |**operationId**|Vedere correlationId|
 |**operationName**|Il campo del valore è Constant-"Microsoft. Security/locations/Alerts/Activate/Action" e il valore localizzato sarà "Activate Alert" (che potrebbe essere localizzato in modo analogo alle impostazioni locali dell'utente)|
 |**resourceGroupName**|Includerà il nome del gruppo di risorse|

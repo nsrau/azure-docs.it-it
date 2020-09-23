@@ -3,12 +3,12 @@ title: Configurare monitoraggio di Azure per i contenitori integrazione Promethe
 description: Questo articolo descrive come configurare il monitoraggio di Azure per l'agente dei contenitori per eliminare le metriche da Prometheus con il cluster Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 8c83d962a31150b31f5883150a2f7bd8d4b49183
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: f5a9b364bc3e51307bd44d8338485f482bda6e1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069425"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971365"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurare lo scraping delle metriche di Prometheus con Monitoraggio di Azure per i contenitori
 
@@ -36,7 +36,7 @@ Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due
 * URL HTTP a livello di cluster e individuare destinazioni dagli endpoint elencati di un servizio. Ad esempio, i servizi K8S come Kube-DNS e Kube-state-Metrics e le annotazioni Pod specifiche di un'applicazione. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus data_collection_settings. cluster]*.
 * URL HTTP a livello di nodo e individua destinazioni dagli endpoint elencati di un servizio. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus_data_collection_settings. Node]*.
 
-| Endpoint | Scope | Esempio |
+| Endpoint | Ambito | Esempio |
 |----------|-------|---------|
 | Annotazione Pod | A livello di cluster | annotazioni <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Servizio Kubernetes | A livello di cluster | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
@@ -44,20 +44,20 @@ Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due
 
 Quando si specifica un URL, monitoraggio di Azure per i contenitori esegue solo il frammento dell'endpoint. Quando si specifica il servizio Kubernetes, il nome del servizio viene risolto con il server DNS del cluster per ottenere l'indirizzo IP e quindi il servizio risolto viene frammentato.
 
-|Scope | Chiave | Tipo di dati | Valore | Descrizione |
+|Ambito | Chiave | Tipo di dati | Valore | Descrizione |
 |------|-----|-----------|-------|-------------|
 | A livello di cluster | | | | Specificare uno dei tre metodi seguenti per rimuovere gli endpoint per le metriche. |
-| | `urls` | string | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
-| | `kubernetes_services` | string | Matrice con valori delimitati da virgole | Una matrice di servizi Kubernetes per rimuovere le metriche da Kube-state-Metrics. Ad esempio, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `urls` | Stringa | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
+| | `kubernetes_services` | Stringa | Matrice con valori delimitati da virgole | Una matrice di servizi Kubernetes per rimuovere le metriche da Kube-state-Metrics. Ad esempio, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Boolean | true o false | Quando è impostato su `true` nelle impostazioni a livello di cluster, monitoraggio di Azure per l'agente dei contenitori Kubernetes i pod nell'intero cluster per le annotazioni Prometeo seguenti:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | true o false | Consente di rimuovere il pod. `monitor_kubernetes_pods` deve essere impostato su `true`. |
-| | `prometheus.io/scheme` | string | http o https | Il valore predefinito è la rottamazione su HTTP. Se necessario, impostare su `https` . | 
-| | `prometheus.io/path` | string | Matrice con valori delimitati da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso delle metriche non è `/metrics` , definirlo con questa annotazione. |
-| | `prometheus.io/port` | string | 9102 | Specificare una porta da cui deframmentare. Se la porta non è impostata, il valore predefinito è 9102. |
-| | `monitor_kubernetes_pods_namespaces` | string | Matrice con valori delimitati da virgole | Un elenco di spazi dei nomi consentiti per rimuovere le metriche dai pod Kubernetes.<br> Ad esempio, usare `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| A livello di nodo | `urls` | string | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
-| A livello di nodo o a livello di cluster | `interval` | string | 60 s | Il valore predefinito per l'intervallo di raccolta è di un minuto (60 secondi). È possibile modificare la raccolta per *[prometheus_data_collection_settings. Node]* e/o *[prometheus_data_collection_settings. cluster]* in unità di tempo quali s, m, h. |
-| A livello di nodo o a livello di cluster | `fieldpass`<br> `fielddrop`| string | Matrice con valori delimitati da virgole | È possibile specificare determinate metriche da raccogliere o meno dall'endpoint impostando l'elenco Consenti ( `fieldpass` ) e non consentire ( `fielddrop` ). È necessario impostare prima l'elenco Consenti. |
+| | `prometheus.io/scheme` | Stringa | http o https | Il valore predefinito è la rottamazione su HTTP. Se necessario, impostare su `https` . | 
+| | `prometheus.io/path` | Stringa | Matrice con valori delimitati da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso delle metriche non è `/metrics` , definirlo con questa annotazione. |
+| | `prometheus.io/port` | Stringa | 9102 | Specificare una porta da cui deframmentare. Se la porta non è impostata, il valore predefinito è 9102. |
+| | `monitor_kubernetes_pods_namespaces` | Stringa | Matrice con valori delimitati da virgole | Un elenco di spazi dei nomi consentiti per rimuovere le metriche dai pod Kubernetes.<br> Ad esempio: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
+| A livello di nodo | `urls` | Stringa | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
+| A livello di nodo o a livello di cluster | `interval` | Stringa | 60 s | Il valore predefinito per l'intervallo di raccolta è di un minuto (60 secondi). È possibile modificare la raccolta per *[prometheus_data_collection_settings. Node]* e/o *[prometheus_data_collection_settings. cluster]* in unità di tempo quali s, m, h. |
+| A livello di nodo o a livello di cluster | `fieldpass`<br> `fielddrop`| Stringa | Matrice con valori delimitati da virgole | È possibile specificare determinate metriche da raccogliere o meno dall'endpoint impostando l'elenco Consenti ( `fieldpass` ) e non consentire ( `fielddrop` ). È necessario impostare prima l'elenco Consenti. |
 
 ConfigMaps è un elenco globale e può essere applicato un solo ConfigMap all'agente. Non è possibile avere un altro ConfigMaps che esegue la sovradecisione delle raccolte.
 
@@ -147,7 +147,7 @@ Per configurare il file di configurazione ConfigMap per i cluster seguenti, segu
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Se si vuole limitare il monitoraggio a spazi dei nomi specifici per i pod con annotazioni, ad esempio includere solo i pod dedicati per i carichi di lavoro di produzione, impostare `monitor_kubernetes_pod` su `true` in ConfigMap e aggiungere il filtro dello spazio dei nomi che `monitor_kubernetes_pods_namespaces` specifica gli spazi dei nomi da cui deframmentare. Ad esempio, usare `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Se si vuole limitare il monitoraggio a spazi dei nomi specifici per i pod con annotazioni, ad esempio includere solo i pod dedicati per i carichi di lavoro di produzione, impostare `monitor_kubernetes_pod` su `true` in ConfigMap e aggiungere il filtro dello spazio dei nomi che `monitor_kubernetes_pods_namespaces` specifica gli spazi dei nomi da cui deframmentare. Ad esempio: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
 3. Eseguire il comando kubectl seguente: `kubectl apply -f <configmap_yaml_file.yaml>` .
     
@@ -264,7 +264,7 @@ Per configurare il file di configurazione ConfigMap per il cluster Azure Red Hat
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Se si vuole limitare il monitoraggio a spazi dei nomi specifici per i pod con annotazioni, ad esempio includere solo i pod dedicati per i carichi di lavoro di produzione, impostare `monitor_kubernetes_pod` su `true` in ConfigMap e aggiungere il filtro dello spazio dei nomi che `monitor_kubernetes_pods_namespaces` specifica gli spazi dei nomi da cui deframmentare. Ad esempio, usare `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Se si vuole limitare il monitoraggio a spazi dei nomi specifici per i pod con annotazioni, ad esempio includere solo i pod dedicati per i carichi di lavoro di produzione, impostare `monitor_kubernetes_pod` su `true` in ConfigMap e aggiungere il filtro dello spazio dei nomi che `monitor_kubernetes_pods_namespaces` specifica gli spazi dei nomi da cui deframmentare. Ad esempio: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
 2. Salvare le modifiche nell'editor.
 
@@ -347,7 +347,7 @@ InsightsMetrics
 
 L'output visualizzerà risultati simili ai seguenti:
 
-![Registrare i risultati delle query del volume di inserimento dati](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
+![Screenshot mostra i risultati della query di log del volume di inserimento dati](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
 
 Per stimare le dimensioni di ogni metrica in GB per un mese per comprendere se il volume di dati inseriti nell'area di lavoro è elevato, viene fornita la query seguente.
 

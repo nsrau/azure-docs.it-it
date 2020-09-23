@@ -1,25 +1,22 @@
 ---
-title: Configurare una connessione a un account di archiviazione usando un'identità gestita (anteprima)
+title: Configurare una connessione a un account di archiviazione usando un'identità gestita
 titleSuffix: Azure Cognitive Search
-description: Informazioni su come configurare una connessione dell'indicizzatore a un account di Archiviazione di Azure usando un'identità gestita (anteprima)
+description: Informazioni su come configurare una connessione dell'indicizzatore a un account di archiviazione di Azure usando un'identità gestita
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 30305607ea291587f7751b7e8048924f995251e9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917976"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971508"
 ---
-# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configurare una connessione a un account di Archiviazione di Azure usando un'identità gestita (anteprima)
-
-> [!IMPORTANT] 
-> Il supporto per la configurazione di una connessione a un'origine dati tramite un'identità gestita è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
+# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurare una connessione a un account di archiviazione di Azure usando un'identità gestita
 
 Questa pagina descrive come configurare una connessione dell'indicizzatore a un account di Archiviazione di Azure usando un'identità gestita invece di immettere le credenziali nella stringa di connessione dell'oggetto origine dati.
 
@@ -64,11 +61,11 @@ In questo passaggio si autorizza il servizio Ricerca cognitiva di Azure a legger
 
     Esempio per l'archiviazione tabelle di Azure:
 
-    ![Aggiunta dell'assegnazione di ruolo di lettura e di accesso ai dati](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Aggiungere l'assegnazione di ruolo di lettura e di accesso ai dati")
+    ![Aggiungere l'assegnazione di ruolo Lettore e accesso ai dati](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Aggiungere l'assegnazione di ruolo Lettore e accesso ai dati")
 
 ### <a name="3---create-the-data-source"></a>3 - Creare l'origine dati
 
-L' [API REST](/rest/api/searchservice/create-data-source), portale di Azure e [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) supportano la stringa di connessione dell'identità gestita. Di seguito è riportato un esempio di come creare un'origine dati per indicizzare i dati da un account di archiviazione usando l' [API REST](/rest/api/searchservice/create-data-source) e una stringa di connessione identità gestita. Il formato della stringa di connessione identità gestita è lo stesso per l'API REST, .NET SDK e il portale di Azure.
+L' [API REST](/rest/api/searchservice/create-data-source), portale di Azure e [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource) supportano la stringa di connessione dell'identità gestita. Di seguito è riportato un esempio di come creare un'origine dati per indicizzare i dati da un account di archiviazione usando l' [API REST](/rest/api/searchservice/create-data-source) e una stringa di connessione identità gestita. Il formato della stringa di connessione identità gestita è lo stesso per l'API REST, .NET SDK e il portale di Azure.
 
 Quando si esegue l'indicizzazione da un account di archiviazione, l'origine dati deve avere le proprietà obbligatorie seguenti:
 
@@ -150,6 +147,7 @@ Per altre informazioni sulla definizione delle pianificazioni degli indicizzator
 ## <a name="see-also"></a>Vedere anche
 
 Altre informazioni sugli indicizzatori di Archiviazione di Azure:
+
 * [Indicizzatore BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
 * [Indicizzatore di Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 * [Indicizzatore di tabelle di Azure](search-howto-indexing-azure-tables.md)

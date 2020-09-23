@@ -1,25 +1,22 @@
 ---
-title: Configurare una connessione a un'origine dati usando un'identità gestita (anteprima)
+title: Configurare una connessione a un'origine dati usando un'identità gestita
 titleSuffix: Azure Cognitive Search
-description: Informazioni su come configurare una connessione dell'indicizzatore a un'origine dati usando un'identità gestita (anteprima)
+description: Informazioni su come configurare una connessione dell'indicizzatore a un'origine dati usando un'identità gestita
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: d303de23a04d183d0ca280c3b3591299d883adf7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: a057c0d35a465447cc0be99b574ffeebb671115a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936589"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971554"
 ---
-# <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Configurare una connessione dell'indicizzatore a un'origine dati usando un'identità gestita (anteprima)
-
-> [!IMPORTANT] 
-> Il supporto per la configurazione di una connessione a un'origine dati tramite un'identità gestita è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
+# <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Configurare una connessione dell'indicizzatore a un'origine dati usando un'identità gestita
 
 Un [indicizzatore](search-indexer-overview.md) in Ricerca cognitiva di Azure è un crawler che fornisce un modo per eseguire il pull dei dati dall'origine dati in Ricerca cognitiva di Azure. Un indicizzatore ottiene una connessione all'origine dati dall'oggetto origine dati creato. L'oggetto origine dati in genere include le credenziali per l'origine dati di destinazione. Ad esempio, l'oggetto origine dati potrebbe includere una chiave dell'account di archiviazione di Azure se si vuole indicizzare i dati da un contenitore di archiviazione BLOB.
 
