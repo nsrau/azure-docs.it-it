@@ -1,6 +1,6 @@
 ---
-title: CREATE EXTERNAL STREAM (Transact-SQL) - SQL Edge di Azure (anteprima)
-description: Informazioni sull'istruzione CREATE EXTERNAL STREAM in SQL Edge di Azure (anteprima)
+title: CREARE un flusso esterno (Transact-SQL)-Azure SQL Edge
+description: Informazioni sull'istruzione CREATE EXTERNAL STREAM in Azure SQL Edge
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 17783662ba91f227a7b0bf69203bf21dd8342277
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e28ce4cd46cb802241e02e4060441747389d3989
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489545"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888169"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM (Transact-SQL)
 
@@ -100,7 +100,7 @@ WITH  ( <with_options> )
    - Per il percorso dell'oggetto flusso di archiviazione BLOB di Azure si riferisce al modello di percorso da usare all'interno del contenitore BLOB. Per altre informazioni su questa funzionalità, vedere (/articles/Stream-Analytics/Stream-Analytics-define-Outputs.MD # BLOB-Storage-and-Azure-Data-Lake-Gen2)
 
 - **INPUT_OPTIONS**: specificare le opzioni come coppie chiave-valore per servizi come Kafka, Hub IOT Edge che sono input per le query di streaming
-    - PARTIZIONI: numero di partizioni definite per un argomento
+    - PARTIZIONI: numero di partizioni definite per un argomento. Il numero massimo di partizioni che è possibile usare è limitato a 32.
       - Si applica ai flussi di input Kafka
     - CONSUMER_GROUP: gli hub eventi e gli hub IoT limitano il numero di lettori in un gruppo di consumer (a 5). Se si lascia vuoto questo campo, verrà usato il gruppo di consumer '$Default'.
       - Riservato per un utilizzo futuro. Non si applica a Azure SQL Edge.  
@@ -247,6 +247,5 @@ WITH
 
 ## <a name="see-also"></a>Vedere anche
 
-- [ALTER EXTERNAL STREAM (Transact-SQL)](alter-external-stream-transact-sql.md) 
 - [DROP EXTERNAL STREAM (Transact-SQL)](drop-external-stream-transact-sql.md) 
 

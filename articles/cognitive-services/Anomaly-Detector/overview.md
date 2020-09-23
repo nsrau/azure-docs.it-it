@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 12/18/2019
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 9237e670dd8d43c4036f996c477948944718e3aa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ba094709d78d92b678e3aa5ad9995923888caf00
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053705"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887506"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Cos'è l'API Rilevamento anomalie?
 
@@ -35,6 +35,7 @@ Con il Rilevamento anomalie è possibile rilevare automaticamente le anomalie in
 |---------|---------|
 |Rilevare le anomalie appena si verificano in tempo reale. | Rilevare le anomalie nei dati di streaming usando i punti dati visualizzati in precedenza per determinare se la versione più recente è un'anomalia. Questa operazione genera un modello usando i punti dati inviati dall'utente e determina se il punto di destinazione è un'anomalia. Chiamando l'API con ogni nuovo punto dati generato, è possibile monitorare i dati durante la creazione. |
 |Rilevare le anomalie nel set di dati come batch. | Usare le serie temporali per rilevare eventuali anomalie che potrebbero esistere in tutti i dati. Questa operazione genera un modello usando tutti i dati di serie temporali, in cui ogni punto è analizzato con lo stesso modello.         |
+|Rilevare i punti di modifica nel set di dati come batch. | Usare la serie temporale per rilevare eventuali punti di modifica della tendenza presenti nei dati. Questa operazione genera un modello usando tutti i dati di serie temporali, in cui ogni punto è analizzato con lo stesso modello.    |
 | Ottenere informazioni aggiuntive sui dati. | Ottenere informazioni dettagliate utili su eventuali anomalie osservate, inclusi i valori previsti, i limiti e le posizioni delle anomalie. |
 | Regolare i limiti di rilevamento anomalie. | L'API Rilevamento anomalie crea automaticamente limiti per il rilevamento anomalie. Modificare questi limiti in modo da aumentare o diminuire la sensibilità dell'API alle anomalie di dati e adeguare i dati. |
 
@@ -45,7 +46,7 @@ Per eseguire la demo, è necessario creare una risorsa di Rilevamento anomalie e
 
 ## <a name="notebook"></a>Notebook
 
-Per informazioni su come chiamare l'API Rilevamento anomalie, provare questo [notebook di Azure](https://aka.ms/adNotebook). Questo notebook Jupyter ospitato sul Web illustra come inviare una richiesta API e visualizzare il risultato.
+Per informazioni su come chiamare l'API Rilevamento anomalie, provare questo [notebook](https://aka.ms/adNotebook). Questo notebook di Jupyter mostra come inviare una richiesta API e visualizzare il risultato.
 
 Per eseguire il notebook, seguire questa procedura:
 
@@ -92,4 +93,4 @@ Per altre informazioni sugli algoritmi SR-CNN sviluppati da Microsoft, vedere il
 
 * [Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie](quickstarts/detect-data-anomalies-csharp.md)
 * [Demo online](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) dell'API Rilevamento anomalie
-* [Informazioni di riferimento sulle API del servizio REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) dell'API Rilevamento anomalie
+* [Informazioni di riferimento sulle API del servizio REST](https://aka.ms/anomaly-detector-rest-api-ref) dell'API Rilevamento anomalie

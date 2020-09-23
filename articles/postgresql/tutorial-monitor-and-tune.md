@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 05435aae727c84a5f3eb886274f9d286627e399e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74774738"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895091"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Esercitazione: Monitorare e ottimizzare Database di Azure per PostgreSQL - Server singolo
 
@@ -40,7 +40,7 @@ Il [Query Store](concepts-query-store.md) acquisisce una cronologia delle query 
 
 4. Impostare **pg_qs.query_capture_mode** su**TOP** per iniziare a raccogliere i dati sulle prestazioni delle query. Impostare **pgms_wait_sampling.query_capture_mode** su**ALL**(Tutte) per iniziare a raccogliere le statistiche di attesa. Salvare.
    
-   ![Parametri del server Query Store](./media/tutorial-performance-intelligence/query-store-parameters.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-store-parameters.png" alt-text="Parametri del server Query Store":::
 
 5. Per il salvataggio permanente del primo batch di dati nel database **azure_sys** possono essere necessari fino a 20 minuti.
 
@@ -52,7 +52,7 @@ La visualizzazione [Informazioni dettagliate prestazioni query](concepts-query-p
 
 2. La scheda**Query a esecuzione prolungata** mostra le prime 5 query in base alla durata media per esecuzione, aggregate in intervalli di 15 minuti. 
    
-   ![Pagina di destinazione Informazioni dettagliate prestazioni query](./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Pagina di destinazione Informazioni dettagliate prestazioni query":::
 
    È possibile visualizzare altre query selezionando **Numero di query** dall'elenco a discesa. I colori del grafico possono cambiare per un ID di query specifico quando si esegue questa operazione.
 
@@ -64,7 +64,7 @@ La visualizzazione [Informazioni dettagliate prestazioni query](concepts-query-p
 
 6. Selezionare la scheda **Statistiche di attesa** per visualizzare le corrispondenti visualizzazioni in attesa nel server.
    
-   ![Statistiche di attesa di Informazioni dettagliate prestazioni query](./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Statistiche di attesa di Informazioni dettagliate prestazioni query":::
 
 ### <a name="permissions"></a>Autorizzazioni
 Autorizzazioni **Proprietario** oppure **Collaboratore** necessarie per visualizzare il testo delle query in Informazioni dettagliate prestazioni query. **Lettore** può visualizzare i grafici e tabelle ma non il testo della query.
@@ -75,7 +75,7 @@ La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recom
 
 1. Aprire **Raccomandazioni per le prestazioni** dalla sezione **Supporto + risoluzione dei problemi** della barra dei menu nella pagina del portale di Azure per il server PostgreSQL.
    
-   ![Pagina di destinazione Elementi consigliati per le prestazioni](./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Pagina di destinazione Elementi consigliati per le prestazioni":::
 
 2. Selezionare **Analizza** e scegliere un database. Viene avviata l'analisi.
 
@@ -85,7 +85,7 @@ La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recom
 
 5. Un elemento consigliato illustrerà informazioni su **Database**, **Tabella**, **Colonna**, e **Dimensioni indice** pertinenti.
 
-   ![Risultati Elementi consigliati per le prestazioni](./media/tutorial-performance-intelligence/performance-recommendations-result.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Risultati Elementi consigliati per le prestazioni":::
 
 6. Per implementare l'elemento consigliato, copiare il testo della query ed eseguirlo dal client preferito.
 

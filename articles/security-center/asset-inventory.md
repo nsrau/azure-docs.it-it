@@ -7,13 +7,13 @@ services: security-center
 ms.author: memildin
 ms.date: 08/11/2020
 ms.service: security-center
-ms.topic: conceptual
-ms.openlocfilehash: f3a542cd62c3d593dbc0cce7982d47222e9a7c88
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.topic: how-to
+ms.openlocfilehash: dfba8bc1713e14099413a6c01d0af8508ba0eb73
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181104"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895227"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Esplorare e gestire le risorse con gli strumenti di inventario e gestione degli asset
 
@@ -25,19 +25,22 @@ Quando una risorsa presenta raccomandazioni in attesa, verranno visualizzate nel
 
 Usare questa visualizzazione e i relativi filtri per risolvere le domande seguenti:
 
-- Quali sottoscrizioni del livello standard hanno raccomandazioni in attesa?
+- Quali sottoscrizioni personali con Azure Defender abilitato presentano raccomandazioni in attesa?
 - Quali sono i computer con tag "Production" mancanti nell'agente di Log Analytics?
-- Il numero di macchine virtuali, con tag con un tag specifico, presenta raccomandazioni in attesa?
+- Il numero di macchine virtuali contrassegnate con un tag specifico presenta raccomandazioni in attesa?
 - Quante risorse in un gruppo di risorse specifico presentano risultati di sicurezza da un servizio di valutazione della vulnerabilità?
 
 Le possibilità di gestione delle risorse per questo strumento sono sostanziali e continuano ad aumentare. 
+
+> [!TIP]
+> Le raccomandazioni sulla sicurezza sono le stesse della pagina **raccomandazioni** , ma in questo caso vengono filtrate per il tipo di risorsa specifico selezionato. Per altre informazioni su come risolvere le raccomandazioni, vedere [implementazione delle raccomandazioni di sicurezza nel centro sicurezza di Azure](security-center-recommendations.md).
 
 
 ## <a name="availability"></a>Disponibilità
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Anteprima|
+|Stato versione:|Disponibile a livello generale|
 |Prezzi|Livello gratuito|
 |Ruoli e autorizzazioni necessari:|tutti gli utenti|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
@@ -56,7 +59,7 @@ Nella pagina inventario sono disponibili gli strumenti seguenti:
 
 - **Filtri** : i filtri multipli nella parte superiore della pagina consentono di ridefinire rapidamente l'elenco di risorse in base alla domanda a cui si sta provando a rispondere. Se, ad esempio, si desidera rispondere alla domanda su *quale computer con il tag "Production" manca l'agente di log Analytics* , è possibile combinare il filtro di **monitoraggio degli agenti** con il filtro **tag** , come illustrato nel clip seguente:
 
-    ![Filtraggio per le risorse di produzione non monitorate](./media/asset-inventory/filtering-to-prod-unmonitored.gif)
+    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Filtraggio per le risorse di produzione non monitorate":::
 
     Non appena sono stati applicati i filtri, i valori di riepilogo vengono aggiornati per correlare i risultati della query. 
 
@@ -69,8 +72,9 @@ Nella pagina inventario sono disponibili gli strumenti seguenti:
 
 - **Opzioni di gestione delle risorse** : l'inventario consente di eseguire query di individuazione complesse. Quando sono state trovate le risorse corrispondenti alle query, l'inventario fornisce collegamenti per operazioni quali:
 
-    - Assegnare i tag alle risorse filtrate: selezionare le caselle di controllo accanto alle risorse che si desidera contrassegnare
-    - Onboarding di nuovi server nel centro sicurezza: usare il pulsante della barra degli strumenti **Aggiungi server non Azure**
+    - Assegnare i tag alle risorse filtrate: selezionare le caselle di controllo accanto alle risorse che si desidera contrassegnare.
+    - Onboarding di nuovi server nel centro sicurezza: usare il pulsante della barra degli strumenti **Aggiungi server non Azure** .
+    - Automatizzare i carichi di lavoro con app per la logica di Azure: usare il pulsante **trigger app** per la logica per eseguire un'app per la logica in una o più risorse. Le app per la logica devono essere preparate in anticipo e accettare il tipo di trigger pertinente (richiesta HTTP). [Altre informazioni sulle app per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 
 ## <a name="how-does-asset-inventory-work"></a>Come funziona l'inventario asset?
@@ -86,11 +90,11 @@ Usando il [linguaggio di query kusto (KQL)](https://docs.microsoft.com/azure/dat
 
 1. Dall'intestazione laterale del Centro sicurezza selezionare **Inventory (inventario**).
 
-1. Facoltativamente, per visualizzare una risorsa specifica, immettere il nome nella casella **Filtra per nome** .
+1. Usare la casella **Filtra per nome** per visualizzare una risorsa specifica o usare i filtri come descritto di seguito.
 
 1. Selezionare le opzioni pertinenti nei filtri per creare la query specifica che si desidera eseguire.
 
-    ![Filtri dell'inventario](./media/asset-inventory/inventory-filters.png)
+    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Opzioni di filtro dell'inventario" lightbox="./media/asset-inventory/inventory-filters.png":::
 
     Per impostazione predefinita, le risorse sono ordinate in base al numero di raccomandazioni di sicurezza attive.
 
@@ -106,19 +110,24 @@ Usando il [linguaggio di query kusto (KQL)](https://docs.microsoft.com/azure/dat
     > [!TIP]
     > I **Risultati della sicurezza contengono** i filtri e i **tag** accettano solo un valore singolo. Per filtrare in base a più di un, utilizzare **Aggiungi filtri**.
 
-1. Per usare il filtro del piano **tariffario** , selezionare una o più opzioni (gratuito, parziale o standard):
+1. Per usare il filtro di **Azure Defender** , selezionare una o più opzioni (disattivato, acceso o parziale):
 
-    - Risorse **gratuite** per il piano tariffario gratuito
-    - **Standard** -risorse disponibili nel piano tariffario standard
-    - **Parziale** : si applica alle sottoscrizioni del piano tariffario standard, ma alcuni dei piani di sicurezza facoltativi sono disabilitati. Ad esempio, la sottoscrizione seguente si trova nel livello standard, ma ha cinque elementi del livello standard disabilitati. 
+    - **Off** Risorse non protette da un piano di Azure Defender. È possibile fare clic con il pulsante destro del mouse su uno di questi e aggiornarli:
 
-        ![Sottoscrizione al piano tariffario standard (parziale)](./media/asset-inventory/pricing-tier-partial.png)
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Per aggiornare una risorsa ad Azure Defender, fare clic con il pulsante destro del mouse" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+
+    - **Sulle** risorse protette da un piano di Azure Defender
+    - **Parziale** : si applica alle **sottoscrizioni** che hanno alcuni ma non tutti i piani di Azure Defender disabilitati. La sottoscrizione seguente, ad esempio, ha cinque piani di Azure Defender disabilitati. 
+
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Sottoscrizione parzialmente in Azure Defender":::
 
 1. Per esaminare ulteriormente i risultati della query, selezionare le risorse che interessano.
 
-1. Facoltativamente, selezionare **Visualizza in Resource Graph Explorer** per aprire la query in Resource Graph Explorer.
+1. Per visualizzare le opzioni di filtro attualmente selezionate come query in Resource Graph Explorer, selezionare **Visualizza in Resource Graph Explorer**.
 
     ![Query di inventario in ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
+
+1. Per eseguire un'app per la logica definita in precedenza con 
 
 1. Se sono stati definiti alcuni filtri e la pagina è stata aperta, il Centro sicurezza non aggiornerà automaticamente i risultati. Eventuali modifiche alle risorse non avranno alcun effetto sui risultati visualizzati a meno che non si ricarichi manualmente la pagina o si selezioni **Aggiorna**.
 
@@ -127,22 +136,19 @@ Usando il [linguaggio di query kusto (KQL)](https://docs.microsoft.com/azure/dat
 
 ### <a name="why-arent-all-of-my-subscriptions-machines-storage-accounts-etc-shown"></a>Perché non vengono visualizzati tutti i sottoscrizioni, i computer, gli account di archiviazione e così via?
 
-La visualizzazione inventario elenca le risorse di una prospettiva CSPM (Cloud Security Posture Management). I filtri non restituiscono tutte le risorse nell'ambiente in uso. solo quelli con raccomandazioni in attesa (o ' attivo '). 
+La visualizzazione inventario elenca le risorse connesse al centro sicurezza da una prospettiva di gestione della posizione di sicurezza (CSPM) cloud. I filtri non restituiscono tutte le risorse nell'ambiente in uso. solo quelli con raccomandazioni in attesa (o ' attivo '). 
 
-Se, ad esempio, si dispone di nove sottoscrizioni, ma solo otto sono attualmente presenti raccomandazioni, quando si filtra per **tipo di risorsa = sottoscrizioni** vengono visualizzate solo le otto sottoscrizioni con raccomandazioni attive:
+Ad esempio, nella schermata seguente viene illustrato un utente con accesso alle sottoscrizioni 38, ma solo 10 sono attualmente presenti raccomandazioni. Quindi, quando si filtrano per **tipo di risorsa = sottoscrizioni**, nell'inventario vengono visualizzate solo le 10 sottoscrizioni con raccomandazioni attive:
 
-![Non tutti i Subs restituiti se non sono presenti raccomandazioni attive](./media/asset-inventory/filtered-subscriptions-some.png)
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Non tutti i Subs restituiti se non sono presenti raccomandazioni attive":::
 
-
-### <a name="why-do-some-of-my-resources-show-blank-values-in-the-pricing-or-agent-monitoring-columns"></a>Perché alcune risorse visualizzano valori vuoti nelle colonne relative ai prezzi o al monitoraggio degli agenti?
+### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>Perché alcune risorse visualizzano valori vuoti nelle colonne di monitoraggio di Azure Defender o Agent?
 
 Non tutte le risorse monitorate del Centro sicurezza hanno agenti. Ad esempio, account di archiviazione di Azure o risorse PaaS come dischi, app per la logica, analisi Data Lake e hub eventi.
 
 Quando il monitoraggio dei prezzi o degli agenti non è pertinente per una risorsa, non viene visualizzato alcun elemento in tali colonne di inventario.
 
-![Alcune risorse mostrano informazioni vuote nel monitoraggio degli agenti o nelle colonne dei prezzi](./media/asset-inventory/agent-pricing-blanks.png)
-
-
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Alcune risorse mostrano informazioni vuote nelle colonne monitoraggio agenti o Azure Defender":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -151,5 +157,4 @@ Questo articolo descrive la pagina inventario asset del Centro sicurezza di Azur
 Per ulteriori informazioni sugli strumenti correlati, vedere le pagine seguenti:
 
 - [Grafico delle risorse di Azure (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)
-
 - [Linguaggio di query Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)

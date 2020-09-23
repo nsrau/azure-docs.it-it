@@ -2,28 +2,32 @@
 title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.openlocfilehash: 30a3bda4069bb8c07d7c9be3fd8a3a2b1171eba2
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/09/2020
+ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526324"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887225"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
 Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 
+> [!NOTE]
+> Il supporto per i dispositivi ARM64 è disponibile nel video live Analytics in Build IoT Edge `1.0.4` e versioni successive.
+> Il supporto per l'esecuzione del runtime IoT Edge di Azure nei dispositivi ARM64 è in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un computer Linux che soddisfa i vincoli HW/SW per analisi video in tempo reale
+* Un dispositivo x86-64 o ARM64 che esegue uno dei [sistemi operativi Linux supportati](https://docs.microsoft.com/azure/iot-edge/support#operating-systems)
 * Sottoscrizione di Azure a cui si dispone dei [privilegi di proprietario](../../role-based-access-control/built-in-roles.md#owner)
 * [Creare e configurare l'hub Internet](../../iot-hub/iot-hub-create-through-portal.md)
 * [Registrare IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
 * [Installare il runtime Azure IoT Edge in sistemi Linux basati su Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Creare un account di Servizi multimediali di Azure](../latest/create-account-howto.md)
 
-    * Usare una di queste aree: Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali, Giappone orientale, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Canada orientale, Regno Unito meridionale, Francia centrale, Francia meridionale, Svizzera settentrionale, Svizzera occidentale e Giappone occidentale.
+    * Usare una di queste aree: Stati Uniti orientali 2, Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Canada orientale, Regno Unito meridionale, Francia centrale, Francia meridionale, Svizzera settentrionale, Svizzera occidentale e Giappone occidentale.
     * Si consiglia di usare gli account di archiviazione GPv2 (General-Purpose v2)
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Configurazione delle risorse di Azure per l'uso di analisi video in tempo reale
@@ -81,7 +85,6 @@ sudo chown -R edgeuser /var/media
 
 ## <a name="deploy-live-video-analytics-edge-module"></a>Distribuire il modulo Edge di analisi video in tempo reale
 
-<!-- (To JuliaKo: this is similar to https://docs.microsoft.com/azure/iot-edge/how-to-deploy-blob)-->
 Il video live Analytics in IoT Edge espone le proprietà del modulo gemello documentate nello [schema di configurazione del modulo gemello](module-twin-configuration-schema.md). 
 
 ### <a name="deploy-using-the-azure-portal"></a>Distribuire tramite il portale di Azure
@@ -252,4 +255,4 @@ Successivamente, è possibile testare l'esempio richiamando un metodo diretto. L
 Esercitazione [introduttiva: introduzione ad analisi video in tempo reale su IOT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]
-> Nel comando verrà eseguito il comando `device-id` anziché il valore predefinito `lva-sample-device` .
+> Se si procede con la Guida introduttiva precedente, quando si richiamano i metodi diretti usando Visual Studio Code, si userà il dispositivo che è stato aggiunto all'hub Internet tramite questo articolo, anziché il valore predefinito `lva-sample-device` .

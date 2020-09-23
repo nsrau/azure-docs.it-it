@@ -1,24 +1,24 @@
 ---
-title: Gestione delle estensioni VM con i server abilitati per Azure Arc (anteprima)
-description: I server abilitati per Azure Arc (anteprima) possono gestire la distribuzione delle estensioni delle macchine virtuali che forniscono attività di configurazione e automazione post-distribuzione con macchine virtuali non di Azure.
-ms.date: 06/17/2020
+title: Gestione delle estensioni VM con i server abilitati per Azure Arc
+description: I server abilitati per Azure Arc possono gestire la distribuzione delle estensioni delle macchine virtuali che forniscono attività di configurazione e automazione post-distribuzione con macchine virtuali non di Azure.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 259a55c0e5cb4074871fd70a61e6c61d5cf3c50a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 988c4d7b2fcbffb95932fe70d8014de74dd33343
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018162"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887752"
 ---
-# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Gestione delle estensioni delle macchine virtuali con i server abilitati per Azure Arc (anteprima)
+# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestione delle estensioni delle macchine virtuali con i server abilitati per Azure Arc
 
 Le estensioni delle macchine virtuali sono piccole applicazioni che forniscono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Ad esempio, se una macchina virtuale richiede l'installazione di software, la protezione antivirus o l'esecuzione di uno script al suo interno, è possibile usare un'estensione macchina virtuale.
 
-Azure Arc Enabled Servers (anteprima) consente di distribuire le estensioni di VM di Azure in macchine virtuali Windows e Linux non di Azure, semplificando la gestione del computer ibrido in locale, perimetrale e altri ambienti cloud attraverso il ciclo di vita.
+I server abilitati per Azure ARC consentono di distribuire le estensioni di VM di Azure in macchine virtuali Windows e Linux non di Azure, semplificando la gestione del computer ibrido in locale, perimetrale e altri ambienti cloud attraverso il ciclo di vita.
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
-Il supporto per l'estensione di VM per i server abilitati per Azure Arc (anteprima) offre i vantaggi principali seguenti:
+Il supporto delle estensioni VM per i server abilitati per Azure Arc offre i vantaggi principali seguenti:
 
 * Usare la [configurazione dello stato di automazione di Azure](../../automation/automation-dsc-overview.md) per archiviare centralmente le configurazioni e mantenere lo stato desiderato dei computer connessi ibridi abilitati tramite l'estensione VM DSC.
 
@@ -47,7 +47,7 @@ In questa versione di anteprima, sono supportate le estensioni di macchina virtu
 |Agente di Log Analytics |Linux |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics estensione VM per Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Microsoft Dependency Agent | Linux |Microsoft.Compute | [Estensione macchina virtuale dell'agente di dipendenza per Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 
-Le estensioni di macchina virtuale possono essere eseguite con Azure Resource Manager modelli, dal portale di Azure o Azure PowerShell nei server ibridi gestiti da server abilitati per Arc (anteprima).
+Le estensioni di macchina virtuale possono essere eseguite con Azure Resource Manager modelli, dal portale di Azure o Azure PowerShell nei server ibridi gestiti da server abilitati per Arc.
 
 Per informazioni sul pacchetto dell'agente di computer connesso di Azure e per informazioni dettagliate sul componente agente di estensione, vedere [Panoramica degli agenti](agent-overview.md#agent-component-details).
 
@@ -75,13 +75,13 @@ Per aggiornare il computer alla versione dell'agente richiesta, vedere [upgrade 
 
 ## <a name="enable-extensions-from-the-portal"></a>Abilitare le estensioni dal portale
 
-Le estensioni di macchina virtuale possono essere applicate al computer gestito di Arc per server (anteprima) tramite la portale di Azure.
+Le estensioni della macchina virtuale possono essere applicate all'arco per il computer gestito dal server tramite il portale di Azure.
 
 1. Nel browser passare al [portale di Azure](https://aka.ms/arcserver-preview).
 
-2. Nel portale passare a **machines-Azure Arc** e selezionare il computer ibrido nell'elenco.
+2. Nel portale passare a **Server-Azure Arc** e selezionare il computer ibrido nell'elenco.
 
-3. Scegliere **estensioni**, quindi selezionare **Aggiungi**. Scegliere l'estensione desiderata dall'elenco di quelle disponibili e quindi seguire le istruzioni della procedura guidata. In questo esempio verrà distribuita l'estensione della macchina virtuale Log Analytics. 
+3. Scegliere **estensioni**, quindi selezionare **Aggiungi**. Scegliere l'estensione desiderata dall'elenco di quelle disponibili e quindi seguire le istruzioni della procedura guidata. In questo esempio verrà distribuita l'estensione della macchina virtuale Log Analytics.
 
     ![Selezionare l'estensione della macchina virtuale per il computer selezionato](./media/manage-vm-extensions/add-vm-extensions.png)
 
@@ -98,7 +98,7 @@ Le estensioni di macchina virtuale possono essere applicate al computer gestito 
 
 ## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
-Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Con le estensioni VM supportate dai server abilitati per Arc (anteprima), è possibile distribuire l'estensione VM supportata in computer Linux o Windows usando Azure PowerShell. Ogni esempio seguente include un file modello e un file di parametri con valori di esempio da fornire al modello.
+Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Con le estensioni VM supportate dai server abilitati per Arc, è possibile distribuire l'estensione VM supportata in computer Linux o Windows usando Azure PowerShell. Ogni esempio seguente include un file modello e un file di parametri con valori di esempio da fornire al modello.
 
 >[!NOTE]
 >Sebbene sia possibile raggruppare ed elaborare più estensioni, queste vengono installate in modo seriale. Al termine dell'installazione della prima estensione, viene tentata l'installazione dell'estensione successiva.
@@ -707,6 +707,18 @@ Per usare l'estensione dell'agente di dipendenza di monitoraggio di Azure, viene
 }
 ```
 
+## <a name="uninstall-extension"></a>Disinstalla estensione
+
+La rimozione di una o più estensioni da un server abilitato per Arc può essere eseguita solo dal portale di Azure. Per rimuovere un'estensione, attenersi alla procedura riportata di seguito.
+
+1. Nel browser passare al [portale di Azure](https://portal.azure.com).
+
+2. Nel portale passare a **Server-Azure Arc** e selezionare il computer ibrido nell'elenco.
+
+3. Scegliere **estensioni**, quindi selezionare un'estensione nell'elenco delle estensioni installate.
+
+4. Selezionare **Disinstalla** e quando viene richiesto di verificare, selezionare **Sì** per continuare.
+
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati dal portale di Azure.
@@ -715,7 +727,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 1. Per controllare il log dell'agente guest, esaminare l'attività quando è stato eseguito il provisioning dell'estensione in `%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs` per Windows e per Linux in `/var/lib/GuestConfig/ext_mgr_logs` .
 
-2. Per altri dettagli in per Windows, controllare i log di estensione per l'estensione specifica `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` . L'output dell'estensione viene registrato in un file per ogni estensione installata in Linux `/var/log/GuestConfig/extension_logs` .
+2. Per altri dettagli in per Windows, controllare i log di estensione per l'estensione specifica `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` . L'output dell'estensione viene registrato in un file per ogni estensione installata in Linux `/var/lib/GuestConfig/extension_logs` .
 
 3. Verificare le sezioni relative alla risoluzione dei problemi della documentazione specifica per i codici di errore, i problemi noti e così via Per ulteriori informazioni sulla risoluzione dei problemi per ogni estensione, vedere la sezione **risoluzione dei problemi e supporto** nella panoramica per l'estensione. Include la descrizione dei codici di errore scritti nel log. Gli articoli di estensione sono collegati nella [tabella Extensions](#extensions) disponibile in precedenza in questo articolo.
 
@@ -725,4 +737,4 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 - Informazioni su come gestire il computer usando i [criteri di Azure](../../governance/policy/overview.md), ad esempio la configurazione di VM [Guest](../../governance/policy/concepts/guest-configuration.md), verificare che il computer stia segnalando l'area di lavoro Log Analytics prevista, abilitare il monitoraggio con [Monitoraggio di Azure con macchine virtuali](../../azure-monitor/insights/vminsights-enable-policy.md) e molto altro ancora.
 
-- Altre informazioni sull'[agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si vuole monitorare in modo proattivo il sistema operativo e i carichi di lavoro in esecuzione nella macchina virtuale, gestirla con runbook di automazione o soluzioni come Gestione aggiornamenti o usare altri servizi di Azure, come il [Centro sicurezza di Azure](../../security-center/security-center-intro.md).
+- Ulteriori informazioni su [[log Analytics Agent]](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si desidera raccogliere dati di monitoraggio del carico di lavoro e del sistema operativo, gestirli con manuali operativi di automazione o funzionalità come Gestione aggiornamenti o usare altri servizi di Azure come il [Centro sicurezza di Azure](../../security-center/security-center-intro.md).

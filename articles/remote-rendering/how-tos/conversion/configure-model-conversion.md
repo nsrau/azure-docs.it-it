@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: dda2676f258705ed833068c966bcc57115434b0d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067172"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967234"
 ---
 # <a name="configure-the-model-conversion"></a>Configurare la conversione di modelli
 
@@ -94,13 +94,19 @@ Se il presupposto non è vero per un determinato modello, questo parametro deve 
 
 * `deduplicateMaterials` - Questo parametro abilita o disabilita la deduplicazione automatica dei materiali che condividono le stesse proprietà e le stesse trame. La deduplicazione viene eseguita dopo l'elaborazione delle sostituzioni dei materiali. Questa opzione è abilitata per impostazione predefinita.
 
+* Se anche dopo la deduplicazione di un modello sono presenti più di 65.535 materiali, il servizio tenterà di unire materiali con proprietà simili. Come ultima risorsa, tutti i materiali che superano il limite verranno sostituiti da un materiale di errore rosso.
+
+![Image Mostra due cubi di 68.921 triangoli colorati.](media/mat-dedup.png?raw=true)
+
+Due cubi di 68.921 triangoli colorati. Left: prima della deduplicazione con materiali colore 68.921. Right: dopo la deduplicazione con materiali colore 64.000. Il limite è di 65.535 materiali. (Vedere [limiti](../../reference/limits.md)).
+
 ### <a name="color-space-parameters"></a>Parametri di spazio colore
 
 Il motore di rendering prevede che i valori di colore siano nello spazio lineare.
 Se un modello è definito con lo spazio gamma, queste opzioni dovranno essere impostate su true.
 
 * `gammaToLinearMaterial` - Converte i colori dei materiali dallo spazio gamma allo spazio lineare.
-* `gammaToLinearVertex`-Converte :::no-loc text="vertex"::: i colori dallo spazio gamma allo spazio lineare
+* `gammaToLinearVertex` -Converte :::no-loc text="vertex"::: i colori dallo spazio gamma allo spazio lineare
 
 > [!NOTE]
 > Per i file FBX, queste opzioni sono impostate su `true` per impostazione predefinita. Per tutti gli altri tipi di file, l'impostazione predefinita è `false`.
@@ -139,11 +145,11 @@ La modalità `none` comporta il sovraccarico minore in fase di esecuzione e temp
 
 ### <a name="node-meta-data"></a>Meta dati del nodo
 
-* `metadataKeys`: Consente di specificare le chiavi delle proprietà dei metadati del nodo che si desidera memorizzare nel risultato della conversione. È possibile specificare chiavi esatte o chiavi con caratteri jolly. Le chiavi con caratteri jolly sono nel formato "ABC *" e corrispondono a qualsiasi chiave che inizia con "ABC". I tipi di valore di metadati supportati sono `bool` ,, `int` `float` e `string` .
+* `metadataKeys` : Consente di specificare le chiavi delle proprietà dei metadati del nodo che si desidera memorizzare nel risultato della conversione. È possibile specificare chiavi esatte o chiavi con caratteri jolly. Le chiavi con caratteri jolly sono nel formato "ABC *" e corrispondono a qualsiasi chiave che inizia con "ABC". I tipi di valore di metadati supportati sono `bool` ,, `int` `float` e `string` .
 
     Per i file GLTF questi dati provengono dall' [oggetto extra nei nodi](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). Per i file FBX i dati provengono dai `Properties70` dati in `Model nodes` . Per ulteriori informazioni, vedere la documentazione dello strumento asset 3D.
 
-### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::formato
+### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex"::: formato
 
 È possibile modificare il :::no-loc text="vertex"::: formato per una mesh, per ottenere la precisione del risparmio di memoria. Un footprint della memoria inferiore consente di caricare modelli di maggiori dimensioni o di ottenere prestazioni superiori. A seconda dei dati, tuttavia, un formato errato può influire significativamente sulla qualità del rendering.
 
@@ -194,7 +200,7 @@ Per i rispettivi componenti sono consentiti i formati seguenti:
 
 Di seguito sono riportati i footprint della memoria dei formati:
 
-| Format | Descrizione | Byte per:::no-loc text="vertex"::: |
+| Format | Descrizione | Byte per :::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|Precisione piena a virgola mobile, due componenti|8
 |16_16_FLOAT|Mezza precisione a virgola mobile, due componenti|4
@@ -241,9 +247,9 @@ Un modo semplice per verificare se le informazioni sulle istanze vengono mantenu
 
 ![Clonazione in 3ds Max](./media/3dsmax-clone-object.png)
 
-* **`Copy`**: In questa modalità la mesh viene clonata, quindi non viene utilizzata alcuna istanza ( `numMeshPartsInstanced` = 0).
-* **`Instance`**: I due oggetti condividono la stessa mesh, quindi viene usata l'istanza ( `numMeshPartsInstanced` = 1).
-* **`Reference`**: I modificatori Distinct possono essere applicati alle geometrie, pertanto l'utilità di esportazione sceglie un approccio conservativo e non usa le istanze ( `numMeshPartsInstanced` = 0).
+* **`Copy`** : In questa modalità la mesh viene clonata, quindi non viene utilizzata alcuna istanza ( `numMeshPartsInstanced` = 0).
+* **`Instance`** : I due oggetti condividono la stessa mesh, quindi viene usata l'istanza ( `numMeshPartsInstanced` = 1).
+* **`Reference`** : I modificatori Distinct possono essere applicati alle geometrie, pertanto l'utilità di esportazione sceglie un approccio conservativo e non usa le istanze ( `numMeshPartsInstanced` = 0).
 
 
 ### <a name="depth-based-composition-mode"></a>Modalità di composizione basata sulla profondità
@@ -259,8 +265,8 @@ Come illustrato nella sezione [procedure consigliate per le modifiche al formato
 A seconda del tipo di scenario, la quantità di dati di trama può superare la memoria usata per i dati di rete. I modelli fotogrammetria sono candidati.
 La configurazione della conversione non fornisce un modo per ridimensionare automaticamente le trame. Se necessario, il ridimensionamento della trama deve essere eseguito come passaggio di pre-elaborazione lato client. Il passaggio di conversione tuttavia sceglie un [formato di compressione della trama](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11)appropriato:
 
-* `BC1`per le trame colore opaco
-* `BC7`per le trame colore di origine con canale alfa
+* `BC1` per le trame colore opaco
+* `BC7` per le trame colore di origine con canale alfa
 
 Poiché `BC7` il formato ha due volte il footprint di memoria rispetto a `BC1` , è importante assicurarsi che le trame di input non forniscano inutilmente un canale alfa.
 

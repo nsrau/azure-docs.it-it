@@ -1,23 +1,23 @@
 ---
-title: Connettersi e gestire Microsoft Azure Stack dispositivo perimetrale tramite l'interfaccia di Windows PowerShell | Microsoft Docs
-description: Viene descritto come connettersi e gestire Azure Stack Edge tramite l'interfaccia di Windows PowerShell.
+title: Connettersi e gestire il dispositivo Microsoft Azure Stack Edge Pro tramite l'interfaccia di Windows PowerShell | Microsoft Docs
+description: Viene descritto come connettersi e gestire Azure Stack Edge Pro tramite l'interfaccia di Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b58c38dd0257a65bad6021b6152c14a37f905e0a
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: b0c2b547391efd37fc667b84548d99f1e7385cfb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461834"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903525"
 ---
-# <a name="manage-an-azure-stack-edge-gpu-device-via-windows-powershell"></a>Gestire un dispositivo GPU Azure Stack Edge tramite Windows PowerShell
+# <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Gestire un dispositivo GPU Pro Azure Stack Edge tramite Windows PowerShell
 
-Azure Stack soluzione Edge consente di elaborare i dati e inviarli tramite la rete ad Azure. Questo articolo descrive alcune delle attività di configurazione e gestione per il dispositivo Azure Stack Edge. È possibile usare la portale di Azure, l'interfaccia utente Web locale o l'interfaccia di Windows PowerShell per gestire il dispositivo.
+Azure Stack soluzione Pro Edge consente di elaborare i dati e inviarli tramite la rete ad Azure. Questo articolo descrive alcune delle attività di configurazione e gestione per il dispositivo Azure Stack Edge Pro. È possibile usare la portale di Azure, l'interfaccia utente Web locale o l'interfaccia di Windows PowerShell per gestire il dispositivo.
 
 Questo articolo è incentrato sulla modalità di connessione all'interfaccia di PowerShell del dispositivo e sulle attività che è possibile eseguire tramite questa interfaccia. 
 
@@ -84,11 +84,11 @@ Se il ruolo di calcolo è configurato nel dispositivo, è anche possibile ottene
 
 ## <a name="enable-multi-process-service-mps"></a>Abilita servizio a più processi (MP)
 
-Un servizio multi-process (MP) su GPU NVIDIA fornisce un meccanismo in cui le GPU possono essere condivise da più processi, in cui a ogni processo viene allocata una percentuale delle risorse della GPU. Per abilitare MP nel dispositivo Azure Stack Edge, seguire questa procedura:
+Un servizio multi-process (MP) su GPU NVIDIA fornisce un meccanismo in cui le GPU possono essere condivise da più processi, in cui a ogni processo viene allocata una percentuale delle risorse della GPU. MP è una funzionalità di anteprima sul dispositivo GPU Azure Stack Edge Pro. Per abilitare MP nel dispositivo, attenersi alla procedura seguente:
 
 1. Prima di iniziare, verificare che: 
 
-    1. [Il dispositivo Azure stack Edge](azure-stack-edge-gpu-deploy-activate.md) è stato configurato e attivato con una risorsa Azure stack edge/Data Box gateway in Azure.
+    1. È stato configurato e [attivato il dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md) con una risorsa pro/Data Box Gateway di Azure stack Edge in Azure.
     1. [Il calcolo è stato configurato in questo dispositivo nel portale di Azure](azure-stack-edge-deploy-configure-compute.md#configure-compute).
     
 1. [Connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface).
@@ -187,7 +187,7 @@ users:
 ```
 -->
 
-In un dispositivo Azure Stack Edge in cui è configurato il ruolo di calcolo, è possibile risolvere i problemi o monitorare il dispositivo utilizzando due diversi set di comandi.
+In un dispositivo Azure Stack Edge Pro con il ruolo di calcolo configurato, è possibile risolvere i problemi o monitorare il dispositivo utilizzando due diversi set di comandi.
 
 - Uso di `iotedge` comandi. Questi comandi sono disponibili per le operazioni di base per il dispositivo.
 - Uso di `kubectl` comandi. Questi comandi sono disponibili per un set completo di operazioni per il dispositivo.
@@ -241,7 +241,7 @@ webserverapp           Running Up 10 days  nginx:stable                         
 
 ### <a name="use-kubectl-commands"></a>Usare i comandi kubectl
 
-In un dispositivo Azure Stack Edge in cui è configurato il ruolo di calcolo, tutti i `kubectl` comandi sono disponibili per monitorare o risolvere i problemi relativi ai moduli. Per visualizzare un elenco dei comandi disponibili, eseguire `kubectl --help` dalla finestra di comando.
+In un dispositivo Azure Stack Edge Pro con il ruolo di calcolo configurato, tutti i `kubectl` comandi sono disponibili per il monitoraggio o la risoluzione dei problemi dei moduli. Per visualizzare un elenco dei comandi disponibili, eseguire `kubectl --help` dalla finestra di comando.
 
 ```PowerShell
 C:\Users\myuser>kubectl --help
@@ -433,4 +433,4 @@ Per uscire dalla sessione remota di PowerShell, chiudere la finestra di PowerShe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Distribuire [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md) nel portale di Azure.
+- Distribuire [Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md) nel portale di Azure.

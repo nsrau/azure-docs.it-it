@@ -3,16 +3,16 @@ title: Termini e condizioni commerciali del Marketplace, Azure Marketplace
 description: I criteri e le condizioni di Microsoft Commercial Marketplace si applicano a tutti gli editori e le offerte di Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: reference
+ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/09/2020
-ms.openlocfilehash: cd936307eaacc7b2a46bac23c8fcfc9e2769135c
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4ddf37d5f2e7f569e5447dfe321574e3f9ccc778
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006721"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974852"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Informative e condizioni del marketplace commerciale
 
@@ -25,12 +25,11 @@ Le offerte sul Marketplace commerciale devono essere conformi ai criteri e alle 
 
 ## <a name="policies-and-terms"></a>Criteri e termini
 
-* [Criteri di certificazione del marketplace commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies)
-
-* [Criteri per la classificazione e la recensione](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
-
-* [Condizioni di Azure Marketplace](https://docs.microsoft.com/legal/marketplace/terms)
+- [Criteri di certificazione del marketplace commerciale](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context)
+- [Criteri di verifica Microsoft AppSource e Azure Marketplace](/legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context)
+- [Politiche di partecipazione ad Azure Marketplace](/legal/marketplace/participation-policy?context=/azure/marketplace/context/context)
+- [Condizioni di Azure Marketplace](/legal/marketplace/terms?context=/azure/marketplace/context/context)
 
 ## <a name="next-step"></a>Passaggio successivo
 
-Visitare la pagina della [Guida alla pubblicazione nel Marketplace commerciale](./marketplace-publishers-guide.md) .
+Visitare la pagina della [Guida alla pubblicazione nel Marketplace commerciale](marketplace-publishers-guide.md) .

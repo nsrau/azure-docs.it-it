@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: df6e7435d072cc88e82f3dc9a323a5b21145c432
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bd72866e3e3db21691fda6aaec864a76af7414a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037257"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903727"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense negli strumenti di analisi di flusso di Azure per Visual Studio Code
 
@@ -34,7 +34,7 @@ Le funzionalità di IntelliSense negli strumenti di analisi di flusso per VS Cod
 
 Strumenti di analisi di flusso per VS Code IntelliSense offre diversi tipi di completamenti, tra cui suggerimenti per i server di linguaggio, frammenti di codice e semplici completamenti testuali basati su parole.
 
-|Completion     |  Type       |
+|Completion     |  Tipo       |
 | ----- | ------- |
 | Parole chiave | `keyword`
 | Funzioni | `build-in function`, `user defined function`  |
@@ -71,6 +71,6 @@ Questo problema è causato dalla mancanza di configurazione di input che fornisc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-vs-code.md)
+* [Guida introduttiva: creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-visual-studio-code.md)
 * [Eseguire test locali delle query di Analisi di flusso con dati di esempio con Visual Studio Code](visual-studio-code-local-run.md)
 * [Testare le query di analisi di flusso in locale rispetto all'input del flusso Live usando Visual Studio Code](visual-studio-code-local-run-live-input.md)

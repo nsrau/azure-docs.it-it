@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 765001ae7380ff2e99e6b390930b94302ce506bf
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 56a03d6f1e4684da797b733d6041309acdac65c3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433688"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888153"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Configurare Visione artificiale contenitori Docker
 
@@ -31,7 +31,7 @@ Configurare l'ambiente di runtime del contenitore Visione artificiale usando gli
 
 Il contenitore include anche le seguenti impostazioni di configurazione specifiche del contenitore:
 
-|Obbligatoria|Impostazione|Scopo|
+|Necessario|Impostazione|Scopo|
 |--|--|--|
 |No|ReadEngineConfig:ResultExpirationPeriod|Periodo di scadenza del risultato in ore. L'impostazione predefinita è 48 ore. L'impostazione specifica quando il sistema deve cancellare i risultati del riconoscimento. Se, ad esempio `resultExpirationPeriod=1` , il sistema cancella il risultato del riconoscimento 1 ora dopo il processo. Se `resultExpirationPeriod=0` , il sistema cancella il risultato del riconoscimento dopo che il risultato è stato recuperato.|
 |No|Cache: Redis|Abilita l'archiviazione Redis per l'archiviazione dei risultati. È *necessaria* una cache se più contenitori di lettura sono posizionati dietro un servizio di bilanciamento del carico.|
@@ -60,7 +60,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 Ricordarsi di aggiungere il `vision/v1.0` routing all'URI dell'endpoint, come illustrato nella tabella seguente. 
 
-|Obbligatoria| Nome | Tipo di dati | Descrizione |
+|Necessario| Nome | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
 |Sì| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -90,7 +90,7 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 |Facoltativo| Nome | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
-|Non consentito| `Input` | string | I contenitori di Visione artificiale non la usano.|
+|Non consentito| `Input` | Stringa | I contenitori di Visione artificiale non la usano.|
 |Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio
@@ -117,26 +117,55 @@ Sostituire {_nome_argomento_} con i propri valori:
 
 Gli esempi di Docker seguenti sono per il contenitore di lettura.
 
+
+# <a name="version-30"></a>[Versione 3.0](#tab/version-3)
+
 ### <a name="basic-example"></a>Esempio di base
 
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} 
-  ```
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
 
 ### <a name="logging-example"></a>Esempio di registrazione 
 
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} \
-  Logging:Console:LogLevel:Default=Information
-  ```
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+# <a name="version-31"></a>[Versione 3.1](#tab/version-3-1)
+
+### <a name="basic-example"></a>Esempio di base
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
+
+### <a name="logging-example"></a>Esempio di registrazione 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

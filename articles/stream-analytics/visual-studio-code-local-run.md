@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/10/2019
 ms.topic: how-to
-ms.openlocfilehash: a47b641f4f5049beb605490122a33d407ac3e222
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0122e67714efb201584a52f1cb763528dbb0b925
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044363"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903805"
 ---
 # <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Eseguire test locali delle query di Analisi di flusso con dati di esempio con Visual Studio Code
 
@@ -21,7 +21,7 @@ ms.locfileid: "86044363"
 
 * Installare [.NET Core SDK](https://dotnet.microsoft.com/download) e riavviare Visual Studio Code.
 
-* Usare questa [Guida introduttiva](quick-create-vs-code.md) per informazioni su come creare un processo di analisi di flusso usando Visual Studio Code.
+* Usare questa [Guida introduttiva](quick-create-visual-studio-code.md) per informazioni su come creare un processo di analisi di flusso usando Visual Studio Code.
 
 ## <a name="prepare-sample-data"></a>Preparare i dati di esempio
 
@@ -31,17 +31,17 @@ Prima di tutto è necessario preparare i file di dati di input di esempio. Se si
 
 2. Una volta visualizzati i dati, fare clic su **Salva con nome** per salvare i dati in un file locale.
 
- ![Visualizzare l'input live in anteprima](./media/quick-create-vs-code/preview-live-input.png)
+ ![Visualizzare l'input live in anteprima](./media/quick-create-visual-studio-code/preview-live-input.png)
 
 ## <a name="define-a-local-input"></a>Definire un input locale
 
-1. Fare clic **suinput.js** nella cartella inputs nel progetto di analisi di flusso. Quindi selezionare **Aggiungi input locale** dalla riga superiore.
+1. Fare clic ** suinput.js** nella cartella inputs nel progetto di analisi di flusso. Quindi selezionare **Aggiungi input locale** dalla riga superiore.
 
-    ![Aggiungi input locale dal progetto](./media/quick-create-vs-code/add-input-from-project.png)
+    ![Aggiungi input locale dal progetto](./media/quick-create-visual-studio-code/add-input-from-project.png)
 
     È anche possibile usare **CTRL + MAIUSC + P** per aprire il riquadro comandi e immettere **ASA: Aggiungi input**.
 
-   ![Aggiungere input di Analisi di flusso in VS Code](./media/quick-create-vs-code/add-input.png)
+   ![Aggiungere input di Analisi di flusso in VS Code](./media/quick-create-visual-studio-code/add-input.png)
 
 2. Selezionare **input locale**.
 
@@ -55,7 +55,7 @@ Prima di tutto è necessario preparare i file di dati di input di esempio. Se si
 
     ![Aggiungere un nuovo alias di input locale ASA](./media/vscode-local-run/new-local-input-alias.png)
 
-5. NelLocalInput_Input.jsappena generato **su** file immettere il percorso del file in cui si trova il file di dati locale.
+5. NelLocalInput_Input.jsappena generato ** su** file immettere il percorso del file in cui si trova il file di dati locale.
 
     ![Immettere il percorso del file locale in Visual Studio](./media/vscode-local-run/local-file-path.png)
 

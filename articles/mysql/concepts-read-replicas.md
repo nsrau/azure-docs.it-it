@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: b733ef771444e080eb794b300e75d4396c3ef674
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a30f2b2fcefcc944db35271bd75b6467f7590a2c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079174"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902897"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -42,7 +42,7 @@ Questa funzionalità di replica in lettura si avvale della replica asincrona di 
 
 È possibile avere un server master in qualsiasi [area di Database di Azure per MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Per un server master può essere presente una replica nella relativa area associata o nelle aree di replica universali. L'immagine seguente illustra le aree di replica disponibili a seconda dell'area master.
 
-[ ![Aree di replica in lettura](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Leggere le aree di replica":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Aree di replica universali
 È possibile creare una replica in lettura in una delle aree seguenti, indipendentemente dalla posizione del server master. Le aree di replica universali supportate includono:
@@ -112,7 +112,7 @@ Informazioni su come [arrestare la replica in una replica](howto-read-replicas-p
 
 Non esiste un failover automatico tra i server master e di replica. 
 
-Poiché la replica è asincrona, si verifica un ritardo tra il database master e la replica. La quantità di ritardo può essere influenzata da una serie di fattori quali la quantità di carico di lavoro in esecuzione nel server master e la latenza tra i Data Center. Nella maggior parte dei casi, il ritardo di replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica*metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
+Poiché la replica è asincrona, si verifica un ritardo tra il database master e la replica. La quantità di ritardo può essere influenzata da una serie di fattori quali la quantità di carico di lavoro in esecuzione nel server master e la latenza tra i Data Center. Nella maggior parte dei casi il ritardo della replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica*metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
 
 > [!Tip]
 > Se si esegue il failover alla replica, il ritardo nel momento in cui si scollega la replica dal database master indicherà la quantità di dati persi.

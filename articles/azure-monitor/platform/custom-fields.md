@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906803"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974707"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Creare campi personalizzati in un'area di lavoro Log Analytics in monitoraggio di Azure (anteprima)
 
@@ -23,7 +23,7 @@ ms.locfileid: "84906803"
 
 La funzionalità **campi personalizzati** di monitoraggio di Azure consente di estendere i record esistenti nell'area di lavoro log Analytics aggiungendo i propri campi ricercabili.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
 
-![Panoramica](media/custom-fields/overview.png)
+![Il diagramma mostra un record originale associato a un record modificato in un'area di lavoro Log Analytics con coppie valore proprietà aggiunte alla proprietà originale nel record modificato.](media/custom-fields/overview.png)
 
 Il record di esempio riportato di seguito contiene dati utili nascosti nella descrizione dell'evento. L'estrazione di questi dati in una proprietà distinta lo rende disponibile per azioni quali l'ordinamento e il filtro.
 
@@ -81,7 +81,7 @@ La sezione seguente descrive un esempio completo di creazione di un campo person
 
 Immettere la query seguente per restituire tutti gli eventi di Gestione controllo servizi con ID evento 7036, ovvero l'evento che indica l'avvio o l'arresto di un servizio.
 
-![Query](media/custom-fields/query.png)
+![Screenshot mostra una query per l'origine e l'ID di un evento.](media/custom-fields/query.png)
 
 Selezionare ed espandere tutti i record con ID evento 7036.
 

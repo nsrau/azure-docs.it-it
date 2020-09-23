@@ -1,6 +1,6 @@
 ---
-title: Usare il portale di Azure per risolvere i problemi di ordinamento Azure Stack Edge | Microsoft Docs
-description: Viene descritto come risolvere i problemi di ordinamento Azure Stack Edge.
+title: Usare il portale di Azure per risolvere i problemi di ordinamento Pro Edge Azure Stack | Microsoft Docs
+description: Viene descritto come risolvere i problemi di ordinamento di Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 8c42ee867bdd20de64fa1c603de47b5f1e7bdb39
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3087c209b844d691173edbbd8a993c1d0aae319b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055946"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903641"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Risolvere i problemi di ordinamento di Azure Stack Edge
+# <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Risolvere i problemi di ordinamento di Azure Stack Edge Pro
 
-Questo articolo descrive come risolvere i problemi di ordinamento Azure Stack Edge.
+Questo articolo descrive come risolvere i problemi di ordinamento di Azure Stack Edge Pro.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -59,7 +59,7 @@ Per altre informazioni, vedere [registrare i provider di risorse](azure-stack-ed
 
 ## <a name="microsoftdataboxedge-not-registered-for-subscription"></a>Microsoft. DataBoxEdge non registrato per la sottoscrizione
 
-**Errore:** In portale di Azure selezionare una sottoscrizione da usare per Azure Stack Edge o Data Box Gateway e ottenere l'errore seguente:
+**Errore:** In portale di Azure selezionare una sottoscrizione da usare per Azure Stack Edge Pro o Data Box Gateway e ottenere l'errore seguente:
 
 *Provider di risorse: Microsoft. DataBoxEdge non è registrato per &lt; il nome della sottoscrizione di sottoscrizione &gt; e non si dispone delle autorizzazioni necessarie per registrare un provider di risorse per il &lt; nome &gt; della sottoscrizione di sottoscrizione*.
 
@@ -75,4 +75,4 @@ Per altre informazioni, vedere [registrare i provider di risorse](azure-stack-ed
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni su come [risolvere i problemi di Azure stack Edge](azure-stack-edge-troubleshoot.md).
+* Ulteriori informazioni su come [risolvere i problemi relativi a Azure stack Edge Pro](azure-stack-edge-troubleshoot.md).
