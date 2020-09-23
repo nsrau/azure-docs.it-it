@@ -10,12 +10,12 @@ ms.date: 09/08/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0d03b2708bfd4aac2565b303ddce44f50be65ef9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ee76c1692049d5b25e85b6780fbcf78f7ebfdd2f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612346"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987049"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replica di oggetti per BLOB in blocchi
 
@@ -68,7 +68,7 @@ Quando si crea una regola di replica, per impostazione predefinita vengono copia
 
 Devono esistere sia i contenitori di origine che di destinazione prima di poterli specificare in una regola. Dopo aver creato i criteri di replica, il contenitore di destinazione diventa di sola lettura. Qualsiasi tentativo di scrittura nel contenitore di destinazione non riesce e viene restituito il codice errore 409 (conflitto). Tuttavia, è possibile chiamare l'operazione di [impostazione del livello BLOB](/rest/api/storageservices/set-blob-tier) su un BLOB nel contenitore di destinazione per spostarla nel livello archivio. Per altre informazioni sul livello archivio, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](storage-blob-storage-tiers.md#archive-access-tier).
 
-## <a name="billing"></a>Fatturazione 
+## <a name="billing"></a>Fatturazione
 
 La replica di oggetti comporta costi aggiuntivi per le transazioni di lettura e scrittura rispetto agli account di origine e di destinazione, nonché gli addebiti in uscita per la replica dei dati dall'account di origine all'account di destinazione e la lettura degli addebiti per l'elaborazione del feed delle modifiche.
 

@@ -3,12 +3,12 @@ title: Configurare l'analisi di app Web per ASP.NET con Azure Application Insigh
 description: Configurare gli strumenti di analisi delle prestazioni, della disponibilità e del comportamento degli utenti per un sito Web ASP.NET, ospitato in locale o in Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: acfba63cba520631831888a1480929be3b1897f0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: c07e7c8e7bd710cb591719fe8d53a3bad6ca2ee0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475533"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973787"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Installare Application Insights per un sito Web ASP.NET
 
@@ -42,7 +42,7 @@ Schermata di configurazione di Application Insights:
 
 Selezionare **Attività iniziali**.
 
-![Screenshot della pagina Registra l'app con Application Insights](./media/asp-net/00004-start-free.png)
+![Screenshot mostra la pagina Application Insights e il pulsante inizia.](./media/asp-net/00004-start-free.png)
 
 Se si vuole impostare il gruppo di risorse o la località in cui verranno archiviati i dati, fare clic su **Configura impostazioni**. I gruppi di risorse vengono usati per controllare l'accesso ai dati. Se si hanno diverse app che fanno parte dello stesso sistema, ad esempio, è possibile inserire i relativi dati di Application Insights nello stesso gruppo di risorse.
 

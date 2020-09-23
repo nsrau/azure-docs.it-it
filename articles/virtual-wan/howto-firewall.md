@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: f20ed76a72eecce59a7b8795a42b033230a2f7e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 577340e485550e84941a33d82b58aa6ff1c933d3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753677"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983667"
 ---
 # <a name="configure-azure-firewall-in-a-virtual-wan-hub"></a>Configurare il Firewall di Azure in un hub della rete WAN virtuale
 
@@ -32,20 +32,20 @@ Per creare una nuova rete WAN virtuale e un nuovo hub, attenersi ai passaggi des
 
 La pagina **Panoramica**  relativa alla rete WAN virtuale riporta un elenco degli hub virtuali e degli hub protetti. Nella figura seguente è illustrata una rete WAN virtuale senza hub protetti.
 
-[ ![panoramica](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
+[![Screenshot mostra la pagina Panoramica per una rete WAN virtuale con un elenco di hub virtuali.](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
 
 ## <a name="convert-to-secured-hub"></a>Eseguire la conversione in hub protetto
 
 1. Nella pagina **Panoramica** relativa alla rete WAN virtuale selezionare l'hub che si vuole convertire in hub protetto. Nella pagina dell'hub virtuale vengono visualizzate due opzioni per la distribuzione del Firewall di Azure in questo hub. Selezionarne una.
 
-   [ ![sicurezza](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
+   [![Screenshot mostra la pagina Panoramica per la rete WAN virtuale in cui è possibile selezionare Converti in hub protetto o firewall di Azure.](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
 
 1. Dopo aver selezionato una delle opzioni, viene visualizzata la pagina **Converti in hub protetto**. Selezionare un hub da convertire, quindi selezionare **Next: Azure Firewall** (Avanti: Firewall di Azure) nella parte inferiore della pagina.
 
    [ ![seleziona hub](./media/howto-firewall/select-hub.png)](./media/howto-firewall/select-hub.png#lightbox)
 1. Dopo aver completato il flusso di lavoro, selezionare **Conferma**.
 
-   [ ![conferma](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
+   [![Screenshot mostra il riquadro Converti in hub protetto con conferma selezionata.](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
 
 1. Dopo aver convertito l'hub in hub protetto, è possibile visualizzarlo nella pagina **Panoramica**  della rete WAN virtuale.
 

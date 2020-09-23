@@ -1,18 +1,18 @@
 ---
 title: 'Gateway VPN: Azure AD tenant per le connessioni VPN P2S: Azure AD autenticazione'
-description: È possibile usare la VPN P2S per connettersi alla VNet usando l'autenticazione Azure AD
+description: Informazioni su come configurare un tenant di Azure AD per l'autenticazione VPN open P2S.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 01fe9331d4063ae45a5d30aa3546d6338d30822d
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 74df878baa6ed4e2ba902a73a7830c0b075c58ce
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89499961"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981526"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creare un tenant Azure Active Directory per le connessioni del protocollo OpenVPN da punto a sito
 
@@ -85,7 +85,7 @@ Usare la procedura descritta in [questo articolo](../active-directory/fundamenta
 
 6. Quando richiesto, selezionare **Accetta**.
 
-    ![Accept](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![Screenshot mostra le autorizzazioni del messaggio accettate per l'organizzazione con i dettagli e l'opzione di accettazione.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 7. Nel Azure AD, in **applicazioni aziendali**, viene visualizzata la rete **VPN di Azure** elencata.
 

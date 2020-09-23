@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4882fadcc2f05e4047366d8d097a3918091035bb
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e52bd150f72ba663c504b81832ce83d3e38cbf04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005313"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986771"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedure consigliate per gli sviluppatori di applicazioni per la gestione delle risorse nel servizio Azure Kubernetes (AKS)
 
@@ -22,7 +22,7 @@ Questo articolo sulle procedure consigliate è incentrato su come eseguire il cl
 
 > [!div class="checklist"]
 > * Richieste di risorse e limiti del pod
-> * Modalità di sviluppo e distribuzione delle applicazioni con Dev Spaces e Visual Studio Code
+> * Modalità di sviluppo e distribuzione di applicazioni con Bridge per Kubernetes e Visual Studio Code
 > * Come usare lo strumento `kube-advisor` per verificare la presenza di problemi con le distribuzioni
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Definire le richieste di risorse e i limiti del pod
@@ -74,13 +74,13 @@ Per altre informazioni sulle misure e le assegnazioni delle risorse, vedere [Man
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Sviluppare ed eseguire il debug di applicazioni in un cluster servizio Azure Kubernetes
 
-**Indicazioni sulle procedure consigliate**. I team di sviluppo devono eseguire la distribuzione e il debug in un cluster servizio Azure Kubernetes usando Dev Spaces. Questo modello di sviluppo garantisce che le esigenze di controllo degli accessi in base al ruolo, di rete o di archiviazione vengano implementate prima che l'app venga distribuita nell'ambiente di produzione.
+**Indicazioni sulle procedure consigliate** : i team di sviluppo devono distribuire ed eseguire il debug in un cluster AKS usando Bridge per Kubernetes.
 
-Con Azure Dev Spaces, le applicazioni vengono sviluppate e sottoposte a debug e test direttamente in un cluster servizio Azure Kubernetes. Gli sviluppatori all'interno di un team collaborano per compilare ed eseguire test durante il ciclo di vita dell'applicazione. È possibile continuare a usare gli strumenti esistenti come Visual Studio o Visual Studio Code. Viene installata un'estensione per gli spazi di sviluppo che offre un'opzione per l'esecuzione e il debug dell'applicazione in un cluster AKS.
+Con Bridge per Kubernetes è possibile sviluppare, eseguire il debug e testare le applicazioni direttamente in un cluster AKS. Gli sviluppatori all'interno di un team collaborano per compilare ed eseguire test durante il ciclo di vita dell'applicazione. È possibile continuare a usare gli strumenti esistenti come Visual Studio o Visual Studio Code. Viene installata un'estensione per Bridge to Kubernetes che consente di sviluppare direttamente in un cluster AKS.
 
-Questo processo di sviluppo e test integrato con Dev Spaces riduce la necessità di ambienti di test locali, come [minikube][minikube]. In alternativa, è possibile sviluppare e testare un'applicazione in un cluster servizio Azure Kubernetes. Questo cluster può essere protetto e isolato come indicato nella sezione precedente sull'uso degli spazi dei nomi per isolare un cluster in modo logico. Quando le app sono pronte per la distribuzione nell'ambiente di produzione, è possibile distribuirle in tutta sicurezza perché l'intera fase di sviluppo è già stata eseguita in un cluster servizio Azure Kubernetes reale.
+Questo processo di sviluppo e test integrato con Bridge per Kubernetes riduce la necessità di ambienti di test locali, ad esempio [minikube][minikube]. In alternativa, è possibile sviluppare e testare un'applicazione in un cluster servizio Azure Kubernetes. Questo cluster può essere protetto e isolato come indicato nella sezione precedente sull'uso degli spazi dei nomi per isolare un cluster in modo logico.
 
-Azure Dev Spaces è progettato per l'uso con applicazioni eseguite su Pod e nodi Linux.
+Bridge to Kubernetes è progettato per l'uso con applicazioni eseguite su Pod e nodi Linux.
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Usare l'estensione di Visual Studio Code per Kubernetes
 
@@ -106,7 +106,7 @@ Questo articolo sulle procedure consigliate ha illustrato come eseguire il clust
 
 Per implementare alcune di queste procedure consigliate, vedere gli articoli seguenti:
 
-* [Sviluppare con Dev Spaces][dev-spaces]
+* [Sviluppare con Bridge per Kubernetes][btk]
 * [Verificare la presenza di problemi con kube-advisor][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->
@@ -117,7 +117,7 @@ Per implementare alcune di queste procedure consigliate, vedere gli articoli seg
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: /visualstudio/containers/overview-local-process-kubernetes
+[btk]: /visualstudio/containers/overview-bridge-to-kubernetes
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

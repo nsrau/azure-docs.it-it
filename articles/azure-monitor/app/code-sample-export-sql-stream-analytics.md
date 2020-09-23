@@ -3,12 +3,12 @@ title: Esportare in SQL da Azure Application Insights | Documentazione Microsoft
 description: Eseguire l'esportazione continua dei dati Application Insights in SQL tramite l'analisi di flusso.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 9c559a61794b36ea1bc33abc14271151fbea9d4c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 90aab1794a9b412de2498edcc4d221f4bcc86968
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311229"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979451"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
 Questo articolo illustra come spostare i dati di telemetria da [applicazione Azure Insights][start] nel database SQL di Azure usando l' [esportazione continua][export] e l' [analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
@@ -133,21 +133,21 @@ In questo esempio vengono usati i dati delle visualizzazioni pagina. Per visuali
 ## <a name="create-an-azure-stream-analytics-instance"></a>Creare un'istanza di analisi di flusso di Azure
 Nel [portale di Azure](https://portal.azure.com/) selezionare il servizio Analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
 
-![Impostazioni di Analisi di flusso](./media/code-sample-export-sql-stream-analytics/SA001.png)
+![Screenshot mostra la pagina del processo di analisi di flusso con il pulsante Crea evidenziato.](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
 ![Nuovo processo di analisi di flusso](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 Quando viene creato il nuovo processo, selezionare **Vai alla risorsa**.
 
-![Impostazioni di Analisi di flusso](./media/code-sample-export-sql-stream-analytics/SA003.png)
+![Screenshot che mostra il messaggio distribuzione riuscita e vai al pulsante risorsa.](./media/code-sample-export-sql-stream-analytics/SA003.png)
 
 #### <a name="add-a-new-input"></a>Aggiungere un nuovo input
 
-![Impostazioni di Analisi di flusso](./media/code-sample-export-sql-stream-analytics/SA004.png)
+![Screenshot mostra la pagina input con il pulsante Aggiungi selezionato.](./media/code-sample-export-sql-stream-analytics/SA004.png)
 
 Impostarlo in modo da accettare l'input dal BLOB di esportazione continua:
 
-![Impostazioni di Analisi di flusso](./media/code-sample-export-sql-stream-analytics/SA0005.png)
+![Screenshot mostra la nuova finestra input con le opzioni di menu a discesa alias di input, origine e account di archiviazione selezionate.](./media/code-sample-export-sql-stream-analytics/SA0005.png)
 
 A questo punto è necessaria la chiave di accesso primaria dell'account di archiviazione, di cui si è preso nota in precedenza. Impostarla come chiave dell'account di archiviazione.
 

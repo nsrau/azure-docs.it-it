@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e230d3a4029d97a328280f581c126c7ec2d0bdb3
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460797"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979411"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Risolvere i problemi di Azure AD gestione dei diritti
 
@@ -75,7 +75,7 @@ Questo articolo descrive alcuni elementi da controllare per semplificare la riso
 
 ### <a name="view-a-requests-delivery-errors"></a>Visualizzare gli errori di recapito di una richiesta
 
-**Ruolo prerequisito:** amministratore globale, amministratore utenti, proprietario del catalogo o responsabile dei pacchetti di accesso
+**Ruolo prerequisiti:** Amministratore globale, amministratore utente, proprietario del catalogo, gestione pacchetti di accesso o gestione assegnazione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -103,7 +103,7 @@ Se si verifica un errore dopo l'attivazione di una richiesta di rielaborazione d
 
 - Se l'errore non è stato corretto durante la finestra di valutazione, è possibile che lo stato della richiesta **non** sia recapitato o **parzialmente recapitato**. È quindi possibile usare il pulsante **rielabora** . Sono necessari sette giorni per rielaborare la richiesta.
 
-**Ruolo prerequisito:** amministratore globale, amministratore utenti, proprietario del catalogo o responsabile dei pacchetti di accesso
+**Ruolo prerequisiti:** Amministratore globale, amministratore utente, proprietario del catalogo, gestione pacchetti di accesso o gestione assegnazione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -121,7 +121,7 @@ Se si verifica un errore dopo l'attivazione di una richiesta di rielaborazione d
 
 È possibile annullare una richiesta in sospeso che non è ancora stata recapitata o il cui recapito non è riuscito. Altrimenti il pulsante **Annulla** verrà disattivato.
 
-**Ruolo prerequisito:** amministratore globale, amministratore utenti, proprietario del catalogo o responsabile dei pacchetti di accesso
+**Ruolo prerequisiti:** Amministratore globale, amministratore utente, proprietario del catalogo, gestione pacchetti di accesso o gestione assegnazione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -141,7 +141,7 @@ Se si verifica un errore dopo l'attivazione di una richiesta di rielaborazione d
 
 * Quando si applicano più criteri, i criteri selezionati automaticamente o i criteri visualizzati per il richiedente sono basati sulla logica di priorità seguente:
 
-    | Priorità dei criteri | Scope |
+    | Priorità dei criteri | Ambito |
     | --- | --- |
     | P1 | Utenti e gruppi specifici nella directory o in organizzazioni connesse specifiche |
     | P2 | Tutti i membri della directory (esclusi i guest) |

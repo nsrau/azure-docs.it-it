@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 355f0127829b709d82127fb340381830793c93ff
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 18bc7ca9e108a35fd27f7b3155f186221a8caae3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783553"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980068"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Visualizzare, aggiungere e rimuovere assegnazioni per un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -36,7 +36,7 @@ Per utilizzare Azure AD gestione dei diritti e assegnare gli utenti per l'access
 
 ## <a name="view-who-has-an-assignment"></a>Visualizza chi ha un'assegnazione
 
-**Ruolo prerequisito:** amministratore globale, amministratore utenti, proprietario del catalogo o responsabile dei pacchetti di accesso
+**Ruolo prerequisiti:** Amministratore globale, amministratore utente, proprietario del catalogo, gestione pacchetti di accesso o gestione assegnazione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -64,7 +64,7 @@ Per utilizzare Azure AD gestione dei diritti e assegnare gli utenti per l'access
 
 In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifici a un pacchetto di accesso in modo che gli utenti non debbano eseguire il processo di richiesta del pacchetto di accesso. Per assegnare direttamente gli utenti, il pacchetto di accesso deve disporre di un criterio che consenta l'assegnazione diretta dell'amministratore.
 
-**Ruolo prerequisito:** amministratore globale, amministratore utenti, proprietario del catalogo o responsabile dei pacchetti di accesso
+**Ruolo prerequisiti:** Amministratore globale, amministratore utente, proprietario del catalogo, gestione pacchetti di accesso o gestione assegnazione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -94,7 +94,7 @@ In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifi
 
 ## <a name="remove-an-assignment"></a>Rimuovere un'assegnazione
 
-**Ruolo prerequisito:** amministratore globale, amministratore utenti, proprietario del catalogo o responsabile dei pacchetti di accesso
+**Ruolo prerequisiti:** Amministratore globale, amministratore utente, proprietario del catalogo, gestione pacchetti di accesso o gestione assegnazione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 

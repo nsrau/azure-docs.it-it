@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: c5d611ddffedc2f69cfc4f2b5600a158b0be9680
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186334"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987330"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Creare runbook grafici in Automazione di Azure
 
@@ -61,7 +61,7 @@ Selezionare un'attività nel canvas per configurarne le proprietà e i parametri
 
 Un set di parametri definisce i parametri obbligatori e facoltativi che accetteranno i valori per un cmdlet specifico. Tutti i cmdlet dispongono di almeno un set di parametri, altri ne hanno più di uno. Se un cmdlet ha più set di parametri, sarà necessario selezionare quello da usare prima di configurare i parametri. È possibile modificare il set di parametri usato da un'attività selezionando **Set di parametri** e scegliendo un altro set. In questo caso, i valori dei parametri già configurati vengono persi.
 
-Nell'esempio seguente il cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) dispone di tre set di parametri. L'esempio usa un set denominato **ListVirtualMachineInResourceGroupParamSet**, con un solo parametro facoltativo, per restituire tutte le macchine virtuali in un gruppo di risorse. L'esempio usa anche il set di parametri **GetVirtualMachineInResourceGroupParamSet** per specificare la macchina virtuale da restituire. Questo set ha due parametri obbligatori e un parametro facoltativo.
+Nell'esempio seguente il cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) dispone di tre set di parametri. L'esempio usa un set denominato **ListVirtualMachineInResourceGroupParamSet**, con un solo parametro facoltativo, per restituire tutte le macchine virtuali in un gruppo di risorse. L'esempio usa anche il set di parametri **GetVirtualMachineInResourceGroupParamSet** per specificare la macchina virtuale da restituire. Questo set ha due parametri obbligatori e un parametro facoltativo.
 
 ![Parameter Set](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -91,11 +91,11 @@ La funzionalità di ripetizione dei tentativi per un'attività consente di esegu
 
 Quando si abilita la ripetizione dei tentativi per un'attività, è possibile impostare un ritardo e una condizione. Il ritardo è il tempo, espresso in secondi o minuti, che il runbook attenderà prima di eseguire nuovamente l'attività. Se non si specifica un ritardo, l'attività viene eseguita nuovamente non appena viene completata.
 
-![Ritardo di ripetizione dei tentativi di attività](media/automation-graphical-authoring-intro/retry-delay.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-delay.png" alt-text="Screenshot delle impostazioni della funzionalità Abilita ripetizione tentativi.":::
 
 La condizione di ripetizione dei tentativi è un'espressione di PowerShell che viene valutata dopo ogni esecuzione dell'attività. Se l'espressione restituisce True, l'attività viene eseguita di nuovo. Se l'espressione restituisce False, l'attività non viene eseguita di nuovo e il runbook passa all'attività successiva.
 
-![Ritardo di ripetizione dei tentativi di attività](media/automation-graphical-authoring-intro/retry-condition.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Screenshot che mostra il nuovo tentativo fino a quando questa condizione è true Field ed esempi di espressioni di PowerShell che possono essere usate nella condizione di ripetizione dei tentativi.":::
 
 La condizione di ripetizione dei tentativi può usare una variabile denominata `RetryData` che consente di accedere alle informazioni sulla ripetizione dei tentativi dell'attività. Questa variabile include le proprietà elencate nella tabella seguente:
 
@@ -435,4 +435,4 @@ Pubblicare un runbook grafico aprendolo per la modifica e quindi facendo clic su
 * Per iniziare a usare i runbook grafici, vedere [Esercitazione: creare un runbook grafico](learn/automation-tutorial-runbook-graphical.md).
 * Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md).
 * Per informazioni su come eseguire l'autenticazione usando l'account RunAs di Automazione, vedere [Account RunAs](automation-security-overview.md#run-as-account).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

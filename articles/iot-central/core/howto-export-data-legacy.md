@@ -7,20 +7,20 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 1202e46f2ea12db62062ac50b8e83b51fe9e5ca0
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 5d8f3bc0978cc67edbaee29198c78b41d1d08a32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428127"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974415"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati (legacy)
 
 > [!Note]
 > Questo articolo descrive le funzionalità legacy di esportazione dei dati in IoT Central.
 >
-> - Per informazioni sulle nuove funzionalità di anteprima per l'esportazione dei dati, vedere [esportare i dati dell'area di destinazione nel cloud usando l'esportazione dei dati (anteprima)](./howto-export-data.md).
-> - Per informazioni sulle differenze tra le funzionalità di esportazione dei dati di anteprima e di esportazione dei dati legacy, vedere la [tabella di confronto](./howto-export-data.md#comparison-of-legacy-data-export-and-preview-data-export).
+> - Per informazioni sulle nuove funzionalità di anteprima per l'esportazione dei dati, vedere [esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati](./howto-export-data.md).
+> - Per informazioni sulle differenze tra le funzionalità di esportazione dei dati di anteprima e di esportazione dei dati legacy, vedere la [tabella di confronto](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
 Questo articolo descrive come usare la funzionalità di esportazione dei dati in Azure IoT Central. Questa funzionalità consente di esportare i dati in modo continuo in **Hub eventi**di Azure, nel **bus di servizio di Azure**o nelle istanze di **archiviazione BLOB di Azure** . L'esportazione dei dati usa il formato JSON e può includere dati di telemetria, informazioni sul dispositivo e informazioni sul modello di dispositivo. Usare i dati esportati per:
 

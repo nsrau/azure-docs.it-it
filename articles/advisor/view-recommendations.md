@@ -3,12 +3,12 @@ title: Visualizza Azure Advisor raccomandazioni più importanti
 description: Visualizzare e filtrare Azure Advisor consigli per ridurre il rumore.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 10d7b16864f8e449dc51e870c5ff9f20d8c0dc87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43bdaba7d774bba8857a6eb3ef296d7ab8e1c264
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75422365"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986862"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Visualizza Azure Advisor raccomandazioni più importanti
 
@@ -34,7 +34,7 @@ Per apportare modifiche all'portale di Azure:
 
 Le impostazioni di configurazione rimangono attive finché non vengono modificate. Se si desidera limitare la visualizzazione delle indicazioni per una singola visualizzazione, è possibile utilizzare gli elenchi a discesa disponibili nella parte superiore del pannello Advisor. Dai pannelli Panoramica, disponibilità elevata, sicurezza, prestazioni, costi e tutti i pannelli di raccomandazione, è possibile selezionare le sottoscrizioni, i tipi di risorse e lo stato di raccomandazione che si desidera visualizzare.
 
-   ![Menu filtro Advisor](./media/view-recommendations/filtering.png)
+   :::image type="content" source="./media/view-recommendations/filtering.png" alt-text="Screenshot del Azure Advisor che mostra le opzioni di filtro.":::
 
 ## <a name="dismissing-and-postponing-recommendations"></a>Suggerimenti per l'immissione e il rinvio
 
@@ -47,7 +47,7 @@ Azure Advisor consente di ignorare o posticipare le raccomandazioni su una singo
 1. Selezionare una raccomandazione nell'elenco di raccomandazioni
 1. Selezionare posticipa o Ignora per l'indicazione che si vuole posticipare o ignorare
 
-     ![Menu filtro Advisor](./media/view-recommendations/postpone-dismiss.png)
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Screenshot della finestra Use Managed Disks che mostra la colonna Select e rimandare e ignorare le azioni per una singola raccomandazione evidenziata.":::
 
 ### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Posticipare o ignorare più raccomandazioni nell'portale di Azure
 
@@ -57,7 +57,7 @@ Azure Advisor consente di ignorare o posticipare le raccomandazioni su una singo
 1. Selezionare la casella di controllo a sinistra della riga per tutte le risorse che si desidera posticipare o ignorare la raccomandazione.
 1. Selezionare **posticipa** o **Ignora** nella parte superiore sinistra della tabella.
 
-     ![Menu filtro Advisor](./media/view-recommendations/postpone-dismiss-multiple.png)
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="Screenshot della finestra USA Managed Disks che mostra le azioni seleziona colonna e rimanda e Ignora nella parte superiore sinistra della tabella evidenziata.":::
 
 > [!NOTE]
 > È necessario disporre dell'autorizzazione Collaboratore o proprietario per ignorare o posticipare un suggerimento. Altre informazioni sulle autorizzazioni sono disponibili in Azure Advisor.
@@ -73,7 +73,7 @@ Azure Advisor consente di ignorare o posticipare le raccomandazioni su una singo
 
 1. Modificare il filtro nel pannello panoramica su **posticipato**. Advisor Visualizza quindi le raccomandazioni rimandate o non rilasciate.
 
-    ![Menu filtro Advisor](./media/view-recommendations/activate-postponed.png)
+    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="Screenshot della finestra di Azure Advisor che mostra il menu a discesa posticipato selezionato.":::
 
 1. Selezionare una categoria per visualizzare le raccomandazioni **rimandate** e non **rilasciate** .
 
@@ -81,7 +81,7 @@ Azure Advisor consente di ignorare o posticipare le raccomandazioni su una singo
 
 1. Fare clic su **attiva** alla fine della riga. Una volta fatto clic, la raccomandazione è attiva per la risorsa e quindi è stata rimossa da questa tabella. La raccomandazione è ora visibile nella scheda **attiva** .
  
-     ![Menu filtro Advisor](./media/view-recommendations/activate-postponed-2.png)
+     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="Screenshot della finestra Abilita eliminazione temporanea che mostra la scheda rimandata & scartata con l'azione attiva evidenziata.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
