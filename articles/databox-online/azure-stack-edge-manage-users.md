@@ -1,6 +1,6 @@
 ---
-title: Gestione degli utenti di Azure Stack Edge | Microsoft Docs
-description: Viene descritto come usare la portale di Azure per gestire gli utenti sul Azure Stack Edge.
+title: Gestione utenti di Azure Stack Edge Pro | Microsoft Docs
+description: Viene descritto come usare la portale di Azure per gestire gli utenti nel Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 1012ce417fb4952878dada29a9080c70954ed21f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fb82e95d9d7dcfdf59bd05f91beff8e1184955e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339638"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904388"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-azure-stack-edge"></a>Usare il portale di Azure per gestire gli utenti in Azure Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-azure-stack-edge-pro"></a>Usare il portale di Azure per gestire gli utenti in Azure Azure Stack Edge Pro
 
-Questo articolo descrive come gestire gli utenti in Azure Stack Edge. È possibile gestire il Azure Stack Edge tramite l'portale di Azure o tramite l'interfaccia utente Web locale. Usare il portale di Azure per aggiungere, modificare o eliminare utenti.
+Questo articolo descrive come gestire gli utenti in Azure Stack Edge Pro. È possibile gestire il Azure Stack Edge Pro tramite la portale di Azure o tramite l'interfaccia utente Web locale. Usare il portale di Azure per aggiungere, modificare o eliminare utenti.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 

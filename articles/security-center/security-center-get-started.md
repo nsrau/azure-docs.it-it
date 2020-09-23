@@ -1,6 +1,6 @@
 ---
-title: Passare al piano Standard - Centro sicurezza di Azure
-description: Questa Guida introduttiva illustra come eseguire l'aggiornamento al piano tariffario Standard del Centro sicurezza per aumentare la sicurezza.
+title: Eseguire l'aggiornamento ad Azure Defender - Centro sicurezza di Azure
+description: Questo argomento di avvio rapido illustra come eseguire l'aggiornamento ad Azure Defender del Centro sicurezza per aumentare la sicurezza.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,104 +14,91 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 550c9ff57b9c558f2f175165c7f06ead45991be9
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: e51d0bfb79eab4db9bb571cc0f4ee70ada352d92
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226014"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895779"
 ---
-# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guida di avvio rapido: Caricamento della sottoscrizione di Azure al livello Standard del Centro di sicurezza
-Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione dalle minacce per carichi di lavoro cloud ibridi. Mentre il livello gratuito offre sicurezza limitata delle risorse di Azure, il livello Standard estende le funzionalità in locale e in altri ambienti cloud. Il livello Standard del Centro sicurezza consente di individuare e risolvere le vulnerabilità di sicurezza, di applicare i controlli su applicazioni e accessi per bloccare le attività dannose, di rilevare le minacce usando funzioni di analisi e di intelligenza e di rispondere rapidamente in caso di attacco. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+# <a name="quickstart-setting-up-azure-security-center"></a>Avvio rapido: Configurazione del Centro sicurezza di Azure
 
-Questo articolo descrive come eseguire l'aggiornamento al livello Standard per aumentare la sicurezza e come installare l'agente di Log Analytics nelle macchine virtuali per monitorare le vulnerabilità di sicurezza e le minacce.
+Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione dalle minacce per carichi di lavoro cloud ibridi. Mentre le funzionalità gratuite offrono sicurezza limitata solo per le risorse di Azure, l'abilitazione di Azure Defender estende queste funzionalità all'ambiente locale e ad altri ambienti cloud. Azure Defender consente di individuare e risolvere le vulnerabilità di sicurezza, di applicare i controlli su applicazioni e accessi per bloccare le attività dannose, di rilevare le minacce usando funzioni di analisi e di intelligenza e di rispondere rapidamente in caso di attacco. È possibile provare Azure Defender gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+
+Questo articolo descrive come eseguire l'aggiornamento ad Azure Defender per aumentare la sicurezza e come installare l'agente di Log Analytics nei computer per monitorare le vulnerabilità della sicurezza e le minacce.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
-Per aggiornare una sottoscrizione al livello Standard, è necessario avere il ruolo di proprietario della sottoscrizione, collaboratore alla sottoscrizione o amministratore della protezione.
+Per abilitare Azure Defender in una sottoscrizione, è necessario avere il ruolo di proprietario della sottoscrizione, collaboratore della sottoscrizione o amministratore della sicurezza.
 
-## <a name="enable-your-azure-subscription"></a>Abilitare la sottoscrizione di Azure
+
+## <a name="open-security-center-for-the-first-time"></a>Aprire il Centro sicurezza per la prima volta
 
 1. Accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/).
 
-1. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**. Viene visualizzato **Centro sicurezza - Panoramica**.
+1. Nel menu del portale selezionare **Centro sicurezza**. 
 
-   ![Panoramica del Centro sicurezza di Azure][2]
+    Si aprirà la pagina di panoramica del Centro sicurezza.
 
-**Centro di sicurezza - Panoramica** offre una visualizzazione unificata del comportamento di sicurezza dei carichi di lavoro cloud ibridi, consentendo all'utente di individuarne e valutarne la sicurezza e di identificare e ridurre i rischi. Il Centro sicurezza abilita automaticamente una sottoscrizione Azure non caricata in precedenza dall'utente o da un altro utente della sottoscrizione al livello gratuito.
+    :::image type="content" source="./media/security-center-get-started/overview.png" alt-text="Dashboard di panoramica del Centro sicurezza" lightbox="./media/security-center-get-started/overview.png":::
 
-Per visualizzare e filtrare l'elenco delle sottoscrizioni, fare clic sulla voce di menu **Sottoscrizioni**. Nel Centro sicurezza verrà iniziata la valutazione di sicurezza di tali sottoscrizioni per identificare le vulnerabilità. Per personalizzare i tipi delle valutazioni, è possibile modificare i criteri di sicurezza. Un criterio di sicurezza definisce la configurazione specifica dei carichi di lavoro e contribuisce ad assicurare la conformità ai requisiti aziendali o normativi per la sicurezza.
+**Centro di sicurezza - Panoramica** offre una visualizzazione unificata del comportamento di sicurezza dei carichi di lavoro cloud ibridi, consentendo all'utente di individuarne e valutarne la sicurezza e di identificare e ridurre i rischi. Il Centro sicurezza abilita automaticamente, senza alcun costo, una sottoscrizione di Azure di cui non sia stato eseguito l'onboarding in precedenza da uno degli utenti della sottoscrizione.
+
+Per visualizzare e filtrare l'elenco delle sottoscrizioni, selezionare la voce di menu **Sottoscrizioni**. Il Centro sicurezza modificherà la visualizzazione in modo da riflettere il comportamento di sicurezza delle sottoscrizioni selezionate. 
 
 Dopo pochi minuti dal primo avvio del Centro di sicurezza, è possibile visualizzare gli elementi seguenti:
 
-- **Raccomandazioni** per individuare i modi per migliorare la sicurezza delle sottoscrizioni di Azure. Fare clic sul riquadro **Raccomandazioni** per visualizzare un elenco di consigli con priorità.
-- Una serie di risorse in **Risorse di calcolo e app**, **Rete**, **Sicurezza dei dati** e **Identità e accesso** in corso di valutazione presso il Centro sicurezza di Azure con le condizioni di sicurezza di ognuna.
+- **Suggerimenti** per individuare i modi per migliorare la sicurezza delle risorse connesse.
+- Un inventario delle risorse attualmente valutate dal Centro sicurezza, con il comportamento di sicurezza di ognuna.
 
-Per sfruttare al meglio il Centro sicurezza, è necessario completare i passaggi seguenti per eseguire l'aggiornamento al livello Standard e installare l'agente di Log Analytics.
+Per sfruttare al meglio il Centro sicurezza, è necessario completare i passaggi seguenti per abilitare Azure Defender e installare l'agente di Log Analytics.
 
 
-## <a name="upgrade-to-the-standard-tier"></a>Eseguire l'aggiornamento al livello Standard
+## <a name="enable-azure-defender"></a>Abilitare Azure Defender
 
-Ai fini della Guida di avvio rapido e delle esercitazioni per il Centro di sicurezza è necessario eseguire l'aggiornamento al livello Standard. È disponibile una versione di valutazione gratuita del livello Standard del Centro sicurezza. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). 
+Ai fini delle guide di avvio rapido e delle esercitazioni sul Centro sicurezza, è necessario abilitare Azure Defender. È disponibile una versione di valutazione gratuita valida 30 giorni. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). 
 
 1. Nella barra laterale del Centro sicurezza selezionare **Attività iniziali**.
- 
-   ![Introduzione](./media/security-center-get-started/get-started-upgrade-tab.png)
+
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Scheda Aggiorna della pagina introduttiva"::: 
 
     La scheda **Aggiorna** contiene un elenco di sottoscrizioni e aree di lavoro idonee per l'onboarding.
 
-1. Nell'elenco **Selezionare le aree di lavoro in cui abilitare il livello Standard** selezionare le aree di lavoro da aggiornare.
+1. Nell'elenco **Selezionare le aree di lavoro in cui abilitare Azure Defender** selezionare le aree di lavoro da aggiornare.
+   - Se si selezionano sottoscrizioni e aree di lavoro non idonee per la versione di valutazione, con il passaggio successivo verranno aggiornate e inizieranno a essere applicati gli addebiti.
+   - Se si seleziona un'area di lavoro idonea per una versione di valutazione gratuita, il passaggio successivo inizierà una versione di valutazione.
+1. Selezionare **Aggiorna** per abilitare Azure Defender.
 
+## <a name="enable-automatic-data-collection"></a>Abilitare la raccolta dati automatica
+Il Centro sicurezza raccoglie i dati dai computer per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite l'agente di Log Analytics, che legge diverse configurazioni correlate alla sicurezza oltre ai log eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. Per impostazione predefinita, il Centro sicurezza crea una nuova area di lavoro per l'utente.
 
-    > [!TIP]
-    > Se si seleziona un'area di lavoro idonea per una versione di valutazione gratuita, il passaggio successivo inizierà una versione di valutazione. Se le aree di lavoro non sono idonee per la versione di valutazione, verranno aggiornate e verranno applicati addebiti.
-
-1. Selezionare **Aggiorna** per aggiornare le aree di lavoro selezionate al livello Standard.
-
-
-## <a name="automate-data-collection"></a>Automatizzare la raccolta dei dati
-Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei computer senza Azure per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite l'agente di Log Analytics, che legge diverse configurazioni correlate alla sicurezza oltre ai log eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. Per impostazione predefinita, il Centro sicurezza crea una nuova area di lavoro per l'utente.
-
-Dopo aver abilitato il provisioning automatico, il Centro sicurezza installa l'agente di Log Analytics in tutte le macchine virtuali di Azure supportate e nelle nuove macchine create. È consigliabile abilitare il provisioning automatico.
+Se è abilitato il provisioning automatico, il Centro sicurezza installa l'agente di Log Analytics in tutti i computer supportati e in quelli nuovi che vengono creati. È consigliabile abilitare il provisioning automatico.
 
 Per abilitare il provisioning automatico dell'agente di Log Analytics:
 
-1. Scegliere **Prezzi e impostazioni** dal menu principale del Centro sicurezza.
-1. Nella riga della sottoscrizione fare clic sulla sottoscrizione di cui si vogliono modificare le impostazioni.
-1. Nella scheda **Raccolta dati**, impostare **Provisioning automatico** su **Sì**.
+1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.
+1. Selezionare la sottoscrizione pertinente.
+1. Nella pagina **Raccolta dati** impostare **Provisioning automatico** su **Sì**.
 1. Selezionare **Salva**.
----
-  ![Abilitare il provisioning automatico][6]
 
-Grazie a queste nuove informazioni sulle macchine virtuali di Azure, il Centro sicurezza può offrire indicazioni aggiuntive correlate allo stato di aggiornamento del sistema, alle configurazioni di sicurezza del sistema operativo e alla protezione di endpoint, nonché generare avvisi di sicurezza aggiuntivi.
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Abilitare il provisioning automatico dell'agente di Log Analytics":::
 
-  ![Consigli][8]
+>[!TIP]
+> Se è necessario eseguire il provisioning di un'area di lavoro, l'installazione dell'agente potrebbe richiedere fino a 25 minuti.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
-Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide introduttive e le esercitazioni successive, continuare a eseguire il livello Standard e tenere abilitato il provisioning automatico. Se non si intende proseguire oppure si vuole tornare al livello gratuito:
-
-1. Tornare al menu principale del Centro sicurezza e selezionare **Prezzi e impostazioni**.
-2. Fare clic sulla sottoscrizione per cui si vuole tornare al livello gratuito.
-3. Selezionare **Piano tariffario** e quindi **Gratuito** per modificare il livello della sottoscrizione da Standard a Gratuito.
-5. Selezionare **Salva**.
-
-Se si vuole disabilitare il provisioning automatico:
-
-1. Tornare al menu principale del Centro sicurezza e selezionare **Prezzi e impostazioni**.
-2. Selezionare la sottoscrizione per cui si vuole disabilitare il provisioning automatico.
-3. Nella scheda **Raccolta dati**, impostare **Provisioning automatico** su **No**.
-4. Selezionare **Salva**.
+Una volta distribuito l'agente nei computer, il Centro sicurezza può offrire altri suggerimenti correlati allo stato di aggiornamento del sistema, alle configurazioni di sicurezza del sistema operativo e alla protezione di endpoint, nonché generare avvisi di sicurezza aggiuntivi.
 
 >[!NOTE]
-> La disabilitazione del provisioning automatico non implica la rimozione dell'agente di Log Analytics dalle macchine virtuali di Azure in cui è stato eseguito il provisioning dell'agente. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.
->
+> Se si imposta il provisioning automatico su **No**, l'agente di Log Analytics non viene rimosso dalle macchine virtuali di Azure in cui ne è già stato effettuato il provisioning. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa guida di avvio rapido è stato eseguito l'aggiornamento al livello Standard ed è stato effettuato il provisioning dell'agente di Log Analytics per la gestione unificata della sicurezza e della protezione dalle minacce nei carichi di lavoro cloud ibridi. Per altre informazioni su come usare il Centro sicurezza, continuare con le indicazioni presenti nella Guida di avvio rapido per l'onboarding di computer Windows in locale o in altri ambienti cloud.
+In questo argomento di avvio rapido è stato abilitato Azure Defender ed è stato effettuato il provisioning dell'agente di Log Analytics per la gestione unificata della sicurezza e della protezione dalle minacce nei vari carichi di lavoro cloud ibridi. Per altre informazioni su come usare il Centro sicurezza, continuare con le indicazioni presenti nella Guida di avvio rapido per l'onboarding di computer Windows in locale o in altri ambienti cloud.
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Onboarding di computer Windows in Centro sicurezza di Azure](quick-onboard-windows-computer.md)
+> [Avvio rapido: Eseguire l'onboarding di computer non di Azure](quickstart-onboard-machines.md)
 
 Si vuole ottimizzare e risparmiare sulla spesa per il cloud?
 

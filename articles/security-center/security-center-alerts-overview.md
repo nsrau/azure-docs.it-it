@@ -10,18 +10,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b2d5731ea9e8f2fb13d234fc9d951e221c0ab3e5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278140"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905477"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Avvisi di sicurezza nel Centro sicurezza di Azure
 
 Nel Centro sicurezza di Azure sono disponibili diversi avvisi per molti tipi di risorse diversi. Il Centro sicurezza genera avvisi per le risorse distribuite in Azure e anche per le risorse distribuite in ambienti locali e cloud ibridi.
 
-Gli avvisi di sicurezza vengono attivati da rilevamenti avanzati e sono disponibili solo nel livello standard del Centro sicurezza di Azure. È disponibile una versione di valutazione gratuita. È possibile eseguire l'aggiornamento dalla pagina dei **prezzi & impostazioni** . Altre informazioni sui [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
+Gli avvisi di sicurezza vengono attivati da rilevamenti avanzati e sono disponibili solo con Azure Defender. È disponibile una versione di valutazione gratuita. È possibile eseguire l'aggiornamento dalla pagina dei **prezzi & impostazioni** . Altre informazioni sui [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="respond-to-todays-threats"></a>Rispondi alle minacce <a name="respond-threats"> </a> attuali
 
@@ -45,7 +45,7 @@ Con gli eventi imprevisti il Centro sicurezza offre un'unica visualizzazione di 
 
 ## <a name="how-does-security-center-detect-threats"></a>Metodo di rilevamento delle minacce del Centro sicurezza <a name="detect-threats"> </a>
 
-I ricercatori Microsoft nell'ambito della sicurezza sono costantemente impegnati nella ricerca delle minacce. Hanno accesso a un ampio set di dati di telemetria acquisiti grazie alla presenza globale di Microsoft nei sistemi cloud e locali. Questa raccolta di set di dati di vasta portata e diversificata consente di individuare nuovi modelli e tendenze di attacco nei propri prodotti consumer e aziendali locali, nonché nei servizi online. Di conseguenza, il Centro sicurezza può aggiornare rapidamente gli algoritmi di rilevamento a fronte del rilascio di exploit nuovi e sofisticati da parte di utenti malintenzionati. Questo approccio consente di tenere il passo con un ambiente caratterizzato da minacce in rapida evoluzione.
+I ricercatori Microsoft nell'ambito della sicurezza sono costantemente impegnati nella ricerca delle minacce. A causa della nostra presenza globale nel cloud e in locale, abbiamo accesso a un ampio set di dati di telemetria. La vasta gamma di set di set di impostazioni consente di individuare nuovi modelli di attacco e tendenze nei prodotti aziendali e consumer locali, oltre ai Servizi online. Di conseguenza, il Centro sicurezza può aggiornare rapidamente gli algoritmi di rilevamento a fronte del rilascio di exploit nuovi e sofisticati da parte di utenti malintenzionati. Questo approccio consente di tenere il passo con un ambiente caratterizzato da minacce in rapida evoluzione.
 
 Per rilevare minacce reali e ridurre i falsi positivi, il Centro sicurezza raccoglie, analizza e integra i dati di log generati dalle risorse di Azure e dalla rete. Funziona anche con soluzioni partner connesse, ad esempio soluzioni di protezione endpoint e firewall. Per identificare le minacce, il Centro sicurezza analizza queste informazioni, spesso correlando quelle raccolte da più origini.
 
@@ -90,6 +90,5 @@ Questi sforzi combinati convergono in rilevamenti nuovi e migliorati, da cui è 
 
 In questo articolo sono stati descritti i diversi tipi di avvisi disponibili nel Centro sicurezza. Per altre informazioni, vedere:
 
-* [Protezione dalle minacce nel Centro sicurezza di Azure](threat-protection.md): per una breve descrizione delle origini degli avvisi di sicurezza visualizzati dal Centro sicurezza di Azure 
-* **Avvisi di sicurezza nel log attività di Azure**: oltre a essere disponibili nel portale di Azure o a livello di codice, gli avvisi di sicurezza e gli eventi imprevisti vengono controllati come eventi nel [log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Per altre informazioni sullo schema di eventi, vedere [Avvisi di sicurezza nel log attività di Azure](https://go.microsoft.com/fwlink/?linkid=2114113)
+- **Avvisi di sicurezza nel log attività di Azure**: oltre a essere disponibili nel portale di Azure o a livello di codice, gli avvisi di sicurezza e gli eventi imprevisti vengono controllati come eventi nel [log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Per altre informazioni sullo schema di eventi, vedere [Avvisi di sicurezza nel log attività di Azure](https://go.microsoft.com/fwlink/?linkid=2114113)
 

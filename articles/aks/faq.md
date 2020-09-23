@@ -3,12 +3,12 @@ title: Domande frequenti relative al servizio Azure Kubernetes
 description: Questo articolo include le risposte ad alcune domande frequenti sul servizio Azure Kubernetes.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7a56756855319ee72bd5b3dc60ad1ae440afd7fe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4150f850263aed7b8aa4317028386dc285f06ade
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927148"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905329"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -175,6 +175,10 @@ Verificare che l'entità servizio non sia scaduta.  Vedere [Entità servizio del
 
 Verificare che l'entità servizio non sia scaduta.  Vedere [Entità servizio del servizio Azure Kubernetes](./kubernetes-service-principal.md) e [Credenziali per l'aggiornamento del servizio Azure Kubernetes](./update-credentials.md).
 
+## <a name="can-i-scale-my-aks-cluster-to-zero"></a>È possibile ridimensionare il cluster AKS a zero?
+È possibile [arrestare completamente un cluster AKS in esecuzione](start-stop-cluster.md), risparmiando sui rispettivi costi di calcolo. Inoltre, è anche possibile scegliere di [ridimensionare o ridimensionare automaticamente tutti i `User` pool di nodi o specifici](scale-cluster.md#scale-user-node-pools-to-0) in 0, mantenendo solo la configurazione del cluster necessaria.
+Non è possibile ridimensionare direttamente i [pool di nodi di sistema](use-system-pools.md) a 0.
+
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>È possibile usare le API del set di scalabilità di macchine virtuali per il ridimensionamento manuale?
 
 No, le operazioni di ridimensionamento con le API del set di scalabilità di macchine virtuali non sono supportate. Usare le API del servizio Azure Kubernetes (`az aks scale`).
@@ -193,7 +197,7 @@ No. Il servizio Azure Kubernetes è un servizio gestito e la manipolazione delle
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS archivia i dati dei clienti al di fuori dell'area del cluster?
 
-La funzionalità che consente di archiviare i dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sudorientale (Singapore) del Asia Pacifico Geo. Per tutte le altre aree, i dati dei clienti vengono archiviati in geografico.
+La funzionalità che consente di archiviare i dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sudorientale (Singapore) del Asia Pacifico Geo. Per tutte le altre aree i dati dei clienti vengono archiviati in Geo.
 
 <!-- LINKS - internal -->
 

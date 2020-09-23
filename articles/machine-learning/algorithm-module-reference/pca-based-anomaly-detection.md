@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 0498823e1b730db6425d255b6de4b826dd05a6a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749493"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898467"
 ---
 # <a name="pca-based-anomaly-detection-module"></a>Modulo di rilevamento delle anomalie basato su PCA
 
-Questo articolo descrive come usare il modulo di rilevamento delle anomalie basato su PCA in Azure Machine Learning Designer (anteprima) per creare un modello di rilevamento delle anomalie basato sull'analisi dei componenti principali (PCA).
+Questo articolo descrive come usare il modulo di rilevamento delle anomalie basato su PCA in Azure Machine Learning Designer, per creare un modello di rilevamento delle anomalie basato sull'analisi dei componenti principali (PCA).
 
 Questo modulo consente di creare un modello in scenari in cui è facile ottenere i dati di training da una classe, ad esempio transazioni valide, ma è difficile ottenere campioni sufficienti delle anomalie di destinazione. 
 
@@ -109,4 +109,4 @@ Per ogni nuovo input, il rilevatore di anomalie calcola prima di tutto la proiez
 
 Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
 
-Vedere [le eccezioni e i codici di errore per la finestra di progettazione (anteprima)](designer-error-codes.md) per un elenco di errori specifici dei moduli della finestra di progettazione.
+Vedere [le eccezioni e i codici di errore per la finestra di progettazione](designer-error-codes.md) per un elenco di errori specifici dei moduli della finestra di progettazione.

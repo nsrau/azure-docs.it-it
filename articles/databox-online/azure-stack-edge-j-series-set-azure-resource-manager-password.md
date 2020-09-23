@@ -1,6 +1,6 @@
 ---
-title: Impostare Azure Resource Manager password sul dispositivo GPU Azure Stack Edge
-description: Viene descritto come connettersi alla Azure Resource Manager in esecuzione sulla GPU di Azure Stack Edge utilizzando Azure PowerShell.
+title: Impostare Azure Resource Manager password sul dispositivo GPU Pro Azure Stack Edge
+description: Viene descritto come connettersi alla Azure Resource Manager in esecuzione sulla GPU di Azure Stack Edge Pro usando Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 6a59510b342f7ebd3969a4bb4fcfd75fffd04804
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254152"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904482"
 ---
-# <a name="set-azure-resource-manager-password-on-azure-stack-edge-gpu-device"></a>Impostare la password Azure Resource Manager nel dispositivo GPU Azure Stack Edge
+# <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Impostare la password di Azure Resource Manager nel dispositivo GPU Pro Azure Stack Edge
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -122,7 +122,7 @@ La procedura per impostare la password può variare a seconda che si usi il port
     $pass = ConvertTo-SecureString $password -AsPlainText -Force
     $key = ConvertTo-SecureString $cik -AsPlainText -Force
     ```
-    Usare le stringhe sicure generate sopra come parametri nel cmdlet Set-AzDataBoxEdgeUser per reimpostare la password. Usare lo stesso gruppo di risorse usato durante la creazione della risorsa Azure Stack Edge/Data Box Gateway.
+    Usare le stringhe sicure generate sopra come parametri nel cmdlet Set-AzDataBoxEdgeUser per reimpostare la password. Usare lo stesso gruppo di risorse usato durante la creazione della risorsa Pro/Data Box Gateway di Azure Stack Edge.
 
     ```azurepowershell
     Set-AzDataBoxEdgeUser -ResourceGroupName $resourceGroup -DeviceName $devicename -Name EdgeARMUser  -Password $pass -EncryptionKey $key
@@ -148,4 +148,4 @@ Usare la nuova password per connettersi a Azure Resource Manager.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Connetti a Azure Resource Manager](azure-stack-edge-j-series-connect-resource-manager.md)
+[Connettersi ad Azure Resource Manager](azure-stack-edge-j-series-connect-resource-manager.md)

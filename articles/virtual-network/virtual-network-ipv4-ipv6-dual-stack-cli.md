@@ -1,7 +1,7 @@
 ---
 title: Distribuire l'applicazione IPv6 dual stack-Load Balancer Basic-CLI
 titlesuffix: Azure Virtual Network
-description: Questo articolo illustra come distribuire un'applicazione IPv6 dual stack in rete virtuale di Azure usando l'interfaccia della riga di comando di Azure.
+description: Informazioni su come distribuire un'applicazione dual stack (IPv4 + IPv6) con Load Balancer di base usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 885d36786c804de069a9d1e6ebf031e9ffc3d32a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2746397e2aa97f3c8c3b98d1c7be65b083dcc425
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086488"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983827"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>Distribuire un'applicazione IPv6 dual stack usando l'interfaccia della riga di comando di base Load Balancer
 

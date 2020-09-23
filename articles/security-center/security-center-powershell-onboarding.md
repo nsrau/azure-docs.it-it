@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: e6dfc0eb704b0b35ab4e181076d8f97fd3e8c9d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e367851c4d709acbc0eb94a47d7e20d4d3c1cc46
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080751"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904812"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizzare l'onboarding del Centro sicurezza di Azure con PowerShell
 
@@ -29,9 +29,9 @@ L'onboarding del Centro sicurezza di Azure tramite PowerShell consente di automa
 
 Questo articolo fornisce uno script di PowerShell di esempio che può essere modificato e applicato all'ambiente in uso per implementare il Centro sicurezza in tutte le sottoscrizioni. 
 
-In questo esempio verrà abilitato il Centro sicurezza in una sottoscrizione con ID: d07c0080-170C-4c24-861d-9c817742786c e verranno applicate le impostazioni consigliate che garantiscono un elevato livello di protezione, implementando il livello standard del Centro sicurezza, che offre funzionalità avanzate di protezione dalle minacce e rilevamento:
+In questo esempio verrà abilitato il Centro sicurezza in una sottoscrizione con ID: d07c0080-170C-4c24-861d-9c817742786c e verranno applicate le impostazioni consigliate che garantiscono un elevato livello di protezione, abilitando Azure Defender, che offre funzionalità avanzate di protezione dalle minacce e rilevamento:
 
-1. Impostare il [livello di protezione standard del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Abilitare [Azure Defender](azure-defender.md). 
  
 2. Impostare l'area di lavoro Log Analytics a cui l'agente di Log Analytics invierà i dati raccolti nelle VM associate alla sottoscrizione, in questo esempio un'area di lavoro definita dall'utente esistente (area di lavoro).
 
@@ -61,7 +61,7 @@ Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa pr
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-1. (Facoltativo) Impostare il livello di copertura (piano tariffario) delle sottoscrizioni (se non è definito, il piano tariffario è impostato su Gratuito):
+1. Facoltativo: impostare il livello di code coverage (Azure Defender on/off) delle sottoscrizioni. Se non è definito, Defender è disattivato:
 
     ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 

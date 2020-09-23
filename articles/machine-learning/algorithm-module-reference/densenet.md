@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: db0e2f90ee45d4e1c0173cbc037084793a66e149
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69c18c24ae9a8eb4c1fd54c1f8530e126a40b004
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449985"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898525"
 ---
 # <a name="densenet"></a>DenseNet
 
-Questo articolo descrive come usare il modulo **DenseNet** in Azure Machine Learning Designer (Preview) per creare un modello di classificazione delle immagini usando l'algoritmo DenseNet.  
+Questo articolo descrive come usare il modulo **DenseNet** in Azure Machine Learning Designer per creare un modello di classificazione delle immagini usando l'algoritmo DenseNet.  
 
 Questo algoritmo di classificazione è un metodo di apprendimento supervisionato e richiede un set di dati con etichetta. Per altre istruzioni su come ottenere una directory di immagini con etichetta, vedere il modulo [Convert to Image directory](convert-to-image-directory.md) . Per eseguire il training del modello, è possibile fornire il modello e la directory di immagini con etichetta come input per il [training del modello Pytorch](train-pytorch-model.md). Il modello con Training può quindi essere usato per stimare i valori per i nuovi esempi di input usando il [modello di immagine del Punteggio](score-image-model.md).
 
@@ -51,13 +51,13 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 
 | Nome             | Range | Type    | Predefinito     | Descrizione                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
-| Nome modello       | Qualsiasi   | Mode    | densenet201 | Nome di una determinata struttura densenet     |
+| Nome modello       | Qualsiasi   | Modalità    | densenet201 | Nome di una determinata struttura densenet     |
 | Training preliminare       | Qualsiasi   | Boolean | True        | Indica se utilizzare un modello pre-sottoposto a training in imagent |
-| Efficienza della memoria | Qualsiasi   | Boolean | False       | Indica se utilizzare il checkpoint, che è molto più efficiente della memoria ma più lento |
+| Efficienza della memoria | Qualsiasi   | Boolean | Falso       | Indica se utilizzare il checkpoint, che è molto più efficiente della memoria ma più lento |
 
 ###  <a name="output"></a>Output  
 
-| Nome            | Type                    | Description                              |
+| Nome            | Tipo                    | Descrizione                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | Untrained model | UntrainedModelDirectory | Modello densenet non sottoposto a training che può essere connesso al training del modello Pytorch. |
 

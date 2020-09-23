@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 95edcee32c1917d23e4808e805f947d18d2fa7f4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207363"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986242"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
 
 I gateway di rete virtuale forniscono la connettività tra le risorse locali e altre reti virtuali in Azure. Il monitoraggio di questi gateway e delle rispettive connessioni è essenziale per assicurare che le comunicazioni non siano interrotte. Network Watcher consente di risolvere i problemi dei gateway e delle connessioni. Questa abilità può essere chiamata dal portale, da PowerShell, dall'interfaccia della riga di comando di Azure o dall'API REST. Quando viene chiamato, Network Watcher esegue la diagnostica dell'integrità del gateway o della connessione e restituisce i risultati appropriati. La richiesta è una transazione con esecuzione prolungata. I risultati vengono restituiti dopo aver completato la diagnosi.
 
-![portal][2]
+![Screenshot mostra Network Watcher V P N Diagnostics.][2]
 
 ## <a name="results"></a>Risultati
 
@@ -60,7 +60,7 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 | ConnectionsNotConnected | Le connessioni non sono connesse. Questo errore è solo un avviso.| Sì|
 | GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Sì |
 
-### <a name="connection"></a>Connessione
+### <a name="connection"></a>Connessioni
 
 | Tipo di errore | Motivo | Log|
 |---|---|---|
@@ -73,7 +73,7 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 | ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected" |No|
 | ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
 | ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Sì|
-| Autenticazione | Mancata corrispondenza della chiave precondivisa | Sì|
+| Authentication | Mancata corrispondenza della chiave precondivisa | Sì|
 | PeerReachability | Il gateway peer non è raggiungibile. | Sì|
 | IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
 | WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|
@@ -85,7 +85,7 @@ L'elenco tabella seguente mostra i gateway e le connessioni supportate con la ri
 | Gateway o connessione | Supportato  |
 |---------|---------|
 |**Tipi di gateway**   |         |
-|VPN      | Supportato        |
+|Connessione      | Supportato        |
 |ExpressRoute | Non supportato |
 |**Tipi di VPN** | |
 |Basato su route | Supportato|
@@ -96,7 +96,7 @@ L'elenco tabella seguente mostra i gateway e le connessioni supportate con la ri
 |ExpressRoute| Non supportato|
 |VPNClient| Non supportato|
 
-## <a name="log-files"></a>File di log
+## <a name="log-files"></a>File di registro
 
 I file di log della risoluzione dei problemi delle risorse vengono archiviati in un account di archiviazione al termine della risoluzione dei problemi delle risorse. L'immagine seguente mostra i contenuti di esempio di una chiamata che ha generato un errore.
 
@@ -105,7 +105,7 @@ I file di log della risoluzione dei problemi delle risorse vengono archiviati in
 > [!NOTE]
 > In alcuni casi, solo un sottoinsieme di file di log viene scritto nella risorsa di archiviazione.
 
-Per istruzioni sul download di file dall'account di archiviazione di Azure, consultare [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Un altro strumento che può essere usato è Storage Explorer. Altre informazioni su Storage Explorer sono reperibili facendo clic sul collegamento seguente: [Storage Explorer](https://storageexplorer.com/).
+Per istruzioni sul download di file dagli account di archiviazione di Azure, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Un altro strumento che può essere usato è Storage Explorer. Altre informazioni su Storage Explorer sono reperibili facendo clic sul collegamento seguente: [Storage Explorer](https://storageexplorer.com/).
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

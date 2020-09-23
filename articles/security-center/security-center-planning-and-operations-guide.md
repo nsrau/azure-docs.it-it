@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 45d3ec8dc5d819464046e40bab22491a4bccde63
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e5d483af44116274019851f049d6222adfd8dbcd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461324"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904839"
 ---
 # <a name="planning-and-operations-guide"></a>Guida alla pianificazione e alle operazioni
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud che pianificano l'uso del Centro sicurezza di Azure.
@@ -120,7 +120,7 @@ I criteri del Centro sicurezza includono i componenti seguenti:
 - [Raccolta di dati](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): provisioning dell'agente e impostazioni della raccolta di dati.
 - [Criteri di sicurezza](https://docs.microsoft.com/azure/security-center/security-center-policies): un [criterio di Azure](../governance/policy/overview.md) che determina quali controlli vengono monitorati e consigliati dal Centro sicurezza. In alternativa, è possibile usare i criteri di Azure per creare nuove definizioni, definire criteri aggiuntivi e assegnare criteri nei gruppi di gestione.
 - [Notifiche tramite posta elettronica](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): contatti e impostazioni di notifica relativi alla sicurezza.
-- [Piano tariffario](https://docs.microsoft.com/azure/security-center/security-center-pricing): sono disponibili le opzioni Gratuito o Standard, che determinano le funzionalità del Centro sicurezza disponibili per le risorse nell'ambito. Questo criterio può essere specificato per sottoscrizioni, gruppi di risorse e aree di lavoro.
+- Piano [tariffario](https://docs.microsoft.com/azure/security-center/security-center-pricing): con o senza Azure Defender, che determina le funzionalità del Centro sicurezza disponibili per le risorse nell'ambito (può essere specificato per sottoscrizioni, gruppi di risorse e aree di lavoro).
 
 > [!NOTE]
 > Specificando un contatto di sicurezza, Azure potrà raggiungere la persona corretta dell'organizzazione in caso di evento imprevisto relativo alla sicurezza. Per altre informazioni su come abilitare questa raccomandazione, vedere [Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) .
@@ -158,12 +158,12 @@ Nel portale di Azure è possibile visualizzare un elenco delle aree di lavoro di
 Per le aree di lavoro create dal Centro sicurezza di Azure, i dati vengono conservati per 30 giorni. Per le aree di lavoro esistenti, il periodo di memorizzazione dipende dal piano tariffario dell'area di lavoro. Se si preferisce, è anche possibile usare un'area di lavoro esistente.
 
 > [!NOTE]
-> Microsoft è fortemente impegnata nella protezione della privacy e della sicurezza dei dati. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio. Per altre informazioni sulla privacy e sulla gestione dei dati, leggere [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md).
+> Microsoft si impegna a proteggere la privacy e la sicurezza di questi dati. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio. Per altre informazioni sulla privacy e sulla gestione dei dati, leggere [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md).
 >
 
 ## <a name="onboarding-non-azure-resources"></a>Onboarding delle risorse non Azure
 
-Il Centro di sicurezza di Azure consente di monitorare le condizioni di sicurezza dei computer non Azure, ma è necessario prima caricare queste risorse. Per altre informazioni su come eseguire l'onboarding di risorse non Azure, vedere [Onboarding nel livello Standard del Centro sicurezza di Azure per una sicurezza avanzata](https://docs.microsoft.com/azure/security-center/security-center-onboarding#onboard-non-azure-computers).
+Il Centro di sicurezza di Azure consente di monitorare le condizioni di sicurezza dei computer non Azure, ma è necessario prima caricare queste risorse. Per altre informazioni su come caricare le risorse non di Azure, vedere caricare [computer non Azure](quickstart-onboard-machines.md) .
 
 ## <a name="ongoing-security-monitoring"></a>Monitoraggio continuo della sicurezza
 Dopo la configurazione iniziale e l'applicazione delle raccomandazioni del Centro sicurezza, il passaggio successivo consiste nel valutare i processi operativi del Centro sicurezza.
@@ -191,7 +191,7 @@ Quando si aggiungono nuove risorse all'ambiente Azure, come VM o database SQL, i
 
 Come parte delle operazioni di sicurezza è consigliabile adottare misure preventive per limitare l'accesso alle VM e controllare le applicazioni in esecuzioni sulle VM. Bloccando il traffico in ingresso nelle VM di Azure si riduce l'esposizione agli attacchi e si offre al tempo stesso un accesso facilitato per la connessione alle VM quando necessario. Usare la funzionalità di accesso [just-in-time alle VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) per rafforzare l'accesso alle VM.
 
-È possibile usare i [controlli delle applicazioni adattivi](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) per limitare le applicazioni che possono essere eseguite nelle macchine virtuali situate in Azure. Tra gli altri vantaggi, questo semplifica la protezione delle macchine virtuali da malware. Usando Machine Learning, il Centro sicurezza analizza i processi in esecuzione nella macchina virtuale per creare regole di inserimento nell'elenco elementi consentiti.
+È possibile usare i [controlli delle applicazioni adattivi](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) per limitare le applicazioni che possono essere eseguite nelle macchine virtuali situate in Azure. Tra gli altri vantaggi, questo semplifica la protezione delle macchine virtuali da malware. Usando Machine Learning, il Centro sicurezza analizza i processi in esecuzione nella macchina virtuale per semplificare la creazione delle regole di elenco.
 
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
@@ -199,7 +199,7 @@ Il Centro sicurezza rileva le minacce appena si verificano e avvisa l'utente. Le
 
 Sebbene questo articolo non abbia la finalità di aiutare la creazione di un piano di risposta agli eventi imprevisti, si userà Microsoft Azure risposta alla sicurezza nel ciclo di vita del cloud come base per le fasi di risposta agli eventi imprevisti. Le fasi sono illustrate nel diagramma seguente:
 
-![Attività sospetta](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
+![Fasi della risposta agli eventi imprevisti nel ciclo di vita del cloud](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
 > [!NOTE]
 > Per tale scopo è possibile usare la [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) (Guida alla gestione degli eventi imprevisti della sicurezza nei computer) del National Institute of Standards and Technology (NIST).

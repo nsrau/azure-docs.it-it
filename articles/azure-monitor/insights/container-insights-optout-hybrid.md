@@ -3,12 +3,12 @@ title: Come arrestare il monitoraggio del cluster Kubernetes ibrido | Microsoft 
 description: Questo articolo descrive come è possibile arrestare il monitoraggio del cluster Kubernetes ibrido con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 8369c82b83cfbaa7128383c6203aaf584916cae9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2754649cd990b015162be158effa2b85aa1fe27e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091199"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986056"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Come arrestare il monitoraggio del cluster ibrido
 
@@ -58,7 +58,7 @@ Il completamento della modifica della configurazione può richiedere alcuni minu
 
 ## <a name="how-to-stop-monitoring-on-arc-enabled-kubernetes"></a>Come arrestare il monitoraggio su Arc abilitato Kubernetes
 
-### <a name="using-powershell"></a>Uso di PowerShell
+### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 1. Scaricare e salvare lo script in una cartella locale che configuri il cluster con il componente aggiuntivo monitoraggio usando i comandi seguenti:
 
@@ -84,7 +84,26 @@ Il completamento della modifica della configurazione può richiedere alcuni minu
     .\disable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext
     ```
 
-### <a name="using-bash"></a>Uso di bash
+#### <a name="using-service-principal"></a>Uso dell'entità servizio
+Lo script *disable-monitoring.ps1* usa l'accesso interattivo al dispositivo. Se si preferisce un accesso non interattivo, è possibile usare un'entità servizio esistente o crearne una nuova con le autorizzazioni necessarie, come descritto in [prerequisiti](container-insights-enable-arc-enabled-clusters.md#prerequisites). Per usare l'entità servizio, è necessario passare i parametri $servicePrincipalClientId, $servicePrincipalClientSecret e $tenantId con i valori dell'entità servizio che si intende usare per enable-monitoring.ps1 script.
+
+```powershell
+$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
+$servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
+
+$servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
+$servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $servicePrincipal.Secret).Password
+$tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
+```
+
+Ad esempio:
+
+```powershell
+\disable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId
+```
+
+
+### <a name="using-bash"></a>Tramite Bash
 
 1. Scaricare e salvare lo script in una cartella locale che configuri il cluster con il componente aggiuntivo monitoraggio usando i comandi seguenti:
 
@@ -117,6 +136,24 @@ Il completamento della modifica della configurazione può richiedere alcuni minu
     ```bash
     bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext
     ```
+
+#### <a name="using-service-principal"></a>Uso dell'entità servizio
+Lo script bash *Disable-Monitoring.sh* usa l'accesso interattivo al dispositivo. Se si preferisce un accesso non interattivo, è possibile usare un'entità servizio esistente o crearne una nuova con le autorizzazioni necessarie, come descritto in [prerequisiti](container-insights-enable-arc-enabled-clusters.md#prerequisites). Per usare l'entità servizio, è necessario passare i valori--client-ID,--client-Secret e--tenant-ID dell'entità servizio che si vuole usare per *Enable-Monitoring.sh* script bash.
+
+```bash
+subscriptionId="<subscription Id of the Azure Arc connected cluster resource>"
+servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
+servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
+
+servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
+tenantId=$(echo $servicePrincipal | jq -r '.tenant')
+```
+
+Ad esempio:
+
+```bash
+bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

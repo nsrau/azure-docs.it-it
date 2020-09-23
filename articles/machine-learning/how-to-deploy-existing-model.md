@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 006aab66eb220c3bb74794ba78bf1495583b653e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 0dcede7e6c15fbc0bae39370431d14696cb4026e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648319"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905668"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Distribuire il modello esistente con Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Questo articolo illustra come registrare e distribuire un modello di Machine Learning di cui è stato eseguito il training all'esterno Azure Machine Learning. È possibile distribuire come servizio Web o in un dispositivo IoT Edge.  Una volta distribuita, è possibile monitorare il modello e rilevare la tendenza dei dati in Azure Machine Learning. 
 
@@ -274,7 +274,7 @@ Per ulteriori informazioni sulla distribuzione, vedere [come e dove distribuire 
 
 ## <a name="request-response-consumption"></a>Consumo richiesta-risposta
 
-Dopo la distribuzione, viene visualizzato l'URI di assegnazione dei punteggi. Questo URI può essere utilizzato dai client per inviare richieste al servizio. L'esempio seguente è un client Python di base che invia i dati al servizio e visualizza la risposta:
+Dopo la distribuzione, viene visualizzato l'URI di assegnazione dei punteggi. Questo URI può essere utilizzato dai client per inviare richieste al servizio. L'esempio seguente è un semplice client Python che invia dati al servizio e visualizza la risposta:
 
 ```python
 import requests

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: aac6f833985a708c7ed65542e314b65fa1039ef7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 347c539abbe90119a74394eeb748af12d30d0b15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569051"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904679"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso delle raccomandazioni del Centro sicurezza di Azure per migliorare la sicurezza
 
@@ -41,7 +41,7 @@ David, del reparto sicurezza IT di Contoso, ha già scelto di eseguire l'onboard
 
 Il Centro sicurezza analizza automaticamente lo stato di sicurezza delle risorse di Azure di Contoso e applica i criteri di sicurezza predefiniti. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea **raccomandazioni** in base ai controlli impostati nei criteri di sicurezza. 
 
-David esegue il livello standard di sicurezza di Azure, in tutte le sottoscrizioni, per ottenere la suite completa di funzionalità di sicurezza e consigli disponibili. Jeff carica anche tutti i server locali esistenti che non sono stati ancora migrati nel cloud, in modo da poter sfruttare il supporto ibrido del Centro sicurezza nei propri server [Windows](quick-onboard-windows-computer.md) e [Linux](quick-onboard-linux-computer.md) .
+David esegue la sicurezza di Azure con Azure Defender abilitato, in tutte le sottoscrizioni per ottenere la suite completa di raccomandazioni e funzionalità di sicurezza disponibili. Jeff carica anche tutti i server locali esistenti che non sono stati ancora migrati nel cloud, in modo da poter sfruttare il supporto ibrido del Centro sicurezza nei propri [server Windows e Linux](quickstart-onboard-machines.md).
 
 Jeff è un proprietario del carico di lavoro cloud. È responsabile dell'applicazione dei controlli di sicurezza in conformità con i criteri di sicurezza di Contoso. 
 
@@ -60,9 +60,9 @@ Come parte delle attività di monitoraggio quotidiane, Jeff accede ad Azure e ap
 
 3. Jeff deve decidere quali raccomandazioni gestire per prime. Quindi Jeff fa clic su Secure score e inizia a gestire le raccomandazioni in base al grado di miglioramento del [Punteggio sicuro](secure-score-security-controls.md).
 
-4. Poiché ha un numero elevato di server e macchine virtuali connesse, Jeff decide di concentrarsi su **Risorse di calcolo e app**.
+4. Poiché Jeff ha molte macchine virtuali connesse, Jeff decide di concentrarsi sui propri computer nell' [inventario degli asset](asset-inventory.md).
 
-5. Quando Jeff fa clic su **calcolo e app**, Visualizza un elenco di raccomandazioni e le gestisce in base all'effetto del Punteggio sicuro.
+5. Quando Jeff apre l'inventario asset, viene visualizzato un elenco di raccomandazioni. Jeff li gestisce in base all'effetto del Punteggio sicuro.
 
 6. Jeff dispone di numerose macchine virtuali con connessione Internet e, poiché le relative porte sono esposte, temono che un utente malintenzionato possa ottenere il controllo sui server. Quindi, Jeff sceglie di usare [**l'accesso just-in-time alle macchine virtuali**](security-center-just-in-time.md).
 

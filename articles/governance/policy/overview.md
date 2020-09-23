@@ -1,14 +1,14 @@
 ---
 title: Panoramica dei criteri di Azure
 description: Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire definizioni di criteri nell'ambiente Azure.
-ms.date: 06/17/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 662a7510013e2008d8c16cf21376b11c247e0bc0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044193"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905979"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -18,8 +18,7 @@ I casi d'uso comuni per Criteri di Azure includono l'implementazione della gover
 
 ## <a name="overview"></a>Panoramica
 
-Criteri di Azure valuta le risorse in Azure confrontando le proprietà di tali risorse con le regole business. Queste regole business, descritte in [formato JSON](./concepts/definition-structure.md), sono note come [definizioni dei criteri](#policy-definition). Per semplificare la gestione, è possibile raggruppare diverse regole business per formare un'[iniziativa dei criteri](#initiative-definition) (talvolta denominata _set di criteri_). Una volta formate le regole business, la definizione dei criteri o l'iniziativa viene [assegnata](#assignments) a qualsiasi ambito di risorse supportate da Azure, ad esempio [gruppi di gestione](../management-groups/overview.md), sottoscrizioni, [gruppi di risorse](../../azure-resource-manager/management/overview.md#resource-groups) o singole risorse. L'assegnazione si applica a tutte le risorse all'interno dell'[ambito](../../azure-resource-manager/management/overview.md#understand-scope) di tale assegnazione.
-Se necessario, è possibile escludere gli ambiti secondari.
+Criteri di Azure valuta le risorse in Azure confrontando le proprietà di tali risorse con le regole business. Queste regole business, descritte in [formato JSON](./concepts/definition-structure.md), sono note come [definizioni dei criteri](#policy-definition). Per semplificare la gestione, è possibile raggruppare diverse regole business per formare un'[iniziativa dei criteri](#initiative-definition) (talvolta denominata _set di criteri_). Una volta formate le regole business, la definizione dei criteri o l'iniziativa viene [assegnata](#assignments) a qualsiasi ambito di risorse supportate da Azure, ad esempio [gruppi di gestione](../management-groups/overview.md), sottoscrizioni, [gruppi di risorse](../../azure-resource-manager/management/overview.md#resource-groups) o singole risorse. L'assegnazione si applica a tutte le risorse all'interno dell'[ambito di Resource Manager](../../azure-resource-manager/management/overview.md#understand-scope) di tale assegnazione. Se necessario, è possibile escludere gli ambiti secondari. Per altre informazioni, vedere [Ambito in Criteri di Azure](./concepts/scope.md).
 
 Criteri di Azure usa un [formato JSON](./concepts/definition-structure.md) per formare la logica usata dalla valutazione per determinare se una risorsa è conforme o meno. Le definizioni includono i metadati e la regola dei criteri. La regola definita può usare funzioni, parametri, operatori logici, condizioni e [alias](./concepts/definition-structure.md#aliases) delle proprietà per corrispondere esattamente allo scenario desiderato. La regola dei criteri determina quali risorse nell'ambito dell'assegnazione vengono valutate.
 

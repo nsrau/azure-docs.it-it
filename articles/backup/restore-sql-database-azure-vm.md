@@ -1,14 +1,14 @@
 ---
 title: Ripristinare i database di SQL Server in una macchina virtuale di Azure
-description: Questo articolo descrive come ripristinare SQL Server database in esecuzione in una macchina virtuale di Azure e di cui viene eseguito il backup con backup di Azure.
+description: Questo articolo descrive come ripristinare SQL Server database in esecuzione in una macchina virtuale di Azure e di cui viene eseguito il backup con backup di Azure. È anche possibile usare il ripristino tra aree per ripristinare i database in un'area secondaria.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377982"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985435"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Ripristinare il backup di database SQL Server in macchine virtuali di Azure
 
@@ -30,7 +30,7 @@ Prima di ripristinare un database, tenere presente quanto segue:
 - È possibile ripristinare il database in un'istanza di SQL Server nella stessa area di Azure.
 - Il server di destinazione deve essere registrato nello stesso insieme di credenziali dell'origine.
 - Per ripristinare un database crittografato con Transparent Data Encryption in un altro SQL Server, è necessario innanzitutto [ripristinare il certificato nel server di destinazione](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
-- È necessario ripristinare i database abilitati per [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) utilizzando l'opzione [Ripristina come file](#restore-as-files) .
+- È necessario ripristinare i database abilitati per [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) utilizzando l'opzione [Ripristina come file](#restore-as-files) .
 - Prima di ripristinare il database "Master", avviare l'istanza di SQL Server in modalità utente singolo usando l'opzione di avvio **-m AzureWorkloadBackup**.
   - Il valore per **-m** è il nome del client.
   - La connessione può essere aperta solo dal nome client specificato.
@@ -168,6 +168,51 @@ Se si è scelto **Completo e differenziale** come tipo di ripristino, eseguire l
 Se le dimensioni totali della stringa dei file in un database sono maggiori di un [limite specifico](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), backup di Azure archivia l'elenco dei file di database in un componente Pit diverso, in modo da non poter impostare il percorso di ripristino di destinazione durante l'operazione di ripristino. In alternativa, i file verranno ripristinati nel percorso predefinito SQL.
 
   ![Ripristinare un database con file di grandi dimensioni](./media/backup-azure-sql-database/restore-large-files.jpg)
+
+## <a name="cross-region-restore"></a>Ripristino tra aree
+
+Come una delle opzioni di ripristino, Cross Region Restore (CRR) consente di ripristinare database SQL ospitati in macchine virtuali di Azure in un'area secondaria, ovvero un'area abbinata ad Azure.
+
+Per eseguire l'onboarding nella funzionalità durante l'anteprima, leggere la [sezione prima di iniziare](./backup-create-rs-vault.md#set-cross-region-restore).
+
+Per verificare se CRR è abilitato, seguire le istruzioni riportate in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+
+### <a name="view-backup-items-in-secondary-region"></a>Visualizzare gli elementi di backup nell'area secondaria
+
+Se CRR è abilitato, è possibile visualizzare gli elementi di backup nell'area secondaria.
+
+1. Dal portale passare a servizi di **ripristino**insieme di credenziali  >  **elementi di backup**.
+1. Selezionare **area secondaria** per visualizzare gli elementi nell'area secondaria.
+
+>[!NOTE]
+>Nell'elenco verranno visualizzati solo i tipi di gestione di backup che supportano la funzionalità CRR. Attualmente, è consentito solo il ripristino dei dati dell'area secondaria in un'area secondaria.
+
+![Elementi di backup nell'area secondaria](./media/backup-azure-sql-database/backup-items-secondary-region.png)
+
+![Database nell'area secondaria](./media/backup-azure-sql-database/databases-secondary-region.png)
+
+### <a name="restore-in-secondary-region"></a>Ripristino nell'area secondaria
+
+L'esperienza utente per il ripristino dell'area secondaria sarà simile all'esperienza utente per il ripristino dell'area primaria. Quando si configurano i dettagli nel riquadro Configurazione ripristino per configurare il ripristino, verrà richiesto di fornire solo parametri dell'area secondaria.
+
+![Dove e come ripristinare](./media/backup-azure-sql-database/restore-secondary-region.png)
+
+>[!NOTE]
+>La rete virtuale nell'area secondaria deve essere assegnata in modo univoco e non può essere usata per altre macchine virtuali in tale gruppo di risorse.
+
+![Attivare la notifica di ripristino in corso](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>- Dopo l'attivazione del ripristino e la fase di trasferimento dei dati, il processo di ripristino non può essere annullato.
+>- I ruoli di Azure necessari per il ripristino nell'area secondaria sono identici a quelli dell'area primaria.
+
+### <a name="monitoring-secondary-region-restore-jobs"></a>Monitoraggio dei processi di ripristino dell'area secondaria
+
+1. Dal portale passare all'insieme di credenziali **dei servizi di ripristino**  >  **processi di backup**
+1. Selezionare **area secondaria** per visualizzare gli elementi nell'area secondaria.
+
+    ![Processi di backup filtrati](./media/backup-azure-sql-database/backup-jobs-secondary-region.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
