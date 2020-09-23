@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 52f333a8e39dfd8f68666e6438a7d40414b6f958
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 445cd7c55de58b6e5266f76a06d2cbabc75c18b4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701424"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907168"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Trasmettere dati come input in Analisi di flusso
 
@@ -30,12 +30,12 @@ Analisi di flusso supporta la compressione tra tutte le origini di input del flu
 
 ## <a name="create-edit-or-test-inputs"></a>Creare, modificare o testare gli input
 
-È possibile usare il [portale di Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md) e [Visual Studio Code](quick-create-vs-code.md) per aggiungere e visualizzare o modificare gli input esistenti nel processo di streaming. È anche possibile testare le connessioni di input e [le query di test](stream-analytics-manage-job.md#test-your-query) da dati di esempio dal portale di Azure, [Visual Studio](stream-analytics-vs-tools-local-run.md) e [Visual Studio Code](visual-studio-code-local-run.md). Quando si scrive una query, si elencano gli input nella clausola FROM. È possibile ottenere l'elenco degli input disponibili dalla pagina **Query** del portale. Per usare più input, è possibile usare il comando `JOIN` per unirli oppure scrivere più query `SELECT`.
+È possibile usare il [portale di Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md) e [Visual Studio Code](quick-create-visual-studio-code.md) per aggiungere e visualizzare o modificare gli input esistenti nel processo di streaming. È anche possibile testare le connessioni di input e [le query di test](stream-analytics-manage-job.md#test-your-query) da dati di esempio dal portale di Azure, [Visual Studio](stream-analytics-vs-tools-local-run.md) e [Visual Studio Code](visual-studio-code-local-run.md). Quando si scrive una query, si elencano gli input nella clausola FROM. È possibile ottenere l'elenco degli input disponibili dalla pagina **Query** del portale. Per usare più input, è possibile usare il comando `JOIN` per unirli oppure scrivere più query `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Trasmettere dati da Hub eventi
 
-Hub eventi di Azure offre una tecnologia di inserimento altamente scalabile per eventi di pubblicazione-sottoscrizione. Un hub eventi può raccogliere milioni di eventi al secondo per consentire di elaborare e analizzare enormi quantità di dati generati dalle applicazioni e dai dispositivi connessi. Hub eventi e Analisi di flusso in combinazione offrono una soluzione end-to-end per l'analisi in tempo reale. Hub eventi consente di inserire eventi in Azure in tempo reale e i processi di Analisi di flusso sono in grado di elaborare tali eventi in tempo reale. È ad esempio possibile inviare clic sul Web, letture di sensori o eventi di log online agli hub eventi e quindi creare processi di Analisi di flusso per usare gli hub eventi come flussi dei dati di input per il filtraggio, l'aggregazione e la correlazione in tempo reale.
+Hub eventi di Azure offre investitori di eventi di pubblicazione-sottoscrizione altamente scalabili. Un hub eventi può raccogliere milioni di eventi al secondo per consentire di elaborare e analizzare enormi quantità di dati generati dalle applicazioni e dai dispositivi connessi. Hub eventi e Analisi di flusso in combinazione offrono una soluzione end-to-end per l'analisi in tempo reale. Hub eventi consente di inserire eventi in Azure in tempo reale e i processi di Analisi di flusso sono in grado di elaborare tali eventi in tempo reale. È ad esempio possibile inviare clic sul Web, letture di sensori o eventi di log online agli hub eventi e quindi creare processi di Analisi di flusso per usare gli hub eventi come flussi dei dati di input per il filtraggio, l'aggregazione e la correlazione in tempo reale.
 
 Il timestamp `EventEnqueuedUtcTime` si riferisce all'arrivo di un evento nell'hub eventi ed è il timestamp predefinito degli eventi provenienti da Hub eventi verso Analisi di flusso. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics).
 
@@ -143,7 +143,7 @@ Gli input in formato CSV richiedono una riga di intestazione per definire i camp
 > [!NOTE]
 > Analisi di flusso di Azure non supporta l'aggiunta di contenuto a un file di BLOB esistente. Analisi di flusso di Azure visualizza ogni file una sola volta e tutte le modifiche apportate al file dopo che il processo ha letto i dati non vengono elaborate. La procedura consigliata consiste nel caricare simultaneamente tutti i dati per un file di BLOB e quindi aggiungere gli altri eventi più nuovi in un nuovo file di BLOB diverso.
 
-Negli scenari in cui molti BLOB vengono aggiunti continuamente e l'analisi di flusso elabora i BLOB man mano che vengono aggiunti, è possibile che alcuni BLOB vengano ignorati in casi rari a causa della granularità del `BlobLastModifiedTime`. Per ovviare a questo problema, caricare i BLOB almeno a distanza di due secondi. Se questa opzione non è percorribile, è possibile usare Hub eventi per trasmettere grandi volumi di eventi.
+Negli scenari in cui molti BLOB vengono aggiunti continuamente e l'analisi di flusso elabora i BLOB Man mano che vengono aggiunti, è possibile che alcuni BLOB vengano ignorati in rari casi a causa della granularità di `BlobLastModifiedTime` . Per ovviare a questo problema, caricare i BLOB almeno a distanza di due secondi. Se questa opzione non è percorribile, è possibile usare Hub eventi per trasmettere grandi volumi di eventi.
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>Configurare l'archiviazione BLOB come input del flusso 
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 71a41a3a8d137fdf9d4f41c975e7be6c148078e1
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: ef5802d0c5e35b9c12db1f40782ba5f190ad1883
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875699"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907187"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Argomenti del bus di servizio output di analisi di flusso di Azure
 
@@ -49,7 +49,7 @@ La dimensione massima dei messaggi è 256 KB per messaggio per il livello standa
 
 ## <a name="system-properties"></a>Proprietà di sistema
 
-È possibile aggiungere colonne di query come [proprietà di sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) ai messaggi in uscita di code o argomenti del bus di servizio. Queste colonne non vengono inserite nel payload, bensì la [proprietà di sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) BrokeredMessage corrispondente viene popolata con i valori della colonna di query.
+È possibile aggiungere colonne di query come [proprietà di sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) ai messaggi in uscita di code o argomenti del bus di servizio. Queste colonne non vengono inserite nel payload, bensì la [proprietà di sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage corrispondente viene popolata con i valori della colonna di query.
 Sono supportate le proprietà di sistema seguenti: `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 
 I valori stringa di queste colonne vengono analizzati come tipo di valore della proprietà di sistema corrispondente e gli eventuali errori di analisi vengono considerati come errori di dati.
@@ -76,4 +76,4 @@ Viene impostato `MessageId` nei messaggi della coda del bus di servizio con i va
 * [Avvio rapido: Creare un processo di Analisi di flusso di Azure con un modello di Resource Manager](quick-create-azure-resource-manager.md)
 * [Guida introduttiva: creare un processo di analisi di flusso usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Guida introduttiva: Creare un processo di Analisi di flusso di Azure con Visual Studio Code](stream-analytics-quick-create-vs.md)
-* [Guida introduttiva: creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-vs-code.md)
+* [Guida introduttiva: creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-visual-studio-code.md)

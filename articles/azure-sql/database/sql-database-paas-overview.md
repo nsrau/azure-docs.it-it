@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 04/08/2019
-ms.openlocfilehash: 9ee4070562e44d4f560230fa2fd069eb1fd57932
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.reviewer: ''
+ms.date: 09/21/2020
+ms.openlocfilehash: 38f52178ec9c736f3ee51839678401753365d48d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612082"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907062"
 ---
 # <a name="what-is-azure-sql-database"></a>Che cos'è il database SQL di Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -165,11 +165,8 @@ Il database SQL offre una gamma di [funzionalità di sicurezza e conformità inc
 
 ### <a name="advance-threat-protection"></a>Protezione avanzata dalle minacce
 
-Sicurezza dei dati avanzata è un pacchetto unificato che include le funzionalità di sicurezza avanzate SQL. Include funzionalità per l'individuazione e la classificazione dei dati sensibili, la gestione delle vulnerabilità del database e il rilevamento di attività anomale che potrebbero indicare una minaccia per il database. Consente di abilitare e gestire queste funzionalità da un'unica posizione.
+Azure Defender per SQL è un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. Sono incluse le funzionalità per la gestione delle vulnerabilità del database e il rilevamento di attività anomale che potrebbero indicare una minaccia per il database. Consente di abilitare e gestire queste funzionalità da un'unica posizione.
 
-- [Individuazione e classificazione dei dati](data-discovery-and-classification-overview.md):
-
-  Questa funzionalità offre funzionalità incorporate nel database SQL di Azure per l'individuazione, la classificazione, l'assegnazione di etichette e la protezione dei dati sensibili nei database. Consente di visualizzare lo stato di classificazione del database e di tenere traccia dell'accesso ai dati sensibili all'interno del database e oltre i relativi bordi.
 - [Valutazione della vulnerabilità](sql-vulnerability-assessment.md):
 
   Questo servizio consente di individuare, monitorare e risolvere potenziali vulnerabilità del database. Consente di visualizzare lo stato di sicurezza e prevede passaggi utili per risolvere i problemi di sicurezza e migliorare la protezione del database.
@@ -185,6 +182,10 @@ Il [controllo](../../azure-sql/database/auditing-overview.md) tiene traccia degl
 
 Il database SQL consente di proteggere i dati fornendo la crittografia. Per i dati in movimento, viene utilizzata la [sicurezza a livello di trasporto](https://support.microsoft.com/kb/3135244). Per i dati inattivi, usa la [crittografia dei dati trasparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Per i dati in uso, USA [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
+### <a name="data-discovery-and-classification"></a>Individuazione e classificazione dei dati
+
+[Individuazione e classificazione dei dati](data-discovery-and-classification-overview.md) offre funzionalità integrate nel database SQL di Azure per l'individuazione, la classificazione, l'assegnazione di etichette e la protezione dei dati sensibili nei database. Consente di visualizzare lo stato di classificazione del database e di tenere traccia dell'accesso ai dati sensibili all'interno del database e oltre i relativi bordi.
+
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integrazione in Azure Active Directory e autenticazione a più fattori
 
 Il database SQL consente di gestire a livello centralizzato le identità degli utenti di database e altri servizi Microsoft grazie all'[integrazione in Azure Active Directory](authentication-aad-overview.md). Questa funzionalità semplifica la gestione delle autorizzazioni e ottimizza la sicurezza. Azure Active Directory supporta la [funzionalità di autenticazione](authentication-mfa-ssms-overview.md) a più fattori per aumentare la sicurezza dei dati e delle applicazioni, supportando al tempo stesso un processo di accesso singolo.
@@ -196,7 +197,7 @@ Il database SQL consente di creare e gestire le applicazioni in modo più facile
 |Strumento|Descrizione|
 |:---|:---|
 |[Il portale di Azure](https://portal.azure.com/)|Un'applicazione basata sul Web per la gestione di tutti i servizi di Azure.|
-|[Azure Data Studio](/sql/azure-data-studio/)|Uno strumento di database multipiattaforma eseguito in Windows, MacOS e Linux.|
+|[Azure Data Studio](/sql/azure-data-studio/)|Uno strumento di database multipiattaforma eseguito in Windows, macOS e Linux.|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Applicazione client gratuita e scaricabile per la gestione di qualsiasi infrastruttura SQL, dal SQL Server al database SQL.|
 |[SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Applicazione client gratuita e scaricabile per lo sviluppo di database relazionali SQL Server, database nel database SQL di Azure, pacchetti di Integration Services, modelli di dati Analysis Services e report di Reporting Services.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|Un editor di codice open source gratuito e scaricabile per Windows, macOS e Linux. Supporta le estensioni, tra cui l' [estensione MSSQL](https://aka.ms/mssql-marketplace) per l'esecuzione di query Microsoft SQL Server, il database SQL di Azure e Azure sinapsi Analytics di Azure (in precedenza SQL Data Warehouse).|

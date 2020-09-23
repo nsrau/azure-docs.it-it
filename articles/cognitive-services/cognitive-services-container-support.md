@@ -1,5 +1,5 @@
 ---
-title: Supporto dei contenitori
+title: Contenitori dei servizi cognitivi di Azure
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare i contenitori Docker per facilitare la gestione dei dati con Servizi cognitivi.
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 9/01/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 141b82467f2b437cfd4a8125d86618b85e48a6ef
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: bda6fae31e3f5ef63d2c917937d80b2c1ea4fc48
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89424643"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906999"
 ---
-# <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
+# <a name="azure-cognitive-services-containers"></a>Contenitori dei servizi cognitivi di Azure
 
 > [!WARNING]
-> L'11 giugno 2020 Microsoft ha annunciato che non venderà la tecnologia di riconoscimento facciale ai dipartimenti di polizia degli Stati Uniti fino a quando non verranno adottate norme rigorose, che tengano conto dei diritti umani. Di conseguenza, i clienti non possono usare le funzionalità o le funzionalità di riconoscimento facciali incluse nei servizi di Azure, ad esempio viso o Video Indexer, se un cliente è o consente l'uso di tali servizi per o per un reparto di polizia nel Stati Uniti.
+> L'11 giugno 2020 Microsoft ha annunciato che non venderà la tecnologia di riconoscimento facciale ai dipartimenti di polizia degli Stati Uniti fino a quando non verranno adottate norme rigorose, che tengano conto dei diritti umani. Di conseguenza, i clienti non possono usare le funzionalità di riconoscimento facciale o le funzionalità incluse in Servizi di Azure, ad esempio Viso o Video Indexer, se il cliente è un dipartimento di polizia degli Stati Uniti o consente l'uso di tali servizi a tale dipartimento.
 
 Il supporto dei contenitori nei servizi cognitivi di Azure consente agli sviluppatori di usare le stesse API avanzate disponibili in Azure e offre la flessibilità necessaria per distribuire e ospitare i servizi inclusi nei [contenitori Docker](https://www.docker.com/what-container). Il supporto dei contenitori è attualmente disponibile per un sottoinsieme di servizi cognitivi di Azure, incluse le parti di:
 
@@ -54,20 +54,21 @@ I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenito
 
 | Servizio | Piano tariffario supportato | Contenitore | Descrizione |
 |--|--|--|--|
-| [Rilevamento anomalie][ad-containers] | F0, S0 | **Rilevamento anomalie** | L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico.<br>[Richiedere l'accesso][request-access] |
+| [Rilevamento anomalie][ad-containers] | F0, S0 | **Rilevamento anomalie** ([immagine](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico.<br>[Richiedere l'accesso][request-access] |
 | [Visione artificiale][cv-containers] | F0, S1 | **Lettura** | Estre testo stampato dalle immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster e biglietti da visita. Il contenitore di lettura rileva anche il *testo scritto a mano* nelle immagini e fornisce il supporto per PDF/TIFF/più pagine.<br/><br/>**Importante:** Il contenitore di lettura attualmente funziona solo con l'inglese. |
 | [Viso][fa-containers] | F0, S0 | **Viso** | Rileva i visi umani nelle immagini e identifica gli attributi, ad esempio i punti di riferimento del viso (come naso e occhi), il sesso, l'età e altre caratteristiche facciali con previsioni basate su computer. Oltre al rilevamento, Viso può verificare se due volti nella stessa immagine o in immagini diverse sono uguali mediante un punteggio di attendibilità oppure può confrontare i visi con un database per verificare se esistono già visi simili o identici. È anche possibile organizzare i visi simili in gruppi mediante caratteristiche condivise.<br>[Richiedere l'accesso][request-access] |
 | [Riconoscimento moduli][fr-containers] | F0, S0 | **Riconoscimento modulo** | La comprensione dei moduli applica la tecnologia di machine learning per identificare ed estrarre le coppie chiave-valore e le tabelle dai moduli.<br>[Richiedere l'accesso][request-access] |
 | [LUIS][lu-containers] | F0, S0 | **LUIS** ([immagine](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Carica un modello Language Understanding sottoposto a training o pubblicato, noto anche come app LUIS, in un contenitore Docker e fornisce l'accesso alle stime di query dagli endpoint dell'API del contenitore. È possibile raccogliere i log di query dal contenitore e caricarli nel [portale LUIS](https://www.luis.ai) per migliorare l'accuratezza delle stime dell'app. |
-| [API servizio Voce][sp-containers-stt] | F0, S0 | **Riconoscimento vocale** | Esegue la trascrizione del parlato continuo in tempo reale in testo. |
-| [API servizio Voce][sp-containers-cstt] | F0, S0 | **Da Riconoscimento vocale personalizzato a testo** | Trascrive il discorso continuo in tempo reale nel testo usando un modello personalizzato. |
-| [API servizio Voce][sp-containers-tts] | F0, S0 | **Sintesi vocale** | Converte il testo scritto in un audio che suona naturale. |
-| [API servizio Voce][sp-containers-ctts] | F0, S0 | **Sintesi vocale personalizzata** | Converte il testo in un riconoscimento vocale naturale usando un modello personalizzato. |
-| [API servizio Voce][sp-containers-ntts] | F0, S0 | **Sintesi vocale neurale** | Converte il testo in sintesi vocale naturale usando la tecnologia di rete neurale profonda, consentendo una sintesi vocale più naturale. |
+| [API servizio Voce][sp-containers-stt] | F0, S0 | **Sintesi vocale** ([immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Esegue la trascrizione del parlato continuo in tempo reale in testo. |
+| [API servizio Voce][sp-containers-cstt] | F0, S0 | **Da riconoscimento vocale personalizzato a testo** ([immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Trascrive il discorso continuo in tempo reale nel testo usando un modello personalizzato. |
+| [API servizio Voce][sp-containers-tts] | F0, S0 | **Sintesi vocale** ([immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech)) | Converte il testo scritto in un audio che suona naturale. |
+| [API servizio Voce][sp-containers-ctts] | F0, S0 | **Sintesi vocale personalizzata** ([immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-text-to-speech)) | Converte il testo in un riconoscimento vocale naturale usando un modello personalizzato. |
+| [API servizio Voce][sp-containers-ntts] | F0, S0 | **Sintesi vocale** ([immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-neural-text-to-speech)) neurale | Converte il testo in sintesi vocale naturale usando la tecnologia di rete neurale profonda, consentendo una sintesi vocale più naturale. |
 | [Analisi del testo][ta-containers-keyphrase] | F0, S | **Estrazione frasi chiave** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Estrae le frasi chiave per identificare i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso". |
 | [Analisi del testo][ta-containers-language] | F0, S | **Rilevamento lingua** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Per un massimo di 120 lingue, rileva la lingua in cui è scritto il testo di input e crea un report relativo a un codice lingua singolo per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. |
 | [Analisi del testo][ta-containers-sentiment] | F0, S | **Analisi del sentiment V3** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analizza testo non elaborato per indicazioni su una valutazione positiva o negativa. Questa versione dell'analisi dei sentimenti restituisce le etichette del sentimento, ad esempio *positivo* o *negativo*, per ogni documento e frase al suo interno. |
 | [Analisi del testo][ta-containers-health] | F0, S | **Analisi del testo per l'integrità** | Estrarre ed etichettare le informazioni mediche da testo clinico non strutturato. |
+| [Analisi spaziale][spa-containers] | S0 | **Analisi spaziale** | Estrarre ed etichettare le informazioni mediche da testo clinico non strutturato. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -78,7 +79,7 @@ Inoltre, alcuni contenitori sono supportati in Servizi cognitivi [**All-in-One c
 * Visione artificiale
 * Viso
 * LUIS
-* Text Analytics
+* Analisi del testo
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilità dei contenitori in Servizi cognitivi di Azure
 
@@ -127,6 +128,7 @@ Installare ed esplorare le funzionalità fornite dai contenitori in Servizi cogn
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
+[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts

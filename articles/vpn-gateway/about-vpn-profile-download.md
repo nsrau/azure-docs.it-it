@@ -1,18 +1,18 @@
 ---
 title: 'Gateway VPN di Azure: Informazioni sui profili client VPN da punto a sito'
-description: Consente di usare il file del profilo client
+description: Usare questo articolo per trovare le informazioni necessarie per un profilo client VPN.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 326abaa123ede1fbe371c69fcbed47a310b54511
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 6a09767a7992a5f902adea6f99e937f3fc6fa7fa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89424838"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985927"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>Informazioni sui profili client VPN da punto a sito
 

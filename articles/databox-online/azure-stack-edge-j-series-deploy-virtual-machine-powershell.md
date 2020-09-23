@@ -1,6 +1,6 @@
 ---
-title: Distribuire le VM sul dispositivo GPU Azure Stack Edge tramite Azure PowerShell
-description: Viene descritto come creare e gestire macchine virtuali (VM) in un dispositivo GPU Azure Stack Edge utilizzando Azure PowerShell.
+title: Distribuire le VM sul dispositivo GPU Azure Stack Edge Pro tramite Azure PowerShell
+description: Viene descritto come creare e gestire macchine virtuali (VM) in un dispositivo GPU Pro Azure Stack Edge utilizzando Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: aa35111a2fa26b3e4fd5e80a8227b7c244f30e9f
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: aa492acdedc2d131d28c894031de2181e87a2f3e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461715"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890693"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell"></a>Distribuire le VM sul dispositivo GPU Azure Stack Edge tramite Azure PowerShell
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Distribuire le VM sul dispositivo GPU Azure Stack Edge Pro tramite Azure PowerShell
 
 <!--[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]-->
 
-Questa esercitazione descrive come creare e gestire una macchina virtuale nel dispositivo Azure Stack Edge usando Azure PowerShell.
+Questa esercitazione descrive come creare e gestire una macchina virtuale nel dispositivo Azure Stack Edge Pro usando Azure PowerShell.
 
 ## <a name="vm-deployment-workflow"></a>Flusso di lavoro di distribuzione della VM
 
@@ -128,7 +128,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Solo gli account di archiviazione locali, ad esempio l'archiviazione con ridondanza locale (Standard_LRS o Premium_LRS), possono essere creati tramite Azure Resource Manager. Per creare account di archiviazione a più livelli, vedere la procedura in [aggiungere, connettersi agli account di archiviazione sul Azure stack Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Solo gli account di archiviazione locali, ad esempio l'archiviazione con ridondanza locale (Standard_LRS o Premium_LRS), possono essere creati tramite Azure Resource Manager. Per creare account di archiviazione a più livelli, vedere la procedura in [aggiungere, connettersi agli account di archiviazione in Azure stack Edge Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 Di seguito è riportato un output di esempio.
 
@@ -193,7 +193,7 @@ Se si usa *https*, è necessario installare i certificati appropriati nel dispos
 
 Copiare le immagini del disco da usare nei BLOB di pagine nell'account di archiviazione locale creato nei passaggi precedenti. È possibile usare uno strumento come [AzCopy](../storage/common/storage-use-azcopy-v10.md) per caricare il disco rigido virtuale nell'account di archiviazione creato nei passaggi precedenti. 
 
-Prima di usare AzCopy, verificare che [AzCopy sia configurato correttamente](#configure-azcopy) per l'uso con la versione dell'API REST di archiviazione BLOB in uso con il dispositivo Azure stack Edge.
+Prima di usare AzCopy, verificare che [AzCopy sia configurato correttamente](#configure-azcopy) per l'uso con la versione dell'API REST di archiviazione BLOB in uso con il dispositivo Azure stack Edge Pro.
 
 ```powershell
 AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
@@ -445,11 +445,11 @@ The public IP in this case will be the same as the private IP that you passed du
 
 ## <a name="manage-vm"></a>Gestisci macchina virtuale
 
-La sezione seguente descrive alcune delle operazioni comuni relative alla macchina virtuale che verrà creata nel dispositivo Azure Stack Edge.
+La sezione seguente descrive alcune delle operazioni comuni relative alla macchina virtuale che verrà creata nel dispositivo Azure Stack Edge Pro.
 
 ### <a name="list-vms-running-on-the-device"></a>Elencare le macchine virtuali in esecuzione nel dispositivo
 
-Per restituire un elenco di tutte le macchine virtuali in esecuzione nel dispositivo Azure Stack Edge, eseguire il comando seguente.
+Per restituire un elenco di tutte le macchine virtuali in esecuzione nel dispositivo Azure Stack Edge Pro, eseguire il comando seguente.
 
 
 `Get-AzureRmVM -ResourceGroupName <String> -Name <String>`
@@ -502,7 +502,7 @@ Per ulteriori informazioni su questo cmdlet, vedere il [cmdlet Remove-AzureRmVm]
 
 La dimensione di VM determina la quantità di risorse di calcolo, come CPU, GPU e memoria, che viene resa disponibile per la VM. Le macchine virtuali dovrebbero essere create usando una dimensione di VM adeguata per il carico di lavoro. Anche se tutti i computer verranno eseguiti sullo stesso hardware, le dimensioni dei computer hanno limiti diversi per l'accesso al disco, che consentono di gestire l'accesso globale al disco tra le macchine virtuali. Se un carico di lavoro aumenta, è possibile ridimensionare anche una macchina virtuale esistente.
 
-Le macchine virtuali serie dv2 standard seguenti sono supportate per la creazione sul dispositivo Azure Stack Edge.
+Le macchine virtuali serie dv2 standard seguenti sono supportate per la creazione nel dispositivo Azure Stack Edge Pro.
 
 ### <a name="dv2-series"></a>Serie Dv2
 |Dimensione     |vCPU     |Memoria (GiB) | Spazio di archiviazione temp (GiB)  | Velocità effettiva massima del disco del sistema operativo (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Numero massimo di dischi dati/velocità effettiva (IOPS) | Schede di interfaccia di rete max |
@@ -547,9 +547,9 @@ L'estensione, i set di scalabilità, i set di disponibilità e gli snapshot non 
 
 ## <a name="configure-azcopy"></a>Configurare AzCopy
 
-Quando si installa la versione più recente di AzCopy, sarà necessario configurare AzCopy per assicurarsi che corrisponda alla versione dell'API REST di archiviazione BLOB del dispositivo Azure Stack Edge.
+Quando si installa la versione più recente di AzCopy, sarà necessario configurare AzCopy per assicurarsi che corrisponda alla versione dell'API REST di archiviazione BLOB del dispositivo Azure Stack Edge Pro.
 
-Nel client usato per accedere al dispositivo Azure Stack Edge, configurare una variabile globale in modo che corrisponda alla versione dell'API REST di archiviazione BLOB.
+Nel client usato per accedere al dispositivo Azure Stack Edge Pro, impostare una variabile globale in modo che corrisponda alla versione dell'API REST di archiviazione BLOB.
 
 ### <a name="on-windows-client"></a>Nel client Windows 
 

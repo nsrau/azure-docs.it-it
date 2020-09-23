@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 884aa18b1a29b1c4f1bbf1159a5d48870529c72b
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 086feb3aa7c9a38756fded58538eb22e094a5960
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565707"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906795"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Che cos'è App Web statiche di Azure (anteprima)?
 
@@ -24,7 +24,7 @@ Il flusso di lavoro di App Web statiche di Azure è personalizzato in base al fl
 
 Quando si crea una risorsa di App Web statiche di Azure, Azure configura un flusso di lavoro di GitHub Actions nel repository del codice sorgente dell'app che monitora un ramo scelto dall'utente. Ogni volta che si esegue il push di commit o si accettano richieste pull nel ramo monitorato, l'azione di GitHub Actions compila e distribuisce automaticamente l'app e la relativa API in Azure.
 
-Per la compilazione delle app Web statiche si usano in genere librerie e framework come Angular, React, Svelte o Vue. Queste app includono asset HTML, CSS, JavaScript e immagine che costituiscono l'applicazione. Con un server Web tradizionale, questi asset vengono gestiti da un unico server unitamente a tutti gli endpoint API necessari.
+Per la compilazione delle app Web statiche si usano in genere librerie e framework come Angular, React, Svelte, Vue o Blazor. Queste app includono asset HTML, CSS, JavaScript e immagine che costituiscono l'applicazione. Con un server Web tradizionale, questi asset vengono gestiti da un unico server unitamente a tutti gli endpoint API necessari.
 
 Con App Web statiche gli asset statici vengono separati da un server Web tradizionale e sono gestiti da punti distribuiti geograficamente in tutto il mondo. Grazie a questa distribuzione la gestione dei file risulta molto più rapida quanto più sono fisicamente vicini agli utenti finali. Per ospitare gli endpoint dell'API si usa inoltre un'[architettura serverless](../azure-functions/functions-overview.md), che consente di evitare l'uso di un server back-end completo.
 
@@ -44,7 +44,7 @@ Con App Web statiche gli asset statici vengono separati da un server Web tradizi
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>Operazioni possibili con App Web statiche
 
-- **Creare applicazioni JavaScript moderne** con framework e librerie quali [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react) e [Funzioni di Azure](apis.md) come back-end.
+- **Creare applicazioni Web moderne** con framework e librerie JavaScript quali [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react) o usando [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) per creare applicazioni WebAssembly con [Funzioni di Azure](apis.md) come back-end.
 - **Pubblicare siti statici** con framework come [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
 - **Distribuire applicazioni Web** con framework come [Next.js](deploy-nextjs.md) e [Nuxt.js](deploy-nuxtjs.md).
 

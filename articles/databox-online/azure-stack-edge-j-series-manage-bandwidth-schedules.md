@@ -1,6 +1,6 @@
 ---
-title: GPU di Azure Stack Edge gestire le pianificazioni della larghezza di banda | Microsoft Docs
-description: Viene descritto come usare la portale di Azure per gestire le pianificazioni della larghezza di banda sulla GPU di Azure Stack Edge.
+title: Azure Stack GPU Pro Edge gestire le pianificazioni della larghezza di banda | Microsoft Docs
+description: Viene descritto come usare la portale di Azure per gestire le pianificazioni della larghezza di banda sulla GPU di Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 92b9edb4f694a5ff7d15b06be41cc20db3b64b97
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: faf78e9f7efb83c5f28538e18ed081378d120848
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265695"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890670"
 ---
-# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-gpu"></a>Usare il portale di Azure per gestire le pianificazioni della larghezza di banda sulla GPU di Azure Stack Edge 
+# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Usare il portale di Azure per gestire le pianificazioni della larghezza di banda sulla GPU Pro Azure Stack Edge 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Questo articolo descrive come gestire le pianificazioni della larghezza di banda in Azure Stack Edge. Le pianificazioni della larghezza di banda consentono di configurare l'uso della larghezza di banda della rete in più pianificazioni orarie. Queste pianificazioni possono essere applicate alle operazioni di caricamento e download dal dispositivo al cloud.
+Questo articolo descrive come gestire le pianificazioni della larghezza di banda in Azure Stack Edge Pro. Le pianificazioni della larghezza di banda consentono di configurare l'uso della larghezza di banda della rete in più pianificazioni orarie. Queste pianificazioni possono essere applicate alle operazioni di caricamento e download dal dispositivo al cloud.
 
-È possibile aggiungere, modificare o eliminare le pianificazioni della larghezza di banda per il Azure Stack Edge tramite l'portale di Azure.
+È possibile aggiungere, modificare o eliminare le pianificazioni della larghezza di banda per il Azure Stack Edge Pro tramite il portale di Azure.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -42,9 +42,9 @@ Seguire questa procedura nel portale di Azure per aggiungere una pianificazione.
 
 3. In **Aggiungi pianificazione**: 
 
-   1. Indicare il **giorno di inizio**, il **giorno di fine**, l'**orario di inizio** e l'**orario di fine** della pianificazione.
-   2. Se la pianificazione deve essere eseguita per l'intera giornata, selezionare **Tutto il giorno**.
-   3. Per **Velocità larghezza di banda** si intende la larghezza di banda espressa in megabit al secondo (Mbps) usata dal dispositivo nelle operazioni che coinvolgono il cloud (sia caricamento sia download). Specificare un numero compreso tra 20 e 2.147.483.647 per questo campo.
+   1. Fornire il **giorno di inizio**, il **giorno di fine**, l'ora di **inizio**e l' **ora di fine** della pianificazione.
+   2. Selezionare l'opzione **tutto il giorno** se la pianificazione deve essere eseguita tutto il giorno.
+   3. La **velocità della larghezza di banda** è la larghezza di banda in megabit al secondo (Mbps) usata dal dispositivo in operazioni che coinvolgono il cloud (sia uploads che download). Specificare un numero compreso tra 20 e 2.147.483.647 per questo campo.
    4. Selezionare una larghezza di banda **Senza limiti** se non si vuole limitare la data di caricamento e download.
    5. Selezionare **Aggiungi**.
 
@@ -73,7 +73,7 @@ Eseguire la procedura seguente per modificare una pianificazione della larghezza
 
 ## <a name="delete-a-schedule"></a>Eliminare una pianificazione
 
-Seguire questa procedura per eliminare una pianificazione della larghezza di banda associata al dispositivo Azure Stack Edge.
+Seguire questa procedura per eliminare una pianificazione della larghezza di banda associata al dispositivo Azure Stack Edge Pro.
 
 1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a larghezza di **banda**.  
 

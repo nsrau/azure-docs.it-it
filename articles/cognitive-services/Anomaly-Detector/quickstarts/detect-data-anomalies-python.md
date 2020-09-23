@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: 38c2b3cdf40f1924a36ffd84d9dc5f9b2f7f319d
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 7bfe10ea5e0e95bcabf02243bb8b7172a5aec08d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245707"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906756"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie e Python
 
-Usare questa guida di avvio rapido per iniziare a usare le due modalità di rilevamento dell'API Rilevamento anomalie per rilevare le anomalie nei dati delle serie temporali. Questa applicazione Python invia due richieste API contenenti i dati delle serie temporali in formato JSON e riceve le risposte.
+Usare questa guida di avvio rapido per iniziare a usare le due modalità di rilevamento dell'API Rilevamento anomalie per rilevare le anomalie nei dati delle serie temporali. Questa applicazione Python invia le richieste API contenenti i dati delle serie temporali in formato JSON e riceve le risposte.
 
 | Richiesta API                                        | Output dell'applicazione                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Rilevare anomalie come batch                        | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per ogni punto dati nei dati di serie temporali e le posizioni delle anomalie rilevate. |
-| Rilevare lo stato delle anomalie del punto dati più recente | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per il punto dati più recente nei dati di serie temporali.                                                                                                                                         |
+| Rilevare lo stato delle anomalie del punto dati più recente | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per il punto dati più recente nei dati di serie temporali.|
+| Rilevare i punti di modifica che contrassegnano nuove tendenze dei dati | Risposta JSON che contiene i punti di modifica rilevati nei dati delle serie temporali. |
 
  L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/python-detect-anomalies.py).
 
@@ -54,6 +55,7 @@ Usare questa guida di avvio rapido per iniziare a usare le due modalità di rile
     |---------|---------|
     |Rilevamento in batch    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Rilevamento nel punto dati più recente     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    | Rilevamento dei punti di modifica | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-python[initial endpoint and key variables](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=vars)]
 
@@ -73,7 +75,7 @@ Usare questa guida di avvio rapido per iniziare a usare le due modalità di rile
 
 ## <a name="detect-anomalies-as-a-batch"></a>Rilevare anomalie come batch
 
-1. Creare un metodo denominato `detect_batch()` per rilevare le anomalie in tutti i dati come batch. Chiamare il metodo `send_request()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati json.
+1. Creare un metodo denominato `detect_batch()` per rilevare le anomalie in tutti i dati come batch. Chiamare il metodo `send_request()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati JSON.
 
 2. Chiamare `json.dumps()` sul risultato per formattarlo e stamparlo nella console.
 
@@ -91,6 +93,18 @@ Usare questa guida di avvio rapido per iniziare a usare le due modalità di rile
 
     [!code-python[Latest point detection](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectLatest)]
 
+## <a name="detect-change-points-in-the-data"></a>Rilevare i punti di modifica nei dati
+
+1. Creare un metodo denominato `detect_change_point()` per rilevare le anomalie in tutti i dati come batch. Chiamare il metodo `send_request()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati JSON.
+
+2. Chiamare `json.dumps()` sul risultato per formattarlo e stamparlo nella console.
+
+3. Se la risposta contiene un campo `code`, stampare il codice di errore e il messaggio di errore.
+
+4. In caso contrario, trovare le posizioni delle anomalie nel set di dati. Il campo `isChangePoint` della risposta contiene un valore booleano che indica se il punto dati specificato è un'anomalia. Scorrere l'elenco e stampare l'indice dei valori `True`. Questi valori corrispondono agli indici dei punti di modifica della tendenza, se individuati.
+
+    [!code-python[detect change points](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectChangePoint)]
+
 ## <a name="send-the-request"></a>Inviare la richiesta
 
 Chiamare quindi i metodi di rilevamento anomalie creati in precedenza.
@@ -102,5 +116,6 @@ Chiamare quindi i metodi di rilevamento anomalie creati in precedenza.
 Viene restituita una risposta con esito positivo in formato JSON. Fare clic sui collegamenti seguenti per visualizzare la risposta JSON in GitHub:
 * [Esempio di risposta di rilevamento in batch](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Esempio di risposta di rilevamento nel punto dati più recente](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [Esempio di risposta di rilevamento di punti di modifica](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

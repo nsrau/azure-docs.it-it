@@ -1,14 +1,9 @@
 - name: Documentazione dello strumento di lettura immersiva
   href: index.yml
-- name: Panoramica
-  items:
-    - name: Cos'è lo strumento di lettura immersiva?
-      href: Overview.md
-- name: Avvi rapidi
-  expanded: true
-  items:
-    - name: Uso della libreria client
-      href: ./quickstarts/client-libraries.md
+- name: Cos'è lo strumento di lettura immersiva?
+  href: Overview.md
+- name: Guida rapida
+  href: ./quickstarts/client-libraries.md
 - name: Esercitazioni
   items:
     - name: Avviare lo strumento di lettura immersiva (Android)

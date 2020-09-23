@@ -3,12 +3,12 @@ title: Materiale sussidiario e procedure consigliate
 description: Scopri le procedure consigliate e le linee guida per il backup del carico di lavoro cloud e locale nel cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000363"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985516"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Eseguire il backup di carichi di lavoro cloud e locali nel cloud
 
@@ -24,7 +24,7 @@ I destinatari primari di questo articolo sono gli amministratori IT e delle appl
 
 Sebbene sia facile iniziare a proteggere l'infrastruttura e le applicazioni in Azure, quando si garantisce che le risorse di Azure sottostanti siano configurate correttamente e utilizzate in modo ottimale, è possibile accelerare il time-to-value. Questo articolo illustra una breve panoramica delle considerazioni sulla progettazione e delle linee guida per la configurazione ottimale della distribuzione di backup di Azure. Esamina i componenti di base (ad esempio, l'insieme di credenziali dei servizi di ripristino, i criteri di backup) e i concetti (ad esempio, la governance) e come pensarli e le relative funzionalità con collegamenti alla documentazione dettagliata del prodotto.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 ![Architettura di Backup di Azure](./media/guidance-best-practices/azure-backup-architecture.png)
 
@@ -48,7 +48,7 @@ Backup di Azure consente la protezione dei dati per diversi carichi di lavoro (i
 
 ### <a name="management-plane"></a>Piano di gestione
 
-* **Controllo degli accessi** : l'insieme di credenziali di servizi di ripristino fornisce le funzionalità di gestione ed è accessibile tramite il portale di Azure, SDK, CLI e anche le API REST. Si tratta anche di un limite RBAC, che consente di limitare l'accesso ai backup solo agli amministratori di backup autorizzati.
+* **Controllo degli accessi** : gli insiemi di credenziali (servizi di ripristino e insiemi di credenziali di backup) forniscono le funzionalità di gestione e sono accessibili tramite il portale di Azure, il centro di backup, i dashboard dell'insieme di credenziali, l'SDK, l'interfaccia della riga di comando e persino Si tratta anche di un limite RBAC, che consente di limitare l'accesso ai backup solo agli amministratori di backup autorizzati.
 
 * **Gestione dei criteri** : i criteri di backup di Azure in ogni insieme di credenziali definiscono quando devono essere attivati i backup e per quanto tempo devono essere conservati. È anche possibile gestire questi criteri e applicarli tra più elementi.
 
@@ -58,7 +58,7 @@ Backup di Azure consente la protezione dei dati per diversi carichi di lavoro (i
 
 ## <a name="vault-considerations"></a>Considerazioni sull'insieme di credenziali
 
-Backup di Azure usa gli insiemi di credenziali di Servizi di ripristino per orchestrare e gestire i backup, nonché per archiviare i dati sottoposti a backup. La progettazione di insiemi di credenziali efficace consente alle organizzazioni di stabilire una struttura per organizzare e gestire asset di backup in Azure per supportare le priorità aziendali. Quando si crea un insieme di credenziali, tenere presenti le linee guida seguenti:  
+Backup di Azure usa gli insiemi di credenziali (servizi di ripristino e insiemi di credenziali di backup) per orchestrare e gestire i backup. nonché per archiviare i dati sottoposti a backup. La progettazione di insiemi di credenziali efficace consente alle organizzazioni di stabilire una struttura per organizzare e gestire asset di backup in Azure per supportare le priorità aziendali. Quando si crea un insieme di credenziali, tenere presenti le linee guida seguenti:  
 
 ### <a name="align-to-subscription-design-strategy"></a>Allinea alla strategia di progettazione della sottoscrizione
 
@@ -71,7 +71,8 @@ Dato che l'insieme di credenziali è limitato a una sottoscrizione, adattarsi al
 * Se i carichi di lavoro sono tutti gestiti da una singola sottoscrizione e una singola risorsa, è possibile usare un unico insieme di credenziali per monitorare e gestire il proprio patrimonio di backup.
 
 * Se i carichi di lavoro vengono distribuiti tra le sottoscrizioni, è possibile creare più insiemi di credenziali, uno o più per sottoscrizione.
-  * Per semplificare il monitoraggio delle attività operative in tutti gli insiemi di credenziali, le sottoscrizioni e i tenant, è possibile usare Esplora backup e i report. [Altre informazioni](monitor-azure-backup-with-backup-explorer.md) sono disponibili qui per ottenere una visualizzazione aggregata.
+  * Backup Center consente di avere un unico riquadro di vetro per gestire tutte le attività correlate al backup. [Altre informazioni]()sono disponibili qui.
+  * È possibile personalizzare le visualizzazioni con i modelli di cartella di lavoro. Esplora backup è un modello di questo tipo per le macchine virtuali di Azure. [Altre informazioni](monitor-azure-backup-with-backup-explorer.md)sono disponibili qui.
   * Se sono necessari criteri coerenti tra gli insiemi di credenziali, è possibile usare i criteri di Azure per propagare i criteri di backup tra più insiemi di credenziali. È possibile scrivere una [definizione di criteri di Azure](../governance/policy/concepts/definition-structure.md) personalizzata che usa l'effetto ["deployifnotexists"](../governance/policy/concepts/effects.md#deployifnotexists) per propagare un criterio di backup tra più insiemi di credenziali. È possibile assegnare questa definizione di criteri di Azure a un particolare ambito (sottoscrizione o RG), in modo che distribuisca una risorsa "criterio di backup" in tutti gli insiemi di [credenziali](../governance/policy/assign-policy-portal.md) dei servizi di ripristino nell'ambito dell'assegnazione di criteri di Azure. Le impostazioni dei criteri di backup (ad esempio frequenza di backup, conservazione e così via) devono essere specificate dall'utente come parametri nell'assegnazione di criteri di Azure.
 
 * Con l'aumentare del footprint aziendale, è possibile spostare i carichi di lavoro tra le sottoscrizioni per i motivi seguenti: allinea in base ai criteri di backup, consolida gli insiemi di credenziali, compromessi con ridondanza inferiore per risparmiare sui costi (passa da GRS a con ridondanza locale).  Backup di Azure supporta lo trasferimento di un insieme di credenziali di servizi di ripristino tra sottoscrizioni di Azure o a un altro gruppo di risorse nella stessa sottoscrizione. [Altre informazioni](backup-azure-move-recovery-services-vault.md)sono disponibili qui.

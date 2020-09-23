@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3370ea52c5bd189f929c0f81a0aa9b59cc77b97
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 919585d557a668e44f229451ab202fb8bcab9079
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421383"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985147"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Assegnare ruoli di Azure AD in Privileged Identity Management
 
@@ -75,6 +75,30 @@ Seguire questa procedura per rendere un utente idoneo per un ruolo di amministra
 
     ![Nuova assegnazione - Notifica](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
+## <a name="assign-a-role-with-restricted-scope"></a>Assegnare un ruolo con ambito limitato
+
+Per determinati ruoli, l'ambito delle autorizzazioni concesse può essere limitato a una singola unità amministrativa, a un'entità servizio o a un'applicazione. Questa procedura è un esempio di assegnazione di un ruolo che dispone dell'ambito di un'unità amministrativa. Per un elenco dei ruoli che supportano l'ambito tramite unità amministrativa, vedere [assegnare ruoli con ambito a un'unità amministrativa](../users-groups-roles/roles-admin-units-assign-roles.md). Questa funzionalità è attualmente implementata per Azure AD organizzazioni.
+
+1. Accedere al centro di [amministrazione Azure Active Directory](https://aad.portal.azure.com) con autorizzazioni di amministratore del ruolo con privilegi.
+
+1. Selezionare **Azure Active Directory**  >  **ruoli e amministratori**.
+
+1. Selezionare l' **amministratore utente**.
+
+    ![Il comando Aggiungi assegnazione è disponibile quando si apre un ruolo nel portale](./media/pim-how-to-add-role-to-user/add-assignment.png)
+
+1. Selezionare **Aggiungi assegnazioni**.
+
+    ![Quando un ruolo supporta l'ambito, è possibile selezionare un ambito](./media/pim-how-to-add-role-to-user/add-scope.png)
+
+1. Nella pagina **Aggiungi assegnazioni** è possibile:
+
+   - Selezionare un utente o un gruppo da assegnare al ruolo
+   - Selezionare l'ambito del ruolo (in questo caso, unità amministrative)
+   - Selezionare un'unità amministrativa per l'ambito
+
+Per ulteriori informazioni sulla creazione di unità amministrative, vedere [aggiungere e rimuovere unità amministrative](../users-groups-roles/roles-admin-units-manage.md).
+
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Aggiornare o rimuovere un'assegnazione di ruolo esistente
 
 Seguire questi passaggi per aggiornare o rimuovere un'assegnazione di ruolo esistente.
@@ -101,7 +125,7 @@ Seguire questa procedura per rendere un utente idoneo per un ruolo di amministra
 
 1. Selezionare **ruoli** o **membri**.
 
-    ![Ruoli di Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Apri ruoli Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Selezionare **Aggiungi membro** per aprire **Aggiungi membri gestiti**.
 
@@ -111,7 +135,7 @@ Seguire questa procedura per rendere un utente idoneo per un ruolo di amministra
 
 1. Selezionare **Seleziona membri**, selezionare gli utenti che si desidera assegnare al ruolo, quindi selezionare **Seleziona**.
 
-    ![Selezionare un ruolo](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Selezionare un utente o un gruppo da assegnare](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. In **Aggiungi membri gestiti**selezionare **OK** per aggiungere l'utente al ruolo.
 
@@ -169,7 +193,7 @@ Seguire questa procedura per rimuovere un utente specifico da un ruolo di ammini
 
 1. Nel messaggio che chiede di confermare, selezionare **Sì**.
 
-    ![Rimuovere un ruolo](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Confermare la rimozione](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     L'assegnazione di ruolo viene rimossa.
 

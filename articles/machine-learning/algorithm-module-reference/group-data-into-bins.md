@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: d3a9f88325f03d0252adf51c5bf221b131d7d33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de9f4517d134b4a42603291110c6b19f69403412
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751725"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907034"
 ---
 # <a name="group-data-into-bins-module"></a>Raggruppare i dati nel modulo bin
 
-Questo articolo descrive come usare il moduloGroup Data into Bins (Raggruppa dati in bin) nella finestra di progettazione di Azure Machine Learning (anteprima) per raggruppare numeri o modificare la distribuzione di dati continui.
+Questo articolo descrive come usare i dati di gruppo nel modulo bin in Azure Machine Learning Designer, per raggruppare numeri o modificare la distribuzione di dati continui.
 
 Il modulo Group Data into Bins (Raggruppa dati in bin) supporta più opzioni per il binning dei dati. È possibile personalizzare l'impostazione dei vertici di bin e la ripartizione dei valori nei bin. Ad esempio, è possibile:  
 
@@ -50,7 +50,7 @@ Poiché esistono moltissimi modi per raggruppare i dati, e tutti sono personaliz
 
 ## <a name="how-to-configure-group-data-into-bins"></a>Come configurare il modulo Group Data into Bins (Raggruppa dati in bin)
 
-1. Aggiungere i **dati di gruppo nel modulo bins** alla pipeline nella finestra di progettazione (anteprima). È possibile trovare questo modulo nella categoria **Trasformazione dati**.
+1. Aggiungere i **dati di gruppo nel modulo bins** alla pipeline nella finestra di progettazione. È possibile trovare questo modulo nella categoria **Trasformazione dati**.
 
 2. Connettere il set di dati con dati numerici al bin. La quantizzazione può essere applicata solo alle colonne che contengono dati numerici. 
 
