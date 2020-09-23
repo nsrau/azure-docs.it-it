@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 92d4fb638e41c668c557ef9e618d30677481585d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7d2bdb96485a811ea9b3dde5320084f666508622
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829850"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907493"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Creare e gestire un collegamento privato per database di Azure per PostgreSQL-server singolo con il portale
 
@@ -41,7 +41,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Subscription | Selezionare la propria sottoscrizione.|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Percorso | Selezionare **Europa occidentale**.|
+    | Location | Selezionare **Europa occidentale**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
@@ -133,7 +133,7 @@ In questa sezione si creerà un server PostgreSQL a cui verrà aggiunto un endpo
 1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa**  >  **rete**  >  **privato collegamento**.
 2. In **Centro collegamento privato - Informazioni generali** selezionare **Avvia** per l'opzione **Crea una connessione privata a un servizio**.
 
-    ![Panoramica sul collegamento privato](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Panoramica sul collegamento privato":::
 
 1. In **Crea un endpoint privato-nozioni di base**immettere o selezionare queste informazioni:
 
@@ -176,7 +176,7 @@ In questa sezione si creerà un server PostgreSQL a cui verrà aggiunto un endpo
 1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
 2. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**. 
 
-    ![Collegamento privato creato](media/concepts-data-access-and-security-private-link/show-postgres-private-link.png)
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Collegamento privato creato":::
 
     > [!NOTE] 
     > Il nome di dominio completo nell'impostazione DNS del cliente non viene risolto nell'indirizzo IP privato configurato. Sarà necessario configurare una zona DNS per il nome di dominio completo configurato come illustrato di [seguito](../dns/dns-operations-recordsets-portal.md).

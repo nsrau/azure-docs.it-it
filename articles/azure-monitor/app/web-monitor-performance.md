@@ -4,12 +4,12 @@ description: Introduzione a Application Insights. Analizzare l'uso, la disponibi
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f84e1065f93fc2cca950f12d5df537b931faac8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323452"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987149"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorare le prestazioni di applicazioni Web
 
@@ -112,11 +112,11 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 
 Per ottenere un'idea più accurata delle esperienze utente per questa operazione, è possibile selezionare un intervallo di tempo maggiore. È anche possibile ridurre il tempo in base a un intervallo specifico in cui l'operazione si è rivelata lenta. Nell'esempio seguente l'intervallo di tempo è stato modificato da quello predefinito di 24 ore a uno di 7 giorni, concentrandosi sull'intervallo tra le 9.47 e le 12.47 tra martedì 12 e mercoledì 13. Si noti che a destra sono stati aggiornati sia la distribuzione della durata sia il numero di campioni e di tracce del profiler.
 
-![Tre picchi di durata dell'operazione GET su clienti e dettagli in un intervallo di 7 giorni](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+![Screenshot mostra le prestazioni (anteprima) con tre picchi di durata nell'intervallo di 7 giorni con una finestra temporale](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
 Per limitare l'ambito alle esperienze con prestazioni lente, si concentra la visualizzazione sulle durate comprese tra il 95° e il 99° percentile. Queste rappresentano il 4% delle interazioni utente lente.
 
-![Tre picchi di durata dell'operazione GET su clienti e dettagli in un intervallo di 7 giorni](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+![Screenshot mostra i clienti/dettagli tre picchi di durata nell'intervallo di 7 giorni con una finestra temporale.](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
 È ora possibile esaminare i campioni rappresentativi, facendo clic sul pulsante Samples (Campioni), o le tracce del profiler rappresentative, facendo clic sul pulsante Profiler traces (Tracce profiler). Questo esempio contiene quattro tracce che sono state raccolte per l'operazione GET su clienti e dettagli nell'intervallo di tempo e nella durata di interesse.
 
@@ -126,7 +126,7 @@ A volte il problema non riguarda il codice, ma una dipendenza chiamata dal codic
 
 L'esperienza di analisi delle prestazioni mostra informazioni dettagliate rilevanti oltre al set di campioni su cui l'utente ha deciso di concentrarsi. Il modo migliore per esaminare tutte le informazioni dettagliate disponibili consiste nel passare a un intervallo di tempo di 30 giorni e quindi selezionare Overall (Complessive) per visualizzare le informazioni dettagliate su tutte le operazioni per l'ultimo mese.
 
-![Tre picchi di durata dell'operazione GET su clienti e dettagli in un intervallo di 7 giorni](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
+![Screenshot mostra le prestazioni (anteprima) con la finestra complessiva Apri e informazioni dettagliate selezionate.](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
 ## <a name="next-steps"></a><a name="next"></a>Passaggi successivi

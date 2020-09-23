@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 9d83a9ffb9dc334ef959b7a8039b9a9c4a1fced7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a9b0ec0fc19b6b6efa0453d698a5a978dacabc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137456"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907835"
 ---
 # <a name="linear-regression-module"></a>Modulo di regressione lineare
-Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per creare un modello di regressione lineare da usare in una pipeline.  La regressione lineare tenta di stabilire una relazione lineare tra una o più variabili indipendenti e un risultato numerico o una variabile dipendente. 
 
@@ -25,7 +25,7 @@ Usare questo modulo per definire un metodo di regressione lineare e quindi esegu
 
 ## <a name="about-linear-regression"></a>Informazioni sulla regressione lineare
 
-La regressione lineare è un metodo statistico comune, che è stato adottato in Machine Learning ed è stato migliorato con molti nuovi metodi per adattare la linea e l'errore di misurazione. Nel senso più elementare, la regressione si riferisce alla stima di una destinazione numerica. La regressione lineare è ancora una scelta ottimale quando si desidera un modello semplice per un'attività predittiva di base. La regressione lineare tende anche a funzionare correttamente in set di dati di tipo sparse e ad alta dimensionalità privi di complessità.
+La regressione lineare è un metodo statistico comune, che è stato adottato in Machine Learning ed è stato migliorato con molti nuovi metodi per adattare la linea e l'errore di misurazione. In poche parole, la regressione si riferisce alla stima di una destinazione numerica. La regressione lineare è ancora una scelta ottimale quando si desidera un modello semplice per un'attività predittiva di base. La regressione lineare tende anche a funzionare correttamente in set di dati di tipo sparse e ad alta dimensionalità privi di complessità.
 
 Azure Machine Learning supporta un'ampia gamma di modelli di regressione, oltre alla regressione lineare. Tuttavia, il termine "regressione" può essere interpretato in modo debole e alcuni tipi di regressione disponibili in altri strumenti non sono supportati.
 

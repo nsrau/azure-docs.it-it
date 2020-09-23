@@ -1,6 +1,6 @@
 ---
-title: Gestione calcolo GPU Azure Stack Edge | Microsoft Docs
-description: Viene descritto come gestire le impostazioni di calcolo Edge, ad esempio trigger, moduli, Visualizza configurazione di calcolo, Rimuovi configurazione tramite il portale di Azure sulla GPU di Azure Stack Edge.
+title: Gestione calcolo GPU Pro Azure Stack Edge | Microsoft Docs
+description: Viene descritto come gestire le impostazioni di calcolo Edge, ad esempio trigger, moduli, Visualizza configurazione di calcolo, Rimuovi configurazione tramite il portale di Azure sulla GPU Pro Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 1ea52c393ec9897d43714d69ff448038b65ee555
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 58e199cc3c09e6b4ff333fb53c047598b1ec9b5f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268792"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890603"
 ---
-# <a name="manage-compute-on-your-azure-stack-edge-gpu"></a>Gestire le risorse di calcolo sulla GPU Azure Stack Edge
+# <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Gestire le risorse di calcolo sulla GPU Pro Azure Stack Edge
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Questo articolo descrive come gestire le risorse di calcolo nel Azure Stack Edge. È possibile gestire il calcolo tramite il portale di Azure o l'interfaccia utente Web locale. Usare il portale di Azure per gestire moduli, trigger e la configurazione di calcolo, e l'interfaccia utente Web locale per gestire le impostazioni di calcolo.
+Questo articolo descrive come gestire le risorse di calcolo nel Azure Stack Edge Pro. È possibile gestire il calcolo tramite il portale di Azure o l'interfaccia utente Web locale. Usare il portale di Azure per gestire moduli, trigger e la configurazione di calcolo, e l'interfaccia utente Web locale per gestire le impostazioni di calcolo.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -30,7 +30,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 ## <a name="manage-triggers"></a>Gestire i trigger
 
-Gli eventi sono fenomeni che possono verificarsi all'interno dell'ambiente cloud o sul dispositivo su cui si desidera intervenire. Ad esempio, un evento è quando si crea un file in una condivisione. I trigger generano gli eventi. Per il Azure Stack Edge, i trigger possono essere in risposta a eventi di file o a una pianificazione.
+Gli eventi sono fenomeni che possono verificarsi all'interno dell'ambiente cloud o sul dispositivo su cui si desidera intervenire. Ad esempio, un evento è quando si crea un file in una condivisione. I trigger generano gli eventi. Per il Pro Azure Stack Edge, i trigger possono essere in risposta a eventi di file o a una pianificazione.
 
 - **File**: questi trigger sono in risposta a eventi di file, ad esempio la creazione di un file, la modifica di un file.
 - **Pianificata**: questi trigger sono in risposta a una pianificazione che è possibile definire con una data di inizio, un'ora di inizio e l'intervallo di ripetizione.
@@ -84,7 +84,7 @@ Viene inoltre aggiornato l'elenco dei trigger per riflettere l'eliminazione.
 
 ## <a name="manage-compute-configuration"></a>Configurazione della gestione del calcolo
 
-Usare il portale di Azure per visualizzare la configurazione di calcolo, rimuovere una configurazione di calcolo esistente o aggiornare la configurazione di calcolo per sincronizzare le chiavi di accesso per il dispositivo e il dispositivo IoT Edge per l'Azure Stack Edge.
+Usare il portale di Azure per visualizzare la configurazione di calcolo, rimuovere una configurazione di calcolo esistente o aggiornare la configurazione di calcolo per sincronizzare le chiavi di accesso per il dispositivo e il dispositivo IoT Edge per l'Azure Stack Edge Pro.
 
 ### <a name="view-compute-configuration"></a>Visualizzazione del calcolo Edge
 
@@ -113,11 +113,11 @@ Eseguire i passaggi seguenti nel portale di Azure per rimuovere la configurazion
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Sincronizzazione delle chiavi di accesso per il dispositivo IoT e il dispositivo IoT Edge
 
-Quando si configura il calcolo nel Azure Stack Edge, vengono creati un dispositivo e un dispositivo IoT Edge. A questi dispositivi vengono assegnate automaticamente delle chiavi di accesso simmetriche. Per una protezione ottimale, queste chiavi vengono ruotate regolarmente tramite il servizio dell'hub IoT.
+Quando si configura il calcolo nel Azure Stack Edge Pro, vengono creati un dispositivo e un dispositivo IoT Edge. A questi dispositivi vengono assegnate automaticamente delle chiavi di accesso simmetriche. Per una protezione ottimale, queste chiavi vengono ruotate regolarmente tramite il servizio dell'hub IoT.
 
 Per ruotare queste chiavi di accesso, è possibile accedere al servizio dell'hub IoT creato e selezionare il dispositivo IoT o il dispositivo IoT Edge. Ogni dispositivo dispone di una chiave di accesso primaria e di una chiave di accesso secondaria. Assegnare la chiave di accesso primaria alla chiave di accesso secondaria, quindi riscrivere la chiave di accesso primaria.
 
-Se il dispositivo Internet delle cose e IoT Edge chiavi del dispositivo sono stati ruotati, è necessario aggiornare la configurazione sul Azure Stack Edge per ottenere le chiavi di accesso più recenti. La sincronizzazione consente al dispositivo di ottenere le chiavi più recenti per il dispositivo IoT e il dispositivo IoT Edge. Azure Stack Edge utilizza solo le chiavi di accesso primarie.
+Se il dispositivo Internet delle cose e IoT Edge chiavi del dispositivo sono stati ruotati, è necessario aggiornare la configurazione in Azure Stack Edge Pro per ottenere le chiavi di accesso più recenti. La sincronizzazione consente al dispositivo di ottenere le chiavi più recenti per il dispositivo IoT e il dispositivo IoT Edge. Azure Stack Edge Pro usa solo le chiavi di accesso primarie.
 
 Eseguire i passaggi seguenti nel portale di Azure per sincronizzare le chiavi di accesso per il proprio dispositivo.
 
@@ -133,4 +133,4 @@ Eseguire i passaggi seguenti nel portale di Azure per sincronizzare le chiavi di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [risolvere i problemi di Azure stack Edge](azure-stack-edge-gpu-troubleshoot.md).
+- Informazioni su come [risolvere i problemi di Azure stack Edge Pro](azure-stack-edge-gpu-troubleshoot.md).

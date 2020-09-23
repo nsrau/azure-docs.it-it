@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 48c05bf7b4cbecb09ef3bb113832974bee4bc6b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e6653f8f26f90b6ea7f911efab40ec7a3e0c2a60
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518776"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906784"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Route in App Web statiche di Azure (anteprima)
 
@@ -32,7 +32,7 @@ Per informazioni dettagliate, vedere il [file di route di esempio](#example-rout
 
 Il file _routes.json_ deve essere presente nella radice della cartella dell'artefatto della compilazione dell'app. Se l'app Web include un'istruzione di compilazione che copia i file compilati da una cartella specifica alla cartella dell'artefatto della compilazione, il file _routes.json_ deve essere presente in quella cartella specifica.
 
-La tabella seguente elenca il percorso appropriato in cui collocare il file _routes.json_ per un diversi framework e librerie JavaScript front-end.
+La tabella seguente elenca il percorso appropriato per inserire il _routes.jssu_ file per un certo numero di Framework e librerie front-end.
 
 |Framework/Libreria | Location  |
 |---------|----------|
@@ -40,6 +40,9 @@ La tabella seguente elenca il percorso appropriato in cui collocare il file _rou
 | React   | _pubblico_  |
 | Svelte  | _pubblico_   |
 | Vue     | _pubblico_ |
+| Blazor  | _wwwroot_ |
+
+La tabella precedente è rappresentativa solo di alcuni Framework e librerie compatibili con le app Web statiche di Azure. Per ulteriori informazioni, vedere [configurare Framework e librerie front-end](./front-end-frameworks.md) .
 
 ## <a name="defining-routes"></a>Definizione delle route
 
@@ -48,7 +51,7 @@ Le route sono definite nel file _routes.json_ come una matrice di regole di rout
 | Proprietà regola  | Obbligatoria | Valore predefinito | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
 | `route`        | Sì      | n/d          | Modello di route richiesto dal chiamante.<ul><li>I [caratteri jolly](#wildcards) sono supportati alla fine dei percorsi di route. Ad esempio, la route _admin/\*_ cerca le corrispondenze con qualsiasi route nel percorso _admin_.<li>Il file predefinito di una route è _index.html_.</ul>|
-| `serve`        | No       | n/d          | Definisce il file o il percorso restituito dalla richiesta. Il percorso e il nome del file possono essere diversi dal percorso richiesto. Se un `serve` valore non è definito, viene usato il percorso richiesto. I parametri QueryString non sono supportati. `serve`i valori devono puntare ai file effettivi.  |
+| `serve`        | No       | n/d          | Definisce il file o il percorso restituito dalla richiesta. Il percorso e il nome del file possono essere diversi dal percorso richiesto. Se un `serve` valore non è definito, viene usato il percorso richiesto. I parametri QueryString non sono supportati. `serve` i valori devono puntare ai file effettivi.  |
 | `allowedRoles` | No       | anonymous     | Matrice di nomi di ruolo. <ul><li>I caratteri validi includono `a-z`, `A-Z`, `0-9` e `_`.<li>Il ruolo predefinito `anonymous` si applica a tutti gli utenti non autenticati.<li>Il ruolo predefinito `authenticated` si applica a qualsiasi utente connesso.<li>Gli utenti devono appartenere ad almeno un ruolo.<li>Per la corrispondenza dei ruoli viene usato l'operatore _OR_. Se un utente è incluso in uno dei ruoli elencati, viene concesso l'accesso.<li>I singoli utenti sono associati ai ruoli tramite [inviti](authentication-authorization.md).</ul> |
 | `statusCode`   | No       | 200           | [Codice di stato HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) di risposta per la richiesta. |
 
@@ -106,7 +109,7 @@ Il file _calendar.html_ può quindi usare il routing lato client per restituire 
 
 ## <a name="fallback-routes"></a>Route di fallback
 
-I framework o le librerie JavaScript front-end si basano spesso sul routing lato client per l'esplorazione delle app Web. Queste regole di routing lato client aggiornano la posizione della finestra del browser senza inviare di nuovo richieste al server. Se si aggiorna la pagina o si passa direttamente a posizioni generate dalle regole di routing lato client, è necessaria una route di fallback sul lato server per restituire la pagina HTML appropriata.
+Le applicazioni a pagina singola, che usano Framework o librerie JavaScript front-end o piattaforme webassembly come blazer, spesso si basano sul routing lato client per la navigazione delle app Web. Queste regole di routing lato client aggiornano la posizione della finestra del browser senza inviare di nuovo richieste al server. Se si aggiorna la pagina o si passa direttamente a posizioni generate dalle regole di routing lato client, è necessaria una route di fallback sul lato server per restituire la pagina HTML appropriata.
 
 Una route di fallback comune è illustrata nell'esempio seguente:
 
@@ -186,6 +189,9 @@ Le considerazioni seguenti sono importanti quando si utilizzano i tipi MIME:
 
 - Le chiavi non possono essere null o vuote o contenere più di 50 caratteri
 - I valori non possono essere null o vuoti o contenere più di 1000 caratteri
+
+> [!NOTE]
+> App Web statiche riconosce le applicazioni blazer e i tipi MIME previsti per i file WASM e DLL, non è necessario aggiungere i mapping per tali applicazioni.
 
 ## <a name="default-headers"></a>Intestazioni predefinite
 

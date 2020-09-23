@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: d2d3c94985f099c7a0ab92efab564415f5cd81bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3ede38edd9d24114eb4d0939ff9d4586a2d31daa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099196"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978139"
 ---
 # <a name="azure-time-series-insights-gen2-use-cases"></a>Casi d'uso di Azure Time Series Insights Gen2
 
@@ -66,7 +66,7 @@ Esistono tre modi principali per interagire con i dati archiviati in Azure Time 
 
 Usare Azure Time Series Insights Gen2 per monitorare l'integrità, l'utilizzo e le prestazioni delle apparecchiature su larga scala e misurare l'efficienza operativa. Azure Time Series Insights Gen2 consente di gestire carichi di lavoro Internet diversi e imprevedibili senza sacrificare l'inserimento o le prestazioni delle query.
 
-[![Panoramica](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
+[![Screenshot mostra I dispositivi o i dati delle applicazioni, l'elaborazione del flusso, l'efficienza operativa, le informazioni di intelligence/Insights e le analisi avanzate in Azure Time Series Insights Gen2.](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
 Lo streaming e l'elaborazione continua dei dati provenienti dai processi operativi possono trasformare con successo qualsiasi azienda se combinati con la soluzione o la tecnologia più adatta. Spesso queste soluzioni sono una combinazione di più sistemi. Consentono l'esplorazione e l'analisi dei dati che cambiano costantemente, specialmente nell'area di autenticazione e condividono uno schema comune.
 
@@ -86,7 +86,7 @@ Azure Time Series Insights Gen2 offre l'esplorazione dei dati quasi in tempo rea
 
 Ottenere l'integrazione con servizi di analisi avanzati come Machine Learning e Azure Databricks. Azure Time Series Insights Gen2 ingresa dati non elaborati da milioni di dispositivi. Aggiunge dati contestuali che possono essere utilizzati senza problemi da un gruppo di servizi di analisi di Azure.
 
-[![Analytics](media/v2-update-use-cases/advanced-analytics.png)](media/v2-update-use-cases/advanced-analytics.png#lightbox)
+[![Analisi](media/v2-update-use-cases/advanced-analytics.png)](media/v2-update-use-cases/advanced-analytics.png#lightbox)
 
 L'analisi avanzata e l'apprendimento automatico utilizzano ed elaborano grandi volumi di dati. Questi dati vengono usati per prendere decisioni basate sui dati ed eseguire analisi predittive. Nei casi d'uso delle soluzioni IoT, gli algoritmi di analisi avanzata apprendono dai dati raccolti da milioni di dispositivi. Questi dispositivi trasmettono i dati più volte al secondo. I dati raccolti dai dispositivi IoT non sono elaborati. Non includono informazioni contestuali, ad esempio la posizione del dispositivo e l'unità di misura del sensore che effettua la lettura. Di conseguenza, i dati non elaborati sono difficili da utilizzare direttamente per l'analisi avanzata.
 

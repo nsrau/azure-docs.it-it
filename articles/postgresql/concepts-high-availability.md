@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 16ce5b42e35ff3d650ba18aa95ab80b83fdbfdad
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0d723e1613e96f0aea243eace8ece3f0473e3742
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547682"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884447"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Disponibilità elevata in database di Azure per PostgreSQL-server singolo
 Il servizio database di Azure per PostgreSQL-server singolo offre un livello di disponibilità elevato garantito con il contratto di servizio con supporto finanziario del [99,99%](https://azure.microsoft.com/support/legal/sla/postgresql) di tempo di indisponibilità. Database di Azure per PostgreSQL offre disponibilità elevata durante gli eventi pianificati, ad esempio l'operazione di calcolo con scalabilità dell'utente avviate da, e anche quando si verificano eventi non pianificati, ad esempio hardware, software o errori di rete sottostanti. Il database di Azure per PostgreSQL è in grado di eseguire rapidamente il ripristino dalla maggior parte delle circostanze critiche, garantendo al tempo stesso il tempo di inattività dell'applicazione
@@ -29,7 +29,7 @@ Database di Azure per PostgreSQL è adatto per l'esecuzione di database mission-
 ## <a name="planned-downtime-mitigation"></a>Mitigazione dei tempi di inattività pianificati
 Database di Azure per PostgreSQL è progettato per garantire un'elevata disponibilità durante le operazioni di tempo di inattività pianificate. 
 
-![visualizzazione della scalabilità elastica in Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-elastic-scaling.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-elastic-scaling.png" alt-text="visualizzazione della scalabilità elastica in Azure PostgreSQL":::
 
 1. Scalabilità verticale e verticale di server di database PostgreSQL in pochi secondi
 2. Il gateway che funge da proxy per indirizzare il client si connette al server di database appropriato
@@ -49,7 +49,7 @@ Di seguito sono riportati alcuni scenari di manutenzione pianificata:
 Il tempo di inattività non pianificato può verificarsi a causa di errori imprevisti, inclusi errori hardware sottostanti, problemi di rete e bug software. Se il server di database si interrompe in modo imprevisto, viene eseguito automaticamente il provisioning di un nuovo server di database in pochi secondi. L'archiviazione remota viene collegata automaticamente al nuovo server di database. Il motore PostgreSQL esegue l'operazione di ripristino usando WAL e i file di database e apre il server di database per consentire ai client di connettersi. Le transazioni di cui non è stato eseguito il commit vengono perse ed è necessario eseguire un nuovo tentativo da parte dell'applicazione. Sebbene non sia possibile evitare tempi di inattività non pianificati, database di Azure per PostgreSQL riduce il tempo di inattività eseguendo automaticamente le operazioni di ripristino a livello di server di database e di archiviazione senza richiedere l'intervento umano. 
 
 
-![visualizzazione della disponibilità elevata in Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="visualizzazione della disponibilità elevata in Azure PostgreSQL":::
 
 1. Server PostgreSQL di Azure con funzionalità di scalabilità rapida.
 2. Gateway che funge da proxy per instradare le connessioni client al server di database appropriato

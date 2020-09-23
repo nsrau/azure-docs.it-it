@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: ea0970a672ac8fb15c2e7c6bbb65edf33bd25f04
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186589"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987280"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creare un account di Automazione di Azure autonomo
 
@@ -59,7 +59,7 @@ Per creare un account di Automazione di Azure nel portale di Azure, seguire ques
    > [!NOTE]
    > Se viene visualizzato il messaggio seguente nel riquadro Aggiungi account di Automazione, l'account non è membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione.
    >
-   > ![Avviso per Aggiungi account di Automazione](media/automation-create-standalone-account/create-account-without-perms.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="Screenshot della richiesta ' non si è autorizzati a creare un account RunAs in Azure Active Directory '.":::
 
 1. Nel campo **Nome** del riquadro Aggiungi account di Automazione immettere un nome per il nuovo account di Automazione. Non è possibile modificare questo nome dopo che è stato scelto. 
 
@@ -74,7 +74,7 @@ Per creare un account di Automazione di Azure nel portale di Azure, seguire ques
    > [!NOTE]
    > Se si sceglie di non creare l'account RunAs selezionando **No** per **Crea un account RunAs di Azure**, viene visualizzato un messaggio nel riquadro Aggiungi account di Automazione. Anche se l'account viene creato nel portale di Azure, l'account non ha un'identità di autenticazione corrispondente nella sottoscrizione del modello di distribuzione classico o nel servizio directory della sottoscrizione di Azure Resource Manager. Pertanto, l'account di Automazione non ha accesso alle risorse nella sottoscrizione. Questo impedirà ai runbook che fanno riferimento a questo account di completare l'autenticazione ed eseguire attività sulle risorse in tali modelli di distribuzione.
    >
-   > ![Avviso per Aggiungi account di Automazione](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Screenshot della richiesta con il messaggio "si è scelto di non creare un account RunAs".":::
    >
    > Se non viene creata l'entità servizio, il ruolo Collaboratore non viene assegnato.
    >
@@ -105,4 +105,4 @@ Gli account RunAs classici non vengono più creati per impostazione predefinita 
 * Per iniziare a usare i runbook PowerShell, vedere [Esercitazione: Creare un runbook di PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Per iniziare a usare i runbook del flusso di lavoro di PowerShell, vedere [Esercitazione: Creare un runbook del flusso di lavoro di PowerShell](learn/automation-tutorial-runbook-textual.md).
 * Per iniziare a usare i runbook di Python 2, vedere [Esercitazione: Creare un runbook di Python 2](learn/automation-tutorial-runbook-textual-python2.md).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

@@ -1,6 +1,6 @@
 ---
-title: Esercitazione su come filtrare e analizzare i dati con il calcolo in Azure Stack Edge con GPU | Microsoft Docs
-description: Informazioni su come configurare il ruolo di calcolo nel dispositivo Azure Stack Edge con GPU e usarlo per trasformare i dati prima dell'invio ad Azure.
+title: Esercitazione su come filtrare e analizzare i dati con il calcolo in Azure Stack Edge Pro con GPU | Microsoft Docs
+description: Informazioni su come configurare il ruolo di calcolo nel dispositivo Azure Stack Edge Pro con GPU e usarlo per trasformare i dati prima dell'invio ad Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 92afbf6497ff55fb2c3c4761b6239651d10c08ab
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: 3281642134e7a6a2531f43ad4b3f80cff34d03b6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146097"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890915"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge"></a>Esercitazione: Trasformare i dati con Azure Stack Edge
+# <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Esercitazione: Trasformare i dati con Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Questa esercitazione descrive come configurare un ruolo di calcolo nel dispositivo Azure Stack Edge. Dopo aver configurato il ruolo di calcolo, Azure Stack Edge può trasformare i dati prima che vengano inviati ad Azure.
+Questa esercitazione illustra come configurare un ruolo di calcolo nel dispositivo Azure Stack Edge Pro. Dopo la configurazione del ruolo di calcolo, Azure Stack Edge Pro può trasformare i dati prima che vengano inviati ad Azure.
 
 Il completamento di questa procedura può richiedere circa 10-15 minuti.
 
@@ -36,14 +36,14 @@ In questa esercitazione verranno illustrate le procedure per:
  
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di configurare un ruolo di calcolo nel dispositivo Azure Stack Edge, assicurarsi di:
+Prima di configurare un ruolo di calcolo nel dispositivo Azure Stack Edge Pro, assicurarsi di:
 
-- Aver attivato il dispositivo Azure Stack Edge come descritto in [Attivare il dispositivo Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+- Aver attivato il dispositivo Azure Stack Edge Pro come descritto in [Attivare il dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 
 ## <a name="configure-compute"></a>Configurare il calcolo
 
-Per configurare il calcolo in Azure Stack Edge, si creerà una risorsa hub IoT.
+Per configurare il calcolo in Azure Stack Edge Pro, creare una risorsa hub IoT.
 
 1. Nel portale di Azure della risorsa Azure Stack Edge passare a **Panoramica**. Nel riquadro **Calcolo** a destra selezionare **Inizia subito**.
 
@@ -72,7 +72,7 @@ Per configurare il calcolo in Azure Stack Edge, si creerà una risorsa hub IoT.
     ![Introduzione al calcolo](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
     > [!NOTE]
-    > Se la finestra di dialogo **Configura calcolo** viene chiusa prima che l'hub IoT sia stato associato al dispositivo Azure Stack Edge, l'hub IoT viene creato, ma non viene visualizzato nella configurazione di calcolo. 
+    > Se la finestra di dialogo **Configura calcolo** viene chiusa prima che l'hub IoT sia stato associato al dispositivo Azure Stack Edge Pro, l'hub IoT viene creato, ma non viene visualizzato nella configurazione di calcolo. 
     
     Quando il ruolo di calcolo Edge è configurato nel dispositivo Edge, crea due dispositivi: un dispositivo IoT e un dispositivo IoT Edge. Entrambi i dispositivi possono essere visualizzati nella risorsa dell'hub IoT. Nel dispositivo IoT Edge viene eseguito anche un runtime IoT Edge. Attualmente per il dispositivo IoT Edge è disponibile solo la piattaforma Linux.
 
@@ -101,7 +101,7 @@ Per la distribuzione semplice di questa esercitazione, saranno necessarie due co
     Per altre informazioni sul comando `rsync`, vedere la [documentazione di Rsync](https://www.computerhope.com/unix/rsync.htm).
 
     > [!NOTE]
-    > Per montare la condivisione NFS per il calcolo, la rete di calcolo deve essere configurata nella stessa subnet dell'indirizzo IP virtuale NFS. Per informazioni dettagliate su come configurare la rete di calcolo, vedere [Abilitare la rete di calcolo nel dispositivo Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+    > Per montare la condivisione NFS per il calcolo, la rete di calcolo deve essere configurata nella stessa subnet dell'indirizzo IP virtuale NFS. Per informazioni dettagliate su come configurare la rete di calcolo, vedere [Abilitare la rete di calcolo nel dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
     La condivisione Edge verrà creata e si riceverà una notifica di creazione riuscita. L'elenco delle condivisioni può essere aggiornato, ma è necessario attendere il completamento della creazione della condivisione.
 
@@ -117,9 +117,9 @@ Per la distribuzione semplice di questa esercitazione, saranno necessarie due co
 
 ## <a name="add-a-module"></a>Aggiungere un modulo
 
-È possibile aggiungere un modulo personalizzato o predefinito. In questo dispositivo Edge non sono presenti moduli personalizzati. Per informazioni su come creare un modulo personalizzato, vedere [Sviluppare un modulo C# per il dispositivo Azure Stack Edge](azure-stack-edge-j-series-create-iot-edge-module.md).
+È possibile aggiungere un modulo personalizzato o predefinito. In questo dispositivo Edge non sono presenti moduli personalizzati. Per informazioni su come creare un modulo personalizzato, vedere [Sviluppare un modulo C# per il dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md).
 
-In questa sezione si aggiungerà un modulo personalizzato al dispositivo IoT Edge creato in [Sviluppare un modulo C# per Azure Stack Edge](azure-stack-edge-j-series-create-iot-edge-module.md). Questo modulo personalizzato sposta i file da una condivisione locale Edge nel dispositivo Edge a una condivisione cloud Edge nel dispositivo. La condivisione cloud esegue quindi il push dei file all'account di archiviazione di Azure associato.
+In questa sezione si aggiungerà un modulo personalizzato al dispositivo IoT Edge creato in [Sviluppare un modulo C# per il dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md). Questo modulo personalizzato sposta i file da una condivisione locale Edge nel dispositivo Edge a una condivisione cloud Edge nel dispositivo. La condivisione cloud esegue quindi il push dei file all'account di archiviazione di Azure associato.
 
 1. Passare a **Calcolo Edge > Inizia subito**. Nel riquadro **Aggiungi moduli** selezionare **Semplice** come tipo di scenario. Selezionare **Aggiungi**.
 2. Nel pannello **Configura e aggiungi modulo** immettere i valori seguenti:
@@ -127,7 +127,7 @@ In questa sezione si aggiungerà un modulo personalizzato al dispositivo IoT Edg
     
     |Campo  |valore  |
     |---------|---------|
-    |Nome     | Nome univoco per il modulo. Questo modulo è un contenitore Docker che può essere distribuito nel dispositivo IoT Edge associato ad Azure Stack Edge.        |
+    |Nome     | Nome univoco per il modulo. Questo modulo è un contenitore Docker che può essere distribuito nel dispositivo IoT Edge associato ad Azure Stack Edge Pro.        |
     |URI immagine     | URI dell'immagine del contenitore corrispondente per il modulo.        |
     |Sono richieste credenziali     | Se questa opzione è selezionata, per recuperare i moduli con un URL corrispondente vengono usati un nome utente e una password.        |
     |Condivisione di input     | Selezionare una condivisione di input. In questo caso, la condivisione di input è la condivisione locale Edge. Il modulo usato in questo esempio sposta i file dalla condivisione locale Edge a una condivisione Edge in cui vengono caricati nel cloud.        |
@@ -181,7 +181,7 @@ In questa esercitazione sono state illustrate le procedure per:
 > * Aggiungere un ruolo di calcolo
 > * Verificare la trasformazione e il trasferimento dei dati
 
-Per informazioni su come amministrare il dispositivo Azure Stack Edge, vedere:
+Per informazioni su come amministrare il dispositivo Azure Stack Edge Pro, vedere:
 
 > [!div class="nextstepaction"]
-> [Usare l'interfaccia utente Web locale per amministrare un dispositivo Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Usare l'interfaccia utente Web locale per amministrare un dispositivo Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md)

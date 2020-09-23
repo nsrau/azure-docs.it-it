@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 07/20/2020
 ms.author: chmutali
-ms.openlocfilehash: ea47f8a6fc29571a27f8976bd0ad9bbd30ed0ad9
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808457"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969531"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Come Azure Active Directory il provisioning si integra con SAP SuccessFactors 
 
@@ -63,7 +63,7 @@ Per ogni utente di SuccessFactors, Azure AD servizio di provisioning recupera le
 | 14 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Solo se `jobCode` `jobCodeId` è stato eseguito il mapping dell'attributo o |
 | 15 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Solo se `payGrade` è stato eseguito il mapping dell'attributo |
 | 16 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Solo se `location` è stato eseguito il mapping dell'attributo |
-| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Se il mapping contiene uno degli attributi seguenti:`officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
+| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Se il mapping contiene uno degli attributi seguenti: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
 | 18 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Solo se `eventReason` è stato eseguito il mapping dell'attributo |
 | 19 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Solo se `assignmentType` è mappato |
 | 20 | Elenco a discesa EmploymentType                | employmentNav/jobInfoNav/employmentTypeNav | Solo se `employmentType` è mappato |
@@ -166,9 +166,9 @@ Il valore predefinito Azure AD lo schema dell'app di provisioning di SuccessFact
    * Se l'attributo fa parte dell'entità *utente* , cercare l'attributo nel nodo *employmentNav/userNav* .
    * Se l'attributo fa parte dell'entità *EmpJob* , cercare l'attributo nel nodo *employmentNav/jobInfoNav* . 
 1. Costruire il percorso JSON associato all'attributo e aggiungere il nuovo attributo all'elenco di attributi SuccessFactors. 
-   * Esempio 1: si vuole aggiungere l'attributo *okToRehire*, che fa parte dell'entità *employmentNav* , quindi usare JSONPath`$.employmentNav.results[0].okToRehire`
-   * Esempio 2: si desidera aggiungere l'attributo *TimeZone*, che fa parte dell'entità *userNav* , quindi utilizzare JSONPath`$.employmentNav.results[0].userNav.timeZone`
-   * Esempio 3: si vuole aggiungere l'attributo *flsaStatus*, che fa parte dell'entità *jobInfoNav* , quindi usare JSONPath`$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
+   * Esempio 1: si vuole aggiungere l'attributo *okToRehire*, che fa parte dell'entità *employmentNav* , quindi usare JSONPath  `$.employmentNav.results[0].okToRehire`
+   * Esempio 2: si desidera aggiungere l'attributo *TimeZone*, che fa parte dell'entità *userNav* , quindi utilizzare JSONPath `$.employmentNav.results[0].userNav.timeZone`
+   * Esempio 3: si vuole aggiungere l'attributo *flsaStatus*, che fa parte dell'entità *jobInfoNav* , quindi usare JSONPath `$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
 1. Salvare lo schema. 
 1. Riavviare il provisioning.
 
@@ -182,14 +182,14 @@ Per impostazione predefinita, gli attributi personalizzati seguenti sono predefi
 Supponiamo che nell'istanza centrale del dipendente, l'attributo *customString35* in *EmpJobInfo* archivi la descrizione del percorso. Si vuole eseguire il flusso di questo valore per Active Directory attributo *physicalDeliveryOfficeName* . Per configurare il mapping degli attributi per questo scenario, attenersi alla procedura riportata di seguito: 
 
 1. Modificare l'elenco di attributi SuccessFactors per aggiungere un nuovo attributo denominato *empJobNavCustomString35*.
-1. Impostare l'espressione API JSONPath per questo attributo come:`$.employmentNav.results[0].jobInfoNav.results[0].customString35`
+1. Impostare l'espressione API JSONPath per questo attributo come: `$.employmentNav.results[0].jobInfoNav.results[0].customString35`
 1. Salvare e ricaricare la modifica del mapping nell'portale di Azure.  
 1. Nel pannello mapping degli attributi eseguire il mapping di *empJobNavCustomString35* a *physicalDeliveryOfficeName*.
 1. Salvare il mapping.
 
 Estensione di questo scenario: 
-* Se si vuole eseguire il mapping dell'attributo *custom35* dall'entità *User* , usare JSONPath`$.employmentNav.results[0].userNav.custom35`
-* Se si vuole eseguire il mapping dell'attributo *customString35* dall'entità *EmpEmployment* , usare JSONPath`$.employmentNav.results[0].customString35`
+* Se si vuole eseguire il mapping dell'attributo *custom35* dall'entità *User* , usare JSONPath `$.employmentNav.results[0].userNav.custom35`
+* Se si vuole eseguire il mapping dell'attributo *customString35* dall'entità *EmpEmployment* , usare JSONPath `$.employmentNav.results[0].customString35`
 
 ### <a name="handling-worker-conversion-scenario"></a>Gestione dello scenario di conversione dei thread di lavoro
 
@@ -199,20 +199,20 @@ La conversione del ruolo di lavoro è il processo di conversione di un dipendent
 1. Scorrere verso il basso e fare clic su **Mostra opzioni avanzate**.
 1. Fare clic sul collegamento **esaminare lo schema qui** per aprire l'Editor schemi. 
 
-   >![Revisione-schema](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
+   >![Screenshot Visualizza il collegamento esaminare lo schema qui che consente di aprire l'Editor schemi.](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
 
 1. Fare clic sul collegamento **download** per salvare una copia dello schema prima della modifica. 
 
-   >![Scarica-schema](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
+   >![Screenshot mostra l'Editor schemi con download selezionare per salvare una copia dello schema.](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
 1. Nell'Editor schemi premere CTRL + H per aprire il controllo Trova-Sostituisci.
-1. Nella casella di testo trova copiare e incollare il valore`$.employmentNav.results[0]`
+1. Nella casella di testo trova copiare e incollare il valore `$.employmentNav.results[0]`
 1. Nella casella di testo Sostituisci copiare e incollare il valore `$.employmentNav.results[?(@.userNav != null)]` . Si noti lo spazio vuoto `!=` che circonda l'operatore, che è importante per una corretta elaborazione dell'espressione JSONPath. 
    >![Find-Replace-Conversion](media/sap-successfactors-integration-reference/find-replace-conversion-scenario.png#lightbox)
 1. Fare clic sull'opzione "Sostituisci tutto" per aggiornare lo schema. 
 1. Salvare lo schema. 
 1. Il processo precedente aggiorna tutte le espressioni JSONPath come segue: 
-   * JSONPath precedente:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * Nuovo JSONPath:`$.employmentNav.results[?(@.userNav != null)].jobInfoNav.results[0].departmentNav.name_localized`
+   * JSONPath precedente: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * Nuovo JSONPath: `$.employmentNav.results[?(@.userNav != null)].jobInfoNav.results[0].departmentNav.name_localized`
 1. Riavviare il provisioning. 
 
 ### <a name="handling-rehire-scenario"></a>Gestione dello scenario di riassunzione
@@ -230,13 +230,13 @@ Per gestire questo scenario di riassunto (opzione 2), in modo che i dati di util
 1. Fare clic sul collegamento **esaminare lo schema qui** per aprire l'Editor schemi.   
 1. Fare clic sul collegamento **download** per salvare una copia dello schema prima della modifica.   
 1. Nell'Editor schemi premere CTRL + H per aprire il controllo Trova-Sostituisci.
-1. Nella casella di testo trova copiare e incollare il valore`$.employmentNav.results[0]`
+1. Nella casella di testo trova copiare e incollare il valore `$.employmentNav.results[0]`
 1. Nella casella di testo Sostituisci copiare e incollare il valore `$.employmentNav.results[-1:]` . Questa espressione JSONPath restituisce il record *EmpEmployment* più recente.   
 1. Fare clic sull'opzione "Sostituisci tutto" per aggiornare lo schema. 
 1. Salvare lo schema. 
 1. Il processo precedente aggiorna tutte le espressioni JSONPath come segue: 
-   * JSONPath precedente:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * Nuovo JSONPath:`$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
+   * JSONPath precedente: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * Nuovo JSONPath: `$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
 1. Riavviare il provisioning. 
 
 Questa modifica dello schema supporta anche lo scenario di conversione del ruolo di lavoro. 
@@ -254,13 +254,13 @@ Per recuperare gli attributi appartenenti al profilo utente assegnazione standar
 1. Fare clic sul collegamento **esaminare lo schema qui** per aprire l'Editor schemi.   
 1. Fare clic sul collegamento **download** per salvare una copia dello schema prima della modifica.   
 1. Nell'Editor schemi premere CTRL + H per aprire il controllo Trova-Sostituisci.
-1. Nella casella di testo trova copiare e incollare il valore`$.employmentNav.results[0]`
+1. Nella casella di testo trova copiare e incollare il valore `$.employmentNav.results[0]`
 1. Nella casella di testo Sostituisci copiare e incollare il valore `$.employmentNav.results[?(@.assignmentClass == 'ST')]` . 
 1. Fare clic sull'opzione "Sostituisci tutto" per aggiornare lo schema. 
 1. Salvare lo schema. 
 1. Il processo precedente aggiorna tutte le espressioni JSONPath come segue: 
-   * JSONPath precedente:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * Nuovo JSONPath:`$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
+   * JSONPath precedente: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * Nuovo JSONPath: `$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
 1. Ricaricare il pannello mapping attributi dell'app. 
 1. Scorrere verso il basso e fare clic su **Mostra opzioni avanzate**.
 1. Fare clic su **modifica elenco attributi per SuccessFactors**.
@@ -278,7 +278,7 @@ Quando un utente in Employee Central dispone di processi simultanei o multipli, 
 1. Aprire il pannello mapping attributi dell'app di provisioning di SuccessFactors. 
 1. Scorrere verso il basso e fare clic su **Mostra opzioni avanzate**.
 1. Fare clic su **modifica elenco attributi per SuccessFactors**.
-1. Supponiamo di voler effettuare il pull del reparto associato al processo 1 e al processo 2. Il *reparto* attributi predefinito recupera già il valore del reparto per il primo processo. È possibile definire un nuovo attributo denominato *secondJobDepartment* e impostare l'espressione JSONPath su`$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
+1. Supponiamo di voler effettuare il pull del reparto associato al processo 1 e al processo 2. Il *reparto* attributi predefinito recupera già il valore del reparto per il primo processo. È possibile definire un nuovo attributo denominato *secondJobDepartment* e impostare l'espressione JSONPath su `$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
 1. È ora possibile eseguire il flusso di entrambi i valori del reparto per Active Directory attributi o propagarne selettivamente un valore usando il mapping delle espressioni. 
 1. Salvare il mapping. 
 1. Riavviare il provisioning. 
@@ -294,7 +294,7 @@ In questa sezione vengono illustrati diversi scenari di write-back. Suggerisce g
 | 1 | * Impostare solo la posta elettronica aziendale come primaria. <br> * Non impostare i numeri di telefono. | true | true | false | \[Non impostato\] | \[Non impostato\] | 
 | 2 | * In SuccessFactors, la posta elettronica aziendale e il telefono aziendale sono primari <br> * Passa sempre Azure AD numero di telefono a telefono aziendale e cellulare al telefono cellulare. | true | true | false | telephoneNumber | mobile | 
 | 3 | * In SuccessFactors, la posta elettronica aziendale e il telefono cellulare sono primari <br> * Passa sempre Azure AD numero di telefono a telefono aziendale e cellulare al telefono cellulare | true | false | true |  telephoneNumber | mobile | 
-| 4 | * In SuccessFactors business email è primario <br> * In Azure AD verificare se il numero di telefono dell'ufficio è presente, se presente, quindi controllare se è presente anche il numero di cellulare, contrassegnare il numero di telefono dell'ufficio come primario solo se il numero di cellulare non è presente. | true | USA mapping espressioni:`IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | USA mapping espressioni:`IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | mobile | 
+| 4 | * In SuccessFactors business email è primario <br> * In Azure AD verificare se il numero di telefono dell'ufficio è presente, se presente, quindi controllare se è presente anche il numero di cellulare, contrassegnare il numero di telefono dell'ufficio come primario solo se il numero di cellulare non è presente. | true | USA mapping espressioni: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | USA mapping espressioni: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | mobile | 
 | 5 | * In SuccessFactors business email e Business Phone è primario. <br> * In Azure AD, se è disponibile un dispositivo mobile, impostarlo come telefono aziendale. in caso contrario, usare telephoneNumber. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[Non impostato\] | 
 
 * Se non esiste alcun mapping per il numero di telefono nell'attributo write-back-mapping, solo la posta elettronica viene inclusa nel writeback.

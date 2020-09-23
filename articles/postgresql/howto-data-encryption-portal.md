@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 831c50fe608e3f7de18b4d8917bb2f98a0e78308
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0db0a705d97743bb199550bc74ade8e270c7472c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502002"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907476"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Crittografia dei dati per il server singolo database di Azure per PostgreSQL usando il portale di Azure
 
@@ -44,11 +44,11 @@ Informazioni su come usare la portale di Azure per configurare e gestire la crit
 
 1. In Key Vault selezionare **criteri di accesso**  >  **Aggiungi criteri di accesso**.
 
-   ![Screenshot di Key Vault, con criteri di accesso e Aggiungi criteri di accesso evidenziati](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png" alt-text="Screenshot di Key Vault, con criteri di accesso e Aggiungi criteri di accesso evidenziati":::
 
 2. Selezionare **autorizzazioni chiave**e selezionare **Get**, **Wrap**, **Unwrap**e l' **entità**, che corrisponde al nome del server PostgreSQL. Se non è possibile trovare l'entità server nell'elenco di entità esistenti, è necessario registrarla. Viene richiesto di registrare l'entità server quando si tenta di configurare la crittografia dei dati per la prima volta e l'operazione ha esito negativo.  
 
-   ![Panoramica dei criteri di accesso](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Panoramica dei criteri di accesso":::
 
 3. Selezionare **Salva**.
 
@@ -56,11 +56,11 @@ Informazioni su come usare la portale di Azure per configurare e gestire la crit
 
 1. In database di Azure per PostgreSQL selezionare **crittografia dei dati** per configurare la chiave gestita dal cliente.
 
-   ![Screenshot del database di Azure per PostgreSQL con la crittografia dei dati evidenziata](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png" alt-text="Screenshot del database di Azure per PostgreSQL con la crittografia dei dati evidenziata":::
 
 2. È possibile selezionare un insieme di credenziali delle chiavi e una coppia di chiavi oppure immettere un identificatore di chiave.
 
-   ![Screenshot del database di Azure per PostgreSQL con le opzioni di crittografia dei dati evidenziate](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png" alt-text="Screenshot del database di Azure per PostgreSQL con le opzioni di crittografia dei dati evidenziate":::
 
 3. Selezionare **Salva**.
 
@@ -72,28 +72,28 @@ Una volta crittografato il server singolo di Database di Azure per PostgreSQL co
 
 1. Nel server selezionare **Panoramica**  >  **ripristino**.
 
-   ![Screenshot del database di Azure per PostgreSQL con panoramica e ripristino evidenziati](media/concepts-data-access-and-security-data-encryption/show-restore.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore.png" alt-text="Screenshot del database di Azure per PostgreSQL con panoramica e ripristino evidenziati":::
 
    In alternativa, per un server abilitato per la replica, selezionare **replica**nell'intestazione **Impostazioni** .
 
-   ![Screenshot del database di Azure per PostgreSQL con la replica evidenziata](media/concepts-data-access-and-security-data-encryption/postgresql-replica.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/postgresql-replica.png" alt-text="Screenshot del database di Azure per PostgreSQL con la replica evidenziata":::
 
 2. Al termine dell'operazione di ripristino, il nuovo server creato verrà crittografato con la chiave del server primario. Tuttavia, le funzionalità e le opzioni del server sono disabilitate e il server è inaccessibile. In questo modo si evita la manipolazione dei dati, perché all'identità del nuovo server non è ancora stata assegnata l'autorizzazione per accedere all'insieme di credenziali delle chiavi.
 
-   ![Screenshot del database di Azure per PostgreSQL, con stato inaccessibile evidenziato](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png" alt-text="Screenshot del database di Azure per PostgreSQL, con stato inaccessibile evidenziato":::
 
 3. Per rendere accessibile il server, rivalidare la chiave nel server ripristinato. Selezionare **Data Encryption**  >  **chiave di riconvalida**crittografia dati.
 
    > [!NOTE]
    > Il primo tentativo di riconvalida avrà esito negativo perché l'entità servizio del nuovo server deve avere accesso all'insieme di credenziali delle chiavi. Per generare l'entità servizio, selezionare **revalidate Key**, che visualizzerà un errore ma genera l'entità servizio. Successivamente, fare riferimento a [questi passaggi descritti](#set-the-right-permissions-for-key-operations) in precedenza in questo articolo.
 
-   ![Screenshot del database di Azure per PostgreSQL, con il passaggio di riconvalida evidenziato](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Screenshot del database di Azure per PostgreSQL, con il passaggio di riconvalida evidenziato":::
 
    Sarà necessario concedere all'insieme di credenziali delle chiavi l'accesso al nuovo server.
 
 4. Dopo la registrazione dell'entità servizio, riconvalidare nuovamente la chiave e il server riprende le funzionalità normali.
 
-   ![Screenshot del database di Azure per PostgreSQL che mostra la funzionalità ripristinata](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/restore-successful.png" alt-text="Screenshot del database di Azure per PostgreSQL che mostra la funzionalità ripristinata":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
-ms.openlocfilehash: 2fa969b6dd89000b4d669bc5d42aa09b3cf3a2b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751690"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907846"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Modulo di allocazione Dirichlet latente
 
-Questo articolo descrive come usare il modulo di allocazione Dirichlet latente nella finestra di progettazione Azure Machine Learning (anteprima) per raggruppare testo altrimenti non classificato in categorie. 
+Questo articolo descrive come usare il modulo di allocazione Dirichlet latente in Azure Machine Learning Designer, per raggruppare testo altrimenti non classificato in categorie. 
 
 L'allocazione Dirichlet latente (LDA) viene spesso usata nell'elaborazione del linguaggio naturale per trovare testi simili. Un altro termine comune è la *modellazione dell'argomento*.
 
@@ -58,7 +58,7 @@ Questo modulo richiede un set di dati contenente una colonna di testo, non elabo
 
     Poiché LDA crea una matrice di funzionalità di grandi dimensioni dal testo, in genere si analizzerà una singola colonna di testo.
 
-4. Per **numero di argomenti da modellare**, immettere un numero intero compreso tra 1 e 1000 indicante il numero di categorie o argomenti che si desidera derivare dal testo di input.
+4. Per  **numero di argomenti da modellare**, immettere un numero intero compreso tra 1 e 1000 indicante il numero di categorie o argomenti che si desidera derivare dal testo di input.
 
     Per impostazione predefinita, vengono creati 5 argomenti.
 
@@ -75,7 +75,7 @@ Questo modulo richiede un set di dati contenente una colonna di testo, non elabo
     + I valori nella matrice dell'argomento della funzionalità verranno rappresentati come probabilità in cui `P(word|topic)` .
 
     > [!NOTE] 
-    > In Azure Machine Learning Designer (anteprima) la libreria Scikit-learn non supporta più l'output *doc_topic_distr* non normalizzato della versione 0,19. In questo modulo il parametro **Normalize** può essere applicato solo all'output della *matrice dell'argomento Feature* . L'output del *set di dati trasformato* è sempre normalizzato.
+    > In Azure Machine Learning Designer, la libreria Scikit-learn non supporta più l'output *doc_topic_distr* non normalizzato della versione 0,19. In questo modulo il parametro **Normalize** può essere applicato solo all'output della *matrice dell'argomento Feature* . L'output del *set di dati trasformato* è sempre normalizzato.
 
 7. Selezionare l'opzione **Mostra tutte le opzioni**e impostarla su **true** se si desidera impostare i parametri avanzati seguenti.
 
@@ -148,7 +148,7 @@ Spesso è possibile migliorare l'accuratezza dei modelli basati su LDA usando l'
 
 Per ulteriori informazioni, vedere [pre-elaborazione del testo](preprocess-text.md).
 
-Nella finestra di progettazione è anche possibile usare le librerie R o Python per l'elaborazione del testo: [Execute r script](execute-r-script.md), [Execute Python script](execute-python-script.md).
+Nella finestra di progettazione è anche possibile usare le librerie R o Python per l'elaborazione del testo: [Execute r script](execute-r-script.md),  [Execute Python script](execute-python-script.md).
 
 
 
@@ -181,15 +181,15 @@ Una volta calcolati gli indici dei termini, una misura di somiglianza basata sul
 
 ###  <a name="module-parameters"></a>Parametri del modulo
 
-|Nome|Type|Range|Facoltativo|Predefinito|Descrizione|  
+|Nome|Tipo|Range|Facoltativo|Predefinito|Descrizione|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
 |Target column(s)|Selezione colonne||Necessario|StringFeature|Nome o indice della colonna di destinazione.|  
 |Numero di argomenti da modellare|Integer|[1; 1000]|Necessario|5|Modellare la distribuzione dei documenti rispetto a N argomenti.|  
-|N-grams|Integer|[1; 10]|Necessario|2|Ordine di N-grammi generati durante l'hashing.|  
+|N-grams|Integer|[1; 10]|Obbligatoria|2|Ordine di N-grammi generati durante l'hashing.|  
 |Normalizzare|Boolean|true o false|Necessario|true|Normalizzare l'output in probabilità.  Il set di dati trasformato sarà P (argomento&#124;documento) e la matrice dell'argomento della funzionalità sarà P (argomento di Word&#124;).|  
 |Mostra tutte le opzioni|Boolean|true o false|Necessario|False|Presenta parametri aggiuntivi specifici per Scikit-learn online LDA.|  
-|Parametro Rho|Float|[0.00001; 1.0]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|0.01|Argomento distribuzione precedente di Word.|  
-|Parametro Alpha|Float|[0.00001; 1.0]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|0.01|Argomento del documento distribuzione precedente.|  
+|Parametro Rho|Float|[0.00001; 1.0]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|0,01|Argomento distribuzione precedente di Word.|  
+|Parametro Alpha|Float|[0.00001; 1.0]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|0,01|Argomento del documento distribuzione precedente.|  
 |Numero stimato di documenti|Integer|[1;int.MaxValue]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|1000|Numero stimato di documenti. Corrisponde al `total_samples` parametro.|  
 |Dimensioni del batch|Integer|[1; 1024]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|32|Dimensioni del batch.|  
 |Valore iniziale di iterazione usato nella pianificazione degli aggiornamenti della velocità di apprendimento|Integer|[0; int. MaxValue|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|0|Valore iniziale che downweights la velocità di apprendimento per le iterazioni iniziali. Corrisponde al `learning_offset` parametro.|  
