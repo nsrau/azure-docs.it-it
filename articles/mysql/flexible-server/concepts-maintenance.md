@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 67529ce3546046eaba75bd3beacd7bb9b96445fe
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a2e99440a7c8f33eee9d3c9fe2276ac3868ff4b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939295"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331761"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-mysql--flexible-server"></a>Manutenzione pianificata nel Database di Azure per MySQL - Server flessibile
 
@@ -46,5 +46,5 @@ In rari casi, l'evento di manutenzione può essere annullato dal sistema o potre
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su come [modificare la pianificazione di manutenzione](how-to-maintenance-portal.md)
-* Informazioni su come [ricevere notifiche sulla manutenzione futura](/azure/service-health/service-notifications.md) con l'integrità dei servizi di Azure
-* Informazioni su come [configurare gli avvisi relativi agli eventi di manutenzione pianificata imminente](/azure/service-health/resource-health-alert-monitor-guide.md)
+* Informazioni su come [ricevere notifiche sulla manutenzione futura](../../service-health/service-notifications.md) con l'integrità dei servizi di Azure
+* Informazioni su come [configurare gli avvisi relativi agli eventi di manutenzione pianificata imminente](../../service-health/resource-health-alert-monitor-guide.md)

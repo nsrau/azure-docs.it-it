@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0d7703af48ba33edea81ca45516191266a79fa4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7006ecd760a886fdebe50becb2ab366ff79cf057
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799554"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319810"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificare e risolvere i problemi relativi alle licenze per un gruppo in Azure Active Directory
 
@@ -87,7 +87,7 @@ Per risolvere questo problema, è necessario assicurarsi che il piano richiesto 
 
 ## <a name="usage-location-isnt-allowed"></a>La località di utilizzo non è consentita
 
-**Problema:** alcuni servizi Microsoft non sono disponibili in tutte le località a causa di leggi e regolamenti locali. Prima di assegnare una licenza a un utente, è necessario specificare la proprietà **Località di utilizzo** per l'utente. È possibile specificare il percorso **User**  >  **Profile**  >  nella sezione**Impostazioni** profilo utente nel portale di Azure.
+**Problema:** alcuni servizi Microsoft non sono disponibili in tutte le località a causa di leggi e regolamenti locali. Prima di assegnare una licenza a un utente, è necessario specificare la proprietà **Località di utilizzo** per l'utente. È possibile specificare il percorso **User**  >  **Profile**  >  nella sezione relativa alla**modifica** del profilo utente nel portale di Azure.
 
 Quando Azure AD tenta di assegnare una licenza di gruppo a un utente la cui località di utilizzo non è supportata, l'operazione non riesce e viene registrato un errore per l'utente.
 

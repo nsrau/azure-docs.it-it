@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461035"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306566"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Pianificazione della distribuzione delle verifiche di accesso Azure Active Directory
 
@@ -37,7 +37,7 @@ Le verifiche di [accesso Azure Active Directory (Azure ad)](access-reviews-overv
 
 * Automatizzare i risultati della revisione, ad esempio la rimozione dell'accesso degli utenti alle risorse
 
-  ![Pianificazione delle verifiche di accesso](./media/deploy-access-review/1-planning-review.png)
+  ![Diagramma che mostra il flusso delle verifiche di accesso.](./media/deploy-access-review/1-planning-review.png)
 
 Le verifiche di accesso sono una funzionalità [Azure ad Identity governance](identity-governance-overview.md) . Le altre funzionalità sono [gestione dei diritti](entitlement-management-overview.md), [Privileged Identity Management](../privileged-identity-management/pim-configure.md) e condizioni per l' [utilizzo](../conditional-access/terms-of-use.md). Insieme, consentono alle organizzazioni di risolvere queste quattro domande:
 
@@ -241,7 +241,7 @@ Per creare un criterio di verifica di accesso, è necessario disporre delle info
 
 **Piano di verifica di accesso di esempio**
 
-| Componente| Valore |
+| Componente| valore |
 | - | - |
 | **Risorse da rivedere**| Accesso a Microsoft Dynamics |
 | **Frequenza di Revisione**| Mensilmente |
@@ -300,7 +300,7 @@ Quando si [Crea un pacchetto di accesso](entitlement-management-access-package-c
 
 Aprire la scheda ciclo di vita per scorrere verso il basso fino a verifiche di accesso.
 
- ![Modificare i criteri](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ ![Screenshot che mostra il "modifica criterio" nella scheda "ciclo di vita".](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## <a name="plan-access-reviews-for-groups"></a>Pianificare le verifiche di accesso per i gruppi
 
@@ -446,7 +446,7 @@ Le esigenze di accesso ai gruppi e alle applicazioni per i dipendenti e ai Guest
 
 Per ridurre i rischi associati alle assegnazioni di ruolo obsolete, è necessario esaminare periodicamente l'accesso ai ruoli di Azure AD con privilegi.
 
-![esaminare i ruoli di Azure ad](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![Screenshot che mostra l'elenco "verifica appartenenza" dei ruoli di Azure A D.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 Seguire le istruzioni riportate nei collegamenti seguenti:
 
@@ -496,7 +496,7 @@ Quando si creano nuove query di API Graph per l'automazione, è consigliabile us
 
 Le attività delle verifiche di accesso vengono registrate e disponibili dai [log di controllo Azure ad](../reports-monitoring/concept-audit-logs.md). È possibile filtrare i dati di controllo relativi alla categoria, al tipo di attività e all'intervallo di date. Ecco una query di esempio:
 
-| Category| Criteri |
+| Category| Policy |
 | - | - |
 | Tipo di attività| Creare una verifica di accesso |
 | | Aggiornamento della verifica di accesso |

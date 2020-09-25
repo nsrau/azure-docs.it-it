@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: c11fd7a9cb6fdd3eb976d0b9e6a91fdc69bf9fba
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 888f8c96e8c1aa596c76cf09cd95a104821740ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136845"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320456"
 ---
 # <a name="system-tables-and-views"></a>Tabelle e viste di sistema
 
@@ -27,18 +27,18 @@ In questa sezione vengono descritte tutte le tabelle di metadati e il relativo s
 
 > [!NOTE]
 >
-> I gruppi di server iperscalare che eseguono versioni precedenti del motore CITUS potrebbero non offrire tutte le tabelle elencate di seguito.
+> I gruppi di server iperscale (CITUS) che eseguono versioni precedenti del motore CITUS potrebbero non offrire tutte le tabelle elencate di seguito.
 
 ### <a name="partition-table"></a>Tabella di partizione
 
 La \_ tabella di partizione PG dist archivia i \_ metadati relativi alle tabelle del database distribuite. Per ogni tabella distribuita vengono inoltre archiviate informazioni sul metodo di distribuzione e informazioni dettagliate sulla colonna di distribuzione.
 
-| Nome         | Tipo     | Descrizione                                                                                                                                                                                                                                           |
+| Nome         | Type     | Descrizione                                                                                                                                                                                                                                           |
 |--------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | logicalrelid | regclass | Tabella distribuita a cui corrisponde questa riga. Questo valore fa riferimento alla colonna relfilenode nella tabella pg_class catalogo di sistema.                                                                                                                   |
 | partmethod   | char     | Metodo utilizzato per il partizionamento/distribuzione. I valori di questa colonna corrispondenti a metodi di distribuzione diversi sono Append:' a', hash:' h ', tabella di riferimento:' n'                                                                          |
 | partkey      | testo     | Informazioni dettagliate sulla colonna di distribuzione, inclusi il numero di colonna, il tipo e altre informazioni rilevanti.                                                                                                                                      |
-| colocationid | integer  | Gruppo di condivisione percorso a cui appartiene la tabella. Le tabelle nello stesso gruppo consentono i join con condivisione percorso e i rollup distribuiti tra le altre ottimizzazioni. Questo valore fa riferimento alla colonna colocationid nella tabella pg_dist_colocation.                      |
+| colocationid | numero intero  | Gruppo di condivisione percorso a cui appartiene la tabella. Le tabelle nello stesso gruppo consentono i join con condivisione percorso e i rollup distribuiti tra le altre ottimizzazioni. Questo valore fa riferimento alla colonna colocationid nella tabella pg_dist_colocation.                      |
 | repmodel     | char     | Metodo utilizzato per la replica dei dati. I valori di questa colonna corrispondenti a metodi di replica diversi sono: replica basata su istruzioni CITUS:' c', replica di streaming PostgreSQL:' s', commit a due fasi (per le tabelle di riferimento):' t' |
 
 ```
@@ -54,7 +54,7 @@ SELECT * from pg_dist_partition;
 La \_ \_ tabella di partizione PG dist archivia i metadati relativi alle singole partizioni di una tabella. Pg_dist_shard contiene informazioni sulle partizioni della tabella distribuita che appartengono a e statistiche sulla colonna di distribuzione per le partizioni.
 Per le tabelle di Accodamento distribuite, queste statistiche corrispondono ai valori min/max della colonna di distribuzione. Per le tabelle con distribuzione hash, si tratta di intervalli di token hash assegnati a tale partizione. Queste statistiche vengono usate per eliminare le partizioni non correlate durante le query SELECT.
 
-| Nome          | Tipo     | Descrizione                                                                                                                                                                                  |
+| Nome          | Type     | Descrizione                                                                                                                                                                                  |
 |---------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | logicalrelid  | regclass | Tabella distribuita a cui corrisponde questa riga. Questo valore fa riferimento alla colonna relfilenode nella tabella pg_class catalogo di sistema.                                                          |
 | shardid       | bigint   | Identificatore univoco globale assegnato a questa partizione.                                                                                                                                           |
@@ -87,7 +87,7 @@ La colonna shardstorage nella \_ partizione PG dist \_ indica il tipo di archivi
 
 La \_ \_ tabella di selezione host PG rileva il percorso delle repliche di partizione nei nodi di lavoro. Ogni replica di una partizione assegnata a un nodo specifico è detta posizionamento della partizione. In questa tabella vengono archiviate informazioni sull'integrità e sulla posizione di ogni posizione di partizionamento.
 
-| Nome        | Tipo   | Descrizione                                                                                                                               |
+| Nome        | Type   | Descrizione                                                                                                                               |
 |-------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | shardid     | bigint | Identificatore di partizione associato a questo posizionamento. Questo valore fa riferimento alla colonna shardid nella tabella pg_dist_shard catalogo.             |
 | shardstate  | INT    | Descrive lo stato di questo posizionamento. Nella sezione seguente sono descritti diversi Stati di partizionamento.                                         |
@@ -122,7 +122,7 @@ Iperscale (CITUS) gestisce l'integrità delle partizioni in base alla selezione 
 
 La \_ tabella del nodo Dist di PG \_ contiene informazioni sui nodi di lavoro nel cluster.
 
-| Nome             | Tipo    | Descrizione                                                                                                                                                                                |
+| Nome             | Type    | Descrizione                                                                                                                                                                                |
 |------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NodeId           | INT     | Identificatore generato automaticamente per un singolo nodo.                                                                                                                                          |
 | groupid          | INT     | Identificatore utilizzato per indicare un gruppo di un server primario e zero o più server secondari, quando viene utilizzato il modello di replica di flusso. Per impostazione predefinita, è uguale a NodeId.         |
@@ -149,16 +149,16 @@ SELECT * from pg_dist_node;
 
 La \_ \_ tabella di oggetti dist CITUS.PG contiene un elenco di oggetti, ad esempio tipi e funzioni che sono stati creati nel nodo coordinatore e propagati ai nodi di lavoro. Quando un amministratore aggiunge nuovi nodi del ruolo di lavoro al cluster, iperscale (CITUS) crea automaticamente copie degli oggetti distribuiti nei nuovi nodi, nell'ordine corretto per soddisfare le dipendenze degli oggetti.
 
-| Nome                        | Tipo    | Descrizione                                          |
+| Nome                        | Type    | Descrizione                                          |
 |-----------------------------|---------|------------------------------------------------------|
 | ClassID                     | oid     | Classe dell'oggetto distribuito                      |
 | objid                       | oid     | ID oggetto dell'oggetto distribuito                  |
-| objsubid                    | integer | ID secondario dell'oggetto distribuito, ad esempio attnum |
+| objsubid                    | numero intero | ID secondario dell'oggetto distribuito, ad esempio attnum |
 | tipo                        | testo    | Parte dell'indirizzo stabile usato durante gli aggiornamenti di PG   |
 | object_names                | testo []  | Parte dell'indirizzo stabile usato durante gli aggiornamenti di PG   |
 | object_args                 | testo []  | Parte dell'indirizzo stabile usato durante gli aggiornamenti di PG   |
-| distribution_argument_index | integer | Valido solo per funzioni/procedure distribuite      |
-| colocationid                | integer | Valido solo per funzioni/procedure distribuite      |
+| distribution_argument_index | numero intero | Valido solo per funzioni/procedure distribuite      |
+| colocationid                | numero intero | Valido solo per funzioni/procedure distribuite      |
 
 \"Gli indirizzi stabili \" identificano in modo univoco gli oggetti indipendentemente da un server specifico. Iperscale (CITUS) tiene traccia degli oggetti durante un aggiornamento di PostgreSQL usando indirizzi stabili creati con la funzione [PG \_ identifica \_ oggetto \_ As \_ Address ()](https://www.postgresql.org/docs/current/functions-info.html#FUNCTIONS-INFO-OBJECT-TABLE) .
 
@@ -212,7 +212,7 @@ La \_ tabella PG dist \_ Colocation contiene informazioni sulle tabelle che \' d
 Quando due tabelle si trovano nello stesso gruppo di condivisione percorso, l'iperscalabilità (CITUS) garantisce che le partizioni con gli stessi valori di partizione vengano inserite negli stessi nodi di lavoro.
 La condivisione percorso consente le ottimizzazioni del join, alcuni rollup distribuiti e il supporto della chiave esterna. La condivisione del percorso di partizionamento viene dedotta quando i conteggi delle partizioni, i fattori di replica e i tipi di colonna di partizione corrispondono tutti tra due tabelle. è tuttavia possibile specificare un gruppo di condivisione percorso personalizzato quando si crea una tabella distribuita, se necessario.
 
-| Nome                   | Tipo | Descrizione                                                                   |
+| Nome                   | Type | Descrizione                                                                   |
 |------------------------|------|-------------------------------------------------------------------------------|
 | colocationid           | INT  | Identificatore univoco per il gruppo di condivisione percorso a cui corrisponde la riga.          |
 | shardcount             | INT  | Numero di partizioni per tutte le tabelle in questo gruppo di condivisione percorso                          |
@@ -231,7 +231,7 @@ SELECT * from pg_dist_colocation;
 
 Questa tabella definisce strategie che [rebalance_table_shards](reference-hyperscale-functions.md#rebalance_table_shards) possibile usare per determinare la posizione in cui spostare le partizioni.
 
-| Nome                           | Tipo    | Descrizione                                                                                                                                       |
+| Nome                           | Type    | Descrizione                                                                                                                                       |
 |--------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | default_strategy               | boolean | Indica se rebalance_table_shards deve scegliere questa strategia per impostazione predefinita. Usare citus_set_default_rebalance_strategy per aggiornare la colonna             |
 | shard_cost_function            | regproc | Identificatore di una funzione di costo, che deve assumere un shardid come bigint e restituire la relativa nozione di un costo, come tipo Real                                |
@@ -329,7 +329,7 @@ Iperscale (CITUS) fornisce `citus_stat_statements` statistiche sulle modalità d
 
 Questa vista consente di tenere traccia delle query ai tenant di origine in un'applicazione multi-tenant, che consente di decidere quando eseguire l'isolamento dei tenant.
 
-| Nome          | Tipo   | Descrizione                                                                      |
+| Nome          | Type   | Descrizione                                                                      |
 |---------------|--------|----------------------------------------------------------------------------------|
 | QueryId       | bigint | identificatore (valido per i join pg_stat_statements)                                   |
 | userid        | oid    | utente che ha eseguito la query                                                           |
@@ -524,5 +524,5 @@ In questo esempio le query sono state originate sul coordinatore, ma la vista pu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sul modo in cui alcune [funzioni di scalabilità](reference-hyperscale-functions.md) modificano le tabelle di sistema
+* Informazioni su come alcune [funzioni di iperscala (CITUS)](reference-hyperscale-functions.md) modificano le tabelle di sistema
 * Esaminare i concetti di [nodi e tabelle](concepts-hyperscale-nodes.md)

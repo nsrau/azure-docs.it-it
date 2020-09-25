@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 06/19/2019
-ms.openlocfilehash: 4caad36d21d3facb97dc358fdfee61e89c420213
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 23b78acb226b0d4de637dc653e6edb3bb4177219
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496339"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263590"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Esercitazione: aggiungere un database SQL di Azure a un gruppo di failover automatico
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Un [gruppo di failover](auto-failover-group-overview.md) è un livello di astrazione dichiarativo che consente di raggruppare più database con replica geografica. Informazioni su come configurare un gruppo di failover per un database SQL di Azure e il failover di test usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.  In questa esercitazione verrà illustrato come:
+Un [gruppo di failover](auto-failover-group-overview.md) è un livello di astrazione dichiarativo che consente di raggruppare più database con replica geografica. Informazioni su come configurare un gruppo di failover per un database SQL di Azure e il failover di test usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.  In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 >
@@ -80,7 +80,7 @@ Creare il gruppo di failover e aggiungervi il database usando il portale di Azur
    - **Nome del gruppo di failover**: digitare un nome di gruppo di failover univoco, ad esempio `failovergrouptutorial` .
    - **Server secondario**: selezionare l'opzione per *configurare le impostazioni necessarie* e quindi scegliere di **creare un nuovo server**. In alternativa, è possibile scegliere un server già esistente come server secondario. Dopo aver immesso i valori seguenti, selezionare **Seleziona**.
       - **Nome server**: digitare un nome univoco per il server secondario, ad esempio `mysqlsecondary` .
-      - **Accesso amministratore server**: tipo`azureuser`
+      - **Accesso amministratore server**: tipo `azureuser`
       - **Password**: digitare una password complessa che soddisfi i requisiti delle password.
       - **Località**: scegliere un percorso dall'elenco a discesa, ad esempio `East US` . Il percorso non può essere uguale a quello del server primario.
 
@@ -336,7 +336,7 @@ Pulire le risorse eliminando il gruppo di risorse.
 Eliminare il gruppo di risorse usando il portale di Azure.
 
 1. Passare al gruppo di risorse nel [portale di Azure](https://portal.azure.com).
-1. Selezionare **Elimina gruppo di risorse** per eliminare tutte le risorse nel gruppo, nonché il gruppo di risorse stesso.
+1. Selezionare  **Elimina gruppo di risorse** per eliminare tutte le risorse nel gruppo, nonché il gruppo di risorse stesso.
 1. Digitare il nome del gruppo di risorse, `myResourceGroup` , nella casella di testo e quindi selezionare **Elimina** per eliminare il gruppo di risorse.  
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)

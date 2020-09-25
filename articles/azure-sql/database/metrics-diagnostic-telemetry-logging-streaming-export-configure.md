@@ -9,14 +9,14 @@ ms.devlang: sqldbrb=2
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: 51d86e51d89bdaf83be4a722d0350b35d2146cff
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2c8c31219f014935c14371cf4dd30b61ba35819b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973048"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319504"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configurare l'esportazione di flussi del database SQL di Azure e la telemetria diagnostica di SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -476,7 +476,7 @@ I dettagli dei dati di telemetria disponibili per tutti i log sono descritti nel
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|Type|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Sempre: ResourceUsageStats |
 |Risorsa|Nome della risorsa |
@@ -501,7 +501,7 @@ I dettagli dei dati di telemetria disponibili per tutti i log sono descritti nel
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|Type|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: QueryStoreRuntimeStatistics |
 |OperationName|Nome dell'operazione. Always: QueryStoreRuntimeStatisticsEvent |
@@ -552,7 +552,7 @@ Altre informazioni sui [dati delle statistiche di runtime query Store](https://d
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|Type|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: QueryStoreWaitStatistics |
 |OperationName|Nome dell'operazione. Always: QueryStoreWaitStatisticsEvent |
@@ -590,7 +590,7 @@ Altre informazioni sui [dati delle statistiche di attesa di Query Store](https:/
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|Type|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: Errors |
 |OperationName|Nome dell'operazione. Always: ErrorEvent |
@@ -602,7 +602,7 @@ Altre informazioni sui [dati delle statistiche di attesa di Query Store](https:/
 |ElasticPoolName_s|Nome del pool elastico per il database, se presente |
 |DatabaseName_s|Nome del database |
 |ResourceId|URI della risorsa |
-|Messaggio|Messaggio di errore in testo normale |
+|Message|Messaggio di errore in testo normale |
 |user_defined_b|È il bit di errore definito dall'utente |
 |error_number_d|Codice di errore |
 |Gravità|Gravità dell'errore |
@@ -619,7 +619,7 @@ Ulteriori informazioni sui [messaggi di errore SQL](https://docs.microsoft.com/s
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|Type|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: DatabaseWaitStatistics |
 |OperationName|Nome dell'operazione. Always: DatabaseWaitStatisticsEvent |
@@ -648,7 +648,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|Type|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: Timeouts |
 |OperationName|Nome dell'operazione. Always: TimeoutEvent |
@@ -671,7 +671,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|Type|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: Blocks |
 |OperationName|Nome dell'operazione. Always: BlockEvent |
@@ -695,7 +695,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC] |Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|Type|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: Deadlocks |
 |OperationName|Nome dell'operazione. Always: DeadlockEvent |
@@ -716,7 +716,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|Type|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: AutomaticTuning |
 |Risorsa|Nome della risorsa |

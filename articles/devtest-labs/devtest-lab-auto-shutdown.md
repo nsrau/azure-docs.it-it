@@ -3,12 +3,12 @@ title: Gestire i criteri di arresto automatico in Azure DevTest Labs | Microsoft
 description: Informazioni su come impostare i criteri di arresto automatico per un Lab in modo che le macchine virtuali vengano arrestate automaticamente quando non sono in uso.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3532e4859bd63c81cb9b9cda973064e5ef8357ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287543"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320711"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurare l'arresto automatico per le macchine virtuali Lab e di calcolo in Azure DevTest Labs
 
@@ -162,7 +162,7 @@ Per iniziare, creare un'app per la logica nella sottoscrizione di Azure attenend
     }
     ```
     
-    ![Corpo della richiesta: Schema JSON](./media/devtest-lab-auto-shutdown/request-json.png)
+    ![Screenshot che mostra lo "schema JSON del corpo della richiesta".](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Selezionare **+ nuovo passaggio** nella finestra di progettazione e attenersi alla procedura seguente:
     1. Cercare **Office 365 Outlook-inviare un messaggio di posta elettronica**. 
     2. Selezionare **Invia un messaggio di posta elettronica** da **azioni**. 

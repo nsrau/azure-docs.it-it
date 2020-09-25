@@ -1,6 +1,6 @@
 ---
 title: Creare un set di scalabilità da un'immagine generalizzata con Azure PowerShell
-description: Creare un set di scalabilità usando un'immagine generalizzata in una raccolta di immagini condivise.
+description: Creare un set di scalabilità usando un'immagine generalizzata in una raccolta di immagini condivise usando PowerShell.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3b8c9d46a5bc5dde3e39bfa5673247ca752d2a89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 22bd1ed88f61689eec9312392f7f58d137f703e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077567"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331523"
 ---
-# <a name="create-a-scale-set-from-a-generalized-image"></a>Creare un set di scalabilità da un'immagine generalizzata
+# <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>Creare un set di scalabilità da un'immagine generalizzata usando PowerShell 
 
 Creare una macchina virtuale da una versione di immagine generalizzata archiviata in una [raccolta di immagini condivise](shared-image-galleries.md). Se si vuole creare un set di scalabilità usando un'immagine specializzata, vedere [creare istanze del set di scalabilità da un'immagine specializzata](instance-specialized-image-version-powershell.md).
 
@@ -181,4 +181,4 @@ Il [Generatore di immagini di Azure (anteprima)](../virtual-machines/linux/image
 - [Creare una definizione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Creare una versione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Per altre informazioni sulle raccolte di immagini condivise, vedere [Panoramica](shared-image-galleries.md). Se si verificano problemi, vedere [Risoluzione dei problemi delle raccolte di immagini condivise](troubleshooting-shared-images.md).
+Per altre informazioni sulle raccolte di immagini condivise, vedere [Panoramica](shared-image-galleries.md). Se si verificano problemi, vedere [Risoluzione dei problemi delle raccolte di immagini condivise](../virtual-machines/troubleshooting-shared-images.md).

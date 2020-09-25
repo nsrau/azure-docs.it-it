@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: c083b0ca7fa506bb951a9ef27d2af04d61482eda
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 336c1e78143c09e07b8f05c3dbd10ca647844242
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555163"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319946"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Esercitazione: configurare la directory federata per il provisioning utenti automatico
 
@@ -128,11 +128,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **Credenziali amministratore** immettere `https://api.federated.directory/v2/` in URL tenant. Immettere il valore recuperato e salvato in precedenza dalla directory federata nel **token Secret**. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi alla directory federata. Se la connessione non riesce, verificare che l'account della directory federata disponga delle autorizzazioni di amministratore e riprovare.
 

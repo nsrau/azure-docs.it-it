@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 35a93669bf301b3be1d560a0777751c12f3c9d14
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f18746242ef9f680f44be1fd614c6c769289aadb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001910"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331574"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Usare l'emulatore di azzurrite per lo sviluppo locale di archiviazione di Azure
 
@@ -271,7 +271,7 @@ azurite --debug path/debug.log
 azurite -L
 azurite --loose
 ```
-### <a name="version"></a>Version
+### <a name="version"></a>Versione
 
 **Facoltativo** : consente di visualizzare il numero di versione di azzurrite installato utilizzando l' `-v` `--version` opzione o.
 
@@ -555,6 +555,12 @@ Azzurrite è allineato alla logica di gestione degli errori di archiviazione di 
 Azzurrite supporta la replica con ridondanza geografica e accesso in lettura (RA-GRS). Per le risorse di archiviazione, accedere al percorso secondario aggiungendo `-secondary` al nome dell'account. Ad esempio, l'indirizzo seguente può essere usato per accedere a un BLOB usando la replica secondaria di sola lettura in azzurrite:
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
+
+### <a name="table-support"></a>Supporto tabelle
+
+Il supporto per le tabelle in azzurrite è attualmente in fase di sviluppo e aperto al contributo. Per lo stato di avanzamento più recente, controllare il progetto [tabella azzurrite V3](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table) .
+
+Il supporto per le funzioni permanenti richiede tabelle.
 
 ## <a name="azurite-is-open-source"></a>Azzurrite è open source
 

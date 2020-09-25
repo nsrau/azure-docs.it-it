@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/17/2020
 ms.author: victorh
-ms.openlocfilehash: 92fc4252dd52236e2cc4e8fdfdd2afa32059a721
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 784459282007edab599d54edff0d2b38eed07b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376945"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320643"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorare i log e le metriche di Firewall di Azure
 
@@ -35,14 +35,17 @@ Dopo aver completato questa procedura per abilitare la registrazione diagnostica
 1. Nel portale di Azure aprire il gruppo di risorse firewall e selezionare il firewall.
 2. Selezionare **Impostazioni di diagnostica** in **Monitoraggio**.
 
-   Per Firewall di Azure sono disponibili due log specifici del servizio:
+   Per il firewall di Azure sono disponibili quattro log specifici del servizio:
 
    * AzureFirewallApplicationRule
    * AzureFirewallNetworkRule
+   * AzureFirewallThreatIntelLog
+   * AzureFirewallDnsProxy
+
 
 3. Selezionare **Aggiungi impostazioni di diagnostica**. La pagina **Impostazioni di diagnostica** include le impostazioni per i log di diagnostica.
 5. In questo esempio i log di Monitoraggio di Azure archiviano i log, quindi digitare **Firewall log analytics** come nome.
-6. In **log**selezionare **AzureFirewallApplicationRule** e **AzureFirewallNetworkRule** per raccogliere i log per le regole di applicazione e di rete.
+6. In **log**selezionare **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog**e **AzureFirewallDnsProxy** per raccogliere i log.
 7. Selezionare **Invia a log Analytics** per configurare l'area di lavoro.
 8. Selezionare la propria sottoscrizione.
 9. Selezionare **Salva**.

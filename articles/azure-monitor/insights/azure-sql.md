@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 02/21/2020
+ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: c871f5fbbe63747c71e1f6ecf83a47c0cd30970e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 663c852574667e45a39241575d6b50038495c33d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318029"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319589"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorare il database SQL di Azure usando Analisi SQL di Azure (anteprima)
 
@@ -43,16 +43,16 @@ Analisi SQL di Azure è una soluzione di monitoraggio solo cloud che supporta la
 
 La tabella seguente descrive le opzioni supportate per due versioni del dashboard di Analisi SQL di Azure, una per il database SQL di Azure e l'altra per i database di Istanza gestita di Azure SQL.
 
-| Opzione Analisi SQL di Azure | Descrizione | Supporto per database SQL | Supporto di SQL Istanza gestita |
+| Opzione Analisi SQL di Azure | Descrizione | Supporto per database SQL | Supporto per Istanza gestita di SQL |
 | --- | ------- | ----- | ----- |
-| Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. | sì | Sì |
-| Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights per le prestazioni. | sì | Sì |
-| Errori | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. | sì | Sì |
+| Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. | Sì | Sì |
+| Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights per le prestazioni. | Sì | Sì |
+| Errors | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. | Sì | Sì |
 | Timeout | Fornisce il drill-down gerarchico per i timeout SQL verificatisi nei database. | Sì | No |
 | Blocchi | Fornisce il drill-down gerarchico per i blocchi SQL verificatisi nei database. | Sì | No |
 | Attese del database | Fornisce il drill-down gerarchico per le statistiche di attesa SQL a livello di database. Include il riepilogo del tempo di attesa totale e del tempo di attesa per tipo di attesa. |Sì | No |
-| Durata delle query | Fornisce il drill-down gerarchico per le statistiche di esecuzione delle query, ad esempio la durata della query, l'utilizzo della CPU, l'utilizzo dei dati di I/O e l'utilizzo dei log di I/O. | sì | Sì |
-| Attese query | Fornisce il drill-down gerarchico per le statistiche di attesa delle query per categoria di attesa. | sì | Sì |
+| Durata delle query | Fornisce il drill-down gerarchico per le statistiche di esecuzione delle query, ad esempio la durata della query, l'utilizzo della CPU, l'utilizzo dei dati di I/O e l'utilizzo dei log di I/O. | Sì | Sì |
+| Attese query | Fornisce il drill-down gerarchico per le statistiche di attesa delle query per categoria di attesa. | Sì | Sì |
 
 ## <a name="configuration"></a>Configurazione
 
@@ -230,6 +230,9 @@ AzureMetrics
 > - L'output è un elenco di risorse del database superiore alla soglia di archiviazione all'interno dell'intervallo di tempo definito.
 
 #### <a name="alert-on-intelligent-insights"></a>Avvisi in Intelligent Insights
+
+> [!IMPORTANT]
+> Se le prestazioni di un database sono ottimali e non sono state generate Intelligent Insights, la query avrà esito negativo con un messaggio di errore: Impossibile risolvere l'espressione scalare denominata ' rootCauseAnalysis_s '. Questo comportamento è previsto per tutti i casi in cui non esistono informazioni intelligenti per il database.
 
 ```
 let alert_run_interval = 1h;

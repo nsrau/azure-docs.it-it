@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: a1dd88e9007a878ffdf6e5d836391c30c952c35a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 631f5afbac4337cd0852f46ac4a336107f042397
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923025"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331642"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Connettersi e indicizzare il contenuto SQL di Azure usando un indicizzatore di Azure ricerca cognitiva
 
@@ -74,7 +74,9 @@ In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL
     }
    ```
 
-   È possibile ottenere la stringa di connessione dal [portale di Azure](https://portal.azure.com). Usare l'opzione `ADO.NET connection string`.
+   La stringa di connessione può seguire uno dei formati seguenti:
+    1. È possibile ottenere la stringa di connessione dal [portale di Azure](https://portal.azure.com). Usare l'opzione `ADO.NET connection string`.
+    1. Una stringa di connessione di identità gestita che non include una chiave dell'account con il formato seguente: `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;` . Per usare questa stringa di connessione, seguire le istruzioni per la [configurazione di una connessione dell'indicizzatore a un database SQL di Azure usando un'identità gestita](search-howto-managed-identities-sql.md).
 
 2. Creare l'indice di Azure ricerca cognitiva di destinazione se non ne è già presente uno. È possibile creare un indice usando il [portale](https://portal.azure.com) o [l'API Crea indice](/rest/api/searchservice/Create-Index). Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema della tabella di origine. vedere [mapping tra tipi di dati SQL e ricerca cognitiva di Azure](#TypeMapping).
 
@@ -185,7 +187,7 @@ Se il database SQL supporta il [rilevamento delle modifiche](/sql/relational-dat
 + Nel database [abilitare il rilevamento della modifica](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) per la tabella. 
 + Nessuna chiave primaria composta, ovvero una chiave primaria che contiene più di una colonna, nella tabella.  
 
-#### <a name="usage"></a>Utilizzo
+#### <a name="usage"></a>Uso
 
 Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indicato di seguito:
 
@@ -222,7 +224,7 @@ Questi criteri di rilevamento delle modifiche si basano su una colonna di "livel
 > [!IMPORTANT] 
 > È consigliabile usare il tipo di dati [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) per la colonna di livello più alto. Se viene usato un qualsiasi altro tipo di dati, il rilevamento delle modifiche potrebbe non garantire l'acquisizione di tutte le modifiche in presenza di transazioni in esecuzione contemporaneamente a una query dell'indicizzatore. Quando si usa **rowversion** in una configurazione con le repliche di sola lettura, è necessario puntare l'indicizzatore alla replica primaria. Per scenari di sincronizzazione dei dati, è possibile usare solo una replica primaria.
 
-#### <a name="usage"></a>Utilizzo
+#### <a name="usage"></a>Uso
 
 Per usare questo criterio di limite massimo, creare o aggiornare l'origine dati nel modo seguente:
 
@@ -326,7 +328,7 @@ Quando si utilizza la tecnica dell’eliminazione temporanea, è possibile speci
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Sono supportate solo le istanze geografiche di tipo POINT con SRID 4326 (ossia l'impostazione predefinita) |
 | rowversion |N/D |Le colonne di versione di riga non possono essere archiviate nell'indice di ricerca, ma possono essere usate per il rilevamento modifiche |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/D |Non supportato |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/D |Non supportate |
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 L'indicizzatore SQL espone diverse impostazioni di configurazione:

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 4d0800ff8a35c5c91b067a85dfcc089f2e343d1f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86090966"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319079"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit di elaborazione batch per contenitori di sintesi vocale
 
@@ -23,7 +23,7 @@ Usare il kit di elaborazione batch per integrare e scalare in orizzontale i cari
 
 :::image type="content" source="media/containers/general-diagram.png" alt-text="Diagramma che illustra un flusso di lavoro contenitore di batch di esempio.":::
 
-Il contenitore del kit batch è disponibile gratuitamente su [GitHub](https://github.com/microsoft/batch-processing-kit) e sull' [Hub Docker](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). Vengono [addebitati](speech-container-howto.md#billing) solo i contenitori di riconoscimento vocale usati.
+Il contenitore del kit batch è disponibile gratuitamente su [GitHub](https://github.com/microsoft/batch-processing-kit) e sull'   [Hub Docker](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). Vengono [addebitati](speech-container-howto.md#billing) solo i contenitori di riconoscimento vocale usati.
 
 | Funzionalità  | Descrizione  |
 |---------|---------|
@@ -76,6 +76,8 @@ Il client batch può rilevare in modo dinamico se un endpoint non è più dispon
 > * In questo esempio viene usata la stessa directory ( `/my_nfs` ) per il file di configurazione e le directory di input, output e log. Per queste cartelle è possibile usare directory ospitate o montate da NFS.
 > * Eseguendo il client con `–h` , vengono elencati i parametri della riga di comando disponibili e i relativi valori predefiniti. 
 
+
+#### <a name="linux"></a>[Linux](#tab/linux)
 Usare il comando Docker `run` per avviare il contenitore. Verrà avviata una shell interattiva all'interno del contenitore.
 
 ```Docker
@@ -94,6 +96,18 @@ Per eseguire il client e il contenitore batch in un singolo comando:
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
+#### <a name="windows"></a>[Windows](#tab/windows)
+
+Per eseguire il client e il contenitore batch in un singolo comando:
+
+```Docker
+docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
+
+```
+
+---
+
+
 Il client avvierà l'esecuzione. Se un file audio è già stato trascritto in un'esecuzione precedente, il client ignorerà automaticamente il file. I file vengono inviati con un nuovo tentativo se si verificano errori temporanei ed è possibile distinguere tra quali errori si vuole ritentare il client. In un errore di trascrizione, il client continuerà la trascrizione ed è possibile riprovare senza perdere lo stato di avanzamento.  
 
 ## <a name="run-modes"></a>Modalità di esecuzione 
@@ -102,7 +116,7 @@ Il kit di elaborazione batch offre tre modalità, usando il `--run-mode` paramet
 
 #### <a name="oneshot"></a>[Oneshot](#tab/oneshot)
 
-`ONESHOT`la modalità consente di trascrivere un singolo batch di file audio (da una directory di input e un elenco di file facoltativo) a una cartella di output.
+`ONESHOT` la modalità consente di trascrivere un singolo batch di file audio (da una directory di input e un elenco di file facoltativo) a una cartella di output.
 
 :::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Diagramma che mostra i file di elaborazione del contenitore batch kit in modalità oneshot.":::
 
@@ -117,7 +131,7 @@ Il kit di elaborazione batch offre tre modalità, usando il `--run-mode` paramet
 > [!TIP]
 > Se contemporaneamente più file vengono aggiunti alla directory di input, è possibile migliorare le prestazioni aggiungendoli a intervalli regolari.
 
-`DAEMON`la modalità esegue la trascrizione dei file esistenti in una determinata cartella e li registra continuamente quando vengono aggiunti.          
+`DAEMON` la modalità esegue la trascrizione dei file esistenti in una determinata cartella e li registra continuamente quando vengono aggiunti.          
 
 :::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Diagramma che illustra i file di elaborazione del contenitore batch kit in modalità daemon.":::
 
@@ -130,7 +144,7 @@ Il kit di elaborazione batch offre tre modalità, usando il `--run-mode` paramet
 
 #### <a name="rest"></a>[REST](#tab/rest)
 
-`REST`la modalità è una modalità Server API che fornisce un set di base di endpoint HTTP per l'invio in batch di file audio, il controllo dello stato e il polling prolungato. Consente anche l'uso a livello di codice usando un'estensione del modulo Python o l'importazione come modulo secondario.
+`REST` la modalità è una modalità Server API che fornisce un set di base di endpoint HTTP per l'invio in batch di file audio, il controllo dello stato e il polling prolungato. Consente anche l'uso a livello di codice usando un'estensione del modulo Python o l'importazione come modulo secondario.
 
 :::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Diagramma che illustra i file di elaborazione del contenitore batch kit in modalità daemon.":::
 

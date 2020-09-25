@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: af9f7eb21d533bc5fb365e7cbf1fb8fc18184fa7
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 17ce5314f58a92158ff4fd187ad0ca46bb14a275
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375228"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320167"
 ---
 # <a name="ncast4_v3-series-in-preview"></a>Serie NCasT4_v3 (in anteprima) 
 
-Le macchine virtuali serie NCasT4_v3 sono basate su GPU [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) e CPU AMD EPYC 7V12 (Roma). Le macchine virtuali sono dotate di un massimo di 4 GPU NVIDIA T4 con 16 GB di memoria ciascuno, fino a 64 core del processore AMD EPYC 7V12 (Roma) non multithread e 440 GiB della memoria di sistema. Queste macchine virtuali sono ideali per eseguire carichi di lavoro di machine learning e di intelligenza artificiale che usano CUDA, TensorFlow, Pytorch, caffe e altri Framework o i carichi di lavoro grafici con la tecnologia NVIDIA GRID. La serie NCasT4_v3 è ideale per l'esecuzione di carichi di lavoro di inferenza.
+Le macchine virtuali serie NCasT4_v3 sono basate su GPU [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) e CPU AMD EPYC 7V12 (Roma). Le macchine virtuali sono dotate di un massimo di 4 GPU NVIDIA T4 con 16 GB di memoria ciascuno, fino a 64 core del processore AMD EPYC 7V12 (Roma) non multithread e 440 GiB della memoria di sistema. Queste macchine virtuali sono ideali per la distribuzione di servizi di intelligenza artificiale, ad esempio l'inferenza in tempo reale delle richieste generate dall'utente o per carichi di lavoro grafici e di visualizzazione interattivi tramite il Driver GRID e la tecnologia GPU virtuale di NVIDIA. I carichi di lavoro di calcolo GPU standard basati su CUDA, TensorRT, caffe, ONNX e altri Framework, o applicazioni grafiche con accelerazione GPU basate su OpenGL e DirectX, possono essere distribuiti in modo economico, con prossimità agli utenti, nella serie NCasT4_v3.
 
 È possibile [inviare una richiesta](https://aka.ms/NCT4v3Preview) per partecipare al programma di anteprima.
 

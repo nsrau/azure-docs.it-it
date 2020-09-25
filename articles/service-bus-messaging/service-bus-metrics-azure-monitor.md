@@ -3,12 +3,12 @@ title: Metriche del bus di sevizio di Azure in Monitoraggio di Azure| Microsoft 
 description: Questo articolo illustra come usare Monitoraggio di Azure per monitorare le entità del bus di servizio (code, argomenti e sottoscrizioni).
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 3081b46bebdba8e83e5584178b37aab2dffee599
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 158662a5d0fc3489b2cac638b28a64aa218b888e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065013"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320439"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metriche del bus di servizio di Azure in Monitoraggio di Azure
 
@@ -147,7 +147,7 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
     2. Immettere una **descrizione** per l'avviso.
     3. Selezionare una **gravità** per l'avviso. 
 
-        ![Dettagli dell'avviso](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![Screenshot della pagina Crea regola. Definisci dettagli avviso è espanso e i campi relativi a nome, descrizione e gravità della regola di avviso sono evidenziati.](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. Nella pagina **Crea regola** espandere **Definire il gruppo di azioni**, selezionare **Nuovo gruppo di azioni** e nella pagina **Aggiungi gruppo di azioni** eseguire le azioni seguenti. 
     1. Immettere un nome per il gruppo di azioni.
     2. Immettere un nome breve per il gruppo di azioni. 
@@ -161,7 +161,7 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
         2. Digitare l'**indirizzo e-mail**. 
         3. Selezionare **OK**.
 
-            ![Dettagli dell'avviso](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![Screenshot della pagina Aggiungi gruppo di azioni. Al gruppo verrà aggiunta un'azione denominata "Invia messaggio di posta elettronica" con il tipo di azione email/SMS/push/Voice.](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. Nella pagina **Aggiungi gruppo di azioni** selezionare **OK**. 
 1. Nella pagina **Crea regola** selezionare **Crea regola di avviso**. 
 

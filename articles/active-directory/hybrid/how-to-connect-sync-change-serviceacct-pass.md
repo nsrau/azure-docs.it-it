@@ -17,12 +17,12 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31c76b78d4ab7a3f305b52526b7e4ce14f3b1ede
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278038"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319929"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Modifica della password dell'account del servizio ADSync
 Se si modifica la password dell'account del servizio ADSync, il servizio di sincronizzazione non sarà in grado di avviarsi correttamente finché non si abbandona la chiave di crittografia e non si reinizializza la password dell'account del servizio ADSync. 
@@ -52,7 +52,7 @@ Per assicurarsi di non ricevere questi errori, seguire le procedure descritte ne
  
 ## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Abbandono della chiave di crittografia dell'account del servizio ADSync
 >[!IMPORTANT]
->Le procedure seguenti si applicano solo ad Azure AD Connect build 1.1.443.0 o precedenti. Non può essere usato per le versioni più recenti di Azure AD Connect.
+>Le procedure seguenti si applicano solo ad Azure AD Connect build 1.1.443.0 o precedenti. Questa operazione non può essere utilizzata per le versioni più recenti di Azure AD Connect perché l'abbandono della chiave di crittografia viene gestita da Azure AD connettersi quando si modifica la password dell'account del servizio AD Sync, in modo che non siano necessari i passaggi seguenti nelle versioni più recenti.   
 
 Usare le procedure seguenti per abbandonare la chiave di crittografia.
 
@@ -88,7 +88,7 @@ Abbandonare la chiave di crittografia esistente per poterne creare una nuova:
 
 4. Eseguire il comando `./miiskmu.exe /a`
 
-![Utilità per la chiave di crittografia del servizio di sincronizzazione Azure AD Connect](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
+![Screenshot che mostra PowerShell dopo l'esecuzione del comando.](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
 #### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>Fornire la password dell'account del connettore servizi di dominio Active Directory
 Poiché le password esistenti archiviate nel database non possono più essere decrittografate, è necessario fornire il servizio di sincronizzazione con la password dell'account del connettore servizi di dominio Active Directory. Il servizio di sincronizzazione crittografa le password usando la nuova chiave di crittografia:
@@ -101,7 +101,7 @@ Poiché le password esistenti archiviate nel database non possono più essere de
 5. Nella finestra di dialogo popup selezionare **Connetti a Foresta Active Directory**:
 6. Immettere la nuova password dell'account Active Directory Domain Services nella casella di testo **Password**. Se non si conosce questa password, è necessario impostarla su un valore noto prima di eseguire questo passaggio.
 7. Fare clic su **OK** per salvare la nuova password e chiudere la finestra di dialogo popup.
-![Utilità per la chiave di crittografia del servizio di sincronizzazione Azure AD Connect](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
+![Screenshot che mostra la pagina "Connetti a Active Directory Forest" nella finestra "proprietà".](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
 #### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>Reinizializzare la password dell'account del servizio ADSync
 Non è possibile fornire direttamente la password dell'account del servizio Azure AD al servizio di sincronizzazione. È invece necessario usare il cmdlet **Add-ADSyncAADServiceAccount** per reinizializzare l'account del servizio Azure AD. Il cmdlet reimposta la password dell'account e la rende disponibile al servizio di sincronizzazione:

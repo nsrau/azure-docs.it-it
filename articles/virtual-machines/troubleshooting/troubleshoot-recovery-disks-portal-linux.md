@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: be124e7677774cbe6b4a0a2730c662f25b619ee0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9907be0e7cd14876964b820d9b267f279fc50d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525977"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331455"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Risolvere i problemi relativi a una macchina virtuale Linux collegando il disco del sistema operativo a una macchina virtuale di ripristino nel portale di Azure
 Se nella VM Linux viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire dei passaggi per la risoluzione dei problemi sul disco rigido virtuale stesso. Un esempio comune è una voce non valida in `/etc/fstab` che impedisce il corretto avvio della macchina virtuale. Questo articolo illustra come usare il portale di Azure per connettere il disco rigido virtuale a un'altra VM Linux per risolvere eventuali errori e quindi ricreare la VM originale.
@@ -28,7 +28,7 @@ I passaggi per la risoluzione dei problemi sono i seguenti:
 1. Arrestare la VM interessata.
 1. Eseguire uno snapshot per il disco del sistema operativo della macchina virtuale.
 1. Creare un disco rigido virtuale dallo snapshot.
-1. Collegare e montare il disco rigido virtuale in un'altra VM Windows per risolvere i problemi riscontrati.
+1. Collegare e montare il disco rigido virtuale in un'altra VM Linux per risolvere i problemi riscontrati.
 1. Connettersi alla macchina virtuale usata per la risoluzione dei problemi. Modificare i file o eseguire eventuali strumenti per risolvere i problemi nel disco rigido virtuale originale.
 1. Smontare e scollegare il disco rigido virtuale dalla macchina virtuale usata per la risoluzione dei problemi.
 1. Scambiare il disco del sistema operativo per la macchina virtuale.
@@ -166,7 +166,7 @@ Dopo aver risolto gli errori, scollegare il disco rigido virtuale esistente dall
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>Scambiare il disco del sistema operativo per la macchina virtuale
 
-Portale di Azure supporta ora la modifica del disco del sistema operativo della macchina virtuale. A questo scopo, seguire questa procedura:
+Portale di Azure supporta ora la modifica del disco del sistema operativo della macchina virtuale. A tale scopo, attenersi alla seguente procedura:
 
 1. Passare a [portale di Azure](https://portal.azure.com). Selezionare **macchine virtuali** dalla barra laterale, quindi selezionare la macchina virtuale con problemi.
 1. Nel riquadro sinistro selezionare **dischi**e quindi fare clic su **Scambia disco del sistema operativo**.

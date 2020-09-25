@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: a0fc1bc3158e04c9b1f677af7ef2375ac3ed2ce7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279942"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320048"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Correzione delle regole predefinite modificate in Azure AD Connect
 
@@ -73,7 +73,7 @@ Se le estensioni non funzionano, provare ad aggiungere due nuove regole di sincr
 #### <a name="add-an-inbound-sync-rule"></a>Aggiungere una regola di sincronizzazione in ingresso
 Una regola di sincronizzazione in ingresso indica che l'origine dell'attributo è uno spazio connettore e la destinazione è il metaverse. Ad esempio, per avere un nuovo flusso di attributi da Active Directory locali a Azure Active Directory, creare una nuova regola di sincronizzazione in ingresso. Avviare l' **Editor delle regole di sincronizzazione**, selezionare in **ingresso** come direzione e selezionare **Aggiungi nuova regola**. 
 
- ![Editor regole di sincronizzazione](media/how-to-connect-fix-default-rules/default3a.png)
+ ![Screenshot che mostra "Editor delle regole di sincronizzazione" con "in ingresso" e "Aggiungi nuova regola" selezionati.](media/how-to-connect-fix-default-rules/default3a.png)
 
 Seguire una convenzione di denominazione personalizzata per assegnare un nome alla regola. Qui viene usato **Custom in from ad-User**. Ciò significa che la regola è una regola personalizzata ed è una regola in ingresso dallo spazio del connettore Active Directory al metaverse.   
 
@@ -176,7 +176,7 @@ Seleziona **anteprima...**
 
 Nella finestra di anteprima selezionare **genera anteprima** e **Importa flusso attributi** nel riquadro sinistro.
 
-![Anteprima](media/how-to-connect-fix-default-rules/default14.png)
+![Screenshot che mostra la finestra "anteprima" con "Importa flusso attributi" e "genera anteprima" selezionato.](media/how-to-connect-fix-default-rules/default14.png)
  
 Si noti che la regola appena aggiunta viene eseguita sull'oggetto e l'attributo è impostato `cloudFiltered` su true.
 

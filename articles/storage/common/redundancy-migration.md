@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 09/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ca9a796483c52e2e74231dfcbb67a72b913d35d7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5f570f13fd39bd25b37c35a2c823e64eaa02fef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072996"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295397"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modificare la modalità di replica di un account di archiviazione
 
@@ -39,8 +39,8 @@ Nella tabella seguente viene fornita una panoramica su come passare da un tipo d
 
 | Commutazione | ... a con ridondanza locale | ... al GRS/RA-GRS | ... a ZRS | ... a GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... da con ridondanza locale</b> | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica<sup>1</sup> | Eseguire una migrazione manuale <br /><br />Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br /> OPPURE <br /><br /> Passa prima a GRS/RA-GRS e quindi Richiedi una migrazione in tempo reale<sup>1</sup> |
-| <b>... da GRS/RA-GRS</b> | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica | N/D | Eseguire una migrazione manuale <br /><br /> OPPURE <br /><br /> Passa prima a con ridondanza locale e quindi Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br /> Richiedi una migrazione in tempo reale |
+| <b>... da con ridondanza locale</b> | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica<sup>1</sup> | Eseguire una migrazione manuale <br /><br /> OR <br /><br /> Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br /> OR <br /><br /> Passa prima a GRS/RA-GRS e quindi Richiedi una migrazione in tempo reale<sup>1</sup> |
+| <b>... da GRS/RA-GRS</b> | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica | N/D | Eseguire una migrazione manuale <br /><br /> OR <br /><br /> Passa prima a con ridondanza locale e quindi Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br /> OR <br /><br /> Richiedi una migrazione in tempo reale |
 | <b>... da ZRS</b> | Eseguire una migrazione manuale | Eseguire una migrazione manuale | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica<sup>1, 2</sup> |
 | <b>... da GZRS/RA-GZRS</b> | Eseguire una migrazione manuale | Eseguire una migrazione manuale | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica | N/D |
 
@@ -48,11 +48,11 @@ Nella tabella seguente viene fornita una panoramica su come passare da un tipo d
 <sup>2</sup> la conversione da ZRS a GZRS/ra-GZRS o viceversa non è supportata nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti orientali, Europa occidentale.
 
 > [!CAUTION]
-> Se è stato eseguito un [failover dell'account](storage-disaster-recovery-guidance.md) per l'account GZRS (RA-) GRS o (RA-), l'account viene ridondante localmente nella nuova area primaria dopo il failover. La migrazione in tempo reale a ZRS o GZRS per un account con ridondanza locale risultante da un failover non è supportata. Sarà necessario eseguire una [migrazione manuale](#perform-a-manual-migration-to-zrs) a ZRS o GZRS.
+> Se è stato eseguito un [failover dell'account](storage-disaster-recovery-guidance.md) per l'account GZRS (RA-) GRS o (RA-), l'account viene ridondante localmente nella nuova area primaria dopo il failover. La migrazione in tempo reale a ZRS o GZRS per un account con ridondanza locale risultante da un failover non è supportata. Questo vale anche nel caso di operazioni di failback dette. Ad esempio, se si esegue un failover dell'account da RA-GZRS a con ridondanza locale nell'area secondaria e quindi lo si configura nuovamente in RA-GRS e si esegue un altro failover dell'account nell'area primaria originale, non è possibile contattare il supporto per la migrazione in tempo reale originale a RA-GZRS nell'area primaria. Sarà invece necessario eseguire una migrazione manuale a ZRS o GZRS.
 
 ## <a name="change-the-replication-setting"></a>Modificare l'impostazione di replica
 
-È possibile usare la portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure per modificare l'impostazione di replica per un account di archiviazione, purché non si stia modificando il modo in cui i dati vengono replicati nell'area primaria. Se si esegue la migrazione da con ridondanza locale nell'area primaria a ZRS nell'area primaria o viceversa, è necessario eseguire una [migrazione manuale](#perform-a-manual-migration-to-zrs) o una [migrazione in tempo reale](#request-a-live-migration-to-zrs).
+È possibile usare la portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure per modificare l'impostazione di replica per un account di archiviazione, purché non si stia modificando il modo in cui i dati vengono replicati nell'area primaria. Se si esegue la migrazione da con ridondanza locale nell'area primaria a ZRS nell'area primaria o viceversa, è necessario eseguire una migrazione manuale o una migrazione in tempo reale.
 
 La modifica della modalità di replica dell'account di archiviazione non comporta tempi di inattività per le applicazioni.
 
@@ -89,7 +89,7 @@ az storage account update \
 
 ---
 
-## <a name="perform-a-manual-migration-to-zrs"></a>Eseguire una migrazione manuale a ZRS
+## <a name="perform-a-manual-migration-to-zrs-gzrs-or-ra-gzrs"></a>Eseguire una migrazione manuale a ZRS, GZRS o RA-GZRS
 
 Se si vuole modificare la modalità di replica dei dati nell'account di archiviazione nell'area primaria, passando da con ridondanza locale a ZRS o viceversa, è possibile scegliere di eseguire una migrazione manuale. Una migrazione manuale offre maggiore flessibilità rispetto a una migrazione in tempo reale. È possibile controllare l'intervallo di una migrazione manuale, quindi usare questa opzione se è necessario completare la migrazione entro una determinata data.
 
@@ -102,9 +102,11 @@ Con una migrazione manuale, i dati vengono copiati dall'account di archiviazione
 - Copiare i dati usando uno strumento esistente, ad esempio AzCopy, una delle librerie client di archiviazione di Azure o uno strumento di terze parti affidabile.
 - Se si ha familiarità con Hadoop o HDInsight, è possibile associare l'account di archiviazione di origine e l'account di archiviazione di destinazione al cluster. Quindi, parallelizzare il processo di copia dei dati con uno strumento, ad esempio DistCp.
 
-## <a name="request-a-live-migration-to-zrs"></a>Richiedere una migrazione in tempo reale a ZRS
+## <a name="request-a-live-migration-to-zrs-gzrs-or-ra-gzrs"></a>Richiedere una migrazione in tempo reale a ZRS, GZRS o RA-GZRS
 
-Se è necessario eseguire la migrazione dell'account di archiviazione da con ridondanza locale o GRS a ZRS nell'area primaria senza tempi di inattività dell'applicazione, è possibile richiedere una migrazione in tempo reale da Microsoft. Durante una migrazione in tempo reale, è possibile accedere ai dati nell'account di archiviazione e senza perdita di durabilità o disponibilità. Il contratto di contratto di archiviazione di Azure viene mantenuto durante il processo di migrazione. Non si verifica alcuna perdita di dati associata a una migrazione in tempo reale. Gli endpoint di servizio, le chiavi di accesso, le firme di accesso condiviso e altre opzioni dell'account rimangono invariati dopo la migrazione.
+Se è necessario eseguire la migrazione dell'account di archiviazione da con ridondanza locale a ZRS nell'area primaria senza tempi di inattività dell'applicazione, è possibile richiedere una migrazione in tempo reale da Microsoft. Per eseguire la migrazione da con ridondanza locale a GZRS o RA-GZRS, passare prima a GRS o RA-GRS, quindi richiedere una migrazione in tempo reale. Analogamente, è possibile richiedere una migrazione in tempo reale da GRS o RA-GRS a GZRS o RA-GZRS. Per eseguire la migrazione da GRS o RA-GRS a ZRS, passare prima a con ridondanza locale, quindi richiedere una migrazione in tempo reale.
+
+Durante una migrazione in tempo reale, è possibile accedere ai dati nell'account di archiviazione senza perdita di durabilità o disponibilità. Il contratto di contratto di archiviazione di Azure viene mantenuto durante il processo di migrazione. Non si verifica alcuna perdita di dati associata a una migrazione in tempo reale. Gli endpoint di servizio, le chiavi di accesso, le firme di accesso condiviso e altre opzioni dell'account rimangono invariati dopo la migrazione.
 
 ZRS supporta solo account di uso generico V2. Assicurarsi quindi di aggiornare l'account di archiviazione prima di inviare una richiesta di migrazione in tempo reale a ZRS. Per altre informazioni, [Eseguire l'aggiornamento alla versione 2 di un account di archiviazione per uso generico](storage-account-upgrade.md). Un account di archiviazione deve contenere dati di cui eseguire la migrazione tramite Live Migration.
 
@@ -132,7 +134,7 @@ Sebbene Microsoft gestisca tempestivamente la richiesta di migrazione in tempo r
     - **Dettagli**: digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, si desidera eseguire la migrazione a ZRS da [con ridondanza locale, GRS] nell' \_ \_ area.
 5. Selezionare **Avanti**.
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
-7. Selezionare **Create** (Crea).
+7. Selezionare **Crea**.
 
 Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza necessaria.
 

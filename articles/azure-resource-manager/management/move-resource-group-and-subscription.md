@@ -4,12 +4,12 @@ description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43b5cd8c9fa5947ff8f345bd0cd3ad26d9e61923
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603153"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319555"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione
 
@@ -34,6 +34,10 @@ Prima di spostare una risorsa, è necessario eseguire alcuni passi importanti. L
    * [Linee guida per lo spostamento in rete](./move-limitations/networking-move-limitations.md)
    * [Linee guida per lo spostamento dei servizi di ripristino](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Linee guida per lo spostamento delle macchine virtuali](./move-limitations/virtual-machines-move-limitations.md)
+
+1. Se si sposta una risorsa che dispone di un ruolo di Azure assegnato direttamente alla risorsa (o a una risorsa figlio), l'assegnazione di ruolo non viene spostata e diventa orfana. Dopo lo spostamento, è necessario ricreare l'assegnazione di ruolo. Infine, l'assegnazione di ruolo orfana verrà rimossa automaticamente, ma è consigliabile rimuovere l'assegnazione di ruolo prima di spostare la risorsa.
+
+    Per informazioni su come gestire le assegnazioni di ruolo, vedere [elencare le assegnazioni](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) di ruolo di Azure e [aggiungere o rimuovere assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 1. Le sottoscrizioni di origine e di destinazione devono essere attive. In caso di problemi durante l'abilitazione di un account precedentemente disabilitato, [creare una richiesta di supporto tecnico di Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Selezionare **Gestione delle sottoscrizioni** per il tipo di problema.
 

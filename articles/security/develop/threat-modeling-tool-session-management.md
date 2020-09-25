@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: has-adal-ref, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: b6cb79c4310237e2052ff7eca59a5e2d356968a5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
+ms.openlocfilehash: c26acb1460516781b34a5dcc861164e9ef87a37a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000465"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331625"
 ---
 # <a name="security-frame-session-management"></a>Infrastruttura di sicurezza: gestione della sessione
 | Prodotto o servizio | Articolo |
@@ -358,7 +358,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Web Form |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Take Advantage of ASP.NET Built-in Features to Fend Off Web Attacks](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) (Sfruttare le funzionalità predefinite di ASP.NET per respingere gli attacchi Web) |
+| **Riferimenti**              | [Take Advantage of ASP.NET Built-in Features to Fend Off Web Attacks (Sfruttare le funzionalità predefinite di ASP.NET per respingere gli attacchi Web)](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
 | **Passaggi** | Gli attacchi basati su richieste intersito false nelle applicazioni basate su Web Form possono essere mitigati impostando ViewStateUserKey su una stringa casuale diversa per ogni utente (ID utente o, meglio ancora, ID sessione). Per diversi motivi tecnici e legati ai social network, l'ID sessione è molto più appropriato perché non è prevedibile, scade ed è diverso per ogni utente.|
 
 ### <a name="example"></a>Esempio

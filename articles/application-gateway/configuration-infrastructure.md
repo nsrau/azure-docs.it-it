@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: ce0e03407349505d54aeb22b164fa8593446967d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652888"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319793"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configurazione dell'infrastruttura del gateway applicazione
 
@@ -20,10 +20,10 @@ L'infrastruttura del gateway applicazione include la rete virtuale, le subnet, i
 
 ## <a name="virtual-network-and-dedicated-subnet"></a>Rete virtuale e subnet dedicata
 
-Un gateway applicazione è una distribuzione dedicata nella rete virtuale. All'interno della rete virtuale è necessaria una subnet dedicata per il gateway applicazione. È possibile avere più istanze di una determinata distribuzione del gateway applicazione in una subnet. È anche possibile distribuire altri gateway applicazione nella subnet. Tuttavia, non è possibile distribuire altre risorse nella subnet del gateway applicazione.
+Un gateway applicazione è una distribuzione dedicata nella rete virtuale. All'interno della rete virtuale è necessaria una subnet dedicata per il gateway applicazione. È possibile avere più istanze di una determinata distribuzione del gateway applicazione in una subnet. È anche possibile distribuire altri gateway applicazione nella subnet. Tuttavia, non è possibile distribuire altre risorse nella subnet del gateway applicazione. Non è possibile combinare Standard_v2 e il gateway applicazione Azure standard nella stessa subnet.
 
 > [!NOTE]
-> Non è possibile combinare Standard_v2 e il gateway applicazione Azure standard nella stessa subnet.
+> I [criteri dell'endpoint di servizio della rete virtuale](../virtual-network/virtual-network-service-endpoint-policies-overview.md) non sono attualmente supportati in una subnet del gateway applicazione.
 
 ### <a name="size-of-the-subnet"></a>Dimensioni della subnet
 

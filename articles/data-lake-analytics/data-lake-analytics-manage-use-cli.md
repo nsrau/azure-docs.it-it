@@ -6,12 +6,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
-ms.openlocfilehash: d4b9a7be36bd4c0a4044f3e76b96b21a16eb80de
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f91619860b577981d9717904a3d4a3074c2eaf0f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132518"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320847"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gestire Azure Data Lake Analytics mediante l’interfaccia della riga di comando (CLI) di Azure
 
@@ -88,7 +88,7 @@ Elencare gli account di Data Lake Analytics all'interno di un gruppo di risorse 
 
 Data Lake Analytics supporta attualmente le due origini dati seguenti:
 
-* [Archivio Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
+* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Archiviazione di Azure](../storage/common/storage-introduction.md)
 
 Quando si crea un account di Analytics, è necessario impostare un account di archiviazione di Azure Data Lake come account di archiviazione predefinito. L'account di Data Lake Store predefinito viene usato per archiviare i metadati e i log di controllo dei processi. Dopo aver creato un account di Analytics, è possibile aggiungere altri account di archiviazione di Data Lake e/o account di archiviazione di Azure. 
@@ -141,7 +141,7 @@ Per elencare l'account di archiviazione BLOB:
    az dla account blob-storage list --account "<Data Lake Analytics account name>"
    ```
 
-![Origine dati dell'elenco Data Lake Analytics](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+![Screenshot che mostra Azure C I con le informazioni "dataLakeStoreAccounts:" evidenziate.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
 ### <a name="delete-data-sources"></a>Eliminare origini dati:
 
@@ -185,7 +185,7 @@ Per eliminare un account di archiviazione BLOB:
 >    ```
 
 ### <a name="cancel-jobs"></a>Annullare i processi
-Utilizzare il comando list per cercare l'id del processo e quindi utilizzare cancel per annullare il processo.
+Usare il comando list per trovare l'ID processo, quindi usare Annulla per annullare il processo.
 
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"

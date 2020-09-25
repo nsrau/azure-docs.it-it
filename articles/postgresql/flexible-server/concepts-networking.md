@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 963c9c06409eca2b2f836388b94f8b80484a671a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: e4d3a594011cb57ce6dfd951215d0ae7471ae7c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90936979"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331676"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Panoramica della rete-database di Azure per PostgreSQL-server flessibile
 
@@ -62,7 +62,7 @@ Di seguito sono riportati alcuni concetti che è necessario conoscere quando si 
 
    Il server flessibile PostgreSQL deve trovarsi in una subnet **delegata** solo per l'uso di server flessibili PostgreSQL. Questa delega indica che solo i server flessibili di database di Azure per PostgreSQL possono usare tale subnet. Gli altri tipi di risorsa di Azure non possono trovarsi nella subnet delegata. Si delega una subnet assegnando la relativa proprietà di delega come Microsoft. DBforPostgreSQL/flexibleServers.
 
-Informazioni su come creare un server flessibile con accesso privato (VNet Integration) nell' [portale di Azure](how-to-manage-virtual-network-portal.md) o [nell'interfaccia della](how-to-manage-virtual-network-cli.md)riga di comando di Azure.
+* **Gruppi di sicurezza di rete (NSG)** Le regole di sicurezza nei gruppi di sicurezza di rete consentono di filtrare il tipo di traffico di rete che può fluire in entrata e in uscita dalle subnet della rete virtuale e dalle interfacce di rete. Per ulteriori informazioni, vedere la [Panoramica del gruppo di sicurezza di rete](../../virtual-network/network-security-groups-overview.md) .
 
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Scenari di rete virtuale non supportati
@@ -71,6 +71,7 @@ Informazioni su come creare un server flessibile con accesso privato (VNet Integ
 * Non è possibile aumentare le dimensioni della subnet (spazi degli indirizzi) dopo che sono presenti risorse nella subnet
 * Il peering di reti virtuali tra aree non è supportato
 
+Informazioni su come creare un server flessibile con accesso privato (VNet Integration) nell' [portale di Azure](how-to-manage-virtual-network-portal.md) o [nell'interfaccia della](how-to-manage-virtual-network-cli.md)riga di comando di Azure.
 
 ## <a name="public-access-allowed-ip-addresses"></a>Accesso pubblico (indirizzi IP consentiti)
 Le caratteristiche del metodo di accesso pubblico includono:
@@ -107,12 +108,9 @@ Quando si effettua l'accesso al servizio Database di Microsoft Azure per il serv
 ## <a name="hostname"></a>nomehost
 Indipendentemente dall'opzione di rete scelta, è consigliabile utilizzare sempre un nome di dominio completo (FQDN) come nome host per la connessione al server flessibile. Non è garantito che l'indirizzo IP del server rimanga statico. L'utilizzo del nome di dominio completo consente di evitare di apportare modifiche alla stringa di connessione. 
 
-Uno scenario in cui le modifiche IP si verificano se si usa la disponibilità elevata con ridondanza della zona e si verifica un failover tra il database primario e il database secondario. Utilizzando il nome di dominio completo, è possibile ritentare facilmente le connessioni con la stessa stringa di connessione.
-
 Esempio
 * Consigliabile `hostname = servername.postgres.database.azure.com`
-* Evitare di usare `hostname = 10.0.0.4` (indirizzo privato) o `hostname = 40.2.45.67` (indirizzo pubblico)
-
+* Laddove possibile, evitare di usare `hostname = 10.0.0.4` (un indirizzo privato) o `hostname = 40.2.45.67` (un indirizzo pubblico)
 
 
 ## <a name="tls-and-ssl"></a>TLS e SSL

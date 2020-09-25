@@ -3,12 +3,12 @@ title: Creare avvisi sulle prestazioni per il monitoraggio di Azure per i conten
 description: Questo articolo descrive come creare avvisi personalizzati in base alle query di log per l'utilizzo della memoria e della CPU da monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1041b8bfe299a0daac633e478c906c746759d50f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75730926"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319538"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Come configurare gli avvisi relativi ai problemi di prestazioni in Monitoraggio di Azure per contenitori
 
@@ -277,7 +277,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Creare una regola di avviso
 
-Seguire questa procedura per creare un avviso del log in monitoraggio di Azure usando una delle regole di ricerca dei log fornite in precedenza. Per creare usando un modello di Azure Resource Manager, vedere [esempi di creazione di avvisi di log con il modello di risorsa di Azure](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
+Seguire questa procedura per creare un avviso del log in monitoraggio di Azure usando una delle regole di ricerca dei log fornite in precedenza. Per creare usando un modello ARM, vedere [esempi di creazione di un avviso di log con il modello di risorsa di Azure](../platform/alerts-log-create-templates.md).
 
 >[!NOTE]
 >La procedura seguente per creare una regola di avviso per l'utilizzo delle risorse del contenitore richiede di passare a una nuova API per gli avvisi del log, come descritto in [Switch API preferenza for log alerts](../platform/alerts-log-api-switch.md).

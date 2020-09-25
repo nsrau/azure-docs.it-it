@@ -2,13 +2,13 @@
 title: Distribuire risorse in una sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 09/24/2020
+ms.openlocfilehash: cd1d0a05fc1039d8e99b0af6fc8019face4516bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605176"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284789"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
@@ -62,7 +62,7 @@ Altri tipi supportati includono:
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
 * [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 
-### <a name="schema"></a>SCHEMA
+## <a name="schema"></a>SCHEMA
 
 Lo schema usato per le distribuzioni a livello di sottoscrizione è diverso rispetto allo schema per le distribuzioni di gruppi di risorse.
 
@@ -77,6 +77,20 @@ Lo schema per un file di parametri è lo stesso per tutti gli ambiti di distribu
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
+
+## <a name="deployment-scopes"></a>Ambiti di distribuzione
+
+Quando si esegue la distribuzione in una sottoscrizione, è possibile fare riferimento a una sottoscrizione e a tutti i gruppi di risorse all'interno della sottoscrizione. Non è possibile eseguire la distribuzione in una sottoscrizione diversa dalla sottoscrizione di destinazione. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
+
+Le risorse definite nella sezione Resources del modello vengono applicate alla sottoscrizione.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+Per fare riferimento a un gruppo di risorse all'interno della sottoscrizione, aggiungere una distribuzione annidata e includere la `resourceGroup` Proprietà. Nell'esempio seguente la distribuzione annidata è destinata a un gruppo di risorse denominato `rg2` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+In questo articolo sono disponibili modelli che illustrano come distribuire le risorse in diversi ambiti. Per un modello che crea un gruppo di risorse e distribuisce un account di archiviazione, vedere [creare un gruppo di risorse e le risorse](#create-resource-group-and-resources). Per un modello che crea un gruppo di risorse, applica un blocco e assegna un ruolo per il gruppo di risorse, vedere controllo di [accesso](#access-control).
 
 ## <a name="deployment-commands"></a>Comandi di distribuzione
 
@@ -112,49 +126,6 @@ Per le distribuzioni a livello di sottoscrizione, è necessario specificare un p
 È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
 
 Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
-
-## <a name="deployment-scopes"></a>Ambiti di distribuzione
-
-Quando si esegue la distribuzione in una sottoscrizione, è possibile fare riferimento a una sottoscrizione e a tutti i gruppi di risorse all'interno della sottoscrizione. Non è possibile eseguire la distribuzione in una sottoscrizione diversa dalla sottoscrizione di destinazione. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
-
-Le risorse definite nella sezione Resources del modello vengono applicate alla sottoscrizione.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        subscription-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Per fare riferimento a un gruppo di risorse all'interno della sottoscrizione, aggiungere una distribuzione annidata e includere la `resourceGroup` Proprietà. Nell'esempio seguente la distribuzione annidata è destinata a un gruppo di risorse denominato `rg2` .
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedDeployment",
-            "resourceGroup": "rg2",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resource-group-resources
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-In questo articolo sono disponibili modelli che illustrano come distribuire le risorse in diversi ambiti. Per un modello che crea un gruppo di risorse e distribuisce un account di archiviazione, vedere [creare un gruppo di risorse e le risorse](#create-resource-group-and-resources). Per un modello che crea un gruppo di risorse, applica un blocco e assegna un ruolo per il gruppo di risorse, vedere controllo di [accesso](#access-control).
 
 ## <a name="use-template-functions"></a>Usare le funzioni di modello
 

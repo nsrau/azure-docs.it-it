@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 047915874dfd81fdf68dc97ac217274b2439d726
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027478"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331897"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
 Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
@@ -83,7 +83,7 @@ In questa esercitazione verrà illustrata l'importazione in blocco in parallelo 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure:
 
 1. [Creare un account di archiviazione](../../storage/common/storage-account-create.md)
-2. [Creare un'area di lavoro di Machine Learning di Azure](../studio/create-workspace.md)
+2. [Creare un'area di lavoro di Machine Learning di Azure](../classic/create-workspace.md)
 3. [Eseguire il provisioning di una macchina virtuale Data Science](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), che fornirà SQL Server e un server IPython Notebook.
    
    > [!NOTE]
@@ -175,8 +175,8 @@ In questa sezione verrà salvata la query finale per estrarre e campionare i dat
 
 Per una verifica rapida del numero di righe e di colonne nelle tabelle popolate in precedenza tramite l'importazione in blocco in parallelo,
 
-- Segnala il numero di righe nella tabella nyctaxi_trip senza analisi della tabella:`SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')`
-- Segnala il numero di colonne nella tabella nyctaxi_trip:`SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
+- Segnala il numero di righe nella tabella nyctaxi_trip senza analisi della tabella: `SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')`
+- Segnala il numero di colonne nella tabella nyctaxi_trip: `SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
 
 #### <a name="exploration-trip-distribution-by-medallion"></a>Esplorazione: distribuzione delle corse per licenza
 In questo esempio viene identificata la licenza (numero del taxi) che ha eseguito più di 100 corse in un determinato periodo. Per la query verrà usata la tabella partizionata poiché è condizionata dallo schema di partizione di **pickup\_datetime**. Per la query del set di dati completo verrà inoltre utilizzata la tabella partizionata e/o l'analisi dell'indice.
@@ -626,9 +626,9 @@ A questo punto è possibile procedere con la creazione e la distribuzione di mod
 3. Attività di regressione: consente di prevedere l'importo della mancia lasciata per una corsa.  
 
 ## <a name="building-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Compilazione di modelli in Azure Machine Learning
-Per iniziare l'esercizio relativo alla creazione di modelli, accedere all'area di lavoro Azure Machine Learning. Se non è ancora disponibile un'area di lavoro di machine learning, vedere [Creare un'area di lavoro Azure Machine Learning](../studio/create-workspace.md).
+Per iniziare l'esercizio relativo alla creazione di modelli, accedere all'area di lavoro Azure Machine Learning. Se non è ancora disponibile un'area di lavoro di machine learning, vedere [Creare un'area di lavoro Azure Machine Learning](../classic/create-workspace.md).
 
-1. Per iniziare a utilizzare Azure Machine Learning, vedere [Informazioni su Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
+1. Per iniziare a utilizzare Azure Machine Learning, vedere [Informazioni su Azure Machine Learning Studio](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Effettuare l'accesso ad [Azure Machine Learning Studio](https://studio.azureml.net).
 3. Nella pagina iniziale vengono fornite moltissime informazioni, video, esercitazioni, collegamenti al Riferimento ai moduli e altre risorse. Per altre informazioni su Azure Machine Learning, consultare il [Centro di documentazione di Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -668,7 +668,7 @@ Nella figura seguente viene fornito un esempio di un esperimento di classificazi
 > 
 
 ## <a name="deploying-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Distribuzione di modelli in Azure Machine Learning
-Quando il modello è pronto, è possibile distribuirlo in modo semplice come servizio Web direttamente dall'esperimento. Per ulteriori informazioni sulla distribuzione di servizi Web Azure Machine Learning, vedere [Distribuzione di un servizio Web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+Quando il modello è pronto, è possibile distribuirlo in modo semplice come servizio Web direttamente dall'esperimento. Per ulteriori informazioni sulla distribuzione di servizi Web Azure Machine Learning, vedere [Distribuzione di un servizio Web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 
 Per distribuire un nuovo servizio Web, è necessario effettuare le seguenti operazioni:
 
@@ -698,8 +698,8 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 
 ### <a name="references"></a>Riferimenti
 •    [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](https://www.andresmh.com/nyctaxitrips/)  
-• [Foiling di NYC ' s taxi trip data di Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [Ricerche e statistiche su NYC Taxi e limousine Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+•    [Foiling di NYC ' s taxi trip data di Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Ricerche e statistiche su NYC Taxi e limousine Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sql-walkthrough/sql-walkthrough_28_1.png

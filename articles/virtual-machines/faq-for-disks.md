@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0affcb3c1bab6eb5616c69bb15faf423895328b0
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: c2589b47c1619dd528ab843dcf4befd0da227d16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322518"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331489"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -491,6 +491,6 @@ No.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Cosa fare se non è disponibile una risposta alla domanda?
 
-Se la domanda non è elencata qui, invitiamo gli utenti a comunicarcela per consentirci di fornire il nostro aiuto. È possibile pubblicare una domanda nei commenti alla fine di questo articolo. Per interagire con il team di Archiviazione di Azure e altri membri della community in merito a questo articolo, usare il [Forum di archiviazione di Azure](https://docs.microsoft.com/answers/products/azure?product=storage) di MSDN.
+Se la domanda non è elencata qui, invitiamo gli utenti a comunicarcela per consentirci di fornire il nostro aiuto. È possibile pubblicare una domanda nei commenti alla fine di questo articolo. Per coinvolgere il team di archiviazione di Azure e altri membri della community in merito a questo articolo, usare la [pagina Domande e risposte di Microsoft&per archiviazione di Azure](https://docs.microsoft.com/answers/products/azure?product=storage).
 
 Per richiedere funzionalità, inviare richieste e idee al [forum dei commenti su Archiviazione di Azure](https://feedback.azure.com/forums/217298-storage).

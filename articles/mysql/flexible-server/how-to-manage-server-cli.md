@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 3798396c72bc01bc20f1b4ee3ee66961fe33bff5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7701fe91d0e3f78f9596687bf945ba4b11c2d199
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937350"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331693"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-the-azure-cli"></a>Gestire un database di Azure per MySQL-server flessibile (anteprima) con l'interfaccia della riga di comando di Azure
 
@@ -40,7 +40,7 @@ az account set --subscription <subscription id>
 
 ## <a name="scale-compute-and-storage"></a>Ridimensionare le risorse di calcolo e archiviazione
 
-È possibile aumentare facilmente il livello di calcolo, Vcore e archiviazione usando il comando seguente. È possibile visualizzare tutte le operazioni del server che è possibile eseguire [AZ MySQL flexible-Server Server Overview](/cli/azure/mysql/server)
+È possibile aumentare facilmente il livello di calcolo, Vcore e archiviazione usando il comando seguente. È possibile visualizzare tutte le operazioni del server che è possibile eseguire [AZ MySQL flexible-Server Update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update)
 
 ```azurecli-interactive
 az mysql flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v4 --storage-size 6144
@@ -62,12 +62,12 @@ storage-size | 6144 | Capacità di archiviazione del server (l'unità è MB). Il
 ## <a name="manage-mysql-databases-on-a-server"></a>Gestire i database MySQL in un server.
 È possibile usare uno di questi comandi per creare, eliminare, elencare e visualizzare le proprietà del database di un database nel server
 
-| Cmdlet | Utilizzo| Descrizione |
+| Cmdlet | Uso| Descrizione |
 | --- | ---| --- |
-|[AZ MySQL flexible-server DB create](/cli/azure/sql/db#az-mysql-flexible-server-db-create)|```az mysql flexible-server db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |Crea un database|
-|[AZ MySQL flexible-server DB Delete](/cli/azure/sql/db#az-mysql-flexible-server-db-delete)|```az mysql flexible-server db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|Eliminare il database dal server. Questo comando non elimina il server. |
-|[AZ MySQL flexible-server DB List](/cli/azure/sql/db#az-mysql-flexible-server-db-list)|```az mysql flexible-server db list -g myresourcegroup -s mydemoserver```|Elenca tutti i database nel server|
-|[AZ MySQL flexible-server DB Show](/cli/azure/sql/db#az-mysql-flexible-server-db-show)|```az mysql flexible-server db show -g myresourcegroup -s mydemoserver -n mydatabasename```|Mostra altri dettagli del database|
+|[AZ MySQL flexible-server DB create](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_create)|```az mysql flexible-server db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |Crea un database|
+|[AZ MySQL flexible-server DB Delete](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_delete)|```az mysql flexible-server db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|Eliminare il database dal server. Questo comando non elimina il server. |
+|[AZ MySQL flexible-server DB List](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_list)|```az mysql flexible-server db list -g myresourcegroup -s mydemoserver```|Elenca tutti i database nel server|
+|[AZ MySQL flexible-server DB Show](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_show)|```az mysql flexible-server db show -g myresourcegroup -s mydemoserver -n mydatabasename```|Mostra altri dettagli del database|
 
 ## <a name="update-admin-password"></a>Aggiorna password amministratore
 È possibile modificare la password del ruolo amministratore con questo comando
@@ -80,7 +80,7 @@ az mysql flexible-server update --resource-group myresourcegroup --name mydemose
 > La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri e caratteri non alfanumerici in lingua inglese.
 
 ## <a name="delete-a-server"></a>Eliminazione di un server
-Se si desidera eliminare il server MySQL flessibile, è possibile eseguire il comando [AZ MySQL flexible-server server delete](/cli/azure/mysql/server#az-mysql-flexible-server-delete) .
+Se si desidera eliminare il server MySQL flessibile, è possibile eseguire il comando [AZ MySQL flexible-server server delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete) .
 
 ```azurecli-interactive
 az mysql flexible-server delete --resource-group myresourcegroup --name mydemoserver

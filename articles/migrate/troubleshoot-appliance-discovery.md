@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9d4f30c5946e07b9f71c007d6f3f61efcae28637
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b2a01e816c0f0569c207aa65e5027b935210e3b9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296516"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331778"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -27,7 +27,7 @@ Questo articolo illustra come risolvere i problemi durante la distribuzione del 
 
 Se viene visualizzato l'errore "il file manifesto specificato non è valido: voce del manifesto OVF non valida", eseguire le operazioni seguenti:
 
-1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](./tutorial-prepare-vmware.md). Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
+1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](./tutorial-prepare-vmware.md) Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
 2. Se la distribuzione ha ancora esito negativo e si usa il client VMware vSphere per distribuire il file OVF, provare a distribuirlo tramite il client Web di vSphere. Se la distribuzione non riesce ancora, provare a usare un altro Web browser.
 3. Se si usa il client Web vSphere e si prova a distribuirlo in server vCenter 6,5 o 6,7, provare a distribuire gli OVA direttamente nell'host ESXi:
    - Connettersi direttamente all'host ESXi (invece di server vCenter) con il client Web (https://<*indirizzo IP host*>/UI).
@@ -234,6 +234,7 @@ I tipici errori di individuazione delle app sono riepilogati nella tabella.
 9033: non è possibile rilevare perché il nome utente della macchina virtuale contiene caratteri non validi.     |   Sono stati rilevati caratteri non validi nel nome utente.   |   Fornire di nuovo le credenziali della macchina virtuale per verificare che non siano presenti caratteri non validi.
 9034: il nome utente specificato non è in formato UPN.    |   Il nome utente non è in formato UPN.  |   Verificare che il nome utente sia in formato UPN (User Principal Name).
 9035: Impossibile individuare perché la modalità linguaggio di PowerShell non è impostata su' lingua completa '.  |   La modalità linguaggio per PowerShell nella macchina virtuale guest non è impostata su Full Language.   |   Verificare che la modalità linguaggio di PowerShell sia impostata su "lingua completa".
+9037: la raccolta dati è stata sospesa temporaneamente perché il tempo di risposta della macchina virtuale è troppo elevato.    |   La risposta della macchina virtuale individuata richiede troppo tempo     |   Non è necessaria alcuna azione. Verrà eseguito un nuovo tentativo in 24 ore per l'individuazione delle applicazioni e 3 ore per l'analisi delle dipendenze (senza agenti).
 10000: il tipo di sistema operativo non è supportato.   |   Il sistema operativo in esecuzione nel server non è né Windows né Linux.    |   I tipi di sistema operativo supportati sono solo Windows e Linux.
 10001: lo script per l'individuazione del server non è stato trovato nel dispositivo.    |   L'individuazione non funziona come previsto.   |   Contattare supporto tecnico Microsoft per una risoluzione.
 10002: l'attività di individuazione non è stata completata nel tempo.     |   L'agente di individuazione non funziona come previsto.     |   Il problema dovrebbe risolversi automaticamente tra 24 ore. Se il problema persiste, contattare il supporto tecnico Microsoft.

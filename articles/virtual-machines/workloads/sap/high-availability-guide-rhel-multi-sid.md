@@ -1,6 +1,6 @@
 ---
 title: Guida alla disponibilità elevata di VM di Azure per SAP NW in RHEL a più SID | Microsoft Docs
-description: Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
+description: Stabilire la disponibilità elevata per SAP NW in macchine virtuali di Azure (VM) RHEL a più SID.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 892c45db835457d5f0127d7377d722fc7f0df518
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 612bd019dc7a4bdf481fde4511084245fabd1620
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760754"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319963"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in Red Hat Enterprise Linux per le applicazioni SAP guida a più SID
 
@@ -56,7 +56,7 @@ Nelle configurazioni di esempio, i comandi di installazione e così via tre sist
 * **NW2**: ASC Numero di istanza **10** e nome host virtuale **msnw2ascs**; Numero di istanza ERS **12** e nome host virtuale **msnw2ers**.  
 * **NW3**: ASC Numero di istanza **20** e nome host virtuale **msnw3ascs**; Numero di istanza di ERS **22** e nome host virtuale **msnw3ers**.  
 
-L'articolo non copre il livello di database e la distribuzione delle condivisioni NFS di SAP. Negli esempi di questo articolo si usa [Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) volume **sapMSID** per le condivisioni NFS, supponendo che il volume sia già distribuito. Si presuppone inoltre che il volume Azure NetApp Files venga distribuito con il protocollo NFSv3 e che esistano i percorsi di file seguenti per le risorse cluster per le istanze ASC e ERS dei sistemi SAP NW1, NW2 e NW3:  
+L'articolo non copre il livello di database e la distribuzione delle condivisioni NFS di SAP. Negli esempi di questo articolo si usa [Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)  volume **sapMSID** per le condivisioni NFS, supponendo che il volume sia già distribuito. Si presuppone inoltre che il volume Azure NetApp Files venga distribuito con il protocollo NFSv3 e che esistano i percorsi di file seguenti per le risorse cluster per le istanze ASC e ERS dei sistemi SAP NW1, NW2 e NW3:  
 
 * volume sapMSID (nfs://10.42.0.4/sapmnt<b>NW1</b>)
 * volume sapMSID (nfs://10.42.0.4/usrsap<b>NW1</b>ASC)

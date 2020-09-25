@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/03/2019
-ms.openlocfilehash: e7a3dd1c58f2bddb767dcac4ac2b5e354be77f65
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: dfd21a38c46238dbd9d58d3eae5b3f9414d3c5fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981466"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284500"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Abilitare l'ottimizzazione automatica nel portale di Azure per monitorare le query e migliorare le prestazioni del carico di lavoro
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ L'ottimizzazione automatica può essere abilitata a livello di server o di datab
 
 - Il[portale di Azure](automatic-tuning-enable.md#azure-portal)
 - Chiamate [API REST](automatic-tuning-enable.md#rest-api)
-- Comandi [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)
+- Comandi [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true)
 
 > [!NOTE]
 > Per Istanza gestita SQL di Azure, l'opzione supportata FORCE_LAST_GOOD_PLAN può essere configurata solo solo tramite [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) . Le opzioni di configurazione basata su portale di Azure e di ottimizzazione automatica degli indici descritte in questo articolo non si applicano alle Istanza gestita SQL di Azure.
@@ -109,7 +109,7 @@ Se si imposta l'opzione di ottimizzazione singola su ON, qualsiasi impostazione 
 > Nel caso della [replica geografica attiva](auto-failover-group-overview.md), l'ottimizzazione automatica deve essere configurata solo nel database primario. Le azioni di ottimizzazione applicate automaticamente, ad esempio la creazione o l'eliminazione di indici, verranno replicate automaticamente nel database secondario di sola lettura. Se si tenta di abilitare l'ottimizzazione automatica tramite T-SQL nel database secondario di sola lettura, si verificherà un errore perché una configurazione di ottimizzazione diversa per il database secondario di sola lettura non è supportata.
 >
 
-Per ulteriori informazioni sulle opzioni T-SQL per la configurazione dell'ottimizzazione automatica, vedere [Opzioni ALTER database set (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Per ulteriori informazioni sulle opzioni T-SQL per la configurazione dell'ottimizzazione automatica, vedere [Opzioni ALTER database set (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
 ## <a name="disabled-by-the-system"></a>Disabilitazione da parte del sistema
 

@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: b90d868042e9fb947afdfae9acf35262912eff94
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ce275674704cd7538f25a2d3f31d0e65aecd7925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997469"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320626"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importare chiavi HSM protette in un modulo di protezione hardware gestito (BYOK)
 
- Azure Key Vault HSM gestito supporta l'importazione di chiavi generate nel modulo di protezione hardware (HSM) locale; le chiavi non lasceranno mai il limite di protezione HSM. Questo scenario viene spesso definito *BYOK* (Bring Your Own Key). Il modulo HSM gestito usa la famiglia nCipher nShield di HSM (FIPS 140-2 Level 3 convalidata) per proteggere le chiavi.
+ Azure Key Vault HSM gestito supporta l'importazione di chiavi generate nel modulo di protezione hardware (HSM) locale; le chiavi non lasceranno mai il limite di protezione HSM. Questo scenario viene spesso definito *BYOK* (Bring Your Own Key). Il modulo HSM gestito usa le schede HSM LiquidSecurity di Marvell (FIPS 140-2 livello 3 convalidate) per proteggere le chiavi.
 
 Usare le informazioni in questo articolo per pianificare, generare e trasferire chiavi HSM protette da usare con HSM gestito.
 

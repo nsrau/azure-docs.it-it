@@ -1,25 +1,19 @@
 ---
 title: Integrare Inoltro di Azure con il servizio Collegamento privato di Azure
 description: Informazioni su come integrare Inoltro di Azure con il servizio Collegamento privato di Azure
-ms.date: 06/23/2020
+ms.date: 09/24/2020
 ms.topic: article
-ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 10d82fe8e272ed18dcc339830dfef0f71d4b2ddb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719428"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263861"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integrare Inoltro di Azure con Collegamento privato di Azure (anteprima)
 Il **servizio Collegamento privato** di Azure consente di accedere ai servizi di Azure, come ad esempio a Inoltro di Azure, al bus di servizio di Azure, ad Hub eventi di Azure, ad Archiviazione di Azure e ad Azure Cosmos DB, nonché ai servizi di clienti/partner ospitati in Azure tramite un endpoint privato nella rete virtuale. Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure? (Anteprima)](../private-link/private-link-overview.md).
 
 Un **endpoint privato** è un'interfaccia di rete che consente ai carichi di lavoro in esecuzione in una rete virtuale di connettersi privatamente e in modo sicuro a un servizio che dispone di una **risorsa di collegamento privato** (ad esempio, uno spazio dei nomi di Inoltro). L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute, connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile fornire un livello di granularità nel controllo di accesso consentendo le connessioni a spazi dei nomi di Inoltro di Azure specifici. 
-
-
-> [!IMPORTANT]
-> Questa funzionalità è attualmente disponibile in **anteprima**. 
->
-> Attualmente sono supportate le connessioni di collegamento privato nei client del mittente. 
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Aggiungere un endpoint privato con il portale di Azure

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: ea2fae483da495bce9551899b9646868251f0454
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: cc49bec71f6c591ca3036592b0949e3fc7cef48e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030828"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263777"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Panoramica dell'agente di monitoraggio di Azure (anteprima)
 L'agente di monitoraggio di Azure raccoglie i dati di monitoraggio dal sistema operativo guest delle macchine virtuali e li recapita a monitoraggio di Azure. Questo articolo fornisce una panoramica dell'agente di monitoraggio di Azure, tra cui come installarlo e come configurare la raccolta dei dati.
@@ -38,6 +38,14 @@ I metodi per la definizione della raccolta dei dati per gli agenti esistenti son
 - L'estensione di diagnostica ha una configurazione per ogni macchina virtuale. Si tratta di una facile definizione di definizioni indipendenti per diverse macchine virtuali, ma difficili da gestire a livello centralizzato. Può inviare dati solo a metriche di monitoraggio di Azure, Hub eventi di Azure o archiviazione di Azure. Per gli agenti Linux, è necessario l'agente di telegrafing open source per inviare dati alle metriche di monitoraggio di Azure.
 
 L'agente di monitoraggio di Azure usa [le regole di raccolta dati (DCR)](data-collection-rule-overview.md) per configurare i dati da raccogliere da ogni agente. Le regole di raccolta dati consentono la gestibilità delle impostazioni di raccolta su larga scala, pur continuando ad abilitare configurazioni univoche con ambito per subset di computer. Sono indipendenti dall'area di lavoro e indipendenti dalla macchina virtuale, che ne consente la definizione e il riutilizzo tra computer e ambienti. Vedere [configurare la raccolta dati per l'agente di monitoraggio di Azure (anteprima)](data-collection-rule-azure-monitor-agent.md).
+
+## <a name="should-i-switch-to-azure-monitor-agent"></a>È necessario passare all'agente di monitoraggio di Azure?
+L'agente di monitoraggio di Azure coesiste con gli [agenti disponibili a livello generale per monitoraggio di Azure](agents-overview.md), ma è possibile prendere in considerazione la transizione delle VM dagli agenti correnti durante il periodo di anteprima pubblica dell'agente di monitoraggio di Azure. Quando si esegue questa determinazione, considerare i fattori seguenti.
+
+- **Requisiti dell'ambiente.** L'agente di monitoraggio di Azure dispone di un set più limitato di sistemi operativi, ambienti e requisiti di rete supportati rispetto agli agenti correnti. Il supporto per l'ambiente futuro, ad esempio le nuove versioni del sistema operativo e i tipi di requisiti di rete, verrà probabilmente fornito solo nell'agente di monitoraggio di Azure. È necessario valutare se l'ambiente è supportato dall'agente di monitoraggio di Azure. In caso contrario, sarà necessario rimanere con l'agente corrente. Se l'agente di monitoraggio di Azure supporta l'ambiente corrente, è necessario prendere in considerazione la transizione.
+- **Tolleranza di rischio per l'anteprima pubblica.** Mentre l'agente di monitoraggio di Azure è stato testato accuratamente per gli scenari attualmente supportati, l'agente è ancora in anteprima pubblica. Gli aggiornamenti delle versioni e i miglioramenti delle funzionalità si verificheranno di frequente e potrebbero presentare bug. È necessario valutare il rischio di un bug nell'agente nelle VM che potrebbero arrestare la raccolta dei dati. Se un gap nella raccolta dei dati non avrà un impatto significativo sui servizi, procedere con l'agente di monitoraggio di Azure. Se si dispone di una tolleranza bassa per qualsiasi instabilità, è consigliabile restare con gli agenti disponibili a livello generale finché l'agente di monitoraggio di Azure non raggiunge questo stato.
+- **Requisiti delle funzionalità correnti e nuovi.** L'agente di monitoraggio di Azure introduce diverse nuove funzionalità, ad esempio l'applicazione di filtri, l'ambito e il multihominging, ma non ha ancora la parità con gli agenti correnti per altre funzionalità, ad esempio la raccolta di log personalizzati e l'integrazione con le soluzioni. La maggior parte delle nuove funzionalità di monitoraggio di Azure verrà resa disponibile solo con l'agente di monitoraggio di Azure, quindi nel tempo altre funzionalità saranno disponibili solo nel nuovo agente. È necessario considerare se l'agente di monitoraggio di Azure ha le funzionalità richieste e se sono presenti alcune funzionalità che è possibile eseguire temporaneamente senza per ottenere altre importanti funzionalità del nuovo agente. Se l'agente di monitoraggio di Azure dispone di tutte le funzionalità di base necessarie, provare a eseguire la transizione. Se sono presenti funzionalità critiche necessarie, continuare con l'agente corrente fino a quando l'agente di monitoraggio di Azure non raggiunge la parità.
+- **Tolleranza per la rielaborazione.** Se si sta configurando un nuovo ambiente con risorse quali gli script di distribuzione e i modelli di onboarding, è necessario valutare se sarà possibile rielaborarli quando l'agente di monitoraggio di Azure diventa disponibile a livello generale. Se il lavoro richiesto per questa operazione è minimo, sarà necessario usare gli agenti correnti per il momento. Se il lavoro prevede una quantità significativa di lavoro, è consigliabile configurare il nuovo ambiente con il nuovo agente. L'agente di monitoraggio di Azure dovrebbe essere disponibile a livello generale e una data di deprecazione pubblicata per gli agenti Log Analytics in 2021. Gli agenti correnti saranno supportati per diversi anni dopo l'inizio della deprecazione.
 
 
 
@@ -76,24 +84,8 @@ L'agente di monitoraggio di Azure invia dati alle metriche di monitoraggio di Az
 
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
-I sistemi operativi seguenti sono attualmente supportati dall'agente di monitoraggio di Azure.
+Per un elenco delle versioni del sistema operativo Windows e Linux attualmente supportate dall'agente di Log Analytics, vedere [sistemi operativi supportati](agents-overview.md#supported-operating-systems) .
 
-### <a name="windows"></a>Windows 
-  - Windows Server 2019
-  - Windows Server 2016
-  - Windows Server 2012
-  - Windows Server 2012 R2
-
-### <a name="linux"></a>Linux
-  - CentOS 6<sup>1</sup>, 7
-  - Debian 9, 10
-  - Oracle Linux 6<sup>1</sup>, 7
-  - RHEL 6<sup>1</sup>, 7
-  - SLES 11, 12, 15
-  - Ubuntu 14,04 LTS, 16,04 LTS, 18,04 LTS
-
-> [!IMPORTANT]
-> <sup>1</sup> Per le distribuzioni che inviano i dati di syslog, è necessario riavviare il servizio rsyslog una volta dopo l'installazione dell'agente.
 
 
 ## <a name="security"></a>Sicurezza
@@ -107,9 +99,9 @@ L'agente di monitoraggio di Azure viene implementato come [estensione della macc
 
 | Proprietà | Windows | Linux |
 |:---|:---|:---|
-| Editore | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
+| Publisher | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1,0 | 1.5 |
+| TypeHandlerVersion  | 1.0 | 1.5 |
 
 Installare l'agente di monitoraggio di Azure usando uno dei metodi per installare gli agenti di macchine virtuali, inclusi i seguenti, usando PowerShell o l'interfaccia della riga di comando. In alternativa, è possibile installare l'agente e configurare la raccolta dei dati nelle macchine virtuali nella sottoscrizione di Azure usando il portale con la procedura descritta in [configurare la raccolta dati per l'agente di monitoraggio di Azure (anteprima)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
 

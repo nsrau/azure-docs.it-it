@@ -1,6 +1,6 @@
 ---
 title: Risolvere gli errori di eliminazione delle risorse di archiviazione su macchine virtuali Linux in Azure | Microsoft Docs
-description: Risoluzione dei problemi in caso di eliminazione delle risorse di archiviazione contenenti dischi rigidi virtuali collegati.
+description: Informazioni su come risolvere i problemi delle VM Linux quando si eliminano risorse di archiviazione contenenti VHD collegati.
 keywords: ''
 services: virtual-machines
 author: genlin
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8f145dcf8d476009d81056b3f4f970460209a5bc
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8209f5b7fc02f59c33ad0a7b58ec6305d6eecf0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649738"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320082"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Risolvere gli errori di eliminazione delle risorse di archiviazione
 

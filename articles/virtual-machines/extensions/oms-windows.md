@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 501681a17603fb21e073b04e48d23f1b566f8128
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4730f05adc2625ac576f5963f68d8e3ca8ede355
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89067689"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331506"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Estensione macchina virtuale Log Analytics per Windows
 
@@ -36,7 +36,7 @@ La tabella seguente fornisce un mapping della versione dell'estensione della mac
 
 | Log Analytics versione bundle agente Windows | Versione dell'estensione della macchina virtuale Log Analytics Windows | Data di rilascio | Note sulla versione |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 10.20.18038 | 1.0.18040.2 | Agosto 2020   | <ul><li>Risolve un problema in Azure Arc</li></ul> |
+| 10.20.18040 | 1.0.18040.2 | Agosto 2020   | <ul><li>Risolve un problema in Azure Arc</li></ul> |
 | 10.20.18038 | 1.0.18038 | Aprile 2020   | <ul><li>Abilita la connettività sul collegamento privato usando gli ambiti di collegamento privato di monitoraggio di Azure</li><li>Aggiunge la limitazione di inserimento per evitare un improvviso afflusso accidentale di inserimenti in un'area di lavoro</li><li>Aggiunge il supporto per altre aree e cloud di Azure per enti pubblici</li><li>Risolve un bug in cui si è verificato un arresto anomalo HealthService.exe</li></ul> |
 | 10.20.18029 | 1.0.18029 | Marzo 2020   | <ul><li>Aggiunge il supporto per la firma del codice SHA-2</li><li>Migliora l'installazione e la gestione delle estensioni VM</li><li>Risolve un bug in Azure Arc per l'integrazione dei server</li><li>Aggiunge uno strumento integrato per la risoluzione dei problemi per il supporto tecnico</li><li>Aggiunge il supporto per altre aree di Azure per enti pubblici</li> |
 | 10.20.18018 | 1.0.18018 | Ottobre 2019 | <ul><li> Correzioni di bug e miglioramenti della stabilizzazione secondari </li></ul> |

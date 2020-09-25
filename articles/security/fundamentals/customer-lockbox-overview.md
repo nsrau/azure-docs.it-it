@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/09/2020
-ms.openlocfilehash: 5c24bd80721f626e38dcb886e89231c0b86056df
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/15/2020
+ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650962"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331659"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox per Microsoft Azure
 
@@ -32,22 +32,23 @@ I servizi seguenti sono ora attualmente disponibili in anteprima per Customer Lo
 
 - Gestione API
 - Servizio app di Azure
+- Servizi cognitivi
+- Registro Container
 - Database di Azure per MySQL
 - Azure Databricks
-- Azure Synapse Analytics
-- Servizi cognitivi
-- Registro contenitori
+- Azure Data Box
+- Esplora dati di Azure
 - Azure Data Factory
 - Database di Azure per PostgreSQL
-- Servizio Azure Kubernetes
-- Azure Data Box
+- Funzioni di Azure
 - HDInsight
-- Funzioni
+- Servizio Azure Kubernetes
+- Monitoraggio di Azure
 - Archiviazione di Azure
 - Database SQL di Azure
-- Esplora dati di Azure
-- Macchine virtuali (ora che copre anche l'accesso ai dump della memoria e ai dischi gestiti)
 - Trasferimenti di sottoscrizioni di Azure
+- Azure Synapse Analytics
+- Macchine virtuali (ora che copre anche l'accesso ai dump della memoria e ai dischi gestiti)
 
 Per abilitare Customer Lockbox per queste offerte di anteprima per l'organizzazione, iscriversi per [Customer Lockbox per l'anteprima pubblica di Azure](https://aka.ms/customerlockbox/insiderprogram).
 

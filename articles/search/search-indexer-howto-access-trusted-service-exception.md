@@ -8,16 +8,19 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 1400f3c3d15698a5f1a145e8e0750ad7c4e9cec8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 30fc71e6f59766a759cdb8e4e503123623f48bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971406"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320473"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Accesso sicuro ai dati negli account di archiviazione tramite un'eccezione del servizio attendibile
 
 Gli indicizzatori che accedono ai dati negli account di archiviazione possono usare la funzionalità di [eccezione del servizio attendibile](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) per accedere in modo sicuro ai dati. Questo meccanismo offre ai clienti che non sono in grado di concedere [l'accesso all'indicizzatore tramite regole del firewall IP](search-indexer-howto-access-ip-restricted.md) un'alternativa semplice, sicura e gratuita per accedere ai dati negli account di archiviazione.
+
+> [!NOTE]
+> Il supporto per l'accesso ai dati negli account di archiviazione tramite un'eccezione del servizio attendibile è limitato all'archiviazione BLOB di Azure e Azure Data Lake archiviazione Gen2. L'archiviazione tabelle di Azure non è supportata.
 
 ## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>Passaggio 1: configurare la connessione all'account di archiviazione tramite Identity
 

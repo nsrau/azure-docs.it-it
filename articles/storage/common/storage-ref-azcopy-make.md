@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 16d7965b8d42a6fdd6ebd68307b01b322cfa7cc6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ad64d56899a9a54f4c8aede78ba6b4f2b77b8249
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285238"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331540"
 ---
 # <a name="azcopy-make"></a>azcopy make
 
@@ -45,7 +45,7 @@ azcopy make "https://[account-name].[blob,file,dfs].core.windows.net/[top-level-
 |Opzione|Descrizione|
 |--|--|
 |-h, --help|Mostra il contenuto della Guida per il comando make. |
-|--quota-GB UInt32|Specifica la dimensione massima della condivisione in gigabyte (GiB), zero indica che si accetta la quota predefinita del servizio file.|
+|--quota-GB UInt32|Specifica la dimensione massima della condivisione espressa in gigabyte (GB), zero indica che si accetta la quota predefinita del servizio file.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
