@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 5427d62f93eb6284ecda9a0762e3d8c4e99c06e2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2e1c7c1ca15d7c47ec8973ac8e93f7391916f5e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890090"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302401"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 
@@ -39,7 +39,7 @@ Il flusso di lavoro generale per creare un client che usa un servizio Web di Mac
 > [!NOTE]
 > Usare l'SDK di Azure Machine Learning per ottenere le informazioni sul servizio Web. Si tratta di un SDK per Python. È possibile usare qualsiasi linguaggio per creare un client per il servizio.
 
-La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py&preserve-view=true) fornisce le informazioni necessarie per creare un client. Per la creazione di un'applicazione client sono utili le proprietà `Webservice` seguenti:
+La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) fornisce le informazioni necessarie per creare un client. Per la creazione di un'applicazione client sono utili le proprietà `Webservice` seguenti:
 
 * `auth_enabled` -Se è abilitata l'autenticazione della chiave `True` ; in caso contrario, `False` .
 * `token_auth_enabled` -Se è abilitata l'autenticazione del token `True` ; in caso contrario, `False` .
@@ -113,7 +113,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se è necessario rigenerare una chiave, usare [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py&preserve-view=true) .
+> Se è necessario rigenerare una chiave, usare [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) .
 
 #### <a name="authentication-with-tokens"></a>Autenticazione con token
 
@@ -501,7 +501,7 @@ I risultati restituiti sono simili al seguente documento JSON:
 
 ## <a name="web-service-schema-openapi-specification"></a>Schema del servizio Web (specifica OpenAPI)
 
-Se è stata utilizzata la generazione automatica dello schema con la distribuzione, è possibile ottenere l'indirizzo della specifica OpenAPI per il servizio utilizzando la [proprietà swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#&preserve-view=trueswagger-uri). (Ad esempio, `print(service.swagger_uri)` ). Usare una richiesta GET o aprire l'URI in un browser per recuperare la specifica.
+Se è stata utilizzata la generazione automatica dello schema con la distribuzione, è possibile ottenere l'indirizzo della specifica OpenAPI per il servizio utilizzando la [proprietà swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=trueswagger-uri). (Ad esempio, `print(service.swagger_uri)` ). Usare una richiesta GET o aprire l'URI in un browser per recuperare la specifica.
 
 Il documento JSON seguente è un esempio di schema (OpenAPI Specification) generato per una distribuzione:
 
@@ -643,7 +643,7 @@ Per un'utilità che consente di creare librerie client dalla specifica, vedere [
 
 
 > [!TIP]
-> È possibile recuperare il documento JSON dello schema dopo la distribuzione del servizio. Utilizzare la [proprietà swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#&preserve-view=trueswagger-uri) dal servizio Web distribuito (ad esempio, `service.swagger_uri` ) per ottenere l'URI del file di spavalderia del servizio Web locale.
+> È possibile recuperare il documento JSON dello schema dopo la distribuzione del servizio. Utilizzare la [proprietà swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=trueswagger-uri) dal servizio Web distribuito (ad esempio, `service.swagger_uri` ) per ottenere l'URI del file di spavalderia del servizio Web locale.
 
 ## <a name="consume-the-service-from-power-bi"></a>Usare il servizio da Power BI
 

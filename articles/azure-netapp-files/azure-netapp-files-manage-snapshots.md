@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 405d872c178a3172454943b7d40ea276ea5c017e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459087"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325690"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
@@ -65,7 +65,7 @@ La funzionalità per i **criteri di snapshot** è attualmente in anteprima. Se s
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-È anche possibile usare i comandi dell'interfaccia [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) della riga di comando di Azure e [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) registrare la funzionalità e visualizzare lo stato della registrazione. 
+È anche possibile usare i [comandi dell'interfaccia](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` della riga di comando di Azure e `az feature show` registrare la funzionalità e visualizzare lo stato della registrazione. 
 
 ### <a name="create-a-snapshot-policy"></a>Creare un criterio di snapshot 
 
@@ -151,7 +151,7 @@ Attualmente, è possibile ripristinare uno snapshot solo in un nuovo volume.
     ![Ripristinare snapshot in un nuovo volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 3. Nella finestra Crea un volume specificare le informazioni per il nuovo volume:  
-    * **Nome**   
+    * **Name**   
         Specificare il nome per il volume che si sta creando.  
         
         Il nome deve essere univoco all'interno di un gruppo di risorse. Deve essere composto da almeno tre caratteri.  È possibile usare qualsiasi carattere alfanumerico.
@@ -221,6 +221,6 @@ Se è stata selezionata la casella di controllo Nascondi percorso snapshot al mo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni sulla gerarchia di archiviazione di Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Risolvere i problemi relativi ai criteri snapshot](troubleshoot-snapshot-policies.md)
 * [Limiti delle risorse per Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Video snapshot di Azure NetApp Files 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

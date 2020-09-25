@@ -4,16 +4,16 @@ description: In questo articolo si apprenderà come visualizzare i dati sul traf
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8b07b520dec4e9149c6748777a119b68e56c65e9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126398"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272957"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostra i dati sul traffico sulla mappa usando le mappe di Azure Android SDK
 

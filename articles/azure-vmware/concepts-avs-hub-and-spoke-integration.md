@@ -3,12 +3,12 @@ title: "Concetto: integrare una distribuzione della soluzione VMware di Azure in
 description: Informazioni sulle raccomandazioni per l'integrazione di una distribuzione della soluzione VMware di Azure in una nuova architettura di hub e spoke in Azure.
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 1862b98b40788b6b71d05eb4be43bdacd39e927f
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a2007e159d23a02ca573fd833590651061c59973
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659199"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271733"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrare la soluzione VMware di Azure in un'architettura Hub e spoke
 
@@ -109,7 +109,7 @@ Per informazioni dettagliate e requisiti, vedere l'articolo specifico della solu
 
 Accedere all'ambiente della soluzione VMware di Azure con JumpBox, ovvero una macchina virtuale Windows 10 o Windows Server distribuita nella subnet del servizio condiviso all'interno della rete virtuale dell'hub.
 
-Come procedura di sicurezza consigliata, distribuire [Microsoft Azure servizio Bastion](../bastion/index.yml) all'interno della rete virtuale dell'hub. Azure Bastion offre accesso RDP e SSH semplice alle macchine virtuali distribuite in Azure senza la necessità di effettuare il provisioning di indirizzi IP pubblici a tali risorse. Dopo aver effettuato il provisioning del servizio Azure Bastion, è possibile accedere alla macchina virtuale selezionata dalla portale di Azure. Dopo aver stabilito la connessione, viene visualizzata una nuova scheda, che mostra il desktop di JumpBox e da tale desktop, è possibile accedere al piano di gestione del cloud privato della soluzione VMware di Azure.
+Come procedura di sicurezza consigliata, distribuire [Microsoft Azure servizio Bastion](../bastion/index.yml) all'interno della rete virtuale dell'hub. Azure Bastion offre accesso RDP e SSH semplice alle macchine virtuali distribuite in Azure senza la necessità di effettuare il provisioning di indirizzi IP pubblici a tali risorse. Dopo aver effettuato il provisioning del servizio Azure Bastion, è possibile accedere alla macchina virtuale selezionata dalla portale di Azure. Dopo aver stabilito la connessione, viene visualizzata una nuova scheda che mostra il desktop di JumpBox in cui è possibile accedere al piano di gestione del cloud privato della soluzione VMware di Azure.
 
 > [!IMPORTANT]
 > Non assegnare un indirizzo IP pubblico alla VM JumpBox o esporre la porta 3389/TCP alla rete Internet pubblica. 
@@ -142,7 +142,7 @@ I server della soluzione VMware locale e di Azure possono essere configurati con
 
 ## <a name="identity-considerations"></a>Considerazioni sull'identità
 
-Per motivi di identità, l'approccio migliore consiste nel distribuire almeno un controller di dominio di Active Directory nell'hub, usando la subnet del servizio condiviso, idealmente due di essi in modalità distribuita in zone o in un set di disponibilità di VM. Vedere [centro architetture di Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) per estendere il dominio di Active Directory locale ad Azure.
+Per motivi di identità, l'approccio migliore consiste nel distribuire almeno un controller di dominio di Active Directory nell'hub usando la subnet del servizio condiviso. Idealmente due di essi in modalità distribuita in zone o in un set di disponibilità di macchine virtuali. Vedere [centro architetture di Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) per estendere il dominio di Active Directory locale ad Azure.
 
 Inoltre, distribuire un altro controller di dominio nel lato della soluzione VMware di Azure per fungere da identità e origine DNS nell'ambiente vSphere.
 

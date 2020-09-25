@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 56a865de8cb1be079f4935ef2a8f840f10589b26
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550011"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305635"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Esercitazione: configurare l'harness per il provisioning utenti automatico
 
@@ -82,7 +82,7 @@ Prima di configurare l'harness per il provisioning utenti automatico con Azure A
 
     ![Pulsante "Azure Active Directory"](common/select-azuread.png)
 
-1. Selezionare **applicazioni aziendali**  >  **tutte le applicazioni**.
+1. Selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
 
     ![Collegamento "Tutte le applicazioni"](common/enterprise-applications.png)
 
@@ -126,7 +126,7 @@ Per configurare il provisioning utenti automatico per harness in Azure AD, proce
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. Nella casella **URL tenant** immettere **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** .  
+   a. Nella casella **URL tenant** immettere **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`** . È possibile ottenere l'ID dell'account harness dall'URL nel browser quando si è connessi al cablaggio.
    b. Nella casella **token segreto** immettere il valore del token di autenticazione scim salvato nel passaggio 6 della sezione "configurare l'harness per il provisioning".  
    c. Selezionare **Test connessione** per assicurarsi che Azure ad possa connettersi al cablaggio. Se la connessione non riesce, verificare che l'account harness disponga di autorizzazioni di *amministratore* , quindi riprovare.
 

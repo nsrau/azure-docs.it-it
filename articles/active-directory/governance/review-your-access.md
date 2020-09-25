@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b52830e7cddb01c129df2344e26ac1684a88872
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 959837ff540fd95d186497858d7b9de1f8b1124d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292725"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274011"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Verificare l'accesso per se stessi a gruppi o applicazioni in Azure AD verifiche di accesso
 
@@ -65,13 +65,13 @@ Dopo aver aperto la verifica di accesso, è possibile visualizzare l'accesso.
 
     Se la richiesta prevede di verificare l'accesso per altri utenti, la pagina sarà diversa. Per altre informazioni, vedere [verificare l'accesso a gruppi o applicazioni](perform-access-review.md).
 
-    ![Aprire la verifica di accesso chiedendo se è ancora necessario l'accesso a un gruppo](./media/review-your-access/perform-access-review.png)
+    ![Screenshot che mostra una verifica di accesso aperto che chiede se è ancora necessario l'accesso a un gruppo.](./media/review-your-access/perform-access-review.png)
 
 1. Fare clic su **Sì** per Mantenete l'accesso oppure su **No** per rimuovere l'accesso.
 
 1. Se si fa clic su **Sì**, potrebbe essere necessario specificare una giustificazione nella casella **motivo** .
 
-    ![Verifica di accesso completato che chiede se è ancora necessario l'accesso a un gruppo](./media/review-your-access/perform-access-review-submit.png)
+    ![Screenshot che mostra una verifica di accesso completato che chiede se è ancora necessario l'accesso a un gruppo, con l'opzione "Sì" selezionata.](./media/review-your-access/perform-access-review-submit.png)
 
 1. Fare clic su **Submit** (Invia).
 

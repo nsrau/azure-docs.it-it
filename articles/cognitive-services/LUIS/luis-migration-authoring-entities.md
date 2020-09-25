@@ -1,14 +1,16 @@
 ---
 title: Eseguire la migrazione a un'entità di Machine Learning V3
 description: La creazione di V3 fornisce un nuovo tipo di entità, l'entità Machine Learning, oltre alla possibilità di aggiungere relazioni all'entità Machine Learning e ad altre entità o funzionalità dell'applicazione.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: aaa5472f25a5eca5ceadf979c57a83874ce4cb6e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684585"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324689"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Eseguire la migrazione all'entità di creazione V3
 
@@ -106,7 +108,7 @@ Nella tabella seguente viene illustrata la migrazione:
 
 |Modelli v2|Modelli V3|
 |--|--|
-|Entità componente padre denominata`Order`|Entità padre-Machine-Learning denominata`Order`|
+|Entità componente padre denominata `Order`|Entità padre-Machine-Learning denominata `Order`|
 |DatetimeV2 precompilata figlio|* Eseguire la migrazione di un'entità predefinita a una nuova app.<br>* Aggiungere la funzionalità richiesta nell'elemento padre per datetimeV2 predefiniti.|
 |Entità elenco elementi figlio per i superping|* Eseguire la migrazione dell'entità elenco alla nuova app.<br>* Aggiungere quindi una funzionalità obbligatoria nell'elemento padre per l'entità List.|
 
@@ -132,7 +134,7 @@ Nella tabella seguente viene illustrata la migrazione:
 
 |Modelli v2|Modelli V3|
 |--|--|
-|Entità componente padre denominata`Order`|Entità padre-Machine-Learning denominata`Order`|
+|Entità componente padre denominata `Order`|Entità padre-Machine-Learning denominata `Order`|
 |Entità figlio-gerarchica con topping iniziale e finale della pizza|* Aggiungere un ruolo a `Order` per ogni topping.|
 
 ## <a name="api-change-constraint-replaced-with-required-feature"></a>Vincolo di modifica API sostituito con la funzionalità richiesta

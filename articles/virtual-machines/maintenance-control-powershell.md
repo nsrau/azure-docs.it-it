@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 5cb504e10c9a1b10c5bad201f4f599a3c00992fe
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530761"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306940"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Controllare gli aggiornamenti con il controllo di manutenzione e Azure PowerShell
 
@@ -66,6 +66,33 @@ Se si tenta di creare una configurazione con lo stesso nome, ma in un percorso d
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window-in-preview"></a>Creare una configurazione di manutenzione con la finestra pianificata (in anteprima)
+
+
+> [!IMPORTANT]
+> La funzionalità finestra pianificata è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Usare New-AzMaintenanceConfiguration per creare una configurazione di manutenzione con una finestra pianificata quando Azure applicherà gli aggiornamenti sulle risorse. Questo esempio crea una configurazione di manutenzione denominata config con una finestra pianificata di 5 ore il quarto lunedì di ogni mese. Una volta creata una finestra pianificata, non è più necessario applicare manualmente gli aggiornamenti.
+
+```azurepowershell-interactive
+$config = New-AzMaintenanceConfiguration `
+   -ResourceGroup $RGName `
+   -Name $MaintenanceConfig `
+   -MaintenanceScope Host `
+   -Location $location `
+   -StartDateTime "2020-10-01 00:00" `
+   -TimeZone "Pacific Standard Time" `
+   -Duration "05:00" `
+   -RecurEvery "Month Fourth Monday"
+```
+> [!IMPORTANT]
+> La **durata** della manutenzione deve essere maggiore di *2 ore* . È necessario impostare la **ricorrenza** di manutenzione almeno una volta in 35 giorni.
+
+La **ricorrenza** di manutenzione può essere espressa come pianificazioni giornaliere, settimanali o mensili. Gli esempi di pianificazione giornaliera sono recurEvery: Day, recurEvery: 3Days. Gli esempi di pianificazione settimanale sono recurEvery: 3Weeks, recurEvery: settimana sabato, domenica. Gli esempi di pianificazione mensile sono recurEvery: month day23, day24, recurEvery: month last domenica, recurEvery: month Fourth Monday.
+
 
 ## <a name="assign-the-configuration"></a>Assegnare la configurazione
 

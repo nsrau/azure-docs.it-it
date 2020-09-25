@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: c0aac897d85cd96d537238bc81cbc89d3626a07c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: 21d0587b951d909f0091eccf9a7f86a484bc5051
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422760"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324043"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Creare e testare un nuovo dispositivo simulato
 
@@ -65,7 +65,7 @@ La tabella seguente mostra lo stato iniziale del dispositivo:
 
 | Nome                     | Valori |
 | ------------------------ | -------|
-| Initial color (Colore iniziale)            | Bianca  |
+| Initial color (Colore iniziale)            | White  |
 | Initial brightness (Luminosità iniziale)       | 75     |
 | Initial remaining life (Durata rimanente iniziale)   | 10,000 |
 | Initial telemetry status (Stato telemetria iniziale) | "on"   |
@@ -108,7 +108,7 @@ Scaricare e decomprimere il [microservizio di simulazione dispositivi](https://g
 
 Aprire la cartella **remote-monitoring-services-dotnet-master\storage-adapter** in Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il file **storage-Adapter/WebService/appsettings.ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentDBConnectionString** .
+Aprire il file **storage-Adapter/WebService/appsettings.ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentDBConnectionString**  .
 
 Per eseguire il microservizio in locale, fare clic su **Debug > Avvia debug**.
 

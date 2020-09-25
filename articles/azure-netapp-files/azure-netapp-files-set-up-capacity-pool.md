@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: d76af4901103b0eed8cd1cffac744f8fb41d9689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b52ad50854092cddd7b9e79cbeebd4a83017081
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483500"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325412"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configurare un pool di capacità
 
@@ -49,16 +49,27 @@ La configurazione di un pool di capacità consente di creare volumi al suo inter
      Questo campo mostra le prestazioni di destinazione per il pool di capacità.  
      Specificare il livello di servizio per il pool di capacità: [**ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium)o [**standard**](azure-netapp-files-service-levels.md#Standard).
 
-   * **Dimensioni**     
+    * **Dimensioni**     
      Specificare le dimensioni del pool di capacità da acquistare.        
      Le dimensioni minime del pool di capacità sono di 4 TiB. È possibile creare un pool con dimensioni in multipli di 4 TiB.   
-      
-     ![Nuovo pool di capacità](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
-4. Fare clic su **OK**.
+   * **QoS**   
+     Specificare se il pool di capacità deve usare il tipo di QoS **manuale** o **automatico** .  
+
+     Per informazioni sui tipi QoS, vedere [considerazioni sulle prestazioni](azure-netapp-files-performance-considerations.md) e sulla [gerarchia di archiviazione](azure-netapp-files-understand-storage-hierarchy.md) .  
+
+     > [!IMPORTANT] 
+     > L'impostazione del **tipo QoS** su **manuale** è permanente. Non è possibile convertire un pool di capacità QoS manuale per usare la funzionalità QoS automatica. Tuttavia, è possibile convertire un pool di capacità QoS automatica per usare la funzionalità QoS manuale. Vedere [modificare un pool di capacità per usare QoS manuale](manage-manual-qos-capacity-pool.md#change-to-qos).   
+     > L'uso del tipo QoS manuale per un pool di capacità richiede la registrazione. Vedere [gestire un pool di capacità QoS manuale](manage-manual-qos-capacity-pool.md#register-the-feature). 
+
+    ![Nuovo pool di capacità](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+
+4. Fare clic su **Crea**.
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
+- [Gerarchia di archiviazione](azure-netapp-files-understand-storage-hierarchy.md) 
 - [Livelli di servizio per Azure NetApp Files](azure-netapp-files-service-levels.md)
-- Vedere la [pagina dei prezzi di Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/) per il prezzo dei diversi livelli di servizio
+- [Pagina dei prezzi di Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
+- [Gestire un pool di capacità QoS manuale](manage-manual-qos-capacity-pool.md)
 - [Delegare una subnet ad Azure NetApp Files](azure-netapp-files-delegate-subnet.md)

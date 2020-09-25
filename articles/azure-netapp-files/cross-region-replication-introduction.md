@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: e7d424435c29eb3e7a6779a7036816a7bedd2085
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 4df96f1c508df22e98a9c611ed04fecf6734970a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708806"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278295"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replica tra aree di volumi Azure NetApp Files
 
@@ -45,6 +45,7 @@ Azure NetApp Files replica del volume è attualmente disponibile nelle seguenti 
 * Giappone orientale e Giappone occidentale
 * Regno Unito meridionale e Germania centro-occidentale
 * Asia sudorientale e Australia orientale
+* India centrale e India meridionale
 
 ## <a name="service-level-objectives"></a>Obiettivi a livello di servizio
 
@@ -110,10 +111,10 @@ Il normale costo della capacità di archiviazione Azure NetApp Files per il mese
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Requisiti e considerazioni per l'uso della replica tra aree](cross-region-replication-requirements-considerations.md)
-* [Creazione del peering di replica](cross-region-replication-create-peering.md)
-* [Visualizzare lo stato di integrità della relazione di replica](cross-region-replication-display-health-status.md)
+* [Creare il peering di replica](cross-region-replication-create-peering.md)
+* [Visualizzare lo stato integrità della relazione di replica](cross-region-replication-display-health-status.md)
 * [Gestire il ripristino di emergenza](cross-region-replication-manage-disaster-recovery.md)
 * [Metriche di replica del volume](azure-netapp-files-metrics.md#replication)
-* [Risolvere i problemi di replica tra aree](troubleshoot-cross-region-replication.md)
+* [Risolvere i problemi relativi alla replica tra più aree](troubleshoot-cross-region-replication.md)
 
 

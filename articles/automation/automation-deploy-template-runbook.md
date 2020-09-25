@@ -1,34 +1,34 @@
 ---
 title: Distribuire un modello di Azure Resource Manager in un runbook PowerShell di Automazione di Azure
-description: Questo articolo descrive come distribuire un modello di Azure Resource Manager archiviato in Archiviazione di Azure da un runbook PowerShell.
+description: Questo articolo descrive come distribuire un modello di Azure Resource Manager archiviato in archiviazione di Azure da un Runbook di PowerShell.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/16/2018
+ms.date: 09/22/2020
 ms.topic: conceptual
 keywords: powershell, runbook, json, automazione di azure
-ms.openlocfilehash: 10eadd7b8ee6c2e954f40469a02d42dc77c2bf41
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 18f1d4ced2a80f9adb5da2c209987fc1997a3f22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186555"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304152"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Distribuire un modello di Azure Resource Manager in un runbook PowerShell
 
-È possibile scrivere un [runbook PowerShell di Automazione di Azure](./learn/automation-tutorial-runbook-textual-powershell.md) che distribuisce una risorsa di Azure usando un [modello di Azure Resource Management](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). L'uso del modello consente di usare Automazione di Azure e Archiviazione di Azure per automatizzare la distribuzione delle risorse di Azure. È possibile anche gestire i modelli di Resource Manager in una posizione centrale protetta come Archiviazione di Azure.
+È possibile scrivere un [runbook PowerShell di Automazione di Azure](./learn/automation-tutorial-runbook-textual-powershell.md) che distribuisce una risorsa di Azure usando un [modello di Azure Resource Management](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). I modelli consentono di usare automazione di Azure per automatizzare la distribuzione delle risorse di Azure. È possibile anche gestire i modelli di Resource Manager in una posizione centrale protetta come Archiviazione di Azure.
 
 In questo articolo si creerà un runbook PowerShell che usa un modello di Resource Manager archiviato in [Archiviazione di Azure](../storage/common/storage-introduction.md) per distribuire un nuovo account di Archiviazione di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per ottenere un account gratuito](https://azure.microsoft.com/free/).
-* [Account di Automazione](./manage-runas-account.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure.  Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
-* [Account di Archiviazione di Azure](../storage/common/storage-account-create.md) in cui archiviare il modello di Resource Manager
-* Azure PowerShell installato in un computer locale. Per informazioni su come ottenere PowerShell, vedere [Come installare Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.5.0).
+* [Account di Automazione](./manage-runas-account.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure. Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
+* [Account di archiviazione di Azure](../storage/common/storage-account-create.md) in cui archiviare il modello di gestione risorse.
+* Azure PowerShell installato in un computer locale. Per informazioni su come ottenere PowerShell, vedere [Come installare Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="create-the-resource-manager-template"></a>Creare il modello di Azure Resource Manager
 
-In questo esempio si userà un modello di Resource Manager che distribuisce un nuovo account di Archiviazione di Azure.
+In questo esempio viene usato un modello di Gestione risorse che distribuisce un nuovo account di archiviazione di Azure.
 
 In un editor di testo copiare il testo seguente:
 
@@ -88,8 +88,7 @@ Salvare il file localmente come **TemplateTest.JSON**.
 
 ## <a name="save-the-resource-manager-template-in-azure-storage"></a>Salvare il modello di Resource Manager in Archiviazione di Azure
 
-Si userà ora PowerShell per creare una condivisione file di Archiviazione di Azure e caricare il file **TemplateTest.json**.
-Per istruzioni su come creare una condivisione file e caricare un file nel portale di Azure, vedere [Introduzione ad Archiviazione file di Azure in Windows](../storage/files/storage-dotnet-how-to-use-files.md).
+Si userà ora PowerShell per creare una condivisione file di Archiviazione di Azure e caricare il file **TemplateTest.json**. Per istruzioni su come creare una condivisione file e caricare un file nel portale di Azure, vedere [Introduzione ad Archiviazione file di Azure in Windows](../storage/files/storage-dotnet-how-to-use-files.md).
 
 Avviare PowerShell nel computer locale ed eseguire i comandi seguenti per creare una condivisione file e caricare il modello di Resource Manager nella condivisione.
 
@@ -114,7 +113,7 @@ Set-AzStorageFileContent -ShareName $fileShare.Name -Context $context -Source $t
 
 ## <a name="create-the-powershell-runbook-script"></a>Creare lo script del runbook PowerShell
 
-Si creerà ora uno script di PowerShell che ottiene il file **TemplateTest.json** da Archiviazione di Azure e distribuisce il modello per creare un nuovo account di Archiviazione di Azure.
+A questo punto viene creato uno script di PowerShell che ottiene il **TemplateTest.jsnel** file da archiviazione di Azure e distribuisce il modello per creare un nuovo account di archiviazione di Azure.
 
 In un editor di testo incollare il testo seguente:
 
@@ -159,7 +158,7 @@ $TemplateFile = Join-Path -Path 'C:\Temp' -ChildPath $StorageFileName
 
 # Deploy the storage account
 New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterObject $Parameters 
-``` 
+```
 
 Salvare il file localmente come **DeployTemplate.ps1**.
 
@@ -192,7 +191,7 @@ Publish-AzAutomationRunbook @publishParams
 
 ## <a name="start-the-runbook"></a>Avviare il runbook
 
-Si avvierà ora il runbook chiamando il cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). Per informazioni su come avviare un runbook nel portale di Azure, vedere [Avvio di un Runbook in Automazione di Azure](./start-runbooks.md).
+Si avvierà ora il runbook chiamando il cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). Per informazioni su come avviare un runbook nel portale di Azure, vedere [Avvio di un Runbook in Automazione di Azure](./start-runbooks.md).
 
 Eseguire i comandi seguenti nella console di PowerShell:
 
@@ -202,7 +201,7 @@ $runbookParams = @{
     ResourceGroupName = 'MyResourceGroup'
     StorageAccountName = 'MyStorageAccount'
     StorageAccountKey = $key[0].Value # We got this key earlier
-    StorageFileName = 'TemplateTest.json' 
+    StorageFileName = 'TemplateTest.json'
 }
 
 # Set up parameters for the Start-AzAutomationRunbook cmdlet
@@ -217,10 +216,9 @@ $startParams = @{
 $job = Start-AzAutomationRunbook @startParams
 ```
 
-Il runbook viene eseguito ed è possibile verificarne lo stato eseguendo `$job.Status`.
+Dopo l'esecuzione di Runbook, è possibile controllarne lo stato recuperando il valore della proprietà dell'oggetto processo `$job.Status` .
 
-Il runbook ottiene il modello di Resource Manager e lo usa per distribuire un nuovo account di Archiviazione di Azure.
-È possibile verificare che il nuovo account di archiviazione sia stato creato eseguendo il comando seguente:
+Il runbook ottiene il modello di Resource Manager e lo usa per distribuire un nuovo account di Archiviazione di Azure. È possibile visualizzare il nuovo account di archiviazione creato eseguendo il comando seguente:
 
 ```powershell
 Get-AzStorageAccount
@@ -231,5 +229,4 @@ Get-AzStorageAccount
 * Per altre informazioni sui modelli di Resource Manager, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/management/overview.md).
 * Per informazioni introduttive su Archiviazione di Azure, vedere [Introduzione ad Archiviazione di Azure](../storage/common/storage-introduction.md).
 * Per trovare altri runbook utili di Automazione di Azure, vedere [Usare runbook e moduli in Automazione di Azure](automation-runbook-gallery.md).
-* Per trovare altri modelli utili di Resource Manager, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation#automation).

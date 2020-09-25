@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 72d8cb0ef80210cca1dbf1d2726590c0cb8540e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320971"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261380"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Partner del Marketplace commerciale e attribuzione dell'utilizzo dei clienti
 
@@ -268,39 +268,7 @@ Quando si distribuisce \<PARTNER> il software, Microsoft è in grado di identifi
 
 ## <a name="get-support"></a>Supporto
 
-Sono disponibili due canali di supporto, in base ai problemi riscontrati.
-
-Se si verificano problemi nel Centro per i partner, ad esempio per quanto riguarda la visualizzazione del report di attribuzione dell'utilizzo da parte dei clienti o l'accesso, creare una richiesta di supporto con il team di supporto del Centro per i partner: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
-
-![Screenshot della pagina Ottieni supporto](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
-
-Se è necessaria assistenza per l'onboarding nel marketplace e/o l'attribuzione dell'utilizzo da parte dei clienti in generale, ad esempio per quanto riguarda la configurazione dell'attribuzione dell'utilizzo da parte dei clienti, attenersi alla procedura seguente:
-
-1. Andare alla [pagina del supporto](https://go.microsoft.com/fwlink/?linkid=844975).
-
-1. In **Tipo di problema**, selezionare **Marketplace Onboarding**.
-
-1. Scegliere la **categoria** del problema:
-
-   - Per problemi di associazione dell'utilizzo, selezionare **Altro**.
-   - Per problemi di accesso con Azure Marketplace, selezionare **problema di accesso**.
-
-     ![Scegliere la categoria di problema](media/marketplace-publishers-guide/lu-article-incident.png)
-
-1. Fare clic su **Avvia richiesta**.
-
-1. Nella pagina successiva, immettere i valori richiesti. Selezionare **Continua**.
-
-1. Nella pagina successiva, immettere i valori richiesti.
-
-   > [!IMPORTANT]
-   > Nella casella **Titolo imprevisto**, immettere **Rilevamento utilizzo IVS**. Descrivere nel dettaglio il problema riscontrato.
-
-   ![Inserire il rilevamento di utilizzo ISV per il titolo dell'imprevisto](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
-
-1. Completare il modulo e quindi selezionare **Invia**.
-
-È anche possibile ricevere indicazioni tecniche da un consulente partner Microsoft per scenari di assistenza tecnica di prevendita, distribuzione e sviluppo di app, per comprendere e integrare l'attribuzione dell'utilizzo da parte dei clienti.
+Per informazioni sulle opzioni di supporto disponibili nel Marketplace commerciale, vedere [supporto per il programma Commercial Marketplace nel centro per i partner](./partner-center-portal/support.md).
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Come inviare una richiesta di consulenza tecnica
 

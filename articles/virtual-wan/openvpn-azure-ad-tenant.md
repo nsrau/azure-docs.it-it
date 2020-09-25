@@ -3,17 +3,17 @@ title: 'Tenant Azure AD per le connessioni VPN utente: autenticazione Azure AD'
 description: È possibile usare la VPN utente WAN virtuale di Azure (da punto a sito) per connettersi alla VNet usando l'autenticazione Azure AD
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: e88437dc03772348ebbe0d179afc7fd4ddd24bd9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f77d17881054440b01e30e738a8c38407c38b4a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507557"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306549"
 ---
 # <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Preparare Azure Active Directory tenant per le connessioni del protocollo OpenVPN VPN utente
 

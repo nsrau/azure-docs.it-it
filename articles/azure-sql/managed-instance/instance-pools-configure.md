@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 9bd98d69c9a941e8da08fc7ab798c37b1a22f0bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c5ee1f1fbd55bfa44f78f2d1f0129b60be8ea34c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498408"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325182"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Distribuire Istanza gestita SQL di Azure in un pool di istanze
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

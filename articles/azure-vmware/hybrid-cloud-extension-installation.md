@@ -1,18 +1,18 @@
 ---
-title: Installare Hybrid Cloud Extension (HCX)
-description: Configurare la soluzione VMware Hybrid Cloud Extension (HCX) per il cloud privato della soluzione VMware di Azure
+title: Installare VMware HCX
+description: Configurare la soluzione VMware HCX per il cloud privato della soluzione VMware di Azure
 ms.topic: how-to
-ms.date: 07/15/2020
-ms.openlocfilehash: fb8497af33b364c1d2ab475233bd2a83ef1befad
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/24/2020
+ms.openlocfilehash: 76a7432b78ec2141039dcdc5dd1d7572335b18e1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752326"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263202"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installare HCX per la soluzione Azure VMware
 
-Questo articolo illustra le procedure per la configurazione della soluzione VMWare Hybrid Cloud Extension (HCX) per il cloud privato della soluzione VMWare di Azure. HCX consente la migrazione dei carichi di lavoro VMware nel cloud e in altri siti connessi tramite vari tipi di migrazione supportati da HCX predefiniti.
+Questo articolo illustra le procedure per la configurazione della soluzione VMWare HCX per il cloud privato della soluzione VMWare di Azure. HCX consente la migrazione dei carichi di lavoro VMware nel cloud e in altri siti connessi tramite vari tipi di migrazione supportati da HCX predefiniti.
 
 HCX Advanced, l'installazione predefinita, supporta fino a tre connessioni al sito (in locale o da cloud a cloud). Se sono necessarie più di tre connessioni del sito, i clienti hanno la possibilità di abilitare il componente aggiuntivo HCX Enterprise tramite il supporto, che è attualmente in fase di anteprima. HCX Enterprise comporta costi aggiuntivi per i clienti oltre la disponibilità generale, ma offre [funzionalità aggiuntive](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
@@ -40,7 +40,7 @@ Dopo aver completato l'installazione, è possibile seguire i passaggi successivi
 
 Il dimensionamento dei carichi di lavoro rispetto alle risorse di calcolo e di archiviazione è un passaggio di pianificazione essenziale quando si sta preparando l'uso della soluzione HCX cloud privata della soluzione VMware di Azure. Risolvere il passaggio di ridimensionamento nell'ambito della pianificazione iniziale dell'ambiente del cloud privato. 
 
-È anche possibile ridimensionare i carichi di lavoro completando una valutazione della soluzione VMware di Azure nel portale di Azure Migrate ( https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) .
+È anche possibile ridimensionare i carichi di lavoro completando una [valutazione della soluzione VMware di Azure](https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) nel portale di Azure migrate.
 
 ## <a name="software-version-requirements"></a>Requisiti della versione software
 
@@ -67,15 +67,13 @@ I componenti dell'infrastruttura devono eseguire la versione minima richiesta.
 
 ## <a name="deploy-the-vmware-hcx-ova-on-premises"></a>Distribuire VMware HCX OVA in locale
 
+1. Accedere alla soluzione VMware di Azure HCX Manager sulla `https://x.x.x.9` porta 443 con le credenziali utente di **cloudadmin** e quindi fare clic su **supporto**.
+
+1. Selezionare il collegamento per il download del file OVA HCX di VMware. 
+
 1. Accedere alla soluzione VMware di Azure SDDC vCenter e selezionare **HCX**.
-
-   :::image type="content" source="media/hybrid-cloud-extension-installation/avs-vsphere-client.png" alt-text="Accedere alla soluzione VMware di Azure SDDC vCenter e selezionare HCX.":::
-
-1. In **Amministrazione**selezionare **aggiornamenti del sistema** e quindi fare clic sul **collegamento Richiedi download** per scaricare il file OVA VMware HCx.
-
-   :::image type="content" source="media/hybrid-cloud-extension-installation/administration-updates.png" alt-text="In amministrazione selezionare aggiornamenti del sistema e quindi fare clic sul collegamento Richiedi download per scaricare il file OVA VMware HCX.":::
-
-1. Passare quindi a vCenter locale e selezionare un modello OVF per la distribuzione in vCenter locale.  
+   
+1. Passare a vCenter locale e selezionare un modello OVF da distribuire in vCenter locale.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/select-template.png" alt-text="Passare quindi a vCenter locale e selezionare un modello OVF per la distribuzione in vCenter locale.":::
 
@@ -95,7 +93,7 @@ I componenti dell'infrastruttura devono eseguire la versione minima richiesta.
 
 In seguito all'installazione eseguire la procedura seguente.
 
-1. Accedere al gestore HCX locale `https://HCXManagerIP:9443` e accedere con il nome utente e la password. 
+1. Accedere al gestore HCX locale `https://HCXManagerIP:9443` e accedere con le credenziali nome utente **amministratore** . 
 
    > [!IMPORTANT]
    > Assicurarsi di includere il `9443` numero di porta con l'indirizzo IP di HCX Manager.
@@ -193,7 +191,7 @@ In seguito all'installazione eseguire la procedura seguente.
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/vsphere-replication-network-profile.png" alt-text="In Seleziona profilo di rete vSphere Replication selezionare un profilo di rete l'interfaccia di replica vSphere degli host ESXi, quindi selezionare continua.":::
 
-1. In **Seleziona opzioni distribuite per le estensioni di rete**selezionare il DVS su cui si trovano le reti le VM che verranno integrate e connesse.  Seleziona **Continua**.  
+1. In **Seleziona opzioni distribuite per le estensioni di rete**selezionare il DVS su cui si trovano le reti le VM che verranno integrate e connesse.  Selezionare **Continua**.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/distributed-switches.png" alt-text="In Seleziona opzioni distribuite per le estensioni di rete selezionare il DVS su cui si trovano le reti le VM che verranno integrate e connesse.  Selezionare continua.":::
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/11/2020
-ms.openlocfilehash: d369614357bd62dc13073f650fbe5ce358d6dc6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dadd04497eae0e91bdf5ea3caad38beda35f7fa3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884329"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275422"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Gestire le regole del firewall per Database di Azure per PostgreSQL - Hyperscale (Citus)
 Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un nodo coordinatore Hyperscale (Citus) da un indirizzo IP specificato o da un intervallo di indirizzi IP.
@@ -49,7 +49,7 @@ In alternativa, facendo clic su **+ Aggiungi 0.0.0.0 - 255.255.255.255** (a dest
 
 ## <a name="connecting-from-azure"></a>Connessione da Azure
 
-Esiste un modo semplice per concedere al database Hyperscale l'accesso alle applicazioni ospitate in Azure, ad esempio un'applicazione app Web di Azure o quelle in esecuzione in una macchina virtuale di Azure. È sufficiente impostare l'opzione **Consenti alle risorse e ai servizi di Azure di accedere a questo gruppo di server** su **Sì** nel portale dal riquadro **Rete** e premere **Salva**.
+Esiste un modo semplice per concedere l'accesso al database iperscalabile (CITUS) alle applicazioni ospitate in Azure, ad esempio un'applicazione app Web di Azure o quelle in esecuzione in una macchina virtuale di Azure. È sufficiente impostare l'opzione **Consenti alle risorse e ai servizi di Azure di accedere a questo gruppo di server** su **Sì** nel portale dal riquadro **Rete** e premere **Salva**.
 
 > [!IMPORTANT]
 > Questa opzione permette di configurare il firewall in maniera tale da consentire tutte le connessioni da Azure, incluse le connessioni dalle sottoscrizioni di altri clienti. Quando si seleziona questa opzione, assicurarsi che l'account di accesso e le autorizzazioni utente limitino l'accesso ai soli utenti autorizzati.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 8a122a36b14bd3c5f4912387dc98585cb89ab53b
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 399022c1ef740865e4b2f7b82e2175e748a2a925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705641"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306957"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronizzazione dell'ora per le macchine virtuali Linux in Azure
 
@@ -138,7 +138,7 @@ In Ubuntu 19,10 e versioni successive, Red Hat Enterprise Linux e CentOS 8. x, [
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
-Per ulteriori informazioni su Ubuntu e NTP, vedere [sincronizzazione dell'ora](https://help.ubuntu.com/lts/serverguide/NTP.html).
+Per ulteriori informazioni su Ubuntu e NTP, vedere [sincronizzazione dell'ora](https://ubuntu.com/server/docs/network-ntp).
 
 Per ulteriori informazioni su Red Hat e NTP, vedere [configurare NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
 

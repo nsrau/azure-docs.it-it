@@ -2,17 +2,19 @@
 title: Specifica degli endpoint di servizio Service Fabric
 description: Come descrivere le risorse di endpoint in un manifesto del servizio, inclusa l'impostazione di endpoint HTTPS
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/16/2020
+ms.openlocfilehash: 8fdd95a7c0390c987b7c59663e0ee12e4a4a968e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610745"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267806"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
 ## <a name="overview"></a>Panoramica
-Il manifesto del servizio consente alle risorse usate dal servizio di essere dichiarate o modificate senza modificare il codice compilato. Service Fabric supporta la configurazione delle risorse endpoint per il servizio. È possibile controllare l'accesso alle risorse specificate nel manifesto del servizio tramite SecurityGroup nel manifesto dell'applicazione. La dichiarazione delle risorse consente a queste ultime di essere modificate in fase di distribuzione, in questo modo il servizio non deve introdurre un nuovo meccanismo di configurazione. La definizione dello schema per il file ServiceManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Service Fabric le applicazioni e i servizi vengono definiti e sottoutilizzati con il controllo delle versioni tramite file manifesto. Per una panoramica di livello superiore di ServiceManifest.xml e ApplicationManifest.xml, vedere [Service Fabric manifesti dell'applicazione e del servizio](service-fabric-application-and-service-manifests.md).
+
+Il manifesto del servizio consente alle risorse usate dal servizio di essere dichiarate o modificate senza modificare il codice compilato. Service Fabric supporta la configurazione delle risorse endpoint per il servizio. È possibile controllare l'accesso alle risorse specificate nel manifesto del servizio tramite SecurityGroup nel manifesto dell'applicazione. La dichiarazione delle risorse consente a queste ultime di essere modificate in fase di distribuzione, in questo modo il servizio non deve introdurre un nuovo meccanismo di configurazione. La definizione dello schema per il file di ServiceManifest.xml viene installata con Service Fabric SDK e gli strumenti di per *C:\Programmi\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*ed è documentata nella [documentazione dello schema ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
 
 ## <a name="endpoints"></a>Endpoint
 Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se la porta non è esplicitamente specificata. Ad esempio, esaminare l'endpoint *ServiceEndpoint1* specificato nel frammento di manifesto fornito dopo questo paragrafo. Inoltre, i servizi possono richiedere anche una porta specifica in una risorsa. Alle repliche del servizio in esecuzione sui diversi nodi del cluster possono essere assegnati diversi numeri di porta, mentre le repliche di un servizio in esecuzione nello stesso nodo condividono la porta. Le repliche del servizio possono quindi usare queste porte in base alle esigenze per la replica e l'ascolto delle richieste client.
@@ -155,14 +157,16 @@ Di seguito è riportato un esempio di ApplicationManifest che illustra la config
 
 Per i cluster Linux, l'archivio **MY** predefinito è la cartella **/var/lib/sfcerts**.
 
+Per un esempio di applicazione completa che usa un endpoint HTTPS, vedere [aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core usando gheppio](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
+
 ## <a name="port-acling-for-http-endpoints"></a>ACLing porta per endpoint HTTP
-Service Fabric verranno automaticamente ACL gli endpoint HTTP (S) specificati per impostazione predefinita. **Non** eseguirà la acling automatica se a un endpoint non è associato un [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) e Service Fabric è configurato per essere eseguito con un account con privilegi di amministratore.
+Service Fabric verranno automaticamente ACL gli endpoint HTTP (S) specificati per impostazione predefinita. **Non** eseguirà la ACLing automatica se a un endpoint non è associato un [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) e Service Fabric è configurato per essere eseguito con un account con privilegi di amministratore.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Override degli endpoint in ServiceManifest.xml
 
-In ApplicationManifest aggiungere una sezione ResourceOverride che sarà un elemento di pari livello della sezione ConfigOverrides. In questa sezione è possibile specificare l'override per la sezione Endpoint nella sezione delle risorse specificata in ServiceManifest. L'override degli endpoint è supportato nel runtime 5.7.217/SDK 2.7.217 e versioni successive.
+In ApplicationManifest aggiungere una sezione ResourceOverrides, che sarà una sezione di pari livello a ConfigOverrides. In questa sezione è possibile specificare l'override per la sezione Endpoint nella sezione delle risorse specificata in ServiceManifest. L'override degli endpoint è supportato nel runtime 5.7.217/SDK 2.7.217 e versioni successive.
 
-Per eseguire l'override di EndPoint in ServiceManifest usando ApplicationParameters, modificare ApplicationManifest come riportato di seguito:
+Per eseguire l'override dell'EndPoint in ServiceManifest usando ApplicationParameters, modificare il tipo di oggetto ApplicationManifest in questo modo:
 
 Nella sezione ServiceManifestImport aggiungere una nuova sezione "ResourceOverrides".
 
@@ -194,13 +198,13 @@ In Parameters aggiungere quanto riportato di seguito:
   </Parameters>
 ```
 
-Durante la distribuzione dell'applicazione è possibile trasmettere questi valori come ApplicationParameters.  Ad esempio:
+Durante la distribuzione dell'applicazione, è possibile passare questi valori come ApplicationParameters.  Ad esempio:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Nota: se i valori forniti per ApplicationParameters sono vuoti, si torna al valore predefinito fornito in ServiceManifest per l'EndPointName corrispondente.
+Nota: se il valore specificato per un determinato ApplicationParameter è vuoto, viene restituito il valore predefinito specificato in ServiceManifest per il corrispondente EndPointname.
 
 Ad esempio:
 
@@ -214,6 +218,18 @@ Se in ServiceManifest è stato specificato
   </Resources>
 ```
 
-e i valori Port1 e Protocol1 per i parametri di Aplication sono null o vuoti. La porta è comunque stabilita da ServiceFabric. E il protocollo sarà tcp.
+Si supponga che il valore PORT1 e Protocol1 per i parametri dell'applicazione sia null o vuoto. La porta verrà decisa da ServiceFabric e il protocollo sarà TCP.
 
-Si supponga di specificare un valore errato. Come per la porta è stato specificato un valore stringa "foo" invece di int.  Il comando New-ServiceFabricApplication ha esito negativo e restituisce un errore: il parametro di override denominato ' ServiceEndpoint1' dell'attributo ' PORT1' nella sezione ' ResourceOverrides ' non è valido. Il valore specificato è "Foo", mentre era richiesto "int".
+Si supponga di specificare un valore errato. Supponiamo che per Port sia stato specificato un valore stringa "foo" invece di int.  Il comando New-ServiceFabricApplication avrà esito negativo con un errore: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Questo articolo ha illustrato come definire gli endpoint nel manifesto del servizio Service Fabric. Per esempi più dettagliati, vedere:
+
+> [!div class="nextstepaction"]
+> [Esempi di manifesti dell'applicazione e del servizio](https://docs.microsoft.com/azure/service-fabric/service-fabric-manifest-examples.md)
+
+Per una procedura dettagliata per la creazione di pacchetti e la distribuzione di un'applicazione esistente in un cluster Service Fabric, vedere:
+
+> [!div class="nextstepaction"]
+> [Creare il pacchetto e distribuire un eseguibile esistente in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-existing-app.md)

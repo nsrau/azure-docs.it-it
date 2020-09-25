@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7b4a85077c8e0147f926f9a86fc8a003591ec8ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277734"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ I gruppi di failover automatico forniscono anche endpoint di listener di sola le
 
 Quando si usano i gruppi di failover automatico con i criteri di failover automatico, eventuali interruzioni che influiscano sui database in un server o in un'istanza gestita generano failover automatico. È possibile gestire il gruppo di failover automatico mediante:
 
-- [Portale di Azure](geo-distributed-application-configure-tutorial.md)
+- [Azure portal](geo-distributed-application-configure-tutorial.md)
 - [INTERFACCIA della riga di comando di Azure: gruppo di failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: gruppo di failover](scripts/add-database-to-failover-group-powershell.md)
 - [API REST: gruppo di failover](/rest/api/sql/failovergroups).
@@ -217,7 +217,7 @@ Il gruppo di failover automatico deve essere configurato nell'istanza primaria e
 
 Il diagramma seguente illustra una configurazione tipica di un'applicazione cloud con ridondanza geografica con un'istanza gestita un gruppo di failover automatico.
 
-![failover automatico](./media/auto-failover-group-overview/auto-failover-group-mi.png)
+![diagramma di failover automatico](./media/auto-failover-group-overview/auto-failover-group-mi.png)
 
 > [!NOTE]
 > Per un'esercitazione dettagliata sull'aggiunta di un Istanza gestita SQL per l'uso del gruppo di failover, vedere [aggiungere un'istanza gestita a un gruppo di failover](../managed-instance/failover-group-add-instance-tutorial.md) .
@@ -242,11 +242,11 @@ Poiché ogni istanza è isolata nella propria rete virtuale, è necessario conse
 È possibile creare un gruppo di failover tra istanze gestite da SQL in due sottoscrizioni diverse, purché le sottoscrizioni siano associate allo stesso [tenant di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Quando si usa l'API di PowerShell, è possibile eseguire questa operazione specificando il `PartnerSubscriptionId` parametro per il istanza gestita SQL secondario. Quando si usa l'API REST, ogni ID istanza incluso nel `properties.managedInstancePairs` parametro può avere un proprio subscriptionID.
   
 > [!IMPORTANT]
-> Portale di Azure non supporta la creazione di gruppi di failover tra sottoscrizioni diverse. Inoltre, per i gruppi di failover esistenti in sottoscrizioni e/o gruppi di risorse diversi, il failover non può essere avviato manualmente tramite il portale dal Istanza gestita SQL primario. In alternativa, avviarlo dall'istanza geografica secondaria.
+> Portale di Azure non supporta la creazione di gruppi di failover tra sottoscrizioni diverse. Inoltre, per i gruppi di failover esistenti in sottoscrizioni e/o gruppi di risorse diversi, il failover non può essere avviato manualmente tramite il portale dal Istanza gestita SQL primario. È quindi necessario avviarlo dall'istanza geografica secondaria.
 
 ### <a name="managing-failover-to-secondary-instance"></a>Gestione del failover nell'istanza secondaria
 
-Il gruppo di failover gestirà il failover di tutti i database in SQL Istanza gestita. Quando viene creato un gruppo, ogni database nell'istanza verrà sottoposto automaticamente a replica geografica nella Istanza gestita SQL secondaria. Non è possibile usare gruppi di failover per avviare un failover parziale di un subset dei database.
+Il gruppo di failover gestisce il failover di tutti i database in Istanza gestita di SQL. Quando viene creato un gruppo, ogni database nell'istanza viene automaticamente sottoposto a replica geografica nell'istanza secondaria di Istanza gestita di SQL. Non è possibile usare gruppi di failover per avviare un failover parziale di un subset dei database.
 
 > [!IMPORTANT]
 > Se un database viene rimosso dal Istanza gestita SQL primario, viene anche eliminato automaticamente nel Istanza gestita SQL secondario geografico.
@@ -348,16 +348,16 @@ La configurazione appena illustrata garantisce che il failover automatico non bl
 > [!IMPORTANT]
 > Per garantire la continuità aziendale nel caso di interruzioni del servizio a livello di area è necessario verificare la ridondanza geografica sia per i componenti front-end che per i database.
 
-## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Abilitazione della replica geografica tra le istanze gestite e i relativi reti virtuali
+## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Abilitazione della replica geografica tra le istanze gestite e le loro reti virtuali
 
 Quando si configura un gruppo di failover tra istanze di SQL gestite primarie e secondarie in due aree diverse, ogni istanza viene isolata usando una rete virtuale indipendente. Per consentire il traffico di replica tra questi reti virtuali, verificare che siano soddisfatti i prerequisiti seguenti:
 
 - Le due istanze di SQL Istanza gestita devono trovarsi in aree di Azure diverse.
 - Le due istanze di SQL Istanza gestita devono essere lo stesso livello di servizio e hanno le stesse dimensioni di archiviazione.
 - L'istanza secondaria di SQL Istanza gestita deve essere vuota (nessun database utente).
-- Le reti virtuali usate dalle istanze di SQL Istanza gestita devono essere connesse tramite un [gateway VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) o [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Quando due reti virtuali si connettono tramite una rete locale, assicurarsi che non siano presenti porte di blocco della regola firewall 5022 e 11000-11999. Il peering di reti virtuali globale non è supportato.
+- Le reti virtuali usate dalle istanze di SQL Istanza gestita devono essere connesse tramite un [gateway VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) o [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Quando due reti virtuali si connettono tramite una rete locale, assicurarsi che non sia presente una regola del firewall che blocca le porte 5022 e 11000-11999. Il peering di reti virtuali globale non è supportato.
 - Le due reti virtuali SQL Istanza gestita non possono avere indirizzi IP sovrapposti.
-- È necessario configurare i gruppi di sicurezza di rete (NSG) in modo che le porte 5022 e l'intervallo 11000 ~ 12000 siano aperte in ingresso e in uscita per le connessioni dalla subnet dell'altra istanza gestita. Ciò consente di consentire il traffico di replica tra le istanze.
+- È necessario configurare i gruppi di sicurezza di rete (NSG) in modo che le porte 5022 e l'intervallo 11000~12000 siano aperti in ingresso e in uscita per le connessioni dalla subnet dell'altra istanza gestita, per consentire il traffico di replica tra le istanze.
 
    > [!IMPORTANT]
    > Regole di sicurezza dei gruppi di sicurezza di rete non configurate correttamente determinano il blocco delle operazioni di copia del database.
@@ -371,7 +371,7 @@ Quando si configura un gruppo di failover tra istanze di SQL gestite primarie e 
 
 È possibile eseguire l'aggiornamento o il downgrade di un database primario a dimensioni di calcolo diverse (entro lo stesso livello di servizio e non tra il livello per utilizzo generico e business critical) senza disconnettere eventuali database secondari. Quando si esegue l'aggiornamento, è consigliabile aggiornare prima tutti i database secondari, quindi aggiornare il database primario. Quando si esegue il downgrade, invertire l'ordine: eseguire prima il downgrade del primario, quindi eseguire il downgrade di tutti i database secondari. Quando si aggiorna o si effettua il downgrade del database a un livello di servizio diverso, viene applicata questa raccomandazione.
 
-Questa sequenza è consigliata in modo specifico per evitare il problema per cui il database secondario in uno SKU inferiore viene sottoposto a overload e deve essere sottoposto a nuovo il seeding durante un processo di aggiornamento o di downgrade. È anche possibile evitare il problema rendendo la replica primaria di sola lettura, a scapito dell'effetto di tutti i carichi di lavoro di lettura/scrittura sul database primario.
+Questa sequenza è consigliata specificamente per evitare il problema in cui l'elemento secondario nello SKU di una versione precedente è in rapporto di overload e richiede un nuovo processo di seeding durante la procedura di aggiornamento o downgrade. È possibile evitare il problema anche rendendo la replica primaria di sola lettura, a scapito di tutti i carichi di lavoro di lettura/scrittura sul componente primario.
 
 > [!NOTE]
 > Se è stato creato un database secondario come parte della configurazione del gruppo di failover, non è consigliabile eseguire il downgrade del database secondario. In questo modo si garantisce che il livello dei dati abbia una capacità sufficiente per elaborare il carico di lavoro normale dopo che il failover viene attivato.

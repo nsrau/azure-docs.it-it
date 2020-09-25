@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201176"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259637"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -70,7 +70,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {OIDC:ClientId} |Parametro di stringa di query `client_id`. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |Parametro di stringa di query `domain_hint`. | facebook.com |
 | {OIDC:LoginHint} |  Parametro di stringa di query `login_hint`. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age`. | N/D |
+| {OIDC:MaxAge} | Oggetto `max_age`. | N/D |
 | {OIDC:Nonce} |Parametro di stringa di query `Nonce`. | defaultNonce |
 | {OIDC: password}| La password dell'utente del [flusso di credenziali password del proprietario della risorsa](ropc-custom.md) .| Password1| 
 | {OIDC:Prompt} | Parametro di stringa di query `prompt`. | login |
@@ -90,7 +90,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {Context:IPAddress} | Indirizzo IP utente. | 11.111.111.11 |
 | {Context: KMSI} | Indica se la casella [di controllo Mantieni l'accesso](custom-policy-keep-me-signed-in.md) è selezionata. |  true |
 
-### <a name="claims"></a>Claims 
+### <a name="claims"></a>Attestazioni 
 
 | Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
@@ -113,6 +113,7 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 | Attestazione | Descrizione | Esempio |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | Token di accesso. | N/D |
+| {OAuth2: refresh_token} | Token di aggiornamento. | N/D |
 
 
 ### <a name="saml"></a>SAML
@@ -122,8 +123,8 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 | {SAML: AuthnContextClassReferences} | `AuthnContextClassRef`Valore dell'elemento, dalla richiesta SAML. | urn: Oasis: Names: TC: SAML: 2.0: AC: Classes: PasswordProtectedTransport |
 | {SAML: NameIdPolicyFormat} | `Format`Attributo, dall' `NameIDPolicy` elemento della richiesta SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
 | {SAML: emittente} |  Valore dell' `Issuer` elemento SAML della richiesta SAML.| `https://contoso.com` |
-| {SAML: AllowCreate} | `AllowCreate`Valore dell'attributo, dall' `NameIDPolicy` elemento della richiesta SAML. | True |
-| {SAML: ForceAuthn} | `ForceAuthN`Valore dell'attributo, dall' `AuthnRequest` elemento della richiesta SAML. | True |
+| {SAML: AllowCreate} | `AllowCreate`Valore dell'attributo, dall' `NameIDPolicy` elemento della richiesta SAML. | Vero |
+| {SAML: ForceAuthn} | `ForceAuthN`Valore dell'attributo, dall' `AuthnRequest` elemento della richiesta SAML. | Vero |
 | {SAML: ProviderName} | `ProviderName`Valore dell'attributo, dall' `AuthnRequest` elemento della richiesta SAML.| Contoso.com |
 | {SAML: RelayState} | Parametro di stringa di query `RelayState`.| 
 
@@ -131,7 +132,7 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 
 È possibile usare i resolver di attestazioni con gli elementi seguenti:
 
-| Item | Elemento | Impostazioni |
+| Elemento | Elemento | Impostazioni |
 | ----- | ----------------------- | --------|
 |Profilo tecnico di Application Insights |`InputClaim` | |
 |[Azure Active Directory](active-directory-technical-profile.md) profilo tecnico| `InputClaim`, `OutputClaim`| 1, 2|

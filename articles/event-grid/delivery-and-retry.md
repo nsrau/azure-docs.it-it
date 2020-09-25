@@ -3,12 +3,12 @@ title: Recapito di Griglia di eventi di Azure e nuovi tentativi
 description: Viene descritto in che modo Griglia di eventi di Azure recapita gli eventi e come gestisce i messaggi non recapitati.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fe7574d7e17b1763afb2292c15007dd87b056ef1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087612"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324094"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
 
@@ -91,9 +91,149 @@ Tra l'ultimo tentativo di recapitare un evento e il momento in cui questo viene 
 
 Prima di impostare la posizione dei messaggi non recapitabili, è necessario avere un account di archiviazione con un contenitore. L'endpoint di questo contenitore deve essere specificato durante la creazione della sottoscrizione di eventi. Di seguito è indicato il formato dell'endpoint: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-Si potrebbe voler ricevere una notifica quando un evento è stato inviato al percorso di messaggi non recapitabili. Per usare Griglia di eventi per rispondere a eventi non recapitati, [creare una sottoscrizione di eventi](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) per l'archivio BLOB di eventi non recapitabili. Ogni volta che l'archivio BLOB riceve un evento non recapitato, Griglia di eventi invia una notifica al gestore. Il gestore risponde con le azioni da eseguire per la riconciliazione degli eventi non recapitati.
+Si potrebbe voler ricevere una notifica quando un evento è stato inviato al percorso di messaggi non recapitabili. Per usare Griglia di eventi per rispondere a eventi non recapitati, [creare una sottoscrizione di eventi](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) per l'archivio BLOB di eventi non recapitabili. Ogni volta che l'archivio BLOB riceve un evento non recapitato, Griglia di eventi invia una notifica al gestore. Il gestore risponde con le azioni da eseguire per la riconciliazione degli eventi non recapitati. Per un esempio di impostazione di un percorso di messaggi non recapitabili e di criteri di ripetizione dei tentativi, vedere la pagina relativa ai [criteri di ripetizione e](manage-event-delivery.md)
 
-Per un esempio di configurazione di un percorso di messaggi non recapitabili, vedere [Messaggi non recapitabili e criteri di ripetizione dei tentativi](manage-event-delivery.md).
+## <a name="delivery-event-formats"></a>Formati degli eventi di recapito
+In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili in formati dello schema di recapito diversi, ovvero schema di griglia di eventi, schema CloudEvents 1,0 e schema personalizzato. Per altre informazioni su questi formati, vedere gli articoli dello schema [griglia di eventi](event-schema.md) e [eventi Cloud 1,0](cloud-event-schema.md) . 
+
+### <a name="event-grid-schema"></a>Schema di Griglia di eventi
+
+#### <a name="event"></a>Evento 
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/000000000-0000-0000-0000-00000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>Evento del messaggio non recapitabile
+
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    },
+
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T17:18:14.0265758Z",
+    "lastDeliveryAttemptTime": "2020-08-13T17:18:14.0465788Z" 
+}
+```
+
+### <a name="cloudevents-10-schema"></a>Schema CloudEvents 1,0
+
+#### <a name="event"></a>Evento
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>Evento del messaggio non recapitabile
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    },
+
+    "deadletterreason": "MaxDeliveryAttemptsExceeded",
+    "deliveryattempts": 1,
+    "lastdeliveryoutcome": "NotFound",
+    "publishtime": "2020-08-13T21:21:36.4018726Z",
+}
+```
+
+### <a name="custom-schema"></a>Schema personalizzato
+
+#### <a name="event"></a>Evento
+
+```json
+{
+    "prop1": "my property",
+    "prop2": 5,
+    "myEventType": "fooEventType"
+}
+
+```
+
+#### <a name="dead-letter-event"></a>Evento del messaggio non recapitabile
+```json
+{
+    "id": "8bc07e6f-0885-4729-90e4-7c3f052bd754",
+    "eventTime": "2020-08-13T18:11:29.4121391Z",
+    "eventType": "myEventType",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/00000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.EventGrid/topics/myCustomSchemaTopic",
+    "subject": "subjectDefault",
+  
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T18:11:29.4121391Z",
+    "lastDeliveryAttemptTime": "2020-08-13T18:11:29.4277644Z",
+  
+    "data": {
+        "prop1": "my property",
+        "prop2": 5,
+        "myEventType": "fooEventType"
+    }
+}
+```
+
 
 ## <a name="message-delivery-status"></a>Stato di recapito del messaggio
 

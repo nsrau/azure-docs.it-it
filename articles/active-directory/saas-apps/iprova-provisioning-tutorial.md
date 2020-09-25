@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1d0f5c974b19b83cdd2fdab832ae0cac0dab9d9a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1dd89198fd1c494ef3002fdc222683f56f2d7e3a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552865"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304715"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Esercitazione: configurare iProva per il provisioning utenti automatico
 
@@ -38,7 +38,7 @@ Questa esercitazione descrive i passaggi da eseguire in iProva e Azure Active Di
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
-* [Tenant Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Un tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 * Un account utente in Azure AD con l'[autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
 * [Tenant di iProva](https://www.iProva.com/).
 * Un account utente in iProva con autorizzazioni di amministratore.
@@ -96,11 +96,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere l'URL di **base scim 2,0 e i valori dei token permanenti** recuperati in precedenza rispettivamente nei campi **URL tenant** e **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a iProva. Se la connessione non riesce, verificare che l'account iProva disponga delle autorizzazioni di amministratore e riprovare.
 
@@ -140,7 +140,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
    |externalId|string|
    |ruoli [Primary EQ "true"]. display|string|
    |ruoli [Primary EQ "true"]. Type|string|
-   |ruoli [Primary EQ "true"]. Value|string|
+   |roles[primary eq "True"].value|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|string|

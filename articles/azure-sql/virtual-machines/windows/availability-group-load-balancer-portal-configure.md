@@ -7,18 +7,18 @@ author: MashaMSFT
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f59f8af3f9a845f7e8663877f6d806c33b216a41
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b3f2e8b56af41d1729b9786adda3abdcc4eb0b02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89482845"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325029"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configurare un servizio di bilanciamento del carico per un gruppo di disponibilità SQL Server Always On in macchine virtuali di Azure
 
@@ -67,7 +67,7 @@ Per prima cosa creare il servizio di bilanciamento del carico.
 
 5. Bella finestra di dialogo **Crea servizio di bilanciamento del carico** configurare il servizio di bilanciamento del carico come segue:
 
-   | Impostazione | Valore |
+   | Impostazione | valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta il servizio di bilanciamento del carico. Ad esempio **sqlLB**. |
    | **Tipo** |**Interna**: La maggior parte delle implementazioni usa un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterna**: consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
@@ -116,7 +116,7 @@ Il probe definisce come Azure deve verificare quali istanze di SQL Server sono a
 
 3. Configurare il probe nel pannello **Aggiungi probe** . Usare i valori seguenti per configurare il probe.
 
-   | Impostazione | Valore |
+   | Impostazione | valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta il probe. Ad esempio **SQLAlwaysOnEndPointProbe**. |
    | **Protocollo** |**TCP** |
@@ -142,7 +142,7 @@ Le regole di bilanciamento del carico consentono di configurare il modo in cui i
 
 3. Nel pannello **Aggiungi regola di bilanciamento del carico** configurare la regola di bilanciamento del carico. Usare le seguenti impostazioni: 
 
-   | Impostazione | Valore |
+   | Impostazione | valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta la regola di bilanciamento del carico. Ad esempio **SQLAlwaysOnEndPointListener**. |
    | **Protocollo** |**TCP** |
@@ -234,7 +234,7 @@ Per aggiungere un indirizzo IP a un servizio di bilanciamento del carico con il 
 
 7. Aggiungere un probe integrità usando le impostazioni seguenti:
 
-   |Impostazione |Valore
+   |Impostazione |valore
    |:-----|:----
    |**Nome** |Un nome per identificare il probe.
    |**Protocollo** |TCP
@@ -248,7 +248,7 @@ Per aggiungere un indirizzo IP a un servizio di bilanciamento del carico con il 
 
 10. Configurare la nuova regola di bilanciamento del carico usando le impostazioni seguenti:
 
-    |Impostazione |Valore
+    |Impostazione |valore
     |:-----|:----
     |**Nome** |Nome per identificare la regola di bilanciamento del carico. 
     |**Indirizzo IP front-end IP** |Selezionare l'indirizzo IP che è stato creato. 
@@ -297,7 +297,7 @@ Se un gruppo di disponibilità fa parte di un gruppo di disponibilità distribui
 
 1. Creare la regola di bilanciamento del carico con le impostazioni seguenti:
 
-   |Impostazione |Valore
+   |Impostazione |valore
    |:-----|:----
    |**Nome** |Aggiungere il nome per identificare la regola di bilanciamento del carico per il gruppo di disponibilità distribuito. 
    |**Indirizzo IP front-end IP** |Usare lo stesso indirizzo IP front-end del gruppo di disponibilità.

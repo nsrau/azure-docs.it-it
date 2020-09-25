@@ -1,6 +1,6 @@
 ---
 title: Usare Azure Image Builder & raccolta di immagini condivise per macchine virtuali Linux (anteprima)
-description: Creare immagini di macchina virtuale Linux con Azure Image Builder e la Raccolta immagini condivise.
+description: Informazioni su come usare Azure Image Builder e l'interfaccia della riga di comando di Azure per creare una versione di immagine in una raccolta di immagini condivise e quindi distribuire l'immagine a livello globale.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2019
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 1eeb8df2605bbe63fe72c5bd451b43111322a7f6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bab5a86cdf8e3fa6b17866fe4088b28ed3ece6f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500913"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307297"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: Creare un'immagine Linux e distribuirla a una Raccolta immagini condivise 
 

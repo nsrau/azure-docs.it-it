@@ -1,15 +1,15 @@
 ---
 title: Monitoraggio di Azure per i mapping delle aree dei contenitori
-description: Questo articolo descrive i mapping dell'area supportati tra monitoraggio di Azure per contenitori, Log Analytics area di lavoro e metriche personalizzate.
+description: Descrive i mapping di area supportati tra monitoraggio di Azure per contenitori, Log Analytics area di lavoro e metriche personalizzate.
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3e8ead78c5e0e534e07c1e2ab0e25eb3f5a90c38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e3b8635c70dfdf33b0a062be80c948cd77923cc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194978"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272906"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Mapping dell'area supportati da monitoraggio di Azure per i contenitori
 
@@ -17,7 +17,8 @@ ms.locfileid: "84194978"
 
 ## <a name="log-analytics-workspace-supported-mappings"></a>Mapping supportati dall'area di lavoro Log Analytics
 
-Le risorse del cluster AKS o Log Analytics area di lavoro possono risiedere in altre aree e la tabella seguente illustra i mapping.
+Le aree AKS supportate sono elencate in [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service). L'area di lavoro Log Analytics deve trovarsi nella stessa area, ad eccezione delle aree elencate nella tabella seguente. Vedere le [Note sulla versione di AKS](https://github.com/Azure/AKS/releases) per gli aggiornamenti.
+
 
 |**Area del cluster AKS** | **Area dell'area di lavoro Log Analytics** |
 |-----------------------|------------------------------------|
@@ -25,43 +26,24 @@ Le risorse del cluster AKS o Log Analytics area di lavoro possono risiedere in a
 |SouthAfricaNorth |Europa occidentale |
 |SouthAfricaWest |Europa occidentale |
 |**Australia** | |
-|AustraliaEast |AustraliaEast |
-|AustraliaCentral |AustraliaCentral |
 |AustraliaCentral2 |AustraliaCentral |
-|AustraliaEast |AustraliaEast |
-|**Asia Pacifico** | |
-|EastAsia |EastAsia |
-|SoutheastAsia |SoutheastAsia |
 |**Brasile** | |
 |BrazilSouth | SouthCentralUS |
 |**Canada** ||
-|CanadaCentral |CanadaCentral |
 |CanadaEast |CanadaCentral |
 |**Europa** | |
-|FranceCentral |FranceCentral |
 |FranceSouth |FranceCentral |
-|NorthEurope |NorthEurope |
-|UKSouth |UKSouth |
 |UKWest |UKSouth |
-|Europa occidentale |Europa occidentale |
 |**India** | |
-|CentralIndia |CentralIndia |
 |SouthIndia |CentralIndia |
 |WestIndia |CentralIndia |
 |**Giappone** | |
-|JapanEast |JapanEast |
 |JapanWest |JapanEast |
 |**Corea del Sud** | |
-|KoreaCentral |KoreaCentral |
 |KoreaSouth |KoreaCentral |
 |**Stati Uniti** | |
-|CentralUS |CentralUS|
-|EastUS |EastUS |
-|EastUS2 |EastUS2 |
-|WestUS |WestUS |
-|Stati Uniti occidentali 2 |Stati Uniti occidentali 2 |
 |WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
-|US Gov Virginia |US Gov Virginia |
+
 
 <sup>1</sup> a causa dei vincoli di capacità, l'area non è disponibile quando si creano nuove risorse. Sono incluse un'area di lavoro Log Analytics. Tuttavia, le risorse collegate preesistenti nell'area dovrebbero continuare a funzionare.
 

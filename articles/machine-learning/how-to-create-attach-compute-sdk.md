@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: ac440db4c1dbddd317743e2d681a62251624d9bd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cc7ca9d217e405b0b39779cf256edcf0669afd6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898120"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302435"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Creare destinazioni di calcolo per il training e la distribuzione di modelli con Python SDK
 
@@ -81,7 +81,7 @@ Quando si esegue l'inferenza, Azure Machine Learning crea un contenitore Docker 
 
 Quando si usa il computer locale per il **Training**, non è necessario creare una destinazione di calcolo.  È sufficiente [inviare l'esecuzione del training](how-to-set-up-training-targets.md) dal computer locale.
 
-Quando si usa il computer locale per l' **inferenza**, è necessario che Docker sia installato. Per eseguire la distribuzione, utilizzare [LocalWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) per definire la porta che il servizio Web utilizzerà. Usare quindi il normale processo di distribuzione come descritto in [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
+Quando si usa il computer locale per l' **inferenza**, è necessario che Docker sia installato. Per eseguire la distribuzione, utilizzare [LocalWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-port-none-) per definire la porta che il servizio Web utilizzerà. Usare quindi il normale processo di distribuzione come descritto in [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Azure Machine Learning cluster di calcolo
 
@@ -105,8 +105,7 @@ Un ambiente di calcolo di Azure Machine Learning può essere usato su più esecu
     
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-   Durante la creazione di un ambiente di calcolo di Machine Learning è anche possibile configurare diverse proprietà avanzate. Le proprietà consentono di creare un cluster permanente di dimensione fissa o all'interno di una Rete virtuale di Azure esistente nella sottoscrizione.  Per informazioni dettagliate, consultare [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
-    ) (Classe AmlCompute).
+   Durante la creazione di un ambiente di calcolo di Machine Learning è anche possibile configurare diverse proprietà avanzate. Le proprietà consentono di creare un cluster permanente di dimensione fissa o all'interno di una Rete virtuale di Azure esistente nella sottoscrizione.  Per informazioni dettagliate, consultare [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) (Classe AmlCompute).
 
     In alternativa, è possibile creare e collegare una risorsa permanente dell'ambiente di calcolo di Azure Machine Learning in [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#portal-create).
 
@@ -276,8 +275,25 @@ Usare la Data Science Virtual Machine di Azure (DSVM) come macchina virtuale di 
 
 1. **Configurare**: Creare una configurazione di esecuzione per la destinazione di calcolo Data Science Virtual Machine. Docker e conda vengono usati per creare e configurare l'ambiente di training nella Data Science Virtual Machine.
 
-   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
-
+   ```python
+   from azureml.core import ScriptRunConfig
+   from azureml.core.environment import Environment
+   from azureml.core.conda_dependencies import CondaDependencies
+   
+   # Create environment
+   myenv = Environment(name="myenv")
+   
+   # Specify the conda dependencies
+   myenv.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
+   
+   # If no base image is explicitly specified the default CPU image "azureml.core.runconfig.DEFAULT_CPU_IMAGE" will be used
+   # To use GPU in DSVM, you should specify the default GPU base Docker image or another GPU-enabled image:
+   # myenv.docker.enabled = True
+   # myenv.docker.base_image = azureml.core.runconfig.DEFAULT_GPU_IMAGE
+   
+   # Configure the run configuration with the Linux DSVM as the compute target and the environment defined above
+   src = ScriptRunConfig(source_directory=".", script="train.py", compute_target=compute, environment=myenv) 
+   ```
 
 Dopo aver collegato l'ambiente di calcolo e aver configurato l'esecuzione, il passaggio successivo consiste nell'[invio dell'esecuzione di training](how-to-set-up-training-targets.md).
 
@@ -494,7 +510,7 @@ Consultare questi notebook per esempi di training con varie destinazioni di calc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Usare la risorsa di calcolo per [inviare un'esecuzione di training](how-to-set-up-training-targets.md).
+* Usare la risorsa di calcolo per [configurare e inviare un'esecuzione di training](how-to-set-up-training-targets.md).
 * [Esercitazione: Eseguire il training di un modello](tutorial-train-models-with-aml.md) usa una destinazione di calcolo gestita per il training del modello.
 * Consultare le informazioni su come [ottimizzare in modo efficiente gli iperparametri](how-to-tune-hyperparameters.md) per creare modelli migliori.
 * Dopo aver creato un modello con training, consultare le informazioni su [come e dove distribuire i modelli](how-to-deploy-and-where.md).

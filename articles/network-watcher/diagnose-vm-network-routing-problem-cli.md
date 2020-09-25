@@ -1,7 +1,7 @@
 ---
 title: Diagnosticare un problema di routing di rete VM-interfaccia della riga di comando di Azure
 titleSuffix: Azure Network Watcher
-description: In questo articolo si apprenderà come diagnosticare un problema di routing di rete di una macchina virtuale usando la funzionalità Hop successivo di Azure Network Watcher.
+description: Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per diagnosticare un problema di routing di rete di una macchina virtuale usando la funzionalità hop successivo di Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: damendo
@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 889db5cdcb1807b859339eaf326e3cec7ea64b84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fa083626135170a05844a5e4434b608a1fabe60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738805"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302248"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticare un problema di routing di rete di una macchina virtuale - Interfaccia della riga di comando di Azure
 

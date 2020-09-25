@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 81480bea735017d3fc59e9c6cf126c2146a0c968
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798466"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323726"
 ---
 # <a name="system-requirements"></a>Requisiti di sistema
 
@@ -64,6 +64,17 @@ Vedere il capitolo dedicato per i [requisiti di rete](../reference/network-requi
 
 Per la risoluzione dei problemi di rete, vedere la [Guida alla risoluzione dei](../resources/troubleshoot.md#unstable-holograms)problemi.
 
+### <a name="network-ports"></a>Porte di rete
+
+Assicurarsi che i firewall (sul dispositivo, nei router e così via) non blocchino le porte seguenti:
+
+| Porta              | Protocollo | Consenti    | Descrizione |
+|-------------------|----------|----------|-------------|
+| 50051             | TCP      | In uscita | Connessione iniziale (handshake HTTP) |
+| 8266              | UDP      | In uscita | Trasferimento di dati |
+| 5000, 5433, 8443  | TCP      | In uscita | Obbligatorio per [lo strumento ArrInspector](../resources/tools/arr-inspector.md)|
+
+
 ## <a name="software"></a>Software
 
 È necessario installare il software seguente:
@@ -71,7 +82,7 @@ Per la risoluzione dei problemi di rete, vedere la [Guida alla risoluzione dei](
 * La versione più recente di **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * [Visual Studio Tools per Realtà mista](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). In particolare, le installazioni del *carico di lavoro* seguente sono obbligatorie:
   * **Sviluppo per desktop con C++**
-  * **Sviluppo di app UWP (Universal Windows Platform)**
+  * **Sviluppo per la piattaforma UWP (Universal Windows Platform)**
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **Git** [(download)](https://git-scm.com/downloads)
 * Facoltativo: per visualizzare il flusso video dal server su un PC desktop, è necessario **HEVC video Extensions** [(collegamento Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7). Verificare che la versione più recente sia installata controllando la disponibilità di aggiornamenti nell'archivio.

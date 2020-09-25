@@ -1,14 +1,16 @@
 ---
 title: Aree di pubblicazione & endpoint-LUIS
 description: L'area specificata nella portale di Azure è la stessa in cui verrà pubblicata l'app LUIS e viene generato un URL dell'endpoint per la stessa area.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/19/2019
-ms.openlocfilehash: 680887ecda0843bf770c62a4b9a4d88305ea9e73
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 134f71e957b39cf35b4e45e42c2101fbce233f05
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590911"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277156"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Creazione e pubblicazione di aree e chiavi associate
 
@@ -17,7 +19,7 @@ Tre aree di creazione sono supportate dai portali LUIS corrispondenti. Per pubbl
 <a name="luis-website"></a>
 
 ## <a name="luis-authoring-regions"></a>Aree di creazione LUIS
-Sono disponibili tre portali per la creazione di LUIS, in base all'area. La creazione e la pubblicazione devono avvenire nella stessa regione.
+Sono disponibili tre portali per la creazione di LUIS, in base all'area. La creazione e la pubblicazione devono avvenire nella stessa area.
 
 |LUIS|Regione di creazione|Nome dell'area di Azure|
 |--|--|--|

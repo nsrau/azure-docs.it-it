@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 963f89c99d71afbebbe122e3c7d8b3227dc4a8be
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 98f92a6b0169c573b97788c7ffaf76255796cfa6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518408"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278941"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Esercitazione: configurare RFPIO per il provisioning utenti automatico
 
@@ -66,11 +66,11 @@ Prima di configurare RFPIO per il provisioning utenti automatico con Azure AD, s
 
 4.  Verificare che sia abilitato il **provisioning utenti automatico** . Fare clic su **genera token API scim**.
 
-    ![RFPIO creare token](media/rfpio-provisioning-tutorial/generate.png)
+    ![Screenshot della sezione S C i M con l'opzione GENERAte S C I M A P I TOKEN denominata.](media/rfpio-provisioning-tutorial/generate.png)
 
 5.  Salvare il **token dell'API scim** perché questo token non verrà visualizzato di nuovo per finalità di sicurezza. Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione RFPIO nel portale di Azure.
 
-    ![RFPIO creare token](media/rfpio-provisioning-tutorial/auth.png)
+    ![Screenshot della sezione S C i M con la finestra di dialogo di avviso visualizzata dopo aver selezionato Invia.](media/rfpio-provisioning-tutorial/auth.png)
 
 ## <a name="add-rfpio-from-the-gallery"></a>Aggiungere RFPIO dalla raccolta
 
@@ -113,11 +113,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` in **URL tenant**. Un valore di esempio è `https://Azure-test1.rfpio.com/rfpserver/scim/v2` . Immettere il valore del **token API scim** recuperato in precedenza nel **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a RFPIO. Se la connessione non riesce, verificare che l'account RFPIO disponga delle autorizzazioni di amministratore e riprovare.
 

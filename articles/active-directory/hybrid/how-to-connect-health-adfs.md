@@ -18,12 +18,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa7be140b47d389bea0e7468d1a5ac7e58c3b1b
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 26fdf202cb9bcacee94c83578432f7a399f90a0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276287"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306277"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorare AD FS con Azure AD Connect Health
 La documentazione seguente è specifica per il monitoraggio dell'infrastruttura AD FS con Azure AD Connect Health. Per informazioni sul monitoraggio Azure AD Connect (sincronizzazione) con Azure AD Connect Health, vedere [uso di Azure ad Connect Health per la sincronizzazione](how-to-connect-health-sync.md). Per informazioni sul monitoraggio Active Directory Domain Services con Azure AD Connect Health, vedere [utilizzo di Azure ad Connect Health con servizi di dominio Active Directory](how-to-connect-health-adds.md).
@@ -33,7 +33,7 @@ La sezione degli avvisi di Azure AD Connect Health contiene l'elenco degli avvis
 
 È possibile fare doppio clic su un avviso attivo o risolto per aprire un nuovo pannello con informazioni aggiuntive, procedure utili per risolvere l'avvisto e collegamenti alla documentazione rilevante. È anche possibile visualizzare dati storici sugli avvisi risolti in passato.
 
-![portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/alert2.png)
+![Screenshot che mostra il Azure AD Connect Health pagina "avvisi" con un avviso selezionato e la finestra "Dettagli avviso" visualizzata.](./media/how-to-connect-health-adfs/alert2.png)
 
 ## <a name="usage-analytics-for-ad-fs"></a>Analisi di utilizzo per AD FS
 Analisi di utilizzo di Azure AD Connect Health analizza il traffico di autenticazione dei server federativi. È possibile fare doppio clic sulla casella dell'analisi di utilizzo per aprire il pannello corrispondente, che mostra diverse metriche e diversi raggruppamenti.
@@ -43,7 +43,7 @@ Analisi di utilizzo di Azure AD Connect Health analizza il traffico di autentica
 >
 >
 
-![portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/report1.png)
+![Screenshot che mostra la pagina di Azure AD Connect Health "analisi di utilizzo".](./media/how-to-connect-health-adfs/report1.png)
 
 Per selezionare altre metriche, specificare un intervallo di tempo o modificare il raggruppamento, è sufficiente fare clic con il pulsante destro del mouse sul pannello dell'analisi di utilizzo e scegliere Modifica grafico. È quindi possibile specificare l'intervallo di tempo, selezionare metriche diverse e cambiare il raggruppamento. È possibile visualizzare la distribuzione del traffico di autenticazione in "metriche" diverse e raggruppare ogni metrica con i parametri di raggruppamento pertinenti descritti nella sezione seguente:
 
@@ -78,7 +78,7 @@ Per selezionare altre metriche, specificare un intervallo di tempo o modificare 
 ## <a name="performance-monitoring-for-ad-fs"></a>Monitoraggio delle prestazioni per AD FS
 Il monitoraggio delle prestazioni di Azure AD Connect Health offre informazioni di monitoraggio sulle metriche. Se si seleziona la casella Monitoraggio, viene visualizzato un nuovo pannello che include informazioni dettagliate sulle metriche.
 
-![portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/perf1.png)
+![Screenshot che mostra la pagina di monitoraggio delle prestazioni Azure AD Connect Health.](./media/how-to-connect-health-adfs/perf1.png)
 
 Selezionando l'opzione Filtro nella parte superiore del pannello, è possibile filtrare in base al server per visualizzare le metriche di un singolo server. Per modificare le metriche, fare clic con il pulsante destro del mouse sul grafico di monitoraggio nel pannello Monitoraggio e scegliere Modifica grafico (oppure selezionare il pulsante Modifica grafico). Dal nuovo pannello visualizzato è possibile selezionare altre metriche nell'elenco a discesa e specificare un intervallo di tempo per cui visualizzare i dati delle prestazioni.
 
@@ -89,7 +89,7 @@ Esistono tuttavia altri motivi che possono provocare un numero inaspettatamente 
 
 Azure AD Connect Health per AD FS fornisce un report sui primi 50 utenti con tentativi di accesso non riusciti a causa di un nome utente o una password non valida. Questo report si ottiene elaborando gli eventi di controllo generati da tutti i server AD FS nelle farm.
 
-![portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/report1a.png)
+![Screenshot che mostra la sezione "Reports" con il numero di tentativi di password errati negli ultimi 30 giorni.](./media/how-to-connect-health-adfs/report1a.png)
 
 All'interno del report è possibile accedere facilmente alle informazioni seguenti:
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 989399bcc86547b914deb442fa9793f6d79d0606
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0940521873b8d6746381acbd8e6c4c6d3a273c49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325322"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325760"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -137,6 +137,10 @@ Quando si crea/modifica una regola di avviso di Azure, usare un gruppo di azioni
 > [!NOTE]
 >
 > Per informazioni sui prezzi delle azioni di Gestione dei servizi IT, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per i gruppi di azioni.
+
+> [!NOTE]
+>
+> Il campo Descrizione breve nella definizione della regola di avviso è limitato a 40 caratteri quando viene inviato tramite l'azione ITSM.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizzare e analizzare i dati degli eventi imprevisti e delle richieste di modifica

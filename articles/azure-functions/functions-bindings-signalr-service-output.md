@@ -1,17 +1,17 @@
 ---
 title: Binding di output del servizio SignalR di funzioni di Azure
-description: Informazioni su come inviare messaggi del servizio SignalR da funzioni di Azure.
+description: Informazioni sull'associazione di output del servizio SignalR per funzioni di Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: b401ff20b553629341c5190deb4cfc54c474d789
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7fa49583c17c198642d4ad6d72a0faa19dcfe659
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212570"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323329"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Binding di output del servizio SignalR per funzioni di Azure
 

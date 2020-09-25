@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: d93ff81bacbb537cc5891e0b869f164e0d6824c6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/24/2020
+ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324332"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Funzionalità di ottimizzazione delle prestazioni dell'attività di copia
 
@@ -124,31 +124,35 @@ Quando si specifica un valore per la `parallelCopies` proprietà, prendere in co
 
 ## <a name="staged-copy"></a>copia di staging
 
-Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile scegliere di usare un archivio BLOB come archivio di staging provvisorio. La funzionalità di staging è particolarmente utile nei casi seguenti:
+Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile scegliere di usare l'archiviazione BLOB di Azure o Azure Data Lake Storage Gen2 come archivio di staging provvisorio. La funzionalità di staging è particolarmente utile nei casi seguenti:
 
-- **Si vuole inserire dati da diversi archivi dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) tramite la polibase.** Azure sinapsi Analytics usa la polibase come meccanismo di velocità effettiva elevata per caricare una grande quantità di dati in Azure sinapsi Analytics. I dati di origine devono trovarsi in un archivio BLOB o Azure Data Lake Store e devono soddisfare criteri aggiuntivi. Quando si caricano dati da un archivio dati non BLOB o Azure Data Lake Store, è possibile attivare la copia di dati tramite un'archiviazione BLOB di staging provvisoria. In tal caso, Azure Data Factory esegue le trasformazioni dei dati necessarie per verificare che soddisfi i requisiti di polibase. USA quindi la polibase per caricare i dati in Azure sinapsi Analytics in modo efficiente. Per altre informazioni, vedere [usare la polibase per caricare i dati in Azure sinapsi Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
+- **Si vuole inserire dati da diversi archivi dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) tramite la polibase, copiare i dati da/a fiocco di neve o inserire dati da Amazon spostamento/HDFS performantly.** Per ulteriori informazioni, vedere:
+  - [Usare la polibase per caricare i dati in Azure sinapsi Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
+  - [Connettore fiocco di neve](connector-snowflake.md)
+  - [Connettore Amazon per lo spostamento](connector-amazon-redshift.md)
+  - [Connettore HDFS](connector-hdfs.md)
+- **Non è necessario aprire porte diverse dalla porta 80 e dalla porta 443 nel firewall a causa dei criteri IT aziendali.** Ad esempio, quando si copiano dati da un archivio dati locale a un database SQL di Azure o ad Azure sinapsi Analytics, è necessario attivare la comunicazione TCP in uscita sulla porta 1433 per Windows Firewall e il firewall aziendale. In questo scenario, la copia di staging può trarre vantaggio dal runtime di integrazione self-hosted per prima cosa copiare i dati in una risorsa di archiviazione di staging tramite HTTP o HTTPS sulla porta 443, quindi caricare i dati dalla gestione temporanea al database SQL o Azure sinapsi Analytics. In questo flusso non è necessario abilitare la porta 1433.
 - **A volte è necessario un po' di tempo per eseguire uno spostamento dati ibrido, ovvero per copiare da un archivio dati locale a un archivio dati cloud, su una connessione di rete lenta.** Per migliorare le prestazioni, è possibile usare la copia di staging per comprimere i dati in locale, in modo che sia necessario meno tempo per spostare i dati nell'archivio dati di staging nel cloud. Sarà quindi possibile decomprimere i dati nell'archivio di staging prima di caricarli nell'archivio dati di destinazione.
-- **Non è necessario aprire porte diverse dalla porta 80 e dalla porta 443 nel firewall a causa dei criteri IT aziendali.** Ad esempio, quando si copiano dati da un archivio dati locale a un sink di database SQL di Azure o a un sink di Azure sinapsi Analytics, è necessario attivare la comunicazione TCP in uscita sulla porta 1433 per Windows Firewall e il firewall aziendale. In questo scenario, la copia di staging può trarre vantaggio dal runtime di integrazione self-hosted per prima cosa copiare i dati in un'istanza di staging dell'archiviazione BLOB tramite HTTP o HTTPS sulla porta 443. Quindi, può caricare i dati nel database SQL o in analisi sinapsi di Azure dalla gestione temporanea dell'archiviazione BLOB. In questo flusso non è necessario abilitare la porta 1433.
 
 ### <a name="how-staged-copy-works"></a>Come funziona la copia di staging
 
-Quando si attiva la funzionalità di staging, i dati vengono prima copiati dall'archivio dati di origine nell'archivio BLOB di staging personale. Successivamente, vengono copiati dall'archivio dati di staging nell'archivio dati sink. Azure Data Factory gestisce automaticamente il flusso a due fasi. Azure Data Factory pulisce anche i dati temporanei dall'archiviazione di staging dopo il completamento dello spostamento dei dati.
+Quando si attiva la funzionalità di staging, i dati vengono prima copiati dall'archivio dati di origine all'archiviazione di gestione temporanea (portare il proprio BLOB di Azure o Azure Data Lake Storage Gen2). Successivamente, i dati vengono copiati dalla gestione temporanea all'archivio dati sink. Azure Data Factory attività di copia gestisce automaticamente il flusso a due fasi e pulisce i dati temporanei dall'archiviazione di staging dopo il completamento dello spostamento dei dati.
 
 ![copia di staging](media/copy-activity-performance/staged-copy.png)
 
-Quando si attiva lo spostamento dei dati tramite un archivio di staging, è possibile specificare se si desidera che i dati vengano compressi prima di spostare i dati dall'archivio dati di origine a un archivio dati provvisorio o di staging e quindi decompressi prima di spostare i dati da un archivio dati provvisorio o di staging all'archivio dati sink.
+Quando si attiva lo spostamento dei dati tramite un archivio di staging, è possibile specificare se si desidera che i dati vengano compressi prima di spostare i dati dall'archivio dati di origine all'archivio di staging e quindi decompressi prima di spostare i dati da un archivio dati provvisorio o di staging all'archivio dati sink.
 
 Attualmente, non è possibile copiare i dati tra due archivi dati connessi tramite un altro IRs indipendente, né con la copia temporanea. Per questo scenario, è possibile configurare due attività di copia concatenate in modo esplicito per la copia dall'origine alla gestione temporanea, quindi da staging a sink.
 
 ### <a name="configuration"></a>Configurazione
 
-Configurare l'impostazione **enableStaging** nell'attività di copia per specificare se si desidera che i dati vengano gestiti temporaneamente nell'archivio BLOB prima di caricarli in un archivio dati di destinazione. Quando si imposta **enableStaging** su `TRUE` , specificare le proprietà aggiuntive elencate nella tabella seguente. È anche necessario creare un servizio collegato di archiviazione di Azure o di archiviazione con firma di accesso condiviso per la gestione temporanea, se non è già presente.
+Configurare l'impostazione **enableStaging** nell'attività di copia per specificare se si desidera che i dati vengano gestiti temporaneamente nello spazio di archiviazione prima di caricarli in un archivio dati di destinazione. Quando si imposta **enableStaging** su `TRUE` , specificare le proprietà aggiuntive elencate nella tabella seguente. 
 
-| Proprietà | Descrizione | Valore predefinito | Obbligatoria |
+| Proprietà | Descrizione | Valore predefinito | Necessario |
 | --- | --- | --- | --- |
 | enableStaging |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |False |No |
-| linkedServiceName |Specificare il nome di un servizio collegato [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/> Non è possibile usare l'archiviazione con una firma di accesso condiviso per caricare i dati in Azure sinapsi Analytics tramite la polibase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
-| path |Specificare il percorso dell'archivio BLOB che deve contenere i dati di staging. Se non si specifica un percorso, il servizio crea un contenitore per archiviare i dati temporanei. <br/><br/>  Specificare un percorso solo se si usa l'archiviazione con una firma di accesso condiviso o se i dati temporanei devono trovarsi in un percorso specifico. |N/D |No |
+| linkedServiceName |Specificare il nome di un archivio [BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties) o di [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) servizio collegato, che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
+| path |Specificare il percorso in cui si desidera includere i dati di gestione temporanea. Se non si specifica un percorso, il servizio crea un contenitore per archiviare i dati temporanei. |N/D |No |
 | enableCompression |Specifica se i dati devono essere compressi prima di essere copiati nella destinazione. Questa impostazione ridurre il volume dei dati da trasferire. |False |No |
 
 >[!NOTE]
@@ -159,25 +163,24 @@ Ecco una definizione di esempio di un'attività di copia con le proprietà descr
 ```json
 "activities":[
     {
-        "name": "Sample copy activity",
+        "name": "CopyActivityWithStaging",
         "type": "Copy",
         "inputs": [...],
         "outputs": [...],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "OracleSource",
             },
             "sink": {
-                "type": "SqlSink"
+                "type": "SqlDWSink"
             },
             "enableStaging": true,
             "stagingSettings": {
                 "linkedServiceName": {
-                    "referenceName": "MyStagingBlob",
+                    "referenceName": "MyStagingStorage",
                     "type": "LinkedServiceReference"
                 },
-                "path": "stagingcontainer/path",
-                "enableCompression": true
+                "path": "stagingcontainer/path"
             }
         }
     }

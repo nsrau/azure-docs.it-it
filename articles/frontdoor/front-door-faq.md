@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2020
+ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 995b8ab77779f0d3b9e2260ea18aa13aa242db36
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0d669d4232adca3348b51c2a48947e0dabf0a472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399736"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324060"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Domande frequenti per Azure front door
 
@@ -100,6 +100,31 @@ Per bloccare l'applicazione in modo che accetti il traffico solo da un sportello
 
 -    Eseguire un'operazione GET sulla porta anteriore con la versione API `2020-01-01` o successiva. Nella chiamata API cercare il `frontdoorID` campo. Filtrare in base all'intestazione in ingresso '**X-Azure-FDID**' inviata dalla porta anteriore al back-end con il valore come quello del campo `frontdoorID` . È anche possibile trovare `Front Door ID` il valore nella sezione Panoramica della pagina del portale di porta anteriore. 
 
+- Applicare il filtro regole nel server Web back-end per limitare il traffico in base al valore dell'intestazione ' X-Azure-FDID ' risultante.
+
+  Di seguito è riportato un esempio per [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
+
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+        <system.webServer>
+            <rewrite>
+                <rules>
+                    <rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
+                        <match url="*" />
+                        <conditions>
+                            <add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
+                        </conditions>
+                        <action type="AbortRequest" />
+                    </rule>
+                </rules>
+            </rewrite>
+        </system.webServer>
+    </configuration>
+    ```
+
+
+
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>È possibile modificare l'IP anycast per la durata della mia porta anteriore?
 
 L'IP anycast front-end per la porta anteriore in genere non cambia e può rimanere statico per la durata della porta anteriore. Non sono tuttavia previste **garanzie** per lo stesso. Non eseguire alcuna dipendenza diretta sull'IP.
@@ -132,6 +157,10 @@ Il servizio di Azure front door (AFD) richiede un indirizzo IP pubblico o un nom
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Quali sono i diversi timeout e limiti per lo sportello anteriore di Azure?
 
 Informazioni su tutti i [timeout e i limiti](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits)documentati per il front-end di Azure.
+
+### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>Quanto tempo è necessario per rendere effettive le regole dopo essere state aggiunte al motore delle regole della porta anteriore?
+
+La configurazione del motore regole richiede circa 10-15 minuti per completare un aggiornamento. È possibile fare in modo che la regola abbia effetto non appena l'aggiornamento viene completato. 
 
 ## <a name="performance"></a>Prestazioni
 

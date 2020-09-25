@@ -3,12 +3,12 @@ title: Configurare il firewall IP per gli argomenti o i domini di griglia di eve
 description: Questo articolo descrive come configurare le impostazioni del firewall per gli argomenti o i domini della griglia di eventi.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: df6098df4817ee6c47378704c25d07433d6b9480
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509419"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324162"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Configurare il firewall IP per gli argomenti o i domini di griglia di eventi di Azure 
 Per impostazione predefinita, l'argomento e il dominio sono accessibili da Internet, purché la richiesta venga fornita con autenticazione e autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Gli autori che hanno origine da altri indirizzi IP verranno rifiutati e riceveranno una risposta 403 (accesso negato). Per ulteriori informazioni sulle funzionalità di sicurezza di rete supportate da griglia di eventi, vedere [sicurezza di rete per griglia di eventi](network-security.md).
@@ -23,7 +23,7 @@ In questa sezione viene illustrato come utilizzare il portale di Azure per crear
 
     È possibile limitare il traffico usando le regole del firewall basate su IP. Specificare un singolo indirizzo IPv4 o un intervallo di indirizzi IP nella notazione CIDR (Inter-Domain Routing) con classe. 
 
-    ![Pagina reti pubbliche](./media/configure-firewall/public-networks-page.png)
+    ![Screenshot che mostra la pagina "Public Network Access" con "public Networks" selezionato.](./media/configure-firewall/public-networks-page.png)
 3. Selezionare **solo endpoint privati** per consentire solo le connessioni all'endpoint privato per accedere a questa risorsa. Utilizzare la scheda **connessioni endpoint privato** in questa pagina per gestire le connessioni. 
 
     ![Pagina reti pubbliche](./media/configure-firewall/private-endpoints-page.png)

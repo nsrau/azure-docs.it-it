@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: b16ca0c396e2c406677af351cf6b1de2a3499353
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 06fca39b1170d36f22040ccf48eb02f948e47e41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543670"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304673"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Esercitazione: configurare Peakon per il provisioning utenti automatico
 
@@ -56,11 +56,11 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
 2.  Selezionare **Integrations (integrazioni**).
     
-    ![Peakon-Employee-provisioning](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
+    ![Screenshot delle opzioni di configurazione con l'opzione Integrations denominata.](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
 
 3.  Abilitare il **provisioning dei dipendenti**.
 
-    ![Peakon-Employee-provisioning](media/Peakon-provisioning-tutorial/peakon05.png)
+    ![Screenshot della sezione del provisioning dei dipendenti con l'opzione Abilita denominata.](media/Peakon-provisioning-tutorial/peakon05.png)
 
 4.  Copiare i valori per l' **URL SCIM 2,0** e il **token di porta OAuth**. Questi valori verranno immessi nel campo **URL tenant** e **token segreto** nella scheda provisioning dell'applicazione Peakon nel portale di Azure.
 
@@ -105,11 +105,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere l' **URL scim 2,0** e i valori dei **token di porta OAuth** recuperati in precedenza rispettivamente in **URL tenant** e **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Peakon. Se la connessione non riesce, verificare che l'account Peakon disponga delle autorizzazioni di amministratore e riprovare.
 

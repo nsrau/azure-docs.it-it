@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 770ded494f050631cd1c373f4b3fa5846c65e01a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971508"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275133"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurare una connessione a un account di archiviazione di Azure usando un'identità gestita
 
@@ -61,7 +61,7 @@ In questo passaggio si autorizza il servizio Ricerca cognitiva di Azure a legger
 
     Esempio per l'archiviazione tabelle di Azure:
 
-    ![Aggiungere l'assegnazione di ruolo Lettore e accesso ai dati](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Aggiungere l'assegnazione di ruolo Lettore e accesso ai dati")
+    ![Aggiungere l'assegnazione di ruolo Lettore e accesso ai dati](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Aggiungere l'assegnazione di ruolo di lettura e di accesso ai dati")
 
 ### <a name="3---create-the-data-source"></a>3 - Creare l'origine dati
 
@@ -143,6 +143,10 @@ Questo indicizzatore verrà eseguito ogni due ore (l'intervallo di pianificazion
 Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare un indicizzatore](/rest/api/searchservice/create-indexer).
 
 Per altre informazioni sulla definizione delle pianificazioni degli indicizzatori, vedere [Come pianificare gli indicizzatori per Ricerca cognitiva di Azure](search-howto-schedule-indexers.md).
+
+## <a name="accessing-secure-data-in-storage-accounts"></a>Accesso ai dati protetti negli account di archiviazione
+
+Gli account di archiviazione di Azure possono essere protetti ulteriormente tramite firewall e reti virtuali. Se si vuole indicizzare il contenuto da un account di archiviazione BLOB o Data Lake account di archiviazione Gen2 protetto tramite un firewall o una rete virtuale, seguire le istruzioni per [accedere in modo sicuro ai dati negli account di archiviazione tramite un'eccezione del servizio attendibile](search-indexer-howto-access-trusted-service-exception.md).
 
 ## <a name="see-also"></a>Vedere anche
 

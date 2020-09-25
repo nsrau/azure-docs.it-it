@@ -12,23 +12,27 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e6686c69eb6dababb577e9c556a8a13ec42485a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3b2c89086688451b16a8a6e10c25be65ffd4d9dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296465"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273858"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installazione dell'agente di Azure AD Connect Health
 
 Questo documento illustra le procedure per installare e configurare l'agente di Azure AD Connect Health. Gli agenti sono disponibili per il download in [questa pagina](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
 
 ## <a name="requirements"></a>Requisiti
+
+
+> [!IMPORTANT]
+> L'installazione dell'agente di Azure AD Connect Health in Windows Server Core non è supportata.
 
 La tabella seguente è un elenco di requisiti per l'uso di Azure AD Connect Health.
 
@@ -48,7 +52,7 @@ La tabella seguente è un elenco di requisiti per l'uso di Azure AD Connect Heal
 
 > [!NOTE]
 > Se si dispone di un ambiente con sicurezza elevata e con restrizioni, è necessario aggiungere gli URL indicati negli elenchi di endpoint di servizio riportati di seguito, oltre a quelli elencati nella configurazione di sicurezza avanzata di IE consentita sopra. 
->
+
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Connettività in uscita agli endpoint di servizio di Azure
 
@@ -259,7 +263,7 @@ Se la configurazione è stata completata, questi servizi dovrebbero già essere 
 ### <a name="quick-agent-installation-in-multiple-servers"></a>Installazione rapida dell'agente in più server
 
 1. Creare un account utente in Azure AD con una password.
-2. Assegnare il ruolo **proprietario** per l'account AAD locale in Azure ad Connect Health tramite il portale. Seguire [questa procedura.](how-to-connect-health-operations.md#manage-access-with-azure-rbac) Assegnare il ruolo a tutte le istanze del servizio. 
+2. Assegnare il ruolo **proprietario** per l'account AAD locale in Azure ad Connect Health tramite il portale. Seguire i passaggi [qui](how-to-connect-health-operations.md#manage-access-with-azure-rbac). Assegnare il ruolo a tutte le istanze del servizio. 
 3. Scaricare il file MSI exe nel controller di dominio locale per l'installazione.
 4. Eseguire lo script seguente per la registrazione. Sostituire i parametri con il nuovo account utente creato e la relativa password. 
 

@@ -3,7 +3,7 @@ title: Implementare Oracle Golden Gate in una VM Linux di Azure | Microsoft Docs
 description: Implementare rapidamente Oracle Golden Gate nell'ambiente Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: ''
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
-ms.openlocfilehash: 5ed99fd6a16743846033313fcf13702f69f3e728
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: kegorman
+ms.openlocfilehash: 24dfe52b7f08d93dfba70c7b63812eac53431d5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088360"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274793"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementare Oracle Golden Gate in una VM Linux di Azure 
 
@@ -781,7 +781,7 @@ La replica è iniziata ed è possibile testarla inserendo nuovi record nelle tab
 
 ### <a name="view-job-status-and-troubleshooting"></a>Visualizzare lo stato del processo e le informazioni di risoluzione dei problemi
 
-#### <a name="view-reports"></a>Visualizzare i report
+#### <a name="view-reports"></a>Visualizzazione di report
 Per visualizzare i report in myVM1, eseguire questi comandi:
 
   ```bash

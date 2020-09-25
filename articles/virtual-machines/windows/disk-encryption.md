@@ -2,18 +2,18 @@
 title: Crittografia lato server di Azure Managed Disks - PowerShell
 description: Archiviazione di Azure protegge i dati crittografandoli nello stato inattivo prima di renderli persistenti nei cluster di archiviazione. È possibile basarsi sulle chiavi gestite da Microsoft per la crittografia dei dischi gestiti oppure usare chiavi gestite dal cliente per gestire la crittografia con chiavi personalizzate.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6174fbeb45c23c0ff04597305c6f65aef05bd26e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 49898f2215139c4460c639dc8caa3d2764082e34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815590"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274776"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>Crittografia lato server di archiviazione su disco di Azure per PowerShell
 
@@ -47,6 +47,10 @@ Per il momento, le chiavi gestite dal cliente presentano le restrizioni seguenti
 - Se questa funzionalità è abilitata per il disco, non è possibile disabilitarla.
     Se è necessario risolvere questo problema, occorre [copiare tutti i dati](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) in un disco gestito completamente diverso che non usa chiavi gestite dal cliente.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
+
+#### <a name="supported-regions"></a>Aree supportate
+
+Le chiavi gestite dal cliente sono disponibili in tutte le aree in cui sono disponibili i dischi gestiti.
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Crittografia in host-end-to-end Encryption per i dati della VM
 

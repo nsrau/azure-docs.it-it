@@ -9,18 +9,18 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: e8dece3478e00c6f9279767e57e3bb8aca865f45
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 75aac74ae5ccf5b52234f1b554dc2a5edefcf32d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059978"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260411"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usare il server di cronologia Apache Spark esteso per eseguire il debug e la diagnosi delle applicazioni Apache Spark
 
 Questo articolo fornisce indicazioni su come usare il server di cronologia di Apache Spark esteso per eseguire il debug e la diagnosi delle applicazioni Spark completate ed eseguite.
 
-L'estensione include una scheda dati, una scheda grafico e una scheda diagnosi. usare la scheda **dati** per controllare i dati di input e di output del processo Spark. La scheda **grafico** Mostra il flusso di dati e la riproduzione del grafico del processo. La scheda **diagnosi** Mostra l' **asimmetria dei dati**, lo **sfasamento dell'ora**e l'analisi dell'utilizzo dell' **Executor**.
+L'estensione include una scheda dati, una scheda grafico e una scheda diagnosi. Usare la scheda **dati** per controllare i dati di input e di output del processo Spark. La scheda **grafico** Mostra il flusso di dati e la riproduzione del grafico del processo. La scheda **diagnosi** Mostra l'  **asimmetria dei dati**, lo **sfasamento dell'ora**e l'analisi dell'utilizzo dell' **Executor**.
 
 ## <a name="access-the-apache-spark-history-server"></a>Accedere al server di cronologia Apache Spark
 
@@ -30,11 +30,11 @@ Apache Spark server di cronologia è l'interfaccia utente Web per le applicazion
 
 1. Aprire [Azure Synapse Analytics](https://web.azuresynapse.net/).
 
-2. Fare clic su **monitoraggio**, quindi selezionare **Apache Spark applicazioni**.
+2. Selezionare **monitoraggio**, quindi selezionare **Apache Spark applicazioni**.
 
-    ![Fare clic su monitoraggio e quindi selezionare applicazione Spark.](./media/apache-spark-history-server/click-monitor-spark-application.png)
+    ![Selezionare monitoraggio, quindi selezionare applicazione Spark.](./media/apache-spark-history-server/click-monitor-spark-application.png)
 
-3. Selezionare un'applicazione, quindi aprire **query di log** facendo clic su di essa.
+3. Selezionare un'applicazione, quindi aprire **query di log** selezionandolo.
 
     ![Aprire la finestra query log.](./media/apache-spark-history-server/open-application-window.png)
 
@@ -46,11 +46,11 @@ Apache Spark server di cronologia è l'interfaccia utente Web per le applicazion
 
 1. Dal notebook di Azure sinapsi Studio selezionare **Server cronologia Spark** dalla cella output esecuzione processo o dal pannello stato nella parte inferiore del documento del notebook. Selezionare **Dettagli sessione**.
 
-   ![Avviare il server cronologia Spark](./media/apache-spark-history-server/launch-history-server2.png "Avviare il server cronologia Spark")
+   ![Avviare il server della cronologia Spark 1](./media/apache-spark-history-server/launch-history-server2.png "Avviare il server cronologia Spark")
 
 2. Selezionare **Server cronologia Spark** dal pannello di scorrimento.
 
-   ![Avviare il server cronologia Spark](./media/apache-spark-history-server/launch-history-server.png "Avviare il server cronologia Spark")
+   ![Avviare il server cronologia Spark 2](./media/apache-spark-history-server/launch-history-server.png "Avviare il server cronologia Spark")
 
 ## <a name="explore-the-data-tab-in-spark-history-server"></a>Esplorare la scheda dati nel server cronologia Spark
 
@@ -80,7 +80,7 @@ Selezionare l'ID processo per il processo che si desidera visualizzare. Selezion
 
     ![Dati per la riga di download dell'applicazione Spark](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
-* Per copiare un percorso completo o relativo, selezionare le opzioni **Copia percorso completo** o **Copia percorso relativo** che si espandono dal menu a discesa. Per Azure Data Lake Storage file, **Apri in Azure Storage Explorer** avvia Azure Storage Explorer e individua la cartella quando l'utente ha eseguito l'accesso.
+* Per copiare un percorso completo o relativo, selezionare le opzioni **Copia percorso completo** o **Copia percorso relativo** che si espandono dal menu a discesa. Per Azure Data Lake Storage file, **Apri in Azure Storage Explorer** avvia Azure Storage Explorer e individua la cartella al momento dell'accesso.
 
     ![Dati per il percorso di copia dell'applicazione Spark](./media/apache-spark-history-server/sparkui-data-copy-path.png)
 
@@ -120,12 +120,12 @@ Il nodo Graph Mostra i colori visualizzati nella legenda mappa termica.
 
 Per riprodurre il processo, selezionare **riproduzione**. È possibile selezionare **Arresta** in qualsiasi momento per arrestare. I colori delle attività mostrano stati diversi durante la riproduzione:
 
-|Color|Significato|
+|Colore|Significato|
 |-|-|
 |Green|Succeeded: il processo è stato completato correttamente.|
 |Orange|Tentativi: istanze delle attività non riuscite, ma non influiscono sul risultato finale del processo. Per queste attività sono presenti istanze duplicate o nuovi tentativi che potrebbero riuscire in un secondo momento.|
-|Blue|Running: l'attività è in esecuzione.|
-|Bianca|In attesa o ignorata: l'attività è in attesa di esecuzione oppure la fase è stata ignorata.|
+|Blu|Running: l'attività è in esecuzione.|
+|White|In attesa o ignorata: l'attività è in attesa di esecuzione oppure la fase è stata ignorata.|
 |Red|Non riuscito: l'attività non è riuscita.|
 
 La figura seguente mostra i colori di stato verde, arancione e blu.
@@ -182,7 +182,7 @@ Nel nodo del grafico del processo vengono visualizzate le informazioni seguenti 
     >  
     > Le dimensioni dei dati di lettura e scrittura sono pari a 1 MB = 1000 KB = 1000 * 1000 byte.
 
-### <a name="provide-feedback"></a>Inviare commenti e suggerimenti
+### <a name="provide-feedback"></a>Inviare feedback
 
 Inviare commenti e suggerimenti con problemi selezionando Invia **commenti e suggerimenti**.
 
@@ -200,7 +200,7 @@ Esaminare i valori di **Asimmetria dei dati**, **Sfasamento dell'ora** e **Execu
 
 Quando si seleziona la scheda **asimmetria dati** , le attività inclinate corrispondenti vengono visualizzate in base ai parametri specificati.
 
-* **Specificare i parametri** - La prima sezione visualizza i parametri usati per rilevare l'asimmetria dei dati. La regola predefinita è: l'attività lettura dati è maggiore di tre volte della media dei dati attività letti e i dati dell'attività letti sono maggiori di 10 MB. Se si vuole definire una regola personalizzata per le attività inclinate, è possibile scegliere i parametri, le sezioni della **fase asimmetrica** e del **carattere di inclinazione** vengono aggiornate di conseguenza.
+* **Specificare i parametri** - La prima sezione visualizza i parametri usati per rilevare l'asimmetria dei dati. La regola predefinita è: l'attività lettura dati è maggiore di tre volte della media dei dati attività letti e i dati dell'attività letti sono maggiori di 10 MB. Se si vuole definire una regola personalizzata per le attività inclinate, è possibile scegliere i parametri. Le sezioni della **fase asimmetrica** e del **carattere di inclinazione** vengono aggiornate di conseguenza.
 
 * **Fase asimmetrica** - La seconda sezione visualizza le fasi che hanno attività asimmetriche che soddisfano i criteri specificati in precedenza. Se in una fase è presente più di un'attività asimmetrica, nella tabella delle fasi asimmetriche viene visualizzata solo l'attività con più asimmetria, ad esempio i dati di dimensioni maggiori per l'asimmetria dei dati.
 
@@ -224,7 +224,7 @@ La scheda **Sfasamento dell'ora** visualizza le attività asimmetriche in base a
 
 Il grafico sull'utilizzo dell'executor Visualizza lo stato di allocazione e esecuzione del processo Spark.  
 
-1. Selezionare l' **analisi di utilizzo dell'executor**, quindi quattro tipi di curve sull'utilizzo dell'executor, inclusi Executor **allocati**, esecutori **in esecuzione**, **esecutori inattivi**e **istanze di Executor max**. Per quanto riguarda gli esecutori allocati, ogni evento "Executor added" o "Executor removed" aumenta o diminuisce gli esecutori allocati. È possibile esaminare la sequenza temporale degli eventi nella scheda relativa ai processi per ulteriori confronti.
+1. Selezionare l' **analisi di utilizzo dell'executor**, quindi quattro tipi di curve sull'utilizzo dell'executor, inclusi Executor **allocati**, esecutori **in esecuzione**, **esecutori inattivi**e **istanze di Executor max**. Per gli executor allocati, ogni evento "Executor added" o "Executor removed" aumenta o diminuisce gli esecutori allocati. È possibile esaminare la sequenza temporale degli eventi nella scheda relativa ai processi per ulteriori confronti.
 
    ![scheda esecutori diagnosi sparkui](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 

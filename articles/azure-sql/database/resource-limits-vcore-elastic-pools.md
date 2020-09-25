@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab, sstein
+ms.reviewer: sstein
 ms.date: 07/21/2020
-ms.openlocfilehash: f71daab55139f6b4690df50472928db466774cb3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 345fd0df5b56bac164e78a540f8b26221294eabe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128268"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325297"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limiti delle risorse per i pool elastici con il modello di acquisto vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,12 +49,12 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|512|756|1536|1536|1536|2048|
-|Dimensioni massime dei log|154|227|461|461|461|614|
+|Dimensioni massime del log|154|227|461|461|461|614|
 |Dimensioni massime dati TempDB (GB)|32|64|96|128|160|192|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati per pool <sup>2</sup> |400|800|1200|1600|2000|2400|
-|Velocità massima di log per pool (MBps)|4.7|9.4|14,1|18,8|23,4|28,1|
+|Velocità massima di log per pool (MBps)|4.7|9,4|14,1|18,8|23,4|28,1|
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) <sup>3</sup> |210|420|630|840|1050|1260|
 |Numero massimo di accessi simultanei per pool <sup>3</sup> |210|420|630|840|1050|1260|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|
@@ -110,7 +110,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
 |vCore|2|4|6|8|10|12|14|
-|Memoria (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
+|Memoria (GB)|10.4|20,8|31,1|41,5|51,9|62,3|72,7|
 |Numero massimo di database per pool <sup>1</sup>|100|200|500|500|500|500|500|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -120,7 +120,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati per pool <sup>2</sup>|800|1600|2400|3200|4000|4800|5600|
-|Velocità massima di log per pool (MBps)|9.4|18,8|28,1|37,5|37,5|37,5|37,5|
+|Velocità massima di log per pool (MBps)|9,4|18,8|28,1|37,5|37,5|37,5|37,5|
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |Numero massimo di accessi simultanei per pool (richieste) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|30.000|

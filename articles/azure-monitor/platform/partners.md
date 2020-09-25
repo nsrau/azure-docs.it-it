@@ -3,13 +3,13 @@ title: Partner che si integrano con monitoraggio di Azure
 description: Informazioni sui partner del monitoraggio di Azure e sulle modalità di accesso alla documentazione per l'integrazione.
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: dbac5f28723b712788df61eda34a0db61b9c5652
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/21/2020
+ms.openlocfilehash: a99d391b34ff1ad783ba4cb7b746760835bd3f43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526477"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278805"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -74,11 +74,19 @@ CloudMonix offre servizi di monitoraggio, automazione e riparazione automatica p
 
 ![Logo di DataDog](./media/partners/datadog.png)
 
-Datadog è il servizio di monitoraggio leader del mondo per le applicazioni con scalabilità cloud. Raggruppa i dati da server, database, strumenti e servizi per offrire una visualizzazione unificata dell'intero stack. Queste funzionalità sono offerte in una piattaforma di analisi dei dati basata su SaaS. Questo servizio consente ai team operativi e di sviluppo di collaborare tra loro per evitare tempi di inattività, risolvere i problemi di prestazioni e garantire il completamento puntuale dei cicli di sviluppo e distribuzione. Grazie all'integrazione di Datadog e Azure, è possibile raccogliere e visualizzare le metriche nell'infrastruttura, correlare le metriche delle VM con le metriche a livello di applicazione e ripartire le metriche usando qualsiasi combinazione di proprietà e tag personalizzati.
+Azure consente ai clienti di eseguire la migrazione e modernizzare le applicazioni per l'esecuzione nel cloud, in coordinamento con molte soluzioni dei partner. Uno di questi partner è Datadog, che offre agli utenti strumenti di osservabilità e sicurezza per comprendere l'integrità e le prestazioni delle applicazioni in ambienti ibridi e multicloud.  Tuttavia, la configurazione delle integrazioni necessarie spesso richiede lo spostamento tra il portale di Azure e Datadog.  Questo aggiunge complessità, richiede tempo e rende difficile la risoluzione dei problemi se le cose non funzionano.  Per ridurre il carico di gestione su più portali, Microsoft ha collaborato con Datadog per creare una soluzione Datadog integrata sulla piattaforma cloud di Azure.  Disponibile tramite Azure Marketplace, questa soluzione offre un'esperienza uniforme per l'uso della soluzione di monitoraggio cloud di Datadog in Azure.  
 
-[Vai alla documentazione.][datadog-doc]
+Con la nuova integrazione di Azure-Datadog, le organizzazioni possono ora eseguire il mapping completo dei sistemi legacy e basati sul cloud, monitorare i dati in tempo reale durante ogni fase della transizione cloud e garantire che le applicazioni migrate soddisfino gli obiettivi di prestazioni. Questa integrazione combina la presenza globale di Azure, la flessibilità, la sicurezza e la conformità con le funzionalità di registrazione e monitoraggio di Datadog per creare la migliore esperienza per le aziende. Grazie a questa esperienza unificata, sarà possibile: 
 
-Una nuova integrazione di Azure Marketplace di Datadog è prevista per il rilascio all'inizio del 2020 ottobre. Al rilascio verrà aggiunto un collegamento. 
+- Effettuare il provisioning di una nuova organizzazione Datadog e configurare le risorse di Azure per l'invio di log e metriche a Datadog, una configurazione completamente gestita senza infrastruttura per la configurazione e il funzionamento dei clienti.  
+- Invia facilmente log e metriche a Datadog. Il processo di invio dei log è stato completamente automatizzato; anziché creare una pipeline di invio di log con impostazioni di diagnostica, Hub eventi e funzioni, è possibile configurare tutti gli elementi con pochi clic.
+-   Installare facilmente l'agente Datadog negli host VM con un solo clic.
+-   Semplificare l'accesso Single Sign-on (SSO) a Datadog: non è più necessario un accesso separato dal portale di Datadog. 
+-   Ottenere la fatturazione unificata per il servizio Datadog tramite la fatturazione della sottoscrizione di Azure.
+
+Iscriversi per l' [anteprima pubblica](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) della nuova integrazione di Datadog con Azure.  L'anteprima pubblica sarà disponibile in Azure Marketplace a partire dal 2020 ottobre.
+
+Se si sta ancora usando l'integrazione con configurazione manuale precedente, vedere la [documentazione nel sito Web DataDog][datadog-doc]
 
 ## <a name="dynatrace"></a>Dynatrace
 

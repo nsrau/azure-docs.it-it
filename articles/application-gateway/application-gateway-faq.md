@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: b55ba6ab73758ed562aaabeef91cf08acf659758
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278635"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione di Azure
 
@@ -49,7 +49,9 @@ Vedere [Risorse back-end supportate](https://docs.microsoft.com/azure/applicatio
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>In quali aree è disponibile il gateway applicazione?
 
-Il gateway applicazione è disponibile in tutte le aree di Azure globale. È anche disponibile in [Azure Cina (21Vianet)](https://www.azure.cn/) e [Azure per enti pubblici](https://azure.microsoft.com/overview/clouds/government/).
+Il gateway applicazione V1 (standard e WAF) è disponibile in tutte le aree di Azure globale. È anche disponibile in [Azure Cina (21Vianet)](https://www.azure.cn/) e [Azure per enti pubblici](https://azure.microsoft.com/overview/clouds/government/).
+
+Per la disponibilità del gateway applicazione V2 (Standard_v2 e WAF_v2), vedere [aree supportate per il gateway applicazione V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#supported-regions)
 
 ### <a name="is-this-deployment-dedicated-for-my-subscription-or-is-it-shared-across-customers"></a>Si tratta di una distribuzione dedicata per la sottoscrizione o è condivisa tra clienti?
 
@@ -182,11 +184,15 @@ No. Ma è possibile distribuire altri gateway applicazione nella subnet.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>I gruppi di sicurezza di rete sono supportati nella subnet del gateway applicazione?
 
-Vedere [Gruppi di sicurezza di rete nella subnet del gateway applicazione](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet).
+Vedere [Gruppi di sicurezza di rete nella subnet del gateway applicazione](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#network-security-groups).
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>La subnet del gateway applicazione supporta le route definite dall'utente?
 
 Vedere [Route definite dall'utente supportate nella subnet del gateway applicazione](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
+
+### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>I criteri dell'endpoint servizio sono supportati nella subnet del gateway applicazione?
+
+No. I [criteri dell'endpoint di servizio](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) per gli account di archiviazione non sono supportati nella subnet del gateway applicazione e la configurazione bloccherà il traffico dell'infrastruttura di Azure.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quali sono i limiti del gateway applicazione? È possibile aumentare questi limiti?
 
@@ -222,7 +228,7 @@ Il campo Host specifica il nome a cui inviare il probe quando è stato configura
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>È possibile consentire l'accesso del gateway applicazione solo ad alcuni indirizzi IP di origine?
 
-Sì. Vedere [Limitare l'accesso a IP di origine specifici](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
+Sì. Vedere [Limitare l'accesso a IP di origine specifici](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#allow-access-to-a-few-source-ips).
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>La stessa porta può essere usata per i listener pubblici e privati?
 

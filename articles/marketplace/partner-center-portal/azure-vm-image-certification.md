@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 2d19098ec82fe9361154d798b981341a86decf97
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 751fbbb83f1ccb75cb84453f8c03296f6d1a786c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647817"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275780"
 ---
 # <a name="azure-virtual-machine-image-validation"></a>Convalida dell'immagine della macchina virtuale di Azure
 
@@ -20,7 +20,7 @@ Questo articolo descrive come testare e inviare un'immagine di macchina virtuale
 
 Prima di inviare l'offerta di macchina virtuale, completare questi passaggi:
 
-- Distribuire una macchina virtuale di Azure usando l'immagine generalizzata.
+- Distribuire una macchina virtuale di Azure usando l'immagine generalizzata. Per altre informazioni sulle [immagini generalizzate](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset#generalize-the-image), vedere qui.
 - Eseguire convalide.
 
 ## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Distribuire una macchina virtuale di Azure usando l'immagine generalizzata
@@ -589,7 +589,7 @@ Lo strumento di test di certificazione per Azure Certified viene eseguito in un 
 
     :::image type="content" source="media/vm/azure-vm-cert-4.png" alt-text="Mostra la selezione del nome utente e della password della macchina virtuale.":::
 
-6. Selezionare **Next** (Avanti).
+6. Selezionare **Avanti**.
 
 #### <a name="run-a-certification-test"></a>Eseguire un test di certificazione
 
@@ -599,7 +599,9 @@ Al termine del test automatizzato, fornire informazioni aggiuntive sull'immagine
 
 L'ultima schermata consente di fornire altre informazioni, ad esempio le informazioni di accesso SSH per un'immagine di macchina virtuale Linux e una spiegazione per eventuali valutazioni non riuscite se si cercano eccezioni.
 
-Selezionare infine Genera report per scaricare i risultati del test e i file di log per i casi di test eseguiti, oltre alle risposte al questionario. Salvare i risultati nello stesso contenitore dei VHD.
+Selezionare infine Genera report per scaricare i risultati del test e i file di log per i casi di test eseguiti, oltre alle risposte al questionario. 
+> [!Note]
+> Pochi autori hanno scenari in cui le macchine virtuali devono essere bloccate in quanto hanno un software, ad esempio i firewall installati nella macchina virtuale. In questo caso, i server di pubblicazione possono scaricare lo [strumento di test certificato](https://aka.ms/AzureCertificationTestTool) e fornire il report al supporto per gli editori del [Marketplace](https://aka.ms/marketplacepublishersupport)
 
 ## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Come usare PowerShell per utilizzare l'API self-test
 

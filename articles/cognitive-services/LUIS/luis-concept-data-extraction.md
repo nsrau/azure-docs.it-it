@@ -1,15 +1,17 @@
 ---
 title: Estrazione dei dati-LUIS
 description: Estrae i dati da testo enunciato con Intent ed entità. Informazioni sul tipo di dati che è possibile estrarre da Language Understanding (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c69971b36bf945086d1a8f398043444071acea5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682197"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324825"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrarre dati da testo di un'espressione con finalità ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
