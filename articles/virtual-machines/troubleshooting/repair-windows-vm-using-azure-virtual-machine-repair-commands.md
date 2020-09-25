@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 7addc87f3096a75a55d0ea3b5804fd0006d5cb8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66dfd198b543ec49fabe381b50174b182cf070c7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526487"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336038"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Riparare una macchina virtuale Windows usando i comandi di riparazione della macchina virtuale di Azure
 
@@ -77,7 +77,7 @@ Per ulteriori documenti e istruzioni, vedere [az vm repair](/cli/azure/ext/vm-re
 3. Eseguire `az vm repair create`. Questo comando creerà una copia del disco del sistema operativo per la macchina virtuale non funzionante, creerà una macchina virtuale di ripristino in un nuovo gruppo di risorse e collegherà la copia del disco del sistema operativo.  La macchina virtuale di ripristino avrà le stesse dimensioni e la stessa area della macchina virtuale non funzionante specificata. Il gruppo di risorse e il nome della VM usati in tutti i passaggi varranno per la VM non funzionale. Se la macchina virtuale usa crittografia dischi di Azure, il comando tenterà di sbloccare il disco crittografato in modo che sia accessibile quando viene collegato alla macchina virtuale di ripristino.
 
    ```azurecli-interactive
-   az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
+   az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password 'password!234' --verbose
    ```
 
 4. Eseguire `az vm repair run`. Questo comando eseguirà lo script di ripristino specificato sul disco collegato tramite la macchina virtuale di ripristino. Se la guida alla risoluzione dei problemi in uso specifica un ID di esecuzione, usarlo qui, altrimenti è possibile usare `az vm repair list-scripts` per visualizzare gli script di ripristino disponibili. Il gruppo di risorse e il nome della VM usati qui sono per la VM non funzionale usata nel passaggio 3.

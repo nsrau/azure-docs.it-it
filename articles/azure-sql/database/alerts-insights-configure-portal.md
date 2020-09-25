@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 2b7457ad5870e31d682f8727901795c9d6d73f06
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fdfa709d50f351d3202a01c5d3df65bb3015e887
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442667"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335115"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Creare avvisi per il database SQL di Azure e l'analisi delle sinapsi di Azure usando il portale di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -63,7 +63,7 @@ Questo articolo illustra come configurare gli avvisi per i database nel database
   ![Seleziona segnale](./media/alerts-insights-configure-portal/select-signal.png)
 6. Dopo aver selezionato un segnale, ad esempio **percentuale CPU**, viene visualizzata la pagina **Configura logica segnale** .
   ![Configurare la logica dei segnali](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. In questa pagina, configurare il tipo di soglia, l'operatore, il tipo di aggregazione, il valore soglia, la granularità delle aggregazioni e la frequenza di valutazione. Quindi fare clic su **fine**.
+7. In questa pagina, configurare il tipo di soglia, l'operatore, il tipo di aggregazione, il valore soglia, la granularità delle aggregazioni e la frequenza di valutazione. Fare quindi clic su **Done**.
 8. Nella **regola crea**selezionare un **gruppo di azioni** esistente o crearne uno nuovo. Un gruppo di azione consente di definire l'azione da intraprendere quando si verifica una condizione di avviso.
   ![Definire il gruppo di azioni](./media/alerts-insights-configure-portal/action-group.png)
 

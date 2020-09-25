@@ -1,5 +1,5 @@
 ---
-title: Parametri del server – iperscala (iperscala (CITUS)-database di Azure per PostgreSQL
+title: Parametri del server – iperscala (CITUS)-database di Azure per PostgreSQL
 description: Parametri nell'API SQL con iperscalabilità (CITUS)
 author: jonels-msft
 ms.author: jonels
@@ -7,23 +7,23 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 2b4d3d44cb4e78f52ab03f31e58df5e66118ae25
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 07f966c7b0be542f848f1a0a4eaf2b5549735b4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441511"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336242"
 ---
 # <a name="server-parameters"></a>Parametri del server
 
 Sono disponibili vari parametri del server che influiscono sul comportamento di iperscalabilità (CITUS), sia dal PostgreSQL standard che da specifico a iperscalabile (CITUS).
 Questi parametri possono essere impostati nella portale di Azure per un gruppo di server CITUS (iperscalare). Nella categoria **Impostazioni** scegliere parametri del **nodo di lavoro** o **parametri del nodo coordinatore**. Queste pagine consentono di impostare i parametri per tutti i nodi del ruolo di lavoro o solo per il nodo coordinatore.
 
-## <a name="hyperscale-parameters"></a>Parametri di iperscala
+## <a name="hyperscale-citus-parameters"></a>Parametri iperscale (CITUS)
 
 > [!NOTE]
 >
-> I gruppi di server iperscalare che eseguono versioni precedenti del motore CITUS potrebbero non offrire tutti i parametri elencati di seguito.
+> I gruppi di server iperscale (CITUS) che eseguono versioni precedenti del motore CITUS potrebbero non offrire tutti i parametri elencati di seguito.
 
 ### <a name="general-configuration"></a>Configurazione generale
 

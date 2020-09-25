@@ -4,17 +4,17 @@ description: Fornire feedback sui dati tramite lo strumento di feedback Microsof
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/19/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fb806aa444ba3b8b3247559b87ddd93fecdaa1b0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 807c8908b70065d5d82229e7750b166bfabcf53b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133351"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335365"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Fornire commenti e suggerimenti sui dati ad Azure Maps
 
@@ -67,5 +67,4 @@ Oltre a consentire la ricerca di un percorso, lo strumento feedback consente anc
 
 Per pubblicare eventuali domande tecniche relative alle mappe di Azure, visitare:
 
-* [Stack Overflow mappe di Azure](https://stackoverflow.com/questions/tagged/azure-maps)
-* [Forum dei commenti e suggerimenti su Azure Maps](https://feedback.azure.com/forums/909172-azure-maps)
+* [Microsoft Q & A](https://docs.microsoft.com/answers/topics/azure-maps.html)

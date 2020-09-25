@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 04b2d7842222426010b76a1a7ed4c72ee74e3d87
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0757c867d46144ac9fb9b9eca8b2a588aeeb15d6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489725"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288325"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query su file JSON con SQL su richiesta (anteprima) in Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Questo articolo illustra come scrivere una query usando SQL su richiesta (antepr
 
 ## <a name="read-json-documents"></a>Leggere documenti JSON
 
-Il modo più semplice per vedere il contenuto del file JSON consiste nel fornire l'URL del file per la `OPENROWSET` funzione, specificare CSV `FORMAT` e impostare i valori `0x0b` per `fieldterminator` e `fieldquote` . Se è necessario leggere i file JSON delimitati da righe, questo è sufficiente. Se si dispone di un file JSON classico, è necessario impostare i valori `0x0b` per `rowterminator` . `OPENROWSET`la funzione analizzerà JSON e restituirà tutti i documenti nel formato seguente:
+Il modo più semplice per vedere il contenuto del file JSON consiste nel fornire l'URL del file alla `OPENROWSET` funzione, specificare CSV `FORMAT` e impostare i valori `0x0b` per `fieldterminator` e `fieldquote` . Se è necessario leggere i file JSON delimitati da righe, questo è sufficiente. Se si dispone di un file JSON classico, è necessario impostare i valori `0x0b` per `rowterminator` . `OPENROWSET` la funzione analizzerà JSON e restituirà tutti i documenti nel formato seguente:
 
 | doc |
 | --- |
@@ -33,7 +33,7 @@ Il modo più semplice per vedere il contenuto del file JSON consiste nel fornire
 |{"date_rep": "2020-07-26", "giorno": 26, "mese": 7, "anno": 2020, "case": 4, "decessioni": 0, "geo_id": "AF"}|
 |{"date_rep": "2020-07-27", "giorno": 27, "mese": 7, "anno": 2020, "case": 8, "decessioni": 0, "geo_id": "AF"}|
 
-Se il file è disponibile pubblicamente o se l'identità del Azure AD può accedere a questo file, dovrebbe essere possibile visualizzare il contenuto del file usando la query come quella mostrata negli esempi seguenti.
+Se il file è disponibile pubblicamente o se l'identità del Azure AD è in grado di accedere a questo file, il contenuto del file verrà visualizzato usando la query come quella illustrata negli esempi seguenti.
 
 ### <a name="read-json-files"></a>Leggere file JSON
 

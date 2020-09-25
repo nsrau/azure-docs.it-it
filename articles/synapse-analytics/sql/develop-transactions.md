@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c5d23770aab0bde745152d918adfe83209819899
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500760"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288614"
 ---
 # <a name="use-transactions-in-sql-pool"></a>Usare le transazioni nel pool SQL
 
@@ -29,10 +29,10 @@ Come si può immaginare, il pool SQL supporta le transazioni come parte del cari
 
 Il pool SQL implementa le transazioni ACID. Per impostazione predefinita, il livello di isolamento del supporto transazionale è READ UNCOMMITTED.  È possibile modificarlo in READ COMMITTED SNAPSHOT ISOLATION impostando su ON l'opzione di database READ_COMMITTED_SNAPSHOT per un database utente quando si è connessi al database master.  
 
-Dopo l'abilitazione, tutte le transazioni in questo database vengono eseguite con READ COMMITTED SNAPSHOT ISOLATION e l'impostazione READ UNCOMMITTED a livello della sessione non verrà rispettata. Per informazioni dettagliate, vedere [Opzioni di ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest).
+Dopo l'abilitazione, tutte le transazioni in questo database vengono eseguite con READ COMMITTED SNAPSHOT ISOLATION e l'impostazione READ UNCOMMITTED a livello della sessione non verrà rispettata. Per informazioni dettagliate, vedere [Opzioni di ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="transaction-size"></a>Dimensioni delle transazioni
-Le dimensioni di una singola transazione di modifica dati sono limitate. Il limite è applicato per ogni distribuzione. Per calcolare l'allocazione totale, quindi, è possibile moltiplicare il limite per il conteggio di distribuzione. 
+Le dimensioni di una singola transazione di modifica dati sono limitate. Il limite è applicato per ogni distribuzione. Di conseguenza, è possibile calcolare l'allocazione totale moltiplicando il limite per il numero di distribuzioni. 
 
 Per calcolare approssimativamente il numero massimo di righe nella transazione, dividere il limite di distribuzione per le dimensioni totali di ogni riga. Per le colonne di lunghezza variabile valutare la possibilità di usare una lunghezza di colonna media invece delle dimensioni massime.
 
@@ -81,7 +81,7 @@ Ecco alcuni presupposti riportati nella tabella seguente:
 
 Il limite delle dimensioni delle transazioni viene applicato per transazione o per operazione. Non viene applicato in tutte le transazioni simultanee. A ogni transazione è quindi consentito scrivere questa quantità di dati nel log.
 
-Per ottimizzare e ridurre al minimo la quantità di dati scritti nel log, vedere l'articolo [Procedure consigliate per le transazioni](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Per ottimizzare e ridurre al minimo la quantità di dati scritti nel log, vedere l'articolo [procedure consigliate](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per le transazioni.
 
 > [!WARNING]
 > Le dimensioni massime delle transazioni possono essere ottenute solo per le tabelle distribuite HASH o ROUND_ROBIN in cui i dati sono distribuiti in modo uniforme. Se la transazione scrive dati in modo asimmetrico nelle distribuzioni, è probabile che il limite venga raggiunto prima di raggiungere le dimensioni massime delle transazioni.
@@ -134,11 +134,11 @@ SELECT @xact_state AS TransactionState;
 
 Il codice precedente genera il messaggio di errore seguente:
 
-Msg 111233, livello 16, stato 1, riga 1 111233; La transazione corrente è stata interrotta ed è stato eseguito il rollback di tutte le modifiche in sospeso. Causa: non è stato eseguito il rollback in modo esplicito di una transazione in uno stato di solo rollback prima di un'istruzione DDL, DML o SELECT.
+Msg 111233, livello 16, stato 1, riga 1 111233; La transazione corrente è stata interrotta ed è stato eseguito il rollback di tutte le modifiche in sospeso. Motivo: non è stato eseguito il rollback esplicito di una transazione in uno stato di solo rollback prima di un'istruzione DDL, DML o SELECT.
 
 Non si otterrà l'output delle funzioni di ERROR_*.
 
-È quindi necessario modificare leggermente il codice del pool SQL:
+Nel pool SQL, il codice deve essere leggermente modificato:
 
 ```sql
 SET NOCOUNT ON;
@@ -181,21 +181,19 @@ Ciò dimostra che il ROLLBACK della transazione doveva essere eseguito prima del
 
 ## <a name="error_line-function"></a>Funzione Error_Line()
 
-È importante sottolineare anche che il pool SQL non implementa né supporta la funzione ERROR_LINE(). Se è contenuta nel codice, sarà necessario rimuoverla per renderlo compatibile con il pool SQL. Anziché implementare una funzionalità equivalente, usare etichette di query nel codice. Per altri dettagli, vedere l'articolo [LABEL](develop-label.md).
+È importante sottolineare anche che il pool SQL non implementa né supporta la funzione ERROR_LINE(). Se si dispone di questa funzione nel codice, è necessario rimuoverla per renderla conforme al pool SQL. Anziché implementare una funzionalità equivalente, usare etichette di query nel codice. Per ulteriori informazioni, vedere l'articolo relativo alle [etichette](develop-label.md) .
 
 ## <a name="use-of-throw-and-raiserror"></a>Uso di THROW e RAISERROR
 
 THROW è l'implementazione più moderna per la generazione di eccezioni nel pool SQL, ma è supportata anche RAISERROR. Esistono tuttavia alcune differenze a cui vale la pena prestare attenzione.
 
-* I numeri dei messaggi di errore definiti dall'utente non possono essere compresi nell'intervallo da 100.000 a 150.000 per THROW
+* I numeri dei messaggi di errore definiti dall'utente non possono essere compresi nell'intervallo 100.000-150.000 per THROW
 * I messaggi di errore di RAISERROR sono fissati a 50.000.
 * L'uso di sys.messages non è supportato.
 
 ## <a name="limitations"></a>Limitazioni
 
-Il pool SQL presenta qualche altra limitazione relativa alle transazioni.
-
-Ecco quali sono:
+Il pool SQL presenta qualche altra limitazione relativa alle transazioni. Ecco quali sono:
 
 * Nessuna transazione distribuita
 * Non sono consentite transazioni annidate

@@ -4,17 +4,17 @@ description: Informazioni su come aggiungere icone di immagini e poligoni riempi
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: d6c7ba255b0dcec280d05eab36be71b8c9a726ae
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: f43c0086cfd6e51e0fbcd5d30911aa6c8e9a6518
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086556"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335552"
 ---
 # <a name="how-to-use-image-templates"></a>Come usare i modelli di immagine
 
@@ -106,7 +106,7 @@ Vedere il <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcatore HTML penn
 
 
 > [!TIP]
-> È anche possibile usare i modelli di immagine all'esterno della mappa. Il funciton getImageTemplate restituisce una stringa SVG con segnaposto; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Sostituire i valori segnaposto per creare una stringa SVG valida. È quindi possibile aggiungere la stringa SVG direttamente al DOM HTML oppure convertirla in un URI di dati e inserirla in un tag di immagine. Esempio:
+> È anche possibile usare i modelli di immagine all'esterno della mappa. Il funciton getImageTemplate restituisce una stringa SVG con segnaposto; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Sostituire i valori segnaposto per creare una stringa SVG valida. È quindi possibile aggiungere la stringa SVG direttamente al DOM HTML oppure convertirla in un URI di dati e inserirla in un tag di immagine. Ad esempio:
 > ```JavaScript
 > //Retrieve an SVG template and replace the placeholder values.
 > var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);
@@ -119,7 +119,7 @@ Vedere il <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcatore HTML penn
 
 Se l'applicazione usa la stessa icona con icone diverse o se si sta creando un modulo che aggiunge modelli di immagine aggiuntivi, è possibile aggiungere e recuperare facilmente queste icone da Azure Maps Web SDK. Usare le funzioni statiche seguenti nello `atlas` spazio dei nomi.
 
-| NOME | Tipo restituito | Descrizione | 
+| Nome | Tipo restituito | Descrizione | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Aggiunge un modello di immagine SVG personalizzato allo spazio dei nomi dell'Atlante. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera un modello SVG in base al nome. |

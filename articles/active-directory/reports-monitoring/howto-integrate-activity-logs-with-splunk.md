@@ -1,6 +1,6 @@
 ---
 title: Integrare Splunk con monitoraggio di Azure | Microsoft Docs
-description: Informazioni su come integrare i log di Azure Active Directory con SumoLogic usando monitoraggio di Azure
+description: Informazioni su come integrare Azure Active Directory log con Splunk usando monitoraggio di Azure.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,12 +17,12 @@ ms.date: 03/10/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61cae487c588c7649de638d9ea6d3111bfbe9e1a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 351669453a5ce6930d3eb912e95e530d14febf61
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229685"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335851"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Procedura: integrare log di Azure Active Directory con Splunk usando monitoraggio di Azure
 
@@ -56,6 +56,6 @@ Per usare questa funzionalità, sono necessari:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Interpretare lo schema dei log di controllo in monitoraggio di Azure](reference-azure-monitor-audit-log-schema.md)
-* [Interpretare lo schema dei log di accesso in monitoraggio di Azure](reference-azure-monitor-sign-ins-log-schema.md)
+* [Interpretare lo schema dei log di controllo in Monitoraggio di Azure](reference-azure-monitor-audit-log-schema.md)
+* [Interpretare lo schema dei log di accesso in Monitoraggio di Azure](reference-azure-monitor-sign-ins-log-schema.md)
 * [Domande frequenti e problemi noti](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

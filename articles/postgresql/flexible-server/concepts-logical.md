@@ -5,20 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: fd0826ad11a153d72ee47f35930d25f0df498418
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: dd7aed0d23dd657b655e473565611ef36c592562
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940743"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336327"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Replica logica e decodifica logica nel database di Azure per PostgreSQL-server flessibile
 
 > [!IMPORTANT]
 > Il server flessibile di Database di Azure per PostgreSQL è disponibile in anteprima
 
-Le funzionalità di replica logica e decodifica logica di PostgreSQL sono supportate nel database di Azure per PostgreSQL-server flessibile.
+Le funzionalità di replica logica e decodifica logica di PostgreSQL sono supportate nel database di Azure per PostgreSQL-server flessibile, per Postgres versione 11.
 
 ## <a name="comparing-logical-replication-and-logical-decoding"></a>Confronto tra replica logica e decodifica logica
 La replica logica e la decodifica logica presentano diverse analogie. Entrambi
@@ -43,7 +43,11 @@ Decodifica logica
 1. Impostare il parametro Server `wal_level` su `logical` .
 2. Riavviare il server per applicare la `wal_level` modifica.
 3. Verificare che l'istanza di PostgreSQL consenta il traffico di rete dalla risorsa di connessione.
-4. Utilizzare l'utente amministratore durante l'esecuzione di comandi di replica.
+4. Concedere le autorizzazioni di replica utente amministratore.
+   ```SQL
+   ALTER ROLE <adminname> WITH REPLICATION;
+   ```
+
 
 ## <a name="using-logical-replication-and-logical-decoding"></a>Uso della replica logica e della decodifica logica
 
@@ -54,7 +58,7 @@ La replica logica usa i termini ' Publisher ' è Subscriber '.
 
 Ecco un codice di esempio che è possibile usare per provare la replica logica.
 
-1. Connettersi al server di pubblicazione. Creare una tabella e aggiungere alcuni dati.
+1. Connettersi al database del server di pubblicazione. Creare una tabella e aggiungere alcuni dati.
    ```SQL
    CREATE TABLE basic(id SERIAL, name varchar(40));
    INSERT INTO basic(name) VALUES ('apple');
@@ -66,14 +70,14 @@ Ecco un codice di esempio che è possibile usare per provare la replica logica.
    CREATE PUBLICATION pub FOR TABLE basic;
    ```
 
-3. Connettersi al Sottoscrittore. Creare una tabella con lo stesso schema del server di pubblicazione.
+3. Connettersi al database del Sottoscrittore. Creare una tabella con lo stesso schema del server di pubblicazione.
    ```SQL
    CREATE TABLE basic(id SERIAL, name varchar(40));
    ```
 
 4. Creare una sottoscrizione che si connetterà alla pubblicazione creata in precedenza.
    ```SQL
-   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname>' PUBLICATION pub;
+   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname> password=<password>' PUBLICATION pub;
    ```
 
 5. È ora possibile eseguire una query sulla tabella nel Sottoscrittore. Si noterà che ha ricevuto i dati dal server di pubblicazione.
@@ -170,8 +174,9 @@ SELECT * FROM pg_replication_slots;
 
 [Impostare gli avvisi](howto-alert-on-metrics.md) per gli ID transazione e l' **archiviazione** **massimi** usati e le metriche del server flessibili usate per notificare quando i valori aumentano le soglie normali. 
 
-## <a name="read-replicas"></a>Repliche in lettura
-Le repliche di lettura del database di Azure per PostgreSQL non sono attualmente supportate per i server flessibili.
+## <a name="limitations"></a>Limitazioni
+* **Leggere le repliche** : le repliche di lettura per database di Azure per PostgreSQL non sono attualmente supportate per i server flessibili.
+* **Slot e failover a disponibilità elevata** : gli slot di replica logica nel server primario non sono disponibili nel server di standby nel server secondario AZ. Questa condizione è valida se il server usa l'opzione di disponibilità elevata con ridondanza della zona. In caso di failover al server di standby, gli slot di replica logica non saranno disponibili in standby.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sulle [Opzioni di rete](concepts-networking.md)

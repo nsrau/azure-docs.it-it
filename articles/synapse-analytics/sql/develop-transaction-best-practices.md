@@ -1,6 +1,6 @@
 ---
 title: Ottimizzare le transazioni per il pool SQL
-description: Informazioni su come ottimizzare le prestazioni del codice transazionale nel pool SQL (data warehouse) riducendo al contempo il rischio di rollback di lunga durata.
+description: Informazioni su come ottimizzare le prestazioni del codice transazionale nel pool SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 174ae84e66f10db4ad24ed561b228f0031492d97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503192"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288648"
 ---
 # <a name="optimize-transactions-in-sql-pool"></a>Ottimizzare le transazioni nel pool SQL
 
@@ -23,9 +23,9 @@ Questo articolo illustra come ottimizzare le prestazioni del codice transazional
 
 ## <a name="transactions-and-logging"></a>Transazioni e registrazione
 
-Le transazioni sono un componente importante in un motore di database relazionale. Il pool SQL usa le transazioni durante la modifica dei dati. Queste operazioni possono essere esplicite o implicite. Le istruzioni singole INSERT, UPDATE e DELETE sono esempi di transazioni implicite. Le transazioni esplicite usano BEGIN TRAN, COMMIT TRAN o ROLLBACK TRAN. Le transazioni esplicite vengono usate in genere quando è necessario collegare più istruzioni di modifica in un'unica unità atomica.
+Le transazioni sono un componente importante in un motore di database relazionale. Il pool SQL usa le transazioni durante la modifica dei dati. Queste operazioni possono essere esplicite o implicite. Le istruzioni singole INSERT, UPDATE e DELETE sono esempi di transazioni implicite. Le transazioni esplicite usano BEGIN TRAN, COMMIT TRAN o ROLLBACK TRAN. Le transazioni esplicite vengono in genere utilizzate quando è necessario collegare più istruzioni di modifica in un'unica unità atomica.
 
-Il pool SQL esegue il commit delle modifiche al database usando i log delle transazioni. Ogni distribuzione ha un proprio log delle transazioni. Le scritture del log delle transazioni avvengono in modo automatico e non è richiesta alcuna configurazione. Tuttavia, se da un lato questo processo garantisce la scrittura dall'altro provoca un sovraccarico nel sistema. È possibile ridurre al minimo tale impatto scrivendo codice efficiente a livello transazionale. Il codice efficiente a livello transazionale rientra in due categorie generali.
+Il pool SQL esegue il commit delle modifiche al database usando i log delle transazioni. Ogni distribuzione ha un proprio log delle transazioni. Le scritture del log delle transazioni avvengono in modo automatico e non è richiesta alcuna configurazione. Tuttavia, sebbene questo processo garantisca la scrittura, comporta un sovraccarico nel sistema. È possibile ridurre al minimo tale impatto scrivendo codice efficiente a livello transazionale. Il codice efficiente a livello transazionale rientra in due categorie generali.
 
 * Usare costrutti di registrazione minima, dove possibile
 * Elaborare i dati tramite batch con ambito per evitare singole transazioni a esecuzione prolungata.
@@ -84,7 +84,7 @@ Il caricamento di dati in una tabella non vuota con un indice cluster può spess
 
 ## <a name="optimize-deletes"></a>Ottimizza eliminazioni
 
-DELETE è un'operazione con registrazione completa.  Per eliminare una grande quantità di dati da una tabella o una partizione spesso è più pratico usare `SELECT` per indicare i dati da conservare, operazione che può essere eseguita registrazione minima.  Per selezionare i dati, creare una nuova tabella con [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Dopo averla creata, usare [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per sostituire la tabella precedente con quella nuova.
+DELETE è un'operazione con registrazione completa.  Per eliminare una grande quantità di dati da una tabella o una partizione spesso è più pratico usare `SELECT` per indicare i dati da conservare, operazione che può essere eseguita registrazione minima.  Per selezionare i dati, creare una nuova tabella con [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Dopo averla creata, usare [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per sostituire la tabella precedente con quella nuova.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.

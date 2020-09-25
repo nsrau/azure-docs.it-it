@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8083edaf647f52a07d55dddf21fe5751340783be
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 35eef6951f844ab60caec70033e41e23a7920d3a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496237"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288308"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query su file Parquet con SQL su richiesta (anteprima) in Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ In questo articolo si apprenderà come scrivere una query con SQL su richiesta (
 
 ## <a name="quickstart-example"></a>Esempio di Guida introduttiva
 
-`OPENROWSET`la funzione consente di leggere il contenuto del file parquet fornendo l'URL del file.
+`OPENROWSET` la funzione consente di leggere il contenuto del file parquet fornendo l'URL del file.
 
 ### <a name="read-parquet-file"></a>Leggi file parquet
 
@@ -57,7 +57,7 @@ Se un'origine dati è protetta con la chiave SAS o l'identità personalizzata, �
 
 ### <a name="explicitly-specify-schema"></a>Specifica in modo esplicito lo schema
 
-`OPENROWSET`consente di specificare in modo esplicito le colonne che si desidera leggere dalla clausola using del file `WITH` :
+`OPENROWSET` consente di specificare in modo esplicito le colonne che si desidera leggere dalla clausola using del file `WITH` :
 
 ```sql
 select top 10 *

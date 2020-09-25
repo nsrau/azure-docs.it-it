@@ -7,16 +7,16 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 69ba8d1735d16791d62b6b04e49c0d2fb7484959
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563088"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325794"
 ---
-# <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
+# <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure
 
-Questo articolo illustra come usare trigger timer in Funzioni di Azure. Un trigger timer consente di eseguire una funzione in base a una pianificazione. 
+Questo articolo illustra come usare trigger timer in Funzioni di Azure. Un trigger timer consente di eseguire una funzione in base a una pianificazione.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -80,6 +80,21 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+La funzione di esempio seguente si attiva e viene eseguita ogni cinque minuti. L’`@TimerTrigger`annotazione sulla funzione definisce la pianificazione usando lo stesso formato di stringa delle [espressioni CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. Un [oggetto timer](#usage) viene passato nella funzione.
@@ -111,9 +126,44 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Nell'esempio seguente viene illustrato come configurare il *function.js* e *run.ps1* file per un trigger timer in [PowerShell](./functions-reference-powershell.md).
+
+```json
+{
+  "bindings": [
+    {
+      "name": "Timer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    }
+  ]
+}
+```
+
+```powershell
+# Input bindings are passed in via param block.
+param($Timer)
+
+# Get the current universal time in the default string format.
+$currentUTCtime = (Get-Date).ToUniversalTime()
+
+# The 'IsPastDue' property is 'true' when the current function invocation is later than scheduled.
+if ($Timer.IsPastDue) {
+    Write-Host "PowerShell timer is running late!"
+}
+
+# Write an information log with the current time.
+Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
+```
+
+Un'istanza dell' [oggetto timer](#usage) viene passata come primo argomento alla funzione.
+
 # <a name="python"></a>[Python](#tab/python)
 
-Nell'esempio seguente viene utilizzata un'associazione di trigger timer la cui configurazione è descritta nel *function.jssu* file. La [funzione Python](functions-reference-python.md) effettiva che usa l'associazione è descritta nel file * __init__. py* . L'oggetto passato nella funzione è di tipo [Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logica della funzione scrive nei log che indicano se la chiamata corrente è dovuta a un'occorrenza di pianificazione mancante. 
+Nell'esempio seguente viene utilizzata un'associazione di trigger timer la cui configurazione è descritta nel *function.jssu* file. La [funzione Python](functions-reference-python.md) effettiva che usa l'associazione è descritta nel file * __init__. py* . L'oggetto passato nella funzione è di tipo [Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logica della funzione scrive nei log che indicano se la chiamata corrente è dovuta a un'occorrenza di pianificazione mancante.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -145,21 +195,6 @@ def main(mytimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
-La funzione di esempio seguente si attiva e viene eseguita ogni cinque minuti. L’`@TimerTrigger`annotazione sulla funzione definisce la pianificazione usando lo stesso formato di stringa delle [espressioni CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
-
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
-}
-```
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
@@ -188,14 +223,6 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 Gli attributi non sono supportati da Script C#.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Gli attributi non sono supportati da JavaScript.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Gli attributi non sono supportati da Python.
-
 # <a name="java"></a>[Java](#tab/java)
 
 L’`@TimerTrigger`annotazione sulla funzione definisce la pianificazione usando lo stesso formato di stringa delle [espressioni CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
@@ -210,6 +237,18 @@ public void keepAlive(
      context.getLogger().info("Timer is triggered: " + timerInfo);
 }
 ```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Gli attributi non sono supportati da JavaScript.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Gli attributi non sono supportati da PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Gli attributi non sono supportati da Python.
 
 ---
 
@@ -229,9 +268,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> L'impostazione di **runOnStartup** su `true` non è consigliata in ambienti di produzione. Con questa impostazione, il codice viene eseguito in momenti estremamente imprevedibili. In alcune impostazioni di produzione queste esecuzioni aggiuntive possono determinare costi molto più elevati per le app ospitate in piani a consumo. Con **runOnStartup** abilitato, ad esempio, il trigger viene richiamato ogni volta che l'app per le funzioni viene ridimensionata. Prima di abilitare **runOnStartup** in un ambiente di produzione assicurarsi di avere ben compreso il comportamento in produzione delle proprie funzioni.   
+> L'impostazione di **runOnStartup** su `true` non è consigliata in ambienti di produzione. Con questa impostazione, il codice viene eseguito in momenti estremamente imprevedibili. In alcune impostazioni di produzione queste esecuzioni aggiuntive possono determinare costi molto più elevati per le app ospitate in piani a consumo. Con **runOnStartup** abilitato, ad esempio, il trigger viene richiamato ogni volta che l'app per le funzioni viene ridimensionata. Prima di abilitare **runOnStartup** in un ambiente di produzione assicurarsi di avere ben compreso il comportamento in produzione delle proprie funzioni.
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 
 Quando viene richiamata una funzione di trigger del timer, nella funzione viene passato un oggetto timer. Il codice JSON seguente è una rappresentazione di esempio dell'oggetto timer.
 
@@ -250,8 +289,7 @@ Quando viene richiamata una funzione di trigger del timer, nella funzione viene 
 
 La proprietà `IsPastDue` è `true` quando la chiamata della funzione corrente avviene successivamente al momento pianificato. Ad esempio, un riavvio dell'app per le funzioni può causare la mancata riuscita di una chiamata.
 
-
-## <a name="ncrontab-expressions"></a>Espressioni NCRONTAB 
+## <a name="ncrontab-expressions"></a>Espressioni NCRONTAB
 
 Funzioni di Azure usa la libreria [NCronTab](https://github.com/atifaziz/NCrontab) per interpretare le espressioni NCronTab. Un'espressione NCRONTAB è simile a un'espressione CRON con la differenza che include un sesto campo aggiuntivo all'inizio da usare per la precisione temporale in secondi:
 
@@ -300,12 +338,12 @@ Diversamente da un'espressione CRON, un valore `TimeSpan` specifica l'intervallo
 
 Espresso come stringa, il formato di `TimeSpan` è `hh:mm:ss`, dove `hh` è minore di 24. Quando le prime due cifre sono un numero uguale o maggiore di 24, il formato è `dd:hh:mm`. Ecco alcuni esempi:
 
-|Esempio |Quando viene attivato  |
-|---------|---------|
-|"01:00:00" | Ogni ora        |
-|"00:01:00"|Ogni minuto         |
-|"24:00:00" | Ogni 24 giorni        |
-|"1.00:00:00" | Ogni giorno        |
+| Esempio      | Quando viene attivato |
+|--------------|----------------|
+| "01:00:00"   | Ogni ora     |
+| "00:01:00"   | Ogni minuto   |
+| "24:00:00"   | Ogni 24 giorni  |
+| "1.00:00:00" | Ogni giorno      |
 
 ## <a name="scale-out"></a>Aumento delle istanze
 

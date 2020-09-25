@@ -12,16 +12,16 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d14e31aa4fbeb2d29137c554f14333e1617c484a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178944"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265902"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 
-Questo articolo illustra come creare una nuova applicazione Azure Active Directory (Azure AD) e un'entità servizio che possono essere usate con il controllo degli accessi in base al ruolo. Quando si dispone di applicazioni, servizi ospitati o strumenti automatici che devono accedere alle risorse o modificarle, è possibile creare un'identità per l'app. Questa identità è nota come entità servizio. L'accesso alle risorse è limitato dai ruoli assegnati all'entità servizio, garantendo il controllo sulle risorse a cui è possibile accedere e a quale livello. Per motivi di sicurezza è sempre consigliabile usare le identità servizio per gli strumenti automatici, invece di consentire loro di accedere con un'identità utente. 
+Questo articolo illustra come creare una nuova applicazione Azure Active Directory (Azure AD) e un'entità servizio che possono essere usate con il controllo degli accessi in base al ruolo. Quando si dispone di applicazioni, servizi ospitati o strumenti automatici che devono accedere alle risorse o modificarle, è possibile creare un'identità per l'app. Questa identità è nota come entità servizio. L'accesso alle risorse è limitato dai ruoli assegnati all'entità servizio, garantendo il controllo sulle risorse a cui è possibile accedere e a quale livello. Per motivi di sicurezza è sempre consigliabile usare le identità servizio per gli strumenti automatici, invece di consentire loro di accedere con un'identità utente.
 
 Questo articolo illustra come usare il portale per creare l'entità servizio nel portale di Azure. È incentrato su un'applicazione con un tenant singolo dove si prevede che l'applicazione venga eseguita all'interno di una sola organizzazione. Le applicazioni con un tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione.  È anche possibile [usare Azure PowerShell per creare un'entità servizio](howto-authenticate-service-principal-powershell.md).
 
@@ -129,12 +129,13 @@ Quando si esegue l'accesso a livello di codice, è necessario passare l'ID tenan
 
    ![Copiare il valore di ID applicazione (client)](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-## <a name="upload-a-certificate-or-create-a-secret-for-signing-in"></a>Caricare un certificato o creare un segreto per l'accesso
-Per le entità servizio sono disponibili due tipi di autenticazione: autenticazione basata su password (segreto applicazione) e autenticazione basata su certificati.  È consigliabile usare un certificato, ma è anche possibile creare un nuovo segreto dell'applicazione.
+## <a name="authentication-two-options"></a>Autenticazione: due opzioni
 
-### <a name="upload-a-certificate"></a>Caricamento di un certificato
+Per le entità servizio sono disponibili due tipi di autenticazione: autenticazione basata su password (segreto applicazione) e autenticazione basata su certificati. È *consigliabile usare un certificato*, ma è anche possibile creare un segreto dell'applicazione.
 
-Se si dispone di un certificato, è possibile utilizzarne uno esistente.  Facoltativamente, è possibile creare un certificato autofirmato *solo a scopo di test*. Per creare un certificato autofirmato, aprire PowerShell ed eseguire [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con i parametri seguenti per creare il certificato nell'archivio certificati utente del computer: 
+### <a name="option-1-upload-a-certificate"></a>Opzione 1: caricare un certificato
+
+Se si dispone di un certificato, è possibile utilizzarne uno esistente.  Facoltativamente, è possibile creare un certificato autofirmato *solo a scopo di test*. Per creare un certificato autofirmato, aprire PowerShell ed eseguire [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con i parametri seguenti per creare il certificato nell'archivio certificati utente del computer:
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -163,7 +164,7 @@ Per caricare il certificato:
 
 Dopo aver registrato il certificato con l'applicazione nel portale di registrazione delle applicazioni, è necessario abilitare il codice dell'applicazione client per l'uso del certificato.
 
-### <a name="create-a-new-application-secret"></a>Crea un nuovo segreto dell'applicazione
+### <a name="option-2-create-a-new-application-secret"></a>Opzione 2: creare una nuova chiave privata dell'applicazione
 
 Se si sceglie di non usare un certificato, è possibile creare un nuovo segreto dell'applicazione.
 
@@ -178,14 +179,15 @@ Se si sceglie di non usare un certificato, è possibile creare un nuovo segreto 
    ![Copiare il valore del segreto perché non sarà possibile recuperarlo in seguito](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configurare i criteri di accesso per le risorse
-Tenere presente che potrebbe essere necessario configurare autorizzazioni aggiuntive per le risorse a cui l'applicazione deve accedere. Ad esempio, è necessario aggiornare anche i [criteri di accesso](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) dell'insieme di credenziali delle chiavi per consentire all'applicazione di accedere a chiavi, segreti o certificati.  
+Tenere presente che potrebbe essere necessario configurare autorizzazioni aggiuntive per le risorse a cui l'applicazione deve accedere. Ad esempio, è necessario aggiornare anche i [criteri di accesso](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) dell'insieme di credenziali delle chiavi per consentire all'applicazione di accedere a chiavi, segreti o certificati.
 
-1. Nella [portale di Azure](https://portal.azure.com)passare all'insieme di credenziali delle chiavi e selezionare **criteri di accesso**.  
+1. Nella [portale di Azure](https://portal.azure.com)passare all'insieme di credenziali delle chiavi e selezionare **criteri di accesso**.
 1. Selezionare **Aggiungi criteri di accesso**, quindi selezionare la chiave, il segreto e le autorizzazioni per i certificati per cui si vuole concedere l'applicazione.  Selezionare l'entità servizio creata in precedenza.
 1. Selezionare **Aggiungi** per aggiungere i criteri di accesso, quindi **Salva** per eseguire il commit delle modifiche.
     ![Aggiungere un criterio di accesso](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [usare Azure PowerShell per creare un'entità servizio](howto-authenticate-service-principal-powershell.md).
-* Per informazioni su come specificare i criteri di sicurezza, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/role-assignments-portal.md).  
+* Per informazioni su come specificare i criteri di sicurezza, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/role-assignments-portal.md).
 * Per un elenco di azioni disponibili che è possibile concedere o negare agli utenti, vedere [Operazioni di provider di risorse con Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md).
+* Per informazioni sull'uso delle registrazioni di app con **Microsoft Graph**, vedere le informazioni di riferimento sulle API per le [applicazioni](/graph/api/resources/application) .

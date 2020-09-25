@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: 48d8b0519ca1b312909f8b48a7fd8a25d0f8b919
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: e5417f41c241efad57dad048bbcfd1a5ab778d40
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225819"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325352"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limiti delle risorse per i pool elastici con il modello di acquisto DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Questo articolo fornisce i limiti dettagliati delle risorse per i database nel d
 
 Per i pool elastici del database SQL di Azure, le tabelle seguenti illustrano le risorse disponibili a ogni livello di servizio e di calcolo. È possibile impostare il livello di servizio, le dimensioni di calcolo e la quantità di risorse di archiviazione utilizzando:
 
-* [Portale di Azure](elastic-pool-manage.md#azure-portal)
+* [Azure portal](elastic-pool-manage.md#azure-portal)
 * [PowerShell](elastic-pool-manage.md#powershell)
 * [Interfaccia della riga di comando di Azure](elastic-pool-manage.md#azure-cli)
 * [API REST](elastic-pool-manage.md#rest-api).

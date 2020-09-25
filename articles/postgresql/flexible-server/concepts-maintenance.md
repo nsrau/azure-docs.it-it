@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 35e5e688f5589c23c7c583c7bcbca3fd0956eec7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ffee15776a48b6495f78b6becf81c620e1dc4d69
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937254"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336310"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Manutenzione pianificata nel database di Azure per PostgreSQL-server flessibile
  
@@ -46,5 +46,5 @@ Se l'evento di manutenzione viene annullato dal sistema o non viene completato c
 ## <a name="next-steps"></a>Passaggi successivi
  
 * Informazioni su come [modificare la pianificazione di manutenzione](how-to-maintenance-portal.md)
-* Informazioni su come [ricevere notifiche sulla manutenzione futura](/azure/service-health/service-notifications.md) con l'integrità dei servizi di Azure
-* Informazioni su come [configurare gli avvisi relativi agli eventi di manutenzione pianificata imminente](/azure/service-health/resource-health-alert-monitor-guide.md)
+* Informazioni su come [ricevere notifiche sulla manutenzione futura](../../service-health/service-notifications.md) con l'integrità dei servizi di Azure
+* Informazioni su come [configurare gli avvisi relativi agli eventi di manutenzione pianificata imminente](../../service-health/resource-health-alert-monitor-guide.md)

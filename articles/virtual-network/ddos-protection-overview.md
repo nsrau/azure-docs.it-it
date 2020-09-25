@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: 90dbc0b888c6d6eeed97a676024abc9cc0dca6fe
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 726bc34a309ac6a29c189f13037e059f200732ce
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017167"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335919"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Panoramica di Protezione DDoS di Azure Standard
 
@@ -81,3 +81,4 @@ Microsoft ha collaborato con [BreakingPoint Cloud](https://www.ixiacom.com/produ
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Configurare Protezione DDoS Standard](manage-ddos-protection.md)
+- [Prezzi di protezione DDoS di Azure](https://azure.microsoft.com/pricing/details/ddos-protection/)
