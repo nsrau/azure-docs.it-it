@@ -42,6 +42,8 @@
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/hpc-cache/hpc-cache
+    - name: Azure PowerShell
+      href: /powershell/module/Az.HPCCache
 - name: Risorse
   items:
     - name: Aprire un ticket di supporto

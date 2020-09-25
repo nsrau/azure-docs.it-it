@@ -3,12 +3,12 @@ title: Sottoscrizioni di Griglia di eventi di Azure tramite il portale
 description: Questo articolo descrive come creare sottoscrizioni di griglia di eventi per le origini supportate, ad esempio archiviazione BLOB di Azure, usando il portale di Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: acbf83d6df0c7d74da5e561d98d0c3df23d5fbd5
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e80e2243c93ab38187646256f567d6ab73c40100
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526460"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308504"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Sottoscrivere eventi tramite il portale
 
@@ -40,7 +40,7 @@ Per creare una sottoscrizione di Griglia di eventi per tutte le [origini eventi]
 
 1. Specificare dettagli aggiuntivi sulla sottoscrizione di eventi, ad esempio l'endpoint per la gestione degli eventi e un nome per la sottoscrizione.
 
-   ![Specificare i dettagli sulla sottoscrizione](./media/subscribe-through-portal/provide-subscription-details.png)
+   ![Screenshot che mostra le sezioni "Dettagli endpoint" e "Dettagli sottoscrizione evento" con il valore nome sottoscrizione immesso.](./media/subscribe-through-portal/provide-subscription-details.png)
 
 1. Per abilitare l'inserimento nella coda di messaggi non recapitabili e personalizzare i criteri di ripetizione dei tentativi, selezionare **Funzionalità aggiuntive**.
 

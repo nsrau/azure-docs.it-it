@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: d3094a8cca317e53dd3b8bc8e9b32b956c89a376
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 98b7f9b1ed5e09a1f731e45f8ca2d148a4084986
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904203"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336157"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Risolvere i problemi comuni di Azure Spring cloud
 
@@ -131,7 +131,7 @@ Non è possibile caricare un file con *estensione zip* per un'app Steeltoe .NET 
 
 Quando si distribuisce il pacchetto dell'applicazione usando l' [interfaccia](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)della riga di comando di Azure, l'interfaccia della riga di comando di Azure esegue periodicamente il polling dello stato della distribuzione e, alla fine, Visualizza il risultato della distribuzione.
 
-Assicurarsi che l'applicazione sia in pacchetto nel formato di file *zip* corretto. Se il pacchetto non viene inserito correttamente, il processo verrà bloccato o verrà visualizzato un messaggio di errore.
+Assicurarsi che l'applicazione sia in pacchetto nel formato di file *zip* corretto. Se il pacchetto non viene inserito correttamente, il processo smette di rispondere o viene visualizzato un messaggio di errore.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"

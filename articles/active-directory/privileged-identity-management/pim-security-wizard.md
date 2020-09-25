@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/07/2020
+ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1de7e98a9cb57f83b87589ceddedc3cdd80927
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b826c6a1fd5a60247f8c69cb10cd24e7e001fe71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005939"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335885"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Discovery and Insights (anteprima) for Azure AD Roles (in precedenza procedura guidata sicurezza)
 
@@ -29,9 +29,9 @@ Se si inizia con Privileged Identity Management (PIM) nell'organizzazione Azure 
 
 Prima che l'organizzazione inizi a usare Privileged Identity Management, tutte le assegnazioni di ruolo sono permanenti. Gli utenti sono sempre nei loro ruoli assegnati anche quando non sono necessari i loro privilegi. Discovery and Insights (anteprima), che sostituisce la procedura guidata di sicurezza precedente, Visualizza un elenco di ruoli con privilegi e il numero di utenti attualmente presenti in tali ruoli. È possibile elencare le assegnazioni per un ruolo per ottenere ulteriori informazioni sugli utenti assegnati se uno o più di essi non hanno familiarità.
 
-: heavy_check_mark: **Microsoft consiglia** di tenere 2 account break Glass assegnati definitivamente al ruolo di amministratore globale che non richiede l'autenticazione a più fattori all'accesso. È possibile usarli in qualsiasi scenario di break Glass o nel caso in cui nessuno possa elevare il proprio ruolo di amministratore globale.
+: heavy_check_mark: **Microsoft consiglia** di gestire due account break Glass che vengono assegnati in modo permanente al ruolo di amministratore globale. Assicurarsi che questi account non richiedano lo stesso meccanismo di autenticazione a più fattori dei normali account amministrativi per l'accesso, come descritto in [gestire gli account di accesso di emergenza in Azure ad](../users-groups-roles/directory-emergency-access.md).
 
-Tenere inoltre permanenti le assegnazioni di ruolo se un utente ha un account Microsoft (in altre parole, un account usato per accedere a servizi Microsoft come Skype o Outlook.com). Se è necessario attivare l'autenticazione a più fattori in un ruolo di questo tipo, l'utente verrà bloccato.
+Tenere inoltre permanenti le assegnazioni di ruolo se un utente ha un account Microsoft (in altre parole, un account usato per accedere a servizi Microsoft come Skype o Outlook.com). Se è richiesta l'autenticazione a più fattori per un utente con account Microsoft per attivare un'assegnazione di ruolo, l'utente verrà bloccato.
 
 ## <a name="open-discovery-and-insights-preview"></a>Apri Discovery e Insights (anteprima)
 
@@ -49,7 +49,7 @@ Tenere inoltre permanenti le assegnazioni di ruolo se un utente ha un account Mi
 
 1. Esaminare l'elenco di assegnazioni di ruolo amministratore globale.
 
-    ![Ridurre gli amministratori globali-riquadro del ruolo che Mostra tutti i membri](./media/pim-security-wizard/new-global-administrator-list.png)
+    ![Riduzione degli amministratori globali-riquadro ruoli che Mostra tutti gli amministratori globali](./media/pim-security-wizard/new-global-administrator-list.png)
 
 1. Selezionare **Avanti** per selezionare gli utenti o i gruppi che si desidera rendere idonei e quindi selezionare **Rendi idonea** o **Rimuovi assegnazione**.
 

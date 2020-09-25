@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dc05722ee79f72b2931cb1fa6106f742c5bc0e15
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274204"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336650"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Azure HDInsight Hadoop in un set di dati da 1 TB
 
@@ -67,7 +67,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creaz
 
    * Collegare l'account di archiviazione creato nel passaggio 1 al cluster HDInsight al momento della creazione. Questo account di archiviazione viene usato per accedere ai dati che possono essere elaborati all'interno del cluster.
    * Abilitare l'accesso remoto al nodo head del cluster dopo che è stato creato. Ricordare le credenziali di accesso remoto specificate qui, diverse dalle credenziali specificate durante la creazione del cluster: completare le procedure riportate di seguito.
-3. [Creare un'area di lavoro di Azure Machine Learning Studio (classica)](../studio/create-workspace.md): questa area di lavoro Azure Machine Learning viene usata per la creazione di modelli di apprendimento automatico dopo un'esplorazione iniziale dei dati e il campionamento inattivo nel cluster HDInsight.
+3. [Creare un'area di lavoro di Azure Machine Learning Studio (classica)](../classic/create-workspace.md): questa area di lavoro Azure Machine Learning viene usata per la creazione di modelli di apprendimento automatico dopo un'esplorazione iniziale dei dati e il campionamento inattivo nel cluster HDInsight.
 
 ## <a name="get-and-consume-data-from-a-public-source"></a><a name="getdata"></a>Ottenere e utilizzare i dati da un'origine pubblica
 È possibile accedere al set di dati [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) facendo clic sul collegamento, accettando le condizioni per l'utilizzo e specificando un nome. Di seguito è riportato uno snapshot:
@@ -98,7 +98,7 @@ A sinistra è presente la "riga di comando di Hadoop", usata per l'esplorazione 
 
 Ora che la configurazione è stata completata, è possibile iniziare la prima parte della procedura dettagliata, ovvero l'esplorazione dei dati tramite Hive e la loro preparazione per Azure Machine Learning.
 
-## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a>Creare database e tabelle hive
+## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Creare database e tabelle hive
 Per creare le tabelle Hive per il set di dati Criteo, aprire la ***riga di comando di Hadoop*** sul desktop del nodo head e specificare la directory Hive immettendo il comando
 
 ```console
@@ -525,7 +525,7 @@ Per selezionare il set di dati salvato per l'uso in un esperimento di Machine Le
 >
 >
 
-### <a name="step-2-create-an-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a>Passaggio 2: creare un esperimento in Azure Machine Learning per stimare i clic/nessun clic
+### <a name="step-2-create-an-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a> Passaggio 2: creare un esperimento in Azure Machine Learning per stimare i clic/nessun clic
 L'esperimento Azure Machine Learning Studio (classico) ha un aspetto simile al seguente:
 
 ![Esperimento di Machine Learning](./media/hive-criteo-walkthrough/xRpVfrY.png)
@@ -695,4 +695,3 @@ La chiave API predefinita è stata sostituita con la chiave API del servizio Web
 Per i due esempi di test richiesti in Python script JSON Framework, si ottengono le risposte nel formato "scored labels, scored Probabilities". In questo caso, sono stati scelti i valori predefiniti forniti dal codice predefinito (0 per tutte le colonne numeriche e la stringa "value" per tutte le colonne categoriche).
 
 In conclusione, la procedura dettagliata illustra come gestire set di dati su larga scala usando Azure Machine Learning. Partendo da un terabyte di dati, è stato creato un modello di previsione che è stato quindi distribuito come servizio Web nel cloud.
-

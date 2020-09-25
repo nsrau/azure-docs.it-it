@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/14/2019
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 7d1c54d05430600e9fffa2659dbaaf6db0b086b5
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 62bf154c1dbf1a0d3f12e2cef916b37059ce985b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512874"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325505"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Ridimensionare un pool di capacità o un volume
 È possibile modificare le dimensioni di un pool o un volume di capacità in base alle esigenze. 
@@ -40,3 +40,8 @@ ms.locfileid: "87512874"
 2. Fare clic con il pulsante destro del mouse sul nome del volume da ridimensionare oppure fare clic sull'icona "..." alla fine della riga del volume per visualizzare il menu di scelta rapida.
 3. Usare le opzioni del menu di scelta rapida per ridimensionare o eliminare il volume.
 
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Configurare un pool di capacità](azure-netapp-files-set-up-capacity-pool.md)
+- [Gestire un pool di capacità QoS manuale](manage-manual-qos-capacity-pool.md)
+- [Modificare dinamicamente il livello di servizio di un volume](dynamic-change-volume-service-level.md) 

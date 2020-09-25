@@ -3,13 +3,13 @@ title: Inviare avvisi di integrità dei servizi di Azure con ServiceNow
 description: Ricevere notifiche personalizzate sugli eventi di integrità dei servizi nell'istanza di ServiceNow.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 68175dc17c1601eab097b94d4eefaa2706731f5c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: f120e9d950cc349d0331a476dbfbfe9d7e599f0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432527"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307569"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Inviare avvisi di integrità dei servizi di Azure con ServiceNow usando i webhook
 

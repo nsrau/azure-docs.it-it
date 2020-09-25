@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 665bb89d929433db5868eff1c2a5d182d7a94d54
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f826ee9ef3c9fff0b721a9c79d3c12e0adbd5f7f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800280"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336395"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Segnalazione dei metadati programmati in streaming live 
 
@@ -72,10 +72,10 @@ I documenti seguenti contengono le disposizioni, che, per riferimento in questo 
 | [Adobe-debutto] | [Specifica di segnalazione dell'inserimento di programmi digitali in prima serata 1,2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf)                       |
 | [Adobe-Flash-AS]  | [Guida di riferimento al linguaggio ActionScript FLASH](https://help.adobe.com/archive/en_US/as2/flashlite_2.x_3.x_aslr.pdf)                                                                                                   |
 | AMF0            | ["Formato del messaggio di azione AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)                                                                                                              |
-| [DASH-IF-IOP]     | Guida all'interoperabilità di DASH Industry Forum v 4,2[https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)    |
-| [HLS-TMD]         | Metadati temporizzati per HTTP Live Streaming-[https://developer.apple.com/streaming](https://developer.apple.com/streaming)                                                                                        |
+| [DASH-IF-IOP]     | Guida all'interoperabilità di DASH Industry Forum v 4,2 [https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)    |
+| [HLS-TMD]         | Metadati temporizzati per HTTP Live Streaming- [https://developer.apple.com/streaming](https://developer.apple.com/streaming)                                                                                        |
 | [CMAF-ID3]        | [Metadati temporizzati in Common Media Application Format (CMAF)](https://github.com/AOMediaCodec/id3-emsg)                                                                                                        |
-| ID3v2           | Versione tag ID3 2.4.0[http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure)                                                                                                                |
+| ID3v2           | Versione tag ID3 2.4.0  [http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure)                                                                                                                |
 | [ISO-14496-12]    | ISO/IEC 14496-12: parte 12 formato file supporti ISO base, FourthEdition 2012-07-15                                                                                                                                 |
 | [MPEGDASH]        | Information Technology: flusso adattivo dinamico su HTTP (DASH), parte 1: Descrizione della presentazione multimediale e formati di segmento. 2014 maggio. Pubblicato. URL: https://www.iso.org/standard/65274.html         |
 | [MPEGCMAF]        | Information Technology--formato di applicazione multimediale (MPEG-A)-parte 19: Common Media Application Format (CMAF) per i supporti segmentati. Gennaio 2018. Pubblicato. URL: https://www.iso.org/standard/71975.html |
@@ -83,9 +83,9 @@ I documenti seguenti contengono le disposizioni, che, per riferimento in questo 
 | [MS-SSTR]         | ["Microsoft Smooth Streaming Protocol", 15 maggio 2014](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
 | [MS-SSTR-inserimento]  | [Specifica di inserimento Live MP4 frammentato di servizi multimediali di Azure](./media-services-fmp4-live-ingest-overview.md)                                                      |
 | [RFC8216]         | R. Pantos, ed.; W. può. HTTP Live Streaming. 2017 agosto. Si tratta di un messaggio informativo. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
-| RFC4648         | Codifica di dati base 16, Base32 e Base64-[https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
+| RFC4648         | Codifica di dati base 16, Base32 e Base64- [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
 | RTMP            | ["Protocollo di messaggistica in tempo reale di Adobe", 21 dicembre 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
-| [SCTE-35-2019]    | SCTE 35:2019-messaggio di inserimento del programma digitale per il cavo-https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf                                                                       |
+| [SCTE-35-2019]    | SCTE 35:2019-messaggio di inserimento del programma digitale per il cavo- https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf                                                                       |
 | [SCTE-214-1]      | SCTE 214-1 2016 – MPEG DASH per servizi cavi basati su IP parte 1: vincoli e estensioni di MPD                                                                                                                 |
 | [SCTE-214-3]      | SCTE 214-3 2015 MPEG DASH per servizi cavi basati su IP-parte 3: profilo DASH/FF                                                                                                                                  |
 | [SCTE-224]        | SCTE 224 2018r1-pianificazione degli eventi e interfaccia di notifica                                                                                                                                                  |
@@ -239,11 +239,11 @@ La sezione seguente illustra il payload "modalità semplice" di RTMP, che può e
 
 | Nome campo | Tipo di campo | Necessaria? | Descrizioni                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type       | string     | Obbligatoria  | Messaggio di evento.  Deve essere "SpliceOut" per designare una giunzione modalità semplice.                                                                                                                                                                                                         |
-| id         | string     | Obbligatoria  | Un identificatore univoco che descrive la giunzione o il segmento. Identifica questa istanza del messaggio                                                                                                                                                                                       |
-| duration   | Number     | Obbligatoria  | La durata della giunzione. Le unità sono espresse in secondi frazionari.                                                                                                                                                                                                                           |
-| elapsed    | Number     | Facoltativo  | Se il segnale dell'annuncio viene ripetuto per supportare l'ottimizzazione, questo campo deve indicare il tempo di presentazione trascorso dall'inizio della giunzione. Le unità sono espresse in secondi frazionari. Quando si usa la modalità semplice, questo valore non deve superare la durata originale della giunzione. |
-| time       | Number     | Obbligatoria  | Deve essere l'ora della giunzione, nell'ora di presentazione. Le unità sono espresse in secondi frazionari.                                                                                                                                                                                                |
+| tipo       | string     | Necessario  | Messaggio di evento.  Deve essere "SpliceOut" per designare una giunzione modalità semplice.                                                                                                                                                                                                         |
+| id         | string     | Necessario  | Un identificatore univoco che descrive la giunzione o il segmento. Identifica questa istanza del messaggio                                                                                                                                                                                       |
+| duration   | Numero     | Necessario  | La durata della giunzione. Le unità sono espresse in secondi frazionari.                                                                                                                                                                                                                           |
+| elapsed    | Numero     | Facoltativo  | Se il segnale dell'annuncio viene ripetuto per supportare l'ottimizzazione, questo campo deve indicare il tempo di presentazione trascorso dall'inizio della giunzione. Le unità sono espresse in secondi frazionari. Quando si usa la modalità semplice, questo valore non deve superare la durata originale della giunzione. |
+| time       | Numero     | Necessario  | Deve essere l'ora della giunzione, nell'ora di presentazione. Le unità sono espresse in secondi frazionari.                                                                                                                                                                                                |
 
 ---
  
@@ -251,7 +251,7 @@ La sezione seguente illustra il payload "modalità semplice" di RTMP, che può e
 
 Vedere l'esempio [3.3.2.1 MPEG Dash. mpd EventStream con la modalità semplice di Adobe](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
 
-Vedere il [manifesto di esempio di 3.3.3.1 Dash con singolo periodo e la modalità semplice di Adobe](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
+Vedere il [manifesto di esempio di 3.3.3.1 Dash con singolo periodo e la modalità semplice di Adobe ](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
 
 #### <a name="example-hls-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Esempio di output del manifesto HLS quando si usa la modalità semplice di Adobe RTMP
 
@@ -267,12 +267,12 @@ In questo scenario, il payload seguente deve essere inviato dal codificatore loc
 
 | Nome campo | Tipo di campo | Necessaria? | Descrizioni                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| cue        | string     | Obbligatoria  | Messaggio di evento.  Per i messaggi [SCTE-35], è necessario che sia il splice_info_section binario con codifica Base64 [RFC4648] () in modo che i messaggi vengano inviati ai client HLS, Smooth e Dash.                                                                                                                                                                                                                               |
-| type       | string     | Obbligatoria  | Un URN o URL che identifica lo schema del messaggio. Per i messaggi [SCTE-35], **deve** essere **"scte35"** affinché i messaggi vengano inviati ai client HLS, Smooth e Dash in conformità con [Adobe-debutto]. Facoltativamente, l'URN "urn: SCTE: scte35:2013: bin" può essere usato anche per segnalare un messaggio [SCTE-35].                                                                                                        |
-| id         | string     | Obbligatoria  | Un identificatore univoco che descrive la giunzione o il segmento. Identifica l'istanza del messaggio.  I messaggi semanticamente equivalenti devono avere lo stesso valore.                                                                                                                                                                                                                                                       |
-| duration   | Number     | Obbligatoria  | La durata dell'evento o del segmento di giunzione, se conosciuto. Se è sconosciuto, il valore **deve** essere 0.                                                                                                                                                                                                                                                                                                                    |
-| elapsed    | Number     | Facoltativo  | Se il segnale dell'annuncio [SCTE-35] viene ripetuto per ottimizzarlo, questo campo deve indicare il tempo di presentazione trascorso dall'inizio della giunzione. Le unità sono espresse in secondi frazionari. In modalità [SCTE-35], questo valore può superare la durata originale specificata della giunzione o del segmento.                                                                                                                   |
-| time       | Number     | Obbligatoria  | L'ora di presentazione dell'evento o della giunzione annuncio.  L'ora e la durata della presentazione **devono** essere allineate con i punti di accesso al flusso (SAP) di tipo 1 o 2, come definito in [ISO-14496-12] Annex I. Per l'uscita HLS, l'ora e la durata **devono** essere allineate con i limiti del segmento. L'ora di presentazione e la durata di diversi messaggi di eventi all'interno dello stesso flusso di eventi non devono (MUST NOT) sovrapporsi. Le unità sono espresse in secondi frazionari. |
+| cue        | string     | Necessario  | Messaggio di evento.  Per i messaggi [SCTE-35], è necessario che sia il splice_info_section binario con codifica Base64 [RFC4648] () in modo che i messaggi vengano inviati ai client HLS, Smooth e Dash.                                                                                                                                                                                                                               |
+| tipo       | string     | Necessario  | Un URN o URL che identifica lo schema del messaggio. Per i messaggi [SCTE-35], **deve** essere **"scte35"** affinché i messaggi vengano inviati ai client HLS, Smooth e Dash in conformità con [Adobe-debutto]. Facoltativamente, l'URN "urn: SCTE: scte35:2013: bin" può essere usato anche per segnalare un messaggio [SCTE-35].                                                                                                        |
+| id         | string     | Necessario  | Un identificatore univoco che descrive la giunzione o il segmento. Identifica l'istanza del messaggio.  I messaggi semanticamente equivalenti devono avere lo stesso valore.                                                                                                                                                                                                                                                       |
+| duration   | Numero     | Necessario  | La durata dell'evento o del segmento di giunzione, se conosciuto. Se è sconosciuto, il valore **deve** essere 0.                                                                                                                                                                                                                                                                                                                    |
+| elapsed    | Numero     | Facoltativo  | Se il segnale dell'annuncio [SCTE-35] viene ripetuto per ottimizzarlo, questo campo deve indicare il tempo di presentazione trascorso dall'inizio della giunzione. Le unità sono espresse in secondi frazionari. In modalità [SCTE-35], questo valore può superare la durata originale specificata della giunzione o del segmento.                                                                                                                   |
+| time       | Numero     | Necessario  | L'ora di presentazione dell'evento o della giunzione annuncio.  L'ora e la durata della presentazione **devono** essere allineate con i punti di accesso al flusso (SAP) di tipo 1 o 2, come definito in [ISO-14496-12] Annex I. Per l'uscita HLS, l'ora e la durata **devono** essere allineate con i limiti del segmento. L'ora di presentazione e la durata di diversi messaggi di eventi all'interno dello stesso flusso di eventi non devono (MUST NOT) sovrapporsi. Le unità sono espresse in secondi frazionari. |
 
 ---
 
@@ -297,7 +297,7 @@ Il tipo di messaggio "onCuePoint" è definito in [Adobe-Flash-AS] e ha la strutt
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name       | Il nome deve essere '**scte35**' per Elemental Live.                                                                                                                                                                              |
 | time       | Tempo in secondi in cui si è verificato il punto di attacco nel file video durante la sequenza temporale                                                                                                                                           |
-| type       | Il tipo di punto cue deve essere impostato su "**Event**".                                                                                                                                                                             |
+| tipo       | Il tipo di punto cue deve essere impostato su "**Event**".                                                                                                                                                                             |
 | parametri | Matrice associativa di stringhe di coppie nome/valore contenenti le informazioni del messaggio SCTE-35, inclusi ID e durata. Questi valori vengono analizzati da servizi multimediali di Azure e inclusi nel tag di decorazione del manifesto. |
 
 
@@ -306,7 +306,7 @@ Quando si usa questa modalità del marcatore di Active Directory, l'output del m
 
 #### <a name="example-mpeg-dash-mpd-single-period-adobe-simple-mode-signals"></a>Esempio MPEG DASH MPD, Single period, Adobe Simple Mode Signals
 
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="dynamic" publishTime="2020-01-07T18:58:03Z" minimumUpdatePeriod="PT0S" timeShiftBufferDepth="PT58M56S" availabilityStartTime="2020-01-07T17:44:47Z" minBufferTime="PT7S">
@@ -357,14 +357,13 @@ Quando si usa questa modalità del marcatore di Active Directory, l'output del m
         </AdaptationSet>
     </Period>
 </MPD>
-~~~
-
+```
 
 #### <a name="example-hls-playlist-adobe-simple-mode-signals-using-ext-x-cue-tag-truncated--for-brevity"></a>Playlist HLS di esempio, segnali in modalità semplice di Adobe con tag EXT-X-CUE (troncato "..." per brevità)
 
 L'esempio seguente illustra l'output di Media Services Dynamic Packager per un flusso di inserimento RTMP usando i segnali della modalità "Simple" di Adobe e il tag legacy [Adobe-debutto] EXT-X-CUE.  
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:8
 #EXT-X-MEDIA-SEQUENCE:0
@@ -401,8 +400,7 @@ Fragments(video=1583487999666666,format=m3u8-aapl-v8)
 #EXTINF:6.400000,no-desc
 Fragments(video=1583488022000000,format=m3u8-aapl-v8)
 ...
-
-~~~
+```
 
 ### <a name="216-cancellation-and-updates"></a>annullamento e aggiornamenti di 2.1.6
 
@@ -423,13 +421,13 @@ La traccia di tipo sparse **deve** essere dichiarata nella casella manifesto del
 
 | **Nome attributo** | **Tipo di campo** | **Obbligatorio?** | **Descrizione**                                                                                                                                                                                                              |
 | ------------------ | -------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| systemBitrate      | Number         | Obbligatoria      | **Deve** essere "0", che indica una traccia con velocità in bit sconosciuta e variabile.                                                                                                                                                          |
-| parentTrackName    | string         | Obbligatoria      | **Deve** corrispondere al nome della traccia padre alla quale i codici temporali della traccia di tipo sparse sono allineati per la scala cronologica. La traccia padre non può essere una traccia di tipo sparse.                                                                             |
-| manifestOutput     | Boolean        | Obbligatoria      | **Deve** essere "true" per indicare che la traccia di tipo sparse verrà incorporata nel manifesto del client Smooth.                                                                                                                        |
-| Subtype            | string         | Obbligatoria      | **Deve** essere il codice di quattro caratteri "data".                                                                                                                                                                                  |
-| Schema             | string         | Obbligatoria      | **Deve** essere un URN o un URL che identifica lo schema del messaggio. Per i messaggi [SCTE-35], **deve** essere "urn: SCTE: scte35:2013: bin" affinché i messaggi vengano inviati ai client HLS, Smooth e Dash in conformità con [SCTE-35]. |
-| trackName          | string         | Obbligatoria      | **Deve** corrispondere al nome della traccia di tipo sparse. Trackname può essere usato per distinguere più flussi di eventi con lo stesso schema. Ogni flusso di eventi univoco **deve** avere un nome di traccia univoco.                                |
-| timescale          | Number         | Facoltativo      | **Deve** corrispondere alla scala cronologica della traccia padre.                                                                                                                                                                               |
+| systemBitrate      | Numero         | Necessario      | **Deve** essere "0", che indica una traccia con velocità in bit sconosciuta e variabile.                                                                                                                                                          |
+| parentTrackName    | string         | Necessario      | **Deve** corrispondere al nome della traccia padre alla quale i codici temporali della traccia di tipo sparse sono allineati per la scala cronologica. La traccia padre non può essere una traccia di tipo sparse.                                                                             |
+| manifestOutput     | Boolean        | Necessario      | **Deve** essere "true" per indicare che la traccia di tipo sparse verrà incorporata nel manifesto del client Smooth.                                                                                                                        |
+| Subtype            | string         | Necessario      | **Deve** essere il codice di quattro caratteri "data".                                                                                                                                                                                  |
+| Schema             | string         | Necessario      | **Deve** essere un URN o un URL che identifica lo schema del messaggio. Per i messaggi [SCTE-35], **deve** essere "urn: SCTE: scte35:2013: bin" affinché i messaggi vengano inviati ai client HLS, Smooth e Dash in conformità con [SCTE-35]. |
+| trackName          | string         | Necessario      | **Deve** corrispondere al nome della traccia di tipo sparse. Trackname può essere usato per distinguere più flussi di eventi con lo stesso schema. Ogni flusso di eventi univoco **deve** avere un nome di traccia univoco.                                |
+| timescale          | Numero         | Facoltativo      | **Deve** corrispondere alla scala cronologica della traccia padre.                                                                                                                                                                               |
 
 ---
 
@@ -441,7 +439,7 @@ La casella ' Moov ' **deve** contenere una casella **TrackHeaderBox (' tkhd ')**
 
 | **Nome campo** | **Tipo di campo**          | **Obbligatorio?** | **Descrizione**                                                                                                    |
 | -------------- | ----------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ |
-| duration       | Intero senza segno a 64 bit | Obbligatoria      | **Deve** essere 0, poiché la casella Track include zero campioni e la durata totale degli esempi nella casella Track è 0. |
+| duration       | Intero senza segno a 64 bit | Necessario      | **Deve** essere 0, poiché la casella Track include zero campioni e la durata totale degli esempi nella casella Track è 0. |
 
 ---
 
@@ -449,7 +447,7 @@ La casella ' Moov ' **deve** contenere un **HandlerBox (' HDLR ')** come definit
 
 | **Nome campo** | **Tipo di campo**          | **Obbligatorio?** | **Descrizione**       |
 | -------------- | ----------------------- | ------------- | --------------------- |
-| handler_type   | Intero senza segno a 32 bit | Obbligatoria      | **Deve** essere ' meta '. |
+| handler_type   | Intero senza segno a 32 bit | Necessario      | **Deve** essere ' meta '. |
 
 ---
 
@@ -467,8 +465,8 @@ La casella casella moviefragmentbox (' Moof ') **deve** contenere una casella **
 
 | **Nome campo**         | **Tipo di campo**          | **Obbligatorio?** | **Descrizione**                                                                                           |
 | ---------------------- | ----------------------- | ------------- | --------------------------------------------------------------------------------------------------------- |
-| fragment_absolute_time | Intero senza segno a 64 bit | Obbligatoria      | **Deve** essere l'ora di arrivo dell'evento. Questo valore consente di allineare il messaggio con la traccia padre.           |
-| fragment_duration      | Intero senza segno a 64 bit | Obbligatoria      | **Deve** corrispondere alla durata dell'evento. La durata può essere zero per indicare che la durata è sconosciuta. |
+| fragment_absolute_time | Intero senza segno a 64 bit | Necessario      | **Deve** essere l'ora di arrivo dell'evento. Questo valore consente di allineare il messaggio con la traccia padre.           |
+| fragment_duration      | Intero senza segno a 64 bit | Necessario      | **Deve** corrispondere alla durata dell'evento. La durata può essere zero per indicare che la durata è sconosciuta. |
 
 ---
 
@@ -477,10 +475,10 @@ La casella MediaDataBox (' mdat ') **deve** avere il formato seguente:
 
 | **Nome campo**          | **Tipo di campo**                   | **Obbligatorio?** | **Descrizione**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------------------- | -------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                 | Intero senza segno a 32 bit (uimsbf) | Obbligatoria      | Determina il formato del contenuto della casella ' mdat '. Le versioni non riconosciute verranno ignorate. Al momento, l'unica versione supportata è 1.                                                                                                                                                                                                                                                                                                                                                                      |
-| id                      | Intero senza segno a 32 bit (uimsbf) | Obbligatoria      | Identifica l'istanza del messaggio. I messaggi semanticamente equivalenti devono avere lo stesso valore, vale a dire che è sufficiente l'elaborazione di una qualsiasi casella di messaggio evento con lo stesso ID.                                                                                                                                                                                                                                                                                                                            |
-| presentation_time_delta | Intero senza segno a 32 bit (uimsbf) | Obbligatoria      | La somma del fragment_absolute_time, specificata in TrackFragmentExtendedHeaderBox, e il presentation_time_delta **deve** essere l'ora di presentazione dell'evento. L'ora e la durata della presentazione **devono** essere allineate con i punti di accesso al flusso (SAP) di tipo 1 o 2, come definito in [ISO-14496-12] Annex I. Per l'uscita HLS, l'ora e la durata **devono** essere allineate con i limiti del segmento. L'ora di presentazione e la durata dei diversi messaggi di evento nello stesso flusso di eventi non **devono** sovrapporsi. |
-| message                 | matrice di byte                       | Obbligatoria      | Messaggio di evento. Per i messaggi [SCTE-35], il messaggio è il splice_info_section binario (). Per i messaggi [SCTE-35], **deve** essere il splice_info_section () affinché i messaggi vengano inviati ai client HLS, Smooth e Dash in conformità con [SCTE-35]. Per i messaggi [SCTE-35], il splice_info_section binario () è il payload della casella ' mdat ' e **non** è con codifica Base64.                                                                                                                     |
+| version                 | Intero senza segno a 32 bit (uimsbf) | Necessario      | Determina il formato del contenuto della casella ' mdat '. Le versioni non riconosciute verranno ignorate. Al momento, l'unica versione supportata è 1.                                                                                                                                                                                                                                                                                                                                                                      |
+| id                      | Intero senza segno a 32 bit (uimsbf) | Necessario      | Identifica l'istanza del messaggio. I messaggi semanticamente equivalenti devono avere lo stesso valore, vale a dire che è sufficiente l'elaborazione di una qualsiasi casella di messaggio evento con lo stesso ID.                                                                                                                                                                                                                                                                                                                            |
+| presentation_time_delta | Intero senza segno a 32 bit (uimsbf) | Necessario      | La somma del fragment_absolute_time, specificata in TrackFragmentExtendedHeaderBox, e il presentation_time_delta **deve** essere l'ora di presentazione dell'evento. L'ora e la durata della presentazione **devono** essere allineate con i punti di accesso al flusso (SAP) di tipo 1 o 2, come definito in [ISO-14496-12] Annex I. Per l'uscita HLS, l'ora e la durata **devono** essere allineate con i limiti del segmento. L'ora di presentazione e la durata dei diversi messaggi di evento nello stesso flusso di eventi non **devono** sovrapporsi. |
+| message                 | matrice di byte                       | Necessario      | Messaggio di evento. Per i messaggi [SCTE-35], il messaggio è il splice_info_section binario (). Per i messaggi [SCTE-35], **deve** essere il splice_info_section () affinché i messaggi vengano inviati ai client HLS, Smooth e Dash in conformità con [SCTE-35]. Per i messaggi [SCTE-35], il splice_info_section binario () è il payload della casella ' mdat ' e **non** è con codifica Base64.                                                                                                                     |
 
 ---
 
@@ -506,7 +504,7 @@ Per informazioni dettagliate su come formattare una traccia dei messaggi sparse,
 StreamIndex **deve** avere un sottotipo di "data" e CustomAttributes **deve** contenere un attributo con Name = "schema" e value = "urn: SCTE: scte35:2013: bin".
 
 #### <a name="smooth-client-manifest-example-showing-base64-encoded-scte35-splice_info_section"></a>Esempio di manifesto client Smooth che mostra la codifica Base64 [SCTE35] splice_info_section ()
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" TimeScale="10000000" IsLive="true" Duration="0"
   LookAheadFragmentCount="2" DVRWindowLength="6000000000">
@@ -542,7 +540,7 @@ StreamIndex **deve** avere un sottotipo di "data" e CustomAttributes **deve** co
     </c>
   </StreamIndex>
 </SmoothStreamingMedia>
-~~~
+```
 
 ## <a name="32-apple-hls-manifest-decoration"></a>3,2 decorazione del manifesto HLS Apple
 
@@ -567,7 +565,7 @@ The **RECOMMENDED** approach in Azure Media Services (version 3 API) is to follo
 
 Nell'esempio seguente l'output del manifesto HLS di Media Services Dynamic Packager Mostra un tag EXT-X-CUE per [Adobe-debutto] in modalità SCTE35. 
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:8
 #EXT-X-MEDIA-SEQUENCE:0
@@ -719,7 +717,7 @@ Fragments(video=28513485,format=m3u8-aapl-v8)
 #EXTINF:1.501500,no-desc
 Fragments(video=28648620,format=m3u8-aapl-v8)
 
-~~~
+```
 
 
 <!---
@@ -932,12 +930,12 @@ Il tag EXT-X-CUE "Legacy" è definito come indicato di seguito e può anche esse
 
 | **Nome attributo** | **Tipo**                      | **Obbligatorio?**                             | **Descrizione**                                                                                                                                                                                                                                                                          |
 | ------------------ | ----------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CUE                | stringa tra virgolette                 | Obbligatoria                                  | Messaggio codificato come stringa con codifica Base64 come descritto in [RFC4648]. Per i messaggi [SCTE-35], si tratta del splice_info_section con codifica Base64 ().                                                                                                                                      |
-| TYPE               | stringa tra virgolette                 | Obbligatoria                                  | Un URN o URL che identifica lo schema del messaggio. Per i messaggi [SCTE-35], il tipo accetta il valore speciale "scte35".                                                                                                                                                                          |
-| ID                 | stringa tra virgolette                 | Obbligatoria                                  | Un identificatore univoco dell'evento. Se al momento dell'inserimento del messaggio non viene specificato l'ID, Servizi multimediali di Azure genererà un ID univoco.                                                                                                                                              |
-| DURATION           | numero a virgola mobile decimale | Obbligatoria                                  | Durata dell'evento. Se è sconosciuto, il valore **deve** essere 0. Le unità sono espresse in secondi frazionari.                                                                                                                                                                                           |
+| CUE                | stringa tra virgolette                 | Necessario                                  | Messaggio codificato come stringa con codifica Base64 come descritto in [RFC4648]. Per i messaggi [SCTE-35], si tratta del splice_info_section con codifica Base64 ().                                                                                                                                      |
+| TYPE               | stringa tra virgolette                 | Necessario                                  | Un URN o URL che identifica lo schema del messaggio. Per i messaggi [SCTE-35], il tipo accetta il valore speciale "scte35".                                                                                                                                                                          |
+| ID                 | stringa tra virgolette                 | Necessario                                  | Un identificatore univoco dell'evento. Se al momento dell'inserimento del messaggio non viene specificato l'ID, Servizi multimediali di Azure genererà un ID univoco.                                                                                                                                              |
+| DURATION           | numero a virgola mobile decimale | Necessario                                  | Durata dell'evento. Se è sconosciuto, il valore **deve** essere 0. Le unità sono espresse in secondi frazionari.                                                                                                                                                                                           |
 | ELAPSED            | numero a virgola mobile decimale | Facoltativo, ma necessari per la finestra temporale scorrevole | Quando il segnale viene ripetuto per supportare una finestra di presentazione scorrevole, questo campo **deve** corrispondere alla quantità di tempo di presentazione trascorso dall'inizio dell'evento. Le unità sono espresse in secondi frazionari. Questo valore può superare la durata originale specificata della giunzione o del segmento. |
-| TIME               | numero a virgola mobile decimale | Obbligatoria                                  | L'ora di presentazione dell'evento. Le unità sono espresse in secondi frazionari.                                                                                                                                                                                                                        |
+| TIME               | numero a virgola mobile decimale | Necessario                                  | L'ora di presentazione dell'evento. Le unità sono espresse in secondi frazionari.                                                                                                                                                                                                                        |
 
 Il livello dell'applicazione del lettore HLS userà l'attributo TYPE per identificare il formato del messaggio, decodificare il messaggio, applicare le conversioni temporali necessarie ed elaborare l'evento.  Gli eventi sono sincronizzati temporalmente nella playlist del segmento della traccia padre, in base al timestamp dell'evento.  Essi vengono inserite prima del segmento più vicino (tag #EXTINF).
 
@@ -949,7 +947,7 @@ L'esempio seguente illustra la decorazione del manifesto HLS usando il tag di Ad
 --->
 
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:4
 #EXT-X-PLAYLIST-TYPE:VOD
@@ -1008,7 +1006,7 @@ Fragments(video=4011692972,format=m3u8-aapl)
 #EXTINF:8.008000,no-desc
 Fragments(video=4011702982,format=m3u8-aapl)
 
-~~~
+```
 
 ### <a name="324-hls-message-handling-for-adobe-primetime-ext-x-cue"></a>3.2.4 gestione dei messaggi HLS per Adobe debutto EXT-X-CUE
 
@@ -1056,7 +1054,7 @@ L'elemento EventStream ha gli attributi seguenti:
 | ------------------ | ----------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | scheme_id_uri      | string                  | Obbligatorio      | Identifica lo schema del messaggio. Lo schema è impostato sul valore dell'attributo Schema nella casella Live Server Manifest. Il valore **deve** essere un URN o un URL che identifica lo schema del messaggio. Il schemeId di output supportato dovrebbe essere "urn: SCTE: scte35:2014: XML + bin" per [SCTE-214-1] sec 6.7.4 (MPD), perché il servizio supporta solo "XML + bin" per brevità in MPD. |
 | Valore              | string                  | Facoltativo      | Un valore di stringa aggiuntivo usato dai proprietari dello schema per personalizzare la semantica del messaggio. Per distinguere più flussi di eventi con lo stesso schema, il valore **deve** essere impostato sul nome del flusso di eventi (Trackname per [MS-SSTR-inserimento] o sul nome del messaggio AMF per l'inserimento di [RTMP]).                                                                         |
-| Scala cronologica          | Intero senza segno a 32 bit | Obbligatoria      | La scala cronologica, espressa in cicli al secondo.                                                                                                                                                                                                                                                                                                                                                     |
+| Scala cronologica          | Intero senza segno a 32 bit | Necessario      | La scala cronologica, espressa in cicli al secondo.                                                                                                                                                                                                                                                                                                                                                     |
 
 
 ### <a name="332-example-event-streams-for-mpeg-dash"></a>3.3.2 flussi di eventi di esempio per MPEG DASH
@@ -1065,7 +1063,7 @@ L'elemento EventStream ha gli attributi seguenti:
 
 Nell'esempio seguente viene illustrato un estratto EventStream da Media Services Dynamic Packager per un flusso RTMP con la segnalazione in modalità "Simple" di Adobe.
 
-~~~ xml
+```xml
 <!-- Example EventStream element using "urn:com:adobe:dpi:simple:2015" Adobe simple signaling per [Adobe-Primetime] -->
     <EventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="simplesignal" timescale="10000000">
         <Event presentationTime="1583497601000000" duration="300000000" id="1085900"/>
@@ -1080,7 +1078,7 @@ Nell'esempio seguente viene illustrato un estratto EventStream da Media Services
         <Event presentationTime="1583527306666666" duration="300000000" id="4056466"/>
         <Event presentationTime="1583530607333333" duration="300000000" id="4386533"/>
     </EventStream>
-~~~
+```
 
 
 #### <a name="3322-example-mpeg-dash-mpd-manifest-signaling-of-an-rtmp-stream-using-adobe-scte-35-mode"></a>esempio di 3.3.2.2 MPEG DASH. mpd segnalazione di un flusso RTMP con la modalità Adobe SCTE-35
@@ -1089,7 +1087,7 @@ Nell'esempio seguente viene illustrato un estratto EventStream da Media Services
 
 Esempio di elemento EventStream con la segnalazione dello stile XML + bin per [SCTE-214-1]
 
-~~~ xml
+```xml
 
       <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35" timescale="10000000">
         <Event presentationTime="2595092444" duration="11011000" id="1002">
@@ -1103,7 +1101,7 @@ Esempio di elemento EventStream con la segnalazione dello stile XML + bin per [S
             </Signal>
         </Event>
       </EventStream>
-~~~
+```
 
 
 
@@ -1119,7 +1117,7 @@ Esempio di elemento EventStream con la segnalazione dello stile XML + bin per [S
 L'esempio seguente illustra l'output di Media Services Dynamic Packager per un flusso RTMP di origine usando il metodo di segnalazione ad di Adobe "Simple" mode. L'output è un singolo manifesto del periodo che mostra un EventStream usando l'URI schemeId impostato su "urn: com: Adobe: dpi: Simple: 2015" e la proprietà Value è impostata su "simplesignal".
 Ogni segnale semplice viene fornito in un elemento Event con le @presentationTime @duration proprietà, e @id popolate in base ai segnali semplici in arrivo.
 
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="static" mediaPresentationDuration="PT28M1.680S" minBufferTime="PT3S">
@@ -1168,7 +1166,7 @@ Ogni segnale semplice viene fornito in un elemento Event con le @presentationTim
     </Period>
 </MPD>
 
-~~~
+```
 
 <!---
 #### 3.3.3.2 Example MPEG DASH manifest (MPD) with multi-period, EventStream, using Adobe SCTE35 mode signaling
@@ -1314,18 +1312,18 @@ I dettagli seguenti descrivono i valori specifici che il client deve aspettarsi 
 | ----------------------- | ----------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | scheme_id_uri           | string                  | Obbligatorio      | Identifica lo schema del messaggio. Lo schema è impostato sul valore dell'attributo Schema nella casella Live Server Manifest. Il valore **deve** essere un URN che identifica lo schema del messaggio. Per i messaggi [SCTE-35], **deve** essere "urn: SCTE: scte35:2013: bin" in conformità con [SCTE-214-3]          |
 | valore                   | string                  | Obbligatorio      | Un valore di stringa aggiuntivo usato dai proprietari dello schema per personalizzare la semantica del messaggio. Per poter distinguere più flussi di eventi con lo stesso schema, il valore verrà impostato sul nome del flusso di eventi (trackName per l'inserimento Smooth o nome del messaggio AMF per l' inserimento RTMP). |
-| Scala cronologica               | Intero senza segno a 32 bit | Obbligatoria      | La scala cronologica, espressa in cicli al secondo, dei campi Times e Duration all'interno della casella "EMSG".                                                                                                                                                                                                            |
-| Presentation_time_delta | Intero senza segno a 32 bit | Obbligatoria      | Delta del tempo della presentazione multimediale dell'evento è l'ora di presentazione meno recente in questo segmento. L'ora e la durata della presentazione **devono** essere allineate con i punti di accesso al flusso (SAP) di tipo 1 o 2, come definito in [ISO-14496-12] Annex I.                                  |
-| event_duration          | Intero senza segno a 32 bit | Obbligatoria      | La durata dell'evento o 0xFFFFFFFF per indicare una durata sconosciuta.                                                                                                                                                                                                                              |
-| ID                      | Intero senza segno a 32 bit | Obbligatoria      | Identifica l'istanza del messaggio. I messaggi semanticamente equivalenti devono avere lo stesso valore. Se al momento dell'inserimento del messaggio non viene specificato l'ID, Servizi multimediali di Azure genererà un ID univoco.                                                                                        |
-| Message_data            | matrice di byte              | Obbligatoria      | Messaggio di evento. Per i messaggi [SCTE-35], i dati del messaggio sono i splice_info_section binari () in conformità con [SCTE-214-3]                                                                                                                                                                        |
+| Scala cronologica               | Intero senza segno a 32 bit | Necessario      | La scala cronologica, espressa in cicli al secondo, dei campi Times e Duration all'interno della casella "EMSG".                                                                                                                                                                                                            |
+| Presentation_time_delta | Intero senza segno a 32 bit | Necessario      | Delta del tempo della presentazione multimediale dell'evento è l'ora di presentazione meno recente in questo segmento. L'ora e la durata della presentazione **devono** essere allineate con i punti di accesso al flusso (SAP) di tipo 1 o 2, come definito in [ISO-14496-12] Annex I.                                  |
+| event_duration          | Intero senza segno a 32 bit | Necessario      | La durata dell'evento o 0xFFFFFFFF per indicare una durata sconosciuta.                                                                                                                                                                                                                              |
+| ID                      | Intero senza segno a 32 bit | Necessario      | Identifica l'istanza del messaggio. I messaggi semanticamente equivalenti devono avere lo stesso valore. Se al momento dell'inserimento del messaggio non viene specificato l'ID, Servizi multimediali di Azure genererà un ID univoco.                                                                                        |
+| Message_data            | matrice di byte              | Necessario      | Messaggio di evento. Per i messaggi [SCTE-35], i dati del messaggio sono i splice_info_section binari () in conformità con [SCTE-214-3]                                                                                                                                                                        |
 
 
 #### <a name="example-inbandevenstream-entity-for-adobe-simple-mode"></a>Esempio di entità InBandEvenStream per la modalità semplice di Adobe
-~~~ xml
+```xml
 
       <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
-~~~
+```
 
 ### <a name="335-dash-message-handling"></a>Gestione dei messaggi 3.3.5 DASH
 

@@ -11,19 +11,19 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: a83fd67a9ad5e5a36555fcbaed65b1d76936c33d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 27881d6271fbedfb5763b293d5145e2f87cd1c13
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906057"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309311"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
 > [!NOTE]
 > * Il contenitore per Analisi del sentiment V3 è ora disponibile a livello generale. I contenitori per l'estrazione di frasi chiave e rilevamento della lingua sono disponibili in anteprima pubblica non gestita.
 > * Il collegamento di entità e NER non sono attualmente disponibili come contenitore.
-> * Per accedere alla Analisi del testo per il contenitore di integrità è necessario un [modulo di richiesta](https://aka.ms/cognitivegate). Attualmente, non verrà addebitato l'utilizzo.
+> * Per accedere alla Analisi del testo per il contenitore di integrità è necessario un [modulo di richiesta](https://aka.ms/csgate). Attualmente, non verrà addebitato l'utilizzo.
 > * I percorsi delle immagini del contenitore potrebbero essere stati modificati di recente. Leggere questo articolo per visualizzare il percorso aggiornato per questo contenitore.
 
 I contenitori consentono di eseguire le API di analisi del testo nell'ambiente in uso e sono perfette per i requisiti di sicurezza e governance dei dati specifici. I contenitori di Analisi del testo forniscono l'elaborazione avanzata in linguaggio naturale su testo non elaborato e includono tre funzioni principali: analisi dei sentimenti, estrazione di frasi chiave e rilevamento della lingua. 
@@ -158,7 +158,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](../
 
 [!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori di Analisi del testo. In sintesi:
 

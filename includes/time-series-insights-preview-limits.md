@@ -1,6 +1,6 @@
 ---
-title: includere il file
-description: File di inclusione
+title: includere file
+description: includere file
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 48080bb4d1e24f7f98d3dfe1fd63b65ba46df35e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7259e1981f873c8385a02fe4f353dcdda495f823
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289906"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287415"
 ---
 ### <a name="property-limits"></a>Limiti delle proprietà
 
@@ -26,14 +26,13 @@ Azure Time Series Insights limiti delle proprietà sono aumentati a 1.000 da un 
 | Gen1 (S1) | Proprietà 600 (colonne) |
 | Gen1 (S2) | Proprietà 800 (colonne) |
 
-### <a name="event-sources"></a>Origini eventi
+### <a name="streaming-ingestion"></a>Inserimento streaming
 
-È supportato un massimo di due origini evento per ogni istanza.
+* Sono disponibili un massimo di due [origini evento](../articles/time-series-insights/concepts-streaming-ingestion-event-sources.md) per ogni ambiente.
 
-* Informazioni su come [aggiungere un'origine di hub eventi](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
-* Configurare [un'origine Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub)Internet delle cose.
+* Le procedure consigliate e le linee guida generali per le origini eventi sono disponibili [qui](../articles/time-series-insights/concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices)
 
-Per impostazione predefinita, gli [ambienti Gen2 supportano le velocità in ingresso](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingress-throughput-limits) fino a **1 MB al secondo (MB/s) per ogni ambiente**. Se necessario, i clienti possono ridimensionare gli ambienti fino a **16 MB/s** di velocità effettiva. Esiste anche un limite per partizione di **0,5 MB/s**.
+* Per impostazione predefinita, Azure Time Series Insights Gen2 è in grado di inserire i dati in ingresso a una velocità di un **massimo di 1 megabyte al secondo (Mbps) per Azure Time Series Insights ambiente Gen2**. [Per ogni partizione dell'hub](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits) ci sono altre limitazioni. È possibile fornire frequenze fino a 8 MBps inviando un ticket di supporto tramite il portale di Azure. Per altre informazioni, vedere [limiti di velocità effettiva](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md)di inserimento di flussi.
 
 ### <a name="api-limits"></a>Limiti API
 

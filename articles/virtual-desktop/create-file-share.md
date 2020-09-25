@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ced763ca4abd32f3b824f05f2f5786a5d9cfd4c4
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825444"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287322"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Creare un contenitore di profili con File di Azure e servizi di dominio Active Directory
 
@@ -56,7 +56,7 @@ Per creare una condivisione file:
 
 1. Selezionare **Vai alla risorsa**.
 
-2. Nella pagina Panoramica selezionare **condivisioni file**.
+2. Nella pagina Panoramica selezionare **Condivisioni file**.
 
 3. Selezionare **+ condivisioni file**, creare una nuova condivisione file denominata **profili**, quindi immettere una quota appropriata o lasciare il campo vuoto per nessuna quota.
 
@@ -131,7 +131,7 @@ Ecco come ottenere il percorso UNC:
     - Sostituire la barra `/` con una barra rovesciata `\` .
     - Aggiungere il nome della condivisione file creata in [creare una condivisione file di Azure](#create-an-azure-file-share) alla fine dell'UNC.
 
-        ad esempio `\\customdomain.file.core.windows.net\<fileshare-name>`
+        Ad esempio: `\\customdomain.file.core.windows.net\<fileshare-name>`
 
 ### <a name="get-the-storage-account-key"></a>Ottenere la chiave dell'account di archiviazione
 
@@ -154,7 +154,7 @@ Per configurare le autorizzazioni NTFS:
 2. Eseguire il comando seguente per montare la condivisione file di Azure e assegnargli una lettera di unità:
 
      ```cmd
-     net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
+     net use <desired-drive-letter>: <UNC-path> <SA-key> /user:Azure\<SA-name>
      ```
 
 3. Eseguire il comando seguente per esaminare le autorizzazioni di accesso per la condivisione file di Azure:

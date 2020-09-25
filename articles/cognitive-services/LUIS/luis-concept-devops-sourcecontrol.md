@@ -1,20 +1,22 @@
 ---
 title: Rami di controllo del codice sorgente e sviluppo-LUIS
 description: Come gestire l'app Language Understanding (LUIS) nel controllo del codice sorgente. Come applicare gli aggiornamenti a un'app LUIS mentre si lavora in un ramo di sviluppo.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 2d060fefbd32ecea1f91e6b062da7606699a63c4
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783673"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309507"
 ---
 # <a name="devops-practices-for-luis"></a>Procedure DevOps per LUIS
 
 I tecnici software che stanno sviluppando un'app Language Understanding (LUIS) possono applicare procedure DevOps per il [controllo del codice sorgente](luis-concept-devops-sourcecontrol.md), le [compilazioni automatizzate](luis-concept-devops-automation.md), i [test](luis-concept-devops-testing.md)e la [gestione delle versioni](luis-concept-devops-automation.md#release-management) attenendosi alle linee guida.
 
-## <a name="source-control-and-branch-strategies-for-luis"></a>Strategie di controllo del codice sorgente e rami per LUIS
+## <a name="source-control-and-branch-strategies-for-luis"></a>Strategie di controllo del codice sorgente e gestione rami per LUIS
 
 Uno dei fattori chiave che dipende dal successo di DevOps è il controllo del [codice sorgente](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops). Un sistema di controllo del codice sorgente consente agli sviluppatori di collaborare al codice e di tenere traccia delle modifiche. L'uso dei rami consente agli sviluppatori di passare da una versione all'altra della codebase e di lavorare in modo indipendente da altri membri del team. Quando gli sviluppatori generano una [richiesta pull](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) per proporre gli aggiornamenti da un ramo a un altro o quando le modifiche vengono unite, possono essere il trigger per le [compilazioni automatiche](luis-concept-devops-automation.md) per compilare e testare continuamente il codice.
 
@@ -40,7 +42,7 @@ Usando i concetti e le linee guida descritte in questo documento, è possibile s
 
 ## <a name="source-control"></a>Controllo del codice sorgente
 
-Per mantenere la [definizione dello schema dell'app](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) di un'app Luis in un sistema di gestione del codice sorgente, usare la rappresentazione [LUDown Format ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0) dell'app. `.lu`è preferibile formattare `.json` il formato perché è leggibile, che rende più semplice apportare ed esaminare le modifiche nelle richieste pull.
+Per mantenere la [definizione dello schema dell'app](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) di un'app Luis in un sistema di gestione del codice sorgente, usare la rappresentazione [LUDown Format ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  dell'app. `.lu` è preferibile formattare `.json` il formato perché è leggibile, che rende più semplice apportare ed esaminare le modifiche nelle richieste pull.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>Salvare un'app LUIS usando il formato LUDown
 
@@ -52,7 +54,7 @@ Per salvare un'app LUIS nel `.lu` formato e inserirla nel controllo del codice s
 
 > [!TIP]
 > Se si lavora con l'esportazione JSON di un'app LUIS, è possibile [convertirla in LUDown](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert) usando l'interfaccia della riga di comando di [BOTBUILDER-Tools Luis](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS). Usare l' `--sort` opzione per assicurarsi che gli Intent e le espressioni siano ordinati alfabeticamente.  
-> Si noti che **. **La funzionalità di esportazione Lu incorporata nel portale Luis Ordina già l'output.
+> Si noti che **. ** La funzionalità di esportazione Lu incorporata nel portale Luis Ordina già l'output.
 
 ### <a name="build-the-luis-app-from-source"></a>Compilare l'app LUIS dall'origine
 
@@ -66,7 +68,7 @@ Per un'app LUIS, per *compilare da un'origine* significa [creare una nuova versi
 
 I seguenti tipi di file per l'applicazione LUIS devono essere conservati nel controllo del codice sorgente:
 
-- `.lu`file per l'applicazione LUIS
+- `.lu` file per l'applicazione LUIS
 
 - [File di definizione unit test](luis-concept-devops-testing.md#writing-tests) (espressioni e risultati previsti)
 

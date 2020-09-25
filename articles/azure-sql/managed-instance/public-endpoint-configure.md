@@ -8,14 +8,14 @@ ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: 1c2dd3f93abf6418b99bf28d11f2df254b024971
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 498d00b4f6a0ca16d07663641a46f30109b39d5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708639"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325063"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configurare l'endpoint pubblico nell'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -40,7 +40,7 @@ A causa della riservatezza dei dati presenti in un'istanza gestita, la configura
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Abilitazione dell'endpoint pubblico per un'istanza gestita nel portale di Azure
 
-1. Avviare il portale di Azure<https://portal.azure.com/.>
+1. Avviare il portale di Azure <https://portal.azure.com/.>
 1. Aprire il gruppo di risorse con l'istanza gestita e selezionare l' **istanza di SQL gestita** in cui si vuole configurare l'endpoint pubblico.
 1. In impostazioni **sicurezza** selezionare la scheda **rete virtuale** .
 1. Nella pagina Configurazione rete virtuale selezionare **Abilita** e quindi l'icona **Salva** per aggiornare la configurazione.
@@ -82,7 +82,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Consenti traffico endpoint pubblico nel gruppo di sicurezza di rete
 
-1. Se la pagina di configurazione dell'istanza gestita è ancora aperta, passare alla scheda **Panoramica** . in caso contrario, tornare alla risorsa **istanza gestita di SQL** . Selezionare il collegamento **rete virtuale/subnet** , che consente di passare alla pagina Configurazione rete virtuale.
+1. Se la pagina Configurazione dell'istanza gestita è ancora aperta, passare alla scheda **Panoramica** . In caso contrario, tornare alla risorsa **istanza gestita di SQL** . Selezionare il collegamento **rete virtuale/subnet** , che consente di passare alla pagina Configurazione rete virtuale.
 
     ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
 
@@ -98,11 +98,11 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |---------|---------|---------|
     |**Origine**     |Qualsiasi indirizzo IP o tag di servizio         |<ul><li>Per i servizi di Azure come Power BI, selezionare il tag del servizio cloud di Azure</li> <li>Per il computer o la macchina virtuale di Azure, usare l'indirizzo IP NAT</li></ul> |
     |**Intervalli di porte di origine**     |* |Lasciarlo a * (qualsiasi) perché le porte di origine vengono in genere allocate in modo dinamico e come tali, imprevedibili |
-    |**Destination**     |Qualsiasi         |Uscita da destinazione per consentire il traffico nella subnet dell'istanza gestita |
+    |**Destinazione**     |Qualsiasi         |Uscita da destinazione per consentire il traffico nella subnet dell'istanza gestita |
     |**Intervalli di porte di destinazione**     |3342         |Porta di destinazione dell'ambito su 3342, ovvero l'endpoint TDS pubblico dell'istanza gestita |
     |**Protocollo**     |TCP         |SQL Istanza gestita usa il protocollo TCP per TDS |
     |**Azione**     |Consenti         |Consentire il traffico in ingresso verso l'istanza gestita tramite l'endpoint pubblico |
-    |**Priority**     |1300         |Verificare che questa regola abbia una priorità più alta rispetto alla regola di **deny_all_inbound** |
+    |**Priorità**     |1300         |Verificare che questa regola abbia una priorità più alta rispetto alla regola di **deny_all_inbound** |
 
     ![mi-nsg-rules.png](./media/public-endpoint-configure/mi-nsg-rules.png)
 

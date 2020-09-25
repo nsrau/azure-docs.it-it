@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: fb5b9c446ea5574970b14c683fac258c17199fef
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: a36eb588c7128f13fb21b368d308ed00171fbb4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565373"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335535"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -135,12 +135,11 @@ Per la cronologia delle versioni precedenti, vedere [qui](https://en.wikipedia.o
 
 |  Versione di K8s | Versione upstream  | Anteprima AKS  | AKS GA  | Fine vita |
 |--------------|-------------------|--------------|---------|-------------|
+| 1.16  | Sep-19-19  | Gennaio 2019   | Marzo 2020  | 1,19 GA | 
 | 1.17  | 09-19 dicembre  | Gennaio 2019   | 2020 luglio  | 1,20 GA | 
 | 1.18  | Mar-23-20  | Maggio 2020   | 2020 agosto  | 1,21 GA | 
-| 1,19  | Aug-04-20  | 2020 agosto   | 2020 novembre  | 1,22 GA | 
-| 1,20  | * Nov 2020    | * Dec 2020   | * Gen 2021  | 1,23 GA | 
-
-\* Conferma della data di rilascio upstream in sospeso.
+| 1,19  | Aug-04-20  | 2020 Sep   | 2020 novembre  | 1,22 GA | 
+| 1,20  | 08-20 dicembre  | Gennaio 2021   | Mar 2021  | 1,23 GA | 
 
 ## <a name="faq"></a>Domande frequenti
 

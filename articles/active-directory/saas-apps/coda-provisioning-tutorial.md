@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1013e7f7fa824a7fef0535b8ab599e2a4e786b40
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 95ee630c1190167227a4ab3514a0c36db0401e45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032334"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273365"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Esercitazione: configurare la coda per il provisioning utenti automatico
 
@@ -85,11 +85,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere l'URL del tenant di coda e il token del segreto recuperati in precedenza nel passaggio 2. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi a coda. Se la connessione non riesce, verificare che l'account di coda abbia le autorizzazioni di amministratore e riprovare.
 

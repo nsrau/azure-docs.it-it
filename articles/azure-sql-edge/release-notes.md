@@ -10,12 +10,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900594"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284483"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Note sulla versione di Azure SQL Edge 
 
@@ -23,17 +23,23 @@ Questo articolo descrive le novità e le modifiche apportate a ogni nuova build 
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge-1.0.0 (RTM)
 
-### <a name="sql-engine-build-number---15020001549"></a>Numero di build del motore SQL: 15.0.2000.1549
+### <a name="sql-engine-build-number---15020001552"></a>Numero di build del motore SQL: 15.0.2000.1552
 
 ### <a name="whats-new"></a>Novità
 1. Immagini del contenitore basate su Ubuntu 18,04. 
 2. Supporto per `IGNORE NULL` la `RESPECT NULL` sintassi e con le `LAST_VALUE()` `FIRST_VALUE()` funzioni e. 
 3. Miglioramenti dell'affidabilità per la stima con ONNX.
-4. Supporto per la pulizia basata sui criteri di conservazione dei dati.      
-   - Supporto per la pulizia ottimizzata per gli indici columnstore cluster.
+4. Supporto per la pulizia basata sui criteri di conservazione dei dati.
+   - Supporto del buffer circolare per l'attività di pulizia della conservazione per la risoluzione dei problemi.
 5. Supporto per nuove funzionalità 
    - Ripristino rapido
    - Ottimizzazione automatica delle query
+   - Abilita scenari di esecuzione parallela
+6. Miglioramenti al risparmio energetico per la modalità a basso consumo
+7. Supporto per la nuova funzionalità di streaming 
+   - [Snapshot Windows](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : nuovo tipo di finestra che consente di raggruppare gli eventi che arrivano esattamente allo stesso tempo. 
+   - Abilitare [topone](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) e [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) come funzione analitica, in questo modo sarà possibile restituire i record ordinati in base alla colonna scelta, senza che sia necessario far parte di una finestra. 
+   - Miglioramenti apportati a [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics). 
 
 ### <a name="fixes"></a>Correzioni
 1. Messaggi di errore aggiuntivi e dettagli per la risoluzione dei problemi relativi alle operazioni di streaming TSQL. 
@@ -41,9 +47,13 @@ Questo articolo descrive le novità e le modifiche apportate a ogni nuova build 
 3. Correzioni del motore di flusso TSQL: 
    - Pulizia per un processo di streaming interrotto 
    - Correzioni per la localizzazione e i miglioramenti della gestione Unicode
+   - Migliorare la debugging per lo streaming TSQL di Edge, consentire agli utenti di eseguire query sugli errori di processo da get_streaming_job.
 4. Pulizia basata su criteri di conservazione dei dati
    - Correzioni per gli scenari di creazione e pulizia dei criteri di conservazione.
 5. Correzioni per le attività del timer in background per migliorare il risparmio energetico per la modalità a basso consumo.
+
+### <a name="known-issues"></a>Problemi noti 
+1. Non è possibile usare Date_Bucket funzione T-SQL in una colonna calcolata.
 
 
 ## <a name="ctp-23"></a>CTP 2.3

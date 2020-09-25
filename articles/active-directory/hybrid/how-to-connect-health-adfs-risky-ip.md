@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 431b45f4ef3431e7fd1d34cf80278892470c36ef
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660837"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306396"
 ---
 # <a name="risky-ip-report-public-preview"></a>Report IP rischioso (anteprima pubblica)
 AD FS clienti possono esporre gli endpoint di autenticazione tramite password a Internet per fornire ai servizi di autenticazione per gli utenti finali l'accesso ad applicazioni SaaS, ad esempio Microsoft 365. In questo caso, un attore malintenzionato potrebbe eseguire tentativi di accesso nel sistema AD FS per indovinare la password di un utente finale e ottenere l'accesso alle risorse dell'applicazione. A partire da AD FS in Windows Server 2012 R2, AD FS offre la funzionalità di blocco account Extranet per impedire questi tipi di attacchi. Se si usa una versione precedente, è consigliabile eseguire l'aggiornamento del sistema AD FS a Windows Server 2016. <br />
@@ -39,7 +39,7 @@ AD FS clienti possono esporre gli endpoint di autenticazione tramite password a 
 > 
 
 ## <a name="what-is-in-the-report"></a>Informazioni sul report
-Gli indirizzi IP del client dell'attività di accesso non riusciti vengono aggregati tramite i server proxy applicazione Web. Ogni elemento nel report sugli indirizzi IP rischiosi mostra informazioni aggregate sulle attività di accesso ad AD FS non riuscite che superano la soglia designata. Vengono riportate le informazioni seguenti: ![Portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+Gli indirizzi IP del client dell'attività di accesso non riusciti vengono aggregati tramite i server proxy applicazione Web. Ogni elemento nel report sugli indirizzi IP rischiosi mostra informazioni aggregate sulle attività di accesso ad AD FS non riuscite che superano la soglia designata. Fornisce le informazioni seguenti: ![ screenshot che mostra un report IP rischioso con le intestazioni di colonna evidenziate.](./media/how-to-connect-health-adfs/report4a.png)
 
 | Elemento del report | Descrizione |
 | ------- | ----------- |
@@ -52,7 +52,7 @@ Gli indirizzi IP del client dell'attività di accesso non riusciti vengono aggre
 
 L'elemento del report seguente, ad esempio, indica che nell'intervallo orario dalle 18 alle 19 del 28 febbraio 2018 l'indirizzo IP <i>104.2XX.2XX.9</i> ha generato zero errori di password errata e 284 errori di blocco Extranet. In base ai criteri sono stati coinvolti 14 utenti univoci. L'evento dell'attività ha superato la soglia oraria designata del report. 
 
-![portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/report4b.png)
+![Screenshot che mostra un esempio di una voce di report IP rischiosa.](./media/how-to-connect-health-adfs/report4b.png)
 
 > [!NOTE]
 > - Nell'elenco del report verranno visualizzate solo le attività che superano la soglia designata. 
@@ -60,7 +60,7 @@ L'elemento del report seguente, ad esempio, indica che nell'intervallo orario da
 > - Questo report di avviso non mostra gli indirizzi IP di Exchange o quelli privati, che sono però inclusi nell'elenco esportato. 
 >
 
-![portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/report4c.png)
+![Screenshot che mostra il report degli indirizzi IP rischiosi con il "download", "impostazioni di notifica" e "impostazioni soglia" evidenziati.](./media/how-to-connect-health-adfs/report4c.png)
 
 ## <a name="load-balancer-ip-addresses-in-the-list"></a>Indirizzi IP del servizio di bilanciamento del carico nell'elenco
 Attività di accesso aggregate non riuscite del servizio di bilanciamento del carico, con raggiungimento della soglia di avviso. Se vengono visualizzati indirizzi IP del servizio di bilanciamento del carico, è molto probabile che il servizio di bilanciamento del carico esterno non invii l'indirizzo IP del client quando passa la richiesta al server proxy applicazione Web. Configurare il servizio di bilanciamento del carico correttamente in modo da passare l'indirizzo IP del client di inoltro. 

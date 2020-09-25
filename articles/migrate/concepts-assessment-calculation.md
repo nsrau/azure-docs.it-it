@@ -3,12 +3,12 @@ title: Valutazioni delle VM di Azure in Azure Migrate server Assessment
 description: Informazioni sulle valutazioni in Azure Migrate server Assessment
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 1d9c887f42089611ce7402aa32174958cd8c0b07
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275524"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Panoramica della valutazione del server (migrazione alle macchine virtuali di Azure)
 
@@ -80,7 +80,7 @@ Se si usa il dispositivo per l'individuazione, raccoglie i dati sulle prestazion
     - **Macchine virtuali Hyper-V**: un punto di esempio viene raccolto ogni 30 secondi.
     - **Server fisici**: un punto di esempio viene raccolto ogni cinque minuti.
 
-1. L'Appliance combina i punti di esempio per creare un singolo punto dati ogni 10 minuti. Per creare il punto dati, l'appliance seleziona i valori di picco di tutti gli esempi. Invia quindi il punto dati ad Azure.
+1. L'Appliance combina i punti di esempio per creare un singolo punto dati ogni 10 minuti per i server VMware e Hyper-V e ogni 5 minuti per i server fisici. Per creare il punto dati, l'appliance seleziona i valori di picco di tutti gli esempi. Invia quindi il punto dati ad Azure.
 1. Server Assessment archivia tutti i punti dati di 10 minuti per l'ultimo mese.
 1. Quando si crea una valutazione, server Assessment identifica il punto dati appropriato da usare per rightsizing. L'identificazione si basa sui valori percentile per la *cronologia delle prestazioni* e l' *utilizzo percentile*.
 
@@ -176,7 +176,7 @@ Windows Server 2008 (32 bit e 64 bit) | Azure offre supporto completo. | Pronto 
 Windows Server 2003 e Windows Server 2003 R2 | Questi sistemi operativi hanno superato le date di fine del supporto e necessitano di un [contratto di supporto personalizzato (CSA)](https://aka.ms/WSosstatement) per il supporto in Azure. | Pronto per Azure in modo condizionale. Provare ad aggiornare il sistema operativo prima di eseguire la migrazione ad Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3,1 e MS-DOS | Questi sistemi operativi hanno superato le date di fine del supporto. Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto del sistema operativo. | Pronto per Azure in modo condizionale. Si consiglia di aggiornare il sistema operativo prima di eseguire la migrazione ad Azure.
 Windows 7, Windows 8 e Windows 10 | Azure fornisce il supporto solo per una [sottoscrizione di Visual Studio.](../virtual-machines/windows/client-images.md) | Pronto per Azure in modo condizionale.
-Windows 10 Pro | Azure fornisce supporto con [i diritti di hosting multi-tenant.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Pronto per Azure in modo condizionale.
+Windows 10 Pro | Azure fornisce supporto con [i diritti di hosting multi-tenant.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Pronto per Azure in modo condizionale.
 Windows Vista e Windows XP Professional | Questi sistemi operativi hanno superato le date di fine del supporto. Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto del sistema operativo. | Pronto per Azure in modo condizionale. Si consiglia di aggiornare il sistema operativo prima di eseguire la migrazione ad Azure.
 Linux | Vedere i [sistemi operativi Linux](../virtual-machines/linux/endorsed-distros.md) approvati da Azure. Altri sistemi operativi Linux potrebbero avviarsi in Azure. È tuttavia consigliabile aggiornare il sistema operativo a una versione approvata prima di eseguire la migrazione ad Azure. | Idoneo per Azure se la versione è approvata.<br/><br/>Pronto in modo condizionale se la versione non è approvata.
 Altri sistemi operativi come Oracle Solaris, Apple macOS e FreeBSD | Azure non approva questi sistemi operativi. Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto del sistema operativo. | Pronto per Azure in modo condizionale. Prima di eseguire la migrazione ad Azure, è consigliabile installare un sistema operativo supportato.  

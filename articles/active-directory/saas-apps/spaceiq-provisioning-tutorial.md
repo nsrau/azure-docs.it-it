@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1e63dec14db795b2511f4069bb62a7ce1504a1ec
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cd1e9431d7125b405f31cb1ed329e6e264cd247e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545047"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285923"
 ---
 # <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>Esercitazione: configurare SpaceIQ per il provisioning utenti automatico
 
@@ -58,7 +58,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
     ![SpaceIQ aggiungere SCIM](media/spaceiq-provisioning-tutorial/thirdparty.png)
 
-3.  Passare a **provisioning e scheda SSO** . cercare il riquadro **Azure** . Fare clic su **attiva**.
+3.  Passare a **provisioning e scheda SSO** . Cercare il riquadro **Azure** . Fare clic su **attiva**.
 
     ![Provisioning e SSO SpaceIQ](media/spaceiq-provisioning-tutorial/provisioning.png)
 
@@ -109,11 +109,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere `https://api.spaceiq.com/scim` in **URL tenant**. Immettere il valore del **token di autenticazione scim** recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a SpaceIQ. Se la connessione non riesce, verificare che l'account SpaceIQ disponga delle autorizzazioni di amministratore e riprovare.
 
