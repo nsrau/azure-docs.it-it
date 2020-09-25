@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: b53177d578768428665891704269e63bd8edb09e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 797bd97940aa49db87b4ca4dd96f140208cd69b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820167"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261873"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Usare le funzionalità nel dashboard dell'acceleratore di soluzioni di connected factory
+
+> [!IMPORTANT]
+> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
 
 L'avvio rapido [Deploy a cloud-based solution to manage my industrial IoT devices](quickstart-connected-factory-deploy.md) (Distribuzione di una soluzione basata sul cloud per gestire i dispositivi IoT industriali) ha illustrato come accedere al dashboard e rispondere agli avvisi. Questa guida pratica illustra alcune funzionalità aggiuntive del dashboard che è possibile usare per monitorare e gestire i dispositivi IoT industriali.
 
@@ -66,7 +69,7 @@ Quando si esplora un *server OPC UA simulato* è anche possibile scegliere di pu
 
 1. Passare a un nodo da pubblicare nell'albero del browser dei server OPC UA.
 
-1. Fare clic con il pulsante destro del mouse sul nodo. Fare clic su **Pubblica**:
+1. Fare clic con il pulsante destro del mouse sul nodo. Fare clic su **pubblica**:
 
     [![Nodo di pubblicazione dell'acceleratore di soluzione di Connected Factory](./media/iot-accelerators-connected-factory-dashboard/publishnode-inline.png)](./media/iot-accelerators-connected-factory-dashboard/publishnode-expanded.png#lightbox)
 

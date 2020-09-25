@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 44fbbbdb1c36f74a4131d4e5a82de6ef058381f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 547712d16cb6a7504d1a875b6155a587746d86bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508753"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279196"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>Creare una VM usando un'immagine specializzata 
 
@@ -133,4 +133,4 @@ Il [Generatore di immagini di Azure (anteprima)](./linux/image-builder-overview.
 - [Creare una versione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Creare una macchina virtuale dalla versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-Per altre informazioni sulle raccolte di immagini condivise, vedere [Panoramica](./windows/shared-image-galleries.md). Se si verificano problemi, vedere [Risoluzione dei problemi delle raccolte di immagini condivise](./windows/troubleshooting-shared-images.md).
+Per altre informazioni sulle raccolte di immagini condivise, vedere [Panoramica](./windows/shared-image-galleries.md). Se si verificano problemi, vedere [Risoluzione dei problemi delle raccolte di immagini condivise](troubleshooting-shared-images.md).

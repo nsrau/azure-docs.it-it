@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c4bef25a0be12c0335a82345ec998274f1faa67
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 174db339079de91a87cef9551bc79e6f03701605
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058411"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257130"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Scenario: un'app Web che chiama le API Web
 
@@ -24,12 +24,7 @@ Informazioni su come creare un'app Web che consente agli utenti di accedere alla
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
-In questo scenario si presuppone che sia già stato effettuato lo scenario seguente:
-
-> [!div class="nextstepaction"]
-> [App Web che offre l'accesso agli utenti](scenario-web-app-sign-user-overview.md)
+Questo scenario presuppone che sia già stato completato lo [scenario: app Web che esegue l'accesso degli utenti](scenario-web-app-sign-user-overview.md).
 
 ## <a name="overview"></a>Panoramica
 
@@ -51,6 +46,10 @@ Lo sviluppo per questo scenario comporta le attività specifiche seguenti:
 
 - Durante la [registrazione dell'applicazione](scenario-web-app-call-api-app-registration.md), è necessario specificare un URI di risposta, un segreto o un certificato da condividere con Azure ad. Se si distribuisce l'app in diversi percorsi, si fornirà un URI di risposta per ogni località.
 - La [configurazione dell'applicazione](scenario-web-app-call-api-app-configuration.md) deve fornire le credenziali client condivise con Azure ad durante la registrazione dell'applicazione.
+
+## <a name="recommended-reading"></a>Letture consigliate
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

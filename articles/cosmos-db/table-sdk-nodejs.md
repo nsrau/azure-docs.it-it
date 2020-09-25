@@ -1,6 +1,6 @@
 ---
 title: API Tabella di Azure Cosmos DB per Node.js
-description: Informazioni sull'API Table di Azure Cosmos DB, incluse le date di rilascio, le date di ritiro e le modifiche apportate nelle diverse versioni.
+description: Informazioni sulle API Tabella di Azure Cosmos DB per Node.js, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le singole versioni.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 52aebf5a4f2e5ea7b3b09ae105c9ea632416c27e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 4bcc0559e5b4d3fafe1f83a1850cdda2d9d1fdfd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167979"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261788"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>API Tabella di Azure Cosmos DB per Node.js: note sulla versione e risorse
 > [!div class="op_single_selector"]
