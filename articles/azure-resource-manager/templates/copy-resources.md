@@ -2,19 +2,19 @@
 title: Distribuire più istanze di risorse
 description: Usare l'operazione di copia e le matrici in un modello di Azure Resource Manager per distribuire il tipo di risorsa molte volte.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/21/2020
+ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583395"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293969"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iterazione delle risorse nei modelli ARM
 
 Questo articolo illustra come creare più di un'istanza di una risorsa nel modello di Azure Resource Manager (ARM). Aggiungendo l'elemento **Copy** alla sezione Resources del modello, è possibile impostare dinamicamente il numero di risorse da distribuire. È anche possibile evitare di ripetere la sintassi del modello.
 
-È anche possibile usare copia con [Proprietà](copy-properties.md), [variabili](copy-variables.md) e [output](copy-outputs.md).
+È anche possibile usare copia con [Proprietà](copy-properties.md), [variabili](copy-variables.md)e [output](copy-outputs.md).
 
 Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](conditional-resource-deployment.md).
 
@@ -155,6 +155,8 @@ Se si desidera restituire valori dalle risorse distribuite, è possibile usare [
 Per impostazione predefinita, Gestione risorse crea le risorse in parallelo. Non viene applicato alcun limite al numero di risorse distribuite in parallelo, oltre al limite totale di 800 risorse nel modello. L'ordine di creazione non è garantito.
 
 Tuttavia è consigliabile specificare che le risorse vengano distribuite in sequenza. Ad esempio, quando si aggiorna un ambiente di produzione, è consigliabile sfalsare gli aggiornamenti per aggiornarne solo un determinato numero in un dato momento. Per distribuire in modo seriale più istanze di una risorsa, impostare `mode` su **serial** e `batchSize` sul numero di istanze da distribuire contemporaneamente. Con la modalità seriale, Resource Manager crea una dipendenza da istanze precedenti nel ciclo in modo un batch venga avviato solo dopo il completamento del batch precedente.
+
+Il valore per `batchSize` non può superare il valore per `count` nell'elemento Copy.
 
 Ad esempio, per distribuire in modo seriale gli account di archiviazione due alla volta, usare:
 

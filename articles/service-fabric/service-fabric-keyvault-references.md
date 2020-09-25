@@ -3,16 +3,22 @@ title: Azure Service Fabric-uso di Service Fabric riferimenti all'insieme di cre
 description: Questo articolo illustra come usare il supporto KeyVaultReference di Service Fabric per i segreti dell'applicazione.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f1ac3ac50c5ac7cbabb03561c5db7f9c14150de4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c4de6ae17ae728e1dbadbd6d6e2d94c0e1471112
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246164"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261142"
 ---
-#  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Supporto di KeyVaultReference per applicazioni Service Fabric (anteprima)
+# <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Supporto di KeyVaultReference per applicazioni Service Fabric (anteprima)
 
 Un problema comune durante la creazione di applicazioni cloud è come archiviare in modo sicuro i segreti richiesti dall'applicazione. Ad esempio, potrebbe essere necessario archiviare le credenziali del repository del contenitore nell'insieme di credenziali delle chiavi e farvi riferimento nel manifesto dell'applicazione. Service Fabric KeyVaultReference USA Service Fabric identità gestita e rende più semplice fare riferimento ai segreti dell'insieme di credenziali delle chiavi. Il resto di questo articolo illustra in dettaglio come usare Service Fabric KeyVaultReference e include un utilizzo tipico.
+
+> [!IMPORTANT]
+> L'uso di questa funzionalità di anteprima non è consigliato negli ambienti di produzione.
+
+> [!NOTE]
+> La funzionalità Anteprima di riferimento dell'insieme di credenziali delle chiavi supporta solo i segreti con [versione](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) . I segreti senza versione non sono supportati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -90,14 +96,14 @@ Supponiamo che l'applicazione debba leggere la password del database back-end ar
 
 - Aggiungere una sezione a settings.xml
 
-    Definire il `DBPassword` parametro con il tipo `KeyVaultReference` e il valore`<KeyVaultURL>`
+    Definire il `DBPassword` parametro con il tipo `KeyVaultReference` e il valore `<KeyVaultURL>`
 
     ```xml
     <Section Name="dbsecrets">
         <Parameter Name="DBPassword" Type="KeyVaultReference" Value="https://vault200.vault.azure.net/secrets/dbpassword/8ec042bbe0ea4356b9b171588a8a1f32"/>
     </Section>
     ```
-- Fare riferimento alla nuova sezione in ApplicationManifest.xml`<ConfigPackagePolicies>`
+- Fare riferimento alla nuova sezione in ApplicationManifest.xml `<ConfigPackagePolicies>`
 
     ```xml
     <ServiceManifestImport>

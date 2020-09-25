@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 6f5b6bfdb523a22fc4dd9593bfec556da7493aa9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c753e9a18f9869e1bf11aa437fb60484f2553e17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371193"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259255"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di LexisNexis con Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ In questa esercitazione di esempio vengono fornite informazioni aggiuntive su co
 
 Questa integrazione esegue la profilatura in base a alcune informazioni utente, fornite dall'utente durante il flusso di iscrizione. ThreatMetrix determina se l'utente deve essere autorizzato a continuare ad accedere o meno. Gli attributi seguenti vengono presi in considerazione nell'analisi dei rischi di ThreatMetrix:
 
-- Posta elettronica
+- E-mail
 - Numero di telefono
 - Informazioni di profilatura raccolte dal computer dell'utente
 
@@ -73,7 +73,7 @@ Una volta creato un account, si riceveranno le informazioni necessarie per la co
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1: distribuire l'API
 
-Distribuire il codice API fornito a un servizio di Azure. Il codice può essere pubblicato da Visual Studio, seguendo queste [istruzioni](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Distribuire il [codice API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) fornito a un servizio di Azure. Il codice può essere pubblicato da Visual Studio, seguendo queste [istruzioni](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Per configurare Azure AD con le impostazioni necessarie, è necessario l'URL del servizio distribuito.
@@ -95,9 +95,9 @@ Le impostazioni dell'applicazione possono essere [configurate nel servizio app i
 
 Questa soluzione USA modelli di interfaccia utente personalizzati caricati da Azure AD B2C. Questi modelli di interfaccia utente eseguono la profilatura inviata direttamente al servizio ThreatMetrix.
 
-Fare riferimento a queste [istruzioni](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#custom-page-content-walkthrough) per distribuire i file dell'interfaccia utente inclusi in un account di archiviazione BLOB. Le istruzioni includono la configurazione di un account di archiviazione BLOB, la configurazione di CORS e l'abilitazione dell'accesso pubblico.
+Fare riferimento a queste [istruzioni](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#custom-page-content-walkthrough) per distribuire i [file dell'interfaccia utente](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) inclusi in un account di archiviazione BLOB. Le istruzioni includono la configurazione di un account di archiviazione BLOB, la configurazione di CORS e l'abilitazione dell'accesso pubblico.
 
-L'interfaccia utente è basata sul modello di pagina blu oceano. Tutti i collegamenti all'interno dell'interfaccia utente devono essere aggiornati in modo da fare riferimento al percorso distribuito. Nella cartella dell'interfaccia utente trovare e sostituire https://yourblobstorage/blobcontainer con il percorso distribuito.
+L'interfaccia utente è basata sul [modello blu oceano](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). Tutti i collegamenti all'interno dell'interfaccia utente devono essere aggiornati in modo da fare riferimento al percorso distribuito. Nella cartella dell'interfaccia utente trovare e sostituire https://yourblobstorage/blobcontainer con il percorso distribuito.
 
 ### <a name="part-4---create-api-policy-keys"></a>Parte 4: creare chiavi dei criteri API
 
@@ -111,21 +111,21 @@ Il criterio di esempio utilizza questi nomi di chiave:
 
 ### <a name="part-5---update-the-api-url"></a>Parte 5: aggiornare l'URL dell'API
 
-Nel criterio TrustFrameworkExtensions specificato trovare il profilo tecnico denominato `Rest-LexisNexus-SessionQuery` e aggiornare l' `ServiceUrl` elemento dei metadati con il percorso dell'API distribuita in precedenza.
+Nel [criterio TrustFrameworkExtensions](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml)specificato trovare il profilo tecnico denominato `Rest-LexisNexus-SessionQuery` e aggiornare l' `ServiceUrl` elemento dei metadati con il percorso dell'API distribuita in precedenza.
 
 ### <a name="part-6---update-ui-url"></a>Parte 6: aggiornare l'URL dell'interfaccia utente
 
-Nei criteri TrustFrameworkExtensions specificati, eseguire una ricerca e sostituire da cercare https://yourblobstorage/blobcontainer/ con la posizione in cui vengono distribuiti i file dell'interfaccia utente.
-
-### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>Parte 7: configurare i criteri di Azure AD B2C
-
-Fare riferimento a questo [documento](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) per scaricare gli [account locali Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) e configurare i criteri per il tenant Azure ad B2C.
-
->[!NOTE]
->Aggiornare i criteri specificati per la correlazione con il tenant specifico.
+Nei [criteri TrustFrameworkExtensions](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml)specificati, eseguire una ricerca e sostituire da cercare https://yourblobstorage/blobcontainer/ con la posizione in cui vengono distribuiti i file dell'interfaccia utente.
 
 >[!NOTE]
 > Come procedura consigliata, è consigliabile che i clienti aggiungano una notifica di consenso nella pagina della raccolta di attributi. Notificare agli utenti che le informazioni verranno inviate a servizi di terze parti per la verifica dell'identità.
+
+### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>Parte 7: configurare i criteri di Azure AD B2C
+
+Fare riferimento a questo [documento](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) per scaricare gli [account locali Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) e configurare i [criteri](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) per il tenant Azure ad B2C.
+
+>[!NOTE]
+>Aggiornare i criteri specificati per la correlazione con il tenant specifico.
 
 ## <a name="test-the-user-flow"></a>Testare il flusso utente
 

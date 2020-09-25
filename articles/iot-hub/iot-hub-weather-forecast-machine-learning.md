@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 02/10/2020
+ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 5551655843b8d3ed5b6d70f5d6ed3a0eb4d0e92f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5f51ffc3135ff35214a2c5c40cce1f2b3fcaf33e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746965"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290920"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Previsioni meteo usando i dati sensore dell'hub IoT in Azure Machine Learning
 
@@ -46,6 +46,10 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
   - Un hub IoT di Azure nella sottoscrizione.
   - Un'applicazione client che invia messaggi ad Azure IoT hub.
 - Un account di [Azure Machine Learning Studio (versione classica)](https://studio.azureml.net/).
+- È preferibile un account di [archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts), un account per **utilizzo generico V2** , ma anche qualsiasi account di archiviazione di Azure che supporta l'archiviazione BLOB di Azure.
+
+> [!Note]
+> Questo articolo USA analisi di flusso di Azure e molti altri servizi a pagamento. Sono stati addebitati costi aggiuntivi in analisi di flusso di Azure quando i dati devono essere trasferiti tra le aree di Azure. Per questo motivo, è opportuno assicurarsi che il gruppo di risorse, l'hub di Internet e l'account di archiviazione di Azure, oltre all'area di lavoro Machine Learning Studio (classica) e al processo di analisi di flusso di Azure aggiunto più avanti in questa esercitazione, si trovino tutti nella stessa area di Azure. È possibile controllare il supporto regionale per Azure Machine Learning Studio e altri servizi di Azure nella [pagina disponibilità del prodotto Azure in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Distribuire il modello di previsioni meteo come servizio Web
 
@@ -59,7 +63,7 @@ In questa sezione si ottiene il modello di previsioni meteo da Azure AI Gallery 
 
    ![Aprire la pagina del modello di previsioni meteo in Azure AI Gallery](media/iot-hub-weather-forecast-machine-learning/weather-prediction-model-in-azure-ai-gallery.png)
 
-1. Fare clic su **Apri in Studio (versione classica)** per aprire il modello in Microsoft Azure Machine Learning Studio (versione classica).
+1. Selezionare **Apri in studio (classico)** per aprire il modello in Microsoft Azure Machine Learning Studio (classico). Selezionare un'area vicino all'hub Internet e l'area di lavoro corretta nell' **esperimento di copia dalla** finestra popup della raccolta.
 
    ![Aprire il modello di previsioni meteo in Azure Machine Learning Studio (versione classica)](media/iot-hub-weather-forecast-machine-learning/open-ml-studio.png)
 
@@ -67,7 +71,7 @@ In questa sezione si ottiene il modello di previsioni meteo da Azure AI Gallery 
 
 Per il corretto funzionamento del modello, i dati di temperatura e umidità devono essere convertibili in dati numerici. In questa sezione viene aggiunto un modulo R-script al modello di previsioni meteo che rimuove tutte le righe con valori di dati per la temperatura o l'umidità che non possono essere convertite in valori numerici.
 
-1. Sul lato sinistro della finestra di Azure Machine Learning Studio fare clic sulla freccia per espandere il pannello degli strumenti. Immettere "Esegui" nella casella di ricerca. Selezionare il modulo **Esegui script R**.
+1. Sul lato sinistro della finestra di Azure Machine Learning Studio, selezionare la freccia per espandere il pannello strumenti. Immettere "Esegui" nella casella di ricerca. Selezionare il modulo **Esegui script R**.
 
    ![Selezionare il modulo Esegui script R](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
 
@@ -98,21 +102,21 @@ Per il corretto funzionamento del modello, i dati di temperatura e umidità devo
 
 In questa sezione viene convalidato il modello, viene configurato un servizio Web predittivo in base al modello, quindi viene distribuito il servizio Web.
 
-1. Fare clic su **RUN** (Esegui) per convalidare i passaggi nel modello. Il completamento di questo passaggio potrebbe richiedere alcuni minuti.
+1. Selezionare **Esegui** per convalidare i passaggi nel modello. Il completamento di questo passaggio potrebbe richiedere alcuni minuti.
 
    ![Eseguire l'esperimento per convalidare i passaggi](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
 
-1. Fare clic su **SET UP WEB SERVICE** (Imposta servizio Web) > **Predictive Web Service** (Servizio Web predittivo). Viene visualizzato il diagramma dell'esperimento predittivo.
+1. Selezionare **set up Web Service**  >  **Predictive Web Service**. Viene visualizzato il diagramma dell'esperimento predittivo.
 
    ![Distribuire il modello di previsioni meteo in Azure Machine Learning Studio (versione classica)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
 
-1. Nel diagramma dell'esperimento predittivo eliminare la connessione tra il modulo **Web service input** (Input servizio Web) e il **set di dati meteorologici** nella parte superiore. Quindi trascinare il modulo **Web service input** (Input servizio Web) accanto al modulo **Score Model** (Modello di punteggio) e collegarli come indicato di seguito.
+1. Nel diagramma dell'esperimento predittivo, eliminare la connessione tra il modulo di **input del servizio Web** e le **colonne SELECT nel set di dati** nella parte superiore. Quindi trascinare il modulo **Web service input** (Input servizio Web) accanto al modulo **Score Model** (Modello di punteggio) e collegarli come indicato di seguito.
 
-   ![Collegare due moduli in Azure Machine Learning Studio (versione classica)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+   ![Collegare due moduli in Azure Machine Learning Studio (versione classica)](media/iot-hub-weather-forecast-machine-learning/connect-modules-azure-machine-learning-studio.png)
 
-1. Fare clic su **RUN** (Esegui) per convalidare i passaggi nel modello.
+1. Selezionare **Esegui** per convalidare i passaggi nel modello.
 
-1. Fare clic su **DEPLOY WEB SERVICE** (Distribuisci servizio Web) per distribuire il modello come servizio Web.
+1. Selezionare **Distribuisci servizio Web** per distribuire il modello come servizio Web.
 
 1. Nel dashboard del modello scaricare **Excel 2010 or earlier workbook** (Cartella di lavoro di Excel 2010 o versioni precedenti) per **REQUEST/RESPONSE** (Richiesta/risposta).
 
@@ -129,45 +133,53 @@ In questa sezione viene convalidato il modello, viene configurato un servizio We
 
 ### <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso.
 
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa** > **Internet delle cose** > **Processo di Analisi di flusso**.
+1. Nella [portale di Azure](https://portal.azure.com/)selezionare **Crea una risorsa**. Digitare "processo di analisi di flusso" nella casella di ricerca e selezionare **processo di analisi di flusso** dall'elenco a discesa risultati. Quando si apre il riquadro del **processo di analisi di flusso** , selezionare **Crea**.
 1. Immettere le seguenti informazioni per il processo.
 
    **Nome processo**: Nome del processo. Il nome deve essere univoco a livello globale.
+
+   **Sottoscrizione**: selezionare la sottoscrizione se è diversa da quella predefinita.
 
    **Gruppo di risorse**: usare lo stesso gruppo di risorse usato dall'hub IoT.
 
    **Località**: usare lo stesso percorso del gruppo di risorse.
 
-   **Aggiungi al dashboard**: selezionare questa opzione per semplificare l'accesso all'hub IoT dal dashboard.
+   Lasciare i valori predefiniti per tutti gli altri campi.
 
-   ![Creare un processo di analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
+   ![Creare un processo di analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/create-stream-analytics-job.png)
 
-1. Fare clic su **Crea**.
+1. Selezionare **Crea**.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Aggiungere un input al processo di Analisi di flusso
 
 1. Aprire il processo di analisi di flusso.
-1. In **Topologia processo** fare clic su **Input**.
-1. Nel riquadro **Input** fare clic su **Aggiungi**, quindi immettere le informazioni seguenti:
+1. In **Topologia processo** selezionare **Input**.
+1. Nel riquadro **input** selezionare **Aggiungi input di flusso**, quindi selezionare **Hub** tutto dall'elenco a discesa. Nel riquadro **nuovo input** , scegliere l'hub Internet delle cose **dalle sottoscrizioni** e immettere le informazioni seguenti:
 
    **Alias di input**: l'alias univoco per l'input.
 
-   **Origine**: Selezionare **Hub IoT**.
+   **Sottoscrizione**: selezionare la sottoscrizione se è diversa da quella predefinita.
+
+   **Hub**Internet delle cose: selezionare l'hub Internet delle cose dalla sottoscrizione.
+
+   **Nome dei criteri di accesso condiviso**: selezionare il  **servizio**. È anche possibile usare **iothubowner**.
 
    **Gruppo di consumer**: selezionare il gruppo di consumer creato.
 
-   ![Aggiungere un input al processo di Analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
+   Lasciare i valori predefiniti per tutti gli altri campi.
 
-1. Fare clic su **Crea**.
+   ![Aggiungere un input al processo di Analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/add-input-stream-analytics-job.png)
+
+1. Selezionare **Salva**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Aggiungere un output al processo di Analisi di flusso
 
-1. In **Topologia processo** fare clic su **Output**.
-1. Nel riquadro **Output** fare clic su **Aggiungi**, quindi immettere le informazioni seguenti:
+1. In **Topologia processo** selezionare **Output**.
+1. Nel riquadro **output** selezionare **Aggiungi**, quindi selezionare **archiviazione BLOB/data Lake storage** dall'elenco a discesa. Nel riquadro **nuovo output** scegliere il **selezionare archiviazione dalle sottoscrizioni** e immettere le informazioni seguenti:
 
    **Alias di output**: l'alias univoco per l'output.
 
-   **Sink**: selezionare **Archivio BLOB**.
+   **Sottoscrizione**: selezionare la sottoscrizione se è diversa da quella predefinita.
 
    **Account di archiviazione**: l'account per l'archiviazione BLOB. È possibile usare un account di archiviazione esistente o crearne uno nuovo.
 
@@ -175,32 +187,28 @@ In questa sezione viene convalidato il modello, viene configurato un servizio We
 
    **Formato di serializzazione eventi**: Selezionare **CSV**.
 
-   ![Aggiungere un output al processo di Analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
+   ![Aggiungere un output al processo di Analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/add-output-stream-analytics-job.png)
 
-1. Fare clic su **Crea**.
+1. Selezionare **Salva**.
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Aggiungere una funzione al processo di Analisi di flusso per chiamare il servizio Web che è stato distribuito
 
-1. In **Topologia processo** fare clic su **Funzioni** > **Aggiungi**.
-1. Immettere le seguenti informazioni:
+1. In **topologia processo**selezionare **funzioni**.
+1. Nel riquadro **funzioni** selezionare **Aggiungi**e quindi selezionare **Azure ml Studio** dall'elenco a discesa. Assicurarsi di selezionare **azure ml Studio**, non il **servizio Azure ml**. Nel riquadro **nuova funzione** scegliere **specificare le impostazioni della funzione Azure Machine Learning manualmente** e immettere le informazioni seguenti:
 
    **Alias di funzione**: Immettere `machinelearning`.
-
-   **Tipo di funzione**: selezionare **Azure ML**.
-
-   **Opzione di importazione**: Selezionare **Importa da un'altra sottoscrizione**.
 
    **URL**: immettere l'URL del servizio Web annotato dalla cartella di lavoro di Excel.
 
    **Chiave**: immettere la chiave di accesso annotata in precedenza dalla cartella di lavoro di Excel.
 
-   ![Aggiungere una funzione al processo di Analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
+   ![Aggiungere una funzione al processo di Analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/add-function-stream-analytics-job.png)
 
-1. Fare clic su **Crea**.
+1. Selezionare **Salva**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurare la query del processo di Analisi di flusso
 
-1. In **Topologia processo** fare clic su **Query**.
+1. In **Topologia processo** selezionare **Query**.
 1. Sostituire il codice esistente con il seguente:
 
    ```sql
@@ -216,13 +224,16 @@ In questa sezione viene convalidato il modello, viene configurato un servizio We
 
    Sostituire `[YourOutputAlias]` con l'alias di output del processo.
 
-1. Fare clic su **Salva**.
+1. Selezionare **Salva query**.
+
+> [!Note]
+> Se si seleziona **query di test**, verrà visualizzato il messaggio seguente: il test delle query con funzioni Machine Learning non è supportato. Modificare la query e riprovare. È possibile ignorare questo messaggio e selezionare **OK** per chiudere la finestra di messaggio. Assicurarsi di salvare la query prima di procedere alla sezione successiva.
 
 ### <a name="run-the-stream-analytics-job"></a>Eseguire il processo di Analisi di flusso
 
-Nel processo di analisi di flusso, **Avvia** > **Ora** > **Avvia**. Dopo aver avviato correttamente il processo, lo stato del processo passa da **Interrotto** a **In esecuzione**.
+Nel processo di analisi di flusso selezionare **Panoramica** nel riquadro sinistro. Quindi selezionare **Avvia**  >  **ora**  >  **Avvia**. Dopo aver avviato correttamente il processo, lo stato del processo passa da **Interrotto** a **In esecuzione**.
 
-![Eseguire il processo di Analisi di flusso](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
+![Eseguire il processo di Analisi di flusso](media/iot-hub-weather-forecast-machine-learning/run-stream-analytics-job.png)
 
 ## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Usare Microsoft Azure Storage Explorer per visualizzare le previsioni meteo
 
@@ -232,7 +243,7 @@ Eseguire l'applicazione client per avviare la raccolta e l'invio dei dati di tem
 1. Aprire Azure Storage Explorer.
 1. Accedere all'account Azure.
 1. Selezionare la propria sottoscrizione.
-1. Fare clic sulla sottoscrizione in uso > **Account di archiviazione** > account di archiviazione in uso > **contenitori BLOB** > contenitore BLOB in uso.
+1. Selezionare la sottoscrizione > **account di archiviazione** > account di archiviazione > **contenitori BLOB** > contenitore.
 1. Scaricare un file con estensione .csv per visualizzare il risultato. L'ultima colonna registra la probabilità di pioggia.
 
    ![Ottenere i risultati delle previsioni meteo con Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)

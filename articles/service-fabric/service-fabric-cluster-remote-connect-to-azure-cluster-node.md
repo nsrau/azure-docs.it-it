@@ -3,12 +3,12 @@ title: Connettersi in remoto a un nodo del cluster di Azure Service Fabric
 description: Informazioni su come connettersi in remoto a un'istanza di set di scalabilità, ovvero a un nodo di cluster di Service Fabric.
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98d573af4fc2026134e75d4caf24a09e57e52c87
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458323"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268095"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connessione remota a un'istanza di set di scalabilità di macchine virtuali o a un nodo del cluster
 In un cluster di Service Fabric in esecuzione in Azure, ogni tipo di nodo del cluster definito [configura un'istanza separata di set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).  È possibile connettersi in remoto a istanze specifiche di set di scalabilità (nodi del cluster).  Diversamente dalle macchine virtuali a istanza singola, le istanze dei set di scalabilità non ottengono un proprio indirizzo IP virtuale. Può quindi essere difficile cercare un indirizzo IP e una porta da usare per connettersi in remoto a un'istanza specifica.
@@ -21,11 +21,11 @@ Per trovare un indirizzo IP e una porta da usare per connettersi in remoto a un'
     
     Nella pagina del servizio di bilanciamento del carico in portale di Azure selezionare **Impostazioni**  >  **regole NAT in ingresso**: 
 
-    ![Regole NAT in ingresso di bilanciamento del carico](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
+    ![Screenshot della pagina del servizio di bilanciamento del carico nella portale di Azure. Nel menu a sinistra, in impostazioni, le regole NAT in ingresso sono selezionate.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
     Lo screenshot seguente mostra le regole NAT in ingresso per un tipo di nodo denominato FrontEnd: 
 
-    ![Regole NAT in ingresso di bilanciamento del carico](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
+    ![Screenshot che mostra le regole NAT in ingresso per un servizio di bilanciamento del carico. Il nome, la versione IP, la destinazione, la destinazione e il servizio sono elencati per ogni regola.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
     Per ogni nodo, vengono indicati l'indirizzo IP nella colonna **IP DESTINAZIONE**, l'istanza del set di scalabilità nella colonna **DESTINAZIONE** e il numero di porta nella colonna **SERVIZIO**. Per la connessione remota, le porte vengono allocate a ciascun nodo in ordine crescente a partire dalla porta 3389.
 

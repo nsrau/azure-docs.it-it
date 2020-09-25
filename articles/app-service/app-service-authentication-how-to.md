@@ -4,12 +4,12 @@ description: Informazioni su come personalizzare la funzionalità di autenticazi
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2fa2e3463e057062ba743c2f6989aa571c85c983
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: a5d81d99759c972d91f66ec75c482e08826a8e07
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962469"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255214"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure
 
@@ -64,7 +64,7 @@ Content-Type: application/json
 {"id_token":"<token>","access_token":"<token>"}
 ```
 
-Il formato del token varia leggermente in base al provider. Per informazioni dettagliate, vedere la tabella seguente:
+Il formato del token varia leggermente in base al provider. Per altri dettagli, vedi la tabella seguente:
 
 | Valore provider | Obbligatorio nel corpo della richiesta | Commenti |
 |-|-|-|
@@ -443,7 +443,7 @@ Di seguito sono riportate le possibili opzioni di configurazione all'interno del
                 }
             },
             "preserveUrlFragmentsForLogins": <true|false>,
-            "allowedExternalRedirectUrls": [
+            "allowedExternalRedirectUri": [
                 "https://uri1.azurewebsites.net/",
                 "https://uri2.azurewebsites.net/"
             ],

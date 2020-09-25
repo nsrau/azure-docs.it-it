@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82ab9bc0159528446a9de95769f1e433f03acb56
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 03069bc37333cbd26dfe4f40ce4496f3afe768ed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601946"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266043"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedura: Richiedere criteri di protezione delle app e un'app client approvata per l'accesso alle app cloud con Accesso condizionale
 
@@ -51,7 +51,7 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili, le organ
 1. In **Assegnazioni** selezionare **Utenti e gruppi**.
    1. In **Includi** selezionare **Tutti gli utenti** o gli **Utenti e gruppi** ai quale si vuole applicare questi criteri. 
    1. Selezionare **Operazione completata**.
-1. In **Applicazioni cloud o azioni** > **Includi** selezionare **Office 365 (anteprima)** .
+1. In **app Cloud o azioni**  >  **includere**selezionare **Office 365**.
 1. In **Condizioni** selezionare **Piattaforme del dispositivo**.
    1. Impostare **Configura** su **Sì**.
    1. Includere **Android** e **iOS**.
@@ -102,7 +102,7 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili, le organ
 1. In **Assegnazioni** selezionare **Utenti e gruppi**.
    1. In **Includi** selezionare **Tutti gli utenti** o gli **Utenti e gruppi** ai quale si vuole applicare questi criteri. 
    1. Selezionare **Operazione completata**.
-1. In **Applicazioni cloud o azioni** > **Includi** selezionare **Office 365 (anteprima)** .
+1. In **app Cloud o azioni**  >  **includere**selezionare **Office 365**.
 1. In **Condizioni** selezionare **Piattaforme del dispositivo**.
    1. Impostare **Configura** su **Sì**.
    1. Includere **Android** e **iOS**.

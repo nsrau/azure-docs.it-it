@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6796ac42a10d3b976b23f5af1418b1789011d61b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b71c78f484eef0fc4d9c34a2f218a177dbffa0a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440950"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257512"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>App desktop che chiama le API Web: registrazione dell'app
 
@@ -33,7 +33,6 @@ Se l'applicazione desktop usa l'autenticazione interattiva, è possibile acceder
 ### <a name="audience-for-desktop-app-silent-flows"></a>Destinatari per flussi invisibile all'app desktop
 
 - Per usare l'autenticazione integrata di Windows o un nome utente e una password, l'applicazione deve eseguire l'accesso degli utenti nel proprio tenant, ad esempio, se si è uno sviluppatore line-of-business (LOB). In alternativa, in Azure Active Directory organizzazioni, l'applicazione deve eseguire l'accesso degli utenti nel proprio tenant se si tratta di uno scenario ISV. Questi flussi di autenticazione non sono supportati per gli account personali Microsoft.
-- Se si vuole usare il flusso del codice del dispositivo, non è ancora possibile accedere agli utenti con gli account personali Microsoft.
 - Se si esegue l'accesso agli utenti con identità di social networking che passano un'autorità e un criterio business-to-Commerce (B2C), è possibile usare solo l'autenticazione interattiva e nome utente-password.
 
 ## <a name="redirect-uris"></a>URI di reindirizzamento
@@ -45,11 +44,14 @@ Gli URI di Reindirizzamento da usare in un'applicazione desktop dipendono dal fl
   > [!IMPORTANT]
   > Attualmente, MSAL.NET usa un altro URI di reindirizzamento per impostazione predefinita nelle applicazioni desktop eseguite in Windows ( `urn:ietf:wg:oauth:2.0:oob` ). In futuro, sarà necessario modificare questa impostazione predefinita, quindi è consigliabile usare `https://login.microsoftonline.com/common/oauth2/nativeclient` .
 
-- Se si compila un'app Objective-C o SWIFT nativa per macOS, registrare l'URI di reindirizzamento in base all'identificatore del bundle dell'applicazione nel formato seguente: msauth. <your.app.bundle.id>://auth. Replace <your.app.bundle.id> con l'identificatore del bundle dell'applicazione.
+- Se si compila un'app Objective-C o SWIFT nativa per macOS, registrare l'URI di reindirizzamento in base all'identificatore del bundle dell'applicazione nel formato seguente: `msauth.<your.app.bundle.id>://auth` . Sostituire `<your.app.bundle.id>` con l'identificatore del bundle dell'applicazione.
 - Se l'app usa solo l'autenticazione integrata di Windows o un nome utente e una password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questi flussi eseguono una round trip all'endpoint della piattaforma Microsoft Identity Platform v 2.0. L'applicazione non verrà richiamata su un URI specifico.
-- Per distinguere il flusso del codice del dispositivo, l'autenticazione integrata di Windows e un nome utente e una password da un flusso di applicazione client riservato che non dispone di URI di reindirizzamento (il flusso di credenziali client utilizzato nelle applicazioni daemon), è necessario esprimere che l'applicazione è un'applicazione client pubblica. Per ottenere questa configurazione, passare alla sezione **autenticazione** per l'applicazione. Nella sottosezione **Impostazioni avanzate** , nel paragrafo **tipo client predefinito** , selezionare **Sì** per **considera applicazione come client pubblico**.
+- Per distinguere [il flusso del codice del dispositivo](scenario-desktop-acquire-token.md#device-code-flow), [l'autenticazione integrata di Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication)e un [nome utente e una password](scenario-desktop-acquire-token.md#username-and-password) da un'applicazione client riservata usando un flusso di credenziali client usato nelle [applicazioni daemon](scenario-daemon-overview.md), nessuna delle quali richiede un URI di reindirizzamento, è necessario configurarlo come applicazione client pubblica. Per ottenere questa configurazione:
 
-  ![Consenti client pubblico](media/scenarios/default-client-type.png)
+    1. Nella [portale di Azure](https://portal.azure.com)selezionare l'app in **registrazioni app**e quindi selezionare **autenticazione**.
+    1. In **Impostazioni avanzate**  >  il**tipo di client predefinito**  >  **considera applicazione come client pubblico**selezionare **Sì**.
+
+        :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Abilitare l'impostazione client pubblica nel riquadro autenticazione in portale di Azure":::
 
 ## <a name="api-permissions"></a>Autorizzazioni delle API
 

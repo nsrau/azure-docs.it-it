@@ -1,5 +1,5 @@
 ---
-title: Aggiungere e rimuovere unità amministrative (anteprima)-Azure Active Directory | Microsoft Docs
+title: Aggiungere e rimuovere unità amministrative-Azure Active Directory | Microsoft Docs
 description: Usare unità amministrative per limitare l'ambito delle autorizzazioni dei ruoli in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 977a90419c142e576fcf484562875d12c8dad451
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 30b673994e20f01dde504adb438aa1b199c96d88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851768"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264712"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gestire le unità amministrative in Azure Active Directory
 
@@ -45,7 +45,7 @@ Per un controllo amministrativo più granulare in Azure Active Directory (Azure 
 
 1. Nella portale di Azure passare a Azure AD, quindi nel riquadro sinistro selezionare **unità amministrative**.
 
-    ![Screenshot del collegamento unità amministrative (anteprima) in Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
+    ![Screenshot del unitslink amministrativo in Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
 
 1. Selezionare **Aggiungi** e quindi immettere il nome dell'unità amministrativa. Facoltativamente, aggiungere una descrizione dell'unità amministrativa.
 

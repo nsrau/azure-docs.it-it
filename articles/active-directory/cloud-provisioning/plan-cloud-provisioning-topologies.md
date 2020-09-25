@@ -11,12 +11,12 @@ ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d442c980ad5bbe3b56eae127b6e9eaeddf380a4e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 172e836a212f9ce097c2c4e392a7386a510c2c6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526851"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266293"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Topologie e scenari supportati per il provisioning del Cloud Azure AD Connect
 Questo articolo descrive diverse topologie locali e Azure Active Directory (Azure AD) che usano Azure AD Connect il provisioning cloud. Questo articolo include solo le configurazioni e gli scenari supportati.
@@ -34,7 +34,7 @@ Di seguito è riportato un elenco di informazioni da tenere presenti quando si s
 - Non è possibile modificare l'attributo usato per l'ancoraggio di origine.
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Foresta singola, tenant singolo di Azure AD
-![Topologia per una foresta singola e un tenant singolo](media/plan-cloud-provisioning-topologies/single-forest.png)
+![Diagramma che mostra la topologia per una singola foresta e un singolo tenant.](media/plan-cloud-provisioning-topologies/single-forest.png)
 
 La topologia più semplice è una singola foresta locale, con uno o più domini, e un singolo tenant Azure AD.  Per un esempio di questo scenario [, vedere Esercitazione: una singola foresta con un singolo tenant di Azure ad](tutorial-single-forest.md)
 
@@ -45,7 +45,7 @@ La topologia più semplice è una singola foresta locale, con uno o più domini,
 Una topologia comune è rappresentata da più insiemi di strutture di Active Directory, con uno o più domini, e un singolo tenant Azure AD.  
 
 ## <a name="existing-forest-with-azure-ad-connect-new-forest-with-cloud-provisioning"></a>Foresta esistente con Azure AD Connect, nuova foresta con provisioning nel cloud
-![Topologia per una foresta singola e un tenant singolo](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
+![Diagramma che mostra la topologia di una foresta esistente e una nuova foresta.](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
 
 Questo scenario è simile allo scenario a più foreste, tuttavia questo implica un ambiente di Azure AD Connect esistente e quindi l'introduzione di una nuova foresta con Azure AD Connect il provisioning cloud.  Per un esempio di questo scenario [, vedere Esercitazione: una foresta esistente con un singolo tenant di Azure ad](tutorial-existing-forest.md)
 

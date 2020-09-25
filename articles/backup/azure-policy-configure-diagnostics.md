@@ -3,12 +3,12 @@ title: Configurare le impostazioni di diagnostica dell'insieme di credenziali su
 description: Configurare le impostazioni di diagnostica Log Analytics per tutti gli insiemi di credenziali in un determinato ambito usando criteri di Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 33956fe7ce2e162d58ef3aa09feaea2882dccb36
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378050"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293085"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala
 
@@ -34,7 +34,7 @@ Per assegnare i criteri per gli insiemi di credenziali nell'ambito necessario, a
 
 1. Accedere al portale di Azure e passare al dashboard dei **criteri** .
 2. Selezionare **definizioni** nel menu a sinistra per ottenere un elenco di tutti i criteri predefiniti tra le risorse di Azure.
-3. Filtrare l'elenco per **Category = Monitoring**. Individuare il criterio denominato **[Anteprima]: Distribuisci impostazioni di diagnostica per l'insieme di credenziali di servizi di ripristino nell'area di lavoro log Analytics per categorie specifiche delle risorse**.
+3. Filtrare l'elenco per **Category = backup**. Individuare il criterio denominato **[Anteprima]: Distribuisci impostazioni di diagnostica per l'insieme di credenziali di servizi di ripristino nell'area di lavoro log Analytics per categorie specifiche delle risorse**.
 
     ![Riquadro definizione criteri](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 

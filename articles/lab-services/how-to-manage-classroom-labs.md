@@ -3,12 +3,12 @@ title: Gestire i lab per le classi in Azure Lab Services | Microsoft Docs
 description: Informazioni su come creare e configurare un lab per le classi, visualizzare tutti i lab per le classi, condividere il collegamento di registrazione con un utente del lab o eliminare un lab.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: ed5eb05fa586e19fdf684a4f88b56e7b0185baf4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a251f668508ee0b727c5e2ace65d1ea4eb5123e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445390"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251678"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gestire i lab per le classi in Azure Lab Services 
 Questo articolo descrive come creare ed eliminare un lab per le classi, nonché come visualizzare tutti i lab per le classi in un account lab. 
@@ -32,7 +32,7 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
     1. Vedere il **prezzo totale all'ora** visualizzato nella pagina. 
     1. Selezionare **Salva**.
 
-        ![Finestra New lab](./media/tutorial-setup-classroom-lab/new-lab-window.png)
+        ![Screenshot che mostra la finestra "nuovo Lab".](./media/tutorial-setup-classroom-lab/new-lab-window.png)
 
         > [!NOTE]
         > Viene visualizzata un'opzione per selezionare una località del lab se l'account lab è stato configurato con l'opzione [Consenti all'autore del lab di selezionare la località del lab](allow-lab-creator-pick-lab-location.md). 

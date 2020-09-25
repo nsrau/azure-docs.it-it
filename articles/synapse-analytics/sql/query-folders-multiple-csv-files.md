@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6c61bd420121800ade48de88cbcaadf37343262d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: jrasnick
+ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207632"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288342"
 ---
 # <a name="query-folders-and-multiple-files"></a>Eseguire query su cartelle e più file  
 
@@ -24,7 +24,7 @@ SQL su richiesta supporta la lettura di più file/cartelle utilizzando caratteri
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Il primo passaggio consiste nel **creare un database** in cui verranno eseguite le query. Inizializzare quindi gli oggetti eseguendo uno [script di installazione](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) su tale database. Questo script di configurazione creerà le origini dati, le credenziali con ambito database e i formati di file esterni usati in questi esempi.
+Il primo passaggio consiste nel **creare un database** in cui verranno eseguite le query. Inizializzare quindi gli oggetti eseguendo uno [script di configurazione](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) su tale database. Questo script di configurazione creerà le origini dati, le credenziali con ambito database e i formati di file esterni usati in questi esempi.
 
 Per seguire le query di esempio, si userà la cartella *CSV/taxi* . Contiene i dati di NYC Taxi-yellow taxi trip da luglio 2016 a giugno 2018. I file in *formato CSV/taxi* sono denominati dopo l'anno e il mese usando il modello seguente: yellow_tripdata_ <year> - <month> . csv
 
@@ -232,4 +232,4 @@ Poiché è presente una sola cartella che soddisfa i criteri, il risultato della
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sono disponibili nell'articolo in [file specifici di query](query-specific-files.md) .
+Altre informazioni sono reperibili nell'articolo relativo ai [file specifici della query](query-specific-files.md) .

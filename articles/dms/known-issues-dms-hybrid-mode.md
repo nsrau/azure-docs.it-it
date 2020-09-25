@@ -9,14 +9,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 5347cda14773583bcfe92a702e59d4967ce2ea09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 819fe5ced6c91819c817065305a31fca456ea5c0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196270"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291844"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Problemi noti/limitazioni della migrazione con l'uso della modalità ibrida
 
@@ -95,7 +95,7 @@ Le sezioni seguenti descrivono i problemi specifici dello scenario correlati all
 
 ### <a name="online-migrations-to-azure-sql-managed-instance"></a>Migrazioni online in Azure SQL Istanza gestita
 
-**Utilizzo elevato della CPU**
+**Uso intensivo della CPU**
 
 **Problema**: per le migrazioni online a SQL istanza gestita, il computer che esegue il ruolo di lavoro ibrido incontrerà un utilizzo elevato della CPU se sono presenti troppi backup o se i backup sono troppo grandi.
 

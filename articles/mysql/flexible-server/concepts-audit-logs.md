@@ -6,17 +6,20 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: e630ccec744c4edf0dc80d374ecc93526f960d44
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 00d0808e83a888a39f9268328feb209167c9b644
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938945"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295990"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Tenere traccia dell'attività del database con i log di controllo nel database di Azure per MySQL server flessibile
 
 > [!IMPORTANT] 
 > Il server flessibile di Database di Azure per MySQL è attualmente disponibile in anteprima pubblica
+
+> [!NOTE]
+> L'integrazione con le impostazioni di diagnostica di monitoraggio di Azure per accedere ai log è in corso di distribuzione e la funzionalità completa sarà presto disponibile.
 
 Il server flessibile database di Azure per MySQL offre agli utenti la possibilità di configurare i log di controllo. I log di controllo possono essere utilizzati per tenere traccia delle attività a livello di database, inclusi eventi di connessione, amministrazione, DDL e DML. Questi tipi di log vengono comunemente usati per finalità di conformità.
 
@@ -49,6 +52,9 @@ Altri parametri che è possibile modificare per controllare il comportamento del
 | `TABLE_ACCESS` | -Disponibile solo per MySQL 5,7 <br> -Istruzioni Read della tabella, ad esempio SELECT o INSERT INTO... Selezionare <br> -Istruzioni DELETE della tabella, ad esempio DELETE o TRUNCATE TABLE <br> -Istruzioni Table Insert, ad esempio INSERT o REPLACE <br> -Istruzioni Update della tabella, ad esempio UPDATE |
 
 ## <a name="access-audit-logs"></a>Accedere ai log di controllo
+
+> [!NOTE]
+> L'integrazione con le impostazioni di diagnostica di monitoraggio di Azure per accedere ai log è in corso di distribuzione e la funzionalità completa sarà presto disponibile.
 
 I log di controllo sono integrati con le impostazioni di diagnostica di monitoraggio di Azure. Dopo aver abilitato i log di controllo nel server MySQL flessibile, è possibile crearli in log di monitoraggio di Azure, Hub eventi o archiviazione di Azure. Per ulteriori informazioni sulle impostazioni di diagnostica, vedere la [documentazione relativa ai log di diagnostica](../../azure-monitor/platform/platform-logs-overview.md). Per ulteriori informazioni su come abilitare le impostazioni di diagnostica nella portale di Azure, vedere l' [articolo](how-to-configure-audit-logs-portal.md#set-up-diagnostics)relativo al portale di log di controllo.
 

@@ -10,14 +10,14 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: fd0a782fc0c54cf14db9cac07712dea6d8f2e523
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 00709ca5e842e51edbf5b26c53fe0a18e80bb896
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751985"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262349"
 ---
-# <a name="receipt-concepts"></a>Concetti di ricezione
+# <a name="receipt-concepts"></a>Concetti relativi alle ricevute
 
 Il riconoscitore di form di Azure può analizzare le ricevute usando uno dei modelli predefiniti. L'API di ricezione estrae le informazioni chiave dalle ricevute di vendita in inglese, ad esempio nome Merchant, data transazione, totale transazione, voci e altro ancora. 
 
@@ -29,7 +29,7 @@ L'estrazione automatica dei dati da queste ricevute può essere complessa. Le ri
 
 Usando il riconoscimento ottico dei caratteri (OCR) e il modello di ricezione predefinito, l'API di ricezione consente questi scenari di elaborazione della ricezione ed estrae i dati dalle ricevute, ad esempio nome esercente, suggerimento, totale, elementi linea e altro ancora. Con questa API non è necessario eseguire il training di un modello. si invia semplicemente la ricevuta all'API di ricezione Analyze e i dati vengono estratti.
 
-![ricezione di esempio](./media/contoso-receipt-small.png)
+![ricevuta di esempio](./media/contoso-receipt-small.png)
 
 ## <a name="what-does-the-receipt-api-do"></a>Che cosa fa l'API di ricezione? 
 
@@ -71,13 +71,10 @@ L'API di ricezione restituisce anche le informazioni seguenti:
   * IT-IN 
 
   > [!NOTE]
-  > Input della lingua 
+  > Input lingua 
   >
   > La ricezione precompilata v 2.1-Preview. 1 include un parametro request facoltativo per specificare le impostazioni locali di ricezione da altri mercati in lingua inglese. Per le ricevute di vendita in inglese da Australia (EN-AU), Canada (EN-CA), Gran Bretagna (EN-GB) e India (EN-IN), è possibile specificare le impostazioni locali per ottenere risultati migliori. Se non è specificata alcuna impostazione locale in v 2.1-Preview. 1, per impostazione predefinita il modello verrà impostato sul modello EN-US.
-  
- ### <a name="input-requirements"></a>Requisiti relativi all'input 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-receipt-operation"></a>Operazione di ricezione dell'analisi
 
@@ -91,7 +88,7 @@ La [ricezione dell'analisi](https://westcentralus.dev.cognitive.microsoft.com/do
 
 Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze result result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione di ricezione dell'analisi. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Tipo | Valori possibili |
+|Campo| Type | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione di analisi non è stata avviata. |
 | |  | Running: l'operazione di analisi è in corso. |
@@ -456,7 +453,10 @@ L'API di ricezione consente inoltre di alimentare la [funzionalità di elaborazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Seguire la Guida introduttiva per iniziare a ricevere la Guida introduttiva per [Python API](./quickstarts/python-receipts.md).
-- Informazioni sull' [API REST di riconoscimento moduli](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api).
-- Altre informazioni sul [riconoscimento moduli](overview.md).
+- Completare una [Guida introduttiva alla libreria client di riconoscimento moduli](quickstarts/client-library.md) per iniziare a scrivere un'app di elaborazione della ricevuta con il riconoscimento del modulo nel linguaggio scelto.
+- In alternativa, seguire la [Guida introduttiva all'API di ricezione Python](./quickstarts/python-receipts.md) per riconoscere le ricevute tramite l'API REST.
 
+## <a name="see-also"></a>Vedere anche
+
+* [Informazioni su Riconoscimento modulo](./overview.md)
+* [Documentazione di riferimento per l'API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)

@@ -3,12 +3,12 @@ title: 'Griglia di eventi di Azure: abilitare i log di diagnostica per argomenti
 description: Questo articolo fornisce istruzioni dettagliate su come abilitare i log di diagnostica per un argomento di griglia di eventi di Azure.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 7811c2eef4379b7e3d5ed07dbd0df8e2a52dba85
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2d76d3ededd6d241197b26ac357c3b5406f43f02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114704"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297522"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Abilitare i log di diagnostica per gli argomenti o i domini di griglia di eventi di Azure
 Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di acquisire e visualizzare i log degli **errori di pubblicazione e recapito** in un account di archiviazione, un hub eventi o un'area di lavoro log Analytics. In questo articolo vengono fornite istruzioni dettagliate per l'abilitazione di queste impostazioni in un argomento di griglia di eventi.
@@ -37,19 +37,19 @@ Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di ac
     
     ![Pulsante Aggiungi impostazione diagnostica](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Specificare un **nome** per l'impostazione di diagnostica. 
-7. Selezionare le opzioni **DeliveryFailures** e **PublishFailures** nella sezione **log** . 
+6. Selezionare le opzioni **DeliveryFailures** e **PublishFailures** nella sezione **log** . 
     ![Selezionare gli errori](./media/enable-diagnostic-logs-topic/log-failures.png)
-6. Abilitare una o più destinazioni di acquisizione per i log, quindi configurarle selezionando una risorsa di acquisizione creata in precedenza. 
+7. Abilitare una o più destinazioni di acquisizione per i log, quindi configurarle selezionando una risorsa di acquisizione creata in precedenza. 
     - Se si seleziona **archivia in un account di archiviazione**, selezionare **account di archiviazione-configura**e quindi selezionare l'account di archiviazione nella sottoscrizione di Azure. 
 
-        ![Archivia in un account di archiviazione di Azure](./media/enable-diagnostic-logs-topic/archive-storage.png)
+        ![Screenshot che mostra la pagina "impostazioni di diagnostica" con "archivia in un account di archiviazione di Azure" selezionata e un account di archiviazione selezionato.](./media/enable-diagnostic-logs-topic/archive-storage.png)
     - Se si seleziona **flusso in un hub eventi**, selezionare **Hub eventi-configura**, quindi selezionare lo spazio dei nomi di hub eventi, l'hub eventi e i criteri di accesso. 
-        ![Trasmettere a un hub eventi](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
+        ![Screenshot che mostra la pagina "impostazioni di diagnostica" con il messaggio "flusso a un hub eventi" selezionato.](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - Se si seleziona **Invia a log Analytics**, selezionare l'area di lavoro log Analytics.
-        ![Invia a Log Analytics](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
+        ![Screenshot che mostra la pagina "impostazioni di diagnostica" con il messaggio "Invia a Log Analytics" selezionato.](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
 8. Selezionare **Salva**. Selezionare quindi **X** nell'angolo destro per chiudere la pagina. 
 9. A questo punto, nella pagina **impostazioni di diagnostica** , verificare che venga visualizzata una nuova voce nella tabella impostazioni di **diagnostica** . 
-    ![Impostazione diagnostica nell'elenco](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
+    ![Screenshot che mostra la pagina "impostazioni di diagnostica" con una nuova voce evidenziata nella tabella "impostazioni di diagnostica".](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
      È anche possibile abilitare la raccolta di tutte le metriche per l'argomento. 
 

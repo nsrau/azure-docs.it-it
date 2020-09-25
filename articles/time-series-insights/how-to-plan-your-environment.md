@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1788eba0ef9be781fb7cf23f1eb86b48c9c360e1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289919"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287416"
 ---
-# <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Pianificare l'ambiente Gen2 Azure Time Series Insights
+# <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Pianificare l'ambiente in Azure Time Series Insights Gen2
 
 Questo articolo descrive le procedure consigliate per pianificare e iniziare rapidamente a usare Azure Time Series Insights Gen2.
 
@@ -69,10 +69,7 @@ Per creare un nuovo ambiente di Azure Time Series Insights, selezionare un ID de
 
 Anche la proprietà **timestamp** è importante. È possibile definire questa proprietà quando si aggiungono origini evento. Ogni origine evento include una proprietà Timestamp facoltativa, usata per tenere traccia delle origini evento nel tempo. I valori di Timestamp fanno distinzione tra maiuscole/minuscole e devono essere formattati in base alle singole specifiche di ogni origine evento.
 
-> [!TIP]
-> Verificare i requisiti di formattazione e analisi per le origini evento.
-
-Se lasciato vuoto, come timestamp dell'evento viene usato il tempo di accodamento dell'evento di un origine evento. Se si inviano dati cronologici o eventi in batch, la personalizzazione della proprietà Timestamp è più utile rispetto al tempo di accodamento dell'evento. Per altre informazioni, vedere come [aggiungere origini evento nell'hub Azure](./time-series-insights-how-to-add-an-event-source-iothub.md).
+Quando viene lasciato vuoto, l'ora in cui l'evento è stato accodato nell'hub Internet o nell'hub eventi viene usato come timestamp dell'evento. In generale, gli utenti devono scegliere di personalizzare la proprietà timestamp e usare l'ora in cui il sensore o il tag ha generato la lettura, anziché l'ora di accodamento dell'hub. Per ulteriori informazioni e per leggere gli offset del fuso orario leggere il [timestamp dell'origine evento](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp).
 
 ## <a name="understand-the-time-series-model"></a>Comprendere il modello Time Series
 
@@ -91,7 +88,7 @@ Una buona norma:
 * Archiviare i metadati nel modello Time Series.
 * Verificare che la modalità della serie temporale, i campi dell'istanza e gli eventi includano solo le informazioni necessarie, ad esempio un ID della serie temporale o una proprietà timestamp.
 
-Per ulteriori informazioni, leggere [eventi forma](./time-series-insights-send-events.md#supported-json-shapes).
+Per altre informazioni e per comprendere il modo in cui gli eventi verranno resi bidimensionali e archiviati, leggere le [regole di escape e Flat JSON](./concepts-json-flattening-escaping-rules.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

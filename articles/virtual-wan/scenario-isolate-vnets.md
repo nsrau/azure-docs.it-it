@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8a0a8093ab5f4d6c5e528bce592d5c029de30a7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: f725932b30fad062123d6c752f2d563b84f98b2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267636"
 ---
 # <a name="scenario-isolating-vnets"></a>Scenario: Isolating reti virtuali
 
@@ -24,7 +24,7 @@ Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari 
 
 In questo scenario, il carico di lavoro all'interno di un determinato VNet rimane isolato e non è in grado di comunicare con altri reti virtuali. Tuttavia, reti virtuali sono necessari per raggiungere tutti i rami (VPN, ER e VPN utente). Per determinare il numero di tabelle di route necessarie, è possibile creare una matrice di connettività. Per questo scenario l'aspetto sarà simile alla tabella seguente, in cui ogni cella indica se un'origine (riga) può comunicare con una destinazione (colonna):
 
-| Da |   A |  *Reti virtuali* | *Rami* |
+| From |   A |  *Reti virtuali* | *Rami* |
 | -------------- | -------- | ---------- | ---|
 | Reti virtuali     | &#8594;|           |     X    |
 | Rami   | &#8594;|    X     |     X    |

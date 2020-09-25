@@ -1,6 +1,6 @@
 ---
 title: Ottenere la certificazione AppSource per Azure Active Directory | Microsoft Docs
-description: Leggere i dettagli su come ottenere la certificazione AppSource per Azure Active Directory.
+description: Informazioni dettagliate su come ottenere la certificazione AppSource dell'applicazione per Azure Active Directory.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 08acaf4f0171e586ff2cc3f52134395fb5925df7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 65d6151536eb92e2ab9b740a99984fb0b5977cab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118808"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256875"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Ottenere la certificazione AppSource per Azure Active Directory
 
@@ -98,7 +98,7 @@ L'esperienza di valutazione gestita dal partner può essere usata quando è nece
 
     ![Mostra l'esperienza che l'utente vede quando viene reindirizzato di nuovo al sito](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png)
 
-### <a name="more-information"></a>Altre informazioni
+### <a name="more-information"></a>Ulteriori informazioni
 
 Per altre informazioni sull'esperienza di valutazione di AppSource, vedere [questo video](https://aka.ms/trialexperienceforwebapps). 
 

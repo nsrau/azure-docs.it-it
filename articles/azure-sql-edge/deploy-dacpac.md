@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 6c8be6e67b1d7b919d6ea221c473c8975e559658
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e9c8c58c6be8d2c2a85e56690903e6b54f0e4a0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887492"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293901"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>Pacchetti DACPAC e BACPAC del database SQL in SQL Edge
 
 SQL Edge di Azure un motore di database relazionale ottimizzato e progettato per distribuzioni IoT e perimetrali. Si basa sulle versioni più recenti di Microsoft SQL motore di database, che offre funzionalità leader del settore per le prestazioni, la sicurezza e l'elaborazione delle query. Oltre alle funzionalità leader del settore per la gestione dei database relazionali di SQL Server, SQL Edge di Azure offre funzionalità di streaming predefinite per l'analisi in tempo reale e l'elaborazione di eventi complessa.
 
-Azure SQL Edge fornisce anche un'implementazione nativa di SqlPackage.exe che consente di distribuire un pacchetto [dacpac e BACPAC del database SQL](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) durante la distribuzione di SQL Edge. 
+Azure SQL Edge fornisce un meccanismo nativo che consente di distribuire un pacchetto [dacpac e BACPAC del database SQL](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) durante o dopo la distribuzione di SQL Edge.
 
 I pacchetti DACPAC e BACPAC del database SQL possono essere distribuiti in SQL Edge usando la `MSSQL_PACKAGE` variabile di ambiente. La variabile di ambiente può essere configurata con uno dei seguenti elementi.  
 - Percorso di una cartella locale all'interno del contenitore SQL contenente i file dacpac e BACPAC. È possibile eseguire il mapping di questa cartella a un volume host usando i punti di montaggio o i contenitori del volume di dati. 
@@ -64,6 +64,10 @@ Per distribuire o importare un pacchetto di applicazione livello dati del databa
 5. Dopo l'aggiornamento del modulo, i file del pacchetto vengono scaricati, decompressi e distribuiti nell'istanza di SQL Edge.
 
 A ogni riavvio del contenitore Edge di Azure SQL, SQL Edge tenta di scaricare il pacchetto di file compresso e di valutare le modifiche. Se viene rilevata una nuova versione del file dacpac, le modifiche vengono distribuite nel database in SQL Edge.
+
+## <a name="known-issue"></a>Problema noto
+
+Durante alcune distribuzioni di DACPAC o BACPAC, gli utenti possono riscontrare un timeout dei comandi, causando l'esito negativo dell'operazione di distribuzione dacpac. Se si verifica questo problema, usare la SQLPackage.exe (o gli strumenti client di SQL) per applicare DACPAC o BACPAC manualmente. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

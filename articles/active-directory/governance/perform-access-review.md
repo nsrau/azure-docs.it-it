@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efab031ac2ad96524ce12e6d1c4a942f01ce2344
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 7e03ba5e7a4a24ee3114946230f78a64ea3d42cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299967"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265682"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Esaminare l'accesso ai gruppi e alle applicazioni nelle verifiche di accesso Azure AD
 
@@ -37,7 +37,7 @@ Azure Active Directory (Azure AD) semplifica il modo in cui le aziende gestiscon
 
 1. Cercare un messaggio di posta elettronica da Microsoft in cui viene chiesto di verificare l'accesso. Di seguito è riportato un esempio di messaggio di posta elettronica per esaminare l'accesso per un gruppo.
 
-    ![Messaggio di posta elettronica di esempio da Microsoft per verificare l'accesso a un gruppo](./media/perform-access-review/access-review-email.png)
+    ![Screenshot che mostra un messaggio di posta elettronica di esempio da Microsoft per verificare l'accesso a un gruppo.](./media/perform-access-review/access-review-email.png)
 
 1. Fare clic sul collegamento **Avvia verifica** per aprire la verifica di accesso.
 
@@ -54,7 +54,7 @@ Azure Active Directory (Azure AD) semplifica il modo in cui le aziende gestiscon
         > [!NOTE]
         > Se il riquadro verifiche di **accesso** non è visibile, non sono disponibili verifiche di accesso da eseguire per tale organizzazione e al momento non è necessaria alcuna azione.
 
-        ![Elenco delle verifiche di accesso in sospeso per le app e i gruppi](./media/perform-access-review/access-reviews-list.png)
+        ![Screenshot che mostra l'elenco delle verifiche di accesso in sospeso per le app e i gruppi.](./media/perform-access-review/access-reviews-list.png)
 
     1. Fare clic sul collegamento **Begin Review** per la verifica di accesso che si desidera eseguire.
 
@@ -99,7 +99,7 @@ Per semplificare e velocizzare le verifiche di accesso, sono disponibili anche c
 
 1. Nella barra blu nella parte inferiore della pagina fare clic su **accetta raccomandazioni**.
 
-    ![Aprire l'elenco di controllo di accesso che mostra il pulsante accetta raccomandazioni](./media/perform-access-review/accept-recommendations.png)
+    ![Screenshot che mostra l'elenco di controllo di accesso aperto con il pulsante "accetta raccomandazioni" selezionato.](./media/perform-access-review/accept-recommendations.png)
 
     Viene visualizzato un riepilogo delle azioni consigliate.
 

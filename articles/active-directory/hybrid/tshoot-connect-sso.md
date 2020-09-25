@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdaa84d54bbd5558c995014aa4621b0051a36e97
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016266"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294819"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
 
@@ -37,6 +37,7 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 - Se si esegue la sincronizzazione di 30 o più foreste di Active Directory, non è possibile abilitare l'accesso SSO facile usando Azure AD Connect. Per risolvere il problema, è possibile [abilitare manualmente](#manual-reset-of-the-feature) la funzionalità nel tenant in uso.
 - L'aggiunta dell'URL del servizio Azure AD ( `https://autologon.microsoftazuread-sso.com` ) all'area siti attendibili anziché all'area Intranet locale *impedisce agli utenti*di effettuare l'accesso.
 - Seamless SSO supporta i tipi di crittografia AES256_HMAC_SHA1, AES128_HMAC_SHA1 e RC4_HMAC_MD5 per Kerberos. Si consiglia di impostare il tipo di crittografia per l'account AzureADSSOAcc $ su AES256_HMAC_SHA1 o uno dei tipi AES rispetto a RC4 per una maggiore sicurezza. Il tipo di crittografia viene archiviato nell'attributo msDS-SupportedEncryptionTypes dell'account nel Active Directory.  Se il tipo di crittografia dell'account AzureADSSOAcc $ è impostato su RC4_HMAC_MD5 e si desidera modificarlo in uno dei tipi di crittografia AES, assicurarsi di eseguire prima il rollover della chiave di decrittografia Kerberos dell'account AzureADSSOAcc $ come illustrato nel [documento di domande frequenti](how-to-connect-sso-faq.md) , in caso contrario, l'accesso SSO facile non verrà eseguito.
+-  Se si dispone di più di una foresta con trust tra foreste, l'abilitazione dell'accesso SSO in una delle foreste consentirà l'accesso SSO in tutte le foreste trusted. Se si Abilita SSO in una foresta in cui SSO è già abilitato, verrà segnalato un errore che informa che SSO è già abilitato nella foresta.
 
 ## <a name="check-status-of-feature"></a>Controllare lo stato della funzionalità
 

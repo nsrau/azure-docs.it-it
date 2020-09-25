@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 1beb2065f1823135981545e42d499c5429b87c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf7e4da2051ab84cebff5aae857c02907f7b58e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031612"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263624"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>Esercitazione: configurare la replica geografica attiva e il failover nel portale di Azure (database SQL di Azure)
 
@@ -55,12 +55,12 @@ Dopo aver creato ed eseguito il seeding del database secondario, inizia la repli
     ![Configurare la replica geografica](./media/active-geo-replication-configure-portal/configure-geo-replication.png)
 3. Selezionare o configurare il server e il piano tariffario per il database secondario.
 
-    ![Configurare il database secondario](./media/active-geo-replication-configure-portal/create-secondary.png)
+    ![Crea modulo secondario](./media/active-geo-replication-configure-portal/create-secondary.png)
 4. Facoltativamente, è possibile aggiungere un database secondario a un pool elastico. Per creare il database secondario in un pool, fare clic su **Pool elastico** e selezionare un pool sul server di destinazione. Un pool deve esistere già nel server di destinazione. Questo flusso di lavoro non crea un pool.
 5. Fare clic su **Crea** per aggiungere il database secondario.
 6. Il database secondario viene creato e viene avviato il processo di seeding.
 
-    ![Configurare il database secondario](./media/active-geo-replication-configure-portal/seeding0.png)
+    ![Mappa secondarie](./media/active-geo-replication-configure-portal/seeding0.png)
 7. Una volta completato il processo di seeding il database secondario visualizza il relativo stato.
 
     ![Seeding completo](./media/active-geo-replication-configure-portal/seeding-complete.png)

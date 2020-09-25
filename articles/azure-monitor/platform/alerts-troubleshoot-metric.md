@@ -3,15 +3,15 @@ title: Risoluzione dei problemi relativi agli avvisi delle metriche di Azure
 description: Problemi comuni relativi agli avvisi delle metriche di monitoraggio di Azure e alle possibili soluzioni.
 author: harelbr
 ms.author: harelbr
-ms.topic: reference
+ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.subservice: alerts
-ms.openlocfilehash: b0e39982b3d62e0ef722a139024b499efc254f5f
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: f9003aa7b9b2c28e443485484ccd4eb50fa6e0dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294226"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di monitoraggio di Azure 
 
@@ -245,7 +245,7 @@ Quando si usano le dimensioni in una regola di avviso che contiene più condizio
 - È possibile selezionare un solo valore per dimensione all'interno di ogni condizione.
 - Non è possibile usare l'opzione per "selezionare tutti i valori correnti e futuri" (Select \* ).
 - Quando le metriche configurate in condizioni diverse supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nelle condizioni pertinenti).
-Esempio:
+Ad esempio:
     - Si consideri una regola di avviso metrica definita in un account di archiviazione e che monitora due condizioni:
         * Totale **transazioni** > 5
         * Media **SuccessE2ELatency** > 250 ms

@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 54d33b849f809dbe1ebefbbc3d2f63db6877e86e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: feb79a2a077f819cce22925f23f5ed640d05e8d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996722"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296672"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Connettersi ai dati con Azure Machine Learning Studio
 
@@ -24,14 +24,14 @@ Questo articolo illustra come accedere ai dati con [Azure Machine Learning Studi
 
 La tabella seguente definisce e riepiloga i vantaggi degli archivi dati e dei set di dati. 
 
-||Descrizione| Vantaggi|   
+|Oggetto|Descrizione| Vantaggi|   
 |---|---|---|
-|Archivi dati| Connettersi in modo sicuro al servizio di archiviazione in Azure archiviando le informazioni di connessione, ad esempio l'ID sottoscrizione e l'autorizzazione del token nell' [Key Vault](https://azure.microsoft.com/services/key-vault/) associata all'area di lavoro | Poiché le informazioni sono archiviate in modo sicuro, <br><br> <li> Non &nbsp; inserire &nbsp; le &nbsp; credenziali di autenticazione o le origini dati originali a rischio. <li> Non è più necessario codificarli in modo rigido negli script.
+|Archivi dati| Connettersi in modo sicuro al servizio di archiviazione in Azure archiviando le informazioni di connessione, ad esempio l'ID sottoscrizione e l'autorizzazione del token nell' [Key Vault](https://azure.microsoft.com/services/key-vault/) associata all'area di lavoro | Poiché le informazioni sono archiviate in modo sicuro, <br><br> <li> Non &nbsp; inserire &nbsp; le &nbsp; credenziali &nbsp; di autenticazione o le &nbsp; &nbsp; origini dati originali a rischio. <li> Non è più necessario codificarli in modo rigido negli script.
 |Set di dati| Creando un set di dati, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. Con i set di impostazioni è possibile, <br><br><li> Accedere ai dati durante il training del modello.<li> Condividere i dati e collaborare con altri utenti.<li> Sfrutta le librerie open source, come Pandas, per l'esplorazione dei dati. | Poiché i set di dati vengono valutati in modo differito e i dati rimangono nella posizione esistente, <br><br><li>Conservare una sola copia dei dati nella risorsa di archiviazione.<li> Non sostenere costi di archiviazione aggiuntivi <li> Non è rischioso modificare involontariamente le origini dati originali.<li>Migliorare le velocità di prestazioni del flusso di lavoro ML. 
 
 Per informazioni sul modo in cui gli archivi dati e i set di dati si adattano al flusso di lavoro di accesso ai dati complessivo di Azure Machine Learning, vedere l'articolo [accesso sicuro ai dati](concept-data.md#data-workflow) .
 
-Per un'esperienza di Code First, vedere gli articoli seguenti per usare [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) per:
+Per un'esperienza di Code First, vedere gli articoli seguenti per usare [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) per:
 * [Connettersi ai servizi di archiviazione di Azure con gli archivi dati](how-to-access-data.md). 
 * [Creare Azure Machine Learning set di impostazioni](how-to-create-register-datasets.md). 
 
@@ -112,22 +112,22 @@ In particolare, Azure Machine Learning profilo dati del set di dati include:
 >[!NOTE]
 > Per le funzionalità con tipi irrilevanti vengono visualizzate voci vuote.
 
-Statistiche|Descrizione
-------|------
-Funzionalità| Nome della colonna sottoposta a riepilogo.
-Profilo| Visualizzazione in linea basata sul tipo dedotto. Ad esempio, le stringhe, i valori booleani e le date avranno conteggi di valori, mentre i decimali (numerici) avranno istogrammi approssimati. In questo modo è possibile ottenere una visione immediata della distribuzione dei dati.
-Distribuzione dei tipi| Conteggio dei valori in linea dei tipi all'interno di una colonna. I valori Null hanno un proprio tipo, quindi questa visualizzazione è utile per rilevare valori strani o mancanti.
-Type|Tipo dedotto della colonna. I valori possibili includono: stringhe, valori booleani, date e decimali.
-Min| Valore minimo della colonna. Vengono visualizzate voci vuote per le funzionalità il cui tipo non ha un ordinamento intrinseco, ad esempio i valori booleani.
-Max| Valore massimo della colonna. 
-Conteggio| Numero totale di voci mancanti e non mancanti nella colonna.
-Totale non mancanti| Numero di voci nella colonna che non sono mancanti. Le stringhe vuote e gli errori vengono considerati come valori, quindi non contribuiscono al "totale non mancanti".
-Quantili| Valori approssimati a ogni quantile per una visione generale della distribuzione dei dati.
-Media| Media aritmetica o media della colonna.
-Deviazione standard| Misura della quantità di dispersione o variazione dei dati di questa colonna.
-Variance| Misura della distribuzione dei dati di questa colonna rispetto al relativo valore medio. 
-Asimmetria| Misura della differenza dei dati di questa colonna rispetto a una distribuzione normale.
-Curtosi| Misura della pesantezza delle code dei dati di questa colonna in relazione a una distribuzione normale.
+|Statistiche|Descrizione
+|------|------
+|Funzionalità| Nome della colonna sottoposta a riepilogo.
+|Profilo| Visualizzazione in linea basata sul tipo dedotto. Ad esempio, le stringhe, i valori booleani e le date avranno conteggi di valori, mentre i decimali (numerici) avranno istogrammi approssimati. In questo modo è possibile ottenere una visione immediata della distribuzione dei dati.
+|Distribuzione dei tipi| Conteggio dei valori in linea dei tipi all'interno di una colonna. I valori Null hanno un proprio tipo, quindi questa visualizzazione è utile per rilevare valori strani o mancanti.
+|Type|Tipo dedotto della colonna. I valori possibili includono: stringhe, valori booleani, date e decimali.
+|Min| Valore minimo della colonna. Vengono visualizzate voci vuote per le funzionalità il cui tipo non ha un ordinamento intrinseco, ad esempio i valori booleani.
+|Max| Valore massimo della colonna. 
+|Conteggio| Numero totale di voci mancanti e non mancanti nella colonna.
+|Totale non mancanti| Numero di voci nella colonna che non sono mancanti. Le stringhe vuote e gli errori vengono considerati come valori, quindi non contribuiscono al "totale non mancanti".
+|Quantili| Valori approssimati a ogni quantile per una visione generale della distribuzione dei dati.
+|Media| Media aritmetica o media della colonna.
+|Deviazione standard| Misura della quantità di dispersione o variazione dei dati di questa colonna.
+|Variance| Misura della distribuzione dei dati di questa colonna rispetto al relativo valore medio. 
+|Asimmetria| Misura della differenza dei dati di questa colonna rispetto a una distribuzione normale.
+|Curtosi| Misura della pesantezza delle code dei dati di questa colonna in relazione a una distribuzione normale.
 
 ## <a name="storage-access-and-permissions"></a>Accesso e autorizzazioni di archiviazione
 

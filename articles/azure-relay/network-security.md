@@ -1,14 +1,14 @@
 ---
 title: Sicurezza di rete per l'inoltro di Azure
-description: Questo articolo descrive come configurare l'accesso da endpoint privati
+description: Questo articolo descrive come usare le regole del firewall IP ed endpoint privati con il servizio di inoltro di Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: bf49eff29385b5b72639420416df87b9187845e8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3aa3ffd119f65ec5181b0c382472cc4ef3c8bac4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532986"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263726"
 ---
 # <a name="network-security-for-azure-relay"></a>Sicurezza di rete per l'inoltro di Azure 
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con il servizio di inoltro di Azure: 

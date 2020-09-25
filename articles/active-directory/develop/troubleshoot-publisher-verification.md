@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: fd49e922e5952f5a7c4b7f477dd33d6518010428
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 71b6f35b107a8cb213e97d9a05bdf93b93967606
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088324"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256892"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Risolvere i problemi di verifica dell'autore
 Se non si riesce a completare il processo o si verifica un comportamento imprevisto con la [Verifica dell'editore](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o si verifica un comportamento imprevisto: 
@@ -59,7 +59,7 @@ Di seguito sono riportati alcuni problemi comuni che possono verificarsi durante
 
 - **Si verifica un errore relativo all'autenticazione a più fattori. Cosa dovrei fare?** 
     Assicurarsi che la [funzionalità autenticazione](../fundamentals/concept-fundamentals-mfa-get-started.md) a più fattori sia abilitata e necessaria per l'utente con cui si esegue l'accesso e per questo scenario. Ad esempio, l'autenticazione a più fattori può essere:
-    - Sempre necessario per l'utente con cui si sta effettuando l'accesso
+    - Sempre necessario per l'utente con cui si esegue l'accesso
     - [Obbligatorio per gestione di Azure](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Obbligatorio per il tipo di amministratore](../conditional-access/howto-conditional-access-policy-admin-mfa.md) con cui si esegue l'accesso.
 
@@ -150,31 +150,45 @@ Di seguito è riportato un elenco dei potenziali codici di errore che possono es
 
 ### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess     
 
-L'ID MPN specificato (<MPNID>) non esiste o non è possibile accedervi. Specificare un ID MPN valido e riprovare. 
+L'ID MPN specificato (<MPNID>) non esiste o non è possibile accedervi. Specificare un ID MPN valido e riprovare.
+    
+In genere, l'utente che ha eseguito l'accesso non è membro del ruolo appropriato per l'account MPN nel centro per i partner. per ulteriori informazioni, vedere i [requisiti](publisher-verification-overview.md#requirements) per un elenco dei ruoli idonei e vedere i [problemi comuni](#common-issues) . Può anche essere causato dal tenant in cui l'app è registrata non viene aggiunta all'account MPN o da un ID MPN non valido.
 
 ### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound     
 
-L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare. 
+L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare.
+    
+Si verifica in genere quando viene fornito un ID MPN che corrisponde a un account di località partner (PLA). Sono supportati solo gli account globali partner. Per ulteriori informazioni, vedere la [struttura dell'account del centro](/partner-center/account-structure) per i partner.
 
 ### <a name="mpnaccountinvalid"></a>MPNAccountInvalid    
 
-L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare. 
+L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare.
+    
+Generalmente causata dall'ID MPN errato fornito.
 
 ### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted  
 
 L'ID MPN (<MPNID>) specificato non ha completato il processo di verifica. Completare questo processo in Partner Center e riprovare. 
+    
+Generalmente causata da quando l'account MPN non ha completato il processo di [Verifica](/partner-center/verification-responses) .
 
 ### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount  
 
 L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare. 
+   
+Generalmente causata dall'ID MPN errato fornito.
 
 ### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount    
 
-L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare. 
+L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare.
+    
+Generalmente causata dall'ID MPN errato fornito.
 
 ### <a name="applicationnotfound"></a>ApplicationNotFound  
 
-Impossibile trovare l'applicazione di destinazione (<AppId>). Specificare un ID di applicazione valido e riprovare. 
+Impossibile trovare l'applicazione di destinazione (<AppId>). Specificare un ID di applicazione valido e riprovare.
+    
+Si verifica in genere quando viene eseguita la verifica tramite API Graph e l'ID dell'applicazione fornita non è corretto. Nota: è necessario specificare l'ID dell'applicazione, non l'AppId/ClientID.
 
 ### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed  
 
@@ -188,13 +202,19 @@ Questa funzionalità non è supportata in un tenant verificato tramite posta ele
 
 L'applicazione di destinazione ( \<AppId\> ) deve avere un set di domini editore. Impostare un dominio dell'autore e riprovare.
 
+Si verifica quando un [dominio del server di pubblicazione](howto-configure-publisher-domain.md) non è configurato nell'app.
+
 ### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
 
 Il dominio dell'autore dell'applicazione di destinazione (<publisherDomain>) non corrisponde al dominio usato per eseguire la verifica tramite posta elettronica in Partner Center (<pcDomain>). Assicurarsi che questi domini corrispondano e riprovare. 
+    
+Si verifica quando il dominio del [server di pubblicazione](howto-configure-publisher-domain.md) dell'applicazione o uno dei [domini personalizzati](../fundamentals/add-custom-domain.md) aggiunti al tenant di Azure ad corrisponde al dominio utilizzato per eseguire la verifica tramite posta elettronica nel centro per i partner.
 
 ### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher   
 
 Non si è autorizzati a configurare la proprietà dell'autore verificato per l'applicazione (<AppId>) 
+  
+In genere, l'utente che ha eseguito l'accesso non è membro del ruolo appropriato per l'account MPN in Azure AD. vedere i [requisiti](publisher-verification-overview.md#requirements) per un elenco dei ruoli idonei e vedere i [problemi comuni](#common-issues) per ulteriori informazioni.
 
 ### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided  
 
@@ -202,7 +222,11 @@ L'ID MPN non è stato specificato nel corpo della richiesta o il tipo di contenu
 
 ### <a name="msanotsupported"></a>MSANotSupported  
 
-Questa funzionalità non è supportata per gli account utente Microsoft. Sono supportate solo le applicazioni registrate in Azure AD da un utente Azure AD. 
+Questa funzionalità non è supportata per gli account utente Microsoft. Sono supportate solo le applicazioni registrate in Azure AD da un utente Azure AD.
+
+### <a name="interactionrequired"></a>InteractionRequired
+
+Si verifica quando non è stata eseguita l'autenticazione a più fattori prima di tentare di aggiungere un server di pubblicazione verificato all'app. Per ulteriori informazioni, vedere [problemi comuni](#common-issues) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -216,4 +240,4 @@ Se sono state esaminate tutte le informazioni precedenti e si riceve ancora un e
 - TenantId in cui è registrata l'app
 - ID MPN
 - Richiesta REST eseguita 
-- Codice di errore e messaggio restituiti 
+- Codice di errore e messaggio restituiti

@@ -1,5 +1,5 @@
 ---
-title: Assegnare ed elencare i ruoli con ambito unità amministrativa (anteprima)-Azure Active Directory | Microsoft Docs
+title: Assegnare ed elencare i ruoli con ambito unità amministrativa-Azure Active Directory | Microsoft Docs
 description: Utilizzo di unità amministrative per limitare l'ambito delle assegnazioni di ruolo in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 07/10/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 918675b111b7b1b85669692b63fed683ea2831f8
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 00b5f39363e4c8b2fd3a0d74a8c013d315bff1fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475635"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264933"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Assegnare ruoli con ambito a un'unità amministrativa
 
@@ -105,4 +105,4 @@ Request body
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Usare i gruppi di cloud per gestire le assegnazioni di ruolo](roles-groups-concept.md)
-- [Risoluzione dei problemi assegnati ai gruppi di cloud](roles-groups-faq-troubleshooting.md)
+- [Risoluzione dei problemi correlati ai ruoli assegnati ai gruppi cloud](roles-groups-faq-troubleshooting.md)

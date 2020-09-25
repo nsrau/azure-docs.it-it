@@ -3,12 +3,12 @@ title: Risolvere i problemi di accesso al registro di sistema
 description: Sintomi, cause e risoluzione dei problemi comuni durante l'accesso a un registro contenitori di Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 8fbb96be8223001ac52db47788c31609e9b86e35
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227479"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253355"
 ---
 # <a name="troubleshoot-registry-login"></a>Risolvere i problemi di accesso al registro
 
@@ -107,7 +107,7 @@ Collegamenti correlati:
 * [Accedi con token con ambito repository](container-registry-repository-scoped-permissions.md)
 * [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md)
 * [Usare il portale per creare un'applicazione Azure AD e un'entità servizio che possano accedere alle risorse](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Crea nuovo segreto applicazione](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)
+* [Crea un nuovo segreto dell'applicazione](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)
 * [Azure AD codici di autenticazione e autorizzazione](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### <a name="check-that-credentials-arent-expired"></a>Verificare che le credenziali non siano scadute
@@ -142,7 +142,7 @@ Se non si risolve il problema, vedere le opzioni seguenti.
   * [Risolvere i problemi di rete con il registro di sistema](container-registry-troubleshoot-access.md)
   * [Risolvere i problemi relativi alle prestazioni del registro](container-registry-troubleshoot-performance.md)
 * Opzioni di [supporto della community](https://azure.microsoft.com/support/community/)
-* [Domane e risposte Microsoft](https://docs.microsoft.com/answers/products/)
+* [Domande e risposte Microsoft](https://docs.microsoft.com/answers/products/)
 * [Aprire un ticket di supporto](https://azure.microsoft.com/support/create-ticket/) in base alle informazioni fornite, è possibile che venga eseguita una diagnostica rapida per gli errori di autenticazione nel registro di sistema
 
 

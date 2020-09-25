@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 10/8/2019
-ms.openlocfilehash: a47a6e1860edcb9b2bf89c25e78f6a66e8a7cf4d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e1c6825820ae943d10157279dfe93922a7521b75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295618"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Risolvere i problemi di connessione al database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -27,7 +27,7 @@ I problemi di connessione possono essere causati da diversi fattori, ad esempio:
 * Manutenzione del servizio
 * Failover del nodo coordinatore sul nuovo hardware
 
-In genere, i problemi di connessione a iperscalabilità possono essere classificati come segue:
+In genere, i problemi di connessione a iperscalabilità (CITUS) possono essere classificati come segue:
 
 * Errori temporanei (di breve durata o intermittenti)
 * Errori non temporanei o permanenti (errori che si ripetono regolarmente)
@@ -36,7 +36,7 @@ In genere, i problemi di connessione a iperscalabilità possono essere classific
 
 Gli errori temporanei si verificano per diversi motivi. I più comuni includono la manutenzione del sistema, l'errore con hardware o software e gli aggiornamenti del nodo coordinatore vCore.
 
-L'abilitazione della disponibilità elevata per i nodi del gruppo di server con iperscalabilità può attenuare automaticamente questi tipi di problemi. Tuttavia, l'applicazione deve comunque essere preparata a perdere la connessione brevemente. Inoltre, altri eventi possono richiedere più tempo per attenuare, ad esempio quando una transazione di grandi dimensioni causa un ripristino con esecuzione prolungata.
+L'abilitazione dei nodi del gruppo di server CITUS (High Availability for iperscale) può ridurre automaticamente questi tipi di problemi. Tuttavia, l'applicazione deve comunque essere preparata a perdere la connessione brevemente. Inoltre, altri eventi possono richiedere più tempo per attenuare, ad esempio quando una transazione di grandi dimensioni causa un ripristino con esecuzione prolungata.
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Passaggi per risolvere problemi di connettività temporanei
 
@@ -49,7 +49,7 @@ L'abilitazione della disponibilità elevata per i nodi del gruppo di server con 
 
 Se l'applicazione non riesce a connettersi in modo permanente a iperscalabilità (CITUS), le cause più comuni sono la configurazione del firewall o l'errore dell'utente.
 
-* Configurazione del firewall del nodo coordinatore: assicurarsi che il firewall del server iperscalabile sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
+* Configurazione del firewall del nodo coordinatore: assicurarsi che il firewall del server iperscalabile (CITUS) sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
 * Configurazione del firewall client: il firewall del client deve consentire le connessioni al server di database. Per alcuni firewall è necessario consentire non solo l'applicazione per nome, ma consentendo gli indirizzi IP e le porte del server.
 * Errore dell'utente: controllare la stringa di connessione. È possibile che si disponga di parametri non tipizzati come il nome del server. È possibile trovare le stringhe di connessione per diversi framework di linguaggio e PSQL nel portale di Azure. Passare alla pagina **stringhe di connessione** nel gruppo di server con iperscalabilità (CITUS). Tenere inoltre presente che i cluster iperscalari (CITUS) hanno un solo database e il nome predefinito è **CITUS**.
 

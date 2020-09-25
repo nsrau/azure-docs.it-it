@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 5955bc35acfaf8f877e68db083871c353a3ce326
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f9df17afe8b6d25df3d9dcc5f4eec0b9a028404f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254007"
 ---
 # <a name="spatial-analysis-operations"></a>Operazioni di analisi spaziale
 
@@ -88,7 +88,7 @@ Questi sono i parametri richiesti da ognuna di queste operazioni di analisi spaz
 }
 ```
 
-| Nome | Tipo| Descrizione|
+| Nome | Type| Descrizione|
 |---------|---------|---------|
 | `zones` | list| Elenco di zone. |
 | `name` | string| Nome descrittivo per questa zona.|
@@ -121,7 +121,7 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 }
 ```
 
-| Nome | Tipo| Descrizione|
+| Nome | Type| Descrizione|
 |---------|---------|---------|
 | `lines` | list| Elenco di righe.|
 | `name` | string| Nome descrittivo per questa riga.|
@@ -152,7 +152,7 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 }
 ```
 
-| Nome | Tipo| Descrizione|
+| Nome | Type| Descrizione|
 |---------|---------|---------|
 | `zones` | list| Elenco di zone. |
 | `name` | string| Nome descrittivo per questa zona.|
@@ -184,7 +184,7 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 }
 ```
 
-| Nome | Tipo| Descrizione|
+| Nome | Type| Descrizione|
 |---------|---------|---------|
 | `zones` | list| Elenco di zone. |
 | `name` | string| Nome descrittivo per questa zona.|
@@ -206,7 +206,7 @@ Questo è un esempio di input JSON per il parametro DETECTOR_NODE_CONFIG che con
 }
 ```
 
-| Nome | Tipo| Descrizione|
+| Nome | Type| Descrizione|
 |---------|---------|---------|
 | `gpu_index` | string| Indice GPU in cui verrà eseguita l'operazione.|
 | `do_calibration` | string | Indica che la taratura è attivata. `do_calibration` deve essere true per il corretto funzionamento di **cognitiveservices. Vision. spatialanalysis-persondistance** .|
@@ -304,7 +304,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
 }
 ```
 
-| Nome campo evento | Tipo| Descrizione|
+| Nome campo evento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID evento|
 | `type` | string| Tipo di evento|
@@ -316,7 +316,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
 | `zone` | string | Il campo "Name" del poligono che rappresenta la zona attraversata|
 | `trigger` | string| Il tipo di trigger è' Event ' o ' Interval ' a seconda del valore di `trigger` in SPACEANALYTICS_CONFIG|
 
-| Nome campo rilevamento | Tipo| Descrizione|
+| Nome campo rilevamento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID rilevamento|
 | `type` | string| Tipo di rilevamento|
@@ -325,7 +325,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
 | `points` | collection| Punti in alto a sinistra e in basso a destra quando il tipo di area è rettangolo |
 | `confidence` | float| Confidenza degli algoritmi|
 
-| Nome campo SourceInfo | Tipo| Descrizione|
+| Nome campo SourceInfo | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
@@ -338,7 +338,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
 | `focalLength` | float | Lunghezza focale della fotocamera in pixel. Questa operazione viene dedotta dalla calibrazione automatica. |
 | `tiltUpAngle` | float | Angolo di inclinazione della fotocamera verticale. Questa operazione viene dedotta dalla calibrazione automatica.|
 
-| Nome campo SourceInfo | Tipo| Descrizione|
+| Nome campo SourceInfo | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
@@ -399,7 +399,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
     "schemaVersion": "1.0"
 }
 ```
-| Nome campo evento | Tipo| Descrizione|
+| Nome campo evento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID evento|
 | `type` | string| Tipo di evento|
@@ -409,7 +409,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `status` | string| Direzione delle incrociate di riga, ovverò CrossLeft ' o ' CrossRight '|
 | `zone` | string | Il campo "nome" della riga che è stata superata|
 
-| Nome campo rilevamento | Tipo| Descrizione|
+| Nome campo rilevamento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID rilevamento|
 | `type` | string| Tipo di rilevamento|
@@ -418,7 +418,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `points` | collection| Punti in alto a sinistra e in basso a destra quando il tipo di area è rettangolo |
 | `confidence` | float| Confidenza degli algoritmi|
 
-| Nome campo SourceInfo | Tipo| Descrizione|
+| Nome campo SourceInfo | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
@@ -484,7 +484,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 }
 ```
 
-| Nome campo evento | Tipo| Descrizione|
+| Nome campo evento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID evento|
 | `type` | string| Tipo di evento|
@@ -494,7 +494,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `status` | string| Direzione degli incroci del poligono, ovverò Enter ' o ' Exit '|
 | `zone` | string | Il campo "Name" del poligono che rappresenta la zona attraversata|
 
-| Nome campo rilevamento | Tipo| Descrizione|
+| Nome campo rilevamento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID rilevamento|
 | `type` | string| Tipo di rilevamento|
@@ -595,7 +595,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 }
 ```
 
-| Nome campo evento | Tipo| Descrizione|
+| Nome campo evento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID evento|
 | `type` | string| Tipo di evento|
@@ -610,7 +610,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `zone` | string | Il campo "Name" del poligono che rappresenta la zona monitorata per l'allontanamento tra le persone|
 | `trigger` | string| Il tipo di trigger è' Event ' o ' Interval ' a seconda del valore di `trigger` in SPACEANALYTICS_CONFIG|
 
-| Nome campo rilevamento | Tipo| Descrizione|
+| Nome campo rilevamento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID rilevamento|
 | `type` | string| Tipo di rilevamento|
@@ -620,7 +620,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `confidence` | float| Confidenza degli algoritmi|
 | `centerGroundPoint` | 2 valori float| `x`, `y` i valori con le coordinate della posizione dedotta della persona sulla superficie in piedi. `x` distanza dalla fotocamera perpendicolare al piano dell'immagine della fotocamera proiettato sulla superficie in piedi. `y` distanza tra la fotocamera e il piano dell'immagine proiettata sulla superficie in piedi.|
 
-| Nome campo SourceInfo | Tipo| Descrizione|
+| Nome campo SourceInfo | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
@@ -644,7 +644,7 @@ Potrebbe essere necessario integrare il rilevamento o gli eventi di analisi spaz
 
 ## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Distribuzione di operazioni di analisi spaziale su larga scala (più fotocamere)
 
-Per ottenere prestazioni e utilizzo ottimali delle GPU, è possibile distribuire qualsiasi operazione di analisi spaziale su più fotocamere usando le istanze di Graph. Di seguito è riportato un esempio per l'esecuzione dell'operazione cognitiveservices. Vision. spatialanalysis-PersonCount su cinque (5) fotocamere.
+Per ottenere le migliori prestazioni e l'utilizzo delle GPU, è possibile distribuire qualsiasi operazione di analisi spaziale su più fotocamere usando le istanze di Graph. Di seguito è riportato un esempio per l'esecuzione dell' `cognitiveservices.vision.spatialanalysis-personcount` operazione su cinque fotocamere.
 
 ```json
  "properties.desired": {
@@ -725,9 +725,9 @@ Per ottenere prestazioni e utilizzo ottimali delle GPU, è possibile distribuire
       }
   }
   ```
-| Nome | Tipo| Descrizione|
+| Nome | Type| Descrizione|
 |---------|---------|---------|
-| `batch_size` | INT | Indica il numero di fotocamere che verranno utilizzate in tale operazione.|
+| `batch_size` | INT | Indica il numero di fotocamere che verranno utilizzate nell'operazione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

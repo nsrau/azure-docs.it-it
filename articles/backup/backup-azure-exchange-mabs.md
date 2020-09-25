@@ -4,12 +4,12 @@ description: Informazioni su come eseguire il backup di un server di Exchange in
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: eff702cb50317e6b685e19e7df1ffc99b5fc1736
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 86389ef89ced74905db0fc8bfeaabcea6140762a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377626"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262995"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Eseguire il backup di un server Exchange in Azure con il server di Backup di Azure
 
@@ -23,8 +23,8 @@ Prima di continuare, assicurarsi che il Server di Backup di Azure sia [installat
 
 Per installare l'agente protezione MABS nel server di Exchange, seguire questi passaggi:
 
-1. Assicurarsi che i firewall siano configurati correttamente. Vedere [Configurare le eccezioni del firewall per l'agente](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Installare l'agente sul server Exchange selezionando **Management > agents > install** in MAB console di amministrazione. Per la procedura dettagliata, vedere [Installare l'agente protezione MABS](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) .
+1. Assicurarsi che i firewall siano configurati correttamente. Vedere [Configurare le eccezioni del firewall per l'agente](/system-center/dpm/configure-firewall-settings-for-dpm).
+2. Installare l'agente sul server Exchange selezionando **Management > agents > install** in MAB console di amministrazione. Per la procedura dettagliata, vedere [Installare l'agente protezione MABS](/system-center/dpm/deploy-dpm-protection-agent) .
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Creare un gruppo di protezione per il server di Exchange
 
@@ -47,7 +47,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
 
    * Protezione dati breve termine tramite: Disco.
    * Protezione dati online.
-6. Selezionare **Next** (Avanti).
+6. Selezionare **Avanti**.
 7. Selezionare l'opzione **Esegui Eseutil per controllare l'integrità dei dati** se si vuole controllare l'integrità dei database di Exchange Server.
 
     Dopo aver selezionato questa opzione, la verifica coerenza dei backup verrà eseguita su MAB per evitare il traffico di I/O generato eseguendo il comando **eseutil** sul server Exchange.
@@ -57,7 +57,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
    > ![Errore di Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Selezionare **Next** (Avanti).
+8. Selezionare **Avanti**.
 9. Selezionare il database per **copia backup**, quindi fare clic su **Avanti**.
 
    > [!NOTE]

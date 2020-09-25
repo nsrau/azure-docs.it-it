@@ -3,16 +3,16 @@ title: Configurare server di Backup di Azure per la soluzione VMware di Azure
 description: Configurare l'ambiente della soluzione VMware di Azure per eseguire il backup di macchine virtuali usando server di Backup di Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 0dd2b16254e697a08d0ff542a5ddcb3fc7e4103d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 516f4a2fa92740897e186a782e276fc6d40fc925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750626"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255010"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurare server di Backup di Azure per la soluzione VMware di Azure
 
-Server di Backup di Azure è un sistema di backup e ripristino aziendale affidabile che contribuisce alla strategia di continuità aziendale e ripristino di emergenza (BCDR). Durante l'anteprima della soluzione VMware di Azure, è possibile configurare solo il backup a livello di macchina virtuale (VM) usando server di Backup di Azure. 
+Server di Backup di Azure è un sistema di backup e ripristino aziendale affidabile che contribuisce alla strategia di continuità aziendale e ripristino di emergenza (BCDR). Durante la soluzione VMware di Azure, è possibile configurare solo il backup a livello di macchina virtuale (VM) usando server di Backup di Azure. 
 
 Server di Backup di Azure possibile archiviare i dati di backup in:
 
@@ -34,7 +34,7 @@ Questo articolo illustra come preparare l'ambiente della soluzione VMware di Azu
 - **Backup senza agenti:** Server di Backup di Azure non richiede l'installazione di un agente nel server vCenter o ESXi per eseguire il backup della macchina virtuale. Al contrario, è sufficiente fornire l'indirizzo IP o il nome di dominio completo (FQDN) e le credenziali di accesso usate per autenticare il server VMware con server di Backup di Azure.
 - **Backup integrato nel cloud:** Server di Backup di Azure protegge i carichi di lavoro su disco e nel cloud. Il flusso di lavoro di backup e ripristino di server di Backup di Azure consente di gestire la conservazione a lungo termine e il backup fuori sede.
 - **Rilevare e proteggere le macchine virtuali gestite da vCenter:** Server di Backup di Azure rileva e protegge le macchine virtuali distribuite in un server vCenter o ESXi. Server di Backup di Azure rileva anche le macchine virtuali gestite da vCenter, in modo che sia possibile proteggere le distribuzioni di grandi dimensioni.
-- **Protezione con sicurezza a livello di cartella:** vCenter consente di organizzare le macchine virtuali in cartelle VM. Server di Backup di Azure rileva queste cartelle ed è possibile usarle per proteggere le macchine virtuali a livello di cartella, incluse tutte le sottocartelle. Quando si proteggono le cartelle, server di Backup di Azure non solo protegge le VM presenti in tale cartella, ma protegge anche le VM aggiunte in un secondo momento. Server di Backup di Azure rileva le nuove macchine virtuali quotidianamente e le protegge automaticamente. Quando si organizzano le macchine virtuali in cartelle ricorsive, server di Backup di Azure rileva e protegge automaticamente le nuove macchine virtuali distribuite nelle cartelle ricorsive.
+- **Protezione con sicurezza a livello di cartella:** vCenter consente di organizzare le macchine virtuali in cartelle VM. Server di Backup di Azure rileva queste cartelle. È possibile usarlo per proteggere le macchine virtuali a livello di cartella, incluse tutte le sottocartelle. Quando si proteggono le cartelle, server di Backup di Azure non solo protegge le VM presenti in tale cartella, ma protegge anche le VM aggiunte in un secondo momento. Server di Backup di Azure rileva le nuove macchine virtuali quotidianamente e le protegge automaticamente. Quando si organizzano le macchine virtuali in cartelle ricorsive, server di Backup di Azure rileva e protegge automaticamente le nuove macchine virtuali distribuite nelle cartelle ricorsive.
 - **Server di backup di Azure continua a proteggere le macchine virtuali vMotion all'interno del cluster:** Poiché le macchine virtuali sono vMotion per il bilanciamento del carico all'interno del cluster, server di Backup di Azure rileva automaticamente e continua la protezione delle macchine virtuali.
 - **Ripristinare i file necessari più velocemente:** Server di Backup di Azure possibile ripristinare i file o le cartelle da una VM Windows senza ripristinare l'intera macchina virtuale.
 
@@ -68,7 +68,7 @@ Assicurarsi di [configurare la rete per il cloud privato VMware in Azure](tutori
 
 ### <a name="determine-the-size-of-the-virtual-machine"></a>Determinare le dimensioni della macchina virtuale
 
-È necessario creare una macchina virtuale Windows nella rete virtuale creata nel passaggio precedente. Quando si sceglie un server per l'esecuzione di server di Backup di Azure, iniziare con un'immagine della raccolta di Windows Server 2019 datacenter. L'esercitazione [creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/windows/quick-create-portal.md) consente di iniziare con la VM consigliata in Azure, anche se non si è mai usato Azure.
+Creare una macchina virtuale Windows nella rete virtuale creata nel passaggio precedente. Quando si sceglie un server per l'esecuzione di server di Backup di Azure, iniziare con un'immagine della raccolta di Windows Server 2019 datacenter. L'esercitazione [creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/windows/quick-create-portal.md) consente di iniziare con la VM consigliata in Azure, anche se non si è mai usato Azure.
 
 La tabella seguente riepiloga il numero massimo di carichi di lavoro protetti per ogni server di Backup di Azure dimensioni della macchina virtuale. Le informazioni si basano su test di prestazioni e scalabilità interni con valori canonici per dimensioni e varianza dei carichi di lavoro. Le dimensioni effettive del carico di lavoro possono essere maggiori, ma devono essere gestite dai dischi collegati alla macchina virtuale server di Backup di Azure.
 
@@ -140,7 +140,7 @@ Un insieme di credenziali di servizi di ripristino è un'entità di archiviazion
 
 1. Nel menu a sinistra selezionare **Tutti i servizi**.
 
-   ![Nel menu a sinistra selezionare tutti i servizi.](../backup/media/backup-create-rs-vault/click-all-services.png)
+   ![Nel menu a sinistra selezionare Tutti i servizi.](../backup/media/backup-create-rs-vault/click-all-services.png)
 
 1. Nella finestra di dialogo **tutti i servizi** immettere **servizi di ripristino** e selezionare insiemi di credenziali **dei servizi di ripristino** dall'elenco.
 
@@ -183,8 +183,6 @@ L'opzione di replica di archiviazione consente di scegliere tra l'archiviazione 
 1. In **Impostazioni** selezionare **Proprietà**. In **configurazione backup**selezionare **Aggiorna**.
 
 1. Selezionare il tipo di replica di archiviazione e selezionare **Salva**.
-
-   ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali.](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 ## <a name="download-and-install-the-software-package"></a>Scaricare e installare il pacchetto software
 
@@ -309,7 +307,7 @@ Se il pacchetto software è stato scaricato in un server diverso, copiare i file
    * **Database**: **DatabaseName** deve essere **ReportServer $ \<SQLInstanceName> **.
    * **URL del portale Web**: la **directory virtuale** deve essere **reports_ \<SQLInstanceName> **.
 
-   [Altre informazioni](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sulla configurazione di SSRS.
+   Altre informazioni sulla [configurazione di SSRS](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode).
 
    > [!NOTE]
    > Le [condizioni di Microsoft Online Services](https://www.microsoft.com/licensing/product-licensing/products) (OST) regolano la gestione delle licenze per SQL Server usato come database per server di backup di Azure. Secondo OST, SQL Server in bundle con server di Backup di Azure può essere usato solo come database per server di Backup di Azure.

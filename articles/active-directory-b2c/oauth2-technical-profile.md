@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b45f5ae64a7b8fd97d5242c82fb90ee6c57286ac
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 35b1f57a2361c5a4360e2ff1944b93e767168799
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433891"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259391"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 in un Azure Active Directory B2C criteri personalizzati
 
@@ -110,23 +110,8 @@ L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
 ## <a name="redirect-uri"></a>URI di reindirizzamento
 
-Quando si configura l'URL di reindirizzamento del provider di identità, immettere `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`. Assicurarsi di sostituire il **tenant** con il nome del tenant (ad esempio, contosob2c.onmicrosoft.com) e **policyId** con l'identificatore dei criteri (ad esempio, b2c_1a_policy). L'URI di reindirizzamento deve essere tutto minuscolo.
-
-Se si usa il dominio **b2clogin.com** anziché **login.microsoftonline.com** assicurarsi di usare b2clogin.com invece di login.microsoftonline.com.
+Quando si configura l'URI di reindirizzamento del provider di identità, immettere `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/oauth2/authresp`. Assicurarsi di sostituire `{tenant-name}` con il nome del tenant, ad esempio contosob2c. L'URI di reindirizzamento deve essere tutto minuscolo.
 
 Esempi:
 
 - [Aggiungere Google + come provider di identità OAuth2 usando criteri personalizzati](identity-provider-google-custom.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

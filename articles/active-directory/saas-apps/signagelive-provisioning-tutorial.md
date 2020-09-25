@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7bf9e7a4c17134a47cbaafbc2bde25d467c6a978
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f6bb119e5e82ce642722d0f739177fc1e4c06c25
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548549"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255730"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Esercitazione: configurare Signagelive per il provisioning utenti automatico
 
@@ -95,11 +95,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione credenziali amministratore immettere ` https://samlapi.signagelive.com/scim/v2` in **URL tenant**. In campo **token segreto** immettere il valore del **token di porta** fornito dal team di sviluppo della progettazione. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Signagelive. Se la connessione non riesce, verificare che l'account Signagelive disponga delle autorizzazioni di amministratore e riprovare.
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
@@ -112,19 +112,19 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Signagelive**.
 
-    ![Mapping utente Signagelive](media/signagelive-provisioning-tutorial/usermapping.png)
+    ![Screenshot della sezione mapping con l'opzione Sincronizza Azure Active Directory utenti a Signagelive denominata.](media/signagelive-provisioning-tutorial/usermapping.png)
 
 9. Esaminare gli attributi utente sincronizzati da Azure AD a Signagelive nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Signagelive per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Attributi utente di Signagelive](media/signagelive-provisioning-tutorial/userattribute.png)
+    ![Screenshot della sezione mapping degli attributi con sette mapping visualizzati.](media/signagelive-provisioning-tutorial/userattribute.png)
 
 10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory gruppo in Signagelive**.
 
-    ![Mapping utente Signagelive](media/signagelive-provisioning-tutorial/groupmapping.png)
+    ![Screenshot della sezione mapping con l'opzione Synchronize Azure Active Directory Group to Signagelive.](media/signagelive-provisioning-tutorial/groupmapping.png)
 
 11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a Signagelive nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account di gruppo in Signagelive per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Attributi utente di Signagelive](media/signagelive-provisioning-tutorial/groupattribute.png)
+    ![Screenshot della sezione mapping degli attributi con tre mapping visualizzati.](media/signagelive-provisioning-tutorial/groupattribute.png)
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

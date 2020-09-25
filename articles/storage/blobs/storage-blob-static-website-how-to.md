@@ -7,19 +7,22 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: bac476cfbe78ad6fcf73b6a2319581cc60524a57
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432559"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289872"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hosting di un sito Web statico in Archiviazione di Azure
 
 È possibile gestire contenuto statico (file HTML, CSS, JavaScript e di immagine) direttamente da un contenitore in un account GPv2 di Archiviazione di Azure. Per altre informazioni, vedere [Hosting di siti Web statici in Archiviazione di Azure](storage-blob-static-website.md).
 
 Questo articolo illustra come abilitare l'hosting di siti Web statici usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell.
+
+> [!NOTE]
+> Assicurarsi di creare un account di archiviazione standard per utilizzo generico V2. I siti Web statici non sono disponibili in nessun altro tipo di account di archiviazione.
 
 ## <a name="enable-static-website-hosting"></a>Abilitare l’hosting di siti Web statici
 

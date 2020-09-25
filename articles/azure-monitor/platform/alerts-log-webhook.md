@@ -1,47 +1,40 @@
 ---
 title: Azioni webhook per gli avvisi del log in avvisi di Azure
-description: Questo articolo descrive come creare una regola di avviso del log usando l'area di lavoro Log Analytics o Application Insights, il modo in cui l'avviso inserisce i dati come un webhook HTTP e i dettagli delle diverse personalizzazioni possibili.
+description: Viene descritto come configurare un avviso di log push con azione webhook e personalizzazioni disponibili
 author: yanivlavi
 ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 3311819f021533a28a41daf2c2f08193218fae96
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a074be9bcc62d8c20635400f462f52fb796d2fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075278"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294309"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Azioni webhook per le regole di avviso relative ai log
-Quando [viene creato un avviso del log in Azure](alerts-log.md), è possibile [configurarlo usando i gruppi di azioni](action-groups.md) per eseguire una o più azioni. Questo articolo descrive le diverse azioni webhook disponibili e Mostra come configurare un webhook basato su JSON personalizzato.
+
+[Log Alert](alerts-log.md) supporta la [configurazione di gruppi di azioni webhook](action-groups.md#webhook). In questo articolo verranno descritte le proprietà disponibili e le modalità di configurazione di un webhook JSON personalizzato.
 
 > [!NOTE]
-> È anche possibile usare lo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs) per le integrazioni del webhook. Lo schema di avviso comune offre il vantaggio di avere un singolo payload di avvisi estendibile e unificato in tutti i servizi Alert di monitoraggio di Azure. si noti che lo schema di avviso comune non rispetta l'opzione JSON personalizzata per gli avvisi del log. Viene rinviato il payload dello schema di avviso comune se selezionato indipendentemente dalla personalizzazione che è possibile eseguire a livello di regola di avviso. [Informazioni sulle definizioni comuni dello schema di avviso.](https://aka.ms/commonAlertSchemaDefinitions)
-
-## <a name="webhook-actions"></a>Azioni webhook
-
-Con le azioni webhook è possibile richiamare un processo esterno tramite una singola richiesta HTTP POST. Il servizio chiamato deve supportare i webhook e determinare come usare qualsiasi payload che riceve.
-
-Le azioni webhook includono le proprietà elencate nella tabella seguente.
-
-| Proprietà | Descrizione |
-|:--- |:--- |
-| **URL webhook** |URL del webhook. |
-| **Payload JSON personalizzato** |Payload personalizzato da inviare con il webhook quando si sceglie questa opzione durante la creazione dell'avviso. Per altre informazioni, vedere [gestire gli avvisi del log](alerts-log.md).|
+> Il webhook basato su JSON personalizzato non è attualmente supportato nella versione dell'API `2020-05-01-preview`
 
 > [!NOTE]
-> Il pulsante **Visualizza webhook** insieme all'opzione **Includi payload JSON personalizzato per il webhook** per l'avviso di log Visualizza il payload del webhook di esempio per la personalizzazione fornita. Non contiene dati effettivi, ma è rappresentativo dello schema JSON usato per gli avvisi del log. 
+> Si consiglia di usare lo [schema di avviso comune](alerts-common-schema.md) per le integrazioni del webhook. Lo schema di avviso comune offre il vantaggio di avere un singolo payload di avviso estendibile e unificato in tutti i servizi Alert di monitoraggio di Azure. Per le regole degli avvisi di log con un payload JSON personalizzato definito, l'abilitazione dello schema comune ripristina lo schema del payload a quello descritto [qui](alerts-common-schema-definitions.md#log-alerts). Gli avvisi con lo schema comune abilitato hanno un limite di dimensione superiore di 256 KB per avviso. l'avviso più grande non includerà i risultati della ricerca. Quando non sono inclusi i risultati della ricerca, è necessario usare `LinkToFilteredSearchResultsAPI` o `LinkToSearchResultsAPI` per accedere ai risultati di query tramite l'API log Analytics.
 
-I webhook includono un URL e un payload formattato in JSON che i dati sono stati inviati al servizio esterno. Per impostazione predefinita, il payload include i valori riportati nella tabella seguente. È possibile scegliere di sostituire questo payload con un payload personalizzato. In tal caso, usare le variabili nella tabella per ognuno dei parametri per includere i relativi valori nel payload personalizzato.
+## <a name="webhook-payload-properties"></a>Proprietà del payload del webhook
 
+Le azioni webhook consentono di richiamare una singola richiesta HTTP POST. Il servizio chiamato deve supportare i webhook e sa come usare il payload che riceve.
+
+Proprietà dell'azione webhook predefinita e i relativi nomi di parametri JSON personalizzati:
 
 | Parametro | Variabile | Descrizione |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |Nome della regola di avviso. |
 | *Gravità* |#severity |Livello di gravità impostato per l'avviso di log attivato. |
-| *AlertThresholdOperator* |#thresholdoperator |Operatore di soglia per la regola di avviso, che usa maggiore di o minore di. |
+| *AlertThresholdOperator* |#thresholdoperator |Operatore di soglia per la regola di avviso. |
 | *AlertThresholdValue* |#thresholdvalue |Valore di soglia per la regola di avviso. |
 | *LinkToSearchResults* |#linktosearchresults |Collegamento al portale di Analytics che restituisce i record della query che ha creato l'avviso. |
 | *LinkToSearchResultsAPI* |#linktosearchresultsapi |Collegamento all'API Analytics che restituisce i record della query che ha creato l'avviso. |
@@ -54,15 +47,15 @@ I webhook includono un URL e un payload formattato in JSON che i dati sono stati
 | *SearchQuery* |#searchquery |Query di ricerca nei log usata dalla regola di avviso. |
 | *SearchResults* |"IncludeSearchResults": true|Record restituiti dalla query come tabella JSON, limitati ai primi 1.000 record. "IncludeSearchResults": true viene aggiunto in una definizione di Webhook JSON personalizzata come proprietà di primo livello. |
 | *Dimensioni* |"IncludeDimensions": true|Dimensioni combinazioni di valori che hanno attivato l'avviso come sezione JSON. "IncludeDimensions": true viene aggiunto in una definizione di Webhook JSON personalizzata come proprietà di primo livello. |
-| *Tipo di avviso*| #alerttype | Tipo di regola di avviso del log configurata come [misurazione metrica](alerts-unified-log.md#metric-measurement-alert-rules) o [numero di risultati](alerts-unified-log.md#number-of-results-alert-rules).|
+| *Tipo di avviso*| #alerttype | Tipo di regola di avviso del log configurata come [misurazione metrica o numero di risultati](alerts-unified-log.md#measure).|
 | *WorkspaceID* |#workspaceid |ID dell'area di lavoro Log Analytics. |
 | *ID applicazione* |#applicationid |ID dell'app Application Insights. |
-| *ID sottoscrizione* |#subscriptionid |ID della sottoscrizione di Azure usata. 
+| *ID sottoscrizione* |#subscriptionid |ID della sottoscrizione di Azure usata. |
 
-> [!NOTE]
-> I collegamenti forniti passano parametri come *SearchQuery*, l' *intervallo di ricerca StartTime*e l' *ora di fine dell'intervallo di ricerca* nell'URL per il portale di Azure o l'API.
+## <a name="custom-webhook-payload-definition"></a>Definizione del payload del webhook personalizzato
 
-Ad esempio, è possibile specificare il payload personalizzato seguente che include un singolo parametro denominato *text*. Il servizio chiamato da questo webhook prevede questo parametro.
+È possibile usare il **payload JSON personalizzato per il webhook** per ottenere un payload JSON personalizzato usando i parametri precedenti. È anche possibile generare proprietà aggiuntive.
+Ad esempio, è possibile specificare il payload personalizzato seguente che include un singolo parametro denominato *text*. Il servizio chiamato da questo webhook prevede questo parametro:
 
 ```json
 
@@ -77,18 +70,21 @@ Questo payload di esempio viene risolto in un modo simile al seguente quando vie
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-Poiché tutte le variabili in un webhook personalizzato devono essere specificate all'interno di un'enclosure JSON, ad esempio "#searchinterval", il webhook risultante contiene anche dati variabili all'interno di enclosure, ad esempio "00:05:00".
+Le variabili in un webhook personalizzato devono essere specificate all'interno di un'enclosure JSON. Ad esempio, se si fa riferimento a "#searchresultcount" nell'esempio precedente, l'output viene restituito in base ai risultati dell'avviso.
 
-Per includere i risultati della ricerca in un payload personalizzato, assicurarsi che **IncludeSearchResults** sia impostato come proprietà di primo livello nel payload JSON. 
+Per includere i risultati della ricerca, aggiungere **IncludeSearchResults** come proprietà di primo livello nel file JSON personalizzato. I risultati della ricerca sono inclusi come una struttura JSON, pertanto non è possibile fare riferimento ai risultati in campi definiti personalizzati. 
+
+> [!NOTE]
+> Il pulsante **Visualizza webhook** accanto all'opzione **Includi payload JSON personalizzato per il webhook** Visualizza l'anteprima di ciò che è stato fornito. Non contiene dati effettivi, ma è rappresentativo dello schema JSON che verrà usato. 
 
 ## <a name="sample-payloads"></a>Payload di esempio
 Questa sezione illustra i payload di esempio per i webhook per gli avvisi del log. I payload di esempio includono esempi quando il payload è standard e quando è personalizzato.
 
-### <a name="standard-webhook-for-log-alerts"></a>Webhook standard per gli avvisi del log 
-In entrambi questi esempi è presente un payload fittizio con solo due colonne e due righe.
+### <a name="log-alert-for-log-analytics"></a>Avviso di log per Log Analytics
+Il payload di esempio seguente è per un'azione webhook standard usata per gli avvisi basati su Log Analytics:
 
-#### <a name="log-alert-for-log-analytics"></a>Avviso di log per Log Analytics
-Il payload di esempio seguente è per un'azione webhook standard *senza un'opzione JSON personalizzata* utilizzata per gli avvisi basati su log Analytics:
+> [!NOTE]
+> Il valore del campo "Severity" viene modificato se è stata [impostata l'API scheduledQueryRules corrente](alerts-log-api-switch.md) dall' [API legacy log Analytics Alert](api-alerts.md).
 
 ```json
 {
@@ -152,14 +148,10 @@ Il payload di esempio seguente è per un'azione webhook standard *senza un'opzio
     "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
     "AlertType": "Metric measurement"
 }
- ```
+```
 
-> [!NOTE]
-> Il valore del campo "gravità" potrebbe cambiare se è stata cambiata [la preferenza dell'API per gli](alerts-log-api-switch.md) avvisi del log in log Analytics.
-
-
-#### <a name="log-alert-for-application-insights"></a>Avviso di log per Application Insights
-Il payload di esempio seguente è relativo a un webhook standard *senza un'opzione JSON personalizzata* quando viene usato per gli avvisi di log in base a Application Insights:
+### <a name="log-alert-for-application-insights"></a>Avviso di log per Application Insights
+Il payload di esempio seguente è relativo a un webhook standard quando viene usato per gli avvisi di log basati su risorse Application Insights:
     
 ```json
 {
@@ -225,8 +217,73 @@ Il payload di esempio seguente è relativo a un webhook standard *senza un'opzio
 }
 ```
 
-#### <a name="log-alert-with-custom-json-payload"></a>Avviso di log con payload JSON personalizzato
-Ad esempio, per creare un payload personalizzato che includa solo il nome dell'avviso e i risultati della ricerca, è possibile usare quanto segue: 
+### <a name="log-alert-for-other-resources-logs-from-api-version-2020-05-01-preview"></a>Avviso di log per altri log delle risorse (dalla versione dell'API `2020-05-01-preview` )
+
+> [!NOTE]
+> Non sono attualmente previsti addebiti aggiuntivi per la versione dell'API `2020-05-01-preview` e gli avvisi del log incentrato sulle risorse.  I prezzi per le funzionalità in anteprima verranno annunciati in futuro e un avviso fornito prima di iniziare la fatturazione. Se si sceglie di continuare a usare la nuova versione dell'API e gli avvisi del log incentrato sulle risorse dopo il periodo di preavviso, l'addebito sarà addebitato alla tariffa applicabile.
+
+Il payload di esempio seguente è relativo a un webhook standard quando viene usato per gli avvisi del log basati su altri log delle risorse (escluse le aree di lavoro e Application Insights):
+
+```json
+{
+    "schemaId": "azureMonitorCommonAlertSchema",
+    "data": {
+        "essentials": {
+            "alertId": "/subscriptions/12345a-1234b-123c-123d-12345678e/providers/Microsoft.AlertsManagement/alerts/12345a-1234b-123c-123d-12345678e",
+            "alertRule": "AcmeRule",
+            "severity": "Sev4",
+            "signalType": "Log",
+            "monitorCondition": "Fired",
+            "monitoringService": "Log Alerts V2",
+            "alertTargetIDs": [
+                "/subscriptions/12345a-1234b-123c-123d-12345678e/resourcegroups/ai-engineering/providers/microsoft.compute/virtualmachines/testvm"
+            ],
+            "originAlertId": "123c123d-1a23-1bf3-ba1d-dd1234ff5a67",
+            "firedDateTime": "2020-07-09T14:04:49.99645Z",
+            "description": "log alert rule V2",
+            "essentialsVersion": "1.0",
+            "alertContextVersion": "1.0"
+        },
+        "alertContext": {
+            "properties": null,
+            "conditionType": "LogQueryCriteria",
+            "condition": {
+                "windowSize": "PT10M",
+                "allOf": [
+                    {
+                        "searchQuery": "Heartbeat",
+                        "metricMeasure": null,
+                        "targetResourceTypes": "['Microsoft.Compute/virtualMachines']",
+                        "operator": "LowerThan",
+                        "threshold": "1",
+                        "timeAggregation": "Count",
+                        "dimensions": [
+                            {
+                                "name": "ResourceId",
+                                "value": "/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm"
+                            }
+                        ],
+                        "metricValue": 0.0,
+                        "failingPeriods": {
+                            "numberOfEvaluationPeriods": 1,
+                            "minFailingPeriodsToAlert": 1
+                        },
+                        "linkToSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToFilteredSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z"
+                    }
+                ],
+                "windowStartTime": "2020-07-07T13:54:34Z",
+                "windowEndTime": "2020-07-09T13:54:34Z"
+            }
+        }
+    }
+}
+```
+
+### <a name="log-alert-with-a-custom-json-payload"></a>Avviso di log con un payload JSON personalizzato
+Ad esempio, per creare un payload personalizzato che includa solo il nome dell'avviso e i risultati della ricerca, usare questa configurazione: 
 
 ```json
     {

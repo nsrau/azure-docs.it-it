@@ -12,16 +12,16 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: acb4b601118b341d14bc5e7c549d22eef23b2cc2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 80731421b6a0d3f5bdabf117a7239bafa056e652
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085706"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258337"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Contrassegnare l'app come con autore verificato
 
-Se un'applicazione è contrassegnata come con autore verificato, significa che l'autore ha verificato la propria identità usando il proprio account MPN (Microsoft Partner Network) e ha associato questo account MPN durante la registrazione dell'applicazione. Questo articolo descrive come completare il processo di [Verifica dell'editore](publisher-verification-overview.md) .
+Quando la registrazione di un'app ha un server di pubblicazione verificato, significa che l'autore dell'app ha [verificato](/partner-center/verification-responses) la propria identità usando il proprio account di Microsoft Partner Network (MPN) e ha associato l'account MPN alla registrazione dell'app. Questo articolo descrive come completare il processo di [Verifica dell'editore](publisher-verification-overview.md) .
 
 ## <a name="quickstart"></a>Guida introduttiva
 Se si è già iscritti a Microsoft Partner Network (MPN) e sono stati soddisfatti i [prerequisiti](publisher-verification-overview.md#requirements), è possibile iniziare subito: 
@@ -42,9 +42,9 @@ Assicurarsi di soddisfare i [prerequisiti](publisher-verification-overview.md#re
 
 1. Assicurarsi di aver eseguito l'accesso con l'autenticazione a più [fattori](../fundamentals/concept-fundamentals-mfa-get-started.md) a un account aziendale (Azure ad) autorizzato a apportare modifiche alle app che si desidera contrassegnare come server di pubblicazione verificato e nell'account MPN nel centro per i partner.
 
-    - In Azure AD questo utente deve essere membro di uno dei ruoli seguenti: Amministratore applicazione, amministratore applicazione cloud, amministratore globale. 
+    - In Azure AD questo utente deve essere membro di uno dei [ruoli](../users-groups-roles/directory-assign-admin-roles.md)seguenti: Amministratore applicazione, amministratore applicazione cloud, amministratore globale. 
 
-    - In Partner Center questo utente deve avere uno dei ruoli seguenti: Amministratore MPN, Amministratore account o Amministratore globale (si tratta di un ruolo condiviso gestito in Azure AD). 
+    - In Partner Center questo utente deve avere uno dei [ruoli](/partner-center/permissions-overview) seguenti: Amministratore MPN, Amministratore account o Amministratore globale (si tratta di un ruolo condiviso gestito in Azure AD). 
 
 1. Passare al portale di registrazione delle app:  
 

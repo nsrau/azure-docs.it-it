@@ -3,12 +3,12 @@ title: Usare Modern Backup Storage con il server di Backup di Azure
 description: Informazioni sulle nuove funzionalità del server di Backup di Azure. In questo articolo viene descritto come aggiornare l'installazione del server di backup.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 997b2052751473d095b6534ef0bcbe3ed6a099ad
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: b077296e58e1193e454a686a392d802e905500a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378237"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292898"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Aggiungere risorse di archiviazione al server di Backup di Azure
 
@@ -18,7 +18,7 @@ Il server di Backup di Azure V2 e versioni successive supporta Modern Backup Sto
 > Per usare Modern Backup Storage, è necessario eseguire il server di Backup V2 o V3 Windows Server 2016 oppure V3 in Windows Server 2019.
 > Se si esegue il server di Backup V2 in una versione precedente di Windows Server, il server di Backup di Azure non può avvalersi di Modern Backup Storage. Invece, i carichi di lavoro vengono protetti come avviene nel server di Backup V1. Per ulteriori informazioni, vedere la [matrice di protezione](backup-mabs-protection-matrix.md) della versione del server di backup.
 >
-> Per ottenere prestazioni di backup avanzate, è consigliabile distribuire MAB V3 con archiviazione a livelli in Windows Server 2019. Per i passaggi necessari per configurare l'archiviazione a livelli, vedere l'articolo relativo alla configurazione di[MBS con archiviazione a livelli](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage).
+> Per ottenere prestazioni di backup avanzate, è consigliabile distribuire MAB V3 con archiviazione a livelli in Windows Server 2019. Per i passaggi necessari per configurare l'archiviazione a livelli, vedere l'articolo relativo alla configurazione di[MBS con archiviazione a livelli](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage).
 
 ## <a name="volumes-in-backup-server"></a>Volumi nel server di Backup
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: b26f0bab073ce248ca23bb8a815fa3e293ddba51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b60798ad1fab0ed66f3d4a39b2fd7faf79fd515e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73686484"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268066"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Correlazione tra Smart Alert cloud nel centro sicurezza di Azure (eventi imprevisti)
 
@@ -38,5 +38,5 @@ Durante un'indagine di un evento imprevisto, gli analisti spesso necessitano di 
 
 ![Screenshot del report rilevato evento imprevisto della sicurezza](./media/security-center-alerts-cloud-smart/security-incident.png)
 
-Per comprendere meglio gli eventi imprevisti della sicurezza, vedere [come gestire gli eventi imprevisti della sicurezza nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-incident).
+Per comprendere meglio gli eventi imprevisti della sicurezza, vedere [come gestire gli eventi imprevisti della sicurezza nel centro sicurezza di Azure](security-center-incident.md).
 

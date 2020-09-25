@@ -4,12 +4,12 @@ description: Questo articolo fornisce le informazioni sui problemi noti e le sol
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 884e850255856b39ccbe52544a47a7453e975960
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 87bc415c125a387d98ac88255d77fb1867564acf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017941"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254262"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Note sulla versione per il server di Backup di Microsoft Azure
 
@@ -60,7 +60,7 @@ Questo articolo descrive i problemi noti e le soluzioni alternative per il serve
 4. [Installare](/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio (SSMS).
 5. Configurare le funzionalità di report usando i parametri documentati in [Configurazione di SSRS con SQL 2017](./backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 6. [Installare](backup-azure-microsoft-azure-backup.md) la versione 3 del server di Backup di Microsoft Azure.
-7. [Ripristinare](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms) SQL con SSMS ed eseguire lo strumento di sincronizzazione di DPM, come descritto [qui](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync).
+7. [Ripristinare](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms) SQL con SSMS ed eseguire lo strumento di sincronizzazione di DPM, come descritto [qui](/system-center/dpm/back-up-the-dpm-server#using-dpmsync).
 8. Aggiornare la proprietà 'DataBaseVersion' nella tabella dbo.tbl_DLS_GlobalSetting usando il comando seguente:
 
     ```sql
@@ -97,7 +97,7 @@ Questo articolo descrive i problemi noti e le soluzioni alternative per il serve
 
     I file di report più recenti sono reperibili nel percorso `<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
-    ad esempio `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+    Ad esempio: `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
     ![Sostituire i file con i file di report più recenti](./media/backup-mabs-release-notes-v3/replace-files.png)
 

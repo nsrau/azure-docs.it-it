@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: cf73b3949b0a0dc1e76ebdebb191af0a33ce22ff
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: ac76ce5d4fb788e6c2fb3dc9ec01c8d88bfb55cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180474"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268072"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Convalida degli avvisi nel centro sicurezza di Azure
 Questo documento illustra come verificare che il sistema sia configurato correttamente per gli avvisi del Centro sicurezza di Azure.
@@ -62,16 +62,16 @@ Dopo aver installato l'agente del Centro sicurezza nel computer, attenersi alla 
 
 ## <a name="validate-alerts-on-kubernetes"></a>Convalidare gli avvisi in Kubernetes <a name="validate-kubernetes"></a>
 
-Se si usa la funzionalità di anteprima del Centro sicurezza per l'integrazione del servizio Kubernetes di Azure, eseguire il comando kubectl seguente per verificare che gli avvisi siano in funzione:
+Se il servizio Azure Kubernetes è stato integrato con il Centro sicurezza, è possibile verificare che gli avvisi funzionino con il comando kubectl seguente:
 
 ```kubectl get pods --namespace=asc-alerttest-662jfi039n```
 
-Per altre informazioni sull'integrazione del servizio Azure Kubernetes e del Centro sicurezza di Azure, vedere [questo articolo](azure-kubernetes-service-integration.md).
+Per altre informazioni su come difendere i cluster e i nodi Kubernetes, vedere [Introduzione ad Azure Defender per Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha presentato il processo di convalida degli avvisi. Dopo aver acquisito familiarità con tale convalida, vedere gli articoli seguenti:
 
 * [Convalida Azure Key Vault rilevamento minacce nel centro sicurezza di Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
-* [Gestione e risposta agli avvisi di sicurezza nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) : informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti della sicurezza nel centro sicurezza.
+* [Gestione e risposta agli avvisi di sicurezza nel centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti della sicurezza nel centro sicurezza.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
-* Informazioni sugli [avvisi di sicurezza nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) : informazioni sui diversi tipi di avvisi di sicurezza.
+* Informazioni sugli [avvisi di sicurezza nel centro sicurezza di Azure](security-center-alerts-type.md) : informazioni sui diversi tipi di avvisi di sicurezza.

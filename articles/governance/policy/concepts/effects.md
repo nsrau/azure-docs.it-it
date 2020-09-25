@@ -1,14 +1,14 @@
 ---
 title: Comprendere il funzionamento degli effetti
 description: Le definizioni di Criteri di Azure hanno diversi effetti che determinano in che modo viene gestita e segnalata la conformità.
-ms.date: 08/27/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: b6622796ab0554f692a3b64e0b41d60f49c561b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425535"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252005"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -374,8 +374,8 @@ Quando **enforcementMode** viene _disabilitato_, le risorse vengono comunque val
 
 Questo effetto viene usato con una _modalità_di definizione di criteri di `Microsoft.Kubernetes.Data`. Viene usato per passare le regole di controllo dell'ammissione di Gatekeeper v3 definite con [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) in [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) per i cluster Kubernetes in Azure.
 
-> [!NOTE]
-> [Criteri di Azure per Kubernetes](./policy-for-kubernetes.md) è in anteprima e supporta solo i pool di nodi Linux e le definizioni dei criteri predefinite. Le definizioni dei criteri predefinite sono nella categoria **Kubernetes**. Le definizioni dei criteri di anteprima limitati con effetto **EnforceOPAConstraint** e la categoria del **servizio Kubernetes** correlata verranno _deprecate_. Usare invece la modalità di _controllo_ degli effetti e di _negazione_ con il provider di risorse `Microsoft.Kubernetes.Data` .
+> [!IMPORTANT]
+> Le definizioni dei criteri di anteprima limitati con effetto **EnforceOPAConstraint** e la categoria del **servizio Kubernetes** correlata sono _deprecate_. Usare invece la modalità di _controllo_ degli effetti e di _negazione_ con il provider di risorse `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceopaconstraint-evaluation"></a>Valutazione EnforceOPAConstraint
 
@@ -430,8 +430,8 @@ Esempio: Regola di controllo dell'ammissione di Gatekeeper v3 per impostare i li
 
 Questo effetto viene usato con una _modalità_di definizione dei criteri di `Microsoft.ContainerService.Data`. Viene usato per passare le regole di controllo dell'ammissione di Gatekeeper v2 definite con [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) in [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) nei [servizi Azure Kubernetes](../../../aks/intro-kubernetes.md).
 
-> [!NOTE]
-> [Criteri di Azure per Kubernetes](./policy-for-kubernetes.md) è in anteprima e supporta solo i pool di nodi Linux e le definizioni dei criteri predefinite. Le definizioni dei criteri predefinite sono nella categoria **Kubernetes**. Le definizioni dei criteri in anteprima limitata con l'effetto **EnforceRegoPolicy** e la categoria **Servizio Kubernetes** sono in fase di _deprecazione_. Usare invece la modalità di _controllo_ degli effetti e di _negazione_ con il provider di risorse `Microsoft.Kubernetes.Data` .
+> [!IMPORTANT]
+> Le definizioni dei criteri in anteprima limitata con l'effetto **EnforceRegoPolicy** e la categoria **Servizio Kubernetes** sono _deprecate_. Usare invece la modalità di _controllo_ degli effetti e di _negazione_ con il provider di risorse `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceregopolicy-evaluation"></a>Valutazione EnforceRegoPolicy
 
@@ -573,7 +573,7 @@ Nella proprietà **operation** sono disponibili le opzioni seguenti:
 |-|-|
 |addOrReplace |Aggiunge la proprietà definita o il tag e il valore alla risorsa, anche se la proprietà o il tag esiste già con un valore diverso. |
 |Add |Aggiunge la proprietà, il tag e il valore definiti alla risorsa. |
-|Rimuovere |Rimuove la proprietà o il tag definito dalla risorsa. |
+|Rimuovi |Rimuove la proprietà o il tag definito dalla risorsa. |
 
 ### <a name="modify-examples"></a>Esempi di Modify
 

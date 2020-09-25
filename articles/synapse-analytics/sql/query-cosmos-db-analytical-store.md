@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: c64a42c66a3b1c1810c17347e18979d599b36b6f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8dd6ab5bcb42765c995e8cd767358be5e62aa0b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938462"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288394"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-on-demand-in-azure-synapse-link-preview"></a>Eseguire query sui dati Azure Cosmos DB usando SQL su richiesta nel collegamento sinapsi di Azure (anteprima)
 
@@ -71,7 +71,7 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-Nell'esempio precedente viene indicato a SQL su richiesta di connettersi al `covid` database in Azure Cosmos DB account `MyCosmosDbAccount` autenticato usando la chiave di Azure Cosmos DB (fittizio nell'esempio precedente). Si accede quindi all' `EcdcCases` Archivio analitico del contenitore nell' `West US 2` area. Poiché non esiste alcuna proiezione di proprietà specifiche, `OPENROWSET` la funzione restituirà tutte le proprietà dagli elementi Azure Cosmos DB.
+Nell'esempio precedente si sta indicando a SQL su richiesta di connettersi al `covid` database in Azure Cosmos DB account `MyCosmosDbAccount` autenticato usando la chiave di Azure Cosmos DB (fittizio nell'esempio precedente). Viene quindi eseguito l'accesso all' `EcdcCases` Archivio analitico del contenitore nell' `West US 2` area. Poiché non è presente alcuna proiezione di proprietà specifiche, `OPENROWSET` la funzione restituirà tutte le proprietà dagli elementi Azure Cosmos DB.
 
 Se è necessario esplorare i dati dall'altro contenitore nello stesso database di Azure Cosmos DB, è possibile usare la stessa stringa di connessione e il contenitore di riferimento necessario come terzo parametro:
 
@@ -85,7 +85,7 @@ FROM OPENROWSET(
 
 ## <a name="explicitly-specify-schema"></a>Specifica in modo esplicito lo schema
 
-Sebbene la funzionalità di inferenza automatica dello schema in `OPENROWSET` fornisca un querience semplice e facile da utilizzare, gli scenari aziendali potrebbero richiedere di specificare in modo esplicito lo schema per leggere solo le proprietà rilevanti dai dati Azure Cosmos DB.
+Sebbene la funzionalità di inferenza automatica dello schema in `OPENROWSET` fornisca un querience semplice e facile da utilizzare, gli scenari aziendali potrebbero richiedere di specificare in modo esplicito lo schema per le proprietà rilevanti di sola lettura dei dati Azure Cosmos DB.
 
 `OPENROWSET` consente di specificare in modo esplicito le proprietà che si desidera leggere dai dati nel contenitore e di specificare i relativi tipi di dati. Si supponga di aver importato alcuni dati dal [set di dati COVID di ECDC](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) con la seguente struttura in Azure Cosmos DB:
 
@@ -179,7 +179,7 @@ Altre informazioni sull'analisi di [tipi di dati complessi nel collegamento sina
 
 ## <a name="flattening-nested-arrays"></a>Flating di matrici annidate
 
-Azure Cosmos DB dati potrebbero avere sottomatrici annidate come la matrice authors dal set di dati [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) :
+Azure Cosmos DB dati potrebbero avere sottomatrici annidate come la matrice dell'autore dal set di dati [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) :
 
 ```json
 {
@@ -245,7 +245,7 @@ Gli account Azure Cosmos DB dell'API SQL (Core) supportano i tipi di proprietà 
 | Boolean | bit |
 | Integer | bigint |
 | Decimal | float |
-| Stringa | varchar (regole di confronto del database UTF8) |
+| string | varchar (regole di confronto del database UTF8) |
 | Data/ora (stringa formattata ISO) | varchar (30) |
 | Data/ora (timestamp Unix) | bigint |
 | Null | `any SQL type` 

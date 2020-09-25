@@ -1,6 +1,6 @@
 ---
 title: Installare l'aggiornamento 1.0 nell'array virtuale StorSimple | Microsoft Docs
-description: Descrive come usare l'interfaccia utente Web dell'array virtuale StorSimple per applicare aggiornamenti tramite il portale di Azure e gli hotfix
+description: Viene descritto come usare l'interfaccia utente Web dell'array virtuale StorSimple per applicare l'aggiornamento 1,0 usando il metodo portale di Azure e la correzione rapida.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 41546a449165951cd7b462d1db2b1b58ae74e407
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bb6b61bb7d9392984bf5c308ce7ee039234461e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508096"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295567"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 1.0 nell'array virtuale StorSimple
 
@@ -104,7 +104,7 @@ Per completare questa procedura di aggiornamento sono necessari circa 4 minuti. 
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
-2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Apply**.
+2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-1/update2m.png)
 

@@ -6,13 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d7e6d3c1554f70ea14e097ff2fe6df47987b5927
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 15f5918748df80cec01ccf89835a0ef51da64529
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423049"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296247"
 ---
 # <a name="azure-media-player-full-setup"></a>Configurazione completa di Azure Media Player #
 
@@ -56,11 +56,11 @@ Con Azure Media Player, è possibile usare un tag video HTML5 per incorporare un
 1. L' `<data-setup>` attributo nella `<video>` indica Azure Media Player per configurare automaticamente il video quando la pagina è pronta e leggere qualsiasi (in formato JSON) dall'attributo.
 1. L' `id` attributo deve essere usato e univoco per ogni video presente nella stessa pagina.
 1. L' `class` attributo contiene due classi:
-    - `azuremediaplayer`applica gli stili necessari per Azure Media Player funzionalità dell'interfaccia utente
-    - `amp-default-skin`applica l'interfaccia predefinita ai controlli HTML5
+    - `azuremediaplayer` applica gli stili necessari per Azure Media Player funzionalità dell'interfaccia utente
+    - `amp-default-skin` applica l'interfaccia predefinita ai controlli HTML5
 1. `<source>`Include due attributi obbligatori
-    - `src`l'attributo può includere un file **. ISM/manifest* da servizi multimediali di Azure aggiunto, Azure Media Player aggiunge automaticamente gli URL per Dash, Smooth e HLS al lettore
-    - `type`attribute è il tipo MIME necessario del flusso. Il tipo MIME associato a *". ISM/manifest"* è *"application/vnd. ms-SSTR + XML"*
+    - `src` l'attributo può includere un file **. ISM/manifest* da servizi multimediali di Azure aggiunto, Azure Media Player aggiunge automaticamente gli URL per Dash, Smooth e HLS al lettore
+    - `type` attribute è il tipo MIME necessario del flusso. Il tipo MIME associato a *". ISM/manifest"* è *"application/vnd. ms-SSTR + XML"*
 1. L'attributo *facoltativo* nell' `<data-setup>` `<source>` indica Azure Media Player se sono presenti criteri di recapito univoci per il flusso da servizi multimediali di Azure, tra cui il tipo di crittografia (AES o PlayReady, Widevine o Fairplay) e il token.
 
 Includere/escludere attributi, impostazioni, origini e tracce esattamente come per i video HTML5.

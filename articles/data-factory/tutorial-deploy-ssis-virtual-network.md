@@ -1,6 +1,6 @@
 ---
 title: Esercitazione per configurare un runtime di integrazione SSIS di Azure per l'aggiunta a una rete virtuale
-description: Informazioni su come aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale di Azure.
+description: Informazioni su come aggiungere un runtime di integrazione SSIS di Azure per aggiungere una rete virtuale di Azure.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 0b83049e154afc48334cc6deb576c700ed71d844
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2bd2fa9badc7c299099b647e1f67c50e997024
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84118151"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292303"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configurare un runtime di integrazione di Azure-SQL Server Integration Services (SSIS) per l'aggiunta a una rete virtuale
 
@@ -110,7 +110,7 @@ Dopo aver configurato la rete virtuale Azure Resource Manager o la rete virtuale
 
    ![Elenco di data factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. Selezionare il data factory con il Azure-SSIS IR nell'elenco. Verrà visualizzata la home page della data factory. Selezionare il riquadro **autore & monitoraggio** . Verrà visualizzata l'interfaccia utente di Data Factory in una scheda separata.
+1. Selezionare il data factory con il Azure-SSIS IR nell'elenco. Verrà visualizzata la home page della data factory. Selezionare il riquadro **Crea e monitora**. Verrà visualizzata l'interfaccia utente di Data Factory in una scheda separata.
 
    ![Home page di Data factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 

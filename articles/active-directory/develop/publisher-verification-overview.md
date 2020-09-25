@@ -12,14 +12,14 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089752"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258150"
 ---
-# <a name="publisher-verification"></a>Verifica dell'editore
+# <a name="publisher-verification"></a>Verifica dell'autore
 
 La verifica dell'editore consente agli amministratori e agli utenti finali di comprendere l'autenticità degli sviluppatori di applicazioni che si integrano con la piattaforma di identità Microsoft. Se un'applicazione è contrassegnata come con autore verificato, significa che l'autore ha verificato la propria identità usando un account [Microsoft Partner Network](https://partner.microsoft.com/membership) che ha completato il processo di [verifica](/partner-center/verification-responses) e ha associato l'account MPN durante la registrazione dell'applicazione. 
 
@@ -33,9 +33,10 @@ La verifica dell'autore offre i vantaggi seguenti:
 
 - **Miglioramento della personalizzazione** - Viene visualizzato un badge di verifica completata nella [richiesta di consenso](application-consent-experience.md) di Azure AD, nella pagina App aziendali e in altre aree dell'esperienza utente usate dagli utenti finali e dagli amministratori. 
 
-- **Adozione più agevole dell'organizzazione**: gli amministratori possono configurare i criteri di [consenso dell'utente](../manage-apps/configure-user-consent.md), con lo stato di verifica del server di pubblicazione come uno dei criteri principali. 
+- **Adozione più agevole dell'organizzazione**: gli amministratori possono configurare i criteri di [consenso dell'utente](../manage-apps/configure-user-consent.md), con lo stato di verifica del server di pubblicazione come uno dei criteri principali.
 
-- **Valutazione dei rischi migliorata** - I rilevamenti Microsoft per le richieste di consenso "rischiose" includeranno la verifica dell'autore come segnale. 
+> [!NOTE]
+> A partire da novembre 2020, gli utenti finali non saranno più in grado di concedere il consenso per le app multi-tenant registrate più di recente senza autori verificati. Questo problema si applica alle app registrate dopo l'8 novembre 2020, usare OAuth 2.0 per richiedere autorizzazioni oltre al profilo di accesso e lettura del profilo utente di base e richiedere il consenso degli utenti in tenant diversi da quello in cui è registrata l'app. Verrà visualizzato un avviso nella schermata di consenso per informare gli utenti che queste app sono rischiose e che provengano da autori non verificati.    
 
 ## <a name="requirements"></a>Requisiti
 Esistono alcuni prerequisiti per la verifica dell'autore, alcuni dei quali saranno già stati completati da molti partner Microsoft, ovvero: 
@@ -69,7 +70,7 @@ Di seguito sono riportate alcune domande frequenti relative al programma di veri
 
   Gli sviluppatori che prevedono anche l'integrazione con Microsoft 365 possono ottenere vantaggi aggiuntivi da questi programmi. Per altre informazioni, vedere [Attestazione dell'editore di Microsoft 365](/microsoft-365-app-certification/docs/attestation) e [Certificazione delle app di Microsoft 365](/microsoft-365-app-certification/docs/certification). 
 
-- **Si tratta della stessa cosa della Raccolta di applicazioni di Azure AD?** No. La verifica dell'autore è un programma complementare ma separato rispetto alla [Raccolta di applicazioni di Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md). Gli sviluppatori che soddisfano i criteri sopra indicati devono completare il processo di verifica dell'autore indipendentemente dalla partecipazione a tale programma. 
+- **Si tratta della stessa cosa della Raccolta di applicazioni di Azure AD?** No. La verifica dell'autore è un programma complementare ma separato rispetto alla [Raccolta di applicazioni di Azure Active Directory](v2-howto-app-gallery-listing.md). Gli sviluppatori che soddisfano i criteri sopra indicati devono completare il processo di verifica dell'autore indipendentemente dalla partecipazione a tale programma. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Scoprire come [contrassegnare un'app come con autore verificato](mark-app-as-publisher-verified.md).

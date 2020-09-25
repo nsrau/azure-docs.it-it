@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: d08984165f59f15e9feb739a719d80e7dc3902a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 97d3b5030ed0ddb29fc439f4a0f6bcc7ff98b6ce
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905460"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268027"
 ---
 # <a name="azure-security-center-data-security"></a>Sicurezza dei dati nel Centro sicurezza di Azure
 Per consentire ai clienti di impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati correlati alla sicurezza, tra cui informazioni di configurazione, metadati, log eventi e altro ancora. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio.
@@ -76,7 +76,7 @@ Se non si usa Azure Defender, è anche possibile disabilitare la raccolta dati d
 
 I clienti possono utilizzare i dati relativi al Centro sicurezza da flussi dei dati diversi, come illustrato sotto:
 
-* **Attività di Azure**: tutti gli avvisi di sicurezza, le richieste [just-in-Time del](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) Centro sicurezza approvate e tutti gli avvisi generati dai [controlli applicazione adattivi](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Attività di Azure**: tutti gli avvisi di sicurezza, le richieste [just-in-Time del](security-center-just-in-time.md) Centro sicurezza approvate e tutti gli avvisi generati dai [controlli applicazione adattivi](security-center-adaptive-application.md).
 * **Log di monitoraggio di Azure**: tutti gli avvisi di sicurezza.
 
 

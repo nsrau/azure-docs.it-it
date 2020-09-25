@@ -8,23 +8,23 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ef9d0eb3dd97795f3b6757759679351f857891ab
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5e46cd744be609adff764edfe5a506b710e9d788
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032861"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288070"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Supporto delle regole di confronto del database per sinapsi SQL
 
-Le regole di confronto forniscono le impostazioni locali, la tabella codici, il tipo di ordinamento e la riservatezza dei caratteri per i tipi di dati basati su caratteri. Una volta scelte, tutte le colonne e le espressioni che richiedono le informazioni sulle regole di confronto ereditano le regole di confronto selezionate dall'impostazione del database. È possibile eseguire l'override dell'ereditarietà predefinita specificando in modo esplicito una regola di confronto diversa per un tipo di dati basato su caratteri.
+Le regole di confronto forniscono le impostazioni locali, la tabella codici, il tipo di ordinamento e la distinzione tra caratteri per i tipi di dati basati su caratteri. Una volta scelte, tutte le colonne e le espressioni che richiedono le informazioni sulle regole di confronto ereditano le regole di confronto selezionate dall'impostazione del database. È possibile eseguire l'override dell'ereditarietà predefinita specificando in modo esplicito una regola di confronto diversa per un tipo di dati basato su caratteri.
 
 È possibile modificare le regole di confronto predefinite del database dal portale di Azure quando si crea un nuovo database del pool SQL. Questa funzionalità rende ancora più semplice la creazione di un nuovo database usando una delle regole di confronto del database supportate da 3800.
 
 È possibile specificare le regole di confronto predefinite del database su richiesta di sinapsi SQL in fase di creazione usando l'istruzione CREATE DATABASE.
 
 ## <a name="change-collation"></a>Modificare le regole di confronto
-Per modificare le regole di confronto predefinite per il database del pool SQL, è sufficiente eseguire l'aggiornamento al campo delle regole di confronto nell'esperienza di provisioning. Se, ad esempio, si desidera modificare le regole di confronto predefinite in maiuscole/minuscole, è sufficiente rinominare le regole di confronto da SQL_Latin1_General_CP1_CI_AS a SQL_Latin1_General_CP1_CS_AS. 
+Per modificare le regole di confronto predefinite per il database del pool SQL, aggiornare il campo regole di confronto nell'esperienza di provisioning. Se, ad esempio, si desidera modificare le regole di confronto predefinite in maiuscole/minuscole, è necessario rinominare le regole di confronto da SQL_Latin1_General_CP1_CI_AS a SQL_Latin1_General_CP1_CS_AS. 
 
 Per modificare le regole di confronto predefinite per il database SQL su richiesta, è possibile utilizzare l'istruzione ALTER DATABASE.
 

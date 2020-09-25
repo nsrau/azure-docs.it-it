@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: bc55ab2697d8278bd975f618d17804499ba0128d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 310a7578fe9d3af8c4600968178cb677658feaa6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982090"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254330"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installare ed eseguire i contenitori di lettura (anteprima)
 
@@ -40,7 +40,7 @@ Prima di usare i contenitori, è necessario soddisfare i prerequisiti seguenti:
 
 ## <a name="request-approval-to-run-the-container"></a>Richiedi l'approvazione per eseguire il contenitore
 
-Compilare e inviare il [modulo di richiesta](https://aka.ms/cognitivegate) per richiedere l'approvazione per l'esecuzione del contenitore. 
+Compilare e inviare il [modulo di richiesta](https://aka.ms/csgate) per richiedere l'approvazione per l'esecuzione del contenitore. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -345,7 +345,7 @@ Per leggere in modo sincrono un'immagine, è possibile usare l'operazione seguen
 
 # <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
 
-`POST /vision/v3.0/read/SyncAnalyze`
+`POST /vision/v3.0/read/syncAnalyze`
 
 ---
 
@@ -383,7 +383,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./c
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori Visione artificiale. In sintesi:
 

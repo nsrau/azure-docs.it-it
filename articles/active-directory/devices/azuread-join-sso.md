@@ -1,6 +1,6 @@
 ---
 title: Funzionamento dell'accesso SSO alle risorse locali nei dispositivi aggiunti ad Azure AD | Microsoft Docs
-description: Informazioni su come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory.
+description: Informazioni su come estendere l'esperienza SSO configurando dispositivi ibridi Azure Active Directory aggiunti.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 149b01401cd6feb7610510efeb1ad9a3c69f3ecf
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: ba802cb86d68298cd4dfff94162069590744833c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024044"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256463"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Funzionamento dell'accesso SSO alle risorse locali nei dispositivi aggiunti ad Azure AD
 
@@ -62,7 +62,7 @@ Se si vuole gestire l'istanza locale di AD da un dispositivo Windows, installare
 - Lo snap-in Utenti e computer di Active Directory per amministrare tutti gli oggetti di AD. Tuttavia, è necessario specificare il dominio a cui ci si vuole connettere manualmente.
 - Lo snap-in DHCP per amministrare un server DHCP aggiunto ad AD. Tuttavia, è necessario specificare il nome o l'indirizzo del server DHCP.
  
-## <a name="what-you-should-know"></a>Informazioni utili
+## <a name="what-you-should-know"></a>Informazioni importanti
 
 Potrebbe essere necessario modificare le opzioni di [filtro basato su dominio](../hybrid/how-to-connect-sync-configure-filtering.md#domain-based-filtering) in Azure AD Connect per assicurarsi che i dati relativi ai domini richiesti siano sincronizzati.
 

@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f233aedf8b51967264994f5a4081f8f4cd99df01
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e1cf9faeab60264d491539256828151e496ade8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400008"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267500"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Scenario: instradare il traffico attraverso appliance virtuali-Custom (anteprima)
 
@@ -33,7 +33,7 @@ La seguente matrice di connettività riepiloga i flussi supportati in questo sce
 
 **Matrice di connettività**
 
-| Da          | Con:|*Spoke di NVA*|*Servizio VNet*|*VNet DMZ*|*Rami statici*|
+| From          | Con:|*Spoke di NVA*|*Servizio VNet*|*VNet DMZ*|*Rami statici*|
 |---|---|---|---|---|---|
 | **Spoke di NVA**| &#8594;|      X |            X |   Peering |    Static    |
 | **Servizio VNet**| &#8594;|    X |            X |      X    |      X       |
