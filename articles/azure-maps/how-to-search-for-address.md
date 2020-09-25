@@ -4,16 +4,16 @@ description: Informazioni sul servizio ricerca di Azure maps. Vedere come usare 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/21/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 48dd0168f878a16e2eabe47151d0b09993d9f5f9
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 2a322de383194f131395629d33456d7561397eb9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037780"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310986"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Cercare un percorso usando i servizi di ricerca di Azure Maps
 
@@ -103,7 +103,7 @@ In questo esempio verrà usata la ricerca fuzzy per cercare nell'intero mondo `p
 
     Nella sezione **params** aggiungere le coppie chiave/valore seguenti:
 
-     | Chiave | Valore |
+     | Chiave | valore |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -136,9 +136,9 @@ In questo esempio verranno eseguite ricerche inverse utilizzando alcuni dei para
   
 4. A questo punto, si aggiungeranno le coppie chiave/valore seguenti alla sezione **params** :
 
-    | Chiave | Valore | Restituisce
+    | Chiave | valore | Restituisce
     |-----|------------|------|
-    | Numero | 1 |La risposta può includere il lato della strada (sinistra/destra) e anche una posizione di offset per il numero.|
+    | d'acquisto | 1 |La risposta può includere il lato della strada (sinistra/destra) e anche una posizione di offset per il numero.|
     | returnSpeedLimit | true | Restituisce il limite di velocità in corrispondenza dell'indirizzo.|
     | returnRoadUse | true | Restituisce i tipi di utilizzo delle strade in corrispondenza dell'indirizzo. Per tutti i possibili tipi di utilizzo stradali, vedere [tipi di utilizzo delle strade](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).|
     | returnMatchType | true| Restituisce il tipo di corrispondenza. Per tutti i valori possibili, vedere [Risultati della ricerca di indirizzi inversi](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult)

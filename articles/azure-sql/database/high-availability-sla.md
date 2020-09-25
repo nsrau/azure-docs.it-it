@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: sashan
 ms.author: sashan
-ms.reviewer: carlrab, sashan
+ms.reviewer: sstein, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 16e15976c6f09881b75dcec207833f48aa1c4e7a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fd470180e17bd64990c1e657a6614fc2e0ef71d6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437674"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335025"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Disponibilità elevata per database SQL di Azure e SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

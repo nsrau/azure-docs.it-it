@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 034d2410b97562946216815e5bdafd35fe1bc40b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601674"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265936"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>È possibile configurare la gestione della sessione di autenticazione con l'Accesso condizionale
 
@@ -89,6 +89,8 @@ L'accesso condizionale è una funzionalità di Azure AD Premium e richiede una l
 
 > [!WARNING]
 > Se si usa la funzionalità di [durata dei token configurabile](../develop/active-directory-configurable-token-lifetimes.md) attualmente disponibile in anteprima pubblica, si noti che non è supportata la creazione di due criteri diversi per la stessa combinazione di utenti o app: uno con questa funzionalità e un altro con funzionalità di durata dei token configurabili. Microsoft intende ritirare la funzionalità di durata dei token configurabile il 1 ° maggio 2020 e sostituirla con la funzionalità di gestione della sessione di autenticazione dell'accesso condizionale.  
+>
+> Prima di abilitare la frequenza di accesso, assicurarsi che altre impostazioni di riautenticazione siano disabilitate nel tenant. Se l'autenticazione a più fattori nei dispositivi attendibili è abilitata, assicurarsi di disabilitarla prima di usare la frequenza di accesso, in quanto l'uso di queste due impostazioni può comportare la richiesta imprevista degli utenti. Per altre informazioni sulle richieste di riautenticazione e sulla durata della sessione, vedere l'articolo [ottimizzare la richiesta di riautenticazione e comprendere la durata della sessione per Azure multi-factor authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Criteri 1: controllo della frequenza di accesso
 

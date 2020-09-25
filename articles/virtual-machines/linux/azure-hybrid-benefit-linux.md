@@ -3,34 +3,35 @@ title: Macchine virtuali Vantaggio Azure Hybrid e Linux
 description: Il Vantaggio Azure Hybrid permette di risparmiare denaro sulle macchine virtuali Linux in esecuzione in Azure.
 services: virtual-machines
 documentationcenter: ''
-author: asinn826
+author: mathapli
 manager: westonh
-editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: a9ea3b21908d1f461745ffe2689b36f8efcb6f89
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996977"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279774"
 ---
-# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Vantaggio Azure Hybrid: come viene applicato per macchine virtuali Linux
+# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Anteprima: Vantaggio Azure Hybrid-come viene applicato per macchine virtuali Linux
 
 ## <a name="overview"></a>Panoramica
 
-Vantaggio Azure Hybrid consente di eseguire più facilmente la migrazione del server Red Hat Enterprise Linux locale (RHEL) e SUSE Linux Enterprise (SLES) in Azure usando la propria sottoscrizione di Red Hat o SUSE software già esistente. Con questo vantaggio, paghi solo per i costi di infrastruttura della VM perché la tariffa software è coperta dalla tua sottoscrizione RHEL o SLES. Il vantaggio è applicabile a tutte le immagini RHEL e SLES Marketplace con pagamento in base al consumo (PAYG).
+Vantaggio Azure Hybrid consente di eseguire più facilmente la migrazione delle macchine virtuali Red Hat Enterprise Linux in Azure (RHEL) e SUSE Linux Enterprise Server (SLES) in Azure usando la propria sottoscrizione di Red Hat o SUSE software già esistente. Con questo vantaggio, paghi solo per i costi di infrastruttura della VM perché la tariffa software è coperta dalla tua sottoscrizione RHEL o SLES. Il vantaggio è applicabile a tutte le immagini RHEL e SLES Marketplace con pagamento in base al consumo (PAYG).
+
+> [!IMPORTANT]
+> Vantaggio Azure Hybrid per le macchine virtuali Linux è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="benefit-description"></a>Descrizione del vantaggio
 
 Grazie alla Vantaggio Azure Hybrid, è possibile eseguire più facilmente la migrazione dei server RHEL e SLES locali in Azure convertendo le macchine virtuali RHEL e SLES PAYG esistenti in Azure per la fatturazione BYOS (Bring your own Subscription). In genere, le macchine virtuali distribuite da immagini PAYG in Azure addebiteranno sia una tariffa dell'infrastruttura che una tariffa software. Con il Vantaggio Azure Hybrid, le macchine virtuali PAYG possono essere convertite in un modello di fatturazione BYOS senza una ridistribuzione, evitando eventuali rischi di inattività.
 
-![Visualizzazione dei costi Vantaggio Azure Hybrid nelle VM Linux](./media/ahb-linux/azure-hybrid-benefit-cost.png)
+:::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Visualizzazione dei costi Vantaggio Azure Hybrid sulle VM Linux.":::
 
 Quando si Abilita il vantaggio in una macchina virtuale RHEL o SLES, non verrà più addebitata la tariffa software aggiuntiva in genere in una macchina virtuale PAYG. Al contrario, la macchina virtuale inizierà a emettere un addebito per BYOS, che include solo la tariffa hardware di calcolo e nessuna tariffa software.
 

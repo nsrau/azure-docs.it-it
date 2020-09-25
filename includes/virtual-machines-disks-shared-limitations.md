@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/26/2020
+ms.date: 09/22/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: edb5836ace6f7a1a0cff703b9921f6e6999de578
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 11901e0b68fed9a6a83287d50896bf2afc51fa37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88944402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279562"
 ---
 L'abilitazione dei dischi condivisi è disponibile solo per un subset di tipi di disco. Attualmente solo dischi e SSD Premium possono abilitare i dischi condivisi. Ogni disco gestito con dischi condivisi abilitati è soggetto alle limitazioni seguenti, organizzati in base al tipo di disco:
 
@@ -59,7 +59,7 @@ Le unità SSD Premium condivise sono supportate solo nelle aree geografiche segu
 - Canada orientale
 - Giappone orientale
 - Giappone occidentale
+- Asia sud-orientale
+- Asia orientale
 - US Gov Virginia
 - US Gov Arizona
-
-Se si è interessati a provare unità SSD Premium condivise, [iscriversi per l'accesso](https://aka.ms/AzureSharedDiskGASignUp).

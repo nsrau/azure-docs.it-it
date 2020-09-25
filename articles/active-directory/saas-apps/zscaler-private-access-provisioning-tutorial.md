@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: c605efe60e279ca3f5f14055e39bf95dc677542b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 19767503769fe1a1e64d6ab137b811899adb29c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545841"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312333"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Esercitazione: configurare zScaler private Access (ZPA) per il provisioning utenti automatico
 
@@ -131,11 +131,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere il valore dell' **endpoint del provider di servizi scim** recuperato in precedenza in **URL tenant**. Immettere il valore del **token di porta** recuperato in precedenza nel **token segreto**. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi a zScaler private Access (ZPA). Se la connessione non riesce, verificare che l'account zScaler private Access (ZPA) disponga delle autorizzazioni di amministratore e riprovare.
 

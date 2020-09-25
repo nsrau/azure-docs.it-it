@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdac9562ed9a83f49e074e7abd790e8e2819d6aa
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 9b225ccb0e607b073fd28f79d0151da0b77f5cdf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527021"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266616"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opzioni di autenticazione con password per Azure Active Directory
 
 Funzionalità come l'autenticazione a più fattori sono un ottimo modo per proteggere l'organizzazione, ma gli utenti spesso sono frustrati con il livello di sicurezza aggiuntivo oltre a dover ricordare le proprie password. I metodi di autenticazione senza password sono più convenienti perché la password viene rimossa e sostituita da un elemento, più un elemento o un elemento che si conosce.
 
-| Autenticazione  | Un elemento | Un elemento o una conoscenza |
+| Authentication  | Un elemento | Un elemento o una conoscenza |
 | --- | --- | --- |
 | Accesso senza password | Dispositivo Windows 10, telefono o chiave di sicurezza | Biometrico o PIN |
 
@@ -82,7 +82,7 @@ Per iniziare a usare l'accesso senza password, completare le procedure seguenti:
 
 ## <a name="fido2-security-keys"></a>Chiavi di sicurezza FIDO2
 
-FIDO (Fast Identity Online) Alliance promuove gli standard di autenticazione aperti e limita l'uso delle password come forma di autenticazione. FIDO2 è lo standard più recente che incorpora lo standard di autenticazione Web (WebAuthn).
+L'Alleanza FIDO (Fast IDentity online) aiuta a promuovere standard di autenticazione aperti e a ridurre l'uso delle password come una forma di autenticazione. FIDO2 è lo standard più recente che incorpora lo standard di autenticazione Web (WebAuthn).
 
 Le chiavi di sicurezza di FIDO2 sono un metodo di autenticazione senza password basato su standard unphishable che può provenire da qualsiasi fattore di forma. Fast Identity online (FIDO) è uno standard aperto per l'autenticazione con password. FIDO consente a utenti e organizzazioni di sfruttare lo standard per accedere alle risorse senza nome utente o password usando una chiave di sicurezza esterna o una chiave della piattaforma incorporata in un dispositivo.
 
@@ -172,7 +172,7 @@ Di seguito sono riportati alcuni fattori da considerare quando si sceglie la tec
 
 Usare la tabella seguente per scegliere il metodo che supporterà i requisiti e gli utenti.
 
-|Utente tipo|Scenario|Ambiente|Tecnologia con password|
+|Utente tipo|Scenario|Environment|Tecnologia con password|
 |:-|:-|:-|:-|
 |**Admin**|Proteggere l'accesso a un dispositivo per le attività di gestione|Dispositivo Windows 10 assegnato|Chiave di sicurezza di Windows Hello for business e/o FIDO2|
 |**Admin**|Attività di gestione su dispositivi non Windows| Dispositivo mobile o non Windows|Accesso senza password con l'app Microsoft Authenticator|

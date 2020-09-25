@@ -1,14 +1,16 @@
 ---
 title: Pianificare l'app-LUIS
 description: Definire le finalità e le entità dell'app e quindi creare i relativi piani in Language Understanding Intelligent Service (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 38d80a77303e248ab137f87f8063b5cbc358f51a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 69f2048da0b4690d9de72e96e296edbd55c4cd9f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892916"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309456"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Pianificare lo schema dell'app LUIS con dominio soggetto ed estrazione dei dati
 
@@ -67,7 +69,7 @@ Invece di avere due finalità separate, creare una singola finalità con un'enti
 L' `FlightAction` entità è strutturata nello pseudo-schema seguente dell'entità e delle sottoentità di Machine Learning:
 
 * FlightAction
-    * Azione
+    * Action
     * Origine
     * Destination
 

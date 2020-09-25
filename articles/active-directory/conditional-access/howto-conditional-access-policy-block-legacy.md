@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b4a0a411f51eed3a262ee59eb8e93b983755af3
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2499a89907eb63f01adbc80a6d206911c09c1259
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601555"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265953"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accesso condizionale: Bloccare l'autenticazione legacy
 
@@ -26,7 +26,7 @@ A causa dell'aumento dei rischi associati ai protocolli di autenticazione legacy
 
 I passaggi seguenti consentono di creare un criterio di accesso condizionale per bloccare le richieste di autenticazione legacy. Questo criterio viene inserito inizialmente in [Modalità solo report](howto-conditional-access-insights-reporting.md) in modo che gli amministratori possano determinare l'effetto che avrà sugli utenti esistenti. Quando gli amministratori hanno verificato che il criterio funziona come previsto, lo possono **attivare** o gestirne la distribuzione aggiungendo gruppi specifici ed escludendone altri.
 
-1. Accedere al **portale di Azure** come amministratore globale.
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore accesso condizionale.
 1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome al criterio. Per le organizzazioni è consigliabile creare uno standard significativo per i nomi dei propri criteri.

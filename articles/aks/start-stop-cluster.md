@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/18/2020
 author: palma21
-ms.openlocfilehash: a743a6c30d5ce8bcaf275bf1a658f8343de4d4fb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 44c33aa018971cc2b2f5eb215597a63e8b55c853
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937880"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278567"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Arrestare e avviare un cluster Azure Kubernetes Service (AKS) (anteprima)
 
@@ -69,7 +69,7 @@ az provider register --namespace Microsoft.ContainerService
 az aks stop --name myAKSCluster --resource-group myResourceGroup
 ```
 
-È possibile verificare quando il cluster viene arrestato usando il comando [AZ AKS Show] [AZ-AKS-Show] e confermando che la `powerState` Mostra come nell' `Stopped` output seguente:
+È possibile verificare quando il cluster viene arrestato usando il comando [AZ AKS Show][az-aks-show] e confermando l'impostazione `powerState` Mostra come nell' `Stopped` output seguente:
 
 ```json
 {
@@ -100,7 +100,7 @@ Nell'esempio seguente viene avviato un cluster denominato *myAKSCluster*:
 az aks start --name myAKSCluster --resource-group myResourceGroup
 ```
 
-È possibile verificare quando il cluster è stato avviato usando il comando [AZ AKS Show] [AZ-AKS-Show] e confermare che il `powerState` Mostra `Running` come nell'output seguente:
+È possibile verificare quando il cluster è stato avviato usando il comando [AZ AKS Show][az-aks-show] e confermare che il `powerState` Mostra `Running` come nell'output seguente:
 
 ```json
 {
@@ -136,3 +136,4 @@ Se il `provisioningState` Mostra `Starting` che indica che il cluster non è anc
 [az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az_aks_show

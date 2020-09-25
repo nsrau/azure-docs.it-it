@@ -1,14 +1,14 @@
 ---
 title: Gestisci l'infrastruttura ibrida su larga scala con Azure Arc
 description: Informazioni su come gestire in modo efficace i computer dei clienti e i cluster Kubernetes all'esterno di Azure.
-ms.date: 09/15/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2ffbe9019398896c594b7cb0e0424d2b5f4dc37a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 66a798265683045d7ff9f3d8d811141800d08f9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605327"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336616"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Gestisci l'infrastruttura ibrida su larga scala con Azure Arc
 
@@ -16,19 +16,16 @@ Come provider di servizi, è possibile che siano stati caricati più tenant del 
 
 [Azure Arc](../../azure-arc/overview.md) consente di semplificare gli ambienti complessi e distribuiti in locale, perimetrale e multicloud, consentendo la distribuzione di servizi di Azure ovunque ed estendendo la gestione di Azure a qualsiasi infrastruttura.
 
-Con i [server abilitati per Azure Arc (anteprima)](../../azure-arc/servers/overview.md), i clienti possono gestire qualsiasi computer Windows e Linux ospitato all'esterno di Azure nella propria rete aziendale, nello stesso modo in cui gestiscono le macchine virtuali native di Azure. Collegando un computer ibrido ad Azure, esso diventa connesso e viene gestito come una risorsa in Azure. I provider di servizi possono quindi gestire questi computer non Azure insieme alle risorse di Azure dei clienti.
+Con i [server abilitati per Azure Arc](../../azure-arc/servers/overview.md), i clienti possono gestire qualsiasi computer Windows e Linux ospitato all'esterno di Azure nella propria rete aziendale, nello stesso modo in cui gestiscono le macchine virtuali native di Azure. Collegando un computer ibrido ad Azure, esso diventa connesso e viene gestito come una risorsa in Azure. I provider di servizi possono quindi gestire questi computer non Azure insieme alle risorse di Azure dei clienti.
 
 [Azure Arc Enabled Kubernetes (anteprima)](../../azure-arc/kubernetes/overview.md) consente ai clienti di aggiungere e configurare cluster Kubernetes all'interno o all'esterno di Azure. Quando un cluster Kubernetes viene collegato ad Azure Arc, viene visualizzato nella portale di Azure, con un ID Azure Resource Manager e un'identità gestita. I cluster sono collegati alle sottoscrizioni standard di Azure, si trovano in un gruppo di risorse e possono ricevere tag esattamente come qualsiasi altra risorsa di Azure.
 
-Questo argomento fornisce una panoramica del modo in cui i provider di servizi possono usare i server abilitati per Azure Arc (anteprima) e Azure Arc Enabled Kubernetes (anteprima) in modo scalabile per gestire l'ambiente ibrido dei clienti, con visibilità su tutti i tenant dei clienti gestiti.
+Questo argomento fornisce una panoramica del modo in cui i provider di servizi possono usare i server abilitati per Azure Arc e Azure Arc abilitato Kubernetes (anteprima) in un modo scalabile per gestire l'ambiente ibrido dei clienti, con visibilità su tutti i tenant dei clienti gestiti.
 
 > [!TIP]
 > Per quanto riguarda i provider di servizi e i clienti in questo argomento, queste indicazioni si applicano anche alle [aziende che usano Azure Lighthouse per gestire più tenant](../concepts/enterprise.md).
 
-## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers-preview"></a>Gestire server ibridi su larga scala con i server abilitati per Azure Arc (anteprima)
-
-> [!NOTE]
-> I server abilitati per Azure Arc sono attualmente in anteprima. Al momento non è consigliabile per i carichi di lavoro di produzione.
+## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers"></a>Gestire server ibridi su larga scala con i server abilitati per Azure Arc
 
 Come provider di servizi, è possibile gestire computer Windows Server o Linux locali all'esterno di Azure, che i clienti si sono connessi alla propria sottoscrizione usando l' [agente del computer connesso di Azure](../../azure-arc/servers/agent-overview.md).
 

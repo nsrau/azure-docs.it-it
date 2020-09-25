@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: abf805d24d164ba31daa4d77d6360629632bfcf0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: dcfae72d5f15399dc4c759ab859ad8059134f11d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072707"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279791"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Script di esempio di crittografia dischi di Azure per macchine virtuali Linux
 
@@ -136,7 +136,7 @@ Esistono tre modi per monitorare lo stato della crittografia del sistema operati
 
   Passare a [Esplora risorse di Azure](https://resources.azure.com/), quindi espandere questa gerarchia nel pannello di selezione a sinistra:
 
-  ~~~~
+  ```
   |-- subscriptions
      |-- [Your subscription]
           |-- resourceGroups
@@ -146,7 +146,7 @@ Esistono tre modi per monitorare lo stato della crittografia del sistema operati
                               |-- virtualMachines
                                    |-- [Your virtual machine]
                                         |-- InstanceView
-  ~~~~                
+  ```                
 
   In InstanceView scorrere verso il basso per visualizzare lo stato della crittografia delle unità.
 
@@ -371,7 +371,7 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
-   in
+   su
    ```bash
     if [ 1 ]; then
    ```
