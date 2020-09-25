@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: ea88797a6423118cba40d117a37dc9df75b0b7a1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089446"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311377"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Espressioni di stile basate sui dati (SDK Web)
 
@@ -90,14 +90,16 @@ Le espressioni di dati consentono di accedere ai dati delle proprietà di una fu
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Recupera un elemento da una matrice. |
 | `['geometry-type']` | string | Ottiene il tipo di geometria della funzionalità: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
-| `['get', string]` | Valore | Ottiene il valore della proprietà dalle proprietà della funzionalità corrente. Restituisce null se la proprietà richiesta è mancante. |
-| `['get', string, object]` | Valore | Ottiene il valore della proprietà dalle proprietà dell'oggetto specificato. Restituisce null se la proprietà richiesta è mancante. |
+| `['get', string]` | value | Ottiene il valore della proprietà dalle proprietà della funzionalità corrente. Restituisce null se la proprietà richiesta è mancante. |
+| `['get', string, object]` | value | Ottiene il valore della proprietà dalle proprietà dell'oggetto specificato. Restituisce null se la proprietà richiesta è mancante. |
 | `['has', string]` | boolean | Determina se le proprietà di una funzionalità dispongono della proprietà specificata. |
 | `['has', string, object]` | boolean | Determina se le proprietà dell'oggetto dispongono della proprietà specificata. |
-| `['id']` | Valore | Ottiene l'ID della funzionalità se ne è presente uno. |
+| `['id']` | value | Ottiene l'ID della funzionalità se ne è presente uno. |
 | `['length', string | array]` | d'acquisto | Ottiene la lunghezza di una stringa o di una matrice. |
 | `['in', boolean | string | number, array]` | boolean | Determina se un elemento esiste in una matrice |
 | `['in', substring, string]` | boolean | Determina se una sottostringa esiste in una stringa |
+| `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | d'acquisto | Restituisce la prima posizione in cui è possibile trovare un elemento in una matrice o una sottostringa in una stringa o `-1` se l'input non viene trovato. Accetta un indice facoltativo da cui iniziare la ricerca. |
+| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | `string`\|matrice | Restituisce un elemento da una matrice o da una sottostringa da una stringa da un indice iniziale specificato o tra un indice iniziale e un indice finale se impostato. Il valore restituito è incluso nell'indice iniziale ma non nell'indice finale. |
 
 **esempi**
 
@@ -151,8 +153,11 @@ Di seguito sono riportati alcuni esempi aggiuntivi di come usare le espressioni 
 //Get item [0][1] from a 2D array "properties.array2d[0][1]" = "b"
 ['at', 1, ['at', 0, ['get', 'array2d']]]
 
-//Check to see if a value is in an array property "properties.abcArray.indexOf('a') !== -1" = true
+//Check to see if a value is in an array "properties.abcArray.indexOf('a') !== -1" = true
 ['in', 'a', ['get', 'abcArray']]
+
+//Gets the index of the value 'b' in an array "properties.abcArray.indexOf('b')" = 1
+['index-of', 'b', ['get', 'abcArray']]
 
 //Get the length of an array "properties.abcArray.length" = 3
 ['length', ['get', 'abcArray']]
@@ -162,6 +167,12 @@ Di seguito sono riportati alcuni esempi aggiuntivi di come usare le espressioni 
 
 //Check that "fillColor" exists as a subproperty of "_style".
 ['has', 'fillColor', ['get', '_style']]
+
+//Slice an array starting at index 2 "properties.abcArray.slice(2)" = ['c']
+['slice', ['get', 'abcArray'], 2]
+
+//Slice a string from index 0 to index 4 "properties.entityType.slice(0, 4)" = 'rest'
+['slice', ['get', 'entityType'], 0, 4]
 ```
 
 ## <a name="math-expressions"></a>Espressioni matematiche
@@ -225,8 +236,8 @@ Quando si confrontano i valori, il confronto è fortemente tipizzato. I valori d
 
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
-| `['! ', boolean]` | boolean | Negazione logica. Restituisce `true` se l'input è `false` e `false` se l'input è `true` . |
-| `['!= ', value, value]` | boolean | Restituisce `true` se i valori di input non sono uguali; `false` in caso contrario,. |
+| `['!', boolean]` | boolean | Negazione logica. Restituisce `true` se l'input è `false` e `false` se l'input è `true` . |
+| `['!=', value, value]` | boolean | Restituisce `true` se i valori di input non sono uguali; `false` in caso contrario,. |
 | `['<', value, value]` | boolean | Restituisce `true` se il primo input è strettamente inferiore al secondo; `false` in caso contrario,. È necessario che gli argomenti siano entrambi stringhe o entrambi numeri. |
 | `['<=', value, value]` | boolean | Restituisce `true` se il primo input è minore o uguale al secondo; `false` in caso contrario,. È necessario che gli argomenti siano entrambi stringhe o entrambi numeri. |
 | `['==', value, value]` | boolean | Restituisce `true` se i valori di input sono uguali; `false` in caso contrario,. È necessario che gli argomenti siano entrambi stringhe o entrambi numeri. |

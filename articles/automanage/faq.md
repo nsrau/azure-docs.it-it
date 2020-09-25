@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: ed97f7861f5dd959fd41ac22b4e497f492dbc3a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fa24c0db398c4c799d218ff5e8ec8e3d3e321742
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940170"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311547"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Domande frequenti su Azure automanage per le macchine virtuali
 
@@ -36,7 +36,9 @@ Di seguito sono riportati i prerequisiti per l'abilitazione di Azure automanage:
 
 **Quale autorizzazione RBAC è necessaria per abilitare la gestione della funzionalità automanage?**
 
-Gli utenti devono avere il ruolo di proprietario. In alternativa, gli utenti possono avere il ruolo Collaboratore insieme al ruolo amministratore accesso utenti per applicare la gestione.
+Se si Abilita la gestione in una macchina virtuale con un account di gestione autogestito esistente, è necessario il ruolo Collaboratore per il gruppo di risorse in cui risiede la macchina virtuale. 
+
+Se durante l'abilitazione si utilizza un nuovo account di gestione, è necessario che gli utenti dispongano del ruolo di proprietario o dispongano del ruolo di amministratore di accesso utente e collaboratore alla sottoscrizione.
 
 
 **Quali aree sono supportate?**
@@ -82,6 +84,11 @@ Sì, abbiamo un criterio predefinito che applica automaticamente la gestione aut
 **Che cos'è un account di automanage?**
 
 L'account di gestione automatica è un file MSI (identità del servizio gestita) che fornisce il contesto di sicurezza o l'identità con cui si verificano le operazioni automatiche.
+
+
+**Quando si Abilita automanage, questo influisca sulle VM aggiuntive oltre alle VM selezionate?**
+
+Se la macchina virtuale è collegata a un'area di lavoro Log Analytics esistente, l'area di lavoro verrà riutilizzata per applicare le soluzioni seguenti: Rilevamento modifiche, inventario e Gestione aggiornamenti. Per tutte le macchine virtuali connesse all'area di lavoro verranno abilitate tali soluzioni. 
 
 
 **È possibile modificare il profilo di configurazione della macchina virtuale?**

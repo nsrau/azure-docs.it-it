@@ -3,16 +3,16 @@ title: Connetti il tuo account AWS al centro sicurezza di Azure
 description: Monitoraggio delle risorse di AWS dal centro sicurezza di Azure
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ee1b8fe6ed97f3b71cda418cce9e432f7c045447
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 33ff6748eba9d0349df244e70f07ad178f258373
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940242"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250285"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Connettere gli account AWS al centro sicurezza di Azure
 
@@ -62,7 +62,7 @@ Nella schermata seguente è possibile visualizzare gli account AWS visualizzati 
 
         Quando si Abilita per la prima volta l'hub sicurezza, potrebbero essere necessarie diverse ore prima che i dati siano disponibili.
 
-### <a name="step-2-set-up-authentication-for-security-center-in-aws"></a>Passaggio 2: Configurare l'autenticazione per il Centro sicurezza in AWS
+### <a name="step-2-set-up-authentication-for-security-center-in-aws"></a>Passaggio 2. Configurare l'autenticazione per il Centro sicurezza in AWS
 
 Esistono due modi per consentire al centro sicurezza di eseguire l'autenticazione in AWS:
 

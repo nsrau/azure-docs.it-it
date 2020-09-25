@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8d71cccfe0ebd049607d5b51e7211739c3a7209b
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 89013e3b6ec9a0a6112e8b7fdcde4870be331d79
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468709"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282307"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Eseguire una query sul grafico gemello di Azure Digital gemelli
 
@@ -25,6 +25,15 @@ Nella parte restante di questo articolo vengono forniti esempi di utilizzo di qu
 ## <a name="query-syntax"></a>Sintassi delle query
 
 Questa sezione contiene query di esempio che illustrano la struttura del linguaggio di query ed eseguono le operazioni di query possibili sui dispositivi [gemelli digitali](concepts-twins-graph.md).
+
+### <a name="show-all-existing-digital-twins"></a>Mostra tutti i dispositivi gemelli digitali esistenti
+
+Di seguito è illustrata la query di base che restituirà un elenco di tutti i dispositivi gemelli digitali nell'istanza:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+```
 
 ### <a name="select-top-items"></a>Seleziona elementi principali
 
@@ -208,8 +217,8 @@ Sono supportate le funzioni stringa seguenti:
 
 | Funzione | Descrizione |
 | -------- | ----------- |
-| STARTS_WITH(x, y) | Restituisce un valore booleano che indica se la prima espressione stringa inizia con il secondo. |
-| ENDS_WITH(x, y) | Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo. |
+| STARTSWITH (x, y) | Restituisce un valore booleano che indica se la prima espressione stringa inizia con il secondo. |
+| ENDSWITH (x, y) | Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo. |
 
 ## <a name="run-queries-with-an-api-call"></a>Eseguire query con una chiamata API
 

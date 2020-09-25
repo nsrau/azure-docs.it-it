@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 8e48a5c896c4927b82f7d77f31b7f1c47fd156c5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 089cf07854f1f29eda7028db614edb1028e5d66a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311564"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Gestione automatici di Azure per le macchine virtuali
 
@@ -43,12 +43,11 @@ Infine, l'esperienza è incredibilmente semplice.
 
 - Solo macchine virtuali Windows Server
 - Le macchine virtuali devono essere in esecuzione
-- Solo macchine virtuali con set di scalabilità
 - Le macchine virtuali devono trovarsi in un'area supportata
 - L'utente deve disporre delle autorizzazioni corrette
 - Le macchine virtuali non devono essere collegate a un'area di lavoro di log Analytics in una sottoscrizione diversa
 
-Per abilitare la gestione, è necessaria l'autorizzazione RBAC seguente: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
+È necessario avere il ruolo **collaboratore** per abilitare la gestione tramite un account di gestione autogestito esistente. Se si Abilita automanage con un nuovo account automanage, sono necessarie le autorizzazioni seguenti: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
 
 È anche importante notare che automanage supporta solo le macchine virtuali Windows situate nelle aree seguenti: Europa occidentale, Stati Uniti orientali, Stati Uniti occidentali 2, Canada centrale, Stati Uniti centro-occidentali.
 
@@ -105,7 +104,7 @@ L'account di gestione automatica è il contesto di sicurezza o l'identità con c
 Nel portale di Azure esperienza, quando si Abilita la funzionalità di gestione delle macchine virtuali, è disponibile un elenco a discesa avanzate nel pannello **Abilita VM di Azure per le procedure consigliate** che consente di assegnare o creare manualmente l'account automanage.
 
 > [!NOTE]
-> Per abilitare la gestione, è necessaria l'autorizzazione RBAC seguente: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
+> È necessario avere il ruolo **collaboratore** per abilitare la gestione tramite un account di gestione autogestito esistente. Se si Abilita automanage con un nuovo account automanage, sono necessarie le autorizzazioni seguenti: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
 
 
 ## <a name="status-of-vms"></a>Stato delle macchine virtuali
@@ -130,9 +129,9 @@ Se lo **stato** viene visualizzato come *non riuscito*, è possibile risolvere i
 
 Per eseguire questa operazione nella portale di Azure, passare alla pagina **gestione automatica-procedure consigliate per macchine virtuali di Azure** in cui sono elencate tutte le macchine virtuali gestite automaticamente. Selezionare la casella di controllo accanto alla macchina virtuale che si vuole disabilitare da gestione automatica, quindi fare clic sul pulsante **Disabilita automanage** .
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Disabilitazione di automanage in una macchina virtuale.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Disabilitazione di Gestione automatica in una macchina virtuale.":::
 
-Leggere attentamente la messaggistica nel popup risultante prima di accettare la **disabilitazione**.
+Leggere attentamente i messaggi nella finestra popup visualizzata prima di fare clic su **Disabilita**.
 
 ```
 Disabling automanagement in a VM results in the following behavior:

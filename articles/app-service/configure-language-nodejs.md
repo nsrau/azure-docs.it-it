@@ -1,17 +1,17 @@
 ---
 title: Configurare app Node.js
 description: Informazioni su come configurare un'app Node.js nelle istanze di Windows native o in un contenitore Linux predefinito in app Azure servizio. Questo articolo illustra le attività di configurazione più comuni.
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e6daf176504427c96f8dce0a4e9a6b6d5e999a0a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 48b111966d58af80b6c34fa17231034f4f0cc213
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080114"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311836"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configurare un'app Node.js per il servizio app Azure
 
@@ -98,7 +98,7 @@ Se si distribuisce l'app usando pacchetti GIT o ZIP con l'automazione della comp
 1. Esegue lo script personalizzato se specificato da `POST_BUILD_SCRIPT_PATH`.
 
 > [!NOTE]
-> Come descritto in [NPM docs](https://docs.npmjs.com/misc/scripts), gli script denominati `prebuild` e `postbuild` vengono eseguiti rispettivamente prima e dopo `build` , se specificati. `preinstall`ed `postinstall` eseguono rispettivamente prima e dopo `install` .
+> Come descritto in [NPM docs](https://docs.npmjs.com/misc/scripts), gli script denominati `prebuild` e `postbuild` vengono eseguiti rispettivamente prima e dopo `build` , se specificati. `preinstall` ed `postinstall` eseguono rispettivamente prima e dopo `install` .
 
 `PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` sono variabili di ambiente vuote per impostazione predefinita. Per eseguire comandi pre-compilazione, definire `PRE_BUILD_COMMAND`. Per eseguire comandi post-compilazione, definire `POST_BUILD_COMMAND`.
 

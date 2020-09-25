@@ -1,6 +1,6 @@
 ---
 title: Distribuire il servizio Gestione dispositivi StorSimple in Azure | Microsoft Docs
-description: Descrive le procedure per creare ed eliminare il servizio Gestione dispositivi StorSimple nel portale di Azure e per gestire la chiave di registrazione del servizio.
+description: Informazioni sui passaggi necessari per la creazione, l'eliminazione, la migrazione del servizio e la gestione della chiave di registrazione del servizio.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847111"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249553"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuire il servizio Gestione dispositivi StorSimple per i dispositivi StorSimple serie 8000
 

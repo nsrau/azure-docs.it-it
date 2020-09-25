@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: d09f13a65a72c6c856a7fcd3d943ec116f3da43f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f60b62faa36352ab1221b23332fca695f32a3d74
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76721864"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250641"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Foglio informativo sulla pipeline di dati automatizzati per le stime di Azure Machine Learning
 Il **foglio informativo sulla pipeline di dati automatizzati per le stime di Microsoft Azure Machine Learning** consente di spostarsi tra la tecnologia che si può usare per ottenere i dati per il servizio Web Machine Learning, in cui  i dati stessi possono essere classificati dal modello di analisi predittiva.
@@ -35,7 +35,6 @@ Scaricare il foglio informativo qui: **[foglio informativo sulla pipeline di dat
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Altre informazioni su Machine Learning Studio
-* Per una panoramica delle Microsoft Azure Machine Learning, vedere [Introduzione a Machine Learning su Microsoft Azure](../studio/what-is-machine-learning.md).
-* Per una spiegazione su come distribuire un servizio Web di classificazione, vedere [Distribuire un servizio Web di Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md)
-* Per una spiegazione di come usare un servizio Web di assegnazione dei punteggi, vedere [Come usare un servizio Web di Azure Machine Learning](../studio/consume-web-services.md).
-
+* Per una panoramica delle Microsoft Azure Machine Learning, vedere [Introduzione a Machine Learning su Microsoft Azure](../classic/index.yml).
+* Per una spiegazione su come distribuire un servizio Web di classificazione, vedere [Distribuire un servizio Web di Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md)
+* Per una spiegazione di come usare un servizio Web di assegnazione dei punteggi, vedere [Come usare un servizio Web di Azure Machine Learning](../classic/consume-web-services.md).

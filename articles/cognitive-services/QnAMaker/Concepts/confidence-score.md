@@ -1,7 +1,7 @@
 ---
 title: Punteggio di confidenza-QnA Maker
 titleSuffix: Azure Cognitive Services
-description: È necessario pubblicare una Knowledge base. Una volta pubblicato, la Knowledge base viene sottoposta a query nell'endpoint di stima di runtime tramite l'API generateAnswer.
+description: Quando una query dell'utente viene confrontata con una knowledge base, QnA Maker restituisce le risposte pertinenti insieme a un punteggio di attendibilità.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: faf24f11763ca2bcd9bb872b09b5d1b69e78bd06
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: abae83cee106feb553e8ced404d23ba5619ba416
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131158"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327154"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>Punteggio di attendibilità di una risposta
 Quando una query dell'utente viene confrontata con una knowledge base, QnA Maker restituisce le risposte pertinenti insieme a un punteggio di attendibilità. Questo punteggio indica la probabilità che la risposta corrisponda perfettamente alla query dell'utente specificata.

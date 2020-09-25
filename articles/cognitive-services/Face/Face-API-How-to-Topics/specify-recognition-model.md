@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da34c2aa8a178a99f325bef8beb4a7e7685b3cbc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: d250fc005c5760a3eecc2793d02b6f2a9161e663
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283038"
 ---
 # <a name="specify-a-face-recognition-model"></a>Specificare un modello di riconoscimento volto
 
@@ -35,10 +35,11 @@ Per informazioni su come specificare un modello selezionato in operazioni viso d
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere familiarità con i concetti di rilevamento e identificazione dei volti di intelligenza artificiale. In caso di assenza di questo, vedere le guide introduttive seguenti:
+È necessario avere familiarità con i concetti di rilevamento e identificazione dei volti di intelligenza artificiale. Se non lo è, vedere prima le guide seguenti:
 
+* [Concetti relativi al rilevamento viso](../concepts/face-detection.md)
+* [Concetti relativi al riconoscimento del viso](../concepts/face-recognition.md)
 * [Come rilevare i visi in un'immagine](HowtoDetectFacesinImage.md)
-* [Come identificare i visi in un'immagine](HowtoIdentifyFacesinImage.md)
 
 ## <a name="detect-faces-with-specified-model"></a>Rileva visi con il modello specificato
 

@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4dd253aa5dc1b8b89b1b387a555dde416c601f9c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-js
+ms.openlocfilehash: c84367a5e3ab57090f59196e8474c14cba87f32b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691497"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250148"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Aggiungere un'API ad App Web statiche di Azure (anteprima) con Funzioni di Azure
 
@@ -243,7 +243,7 @@ Aggiungere quindi i dettagli della build seguenti.
 1. Immettere **api** nella casella _Percorso API_.
 1. Cancellare il valore predefinito dal campo _Percorso artefatto app_ e lasciare vuota la casella.
 1. Fare clic su **Rivedi e crea**.
-1. Fare clic sul pulsante **Crea**
+1. Fare clic sul pulsante **Create** (Crea)
 
     Quando si fa clic sul pulsante _Create (crea_ ), Azure esegue due operazioni. In primo luogo, i servizi cloud sottostanti vengono creati per supportare l'app. Successivamente, un processo in background inizia a compilare e distribuire l'applicazione.
 

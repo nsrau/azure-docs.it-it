@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: 32684ea72df63de5b82941b3ef44e9d579d09eb4
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 717ad8bfaa9ddfcfa5775654408601ca13d3a636
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131889"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282613"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usare Browser processi e Vista processi per i processi di Azure Data Lake Analytics
 Il servizio Azure Data Lake Analytics archivia i processi inviati in un archivio query. Questo articolo contiene informazioni su come usare Job Browser e Job View (Visualizzazione processo) in Azure Data Lake Tools per Visual Studio per trovare informazioni sulla cronologia di processi. 
@@ -38,7 +38,7 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
     
       Descrive le fasi del processo:
     
-      ![Stato delle fasi del processo di Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
+      ![Screenshot che mostra le fasi del processo Azure Data Lake Analytics.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Preparing (Preparazione): caricare lo script nel cloud, compilandolo e ottimizzandolo tramite il servizio di compilazione.
     * Queued (In coda): i processi vengono inseriti in coda quando sono in attesa di risorse sufficienti o quando viene superato il numero massimo di processi simultanei per il limite dell'account. L'impostazione di priorità determina la sequenza di processi in coda: più basso è il numero, maggiore è la priorità.
@@ -50,7 +50,7 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
     
       Le informazioni di base sui processi vengono visualizzate nella parte inferiore del pannello di riepilogo del processo.
     
-      ![Stato delle fasi del processo di Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
+      ![Screenshot che mostra il riepilogo del processo con le descrizioni nelle caselle di testo.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
     * Job Result (Risultato processo): indica l'esito positivo o negativo. In ogni fase il processo potrebbe non riuscire.
     * Total Duration (Durata totale): il tempo reale tra l'ora di invio e l'ora di fine.
@@ -60,10 +60,10 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
     * Account: l'account Data Lake Analytics usato per l'esecuzione del processo.
     * Author (Autore): l'utente che ha inviato il processo; può essere l'account di una persona reale o un account di sistema.
     * Priority (Priorità): la priorità del processo. Più è basso il numero, maggiore sarà la priorità. Interessa solo la sequenza di processi in coda. L'impostazione di una priorità più elevata non ha la precedenza sui processi in esecuzione.
-    * Parallelismo: il numero massimo richiesto di unità Azure Data Lake Analytics Unit (ADLAU) simultanee, note anche come vertici. Attualmente, un vertice è uguale a una VM con due memorie centrali virtuali e 6 GB di RAM, anche se questo valore potrebbe essere modificato negli aggiornamenti futuri di Data Lake Analytics.
+    * Parallelismo: numero massimo richiesto di unità di Azure Data Lake Analytics simultanee (Adlau), note anche come vertici. Attualmente, un vertice è uguale a una VM con due memorie centrali virtuali e 6 GB di RAM, anche se questo valore potrebbe essere modificato negli aggiornamenti futuri di Data Lake Analytics.
     * Bytes Left (Byte restanti): byte da elaborare fino al completamento del processo.
     * Bytes read/written (Byte letti/scritti): byte che sono stati letti/scritti dopo l'avvio del processo.
-    * Total vertices (Totale vertici): il processo è suddiviso in elementi di lavoro e ogni elemento è chiamato vertice. Questo valore descrive il numero di elementi di lavoro che costituiscono il processo. Un vertice può essere considerato come un'unità di processo di base, nota anche come Azure Data Lake Analytics Unit (ADLAU); i vertici possono essere eseguiti in parallelismo. 
+    * Total vertices (Totale vertici): il processo è suddiviso in elementi di lavoro e ogni elemento è chiamato vertice. Questo valore descrive il numero di elementi di lavoro che costituiscono il processo. È possibile considerare un vertice come unità di processo di base, nota anche come unità di Azure Data Lake Analytics (ADLAU), e i vertici possono essere eseguiti in parallelo. 
     * Completed/Running/Failed (Completati/In esecuzione/Non riusciti): indica il numero di vertici completati, in esecuzione o non riusciti. I vertici possono avere esito negativo a causa di errori di sistema o del codice utente, ma il sistema tenta automaticamente di eseguire i vertici più volte. Se l'esito è negativo dopo questi tentativi, tutto il processo avrà esito negativo.
 * Grafico del processo
   
@@ -71,7 +71,7 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
   
     ![Stato delle fasi del processo di Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    Un processo è suddiviso in più elementi di lavoro. Ogni elemento di lavoro è chiamato vertice. I vertici vengono raggruppati come Supervertice (noto anche come fase) e visualizzati sotto forma di grafico del processo. Le etichette di colore verde nel grafico del processo indicano le fasi.
+    Un processo è suddiviso in più elementi di lavoro. Ogni elemento di lavoro è chiamato vertice. I vertici vengono raggruppati come Super vertice (noto anche come fase) e visualizzati come grafico del processo. Le etichette di colore verde nel grafico del processo indicano le fasi.
   
     Ogni vertice raggruppato in una fase esegue lo stesso tipo di lavoro con blocchi diversi degli stessi dati. Ad esempio, se si dispone di un file con 1 TB di dati e centinaia di vertici leggono i dati nel file, ogni vertice sta leggendo un blocco. Questi vertici vengono raggruppati nella stessa fase ed eseguono lo stesso lavoro su blocchi diversi dello stesso file di input.
   

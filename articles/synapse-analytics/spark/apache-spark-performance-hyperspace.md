@@ -10,31 +10,33 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 3d65a7771ff2bd8807a5f02278b0455ee103dbd6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f25aae64e117452cd689b68c5478e7431d1a21bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526341"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249366"
 ---
-# <a name="hyperspace---an-indexing-subsystem-for-apache-spark"></a>Iperspaziale-un sottosistema di indicizzazione per Apache Spark
+# <a name="hyperspace-an-indexing-subsystem-for-apache-spark"></a>Iperspazio: un sottosistema di indicizzazione per Apache Spark
 
-L'iperspaziale introduce la possibilità per gli utenti Apache Spark di creare indici sui set di set di elementi (ad esempio, CSV, JSON, parquet e così via) e di usarli per la potenziale accelerazione di query e carichi di lavoro.
+L'iperspazio offre la possibilità per gli utenti Apache Spark di creare indici sui set di impostazioni, ad esempio CSV, JSON e parquet, e di usarli per la potenziale accelerazione di query e carichi di lavoro.
 
-In questo articolo vengono evidenziate le nozioni di base dell'iperspazio, con particolare attenzione alla sua semplicità e viene illustrato come può essere utilizzato praticamente da chiunque.
+In questo articolo vengono evidenziate le nozioni di base dell'iperspazio, ne viene enfatizzata la semplicità e viene illustrato come usarlo solo da chiunque.
 
-Dichiarazione di non responsabilità: l'iperspazio consente di accelerare i carichi di lavoro e le query in due circostanze:
+Dichiarazione di non responsabilità: l'iperspazio consente di accelerare i carichi di lavoro o le query in due circostanze:
 
-* Le query contengono filtri su predicati con selettività elevata (ad esempio, si desidera selezionare 100 righe corrispondenti da un milione di righe candidate)
-* Le query contengono un join che richiede un numero elevato di shuffle (ad esempio, si desidera creare un join di un set di dati da 100 GB a un set di dati da 10 GB)
+* Le query contengono filtri su predicati con selettività elevata. Ad esempio, potrebbe essere necessario selezionare 100 righe corrispondenti da un milione di righe candidate.
+* Le query contengono un join che richiede shuffle pesanti. Ad esempio, potrebbe essere necessario aggiungere un set di dati da 100 GB a un set di dati da 10 GB.
 
 È possibile monitorare attentamente i carichi di lavoro e determinare se l'indicizzazione è utile per caso.
 
-Questo documento è disponibile anche in formato notebook per [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), per [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb) e [scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)
+Questo documento è disponibile anche in formato notebook per [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)e [scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)
 
 ## <a name="setup"></a>Configurazione
 
-Per iniziare, avviare una nuova sessione di Spark. Poiché questo documento è un'esercitazione semplicemente per illustrare l'offerta dell'iperspazio, è possibile apportare una modifica alla configurazione che consenta di evidenziare l'attività dell'iperspazio su set di dati di piccole dimensioni. Per impostazione predefinita, Spark usa il broadcast join per ottimizzare le query di join quando le dimensioni dei dati per un lato di join sono ridotte, ovvero il caso per i dati di esempio usati in questa esercitazione. Pertanto, i join broadcast vengono disabilitati in modo che, in un secondo momento, quando si eseguono query di join, Spark utilizzi sort-merge join. In particolare, viene illustrato come usare indici iperspazi su larga scala per accelerare le query di join.
+Per iniziare, avviare una nuova sessione di Spark. Poiché questo documento è un'esercitazione semplicemente per illustrare l'offerta dell'iperspazio, è possibile apportare una modifica alla configurazione che consenta di evidenziare l'attività dell'iperspazio su set di dati di piccole dimensioni. 
+
+Per impostazione predefinita, Spark usa il broadcast join per ottimizzare le query di join quando le dimensioni dei dati per un lato di join sono ridotte, ovvero il caso per i dati di esempio usati in questa esercitazione. Pertanto, i join broadcast vengono disabilitati in modo che, in un secondo momento, quando si eseguono query di join, Spark utilizzi sort-merge join. In particolare, viene illustrato come usare indici iperspazi su larga scala per accelerare le query di join.
 
 L'output dell'esecuzione della cella seguente mostra un riferimento alla sessione Spark creata correttamente e stampa '-1' come valore per la configurazione join modificata, che indica che broadcast join è stato disabilitato.
 
@@ -44,7 +46,7 @@ L'output dell'esecuzione della cella seguente mostra un riferimento alla session
 // Start your Spark session
 spark
 
-// Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently hyperspace indexes utilize SortMergeJoin to speed up query.
+// Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently, Hyperspace indexes utilize SortMergeJoin to speed up query.
 spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
 
 // Verify that BroadcastHashJoin is set correctly
@@ -57,10 +59,10 @@ println(spark.conf.get("spark.sql.autoBroadcastJoinThreshold"))
 :::zone pivot = "programming-language-python"
 
 ```python
-# Start your Spark session
+# Start your Spark session.
 spark
 
-# Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently Hyperspace indexes utilize SortMergeJoin to speed up query.
+# Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently, Hyperspace indexes utilize SortMergeJoin to speed up query.
 spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
 
 # Verify that BroadcastHashJoin is set correctly 
@@ -72,10 +74,10 @@ print(spark.conf.get("spark.sql.autoBroadcastJoinThreshold"))
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-// Disable BroadcastHashJoin, so Spark™ will use standard SortMergeJoin. Currently hyperspace indexes utilize SortMergeJoin to speed up query.
+// Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently, Hyperspace indexes utilize SortMergeJoin to speed up query.
 spark.Conf().Set("spark.sql.autoBroadcastJoinThreshold", -1);
 
-// Verify that BroadcastHashJoin is set correctly 
+// Verify that BroadcastHashJoin is set correctly.
 Console.WriteLine(spark.Conf().Get("spark.sql.autoBroadcastJoinThreshold"));
 ```
 
@@ -90,11 +92,11 @@ res3: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@297e
 
 ## <a name="data-preparation"></a>Preparazione dei dati
 
-Per preparare l'ambiente, sarà necessario creare record di dati di esempio e salvarli come file di dati parquet. Mentre per illustrazione è usato parquet, è possibile usare altri formati, ad esempio CSV. Nelle celle successive verrà illustrato come creare diversi indici dell'iperspazio in questo set di dati di esempio e come fare in modo che Spark li usi durante l'esecuzione delle query.
+Per preparare l'ambiente, è necessario creare record di dati di esempio e salvarli come file di dati parquet. Per illustrazione è usato parquet, ma è anche possibile usare altri formati, ad esempio CSV. Nelle celle successive si vedrà come creare diversi indici dell'iperspazio in questo set di dati di esempio e fare in modo che Spark li usi durante l'esecuzione delle query.
 
 I record di esempio corrispondono a due set di dati: Department e Employee. È necessario configurare i percorsi "empLocation" e "deptLocation" in modo che nell'account di archiviazione puntino alla posizione desiderata per salvare i file di dati generati.
 
-L'output di in esecuzione sotto la cella Mostra il contenuto dei set di dati come elenchi di tripletti seguiti dai riferimenti ai dataframe creati per salvare il contenuto di ogni set di dati nel percorso preferito.
+L'output dell'esecuzione della cella seguente mostra il contenuto dei set di dati come elenchi di tripletti seguiti dai riferimenti ai dataframe creati per salvare il contenuto di ogni set di dati nel percorso preferito.
 
 :::zone pivot = "programming-language-scala"
 
@@ -240,9 +242,9 @@ empLocation: String = /your-path/employees.parquet
 deptLocation: String = /your-path/departments.parquet  
 ```
 
-Verificare il contenuto dei file parquet creati in precedenza per assicurarsi che contengano i record previsti nel formato corretto. Questi file di dati vengono usati in un secondo momento per creare indici iperspaziali ed eseguire query di esempio.
+Verificare il contenuto dei file parquet creati per assicurarsi che contengano i record previsti nel formato corretto. In seguito, questi file di dati verranno usati per creare indici iperspaziali ed eseguire query di esempio.
 
-Eseguendo la cella riportata di seguito, l'output Visualizza le righe nei dataframe di Employee e Department in un formato tabulare. Dovrebbero essere presenti 14 dipendenti e 4 reparti, ognuno dei quali corrisponde a uno dei tripletti creati nella cella precedente.
+L'esecuzione della cella seguente produce e restituisce un output che visualizza le righe nei dataframe dei dipendenti e dei Department in un formato tabulare. Dovrebbero essere presenti 14 dipendenti e 4 reparti, ognuno dei quali corrisponde a uno dei tripletti creati nella cella precedente.
 
 :::zone pivot = "programming-language-scala"
 
@@ -262,7 +264,7 @@ deptDF.show()
 
 ```python
 
-# emp_Location and dept_Location are the user defined locations above to save parquet files
+# emp_Location and dept_Location are the user-defined locations above to save parquet files
 emp_DF = spark.read.parquet(emp_Location)
 dept_DF = spark.read.parquet(dept_Location)
 
@@ -278,7 +280,7 @@ dept_DF.show()
 
 ```csharp
 
-// empLocation and deptLocation are the user defined locations above to save parquet files
+// empLocation and deptLocation are the user-defined locations above to save parquet files
 DataFrame empDF = spark.Read().Parquet(empLocation);
 DataFrame deptDF = spark.Read().Parquet(deptLocation);
 
@@ -329,18 +331,22 @@ deptDF: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 mo
 
 ## <a name="indexes"></a>Indici
 
-L'iperspazio consente di creare indici nei record analizzati da file di dati salvati in modo permanente. Una volta creata correttamente, viene aggiunta una voce corrispondente all'indice ai metadati dell'iperspazio. Questi metadati vengono usati in un secondo momento dall'ottimizzatore di Apache Spark (con le estensioni) durante l'elaborazione della query per trovare e usare gli indici appropriati.
+L'iperspazio consente di creare indici nei record analizzati da file di dati salvati in modo permanente. Una volta creati correttamente, viene aggiunta una voce che corrisponde all'indice ai metadati dell'iperspazio. Questi metadati vengono usati in un secondo momento dall'ottimizzatore di Apache Spark (con le estensioni) durante l'elaborazione della query per trovare e usare gli indici appropriati.
 
-Una volta creati gli indici, è possibile eseguire diverse operazioni:
+Dopo la creazione degli indici, è possibile eseguire diverse operazioni:
+
+* **Aggiornare se i dati sottostanti vengono modificati.** È possibile aggiornare un indice esistente per acquisire le modifiche.
+* **Eliminare se l'indice non è necessario.** È possibile eseguire un'eliminazione temporanea, ovvero l'indice non viene eliminato fisicamente, ma è contrassegnato come "eliminato" in modo che non venga più usato nei carichi di lavoro.
+* **Vacuum se un indice non è più necessario.** È possibile svuotare un indice, che forza un'eliminazione fisica del contenuto dell'indice e dei metadati associati completamente dai metadati dell'iperspazio.
 
 Aggiornare se i dati sottostanti cambiano, è possibile aggiornare un indice esistente per acquisirlo.
 Elimina se l'indice non è necessario, è possibile eseguire un'eliminazione temporanea, ovvero l'indice non viene eliminato fisicamente, ma è contrassegnato come ' deleted ' in modo che non venga più usato nei carichi di lavoro.
-Vacuum se un indice non è più necessario, è possibile Vacuum it, che forza un'eliminazione fisica del contenuto dell'indice e dei metadati associati completamente dai metadati dell'iperspazio.
+
 Le sezioni seguenti illustrano come è possibile eseguire tali operazioni di gestione degli indici nell'iperspazio.
 
-Prima di tutto, è necessario importare le librerie necessarie e creare un'istanza di iperspazio. In seguito verrà utilizzata questa istanza per richiamare diverse API dell'iperspazio per creare indici sui dati di esempio e modificare tali indici.
+Prima di tutto, è necessario importare le librerie necessarie e creare un'istanza di iperspazio. Successivamente, si userà questa istanza per richiamare diverse API dell'iperspazio per creare indici sui dati di esempio e modificare tali indici.
 
-L'output dell'esecuzione sotto la cella Mostra un riferimento all'istanza creata di iperspazio.
+L'output dell'esecuzione della cella seguente mostra un riferimento all'istanza creata di iperspazio.
 
 :::zone pivot = "programming-language-scala"
 
@@ -388,9 +394,10 @@ hyperspace: com.microsoft.hyperspace.Hyperspace = com.microsoft.hyperspace.Hyper
 
 Per creare un indice iperspaziale, è necessario fornire due informazioni:
 
-Un frame di dati Spark che fa riferimento ai dati da indicizzare.
-Oggetto di configurazione dell'indice: IndexConfig, che specifica il nome dell'indice, le colonne indicizzate e incluse dell'indice.
-Si inizia creando tre indici iperspaziali sui dati di esempio: due indici nel set di dati Department denominato "deptIndex1" e "deptIndex2" e un indice nel set di dati Employee denominato "empIndex". Per ogni indice è necessario un IndexConfig corrispondente per acquisire il nome insieme agli elenchi di colonne per le colonne indicizzate e incluse. In esecuzione sotto la cella vengono creati questi indexConfigs e l'output li elenca.
+* Un frame di dati Spark che fa riferimento ai dati da indicizzare.
+* Oggetto di configurazione dell'indice, IndexConfig, che specifica il nome dell'indice e le colonne indicizzate e incluse dell'indice.
+
+Si inizia creando tre indici iperspaziali sui dati di esempio: due indici nel set di dati Department denominato "deptIndex1" e "deptIndex2" e un indice nel set di dati Employee denominato "empIndex". Per ogni indice è necessario un IndexConfig corrispondente per acquisire il nome insieme agli elenchi di colonne per le colonne indicizzate e incluse. L'esecuzione della cella seguente crea questi IndexConfigs e ne elenca l'output.
 
 > [!Note]
 > Una colonna di indice è una colonna visualizzata nei filtri o nelle condizioni di join. Una colonna inclusa è una colonna visualizzata in Select/Project.
@@ -454,7 +461,6 @@ empIndexConfig: com.microsoft.hyperspace.index.IndexConfig = [indexName: empInde
 deptIndexConfig1: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex1; indexedColumns: deptid; includedColumns: deptname]  
 deptIndexConfig2: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex2; indexedColumns: location; includedColumns: deptname]  
 ```
-
 A questo punto, è possibile creare tre indici usando le configurazioni degli indici. A questo scopo, si richiama il comando "createIndex" nell'istanza di iperspazio. Questo comando richiede una configurazione dell'indice e il dataframe contenente le righe da indicizzare. L'esecuzione della cella seguente crea tre indici.
 
 :::zone pivot = "programming-language-scala"
@@ -505,12 +511,15 @@ import com.microsoft.hyperspace.index.Index
 
 ## <a name="list-indexes"></a>Elencare gli indici
 
-Il codice seguente illustra come è possibile elencare tutti gli indici disponibili in un'istanza di iperspazio. Usa l'API "Indexes" che restituisce informazioni sugli indici esistenti come dataframe di Spark, in modo da poter eseguire operazioni aggiuntive. Ad esempio, è possibile richiamare operazioni valide su questo dataframe per verificarne il contenuto o analizzarlo ulteriormente (ad esempio, filtrando gli indici specifici o raggruppando i dati in base a una proprietà desiderata).
+Il codice seguente illustra come è possibile elencare tutti gli indici disponibili in un'istanza di iperspazio. Usa l'API "Indexes" che restituisce informazioni sugli indici esistenti come dataframe di Spark, in modo da poter eseguire operazioni aggiuntive. 
+
+Ad esempio, è possibile richiamare operazioni valide su questo dataframe per verificarne il contenuto o analizzarlo ulteriormente (ad esempio, filtrando gli indici specifici o raggruppando i dati in base a una proprietà desiderata).
 
 La cella seguente usa l'azione ' Show ' di dataframe per stampare completamente le righe e visualizzare i dettagli degli indici in un formato tabulare. Per ogni indice, è possibile visualizzare tutte le informazioni che l'iperspazio ha archiviato nei metadati. Si noterà immediatamente quanto segue:
 
-* "config. IndexName", "config. indexedColumns", "config. includedColumns" e "status. status" sono i campi a cui un utente fa normalmente riferimento.
-* "dfSignature" viene generato automaticamente dall'iperspazio ed è univoco per ogni indice. L'iperspazio usa questa firma internamente per gestire l'indice e sfruttarlo in fase di query.
+* config. IndexName, config. indexedColumns, config. includedColumns e status. status sono i campi a cui un utente fa normalmente riferimento.
+* dfSignature viene generato automaticamente dall'iperspazio ed è univoco per ogni indice. L'iperspazio usa questa firma internamente per gestire l'indice e sfruttarlo in fase di query.
+
 
 Nell'output seguente, tutti e tre gli indici devono essere "attivi" come stato e il nome, le colonne indicizzate e le colonne incluse devono corrispondere a quanto definito nelle configurazioni degli indici precedenti.
 
@@ -554,7 +563,9 @@ Il risultato è il seguente:
 
 ## <a name="delete-indexes"></a>Elimina indici
 
-È possibile eliminare un indice esistente usando l'API "deleteIndex" e specificando il nome dell'indice. L'eliminazione dell'indice esegue un'eliminazione temporanea: Aggiorna principalmente lo stato dell'indice nei metadati dell'iperspazio da "attivo" a "eliminato". Questa operazione escluderà l'indice eliminato da qualsiasi futura ottimizzazione delle query e l'iperspazio non sceglierà più l'indice per una query. Tuttavia, i file di indice per un indice eliminato rimangono ancora disponibili (poiché si tratta di un'eliminazione temporanea), in modo da poter ripristinare l'indice se richiesto dall'utente.
+È possibile eliminare un indice esistente usando l'API "deleteIndex" e specificando il nome dell'indice. L'eliminazione dell'indice esegue un'eliminazione temporanea: Aggiorna principalmente lo stato dell'indice nei metadati dell'iperspazio da "attivo" a "eliminato". Questa operazione escluderà l'indice eliminato da qualsiasi futura ottimizzazione delle query e l'iperspazio non sceglierà più l'indice per una query. 
+
+Tuttavia, i file di indice per un indice eliminato rimangono ancora disponibili (poiché si tratta di un'eliminazione temporanea), in modo da poter ripristinare l'indice se richiesto dall'utente.
 
 La cella seguente elimina l'indice con il nome "deptIndex2" e elenca i metadati dell'iperspazio dopo tale operazione. L'output dovrebbe essere simile alla cella precedente per "list Indexes", ad eccezione di "deptIndex2", che ora deve avere lo stato modificato in "DELETED".
 
@@ -666,9 +677,9 @@ Il risultato è il seguente:
 
 ## <a name="vacuum-indexes"></a>Indici sottovuoto
 
-È possibile eseguire un'eliminazione a freddo, ovvero rimuovere completamente i file e la voce di metadati per un indice eliminato usando il comando "vacuumIndex". Al termine, questa azione è irreversibile perché elimina fisicamente tutti i file di indice, motivo per cui si tratta di un'eliminazione a freddo.
+È possibile eseguire un'eliminazione hardware, ovvero rimuovere completamente i file e la voce di metadati per un indice eliminato usando il comando **vacuumIndex** . Questa azione è irreversibile. Elimina fisicamente tutti i file di indice, motivo per cui si tratta di un'eliminazione complessa.
 
-La cella seguente Vacuum l'indice "deptIndex2" e Visualizza i metadati dell'iperspazio dopo l'aspirazione. Verranno visualizzate le voci di metadati per due indici "deptIndex1" e "empIndex" con stato "attivo" e nessuna voce per "deptIndex2".
+La cella seguente consente di svuotare l'indice "deptIndex2" e di visualizzare i metadati dell'iperspazio dopo l'aspirapolvere. Verranno visualizzate le voci di metadati per due indici "deptIndex1" e "empIndex" con stato "attivo" e nessuna voce per "deptIndex2".
 
 :::zone pivot = "programming-language-scala"
 
@@ -711,13 +722,14 @@ Il risultato è il seguente:
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
 ```
 
-## <a name="enabledisable-hyperspace"></a>Abilita/Disabilita l'iperspazio
+## <a name="enable-or-disable-hyperspace"></a>Abilitare o disabilitare l'iperspazio
 
 L'iperspazio fornisce API per abilitare o disabilitare l'utilizzo di indici con Spark.
 
-Usando il comando "enableHyperspace", le regole di ottimizzazione dell'iperspazio diventano visibili per Spark Optimizer e sfruttano gli indici iperspaziali esistenti per ottimizzare le query utente.
-Utilizzando il comando "disableHyperspace", le regole dell'iperspazio non vengono più applicate durante l'ottimizzazione della query. Si noti che la disabilitazione dell'iperspazio non ha alcun effetto sugli indici creati perché rimangono intatti.
-La cella seguente mostra come è possibile usare questi comandi per abilitare o disabilitare l'iperspazio. L'output mostra semplicemente un riferimento alla sessione Spark esistente la cui configurazione è aggiornata.
+* Usando il comando **enableHyperspace** , le regole di ottimizzazione dell'iperspazio diventano visibili a Spark Optimizer e sfruttano gli indici iperspaziali esistenti per ottimizzare le query utente.
+* Utilizzando il comando **disableHyperspace** , le regole dell'iperspazio non vengono più applicate durante l'ottimizzazione della query. La disabilitazione dell'iperspazio non ha alcun effetto sugli indici creati perché rimangono intatti.
+
+La cella seguente mostra come è possibile usare questi comandi per abilitare o disabilitare l'iperspazio. L'output Mostra un riferimento alla sessione Spark esistente la cui configurazione è aggiornata.
 
 :::zone pivot = "programming-language-scala"
 
@@ -770,7 +782,7 @@ res51: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@
 
 Per fare in modo che Spark usi gli indici iperspaziali durante l'elaborazione della query, è necessario assicurarsi che l'iperspazio sia abilitato.
 
-La cella seguente abilita l'iperspazio e crea due dataframe contenenti i record di dati di esempio usati per eseguire query di esempio. Per ogni dataframe vengono stampate alcune righe di esempio.
+La cella seguente abilita l'iperspazio e crea due dataframe contenenti i record di dati di esempio, usati per l'esecuzione di query di esempio. Per ogni dataframe vengono stampate alcune righe di esempio.
 
 :::zone pivot = "programming-language-scala"
 
@@ -857,11 +869,11 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 Attualmente, l'iperspazio ha regole per sfruttare gli indici per due gruppi di query:
 
 * Query di selezione con predicati di filtro di selezione intervallo o ricerca.
-* Join di query con un predicato di join di uguaglianza (ovvero, equi-join).
+* Join di query con un predicato di join di uguaglianza, ovvero equijoin.
 
 ## <a name="indexes-for-accelerating-filters"></a>Indici per accelerare i filtri
 
-Nella prima query di esempio viene eseguita una ricerca nei record del reparto (vedere la cella riportata di seguito). In SQL questa query è simile alla seguente:
+Nella prima query di esempio viene eseguita una ricerca nei record del reparto, come illustrato nella cella seguente. In SQL questa query è simile all'esempio seguente:
 
 ```sql
 SELECT deptName
@@ -869,12 +881,12 @@ FROM departments
 WHERE deptId = 20
 ```
 
-L'output dell'esecuzione della cella seguente mostra:
+L'output di esecuzione della cella seguente mostra:
 
 * Risultato della query, che corrisponde a un singolo nome del reparto.
 * Piano di query utilizzato da Spark per eseguire la query.
 
-Nel piano di query, l'operatore "filescan" nella parte inferiore del piano Visualizza l'origine dati da cui sono stati letti i record. Il percorso di questo file indica il percorso della versione più recente dell'indice "deptIndex1". Ciò dimostra che in base alla query e alle regole di ottimizzazione dell'iperspazio, Spark ha deciso di sfruttare l'indice appropriato in fase di esecuzione.
+Nel piano di query, l'operatore **filescan** nella parte inferiore del piano indica l'origine dati da cui sono stati letti i record. Il percorso di questo file indica il percorso della versione più recente dell'indice "deptIndex1". Queste informazioni indicano che in base alla query e alle regole di ottimizzazione dell'iperspazio, Spark ha deciso di sfruttare l'indice appropriato in fase di esecuzione.
 
 :::zone pivot = "programming-language-scala"
 
@@ -954,7 +966,7 @@ Project [deptName#534]
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), EqualTo(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
 
-Il secondo esempio è una query di selezione dell'intervallo nei record del reparto. In SQL questa query è simile alla seguente:
+Il secondo esempio è una query di selezione dell'intervallo nei record del reparto. In SQL questa query è simile all'esempio seguente:
 
 ```sql
 SELECT deptName
@@ -962,7 +974,7 @@ FROM departments
 WHERE deptId > 20
 ```
 
-Analogamente al primo esempio, l'output della cella seguente mostra i risultati della query (nomi di due reparti) e il piano di query. Il percorso del file di dati nell'operatore filescan indica che è stato utilizzato ' deptIndex1' per eseguire la query.
+Analogamente al primo esempio, l'output della cella seguente mostra i risultati della query (nomi di due reparti) e il piano di query. Il percorso del file di dati nell'operatore **filescan** indica che è stato utilizzato "deptIndex1" per eseguire la query.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1041,7 +1053,6 @@ Project [deptName#534]
 +- *(1) Filter (isnotnull(deptId#533) && (deptId#533 > 20))
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
-
 Il terzo esempio è una query che unisce i record Department e Employee nell'ID del reparto. L'istruzione SQL equivalente è illustrata di seguito:
 
 ```sql
@@ -1049,8 +1060,7 @@ SELECT employees.deptId, empName, departments.deptId, deptName
 FROM   employees, departments
 WHERE  employees.deptId = departments.deptId
 ```
-
-L'output dell'esecuzione della cella seguente mostra i risultati della query, ovvero i nomi di 14 dipendenti e il nome del reparto a cui lavorano ogni dipendente. Il piano di query viene inoltre incluso nell'output. Si noti che i percorsi dei file per due operatori filescan mostrano che Spark ha usato gli indici "empIndex" e "deptIndex1" per eseguire la query.
+L'output dell'esecuzione della cella seguente mostra i risultati della query, ovvero i nomi di 14 dipendenti e il nome del reparto a cui lavorano ogni dipendente. Il piano di query viene inoltre incluso nell'output. Si noti che i percorsi dei file per due operatori **filescan** mostrano che Spark ha usato gli indici "empIndex" e "deptIndex1" per eseguire la query.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1286,7 +1296,7 @@ Project [empName#528, deptName#534]
 
 ## <a name="explain-api"></a>API explain
 
-Gli indici sono molto interessanti, ma come si sa se vengono usati? L'iperspazio consente agli utenti di confrontare il piano originale rispetto al piano dipendente dall'indice aggiornato prima di eseguire la query. È possibile scegliere tra la modalità HTML/testo normale/console per visualizzare l'output del comando.
+Gli indici sono molto interessanti, ma come si sa se vengono usati? L'iperspazio consente agli utenti di confrontare il piano originale rispetto al piano dipendente dall'indice aggiornato prima di eseguire la query. Per visualizzare l'output del comando, è possibile scegliere tra la modalità HTML, testo normale o console.
 
 Nella cella seguente viene illustrato un esempio con HTML. La sezione evidenziata rappresenta la differenza tra i piani originali e quelli aggiornati insieme agli indici utilizzati.
 
@@ -1367,12 +1377,12 @@ empIndex:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/<container>/i
 
 ## <a name="refresh-indexes"></a>Aggiorna indici
 
-Se vengono modificati i dati originali in cui è stato creato un indice, l'indice non acquisisce più lo stato più recente dei dati. È possibile aggiornare tale indice non aggiornato usando il comando "refreshIndex". In questo modo l'indice viene ricompilato completamente e aggiornato in base ai record di dati più recenti (non preoccuparti, verrà illustrato come aggiornare in modo incrementale l'indice in altri notebook).
+Se vengono modificati i dati originali in cui è stato creato un indice, l'indice non acquisisce più lo stato più recente dei dati. È possibile aggiornare un indice non aggiornato tramite il comando **refreshIndex** . Questo comando fa in modo che l'indice venga ricompilato completamente e lo aggiorni in base ai record di dati più recenti. Verrà illustrato come aggiornare in modo incrementale l'indice in altri notebook.
 
-Le due celle seguenti mostrano un esempio di questo scenario:
+Nelle due celle seguenti viene illustrato un esempio per questo scenario:
 
-* La prima cella aggiunge altri due reparti ai dati dei reparti originali. Legge e stampa l'elenco dei reparti per verificare che i nuovi reparti siano stati aggiunti correttamente. L'output mostra sei reparti in totale: quattro vecchi e due nuovi. Richiamando gli aggiornamenti "refreshIndex" "deptIndex1", l'indice acquisisce i nuovi reparti.
-* Seconda cella esegue l'esempio di query di selezione intervallo. I risultati dovrebbero ora contenere quattro dipartimenti: due sono quelli visualizzati prima dell'esecuzione della query precedente e due sono i nuovi reparti appena aggiunti.
+* La prima cella aggiunge altri due reparti ai dati dei reparti originali. Viene letto e stampato un elenco di reparti per verificare che i nuovi reparti siano stati aggiunti correttamente. L'output mostra sei reparti in totale: quattro vecchi e due nuovi. La chiamata di **refreshIndex** Aggiorna "deptIndex1" in modo che l'indice acquisisca i nuovi reparti.
+* La seconda cella esegue l'esempio di query di selezione intervallo. I risultati dovrebbero ora contenere quattro reparti: due sono quelle rilevate prima quando è stata eseguita la query precedente e due sono i nuovi reparti aggiunti.
 
 ### <a name="specific-index-refresh"></a>Aggiornamento indice specifico
 

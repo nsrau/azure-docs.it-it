@@ -11,14 +11,17 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c664d4859a306387b4eafa2f19ab5877ccf6eb1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a4b65195488f101d36aaf73956f1422bfccbbf9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81686948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282137"
 ---
 # <a name="run-opc-publisher"></a>Eseguire OPC Publisher
+
+> [!IMPORTANT]
+> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
 
 Questo articolo descrive come eseguire OPC Publisher ed eseguirne il debug. Include anche considerazioni sulle prestazioni e sulla memoria.
 

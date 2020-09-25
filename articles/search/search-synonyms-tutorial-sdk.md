@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 982aa4bdb37af53999e75b7e33db990adb057938
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 51d6920d9ab52b907f2cb51e29d85f82dc74d45b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019760"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250233"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Esempio: aggiungere sinonimi per ricerca cognitiva di Azure in C #
 
@@ -97,7 +97,7 @@ results = indexClient.Documents.Search<Hotel>("economy AND hotel", parameters);
 WriteDocuments(results);
 ```
 Nessuno dei due documenti indicizzati contiene questi termini, quindi si ottiene l'output seguente dal primo comando `RunQueriesWithNonExistentTermsInIndex`.
-~~~
+```
 Search the entire index for the phrase "five star":
 
 no document matched
@@ -109,7 +109,7 @@ no document matched
 Search the entire index for the terms 'economy' AND 'hotel':
 
 no document matched
-~~~
+```
 
 ## <a name="enable-synonyms"></a>Abilitare i sinonimi
 
@@ -148,7 +148,7 @@ L'abilitazione dei sinonimi è un processo in due passaggi. Vengono prima di tut
 
 Dopo il caricamento della mappa di sinonimi e l'aggiornamento dell'indice per l'uso della mappa di sinonimi, la seconda chiamata `RunQueriesWithNonExistentTermsInIndex` restituisce quanto segue:
 
-~~~
+```
 Search the entire index for the phrase "five star":
 
 Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concierge]
@@ -160,7 +160,7 @@ Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concier
 Search the entire index for the terms 'economy' AND 'hotel':
 
 Name: Roach Motel       Category: Budget        Tags: [motel, budget]
-~~~
+```
 La prima query trova il documento dalla regola `five star=>luxury`. La seconda query espande la ricerca usando `internet,wifi` e la terza usando `hotel, motel` e `economy,inexpensive=>budget` nell'individuazione di documenti corrispondenti.
 
 L'aggiunta di sinonimi modifica completamente l'esperienza di ricerca. In questo esempio, le query originali non sono in grado di restituire risultati significativi anche se i documenti nell'indice sono rilevanti. Abilitando i sinonimi, è possibile espandere un indice in modo da includere termini di uso comune, senza modifiche ai dati sottostanti dell'indice.

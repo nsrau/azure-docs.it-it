@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: lbosq
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7b0ac1e301705b24d706638deb3ee0a15d49c87b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 4b069dea3f07477fcbca21e08166cdfad8cad2cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415092"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326729"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usare i comandi di estensione MongoDB per gestire i dati archiviati nell'API Azure Cosmos DB per MongoDB 
 
@@ -33,7 +33,7 @@ I seguenti comandi di estensione consentono di creare e modificare risorse speci
 * [Aggiorna raccolta](#update-collection)
 * [Ottieni raccolta](#get-collection)
 
-## <a name="create-database"></a><a id="create-database"></a>Crea database
+## <a name="create-database"></a><a id="create-database"></a> Crea database
 
 Il comando create database Extension crea un nuovo database MongoDB. Il nome del database può essere utilizzato dal contesto del database impostato dal `use database` comando. Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
@@ -53,7 +53,7 @@ Se il comando ha esito positivo, verrà restituita la risposta seguente:
 
 Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="create-a-database"></a>Creazione di un database
 
@@ -86,7 +86,7 @@ use test
 db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughput: 20000 } });
 ```
 
-## <a name="update-database"></a><a id="update-database"></a>Aggiorna database
+## <a name="update-database"></a><a id="update-database"></a> Aggiorna database
 
 Il comando Update database Extension aggiorna le proprietà associate al database specificato. Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
@@ -108,7 +108,7 @@ Se il comando ha esito positivo, verrà restituita la risposta seguente:
 
 Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="update-the-provisioned-throughput-associated-with-a-database"></a>Aggiornare la velocità effettiva con provisioning associata a un database
 
@@ -129,7 +129,7 @@ db.runCommand({customAction: "UpdateDatabase", autoScaleSettings: { maxThroughpu
 ```
 
 
-## <a name="get-database"></a><a id="get-database"></a>Ottieni database
+## <a name="get-database"></a><a id="get-database"></a> Ottieni database
 
 Il comando Get database Extension restituisce l'oggetto di database. Il nome del database viene utilizzato dal contesto del database in cui viene eseguito il comando.
 
@@ -154,12 +154,12 @@ Se il comando ha esito positivo, la risposta contiene un documento con i campi s
 |---------|---------|---------|
 |  `ok`   |   `int`     |   Stato della risposta. 1 = = operazione riuscita. 0 = = esito negativo.      |
 | `database`    |    `string`        |   Nome del database.      |
-|   `provisionedThroughput`  |    `int`      |    Velocità effettiva con provisioning impostata sul database se il database utilizza una [velocità effettiva a livello di database manuale](set-throughput.md#set-throughput-on-a-database)     |
+|   `provisionedThroughput`  |    `int`      |    Velocità effettiva con provisioning impostata sul database se il database utilizza una  [velocità effettiva a livello di database manuale](set-throughput.md#set-throughput-on-a-database)     |
 | `autoScaleSettings` | `Object` | Questo oggetto contiene i parametri di capacità associati al database se utilizza la modalità di [ridimensionamento automatico](provision-throughput-autoscale.md). Il `maxThroughput` valore descrive la quantità più elevata di unità richiesta che il database verrà aumentato in modo dinamico. |
 
 Se il comando ha esito negativo, viene restituita una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="get-the-database"></a>Ottenere il database
 
@@ -195,7 +195,7 @@ Se al database è associata una [velocità effettiva di scalabilità](provision-
 }
 ```
 
-## <a name="create-collection"></a><a id="create-collection"></a>Crea raccolta
+## <a name="create-collection"></a><a id="create-collection"></a> Crea raccolta
 
 Il comando create Collection Extension crea una nuova raccolta MongoDB. Il nome del database viene utilizzato dal contesto dei database impostato dal `use database` comando. Il formato del comando CreateCollection è il seguente:
 
@@ -223,7 +223,7 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 Restituisce una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="create-a-collection-with-the-minimum-configuration"></a>Creare una raccolta con la configurazione minima
 
@@ -288,7 +288,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection", shardKey: "a.b", autoScaleSettings: { maxThroughput: 20000 }});
 ```
 
-## <a name="update-collection"></a><a id="update-collection"></a>Aggiorna raccolta
+## <a name="update-collection"></a><a id="update-collection"></a> Aggiorna raccolta
 
 Il comando Update Collection Extension aggiorna le proprietà associate alla raccolta specificata.
 
@@ -313,7 +313,7 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 Restituisce una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="update-the-provisioned-throughput-associated-with-a-collection"></a>Aggiornare la velocità effettiva con provisioning associata a una raccolta
 
@@ -324,7 +324,7 @@ use test
 db.runCommand({customAction: "UpdateCollection", collection: "testCollection", offerThroughput: 1200 });
 ```
 
-## <a name="get-collection"></a><a id="get-collection"></a>Ottieni raccolta
+## <a name="get-collection"></a><a id="get-collection"></a> Ottieni raccolta
 
 Il comando Get Collection Custom restituisce l'oggetto Collection.
 
@@ -359,7 +359,7 @@ Se il comando ha esito positivo, la risposta contiene un documento con i campi s
 
 Se il comando ha esito negativo, viene restituita una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="get-the-collection"></a>Ottenere la raccolta
 
@@ -413,7 +413,7 @@ Se la raccolta condivide la [velocità effettiva a livello di database](set-thro
 ```
 
 
-## <a name="default-output-of-a-custom-command"></a><a id="default-output"></a>Output predefinito di un comando personalizzato
+## <a name="default-output-of-a-custom-command"></a><a id="default-output"></a> Output predefinito di un comando personalizzato
 
 Se non specificato, una risposta personalizzata contiene un documento con i campi seguenti:
 

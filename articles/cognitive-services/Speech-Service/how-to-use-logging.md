@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: db7bbfecdb83e12225445905c60afe0999838813
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 4863ccff5807420315f04b1b454b4ed78e5c8ae3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918639"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282885"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Abilitare la registrazione nell'SDK di riconoscimento vocale
 
@@ -70,7 +70,7 @@ config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 
 Altre informazioni sulle autorizzazioni di accesso ai file per le applicazioni UWP sono disponibili [qui](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
 
-### <a name="android"></a>Telefoni
+### <a name="android"></a>Android
 
 È possibile salvare un file di log in una risorsa di archiviazione interna, in uno spazio di archiviazione esterno o nella directory della cache. I file creati nella risorsa di archiviazione interna o nella directory della cache sono privati dell'applicazione. È preferibile creare un file di log in un archivio esterno.
 

@@ -9,14 +9,17 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a0c5c601b0d3bc0d862ea4984ee2c6d4b76d13ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ae3e9b4bb69bf0c85054b5d6144633923cac947
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502461"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282069"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuisci il modulo e le dipendenze di OPC Twin da zero
+
+> [!IMPORTANT]
+> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
 
 Il modulo OPC gemello viene eseguito su IoT Edge e fornisce diversi servizi perimetrali ai servizi OPC e del registro di sistema del dispositivo OPC. 
 
@@ -181,7 +184,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
 1. Installare la versione più recente dell' [interfaccia della riga di comando di Azure (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) da [qui](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-### <a name="quickstart"></a>Guida introduttiva
+### <a name="quickstart"></a>Avvio rapido
 
 1. Salvare il manifesto di distribuzione precedente in un `deployment.json` file.  
 

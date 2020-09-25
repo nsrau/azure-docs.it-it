@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: c31cf0e5c655f53e8838c92f5463d3a85c2f6f65
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836822"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250658"
 ---
 # <a name="feature-engineering-in-data-science"></a>Progettazione di funzionalità nell'analisi scientifica dei dati
 
-Questo articolo descrive la progettazione di funzionalità e il suo ruolo nel miglioramento dei dati di apprendimento automatico. A tale scopo, sono riportate illustrazioni dagli esperimenti di [Azure Machine Learning Studio (versione classica)](../studio/what-is-ml-studio.md). 
+Questo articolo descrive la progettazione di funzionalità e il suo ruolo nel miglioramento dei dati di apprendimento automatico. A tale scopo, sono riportate illustrazioni dagli esperimenti di [Azure Machine Learning Studio (versione classica)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio). 
 
 * **Progettazione di caratteristiche**: processo di creazione di nuove funzionalità da dati non elaborati per aumentare la potenza predittiva dell'algoritmo di apprendimento. Le funzionalità progettate devono acquisire informazioni aggiuntive che non sono facilmente evidenti nel set di funzionalità originale.
 * **Selezione delle funzionalità**: processo di selezione del subset principale delle funzionalità per ridurre la dimensionalità del problema di training.

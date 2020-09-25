@@ -5,16 +5,16 @@ description: Acquisire familiarità con l'autenticazione di Azure maps. Vedere q
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8fc27ea4de7e81f1279f68d2e4a1a7fde1fcf41f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3383971b9984e6f565feebc3bdfb968fb77cbe85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037338"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311104"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gestire l'autenticazione in Mappe di Azure
 
@@ -27,7 +27,7 @@ Dopo aver creato un account Azure Maps, vengono generate le chiavi primarie e se
 È possibile visualizzare i dettagli di autenticazione nel portale di Azure. Nell'account scegliere **autenticazione**dal menu **Impostazioni** .
 
 > [!div class="mx-imgBorder"]
-> ![Dettagli di autenticazione](./media/how-to-manage-authentication/how-to-view-auth.png)
+> ![Dettagli autenticazione](./media/how-to-manage-authentication/how-to-view-auth.png)
 
 ## <a name="discover-category-and-scenario"></a>Individua categoria e scenario
 

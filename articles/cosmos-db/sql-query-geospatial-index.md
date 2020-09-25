@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: b06a8737c1ceb538417f966a989ccb39069f4d4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 546b664c74980b3522fefed82c00eec414641eaa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116299"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326627"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indicizzare i dati geospaziali con Azure Cosmos DB
 
@@ -77,15 +77,15 @@ Il frammento di codice JSON seguente mostra un criterio di indicizzazione con in
 **JSON criteri di indicizzazione del contenitore con indicizzazione spaziale geography**
 
 ```json
-    {
-       "automatic":true,
-       "indexingMode":"Consistent",
-        "includedPaths": [
+{
+    "automatic": true,
+    "indexingMode": "Consistent",
+    "includedPaths": [
         {
             "path": "/*"
         }
-        ],
-        "spatialIndexes": [
+    ],
+    "spatialIndexes": [
         {
             "path": "/*",
             "types": [
@@ -96,8 +96,8 @@ Il frammento di codice JSON seguente mostra un criterio di indicizzazione con in
             ]
         }
     ],
-       "excludedPaths":[]
-    }
+    "excludedPaths": []
+}
 ```
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Creare un rettangolo di delimitazione che contenga tutti (o più) i dati. Solo l
 Ecco un esempio di criterio di indicizzazione che indicizza i dati **Geometry** con **geospatialConfig** impostato su `geometry` :
 
 ```json
- {
+{
     "indexingMode": "consistent",
     "automatic": true,
     "includedPaths": [

@@ -4,16 +4,16 @@ description: Informazioni su come aggiungere forme a maps. Vedere gli esempi di 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9dd8718a6a96627781a578edb514d797e40f01fb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 6ff64f975550a0222fd56325115bc98976fb038a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037423"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311309"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Aggiungere una forma a una mappa usando Azure Maps Android SDK
 
@@ -238,7 +238,7 @@ Il **livello poligono** consente di eseguire il rendering dell'area del poligono
     });
     ```
 
-    Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps usando il metodo di callback **onReady ()** . Viene quindi creato un oggetto origine dati utilizzando la classe **DataSource** e viene aggiunto alla mappa. Un oggetto **poligono** viene quindi creato da un elenco di oggetti **Point** e viene aggiunto all'origine dati. Un **livello poligono** esegue il rendering dei dati incapsulati nell'origine dati sulla mappa. Viene quindi creato un livello poligono per eseguire il rendering dell'area del poligono e viene aggiunta l'origine dati. Un **livello linea** esegue il rendering degli oggetti linea racchiusi in un'origine dati. L'ultima parte del frammento di codice crea un livello linea per il rendering del contorno del poligono e l'aggiunta dell'origine dati.
+    Il frammento di codice precedente ottiene innanzitutto un'istanza del controllo mappa di Azure Maps usando il metodo di callback **onReady ()** . Viene quindi creato un oggetto origine dati utilizzando la classe **DataSource** e viene aggiunto alla mappa. Un oggetto **poligono** viene quindi creato da un elenco di oggetti **Point**  e viene aggiunto all'origine dati. Un **livello poligono** esegue il rendering dei dati incapsulati nell'origine dati sulla mappa. Viene quindi creato un livello poligono per eseguire il rendering dell'area del poligono e viene aggiunta l'origine dati. Un **livello linea** esegue il rendering degli oggetti linea racchiusi in un'origine dati. L'ultima parte del frammento di codice crea un livello linea per il rendering del contorno del poligono e l'aggiunta dell'origine dati.
 
     Dopo aver aggiunto il frammento di codice precedente, il `MainActivity.java` dovrebbe essere simile a quello riportato di seguito:
 

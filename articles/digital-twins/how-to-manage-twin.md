@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b88d017110f4d7b9859f2d801c5405ecee1589c5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3f9064c25581523167918b84a2d0027747e32bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297468"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282375"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
@@ -173,7 +173,7 @@ Le proprietà definite del gemello digitale vengono restituite come proprietà d
 
 È possibile analizzare il JSON restituito per il gemello usando una libreria di analisi JSON di propria scelta, ad esempio `System.Text.Json` .
 
-È anche possibile usare la classe helper di serializzazione `BasicDigitalTwin` inclusa nell'SDK, che restituirà i metadati e le proprietà del gemello di base in un modulo pre-analizzato. Ecco un esempio:
+È anche possibile usare la classe helper di serializzazione `BasicDigitalTwin` inclusa nell'SDK, che restituirà i metadati e le proprietà del gemello di base in un modulo pre-analizzato. Esempio:
 
 ```csharp
 Response<string> res = client.GetDigitalTwin(twin_id);
@@ -383,6 +383,17 @@ Per un esempio di come eliminare tutti i dispositivi gemelli contemporaneamente,
 I dispositivi gemelli possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital Twins È possibile trovare i comandi in [*procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli*](how-to-use-cli.md).
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
+## <a name="view-all-digital-twins"></a>Visualizza tutti i dispositivi gemelli digitali
+
+Per visualizzare tutti i dispositivi gemelli digitali nell'istanza, usare una [query](how-to-query-graph.md). È possibile eseguire una query con le [API di query](how-to-use-apis-sdks.md) o i [comandi dell'interfaccia](how-to-use-cli.md)della riga di comando.
+
+Di seguito è riportato il corpo della query di base che restituirà un elenco di tutti i dispositivi gemelli digitali nell'istanza:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

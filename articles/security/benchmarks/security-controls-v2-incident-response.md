@@ -4,19 +4,19 @@ description: Risposta agli eventi imprevisti di benchmark di sicurezza di Azure 
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2dbdb1af139472d5c7f4537399d434e045bb05cb
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 172607a7f8f036bbfb68e8d15e77b2a3e3fb5377
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059290"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326389"
 ---
-# <a name="security-control-incident-response"></a>Controllo di sicurezza: risposta agli eventi imprevisti
+# <a name="security-control-v2-incident-response"></a>Controllo di sicurezza V2: risposta agli eventi imprevisti
 
-La risposta agli eventi imprevisti riguarda i controlli in ciclo di vita della risposta agli eventi imprevisti: attività di preparazione, rilevamento e analisi, contenimento e attività post-evento. Questo include l'uso di servizi di Azure, come il Centro sicurezza di Azure e Sentinel, per automatizzare il processo di risposta agli eventi imprevisti.
+La risposta agli eventi imprevisti riguarda i controlli nel ciclo di vita della risposta agli eventi imprevisti, ovvero preparazione, rilevamento e analisi, contenimento e attività post-evento imprevisto. Questo include l'uso di servizi di Azure, come il Centro sicurezza di Azure e Sentinel, per automatizzare il processo di risposta agli eventi imprevisti.
 
 ## <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Preparazione – aggiornamento del processo di risposta agli eventi imprevisti per Azure
 
@@ -28,13 +28,13 @@ Assicurarsi che l'organizzazione disponga di processi per rispondere agli eventi
 
 - [Implementare la sicurezza nell'ambiente aziendale](https://aka.ms/AzSec4)
 
-- [Guida di riferimento alla risposta agli eventi imprevisti](https://aka.ms/IRRG)
+- [Guida di riferimento alla risposta agli eventi imprevisti](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni di sicurezza (secops)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparazione agli eventi imprevisti](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -52,9 +52,9 @@ Configurare le informazioni di contatto per gli eventi imprevisti della sicurezz
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni di sicurezza (secops)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparazione agli eventi imprevisti](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -78,9 +78,9 @@ Consente di esportare gli avvisi e le raccomandazioni del Centro sicurezza di Az
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni di sicurezza (secops)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparazione agli eventi imprevisti](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -92,17 +92,19 @@ Consente di esportare gli avvisi e le raccomandazioni del Centro sicurezza di Az
 |--|--|--|--|
 | IR-4 | 19 | IR-4 |
 
-Assicurarsi che gli analisti possano eseguire query e utilizzare origini dati diverse durante l'analisi di potenziali eventi imprevisti, per creare una panoramica completa di ciò che è successo. Verificare che le informazioni dettagliate e le informazioni vengano acquisite per altri analisti e per riferimenti cronologici futuri. 
+Assicurarsi che gli analisti possano eseguire query e utilizzare origini dati diverse durante l'analisi di potenziali eventi imprevisti, per creare una panoramica completa di ciò che è successo. È necessario raccogliere log diversi per tenere traccia delle attività di un potenziale utente malintenzionato attraverso la catena di Kill per evitare punti ciechi.  È anche necessario assicurarsi che le informazioni e le informazioni dettagliate vengano acquisite per altri analisti e per riferimenti cronologici futuri.  
 
 Le origini dati per l'analisi includono le origini di registrazione centralizzate che sono già state raccolte dai servizi inclusi nell'ambito e i sistemi in esecuzione, ma possono includere anche:
 
-Dati di rete: usare i log di flusso dei gruppi di sicurezza di rete, Network Watcher di Azure e monitoraggio di Azure per acquisire i log del flusso di rete e altre informazioni di analisi. Snapshot dei sistemi in esecuzione: 
+- Dati di rete: usare i log di flusso dei gruppi di sicurezza di rete, Network Watcher di Azure e monitoraggio di Azure per acquisire i log del flusso di rete e altre informazioni di analisi. 
 
--   Usare la funzionalità di snapshot della macchina virtuale di Azure per creare uno snapshot del disco del sistema in esecuzione. 
+- Snapshot dei sistemi in esecuzione: 
 
--   Utilizzare la funzionalità di dump della memoria nativa del sistema operativo per creare uno snapshot della memoria del sistema in esecuzione.
+    - Usare la funzionalità di snapshot della macchina virtuale di Azure per creare uno snapshot del disco del sistema in esecuzione. 
 
--   Usare la funzionalità snapshot dei servizi di Azure o la funzionalità del software per creare snapshot dei sistemi in esecuzione.
+    - Utilizzare la funzionalità di dump della memoria nativa del sistema operativo per creare uno snapshot della memoria del sistema in esecuzione.
+
+    - Usare la funzionalità snapshot dei servizi di Azure o la funzionalità del software per creare snapshot dei sistemi in esecuzione.
 
 Azure Sentinel fornisce analisi approfondite dei dati in qualsiasi origine di log e un portale di gestione di case per gestire l'intero ciclo di vita degli eventi imprevisti. Le informazioni di intelligence durante un'indagine possono essere associate a un evento imprevisto a scopo di rilevamento e creazione di report. 
 
@@ -116,9 +118,9 @@ Azure Sentinel fornisce analisi approfondite dei dati in qualsiasi origine di lo
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni di sicurezza (secops)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparazione agli eventi imprevisti](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -134,7 +136,7 @@ Fornire il contesto agli analisti su cui si concentrano prima gli eventi imprevi
 
 Il Centro sicurezza di Azure assegna una gravità a ogni avviso per facilitare la priorità degli avvisi che devono essere analizzati per primi. Il livello di gravità è basato sul livello di attendibilità del Centro sicurezza nell'individuazione o sull'analisi utilizzata per emettere l'avviso, oltre al livello di confidenza causato da un intento dannoso dietro l'attività che ha portato all'avviso.
 
-Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di denominazione per identificare e classificare le risorse di Azure, in particolare quelle che elaborano i dati sensibili.  È responsabilità dell'utente classificare in ordine di priorità la correzione degli avvisi in base alla criticità delle risorse e dell'ambiente di Azure in cui si è verificato l'evento imprevisto.
+Inoltre, contrassegnare le risorse usando i tag e creare un sistema di denominazione per identificare e classificare le risorse di Azure, in particolare quelle che elaborano i dati sensibili.  È responsabilità dell'utente classificare in ordine di priorità la correzione degli avvisi in base alla criticità delle risorse e dell'ambiente di Azure in cui si è verificato l'evento imprevisto.
 
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](../../security-center/security-center-alerts-overview.md)
 
@@ -142,9 +144,9 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni di sicurezza (secops)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparazione agli eventi imprevisti](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -166,9 +168,9 @@ Automatizzare le attività ripetitive manuali per velocizzare il tempo di rispos
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni di sicurezza (secops)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparazione agli eventi imprevisti](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 

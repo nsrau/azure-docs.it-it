@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/06/2020
 tags: connectors
-ms.openlocfilehash: e500f678d2066d24de12a04f28ccbdb3f76eda3a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a50a171536d7f81de42da415960398d31ec64827
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288187"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326780"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatizzare i flussi di lavoro per un database SQL usando app per la logica di Azure
 
@@ -74,12 +74,12 @@ La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione 
    | Authentication | Descrizione |
    |----------------|-------------|
    | [**Azure AD integrata**](../azure-sql/database/authentication-aad-overview.md) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un'identità valida in Azure Active Directory (Azure AD) che può accedere al database. <p>Per altre informazioni, vedere gli argomenti seguenti: <p>- [Panoramica della sicurezza di Azure SQL-autenticazione](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizzare l'accesso al database a SQL di Azure: autenticazione e autorizzazione](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL-Azure AD autenticazione integrata](../azure-sql/database/authentication-aad-overview.md) |
-   | [**Autenticazione di SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un nome utente e una password complesse validi che vengono creati e archiviati nel database. <p>Per altre informazioni, vedere gli argomenti seguenti: <p>- [Panoramica della sicurezza di Azure SQL-autenticazione](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizzare l'accesso al database a SQL di Azure: autenticazione e autorizzazione](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | [**Autenticazione SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un nome utente e una password complesse validi che vengono creati e archiviati nel database. <p>Per altre informazioni, vedere gli argomenti seguenti: <p>- [Panoramica della sicurezza di Azure SQL-autenticazione](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizzare l'accesso al database a SQL di Azure: autenticazione e autorizzazione](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
    Questo esempio continua con **Azure ad Integrated**:
 
-   ![Selezionare il tipo di autenticazione da usare](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
+   ![Screenshot che mostra la finestra di connessione "SQL Server" con l'elenco "tipo di autenticazione" aperto e "Azure AD Integrated" selezionato.](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
 1. Dopo aver selezionato **Azure ad Integrated**, selezionare **Sign in (accedi**). A seconda che si usi il database SQL di Azure o il Istanza gestita SQL di Azure, selezionare le credenziali utente per l'autenticazione.
 
@@ -87,9 +87,9 @@ La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione 
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
-   | **Nome server** | Sì | Indirizzo per SQL Server, ad esempio`Fabrikam-Azure-SQL.database.windows.net` |
-   | **Nome database** | Sì | Nome del database SQL, ad esempio`Fabrikam-Azure-SQL-DB` |
-   | **Nome tabella** | Sì | Tabella che si desidera utilizzare, ad esempio`SalesLT.Customer` |
+   | **Nome server** | Sì | Indirizzo per SQL Server, ad esempio `Fabrikam-Azure-SQL.database.windows.net` |
+   | **Nome database** | Sì | Nome del database SQL, ad esempio `Fabrikam-Azure-SQL-DB` |
+   | **Nome tabella** | Sì | Tabella che si desidera utilizzare, ad esempio `SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -118,7 +118,7 @@ La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione 
    | Authentication | Descrizione |
    |----------------|-------------|
    | [**Autenticazione di Windows**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -Supporta solo il connettore SQL Server non ISE, che richiede una risorsa del gateway dati creata in precedenza in Azure per la connessione, indipendentemente dal fatto che si usi Azure multi-tenant o ISE. <p><p>-Richiede un nome utente e una password validi di Windows per confermare l'identità tramite l'account di Windows. <p>Per ulteriori informazioni, vedere [autenticazione di Windows](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) . |
-   | [**Autenticazione di SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un nome utente e una password complesse validi che vengono creati e archiviati nella SQL Server. <p>Per ulteriori informazioni, vedere [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   | [**Autenticazione SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un nome utente e una password complesse validi che vengono creati e archiviati nella SQL Server. <p>Per ulteriori informazioni, vedere [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
    Questo esempio continua con **l'autenticazione di Windows**:
@@ -129,8 +129,8 @@ La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione 
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
-   | **Nome server SQL** | Sì | Indirizzo per SQL Server, ad esempio`Fabrikam-Azure-SQL.database.windows.net` |
-   | **Nome database SQL** | Sì | Nome del database di SQL Server, ad esempio`Fabrikam-Azure-SQL-DB` |
+   | **Nome server SQL** | Sì | Indirizzo per SQL Server, ad esempio `Fabrikam-Azure-SQL.database.windows.net` |
+   | **Nome database SQL** | Sì | Nome del database di SQL Server, ad esempio `Fabrikam-Azure-SQL-DB` |
    | **Nome utente** | Sì | Nome utente per SQL Server e database |
    | **Password** | Sì | Password per SQL Server e il database |
    | **Sottoscrizione** |  Sì, per l'autenticazione di Windows | Sottoscrizione di Azure per la risorsa del gateway dati creata in precedenza in Azure |

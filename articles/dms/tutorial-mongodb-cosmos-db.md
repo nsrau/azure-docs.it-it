@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 08fa94dbe71299a6653df0b40aa5083375526172
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: b5e335659a26568ae11a17425c4e53c53f02a843
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282358"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Esercitazione: eseguire la migrazione di MongoDB all'API Azure Cosmos DB per MongoDB offline con DMS
 
@@ -26,7 +26,7 @@ ms.locfileid: "78255582"
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 >
-> * Creare un'istanza del Servizio Migrazione del database di Azure.
+> * Creare un'istanza del servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
 > * Eseguire la migrazione.
 > * Monitorare la migrazione.

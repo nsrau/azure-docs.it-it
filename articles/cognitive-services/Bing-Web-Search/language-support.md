@@ -1,7 +1,7 @@
 ---
 title: Supporto per la lingua - API Ricerca Web Bing
 titleSuffix: Azure Cognitive Services
-description: Un elenco dei linguaggi naturali, paesi e aree geografiche supportate dall'API Ricerca notizie Bing.
+description: Elenco di linguaggi, Paesi e aree naturali supportati dal API Ricerca Web Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e378bc88d28173eaed0308db3034a54236d63098
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68882684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262825"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Lingua e regioni supportate dall'API Ricerca Web Bing
 
@@ -27,7 +27,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 
 ## <a name="countriesregions"></a>Paesi/aree geografiche
 
-|Paese/area geografica|Codice|
+|Paese/Area geografica|Codice|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -68,7 +68,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 
 ## <a name="markets"></a>Mercati
 
-|Paese/area geografica|Linguaggio|Codice di mercato|
+|Paese/Area geografica|Linguaggio|Codice di mercato|
 |-------|--------|-----------|
 |Argentina|Spagnolo|es-AR|
 |Australia|Inglese|en-AU|
@@ -100,7 +100,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Filippine|Inglese|en-PH|
 |Russia|Russo|ru-RU|
 |Arabia Saudita|Arabo|ar-SA|
-|Sud Africa|Inglese|en-ZA|
+|Sudafrica|Inglese|en-ZA|
 |Spagna|Spagnolo|es-ES|
 |Svezia|Svedese|sv-SE|
 |Svizzera|Francese|fr-CH|

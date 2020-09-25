@@ -3,12 +3,12 @@ title: Creare la pianificazione dei lab per le classi in Azure Lab Services | Mi
 description: Informazioni su come creare le pianificazioni dei lab per le classi in Azure Lab Services in modo che le macchine virtuali nei lab vengano avviate e arrestate a un orario specificato.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d6dcdd8d09c2c71c2d41aebd358639883ccfb33d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445781"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326440"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Creare e gestire le pianificazioni dei lab per le classi in Azure Lab Services 
 Le pianificazioni consentono di configurare un lab per le classi in modo che le macchine virtuali nel lab vengano automaticamente avviate e arrestate a un orario specificato. È possibile definire una pianificazione occasionale o una pianificazione ricorrente. Le procedure seguenti illustrano i passaggi per creare e gestire le pianificazioni di lab per le classi: 
@@ -27,7 +27,7 @@ Creare un evento pianificato per il lab in modo che le VM al suo interno vengano
 
 1. Passare alla pagina **Schedules** (Pianificazione) e selezionare **Add scheduled event** (Aggiungi evento pianificato) sulla barra degli strumenti. 
 
-    ![Pulsante Aggiungi pianificazione nella pagina Pianificazioni](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Screenshot che mostra il Azure Lab Services pagina "Schedule" con il pulsante Aggiungi pianificazione selezionato.](./media/how-to-create-schedules/add-schedule-button.png)
 2. Verificare che per **Event type** (Tipo di evento) sia selezionata l'opzione **Standard**. Selezionare **Start only** (Solo avvio) per specificare solo l'ora di avvio per le VM. Selezionare **Stop only** (Solo arresto) per specificare solo l'ora di arresto per le VM. 
 7. Nella sezione **Repeat** (Ripeti) selezionare la pianificazione corrente. 
 

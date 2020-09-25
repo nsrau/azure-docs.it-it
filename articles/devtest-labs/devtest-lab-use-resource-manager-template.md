@@ -3,12 +3,12 @@ title: Visualizzare e usare il modello di Azure Resource Manager di una macchina
 description: Informazioni su come usare un modello di Azure Resource Manager di una macchina virtuale per creare altre macchine virtuali
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e58b54d61653f1edba3c3893edb902a94fbf9f2b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7f969abe1ca903a226e73c5c70781dce512c2926
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272692"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282494"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Creare macchine virtuali usando un modello di Azure Resource Manager 
 
@@ -23,7 +23,7 @@ Esistono due modi per creare macchine virtuali in DevTest Labs usando un modello
 
 - I modelli di Resource Manager che usano un tipo di risorsa Microsoft.DevTestLab/labs/virtualmachines (come dichiarato nella proprietà “risorsa” nel modello) possono eseguire il provisioning di lab VM individuali. Ogni macchina virtuale viene quindi visualizzata come un singolo elemento nell'elenco delle macchine virtuali di DevTest Labs:
 
-   ![Elenco delle macchine come singoli elementi nell'elenco delle macchine virtuali di DevTest Labs](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
+   ![Screenshot che mostra l'elenco di macchine virtuali come singoli elementi nell'elenco di macchine virtuali di DevTest Labs.](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
    È possibile eseguire il provisioning di questo tipo di modello di Gestione risorse tramite il comando Azure PowerShell **New-AzResourceGroupDeployment** o tramite il comando dell'interfaccia della riga di comando di Azure **AZ Group Deployment create**. Richiede le autorizzazioni di amministratore, in modo che gli utenti assegnati a un ruolo utente DevTest Labs non possano eseguire la distribuzione. 
 
@@ -40,7 +40,7 @@ Il resto di questo articolo illustra i modelli di Resource Manager che usano Mic
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Visualizzare e usare un modello di Resource Manager di Azure di una macchina virtuale
 1. Seguire i passaggi in [Creare la prima macchina virtuale in un lab](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) per iniziare a creare una macchina virtuale.
 1. Immettere le informazioni necessarie per la macchina virtuale e aggiungere eventuali elementi desiderati per la macchina virtuale.
-1. Opzione alla scheda **Impostazioni avanzate** . 
+1. Passare alla scheda **Impostazioni avanzate** . 
 1. Nella parte inferiore della finestra Configurazione impostazioni, scegliere **View ARM template** (Visualizza modello ARM).
 1. Copiare e salvare il modello di Resource Manager da usare in un secondo momento per creare un'altra macchina virtuale.
 

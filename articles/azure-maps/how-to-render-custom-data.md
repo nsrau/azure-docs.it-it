@@ -4,17 +4,17 @@ description: Informazioni su come aggiungere puntine da disegno, etichette e for
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/23/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d5dcc2701a0b77509868471ec97c45917b2ccf42
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: ec62461e5a12f0c566becdfc7d9a1464433ee656
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037372"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311020"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Eseguire il rendering di dati personalizzati in una mappa raster
 
@@ -148,7 +148,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. Per ottenere il udId, aprire una nuova scheda nell'app post. Selezionare GET HTTP Method nella scheda Builder. effettuare una richiesta GET nell'URI di stato. Se il caricamento dei dati è riuscito, si riceverà un udId nel corpo della risposta. Copiare udId.
+6. Per ottenere il udId, aprire una nuova scheda nell'app post. Selezionare GET HTTP Method nella scheda Builder. Creare una richiesta GET nell'URI di stato. Se il caricamento dei dati è riuscito, si riceverà un udId nel corpo della risposta. Copiare udId.
 
    ```JSON
    {

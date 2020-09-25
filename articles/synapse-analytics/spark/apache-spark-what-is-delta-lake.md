@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 374b8bb094a93c6c608d6bf95d2b074f661c4a6a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6a38b61ee03aa4853526586ca60542bd3641b66f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384736"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249400"
 ---
 # <a name="what-is-delta-lake"></a>Che cos'è Delta Lake
 
@@ -34,12 +34,12 @@ La versione corrente di Delta Lake inclusa con la sinapsi di Azure dispone del s
 | **Imposizione dello schema** | L'imposizione dello schema consente di garantire che i tipi di dati siano corretti e che le colonne obbligatorie siano presenti, impedendo che i dati non validi provochino un'incoerenza dei dati. Per altre informazioni, vedere la pagina relativa [all'immersione in Delta Lake: applicazione dello Schema & Evolution](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
 | **Evoluzione dello schema** | Delta Lake consente di apportare modifiche a uno schema di tabella che può essere applicato automaticamente, senza la necessità di scrivere DDL di migrazione. Per altre informazioni, vedere la pagina relativa [all'immersione in Delta Lake: applicazione dello Schema & Evolution](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
 | **Cronologia controlli** | Il log delle transazioni Delta Lake registra informazioni dettagliate su ogni modifica apportata ai dati che forniscono un audit trail completo delle modifiche. |
-| **Aggiornamenti ed eliminazioni** | Delta Lake supporta le API scala/Java/Python e SQL per un'ampia gamma di funzionalità. Il supporto per le operazioni di merge, aggiornamento ed eliminazione consente di soddisfare i requisiti di conformità. Per altre informazioni, vedere [annunciando la versione Delta Lake 0.6.1](https://delta.io/news/delta-lake-0-6-1-released/), che [annuncia la versione Delta Lake 0,7](https://delta.io/news/delta-lake-0-7-0-released/) e [Upsert ed eliminazioni semplici e affidabili per le tabelle Delta Lake usando le API di Python](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html), che include frammenti di codice per i comandi di merge, aggiornamento ed eliminazione DML. |
+| **Aggiornamenti ed eliminazioni** | Delta Lake supporta le API scala/Java/Python e SQL per un'ampia gamma di funzionalità. Il supporto per le operazioni di merge, aggiornamento ed eliminazione consente di soddisfare i requisiti di conformità. Per altre informazioni, vedere [annunciando la versione Delta Lake 0.6.1](https://delta.io/news/delta-lake-0-6-1-released/), che  [annuncia la versione Delta Lake 0,7](https://delta.io/news/delta-lake-0-7-0-released/) e [Upsert ed eliminazioni semplici e affidabili per le tabelle Delta Lake usando le API di Python](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html), che include frammenti di codice per i comandi di merge, aggiornamento ed eliminazione DML. |
 | **100% compatibile con l'API Apache Spark** | Gli sviluppatori possono usare Delta Lake con le pipeline di dati esistenti con modifiche minime perché sono completamente compatibili con le implementazioni Spark esistenti. |
 
-Per la documentazione completa, vedere la [pagina della documentazione di Delta Lake](https://docs.delta.io/latest/delta-intro.html)
+Per la documentazione completa, vedere la [pagina della documentazione di Delta Lake](https://docs.delta.io/latest/delta-intro.html).
 
-Per altre informazioni, vedere [progetto Delta Lake](https://github.com/delta-io/delta).
+Per altre informazioni, vedere il [progetto Delta Lake](https://github.com/delta-io/delta).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

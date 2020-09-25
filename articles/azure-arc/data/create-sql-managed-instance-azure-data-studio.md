@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 989496885445a8a0a8d3bbc1a789975a2875c6e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2aed3ea48935a62d68f739594a265649a2e1292d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939915"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311530"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Creare un'istanza gestita di SQL: Azure ARC usando Azure Data Studio
 
@@ -48,7 +48,8 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 - Avvia Azure Data Studio
 - Nella scheda connessioni fare clic sui tre puntini in alto a sinistra e scegliere "nuova distribuzione".
 - Dalle opzioni di distribuzione selezionare **istanza gestita di SQL di Azure-Azure Arc** 
-  > **Nota:** È possibile che venga richiesto di installare l'interfaccia della riga di comando di azdata qui se non è attualmente installata.
+  > [!NOTE]
+  > È possibile che venga richiesto di installare l'interfaccia della riga di comando di azdata qui se non è attualmente installata.
 - Accetta le condizioni di licenza e privacy e fai clic su **Seleziona** nella parte inferiore
 
 

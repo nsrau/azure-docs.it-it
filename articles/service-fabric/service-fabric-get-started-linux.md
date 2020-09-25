@@ -3,13 +3,13 @@ title: Configurare l'ambiente di sviluppo in Linux
 description: Installare il runtime e l'SDK e creare un cluster di sviluppo locale in Linux. Al termine della configurazione, sarà possibile iniziare a sviluppare applicazioni.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 420284a512147d729db23f3b71cbe8e9f6f050d9
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 211c2c80d0f701176dfcff02872d9f1e30635d94
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429036"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249995"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -270,7 +270,7 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 
 6. Eseguire la procedura d'installazione. Accettare quindi il contratto di licenza con l'utente finale.
 
-Se il plug-in Eclipse per Service Fabric è già installato, verificare che la versione sia la più recente. **Selezionare informazioni**  >  **sui**  >  **Dettagli di installazione**di Eclipse. Quindi cercare Service Fabric nell'elenco dei plug-in installati. Selezionare **Aggiorna** se è disponibile una versione più recente.
+Se il plug-in Eclipse per Service Fabric è già installato, verificare che la versione sia la più recente. **Selezionare informazioni**  >  **sui**  >  **Dettagli di installazione**di Eclipse. Quindi cercare Service Fabric nell'elenco dei plug-in installati. Se è disponibile una versione più recente, selezionare **Aggiorna** .
 
 Per altre informazioni, vedere [Plug-in Service Fabric per lo sviluppo di applicazioni Java in Eclipse](service-fabric-get-started-eclipse.md).
 

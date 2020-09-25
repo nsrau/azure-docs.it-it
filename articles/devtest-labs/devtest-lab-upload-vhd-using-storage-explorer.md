@@ -3,12 +3,12 @@ title: Caricare il file VHD in Azure DevTest Labs usando Storage Explorer
 description: Caricare un file VHD nell'account di archiviazione del lab usando Esplora archivi di Microsoft Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6ed6ace63a135628b6d306b946c0356091bf1bd2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d4e421932ebba5d4f389000c12bcf44ac2f37599
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282528"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Caricare un file VHD nell'account di archiviazione del lab usando Esplora archivi di Microsoft Azure
 
@@ -90,13 +90,13 @@ La procedura seguente illustra come caricare un file VHD in DevTest Labs usando 
 
     1. Nel riquadro di destra di Esplora archivi dovrebbe essere visualizzato un elenco dei BLOB nel contenitore BLOB dei **caricamenti** dell'account di archiviazione del lab. Sulla barra degli strumenti dell'editor di blob, selezionare **Carica** 
         
-        ![Pulsante Carica][6]
+        ![Screenshot che mostra il riquadro destro Storage Explorer con il pulsante "carica" selezionato.][6]
     
     1. Dal menu a discesa **Carica**, selezionare **Carica file...**.
     
     1. Nella finestra di dialogo **Carica file**, selezionare i puntini di sospensione.
         
-        ![Selezionare il file][8]  
+        ![Screenshot che mostra la finestra di dialogo "carica file" con i puntini di sospensione selezionati.][8]  
 
     1. Nella finestra di dialogo **Seleziona file da caricare** selezionare il file VHD desiderato, quindi selezionare **Apri**.
     

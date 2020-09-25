@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307929"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282024"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilare e distribuire il servizio di gestione certificati dell'insieme di credenziali OPC
+
+> [!IMPORTANT]
+> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
 
 Questo articolo illustra come distribuire il servizio di gestione certificati dell'insieme di credenziali OPC in Azure.
 
@@ -75,9 +78,9 @@ Uno script di PowerShell fornisce un modo semplice per distribuire il microservi
    > [!NOTE]
    > In caso di problemi, vedere la sezione "risoluzione degli errori di distribuzione" più avanti in questo articolo.
 
-8. Aprire il browser preferito e aprire la pagina dell'applicazione:`https://myResourceGroup.azurewebsites.net`
+8. Aprire il browser preferito e aprire la pagina dell'applicazione: `https://myResourceGroup.azurewebsites.net`
 8. Fornire all'app Web e al microservizio dell'insieme di credenziali OPC pochi minuti per scaldarsi dopo la distribuzione. Il home page Web potrebbe smettere di rispondere al primo utilizzo, fino a un minuto, fino a ottenere le prime risposte.
-11. Per esaminare l'API spavalderia, aprire:`https://myResourceGroup-service.azurewebsites.net`
+11. Per esaminare l'API spavalderia, aprire: `https://myResourceGroup-service.azurewebsites.net`
 13. Per avviare un server GDS locale con dotnet, iniziare `.\myResourceGroup-gds.cmd` . Con Docker, avviare `.\myResourceGroup-dockergds.cmd` .
 
 È possibile ridistribuire una compilazione con esattamente le stesse impostazioni. Tenere presente che tale operazione rinnova tutti i segreti dell'applicazione e può reimpostare alcune impostazioni nelle registrazioni dell'applicazione Azure Active Directory (Azure AD).
