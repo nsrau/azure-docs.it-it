@@ -2,14 +2,16 @@
 title: Intelligenza artificiale (IA)
 description: LUIS USA l'intelligenza artificiale per fornire informazioni sulla lingua ai dati, in base allo schema definito.
 ms.topic: conceptual
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: bdcede01ec6bab5f8b43d89ff40d588a011d5dfb
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 2586bf2d31ef28c662ad88bde3718541bb21a31c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751354"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327205"
 ---
 # <a name="artificial-intelligence-in-language-understanding-luis"></a>Intelligenza artificiale in Language Understanding (LUIS)
 
@@ -39,7 +41,7 @@ L'elaborazione del linguaggio naturale è disponibile per l'app LUIS nei modi se
 * Pre-o post-elaborazione dell'espressione di query fornita da altri [Servizi cognitivi](../Welcome.md) , ad esempio:
     * [Traduzione](../translator/translator-info-overview.md)
 
-## <a name="natural-language-understanding-nlu"></a>Comprensione del linguaggio naturale (NLU)
+## <a name="natural-language-understanding-nlu"></a>Comprensione del linguaggio naturale
 
 NLU è la possibilità di _trasformare_ un'istruzione linguistica in una rappresentazione che consente di comprendere naturalmente gli utenti. La comprensione del linguaggio naturale rimane un problema molto complesso e viene definito come un problema di _intelligenza artificiale_ .
 

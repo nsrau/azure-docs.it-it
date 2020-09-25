@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 27b745353521a44733c46170a5f5952c194c2343
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2cde352738c1aa545c77cbcf5d974030cd75b1e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326525"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -27,9 +27,9 @@ Possono anche essere gestiti tramite il [portale di Azure](https://portal.azure.
 ## <a name="prerequisites"></a>Prerequisiti
 
 * È necessario un **account Azure** (è possibile impostarne uno gratuitamente [qui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* È necessaria un' **istanza di Azure Digital Twins** nella sottoscrizione di Azure. Se non si dispone già di un'istanza, è possibile crearne una usando la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-scripted.md). Per usare più avanti in questo articolo, è possibile usare i valori seguenti del programma di installazione:
+* È necessaria un' **istanza di Azure Digital Twins** nella sottoscrizione di Azure. Se non si dispone già di un'istanza, è possibile crearne una usando la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). Per usare più avanti in questo articolo, è possibile usare i valori seguenti del programma di installazione:
     - Nome istanza
-    - Gruppo di risorse
+    - Resource group
     
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Creare un endpoint per i dispositivi gemelli digitali di Azure
 
@@ -44,7 +44,7 @@ Per collegare un endpoint ai dispositivi gemelli digitali di Azure, è necessari
 
 ### <a name="create-an-event-grid-endpoint"></a>Creare un endpoint di griglia di eventi
 
-L'esempio seguente illustra come creare un endpoint di tipo griglia di eventi usando l'interfaccia della riga di comando di Azure. È possibile usare [Azure cloud Shell](https://shell.azure.com)o [installare l'interfaccia della riga di](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)comando in locale.
+L'esempio seguente illustra come creare un endpoint di tipo griglia di eventi usando l'interfaccia della riga di comando di Azure. È possibile usare [Azure cloud Shell](https://shell.azure.com)o [installare l'interfaccia della riga di](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)comando in locale.
 
 Per prima cosa, creare un argomento di griglia di eventi. È possibile usare il comando seguente o visualizzare i passaggi in modo più dettagliato visitando [la sezione *creare un argomento personalizzato* ](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) della Guida introduttiva *agli eventi personalizzati* di griglia di eventi.
 

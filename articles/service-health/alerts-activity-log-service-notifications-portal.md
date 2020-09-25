@@ -1,14 +1,14 @@
 ---
 title: Ricevere gli avvisi del log attività nelle notifiche del servizio di Azure usando portale di Azure
-description: Ricevere le notifiche tramite SMS, posta elettronica o webhook nel servizio di Azure.
+description: Informazioni su come usare il portale di Azure per configurare gli avvisi del log attività per le notifiche sull'integrità del servizio usando il portale di Azure.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: b90940c4532370e7742f736708625ddec283aab1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 88fbdeeb8bdcc239f1591e053aaf4fb1c36b9b19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499273"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289787"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications-using-the-azure-portal"></a>Creare avvisi del log attività per le notifiche del servizio usando il portale di Azure
 ## <a name="overview"></a>Panoramica

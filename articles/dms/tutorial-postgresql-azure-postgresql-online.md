@@ -10,20 +10,20 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 438595096e808646da990e1871cab07d1a795372
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
-ms.translationtype: MT
+ms.openlocfilehash: fa457bf930978965b7ad37ea032e6517bda2e9d0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499076"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291198"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Esercitazione: eseguire la migrazione di PostgreSQL in database di Azure per PostgreSQL online con DMS tramite l'interfaccia della riga di comando
 
 È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di PostgreSQL locale a [Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con tempi di inattività minimi. In altre parole, la migrazione può essere eseguita con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** da un'istanza locale di PostgreSQL 9.6 a Database di Azure per PostgreSQL usando l'attività di migrazione online in Servizio Migrazione del database di Azure.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 >
 > * Eseguire la migrazione dello schema di esempio con l'utilità pg_dump.
@@ -182,7 +182,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
        ```azurecli
        az extension list -otable
        ```
-       Viene visualizzato l'output seguente:
+       Dovrebbe venire visualizzato l'output seguente.
 
        ```output
        ExtensionType    Name
@@ -361,7 +361,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
-   o
+   OR
 
     ```azurecli
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output

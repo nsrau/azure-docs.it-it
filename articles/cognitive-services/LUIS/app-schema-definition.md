@@ -1,14 +1,16 @@
 ---
 title: Definizione dello schema dell'app
 description: L'app LUIS è rappresentata in `.json` o `.lu` e include tutti gli Intent, le entità, le espressioni di esempio, le funzionalità e le impostazioni.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 08/22/2020
-ms.openlocfilehash: 816a6c50129f37a55ab3dba72319358e832a6b8b
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: db4fd52dad82542f20e58ebb3b8526c5be7f2f88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756789"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327324"
 ---
 # <a name="app-schema-definition"></a>Definizione dello schema dell'app
 
@@ -63,7 +65,7 @@ Quando si importa ed Esporta l'app, scegliere `.json` o `.lu` .
 }
 ```
 
-| element                  | Commento                              |
+| element                  | Comment                              |
 |--------------------------|--------------------------------------|
 | "gerarchie": [],     | Deprecato, usare le [entità di Machine Learning](luis-concept-entity-types.md).   |
 | "compositi": [],        | Deprecato, usare le [entità di Machine Learning](luis-concept-entity-types.md). Riferimento all' [entità composita](reference-entity-composite.md) . |

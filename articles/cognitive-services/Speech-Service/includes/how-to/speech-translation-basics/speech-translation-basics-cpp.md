@@ -4,13 +4,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 9b5d1421c36fa5d0568985b7792715533d2540ee
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b8cbbbb24293a3ae931a55299a3a97411e74c910
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035725"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326966"
 ---
+Una delle funzionalità principali del servizio di riconoscimento vocale è la possibilità di riconoscere la voce umana e tradurla in altre lingue. Questa Guida introduttiva illustra come usare l'SDK di riconoscimento vocale nelle app e nei prodotti per eseguire la traduzione vocale di alta qualità. Questa Guida introduttiva illustra gli argomenti tra cui:
+
+* Conversione vocale in testo
+* Conversione di riconoscimento vocale in più lingue di destinazione
+* Esecuzione della traduzione vocale diretta
+
+## <a name="skip-to-samples-on-github"></a>Passare agli esempi in GitHub
+
+Per passare direttamente al codice di esempio, vedere gli esempi di [avvio rapido di C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/translate-speech-to-text) in GitHub.
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che si abbia un account Azure e una sottoscrizione del servizio Voce. Se l'account e la sottoscrizione non sono disponibili, [provare il servizio Voce gratuitamente](../../../get-started.md).
