@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8e62d2d1955b5b323ad31cc5d45106210e3e22c6
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 278e5feb327c1376b7644050f414f680334d5c50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651183"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263233"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Prerequisiti per la creazione di Gruppi di disponibilità Always On in SQL Server in macchine virtuali di Azure
 
@@ -54,7 +54,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
    ![Resource group](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroupsymbol.png)
 
 4. Selezionare **gruppo di risorse**.
-5. Selezionare **Create** (Crea).
+5. Selezionare **Crea**.
 6. In **Nome gruppo di risorse** digitare un nome per il gruppo di risorse. ad esempio digitare **sql-ha-rg**.
 7. Se si hanno più sottoscrizioni di Azure, verificare che la sottoscrizione sia la sottoscrizione di Azure in cui si vuole creare il gruppo di disponibilità.
 8. Selezionare una località. La località corrisponde all'area di Azure in cui si vuole creare il gruppo di disponibilità. Questo articolo illustra la creazione di tutte le risorse in un'unica località di Azure.
@@ -99,7 +99,7 @@ Per creare la rete virtuale nel portale di Azure:
 
    L'esempio usa il nome di subnet **Admin**. Questa subnet verrà usata per i controller di dominio.
 
-5. Selezionare **Create** (Crea).
+5. Selezionare **Crea**.
 
    ![Configurare la rete virtuale](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 
@@ -320,7 +320,7 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
     >Nella pagina **Opzioni DNS** è possibile che venga visualizzato un avviso indicante che non è possibile creare una delega per questo server DNS. È possibile ignorare questo avviso in ambienti non di produzione.
     >
 
-22. Selezionare **Avanti** finché la finestra di dialogo non raggiunge il controllo dei **prerequisiti** . Selezionare quindi **Installa**.
+22. Selezionare **Avanti** finché la finestra di dialogo non raggiunge il controllo dei **prerequisiti** . Quindi selezionare **Installa**.
 
 Quando il server completa le modifiche alla configurazione, riavviare il server.
 

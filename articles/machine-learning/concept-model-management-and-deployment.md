@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 394d048ce5978c2789e47b984abebaf30dec5f93
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6f03a1e44fdb62570b693753f5e01c7ab0f53e78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893566"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302418"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gestione dei modelli, distribuzione e monitoraggio con Azure Machine Learning
 
@@ -140,7 +140,7 @@ Per altre informazioni, vedere [implementazione controllata dei modelli ml](how-
 
 Per ulteriori informazioni, vedere [deploy Models](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analisi
+### <a name="analytics"></a>Analytics
 
 Microsoft Power BI supporta l'uso di modelli di apprendimento automatico per l'analisi dei dati. Per ulteriori informazioni, vedere [integrazione di Azure Machine Learning in Power BI (anteprima)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
@@ -158,7 +158,7 @@ Azure ML offre la possibilità di tenere traccia dell'audit trail end-to-end di 
 > [!TIP]
 > Sebbene alcune informazioni sui modelli e i set di dati vengano acquisiti automaticamente, è possibile aggiungere altre informazioni usando i __tag__. Quando si cercano i modelli e i set di impostazioni registrati nell'area di lavoro, è possibile usare i tag come filtro.
 >
-> L'associazione di un set di dati a un modello registrato è un passaggio facoltativo. Per informazioni sul riferimento a un set di dati durante la registrazione di un modello, vedere il riferimento alla classe del [modello](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py&preserve-view=true) .
+> L'associazione di un set di dati a un modello registrato è un passaggio facoltativo. Per informazioni sul riferimento a un set di dati durante la registrazione di un modello, vedere il riferimento alla classe del [modello](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true) .
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notifica, automazione e avviso per gli eventi nel ciclo di vita ML

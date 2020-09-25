@@ -4,13 +4,13 @@ description: Usare la soluzione Ethereum di verifica dell'autorità di certifica
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 8ce343045f7ff124f5faf86b13210bfb5b3b5519
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.custom: devx-track-js
+ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527157"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283429"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuire il modello di soluzione del Consorzio di prova Ethereum in Azure
 
@@ -97,9 +97,9 @@ Indirizzo di posta elettronica | Si riceverà una notifica di posta elettronica 
 Nome utente macchina virtuale | Nome utente amministratore di ogni macchina virtuale distribuita | 1-64 caratteri alfanumerici
 Tipo di autenticazione | Metodo per l'autenticazione per la macchina virtuale. | Password
 Password | Password dell'account dell'amministratore per ognuna delle macchine virtuali distribuite. Tutte le macchine virtuali hanno inizialmente la stessa password. È possibile modificare la password dopo il provisioning. | 12-72 caratteri 
-Sottoscrizione | La sottoscrizione sul quale eseguire la distribuzione della rete di consorzio |
+Subscription | La sottoscrizione sul quale eseguire la distribuzione della rete di consorzio |
 Gruppo di risorse| Gruppo di risorse nel quale eseguire la distribuzione della rete di consorzio. | myResourceGroup
-Posizione | La regione di Azure per gruppo di risorse. | Stati Uniti occidentali 2
+Location | La regione di Azure per gruppo di risorse. | Stati Uniti occidentali 2
 
 Selezionare **OK**.
 
@@ -150,7 +150,7 @@ Parametro | Descrizione | Valore di esempio
 Consortium Member ID (ID membro del consorzio) | ID associato a ogni membro che partecipa alla rete Consortium. Viene usato per configurare gli spazi degli indirizzi IP per evitare conflitti. Per una rete privata, l'ID membro deve essere univoco tra organizzazioni diverse nella stessa rete.  È necessario un ID membro univoco anche quando la stessa organizzazione esegue la distribuzione in più regioni. Prendere nota del valore di questo parametro poiché è necessario condividerlo con altri membri di join per assicurarsi che non esistano conflitti. L'intervallo valido è compreso tra 0 e 255. | 0
 ID rete | L'ID di rete per la rete di consorzio Ethereum in fase di realizzazione. Ogni rete Ethereum ha il proprio ID di rete, di cui 1 è l'ID della rete pubblica. L'intervallo valido è compreso tra 5 e 999.999.999 | 10101010
 Admin Ethereum Address (Indirizzo Ethereum amministratore) | Indirizzo dell'account Ethereum usato per partecipare alla governance del PoA. È possibile usare metamask per generare un indirizzo Ethereum. |
-Opzioni avanzate | Opzioni avanzate per le impostazioni di Ethereum | Abilitare
+Opzioni avanzate | Opzioni avanzate per le impostazioni di Ethereum | Abilita
 Eseguire la distribuzione tramite IP pubblico | Se si seleziona VNet privato, la rete viene distribuita dietro un gateway VNet e rimuove l'accesso al peering. Per i VNet privati, tutti i membri devono usare un gateway VNet per la compatibilità della connessione. | IP pubblico
 Limite di gas di blocco | Limite di gas di blocco iniziale della rete. | 50 milioni
 Block Reseal Period (sec) (Periodo nuovo sigillo blocco (sec)) | Frequenza con cui verranno creati blocchi vuoti in assenza di transazioni in rete. Una frequenza maggiore determina una finalità più rapida, ma costi di archiviazione maggiori. | 15
@@ -166,15 +166,15 @@ Il monitoraggio consente di configurare una risorsa di log per la rete. L'agente
 
 Parametro | Descrizione | Valore di esempio
 ----------|-------------|--------------
-Monitoraggio | Opzione per abilitare il monitoraggio | Abilitare
+Monitoraggio | Opzione per abilitare il monitoraggio | Abilita
 Connettersi ai log di monitoraggio di Azure esistenti | Opzione per creare una nuova istanza di log di monitoraggio di Azure o aggiungere un'istanza esistente | Create new
-Posizione | Area in cui è distribuita la nuova istanza | Stati Uniti orientali
+Location | Area in cui è distribuita la nuova istanza | Stati Uniti orientali
 ID dell'area di lavoro di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|ID area di lavoro dell'istanza dei log di monitoraggio di Azure esistente||N/D
 Chiave primaria di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|Chiave primaria usata per connettersi all'istanza di log di monitoraggio di Azure esistente||N/D
 
 Selezionare **OK**.
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 
 Fare clic sul riepilogo per esaminare gli input specificati ed eseguire la convalida pre-distribuzione di base. Prima di distribuire, è possibile scaricare il modello e i parametri.
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b33d8db9d43b151cb0405ea24e0bea87e21cbdc9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a7cd807de7e723d48faaa0944ea55b1887c9721
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345343"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284109"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipi rilevabili di colli di bottiglia delle prestazioni delle query nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -58,7 +58,7 @@ Un piano non ottimale generato da Query Optimizer di SQL può essere causato da 
 
 Nelle sezioni seguenti viene illustrato come risolvere le query con un piano di esecuzione delle query non ottimale.
 
-### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a>Query con problemi di piano con distinzione tra parametri (PSP)
+### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a> Query con problemi di piano con distinzione tra parametri (PSP)
 
 Un problema relativo al piano con distinzione tra parametri (PSP) si verifica quando il Query Optimizer genera un piano di esecuzione della query ottimale solo per un valore di parametro specifico (o set di valori) e il piano memorizzato nella cache non è ottimale per i valori dei parametri utilizzati nelle esecuzioni consecutive. I piani che non sono ottimali possono causare problemi di prestazioni delle query e peggiorare la velocità effettiva complessiva del carico di lavoro.
 
@@ -166,7 +166,7 @@ Un aumento del traffico e del volume del carico di lavoro dell'applicazione può
 - Le query dell'applicazione hanno causato il problema della CPU elevata?
 - Per le [prime query che utilizzano la CPU che è possibile identificare](database/monitoring-with-dmvs.md#the-cpu-issue-occurred-in-the-past):
 
-  - Sono stati associati più piani di esecuzione alla stessa query? In tal caso, perché?
+  - Sono stati associati più piani di esecuzione alla stessa query? In caso affermativo, perché?
   - Per le query con lo stesso piano di esecuzione, i tempi di esecuzione sono coerenti? Il numero di esecuzioni è aumentato? In tal caso, l'aumento del carico di lavoro potrebbe causare problemi di prestazioni.
 
 In breve, se il piano di esecuzione della query non viene eseguito in modo diverso, ma aumenta l'utilizzo della CPU insieme al numero di esecuzioni, il problema di prestazioni è probabilmente correlato all'aumento del carico di lavoro

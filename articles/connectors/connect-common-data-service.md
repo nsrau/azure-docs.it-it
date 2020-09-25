@@ -7,12 +7,12 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284116"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334583"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Creare e gestire i record in Common Data Service usando app per la logica di Azure
 
@@ -52,7 +52,7 @@ Per questo esempio, aggiungere il trigger Common Data Service che viene attivato
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Environment** | Sì | Ambiente da monitorare, ad esempio, "Fabrikam Sales Production". Per altre informazioni, vedere [Panoramica di Power Platform-environments](/power-platform/admin/environments-overview). |
-   | **Entity Name** | Sì | Entità da monitorare, ad esempio, "Lead" |
+   | **Nome entità** | Sì | Entità da monitorare, ad esempio, "Lead" |
    | **Ambito** | Sì | Origine che ha creato il nuovo record, ad esempio un utente nella propria business unit o qualsiasi utente dell'organizzazione. Questo esempio USA "business unit". |
    ||||
 
@@ -73,7 +73,7 @@ Aggiungere ora una Common Data Service azione che crea un record di attività pe
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Nome organizzazione** | Sì | L'ambiente in cui si desidera creare il record, che non deve necessariamente essere lo stesso ambiente del trigger, ma è "Fabrikam Sales Production" in questo esempio |
-   | **Entity Name** | Sì | Entità in cui si desidera creare il record, ad esempio "Attività" |
+   | **Nome entità** | Sì | Entità in cui si desidera creare il record, ad esempio "Attività" |
    | **Oggetto** | Sì, in base all'entità selezionata in questo esempio | Breve descrizione dell'obiettivo di questa attività |
    ||||
 
@@ -108,7 +108,7 @@ Per i trigger che vengono eseguiti quando vengono aggiornati i record, ad esempi
 
 1. Nel trigger selezionare **filtri attributi**nell'elenco **Aggiungi nuovo parametro** .
 
-   ![Aggiungere la proprietà "filtri attributo"](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
+   ![Screenshot che mostra l'azione "quando un record viene aggiornato" e l'elenco aperto "Aggiungi nuovo parametro" con la proprietà "filtri attributo" selezionata.](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
 
 1. Per ogni **elemento filtri attributi**selezionare l'attributo che si desidera monitorare per gli aggiornamenti, ad esempio:
 
@@ -122,7 +122,7 @@ Per le azioni che restituiscono record, ad esempio l'azione **elenco record** , 
 
    ![Aggiungere la proprietà "Filter query"](./media/connect-common-data-service/list-records-action-filter-query.png)
 
-1. Nella proprietà **filtro query** che ora appare nell'azione immettere questa query di filtro OData:`statuscode eq 1`
+1. Nella proprietà **filtro query** che ora appare nell'azione immettere questa query di filtro OData: `statuscode eq 1`
 
    ![Immettere una query di filtro ODATA per filtrare i record](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
@@ -136,7 +136,7 @@ Per le azioni che restituiscono record, ad esempio l'azione **elenco record** , 
 
    ![Aggiungere la proprietà "order by"](./media/connect-common-data-service/list-records-action-order-by.png)
 
-1. Nella proprietà **Order by** che ora appare nell'azione immettere questa query del filtro OData:`name`
+1. Nella proprietà **Order by** che ora appare nell'azione immettere questa query del filtro OData: `name`
 
    ![Immettere una query di filtro ODATA per l'ordinamento dei record](./media/connect-common-data-service/list-records-action-order-by-value.png)
 

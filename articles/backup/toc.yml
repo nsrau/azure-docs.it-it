@@ -380,7 +380,7 @@
               href: backup-azure-arm-userestapi-managejobs.md
         - name: Modelli di Gestione risorse
           href: backup-rm-template-samples.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Panoramica
           href: security-overview.md
@@ -438,7 +438,7 @@
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/backup?view=azure-cli-latest
+      href: /cli/azure/backup
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
     - name: PowerShell - Azure Backup Agent

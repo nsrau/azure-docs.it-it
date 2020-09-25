@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5edea4b3d3834d8f99159546c0279394ec3986f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886636"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324349"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Spostamento dello schema nel flusso di dati del mapping
 
@@ -60,7 +60,7 @@ Se la deriva dello schema è abilitata, assicurarsi che il dispositivo di scorri
 Quando nel flusso di dati sono presenti colonne spostate, è possibile accedervi nelle trasformazioni con i metodi seguenti:
 
 * Usare le `byPosition` `byName` espressioni e per fare riferimento in modo esplicito a una colonna in base al nome o al numero di posizione.
-* Aggiungere un modello di colonna in una colonna derivata o una trasformazione aggregazione in modo che corrisponda a qualsiasi combinazione di nome, flusso, posizione o tipo
+* Aggiungere un modello di colonna in una colonna derivata o una trasformazione aggregazione in modo che corrisponda a qualsiasi combinazione di nome, flusso, posizione, origine o tipo
 * Aggiunta di un mapping basato su regole in una trasformazione SELECT o sink per la corrispondenza tra colonne spostate e alias di colonne tramite un modello
 
 Per ulteriori informazioni su come implementare i modelli di colonna, vedere [modelli di colonna nel flusso di dati di mapping](concepts-data-flow-column-pattern.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9e960914f86f2f9fc63a62d62fe1f923d21b9d31
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: a05c7a6f9c3752507705e1c4242becfe1d65ffd6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334838"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Baseline della sicurezza di Azure per il backup
 
@@ -252,9 +252,9 @@ Gli avvisi sono essenzialmente scenari in cui gli utenti vengono informati in mo
 
 Documentazione di supporto:
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -760,9 +760,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: se si usano definizioni di criteri di Azure personalizzate, usare Azure DevOps o Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentazione di Azure Repos](/azure/devops/repos/index?view=azure-devops)
+- [Documentazione di Azure Repos](/azure/devops/repos/index)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -914,7 +914,7 @@ Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault.
 
 **Indicazioni**: ripristino di test delle chiavi gestite dal cliente sottoposte a backup.
 
-- [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

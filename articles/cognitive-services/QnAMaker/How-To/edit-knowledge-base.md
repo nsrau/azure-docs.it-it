@@ -3,12 +3,12 @@ title: Modificare una knowledge base - QnA Maker
 description: QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'esperienza di modifica facile da usare.
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 52aaaf630806ed6c71101860a1286f88a23ec3fa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 34eec343defa4614881e23543f2099040b866997
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054025"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324621"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Modificare le coppie di QnA nella Knowledge base
 
@@ -54,7 +54,7 @@ La modifica di testo in formato RTF del testo di risposta offre lo stile Markdow
     > [!div class="mx-imgBorder"]
     > ![Utilizzare l'editor di testo RTF per scrivere e formattare il testo e salvarlo come Markdown.](../media/qnamaker-how-to-edit-kb/rich-text-display-image.png)
 
-    |Funzionalità dell'editor RTF|Tasto di scelta rapida|
+    |Funzionalità dell'editor RTF|Tasti di scelta rapida|
     |--|--|
     |Consente di passare da un editor di testo RTF a un Markdown e viceversa. `</>`|CTRL+M|
     |Grassetto. **B**|CTR + LB|
@@ -72,7 +72,7 @@ La modifica di testo in formato RTF del testo di risposta offre lo stile Markdow
 
 
     > [!div class="mx-imgBorder"]
-    > ![Utilizzare l'editor di testo RTF per aggiungere un'immagine accessibile pubblicamente e il testo alternativo.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+    > ![Screenshot mostra l'editor sul posto con l'URL dell'immagine accessibile pubblicamente e il testo alternativo per l'immagine immessa.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
 
 1. Aggiungere un collegamento a un URL selezionando il testo nella risposta, quindi selezionando l'icona del collegamento sulla barra degli strumenti oppure selezionando l'icona del collegamento sulla barra degli strumenti e quindi immettendo il nuovo testo e l'URL.
 
@@ -113,8 +113,8 @@ Non è possibile collegare coppie QnA nei metadati della risposta.
 Aggiungere le coppie di metadati selezionando prima **Opzioni di visualizzazione**, quindi selezionando **Mostra metadati**. Verrà visualizzata la colonna di metadati. Selezionare quindi il **+** segno per aggiungere una coppia di metadati. Questa coppia è costituita da una chiave e un valore.
 
 Altre informazioni sui metadati sono disponibili nella Guida introduttiva del portale QnA Maker per i metadati:
-* [Creazione e modifica-aggiungere metadati alla coppia QnA](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
-* [Query PREDICTION-Filtra risposte per metadati](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
+* [Creazione e modifica - aggiungere metadati a una coppia di domanda e risposta](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Eseguire query sulle previsioni - filtrare le risposte in base ai metadati](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Salva le modifiche apportate alle coppie QnA
 

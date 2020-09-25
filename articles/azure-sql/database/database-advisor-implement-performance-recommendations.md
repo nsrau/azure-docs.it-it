@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 5a81ceea151b937b63544cbe51cc22de11d25230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5170f1c2e6c72c684cb1afcf1bf9bf8d3ef6fff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254940"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284364"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Suggerimenti sulle prestazioni Advisor per database per il database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,9 +84,9 @@ Le raccomandazioni relative alla *creazione di query con parametri* vengono visu
 
 Ogni query deve inizialmente essere compilata per generare un piano di esecuzione. e ogni piano generato viene aggiunto alla cache dei piani. Nelle esecuzioni successive della stessa query è possibile usare nuovamente tale piano, condizione che elimina la necessità di un'altra compilazione.
 
-Le query con valori senza parametri possono provocare un overhead delle prestazioni perché il piano di esecuzione viene ricompilato ogni volta che i valori senza parametri sono diversi. In molti casi, le stesse query con valori di parametro diversi generano gli stessi piani di esecuzione che tuttavia vengono aggiunti ancora separatamente alla cache dei piani.
+Le query con valori senza parametri possono causare un sovraccarico delle prestazioni perché il piano di esecuzione viene ricompilato ogni volta che i valori senza parametri sono diversi. In molti casi, le stesse query con valori di parametro diversi generano gli stessi piani di esecuzione. Questi piani, tuttavia, vengono comunque aggiunti separatamente alla cache dei piani.
 
-Il processo di ricompilazione dei piani di esecuzione usa risorse del database, aumenta il tempo di durata delle query e provoca un overflow della cache dei piani. Questi eventi, a loro volta, provocano la rimozione dei piani dalla cache. Questo comportamento può essere modificato impostando l'opzione di parametrizzazione forzata nel database.
+Il processo di ricompilazione dei piani di esecuzione usa le risorse del database, aumenta il tempo di durata della query e si verifica un overflow della cache dei piani. Questi eventi, a loro volta, determinano la rimozione dei piani dalla cache. Questo comportamento può essere modificato impostando l'opzione di parametrizzazione forzata nel database.
 
 Per stimare l'impatto della raccomandazione, viene offerto un confronto tra l'uso effettivo e quello previsto della CPU (ovvero nel caso di applicazione della raccomandazione). Tale raccomandazione consente di ottenere risparmi in termini di CPU e di ridurre la durata delle query e l'overhead per la cache dei piani, in modo che più piani possano rimanere nella cache ed essere usati nuovamente. È possibile applicare questa raccomandazione rapidamente selezionando il comando **Applica**.
 

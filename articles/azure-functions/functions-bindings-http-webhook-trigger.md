@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 29ec547a6033b77d92ad7949df286dc94e3243a2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 6466647056535635b67cd53012d051f11e9b484c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213928"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323312"
 ---
 # <a name="azure-functions-http-trigger"></a>Trigger HTTP di Funzioni di Azure
 
@@ -37,7 +37,7 @@ L'esempio seguente mostra una [funzione in C#](functions-dotnet-class-library.md
 ```cs
 [FunctionName("HttpTriggerCSharp")]
 public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] 
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]
     HttpRequest req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
@@ -128,111 +128,6 @@ public static string Run(Person person, ILogger log)
 public class Person {
      public string Name {get; set;}
 }
-```
-
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-L'esempio seguente illustra un'associazione di trigger in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
-
-Ecco il file *function.json*:
-
-```json
-{
-    "disabled": false,    
-    "bindings": [
-        {
-            "authLevel": "function",
-            "type": "httpTrigger",
-            "direction": "in",
-            "name": "req"
-        },
-        {
-            "type": "http",
-            "direction": "out",
-            "name": "res"
-        }
-    ]
-}
-```
-
-Queste proprietà sono descritte nella sezione [configuration](#configuration).
-
-Ecco il codice JavaScript:
-
-```javascript
-module.exports = function(context, req) {
-    context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
-
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
-    context.done();
-};
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione. La funzione cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
-
-Ecco il file *function.json*:
-
-```json
-{
-    "scriptFile": "__init__.py",
-    "disabled": false,    
-    "bindings": [
-        {
-            "authLevel": "function",
-            "type": "httpTrigger",
-            "direction": "in",
-            "name": "req"
-        },
-        {
-            "type": "http",
-            "direction": "out",
-            "name": "res"
-        }
-    ]
-}
-```
-
-Queste proprietà sono descritte nella sezione [configuration](#configuration).
-
-Ecco il codice Python:
-
-```python
-import logging
-import azure.functions as func
-
-
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
-
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-            "Please pass a name on the query string or in the request body",
-            status_code=400
-        )
 ```
 
 # <a name="java"></a>[Java](#tab/java)
@@ -421,6 +316,166 @@ public HttpResponseMessage run(
 }
 ```
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+L'esempio seguente illustra un'associazione di trigger in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
+
+Ecco il file *function.json*:
+
+```json
+{
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#configuration).
+
+Ecco il codice JavaScript:
+
+```javascript
+module.exports = function(context, req) {
+    context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
+
+    if (req.query.name || (req.body && req.body.name)) {
+        context.res = {
+            // status defaults to 200 */
+            body: "Hello " + (req.query.name || req.body.name)
+        };
+    }
+    else {
+        context.res = {
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+    context.done();
+};
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Nell'esempio seguente viene illustrata un'associazione di trigger in un *function.jssu* file e una [funzione di PowerShell](functions-reference-node.md). La funzione cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    }
+  ]
+}
+```
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$name = $Request.Query.Name
+if (-not $name) {
+    $name = $Request.Body.Name
+}
+
+$body = "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
+
+if ($name) {
+    $body = "Hello, $name. This HTTP triggered function executed successfully."
+}
+
+# Associate values to output bindings by calling 'Push-OutputBinding'.
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = [HttpStatusCode]::OK
+    Body       = $body
+})
+```
+
+
+# <a name="python"></a>[Python](#tab/python)
+
+L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione. La funzione cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
+
+Ecco il file *function.json*:
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#configuration).
+
+Ecco il codice Python:
+
+```python
+import logging
+import azure.functions as func
+
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
+
 ---
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
@@ -448,14 +503,6 @@ Per un esempio completo, vedere l’[esempio di trigger](#example).
 
 Gli attributi non sono supportati da Script C#.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Gli attributi non sono supportati da JavaScript.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Gli attributi non sono supportati da Python.
-
 # <a name="java"></a>[Java](#tab/java)
 
 Questo esempio illustra come usare l'attributo [HttpTrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java).
@@ -473,6 +520,18 @@ public HttpResponseMessage<String> HttpTrigger(
 ```
 
 Per un esempio completo, vedere l’[esempio di trigger](#example).
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Gli attributi non sono supportati da JavaScript.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Gli attributi non sono supportati da PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Gli attributi non sono supportati da Python.
 
 ---
 
@@ -565,47 +624,6 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-In Node, il runtime di Funzioni fornisce il corpo della richiesta dall'oggetto `context`. Per altre informazioni, vedere l'[esempio di trigger JavaScript](#example).
-
-L’esempio seguente mostra come leggere i parametri di route da `context.bindingData`.
-
-```javascript
-module.exports = function (context, req) {
-
-    var category = context.bindingData.category;
-    var id = context.bindingData.id;
-    var message = `Category: ${category}, ID: ${id}`;
-
-    context.res = {
-        body: message;
-    }
-
-    context.done();
-}
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-Il contesto di esecuzione della funzione viene esposto tramite un parametro dichiarato come `func.HttpRequest`. Questa istanza consente a una funzione di accedere ai parametri di route di dati, ai valori della stringa di query e ai metodi che consentono di restituire le risposte HTTP.
-
-Dopo che sono stati definiti, i parametri di route sono disponibili alla funzione tramite chiamata al metodo `route_params`.
-
-```python
-import logging
-
-import azure.functions as func
-
-def main(req: func.HttpRequest) -> func.HttpResponse:
-
-    category = req.route_params.get('category')
-    id = req.route_params.get('id')
-    message = f"Category: {category}, ID: {id}"
-
-    return func.HttpResponse(message)
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 Il contesto di esecuzione della funzione sono le proprietà come dichiarate nell'attributo `HttpTrigger`. L'attributo consente di definire i parametri di route, i livelli di autorizzazione, i verbi HTTP e l'istanza della richiesta in ingresso.
@@ -633,6 +651,63 @@ public class HttpTriggerJava {
         return request.createResponseBuilder(HttpStatus.OK).body(message).build();
     }
 }
+```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+In Node, il runtime di Funzioni fornisce il corpo della richiesta dall'oggetto `context`. Per altre informazioni, vedere l'[esempio di trigger JavaScript](#example).
+
+L’esempio seguente mostra come leggere i parametri di route da `context.bindingData`.
+
+```javascript
+module.exports = function (context, req) {
+
+    var category = context.bindingData.category;
+    var id = context.bindingData.id;
+    var message = `Category: ${category}, ID: ${id}`;
+
+    context.res = {
+        body: message;
+    }
+
+    context.done();
+}
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+I parametri di route dichiarati nella *function.jssu* file sono accessibili come proprietà dell' `$Request.Params` oggetto.
+
+```powershell
+$Category = $Request.Params.category
+$Id = $Request.Params.id
+
+$Message = "Category:" + $Category + ", ID: " + $Id
+
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = [HttpStatusCode]::OK
+    Body = $Message
+})
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+Il contesto di esecuzione della funzione viene esposto tramite un parametro dichiarato come `func.HttpRequest`. Questa istanza consente a una funzione di accedere ai parametri di route di dati, ai valori della stringa di query e ai metodi che consentono di restituire le risposte HTTP.
+
+Dopo che sono stati definiti, i parametri di route sono disponibili alla funzione tramite chiamata al metodo `route_params`.
+
+```python
+import logging
+
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    category = req.route_params.get('category')
+    id = req.route_params.get('id')
+    message = f"Category: {category}, ID: {id}"
+
+    return func.HttpResponse(message)
 ```
 
 ---
@@ -668,7 +743,7 @@ La configurazione seguente illustra in che modo il parametro `{id}` viene passat
 
 ## <a name="working-with-client-identities"></a>Utilizzo delle identità client
 
-Se l'app per le funzioni usa l'[autenticazione/autorizzazione di Servizio app ](../app-service/overview-authentication-authorization.md), è possibile visualizzare informazioni sui client autenticati dal codice. Queste informazioni sono disponibili come [intestazioni delle richieste inserite dalla piattaforma](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+Se l'app per le funzioni usa l'[autenticazione/autorizzazione di Servizio app ](../app-service/overview-authentication-authorization.md), è possibile visualizzare informazioni sui client autenticati dal codice. Queste informazioni sono disponibili come [intestazioni delle richieste inserite dalla piattaforma](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 È anche possibile leggere queste informazioni dai dati di binding. Questa funzionalità è disponibile solo per il runtime di Funzioni 2.x e versioni successive. È anche al momento disponibile solo per i linguaggi .NET.
 
@@ -738,7 +813,15 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+L'utente autenticato è disponibile tramite [Intestazioni HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+L'utente autenticato è disponibile tramite [Intestazioni HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 L'utente autenticato è disponibile tramite [Intestazioni HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
@@ -746,9 +829,6 @@ L'utente autenticato è disponibile tramite [Intestazioni HTTP](../app-service/a
 
 L'utente autenticato è disponibile tramite [Intestazioni HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
-# <a name="java"></a>[Java](#tab/java)
-
-L'utente autenticato è disponibile tramite [Intestazioni HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 ---
 

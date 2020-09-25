@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: 95fc877636fe1d3dac466dc32fc49cee56f35185
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: a335f6ac015397ba2b2634d0d604c194a768260a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283208"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replica transazionale con Istanza gestita SQL di Azure (anteprima)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -199,7 +199,7 @@ Per ulteriori informazioni sulla configurazione della replica transazionale, ved
 - [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 - [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) usando il nome del server come Sottoscrittore (ad esempio `N'azuresqldbdns.database.windows.net` , e il database nel nome del database SQL di Azure come database di destinazione, ad esempio **AdventureWorks**. )
 
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
 
 - [Replica con un Istanza gestita SQL e un gruppo di failover](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replica nel database SQL](../database/replication-to-sql-database.md)

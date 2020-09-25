@@ -80,7 +80,7 @@
     - name: Esportazione dei dati
       expanded: false
       items:
-        - name: Esportazione per cui è stata annullata l'identificazione
+        - name: Esportazione dei dati
           href: export-data.md
     - name: Trovare ID oggetto identità
       href: find-identity-object-ids.md

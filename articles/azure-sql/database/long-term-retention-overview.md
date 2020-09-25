@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: 4b2324c480ef81ef241f4d639c22c2ed4dd1545b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: c4c19850cda158afdb888188d3f99b7d93195aa5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808848"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334855"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Conservazione a lungo termine: database SQL di Azure e Istanza gestita SQL di Azure
 
@@ -79,7 +79,7 @@ Se si usa la replica geografica attiva o i gruppi di failover come soluzione di 
 > [!NOTE]
 > Quando viene ripristinato il database primario originale dopo l'interruzione del servizio che ha causato il failover, questo diventerà un nuovo database secondario. Pertanto, la creazione del backup non riprenderà e i criteri di conservazione a lungo termine esistenti non saranno attivi fino a quando il database diventerà nuovamente primario. 
 
-## <a name="sql-managed-instance-support"></a>Supporto di SQL Istanza gestita
+## <a name="sql-managed-instance-support"></a>Supporto per Istanza gestita di SQL
 
 L'uso della conservazione dei backup a lungo termine con Azure SQL Istanza gestita presenta le limitazioni seguenti:
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 1346fed738bb9afa595b63c91064a481e2ee2b51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8645e8c1f1f371f1416a998af41104ebb6867eea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031942"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334884"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gestire gli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

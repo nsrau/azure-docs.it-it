@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 926a1867a77b543057fa1de170cdb64ccfefe7cb
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218256"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255249"
 ---
 L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
 
@@ -56,7 +56,7 @@ Per ogni istanza del piano viene usato un indirizzo. Se si ridimensiona l'app a 
 
 Se si vuole che le app in un altro piano raggiungano un VNet già connesso da app in un altro piano, selezionare una subnet diversa da quella usata dall'integrazione VNet preesistente.
 
-La funzionalità è completamente supportata per le app Web Windows e Linux. Tutti i comportamenti funzionano allo stesso modo tra app di Windows e app Linux.
+La funzionalità è completamente supportata per le app Windows e Linux, inclusi i [contenitori personalizzati](../articles/app-service/quickstart-custom-container.md). Tutti i comportamenti funzionano allo stesso modo tra app di Windows e app Linux.
 
 ### <a name="service-endpoints"></a>Endpoint di servizio
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 09/25/2018
-ms.openlocfilehash: 8c5ea1f7ef094944c3e5a20dd19bce6d8cce294d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: d8a1c86443352c38a4ff578a271e45db2b5e3800
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985444"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284177"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gestire i dati cronologici nelle tabelle temporali con criteri di conservazione
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,7 +35,7 @@ Nell'esempio precedente si presuppone che la colonna **ValidTo** corrisponda all
 
 ## <a name="how-to-configure-retention-policy"></a>Come si configurano i criteri di conservazione?
 
-Prima di configurare criteri di conservazione per una tabella temporale, innanzitutto è necessario controllare se la conservazione della cronologia temporale è abilitata *a livello di database*.
+Prima di configurare i criteri di conservazione per una tabella temporale, verificare prima di tutto se la conservazione cronologica temporale è abilitata *a livello di database*.
 
 ```sql
 SELECT is_temporal_history_retention_enabled, name
@@ -106,7 +106,7 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 Il processo di pulizia dipende dal layout dell'indice della tabella di cronologia. È importante notare che *solo nelle tabelle di cronologia con un indice cluster (albero B o columnstore) è possibile configurare criteri di conservazione finiti*. Viene creata un'attività in background per eseguire la pulizia dei dati obsoleti per tutte le tabelle temporali con periodo di conservazione finito.
 La logica di pulizia per l'indice in cluster rowstore (B-tree) elimina la riga obsoleta in blocchi più piccoli (fino a 10.000) riducendo al minimo la pressione sul log del database e sul sottosistema I/O. Anche se la logica di pulizia usa l'indice albero B richiesto, l'ordine di eliminazione delle righe con durata superiore al periodo di conservazione non può essere garantito con certezza. Di conseguenza *evitare qualsiasi dipendenza dall'ordine di pulizia nelle applicazioni*.
 
-L'attività di pulizia per columnstore in cluster rimuove interi [gruppi di righe](/sql/relational-databases/indexes/columnstore-indexes-overview) in una sola volta (in genere ogni gruppo contiene un milione di righe); questa procedura è molto efficace, soprattutto quando vengono generati dati cronologici a ritmo elevato.
+L'attività di pulizia per il columnstore cluster rimuove interi [gruppi di righe](/sql/relational-databases/indexes/columnstore-indexes-overview) in una sola volta (in genere contiene 1 milione di righe ognuna), che è molto efficiente, soprattutto quando vengono generati dati cronologici a velocità elevata.
 
 ![Conservazione columnstore cluster](./media/temporal-tables-retention-policy/cciretention.png)
 

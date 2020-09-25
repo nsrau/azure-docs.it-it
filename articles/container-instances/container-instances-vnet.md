@@ -3,13 +3,13 @@ title: Distribuire un gruppo di contenitori in rete virtuale di Azure
 description: Informazioni su come distribuire un gruppo di contenitori in una rete virtuale di Azure nuova o esistente usando l'interfaccia della riga di comando di Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c5eff486299a3974e8fb9b4b12d6bb74880c48d8
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.custom: devx-track-js
+ms.openlocfilehash: e5a31742956c2ba9bd15026f7667c971c20694a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569391"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303009"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 

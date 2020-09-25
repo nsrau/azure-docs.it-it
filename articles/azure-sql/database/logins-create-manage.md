@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 891d5907ee8c964ebe7e281f6298205712ce1186
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 7be78a0c05942aebb9e3154a79035d71f87becd3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441171"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334910"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizzare l'accesso al database SQL, SQL Istanza gestita e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -105,7 +105,7 @@ A questo punto, il server o l'istanza gestita viene configurata per l'accesso so
 
 È possibile creare account per utenti non amministrativi usando uno dei due metodi seguenti:
 
-- **Crea un accesso**
+- **Creazione di un account di accesso**
 
   Creare un account di accesso SQL nel database master. Creare quindi un account utente in ogni database a cui l'utente deve accedere e associare l'account utente a tale account. Questo approccio è preferibile quando l'utente deve accedere a più database e si desidera che le password vengano sincronizzate. Questo approccio, tuttavia, presenta complessità quando viene usato con la replica geografica perché è necessario creare l'account di accesso sia nel server primario che nel server secondario. Per altre informazioni, vedere [configurare e gestire la sicurezza del database SQL di Azure per il ripristino geografico o il failover](active-geo-replication-security-configure.md).
 - **Creare un account utente**

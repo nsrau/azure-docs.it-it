@@ -4,23 +4,27 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: ff54d60573fbc7b6694b8d02d1378869674c1e81
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: b62e5057d8f144fc56d0e35927d17de27a1c8863
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050288"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255248"
 ---
 La funzionalità è facile da configurare, ma ciò non significa che la tua esperienza sarà priva di problemi. Se si verificano problemi durante l'accesso all'endpoint desiderato, sono disponibili alcune utilità che è possibile usare per testare la connettività dalla console app. Le console disponibili sono due: Uno è la console Kudu e l'altro è la console nella portale di Azure. Per accedere alla console Kudu dall'app, passare a **strumenti**  >  **Kudu**. È anche possibile accedere alla console Kudo in [SiteName]. SCM. azurewebsites. NET. Al termine del caricamento del sito Web, passare alla scheda **debug console** . Per accedere alla console ospitata da portale di Azure dall'app, passare a **strumenti**  >  **console**.
 
 #### <a name="tools"></a>Strumenti
-Gli strumenti **ping**, **nslookup**e **tracert** non funzioneranno tramite la console a causa di vincoli di sicurezza. Per riempire il void, vengono aggiunti due strumenti distinti. Per testare la funzionalità DNS, è stato aggiunto uno strumento denominato **nameresolver.exe**. La sintassi è:
+Nelle app di Windows native gli strumenti **ping**, **nslookup**e **tracert** non funzioneranno tramite la console a causa di vincoli di sicurezza (funzionano in [contenitori Windows personalizzati](../articles/app-service/quickstart-custom-container.md)). Per riempire il void, vengono aggiunti due strumenti distinti. Per testare la funzionalità DNS, è stato aggiunto uno strumento denominato **nameresolver.exe**. La sintassi è:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
 ```
 
 Si può usare nameresolver per controllare i nomi host da cui dipende l'app. In questo modo è possibile verificare se si dispone di una configurazione non configurata correttamente con il DNS o se non si ha accesso al server DNS. È possibile visualizzare il server DNS usato dall'app nella console esaminando le variabili di ambiente WEBSITE_DNS_SERVER e WEBSITE_DNS_ALT_SERVER.
+
+> [!NOTE]
+> nameresolver.exe attualmente non funziona nei contenitori di Windows personalizzati.
+>
 
 È possibile utilizzare lo strumento successivo per verificare la connettività TCP a una combinazione di host e porta. Questo strumento viene chiamato **tcpping** la cui sintassi è:
 

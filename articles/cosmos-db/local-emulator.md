@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 09/17/2020
+ms.date: 09/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 16448706b7167f55f31c7603676010e4ad30166f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 07a38e106b765fd28a8c3c1115e5fe84744ade62
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985846"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303090"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Installare e usare l'emulatore di Azure Cosmos per lo sviluppo e il test locali
 
@@ -104,11 +104,16 @@ Per impostazione predefinita, l'emulatore di Azure Cosmos viene eseguito sul com
 
    # <a name="command-line"></a>[Riga di comando](#tab/cli)
 
-   ```cmd
+   ```bash
 
    md %LOCALAPPDATA%\CosmosDBEmulator\bind-mount
 
    docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%LOCALAPPDATA%\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
+   ```
+   Le immagini Docker basate su Windows potrebbero non essere generalmente compatibili con ogni sistema operativo host Windows. Ad esempio, l'immagine dell'emulatore di Azure Cosmos predefinita è compatibile solo con Windows 10 e Windows Server 2016. Se è necessaria un'immagine compatibile con Windows Server 2019, eseguire invece il comando seguente:
+
+   ```bash
+   docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%hostDirectory%,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 mcr.microsoft.com/cosmosdb/winsrv2019/azure-cosmos-emulator:latest
    ```
 
    # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -123,7 +128,7 @@ Per impostazione predefinita, l'emulatore di Azure Cosmos viene eseguito sul com
 
    La risposta sarà simile a quanto riportato di seguito:
 
-   ```cmd
+   ```bash
    Starting emulator
    Emulator Endpoint: https://172.20.229.193:8081/
    Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
@@ -143,7 +148,7 @@ Per impostazione predefinita, l'emulatore di Azure Cosmos viene eseguito sul com
 
    # <a name="command-line"></a>[Riga di comando](#tab/cli)
 
-   ```cmd
+   ```bash
    cd  %LOCALAPPDATA%\CosmosDBEmulator\bind-mount
    powershell .\importcert.ps1
    ```
@@ -223,7 +228,7 @@ Usare la procedura seguente per usare l'emulatore in ambienti Linux o macOS:
 
 1. Eseguire il comando seguente dalla macchina virtuale Windows e prendere nota dell'indirizzo IPv4:
 
-   ```cmd
+   ```bash
    ipconfig.exe
    ```
 
@@ -231,7 +236,7 @@ Usare la procedura seguente per usare l'emulatore in ambienti Linux o macOS:
 
 1. Dalla macchina virtuale Windows avviare l'emulatore di Azure Cosmos dalla riga di comando usando le opzioni seguenti. Per informazioni dettagliate sui parametri supportati dalla riga di comando, vedere le informazioni di [riferimento sullo strumento da riga di comando dell'emulatore](emulator-command-line-parameters.md):
 
-   ```cmd
+   ```bash
    Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM +4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
    ```
 

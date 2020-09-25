@@ -4,12 +4,12 @@ description: Questo articolo descrive come configurare gli endpoint privati per 
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa67ba8dbe8106c0311bafec07a1510ca0c25c3f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508839"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324145"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurare gli endpoint privati per gli argomenti o i domini di griglia di eventi di Azure
 È possibile usare [endpoint privati](../private-link/private-endpoint-overview.md) per consentire l'ingresso di eventi direttamente dalla rete virtuale agli argomenti e ai domini in modo sicuro tramite un [collegamento privato](../private-link/private-link-overview.md) senza passare attraverso la rete Internet pubblica. L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della VNet per l'argomento o il dominio. Per informazioni più concettuali, vedere [sicurezza di rete](network-security.md).
@@ -42,7 +42,7 @@ In questa sezione viene illustrato come utilizzare il portale di Azure per crear
         3. Verificare che la **sottorisorsa di destinazione** sia impostata su **argomento** o **dominio** , in base al tipo di risorsa selezionato.    
         4. Selezionare **Avanti: Configurazione >** nella parte inferiore della pagina. 
 
-            ![Endpoint privato-pagina delle risorse](./media/configure-private-endpoints/resource-page.png)
+            ![Screenshot che mostra la pagina "creare una risorsa endpoint privata".](./media/configure-private-endpoints/resource-page.png)
     2. Se si seleziona **Connetti a una risorsa usando un ID risorsa o un alias**, seguire questa procedura:
         1. Immettere l'ID della risorsa. Ad esempio: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. Per **risorsa**immettere **argomento** o **dominio**. 
@@ -108,7 +108,7 @@ Le sezioni seguenti illustrano come approvare o rifiutare una connessione all'en
 
 1. Selezionare l' **endpoint privato** che si vuole rifiutare e selezionare **rifiuta** sulla barra degli strumenti.
 
-    ![Endpoint privato-rifiuto](./media/configure-private-endpoints/reject-button.png)
+    ![Screenshot che mostra l'opzione "rete-private endpoint Connections (anteprima)" con "Reject" selezionato.](./media/configure-private-endpoints/reject-button.png)
 1. Nella finestra di dialogo **rifiuta connessione** immettere un commento (facoltativo) e selezionare **Sì**. 
 
     ![Endpoint privato-rifiuto](./media/configure-private-endpoints/reject.png)

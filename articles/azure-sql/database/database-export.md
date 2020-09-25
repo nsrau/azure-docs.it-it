@@ -8,15 +8,15 @@ ms.subservice: data-movement
 author: stevestein
 ms.custom: sqldbrb=2
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: 10d10ccfbd04a52f6d522700d66d2c959fed24ee
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 9fb638feb254d5789d26cd854c0dcb3ae70da472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982417"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284330"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Esportare in un file BACPAC: database SQL di Azure e Istanza gestita SQL di Azure
 

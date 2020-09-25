@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: af32be357899090e0df96e2c67910a4f9ad5194d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 35b39ceb7ef54b0e00eaa53dad821c9336ea88ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988078"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302622"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -118,7 +118,7 @@ Per altre informazioni, vedere [Panoramica della privacy e dell'isolamento rete 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
 > [!IMPORTANT]
-> Se l'area di lavoro contiene dati sensibili, è consigliabile impostare il [flag hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) durante la sua creazione. Il `hbi_workspace` flag può essere impostato solo quando viene creata un'area di lavoro. Non può essere modificato per un'area di lavoro esistente.
+> Se l'area di lavoro contiene dati sensibili, è consigliabile impostare il [flag hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) durante la sua creazione. Il `hbi_workspace` flag può essere impostato solo quando viene creata un'area di lavoro. Non può essere modificato per un'area di lavoro esistente.
 
 Il `hbi_workspace` flag controlla la quantità di [dati raccolti da Microsoft per scopi diagnostici](#microsoft-collected-data) e Abilita la [crittografia aggiuntiva negli ambienti gestiti da Microsoft](../security/fundamentals/encryption-atrest.md). Consente inoltre di abilitare le azioni seguenti:
 
@@ -156,7 +156,7 @@ Per abilitare il provisioning di un'istanza di Cosmos DB nella sottoscrizione co
     * `cmk_keyvault`: questo parametro è l'ID della risorsa dell'insieme di credenziali delle chiavi nella sottoscrizione. L'insieme di credenziali delle chiavi deve trovarsi nella stessa area e nella stessa sottoscrizione che verrà usata per l'area di lavoro di Azure Machine Learning. 
     
         > [!NOTE]
-        > Questa istanza dell'insieme di credenziali delle chiavi può essere diversa dall'insieme di credenziali delle chiavi creato da Azure Machine Learning durante il provisioning dell'area di lavoro. Se si desidera usare la stessa istanza dell'insieme di credenziali delle chiavi per l'area di lavoro, passare lo stesso insieme di credenziali delle chiavi durante il provisioning dell'area di lavoro usando il [parametro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
+        > Questa istanza dell'insieme di credenziali delle chiavi può essere diversa dall'insieme di credenziali delle chiavi creato da Azure Machine Learning durante il provisioning dell'area di lavoro. Se si desidera usare la stessa istanza dell'insieme di credenziali delle chiavi per l'area di lavoro, passare lo stesso insieme di credenziali delle chiavi durante il provisioning dell'area di lavoro usando il [parametro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
 Questa istanza di Cosmos DB viene creata in un gruppo di risorse gestito da Microsoft nella sottoscrizione, insieme alle risorse necessarie. Al gruppo di risorse gestito viene assegnato un nome nel formato `<AML Workspace Resource Group Name><GUID>`. Se l'area di lavoro Azure Machine Learning usa un endpoint privato, viene creata anche una rete virtuale per l'istanza di Cosmos DB. Questo VNet viene usato per proteggere le comunicazioni tra Cosmos DB e Azure Machine Learning.
 
@@ -197,7 +197,7 @@ Per usare la chiave durante la distribuzione di un modello in un'istanza di cont
 
 Per altre informazioni sulla creazione e l'uso di una configurazione di distribuzione, vedere gli articoli seguenti:
 
-* Riferimento di [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
+* Riferimento di [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
 * [Dove e come eseguire la distribuzione](how-to-deploy-and-where.md)
 * [Distribuire un modello a Istanze di Azure Container](how-to-deploy-azure-container-instance.md)
 
@@ -290,6 +290,10 @@ I dettagli della richiesta di punteggio vengono archiviati in Application Insigh
 > Alcune azioni nell'area di lavoro Azure Machine Learning non registrano le informazioni nel log attività. Ad esempio, l'avvio di un'esecuzione del training e la registrazione di un modello non vengono registrate.
 >
 > Alcune di queste azioni vengono visualizzate nell'area **Attività** dell'area di lavoro, ma queste notifiche non specificano chi ha avviato l'attività.
+
+### <a name="vulnerability-scanning"></a>Analisi delle vulnerabilità
+
+Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. Per Azure Machine Learning, è necessario abilitare l'analisi delle risorse di Azure Container Registry e del servizio Azure Kubernetes. Vedere [azure container Registry Image Scan by Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) e [Azure Kubernetes Services Integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
 
 ## <a name="data-flow-diagrams"></a>Diagrammi di flusso dei dati
 

@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
-ms.reviewer: carlrab,vanto
+ms.reviewer: sstein,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 4a1cfcbf110ab375a0fb357c1856fd0567a1c57a
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: aa4bcee7a2eaf5e6ec11b9066ed6eca6b33bdba1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459420"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284126"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Risoluzione dei problemi di connettività e di altri errori con il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ L'infrastruttura Azure è in grado di riconfigurare dinamicamente i server quand
 
 ### <a name="list-of-transient-fault-error-codes"></a>Elenco di codici di errore di errore temporanei
 
-| Codice errore | Gravità | Descrizione |
+| Codice di errore | Gravità | Descrizione |
 | ---:| ---:|:--- |
 | 4060 |16 |Impossibile aprire il database "%.&#x2a;ls" richiesto dall'account di accesso. Accesso non riuscito. Per ulteriori informazioni, vedere gli [errori 4000 in 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |Il servizio ha rilevato un errore durante l'elaborazione della richiesta. Riprova. Codice di errore %d.<br/><br/>Questo errore viene visualizzato quando il servizio non è disponibile a causa di aggiornamenti software o hardware, guasti hardware o altri problemi di failover. Nel codice di errore (%d) incorporato nel messaggio di errore 40197 sono contenute ulteriori informazioni sul tipo di errore o failover che si è verificato. Alcuni esempi dei codici di errore incorporati nel messaggio di errore 40197 sono 40020, 40143, 40166 e 40540.<br/><br/>La riconnessione si connette automaticamente a una copia integra del database. L'applicazione deve rilevare l'errore 40197, registrare il codice di errore incorporato (%d) nel messaggio per la risoluzione dei problemi e tentare la riconnessione al database SQL finché le risorse non saranno disponibili e la connessione non sarà stata ristabilita. Per ulteriori informazioni, vedere [errori temporanei](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
@@ -296,7 +296,7 @@ Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina 
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabella dei messaggi di errore di governance delle risorse aggiuntivi
 
-| Codice errore | Gravità | Descrizione |
+| Codice di errore | Gravità | Descrizione |
 | ---:| ---:|:--- |
 | 10928 |20 |ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [Limiti delle risorse del database SQL per database singoli e in pool](resource-limits-logical-server.md).<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere: <br/>&bull;&nbsp; [Limiti delle risorse di SQL Server logiche](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limiti basati su DTU per database singoli](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per database singoli](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limiti delle risorse di Azure SQL istanza gestita](../managed-instance/resource-limits.md). |
 | 10929 |20 |ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2. Per altre informazioni, vedere: <br/>&bull;&nbsp; [Limiti delle risorse di SQL Server logiche](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limiti basati su DTU per database singoli](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per database singoli](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limiti delle risorse di Azure SQL istanza gestita](../managed-instance/resource-limits.md). <br/>In caso contrario, riprovare più tardi. |
@@ -311,7 +311,7 @@ Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina 
 
 Di seguito sono elencati gli errori riguardanti la creazione e l'uso di pool elastici:
 
-| Codice errore | Gravità | Descrizione | Azione correttiva |
+| Codice di errore | Gravità | Descrizione | Azione correttiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Il pool elastico ha raggiunto il limite di archiviazione. L'utilizzo dell'archiviazione per il pool elastico non può superare (%d) MB. Tentativo di scrittura dei dati in un database quando viene raggiunto il limite di archiviazione del pool elastico. Per informazioni sui limiti delle risorse, vedere: <br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md). <br/> |Prendere in considerazione l'aumento delle DTU e/o l'aggiunta di risorse di archiviazione al pool elastico, se possibile, per aumentare il limite di archiviazione, ridurre le risorse di archiviazione usate dai singoli database all'interno del pool elastico o rimuovere database dal pool elastico. Per il ridimensionamento dei pool elastici, vedere [ridimensionare le risorse del pool elastico](elastic-pool-scale.md).|
 | 10929 | 16 |La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per informazioni sui limiti delle risorse, vedere: <br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md). <br/> In caso contrario, riprovare più tardi. Numero minimo DTU/vCore per database; numero massimo DTU/vCore per database. Il numero totale dei processi di lavoro simultanei (richieste) in tutti i database nel pool elastico ha tentato di superare il limite del pool. |Prendere in considerazione l'aumento delle DTU o dei vCore del pool elastico, se possibile, per aumentare il limite del ruolo di lavoro, o rimuovere database dal pool elastico. |

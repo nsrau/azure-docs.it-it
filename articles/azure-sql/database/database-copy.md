@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 02ff222337e1b1c22df79724c232d4ca2b8b9f67
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: f6a3ccbcdb3d29434b196dbf75dc61c4177de271
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225734"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284279"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiare una copia coerente a livello di transazioni di un database nel database SQL di Azure
 
@@ -26,7 +26,7 @@ Il database SQL di Azure offre diversi metodi per la creazione di una copia di u
 
 ## <a name="overview"></a>Panoramica
 
-Una copia del database è uno snapshot coerente a livello di transazione del database di origine al momento dell'avvio della richiesta di copia. È possibile selezionare lo stesso server o un server diverso per la copia. È anche possibile scegliere di proteggere il livello di servizio e le dimensioni di calcolo del database di origine oppure usare una dimensione di calcolo diversa nello stesso livello di servizio o in un altro. Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. Gli account di accesso, gli utenti e le autorizzazioni nel database copiato vengono gestiti in modo indipendente dal database di origine. La copia viene creata usando la tecnologia di replica geografica. Al termine del seeding della replica, il collegamento di replica geografica viene terminato automaticamente. Tutti i requisiti per l'uso della replica geografica si applicano all'operazione di copia del database. Per informazioni dettagliate, vedere [Panoramica della replica geografica attiva](active-geo-replication-overview.md) .
+Una copia del database è uno snapshot coerente a livello di transazione del database di origine al momento dell'avvio della richiesta di copia. È possibile selezionare lo stesso server o un server diverso per la copia. È anche possibile scegliere di proteggere il livello di servizio e le dimensioni di calcolo del database di origine oppure usare una dimensione di calcolo diversa nello stesso livello di servizio o in un altro. Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. Gli account di accesso, gli utenti e le autorizzazioni nel database copiato vengono gestiti in modo indipendente dal database di origine. La copia viene creata usando la tecnologia di replica geografica. Al termine del seeding della replica, il collegamento di replica geografica viene terminato automaticamente. All'operazione di copia del database si applicano tutti i requisiti per l'uso della replica geografica. Per informazioni dettagliate, vedere [Panoramica della replica geografica attiva](active-geo-replication-overview.md) .
 
 ## <a name="logins-in-the-database-copy"></a>Account di accesso nella copia del database
 
@@ -36,7 +36,7 @@ Quando si copia un database in un server diverso, l'entità di sicurezza che ha 
 
 Indipendentemente dal server di destinazione, tutti gli utenti del database, le relative autorizzazioni e gli identificatori di sicurezza (SID) vengono copiati nella copia del database. L'uso di [utenti di database indipendente](logins-create-manage.md) per l'accesso ai dati garantisce che il database copiato abbia le stesse credenziali utente, in modo che dopo il completamento della copia sia possibile accedervi immediatamente con le stesse credenziali.
 
-Se si usano account di accesso a livello di server per l'accesso ai dati e si copia il database in un server diverso, l'accesso basato su account di accesso potrebbe non funzionare. Questo problema può verificarsi perché gli account di accesso non esistono nel server di destinazione o perché le password e gli identificatori di sicurezza (SID) sono diversi. Per informazioni sulla gestione degli account di accesso quando si copia un database in un server diverso, vedere [come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza](active-geo-replication-security-configure.md). Una volta completata l'operazione di copia in un server diverso e prima che venga eseguito il mapping di altri utenti, solo l'account di accesso associato al proprietario del database o l'amministratore del server può accedere al database copiato. Per risolvere gli account di accesso e stabilire l'accesso ai dati al termine dell'operazione di copia, vedere [risolvere gli account](#resolve-logins)di accesso.
+Se si usano accessi a livello di server per l'accesso ai dati e si copia il database in un server diverso, l'accesso potrebbe non funzionare. Questo problema può verificarsi perché gli accessi non esistono nel server di destinazione o perché le password e gli ID di sicurezza (SID) sono diversi. Per informazioni sulla gestione degli account di accesso quando si copia un database in un server diverso, vedere [come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza](active-geo-replication-security-configure.md). Una volta completata l'operazione di copia in un server diverso e prima che venga eseguito il mapping di altri utenti, solo l'account di accesso associato al proprietario del database o l'amministratore del server può accedere al database copiato. Per risolvere gli account di accesso e stabilire l'accesso ai dati al termine dell'operazione di copia, vedere [risolvere gli account](#resolve-logins)di accesso.
 
 ## <a name="copy-using-the-azure-portal"></a>Copiare usando il portale di Azure
 
@@ -171,7 +171,7 @@ Per informazioni sulla gestione di utenti e account di accesso quando si copia u
 
 Durante la copia di un database nel database SQL di Azure, possono essere rilevati gli errori seguenti. Per altre informazioni, vedere [Copiare un database SQL di Azure](database-copy.md).
 
-| Codice errore | Gravità | Descrizione |
+| Codice di errore | Gravità | Descrizione |
 | ---:| ---:|:--- |
 | 40635 |16 |Il client con indirizzo IP '%.&#x2a;ls' è temporaneamente disabilitato. |
 | 40637 |16 |La creazione della copia del database è attualmente disabilitata. |

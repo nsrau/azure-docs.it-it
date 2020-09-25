@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: ae139dd65242be9456f3498c494e1a7c5a29402f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48dfc456616fa4876b7053483f7377eda21aabde
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695695"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283820"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Creare avvisi per Istanza gestita SQL di Azure usando il portale di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Questo articolo illustra come configurare gli avvisi per i database nel database SQL di Azure Istanza gestita usando il portale di Azure. Gli avvisi possono inviare un messaggio di posta elettronica, chiamare un webhook, eseguire funzioni di Azure, Runbook, chiamare un sistema di ticket compatibile con ITSM esterno, chiamare il telefono o inviare un SMS quando alcune metriche, ad esempio le dimensioni di archiviazione dell'istanza o l'utilizzo della CPU, raggiungono una soglia predefinita. Questo articolo include anche le procedure consigliate per impostare i periodi di avviso.
+Questo articolo illustra come configurare gli avvisi per i database nel database SQL di Azure Istanza gestita usando il portale di Azure. Gli avvisi possono inviare un messaggio di posta elettronica, chiamare un webhook, eseguire Funzioni di Azure, Runbook, chiamare un sistema di ticket compatibile con gestione dei servizi IT esterna, chiamare il telefono o inviare un SMS all'utente quando alcune metriche, ad esempio le dimensioni di archiviazione dell'istanza o l'utilizzo della CPU, raggiungono una soglia predefinita. Questo articolo include anche le procedure consigliate per impostare i periodi di avviso.
 
 
 ## <a name="overview"></a>Panoramica
@@ -56,7 +56,7 @@ Per la configurazione degli avvisi sono disponibili le metriche dell'istanza ges
 | Byte di I/O letti | Byte IO letti nel periodo di tempo selezionato. | Byte |
 | Byte di I/O scritti | Byte i/o scritti nel periodo di tempo selezionato. | Byte |
 | Numero di richieste I/O | Numero di richieste IO nel periodo di tempo selezionato. | Numerico |
-| Spazio di archiviazione riservato | Numero massimo corrente spazio di archiviazione riservato per l'istanza gestita. Modifiche con l'operazione di ridimensionamento delle risorse. | MB (megabyte) |
+| Spazio di archiviazione riservato | Spazio di archiviazione massimo corrente riservato per l'istanza gestita. Modifiche con l'operazione di ridimensionamento delle risorse. | MB (megabyte) |
 | Spazio di archiviazione usato | Spazio di archiviazione utilizzato nel periodo selezionato. Modifiche con utilizzo di archiviazione da parte dei database e dell'istanza di. | MB (megabyte) |
 | Numero di core virtuali | Vcore di cui è stato effettuato il provisioning per l'istanza gestita. Modifiche con l'operazione di ridimensionamento delle risorse. | 4-80 (VCore) |
 

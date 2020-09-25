@@ -1,15 +1,17 @@
 ---
 title: Procedure consigliate per la creazione dell'app LUIS
 description: Informazioni sulle procedure consigliate per ottenere risultati ottimali dal modello dell'app LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 9c22256f6fac3647108b7078b774338d7f22d29a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 6ab7b8db3e1bc1b1134c0e7ab6c14bd17f819935
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683767"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324876"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Procedure consigliate per la creazione di un'app LUIS (Language Understanding)
 Usare il processo di creazione di app per compilare l'app LUIS:
@@ -65,7 +67,7 @@ Considerare le espressioni di esempio seguenti:
 |Prenota un volo|
 |Prenota un hotel|
 
-`Book a flight`e `Book a hotel` usano lo stesso vocabolario di `book a ` . Questo formato è lo stesso, quindi deve essere lo stesso scopo con le diverse parole di `flight` e `hotel` come entità estratte.
+`Book a flight` e `Book a hotel` usano lo stesso vocabolario di `book a ` . Questo formato è lo stesso, quindi deve essere lo stesso scopo con le diverse parole di `flight` e `hotel` come entità estratte.
 
 ## <a name="do-add-features-to-intents"></a>Aggiungere funzionalità agli Intent
 

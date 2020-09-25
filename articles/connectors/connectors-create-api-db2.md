@@ -7,12 +7,12 @@ ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: bd85155f932d57319f5f27081b44b48e5540bfb2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6c9c54450788a89a7b1aadbb0b4682a60619c061
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284048"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334600"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Accedere e gestire le risorse IBM DB2 usando app per la logica di Azure
 
@@ -157,7 +157,7 @@ Per recuperare un record in una tabella di database DB2, usare l'azione **Ottien
    | **ID area** | Sì | L'ID che contiene il record desiderato, ad esempio "99999" in questo esempio |
    ||||
 
-   ![Selezionare una tabella](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![Screenshot che mostra l'azione "Ottieni riga (anteprima)" con l'elenco aperto "nome tabella" e il valore "AREA" selezionato.](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
@@ -192,7 +192,7 @@ Per recuperare tutti i record in una tabella di database DB2, usare l'azione **O
 
 1. Aprire l'elenco **Nome tabella** e selezionare la tabella desiderata, ovvero "AREA" in questo esempio:
 
-   ![Selezionare una tabella](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![Screenshot che mostra l'azione "Ottieni riga (anteprima)" con il valore "AREA" selezionato nell'elenco "nome tabella".](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. Per specificare un filtro o eseguire una query per i risultati, scegliere **Mostra opzioni avanzate**.
 
@@ -241,7 +241,7 @@ Per aggiungere un singolo record in una tabella di database DB2, usare l'azione 
 
    Ad esempio:
 
-   ![Selezionare una tabella](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![Screenshot che mostra la finestra di progettazione di app per la logica con l'azione "Inserisci riga (anteprima)" e i valori delle proprietà di esempio.](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
@@ -289,7 +289,7 @@ Per aggiornare un singolo record in una tabella di database DB2, usare l'azione 
 
    Ad esempio:
 
-   ![Selezionare una tabella](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![Screenshot che mostra la finestra di progettazione di app per la logica con l'azione "Aggiorna riga (anteprima)" in cui si seleziona una tabella.](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
@@ -334,7 +334,7 @@ Per eliminare un singolo record da una tabella di database DB2, usare l'azione *
 
    Ad esempio:
 
-   ![Selezionare una tabella](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![Screenshot che mostra la finestra di progettazione di app per la logica con l'azione "Elimina riga (anteprima)" in cui si seleziona una tabella da eliminare.](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. Al termine, nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 

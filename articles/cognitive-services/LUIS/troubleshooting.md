@@ -1,15 +1,17 @@
 ---
 title: Domande frequenti-LUIS
 description: Questo articolo contiene risposte alle domande frequenti su LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: b45f3c43e70502b2734696a66d2a497c2213d1b9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: ff7beff6682d594f9b9fc1901d396d29028ec989
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054846"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334702"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -178,7 +180,7 @@ Gli errori indicano la presenza di discrepanze tra le etichette e le stime dai m
 
 Vedere l'esercitazione sul [test in batch](luis-tutorial-batch-testing.md).
 
-### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Quando un'app viene esportata e reimportata in una nuova app (con un nuovo ID), i punteggi di stima di LUIS cambiano. Perché si verifica questa situazione?
+### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Quando un'app viene esportata e reimportata in una nuova app (con un nuovo ID), i punteggi di stima di LUIS cambiano. Perché si verifica questo comportamento?
 
 Vedere [Differenze di stima tra copie della stessa app](luis-concept-prediction-score.md#review-intents-with-similar-scores).
 

@@ -1,14 +1,16 @@
 ---
 title: Etichettare un'entità in un'espressione di esempio
 description: Informazioni su come etichettare un'entità di Machine Learning con sottoentità in un enunciato di esempio in una pagina di dettagli Intent del portale LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: ffbaa2e40d5924ba61e548398e63295cf7dba2b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610490"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303727"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Etichettare un'entità di Machine Learning in un enunciato di esempio
 
@@ -53,7 +55,7 @@ La tavolozza delle entità offre un'alternativa alla precedente esperienza di et
 3. Nell'espressione di esempio, _dipingere_ l'entità con il cursore.
 
     > [!div class="mx-imgBorder"]
-    > ![Tavolozza delle entità per l'entità Machine Learning](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+    > ![Screenshot mostra l'entità disegnata con il cursore.](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
 ## <a name="adding-entity-as-a-feature-from-the-entity-palette"></a>Aggiunta di un'entità come funzionalità dalla tavolozza delle entità
 
