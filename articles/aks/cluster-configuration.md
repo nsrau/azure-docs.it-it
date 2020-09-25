@@ -3,28 +3,30 @@ title: Configurazione del cluster nei servizi Azure Kubernetes (AKS)
 description: Informazioni su come configurare un cluster nel servizio Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5b26054ae8dfb73dea8d064292beb73220be5e09
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 6446e138df1fe744d70be085d0aecac58e2c1c45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433450"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255299"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurare un cluster del servizio Azure Kubernetes
 
 Per creare un cluster AKS, potrebbe essere necessario personalizzare la configurazione del cluster in base alle esigenze. Questo articolo introduce alcune opzioni per la personalizzazione del cluster AKS.
 
-## <a name="os-configuration-preview"></a>Configurazione del sistema operativo (anteprima)
+## <a name="os-configuration"></a>Configurazione del sistema operativo
 
-AKS supporta ora Ubuntu 18.04 come sistema operativo dei nodi nell'anteprima. Durante il periodo di anteprima sono disponibili sia Ubuntu 16.04 sia Ubuntu 18.04.
+AKS supporta ora Ubuntu 18,04 come sistema operativo node (OS) in disponibilità generale per i cluster nelle versioni kubernetes più alta di 1.18.8. Per le versioni inferiori a 1.18. x, AKS Ubuntu 16,04 è ancora l'immagine di base predefinita. Da kubernetes v 1.18. x e versioni successive, la base predefinita è AKS Ubuntu 18,04.
 
 > [!IMPORTANT]
-> I pool di nodi creati in Kubernetes v 1.18 o versioni successive vengono predefiniti a un' `AKS Ubuntu 18.04` immagine del nodo richiesta. I pool di nodi in una versione Kubernetes supportata inferiore a 1,18 ricevono `AKS Ubuntu 16.04` come immagine del nodo, ma verranno aggiornati a `AKS Ubuntu 18.04` una volta che la versione Kubernetes del pool di nodi verrà aggiornata a v 1.18 o successiva.
+> Pool di nodi creati in Kubernetes v 1.18 o superiore per impostazione predefinita nell' `AKS Ubuntu 18.04` immagine del nodo. I pool di nodi in una versione Kubernetes supportata inferiore a 1,18 ricevono `AKS Ubuntu 16.04` come immagine del nodo, ma verranno aggiornati a `AKS Ubuntu 18.04` una volta che la versione Kubernetes del pool di nodi verrà aggiornata a v 1.18 o successiva.
 > 
 > Si consiglia vivamente di testare i carichi di lavoro nei pool di nodi AKS Ubuntu 18,04 prima di usare i cluster in 1,18 o versione successiva. Leggere le informazioni su come [testare i pool di nodi Ubuntu 18,04](#use-aks-ubuntu-1804-existing-clusters-preview).
+
+La sezione seguente illustra come usare e testare AKS Ubuntu 18,04 in cluster che non usano ancora una versione 1.18. x di kubernetes o versioni successive oppure che sono stati creati prima che questa funzionalità venisse resa disponibile a livello generale usando l'anteprima della configurazione del sistema operativo.
 
 Devono essere installate le risorse seguenti:
 
@@ -44,13 +46,13 @@ Registrare la funzionalità `UseCustomizedUbuntuPreview`:
 az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
 ```
 
-Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true):
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true):
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -122,14 +124,14 @@ az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.Cont
 
 ```
 
-Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true):
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedContainerRuntime')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true):
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -179,7 +181,7 @@ Azure supporta [macchine virtuali (Gen2) di seconda generazione](../virtual-mach
 Le macchine virtuali di seconda generazione usano la nuova architettura di avvio basata su UEFI anziché l'architettura basata su BIOS usata dalle macchine virtuali di prima generazione.
 Solo SKU e dimensioni specifiche supportano le VM Gen2. Controllare l' [elenco delle dimensioni supportate](../virtual-machines/windows/generation-2.md#generation-2-vm-sizes)per verificare se lo SKU supporta o richiede Gen2.
 
-Inoltre, non tutte le immagini di macchina virtuale supportano Gen2, nelle macchine virtuali AKS Gen2 utilizzeranno la nuova [immagine AKS Ubuntu 18,04](#os-configuration-preview). Questa immagine supporta tutti gli SKU e le dimensioni di Gen2.
+Inoltre, non tutte le immagini di macchina virtuale supportano Gen2, nelle macchine virtuali AKS Gen2 utilizzeranno la nuova [immagine AKS Ubuntu 18,04](#os-configuration). Questa immagine supporta tutti gli SKU e le dimensioni di Gen2.
 
 Per usare le macchine virtuali Gen2 durante la fase di anteprima, è necessario:
 - Estensione dell'interfaccia della riga di comando `aks-preview` installata.
@@ -191,13 +193,13 @@ Registrare la funzionalità `Gen2VMPreview`:
 az feature register --name Gen2VMPreview --namespace Microsoft.ContainerService
 ```
 
-Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true):
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Gen2VMPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true):
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -248,17 +250,19 @@ Registrare la funzionalità `EnableEphemeralOSDiskPreview`:
 az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
 ```
 
-Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true):
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true):
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
 ```
+
+Il sistema operativo temporaneo richiede almeno la versione 0.4.63 dell'estensione dell'interfaccia della riga di comando AKS-Preview.
 
 Per installare l'estensione dell'interfaccia della riga di comando AKS-Preview, usare i seguenti comandi dell'interfaccia della riga di comando
 
@@ -274,25 +278,25 @@ az extension update --name aks-preview
 
 ### <a name="use-ephemeral-os-on-new-clusters-preview"></a>Usare il sistema operativo temporaneo nei nuovi cluster (anteprima)
 
-Configurare il cluster per l'uso di dischi del sistema operativo temporanei quando viene creato il cluster. Usare il `--aks-custom-headers` flag per impostare il sistema operativo temporaneo come tipo di disco del sistema operativo per il nuovo cluster.
+Configurare il cluster per l'uso di dischi del sistema operativo temporanei quando viene creato il cluster. Usare il `--node-osdisk-type` flag per impostare il sistema operativo temporaneo come tipo di disco del sistema operativo per il nuovo cluster.
 
 ```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-Se si vuole creare un cluster normale usando dischi del sistema operativo collegati alla rete, è possibile omettere il `--aks-custom-headers` tag personalizzato. È anche possibile scegliere di aggiungere più pool di nodi del sistema operativo temporanei come indicato di seguito.
+Se si vuole creare un cluster normale usando dischi del sistema operativo collegati alla rete, è possibile omettere il `--node-osdisk-type` tag personalizzato o specificare `--node-osdisk-type=Managed` . È anche possibile scegliere di aggiungere più pool di nodi del sistema operativo temporanei come indicato di seguito.
 
 ### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>USA sistema operativo temporaneo nei cluster esistenti (anteprima)
-Configurare un nuovo pool di nodi per l'uso di dischi del sistema operativo temporanei. Usare il `--aks-custom-headers` flag per impostare come tipo di disco del sistema operativo come tipo di disco del sistema operativo per il pool di nodi.
+Configurare un nuovo pool di nodi per l'uso di dischi del sistema operativo temporanei. Usare il `--node-osdisk-type` flag per impostare come tipo di disco del sistema operativo come tipo di disco del sistema operativo per il pool di nodi.
 
 ```azurecli
-az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
 > [!IMPORTANT]
 > Con il sistema operativo temporaneo è possibile distribuire le immagini di macchine virtuali e istanze fino alla dimensione della cache VM. Nel caso di AKS, la configurazione del disco del sistema operativo del nodo predefinito usa 100GiB, il che significa che è necessario disporre di una dimensione della macchina virtuale con una cache maggiore di 100 GiB. Il Standard_DS2_v2 predefinito ha una dimensione della cache di 86 GiB, che non è sufficientemente grande. Il Standard_DS3_v2 ha una dimensione della cache di 172 GiB, che è sufficientemente grande. È anche possibile ridurre le dimensioni predefinite del disco del sistema operativo usando `--node-osdisk-size` . La dimensione minima per le immagini AKS è 30GiB. 
 
-Se si desidera creare pool di nodi con dischi del sistema operativo collegati alla rete, è possibile omettere il tag personalizzato `--aks-custom-headers` .
+Se si desidera creare pool di nodi con dischi del sistema operativo collegati alla rete, è possibile omettere il tag personalizzato `--node-osdisk-type` .
 
 ## <a name="custom-resource-group-name"></a>Nome del gruppo di risorse personalizzato
 

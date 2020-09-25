@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: 373629c86f2d842ad2e02dd2b66739f3963bf7ed
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 6366824b8dc7f63f99ebda2a542d95d3eb1c6146
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064554"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301106"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Come integrare RabbitMQ con il bus di servizio di Azure
 
@@ -112,7 +112,7 @@ Nell'interfaccia di gestione di RabbitMQ è possibile passare a `Queues` , selez
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Pubblica primo messaggio":::
 
-Tornare ad Azure e controllare la coda. Fare clic `Service Bus Explorer` nel riquadro sinistro. Se tutto è andato bene, la coda avrà ora un messaggio. Yay, congratulazioni!
+Tornare ad Azure e controllare la coda. Fare clic `Service Bus Explorer` nel riquadro a sinistra, quindi fare clic sul pulsante _Visualizza_ . Se tutto è andato bene, la coda avrà ora un messaggio. Yay, congratulazioni!
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Coda del bus di servizio di Azure":::
 
@@ -122,7 +122,7 @@ Assicurarsi però che il messaggio sia quello inviato da RabbitMQ. Selezionare l
 
 ## <a name="lets-recap"></a>Riepilogo
 
-Congratulazioni. Il risultato è stato molto elevato. È stato gestito per ricevere i messaggi da RabbitMQ al bus di servizio di Azure. riepilogare i passaggi:
+alla fase di test. Il risultato è stato molto elevato. È stato gestito per ricevere i messaggi da RabbitMQ al bus di servizio di Azure. riepilogare i passaggi:
 
 1. Creare uno spazio dei nomi del bus di servizio di Azure
 2. Aggiungere una coda allo spazio dei nomi
@@ -136,3 +136,8 @@ Congratulazioni. Il risultato è stato molto elevato. È stato gestito per ricev
 Seguendo i passaggi precedenti, sono state integrate le aree dell'organizzazione esterne ad Azure. Il plug-in di Spalato ha consentito di inviare messaggi da RabbitMQ al bus di servizio di Azure. Si tratta di vantaggi enormi, perché ora è possibile consentire a terze parti attendibili di connettere le proprie app alla distribuzione di Azure.
 
 Alla fine, la messaggistica riguarda l'abilitazione delle connessioni e con questa tecnica abbiamo appena aperto una nuova.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Altre informazioni sul [bus di servizio di Azure](./service-bus-messaging-overview.md)
+- Altre informazioni sul [supporto di AMQP 1,0 nel bus di servizio](./service-bus-amqp-overview.md)

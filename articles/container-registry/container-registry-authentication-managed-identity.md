@@ -3,12 +3,12 @@ title: Eseguire l'autenticazione con un'identità gestita
 description: Fornire l'accesso alle immagini nel registro contenitori privato usando un'identità gestita di Azure assegnata dall'utente o dal sistema.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: e5fd8ead989838c0ba74b42a9766bc63936379fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a144f0e865cfc9bf857752eed65dbe5cda88bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537902"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253463"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Usare un'identità gestita di Azure per eseguire l'autenticazione a un Registro Azure Container 
 
@@ -230,6 +230,8 @@ Dovrebbe essere visualizzato il messaggio `Login succeeded`. È quindi possibile
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
+> [!NOTE]
+> Le identità del servizio gestito assegnate dal sistema possono essere usate per interagire con ACRs e il servizio app può usare identità del servizio gestite assegnate dal sistema. Tuttavia, non è possibile combinare questi, perché il servizio app non può usare l'identità del servizio gestito per comunicare con un ACR. L'unico modo per abilitare l'amministratore nell'ACR e usare il nome utente e la password dell'amministratore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

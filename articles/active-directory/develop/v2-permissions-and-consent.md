@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f1c35fc80a4ab5b293a974b8f2901716e65f32b1
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 5d1aa4ff87b272911e4e39076f337ea249b962d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705691"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256603"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
 
@@ -48,15 +48,15 @@ In OAuth 2.0 questi tipi di autorizzazioni vengono definiti *ambiti* o Sono anch
 * Scrittura del calendario dell'utente tramite `Calendars.ReadWrite`
 * Invio di messaggi di posta elettronica come utente tramite `Mail.Send`
 
-Un'app richiede in genere queste autorizzazioni specificando gli ambiti nelle richieste all'endpoint di autorizzazione della piattaforma di identità Microsoft. Tuttavia, alcune autorizzazioni con privilegi elevati possono essere concesse solo tramite il consenso dell'amministratore e richieste/concesse tramite l' [endpoint di consenso dell'amministratore](v2-permissions-and-consent.md#admin-restricted-permissions). Per altre informazioni, continuare la lettura.
+Un'app richiede in genere queste autorizzazioni specificando gli ambiti nelle richieste all'endpoint di autorizzazione della piattaforma di identità Microsoft. Tuttavia, alcune autorizzazioni con privilegi elevati possono essere concesse solo tramite il consenso dell'amministratore e richieste/concesse tramite l' [endpoint di consenso dell'amministratore](#admin-restricted-permissions). Per altre informazioni, continuare la lettura.
 
 ## <a name="permission-types"></a>Tipi di autorizzazioni
 
 Microsoft Identity Platform supporta due tipi di autorizzazioni: **autorizzazioni delegate** e **autorizzazioni dell'applicazione**.
 
-* Le **autorizzazioni delegate** sono usate dalle app con un utente connesso. Per queste app, l'utente o un amministratore acconsente alle autorizzazioni richieste dall'app e l'app è autorizzata a fungere da utente connesso quando effettua chiamate alla risorsa di destinazione. Alcune autorizzazioni delegate possono essere concesse da utenti senza privilegi di amministratore, mentre altre con privilegi più elevati richiedono il [consenso dell'amministratore](v2-permissions-and-consent.md#admin-restricted-permissions). Per informazioni su quali ruoli di amministratore possono fornire il consenso per le autorizzazioni delegate, vedere [Autorizzazioni del ruolo di amministratore in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* Le **autorizzazioni delegate** sono usate dalle app con un utente connesso. Per queste app, l'utente o un amministratore acconsente alle autorizzazioni richieste dall'app e l'app è autorizzata a fungere da utente connesso quando effettua chiamate alla risorsa di destinazione. Alcune autorizzazioni delegate possono essere concesse da utenti senza privilegi di amministratore, mentre altre con privilegi più elevati richiedono il [consenso dell'amministratore](#admin-restricted-permissions). Per informazioni su quali ruoli di amministratore possono fornire il consenso per le autorizzazioni delegate, vedere [Autorizzazioni del ruolo di amministratore in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-* Le **autorizzazioni dell'applicazione** sono usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon.  Le autorizzazioni dell'applicazione possono essere [concesse esclusivamente da un amministratore](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+* Le **autorizzazioni dell'applicazione** sono usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon.  Le autorizzazioni dell'applicazione possono essere [concesse esclusivamente da un amministratore](#requesting-consent-for-an-entire-tenant).
 
 Le _autorizzazioni valide_ sono le autorizzazioni che l'app avrà quando effettuerà le richieste alla risorsa di destinazione. È importante comprendere la differenza tra le autorizzazioni delegate e dell'applicazione concesse all'app e le autorizzazioni valide quando si effettuano chiamate alla risorsa di destinazione.
 
@@ -195,7 +195,7 @@ https://graph.microsoft.com/mail.send
 
 | Parametro        | Condizione        | Descrizione                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Obbligatorio | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato GUID o nome descrittivo o a cui si fa riferimento in modo generico con le organizzazioni come illustrato nell'esempio. Non usare ' Common ', perché gli account personali non possono fornire il consenso dell'amministratore tranne nel contesto di un tenant. Per garantire la massima compatibilità con gli account personali per la gestione dei tenant, usare l'ID tenant quando possibile. |
+| `tenant` | Obbligatoria | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato GUID o nome descrittivo o a cui si fa riferimento in modo generico con le organizzazioni come illustrato nell'esempio. Non usare ' Common ', perché gli account personali non possono fornire il consenso dell'amministratore tranne nel contesto di un tenant. Per garantire la massima compatibilità con gli account personali per la gestione dei tenant, usare l'ID tenant quando possibile. |
 | `client_id` | Obbligatoria | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza[Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `redirect_uri` | Obbligatoria |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
 | `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
@@ -302,6 +302,16 @@ response_type=token            //code or a hybrid flow is also possible here
 
 Questa operazione produce una schermata di consenso per tutte le autorizzazioni registrate (se applicabili in base alle suddette descrizioni del consenso e `/.default`), quindi restituisce un id_token, anziché un token di accesso.  Questo comportamento esiste per determinati client legacy che passano da ADAL a MSAL e **non devono** essere usati da nuovi client destinati all'endpoint della piattaforma di identità Microsoft.
 
+### <a name="client-credentials-grant-flow-and-default"></a>Flusso di concessione delle credenziali client e/.default
+
+Un altro uso di `./default` è quando si richiedono le autorizzazioni o i *ruoli*dell'applicazione in un'applicazione non interattiva come un'app daemon che usa il flusso di concessione delle [credenziali client](v2-oauth2-client-creds-grant-flow.md) per chiamare un'API Web.
+
+Per creare le autorizzazioni dell'applicazione (ruoli) per un'API Web, vedere [procedura: aggiungere i ruoli dell'app nell'applicazione](howto-add-app-roles-in-azure-ad-apps.md).
+
+Le richieste di credenziali client nell'app client **devono** includere `scope={resource}/.default` , dove `{resource}` è l'API Web che l'app intende chiamare. L'invio di una richiesta di credenziali client con le singole autorizzazioni dell'applicazione (ruoli) **non** è supportato. Tutte le autorizzazioni dell'applicazione (ruoli) che sono state concesse per l'API Web verranno incluse nel token di accesso restituito.
+
+Per concedere l'accesso alle autorizzazioni dell'applicazione definite, inclusa la concessione del consenso dell'amministratore per l'applicazione, vedere [Guida introduttiva: configurare un'applicazione client per accedere a un'API Web](quickstart-configure-app-access-web-apis.md).
+
 ### <a name="trailing-slash-and-default"></a>Barra finale e/.default
 
 Alcuni URI delle risorse hanno una barra finale `https://contoso.com/` `https://contoso.com` , anziché, che può causare problemi con la convalida dei token.  Questa situazione può verificarsi principalmente quando si richiede un token per gestione risorse di Azure ( `https://management.azure.com/` ), che ha una barra finale sull'URI della risorsa e ne richiede la presenza quando viene richiesto il token.  Pertanto, quando si richiede un token per `https://management.azure.com/` e `/.default` si utilizza, è necessario `https://management.azure.com//.default` prendere nota della barra doppia.
@@ -311,3 +321,8 @@ In generale, se è stata convalidata l'emissione del token e il token viene rifi
 ## <a name="troubleshooting-permissions-and-consent"></a>Risoluzione dei problemi di autorizzazioni e consenso
 
 Se durante il processo di consenso vengono visualizzati errori imprevisti durante il processo di consenso, vedere questo articolo per la procedura di risoluzione dei problemi: [errore imprevisto durante l'esecuzione del consenso per un'applicazione](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Token ID | Piattaforma di identità Microsoft](id-tokens.md)
+* [Token di accesso | Piattaforma di identità Microsoft](access-tokens.md)

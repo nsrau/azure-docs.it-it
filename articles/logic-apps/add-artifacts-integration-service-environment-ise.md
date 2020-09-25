@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: d8fe945b028b574e71ae24b1483ad8e7fd67b01d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078725"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269744"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Aggiungere risorse all'ambiente Integration Services (ISE) in app per la logica di Azure
 
@@ -40,7 +40,7 @@ Per compilare app per la logica che vengono eseguite nell'ambiente Integration S
 
 1. Fornire informazioni sull'app per la logica che si vuole creare, ad esempio:
 
-   ![Selezionare l'ambiente del servizio di integrazione](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
+   ![Screenshot che mostra la finestra "app per la logica" "Crea" con le informazioni di esempio immesse.](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
@@ -121,7 +121,7 @@ Per usare i connettori personalizzati in ISE, creare i connettori personalizzati
 
 1. Dall'elenco **percorso** , nella sezione **ambienti del servizio di integrazione** , selezionare lo stesso ISE usato dalle app per la logica e selezionare **Crea**, ad esempio:
 
-   ![Selezionare l'ambiente del servizio di integrazione](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
+   ![Screenshot che mostra la finestra "Crea connettore personalizzato per app per la logica" con le informazioni di esempio selezionate.](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
 1. Selezionare il nuovo connettore personalizzato, quindi selezionare **modifica**, ad esempio:
 

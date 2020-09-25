@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5ff2fe74a0dd5064232fcef3178aec2967ef6812
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5d0835114844069d4ebdc992b872f9be1f0b3ca6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683862"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259221"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di onfido con Azure Active Directory B2C
 
@@ -94,7 +94,7 @@ Le impostazioni dell'applicazione possono essere configurate nel [servizio app i
 
 1. Configurare un [contenitore di archiviazione BLOB nell'account di archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 
-2. Archiviare i file dell'interfaccia utente dalla cartella dell'interfaccia utente al contenitore BLOB.
+2. Archiviare i file dell'interfaccia utente dalla [cartella dell'interfaccia utente](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) al contenitore BLOB.
 
 3. Consentire l'accesso CORS al contenitore di archiviazione creato seguendo queste istruzioni:
 
@@ -124,7 +124,7 @@ Le impostazioni dell'applicazione possono essere configurate nel [servizio app i
 
 #### <a name="replace-the-configuration-values"></a>Sostituire i valori di configurazione
 
-Nei criteri personalizzati forniti, trovare i segnaposto seguenti e sostituire con i valori corrispondenti dell'istanza.
+Nei [criteri personalizzati](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies)forniti, trovare i segnaposto seguenti e sostituire con i valori corrispondenti dell'istanza.
 
 | Segnaposto | Replace with value | Esempio  |
 |:---------------|:----------------|:-------------------|

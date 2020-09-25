@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 5959ccd2699ef1162779a4a1d90ab6bb8af1bbbf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544849"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255835"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Esercitazione: configurare TheOrgWiki per il provisioning utenti automatico
 
@@ -55,23 +55,23 @@ Prima di configurare TheOrgWiki per il provisioning utenti automatico con Azure 
 
 1. Accedere a [TheOrgWiki Admin Console](https://www.theorgwiki.com/login/). Fare clic su **console di amministrazione**.
 
-    ![TheOrgWiki aggiungere SCIM](media/theorgwiki-provisioning-tutorial/login.png)
+    ![Screenshot del wiki dell'organizzazione con l'avatar utente e la console di amministrazione.](media/theorgwiki-provisioning-tutorial/login.png)
 
 2. Nella console di amministrazione fare clic sulla **scheda Impostazioni**. 
 
-    ![TheOrgWiki aggiungere SCIM](media/theorgwiki-provisioning-tutorial/settings.png)
+    ![Screenshot della console di amministrazione dell'organizzazione wiki con la scheda Impostazioni denominata.](media/theorgwiki-provisioning-tutorial/settings.png)
     
 3. Passare ad **account del servizio**.
 
-    ![TheOrgWiki aggiungere SCIM](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
+    ![Screenshot della pagina degli account di servizio nella console di amministrazione dell'organizzazione wiki.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
 4. Fare clic su **+ account del servizio**. In **tipo di account del servizio**selezionare **basato su token**. Fare clic su **Salva**.
 
-    ![TheOrgWiki aggiungere SCIM](media/theorgwiki-provisioning-tutorial/auth.png)
+    ![Screenshot della finestra di dialogo nuovo account del servizio con le opzioni tipo di account del servizio, basato su token e Salva.](media/theorgwiki-provisioning-tutorial/auth.png)
 
 5.  Copiare i **token attivi**. Questo valore verrà immesso nel campo token segreto nella scheda provisioning dell'applicazione TheOrgWiki nel portale di Azure.
      
-    ![TheOrgWiki aggiungere SCIM](media/theorgwiki-provisioning-tutorial/token.png)
+    ![Screenshot della finestra di dialogo Gestisci token per il provisioning S C I M.](media/theorgwiki-provisioning-tutorial/token.png)
 
 ## <a name="add-theorgwiki-from-the-gallery"></a>Aggiungere TheOrgWiki dalla raccolta
 
@@ -95,15 +95,15 @@ Per configurare TheOrgWiki per il provisioning utenti automatico con Azure AD, �
 
 5. Selezionare il pulsante **Iscriviti a TheOrgWiki** che consente di reindirizzare la pagina di accesso di TheOrgWiki. 
 
-    ![TheOrgWiki aggiungere SCIM](media/theorgwiki-provisioning-tutorial/image00.png)
+    ![Screenshot della pagina di accesso dell'organizzazione wiki con l'URL denominato](media/theorgwiki-provisioning-tutorial/image00.png)
 
 6.  Nell'angolo superiore destro selezionare **login**.
 
-    ![TheOrgWiki aggiungere SCIM](media/theorgwiki-provisioning-tutorial/image02.png)
+    ![Screenshot dell'angolo superiore destro della pagina di accesso con l'opzione di accesso denominata.](media/theorgwiki-provisioning-tutorial/image02.png)
 
 7. Poiché TheOrgWiki è un'app OpenIDConnect, scegliere di accedere a OrgWiki con l'account Microsoft Work.
 
-    ![TheOrgWiki aggiungere SCIM](media/theorgwiki-provisioning-tutorial/image03.png)
+    ![Screenshot della pagina di accesso alla wiki dell'organizzazione con l'opzione Accedi con Microsoft denominata.](media/theorgwiki-provisioning-tutorial/image03.png)
     
 8. Una volta completata l'autenticazione, l'applicazione verrà aggiunta automaticamente al tenant e si verrà reindirizzati all'account TheOrgWiki.
 
@@ -126,11 +126,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` in **URL tenant**. 
 

@@ -3,12 +3,12 @@ title: Code e argomenti del bus di servizio come gestori per gli eventi di Grigl
 description: Descrive come usare code e argomenti del bus di servizio come gestori per gli eventi di Griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 9edf9ebd66eca2f1a6749d40ee22437bf17e55c4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 00f937a66ff17c2d5f502fe976675c999ee02a58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440797"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270169"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Code e argomenti del bus di servizio come gestori per gli eventi di Griglia di eventi di Azure
 Un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue altre azioni per elaborare l'evento. Diversi servizi di Azure vengono configurati automaticamente per gestire eventi, uno dei quali è il **bus di servizio di Azure**. 
@@ -51,7 +51,7 @@ az eventgrid event-subscription create \
 ```
 
 ## <a name="message-properties"></a>Proprietà del messaggio
-Se si usa **un argomento o una coda del bus di servizio** come gestore per gli eventi da Griglia di eventi, impostare le intestazioni seguenti per i messaggio: 
+Se si usa un **argomento o una coda del bus di servizio** come gestore eventi per gli eventi da griglia di eventi, queste sono le proprietà ricevute nelle intestazioni del messaggio: 
 
 | Nome proprietà | Descrizione |
 | ------------- | ----------- | 
@@ -156,6 +156,9 @@ L'ID sistema interno per il messaggio verrà mantenuto durante il recapito dell'
     }
 }
 ```
+
+> [!NOTE]
+> La distribuzione di eventi a una coda o a un argomento del bus di servizio di Azure in **un altro tenant** non è supportata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco di gestori eventi supportati, vedere l'articolo [Gestori eventi](event-handlers.md). 

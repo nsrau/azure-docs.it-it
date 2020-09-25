@@ -13,31 +13,24 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1f90f7f23fbdf10b91d8dfc7cd00cca83cd32fbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70ddc2191cc06a1bede87adc5940e0f7dea63384
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882574"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257538"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: applicazione mobile che chiama le API Web
 
 Informazioni su come creare un'app per dispositivi mobili che chiama API Web
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="getting-started"></a>Guida introduttiva
 
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+Se non è già stato fatto, creare la prima applicazione completando una guida introduttiva:
 
-## <a name="getting-started"></a>Introduzione
-
-Creare la prima applicazione per dispositivi mobili e provare una guida introduttiva.
-
-> [!div class="nextstepaction"]
-> [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app Android](./quickstart-v2-android.md)
->
-> [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app iOS](./quickstart-v2-ios.md)
->
-> [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app Novell iOS e Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+- [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app Android](./quickstart-v2-android.md)
+- [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app iOS](./quickstart-v2-ios.md)
+- [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app Novell iOS e Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) (GitHub)
 
 ## <a name="overview"></a>Panoramica
 
@@ -60,7 +53,11 @@ Quando si compila un'app per dispositivi mobili nella piattaforma di identità M
 - In iOS e Android MSAL può usare un browser esterno per accedere agli utenti. Il browser esterno potrebbe essere visualizzato nella parte superiore dell'app.
 - Non usare mai un segreto in un'applicazione per dispositivi mobili. In queste applicazioni, i segreti sono accessibili a tutti gli utenti.
 
+## <a name="recommended-reading"></a>Letture consigliate
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Registrazione dell'app](scenario-mobile-app-registration.md)
+> [Registrazione delle app](scenario-mobile-app-registration.md)

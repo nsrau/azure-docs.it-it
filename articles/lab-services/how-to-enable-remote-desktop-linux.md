@@ -3,12 +3,12 @@ title: Abilitare Desktop remoto grafico per Linux in Azure Lab Services | Micros
 description: Informazioni su come abilitare Desktop remoto per le macchine virtuali Linux in un lab Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4f50510adf978aeb63b2b5337d21e6f9dec76196
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445764"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251610"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Abilitare Desktop remoto grafico per le macchine virtuali Linux in Azure Lab Services
 Questo articolo illustra come eseguire le attività seguenti:
@@ -46,7 +46,7 @@ Questo passaggio è necessario solo per la connessione tramite RDP.  Se invece s
 
 1.  Durante la creazione del Lab, il docente ha la possibilità di **abilitare Connessione Desktop remoto**.  Il docente deve **abilitare** questa opzione per aprire la porta nella macchina virtuale Linux necessaria per una sessione Desktop remoto RDP.  In caso contrario, se questa opzione rimane **disabilitata**, viene aperta solo la porta per SSH.
   
-    ![Abilitare Connessione desktop remoto per un'immagine Linux](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+    ![Screenshot che mostra la finestra "nuovo Lab" con l'opzione "Enable Connessione Desktop remoto".](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
 2. Nella finestra di messaggio **Abilitazione di Connessione Desktop remoto** selezionare **Continua con Desktop remoto**. 
 

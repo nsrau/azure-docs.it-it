@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: e62973c83db90df2857186fe6a556278a3c41a7d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 68ddbe73bcf4c0e934a5a8be0246214086a7618c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977461"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302044"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Esplorare e gestire le risorse con gli strumenti di inventario e gestione degli asset
 
@@ -54,7 +54,7 @@ Nella pagina inventario sono disponibili gli strumenti seguenti:
 - **Riepiloghi** : prima di definire i filtri, viene visualizzata una striscia di valori prominente nella parte superiore della visualizzazione inventario:
 
     - **Risorse totali**: numero totale di risorse connesse al centro sicurezza.
-    - **Risorse non integre**: risorse con raccomandazioni di sicurezza attive. [Altre informazioni sulle raccomandazioni sulla sicurezza](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+    - **Risorse non integre**: risorse con raccomandazioni di sicurezza attive. [Altre informazioni sulle raccomandazioni sulla sicurezza](security-center-recommendations.md).
     - **Risorse non monitorate**: risorse con problemi di monitoraggio degli agenti. l'agente log Analytics distribuito, ma l'agente non invia dati o presenta altri problemi di integrità.
 
 - **Filtri** : i filtri multipli nella parte superiore della pagina consentono di ridefinire rapidamente l'elenco di risorse in base alla domanda a cui si sta provando a rispondere. Se, ad esempio, si desidera rispondere alla domanda su *quale computer con il tag "Production" manca l'agente di log Analytics* , è possibile combinare il filtro di **monitoraggio degli agenti** con il filtro **tag** , come illustrato nel clip seguente:

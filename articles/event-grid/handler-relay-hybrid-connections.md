@@ -3,12 +3,12 @@ title: Connessione ibrida di Inoltro di Azure come gestore eventi per gli eventi
 description: Descrive come usare connessioni ibride di Inoltro di Azure come gestori eventi di Griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 38233a2e103600f07837ce9a1ad8d63fe7e4fb99
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3807e2d125d652b8f5ed7c9dec1b972d69f699f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105712"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270203"
 ---
 # <a name="relay-hybrid-connection-as-an-event-handler-for-azure-event-grid-events"></a>Connessione ibrida di Inoltro di Azure come gestore eventi per gli eventi di Griglia di eventi di Azure
 Un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue altre azioni per elaborare l'evento. Per gestire gli eventi vengono configurati automaticamente diversi servizi di Azure, tra cui **Inoltro di Azure**. 
@@ -40,6 +40,9 @@ Per un esempio relativo all'uso delle connessioni ibride di Inoltro di Azure com
     }
 }
 ```
+
+> [!NOTE]
+> La distribuzione di eventi a una connessione ibrida di inoltro di Azure in **un altro tenant** non è supportata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco di gestori eventi supportati, vedere l'articolo [Gestori eventi](event-handlers.md). 

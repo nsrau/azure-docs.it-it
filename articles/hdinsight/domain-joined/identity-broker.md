@@ -7,32 +7,43 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: 3b2807ccd6d83511dd0c9a32a177ea9fe2c4b642
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 12d98406b21ed9a3ea27f9aa4abc0db6f536468d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662095"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251916"
 ---
-# <a name="use-id-broker-preview-for-credential-management"></a>Usare ID Broker (anteprima) per la gestione delle credenziali
+# <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID Broker (anteprima)
 
-Questo articolo descrive come configurare e usare la funzionalità ID Broker in Azure HDInsight. È possibile usare questa funzionalità per accedere ad Apache Ambari tramite Azure Multi-Factor Authentication e ottenere i ticket Kerberos necessari senza che siano necessari hash delle password in Azure Active Directory Domain Services (Azure AD DS).
+Questo articolo descrive come configurare e usare la funzionalità HDInsight ID Broker (HIB) in Azure HDInsight. È possibile usare questa funzionalità per ottenere l'autenticazione OAuth moderna in Apache Ambari mentre è in corso l'applicazione di Multi-Factor Authentication (multi-factor authentication) senza la necessità di hash di password legacy in Azure Active Directory Domain Services (AAD-DS).
 
 ## <a name="overview"></a>Panoramica
 
-ID Broker semplifica le configurazioni di autenticazione complesse negli scenari seguenti:
+HIB semplifica le configurazioni di autenticazione complesse negli scenari seguenti:
 
-* L'organizzazione si affida alla Federazione per autenticare gli utenti per l'accesso alle risorse cloud. In precedenza, per usare i cluster HDInsight Enterprise Security Package (ESP), era necessario abilitare la sincronizzazione dell'hash delle password dall'ambiente locale al Azure Active Directory. Questo requisito potrebbe essere difficile o indesiderato per alcune organizzazioni.
+* L'organizzazione si affida alla Federazione per autenticare gli utenti per l'accesso alle risorse cloud. In precedenza, per usare i cluster HDInsight Enterprise Security Package (ESP), era necessario abilitare la sincronizzazione dell'hash delle password dall'ambiente locale al Azure Active Directory (Azure AD). Questo requisito potrebbe essere difficile o indesiderato per alcune organizzazioni.
 
-* Si stanno creando soluzioni che usano tecnologie basate su diversi meccanismi di autenticazione. Ad esempio, Apache Hadoop e Apache Ranger si basano su Kerberos, mentre Azure Data Lake Storage si basa su OAuth.
+* L'organizzazione desidera applicare l'autenticazione a più fattori per l'accesso basato su Web/HTTP ad Apache Ambari e altre risorse cluster.
 
-ID Broker fornisce un'infrastruttura di autenticazione unificata e rimuove la necessità di sincronizzare gli hash delle password con Azure AD DS. ID Broker è costituito da componenti in esecuzione in una macchina virtuale Windows Server (nodo broker ID), insieme ai nodi del gateway del cluster. 
+HIB fornisce l'infrastruttura di autenticazione che consente la transizione del protocollo da OAuth (Modern) a Kerberos (legacy) senza la necessità di sincronizzare gli hash delle password per AAD-DS. Questa infrastruttura è costituita da componenti in esecuzione in una macchina virtuale Windows Server (nodo broker ID), insieme ai nodi del gateway del cluster.
 
-Il diagramma seguente illustra il flusso di autenticazione per tutti gli utenti, inclusi gli utenti federati, dopo l'abilitazione di ID Broker:
+Il diagramma seguente illustra il flusso di autenticazione basato su OAuth moderno per tutti gli utenti, inclusi gli utenti federati, dopo l'abilitazione di ID Broker:
 
 ![Flusso di autenticazione con ID Broker](./media/identity-broker/identity-broker-architecture.png)
 
-ID Broker consente di accedere ai cluster ESP usando Multi-Factor Authentication, senza fornire alcuna password. Se è già stato effettuato l'accesso ad altri servizi di Azure, ad esempio la portale di Azure, è possibile accedere al cluster HDInsight con un'esperienza di Single Sign-On (SSO).
+In questo diagramma, il client (ad esempio browser o app) deve prima acquisire il token OAuth e quindi presentare il token al gateway in una richiesta HTTP. Se è già stato effettuato l'accesso ad altri servizi di Azure, ad esempio la portale di Azure, è possibile accedere al cluster HDInsight con un'esperienza di Single Sign-On (SSO).
+
+Potrebbero essere presenti molte applicazioni legacy che supportano solo l'autenticazione di base, ad esempio nome utente e password. Per questi scenari, è comunque possibile usare l'autenticazione di base HTTP per connettersi ai gateway del cluster. In questa configurazione è necessario garantire la connettività di rete dai nodi del gateway all'endpoint federativo (endpoint ADFS) per garantire una linea di visibilità diretta dai nodi del gateway.
+
+Usare la tabella seguente per determinare la migliore opzione di autenticazione in base alle esigenze dell'organizzazione:
+
+|Opzioni di autenticazione |Configurazione di HDInsight | Fattori da considerare |
+|---|---|---|
+| OAuth completo | ESP + HIB | 1. opzione più sicura (autenticazione a più fattori supportata) 2.    La sincronizzazione dell'hash di passaggio non è obbligatoria. 3.  Nessun accesso SSH/kinit/keytab per gli account locali, che non hanno l'hash della password in AAD-DS. 4.   Gli account solo cloud possono comunque SSH/kinit/keytab. 5. Accesso basato sul Web a Ambari tramite OAuth 6.  Richiede l'aggiornamento di app legacy (JDBC/ODBC e così via) per il supporto di OAuth.|
+| OAuth e autenticazione di base | ESP + HIB | 1. accesso basato sul Web a Ambari tramite OAuth 2. Le app legacy continuano a usare l'autenticazione di base. 3. Multi-factor authentication deve essere disabilitato per l'accesso con autenticazione di base. 4. La sincronizzazione dell'hash di passaggio non è obbligatoria. 5. Nessun accesso SSH/kinit/keytab per gli account locali, che non hanno l'hash della password in AAD-DS. 6. Gli account solo cloud possono comunque SSH/kinit. |
+| Autenticazione completamente Basic | ESP | 1. più simile alle configurazioni locali. 2. La sincronizzazione dell'hash delle password per AAD-DS è obbligatoria. 3. Gli account locali possono usare SSH/kinit o keytab. 4. È necessario disabilitare l'autenticazione a più fattori se l'archivio di backup è ADLS Gen2 |
+
 
 ## <a name="enable-hdinsight-id-broker"></a>Abilita HDInsight ID Broker
 
@@ -88,27 +99,31 @@ Se si aggiunge un nuovo ruolo denominato `idbrokernode` con gli attributi seguen
 
 ## <a name="tool-integration"></a>Integrazione degli strumenti
 
-Il [plug-in HDInsight IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) è stato aggiornato per supportare OAuth. È possibile utilizzare questo plug-in per connettersi al cluster e inviare i processi.
-
-È anche possibile usare [Spark & gli strumenti hive per vs code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) per sfruttare i processi del notebook e inviare i processi.
+Gli strumenti HDIsngith vengono aggiornati per il supporto nativo di OAuth. Si consiglia vivamente di usare questi strumenti per l'accesso moderno basato su OAuth ai cluster. Il [plug-in HDInsight IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) può essere usato per le applicazioni basate su Java, ad esempio scala. [Spark & hive Tools for vs code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) può essere usato per i processi PySpark e hive. Supportano sia i processi batch che quelli interattivi.
 
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Accesso SSH senza un hash della password in Azure AD DS
 
-Dopo l'abilitazione di ID Broker, sarà comunque necessario un hash della password archiviato in Azure AD DS per gli scenari SSH con account di dominio. Per SSH a una macchina virtuale aggiunta a un dominio o per eseguire il `kinit` comando, è necessario specificare una password. 
+|Opzioni SSH |Fattori da considerare |
+|---|---|
+| Account VM locale (ad esempio sshuser) | 1. questo account è stato specificato al momento della creazione del cluster. 2.  Nessun authication Kerberos per questo account |
+| Account solo cloud (ad esempio alice@contoso.onmicrosoft.com ) | 1. l'hash della password è disponibile in AAD-DS 2. L'autenticazione Kerberos è possibile tramite SSH Kerberos |
+| Account locale (ad esempio alice@contoso.com ) | 1. l'autenticazione Kerberos SSH è possibile solo se l'hash delle password è disponibile in AAD-DS, altrimenti l'utente non può eseguire SSH nel cluster |
 
-Per l'autenticazione SSH è necessario che l'hash sia disponibile in Azure AD DS. Se si vuole usare SSH solo per gli scenari amministrativi, è possibile creare un account solo cloud e usarlo per SSH nel cluster. Altri utenti possono comunque usare gli strumenti Ambari o HDInsight (ad esempio il plug-in IntelliJ) senza che sia disponibile l'hash della password in Azure AD DS.
+Per SSH a una macchina virtuale aggiunta a un dominio o per eseguire il `kinit` comando, è necessario specificare una password. Per l'autenticazione Kerberos SSH è necessario che l'hash sia disponibile in AAD-DS. Se si vuole usare SSH solo per gli scenari amministrativi, è possibile creare un account solo cloud e usarlo per SSH nel cluster. Altri utenti locali possono comunque usare gli strumenti Ambari o HDInsight o l'autenticazione di base HTTP senza che sia disponibile l'hash della password in AAD-DS.
+
+Se l'organizzazione non esegue la sincronizzazione degli hash delle password ad AAD-DS, è consigliabile creare un solo utente cloud in Azure AD e assegnarlo come amministratore del cluster durante la creazione del cluster e usarlo per scopi di amministrazione, che include l'accesso radice alle macchine virtuali tramite SSH.
 
 Per risolvere i problemi di autenticazione, vedere la [Guida](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
 
-## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Client che usano OAuth per connettersi al gateway HDInsight con l'installazione di ID Broker
+## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-hib"></a>Client che usano OAuth per connettersi al gateway di HDInsight con HIB
 
-Nel programma di installazione di ID Broker è possibile aggiornare le app e i client personalizzati che si connettono al gateway per acquisire prima il token OAuth necessario. È possibile seguire la procedura descritta in questo [documento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) per acquisire il token con le informazioni seguenti:
+Nel programma di installazione di HIB, è possibile aggiornare le app e i client personalizzati che si connettono al gateway per acquisire prima il token OAuth necessario. È possibile seguire la procedura descritta in questo [documento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) per acquisire il token con le informazioni seguenti:
 
 *   URI risorsa OAuth: `https://hib.azurehdinsight.net` 
-* AppId: 7865c1d2-F040-46cc-875f-831a1ef6a28a
+*   AppId: 7865c1d2-F040-46cc-875f-831a1ef6a28a
 *   Autorizzazione: (nome: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
-Dopo aver acquisire il token OAuth, è possibile usarlo nell'intestazione dell'autorizzazione per la richiesta HTTP al gateway del cluster (ad esempio <clustername> -int.azurehdinsight.NET). Ad esempio, un comando curl di esempio per l'API Livio potrebbe essere simile al seguente:
+Dopo aver acquisito il token OAuth, è possibile usarlo nell'intestazione dell'autorizzazione della richiesta HTTP per il gateway del cluster (ad esempio, https:// <clustername> -int.azurehdinsight.NET). Ad esempio, un comando curl di esempio per l'API Apache Livio potrebbe avere un aspetto simile al seguente:
     
 ```bash
 curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"

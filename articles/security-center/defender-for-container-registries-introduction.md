@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 742d230d6ed1535bada9c35219d2ddf68fd64ae1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6254b78ad19e7034f78f7891d57a3474fee0c602
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977150"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301924"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduzione ad Azure Defender per registri contenitori
 
@@ -64,14 +64,11 @@ Viene eseguito il pull dell'immagine dal registro di sistema. Viene quindi esegu
 
 Il Centro sicurezza filtra e classifica i risultati dallo scanner. Quando un'immagine è integra, il Centro sicurezza le contrassegna come tali. Il Centro sicurezza genera raccomandazioni sulla sicurezza solo per le immagini che presentano problemi da risolvere. Inviando notifiche solo quando si verificano problemi, il Centro sicurezza riduce il rischio di avvisi indesiderati informativi.
 
-### <a name="how-often-does-security-center-scan-my-images"></a>Con quale frequenza il Centro sicurezza analizza le immagini?
-Le analisi delle immagini vengono attivate a ogni push o importazione e se l'immagine è stata ritirata negli ultimi 30 giorni. 
-
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>È possibile ottenere i risultati dell'analisi tramite l'API REST?
 Sì. I risultati si trovano nell' [API REST delle sottovalutazioni](/rest/api/securitycenter/subassessments/list/). È anche possibile usare Azure Resource Graph (ARG), l'API simile a kusto per tutte le risorse: una query può recuperare un'analisi specifica.
  
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Quali tipi di registro vengono analizzati? Quali tipi vengono fatturati?
-La sezione Availability elenca i tipi di registri contenitori supportati da Azure Defender per i registri contenitori. 
+Per un elenco dei tipi di registri contenitori supportati da Azure Defender per i registri contenitori, vedere [disponibilità](defender-for-container-registries-usage.md#availability).
 
 Se si connettono registri non supportati alla sottoscrizione di Azure, non verranno analizzati e non verranno addebitati costi.
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 30f9f1998ee133c2546c9f4de7a99c51feb8740f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 5ec419be5c7549553788d009f09fa3e0fb8655e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166196"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258286"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inizializzare applicazioni client usando MSAL.NET
 Questo articolo descrive l'inizializzazione di applicazioni client pubbliche e riservate con Microsoft Authentication Library per .NET (MSAL.NET).  Per altre informazioni sui tipi di applicazioni client e sulle opzioni di configurazione dell'applicazione, vedere la [Panoramica](msal-client-applications.md).
@@ -98,7 +98,7 @@ I modificatori che è possibile impostare in un client pubblico o in un generato
 
 |Modificatore | Descrizione|
 |--------- | --------- |
-|`.WithAuthority()`7 sostituzioni | Imposta l'autorità predefinita dell'applicazione su un'autorità di Azure AD, con la possibilità di scegliere il cloud di Azure, i destinatari, il tenant (ID tenant o nome di dominio) o fornire direttamente l'URI dell'autorità.|
+|`.WithAuthority()` 7 sostituzioni | Imposta l'autorità predefinita dell'applicazione su un'autorità di Azure AD, con la possibilità di scegliere il cloud di Azure, i destinatari, il tenant (ID tenant o nome di dominio) o fornire direttamente l'URI dell'autorità.|
 |`.WithAdfsAuthority(string)` | Imposta l'autorità predefinita dell'applicazione in modo che sia un'autorità ADFS.|
 |`.WithB2CAuthority(string)` | Imposta l'autorità predefinita dell'applicazione come Azure AD B2C autorità.|
 |`.WithClientId(string)` | Esegue l'override dell'ID client.|
@@ -137,7 +137,7 @@ Si supponga che l'applicazione sia un'applicazione line-of-business, che è solo
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzurePublic, tenantId)
+        .WithAuthority(AzureCloudInstance.AzurePublic, tenantId)
         .Build();
 ```
 
@@ -146,7 +146,7 @@ Il punto in cui diventa interessante è che la programmazione per i cloud nazion
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
+        .WithAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
 ```
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41dc4e97e847e9e7d9863631cdb20b72d3f35d9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598420"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269370"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gestire l'ambiente del servizio di integrazione in App per la logica di Azure
 
@@ -122,7 +122,7 @@ L'unità di base Premium ISE ha una capacità fissa, quindi se è necessaria una
    * [**Scalabilità manuale**](#manual-scale): ridimensionare in base al numero di unità di elaborazione che si vuole usare.
    * [**Scalabilità automatica personalizzata**](#custom-autoscale): ridimensionare in base alle metriche delle prestazioni selezionando i diversi criteri e specificando le condizioni di soglia per la riunione di questi criteri.
 
-   ![Selezionare il tipo di ridimensionamento desiderato](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
+   ![Screenshot che mostra la pagina "scale out" con "scale manuale" selezionata.](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
 
 <a name="manual-scale"></a>
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: cccc45f182f3ae826440df8bc163080b82226c9f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: bd6afa8b3776ed48d4b25a36b2902265fa0ab5c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172075"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269761"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blocca le connessioni create dai connettori nelle app per la logica di Azure
 
@@ -121,7 +121,7 @@ Per bloccare la creazione di una connessione in un'app per la logica, seguire qu
 
 1. In **definizione criteri**specificare le informazioni per la definizione dei criteri, in base alle proprietà descritte nell'esempio:
 
-   ![Proprietà definizione criteri](./media/block-connections-connectors/policy-definition-create-connections-1.png)
+   ![Screenshot che mostra le proprietà "definizione dei criteri".](./media/block-connections-connectors/policy-definition-create-connections-1.png)
 
    | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
@@ -150,12 +150,12 @@ Per bloccare la creazione di una connessione in un'app per la logica, seguire qu
     }
     ```
 
-   | Proprietà | Valore | Descrizione |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | `mode` | `All` | Modalità che determina i tipi di risorse valutati dal criterio. <p><p>Questo scenario imposta `mode` su `All` , che applica i criteri a gruppi di risorse di Azure, sottoscrizioni e tutti i tipi di risorsa. <p><p>Per ulteriori informazioni, vedere la pagina relativa alla [modalità struttura della definizione dei criteri](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | Condizione che determina quando applicare la regola dei criteri <p><p>In questo scenario, `{condition-to-evaluate}` determina se il `api.id` valore in `Microsoft.Web/connections/api.id` corrisponde a `*managedApis/{connector-name}` , che specifica un valore jolly (*). <p><p>Per altre informazioni, vedere [struttura della definizione dei criteri-regola dei criteri](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `field` | `Microsoft.Web/connections/api.id` | `field`Valore da confrontare con la condizione <p><p>In questo scenario, `field` Usa l' [*alias*](../governance/policy/concepts/definition-structure.md#aliases), `Microsoft.Web/connections/api.id` , per accedere al valore nella proprietà Connector, `api.id` . |
-   | `like` | `*managedApis/{connector-name}` | Operatore logico e valore da utilizzare per il confronto del `field` valore <p><p>In questo scenario, l' `like` operatore e il carattere jolly (*) assicurano che la regola funzioni indipendentemente dall'area, mentre la stringa, `*managedApis/{connector-name}` , è il valore in base al quale `{connector-name}` è l'ID del connettore che si desidera bloccare. <p><p>Si supponga, ad esempio, di voler bloccare la creazione di connessioni a piattaforme o database di social media: <p><p>Twitter`twitter` <br>Instagram`instagram` <br>Facebook`facebook` <br>Pinterest`pinterest` <br>-SQL Server o Azure SQL:`sql` <p><p>Per trovare questi ID connettore, vedere l'articolo [relativo all'ID di riferimento per Find Connector](#connector-reference-ID) più indietro in questo argomento. |
+   | `like` | `*managedApis/{connector-name}` | Operatore logico e valore da utilizzare per il confronto del `field` valore <p><p>In questo scenario, l' `like` operatore e il carattere jolly (*) assicurano che la regola funzioni indipendentemente dall'area, mentre la stringa, `*managedApis/{connector-name}` , è il valore in base al quale `{connector-name}` è l'ID del connettore che si desidera bloccare. <p><p>Si supponga, ad esempio, di voler bloccare la creazione di connessioni a piattaforme o database di social media: <p><p>Twitter `twitter` <br>Instagram `instagram` <br>Facebook `facebook` <br>Pinterest `pinterest` <br>-SQL Server o Azure SQL: `sql` <p><p>Per trovare questi ID connettore, vedere l'articolo [relativo all'ID di riferimento per Find Connector](#connector-reference-ID) più indietro in questo argomento. |
    | `then` | `{effect-to-apply}` | Effetto da applicare quando `if` viene soddisfatta la condizione <p><p>In questo scenario, l'oggetto `{effect-to-apply}` è in grado di bloccare e interrompere una richiesta o un'operazione che non è conforme ai criteri. <p><p>Per altre informazioni, vedere [struttura della definizione dei criteri-regola dei criteri](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `effect` | `deny` | `effect`Per bloccare la richiesta è necessario creare la connessione specificata <p><p>Per altre informazioni, vedere [comprendere gli effetti dei criteri di Azure-nega](../governance/policy/concepts/effects.md#deny). |
    ||||
@@ -180,7 +180,7 @@ Per bloccare la creazione di una connessione in un'app per la logica, seguire qu
 
    Ecco il modo in cui viene visualizzata la casella della **regola dei criteri** :
 
-   ![Regola per la definizione dei criteri](./media/block-connections-connectors/policy-definition-create-connections-2.png)
+   ![Screenshot che mostra la casella "regola dei criteri" con un esempio di regola dei criteri.](./media/block-connections-connectors/policy-definition-create-connections-2.png)
 
    Per più connettori, è possibile aggiungere altre condizioni, ad esempio:
 
@@ -244,7 +244,7 @@ Quando si crea una connessione all'interno di un'app per la logica, tale conness
 
    ![Proprietà definizione criteri](./media/block-connections-connectors/policy-definition-using-connections-1.png)
 
-   | Proprietà | Obbligatoria | valore | Description |
+   | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Posizione della definizione** | Sì | <*nome sottoscrizione di Azure*> | Sottoscrizione di Azure da usare per la definizione dei criteri <p><p>1. per trovare la sottoscrizione, selezionare il pulsante con i puntini di sospensione (**...**). <br>2. dall'elenco **sottoscrizione** individuare e selezionare la sottoscrizione. <br>3. al termine, selezionare **Seleziona**. |
    | **Nome** | Sì | <*Policy-Definition-nome*> | Nome da usare per la definizione dei criteri |
@@ -271,12 +271,12 @@ Quando si crea una connessione all'interno di un'app per la logica, tale conness
     }
     ```
 
-   | Proprietà | Valore | Description |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | `mode` | `All` | Modalità che determina i tipi di risorse valutati dal criterio. <p><p>Questo scenario imposta `mode` su `All` , che applica i criteri a gruppi di risorse di Azure, sottoscrizioni e tutti i tipi di risorsa. <p><p>Per ulteriori informazioni, vedere la pagina relativa alla [modalità struttura della definizione dei criteri](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | Condizione che determina quando applicare la regola dei criteri <p><p>In questo scenario, `{condition-to-evaluate}` determina se l'output della stringa da `[string(field('Microsoft.Logic/workflows/parameters'))]` contiene la stringa, `{connector-name}` . <p><p>Per altre informazioni, vedere [struttura della definizione dei criteri-regola dei criteri](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `value` | `[string(field('Microsoft.Logic/workflows/parameters'))]` | Valore da confrontare con la condizione <p><p>In questo scenario, `value` è l'output di stringa di `[string(field('Microsoft.Logic/workflows/parameters'))]` , che converte l' `$connectors` oggetto all'interno dell' `Microsoft.Logic/workflows/parameters` oggetto in una stringa. |
-   | `contains` | `{connector-name}` | Operatore logico e valore da utilizzare per il confronto con la `value` Proprietà. <p><p>In questo scenario, l' `contains` operatore garantisce che la regola funzioni indipendentemente da dove `{connector-name}` viene visualizzato, dove la stringa, `{connector-name}` , è l'ID del connettore che si desidera limitare o bloccare. <p><p>Si supponga, ad esempio, di voler bloccare l'uso delle connessioni a piattaforme o database di social media: <p><p>Twitter`twitter` <br>Instagram`instagram` <br>Facebook`facebook` <br>Pinterest`pinterest` <br>-SQL Server o Azure SQL:`sql` <p><p>Per trovare questi ID connettore, vedere l'articolo [relativo all'ID di riferimento per Find Connector](#connector-reference-ID) più indietro in questo argomento. |
+   | `contains` | `{connector-name}` | Operatore logico e valore da utilizzare per il confronto con la `value` Proprietà. <p><p>In questo scenario, l' `contains` operatore garantisce che la regola funzioni indipendentemente da dove `{connector-name}` viene visualizzato, dove la stringa, `{connector-name}` , è l'ID del connettore che si desidera limitare o bloccare. <p><p>Si supponga, ad esempio, di voler bloccare l'uso delle connessioni a piattaforme o database di social media: <p><p>Twitter `twitter` <br>Instagram `instagram` <br>Facebook `facebook` <br>Pinterest `pinterest` <br>-SQL Server o Azure SQL: `sql` <p><p>Per trovare questi ID connettore, vedere l'articolo [relativo all'ID di riferimento per Find Connector](#connector-reference-ID) più indietro in questo argomento. |
    | `then` | `{effect-to-apply}` | Effetto da applicare quando `if` viene soddisfatta la condizione <p><p>In questo scenario, l'oggetto `{effect-to-apply}` prevede il blocco e l'esito negativo di una richiesta o di un'operazione che non è conforme ai criteri. <p><p>Per altre informazioni, vedere [struttura della definizione dei criteri-regola dei criteri](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `effect` | `deny` | Il `effect` è `deny` o blocca la richiesta di salvataggio di un'app per la logica che usa la connessione specificata <p><p>Per altre informazioni, vedere [comprendere gli effetti dei criteri di Azure-nega](../governance/policy/concepts/effects.md#deny). |
    ||||
@@ -329,7 +329,7 @@ Successivamente, è necessario assegnare la definizione dei criteri in cui si vu
 
 1. In **nozioni di base**fornire queste informazioni per l'assegnazione dei criteri:
 
-   | Proprietà | Obbligatorio | Descrizione |
+   | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Ambito** | Sì | Risorse in cui si desidera applicare l'assegnazione dei criteri. <p><p>1. accanto alla casella **ambito** , selezionare il pulsante con i puntini di sospensione (**...**). <br>2. dall'elenco **sottoscrizione** selezionare la sottoscrizione di Azure. <br>3. Facoltativamente, nell'elenco **gruppo di risorse** selezionare il gruppo di risorse. <br>4. al termine, selezionare **Seleziona**. |
    | **Esclusioni** | No | Tutte le risorse di Azure da escludere dall'assegnazione dei criteri. <p><p>1. accanto alla casella **esclusioni** , selezionare il pulsante con i puntini di sospensione (**...**). <br>2. dall'elenco di **risorse** selezionare la risorsa > **Aggiungi a ambito selezionato**. <br>3. al termine, selezionare **Salva**. |

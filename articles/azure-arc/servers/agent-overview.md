@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'agente Connected Machine per Windows
 description: Questo articolo fornisce una panoramica dettagliata dell'agente server abilitati per Azure Arc, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 990b5999a8483c6417049ac5ab965843c2b13659
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 01f1b291fee57d94b95bdeeef5f9f24b011e9fca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255044"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
 
@@ -131,6 +131,9 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 La connessione delle macchine virtuali nell'ambiente ibrido direttamente con Azure può essere eseguita usando metodi diversi a seconda dei requisiti. La tabella seguente illustra ogni metodo per determinare quello più adatto alla propria organizzazione.
 
+> [!IMPORTANT]
+> Non è possibile installare l'agente del computer connesso in una macchina virtuale Windows di Azure. Se si tenta di eseguire questa operazione, viene rilevata l'installazione e viene eseguito il rollback.
+
 | Metodo | Descrizione |
 |--------|-------------|
 | In modo interattivo | Installare manualmente l'agente in una singola o in un numero limitato di macchine virtuali seguendo i passaggi descritti in [Connettere i computer ad Azure con Azure Arc per server - Portale](onboard-portal.md).<br> Dal portale di Azure è possibile generare uno script ed eseguirlo sulla macchina virtuale per automatizzare i passaggi di installazione e configurazione dell'agente.|
@@ -228,7 +231,7 @@ Dopo l'installazione dell'agente Connected Machine per Linux, vengono applicate 
     |/opt/logs/dsc.log |Registra informazioni dettagliate sull'attività del servizio DSC,<br> in particolare la connettività tra il servizio himds e i criteri di Azure.|
     |/opt/logs/dsc.telemetry.txt |Registra informazioni dettagliate sulla telemetria del servizio DSC e la registrazione dettagliata.|
     |ext_mgr_logs/var/lib/GuestConfig/ |Registra informazioni dettagliate sul componente agente di estensione.|
-    |extension_logs/var/log/GuestConfig/|Registra i dettagli dall'estensione installata.|
+    |extension_logs/var/lib/GuestConfig/|Registra i dettagli dall'estensione installata.|
 
 * Durante l'installazione dell'agente, vengono create le variabili di ambiente seguenti. Queste variabili vengono impostate in `/lib/systemd/system.conf.d/azcmagent.conf`.
 
@@ -244,4 +247,6 @@ Dopo l'installazione dell'agente Connected Machine per Linux, vengono applicate 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a valutare i server abilitati per Azure Arc, seguire l'articolo [connettere macchine ibride ad Azure dalla portale di Azure](onboard-portal.md).
+* Per iniziare a valutare i server abilitati per Azure Arc, seguire l'articolo [connettere macchine ibride ad Azure dalla portale di Azure](onboard-portal.md).
+
+* Le informazioni sulla risoluzione dei problemi sono reperibili nella [Guida alla risoluzione dei problemi relativi all'agente del computer connesso](troubleshoot-agent-onboard.md).

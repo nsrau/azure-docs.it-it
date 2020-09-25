@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3cac57e0f205da7a39447ddd48810b8fd120ab58
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e5145aee31b4f82b34f9256257cf6c2951ca24da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549062"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256450"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>Esercitazione: configurare MindTickle per il provisioning utenti automatico
 
@@ -97,11 +97,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere `https://admin.mindtickle.com/scim` in **URL tenant**. Inserire il valore del **token JWT** recuperato in precedenza nella casella di testo token segreto, immettere il valore del **token JWT** fornito dal team di supporto di MindTickle. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi ai criteri. Se la connessione non riesce, verificare che l'account MindTickle disponga delle autorizzazioni di amministratore e riprovare.
 

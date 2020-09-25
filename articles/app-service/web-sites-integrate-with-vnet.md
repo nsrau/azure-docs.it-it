@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8f356cb935f1cf63408b6fbc604f139439022a4f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 433d519cc71b8bb218569679c94142658f3c9416
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646616"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255247"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app con una rete virtuale di Azure
 
@@ -54,6 +54,10 @@ Le app nel servizio app sono ospitate in ruoli di lavoro. I piani tariffari Basi
 
 Quando l'integrazione rete virtuale è abilitata a livello di area, l'app effettua chiamate in uscita a Internet tramite i normali canali. Gli indirizzi in uscita elencati nel portale delle proprietà dell'app sono gli indirizzi ancora usati dall'app. Per l'app variano solo le chiamate ai servizi protetti degli endpoint di servizio, ovvero gli indirizzi RFC 1918 accedono alla rete virtuale. Se WEBSITE_VNET_ROUTE_ALL è impostato su 1, tutto il traffico in uscita può essere inviato nella rete virtuale.
 
+> [!NOTE]
+> `WEBSITE_VNET_ROUTE_ALL` non è attualmente supportato nei contenitori di Windows.
+> 
+
 La funzionalità supporta una sola interfaccia virtuale per ogni ruolo di lavoro. Un'interfaccia virtuale per ogni ruolo di lavoro significa un'integrazione rete virtuale a livello di area per ogni piano di servizio app. Tutte le app nello stesso piano di servizio app possono usare la stessa integrazione rete virtuale. Se è necessario che un'app si connetta a una rete virtuale aggiuntiva, è necessario creare un altro piano di servizio app. L'interfaccia virtuale usata non è una risorsa a cui i clienti hanno accesso diretto.
 
 Considerato il modo in cui funziona questa tecnologia, il traffico usato con l'integrazione rete virtuale non viene visualizzato nei log dei flussi di Azure Network Watcher o dei gruppi di sicurezza di rete.
@@ -72,7 +76,8 @@ L'integrazione rete virtuale richiesta dal gateway supporta la connessione a una
 Non è possibile usare l'integrazione rete virtuale richiesta dal gateway:
 
 * Con una rete virtuale connessa con Azure ExpressRoute.
-* Da un'app Linux
+* Da un'app Linux.
+* Da un [contenitore di Windows](quickstart-custom-container.md).
 * Per accedere alle risorse protette dall'endpoint di servizio.
 * Con un gateway di coesistenza che supporta le VPN sia ExpressRoute che da punto a sito o da sito a sito.
 

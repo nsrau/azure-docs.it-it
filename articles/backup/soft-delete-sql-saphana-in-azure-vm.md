@@ -3,59 +3,18 @@ title: Eliminazione temporanea per SQL Server in una macchina virtuale di Azure 
 description: Informazioni su come l'eliminazione temporanea per SQL Server in macchine virtuali di Azure e SAP HANA nei carichi di lavoro delle macchine virtuali di Azure rende più sicuri i backup.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2a442997d426ff0bf4c74b0b45f7657cc0593b82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022293"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254296"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Eliminazione temporanea per SQL Server in una macchina virtuale di Azure e SAP HANA nei carichi di lavoro delle macchine virtuali di Azure
 
 Backup di Azure ora fornisce l'eliminazione temporanea per SQL Server in una macchina virtuale di Azure e SAP HANA nei carichi di lavoro delle macchine virtuali di Azure. Questa funzionalità è aggiunta allo scenario di eliminazione temporanea di [macchine virtuali di Azure](soft-delete-virtual-machines.md)già supportato.
 
 L' [eliminazione](backup-azure-security-feature-cloud.md) temporanea è una funzionalità di sicurezza che consente di proteggere i dati di backup anche dopo l'eliminazione. Con l'eliminazione temporanea, anche se un attore malintenzionato Elimina il backup di un database (o i dati di backup vengono accidentalmente eliminati), i dati di backup vengono conservati per 14 giorni aggiuntivi. In questo modo è possibile recuperare l'elemento di backup senza perdita di dati. Questa conservazione aggiuntiva di 14 giorni dei dati di backup nello stato "eliminazione temporanea" non comporta alcun costo per il cliente.
-
->[!NOTE]
->Una volta abilitata l'anteprima per una sottoscrizione, non è possibile disabilitare l'eliminazione temporanea solo per SQL Server o SAP HANA database e mantenerlo abilitato per le macchine virtuali nello stesso insieme di credenziali. È possibile creare insiemi di credenziali separati per il controllo granulare.
-
-## <a name="steps-to-enroll-in-preview"></a>Passaggi per la registrazione in anteprima
-
-1. Accedere al proprio account Azure.
-
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-2. Selezionare la sottoscrizione che si vuole registrare nell'anteprima:
-
-   ```powershell
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-   ```
-
-3. Registra questa sottoscrizione al programma di anteprima:
-
-   ```powershell
-   Register-AzureRMProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-4. Attendere 30 minuti per la registrazione della sottoscrizione nell'anteprima.
-
-5. Per controllare lo stato, eseguire i cmdlet seguenti:
-
-   ```powershell
-   Get-AzureRmProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-6. Quando la sottoscrizione viene visualizzata come registrata, eseguire il comando seguente:
-
-   ```powershell
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
->[!NOTE]
->Ogni volta che viene creato un nuovo insieme di credenziali/insiemi di credenziali nella sottoscrizione con eliminazione temporanea abilitata, è necessario eseguire di nuovo il comando seguente per abilitare la funzionalità per gli insiemi di credenziali appena creati.<BR>
-> `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 ## <a name="soft-delete-for-sql-server-in-azure-vm-using-azure-portal"></a>Eliminazione temporanea per SQL Server in una macchina virtuale di Azure con portale di Azure
 

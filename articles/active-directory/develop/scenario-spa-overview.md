@@ -11,31 +11,26 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 60e4ca80faa2c8787a13d87ab06cad9243299e50
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dc0aee2e6c1b06850ffd0385626955a9798e7aeb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291952"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257317"
 ---
 # <a name="scenario-single-page-application"></a>Scenario: applicazione a pagina singola
 
 Scopri tutto quello che ti serve per creare un'applicazione a singola pagina (SPA).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="getting-started"></a>Guida introduttiva
 
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+Se non è già stato fatto, creare la prima app completando la Guida introduttiva a JavaScript SPA:
 
-## <a name="getting-started"></a>Introduzione
-
-È possibile creare la prima applicazione seguendo la Guida introduttiva a JavaScript SPA:
-
-> [!div class="nextstepaction"]
-> [Guida introduttiva: applicazione a pagina singola](./quickstart-v2-javascript.md)
+[Guida introduttiva: applicazione a pagina singola](./quickstart-v2-javascript.md)
 
 ## <a name="overview"></a>Panoramica
 
-Molte applicazioni Web moderne sono compilate come applicazioni a singola pagina sul lato client. Gli sviluppatori li scrivono usando JavaScript o un Framework di applicazione a singola pagina, ad esempio angolare, VME e React. Queste applicazioni vengono eseguite in un browser Web e presentano caratteristiche di autenticazione diverse rispetto alle applicazioni Web tradizionali sul lato server. 
+Molte applicazioni Web moderne sono compilate come applicazioni a singola pagina sul lato client. Gli sviluppatori li scrivono usando JavaScript o un Framework di applicazione a singola pagina, ad esempio angolare, VME e React. Queste applicazioni vengono eseguite in un browser Web e presentano caratteristiche di autenticazione diverse rispetto alle applicazioni Web tradizionali sul lato server.
 
 La piattaforma Microsoft Identity offre **due** opzioni per consentire alle applicazioni a singola pagina di accedere agli utenti e ottenere i token per accedere ai servizi back-end o alle API Web:
 
@@ -57,7 +52,11 @@ Per abilitare questo scenario per l'applicazione, è necessario:
 * Configurazione dell'applicazione con le proprietà dell'applicazione registrate, ad esempio l'ID applicazione.
 * Uso di Microsoft Authentication Library per JavaScript (MSAL.js) per eseguire il flusso di autenticazione per l'accesso e l'acquisizione di token.
 
+## <a name="recommended-reading"></a>Letture consigliate
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Registrazione dell'app](scenario-spa-app-registration.md)
+> [Registrazione delle app](scenario-spa-app-registration.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/23/2020
-ms.openlocfilehash: 987537d8497b3d8f2728941334d8328320ec6997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be469ab3b05c54ebc5afa6bd6d129efd8d4ba692
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80289602"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254806"
 ---
 # <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Come creare avvisi da Monitoraggio di Azure per le macchine virtuali
 Gli [avvisi in monitoraggio di Azure](../platform/alerts-overview.md) notificano in modo proattivo i dati e i modelli interessanti nei dati di monitoraggio. Monitoraggio di Azure per le macchine virtuali non include regole di avviso preconfigurate, ma è possibile crearne di personalizzate in base ai dati raccolti. Questo articolo fornisce indicazioni sulla creazione di regole di avviso, incluso un set di query di esempio.
@@ -22,8 +22,8 @@ Monitoraggio di Azure dispone [di diversi tipi di regole di avviso](../platform/
 
 Sono disponibili due tipi di avvisi del log in monitoraggio di Azure:
 
-- Il [numero di avvisi di risultati](../platform/alerts-unified-log.md#number-of-results-alert-rules) crea un singolo avviso quando una query restituisce almeno un numero specificato di record. Questi sono ideali per i dati non numerici, ad esempio gli eventi Windows e syslog raccolti dall' [agente log Analytics](../platform/log-analytics-agent.md) o per l'analisi delle tendenze delle prestazioni in più computer.
-- Gli [avvisi di misurazione delle metriche](../platform/alerts-unified-log.md#metric-measurement-alert-rules) creano un avviso separato per ogni record in una query con un valore che supera una soglia definita nella regola di avviso. Queste regole di avviso sono ideali per i dati sulle prestazioni raccolti da Monitoraggio di Azure per le macchine virtuali, perché possono creare singoli avvisi per ogni computer.
+- Il [numero di avvisi di risultati](../platform/alerts-unified-log.md#count-of-the-results-table-rows) crea un singolo avviso quando una query restituisce almeno un numero specificato di record. Questi sono ideali per i dati non numerici, ad esempio gli eventi Windows e syslog raccolti dall' [agente log Analytics](../platform/log-analytics-agent.md) o per l'analisi delle tendenze delle prestazioni in più computer.
+- Gli [avvisi di misurazione delle metriche](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) creano un avviso separato per ogni record in una query con un valore che supera una soglia definita nella regola di avviso. Queste regole di avviso sono ideali per i dati sulle prestazioni raccolti da Monitoraggio di Azure per le macchine virtuali, perché possono creare singoli avvisi per ogni computer.
 
 
 ## <a name="alert-rule-walkthrough"></a>Procedura dettagliata della regola di avviso

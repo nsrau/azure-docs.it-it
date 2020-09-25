@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 741e7a13513d571fbaabd17016b2282a860271cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71e930898f1f86622357f9e02da69be7bf2f8088
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263279"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256586"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft Identity Platform e protocollo OpenID Connect
 
@@ -37,9 +37,9 @@ Il flusso di accesso di base include i passaggi illustrati nella figura seguente
 
 OpenID Connect descrive un documento di metadati [(RFC)](https://openid.net/specs/openid-connect-discovery-1_0.html) che contiene la maggior parte delle informazioni necessarie per l'accesso di un'app. Il documento include informazioni come gli URL da usare e il percorso delle chiavi di firma pubbliche del servizio. È possibile trovare questo documento aggiungendo il percorso del documento di individuazione all'URL dell'autorità:
 
-Percorso del documento di individuazione:`/.well-known/openid-configuration`
+Percorso del documento di individuazione: `/.well-known/openid-configuration`
 
-Autorità`https://login.microsoftonline.com/{tenant}/v2.0`
+Autorità `https://login.microsoftonline.com/{tenant}/v2.0`
 
 `{tenant}` può assumere uno dei quattro valori seguenti:
 
@@ -249,7 +249,7 @@ I parametri di risposta indicano lo stesso risultato indipendentemente dal fluss
 
 | Parametro | Descrizione |
 | --- | --- |
-| `token` | Token che verrà usato per chiamare l'endpoint UserInfo.|
+| `access_token` | Token che verrà usato per chiamare l'endpoint UserInfo.|
 | `token_type` | Sempre "Bearer" |
 | `expires_in`| Tempo di attesa fino alla scadenza del token di accesso, in secondi. |
 | `scope` | Autorizzazioni concesse per il token di accesso.  Si noti che poiché l'endpoint UserInfo è ospitato in MS Graph, è possibile che siano presenti ambiti grafici aggiuntivi (ad esempio, User. Read) se in precedenza sono stati concessi all'app.  Questo perché un token per una determinata risorsa include sempre tutte le autorizzazioni concesse al client.  |

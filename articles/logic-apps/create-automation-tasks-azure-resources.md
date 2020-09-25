@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 93c796fd16dde8c238265d16a96b9cfa4a254ea9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1826b17a971b49fdfe8d5df02d71eb682b15db6f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996338"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269727"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Gestire le risorse di Azure e monitorare i costi creando attività di automazione (anteprima)
 
@@ -30,6 +30,7 @@ Ecco i modelli di attività attualmente disponibili in questa versione di antepr
 | In tutte le risorse di Azure | **Invia costo mensile per la risorsa** |
 | Macchine virtuali di Azure | Inoltre: <p>- **Spegnere la macchina virtuale** <br>- **Avvia macchina virtuale** |
 | Account di archiviazione di Azure | Inoltre: <p>- **Elimina BLOB obsoleti** |
+| Azure Cosmos DB | Inoltre, <p>- **Invia il risultato della query tramite posta elettronica** |
 |||
 
 Questo articolo illustra come completare le attività seguenti:
@@ -40,11 +41,13 @@ Questo articolo illustra come completare le attività seguenti:
 
 * [Modificare l'attività](#edit-task) in modo da poter aggiornare l'attività o personalizzare il flusso di lavoro sottostante dell'attività nella finestra di progettazione dell'app per la logica.
 
+<a name="differences"></a>
+
 ## <a name="how-do-automation-tasks-differ-from-azure-automation"></a>Differenze tra le attività di automazione e automazione di Azure
 
-Attualmente, è possibile creare un'attività di automazione solo a livello di risorsa, visualizzare la cronologia delle esecuzioni dell'attività e modificare il flusso di lavoro dell'app per la logica sottostante dell'attività, che è alimentato dal servizio app per la [logica di Azure](../logic-apps/logic-apps-overview.md) .
+Attualmente, è possibile creare un'attività di automazione solo a livello di risorsa, visualizzare la cronologia delle esecuzioni dell'attività e modificare il flusso di lavoro dell'app per la logica sottostante dell'attività, che è alimentato dal servizio app per la [logica di Azure](../logic-apps/logic-apps-overview.md) . Le attività di automazione sono più semplici e leggere rispetto ad [automazione di Azure](../automation/automation-intro.md).
 
-[Automazione di Azure](../automation/automation-intro.md) è un servizio di automazione e configurazione basato sul cloud che supporta una gestione coerente negli ambienti Azure e non Azure. Il servizio include l' [automazione dei processi per l'orchestrazione dei processi](../automation/automation-intro.md#process-automation) tramite [manuali operativi](../automation/automation-runbook-execution.md), la gestione della configurazione con [rilevamento delle modifiche e l'inventario](../automation/change-tracking.md), la gestione degli aggiornamenti, le funzionalità condivise e le funzionalità eterogenee. Automazione fornisce il controllo completo durante la distribuzione, l'attività e la rimozione delle autorizzazioni di carichi di lavoro e risorse.
+Per confronto, automazione di Azure è un servizio di automazione e configurazione basato sul cloud che supporta una gestione coerente negli ambienti Azure e non Azure. Il servizio include l' [automazione dei processi per l'orchestrazione dei processi](../automation/automation-intro.md#process-automation) tramite [manuali operativi](../automation/automation-runbook-execution.md), la gestione della configurazione con [rilevamento delle modifiche e l'inventario](../automation/change-tracking.md), la gestione degli aggiornamenti, le funzionalità condivise e le funzionalità eterogenee. Automazione fornisce il controllo completo durante la distribuzione, l'attività e la rimozione delle autorizzazioni di carichi di lavoro e risorse.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

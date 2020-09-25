@@ -4,14 +4,14 @@ description: Informazioni su come eseguire query e accedere alle proprietà JSON
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/19/2020
 ms.author: tisande
-ms.openlocfilehash: a569b0122f9122b141b64ded21dbd9be1d766a41
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 355f73d46215aa9e05f4ea6d91bb173c77509b63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699134"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270854"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Uso di JSON in Azure Cosmos DB
 
@@ -138,6 +138,34 @@ WHERE EXISTS(
     WHERE n.checkingAccount < 0
 )
 ```
+
+## <a name="difference-between-null-and-undefined"></a>Differenza tra null e undefined
+
+Se una proprietà non è definita in un elemento, il relativo valore è `undefined` . Una proprietà con il valore `null` deve essere definita in modo esplicito e assegnare un `null` valore.
+
+Si consideri, ad esempio, questo elemento di esempio:
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "address": {
+      "state": "WA",
+      "county": "King",
+      "city": "Seattle"
+      },
+  "creationDate": null
+}
+```
+
+In questo esempio, la proprietà `isRegistered` ha un valore di `undefined` perché viene omessa dall'elemento. Il valore della proprietà `creationDate` è `null` .
+
+Azure Cosmos DB supporta due funzioni di sistema di controllo dei tipi utili per `null` le `undefined` proprietà e:
+
+* [IS_NULL](sql-query-is-null.md) : controlla se il valore di una proprietà è `null`
+* [IS_DEFINED](sql-query-is-defined.md) : verifica se è stato definito un valore della proprietà
+
+È possibile ottenere informazioni sugli [operatori supportati](sql-query-operators.md) e il relativo comportamento per `null` `undefined` i valori e.
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>Parole chiave riservate e caratteri speciali in JSON
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 424a05d6a096538aa296bb11863702b816410fb9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0eed3b6d68e8bfe62e9589b2ef4074df92445095
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480646"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258780"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Come funzionano le relazioni di trust per le foreste di risorse in Azure Active Directory Domain Services
 
@@ -99,12 +99,12 @@ Ad esempio, quando un trust tra foreste unidirezionale viene creato tra la *fore
 Prima di poter creare un trust tra foreste, è necessario verificare di disporre dell'infrastruttura di Domain Name System (DNS) corretta. I trust tra foreste possono essere creati solo quando è disponibile una delle configurazioni DNS seguenti:
 
 * Un singolo server DNS radice è il server DNS radice per entrambi gli spazi dei nomi DNS della foresta. la zona radice contiene le deleghe per ogni spazio dei nomi DNS e gli hint radice di tutti i server DNS includono il server DNS radice.
-* In assenza di un server DNS radice condiviso e i server DNS radice per ogni spazio dei nomi DNS della foresta usano i server d'inoltro condizionali DNS per ogni spazio dei nomi DNS per instradare le query per i nomi nell'altro spazio dei nomi.
+* Quando non sono presenti server DNS radice condivisi e i server DNS radice in ogni spazio dei nomi DNS della foresta usano i server d'inoltro condizionali DNS per ogni spazio dei nomi DNS per instradare le query per i nomi nell'altro spazio dei nomi.
 
     > [!IMPORTANT]
     > Azure AD Domain Services foresta delle risorse deve usare questa configurazione DNS. L'hosting di uno spazio dei nomi DNS diverso dallo spazio dei nomi DNS della foresta di risorse non è una funzionalità di Azure AD Domain Services. I server d'inoltri condizionali sono la configurazione corretta.
 
-* In assenza di un server DNS radice condiviso e i server DNS radice per ogni spazio dei nomi DNS della foresta usano le zone secondarie DNS sono configurati in ogni spazio dei nomi DNS per instradare le query per i nomi nell'altro spazio dei nomi.
+* Quando non sono presenti server DNS radice condivisi e i server DNS radice in ogni spazio dei nomi DNS della foresta usano le zone secondarie DNS sono configurati in ogni spazio dei nomi DNS per instradare le query per i nomi nell'altro spazio dei nomi.
 
 Per creare un trust tra foreste, è necessario essere un membro del gruppo Domain Admins (nel dominio radice della foresta) o del gruppo Enterprise Admins in Active Directory. A ogni trust viene assegnata una password che è necessario che gli amministratori di entrambe le foreste conoscano. I membri di Enterprise Admins in entrambe le foreste possono creare i trust in entrambe le foreste contemporaneamente e, in questo scenario, una password che è crittograficamente casuale viene generata e scritta automaticamente per entrambe le foreste.
 

@@ -1,6 +1,6 @@
 ---
 title: Che cosa sono i dispositivi Azure AD registrati?
-description: Informazioni su come le identità dei dispositivi semplificano la gestione dei dispositivi che accedono alle risorse nell'ambiente.
+description: Informazioni su come Azure AD i dispositivi registrati forniscono agli utenti supporto per gli scenari BYOD (Bring Your Own Device) o per dispositivi mobili.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1ce0723c0064cee711e851d16f4080a722e7539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72c40b7962090492f8b4b85e555a947130c3628d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554872"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256439"
 ---
 # <a name="azure-ad-registered-devices"></a>Dispositivi registrati in Azure AD
 

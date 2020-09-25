@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 332c33ce46298e5338587cd4d001466d30c1a9e6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 138b3b35633b432193a1972421f05d0a8e52b90a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937194"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301361"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteggere i carichi di lavoro Kubernetes
 
@@ -95,11 +95,15 @@ Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili qu
     1. Selezionare **Salva**.
 
 
-1. Per applicare una qualsiasi delle raccomandazioni, impostare **Nega** nella scheda **parametri** dei criteri di sicurezza del Centro sicurezza:
+1. Per applicare una qualsiasi delle raccomandazioni, 
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opzione Deny per il parametro di criteri di Azure":::
+    1. Aprire la pagina dei dettagli delle raccomandazioni e selezionare **Nega**:
 
-    Questa operazione consentirà di negare qualsiasi richiesta non conforme ai cluster AKS
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opzione Deny per il parametro di criteri di Azure":::
+
+        Verrà aperto il riquadro in cui è stato impostato l'ambito. 
+
+    1. Dopo aver impostato l'ambito, selezionare **modifica per negare**.
 
 1. Per vedere quali consigli si applicano ai cluster:
 

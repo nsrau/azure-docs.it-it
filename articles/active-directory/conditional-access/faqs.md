@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ed6beec63114f1f157bb24354d77e50ecdaa8255
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 9694dd06b67219e0f02c3fe1c7c53d1fc103a0c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601638"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258626"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Domande frequenti sull'accesso condizionale Azure Active Directory
 
@@ -31,11 +31,11 @@ I criteri vengono applicati agli utenti di Collaborazione business-to-business (
 
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>I criteri di SharePoint Online si applicano anche a OneDrive for Business?
 
-Sì. I criteri di SharePoint Online si applicano anche a OneDrive for Business. Per altre informazioni, vedere l'articolo relativo [alle dipendenze del servizio di accesso condizionale](service-dependencies.md) e prendere in considerazione i criteri di destinazione per l' [app Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) .
+Sì. I criteri di SharePoint Online si applicano anche a OneDrive for Business. Per altre informazioni, vedere l'articolo relativo [alle dipendenze del servizio di accesso condizionale](service-dependencies.md) e prendere in considerazione i criteri di destinazione per l' [app Office 365](concept-conditional-access-cloud-apps.md#office-365) .
 
 ## <a name="why-cant-i-set-a-policy-directly-on-client-apps-like-word-or-outlook"></a>Perché non è possibile impostare un criterio direttamente sulle app client, ad esempio Word o Outlook?
 
-Un criterio di accesso condizionale imposta i requisiti per l'accesso a un servizio. e vengono applicati nel momento in cui viene eseguita l'autenticazione al servizio. I criteri non vengono impostati direttamente su un'applicazione client, ma vengono applicati quando un client chiama un servizio. I criteri impostati in SharePoint, ad esempio, vengono applicati ai client che chiamano SharePoint e i criteri impostati in Exchange vengono applicati ad Outlook. Per altre informazioni, vedere l'articolo relativo [alle dipendenze del servizio di accesso condizionale](service-dependencies.md) e prendere in considerazione i criteri di destinazione per l' [app Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) .
+Un criterio di accesso condizionale imposta i requisiti per l'accesso a un servizio. e vengono applicati nel momento in cui viene eseguita l'autenticazione al servizio. I criteri non vengono impostati direttamente su un'applicazione client, ma vengono applicati quando un client chiama un servizio. I criteri impostati in SharePoint, ad esempio, vengono applicati ai client che chiamano SharePoint e i criteri impostati in Exchange vengono applicati ad Outlook. Per altre informazioni, vedere l'articolo relativo [alle dipendenze del servizio di accesso condizionale](service-dependencies.md) e prendere in considerazione i criteri di destinazione per l' [app Office 365](concept-conditional-access-cloud-apps.md#office-365) .
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>I criteri di accesso condizionale si applicano agli account del servizio?
 
@@ -53,7 +53,7 @@ Microsoft teams è inoltre supportato separatamente come app cloud nei criteri d
 
 I client desktop di Microsoft Teams per Windows e Mac supportano l'autenticazione moderna. Con l'autenticazione moderna, l'accesso basato su Azure Active Directory Authentication Library (ADAL) viene integrato in applicazioni client Microsoft Office su più piattaforme.
 
-Per altre informazioni, vedere l'articolo relativo [alle dipendenze del servizio di accesso condizionale](service-dependencies.md) e prendere in considerazione i criteri di destinazione per l' [app Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) .
+Per altre informazioni, vedere l'articolo relativo [alle dipendenze del servizio di accesso condizionale](service-dependencies.md) e prendere in considerazione i criteri di destinazione per l' [app Office 365](concept-conditional-access-cloud-apps.md#office-365) .
 
 ## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>Perché alcune schede non funzionano in Microsoft teams dopo aver abilitato i criteri di accesso condizionale?
 

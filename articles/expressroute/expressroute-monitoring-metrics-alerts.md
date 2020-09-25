@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: fc83e5e8d14250ed163a56830311533144bbe344
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395435"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252630"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitoraggio, metriche e avvisi di ExpressRoute
 
@@ -154,6 +154,19 @@ Una volta selezionata la metrica, verrà applicata l'aggregazione predefinita. F
 In **Criteri di avviso** è possibile selezionare **Log attività** per il tipo di segnale e selezionare il segnale.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="log attività":::
+
+## <a name="additional-metrics-in-log-analytics"></a>Metrica aggiuntiva in Log Analytics
+
+È anche possibile visualizzare le metriche di ExpressRoute passando alla risorsa del circuito ExpressRoute e selezionando la scheda *log* . Per le metriche di cui si esegue la query, l'output conterrà le colonne riportate di seguito.
+
+|**Colonna**|**Tipo**|**Descrizione**|
+| --- | --- | --- |
+|TimeGrain|string|PT1M (i valori delle metriche vengono inseriti ogni minuto)|
+|Conteggio|real|In genere uguale a 2 (ogni MSEE inserisce un singolo valore di metrica ogni minuto)|
+|Minima|real|Il valore minimo dei due valori di metrica inseriti dai due MSEE|
+|Massimo|real|Massimo dei due valori di metrica inseriti dai due MSEE|
+|Media|real|Uguale a (minimo + massimo)/2|
+|Totale|real|Somma dei due valori di metrica da entrambi MSEE (il valore principale da concentrare per la metrica sottoposta a query)|
   
 ## <a name="next-steps"></a>Passaggi successivi
 

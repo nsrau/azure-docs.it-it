@@ -3,16 +3,16 @@ title: 'Azure Defender per server: vantaggi e funzionalità'
 description: Scopri i vantaggi e le funzionalità di Azure Defender per i server.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/23/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 29f15aa7d1cbcd260ce44f6083138681ceb9fd79
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d0e75ab8a2e4d853fa2edc66174502dd3a7930e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940311"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301670"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introduzione ad Azure Defender per i server
 
@@ -81,9 +81,9 @@ Le funzionalità di rilevamento e protezione delle minacce fornite con Azure Def
 
 È possibile simulare gli avvisi scaricando uno dei PlayBook seguenti:
 
-- Per Windows: [PlayBook del Centro sicurezza di Azure: avvisi di sicurezza](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
+- Per Windows: [PlayBook del Centro sicurezza di Azure: avvisi di sicurezza](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Security%20Alerts%20Playbook_v2.pdf)
 
-- Per Linux: il [PlayBook del Centro sicurezza di Azure: rilevamenti Linux](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef).
+- Per Linux: il [PlayBook del Centro sicurezza di Azure: rilevamenti Linux](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Linux%20Detections_v2.pdf).
 
 
 

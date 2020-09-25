@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d570ddbcf974936bbaa78be5799e7bd42fa6d514
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b54cff85da02415bbc9dfa9ead037ced48cb58f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259428"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth1 in un Azure Active Directory B2C criteri personalizzati
 
@@ -78,7 +78,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | ClaimsEndpoint | No | L'URL dell'endpoint di informazioni per l'utente. |
 | ClaimsResponseFormat | No | Il formato di risposta delle attestazioni.|
 
-## <a name="cryptographic-keys"></a>Chiavi crittografiche
+## <a name="cryptographic-keys"></a>Chiavi di crittografia
 
 L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
@@ -88,23 +88,8 @@ L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
 ## <a name="redirect-uri"></a>URI di reindirizzamento
 
-Quando si configura l'URL di reindirizzamento del provider di identità, immettere `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Assicurarsi di sostituire il **tenant** con il nome del tenant (ad esempio, contosob2c.onmicrosoft.com) e **policyId** con l'identificatore dei criteri (ad esempio, b2c_1a_policy). L'URI di reindirizzamento deve essere tutto minuscolo. Aggiungere un URL di reindirizzamento per tutti i criteri che utilizzano l'account di accesso del provider di identità.
-
-Se si usa il dominio **b2clogin.com** anziché **login.microsoftonline.com** assicurarsi di usare b2clogin.com invece di login.microsoftonline.com.
+Quando si configura l'URI di reindirizzamento del provider di identità, immettere `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/{policy-id}/oauth1/authresp`. Assicurarsi di sostituire `{tenant-name}` con il nome del tenant (ad esempio, contosob2c) e `{policy-id}` con l'identificatore del criterio, ad esempio b2c_1a_policy. L'URI di reindirizzamento deve essere tutto minuscolo. Aggiungere un URL di reindirizzamento per tutti i criteri che utilizzano l'account di accesso del provider di identità.
 
 Esempi:
 
 - [Aggiungere Twitter come provider di identità OAuth1 usando i criteri personalizzati](identity-provider-twitter-custom.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -6,22 +6,22 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 65f9ee8f67ac4efb6ab26fa0912d11d7be7c571d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef8862ebbcdd1ee79178af56b7c6cc81c7a68a43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520902"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269285"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Eseguire azioni in base allo stato del gruppo usando ambiti nelle App per la logica di Azure
 
 Per eseguire azioni solo dopo che un altro gruppo di azioni ha avuto esito positivo o negativo, raggruppare tali azioni in un *ambito*. Questa struttura è utile quando si vuole organizzare le azioni come gruppo logico, valutare lo stato del gruppo ed eseguire le azioni in base allo stato dell'ambito. Al termine dell'esecuzione di tutte le azioni in un ambito, l'ambito ottiene anche il proprio stato. È ad esempio possibile usare gli ambiti quando si vuole implementare la [gestione degli errori e delle eccezioni](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
-Per controllare lo stato di un ambito, è possibile usare lo gli stessi criteri usati per determinare lo stato di esecuzione di un'app per la logica, ad esempio "Succeeded", "Failed", "Cancelled" e così via. Per impostazione predefinita, quando tutte le azioni dell'ambito hanno esito positivo lo stato dell'ambito viene contrassegnato come "Succeeded", ma, quando un'azione nell'ambito ha esito negativo o viene annullata, lo stato dell'ambito viene contrassegnato come "Failed". Per i limiti degli ambiti, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
+Per controllare lo stato di un ambito, è possibile usare gli stessi criteri usati per determinare lo stato di esecuzione di un'app per la logica, ad esempio "succeeded", "failed", "annullato" e così via. Per impostazione predefinita, quando tutte le azioni dell'ambito hanno esito positivo lo stato dell'ambito viene contrassegnato come "Succeeded", ma, quando un'azione nell'ambito ha esito negativo o viene annullata, lo stato dell'ambito viene contrassegnato come "Failed". Per i limiti degli ambiti, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
 
 La seguente, ad esempio è un'app per la logica generale che usa un ambito per eseguire azioni specifiche e una condizione per controllare lo stato dell'ambito. Se un'azione nell'ambito ha esito negativo o termina in modo imprevisto, l'ambito viene rispettivamente contrassegnato come "Failed" o "Aborted" e l'app per la logica invia un messaggio "Scope failed". Se tutte le azioni nell'ambito hanno esito positivo, l'app per la logica invia un messaggio "Scope succeeded".
 
-![Configurazione del trigger "Pianificazione - Ricorrenza"](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+![Il diagramma mostra il flusso dell'ambito dell'app per la logica con esempi di "scope failed" e "scope succeeded".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -192,7 +192,7 @@ Aggiungere successivamente un ambito per poter raggruppare azioni specifiche e v
    
       `result('Scope')[0]['status']`
 
-      ![Aggiungere l'espressione che controlla lo stato dell'ambito](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Screenshot che mostra la finestra "Aggiungi espressione" con l'espressione risultato evidenziata.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. Per entrambe le righe, selezionare **è uguale a** come operatore. 
    

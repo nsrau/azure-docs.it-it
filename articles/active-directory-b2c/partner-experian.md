@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5c2fb330149d3e6530e7cb0fc3350d5db3fa24cf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683879"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259374"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di Experian con Azure Active Directory B2C
 
@@ -24,13 +24,13 @@ In questa esercitazione di esempio vengono fornite informazioni aggiuntive su co
 
 In questo esempio viene usata la piattaforma di rischio di frode e identità digitale integrata di Experian **CrossCore** . CrossCore è un servizio di verifica ID utilizzato per verificare l'identificazione dell'utente. Esegue l'analisi dei rischi in base a diverse informazioni fornite dall'utente durante il flusso di iscrizione. CrossCore viene usato per determinare se l'utente deve essere autorizzato a continuare ad accedere o meno. Nell'analisi dei rischi CrossCore è possibile usare gli attributi seguenti:
 
-- Email
+- E-mail
 - Indirizzo IP
 - Nome
 - Middle Name
 - Surname
 - Indirizzo
-- city
+- City
 - Provincia
 - CAP
 - Paese/Area geografica
@@ -77,7 +77,7 @@ Il diagramma dell'architettura seguente illustra l'implementazione di.
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1: distribuire l'API
 
-Distribuire il codice API fornito a un servizio di Azure. Il codice può essere pubblicato da Visual Studio, seguendo queste [istruzioni](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Distribuire il [codice API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) fornito a un servizio di Azure. Il codice può essere pubblicato da Visual Studio, seguendo queste [istruzioni](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Per configurare Azure AD con le impostazioni necessarie, è necessario l'URL del servizio distribuito.
@@ -117,7 +117,7 @@ Fare riferimento a questo [documento](https://docs.microsoft.com/azure/active-di
 
 ### <a name="part-5---replace-the-configuration-values"></a>Parte 5: sostituire i valori di configurazione
 
-Nei criteri personalizzati forniti individuare i segnaposti seguenti e sostituire con i valori corrispondenti dell'istanza
+Nei [criteri personalizzati](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Experian/policy)forniti individuare i segnaposti seguenti e sostituire con i valori corrispondenti dell'istanza
 
 |                      Segnaposto                       |                                   Replace with value                                 |                   Esempio                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |

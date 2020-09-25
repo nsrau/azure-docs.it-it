@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f8906c5fb934546ac8b1a95f817874f91f6c3b95
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: c468ecb390a3ad321f9fe0619204994dfbf3fbb4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015807"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256757"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipi di applicazioni per Microsoft Identity Platform
 
@@ -117,6 +117,9 @@ Le app installate in un dispositivo, ad esempio app desktop e per dispositivi mo
 In questo flusso, l'app riceve un codice di autorizzazione dall'endpoint di Microsoft Identity Platform quando l'utente effettua l'accesso. Questo codice rappresenta l'autorizzazione dell'app a chiamare servizi back-end per conto dell'utente che ha eseguito l'accesso. L'app può scambiare il codice di autorizzazione in background con un token di accesso OAuth 2.0 e un token di aggiornamento. L'app può usare il token di accesso per l'autenticazione all'API Web nelle richieste HTTP e il token di aggiornamento per ottenere nuovi token di accesso quando i precedenti scadono.
 
 ![Mostra il flusso di autenticazione dell'app nativa](./media/v2-app-types/convergence-scenarios-native.svg)
+
+> [!NOTE]
+> Se l'applicazione usa la visualizzazione predefinita di sistema, controllare le informazioni sulla funzionalità "conferma accesso" e il codice di errore AADSTS50199 in [Azure ad codici di errore di autenticazione e autorizzazione](reference-aadsts-error-codes.md).
 
 ## <a name="daemons-and-server-side-apps"></a>App daemon e lato server
 

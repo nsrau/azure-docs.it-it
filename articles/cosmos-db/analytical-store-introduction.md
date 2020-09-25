@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 17dce45e73a5620db2201534126900d8e571ec45
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 75ad602eb6b9a0ce52b2b4c4115f351668327c43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900266"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253192"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Che cos'è l'archivio analitico di Azure Cosmos DB (anteprima)?
 
@@ -60,7 +60,7 @@ Non vi è alcun impatto sulle prestazioni dei carichi di lavoro transazionali a 
 
 ### <a name="auto-sync"></a>Sincronizzazione automatica
 
-La sincronizzazione automatica si riferisce alla funzionalità completamente gestita di Azure Cosmos DB in cui le operazioni di inserimento, aggiornamento ed eliminazione dei dati operativi vengono sincronizzate automaticamente dall'archivio transazionale all'archivio analitico in near real-time entro 5 minuti.
+La sincronizzazione automatica si riferisce alla funzionalità completamente gestita di Azure Cosmos DB in cui le operazioni di inserimento, aggiornamento ed eliminazione nei dati operativi vengono sincronizzate automaticamente dall'archivio transazionale all'archivio analitico quasi in tempo reale. La latenza di sincronizzazione automatica è in genere entro 2 minuti. Nei casi di database con velocità effettiva condivisa con un numero elevato di contenitori, la latenza di sincronizzazione automatica dei singoli contenitori potrebbe essere superiore e richiedere fino a 5 minuti. Si vuole ottenere altre informazioni su come questa latenza si riferisce agli scenari. Rivolgersi al [team di Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 La funzionalità di sincronizzazione automatica insieme all'archivio analitico offre i vantaggi principali seguenti:
 
@@ -138,7 +138,7 @@ salary: 1000000
 }
 ```
 
-La proprietà foglia `streetName` all'interno dell'oggetto annidato `address` sarà rappresentata nello schema dell'archivio analitico come colonna `address.object.streetName.int32` . Il tipo di dati viene aggiunto come suffisso per la colonna. In questo modo, se un altro documento viene aggiunto all'archivio transazionale in cui il valore della proprietà foglia `streetNo` è "123" (si noti che si tratta di una stringa), lo schema dell'archivio analitico si evolve automaticamente senza modificare il tipo di una colonna scritta in precedenza. Nuova colonna aggiunta all'archivio analitico come `address.object.streetName.string` dove è archiviato questo valore di "123".
+La proprietà foglia `streetNo` all'interno dell'oggetto annidato `address` sarà rappresentata nello schema dell'archivio analitico come colonna `address.object.streetNo.int32` . Il tipo di dati viene aggiunto come suffisso per la colonna. In questo modo, se un altro documento viene aggiunto all'archivio transazionale in cui il valore della proprietà foglia `streetNo` è "123" (si noti che si tratta di una stringa), lo schema dell'archivio analitico si evolve automaticamente senza modificare il tipo di una colonna scritta in precedenza. Nuova colonna aggiunta all'archivio analitico come `address.object.streetNo.string` dove è archiviato questo valore di "123".
 
 **Mappa del tipo di dati a suffisso**
 
@@ -149,11 +149,11 @@ Di seguito è riportato un mapping di tutti i tipi di dati delle proprietà e de
 | Double |  ". float64" |    24,99|
 | Array | ". matrice" |    ["a", "b"]|
 |Binary | ". Binary" |0|
-|Boolean    | ". bool"   |True|
+|Boolean    | ". bool"   |Vero|
 |Int32  | ". Int32"  |123|
 |Int64  | ". Int64"  |255486129307|
 |Null   | ". null"   | Null|
-|Stringa|    ". stringa" | "ABC"|
+|string|    ". stringa" | "ABC"|
 |Timestamp |    ". timestamp" |  Timestamp (0,0)|
 |Datetime   |". date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
 |ObjectId   |". objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|

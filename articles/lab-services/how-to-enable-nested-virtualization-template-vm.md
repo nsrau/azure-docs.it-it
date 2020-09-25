@@ -1,14 +1,14 @@
 ---
 title: Abilitare la virtualizzazione annidata in una macchina virtuale modello in Azure Lab Services | Microsoft Docs
-description: Informazioni su come creare una macchina virtuale modello contenente più macchine virtuali.  In altre parole, abilitare la virtualizzazione annidata in una macchina virtuale modello in Azure Lab Services.
+description: In questo articolo viene illustrato come configurare la virtualizzazione annidata in un computer modello in Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a2f045cbf7c107e7f5dbeff0d78bf5e8d9d8fba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 319695088e967dc3156ecab5c1b9458e77fcc186
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445237"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251475"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Abilitare la virtualizzazione annidata in una macchina virtuale modello in Azure Lab Services
 

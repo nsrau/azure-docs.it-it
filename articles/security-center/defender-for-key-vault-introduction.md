@@ -3,17 +3,17 @@ title: 'Azure Defender per Key Vault: vantaggi e funzionalità'
 description: Scopri i vantaggi e le funzionalità di Azure Defender per Key Vault.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 06818e443568918e2ee87bbfbec81836ea85648b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 78a522922f8580003e2d2ff588cbf10dbf5fff9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939879"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301772"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Introduzione ad Azure Defender per Key Vault
 
@@ -42,6 +42,11 @@ Quando si riceve un avviso da Azure Defender per Key Vault, è consigliabile esa
 Gli avvisi vengono visualizzati nella pagina **sicurezza** di Key Vault, nel dashboard di Azure Defender e nella pagina degli avvisi del Centro sicurezza.
 
 :::image type="content" source="./media/defender-for-key-vault-intro/key-vault-security-page.png" alt-text="Pagina sicurezza di Azure Key Vault":::
+
+
+> [!TIP]
+> È possibile simulare Azure Defender per Key Vault avvisi seguendo le istruzioni riportate in [convalida Azure Key Vault rilevamento minacce nel centro sicurezza di Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

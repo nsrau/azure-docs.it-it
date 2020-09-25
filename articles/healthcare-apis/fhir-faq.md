@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 36945d998bf00d7b229b5ae3cce1958953ade601
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 35b59fb0583911b5b9faee96276d1bb09a8d6679
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978621"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269710"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Domande frequenti sull'API di Azure per FHIR
 
@@ -65,6 +65,23 @@ Il limite corrente per il conteggio è 100.
 
 Per l'esportazione del gruppo vengono esportati solo i riferimenti inclusi dal gruppo, non tutte le caratteristiche della [risorsa del gruppo](https://www.hl7.org/fhir/group.html).
 
+### <a name="can-i-post-a-bundle-to-the-azure-api-for-fhir"></a>È possibile pubblicare un bundle nell'API di Azure per FHIR?
+
+È attualmente supportata la pubblicazione di [bundle di batch](https://www.hl7.org/fhir/valueset-bundle-type.html) , ma non è supportata la pubblicazione di bundle di transazioni nell'API di Azure per FHIR. È possibile usare il server FHIR Open Source supportato da SQL per inviare i bundle di transazione.
+
+### <a name="how-can-i-get-all-resources-for-a-single-patient-in-the-azure-api-for-fhir"></a>Come è possibile ottenere tutte le risorse per un singolo paziente nell'API di Azure per FHIR?
+
+È supportata la [ricerca di raggruppamento](https://www.hl7.org/fhir/compartmentdefinition.html) nell'API di Azure per FHIR. In questo modo è possibile ottenere tutte le risorse correlate a un determinato paziente. Si noti che in questo momento il raggruppamento include tutte le risorse correlate al paziente ma non il paziente stesso, quindi è necessario eseguire una ricerca anche per ottenere il paziente se è necessaria la risorsa paziente nei risultati.
+
+Di seguito sono riportati alcuni esempi:
+
+* Ottieni paziente/<id>/*
+* GET patient/ <id> /Observation
+* GET patient/ <id> /Observation? code = 8302-2
+
+### <a name="where-can-i-see-some-examples-of-using-the-azure-api-for-fhir-within-a-workflow"></a>Dove è possibile vedere alcuni esempi di uso dell'API di Azure per FHIR all'interno di un flusso di lavoro?
+
+È disponibile una raccolta di architetture di riferimento nella pagina di [GitHub sull'architettura dell'integrità](https://github.com/microsoft/health-architectures).
 
 ## <a name="azure-iot-connector-for-fhir-preview"></a>Connettore Azure IoT per FHIR (anteprima)
 

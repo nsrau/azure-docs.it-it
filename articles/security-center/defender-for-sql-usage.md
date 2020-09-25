@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 76015602cbf949b166c4067ad72bace5d355d70b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ea0df1fb68697ceee55614510cc0295c73fec00e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938312"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301653"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender per SQL Server nei computer 
 
@@ -58,7 +58,7 @@ Entrambi sono descritti di seguito.
     - **Connettere il computer Windows senza Azure Arc** : se si sceglie di connettere un SQL Server in esecuzione in un computer Windows senza usare Azure Arc, seguire le istruzioni riportate in [connettere computer Windows a monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 
-### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Passaggio 2: Abilitare il piano facoltativo nella pagina dei prezzi e delle impostazioni del Centro sicurezza:
+### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Passaggio 2. Abilitare il piano facoltativo nella pagina dei prezzi e delle impostazioni del Centro sicurezza:
 
 1. Dal menu del Centro sicurezza aprire la pagina dei **prezzi & impostazioni** .
 
@@ -79,7 +79,7 @@ Entrambi sono descritti di seguito.
 
 
 1. Facoltativamente, configurare la notifica tramite posta elettronica per gli avvisi di sicurezza. 
-    È possibile impostare un elenco di destinatari per ricevere una notifica tramite posta elettronica quando vengono generati gli avvisi del Centro sicurezza. Il messaggio di posta elettronica contiene un collegamento diretto all'avviso nel centro sicurezza di Azure con tutti i dettagli pertinenti. Per altre informazioni, vedere [configurare le notifiche di posta elettronica per gli avvisi di sicurezza](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
+    È possibile impostare un elenco di destinatari per ricevere una notifica tramite posta elettronica quando vengono generati gli avvisi del Centro sicurezza. Il messaggio di posta elettronica contiene un collegamento diretto all'avviso nel centro sicurezza di Azure con tutti i dettagli pertinenti. Per altre informazioni, vedere [configurare le notifiche di posta elettronica per gli avvisi di sicurezza](security-center-provide-security-contact-details.md).
 
 
 
@@ -121,7 +121,7 @@ Gli avvisi di Azure Defender sono disponibili nella pagina degli avvisi del Cent
     * Abilitare la funzionalità di controllo SQL Server per ulteriori indagini. Se si è un utente di Sentinel di Azure, è possibile caricare i log di controllo SQL dagli eventi del registro di sicurezza di Windows in Sentinel e usufruire di un'esperienza di analisi avanzata. [Altre informazioni sul controllo SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15).
     * Per migliorare il comportamento di sicurezza, usare le raccomandazioni del Centro sicurezza per il computer host indicato in ogni avviso. Questa operazione ridurrà i rischi di attacchi futuri. 
 
-    [Altre informazioni sulla gestione e la risposta agli avvisi](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts).
+    [Altre informazioni sulla gestione e la risposta agli avvisi](security-center-managing-and-responding-alerts.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

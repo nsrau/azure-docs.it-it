@@ -1,14 +1,14 @@
 ---
 title: Abilitare la virtualizzazione annidata in una macchina virtuale modello in Azure Lab Services (script) | Microsoft Docs
-description: Informazioni su come creare una macchina virtuale modello contenente più macchine virtuali.  In altre parole, abilitare la virtualizzazione annidata in una macchina virtuale modello in Azure Lab Services.
+description: Informazioni su come creare una VM modello con più macchine virtuali all'interno di usando uno script.  In altre parole, abilitare la virtualizzazione annidata in una macchina virtuale modello in Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a45257dffffc98c3f650c5b1753158edd9bfbede
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ae50bd11ab9a8adb769920f6d473a2ff2ce9342
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445747"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251496"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>Abilitare la virtualizzazione annidata in una macchina virtuale modello in Azure Lab Services usando uno script
 
@@ -29,7 +29,7 @@ La procedura descritta in questo articolo è incentrata sull'impostazione della 
 
         ![Siti attendibili](./media/how-to-enable-nested-virtualization-template-vm-using-script/trusted-sites-dialog.png)
 1. Scaricare i file del repository Git come descritto nei passaggi seguenti.
-    1. Passare a [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/) .
+    1. Passare a  [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/) .
     1. Fare clic sul pulsante **clona o Scarica** .
     1. Fare clic su **download zip**.
     1. Estrarre il file ZIP

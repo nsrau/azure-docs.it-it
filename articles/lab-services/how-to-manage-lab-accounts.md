@@ -3,12 +3,12 @@ title: Gestire account lab in Azure Lab Services | Microsoft Docs
 description: Informazioni su come creare un account lab, visualizzare tutti gli account lab o eliminare un account lab in una sottoscrizione di Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 13b477504833b8d72845735304563eef334c49ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33e5e42f65fdd34bb37b12947b5173700ad7970c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445492"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251661"
 ---
 # <a name="create-and-manage-lab-accounts"></a>Creare e gestire account di lab
 In Azure Lab Services un account lab è un contenitore per tipi di lab gestiti, ad esempio, laboratori di classe. Un amministratore configura un account lab con Azure Lab Services e fornisce l'accesso ai proprietari del lab autorizzati a creare lab nell'account. Questo articolo descrive come creare un account lab, visualizzare tutti gli account lab o eliminare un account lab.
@@ -43,7 +43,7 @@ La procedura seguente illustra come usare il portale di Azure per creare un acco
         ![Crea un account lab > impostazioni avanzate](./media/how-to-manage-lab-accounts/create-lab-account-advanced.png)  
 6. Selezionare **Avanti: Tag** nella parte inferiore della pagina per passare alla scheda **Tag**. Aggiungere i tag da associare all'account lab. I tag sono coppie nome-valore che consentono di classificare le risorse e visualizzare dati di fatturazione consolidati tramite l'applicazione dello stesso tag a più risorse e gruppi di risorse. Per altre informazioni, vedere [Usare tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md).
 
-    ![Crea un account lab > Tag](./media/how-to-manage-lab-accounts/create-lab-account-tags.png)
+    ![Screenshot che mostra la pagina "Crea account Lab" con la scheda Tag evidenziata.](./media/how-to-manage-lab-accounts/create-lab-account-tags.png)
 7. Selezionare **Rivedi e crea** nella parte inferiore della pagina per passare alla scheda **Rivedi e crea**. 
 4. Esaminare le informazioni di riepilogo in questa pagina e selezionare **Crea**. 
 

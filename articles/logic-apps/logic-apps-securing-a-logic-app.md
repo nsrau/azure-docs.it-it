@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 75c434b5c1927251940a691a16069425b4cc88a3
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.date: 09/19/2020
+ms.openlocfilehash: 8023f3d7730a617ec502c8f181bad1fc27627694
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500403"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269166"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -75,6 +75,8 @@ Ogni URL contiene i parametri di query `sp`, `sv`e `sig` come descritto nella ta
 | `sig` | Specifica la firma da usare per l'autenticazione dell'accesso al trigger. La firma viene generata attraverso l'algoritmo SHA256 con una chiave di accesso privata in tutti i percorsi e le proprietà dell'URL. La chiave non viene mai esposta né pubblicata, inoltre continua a essere crittografata e archiviata nell'ambito dell'app per la logica. L'app per la logica autorizza solo i trigger che contengono una firma valida creata con la chiave privata. |
 |||
 
+Le chiamate in ingresso a un endpoint di richiesta possono usare un solo schema di autorizzazione, ovvero SAS o [Azure Active Directory autenticazione aperta](#enable-oauth). Sebbene l'utilizzo di uno schema non disabilita l'altro schema, l'utilizzo di entrambi gli schemi contemporaneamente causa un errore, in quanto il servizio non conosce lo schema da scegliere.
+
 Per altre informazioni sulla protezione dell'accesso con SAS, vedere le sezioni seguenti in questo argomento:
 
 * [Per rigenerare le chiavi di accesso](#access-keys)
@@ -121,62 +123,62 @@ Nel corpo includere la proprietà `KeyType` come `Primary` o `Secondary`. Questa
 
 ### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Abilitare Azure Active Directory Open Authentication (Azure AD OAuth)
 
-Se l'app per la logica inizia con un [trigger di richiesta](../connectors/connectors-native-reqres.md), è possibile abilitare [Azure Active Directory Open Authentication (Azure ad OAuth)](../active-directory/develop/index.yml) definendo o aggiungendo un criterio di autorizzazione per le chiamate in ingresso al trigger di richiesta.
+Per le chiamate in ingresso a un endpoint creato da un trigger basato su richiesta, è possibile abilitare [Azure Active Directory Open Authentication (Azure ad OAuth)](../active-directory/develop/index.yml) definendo o aggiungendo un criterio di autorizzazione per l'app per la logica. In questo modo, le chiamate in ingresso usano i [token di accesso](../active-directory/develop/access-tokens.md) OAuth per l'autorizzazione.
 
-Prima di abilitare questa autenticazione, considerare quanto segue:
+Quando l'app per la logica riceve una richiesta in ingresso che include un token di accesso OAuth, il servizio app per la logica di Azure Confronta le attestazioni del token con le attestazioni specificate da ciascun criterio di autorizzazione. Se esiste una corrispondenza tra le attestazioni del token e tutte le attestazioni in almeno un criterio, l'autorizzazione ha esito positivo per la richiesta in ingresso. Il token può avere più attestazioni rispetto al numero specificato dal criterio di autorizzazione.
 
-* La chiamata in ingresso al trigger di richiesta può utilizzare un solo schema di autorizzazione, Azure AD OAuth utilizzando un token di autenticazione, supportato solo per il trigger di richiesta, oppure tramite un URL di [firma di accesso condiviso (SAS)](#sas) non è possibile utilizzare entrambi gli schemi.
+Prima di abilitare Azure AD OAuth, esaminare le considerazioni seguenti:
 
-  Sebbene l'utilizzo di uno schema non disabilita l'altro schema, l'utilizzo di entrambe le volte genera un errore perché il servizio non conosce lo schema da scegliere. Inoltre, per i token di autenticazione OAuth sono supportati solo gli schemi di autorizzazione di [tipo Bearer](../active-directory/develop/active-directory-v2-protocols.md#tokens) , che sono supportati solo per il trigger request. Il token di autenticazione deve specificare `Bearer-type` nell'intestazione dell'autorizzazione.
+* Una chiamata in ingresso all'endpoint della richiesta può usare un solo schema di autorizzazione, Azure AD OAuth o la [firma di accesso condiviso (SAS)](#sas). Sebbene l'uso di uno schema non disabilita l'altro schema, l'uso di entrambi gli schemi contemporaneamente causa un errore perché il servizio app per la logica non conosce lo schema da scegliere.
+
+* Per Azure AD token di accesso OAuth sono supportati solo gli schemi di autorizzazione di [tipo Bearer](../active-directory/develop/active-directory-v2-protocols.md#tokens) , il che significa che l' `Authorization` intestazione per il token di accesso deve specificare il `Bearer` tipo.
 
 * L'app per la logica è limitata a un numero massimo di criteri di autorizzazione. Ogni criterio di autorizzazione ha anche un numero massimo di [attestazioni](../active-directory/develop/developer-glossary.md#claim). Per altre informazioni, vedere [Limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
-* Un criterio di autorizzazione deve includere almeno l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth v2) come ID autorità di certificazione Azure ad. Per altre informazioni sui token di accesso, vedere [token di accesso della piattaforma Microsoft Identity](../active-directory/develop/access-tokens.md).
+* Un criterio di autorizzazione deve includere almeno l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth v2) come ID autorità di certificazione Azure ad.
 
-Quando l'app per la logica riceve una richiesta in ingresso che include un token di autenticazione OAuth, app per la logica di Azure Confronta le attestazioni del token con le attestazioni in ogni criterio di autorizzazione. Se esiste una corrispondenza tra le attestazioni del token e tutte le attestazioni in almeno un criterio, l'autorizzazione ha esito positivo per la richiesta in ingresso. Il token può avere più attestazioni rispetto al numero specificato dal criterio di autorizzazione.
+  Si supponga, ad esempio, che l'app per la logica disponga di un criterio di autorizzazione che richiede due tipi di attestazione, **audience** e **emittente**. Questa [sezione di payload](../active-directory/develop/access-tokens.md#payload-claims) di esempio per un token di accesso decodificato include entrambi i tipi di attestazione in cui `aud` è il valore **audience** e `iss` è il valore dell' **autorità emittente** :
 
-Si supponga, ad esempio, che l'app per la logica disponga di un criterio di autorizzazione che richiede due tipi di attestazione, **autorità emittente** e **destinatari**. Questo [token di accesso](../active-directory/develop/access-tokens.md) decodificato di esempio include entrambi i tipi di attestazione:
-
-```json
-{
-   "aud": "https://management.core.windows.net/",
-   "iss": "https://sts.windows.net/<Azure-AD-issuer-ID>/",
-   "iat": 1582056988,
-   "nbf": 1582056988,
-   "exp": 1582060888,
-   "_claim_names": {
-      "groups": "src1"
-   },
-   "_claim_sources": {
-      "src1": {
-         "endpoint": "https://graph.windows.net/7200000-86f1-41af-91ab-2d7cd011db47/users/00000-f433-403e-b3aa-7d8406464625d7/getMemberObjects"
-    }
-   },
-   "acr": "1",
-   "aio": "AVQAq/8OAAAA7k1O1C2fRfeG604U9e6EzYcy52wb65Cx2OkaHIqDOkuyyr0IBa/YuaImaydaf/twVaeW/etbzzlKFNI4Q=",
-   "amr": [
-      "rsa",
-      "mfa"
-   ],
-   "appid": "c44b4083-3bb0-00001-b47d-97400853cbdf3c",
-   "appidacr": "2",
-   "deviceid": "bfk817a1-3d981-4dddf82-8ade-2bddd2f5f8172ab",
-   "family_name": "Sophia Owen",
-   "given_name": "Sophia Owen (Fabrikam)",
-   "ipaddr": "167.220.2.46",
-   "name": "sophiaowen",
-   "oid": "3d5053d9-f433-00000e-b3aa-7d84041625d7",
-   "onprem_sid": "S-1-5-21-2497521184-1604012920-1887927527-21913475",
-   "puid": "1003000000098FE48CE",
-   "scp": "user_impersonation",
-   "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
-   "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-   "unique_name": "SophiaOwen@fabrikam.com",
-   "upn": "SophiaOwen@fabrikam.com",
-   "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
-   "ver": "1.0"
-}
-```
+  ```json
+  {
+      "aud": "https://management.core.windows.net/",
+      "iss": "https://sts.windows.net/<Azure-AD-issuer-ID>/",
+      "iat": 1582056988,
+      "nbf": 1582056988,
+      "exp": 1582060888,
+      "_claim_names": {
+         "groups": "src1"
+      },
+      "_claim_sources": {
+         "src1": {
+            "endpoint": "https://graph.windows.net/7200000-86f1-41af-91ab-2d7cd011db47/users/00000-f433-403e-b3aa-7d8406464625d7/getMemberObjects"
+         }
+      },
+      "acr": "1",
+      "aio": "AVQAq/8OAAAA7k1O1C2fRfeG604U9e6EzYcy52wb65Cx2OkaHIqDOkuyyr0IBa/YuaImaydaf/twVaeW/etbzzlKFNI4Q=",
+      "amr": [
+         "rsa",
+         "mfa"
+      ],
+      "appid": "c44b4083-3bb0-00001-b47d-97400853cbdf3c",
+      "appidacr": "2",
+      "deviceid": "bfk817a1-3d981-4dddf82-8ade-2bddd2f5f8172ab",
+      "family_name": "Sophia Owen",
+      "given_name": "Sophia Owen (Fabrikam)",
+      "ipaddr": "167.220.2.46",
+      "name": "sophiaowen",
+      "oid": "3d5053d9-f433-00000e-b3aa-7d84041625d7",
+      "onprem_sid": "S-1-5-21-2497521184-1604012920-1887927527-21913475",
+      "puid": "1003000000098FE48CE",
+      "scp": "user_impersonation",
+      "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
+      "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+      "unique_name": "SophiaOwen@fabrikam.com",
+      "upn": "SophiaOwen@fabrikam.com",
+      "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
+      "ver": "1.0"
+   }
+   ```
 
 <a name="define-authorization-policy-portal"></a>
 
@@ -190,14 +192,14 @@ Per abilitare Azure AD OAuth per l'app per la logica nel portale di Azure, segui
 
    ![Selezionare "Autorizzazione" > "Aggiungi criteri"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
-1. Fornire le informazioni sui criteri di autorizzazione specificando [i tipi di attestazione](../active-directory/develop/developer-glossary.md#claim) e i valori previsti dall'app per la logica nel token di autenticazione presentato da ogni chiamata in ingresso al trigger di richiesta:
+1. Fornire informazioni sui criteri di autorizzazione specificando i [tipi di attestazione](../active-directory/develop/developer-glossary.md#claim) e i valori previsti dall'app per la logica nel token di accesso presentato da ogni chiamata in ingresso al trigger di richiesta:
 
    ![Fornire le informazioni per i criteri di autorizzazione](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Nome del criterio** | Sì | Il nome da usare per il criterio di autorizzazione |
-   | **Richieste** | Sì | I tipi di attestazione e i valori accettati dall'app per la logica dalle chiamate in ingresso. Ecco i tipi di attestazione disponibili: <p><p>- **Autorità di certificazione** <br>- **Destinatari** <br>- **Oggetto** <br>- **ID JWT** (ID token Web JSON) <p><p>Come minimo, è necessario che l'elenco di **attestazioni** includa l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID autorità di certificazione Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore. |
+   | **Richieste** | Sì | I tipi di attestazione e i valori accettati dall'app per la logica dalle chiamate in ingresso. Ecco i tipi di attestazione disponibili: <p><p>- **Autorità di certificazione** <br>- **Destinatari** <br>- **Oggetto** <br>- **ID JWT** (ID token Web JSON) <p><p>Come minimo, l'elenco di **attestazioni** deve includere l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID autorità di certificazione Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore. |
    |||
 
 1. Per aggiungere un'altra attestazione, selezionare una delle opzioni seguenti:
@@ -210,14 +212,27 @@ Per abilitare Azure AD OAuth per l'app per la logica nel portale di Azure, segui
 
 1. Al termine, selezionare **Salva**.
 
+1. Per includere l' `Authorization` intestazione dal token di accesso negli output dei trigger basati su richiesta, vedere [includere l'intestazione ' Authorization ' negli output del trigger di richiesta](#include-auth-header).
+
 <a name="define-authorization-policy-template"></a>
 
 #### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Definire i criteri di autorizzazione nel modello di Azure Resource Manager
 
-Per abilitare Azure AD OAuth nel modello ARM per la distribuzione dell'app per la logica, nella `properties` sezione relativa alla [definizione di risorsa dell'app](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition)per la logica aggiungere un `accessControl` oggetto, se non ne esiste alcuno, che contiene un `triggers` oggetto. Nell' `triggers` oggetto aggiungere un oggetto in `openAuthenticationPolicies` cui definire uno o più criteri di autorizzazione seguendo questa sintassi:
+Per abilitare Azure AD OAuth nel modello ARM per la distribuzione dell'app per la logica, seguire questa procedura e la sintassi seguente:
 
-> [!NOTE]
-> Come minimo, la `claims` matrice deve includere l' `iss` attestazione, che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID emittente Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore.
+1. Nella `properties` sezione relativa alla [definizione di risorsa dell'app](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition)per la logica aggiungere un `accessControl` oggetto, se non ne esiste alcuno, che contiene un `triggers` oggetto.
+
+   Per altre informazioni sull' `accessControl` oggetto, vedere [limitare gli intervalli di indirizzi IP in ingresso nel modello di Azure Resource Manager](#restrict-inbound-ip-template) e [riferimenti ai modelli di flussi di lavoro Microsoft. logici](/azure/templates/microsoft.logic/2019-05-01/workflows).
+
+1. Nell' `triggers` oggetto aggiungere un oggetto contenente `openAuthenticationPolicies` l' `policies` oggetto in cui si definiscono uno o più criteri di autorizzazione.
+
+1. Fornire un nome per i criteri di autorizzazione, impostare il tipo di criteri su `AAD` e includere una `claims` matrice in cui si specificano uno o più tipi di attestazione.
+
+   Come minimo, la `claims` matrice deve includere il tipo di attestazione dell'autorità di certificazione in cui si imposta la proprietà dell'attestazione `name` su `iss` e impostare `value` su per iniziare con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID emittente Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore.
+
+1. Per includere l' `Authorization` intestazione dal token di accesso negli output dei trigger basati su richiesta, vedere [includere l'intestazione ' Authorization ' negli output del trigger di richiesta](#include-auth-header).
+
+Ecco la sintassi da seguire:
 
 ```json
 "resources": [
@@ -256,7 +271,30 @@ Per abilitare Azure AD OAuth nel modello ARM per la distribuzione dell'app per l
 ],
 ```
 
-Per altre informazioni sulla `accessControl` sezione, vedere [limitare gli intervalli di indirizzi IP in ingresso nel modello di Azure Resource Manager](#restrict-inbound-ip-template) e [riferimenti ai modelli di flussi di lavoro Microsoft. logici](/azure/templates/microsoft.logic/2019-05-01/workflows).
+<a name="include-auth-header"></a>
+
+#### <a name="include-authorization-header-in-request-trigger-outputs"></a>Includi intestazione ' Authorization ' negli output del trigger di richiesta
+
+Per le app per la logica che [abilitano l'autenticazione Azure Active Directory Open (Azure ad OAuth)](#enable-oauth) per autorizzare le chiamate in ingresso ad accedere ai trigger basati su richiesta, è possibile abilitare gli output del trigger di richiesta o del webhook http per includere l' `Authorization` intestazione dal token di accesso OAuth. Nella definizione JSON sottostante del trigger aggiungere e impostare la `operationOptions` proprietà su `IncludeAuthorizationHeadersInOutputs` . Di seguito è riportato un esempio per il trigger di richiesta:
+
+```json
+"triggers": {
+   "manual": {
+      "inputs": {
+         "schema": {}
+      },
+      "kind": "Http",
+      "type": "Request",
+      "operationOptions": "IncludeAuthorizationHeadersInOutputs"
+   }
+}
+```
+
+Per altre informazioni, vedere gli argomenti seguenti:
+
+* [Riferimento allo schema per i tipi di trigger e di azione-trigger di richiesta](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)
+* [Riferimento allo schema per i tipi di trigger e di azione-trigger HTTP webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
+* [Riferimento allo schema per i tipi di trigger e azione-opzioni operazione](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options)
 
 <a name="azure-api-management"></a>
 
@@ -896,7 +934,7 @@ Sui trigger di richiesta, è possibile usare [Azure Active Directory autenticazi
 | Proprietà (progettazione) | Proprietà (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
 | **autenticazione** | `type` | Sì | **Active Directory OAuth** <br>o <br>`ActiveDirectoryOAuth` | Tipo di autenticazione da usare. App per la logica segue attualmente il [protocollo di OAuth 2.0](../active-directory/develop/v2-overview.md). |
-| **Authority** | `authority` | No | <*URL-for-authority-token-issuer*> | L'URL per l'autorità che fornisce il token di autenticazione. Per impostazione predefinita, questo valore è `https://login.windows.net`. |
+| **Authority** | `authority` | No | <*URL-for-authority-token-issuer*> | URL dell'autorità che fornisce il token di accesso. Per impostazione predefinita, questo valore è `https://login.windows.net`. |
 | **Tenant** | `tenant` | Sì | <*tenant-ID*> | L'ID tenant per il tenant di Azure AD |
 | **Destinatari** | `audience` | Sì | <*resource-to-authorize*> | La risorsa che si vuole usare per l'autorizzazione, ad esempio `https://management.core.windows.net/` |
 | **ID client** | `clientId` | Sì | <*client-ID*> | L'ID client per l'app richiedente l'autorizzazione |

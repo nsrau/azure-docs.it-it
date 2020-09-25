@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 298ca69a659bec2d5262b344c274fac7371390f1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f908e37c7785744c2f26b6a9cd542ccde228eb38
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534354"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255735"
 ---
 # <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>Esercitazione: configurare Reward gateway per il provisioning utenti automatico
 
@@ -53,15 +53,15 @@ Prima di configurare Reward gateway per il provisioning utenti automatico con Az
 
 1. Accedere alla console di [amministrazione di Reward gateway](https://rewardgateway.photoshelter.com/login/). Fare clic su **Integrations**.
 
-    ![Console di amministrazione di Reward gateway](media/reward-gateway-provisioning-tutorial/image00.png)
+    ![Screenshot della console di amministrazione di Reward gateway con l'opzione Integrations denominata.](media/reward-gateway-provisioning-tutorial/image00.png)
 
 2.  Selezionare **integrazione personale**.
 
-    ![Console di amministrazione di Reward gateway](media/reward-gateway-provisioning-tutorial/image001.png)
+    ![Screenshot delle due opzioni di integrazione con l'opzione delle integrazioni My denominata.](media/reward-gateway-provisioning-tutorial/image001.png)
 
 3.  Copiare i valori dell' **URL SCIM (v2)** e del **token di porta OAuth**. Questi valori verranno immessi nel campo URL tenant e token segreto nella scheda provisioning dell'applicazione Reward gateway nel portale di Azure.
 
-    ![Console di amministrazione di Reward gateway](media/reward-gateway-provisioning-tutorial/image03.png)
+    ![Screenshot del pannello integrazioni personali con la casella di testo token di porta OAuth, denominata.](media/reward-gateway-provisioning-tutorial/image03.png)
 
 ## <a name="add-reward-gateway-from-the-gallery"></a>Aggiungere Reward Gateway dalla raccolta
 
@@ -104,11 +104,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere rispettivamente i valori dell' **URL SCIM (v2)** e del **token di porta OAuth** recuperati in precedenza in **URL tenant** e **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a reward gateway. Se la connessione non riesce, verificare che l'account del gateway Reward disponga delle autorizzazioni di amministratore e riprovare.
 
@@ -122,11 +122,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 8. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to reward gateway**.
 
-    ![Console di amministrazione di Reward gateway](media/reward-gateway-provisioning-tutorial/user-mappings.png)
+    ![Screenshot della sezione mapping con l'opzione Sincronizza Azure Active Directory utenti a reward gateway denominata.](media/reward-gateway-provisioning-tutorial/user-mappings.png)
 
 9. Esaminare gli attributi utente sincronizzati da Azure AD a reward gateway nella sezione **attribute-mapping** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Reward gateway per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Console di amministrazione di Reward gateway](media/reward-gateway-provisioning-tutorial/user-attributes.png)
+    ![Screenshot della sezione mapping degli attributi con sei mapping visualizzati.](media/reward-gateway-provisioning-tutorial/user-attributes.png)
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

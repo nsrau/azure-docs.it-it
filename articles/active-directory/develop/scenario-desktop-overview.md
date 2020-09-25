@@ -12,38 +12,28 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 92f0909660427e414264442523dba3ed2abe0142
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: a6cbb574245c7b11d2437693d60fd952becedba3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771860"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257555"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: App desktop che chiama le API Web
 
 Tutte le informazioni su come per creare un'app desktop che chiama le API Web.
 
-## <a name="prerequisites"></a>Prerequisiti
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="get-started"></a>Introduzione
 
-Se non è già stato fatto, creare la prima applicazione seguendo la Guida introduttiva per desktop .NET, la guida introduttiva UWP (Universal Windows Platform) o la guida introduttiva all'app nativa macOS:
+Se non è già stato fatto, creare la prima applicazione completando una guida introduttiva:
 
-> [!div class="nextstepaction"]
-> [Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app desktop Windows](./quickstart-v2-windows-desktop.md)
-
-
-> [!div class="nextstepaction"]
-> [Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app UWP](./quickstart-v2-uwp.md)
-
-> [!div class="nextstepaction"]
-> [Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app nativa macOS](./quickstart-v2-ios.md)
+- [Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app desktop Windows](./quickstart-v2-windows-desktop.md)
+- [Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app UWP](./quickstart-v2-uwp.md)
+- [Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app nativa macOS](./quickstart-v2-ios.md)
 
 ## <a name="overview"></a>Panoramica
 
-Si scrive un'applicazione desktop e si vuole far accedere gli utenti all'applicazione e chiamare API Web, ad esempio Microsoft Graph, altre API Microsoft o un'API Web personalizzata. Sono disponibili diverse possibilità:
+Si scrive un'applicazione desktop e si vuole far accedere gli utenti all'applicazione e chiamare API Web, ad esempio Microsoft Graph, altre API Microsoft o un'API Web personalizzata. Sono disponibili diverse opzioni:
 
 - È possibile usare l'acquisizione token interattiva:
 
@@ -64,6 +54,10 @@ Si scrive un'applicazione desktop e si vuole far accedere gli utenti all'applica
 ## <a name="specifics"></a>Specifiche
 
 Le applicazioni desktop hanno diverse peculiarità. Dipendono principalmente dal fatto che l'applicazione usi o meno l'autenticazione interattiva.
+
+## <a name="recommended-reading"></a>Letture consigliate
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

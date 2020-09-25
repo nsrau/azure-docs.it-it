@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 87b674a9c6b7f7d591b39f1baf54c4d54082f306
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987308"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252834"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (portale)
 
@@ -27,7 +27,7 @@ Questo articolo illustra il processo di creazione di endpoint e route usando il 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * È necessario un **account Azure** (è possibile impostarne uno gratuitamente [qui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* È necessaria un' **istanza di Azure Digital Twins** nella sottoscrizione di Azure. Se non si dispone già di un'istanza, è possibile crearne una usando la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-scripted.md). Per usare più avanti in questo articolo, è possibile usare i valori seguenti del programma di installazione:
+* È necessaria un' **istanza di Azure Digital Twins** nella sottoscrizione di Azure. Se non si dispone già di un'istanza, è possibile crearne una usando la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). Per usare più avanti in questo articolo, è possibile usare i valori seguenti del programma di installazione:
     - Nome istanza
     - Resource group
 
@@ -58,7 +58,7 @@ Dopo aver creato l'argomento, è possibile collegarlo a dispositivi gemelli digi
 
 Scegliere _endpoint_dal menu istanza. Quindi, dalla pagina *endpoint* che segue, selezionare *+ Crea un endpoint*. 
 
-Nella pagina *Crea un endpoint* visualizzato è possibile creare un endpoint di tipo _griglia di eventi_ selezionando il pulsante di opzione corrispondente. Completare gli altri dettagli: immettere un nome per l'endpoint nel campo _nome_ , scegliere la _sottoscrizione_ dall'elenco a discesa e scegliere l'argomento di griglia di _eventi_ creato in precedenza dal terzo elenco a discesa.
+Nella pagina *Crea un endpoint* visualizzato è possibile creare un endpoint di tipo _griglia di eventi_ selezionando il pulsante di opzione corrispondente. Completare gli altri dettagli: immettere un nome per l'endpoint nel campo _nome_ , scegliere la _sottoscrizione_ dall'elenco a discesa e scegliere l'argomento di griglia di  _eventi_ creato in precedenza dal terzo elenco a discesa.
 
 Quindi, creare l'endpoint colpendo _Save_.
 
@@ -133,8 +133,8 @@ Una definizione di route dell'evento contiene gli elementi seguenti:
 * Nome della route che si vuole usare
 * Nome dell'endpoint che si desidera utilizzare
 * Filtro che definisce gli eventi che vengono inviati all'endpoint
-    - Per disabilitare la route in modo che non venga inviato alcun evento, usare un valore di filtro`false`
-    - Per abilitare una route senza filtri specifici, usare un valore di filtro`true`
+    - Per disabilitare la route in modo che non venga inviato alcun evento, usare un valore di filtro `false`
+    - Per abilitare una route senza filtri specifici, usare un valore di filtro `true`
     - Per informazioni dettagliate su qualsiasi altro tipo di filtro, vedere la sezione relativa [*agli eventi di filtro*](#filter-events) riportata di seguito.
 
 Una singola route può consentire la selezione di più notifiche e tipi di evento.

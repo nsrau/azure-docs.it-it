@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/15/2020
-ms.openlocfilehash: 41dd683bb0ff5be4a48cd05f24663dd51c66a15b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984635"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268724"
 ---
 # <a name="co-sell-partner-engagement"></a>Programma di co-selling per i partner
 
@@ -36,7 +36,7 @@ Le offerte che raggiungono lo stato **incentivate di co-selling IP di Azure** ot
 * Il costo del servizio Marketplace è ridotto dal 20% al 10%. Questo sconto si applica all'offerta IaaS o SaaS venduta attraverso il Marketplace commerciale. Per ulteriori informazioni, vedere [tariffa di servizio ridotta](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) .
 * I partner Cloud Solution Provider (CSP) ricevono un incentivo del 10% per la vendita dell'offerta IaaS o SaaS. Altre informazioni sul programma CSP sono disponibili nel [programma Cloud Solution Provider](cloud-solution-providers.md).
 * Le vendite dell'offerta tramite il Marketplace commerciale contribuiranno al consumo di Azure per i clienti. I clienti idonei vedranno l'offerta contrassegnata come **"vantaggio Azure idoneo"** nel portale di Azure. Per altri dettagli, vedere il vantaggio relativo all'impegno per il [consumo di Azure](azure-consumption-commitment-benefit.md) .
-* L'offerta riceverà una notifica di **"soluzioni preferite"** nelle vetrine. Il badge promuove la qualità, le prestazioni e la capacità delle offerte per soddisfare le esigenze dei clienti in una determinata area verticale o della soluzione. Scopri di più [sulle soluzioni preferite in Microsoft AppSource e in Azure Marketplace](preferred-solutions.md).
+* Le offerte che raggiungono lo stato di **co-selling IP di Azure incentivate** o **Business Applications incentivate di co-selling** riceveranno una notifica di **"soluzioni preferite"** nelle vetrine. Il badge promuove la qualità, le prestazioni e la capacità di un'offerta di soddisfare le esigenze dei clienti in una determinata area verticale o della soluzione. Scopri di più [sulle soluzioni preferite in Microsoft AppSource e in Azure Marketplace](preferred-solutions.md).
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Co-selling di passaggi e requisiti di pubblicazione
 

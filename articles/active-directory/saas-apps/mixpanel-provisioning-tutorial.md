@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: c17d0d927fab86774f25a3ada1fbb3e675957af8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 00e5f750c1acfa49aea2caadbc95fd75cef0b24b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552510"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256047"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Esercitazione: configurare mixpanel per il provisioning utenti automatico
 
@@ -80,11 +80,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere l' **URL del tenant** di mixpanel e il **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a mixpanel. Se la connessione non riesce, verificare che l'account mixpanel disponga delle autorizzazioni di amministratore e riprovare.
 

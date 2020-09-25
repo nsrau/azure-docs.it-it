@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 9d3c5a914fe472dd7e4f797cb633e65951bf07e7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: a3d7386e976551d70fbbc08930b2ab5603aa5d50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871463"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269047"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager
 
@@ -34,12 +34,14 @@ Per ulteriori informazioni sui modelli di Gestione risorse, vedere gli argomenti
 * [Procedure consigliate per i modelli di Azure Resource Manager](../azure-resource-manager/templates/template-best-practices.md)
 * [Sviluppare i modelli di Azure Resource Manager per la coerenza cloud](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
+Per informazioni sulle risorse del modello specifiche per le app per la logica, gli account di integrazione, gli elementi dell'account di integrazione e gli ambienti del servizio di integrazione, vedere [tipi di risorse Microsoft. Logic](/azure/templates/microsoft.logic/allversions).
+
 Per i modelli di app per la logica di esempio, vedere questi esempi:
 
 * [Modello completo](#full-example-template) usato per gli esempi di questo argomento
 * [Esempio di modello di app per la logica introduttiva](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) in GitHub
 
-Per informazioni sulle risorse del modello specifiche per le app per la logica, gli account di integrazione e gli elementi dell'account di integrazione, vedere [tipi di risorse Microsoft. Logic](/azure/templates/microsoft.logic/allversions).
+Per l'API REST di app per la logica, iniziare con la [Panoramica sull'API REST di app](/rest/api/logic)per la logica di Azure.
 
 <a name="template-structure"></a>
 
@@ -280,7 +282,7 @@ Per informazioni generali sulle risorse modello e sui relativi attributi, vedere
 
 ### <a name="logic-app-resource-definition"></a>Definizione di risorsa dell'app per la logica
 
-La definizione di risorsa dell'app per la logica inizia con l' `properties` oggetto, che include le informazioni seguenti:
+La [definizione di risorsa del flusso di lavoro dell'app per la logica in un modello](/azure/templates/microsoft.logic/workflows) inizia con l' `properties` oggetto, che include queste informazioni:
 
 * Stato dell'app per la logica in fase di distribuzione
 * ID per qualsiasi account di integrazione usato dall'app per la logica
@@ -325,7 +327,7 @@ La definizione di risorsa dell'app per la logica inizia con l' `properties` ogge
 
 Ecco gli attributi specifici della definizione di risorsa dell'app per la logica:
 
-| Attributo | Obbligatorio | Tipo | Descrizione |
+| Attributo | Obbligatoria | Type | Descrizione |
 |-----------|----------|------|-------------|
 | `state` | Sì | string | Lo stato dell'app per la logica in fase di distribuzione `Enabled` , dove indica che l'app per la logica è Live e `Disabled` indica che l'app per la logica è inattiva. Se, ad esempio, non si è pronti per l'app per la logica, ma si vuole distribuire una versione bozza, è possibile usare l' `Disabled` opzione. |
 | `integrationAccount` | No | Oggetto | Se l'app per la logica usa un account di integrazione che archivia gli artefatti per gli scenari business-to-business (B2B), questo oggetto include l' `id` attributo, che specifica l'ID dell'account di integrazione. |
@@ -334,7 +336,31 @@ Ecco gli attributi specifici della definizione di risorsa dell'app per la logica
 | `accessControl` | No | Oggetto | Per specificare gli attributi di sicurezza per l'app per la logica, ad esempio per limitare l'accesso IP ai trigger di richiesta o gli input e gli output della cronologia di esecuzione. Per altre informazioni, vedere [proteggere l'accesso alle app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-Per informazioni sulle risorse del modello specifiche per le app per la logica, gli account di integrazione e gli elementi dell'account di integrazione, vedere [tipi di risorse Microsoft. Logic](/azure/templates/microsoft.logic/allversions).
+Per altre informazioni sulle definizioni di risorse per questi oggetti app per la logica, vedere [tipi di risorse Microsoft. Logic](/azure/templates/microsoft.logic/allversions):
+
+* [Definizione di risorsa flusso di lavoro](/azure/templates/microsoft.logic/workflows)
+* [Definizione di risorsa dell'ambiente del servizio di integrazione](/azure/templates/microsoft.logic/integrationserviceenvironments)
+* [Definizione di risorsa API gestita dell'ambiente del servizio di integrazione](/azure/templates/microsoft.logic/integrationserviceenvironments/managedapis)
+
+* [Definizione di risorsa dell'account di integrazione](/azure/templates/microsoft.logic/integrationaccounts)
+
+* Elementi dell'account di integrazione:
+
+  * [Definizione di risorsa contratto](/azure/templates/microsoft.logic/integrationaccounts/agreements)
+
+  * [Definizione di risorsa assembly](/azure/templates/microsoft.logic/integrationaccounts/assemblies)
+
+  * [Definizione di risorsa di configurazione batch](/azure/templates/microsoft.logic/integrationaccounts/batchconfigurations)
+
+  * [Definizione di risorsa certificato](/azure/templates/microsoft.logic/integrationaccounts/certificates)
+
+  * [Definizione di risorsa mappa](/azure/templates/microsoft.logic/integrationaccounts/maps)
+
+  * [Definizione di risorsa partner](/azure/templates/microsoft.logic/integrationaccounts/partners)
+
+  * [Definizione di risorsa dello schema](/azure/templates/microsoft.logic/integrationaccounts/schemas)
+
+  * [Definizione di risorsa della sessione](/azure/templates/microsoft.logic/integrationaccounts/sessions)
 
 <a name="workflow-definition-parameters"></a>
 

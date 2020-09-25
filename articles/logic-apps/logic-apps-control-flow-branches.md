@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 9dafb702117a7e171ff88b3c77d7b8b79503636f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3514ce966e1de9af1741de6b966964aca2599610
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066468"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269234"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Creare o aggiungere rami paralleli per le azioni del flusso di lavoro nelle App per la logica di Azure
 
@@ -47,7 +47,7 @@ L'app per la logica attende il completamento di tutti i rami prima di continuare
 
 1. Nella casella di ricerca trovare e selezionare l'azione desiderata.
 
-   ![Trovare e selezionare l'azione desiderata](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
+   ![Screenshot che mostra la finestra "Scegli un'azione" nella finestra di progettazione dell'app per la logica.](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
    A questo punto l'azione selezionata viene visualizzata nel ramo parallelo, ad esempio:
 
@@ -59,7 +59,7 @@ L'app per la logica attende il completamento di tutti i rami prima di continuare
 
 1. Nella casella di ricerca trovare e selezionare l'azione desiderata.
 
-   ![Trovare e selezionare l'azione sequenziale](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+   ![Screenshot che mostra la finestra "Scegli un'azione" e la casella di ricerca nella finestra di progettazione dell'app per la logica.](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
 
    A questo punto l'azione selezionata viene visualizzata all'interno del ramo corrente, ad esempio:
 
