@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660483"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322513"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -114,7 +114,7 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
    Si noti l'opzione **Aggiungi a un cluster di gateway esistente**, che è possibile selezionare quando si installano gateway aggiuntivi per [scenari a disponibilità elevata](#high-availability).
 
-1. Controllare l'area per il servizio cloud del gateway e per il [bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) usato dall'installazione del gateway. Per impostazione predefinita, questa area è la stessa del tenant di Azure AD per l'account Azure.
+1. Controllare l'area per il servizio cloud gateway e l' [istanza di messaggistica del bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md) usata dall'installazione del gateway. Per impostazione predefinita, questa area è la stessa del tenant di Azure AD per l'account Azure.
 
    ![Confermare l'area per il servizio gateway e il bus di servizio](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
@@ -140,7 +140,7 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
 ## <a name="check-or-adjust-communication-settings"></a>Controllare o modificare le impostazioni di comunicazione
 
-Il gateway dati locale dipende dal [bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md) per la connettività al cloud e stabilisce le corrispondenti connessioni in uscita all'area di Azure associata del gateway. Se l'ambiente di lavoro richiede l'invio del traffico attraverso un proxy o un firewall per l'accesso a Internet, questa restrizione potrebbe impedire al gateway dati locale di connettersi al servizio cloud del gateway e al bus di servizio di Azure. Il gateway dispone di diverse impostazioni di comunicazione che è possibile modificare. Per altre informazioni, vedere gli argomenti seguenti:
+Il gateway dati locale dipende dalla [messaggistica del bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md) per la connettività cloud e stabilisce le connessioni in uscita corrispondenti all'area di Azure associata del gateway. Se l'ambiente di lavoro richiede che il traffico attraversi un proxy o un firewall per accedere a Internet, questa restrizione potrebbe impedire al gateway dati locale di connettersi al servizio cloud gateway e alla messaggistica del bus di servizio di Azure. Il gateway dispone di diverse impostazioni di comunicazione che è possibile modificare. Per altre informazioni, vedere gli argomenti seguenti:
 
 * [Configurazione delle impostazioni di comunicazione per il gateway dati locale](/data-integration/gateway/service-gateway-communication)
 * [Configurare le impostazioni proxy per il gateway dati locale](/data-integration/gateway/service-gateway-proxy)
@@ -206,7 +206,7 @@ Gli utenti dell'organizzazione possono accedere ai dati locali per cui hanno gi�
 
 Il gateway favorisce comunicazioni in background più veloci e sicure. Questa comunicazione passa da un utente nel cloud, al servizio cloud del gateway e all'origine dati locale. Il servizio cloud gateway crittografa e archivia le credenziali dell'origine dati e i dettagli del gateway. Il servizio instrada anche le query e i relativi risultati tra l'utente, il gateway dati locale e l'origine dati locale.
 
-Il gateway funziona con i firewall e usa solo connessioni in uscita. Tutto il traffico ha origine come traffico sicuro in uscita dall'agente di gateway. Il gateway inoltra i dati dalle origini locali sui canali crittografati tramite il [bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md). Il bus di servizio crea un canale tra il gateway e il servizio chiamante, ma non archivia alcun dato. Tutti i dati che attraversano il gateway sono crittografati.
+Il gateway funziona con i firewall e usa solo connessioni in uscita. Tutto il traffico ha origine come traffico sicuro in uscita dall'agente di gateway. Il Gateway invia i dati dalle origini locali nei canali crittografati tramite la [messaggistica del bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md). Il bus di servizio crea un canale tra il gateway e il servizio chiamante, ma non archivia alcun dato. Tutti i dati che attraversano il gateway sono crittografati.
 
 ![Architettura del gateway dati locale](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -217,9 +217,9 @@ I passaggi seguenti descrivono quello che accade quando un utente interagisce co
 
 1. Il servizio cloud crea una query con le credenziali crittografate per l'origine dati. Il servizio invia quindi la query e le credenziali alla coda del gateway per l'elaborazione.
 
-1. Il servizio cloud del gateway analizza la query ed esegue il push della richiesta al bus di servizio di Azure.
+1. Il servizio cloud del gateway analizza la query e inserisce la richiesta nella messaggistica del bus di servizio di Azure.
 
-1. Il bus di servizio di Azure invia le richieste in sospeso al gateway.
+1. La messaggistica del bus di servizio di Azure invia le richieste in sospeso al gateway.
 
 1. Il gateway riceve la query, decrittografa le credenziali e si connette a una o più origini dati con tali credenziali.
 

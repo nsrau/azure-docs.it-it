@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fb90390814af39b240c9a157f490ee9390afeb8f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: devx-track-js
+ms.openlocfilehash: abd6d6379fba1efac20255ca97e66e6b2d7e72ee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030504"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324409"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
 
@@ -50,7 +50,7 @@ Il comando che segue crea un indice composto sui campi `name` e `age` :
 
 `db.coll.find().sort({name:1,age:1})`
 
-È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Ad esempio:
+È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Ecco un esempio:
 
 `db.coll.find().sort({name:-1,age:-1})`
 

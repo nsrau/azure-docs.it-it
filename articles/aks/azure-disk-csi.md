@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: edb38b0884629ebddb646df9d12d8b2e8d07b403
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: dfbef8da1349c2b86595f520e173aee9d455e3a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089548"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299579"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Usare i driver CSI (disk container Storage Interface) di Azure in Azure Kubernetes Service (AKS) (anteprima)
 Il driver CSI (disk container Storage Interface) di Azure è un driver conforme a [specifiche CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)usato da Azure Kubernetes Service (AKS) per gestire il ciclo di vita dei dischi di Azure.
@@ -273,13 +273,14 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc         15G   46M   15G   1% /mnt/azuredisk
 ```
 
-<!--- ## Shared disk
+## <a name="shared-disk"></a>Disco condiviso
 
-[Azure shared disks](../virtual-machines/windows/disks-shared.md) is an Azure managed disks feature that enables attaching an Azure disk to agent nodes simultaneously. Attaching a managed disk to multiple agent nodes allows you, for example, to deploy new or migrate existing clustered applications to Azure.
+[Azure Shared](../virtual-machines/windows/disks-shared.md) disks è una funzionalità di Azure Managed disks che consente di allegare simultaneamente un disco di Azure ai nodi degli agenti. Il fissaggio di un disco gestito a più nodi dell'agente consente, ad esempio, di distribuire nuove applicazioni in cluster o di eseguirne la migrazione in Azure.
 
-> [!IMPORTANT] Currently, only raw block device (`volumeMode: Block`) is supported by the Azure disk CSI driver. Applications should manage the coordination and control of writes, reads, locks, caches, mounts, and fencing on the shared disk, which is exposed as a raw block device.
+> [!IMPORTANT] 
+> Attualmente, `volumeMode: Block` il driver CSI per dischi di Azure supporta solo i dispositivi Block Raw (). Le applicazioni devono gestire il coordinamento e il controllo di Scritture, letture, blocchi, cache, montaggi e schermatura sul disco condiviso, esposto come dispositivo a blocchi non elaborato.
 
-Let's create a file called `shared-disk.yaml` by copying the following command that contains the shared disk storage class and PVC:
+Creare un file denominato `shared-disk.yaml` copiando il comando seguente che contiene la classe di archiviazione su disco condiviso e il PVC:
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -307,7 +308,7 @@ spec:
   storageClassName: managed-csi-shared
 ```
 
-Create the storage class with the [kubectl apply][kubectl-apply] command, and specify your `shared-disk.yaml` file:
+Creare la classe di archiviazione con il comando [kubectl Apply][kubectl-apply] e specificare il `shared-disk.yaml` file:
 
 ```console
 $ kubectl apply -f shared-disk.yaml
@@ -316,7 +317,7 @@ storageclass.storage.k8s.io/managed-csi-shared created
 persistentvolumeclaim/pvc-azuredisk-shared created
 ``` 
 
-Now let's create a file called `deployment-shared.yml` by copying the following command:
+A questo punto, creare un file denominato `deployment-shared.yml` copiando il comando seguente:
 
 ```yaml
 apiVersion: apps/v1
@@ -348,7 +349,7 @@ spec:
             claimName: pvc-azuredisk-shared
 ```
 
-Create the deployment with the [kubectl apply][kubectl-apply] command, and specify your `deployment-shared.yml` file:
+Creare la distribuzione con il comando [kubectl Apply][kubectl-apply] e specificare il `deployment-shared.yml` file:
 
 ```console
 $ kubectl apply -f deployment-shared.yml
@@ -356,7 +357,7 @@ $ kubectl apply -f deployment-shared.yml
 deployment/deployment-azuredisk created
 ```
 
-Finally, let's check the block device inside the pod:
+Infine, controllare il dispositivo a blocchi all'interno del Pod:
 
 ```console
 # kubectl exec -it deployment-sharedisk-7454978bc6-xh7jp bash
@@ -365,7 +366,6 @@ root@deployment-sharedisk-7454978bc6-xh7jp:/# dd if=/dev/zero of=/dev/sdx bs=102
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 0.0502999 s, 2.1 GB/s
 ```
--->
 
 ## <a name="windows-containers"></a>Contenitori Windows
 

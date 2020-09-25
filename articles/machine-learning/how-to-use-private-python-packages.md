@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 0f6f5d0ca757b10a16b31864124f1bcf1190674a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1afa9173c2ca3704bf4408c271e3cf950ef79077
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896927"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302217"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Usare pacchetti Python privati con Azure Machine Learning
 
@@ -36,7 +36,7 @@ I pacchetti privati vengono utilizzati tramite la classe [Environment](https://d
 
 ## <a name="use-small-number-of-packages-for-development-and-testing"></a>Usare un numero ridotto di pacchetti per lo sviluppo e il test
 
-Per un numero ridotto di pacchetti privati per una singola area di lavoro, usare il [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) metodo statico. Questo approccio consente di aggiungere rapidamente un pacchetto privato all'area di lavoro ed è particolarmente adatto a scopo di sviluppo e test.
+Per un numero ridotto di pacchetti privati per una singola area di lavoro, usare il [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) metodo statico. Questo approccio consente di aggiungere rapidamente un pacchetto privato all'area di lavoro ed è particolarmente adatto a scopo di sviluppo e test.
 
 Puntare l'argomento del percorso del file a un file della rotellina locale ed eseguire il ```add_private_pip_wheel``` comando. Il comando restituisce un URL utilizzato per tenere traccia del percorso del pacchetto all'interno dell'area di lavoro. Acquisire l'URL di archiviazione e passargli il `add_pip_package()` metodo.
 
@@ -52,13 +52,13 @@ Internamente, Azure Machine Learning servizio sostituisce l'URL con l'URL di fir
 
 ## <a name="use-a-repository-of-packages-from-azure-devops-feed"></a>Usare un repository di pacchetti dal feed di DevOps di Azure
 
-Se si stanno sviluppando attivamente pacchetti Python per l'applicazione di Machine Learning, è possibile ospitarli in un repository DevOps di Azure come elementi e pubblicarli come feed. Questo approccio consente di integrare il flusso di lavoro DevOps per la compilazione di pacchetti con i area di lavoro di Azure Machine Learning. Per informazioni su come configurare i feed Python usando Azure DevOps, vedere [Introduzione ai pacchetti Python in Azure Artifacts](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops)
+Se si stanno sviluppando attivamente pacchetti Python per l'applicazione di Machine Learning, è possibile ospitarli in un repository DevOps di Azure come elementi e pubblicarli come feed. Questo approccio consente di integrare il flusso di lavoro DevOps per la compilazione di pacchetti con i area di lavoro di Azure Machine Learning. Per informazioni su come configurare i feed Python usando Azure DevOps, vedere [Introduzione ai pacchetti Python in Azure Artifacts](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops&preserve-view=true)
 
 Questo approccio usa il token di accesso personale per l'autenticazione nel repository. Lo stesso approccio è applicabile ad altri repository con autenticazione basata su token, ad esempio repository GitHub privati. 
 
- 1. [Creare un token di accesso personale (Pat)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat) per l'istanza di Azure DevOps. Consente di impostare l'ambito del token per la creazione di __pacchetti > lettura__. 
+ 1. [Creare un token di accesso personale (Pat)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&preserve-view=true&tabs=preview-page#create-a-pat) per l'istanza di Azure DevOps. Consente di impostare l'ambito del token per la creazione di __pacchetti > lettura__. 
 
- 2. Aggiungere le proprietà URL DevOps di Azure e PAT come area di lavoro usando il metodo [Workspace. set_Connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
+ 2. Aggiungere le proprietà URL DevOps di Azure e PAT come area di lavoro usando il metodo [Workspace. set_Connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
 
      ```python
     from azureml.core import Workspace

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: cf32938b534272a13af5891d6a31e64b8136a528
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7717c02fb460c41543ae810820ba01efb13a1ca7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281464"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271189"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Chiamare un endpoint REST con App per la logica di Azure
 
@@ -54,17 +54,17 @@ Questo trigger predefinito invia una richiesta HTTP a un URL per un file Swagger
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Immettere l'URL per l'endpoint Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   ![Screenshot che mostra la finestra di progettazione dell'app per la logica con il trigger "H T T P + spavalderia" e la proprietà "spavalderia endpoint U R L" impostata su un valore U R L.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
 1. Quando nella finestra di progettazione vengono visualizzate le operazioni descritte dal file Swagger, selezionare l'operazione da usare.
 
-   ![Operazioni nel file Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
+   ![Screenshot che mostra la finestra di progettazione dell'app per la logica con il trigger "H T T P + spavalderia" e un elenco che mostra le operazioni di spavalderia.](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
 1. Specificare i valori per i parametri del trigger, che variano in base all'operazione selezionata da includere nella chiamata all'endpoint. Impostare la frequenza con cui si desidera che il trigger chiami l'endpoint.
 
    In questo esempio, il trigger viene rinominato "Trigger HTTP + Swagger: Rilevamento viso", in modo da dare al passaggio un nome più descrittivo.
 
-   ![Dettagli dell'operazione](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
+   ![Screenshot che mostra la finestra di progettazione dell'app per la logica con il trigger "H T T P + spavalderia" che Visualizza l'operazione "rilevamento viso".](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
 1. Per aggiungere altri parametri disponibili, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri desiderati.
 

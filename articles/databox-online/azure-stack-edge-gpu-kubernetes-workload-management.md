@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: f64f9b612ff47fb5c0b6e6202ad87f7660959100
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9e0da9e24a0bd32047d029879c4f0e110dc0c16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899166"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320796"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Gestione del carico di lavoro Kubernetes sul dispositivo Azure Stack Edge Pro
 
@@ -29,7 +29,7 @@ I due tipi comuni di carichi di lavoro che è possibile distribuire nel disposit
 
     È possibile creare una distribuzione di Kubernetes per distribuire un'applicazione senza stato nel cluster. 
 
-- **Le applicazioni con stato** richiedono il salvataggio dello stato. Le applicazioni con stato usano un archivio permanente, ad esempio volumi persistenti, per salvare i dati per l'uso da parte del server o da altri utenti. Esempi di applicazioni con stato includono database come MongoDB.
+- **Le applicazioni con stato** richiedono il salvataggio dello stato. Le applicazioni con stato usano un archivio permanente, ad esempio volumi persistenti, per salvare i dati per l'uso da parte del server o da altri utenti. Esempi di applicazioni con stato includono database come [Azure SQL Edge](../azure-sql-edge/overview.md) e MongoDB.
 
     È possibile creare una distribuzione di Kubernetes per distribuire un'applicazione con stato. 
 

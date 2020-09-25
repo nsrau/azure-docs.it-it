@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004902"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334549"
 ---
 # <a name="business-card-concepts"></a>Concetti relativi ai biglietti da visita
 
@@ -62,7 +62,7 @@ La [scheda analizza business](https://westcentralus.dev.cognitive.microsoft.com/
 
 Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze business card result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione analizza business card. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Tipo | Valori possibili |
+|Campo| Type | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione di analisi non è stata avviata.<br /><br />Running: l'operazione di analisi è in corso.<br /><br />non riuscito: l'operazione di analisi non è riuscita.<br /><br />Succeeded: l'operazione di analisi ha avuto esito positivo.|
 
@@ -88,8 +88,8 @@ Vedere l'esempio seguente di una risposta JSON riuscita: il nodo "readResults" c
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-                "lines": 
-                          {
+                   "lines": 
+                             {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
                             419.3,
@@ -389,7 +389,9 @@ L'API dei biglietti da business è anche la [funzionalità di elaborazione di AI
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Seguire le guide introduttive per iniziare la Guida introduttiva all' [API delle schede business](./quickstarts/python-business-cards.md)
-- Informazioni sull' [API REST di riconoscimento moduli](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
-- Altre informazioni sul [riconoscimento moduli](overview.md)
+- Seguire la [Guida introduttiva all'API](./quickstarts/python-business-cards.md) per i biglietti da visita per iniziare a riconoscere i biglietti aziendali.
 
+## <a name="see-also"></a>Vedere anche
+
+* [Informazioni su Riconoscimento modulo](./overview.md)
+* [Documentazione di riferimento per l'API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)

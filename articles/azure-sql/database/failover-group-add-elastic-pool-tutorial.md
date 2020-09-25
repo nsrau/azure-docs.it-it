@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 80fa5b7264d675317fba3cc12fa5049bdea76906
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0c4a3c97649f168d339f5209cc10a46f56e97381
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042578"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335178"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Esercitazione: aggiungere un pool elastico del database SQL di Azure a un gruppo di failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -147,7 +147,7 @@ Creare il gruppo di failover usando il portale di Azure.
     - **Nome del gruppo di failover**: digitare un nome di gruppo di failover univoco, ad esempio `failovergrouptutorial` .
     - **Server secondario**: selezionare l'opzione per *configurare le impostazioni necessarie* e quindi scegliere di **creare un nuovo server**. In alternativa, è possibile scegliere un server già esistente come server secondario. Dopo aver immesso i valori seguenti per il nuovo server secondario, selezionare **Seleziona**.
         - **Nome server**: digitare un nome univoco per il server secondario, ad esempio `mysqlsecondary` .
-        - **Accesso amministratore server**: tipo`azureuser`
+        - **Accesso amministratore server**: tipo `azureuser`
         - **Password**: digitare una password complessa che soddisfi i requisiti delle password.
         - **Località**: scegliere un percorso dall'elenco a discesa, ad esempio `East US` . Il percorso non può essere uguale a quello del server primario.
 
@@ -355,7 +355,7 @@ Pulire le risorse eliminando il gruppo di risorse.
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Passare al gruppo di risorse nel [portale di Azure](https://portal.azure.com).
-1. Selezionare **Elimina gruppo di risorse** per eliminare tutte le risorse nel gruppo, nonché il gruppo di risorse stesso.
+1. Selezionare  **Elimina gruppo di risorse** per eliminare tutte le risorse nel gruppo, nonché il gruppo di risorse stesso.
 1. Digitare il nome del gruppo di risorse, `myResourceGroup` , nella casella di testo e quindi selezionare **Elimina** per eliminare il gruppo di risorse.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)

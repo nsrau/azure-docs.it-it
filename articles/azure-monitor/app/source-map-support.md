@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: de475cbd7cbb0d8dbcda026109b0387da14bedff
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386793"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335132"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Supporto della mappa di origine per le applicazioni JavaScript
 
 Application Insights supporta il caricamento delle mappe di origine nel contenitore BLOB dell'account di archiviazione.
-È possibile usare le mappe di origine per unminify gli stack di chiamate trovati nella pagina dei dettagli della transazione end-to-end. Eventuali eccezioni inviate da [JavaScript SDK][ApplicationInsights-JS] o [SDKNode.js][ApplicationInsights-Node.js] possono essere unminified con le mappe di origine.
+È possibile usare le mappe di origine per unminify gli stack di chiamate trovati nella pagina dei dettagli della transazione end-to-end. Eventuali eccezioni inviate da [JavaScript SDK][ApplicationInsights-JS] o [ SDKNode.js][ApplicationInsights-Node.js] possono essere unminified con le mappe di origine.
 
 ![Unminify di uno stack di chiamate mediante collegamento a un account di archiviazione](./media/source-map-support/details-unminify.gif)
 
@@ -78,7 +78,7 @@ Qualsiasi utente nel portale che usa questa funzionalità deve essere almeno ass
 
 1. Verificare che la mappa di origine corrispondente venga caricata nel contenitore BLOB corretto
 2. Verificare che il file di mapping di origine sia denominato dopo il file JavaScript a cui viene eseguito il mapping, con suffisso `.map` .
-    - Ad esempio, `/static/js/main.4e2ca5fa.chunk.js` eseguirà la ricerca del BLOB denominato`main.4e2ca5fa.chunk.js.map`
+    - Ad esempio, `/static/js/main.4e2ca5fa.chunk.js` eseguirà la ricerca del BLOB denominato `main.4e2ca5fa.chunk.js.map`
 3. Controllare la console del browser per verificare se sono stati registrati errori. Includere questo in qualsiasi ticket di supporto.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 03/19/2020
+ms.date: 09/23/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92c3e0d77a26db406e24d6d2fa07e96349613634
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909479"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274045"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
@@ -116,6 +116,9 @@ Se il partner ha un tenant di Azure AD federato all'infrastruttura di autenticaz
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Pensavo che B2B di Azure AD non accettasse gli indirizzi di posta elettronica gmail.com e outlook.com e che B2C venisse usato per tali tipi di account.
 Le differenze tra la collaborazione B2B e la collaborazione business-to-consumer, ovvero B2C, verranno rimosse in termini di identità supportate. L'identità usata non è un buon motivo per decidere se usare B2C o B2B. Per informazioni sulla scelta dell'opzione di collaborazione, vedere [Confrontare Collaborazione B2B e B2C di Azure Active Directory](compare-with-b2c.md).
+
+### <a name="can-an-azure-ad-b2c-local-account-be-invited-to-an-azure-ad-tenant-for-b2b-collaboration"></a>Un account Azure AD B2C locale può essere invitato a un tenant Azure AD per la collaborazione B2B?
+No. Un account Azure AD B2C locale può essere usato solo per accedere al tenant di Azure AD B2C. Non è possibile usare l'account per accedere a un tenant di Azure AD. L'invito di un account locale Azure AD B2C a un tenant Azure AD per la collaborazione B2B non è supportato.
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Quali applicazioni e servizi supportano gli utenti guest di Azure B2B?
 Tutte le applicazioni integrate Azure AD possono supportare gli utenti Guest B2B di Azure, ma devono usare un endpoint configurato come tenant per l'autenticazione degli utenti guest. Potrebbe anche essere necessario [personalizzare le attestazioni](claims-mapping.md) nel token SAML rilasciato quando un utente guest esegue l'autenticazione all'app. 

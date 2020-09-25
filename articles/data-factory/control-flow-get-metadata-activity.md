@@ -10,14 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: c761cf1265ad61517a9d0123b932d31b27d157dd
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e32115c590d73f5c93f322d3bd542096f2964a4c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613500"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297607"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Ottenere l'attività dei metadati in Azure Data Factory
 
@@ -35,7 +35,7 @@ La funzionalità seguente è disponibile nel flusso di controllo:
 
 ## <a name="capabilities"></a>Funzionalità
 
-L'attività Ottieni metadati accetta un set di dati come input e restituisce informazioni sui metadati come output. Attualmente sono supportati i seguenti connettori e i metadati recuperabili corrispondenti. Le dimensioni massime dei metadati restituiti sono pari a 2 MB.
+L'attività Ottieni metadati accetta un set di dati come input e restituisce informazioni sui metadati come output. Attualmente sono supportati i seguenti connettori e i metadati recuperabili corrispondenti. La dimensione massima dei metadati restituiti è circa 4 MB.
 
 >[!NOTE]
 >Se si esegue l'attività Ottieni metadati in un runtime di integrazione self-hosted, le funzionalità più recenti sono supportate nella versione 3,6 o successive.
@@ -87,7 +87,7 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 | contentMD5 | MD5 del file. Applicabile solo ai file. |
 | structure | Struttura dei dati del file o della tabella di database relazionale. Il valore restituito è un elenco di nomi di colonna e di colonne. |
 | columnCount | Numero di colonne nel file o nella tabella relazionale. |
-| esiste| Indica se esiste un file, una cartella o una tabella. Si noti che se `exists` è specificato nell'elenco dei campi Get Metadata, l'attività non avrà esito negativo anche se il file, la cartella o la tabella non esiste. Viene invece `exists: false` restituito nell'output. |
+| esiste| Indica se esiste un file, una cartella o una tabella. Se `exists` viene specificato nell'elenco dei campi Get Metadata, l'attività non avrà esito negativo anche se il file, la cartella o la tabella non esiste. Viene invece `exists: false` restituito nell'output. |
 
 >[!TIP]
 >Quando si desidera convalidare l'esistenza di un file, una cartella o una tabella, specificare `exists` nell'elenco dei campi attività Ottieni metadati. È quindi possibile controllare il `exists: true/false` risultato nell'output dell'attività. Se `exists` non è specificato nell'elenco dei campi, l'attività Ottieni metadati avrà esito negativo se l'oggetto non viene trovato.

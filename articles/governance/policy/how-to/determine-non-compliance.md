@@ -3,12 +3,12 @@ title: Determinare le cause di non conformità
 description: Quando una risorsa non è conforme, i motivi possibili sono molti. Informazioni sulle possibili cause di non conformità.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a666da4ecb97c24e7176e6c7cfbe2ee24f46f1b7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 102a1a6a9573c73b4c1158a3c412be233e1a12b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648565"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334175"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
@@ -36,7 +36,7 @@ Per visualizzare i dettagli di conformità, attenersi alla procedura seguente:
 
 1. Nella scheda **Conformità risorsa** della pagina **Conformità dei criteri** fare clic con il pulsante destro del mouse o selezionare i puntini di sospensione di una risorsa il cui **stato di conformità** sia _Non conforme_. Quindi selezionare **Visualizzare i dettagli sulla conformità**.
 
-   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Screenshot del collegamento Visualizza dettagli conformità nella scheda conformità risorse." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Screenshot del collegamento "Visualizza dettagli conformità" nella scheda conformità risorse." border="false":::
 
 1. Il riquadro **Dettagli conformità** visualizza le informazioni della valutazione più recente della risorsa rispetto all'assegnazione dei criteri corrente. In questo esempio il valore del campo **Microsoft.Sql/servers/version** è _12.0_ mentre la definizione del criterio prevedeva _14.0_. Se la risorsa non è conforme per più motivi, in questo riquadro vengono elencati tutti i motivi.
 
@@ -106,9 +106,15 @@ Nella matrice seguente viene eseguito il mapping di ogni possibile _motivo_ rela
 
 ## <a name="compliance-details-for-guest-configuration"></a>Dettagli di conformità per la configurazione guest
 
-Per i criteri _auditIfNotExists_ nella categoria _Configurazione guest_, è possibile che vengano valutate più impostazioni nella macchina virtuale e che sia necessario visualizzare i dettagli per ogni impostazione. Ad esempio, se si esegue il controllo di un elenco di criteri password e solo per uno di essi lo stato è _Non conforme_, è necessario stabilire quali criteri password specifici non sono conformi e il motivo della non conformità.
+Per i criteri _auditIfNotExists_ nella categoria _configurazione Guest_ , è possibile che vengano valutate più impostazioni all'interno della macchina virtuale e che sia necessario visualizzare i dettagli per ogni impostazione. Ad esempio, se si esegue il controllo di un elenco di criteri password e solo per uno di essi lo stato è _Non conforme_, è necessario stabilire quali criteri password specifici non sono conformi e il motivo della non conformità.
 
-Potrebbe non essere possibile accedere direttamente alla macchina virtuale. È tuttavia necessario segnalare il motivo per cui lo stato della macchina virtuale è _Non conforme_.
+Inoltre, potrebbe non essere possibile accedere direttamente alla macchina virtuale, ma è necessario segnalare il motivo per cui la macchina virtuale non è _conforme_.
+
+## <a name="compliance-details-for-resource-provider-modes"></a>Dettagli di conformità per le modalità del provider di risorse
+
+Per le assegnazioni con una [modalità provider di risorse](../concepts/definition-structure.md#resource-manager-modes), selezionare la risorsa _non conforme_ per aprire una visualizzazione più approfondita. Nella scheda **conformità componenti** sono presenti informazioni aggiuntive specifiche per la modalità del provider di risorse nel criterio assegnato che mostra il **componente** e l' **ID componente** _non conformi_ .
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot della scheda conformità componenti e dei dettagli di conformità per un'assegnazione in modalità provider di risorse." border="false":::
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -215,6 +221,6 @@ I dati della cronologia delle modifiche vengono forniti da [Azure Resource Graph
 - Vedere la [struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
 - Informazioni su come [creare criteri a livello di codice](programmatically-create.md).
-- Informazioni su come [ottenere dati sulla conformità](get-compliance-data.md).
+- Leggere le informazioni su come [ottenere dati sulla conformità](get-compliance-data.md).
 - Informazioni su come [correggere le risorse non conformi](remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

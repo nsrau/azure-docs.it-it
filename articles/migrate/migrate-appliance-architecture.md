@@ -3,12 +3,12 @@ title: Architettura dell'appliance di Azure Migrate
 description: Offre una panoramica dell'appliance di Azure Migrate usata per la valutazione e la migrazione del server.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 623790568fb8d86d8065711439f148211fc7fd6b
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514569"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322258"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architettura dell'appliance di Azure Migrate
 
@@ -72,7 +72,7 @@ L'appliance comunica con i server vCenter e gli host/cluster Hyper-V usando il p
 2. **Raccogliere i metadati e i dati sulle prestazioni**:
     - L'appliance usa una sessione di Common Information Model (CIM) per raccogliere i dati delle macchine virtuali Hyper-V dall'host Hyper-V sulla porta 5985.
     - Per impostazione predefinita, l'appliance comunica con la porta 443 per raccogliere i dati delle macchine virtuali VMware dal server vCenter.
-3. **Invia dati**: il dispositivo invia i dati raccolti a Azure migrate server Assessment e Azure migrate migrazione del server sulla porta SSL 443. Il dispositivo è in grado di connettersi ad Azure tramite Internet oppure è possibile usare ExpressRoute con peering pubblico/Microsoft.
+3. **Invia dati**: il dispositivo invia i dati raccolti a Azure migrate server Assessment e Azure migrate migrazione del server sulla porta SSL 443. Il dispositivo può connettersi ad Azure tramite Internet o tramite ExpressRoute (richiede il peering Microsoft).
     - Per i dati sulle prestazioni, l'appliance raccoglie i dati di utilizzo in tempo reale.
         - I dati sulle prestazioni vengono raccolti ogni 20 secondi per VMware e ogni 30 secondi per Hyper-V per ogni metrica delle prestazioni.
         - Viene eseguito il rollup dei dati raccolti per creare un singolo punto dati per 10 minuti.

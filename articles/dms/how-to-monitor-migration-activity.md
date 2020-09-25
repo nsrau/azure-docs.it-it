@@ -9,14 +9,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc9123735ef65bec89e99a14d25cba881be306fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77648513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297471"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorare l'attività di migrazione con il servizio migrazione del database di Azure
 Questo articolo illustra come monitorare lo stato di avanzamento di una migrazione sia a livello di database sia a livello di tabella.
@@ -133,8 +133,8 @@ La tabella seguente descrive i campi visualizzati nello stato di avanzamento del
 | ------------- | ------------- |
 | **Stato - Sincronizzazione**      | Sincronizzazione continua in esecuzione. |
 | **Inserimento**      | Numero di inserimenti CDC nelle righe applicati alla destinazione.      |
-| **Update** | Numero di aggiornamenti CDC nelle righe applicati alla destinazione.      |
-| **Eliminazione**      | Numero di eliminazioni CDC nelle righe applicate alla destinazione. |
+| **Aggiornamento** | Numero di aggiornamenti CDC nelle righe applicati alla destinazione.      |
+| **Elimina**      | Numero di eliminazioni CDC nelle righe applicate alla destinazione. |
 | **Totale applicato**      | Totale di aggiornamenti, inserimenti ed eliminazioni CDC nelle righe applicati alla destinazione. |
 | **Errori dei dati** | Numero di errori di dati che si sono verificati nella tabella. Alcuni esempi di errori sono: *511: Cannot create a row of size %d which is greater than the allowable maximum row size of %d (Non è possibile creare una riga di dimensione %d, perché tale valore è maggiore della dimensione di riga massima consentita %d), 8114: Error converting data type %ls to %ls (Errore durante la conversione del tipo di dati %ls in %ls).*  Per visualizzare i dettagli dell'errore, è necessario eseguire una query dalla tabella dms_apply_exceptions nella destinazione di Azure.    |
 

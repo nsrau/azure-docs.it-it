@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 4858a2e448955877107f6928b0aa01726e5db082
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9942ad359bf1e1e7a02f30979ba4a9325d90d484
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028586"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336055"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Gestione della manutenzione pianificata con PowerShell
 
@@ -27,9 +27,21 @@ Le informazioni vengono restituite solo se è presente una manutenzione pianific
 Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
 ```
 
+Output
+
+```
+MaintenanceRedeployStatus               : 
+  IsCustomerInitiatedMaintenanceAllowed : True
+  PreMaintenanceWindowStartTime         : 5/14/2018 12:30:00 PM
+  PreMaintenanceWindowEndTime           : 5/19/2018 12:30:00 PM
+  MaintenanceWindowStartTime            : 5/21/2018 4:30:00 PM
+  MaintenanceWindowEndTime              : 6/4/2018 4:30
+  LastOperationResultCode               : None 
+```
+
 MaintenanceRedeployStatus restituisce le proprietà seguenti: 
 
-| Valore | Descrizione   |
+| valore | Descrizione   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se in questo momento è possibile avviare la manutenzione per la macchina virtuale |
 | PreMaintenanceWindowStartTime         | Inizio della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della VM |

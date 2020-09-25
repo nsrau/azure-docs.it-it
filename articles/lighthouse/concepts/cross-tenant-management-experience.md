@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1ec2beeef86478e36fe3809e8dabcd40333c098a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 70356fd3856e517ca8fb3414a4ae2a8ccf28326e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602388"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336633"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -48,7 +48,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 [Azure Arc](../../azure-arc/index.yml):
 
-- Gestire server ibridi su larga scala- [server abilitati per Azure Arc (anteprima)](../../azure-arc/servers/overview.md):
+- Gestire server ibridi su larga scala- [server abilitati per Azure Arc](../../azure-arc/servers/overview.md):
   - [Gestire computer Windows Server o Linux all'esterno di Azure connessi](../../azure-arc/servers/onboard-portal.md) a sottoscrizioni delegate e/o gruppi di risorse in Azure
   - Gestire computer connessi usando costrutti di Azure, ad esempio Criteri di Azure e assegnazione di tag
   - Assicurarsi che lo stesso set di criteri venga applicato tra gli ambienti ibridi dei clienti

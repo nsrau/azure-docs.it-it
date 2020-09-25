@@ -1,17 +1,17 @@
 ---
 title: Creare una nuova versione dell'immagine da una versione di immagine esistente usando il generatore di immagini di Azure (anteprima)
-description: Creare una nuova versione dell'immagine di macchina virtuale da una versione di immagine esistente usando Azure Image Builder.
+description: Creare una nuova versione dell'immagine di macchina virtuale da una versione di immagine esistente usando Generatore immagini di Azure in Windows.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.openlocfilehash: bdae608d573bc411242b4bf66ea033a7df421cfc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7515e0a39d1cf0da74d2a23457443e96716b4275
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005702"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335953"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>Anteprima: creare una nuova versione dell'immagine di macchina virtuale da una versione di immagine esistente usando Generatore immagini di Azure in Windows
 
@@ -171,8 +171,8 @@ dir c:\
 ```
 
 Verranno ora visualizzate due directory:
-- `buildActions`che è stato creato nella prima versione dell'immagine.
-- `buildActions2`Questa operazione è stata creata come parte relativa all'aggiornamento della prima versione dell'immagine per creare la seconda versione dell'immagine.
+- `buildActions` che è stato creato nella prima versione dell'immagine.
+- `buildActions2` Questa operazione è stata creata come parte relativa all'aggiornamento della prima versione dell'immagine per creare la seconda versione dell'immagine.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,17 +1,17 @@
 ---
 title: Creare il primo servizio Reliable Services in Java
-description: Introduzione alla creazione di un’applicazione dell’infrastruttura di servizi di Microsoft Azure con i servizi con e senza stato.
+description: Introduzione alla creazione di un'applicazione Microsoft Azure Service Fabric con servizi con e senza stato in Java.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-java
 ms.author: suhuruli
-ms.openlocfilehash: 30797e68081e346ee0f31f77da15f820776337a0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f74265c7b774e4b471c8621e99377a009f939ee1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250097"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Introduzione a Reliable Services in Java
 > [!div class="op_single_selector"]

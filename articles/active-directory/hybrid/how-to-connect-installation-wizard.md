@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 900471675c0e77cc5d82641fead3f019a0fa90c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d81836b47acb19f624075480aafef74c9c0934c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358685"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306124"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Servizio di sincronizzazione Azure AD Connect: eseguire l'installazione guidata una seconda volta
 La prima volta che si esegue l'installazione guidata di Azure AD Connect, viene illustrata la procedura di configurazione dell'installazione. Se si esegue nuovamente l'installazione guidata, verranno messe a disposizione le opzioni di manutenzione.
@@ -79,7 +79,7 @@ Quando si seleziona questa opzione, vengono elencate tutte le directory presenti
 Questa opzione consente di abilitare e disabilitare la modalità di gestione temporanea nel server. Per altre informazioni sull'uso della modalità di gestione temporanea, vedere [Operazioni](how-to-connect-sync-staging-server.md).
 
 L'opzione indicherà se la gestione temporanea è attualmente abilitata o disabilitata:   
-![Opzione che visualizza anche lo stato attuale della modalità di gestione temporanea](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
+![Screenshot che mostra la modalità di gestione temporanea disabilitata.](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
 Per modificare lo stato, selezionare questa opzione e selezionare o deselezionare la casella di controllo.  
 ![Opzione che visualizza anche lo stato attuale della modalità di gestione temporanea](./media/how-to-connect-installation-wizard/stagingmodeenable.png)

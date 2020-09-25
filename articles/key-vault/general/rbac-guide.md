@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4f943b11830c19ebb69dd501827deb158cecadf0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972265"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336752"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornire l'accesso a chiavi Key Vault, certificati e segreti con un controllo degli accessi in base al ruolo di Azure (anteprima)
 
@@ -45,6 +45,8 @@ Per ulteriori informazioni sulle linee guida per la gestione di Azure Key Vault,
 - [Limiti del servizio Azure Key Vault](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Ruoli predefiniti di Azure per Key Vault operazioni del piano dati (anteprima)
+> [!NOTE]
+> `Key Vault Contributor` il ruolo è per le operazioni del piano di gestione per gestire gli insiemi di credenziali delle chiavi. Non consente l'accesso a chiavi, segreti e certificati.
 
 | Ruolo predefinito | Descrizione | ID |
 | --- | --- | --- |

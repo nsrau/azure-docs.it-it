@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 02e9426c7fc537a43fadddb5e2c34fd9c311d69b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b486b94a74d98f5630bd0bf40ebf0864c2ec5ab8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753261"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333903"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Archiviare e gestire i valori usando le variabili in App per la logica di Azure
 
@@ -55,7 +55,7 @@ Le variabili esistono e sono globali solo all'interno dell'istanza dell'app per 
 
    * Per aggiungere un'azione nel passaggio precedente, selezionare **nuovo passaggio**.
 
-     ![Aggiungere un'azione](./media/logic-apps-create-variables-store-values/add-action.png)
+     ![Screenshot che mostra l'azione "nuovo passaggio" selezionata nella pagina "progettazione app per la logica".](./media/logic-apps-create-variables-store-values/add-action.png)
 
    * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga visualizzato il segno più ( **+** ). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
 
@@ -179,7 +179,7 @@ Ecco alcuni esempi per altri tipi di variabili:
 
 Per recuperare o fare riferimento al contenuto di una variabile è anche possibile usare la [funzione variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) in Logic App Designer (Progettazione app per la logica) e l'editor di visualizzazione del codice. Per fare riferimento a una variabile, usare il nome della variabile come token, non il nome dell'azione, che è il modo usuale per fare riferimento agli output di un'azione.
 
-Questa espressione, ad esempio, ottiene gli elementi dalla variabile di matrice [creata in precedenza in questo articolo](#append-value) tramite la `variables()` funzione. La `string()` funzione restituisce il contenuto della variabile in formato stringa:`"1, 2, 3, red"`
+Questa espressione, ad esempio, ottiene gli elementi dalla variabile di matrice [creata in precedenza in questo articolo](#append-value) tramite la `variables()` funzione. La `string()` funzione restituisce il contenuto della variabile in formato stringa: `"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -242,8 +242,8 @@ Le variabili vengono comunemente usate per contare il numero di volte in cui vie
 
 1. Nel trigger, per verificare la presenza di allegati e passare tali allegati al flusso di lavoro dell'app per la logica, selezionare **Sì** per queste proprietà:
 
-   * **Presenta un allegato**
-   * **Includere gli allegati**
+   * **Con allegato**
+   * **Includi allegati**
 
    ![Cercare e includere allegati](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
 

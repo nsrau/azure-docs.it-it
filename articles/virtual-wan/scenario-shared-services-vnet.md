@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c72ff14246f3f96980fe1de2fdef16794bf23e4e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: b8cc59b805cd757edce79a14d124ea244b4652a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399991"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267483"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scenario: routing ai servizi condivisi reti virtuali
 
@@ -28,7 +28,7 @@ Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul 
 
 **Matrice di connettività**
 
-| Da             | Con:   |*Reti virtuali isolato*|*VNet condiviso*|*Rami*|
+| From             | Con:   |*Reti virtuali isolato*|*VNet condiviso*|*Rami*|
 |---|---|---|---|---|
 |**Reti virtuali isolato**|&#8594;|                |        X        |       X      |
 |**Reti virtuali condiviso**  |&#8594;|       X        |        X        |       X      |

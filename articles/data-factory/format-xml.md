@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: 12e6ae9dd14ebafb1da6bfbcfef64e2d65e876d8
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e0fadf4ac8cea1c8804b17f5549a99bc360e2950
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334294"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Formato XML in Azure Data Factory
 
@@ -85,7 +85,9 @@ Nella sezione *** \* origine \* *** dell'attività di copia sono supportate le p
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | Il tipo di formatSettings deve essere impostato su **Proprietà XmlReadSettings**. | Sì      |
 | validationMode | Specifica se convalidare il XML Schema.<br>I valori consentiti sono **None** (impostazione predefinita, nessuna convalida), **xsd** (Validate Using XSD), **DTD** (Validate Using DTD). | No |
+| spazi dei nomi | Indica se abilitare lo spazio dei nomi durante l'analisi dei file XML. I valori consentiti sono: **true** (predefinito), **false**. | No |
 | namespacePrefixes | URI dello spazio dei nomi da anteporre al mapping, che viene usato per assegnare un nome ai campi durante l'analisi del file XML.<br/>Se per un file XML sono abilitati lo spazio dei nomi e lo spazio dei nomi, per impostazione predefinita il nome del campo corrisponde a quello presente nel documento XML.<br>Se è presente un elemento definito per l'URI dello spazio dei nomi in questa mappa, il nome del campo è `prefix:fieldName` . | No |
+| detectDataType | Indica se rilevare i tipi di dati Integer, Double e Boolean. I valori consentiti sono: **true** (predefinito), **false**.| No |
 | compressionProperties | Gruppo di proprietà su come decomprimere i dati per un determinato codec di compressione. | No       |
 | preserveZipFileNameAsFolder<br>(*in `compressionProperties` -> `type` As `ZipDeflateReadSettings` *)  | Si applica quando il set di dati di input viene configurato con la compressione **ZipDeflate** . Indica se mantenere il nome del file zip di origine come struttura di cartelle durante la copia.<br>-Se impostato su **true (impostazione predefinita)**, Data Factory scrive file decompressi in `<path specified in dataset>/<folder named as source zip file>/` .<br>-Se impostato su **false**, Data Factory scrive i file decompressi direttamente in `<path specified in dataset>` . Assicurarsi che non siano presenti nomi di file duplicati in file zip di origine diversi per evitare la competizione o un comportamento imprevisto.  | No |
 | preserveCompressionFileNameAsFolder<br>(*in `compressionProperties` -> `type` As `TarGZipReadSettings` *) | Si applica quando il set di dati di input viene configurato con la compressione **TarGzip** . Indica se mantenere il nome file compresso di origine come struttura di cartelle durante la copia.<br>-Se impostato su **true (impostazione predefinita)**, Data Factory scrive i file decompressi in `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Se impostato su **false**, Data Factory scrive i file decompressi direttamente in `<path specified in dataset>` . Assicurarsi che non siano presenti nomi di file duplicati in file di origine diversi per evitare la competizione o un comportamento imprevisto. | No |
@@ -109,6 +111,7 @@ Nella tabella seguente sono elencate le proprietà supportate da un'origine XML.
 | Modalità di convalida | Specifica se convalidare il XML Schema. | No | `None` (impostazione predefinita, nessuna convalida)<br>`xsd` (convalida con XSD)<br>`dtd` (convalida tramite DTD). | validationMode |
 | Spazi dei nomi | Indica se abilitare lo spazio dei nomi durante l'analisi dei file XML. | No | `true` (impostazione predefinita) o `false` | spazi dei nomi |
 | Coppie di prefisso dello spazio dei nomi | URI dello spazio dei nomi da anteporre al mapping, che viene usato per assegnare un nome ai campi durante l'analisi del file XML.<br/>Se per un file XML sono abilitati lo spazio dei nomi e lo spazio dei nomi, per impostazione predefinita il nome del campo corrisponde a quello presente nel documento XML.<br>Se è presente un elemento definito per l'URI dello spazio dei nomi in questa mappa, il nome del campo è `prefix:fieldName` . | No | Matrice con modello`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | no | `true` o `false` | ignoreNoFilesFound |
 
 ### <a name="xml-source-script-example"></a>Esempio di script di origine XML
 

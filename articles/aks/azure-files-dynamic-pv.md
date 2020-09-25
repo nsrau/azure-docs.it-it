@@ -5,12 +5,12 @@ description: Informazioni su come creare in modo dinamico un volume persistente 
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 0c11748c6faa0b94ff84dfc944e475116a2a1bd4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 515994f07e524685df014a784309cd692a9491b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611399"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299270"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con File di Azure nel servizio Azure Kubernetes
 
@@ -33,6 +33,7 @@ Una classe di archiviazione permette di definire come creare una condivisione fi
 * *Standard_ZRS*: archiviazione con ridondanza della zona standard (ZRS)
 * *Standard_RAGRS*: archiviazione con ridondanza geografica e accesso in lettura standard
 * *Premium_LRS*: archiviazione con ridondanza locale Premium (LRS)
+* *Premium_ZRS* -archiviazione con ridondanza della zona Premium (ZRS)
 
 > [!NOTE]
 > File di Azure supporta l'archiviazione Premium nei cluster del servizio Azure Kubernetes che eseguono Kubernetes 1.13 o versione successiva. Le dimensioni minime della condivisione file Premium sono pari a 100 GB

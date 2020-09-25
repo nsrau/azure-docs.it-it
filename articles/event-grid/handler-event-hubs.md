@@ -3,12 +3,12 @@ title: Hub eventi come gestore eventi per gli eventi di Griglia di eventi di Azu
 description: Spiega in che modo usare gli hub eventi come gestori degli eventi di Griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fa8fdd66eb153f6a972753eb359261100f19cd15
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5e6a84c1737c6b8a575f47576aeb1d3d9efae6eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105830"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322564"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Hub eventi come gestore eventi per gli eventi di Griglia di eventi di Azure
 Un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue un'azione per elaborare l'evento. Diversi servizi di Azure vengono configurati automaticamente per gestire eventi, uno dei quali è **Hub eventi di Azure**. 
@@ -24,7 +24,7 @@ Vedere gli esempi seguenti:
 | [Modello di Resource Manager: Creare un argomento personalizzato di Griglia di eventi e inviare eventi a un hub eventi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Un modello di Resource Manager che crea una sottoscrizione per l'argomento personalizzato. Invia eventi in Hub eventi di Azure. |
 
 ## <a name="message-properties"></a>Proprietà del messaggio
-Se si usa un **hub eventi** come gestore per gli eventi da Griglia di eventi, impostare le intestazioni seguenti per i messaggio: 
+Se si usa un **Hub eventi** come gestore eventi per gli eventi da griglia di eventi, queste sono le proprietà ricevute nelle intestazioni del messaggio: 
 
 | Nome proprietà | Descrizione |
 | ------------- | ----------- | 
@@ -81,6 +81,9 @@ Se si usa un **hub eventi** come gestore per gli eventi da Griglia di eventi, im
     }
 }
 ```
+
+> [!NOTE]
+> La distribuzione di eventi a un hub eventi di Azure in **un altro tenant** non è supportata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco di gestori eventi supportati, vedere l'articolo [Gestori eventi](event-handlers.md). 

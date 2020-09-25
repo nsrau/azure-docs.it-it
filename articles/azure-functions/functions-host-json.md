@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 400ff6f9db421552b2b2736ea48265deefe676ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055300"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321850"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x e versioni successive 
 
@@ -162,11 +162,11 @@ Per la struttura JSON completa, vedere l' [esempio precedente host.jssu file](#s
 | isEnabled | true | Abilita o disabilita il campionamento. | 
 | maxTelemetryItemsPerSecond | 20 | Numero di destinazione degli elementi di telemetria registrati al secondo in ogni host server. Se l'app viene eseguita in molti host, ridurre questo valore in modo che rimanga entro la frequenza di destinazione complessiva del traffico. | 
 | evaluationInterval | 01:00:00 | Intervallo in corrispondenza del quale viene rivalutata la frequenza corrente dei dati di telemetria. La valutazione viene eseguita come media mobile. Potrebbe essere necessario ridurre questo intervallo se la telemetria è responsabile di burst improvvisi. |
-| initialSamplingPercentage| 1.0 | Percentuale di campionamento iniziale applicata all'inizio del processo di campionamento per variare in modo dinamico la percentuale. Non ridurre il valore durante il debug. |
+| initialSamplingPercentage| 100.0 | Percentuale di campionamento iniziale applicata all'inizio del processo di campionamento per variare in modo dinamico la percentuale. Non ridurre il valore durante il debug. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | Quando viene modificato il valore della percentuale di campionamento, questa proprietà determina il periodo di tempo in cui Application Insights può generare nuovamente la percentuale di campionamento per acquisire più dati. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | Quando viene modificato il valore della percentuale di campionamento, questa proprietà determina il periodo di tempo in cui Application Insights può abbassare di nuovo la percentuale di campionamento per acquisire meno dati. |
-| minSamplingPercentage | 0.1 | Poiché la percentuale di campionamento varia, questa proprietà determina la percentuale minima di campionamento consentita. |
-| maxSamplingPercentage | 0.1 | Poiché la percentuale di campionamento varia, questa proprietà determina la percentuale massima di campionamento consentita. |
+| minSamplingPercentage | 0,1 | Poiché la percentuale di campionamento varia, questa proprietà determina la percentuale minima di campionamento consentita. |
+| maxSamplingPercentage | 100.0 | Poiché la percentuale di campionamento varia, questa proprietà determina la percentuale massima di campionamento consentita. |
 | movingAverageRatio | 1.0 | Nel calcolo della media mobile, peso assegnato al valore più recente. Usare un valore uguale o inferiore a 1. I valori più bassi rendono l'algoritmo meno reattivo alle modifiche improvvise. |
 | excludedTypes | Null | Elenco delimitato da punti e virgola di tipi che non si desidera campionare. I tipi riconosciuti sono:,,, `Dependency` `Event` `Exception` `PageView` , `Request` e `Trace` . Tutte le istanze dei tipi specificati vengono trasmesse. i tipi non specificati vengono campionati. |
 | includedTypes | Null | Elenco delimitato da punti e virgola di tipi che si desidera campionare. un elenco vuoto implica tutti i tipi. Digitare elencato in `excludedTypes` tipi di override elencati qui. I tipi riconosciuti sono:,,, `Dependency` `Event` `Exception` `PageView` , `Request` e `Trace` . Le istanze dei tipi specificati sono campionate; i tipi non specificati o impliciti vengono trasmessi senza campionamento. |

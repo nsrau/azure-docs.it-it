@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: f2dc93767457bfb96a9457a73adb83c0ed965308
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 084a823571281c91419a56b6212ddf6c44dd80bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069748"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322632"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: metriche
 
@@ -22,7 +22,7 @@ Le metriche sono abilitate per impostazione predefinita. È possibile visualizza
 
 ## <a name="how-to-view-azure-digital-twins-metrics"></a>Come visualizzare le metriche di Azure gemelli digitali
 
-1. Creare un'istanza di dispositivi gemelli digitali di Azure. Per istruzioni su come configurare un'istanza di dispositivi gemelli digitali di Azure, vedere [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-scripted.md).
+1. Creare un'istanza di dispositivi gemelli digitali di Azure. Per istruzioni su come configurare un'istanza di dispositivi gemelli digitali di Azure, vedere [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md).
 
 2. Trovare l'istanza di Azure Digital gemelli nella [portale di Azure](https://portal.azure.com) (è possibile aprire la relativa pagina digitando il relativo nome nella barra di ricerca del portale). 
 
@@ -69,7 +69,7 @@ Metriche che è necessario eseguire con la fatturazione:
 | Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Operazioni dell'API di fatturazione (anteprima) | Conteggio | Totale | Metrica di fatturazione per il conteggio di tutte le richieste API effettuate nel servizio Azure Digital Twins. | ID contatore |
-| BillingMessagesProcessed | Messaggi di fatturazione elaborati (anteprima) | Conteggio | Totale | Metrica di fatturazione per il numero di messaggi inviati dai dispositivi gemelli digitali di Azure agli endpoint esterni. | ID contatore |
+| BillingMessagesProcessed | Messaggi di fatturazione elaborati (anteprima) | Conteggio | Totale | Metrica di fatturazione per il numero di messaggi inviati dai dispositivi gemelli digitali di Azure agli endpoint esterni.<br><br>Per essere considerato un singolo messaggio ai fini della fatturazione, un payload non deve avere una dimensione superiore a 1 KB. I payload di dimensioni maggiori di questo verranno conteggiati come messaggi aggiuntivi in incrementi di 1 KB (pertanto un messaggio compreso tra 1 e 2 KB verrà conteggiato come 2 messaggi, tra 2 e 3 KB sarà costituito da 3 messaggi e così via).<br>Questa restrizione si applica anche alle risposte, pertanto una chiamata che restituisce 1,5 KB nel corpo della risposta, ad esempio, verrà fatturata come 2 operazioni. | ID contatore |
 | BillingQueryUnits | Unità query di fatturazione (anteprima) | Conteggio | Totale | Il numero di unità di query, una misura calcolata internamente dell'utilizzo delle risorse del servizio, utilizzata per eseguire le query. È disponibile anche un'API helper per la misurazione delle unità di query: [classe QueryChargeHelper](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) | ID contatore |
 
 #### <a name="ingress-metrics"></a>Metriche in ingresso

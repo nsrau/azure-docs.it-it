@@ -3,12 +3,12 @@ title: Conversazioni a più turni-QnA Maker
 description: Usare i prompt e il contesto per gestire il multiplo turno, noto come multi-turn, per il bot da una domanda a un'altra. La funzionalità a più turni è la possibilità di avere una conversazione in avanti e indietro in cui il contesto della domanda precedente influenza la domanda e la risposta successive.
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 93bc6201cb627dc27071caf7beded5778b06ccb6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: eff2eccac55bc05784636ecd9d2dfb784f86c4ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229347"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322836"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare i prompt di completamento per creare più turni di una conversazione
 
@@ -52,7 +52,7 @@ Quando si seleziona questa opzione, QnA Maker estrae la gerarchia presente nella
 
 La struttura a più turni può essere dedotta solo da URL, file PDF o file DOCX. Per un esempio di struttura, visualizzare un'immagine di un [file PDF Manuale dell'utente di Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
-![! [Esempio di struttura in un manuale dell'utente] (.. import-file-with-conversational-structure.png/media/Conversational-context/)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+:::image type="content" source="../media/conversational-context/import-file-with-conversational-structure.png" alt-text="Screenshot mostra un esempio della struttura in un manuale dell'utente." lightbox="../media/conversational-context/import-file-with-conversational-structure.png":::
 
 ### <a name="building-your-own-multi-turn-document"></a>Creazione di un documento a più turni
 
@@ -92,7 +92,7 @@ Selezionare Visualizza **Opzioni**, quindi selezionare Mostra **contesto**. Nell
 
 Il contesto a più turni viene visualizzato nella prima colonna.
 
-![! [Colonna "Context (PREVIEW)"] (.. surface-manual-pdf-follow-up-prompt.png/media/Conversational-context/)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Screenshot mostra la sezione del contesto evidenziata." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 Nell'immagine precedente, **#1** indica il testo in grassetto nella colonna, che indica la domanda corrente. La domanda padre è l'elemento principale della riga. Eventuali domande che seguono sono le coppie di domande e risposte collegate. Questi elementi sono selezionabili, in modo che sia possibile passare immediatamente agli altri elementi di contesto.
 
@@ -108,7 +108,7 @@ Aggiungere una richiesta di completamento a una coppia di domande e risposte esi
 1. Nella riga per la **disconnessione**selezionare **Aggiungi richiesta di completamento**nella colonna **risposta** .
 1. Nei campi della finestra popup della **richiesta di completamento** immettere i valori seguenti:
 
-    |Campo|Valore|
+    |Campo|valore|
     |--|--|
     |Testo visualizzato|Immettere **Disattiva il dispositivo**. Si tratta di un testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto| Selezionare questa casella di controllo. Viene restituita una risposta solo se la domanda specifica il contesto.|
@@ -145,7 +145,7 @@ Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, o
 1. Nella colonna **risposta** per questa domanda selezionare **Aggiungi richiesta di completamento**.
 1. In **prompt di completamento (anteprima)** creare una nuova richiesta di completamento immettendo i valori seguenti:
 
-    |Campo|Valore|
+    |Campo|valore|
     |--|--|
     |Testo visualizzato|*Creare un account di Windows*. Testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto|Selezionare questa casella di controllo. Questa risposta viene restituita solo se la domanda specifica il contesto.|
@@ -167,7 +167,7 @@ Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, o
 
     La domanda padre Visualizza una nuova domanda come una delle scelte.
 
-    ![! [La colonna del contesto, per entrambe le domande, indica una relazione di richiesta di completamento] (.. child-prompt-created.png/media/Conversational-context/)](../media/conversational-context/child-prompt-created.png#lightbox)
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Screenshot mostra la colonna del contesto, per entrambe le domande, indica una relazione di richiesta di completamento." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Dopo aver aggiunto la richiesta di completamento, selezionare **Salva e** Esegui il training nella barra di spostamento superiore.
 

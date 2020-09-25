@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68ab302e5c24835174d03b3579c9ec587bfd9006
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e57da384253912a875bacbc5f43aa9f9b99b45b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601589"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265987"
 ---
 # <a name="conditional-access-block-access"></a>Accesso condizionale: bloccare l'accesso
 
@@ -38,7 +38,7 @@ Poiché i criteri di accesso condizionale sono strumenti avanzati, è consigliab
 
 ## <a name="create-a-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
-La procedura seguente consente di creare criteri di accesso condizionale per bloccare l'accesso a tutte le app ad eccezione di [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) se gli utenti non si trovano in una rete attendibile. Questi criteri vengono inseriti in [modalità di sola segnalazione](howto-conditional-access-insights-reporting.md) per iniziare, in modo che gli amministratori possano determinare l'effetto che avranno sugli utenti esistenti. Quando gli amministratori hanno dimestichezza con l'applicazione dei criteri, possono impostarli **su on**.
+La procedura seguente consente di creare criteri di accesso condizionale per bloccare l'accesso a tutte le app ad eccezione di [Office 365](concept-conditional-access-cloud-apps.md#office-365) se gli utenti non si trovano in una rete attendibile. Questi criteri vengono inseriti in [modalità di sola segnalazione](howto-conditional-access-insights-reporting.md) per iniziare, in modo che gli amministratori possano determinare l'effetto che avranno sugli utenti esistenti. Quando gli amministratori hanno dimestichezza con l'applicazione dei criteri, possono impostarli **su on**.
 
 Il primo criterio blocca l'accesso a tutte le app, ad eccezione delle applicazioni Microsoft 365 se non in un percorso attendibile.
 
@@ -52,7 +52,7 @@ Il primo criterio blocca l'accesso a tutte le app, ad eccezione delle applicazio
    1. Selezionare **Operazione completata**.
 1. In **app Cloud o azioni**selezionare le opzioni seguenti:
    1. In **Includi**selezionare **tutte le app Cloud**.
-   1. In **Escludi**selezionare **Office 365 (anteprima)**, selezionare **Seleziona**e quindi fare clic su **fine**.
+   1. In **Escludi**selezionare **Office 365**, selezionare **Seleziona**e quindi fare clic su **fine**.
 1. In **Condizioni**:
    1. In **Condizioni** > **Posizione**
       1. impostare **Configura** su **Sì**
@@ -72,7 +72,7 @@ Di seguito viene creato un secondo criterio per richiedere l'autenticazione a pi
    1. In **Includi** selezionare **Tutti gli utenti**.
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
    1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni**  >  **includere**selezionare **Seleziona app**, scegliere **Office 365 (anteprima)**, quindi selezionare **selezionare**, quindi **fine**.
+1. In **app Cloud o azioni**  >  **includere**selezionare **Seleziona app**, scegliere **Office 365**, quindi selezionare **selezionare**, quindi **fine**.
 1. In **controllo di accesso**  >  **concedere**selezionare **Concedi accesso**.
    1. Selezionare **Richiedi autenticazione** a più fattori e **Richiedi che il dispositivo sia contrassegnato come conforme** Selezionare **Seleziona**.
    1. Assicurarsi che sia selezionata **l'opzione Richiedi tutti i controlli selezionati** .

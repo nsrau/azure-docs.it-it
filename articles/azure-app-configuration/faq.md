@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: b1483230313b9e1b8e59cafea478b14ba0dfcc70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 10510774409a6b75687086290b32885b30d9131a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587345"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335382"
 ---
 # <a name="azure-app-configuration-faq"></a>Domande frequenti sulla configurazione di app Azure
 
@@ -42,6 +42,10 @@ Sebbene la configurazione dell'app fornisca sicurezza avanzata, Key Vault rappre
 ## <a name="does-app-configuration-encrypt-my-data"></a>La configurazione dell'app crittografa i dati?
 
 Sì. La configurazione dell'app crittografa tutti i valori di chiave che possiede e crittografa le comunicazioni di rete. I nomi delle chiavi e le etichette vengono usati come indici per il recupero dei dati di configurazione e non vengono crittografati.
+
+## <a name="where-does-data-stored-in-app-configuration-reside"></a>Dove si trovano i dati archiviati nella configurazione dell'app? 
+
+I dati dei clienti archiviati nella configurazione dell'app si trovano nell'area in cui è stato creato l'archivio di configurazione dell'app del cliente. La configurazione dell'app può replicare i dati nelle [aree abbinate](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) per la resilienza dei dati, ma non eseguirà la replica o lo spostamento dei dati del cliente all'esterno dell'area geografica, come definito dalla [residenza dei dati](https://azure.microsoft.com/global-infrastructure/data-residency/) I clienti e gli utenti finali possono spostare, copiare o accedere ai dati dei clienti da qualsiasi posizione a livello globale.
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>In che modo la configurazione delle app è diversa dalle impostazioni del servizio app Azure?
 

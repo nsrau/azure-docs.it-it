@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/29/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 1a4f22e7ae3cc60d0a16b24a1f0e5f93d3a86d8c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 137cff47d49be1405f60bc47cd16f7f027ab63a9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899197"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320830"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Usare il dashboard di Kubernetes per monitorare il dispositivo GPU Pro Azure Stack Edge
 
@@ -62,7 +62,7 @@ Il dashboard Kubernetes è di sola *lettura* e viene eseguito nel nodo master Ku
 
 I moduli di calcolo sono contenitori per i quali è implementata una logica di business. È possibile usare il dashboard per verificare se un modulo di calcolo è stato distribuito correttamente sul dispositivo Azure Stack Edge Pro.
 
-PER visualizzare lo stato del modulo, seguire questa procedura nel Dashboard:
+Per visualizzare lo stato del modulo, seguire questa procedura nel Dashboard:
 
 1. Nel riquadro sinistro del Dashboard passare a **spazio dei nomi**. Filtrare in base allo spazio dei nomi in cui vengono visualizzati i moduli IoT Edge, in questo caso **iotedge**.
 1. Nel riquadro sinistro passare a **carichi di lavoro > distribuzioni**.
@@ -114,9 +114,9 @@ Ad esempio, è possibile visualizzare la CPU e la memoria utilizzate tra le dist
 
 ![Visualizzare l'utilizzo della CPU e della memoria per le distribuzioni di Azure Arc](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-azure-arc-1.png)
 
-Il server delle metriche Kubernetes fornisce pipeline di scalabilità automatica simili a quelle del dispositivo di [scalabilità automatica di Pod orizzontali](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+Il server delle metriche Kubernetes fornisce pipeline di scalabilità automatica, ad esempio il [ridimensionamento automatico del Pod orizzontale](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come risolvere i problemi relativi a Kubernetes <!--insert link-->.
+Informazioni su come [risolvere i problemi](azure-stack-edge-gpu-troubleshoot.md)relativi ai dispositivi.

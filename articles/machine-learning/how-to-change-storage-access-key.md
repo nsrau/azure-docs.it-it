@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: d511520e274af9c6dea3f443693249ede368fd99
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dbc00d37b912ce7efb250aade0ea6790a1a227eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893269"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296757"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Rigenera le chiavi di accesso dell'account di archiviazione
 
@@ -141,4 +141,4 @@ Per aggiornare Azure Machine Learning per utilizzare la nuova chiave, attenersi 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla registrazione di archivi dati, vedere il [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py&preserve-view=true) riferimento alla classe.
+Per ulteriori informazioni sulla registrazione di archivi dati, vedere il [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true) riferimento alla classe.

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 8c5c4a6e5d8b2997d80c7263ba17a705d3846ed8
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 4e970f242d1c51218865fe459b8012f97add3d02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987393"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299290"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usare identità gestite in Azure Kubernetes Service
 
@@ -38,18 +38,18 @@ AKS usa diverse identità gestite per i servizi e i componenti aggiuntivi predef
 | Identità                       | Nome    | Caso d'uso | Autorizzazioni predefinite | Porta la tua identità
 |----------------------------|-----------|----------|
 | Piano di controllo | non visibile | Usato da AKS per le risorse di rete gestite, inclusi i bilanciamenti del carico in ingresso e gli indirizzi IP pubblici gestiti da AKS | Ruolo Collaboratore per il gruppo di risorse nodo | Anteprima
-| Kubelet | Nome del cluster AKS-agentpool | Autenticazione con Container Registry di Azure (ACR) | Ruolo lettore per il gruppo di risorse nodo | Attualmente non supportato
-| Componente aggiuntivo | AzureNPM | Non è richiesta alcuna identità | ND | No
-| Componente aggiuntivo | Monitoraggio della rete AzureCNI | Non è richiesta alcuna identità | ND | No
-| Componente aggiuntivo | azurepolicy (Gatekeeper) | Non è richiesta alcuna identità | ND | No
-| Componente aggiuntivo | azurepolicy | Non è richiesta alcuna identità | ND | No
-| Componente aggiuntivo | Calico | Non è richiesta alcuna identità | ND | No
-| Componente aggiuntivo | Dashboard | Non è richiesta alcuna identità | ND | No
+| Kubelet | Nome del cluster AKS-agentpool | Autenticazione con Container Registry di Azure (ACR) | NA (per kubernetes v 1.15 +) | Attualmente non supportato
+| Componente aggiuntivo | AzureNPM | Non è richiesta alcuna identità | N/D | No
+| Componente aggiuntivo | Monitoraggio della rete AzureCNI | Non è richiesta alcuna identità | N/D | No
+| Componente aggiuntivo | azurepolicy (Gatekeeper) | Non è richiesta alcuna identità | N/D | No
+| Componente aggiuntivo | azurepolicy | Non è richiesta alcuna identità | N/D | No
+| Componente aggiuntivo | Calico | Non è richiesta alcuna identità | N/D | No
+| Componente aggiuntivo | Dashboard | Non è richiesta alcuna identità | N/D | No
 | Componente aggiuntivo | HTTPApplicationRouting | Gestisce le risorse di rete necessarie | Ruolo Reader per il gruppo di risorse nodo, ruolo Collaboratore per la zona DNS | No
 | Componente aggiuntivo | Gateway applicazione in ingresso | Gestisce le risorse di rete necessarie| Ruolo Collaboratore per il gruppo di risorse nodo | No
 | Componente aggiuntivo | omsagent | Usato per inviare metriche AKS a monitoraggio di Azure | Monitoraggio del ruolo server di pubblicazione metrica | No
 | Componente aggiuntivo | Nodo virtuale (ACIConnector) | Gestisce le risorse di rete necessarie per istanze di contenitore di Azure | Ruolo Collaboratore per il gruppo di risorse nodo | No
-
+| Progetto OSS | AAD-Pod-identità | Consente alle applicazioni di accedere in modo sicuro alle risorse cloud con Azure Active Directory (AAD) | N/D | Passaggi per concedere l'autorizzazione in https://github.com/Azure/aad-pod-identity#role-assignment .
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Creare un cluster AKS con identità gestite
 
@@ -132,13 +132,13 @@ az extension list
 az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
 ```
 
-Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true):
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -204,9 +204,9 @@ La creazione di un cluster con le proprie identità gestite contiene le informaz
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Usare i [modelli di Azure Resource Manager (ARM)][aks-arm-template] per creare cluster abilitati per l'identità gestita.
+* Usare i [modelli di Azure Resource Manager (ARM) ][aks-arm-template] per creare cluster abilitati per l'identità gestita.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az-identity-create
-[az-identity-list]: /cli/azure/identity?view=azure-cli-latest#az-identity-list
+[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az-identity-create&preserve-view=true
+[az-identity-list]: /cli/azure/identity?view=azure-cli-latest#az-identity-list&preserve-view=true

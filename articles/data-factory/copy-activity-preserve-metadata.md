@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: a1527195296237eb8c9c309f8ac4a5911136cf77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a96b04df56dc7d5ea26463073d673275b8a4a8c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891760"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324298"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Mantenere i metadati e gli ACL usando l'attività di copia in Azure Data Factory
 
@@ -24,18 +24,18 @@ ms.locfileid: "82891760"
 
 Quando si utilizza Azure Data Factory attività di copia per copiare i dati dall'origine al sink, negli scenari seguenti è inoltre possibile conservare i metadati e gli ACL insieme a.
 
-## <a name="preserve-metadata-for-lake-migration"></a><a name="preserve-metadata"></a>Mantieni i metadati per la migrazione del Lake
+## <a name="preserve-metadata-for-lake-migration"></a><a name="preserve-metadata"></a> Mantieni i metadati per la migrazione del Lake
 
-Quando si esegue la migrazione dei dati da un data Lake a un altro, tra cui [Amazon S3](connector-amazon-simple-storage-service.md), [BLOB di Azure](connector-azure-blob-storage.md)e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md), è possibile scegliere di mantenere i metadati dei file insieme ai dati.
+Quando si esegue la migrazione dei dati da un data Lake a un altro, tra cui [Amazon S3](connector-amazon-simple-storage-service.md), [BLOB di Azure](connector-azure-blob-storage.md), [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md)e [archiviazione file di Azure](connector-azure-file-storage.md), è possibile scegliere di mantenere i metadati dei file insieme ai dati.
 
 L'attività di copia supporta la conservazione dei seguenti attributi durante la copia dei dati:
 
 - **Tutti i metadati specificati dal cliente** 
 - E le **cinque proprietà di sistema predefinite dell'archivio dati**seguenti: `contentType` , `contentLanguage` (ad eccezione di Amazon S3), `contentEncoding` ,, `contentDisposition` `cacheControl` .
 
-**Gestire le differenze nei metadati:** Amazon S3 e archiviazione di Azure consentono diversi set di caratteri nelle chiavi dei metadati specificati dal cliente. Quando si sceglie di mantenere i metadati usando Copy attività, ADF sostituisce automaticamente i caratteri non validi con ' _'.
+**Gestire le differenze nei metadati:** Amazon S3 e archiviazione di Azure consentono diversi set di caratteri nelle chiavi dei metadati specificati dal cliente. Quando si sceglie di mantenere i metadati usando l'attività di copia, ADF sostituisce automaticamente i caratteri non validi con ' _'.
 
-Quando si copiano i file così come sono da Amazon S3/Azure Data Lake storage Gen2/BLOB di Azure al BLOB di Azure Data Lake storage Gen2/Azure con formato binario, è possibile trovare l'opzione **Mantieni** nella **Copy Activity**  >  scheda**Impostazioni** attività di copia per la creazione di attività o la pagina **Impostazioni** in copia dati strumento.
+Quando si copiano i file così come sono da Amazon S3/Azure Data Lake storage Gen2/BLOB di Azure o da archiviazione file di Azure a Azure Data Lake storage Gen2/BLOB di Azure/archiviazione file di Azure con formato binario, è possibile trovare l'opzione **Mantieni** nella **Copy Activity**  >  scheda**Impostazioni** attività di copia per la creazione di attività o la pagina **Impostazioni** in copia dati strumento.
 
 ![Conserva metadati dell'attività di copia](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 
@@ -80,7 +80,7 @@ Di seguito è riportato un esempio di configurazione JSON dell'attività di copi
 ]
 ```
 
-## <a name="preserve-acls-from-data-lake-storage-gen1gen2-to-gen2"></a><a name="preserve-acls"></a>Mantieni gli ACL da Data Lake Storage Gen1/Gen2 a Gen2
+## <a name="preserve-acls-from-data-lake-storage-gen1gen2-to-gen2"></a><a name="preserve-acls"></a> Mantieni gli ACL da Data Lake Storage Gen1/Gen2 a Gen2
 
 Quando si esegue l'aggiornamento da Azure Data Lake Storage Gen1 a Gen2 o si copiano dati tra ADLS Gen2, è possibile scegliere di mantenere gli elenchi di controllo di accesso (ACL) POSIX insieme ai file di dati. Per altre informazioni sul controllo di accesso, vedere [controllo di accesso in Azure Data Lake storage Gen1](../data-lake-store/data-lake-store-access-control.md) e [controllo di accesso in Azure Data Lake storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 

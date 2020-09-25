@@ -1,15 +1,17 @@
 ---
 title: Riferimento alla sintassi del modello-LUIS
 description: Creare entità per estrarre i dati chiave da espressioni utente nelle app Language Understanding (LUIS). I dati estratti vengono utilizzati dall'applicazione client.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: a0139cf5ef424288c41c436fb63313494404f841
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 533dc87e50abc5a689d1157b294070ece39dab9f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684538"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322819"
 ---
 # <a name="pattern-syntax"></a>Sintassi dei criteri
 
@@ -24,10 +26,10 @@ La sintassi del modello supporta la sintassi seguente:
 
 |Funzione|Sintassi|Livello di nidificazione|Esempio|
 |--|--|--|--|
-|Entità| {}-parentesi graffe|2|Dove è il formato {nome-entità}?|
-|facoltative|[]-parentesi quadre<BR><BR>È previsto un limite di 3 per i livelli di nidificazione di qualsiasi combinazione di facoltativo e raggruppamento |2|Il punto interrogativo è facoltativo [?]|
+|Entità| {} -parentesi graffe|2|Dove è il formato {nome-entità}?|
+|facoltativo|[]-parentesi quadre<BR><BR>È previsto un limite di 3 per i livelli di nidificazione di qualsiasi combinazione di facoltativo e raggruppamento |2|Il punto interrogativo è facoltativo [?]|
 |raggruppamento|()-parentesi|2|is (a \| b)|
-|oppure| \|-barra verticale (pipe)<br><br>È previsto un limite di 2 sulle barre verticali (o) in un gruppo |-|Dove è form ({form-name-Short} &#x7c; {form-name-Long} &#x7c; {form-Number})|
+|oppure| \| -barra verticale (pipe)<br><br>È previsto un limite di 2 sulle barre verticali (o) in un gruppo |-|Dove è form ({form-name-Short} &#x7c; {form-name-Long} &#x7c; {form-Number})|
 |inizio e/o fine dell'espressione|^-punto di inserimento|-|^ iniziare il enunciato<br>l'espressione è stata eseguita ^<br>^ corrispondenza letterale Strict dell'intero enunciato con {Number} entità ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>Annidamento della sintassi nei modelli
@@ -126,7 +128,7 @@ Contrassegnare il testo facoltativo nell'espressione usando la sintassi tra pare
 
 |Criteri con testo facoltativo|Significato|
 |--|--|
-|`[find] email about {subject} [from {person}]`|`find`e `from {person}` sono facoltativi|
+|`[find] email about {subject} [from {person}]`|`find` e `from {person}` sono facoltativi|
 |' Posso aiutarmi [?]|Il segno di punteggiatura è facoltativo|
 
 I segni di punteggiatura ( `?` , `!` , `.` ) devono essere ignorati ed è necessario ignorarli usando la sintassi tra parentesi quadre nei modelli.

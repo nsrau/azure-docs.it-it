@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.openlocfilehash: 6fe256660dc73aa411cf06e2b56ce9ef26934e2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9be2205ad0664d58c7a2ef0c07481b1c7aa02402
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548000"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273348"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Esercitazione: configurare MerchLogix per il provisioning utenti automatico
 
@@ -55,7 +55,7 @@ Prima di configurare MerchLogix per il provisioning utenti automatico con Azure 
 
 5. Nel pannello dei risultati selezionare **MerchLogix**e quindi fare clic sul pulsante **Aggiungi** per aggiungere MerchLogix al proprio elenco di applicazioni SaaS.
 
-    ![Provisioning di MerchLogix][4]
+    ![Screenshot della sezione Aggiungi dalla bozza con la casella di testo immettere un nome denominata.][4]
 
 ## <a name="assigning-users-to-merchlogix"></a>Assegnazione di utenti a MerchLogix
 
@@ -88,7 +88,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Provisioning di MerchLogix](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
+    ![Screenshot della sezione MerchLogix-Prisioning con l'opzione di provisioning denominata out, la modalità di provisioning impostata su Automatic e l'opzione test connection denominata out.](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
 
 5. Nella sezione **credenziali amministratore** :
 

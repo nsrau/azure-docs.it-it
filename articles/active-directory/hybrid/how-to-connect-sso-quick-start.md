@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658752"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295023"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory Single Sign-on facile: avvio rapido
 
@@ -125,7 +125,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 1. Aprire l'Editor Gestione Criteri di gruppo.
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
 3. Passare a criteri di **Configurazione utente**  >  **Policy**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Internet Explorer**  >  pagina sicurezza del**Pannello di controllo Internet**  >  **Security Page**. Selezionare quindi **Elenco di assegnazione siti ad aree**.
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso6.png)
+    ![Screenshot che mostra la "pagina sicurezza" con "elenco di assegnazione da sito a zona" selezionato.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Abilitare i criteri e quindi immettere i valori seguenti nella finestra di dialogo:
    - **Nome valore**: l'URL di Azure AD a cui vengono inoltrati i ticket Kerberos.
    - **Valore** (dati): **1** indica l'area Intranet.
@@ -142,15 +142,15 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 5. Selezionare **OK** e quindi di nuovo **OK**.
 
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![Screenshot che mostra la finestra "Mostra contenuto" con un'assegnazione di zona selezionata.](./media/how-to-connect-sso-quick-start/sso7.png)
 
 6. Passare a criteri di **Configurazione utente**  >  **Policy**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Internet Explorer**  >  pagina sicurezza**Pannello di controllo Internet**  >  **Security Page**  >  **area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
 
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![Screenshot che mostra la pagina "area Intranet" con "Consenti aggiornamenti alla barra di stato tramite script" selezionato.](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. Abilitare l'impostazione del criterio e quindi fare clic su **OK**.
 
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![Screenshot che mostra la finestra "Consenti aggiornamenti alla barra di stato tramite script" con l'impostazione dei criteri abilitata.](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>Opzione "Preferenza di Criteri di gruppo" - Procedura dettagliata
 
@@ -158,7 +158,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
 3. Passare a **Preferenze configurazione utente**  >  **Preferences**  >  **impostazioni di Windows**  >  **Registro**di sistema  >  **nuovo**  >  **elemento del registro di sistema**.
 
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![Screenshot che mostra "Registro di sistema" selezionato e "elemento del registro di sistema" selezionato.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Immettere i valori seguenti nei campi appropriati e fare clic su **OK**.
    - **Percorso chiave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
@@ -166,7 +166,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
    - **Tipo di valore**: ***REG_DWORD***
    - **Dati valore**: ***00000001***
  
-     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Screenshot che mostra la finestra "nuova proprietà del registro di sistema".](./media/how-to-connect-sso-quick-start/sso16.png)
  
      ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
 

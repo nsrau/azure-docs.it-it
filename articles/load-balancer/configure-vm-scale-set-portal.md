@@ -1,17 +1,17 @@
 ---
 title: Configurare un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente-portale di Azure
-description: Informazioni su come configurare un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente.
+description: Informazioni su come configurare un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente usando il portale di Azure.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 8e55b2a87813da802ec1b00c610b33da4461c008
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e12532107ed554385ccf38531bb95b7b70298934
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809450"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333886"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configurare un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente usando il portale di Azure
 
@@ -50,10 +50,10 @@ In questa sezione verrà creato un set di scalabilità di macchine virtuali nel 
     | **Dettagli del set di scalabilità**          |                                                                                                       |
     | Nome del set di scalabilità di macchine virtuali | Immettere **myVMSS**                                                                                      |
     | Region                         | Seleziona **Stati Uniti orientali 2**                                                                                    |
-    | Zona di disponibilità              | Selezionare **nessuno**                                                                                       |
+    | Zona di disponibilità              | Selezionare **Nessuno**                                                                                       |
     | **Dettagli istanza**           |                                                                                                       |
-    | Image                          | Selezionare **Ubuntu Server 18,04 LTS**                                                                    |
-    | Istanza di Azure spot            | Selezionare **No**.                                                                                         |
+    | Immagine                          | Selezionare **Ubuntu Server 18,04 LTS**                                                                    |
+    | Istanza Spot di Azure            | Selezionare **No**                                                                                         |
     | Dimensione                           | Lascia il valore predefinito                                                                                      |
     | **Account amministratore**      |                                                                                                       |
     | Tipo di autenticazione            | Seleziona **password**                                                                                   |

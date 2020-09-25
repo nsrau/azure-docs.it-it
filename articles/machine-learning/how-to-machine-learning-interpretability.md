@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: 757646a1630443f297d4b7c538721e9facdc130c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897437"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322360"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretazione del modello in Azure Machine Learning (anteprima)
 
@@ -39,20 +39,11 @@ L'abilitazione della funzionalità di spiegazione di un modello di apprendimento
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretabilità con Azure Machine Learning
 
-Le classi di interpretazione vengono rese disponibili tramite più pacchetti SDK: (informazioni su come [installare i pacchetti SDK per Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
+Le classi di interpretazione vengono rese disponibili tramite il pacchetto SDK seguente: (informazioni su come [installare i pacchetti SDK per Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
 
-* `azureml.interpret`, il pacchetto principale, che contiene le funzionalità supportate da Microsoft.
+* `azureml.interpret`, contiene funzionalità supportate da Microsoft.
 
-* `azureml.contrib.interpret`, l'anteprima e le funzionalità sperimentali che è possibile provare.
-
-Usare `pip install azureml-interpret` e `pip install azureml-contrib-interpret` per l'uso generale.
-
-
-> [!IMPORTANT]
-> Il contenuto dello `contrib` spazio dei nomi non è completamente supportato. Man mano che le funzionalità sperimentali diventano mature, verranno spostate gradualmente nello spazio dei nomi principale.
-.
-
-
+Usare `pip install azureml-interpret` per uso generale.
 
 ## <a name="how-to-interpret-your-model"></a>Come interpretare il modello
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein, carlrab
-ms.date: 9/8/2020
-ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.reviewer: sstein
+ms.date: 9/17/2020
+ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565090"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321408"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ A differenza dei database di calcolo con provisioning, la memoria della cache SQ
 
 Nei database di calcolo senza server e con provisioning, le voci della cache possono essere eliminate se viene utilizzata tutta la memoria disponibile.
 
-Si noti che quando l'utilizzo della CPU è basso, l'utilizzo della cache attiva può rimanere elevato a seconda del modello di utilizzo e impedire il recupero di memoria.  Inoltre, dopo l'arresto dell'attività dell'utente, è possibile che si verifichi un ulteriore ritardo prima che il recupero della memoria avvenga a causa di processi in background periodici che rispondono all'attività  Ad esempio, le operazioni di eliminazione generano record fantasma contrassegnati per l'eliminazione, ma non vengono eliminate fisicamente fino a quando non viene eseguito il processo di pulizia fantasma che può comportare la lettura di pagine di dati nella cache.
+Si noti che quando l'utilizzo della CPU è basso, l'utilizzo della cache attiva può rimanere elevato a seconda del modello di utilizzo e impedire il recupero di memoria.  Inoltre, dopo l'arresto dell'attività dell'utente, è possibile che si verifichi un ulteriore ritardo prima che il recupero della memoria avvenga a causa di processi in background periodici che rispondono all'attività  Ad esempio, le attività Delete e QDS Cleanup generano record fantasma contrassegnati per l'eliminazione, ma non vengono eliminati fisicamente fino a quando non viene eseguito il processo di pulizia fantasma che può comportare la lettura di pagine di dati nella cache.
 
 #### <a name="cache-hydration"></a>Idratazione della cache
 
@@ -128,7 +128,7 @@ La sospensione dell'autosospensione è temporaneamente bloccata durante la distr
 
 La ripresa automatica viene attivata se si verifica una delle condizioni seguenti in qualsiasi momento:
 
-|Feature|Trigger di ripresa automatica|
+|Funzionalità|Trigger di ripresa automatica|
 |---|---|
 |Autenticazione e autorizzazione|Login|
 |Rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
@@ -252,7 +252,7 @@ La procedura per spostare un database serverless in un livello di calcolo con pr
 
 Per modificare il valore massimo o minimo per Vcore e il ritardo di sospensione, viene eseguita usando il comando [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) in PowerShell usando gli `MaxVcore` `MinVcore` argomenti, e `AutoPauseDelayInMinutes` .
 
-### <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
+### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 
 Per modificare il vcore massimo o minimo e il ritardo di sospensione, è necessario usare il comando [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) nell'interfaccia della riga di comando di Azure usando gli `capacity` `min-capacity` argomenti, e `auto-pause-delay` .
 

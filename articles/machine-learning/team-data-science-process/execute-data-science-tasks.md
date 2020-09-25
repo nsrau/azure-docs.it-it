@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e69a03cd142fdbcc5864ee38a4843e1c2e44a124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fe11b20ff8e96bc4b0d997c49201aafdd2e2cac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477154"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320524"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Eseguire attività di data science: esplorazione, modellazione e distribuzione
 
@@ -98,7 +98,7 @@ Ci sono diversi approcci e piattaforme per usare un modello in ambiente di produ
 Sono disponibili altri esempi in esercitazioni dettagliate che illustrano tutti i passaggi del processo per **scenari specifici**. Le esercitazioni sono elencate, con collegamenti e brevi descrizioni, nell'articolo [Procedure dettagliate di esempio](walkthroughs.md). Le esercitazioni spiegano come combinare strumenti cloud e locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente.
 
 > [!NOTE]
-> Per la distribuzione con Azure Machine Learning Studio, vedere [Distribuire un servizio Web di Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+> Per la distribuzione con Azure Machine Learning Studio, vedere [Distribuire un servizio Web di Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 >
 >
 
@@ -111,5 +111,3 @@ Quando nell'ambiente di produzione ci sono più modelli, può essere utile esegu
 L'articolo [Track progress of data science projects](track-progress.md) (Monitorare i progetti di data science) illustra in che modo un data scientist può monitorare l'avanzamento di un progetto di data science.
 
 L'articolo [Model operation and CI/CD](ci-cd-flask.md) (Operazione modello e CI/CD) illustra come eseguire la CI/CD con i modelli sviluppati.
-
-

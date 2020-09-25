@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 3d8bf3f087592a7d629a247b1c10721237699fdc
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ce86f4e6ed5f29be3e36959e0f9db76edaab4982
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613528"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273025"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Che cos'è Istanza gestita SQL di Azure?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -53,7 +53,7 @@ SQL Istanza gestita combina le funzionalità migliori disponibili sia nel databa
 
 Le funzionalità principali di SQL Istanza gestita sono illustrate nella tabella seguente:
 
-|Feature | Descrizione|
+|Funzionalità | Descrizione|
 |---|---|
 | SQL Server versione/compilazione | Motore di database SQL Server (versione stabile più recente) |
 | Backup automatici gestiti | Sì |
@@ -230,7 +230,7 @@ Per ulteriori informazioni, vedere [l'elenco delle funzionalità di sql istanza 
 
 La tabella seguente illustra diverse proprietà, accessibili tramite Transact-SQL, che è possibile usare per rilevare che l'applicazione funziona con SQL Istanza gestita e recuperare le proprietà importanti.
 
-|Proprietà|Valore|Commento|
+|Proprietà|valore|Comment|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Questo valore è uguale a quello del database SQL. Questa operazione **non** indica il motore SQL versione 12 (SQL Server 2014). SQL Istanza gestita esegue sempre la versione più recente del motore SQL stabile, che è uguale o superiore alla versione RTM più recente disponibile di SQL Server.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Questo valore è uguale a quello del database SQL.|

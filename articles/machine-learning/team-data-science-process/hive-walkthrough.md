@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: cb144aa7b6c717ada3a51fe3286f349bc3d8b325
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 991e81c46a0cd6c587ac3366b63ba4da6a07f7e7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273915"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336514"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight
 In questa procedura dettagliata viene usato [Team Data Science Process (TDSP)](overview.md) in uno scenario end-to-end. Verrà usato un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviazione, esplorazione e sviluppo delle funzionalità dei dati del set di dati delle [corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/), disponibile a livello pubblico, e per sottocampionare i dati. Per gestire attività predittive di regressione e classificazione binaria e multiclasse, verranno creati modelli dei dati con Azure Machine Learning. 
@@ -89,7 +89,7 @@ Per impostare un ambiente Azure per l'analisi avanzata basato su un cluster HDIn
    
    * Ricordare di collegare l'account di archiviazione creato nel passaggio 1 al cluster HDInsight al momento della creazione. Questo account di archiviazione accede ai dati elaborati all'interno del cluster.
    * Dopo aver creato il cluster, abilitare l'accesso remoto al nodo head del cluster. Passare alla scheda **Configurazione** e selezionare **Abilita modalità remota**. Questo passaggio consente di specificare le credenziali utente da usare per l'accesso remoto.
-3. [Creare un'area di lavoro di Azure Machine Learning](../studio/create-workspace.md): usare questa area di lavoro per creare modelli di apprendimento automatico. Questa attività viene eseguita dopo aver completato un'esplorazione iniziale e un sottocampionamento dei dati usando il cluster HDInsight.
+3. [Creare un'area di lavoro di Azure Machine Learning](../classic/create-workspace.md): usare questa area di lavoro per creare modelli di apprendimento automatico. Questa attività viene eseguita dopo aver completato un'esplorazione iniziale e un sottocampionamento dei dati usando il cluster HDInsight.
 
 ## <a name="get-the-data-from-a-public-source"></a><a name="getdata"></a>Acquisire i dati da un'origine pubblica
 > [!NOTE]
@@ -915,7 +915,7 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
   Qui il coefficiente di determinazione è 0,709, che implica che circa il 71% della varianza è rappresentato dai coefficienti del modello.
 
 > [!IMPORTANT]
-> Per altre informazioni su Azure Machine Learning e su come accedere a questo servizio e usarlo, vedere [Che cos'è Machine Learning?](../studio/what-is-machine-learning.md). Inoltre, il sito Web [Azure AI Gallery](https://gallery.cortanaintelligence.com/) contiene una vasta gamma di esperimenti e offre un'introduzione completa alle ricche funzionalità di Machine Learning.
+> Per altre informazioni su Azure Machine Learning e su come accedere a questo servizio e usarlo, vedere [Che cos'è Machine Learning?](../classic/index.yml). Inoltre, il sito Web [Azure AI Gallery](https://gallery.cortanaintelligence.com/) contiene una vasta gamma di esperimenti e offre un'introduzione completa alle ricche funzionalità di Machine Learning.
 > 
 > 
 
@@ -924,8 +924,8 @@ Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con
 
 ## <a name="references"></a>Riferimenti
 •    [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](https://www.andresmh.com/nyctaxitrips/)  
-• [Foiling di NYC ' s taxi trip data di Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [Ricerche e statistiche su NYC Taxi e limousine Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+•    [Foiling di NYC ' s taxi trip data di Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Ricerche e statistiche su NYC Taxi e limousine Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png
@@ -937,6 +937,3 @@ Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-

@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359960"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265470"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurare le attestazioni di gruppo per le applicazioni con Azure Active Directory
 
@@ -78,11 +78,11 @@ Per configurare le attestazioni di gruppo per una raccolta o un'applicazione SAM
 
 Fare clic su **Aggiungi un'attestazione di gruppo**  
 
-![interfaccia utente delle attestazioni](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
+![Screenshot che mostra la pagina "attributi utente & attestazioni" con l'opzione "Aggiungi attestazione gruppo".](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
 Usare i pulsanti di opzione per selezionare i gruppi da includere nel token
 
-![interfaccia utente delle attestazioni](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+![Screenshot che mostra la finestra "attestazioni gruppo" con "gruppi di sicurezza" selezionati.](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
 | Selezione | Descrizione |
 |----------|-------------|
@@ -93,15 +93,15 @@ Usare i pulsanti di opzione per selezionare i gruppi da includere nel token
 
 Ad esempio, per creare tutti i gruppi di sicurezza di cui l'utente è membro, selezionare gruppi di sicurezza.
 
-![interfaccia utente delle attestazioni](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+![Screenshot che mostra la finestra "attestazioni gruppo" con "gruppi di sicurezza" selezionati e il menu a discesa "attributo di origine" aperto.](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
 Per creare gruppi usando Active Directory gli attributi sincronizzati da Active Directory anziché Azure AD ObjectID selezionare il formato richiesto dall'elenco a discesa. Solo i gruppi sincronizzati da Active Directory verranno inclusi nelle attestazioni.
 
-![interfaccia utente delle attestazioni](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+![Screenshot che mostra il menu a discesa "attributo di origine" aperto.](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
 Per creare solo i gruppi assegnati all'applicazione, selezionare **i gruppi assegnati all'applicazione**
 
-![interfaccia utente delle attestazioni](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+![Screenshot che mostra la finestra "attestazioni gruppo" con "gruppi assegnati all'applicazione" selezionata.](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
 I gruppi assegnati all'applicazione verranno inclusi nel token.  Gli altri gruppi di cui l'utente è membro verranno omessi.  Con questa opzione i gruppi annidati non sono inclusi e l'utente deve essere un membro diretto del gruppo assegnato all'applicazione.
 
@@ -109,17 +109,17 @@ Per modificare i gruppi assegnati all'applicazione, selezionare l'applicazione n
 
 Per informazioni dettagliate sulla gestione dell'assegnazione dei gruppi alle applicazioni, vedere il documento [assegnare un utente o un gruppo a un'app aziendale](../../active-directory/manage-apps/assign-user-or-group-access-portal.md) .
 
-### <a name="advanced-options"></a>Opzioni avanzate
+### <a name="advanced-options"></a>Advanced Options
 
 Il modo in cui vengono emesse le attestazioni di gruppo può essere modificato dalle impostazioni in opzioni avanzate
 
 Personalizzare il nome dell'attestazione di gruppo: se selezionato, è possibile specificare un tipo di attestazione diverso per le attestazioni di gruppo.   Immettere il tipo di attestazione nel campo nome e nello spazio dei nomi facoltativo per l'attestazione nel campo spazio dei nomi.
 
-![interfaccia utente delle attestazioni](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
+![Screenshot che mostra la sezione "Opzioni avanzate" con i valori "Personalizza il nome dell'attestazione gruppo" selezionati e "nome" e "spazio dei nomi" immessi.](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
 Per alcune applicazioni è necessario che le informazioni sull'appartenenza al gruppo vengano visualizzate nell'attestazione "Role". Facoltativamente, è possibile creare i gruppi dell'utente come ruoli selezionando la casella di controllo "Crea gruppi di attestazioni di ruolo".
 
-![interfaccia utente delle attestazioni](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
+![Screenshot che mostra la sezione "Opzioni avanzate" con "personalizzare il nome dell'attestazione del gruppo" e "creare gruppi come attestazioni del ruolo" selezionato.](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 > [!NOTE]
 > Se si usa l'opzione per creare dati di gruppo come ruoli, solo i gruppi verranno visualizzati nell'attestazione del ruolo.  Qualsiasi ruolo applicazione assegnato dall'utente non verrà visualizzato nell'attestazione del ruolo.

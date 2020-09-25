@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 96da89fa8d7e4783afa11807534bbaeba52b79fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800467"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334260"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Indirizzare gli eventi all'interno e all'esterno dei dispositivi gemelli digitali di Azure
 
@@ -69,15 +69,22 @@ Le API dell'endpoint disponibili nel piano di controllo sono:
 
 ## <a name="create-an-event-route"></a>Creare una route di eventi
  
-Le route degli eventi vengono create in un'applicazione client con la chiamata [SDK .NET (C#)](how-to-use-apis-sdks.md) seguente: 
+Le route degli eventi vengono create in un'applicazione client. Un modo per eseguire questa operazione è con la chiamata a `CreateEventRoute` [.NET (C#) SDK](how-to-use-apis-sdks.md) : 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-name>"));
+EventRoute er = new EventRoute("endpointName");
+er.Filter("true"); //Filter allows all messages
+await client.CreateEventRoute("routeName", er);
 ```
 
-* `endpoint-name`Identifica un endpoint, ad esempio un hub eventi, una griglia di eventi o un bus di servizio. Questi endpoint devono essere creati nella sottoscrizione e collegati ai dispositivi gemelli digitali di Azure usando le API del piano di controllo prima di effettuare questa chiamata di registrazione.
+1. `EventRoute`Viene innanzitutto creato un oggetto e il costruttore accetta il nome di un endpoint. Questo `endpointName` campo identifica un endpoint, ad esempio un hub eventi, una griglia di eventi o un bus di servizio. Questi endpoint devono essere creati nella sottoscrizione e collegati ai dispositivi gemelli digitali di Azure usando le API del piano di controllo prima di effettuare questa chiamata di registrazione.
 
-L'oggetto route dell'evento passato a `EventRoutes.Add` accetta anche un [parametro **Filter** ](./how-to-manage-routes-apis-cli.md#filter-events), che può essere usato per limitare i tipi di eventi che seguono questa route.
+2. L'oggetto route dell'evento dispone anche di un campo [**Filter**](./how-to-manage-routes-apis-cli.md#filter-events) , che può essere usato per limitare i tipi di eventi che seguono questa route. Un filtro di `true` Abilita la route senza filtri aggiuntivi (un filtro `false` Disabilita la route). 
+
+3. Questo oggetto route dell'evento viene quindi passato a `CreateEventRoute` , insieme a un nome per la route.
+
+> [!TIP]
+> Tutte le funzioni SDK sono disponibili in versioni sincrone e asincrone.
 
 È anche possibile creare route usando l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 

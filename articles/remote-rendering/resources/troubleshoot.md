@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982974"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322190"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
@@ -23,11 +23,7 @@ In alcuni casi, durante il [collegamento di un account di archiviazione](../how-
 
 ## <a name="client-cant-connect-to-server"></a>Il client non riesce a connettersi al server
 
-Assicurarsi che i firewall (sul dispositivo, nei router e così via) non blocchino le porte seguenti:
-
-* **50051 (TCP)** : richiesta per la connessione iniziale (handshake HTTP)
-* **8266 (TCP+UDP)** : richiesta per il trasferimento dei dati
-* **5000 (TCP)** , **5433 (TCP)** , **8443 (TCP)** : richieste per [ArrInspector](tools/arr-inspector.md)
+Assicurarsi che i firewall (sul dispositivo, all'interno dei router e così via) non blocchino le porte indicate nei [requisiti di sistema](../overview/system-requirements.md#network-ports).
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>Errore ' `Disconnected: VideoFormatNotAvailable` '
 
@@ -152,7 +148,7 @@ Con questo rettangolo di selezione possono sorgere due problemi da ricondurre al
 
 Rendering remoto di Azure include gli hook alla pipeline di rendering di Unity per eseguire la composizione del fotogramma con il video ed eseguire la riproiezione. Per verificare che questi hook esistano, aprire il menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Abilitarlo e verificare la presenza di due voci per `HolographicRemotingCallbackPass` nella pipeline:
 
-![Debugger fotogrammi di Unity](./media/troubleshoot-unity-pipeline.png)
+![Pipeline di rendering Unity](./media/troubleshoot-unity-pipeline.png)
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Il rendering del modello a scacchi viene eseguito dopo il caricamento
 
@@ -184,6 +180,12 @@ Provando a compilare esempi di Unity (avvio rapido, ShowCaseApp...) per HoloLens
 ### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Le compilazioni Arm64 per i progetti Unity hanno esito negativo perché manca AudioPluginMsHRTF.dll
 
 `AudioPluginMsHRTF.dll`Per Arm64 è stato aggiunto al pacchetto di *realtà misto Windows* *(com. Unity. XR. windowsmr. metro)* nella versione 3.0.1. Assicurarsi che la versione 3.0.1 o successiva sia installata tramite Gestione pacchetti Unity. Dalla barra dei menu di Unity passare a *finestra > gestione pacchetti* e cercare il pacchetto di *realtà mista di Windows* .
+
+## <a name="native-c-based-application-does-not-compile"></a>L'applicazione nativa basata su C++ non viene compilata
+
+### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Errore ' libreria non trovata ' per l'applicazione o la dll UWP
+
+Nel pacchetto NuGet C++ è presente un `microsoft.azure.remoterendering.Cpp.targets` file di file che definisce quale versione binaria usare. Per identificare `UWP` , le condizioni nel file verificano la presenza di `ApplicationType == 'Windows Store'` . Quindi, è necessario verificare che questo tipo sia impostato nel progetto. Questa situazione si verifica quando si crea un'applicazione UWP o una dll tramite la creazione guidata progetto di Visual Studio.
 
 ## <a name="unstable-holograms"></a>Ologrammi instabili
 

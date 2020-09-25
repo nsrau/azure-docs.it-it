@@ -3,12 +3,12 @@ title: Ottimizzare i carichi di lavoro di Azure usando il Punteggio di Advisor
 description: Usa il Punteggio di Advisor per sfruttare al meglio Azure
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 720a2b358e35d776a7233452eee2bd69b521654f
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056235"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335620"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Ottimizzare i carichi di lavoro di Azure usando il Punteggio di Advisor
 
@@ -28,28 +28,33 @@ Per ottenere il massimo da Azure, è fondamentale comprendere dove si trova il p
 ## <a name="how-to-consume-advisor-score"></a>Come utilizzare il Punteggio di Advisor
 Advisor Visualizza il punteggio e la suddivisione complessiva di Advisor per le categorie di Advisor, in percentuale. Un punteggio pari al 100% in qualsiasi categoria indica che tutte le risorse valutate da Advisor seguono le procedure consigliate consigliate da Advisor. Nell'altra estremità dello spettro, un punteggio pari allo 0% indica che nessuna delle risorse valutate da Advisor segue le raccomandazioni di Advisor. Usando questi grani di punteggio è possibile ottenere facilmente il flusso seguente:
 * **Punteggio di Advisor** che consente di ottenere informazioni di base sulle modalità di funzionamento del carico di lavoro/sottoscrizioni in base al Punteggio di Advisor. È anche possibile vedere le tendenze cronologiche per comprendere la tendenza.
-* **Punteggi della categoria Advisor** che consentono di individuare le categorie che richiedono maggiore attenzione e consentono di definire le priorità
-* **Potenziale aumento del Punteggio** di ogni raccomandazione che consente di assegnare una priorità alle azioni correttive per ogni categoria
+* I **punteggi di categoria di Advisor** di ogni raccomandazione indicano quali raccomandazioni in attesa miglioreranno il punteggio. Questi valori riflettono sia il peso della raccomandazione che la semplicità di implementazione prevista per assicurarsi che sia possibile ottenere la maggior parte del valore con il tempo e che consenta l'assegnazione delle priorità
+* **Valutazione del Punteggio di categoria** per ogni raccomandazione che consente di classificare in ordine di priorità le azioni correttive per ogni categoria
 
-Il contributo di ogni raccomandazione per il punteggio è chiaramente visualizzato nella pagina Panoramica del portale di Azure. È possibile aumentare il Punteggio adottando le procedure consigliate ed è possibile classificare in ordine di priorità le raccomandazioni che hanno un **aumento del Punteggio potenziale** maggiore per ottenere lo stato di avanzamento più rapido con il tempo necessario.  
+Il contributo di ogni raccomandazione per il punteggio della categoria viene visualizzato chiaramente nella pagina Score Advisor della portale di Azure. È possibile aumentare il Punteggio di ogni categoria in base al punto percentuale elencato nella colonna Categoria dell'effetto punteggio. Questo valore riflette sia il peso della raccomandazione all'interno della categoria che la semplicità di implementazione prevista per risolvere i possibili frutti a basso rischio. Concentrandosi sulle raccomandazioni con un maggiore effetto sui punteggi, sarà possibile ottenere il massimo avanzamento con il tempo.  
 
 ![Effetto Punteggio di Advisor](./media/advisor-score-2.png)
 
-Dal momento che la metodologia di assegnazione dei punteggi di Advisor applica un peso aggiuntivo a risorse più costose con raccomandazioni di lunga durata, è possibile migliorare lo stato di avanzamento monitorando e aggiornando le risorse con il costo finale più elevato. Se una delle raccomandazioni di Advisor non è pertinente per una singola risorsa, è possibile ignorare tali raccomandazioni per escluderle dal calcolo dei punteggi e inviare commenti e suggerimenti a Advisor per migliorare le raccomandazioni. 
+Nel caso in cui le raccomandazioni di Advisor non siano rilevanti per una singola risorsa, è possibile posticiparle o ignorarle e verranno escluse dal calcolo del punteggio dall'aggiornamento successivo. Advisor utilizzerà anche questo input come feedback aggiuntivo per migliorare il modello.
 
 ## <a name="how-is-advisor-score-calculated"></a>Come viene calcolato il Punteggio di Advisor?
 Advisor Visualizza i punteggi di categoria e il Punteggio di Advisor complessivo come percentuali. Un punteggio pari al 100% in qualsiasi categoria indica che tutte le risorse, *valutate in base a Advisor*, seguono le procedure consigliate consigliate da Advisor. Nell'altra estremità dello spettro, un punteggio pari allo 0% indica che nessuna delle risorse, valutata da Advisor, segue le raccomandazioni di Advisor. 
 **Ognuna delle cinque categorie ha un punteggio potenziale massimo di 100.** Il Punteggio complessivo di Advisor viene calcolato come somma di ogni punteggio di categoria applicabile, diviso per la somma del Punteggio potenziale più alto da tutte le categorie applicabili. Per la maggior parte delle sottoscrizioni, questo significa che Advisor somma il Punteggio di ogni categoria e divide per 500. Tuttavia, **ogni punteggio di categoria viene calcolato solo se si usano risorse valutate da Advisor.**
 
+**Esempio di calcolo del Punteggio di Advisor**
+* Singolo Punteggio di sottoscrizione: questa è la media semplice di tutti i punteggi di categoria di Advisor per la sottoscrizione. Se i punteggi della categoria Advisor sono As-cost = 73, reliabilit = 85, Operational excellence = 77, performance = 100; il **Punteggio di Advisor** è (73 + 85 + 77 + 100)/(4x100) = 0,84 o 84%.
+* Punteggio per più sottoscrizioni: quando si selezionano più sottoscrizioni, il Punteggio di Advisor generale generato è l'aggregazione ponderata dei punteggi di categoria. In questo caso, ogni punteggio di categoria di Advisor viene aggregato in base alle risorse utilizzate dalle sottoscrizioni. Una volta ottenuti i punteggi di categoria aggregati ponderati, viene eseguita una semplice media per fornire il punteggio complessivo per le sottoscrizioni. 
+
+
 ### <a name="scoring-methodology"></a>Metodologia di assegnazione dei punteggi: 
 Il calcolo del Punteggio di Advisor può essere riepilogato in quattro passaggi:
-1. Advisor calcola il **costo al dettaglio giornaliero delle risorse interessate**, che sono le risorse per le sottoscrizioni con almeno una raccomandazione in Advisor.
-2. Advisor calcola il costo per la **vendita al dettaglio giornaliero delle risorse valutate**, ovvero le risorse monitorate da Advisor, indipendentemente dal fatto che siano presenti raccomandazioni o meno. 
-3. Per ogni tipo di raccomandazione, Advisor calcola il **rapporto di risorse integro**, ovvero il costo delle risorse interessate divise per il costo delle risorse valutate.
+1. Advisor calcola il **costo al dettaglio delle risorse interessate**, che sono le risorse delle sottoscrizioni con almeno una raccomandazione in Advisor.
+2. Advisor calcola il costo per la **vendita al dettaglio delle risorse valutate**, ovvero le risorse monitorate da Advisor, indipendentemente dal fatto che dispongano o meno di raccomandazioni. 
+3. Per ogni tipo di raccomandazione, Advisor calcola il **rapporto di risorse integro**, ovvero il costo al dettaglio delle risorse interessate divise per il costo finale delle risorse valutate.
 4. Advisor applica tre pesi aggiuntivi al rapporto di risorse integre in ogni categoria:
-* Le raccomandazioni con un impatto maggiore sono ponderate più pesanti rispetto a quelle con un impatto minore.
-* Le risorse con raccomandazioni di lunga durata vengono conteggiate più in base al punteggio.
-* Le risorse ignorate in Advisor vengono rimosse dal calcolo del punteggio. 
+  * Le raccomandazioni con un impatto maggiore sono ponderate più pesanti rispetto a quelle con un impatto minore.
+  * Le risorse con raccomandazioni di lunga durata vengono conteggiate più in base al punteggio.
+  * Le risorse rimandate o ignorate in Advisor vengono rimosse dal calcolo del punteggio. 
     
 Advisor applica questo modello a livello di categoria Advisor (sicurezza usa il modello di [Punteggio sicuro](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score) ), assegnando il Punteggio di Advisor per ogni categoria e una media più semplice produce il punteggio finale di Advisor.
 
@@ -57,19 +62,25 @@ Advisor applica questo modello a livello di categoria Advisor (sicurezza usa il 
 ## <a name="advisor-score-faq"></a>Domande frequenti sul punteggio di Advisor
 * **Con quale frequenza viene aggiornato il Punteggio?**
 Il Punteggio viene aggiornato almeno una volta al giorno. 
-* **È necessario visualizzare le raccomandazioni in Advisor per ottenere un punto per il Punteggio?**
-No. Il Punteggio indica se adottare le procedure consigliate consigliate da Advisor, anche se non si visualizzano mai tali raccomandazioni in Advisor e si adottano in modo proattivo le procedure consigliate.  
-* **In che modo Advisor calcola il costo al dettaglio giornaliero per le risorse di una sottoscrizione?**
-Advisor usa le tariffe *con pagamento in base* al consumo pubblicate nella pagina dei prezzi di Azure.com, che non riflette gli sconti applicabili, moltiplicato per la quantità di utilizzo nell'ultimo giorno in cui la risorsa è stata allocata. L'omissione di sconti dal calcolo del costo delle risorse rende il Punteggio di Advisor confrontabile tra sottoscrizioni, tenant e registrazioni in cui gli sconti possono variare. 
+* **Perché alcune raccomandazioni hanno un valore "-" vuoto nella colonna Categoria Impact Score?** Advisor non include immediatamente nuove raccomandazioni o quelle con modifiche recenti al modello di assegnazione dei punteggi. Dopo un breve periodo di valutazione, in genere alcune settimane, verranno incluse nel punteggio. 
+* **Perché il Punteggio di costo ha un impatto maggiore per alcune raccomandazioni anche se hanno un minor risparmio potenziale?**
+Il Punteggio di costo riflette il potenziale risparmio di risorse sottoutilizzate e la semplicità prevista per l'implementazione di tali raccomandazioni. Ad esempio, viene applicato un peso aggiuntivo alle risorse interessate che sono inattive per un periodo di tempo più lungo, anche se il risparmio potenziale è inferiore. 
+* **Perché non si dispone di un punteggio per una o più categorie o sottoscrizioni?**
+Advisor genererà un punteggio solo per le categorie e le sottoscrizioni con risorse valutate da Advisor.
 * **Che cosa accade se una raccomandazione non è pertinente?**
 Se si ignora un Consiglio di Advisor, questo verrà omesso dal calcolo del punteggio. Le raccomandazioni di chiusura consentono inoltre a Advisor di migliorare la qualità delle raccomandazioni.
 * **Perché il punteggio è stato modificato?** Il Punteggio può variare se si aggiornano le risorse interessate adottando le procedure consigliate consigliate da Advisor. Se gli utenti con le autorizzazioni per la sottoscrizione hanno modificato o creato nuove risorse, è possibile che si riscontrino fluttuazioni nel punteggio perché il punteggio è basato su un rapporto tra le risorse con impatto sui costi rispetto al costo totale di tutte le risorse.
-* **Il mio punteggio dipende da quanto spendo in Azure?**
-No. Il Punteggio è progettato per controllare la dimensione di una sottoscrizione e una combinazione di servizi. 
+* **In che modo Advisor calcola il costo al dettaglio delle risorse in una sottoscrizione?**
+Advisor usa le tariffe con pagamento in base al consumo pubblicate nella pagina dei prezzi di Azure.com, che non riflette gli sconti applicabili, moltiplicato per la quantità di utilizzo nell'ultimo giorno in cui la risorsa è stata allocata. L'omissione di sconti dal calcolo del costo delle risorse rende il Punteggio di Advisor confrontabile tra sottoscrizioni, tenant e registrazioni in cui gli sconti possono variare. 
+* **È necessario visualizzare le raccomandazioni in Advisor per ottenere i punti per il Punteggio?** No. Il Punteggio indica se adottare le procedure consigliate consigliate da Advisor, anche se si adottano tali procedure consigliate in modo proattivo e non si visualizzano mai le raccomandazioni in Advisor.
 * **La metodologia di assegnazione dei punteggi distingue tra i carichi di lavoro di produzione e di sviluppo e test?**
 No, non per ora, ma è possibile ignorare le raccomandazioni sulle singole risorse se tali risorse vengono usate per lo sviluppo e il test e la raccomandazione non è applicabile.
 * **È possibile confrontare I punteggi tra una sottoscrizione con risorse 100 e una sottoscrizione con risorse 100.000?**
 La metodologia di assegnazione dei punteggi è progettata per controllare il numero di risorse in una sottoscrizione e una combinazione di servizi, pertanto le sottoscrizioni con un minor numero di risorse possono avere punteggi superiori o inferiori rispetto alle sottoscrizioni con più risorse. 
+* **Cosa significa quando viene visualizzato "Coming Soon" nella colonna Score Impact?**
+Questo significa che si tratta di una nuova raccomandazione che è ancora in uso nel modello di Punteggio di Advisor. Una volta che questa nuova raccomandazione viene considerata nel calcolo dei punteggi, il valore dell'effetto del punteggio per la raccomandazione verrà visualizzato.  
+* **Il mio punteggio dipende da quanto spendo in Azure?**
+No, il punteggio non è necessariamente un riflesso della spesa e le spese superflue determineranno un punteggio di costo inferiore.
 
 ## <a name="how-to-access-advisor"></a>Come accedere a Advisor
 Il Punteggio di Advisor è in anteprima pubblica in portale di Azure. È necessario passare alla sezione Advisor per trovare il Punteggio di Advisor come seconda voce di menu nel menu di spostamento a sinistra. 

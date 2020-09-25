@@ -4,19 +4,16 @@ description: Questo articolo illustra come eseguire il backup e il ripristino de
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: fa5ab60481b431971abb1e3fcb5c85492eb5b22a
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: ce7e53bc740882a819e8a21e3ac95ab47d3b876a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506696"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271376"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup e ripristino di dischi selettivi per macchine virtuali di Azure
 
 Backup di Azure supporta il backup di tutti i dischi (sistema operativo e dati) in una macchina virtuale insieme usando la soluzione di backup della macchina virtuale. A questo punto, usando la funzionalità di backup e ripristino dei dischi selettivi, è possibile eseguire il backup di un subset di dischi dati in una macchina virtuale. Questa è una soluzione efficiente ed economica per soddisfare le esigenze di backup e ripristino. Ogni punto di ripristino contiene solo i dischi inclusi nell'operazione di backup. In questo modo è possibile avere un subset di dischi ripristinati dal punto di ripristino specificato durante l'operazione di ripristino. Questo vale sia per il ripristino da snapshot che per l'insieme di credenziali.
-
->[!NOTE]
->Il backup e il ripristino dei dischi selettivi per le macchine virtuali di Azure sono in anteprima pubblica in tutte le aree.
 
 ## <a name="scenarios"></a>Scenari
 
@@ -38,7 +35,7 @@ Assicurarsi di usare AZ CLI Version 2.0.80 o versione successiva. È possibile o
 az --version
 ```
 
-Accedere all'ID sottoscrizione in cui è presente l'insieme di credenziali dei servizi di ripristino e la macchina virtuale:
+Accedere all'ID sottoscrizione in cui si trovano l'insieme di credenziali dei servizi di ripristino e la macchina virtuale:
 
 ```azurecli
 az account set -s {subscriptionID}
@@ -62,7 +59,7 @@ az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name
 Se la macchina virtuale non si trova nello stesso gruppo di risorse dell'insieme di credenziali, **ResourceGroup** fa riferimento al gruppo di risorse in cui è stato creato l'insieme di credenziali. Al posto del nome della macchina virtuale, specificare l'ID della macchina virtuale come indicato di seguito.
 
 ```azurecli
-az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id | tr -d '"') --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
+az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id --output tsv) --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
 ```
 
 ### <a name="modify-protection-for-already-backed-up-vms-with-azure-cli"></a>Modificare la protezione per le VM già sottoposte a backup con interfaccia della riga di comando
@@ -86,7 +83,7 @@ az backup protection update-for-vm --resource-group {resourcegroup} --vault-name
 ### <a name="restore-disks-with-azure-cli"></a>Ripristinare dischi con l'interfaccia della riga di comando di Azure
 
 ```azurecli
-az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
+az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
 ```
 
 ### <a name="restore-only-os-disk-with-azure-cli"></a>Ripristinare solo il disco del sistema operativo con l'interfaccia della riga
@@ -289,11 +286,32 @@ La funzionalità di backup dei dischi selettivi non è supportata per le macchin
 
 Le opzioni di ripristino per **creare una nuova macchina virtuale** e **Sostituisci esistente** non sono supportate per la macchina virtuale per cui è abilitata la funzionalità di backup dei dischi selettivi
 
+Attualmente, il backup delle VM di Azure non supporta le macchine virtuali con dischi rigidi o dischi condivisi collegati. Il backup su disco selettivo non può essere usato in questi casi, che escludono il disco e il backup della macchina virtuale.
+
 ## <a name="billing"></a>Fatturazione
 
 Il backup della macchina virtuale di Azure segue il modello di determinazione dei prezzi esistente, illustrato in dettaglio [qui](https://azure.microsoft.com/pricing/details/backup/).
 
-Il **costo dell'istanza protetta (PI)** viene calcolato per il disco del sistema operativo solo se si sceglie di eseguire il backup usando solo l'opzione del **disco del sistema operativo** .  Se si configura il backup e si seleziona almeno un disco dati, il costo PI verrà calcolato per tutti i dischi collegati alla macchina virtuale. Il **costo di archiviazione dei backup** viene calcolato in base ai soli dischi inclusi e consente di risparmiare sui costi di archiviazione. Il **costo dello snapshot** viene sempre calcolato per tutti i dischi della macchina virtuale (dischi inclusi ed esclusi).  
+Il **costo dell'istanza protetta (PI)** viene calcolato per il disco del sistema operativo solo se si sceglie di eseguire il backup usando solo l'opzione del **disco del sistema operativo** .  Se si configura il backup e si seleziona almeno un disco dati, il costo PI verrà calcolato per tutti i dischi collegati alla macchina virtuale. Il **costo di archiviazione dei backup** viene calcolato in base ai soli dischi inclusi e consente di risparmiare sui costi di archiviazione. Il **costo dello snapshot** viene sempre calcolato per tutti i dischi della macchina virtuale (dischi inclusi ed esclusi).
+
+Se è stata scelta la funzionalità Ripristino tra aree (CRR), i [prezzi di CRR](https://azure.microsoft.com/pricing/details/backup/) si applicano al costo di archiviazione dei backup dopo aver escluso il disco.
+
+## <a name="frequently-asked-questions"></a>Domande frequenti
+
+### <a name="how-is-protected-instance-pi-cost-calculated-for-only-os-disk-backup-in-windows-and-linux"></a>Come viene calcolato il costo dell'istanza protetta (PI) per solo il backup del disco del sistema operativo in Windows e Linux?
+
+Il costo PI viene calcolato in base alle dimensioni effettive (usate) della macchina virtuale.
+
+- Per Windows: il calcolo dello spazio usato si basa sull'unità che archivia il sistema operativo, in genere C:).
+- Per Linux: il calcolo dello spazio usato si basa sul dispositivo in cui è montato il file system radice (/).
+
+### <a name="i-have-configured-only-os-disk-backup-why-is-the-snapshot-happening-for-all-the-disks"></a>Ho configurato solo il backup del disco del sistema operativo, perché lo snapshot viene eseguita per tutti i dischi?
+
+Le funzionalità di backup su disco selettivo consentono di risparmiare sui costi di archiviazione dell'insieme di credenziali di backup grazie alla protezione avanzata dei dischi inclusi che fanno parte del backup. Tuttavia, lo snapshot viene utilizzato per tutti i dischi collegati alla macchina virtuale. Quindi, il costo dello snapshot viene sempre calcolato per tutti i dischi della macchina virtuale (dischi inclusi ed esclusi). Per ulteriori informazioni, vedere [fatturazione](#billing).
+
+### <a name="i-cant-configure-backup-for-the-azure-virtual-machine-by-excluding-ultra-disk-or-shared-disks-attached-to-the-vm"></a>Non è possibile configurare il backup per la macchina virtuale di Azure escludendo il disco Ultra o i dischi condivisi collegati alla VM
+
+La funzionalità di backup su disco selettivo è una funzionalità disponibile nella soluzione di backup della macchina virtuale di Azure. Attualmente, il backup delle VM di Azure non supporta le macchine virtuali con disco rigido o dischi condivisi collegati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

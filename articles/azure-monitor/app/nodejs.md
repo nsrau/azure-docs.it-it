@@ -3,13 +3,13 @@ title: Monitorare i servizi Node.js con Azure Application Insights | Microsoft D
 description: Monitorare le prestazioni e diagnosticare i problemi dei servizi Node.js con Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c6a1a030829f128c4369e99efcd56a416390afc6
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 982adf6c6d7cd825d185802321ce30a04bd2f216
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371618"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323295"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorare servizi e app Node.js con Application Insights
 
@@ -32,7 +32,7 @@ Prima di iniziare, verificare di avere una sottoscrizione di Azure oppure [otten
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
-### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a>Configurare una risorsa Application Insights
+### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Configurare una risorsa Application Insights
 
 1. Accedere al [portale di Azure][portal].
 2. [Creare una risorsa di Application Insights](create-new-resource.md)
@@ -59,7 +59,7 @@ Includere l'SDK nell'app affinché possa raccogliere i dati.
    ```javascript
    let appInsights = require('applicationinsights');
    ```
-4.  È anche possibile fornire un iKey tramite la variabile di ambiente `APPINSIGHTS_INSTRUMENTATIONKEY` , anziché passarlo manualmente a `setup()` o `new appInsights.TelemetryClient()` . Questa procedura consente di non includere le chiavi di strumentazione nel codice sorgente sottoposto a commit e di specificare chiavi di strumentazione diverse per ambienti diversi. Per configurare la chiamata manuale `appInsights.setup('[your ikey]');` .
+4.  È anche possibile fornire un iKey tramite la variabile di ambiente `APPINSIGHTS_INSTRUMENTATIONKEY` , anziché passarlo manualmente a  `setup()` o `new appInsights.TelemetryClient()` . Questa procedura consente di non includere le chiavi di strumentazione nel codice sorgente sottoposto a commit e di specificare chiavi di strumentazione diverse per ambienti diversi. Per configurare la chiamata manuale `appInsights.setup('[your ikey]');` .
 
     Per altre opzioni di configurazione, vedere le sezioni seguenti.
 
@@ -67,7 +67,7 @@ Includere l'SDK nell'app affinché possa raccogliere i dati.
 
 5. Avviare la raccolta e l'invio automatici dei dati chiamando `appInsights.start();` .
 
-### <a name="monitor-your-app"></a><a name="monitor"></a>Monitorare l'app
+### <a name="monitor-your-app"></a><a name="monitor"></a> Monitorare l'app
 
 L'SDK raccoglie automaticamente i dati di telemetria relativi al runtime Node.js e ad alcuni moduli comuni di terze parti. Usare l'applicazione per generare alcuni di questi dati.
 
@@ -110,7 +110,7 @@ Sono state apportate modifiche di rilievo tra le versioni precedenti alla versio
 In generale, è possibile eseguire la migrazione con quanto segue:
 
 - Sostituire i riferimenti a `appInsights.client` con `appInsights.defaultClient` .
-- Sostituisci riferimenti a `appInsights.getClient()` con`new appInsights.TelemetryClient()`
+- Sostituisci riferimenti a `appInsights.getClient()` con `new appInsights.TelemetryClient()`
 - Sostituire tutti gli argomenti con i metodi client. Track * con un singolo oggetto contenente le proprietà denominate come argomenti. Per l'oggetto ad eccezione di ogni tipo di telemetria, vedere Hint di tipo incorporato o [TelemetryTypes](https://github.com/Microsoft/ApplicationInsights-node.js/tree/develop/Declarations/Contracts/TelemetryTypes) dell'IDE.
 
 Se si accede alle funzioni di configurazione dell'SDK senza concatenarle a `appInsights.setup()` , è ora possibile trovare queste funzioni in `appInsights.Configurations` (ad esempio, `appInsights.Configuration.setAutoCollectDependencies(true)` ). Esaminare le modifiche apportate alla configurazione predefinita nella sezione successiva.

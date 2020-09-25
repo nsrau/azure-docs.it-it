@@ -4,12 +4,12 @@ description: Informazioni su come abilitare e visualizzare i log per il nodo mas
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: a0207ebbb1596e41ad65e21a769d7041a239f767
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4d4485848bb81f9b745081bd999b3cd3e8101b41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299072"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Abilitare e controllare i log del nodo master di Kubernetes nel servizio Azure Kubernetes
 
@@ -72,16 +72,18 @@ Potrebbero essere necessari alcuni minuti per abilitare e visualizzare i log di 
 Sul lato sinistro scegliere **Log**. Per visualizzare i log di *controllo Kube* , immettere la query seguente nella casella di testo:
 
 ```
-KubePodInventory
-| where TimeGenerated > ago(1d)
+AzureDiagnostics
+| where Category == "kube-audit"
+| project log_s
 ```
 
 È probabile che vengano restituiti molti log. Per limitare l'ambito della query per visualizzare i log relativi al Pod NGINX creato nel passaggio precedente, aggiungere un'istruzione *where* aggiuntiva per cercare *nginx* , come illustrato nella query di esempio seguente:
 
 ```
-KubePodInventory
-| where TimeGenerated > ago(1d)
-| where Name contains "nginx"
+AzureDiagnostics
+| where Category == "kube-audit"
+| where log_s contains "nginx"
+| project log_s
 ```
 
 Per altre informazioni su come eseguire una query e filtrare i dati di log, vedere [visualizzare o analizzare i dati raccolti con la ricerca log di log Analytics][analyze-log-analytics].
@@ -91,6 +93,7 @@ Per altre informazioni su come eseguire una query e filtrare i dati di log, vede
 AKS registra gli eventi seguenti:
 
 * [AzureActivity][log-schema-azureactivity]
+* [AzureDiagnostics][log-schema-azurediagnostics]
 * [AzureMetrics][log-schema-azuremetrics]
 * [ContainerImageInventory][log-schema-containerimageinventory]
 * [ContainerInventory][log-schema-containerinventory]
@@ -133,6 +136,7 @@ In questo articolo è stato descritto come abilitare e analizzare i log per i co
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [log-schema-azureactivity]: /azure/azure-monitor/reference/tables/azureactivity
+[log-schema-azurediagnostics]: /azure/azure-monitor/reference/tables/azurediagnostics
 [log-schema-azuremetrics]: /azure/azure-monitor/reference/tables/azuremetrics
 [log-schema-containerimageinventory]: /azure/azure-monitor/reference/tables/containerimageinventory
 [log-schema-containerinventory]: /azure/azure-monitor/reference/tables/containerinventory

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: eb2ce196687b2ca6a762a879570e4f8ebac788df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 778c65b9ec42c27ea0ae1530c1ba7fa9739fbc3c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025116"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321884"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione
 
@@ -91,12 +91,12 @@ In questa guida verrà esposto il **portale per sviluppatori** anche a destinata
 > 
 > Le regole WAF del gateway applicazione, che possono interrompere le funzionalità del portale includono:
 > 
-> - `920330`, `931130` , `942100` , `942110` , `942180` , `942200` , `942260` , `942370` , `949110` , `980130` per la modalità amministrativa
+> - `920300`, `920330` , `931130` , `942100` , `942110` , `942180` , `942200` , `942260` , `942340` , `942370` per la modalità amministrativa
 > - `942200`, `942260` , `942370` , `942430` , `942440` per il portale pubblicato
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Creare un gruppo di risorse per Gestione risorse
 
-### <a name="step-1"></a>Step 1
+### <a name="step-1"></a>Passaggio 1
 
 Accedere ad Azure
 
@@ -131,7 +131,7 @@ Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un
 
 Nell'esempio seguente viene illustrato come creare una rete virtuale utilizzando Gestione risorse.
 
-### <a name="step-1"></a>Step 1
+### <a name="step-1"></a>Passaggio 1
 
 Assegnare l'intervallo di indirizzi 10.0.0.0/24 alla variabile subnet da usare per il gateway applicazione durante la creazione di una rete virtuale.
 
@@ -168,7 +168,7 @@ $apimsubnetdata = $vnet.Subnets[1]
 
 L'esempio seguente illustra come creare un servizio Gestione API in una rete virtuale configurata per il solo accesso interno.
 
-### <a name="step-1"></a>Step 1
+### <a name="step-1"></a>Passaggio 1
 
 Creare un oggetto rete virtuale di Gestione API usando la subnet $apimsubnetdata creata in precedenza.
 
@@ -194,7 +194,7 @@ Dopo il completamento del comando precedente, per l'accesso vedere la [configura
 > [!IMPORTANT]
 > Il [nuovo portale per sviluppatori](api-management-howto-developer-portal.md) richiede anche l'abilitazione della connettività all'endpoint di gestione di gestione API, oltre ai passaggi seguenti.
 
-### <a name="step-1"></a>Step 1
+### <a name="step-1"></a>Passaggio 1
 
 Inizializzare le variabili seguenti con i dettagli dei certificati con chiavi private per i domini. In questo esempio vengono usati `api.contoso.net` e `portal.contoso.net`.  
 
@@ -241,7 +241,7 @@ All'avvio del servizio viene assegnato un indirizzo IP al gateway applicazione.
 
 Prima di creare il gateway applicazione, è necessario impostare tutti gli elementi di configurazione. La procedura seguente consente di creare gli elementi di configurazione necessari per una risorsa del gateway applicazione.
 
-### <a name="step-1"></a>Step 1
+### <a name="step-1"></a>Passaggio 1
 
 Creare una configurazione IP del gateway applicazione denominata **gatewayIP01**. All'avvio, il gateway applicazione seleziona un indirizzo IP dalla subnet configurata e instrada il traffico di rete agli indirizzi IP nel pool di indirizzi IP back-end. Tenere presente che ogni istanza ha un indirizzo IP.
 
