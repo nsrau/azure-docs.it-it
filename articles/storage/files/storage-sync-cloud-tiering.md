@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6678f64802dc497de6cf0a70ba5ff0bbcaf44e1c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9df06a9d81ef3c9fbe3380bab88325a586981db9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033122"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329313"
 ---
 # <a name="cloud-tiering-overview"></a>Panoramica della suddivisione in livelli nel cloud
 La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui si accede di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono archiviati a livelli in File di Azure in base alle impostazioni dei criteri. Quando un file è archiviato a livelli, il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) sostituisce il file in locale con un puntatore, o punto di analisi. Il punto di analisi rappresenta un URL del file in File di Azure. Un file archiviato a livelli include sia l'attributo "offline" sia l'attributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS impostato in NTFS, in modo che le applicazioni di terze parti possano identificare in modo sicuro questo tipo di file.
@@ -40,7 +40,7 @@ La suddivisione in livelli cloud non dipende dalla funzionalità NTFS per il ril
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Qual è la dimensione minima del file per un file a livello?
 
-Per gli agenti versione 9 e successive, le dimensioni minime del file per un file a livello sono basate sulle dimensioni del cluster file system. Le dimensioni minime dei file idonee per la suddivisione in livelli nel cloud vengono calcolate in base alla dimensione del cluster e a un minimo di 8 KB. La tabella seguente illustra le dimensioni minime dei file che possono essere suddivise a livelli, in base alle dimensioni del cluster di volumi:
+Per le versioni dell'agente 12 e successive, le dimensioni minime del file per un file a livello sono basate sulle dimensioni del cluster file system. Le dimensioni minime dei file idonee per la suddivisione in livelli nel cloud vengono calcolate in base alla dimensione del cluster e a un minimo di 8 KB. La tabella seguente illustra le dimensioni minime dei file che possono essere suddivise a livelli, in base alle dimensioni del cluster di volumi:
 
 |Dimensioni cluster del volume (byte) |I file di questa dimensione o di dimensioni maggiori possono essere a livelli  |
 |----------------------------|---------|
@@ -48,9 +48,9 @@ Per gli agenti versione 9 e successive, le dimensioni minime del file per un fil
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 KB   |
-|64 KB (65536)               | 128 KB  |
+|64 KB (65536) e superiori    | 128 KB  |
 
-Con Windows Server 2019 e Sincronizzazione file di Azure Agent versione 12 e successive, sono supportate anche le dimensioni del cluster fino a 2 MB e la suddivisione in livelli delle dimensioni del cluster più grandi funziona allo stesso modo. Le versioni precedenti del sistema operativo o dell'agente supportano dimensioni del cluster fino a 64 KB.
+Con Windows Server 2019 e Sincronizzazione file di Azure Agent versione 12 e successive, sono supportate anche le dimensioni del cluster fino a 2 MB e la suddivisione in livelli delle dimensioni del cluster più grandi funziona allo stesso modo. Le versioni precedenti del sistema operativo o dell'agente supportano dimensioni del cluster fino a 64 KB ma, oltre a questo, la suddivisione in livelli nel cloud non funziona.
 
 Tutti i file System usati da Windows, organizzano il disco rigido in base alle dimensioni del cluster, note anche come dimensioni dell'unità di allocazione. Dimensioni del cluster rappresenta la quantità minima di spazio su disco che può essere usata per contenere un file. Quando le dimensioni dei file non vengono riportate a un multiplo pari delle dimensioni del cluster, è necessario usare spazio aggiuntivo per contenere il file fino al multiplo successivo delle dimensioni del cluster.
 
@@ -85,11 +85,23 @@ Quando in un volume sono presenti più endpoint server, la soglia valida dello s
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Come funzionano i criteri di suddivisione in livelli in base alla data insieme ai criteri di suddivisione in livelli in base allo spazio disponibile nel volume? 
 Quando si abilita il cloud a livelli in un endpoint server, si imposta un criterio di spazio disponibile nel volume, che ha sempre la precedenza su qualsiasi altro criterio, incluso il criterio di data. Facoltativamente, è possibile abilitare un criterio di data per ogni endpoint server in tale volume. Questo criterio gestisce che solo i file a cui si accede, ovvero letti o scritti, entro l'intervallo di giorni descritti da questo criterio verranno mantenuti locali. I file a cui non si accede con il numero di giorni specificato verranno suddivisi in livelli. 
 
-La suddivisione in livelli cloud usa l'ora dell'ultimo accesso per determinare quali file devono essere a livelli. Il driver del filtro di suddivisione in livelli cloud (storagesync.sys) tiene traccia dell'ora dell'ultimo accesso e registra le informazioni nell'archivio termico di suddivisione in livelli nel cloud. È possibile visualizzare l'archivio di calore usando un cmdlet di PowerShell locale.
+La suddivisione in livelli cloud usa l'ora dell'ultimo accesso per determinare quali file devono essere a livelli. Il driver del filtro di suddivisione in livelli cloud (storagesync.sys) tiene traccia dell'ora dell'ultimo accesso e registra le informazioni nell'archivio termico di suddivisione in livelli nel cloud. È possibile recuperare l'archivio di calore e salvarlo in un file CSV usando un cmdlet di PowerShell locale del server.
 
 ```powershell
+# There is a single heat store for files on a volume / server endpoint / individual file.
+# The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number
+
+# Import the PS module:
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
-Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+
+# VOLUME FREE SPACE: To get the order in which files will be tiered using the volume free space policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrder
+
+# DATE POLICY: To get the order in which files will be tiered using the date policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrderV2
+
+# Find the heat store information for a particular file:
+Get-StorageSyncHeatStoreInformation -FilePath '<PathToSpecificFile>'
 ```
 
 > [!IMPORTANT]
@@ -125,7 +137,7 @@ Esistono diversi modi per verificare se un file è archiviato a livelli in una c
         
         | Lettera di attributo | Attributo | Definizione |
         |:----------------:|-----------|------------|
-        | Una | Archiviazione | Indica che deve essere eseguito un backup del file tramite il software di backup. Questo attributo è sempre impostato indipendentemente dal fatto che il file sia archiviato a livelli o archiviato completamente su disco. |
+        | A | Archiviazione | Indica che deve essere eseguito un backup del file tramite il software di backup. Questo attributo è sempre impostato indipendentemente dal fatto che il file sia archiviato a livelli o archiviato completamente su disco. |
         | P | File sparse | Indica che il file è un file sparse. Un file sparse è un tipo specializzato di file offerto da NTFS per un uso efficiente quando il flusso di file su disco è pressoché vuoto. Sincronizzazione file di Azure usa i file sparse perché un file è completamente archiviato a livelli o parzialmente richiamato. In un file completamente archiviato a livelli, il flusso di file viene archiviato nel cloud. In un file parzialmente richiamato, tale parte del file è già su disco. Se un file è completamente richiamato su disco, Sincronizzazione file di Azure lo converte da file sparse in un file regolare. Questo attributo viene impostato solo in Windows Server 2016 e versioni precedenti.|
         | M | Richiama nell'accesso ai dati | Indica che i dati del file non sono completamente presenti nella risorsa di archiviazione locale. La lettura del file provocherà il recupero di almeno parte del contenuto del file da una condivisione file di Azure a cui è connesso l'endpoint server. Questo attributo è impostato solo in Windows Server 2019. |
         | L | Reparse point | Indica che il file contiene un reparse point. Un reparse point è un puntatore speciale utilizzabile da un filtro del file system. Sincronizzazione file di Azure usa i reparse point per definire la posizione nel cloud dove è archiviato il file per il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys). È supportato l'accesso facile. Non è necessario che gli utenti sappiano che è in uso Sincronizzazione file di Azure o come ottenere l'accesso al file nella condivisione file di Azure. Quando un file viene richiamato completamente, Sincronizzazione file di Azure rimuove il reparse point dal file. |
@@ -158,10 +170,10 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 Parametri facoltativi:
-* `-Order CloudTieringPolicy`richiamerà prima i file modificati o a cui si accede più di recente ed è consentito dai criteri di suddivisione in livelli correnti. 
+* `-Order CloudTieringPolicy` richiamerà prima i file modificati o a cui si accede più di recente ed è consentito dai criteri di suddivisione in livelli correnti. 
     * Se è configurato un criterio di spazio disponibile nel volume, i file verranno richiamati finché non viene raggiunta l'impostazione dei criteri di spazio libero del volume. Se, ad esempio, l'impostazione dei criteri volume Free è 20%, il richiamo verrà interrotto quando lo spazio disponibile nel volume raggiunge il 20%.  
     * Se lo spazio disponibile nel volume e i criteri di data sono configurati, i file verranno richiamati fino a quando non viene raggiunta l'impostazione di spazio disponibile del volume o data. Se, ad esempio, l'impostazione dei criteri di volume Free è 20% e il criterio relativo alla data è 7 giorni, il richiamo verrà interrotto quando lo spazio disponibile nel volume raggiunge il 20% oppure tutti i file a cui si accede o modificati entro 7 giorni sono locali.
-* `-ThreadCount`determina il numero di file che possono essere richiamati in parallelo.
+* `-ThreadCount` determina il numero di file che possono essere richiamati in parallelo.
 * `-PerFileRetryCount`determina la frequenza con cui viene eseguito il tentativo di richiamo di un file attualmente bloccato.
 * `-PerFileRetryDelaySeconds`determina il tempo in secondi tra i tentativi per richiamare i tentativi e deve essere sempre utilizzato in combinazione con il parametro precedente.
 
@@ -196,7 +208,7 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>Perché i file a livelli non visualizzano anteprime o anteprime in Esplora risorse?
 Per i file a livelli, le anteprime e le anteprime non saranno visibili nell'endpoint server. Questo comportamento è previsto perché la funzionalità della cache delle anteprime in Windows ignora intenzionalmente la lettura dei file con l'attributo offline. Con la suddivisione in livelli nel cloud abilitata, la lettura tramite file a livelli ne determina il download (richiamata).
 
-Questo comportamento non è specifico per Sincronizzazione file di Azure, in Esplora risorse viene visualizzata una "X grigia" per tutti i file in cui è impostato l'attributo offline. Quando si accede ai file tramite SMB, viene visualizzata l'icona X. Per una spiegazione dettagliata di questo comportamento, vedere[https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+Questo comportamento non è specifico per Sincronizzazione file di Azure, in Esplora risorse viene visualizzata una "X grigia" per tutti i file in cui è impostato l'attributo offline. Quando si accede ai file tramite SMB, viene visualizzata l'icona X. Per una spiegazione dettagliata di questo comportamento, vedere [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
 <a id="afs-tiering-disabled"></a>
 ### <a name="i-have-cloud-tiering-disabled-why-are-there-tiered-files-in-the-server-endpoint-location"></a>La suddivisione in livelli nel cloud è disabilitata perché sono presenti file a livelli nel percorso dell'endpoint server?

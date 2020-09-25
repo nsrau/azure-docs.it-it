@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2019
 ms.author: kumud
-ms.openlocfilehash: b33ff808b802b6848e2d5debaf515a73bf21a1bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fbb683754aed5b2a2e6e9c022713b7e87ad9ba9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74281337"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329208"
 ---
 # <a name="what-is-subnet-delegation"></a>Che cos'è la delega della subnet?
 
@@ -51,6 +51,7 @@ Ogni servizio di Azure definisce il proprio modello di distribuzione, in cui è 
 - determina il numero minimo di indirizzi IP nella subnet delegata.
 - stabilisce che lo spazio degli indirizzi IP nella subnet delegata deve essere dallo spazio di indirizzi IP privato (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12).
 - impone che la configurazione DNS personalizzata includa una voce DNS di Azure.
+- richiede la rimozione della delega prima che sia possibile eliminare la subnet o la rete virtuale.
 
 I servizi inseriti possono anche aggiungere i propri criteri come indicato di seguito:
 - **Criteri di sicurezza**: raccolta di regole di sicurezza necessarie per il funzionamento di un determinato servizio.

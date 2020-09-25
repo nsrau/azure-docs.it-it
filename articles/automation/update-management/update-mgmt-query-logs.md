@@ -3,14 +3,14 @@ title: Eseguire query sui log del Gestione aggiornamenti di Automazione di Azure
 description: Questo articolo descrive come eseguire una query sui log per Gestione aggiornamenti nell'area di lavoro Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 290fb0165038eea8740361a12a6d4bfe2c1bf138
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 777d794716c7c17caf8d4c73007b91a625f40043
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450129"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264304"
 ---
 # <a name="query-update-management-logs"></a>Eseguire query sui log di Gestione aggiornamenti
 
@@ -110,7 +110,7 @@ Viene creato un record con un tipo di `UpdateRunProgress` che fornisce lo stato 
 | Computer | Nome di dominio completo del computer per la creazione del report. |
 | ComputerEnvironment | Ambiente. I valori sono Azure o non Azure. |
 | CorrelationId | Identificatore univoco dell'esecuzione del processo runbook per l'aggiornamento. |
-| EndTime | Data e ora di fine del processo di sincronizzazione. |
+| EndTime | Data e ora di fine del processo di sincronizzazione. *Questa proprietà non è attualmente utilizzata. Vedere TimeGenerated.* |
 | ErrorResult | Codice di errore di Windows Update generato se l'installazione di un aggiornamento non riesce. |
 | InstallationStatus | Possibili stati di installazione di un aggiornamento nel computer client.<br> `NotStarted` - il processo non è stato ancora attivato.<br> `FailedToStart` - impossibile avviare il processo nel computer.<br> `Failed` - il processo è stato avviato, ma non è riuscito con un'eccezione.<br> `InProgress` - processo in corso.<br> `MaintenanceWindowExceeded` - se l'esecuzione è in corso, ma è stato raggiunto l'intervallo della finestra di manutenzione.<br> `Succeeded` - processo completato.<br> `InstallFailed` - installazione dell'aggiornamento non riuscita.<br> `NotIncluded`<br> `Excluded` |
 | KBID | ID dell'articolo della Knowledge Base per l'aggiornamento Windows. |
@@ -123,8 +123,8 @@ Viene creato un record con un tipo di `UpdateRunProgress` che fornisce lo stato 
 | ResourceType | Tipo di risorsa. |
 | SourceComputerId | Identificatore univoco che rappresenta il computer di origine. |
 | SourceSystem | Sistema di origine per il record. Il valore è `OperationsManager`. |
-| StartTime | Ora pianificata per l'installazione dell'aggiornamento. |
-| SubscriptionId | Identificatore univoco per la sottoscrizione di Azure. | 
+| StartTime | Ora pianificata per l'installazione dell'aggiornamento. *Questa proprietà non è attualmente utilizzata. Vedere TimeGenerated.* |
+| SubscriptionId | Identificatore univoco per la sottoscrizione di Azure. |
 | SucceededOnRetry | Valore che indica se l'esecuzione dell'aggiornamento non è riuscita al primo tentativo e se l'operazione corrente è un nuovo tentativo. |
 | TimeGenerated | Data e ora di creazione del record. |
 | Titolo | Titolo dell'aggiornamento. |

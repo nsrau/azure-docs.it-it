@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316733"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -105,7 +105,7 @@ Messaggio di errore: L'operazione di creazione snapshot non è riuscita perché 
 
 Questo errore si verifica perché i writer del servizio Copia Shadow del volume sono in uno stato non valido. Le estensioni di backup di Azure interagiscono con i writer VSS per creare snapshot dei dischi. Per risolvere il problema, seguire questa procedura:
 
-Riavviare i writer VSS in uno stato non valido.
+Passaggio 1: riavviare i writer VSS in uno stato non valido.
 - Da un prompt dei comandi con privilegi elevati, eseguire ```vssadmin list writers```.
 - L'output contiene tutti i writer VSS con lo stato. Per ogni VSS writer con uno stato non **[1] stabile**, riavviare il rispettivo servizio del VSS writer. 
 - Per riavviare il servizio, eseguire i comandi seguenti da un prompt dei comandi con privilegi elevati:
@@ -117,12 +117,20 @@ Riavviare i writer VSS in uno stato non valido.
 > Il riavvio di alcuni servizi può avere un impatto sull'ambiente di produzione. Verificare che il processo di approvazione sia seguito e che il servizio venga riavviato al tempo di inattività pianificato.
  
    
-Se il riavvio dei writer VSS non ha risolto il problema e il problema persiste a causa di un timeout, procedere come segue:
-- Eseguire il comando seguente da un prompt dei comandi con privilegi elevati (come amministratore) per impedire che i thread vengano creati per gli snapshot BLOB.
+Passaggio 2: se il riavvio dei writer VSS non è riuscito a risolvere il problema, eseguire il comando seguente da un prompt dei comandi con privilegi elevati, come amministratore, per impedire la creazione dei thread per gli snapshot BLOB.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+Passaggio 3: se i passaggi 1 e 2 non hanno risolto il problema, l'errore potrebbe essere dovuto a un timeout dei writer VSS a causa di IOPS limitati.<br>
+
+Per verificare, passare a ***sistema e Visualizzatore eventi registri applicazioni*** e verificare la presenza del seguente messaggio di errore:<br>
+*Si è verificato un timeout del provider della copia shadow durante la scrittura del volume da replicare. Questa operazione è probabilmente dovuta a un'attività eccessiva del volume da parte di un'applicazione o di un servizio di sistema. Riprovare più tardi quando l'attività sul volume è ridotta.*<br>
+
+Soluzione:
+- Verificare la possibilità di distribuire il carico tra i dischi delle macchine virtuali. Ciò ridurrà il carico sui singoli dischi. È possibile [controllare la limitazione IOPS abilitando la metrica di diagnostica a livello di archiviazione](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+- Modificare i criteri di backup per eseguire i backup durante gli orari di minore traffico, quando il carico della VM è il più basso.
+- Aggiornare i dischi di Azure per supportare IOPs più elevati. [Per altre informazioni, vedi qui](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState-operazione di snapshot non riuscita a causa di un servizio VSS (copia shadow del volume) in stato non valido
 
@@ -306,6 +314,13 @@ Se si dispone di un'istanza di Criteri di Azure che [governa i tag all'interno d
 | Non è stato possibile annullare il processo. <br>Attendere il completamento del processo. |nessuno |
 
 ## <a name="restore"></a>Restore
+
+#### <a name="disks-appear-offline-after-file-restore"></a>I dischi vengono visualizzati offline dopo il ripristino del file
+
+Se dopo il ripristino si nota che i dischi sono offline: 
+* Verificare che il computer in cui viene eseguito lo script soddisfi i requisiti del sistema operativo. [Altre informazioni](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements)  
+* Assicurarsi di non eseguire il ripristino nella stessa origine, [altre informazioni](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+
 
 | Dettagli errore | Soluzione alternativa |
 | --- | --- |

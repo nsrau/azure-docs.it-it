@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c2d5b4758f80d07516500c663762d7c8607e2a30
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917959"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329483"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Ricerca full-text in Azure ricerca cognitiva
 
@@ -51,7 +51,7 @@ Una richiesta di ricerca è una specifica completa di ciò che deve essere resti
 
 L'esempio seguente è una richiesta di ricerca che è possibile inviare ad Azure ricerca cognitiva usando l' [API REST](/rest/api/searchservice/search-documents).  
 
-~~~~
+```
 POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
@@ -61,7 +61,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
 }
-~~~~
+```
 
 Per questa richiesta, il motore di ricerca esegue le operazioni seguenti:
 
@@ -76,9 +76,9 @@ La maggior parte di questo articolo riguarda l'elaborazione della *query di rice
 
 Come accennato, la stringa della query è la prima riga della richiesta: 
 
-~~~~
+```
  "search": "Spacious, air-condition* +\"Ocean view\"", 
-~~~~
+```
 
 Il parser della query separa gli operatori (ad esempio `*` e `+` nell'esempio) dalla ricerca di termini e annulla la costruzione della query di ricerca in *sottoquery* di un tipo supportato: 
 
@@ -104,9 +104,9 @@ Un altro parametro di richiesta di ricerca che interessa l'analisi è il paramet
 
 Quando `searchMode=any`, valore predefinito, il delimitatore tra spazioso e aria condizionata è OR (`||`), rendendo il testo di query di esempio equivalente a: 
 
-~~~~
+```
 Spacious,||air-condition*+"Ocean view" 
-~~~~
+```
 
 Gli operatori espliciti, ad esempio `+` in `+"Ocean view"`, non sono ambigui nella costruzione di query booleana (il termine *deve* corrispondere). Come interpretare i termini rimanenti è meno ovvio: spazioso e aria condizionata. Il motore di ricerca dovrebbe trovare corrispondenze su vista sull'oceano *and* spazioso *and* aria condizionata? O dovrebbe trovare vista sull'oceano più *uno* dei termini rimanenti? 
 
@@ -114,9 +114,9 @@ Per impostazione predefinita (`searchMode=any`), il motore di ricerca assume l'i
 
 Si supponga che abbiamo ora impostato `searchMode=all`. In questo caso, lo spazio viene interpretato come un'operazione "and". Ciascuno dei termini rimanenti deve essere presente nel documento per essere considerato come corrispondenza. La query di esempio risultante verrebbe interpretata nel modo seguente: 
 
-~~~~
+```
 +Spacious,+air-condition*+"Ocean view"
-~~~~
+```
 
 Un albero di query modificato per questa query sarà come segue, se un documento corrispondente è l'intersezione di tutte e tre le sottoquery: 
 
@@ -152,16 +152,16 @@ Quando l'analizzatore predefinito elabora il termine, renderà con lettere minus
 
 Il comportamento di un analizzatore può essere testato usando l'[API Analyze](/rest/api/searchservice/test-analyzer). Fornire il testo da analizzare per vedere quali termini specificati saranno generati dall'analizzatore. Ad esempio, per visualizzare il modo in cui l'analizzatore standard elabora il testo "aria condizionata", è possibile eseguire la richiesta seguente:
 
-~~~~
+```json
 {
     "text": "air-condition",
     "analyzer": "standard"
 }
-~~~~
+```
 
 L'analizzatore standard suddivide il testo di input nei due token seguenti, annotandoli con attributi quali offset iniziale e finale (usati per l'evidenziazione dei risultati), nonché con la loro posizione (usata per la corrispondenza di una frase):
 
-~~~~
+```json
 {
   "tokens": [
     {
@@ -178,7 +178,7 @@ L'analizzatore standard suddivide il testo di input nei due token seguenti, anno
     }
   ]
 }
-~~~~
+```
 
 <a name="exceptions"></a>
 
@@ -192,7 +192,7 @@ L'analisi lessicale si applica solo ai tipi di query che richiedono termini comp
 
 Il recupero dei documenti fa riferimento alla ricerca di documenti con termini corrispondenti all'indice. Questa fase viene spiegata meglio attraverso un esempio. Iniziamo con un indice degli hotel che presenta il seguente schema semplice: 
 
-~~~~
+```json
 {
     "name": "hotels",
     "fields": [
@@ -201,11 +201,11 @@ Il recupero dei documenti fa riferimento alla ricerca di documenti con termini c
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
-~~~~
+```
 
 Si supponga anche che l'indice contenga i seguenti quattro documenti: 
 
-~~~~
+```json
 {
     "value": [
         {
@@ -230,7 +230,7 @@ Si supponga anche che l'indice contenga i seguenti quattro documenti:
         }
     ]
 }
-~~~~
+```
 
 **Come vengono indicizzati termini**
 
@@ -279,7 +279,7 @@ Per il campo **descrizione**, l'indice è il seguente:
 | nord | 2
 | oceano | 1, 2, 3
 | di | 2
-| in |2
+| on |2
 | tranquillo | 4
 | camere  | 1, 3
 | appartato | 4
@@ -321,10 +321,12 @@ Ad ogni documento in un set di risultati di ricerca viene assegnato un punteggio
 ### <a name="scoring-example"></a>Esempio di assegnazione dei punteggi
 
 Richiamare i tre documenti che corrispondono alla query di esempio:
-~~~~
+
+```
 search=Spacious, air-condition* +"Ocean view"  
-~~~~
-~~~~
+```
+
+```json
 {
   "value": [
     {
@@ -347,7 +349,7 @@ search=Spacious, air-condition* +"Ocean view"
     }
   ]
 }
-~~~~
+```
 
 Il documento 1 corrisponde alla query migliore poiché sia il termine *spazioso* sia la frase richiesta *vista sull'oceano* si verificano nel campo descrizione. I due documenti successivi corrispondono solo per la frase *vista sull'oceano*. È sorprendente constatare che il punteggio di pertinenza per i documenti 2 e 3 è diverso, anche se essi corrispondono alla query nello stesso modo. Ciò avviene perché la formula di assegnazione del punteggio include più componenti rispetto a TF/IDF. In questo caso al documento 3 è stato assegnato un punteggio leggermente maggiore perché la sua descrizione è più breve. Informazioni sulla [formula Lucene per il punteggio pratico](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) per comprendere in che modo la lunghezza del campo e altri fattori possono influenzare il punteggio di pertinenza.
 
@@ -371,7 +373,7 @@ Ciò significa che un punteggio di pertinenza *potrebbe* essere diverso per docu
 
 In genere, il punteggio del documento non è l'attributo migliore per l'ordinamento dei documenti se la stabilità dell'ordine è importante. Ad esempio, dati due documenti con un punteggio identico, non vi sono garanzie circa quale sarà visualizzato per primo in esecuzioni successive della stessa query. Il punteggio del documento deve solo dare un'idea generale della pertinenza del documento relativo ad altri documenti nel set di risultati.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Il successo dei motori di ricerca Internet ha generato aspettative per la ricerca full-text su dati privati. Per quasi tutti i tipi di esperienza di ricerca, è ora previsto che il motore comprenda il nostro obiettivo, anche quando i termini sono errati o incompleti. Si possono anche prevedere delle corrispondenze basate su termini quasi equivalenti o sinonimi che non abbiamo mai specificato.
 

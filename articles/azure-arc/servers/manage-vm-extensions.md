@@ -1,14 +1,14 @@
 ---
 title: Gestione delle estensioni VM con i server abilitati per Azure Arc
 description: I server abilitati per Azure Arc possono gestire la distribuzione delle estensioni delle macchine virtuali che forniscono attività di configurazione e automazione post-distribuzione con macchine virtuali non di Azure.
-ms.date: 09/02/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 988c4d7b2fcbffb95932fe70d8014de74dd33343
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1c3d50f407f4412a14201dfe669334dbb083d323
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887752"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329075"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestione delle estensioni delle macchine virtuali con i server abilitati per Azure Arc
 
@@ -34,7 +34,7 @@ La funzionalità di estensione della macchina virtuale è disponibile solo nell'
 
 ## <a name="extensions"></a>Estensioni
 
-In questa versione di anteprima, sono supportate le estensioni di macchina virtuale seguenti nei computer Windows e Linux.
+In questa versione sono supportate le estensioni di macchina virtuale seguenti nei computer Windows e Linux.
 
 |Estensione |Sistema operativo |Publisher |Informazioni aggiuntive |
 |----------|---|----------|-----------------------|
@@ -66,10 +66,7 @@ Per l'estensione della macchina virtuale dell'agente Log Analytics per Linux è 
 
 Verificare che il computer corrisponda alle [versioni supportate](agent-overview.md#supported-operating-systems) del sistema operativo Windows e Linux per l'agente del computer connesso di Azure.
 
-La versione minima dell'agente del computer connesso supportato con questa funzionalità è la seguente:
-
-* Windows-0.7. x
-* Linux-0.8. x
+La versione minima dell'agente del computer connesso supportato con questa funzionalità in Windows e Linux è la versione 1,0.
 
 Per aggiornare il computer alla versione dell'agente richiesta, vedere [upgrade Agent](manage-agent.md#upgrading-agent).
 
@@ -77,7 +74,7 @@ Per aggiornare il computer alla versione dell'agente richiesta, vedere [upgrade 
 
 Le estensioni della macchina virtuale possono essere applicate all'arco per il computer gestito dal server tramite il portale di Azure.
 
-1. Nel browser passare al [portale di Azure](https://aka.ms/arcserver-preview).
+1. Nel browser passare al [portale di Azure](https://portal.azure.com).
 
 2. Nel portale passare a **Server-Azure Arc** e selezionare il computer ibrido nell'elenco.
 
@@ -719,22 +716,10 @@ La rimozione di una o più estensioni da un server abilitato per Arc può essere
 
 4. Selezionare **Disinstalla** e quando viene richiesto di verificare, selezionare **Sì** per continuare.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
-
-I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati dal portale di Azure.
-
-I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le estensioni macchina virtuale.
-
-1. Per controllare il log dell'agente guest, esaminare l'attività quando è stato eseguito il provisioning dell'estensione in `%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs` per Windows e per Linux in `/var/lib/GuestConfig/ext_mgr_logs` .
-
-2. Per altri dettagli in per Windows, controllare i log di estensione per l'estensione specifica `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` . L'output dell'estensione viene registrato in un file per ogni estensione installata in Linux `/var/lib/GuestConfig/extension_logs` .
-
-3. Verificare le sezioni relative alla risoluzione dei problemi della documentazione specifica per i codici di errore, i problemi noti e così via Per ulteriori informazioni sulla risoluzione dei problemi per ogni estensione, vedere la sezione **risoluzione dei problemi e supporto** nella panoramica per l'estensione. Include la descrizione dei codici di errore scritti nel log. Gli articoli di estensione sono collegati nella [tabella Extensions](#extensions) disponibile in precedenza in questo articolo.
-
-4. Esaminare i log di sistema. Controllare la presenza di altre operazioni che potrebbero aver interferito con l'estensione, ad esempio un'installazione a esecuzione prolungata di un'altra applicazione che ha richiesto l'accesso di gestione pacchetti esclusiva.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come gestire il computer usando i [criteri di Azure](../../governance/policy/overview.md), ad esempio la configurazione di VM [Guest](../../governance/policy/concepts/guest-configuration.md), verificare che il computer stia segnalando l'area di lavoro Log Analytics prevista, abilitare il monitoraggio con [Monitoraggio di Azure con macchine virtuali](../../azure-monitor/insights/vminsights-enable-policy.md) e molto altro ancora.
+* Le informazioni sulla risoluzione dei problemi sono reperibili nella [Guida Risoluzione dei problemi delle estensioni VM](troubleshoot-vm-extensions.md).
 
-- Ulteriori informazioni su [[log Analytics Agent]](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si desidera raccogliere dati di monitoraggio del carico di lavoro e del sistema operativo, gestirli con manuali operativi di automazione o funzionalità come Gestione aggiornamenti o usare altri servizi di Azure come il [Centro sicurezza di Azure](../../security-center/security-center-intro.md).
+* Informazioni su come gestire il computer usando i [criteri di Azure](../../governance/policy/overview.md), ad esempio la configurazione di VM [Guest](../../governance/policy/concepts/guest-configuration.md), verificare che il computer stia segnalando l'area di lavoro Log Analytics prevista, abilitare il monitoraggio con [Monitoraggio di Azure con macchine virtuali](../../azure-monitor/insights/vminsights-enable-policy.md) e molto altro ancora.
+
+* Altre informazioni sull'[agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si desidera raccogliere dati di monitoraggio del carico di lavoro e del sistema operativo, gestirli con manuali operativi di automazione o funzionalità come Gestione aggiornamenti o usare altri servizi di Azure come il [Centro sicurezza di Azure](../../security-center/security-center-intro.md).

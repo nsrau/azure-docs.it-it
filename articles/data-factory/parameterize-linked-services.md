@@ -6,18 +6,19 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 09/21/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: b3aadab1b4af80f98c57a279b69606a02846e996
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 081d19cc845750f1392e2c1a14229a51d0df4cbc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716844"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276458"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Impostare i parametri dei servizi collegati in Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 È ora possibile impostare i parametri per un servizio collegato e passare i valori dinamici in fase di esecuzione. Se ad esempio si desidera connettersi a database diversi nello stesso server SQL logico, è ora possibile parametrizzare il nome del database nella definizione del servizio collegato. In questo modo si evita di dover creare un servizio collegato per ogni database nel server SQL logico. È possibile parametrizzare anche altre proprietà nella definizione del servizio collegato, ad esempio *Nome utente.*
@@ -33,18 +34,26 @@ Per un'introduzione di sette minuti e una dimostrazione di questa funzionalità,
 
 ## <a name="supported-data-stores"></a>Archivi dati supportati
 
-Al momento, la parametrizzazione del servizio collegato è supportata nell'interfaccia utente di Data Factory per gli archivi dati seguenti. Per tutti gli altri archivi dati, è possibile impostare i parametri del servizio collegato, selezionando l'icona **Codice** sulla scheda **Connessioni** e usando l'editor JSON.
+È possibile parametrizzare qualsiasi tipo di servizio collegato.
+Quando si crea il servizio collegato nell'interfaccia utente, Data Factory fornisce un'esperienza di parametrizzazione predefinita per i tipi di connettori seguenti. Nel pannello di creazione/modifica del servizio collegato è possibile trovare opzioni per i nuovi parametri e aggiungere contenuto dinamico.
 
 - Amazon Redshift
 - Azure Cosmos DB (API SQL)
 - Database di Azure per MySQL
-- database SQL di Azure
+- Database SQL di Azure
 - Azure Synapse Analytics (in precedenza SQL Data Warehouse)
 - MySQL
 - Oracle
 - SQL Server
 - HTTP generico
 - REST generico
+
+Per gli altri tipi, è possibile parametrizzare il servizio collegato modificando JSON nell'interfaccia utente:
+
+- Nel pannello di creazione/modifica del servizio collegato-> espandere "avanzate" nella parte inferiore della casella di controllo > selezionare "specifica contenuto dinamico in formato JSON"-> specificare il payload JSON del servizio collegato. 
+- In alternativa, dopo aver creato un servizio collegato senza parametrizzazione, in [Hub di gestione](author-visually.md#management-hub) -> servizi collegati-> trovare il servizio collegato specifico-> fare clic su "codice" (pulsante " {} ") per modificare il JSON. 
+
+Vedere l' [esempio JSON](#json) per aggiungere la ` parameters` sezione per definire i parametri e fare riferimento al parametro usando ` @{linkedService().paraName} ` .
 
 ## <a name="data-factory-ui"></a>Interfaccia utente di Data Factory
 

@@ -1,5 +1,5 @@
 ---
-title: Aggiungere, rimuovere ed elencare gruppi in un'unità amministrativa (anteprima) - Azure Active Directory | Microsoft Docs
+title: Aggiunta, rimozione ed elenco di gruppi in un'unità amministrativa-Azure Active Directory | Microsoft Docs
 description: Gestire i gruppi e le autorizzazioni relative ai ruoli in un'unità amministrativa in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 06/23/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76026313eea8c8fbb2f3e55321e2e4ebbe5dcfc7
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 324d0ff0659270c6f2e90c0456ded83344f73936
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850921"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265018"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Aggiornare e gestire gruppi nelle unità amministrative in Azure Active Directory
 
@@ -31,7 +31,7 @@ Per i passaggi necessari per preparare l'uso di PowerShell e Microsoft Graph per
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Nell'anteprima è possibile assegnare gruppi solo singolarmente a un'unità amministrativa. Non è possibile eseguire l'assegnazione bulk dei gruppi a un'unità amministrativa. È possibile assegnare un gruppo a un'unità amministrativa in uno dei due modi nel portale:
+È possibile assegnare gruppi solo singolarmente a un'unità amministrativa. Non è possibile assegnare gruppi in blocco a un'unità amministrativa. È possibile assegnare un gruppo a un'unità amministrativa in uno dei due modi nel portale:
 
 1. Dalla pagina **Azure AD > Gruppi**
 

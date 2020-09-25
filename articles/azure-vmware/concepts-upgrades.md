@@ -1,28 +1,61 @@
 ---
-title: Concetti-aggiornamenti del cloud privato
-description: Informazioni sui processi e le funzionalità di aggiornamento principali della soluzione VMware di Azure
+title: Concetti-aggiornamenti e aggiornamenti del cloud privato
+description: Informazioni sui processi e le funzionalità di aggiornamento principali della soluzione VMware di Azure.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: f541aa4e4963cf40fad71201180ea118a1513fca
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/22/2020
+ms.openlocfilehash: 380e97eae559145a9ef5ed7b6e7bf14f18039eed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752195"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316801"
 ---
-# <a name="azure-vmware-solution-upgrade-concepts"></a>Concetti relativi all'aggiornamento della soluzione VMware di Azure
+# <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Aggiornamenti e aggiornamenti del cloud privato della soluzione VMware di Azure
 
-Uno dei principali vantaggi dei cloud privati della soluzione VMware di Azure è che la piattaforma viene mantenuta per l'utente. La manutenzione della piattaforma include aggiornamenti automatici a un bundle software VMware convalidato. Gli aggiornamenti vengono eseguiti regolarmente, assicurando che siano sempre disponibili le versioni più recenti convalidate del software.
+## <a name="overview"></a>Panoramica
 
-## <a name="azure-vmware-solution-private-cloud-software-upgrades"></a>Aggiornamenti software del cloud privato della soluzione VMware di Azure
+Uno dei principali vantaggi dei cloud privati della soluzione VMware di Azure è che la piattaforma viene mantenuta per l'utente. La manutenzione della piattaforma include aggiornamenti automatici a un bundle software VMware convalidato, che consente di assicurarsi di usare la versione più recente del software di cloud privato della soluzione VMware di Azure convalidata.
 
-La piattaforma cloud privata della soluzione VMware di Azure include versioni specifiche del software VMware vSphere, ESXi, rete VSAN e NSX-T. Il bundle software del cloud privato viene convalidato per l'uso in nuove installazioni di cloud privato e per gli aggiornamenti dei cloud privati esistenti.
+In particolare, un cloud privato della soluzione VMware di Azure include:
 
-Il processo di aggiornamento della gestione del ciclo di vita non richiede tempi di inattività per i cloud privati. Il processo di aggiornamento garantisce che si usi automaticamente la versione più recente del software di cloud privato della soluzione VMware di Azure convalidata. Gli aggiornamenti vengono applicati a cadenza regolare, in modo che i cloud privati non siano mai più di una versione dietro la versione più recente del bundle software convalidato. Si riceverà una notifica degli aggiornamenti pianificati al cloud privato. È possibile rinviare l'aggiornamento se il cloud privato si trova all'interno di una versione della versione più recente.
+- Nodi server bare metal dedicati sottoposti a provisioning con VMware ESXi hypervisor 
+- server vCenter per la gestione di ESXi e rete VSAN 
+- VMware NSX-T Software Defined Networking per macchine virtuali con carico di lavoro vSphere  
+- Archivio dati VMware rete VSAN per macchine virtuali con carico di lavoro vSphere  
+- HCX VMware per la mobilità del carico di lavoro  
 
-Quando vengono convalidate, vengono applicate patch e aggiornamenti critici. Si riceverà una notifica prima degli aggiornamenti critici richiesti. Questo criterio garantisce che il cloud privato disponga di patch e aggiornamenti critici applicati immediatamente.
+Oltre a questi componenti, una cloud privata della soluzione VMware di Azure include risorse nel sottoinsieme di Azure necessario per la connettività e per il funzionamento del cloud privato. La soluzione VMware di Azure monitora costantemente l'integrità dei componenti sottoposto e VMware. Quando la soluzione VMware di Azure rileva un errore, viene eseguita un'azione per ripristinare i componenti non riusciti. 
 
-Le versioni del software VMware sono disponibili nell'articolo relativo al [concetto di cloud e cluster privati](concepts-private-clouds-clusters.md) e alle [domande frequenti](faq.md).
+## <a name="what-components-get-updated"></a>Quali componenti vengono aggiornati?   
+
+La soluzione VMware di Azure aggiorna i componenti VMware seguenti: 
+
+- server vCenter e ESXi in esecuzione nei nodi del server bare metal 
+- Rete VSAN 
+- NSX-T 
+
+La soluzione VMware di Azure aggiorna anche il software nel sottosistema, ad esempio i driver, il software sui commutatori di rete e il firmware nei nodi bare metal. 
+
+## <a name="types-of-updates"></a>Tipi di aggiornamenti
+
+La soluzione VMware di Azure applica i tipi di aggiornamenti seguenti ai componenti VMware:
+
+- Patch: patch di sicurezza e correzioni di bug rilasciate da VMware. 
+- Aggiornamenti: aggiornamenti della versione secondaria di uno o più componenti VMware. 
+- Aggiornamenti: aggiornamenti della versione principale di uno o più componenti VMware.
+
+Si riceverà una notifica prima e dopo l'applicazione delle patch ai cloud privati. Si collaborerà anche con l'utente per pianificare una finestra di manutenzione prima di applicare aggiornamenti o aggiornamenti al cloud privato. 
+
+## <a name="vmware-appliance-backup"></a>Backup di appliance VMware 
+
+Oltre a eseguire aggiornamenti, la soluzione VMware di Azure esegue un backup della configurazione di questi componenti VMware:
+
+- Server vCenter 
+- Gestione NSX-T 
+
+In momenti di errore, la soluzione VMware di Azure può ripristinarli dal backup della configurazione. 
+
+Per ulteriori informazioni sulle versioni del software VMware, vedere l'articolo relativo al [concetto di cloud e cluster privati](concepts-private-clouds-clusters.md) e le [domande frequenti](faq.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

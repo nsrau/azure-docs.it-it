@@ -1,6 +1,6 @@
 ---
-title: Ruolo lettori directory in Azure Active Directory per SQL di Azure
-description: Le applicazioni Azure AD (entità servizio) supportano Azure AD la creazione di utenti in database SQL di Azure, Istanza gestita SQL di Azure e Azure sinapsi Analytics
+title: Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL
+description: Informazioni sul ruolo del lettore di directory in Azure AD per SQL di Azure.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
@@ -9,14 +9,14 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: a517a4b14a64be2b9bf12270eef3d08e14d8f3c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5a6fb2c1c539c5b8e353f5c3720cb9d001dcbbc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556264"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277950"
 ---
-# <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Ruolo lettori directory in Azure Active Directory per SQL di Azure
+# <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
@@ -39,9 +39,9 @@ Il ruolo **Readers directory** è necessario per:
 
 Per assegnare il ruolo [**lettore directory**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) a un'identità, è necessario disporre delle autorizzazioni amministratore [globale](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) o [amministratore ruolo con privilegi](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) . Gli utenti che spesso gestiscono o distribuiscono il database SQL, SQL Istanza gestita o la sinapsi di Azure potrebbero non avere accesso a questi ruoli con privilegi elevati. Questo può causare spesso complicazioni per gli utenti che creano risorse SQL di Azure non pianificate o che necessitano di assistenza da membri del ruolo con privilegi elevati spesso inaccessibili nelle organizzazioni di grandi dimensioni.
 
-Per Istanza gestita SQL, il ruolo **Readers di directory** deve essere assegnato all'identità dell'istanza gestita prima che sia possibile [configurare un amministratore Azure ad per l'istanza gestita](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). 
+Per l'istanza gestita di SQL, è necessario assegnare il **ruolo con autorizzazioni di lettura nella directory** a un'identità dell'istanza gestita prima di poter [configurare un amministratore di Azure AD per l'istanza gestita](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). 
 
-L'assegnazione del ruolo **Readers di directory** all'identità del server non è necessaria per il database SQL o la sinapsi di Azure quando si configura un Azure ad amministratore per il server logico. Tuttavia, per abilitare un Azure AD la creazione di un oggetto nel database SQL o in una sinapsi di Azure per conto di un'applicazione Azure AD, il ruolo **Readers directory** è obbligatorio. Se il ruolo non è assegnato all'identità del server logico SQL, la creazione di Azure AD utenti in Azure SQL avrà esito negativo. Per altre informazioni, vedere [Entità servizio di Azure Active Directory con Azure SQL](authentication-aad-service-principal.md).
+Quando si configura un amministratore di Azure AD per il server logico, non è necessario assegnare il **ruolo con autorizzazioni di lettura nella directory** all'identità del server per il database SQL o Azure Synapse. Tuttavia, per abilitare la creazione di un oggetto Azure AD nel database SQL o in Azure Synapse per conto di un'applicazione Azure AD, è necessario il **ruolo con autorizzazioni di lettura nella directory**. Se il ruolo non è assegnato all'identità del server logico SQL, la creazione degli utenti di Azure AD in Azure SQL avrà esito negativo. Per altre informazioni, vedere [Entità servizio di Azure Active Directory con Azure SQL](authentication-aad-service-principal.md).
 
 ## <a name="granting-the-directory-readers-role-to-an-azure-ad-group"></a>Concessione del ruolo lettori directory a un gruppo di Azure AD
 
@@ -52,4 +52,4 @@ Questa soluzione richiede ancora un utente con privilegi elevati (amministratore
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: assegnare il ruolo lettori directory a un gruppo di Azure AD e gestire le assegnazioni di ruolo](authentication-aad-directory-readers-role-tutorial.md)
+> [Esercitazione: Assegnare il ruolo con autorizzazioni di lettura nella directory a un gruppo di Azure AD e gestire le assegnazioni di ruolo](authentication-aad-directory-readers-role-tutorial.md)

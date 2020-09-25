@@ -4,12 +4,12 @@ ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
-ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4967991b0edaa854acbf6b308596859d662311fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77608741"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316758"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di scrivere codice per la gestione di una rete CDN, è necessario eseguire alcune operazioni preliminari per consentire al codice di interagire con Azure Resource Manager. A tale scopo è necessario:
@@ -26,10 +26,10 @@ Prima di scrivere codice per la gestione di una rete CDN, è necessario eseguire
     ![Creazione di un nuovo gruppo di risorse](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
 3. Assegnare al gruppo di risorse il nome *CdnConsoleTutorial*.  Selezionare la sottoscrizione e scegliere un percorso locale.  Se si vuole, è possibile selezionare la casella di controllo **Aggiungi al dashboard** per aggiungere il gruppo di risorse al dashboard nel portale.  In questo modo sarà più facile trovarlo in un secondo momento.  Dopo avere eseguito le selezioni, fare clic su **Crea**.
 
-    ![Assegnazione di un nome al gruppo di risorse](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
+    ![Screenshot della finestra di dialogo gruppo di risorse.](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
 4. Se dopo la creazione il gruppo di risorse non viene aggiunto al dashboard, è possibile trovarlo facendo clic su **Esplora** e quindi su **Gruppi di risorse**.  Fare clic sul gruppo di risorse per aprirlo.  Annotare l' **ID sottoscrizione**. Sarà necessario in un secondo momento.
 
-    ![Assegnazione di un nome al gruppo di risorse](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
+    ![Screenshot della sezione dell'esercitazione sulla console di C D N.](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Creazione dell'applicazione Azure AD e applicazione delle autorizzazioni
 Per l'autenticazione delle app con Azure Active Directory sono possibili due approcci: singoli utenti o un'entità servizio. Un'entità servizio è simile a un account di servizio di Windows.  Anziché concedere a un determinato utente le autorizzazioni per interagire con i profili di rete CDN, si concedono le autorizzazioni all'entità servizio.  Le entità servizio vengono in genere usate per processi automatizzati non interattivi.  Sebbene in questa esercitazione si scriva un'applicazione console interattiva, ci si concentrerà sull'approccio dell'entità servizio.

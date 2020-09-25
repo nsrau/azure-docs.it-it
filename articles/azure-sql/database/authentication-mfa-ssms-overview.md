@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 07/27/2020
 tags: azure-synapse
-ms.openlocfilehash: b2d179121b05d7bf3493937a9ff72e302fd31f3d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15289727c3ee4d498fa50058ef98f0ae5b3d1b12
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281141"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277802"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Uso dell'autenticazione a più fattori Azure Active Directory
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -29,7 +29,7 @@ Il database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics su
 
 Per tutte le funzionalità descritte in questo articolo, usare almeno la versione 17.2 di luglio 2017. La finestra di dialogo di connessione più recente dovrebbe avere un aspetto simile al seguente:
 
-  ![1mfa-universal-connect](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png "Completare la casella Nome utente.")  
+  ![Screenshot della finestra di dialogo Connetti al server in SQL Server Management Studio, che mostra le impostazioni per il tipo di server, il nome del server e l'autenticazione.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
 
 ## <a name="authentication-options"></a>Opzioni di autenticazione
 
@@ -57,11 +57,11 @@ Tutti gli utenti guest che vogliono essere autenticati tramite l'autenticazione 
 1. Aprire una connessione in SSMS. Immettere il nome del server e selezionare **Azure Active Directory universale con autenticazione a** più fattori. Aggiungere il **nome utente** con cui si vuole accedere.
 1. Selezionare la casella **Opzioni** e passare alla scheda **Proprietà connessione** . Nella finestra di dialogo **Connetti al database** completare la finestra di dialogo per il database. Selezionare la casella **ID tenant o nome di dominio AD** e specificare l'autorità di autenticazione, ad esempio il nome di dominio (**contosotest.onmicrosoft.com**) o il GUID dell'ID tenant. 
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
+   ![Screenshot della scheda delle proprietà della connessione che evidenzia le impostazioni per Connetti al database e al nome di dominio di Active Directory o all'ID tenant.](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
 Se si esegue SSMS 18. x o versione successiva, l'ID tenant o il nome di dominio di Active Directory non è più necessario per gli utenti guest perché 18. x o versione successiva lo riconosce automaticamente.
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
+   ![Screenshot della scheda Proprietà connessione nella finestra di dialogo Connetti al server in S S M. "database" è selezionato nel campo Connetti al database.](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Supporto per Azure AD business-to-business
 

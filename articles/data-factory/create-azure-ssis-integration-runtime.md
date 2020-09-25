@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 07cfb0048e6027b0bac219b3fe28018db2d10257
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d193438a232cc6bc113efb31ce4276117a366add
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185265"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276859"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione SSIS di Azure in Azure Data Factory
 
@@ -114,31 +114,33 @@ Nella pagina **Impostazioni generali** di **Integration runtime setup** (Configu
 
    1. Per **Nome**, immettere il nome del runtime di integrazione.
 
-   1. Per **Descrizione**, immettere la descrizione del runtime di integrazione.
+   2. Per **Descrizione**, immettere la descrizione del runtime di integrazione.
 
-   1. Per **Località** selezionare la località del runtime di integrazione. Vengono visualizzate solo le località supportate. È consigliabile selezionare la stessa località del server di database che ospiterà SSISDB.
+   3. Per **Località** selezionare la località del runtime di integrazione. Vengono visualizzate solo le località supportate. È consigliabile selezionare la stessa località del server di database che ospiterà SSISDB.
 
-   1. Per **dimensioni nodo**selezionare le dimensioni del nodo nel cluster di Integration Runtime. Vengono visualizzate solo le dimensioni dei nodi supportate. Selezionare una dimensione del nodo elevata (scalabilità verticale) se si prevede di eseguire numerosi pacchetti con un uso intensivo di calcoli o di memoria.
+   4. Per **dimensioni nodo**selezionare le dimensioni del nodo nel cluster di Integration Runtime. Vengono visualizzate solo le dimensioni dei nodi supportate. Selezionare una dimensione del nodo elevata (scalabilità verticale) se si prevede di eseguire numerosi pacchetti con un uso intensivo di calcoli o di memoria.
+   > [!NOTE]
+   > Se è necessario l' [isolamento del calcolo](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation), selezionare le dimensioni del nodo **Standard_E64i_v3** . Questa dimensione del nodo rappresenta le macchine virtuali isolate che utilizzano l'intero host fisico e forniscono il livello di isolamento necessario richiesto da determinati carichi di lavoro, ad esempio i carichi di lavoro IL5 (Department Level 5) degli Stati Uniti.
+   
+   5. Per **Numero nodo**, selezionare il numero di nodi nel cluster del runtime di integrazione. Vengono visualizzati solo i numeri dei nodi supportati. Selezionare un cluster di grandi dimensioni con molti nodi (aumento del numero di istanze) se si prevede di eseguire numerosi pacchetti in parallelo.
 
-   1. Per **Numero nodo**, selezionare il numero di nodi nel cluster del runtime di integrazione. Vengono visualizzati solo i numeri dei nodi supportati. Selezionare un cluster di grandi dimensioni con molti nodi (aumento del numero di istanze) se si prevede di eseguire numerosi pacchetti in parallelo.
+   6. Per **Edition/License** (Edizione/licenza), selezionare l'edizione di SQL Server per il runtime di integrazione: Standard o Enterprise. Selezionare Enterprise se si prevede di usare funzionalità avanzate nel runtime di integrazione.
 
-   1. Per **Edition/License** (Edizione/licenza), selezionare l'edizione di SQL Server per il runtime di integrazione: Standard o Enterprise. Selezionare Enterprise se si prevede di usare funzionalità avanzate nel runtime di integrazione.
+   7. Per **Risparmio sui costi**, selezionare l'opzione Vantaggio Azure Hybrid per il runtime di integrazione: **Sì** o **No**. Selezionare **Sì** se si vuole usare la propria licenza di SQL Server con Software Assurance per trarre vantaggio dai risparmi sui costi con Hybrid Use.
 
-   1. Per **Risparmio sui costi**, selezionare l'opzione Vantaggio Azure Hybrid per il runtime di integrazione: **Sì** o **No**. Selezionare **Sì** se si vuole usare la propria licenza di SQL Server con Software Assurance per trarre vantaggio dai risparmi sui costi con Hybrid Use.
-
-   1. Selezionare **Avanti**.
+   8. Selezionare **Avanti**.
 
 #### <a name="deployment-settings-page"></a>Pagina Impostazioni di distribuzione
 
-Nella pagina **impostazioni di distribuzione** del riquadro di **installazione di Integration Runtime** sono disponibili le opzioni per la creazione di archivi di pacchetti SSISDB e Azure-SSIS IR.
+Nella pagina **Impostazioni di distribuzione** del riquadro **Installazione di Integration Runtime** sono disponibili le opzioni per la creazione di archivi di pacchetti di database SSISDB e/o di Azure-SSIS IR.
 
-##### <a name="creating-ssisdb"></a>Creazione di SSISDB
+##### <a name="creating-ssisdb"></a>Creazione del database SSISDB
 
-Nella pagina **impostazioni di distribuzione** del riquadro di **installazione di Integration Runtime** , se si desidera distribuire i pacchetti in SSISDB (modello di distribuzione del progetto), selezionare la casella di controllo **Crea catalogo SSIS (SSISDB) ospitato da server di Database SQL di Azure/istanza gestita per archiviare i progetti/pacchetti/ambienti/log di esecuzione** . In alternativa, se si desidera distribuire i pacchetti in file system, File di Azure o SQL Server database (MSDB) ospitato da Azure SQL Istanza gestita (modello di distribuzione del pacchetto), non è necessario creare SSISDB né selezionare la casella di controllo.
+Nella pagina **Impostazioni di distribuzione** del riquadro **Installazione di Integration Runtime** selezionare la casella di controllo **Create SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance to store your projects/packages/environments/execution logs** (Crea catalogo SSIS (SSISDB) ospitato da Istanza gestita/dal server di database SQL di Azure per archiviare progetti/pacchetti/ambienti/log di esecuzione) per indicare di distribuire i pacchetti in SSISDB (modello di distribuzione del progetto). In alternativa, non è necessario creare il catalogo SSISDB o selezionare la casella di controllo se si vogliono distribuire i pacchetti nel file system, in File di Azure o in un database SQL Server (MSDB) ospitato da Istanza gestita di SQL di Azure (modello di distribuzione del pacchetto).
 
-Indipendentemente dal modello di distribuzione, se si vuole usare SQL Server Agent ospitata da Istanza gestita SQL di Azure per orchestrare/pianificare le esecuzioni dei pacchetti, questo viene abilitato da SSISDB, quindi selezionare la casella di controllo comunque. Per altre informazioni, vedere [Pianificare esecuzioni di pacchetti SSIS tramite l'agente di Istanza gestita del database SQL di Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-managed-instance-agent).
+Indipendentemente dal modello di distribuzione, selezionare questa casella di controllo per indicare che si vuole usare SQL Server Agent ospitato da Istanza gestita di SQL di Azure per orchestrare/pianificare le esecuzioni dei pacchetti, perché la distribuzione è abilitata da SSISDB. Per altre informazioni, vedere [Pianificare esecuzioni di pacchetti SSIS tramite l'agente di Istanza gestita del database SQL di Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-managed-instance-agent).
    
-Se si seleziona la casella di controllo, completare la procedura seguente per portare il proprio server di database a ospitare SSISDB che verrà creato e gestito per conto dell'utente.
+Se si seleziona la casella di controllo, sarà necessario completare la procedura seguente per usare il proprio server di database per ospitare l'istanza di SSISDB che verrà creata e gestita per conto dell'utente.
 
    ![Impostazioni di distribuzione per SSISDB](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png)
    
@@ -152,7 +154,7 @@ Se si seleziona la casella di controllo, completare la procedura seguente per po
 
       Se per ospitare SSISDB si seleziona il server di database SQL di Azure con regole del firewall per gli indirizzi IP/endpoint servizio di rete virtuale o un'istanza gestita con un endpoint privato oppure se è richiesto l'accesso ai dati in locale senza configurare il runtime di integrazione self-hosted, è necessario aggiungere Azure-SSIS IR a una rete virtuale. Per altre informazioni, vedere [Creare un'istanza di Azure-SSIS IR in una rete virtuale](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
-   1. Selezionare la casella di controllo **Usa autenticazione Azure ad con identità gestita per il file ADF** per scegliere il metodo di autenticazione per il server di database per l'hosting di SSISDB. Scegliere l'autenticazione SQL o l'autenticazione di AAD con l'identità gestita per la data factory.
+   1. Selezionare la casella di controllo **Use AAD authentication with the managed identity for your ADF** (Usa l'autenticazione di Azure AD con l'identità gestita per Azure Data Factory) per scegliere il metodo di autenticazione per il server di database in cui ospitare SSISDB. Scegliere l'autenticazione SQL o l'autenticazione di AAD con l'identità gestita per la data factory.
 
       Se si seleziona la casella di controllo, sarà necessario aggiungere l'identità gestita per la data factory nel gruppo di Azure AD con autorizzazioni di accesso al server di database. Per altre informazioni, vedere [Creare un'istanza di Azure-SSIS IR con l'autenticazione di Azure AD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
    
@@ -164,9 +166,9 @@ Se si seleziona la casella di controllo, completare la procedura seguente per po
 
 Selezionare **Verifica connessione** se applicabile e, in caso di esito positivo, selezionare **Avanti**.
 
-##### <a name="creating-azure-ssis-ir-package-stores"></a>Creazione di Azure-SSIS IR archivi pacchetti
+##### <a name="creating-azure-ssis-ir-package-stores"></a>Creazione di archivi pacchetti Azure-SSIS IR
 
-Nella pagina **impostazioni di distribuzione** del riquadro di **installazione di Integration Runtime** , se si desidera gestire i pacchetti distribuiti in msdb, file System o file di Azure (modello di distribuzione del pacchetto) con Azure-SSIS IR archivi pacchetti, selezionare la casella **di controllo Crea archivi pacchetti per gestire i pacchetti distribuiti in file System/file di Azure/SQL Server database (msdb) ospitati da istanza gestita SQL di Azure** .
+Nella pagina **Impostazioni di distribuzione** del riquadro **Installazione di Integration Runtime** selezionare la casella di controllo **Create package stores to manage your packages that are deployed into file system/Azure Files/SQL Server database (MSDB) hosted by Azure SQL Managed Instance** (Crea archivi pacchetti per gestire i pacchetti distribuiti nel file system/in File di Azure/nel database SQL Server (MSDB) ospitato da Istanza gestita di SQL di Azure) per scegliere se gestire i pacchetti distribuiti nel database MSDB, nel file system o in File di Azure (modello di distribuzione del pacchetto) con archivi pacchetti Azure-SSIS IR.
    
 Gli archivi pacchetti Azure-SSIS IR consentono di importare/esportare/eliminare/eseguire pacchetti e di monitorare/arrestare l'esecuzione di pacchetti tramite SSMS in modo analogo all'[archivio pacchetti SSIS legacy](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017). Per altre informazioni, vedere [Gestire i pacchetti SSIS con archivi pacchetti Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/azure-ssis-integration-runtime-package-store).
    

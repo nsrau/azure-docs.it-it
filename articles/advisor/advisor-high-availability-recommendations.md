@@ -3,12 +3,12 @@ title: Migliorare l'affidabilità dell'applicazione con Advisor
 description: USA Azure Advisor per garantire e migliorare l'affidabilità nelle tue distribuzioni di Azure cruciali per l'azienda.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0d96974e53f24d5a01eeee8b08eee578177a9ad2
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 3e556f8bc672705e6c83daced2c82a884e3ddf46
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258503"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264593"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Migliorare l'affidabilità dell'applicazione usando Azure Advisor
 
@@ -76,7 +76,7 @@ Le macchine virtuali che si trovano in un set di disponibilità con dischi che c
 
 ## <a name="repair-invalid-log-alert-rules"></a>Ripristinare le regole di avviso del log non valide
 
-Azure Advisor rileva le regole di avviso con query non valide specificate nella relativa sezione di condizione. È possibile creare regole di avviso del log in monitoraggio di Azure e usarle per eseguire query di analisi a intervalli specificati. I risultati di una query determinano se è necessario attivare un avviso. Le query di analisi possono diventare non valide nel tempo a causa di modifiche nelle risorse, nelle tabelle o nei comandi a cui si fa riferimento. Advisor consiglia di correggere la query nella regola di avviso per impedirne la disabilitazione automatica e garantire il monitoraggio della copertura delle risorse in Azure. [Altre informazioni sulla risoluzione dei problemi relativi alle regole di avviso.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor rileva le regole di avviso del log con query non valide specificate nella relativa sezione di condizione. Le regole di avviso del log di monitoraggio di Azure eseguono query con frequenza specificata e generano avvisi in base ai risultati. Le query possono diventare non valide nel tempo a causa di modifiche apportate alle risorse, alle tabelle o ai comandi a cui si fa riferimento. Advisor consiglia di correggere le query di avviso per impedire che le regole vengano disabilitate automaticamente e garantire il monitoraggio del code coverage. Per ulteriori informazioni, vedere [risoluzione dei problemi relativi alle regole di avviso](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Configurare la modalità di indicizzazione coerente nella raccolta di Azure Cosmos DB
 

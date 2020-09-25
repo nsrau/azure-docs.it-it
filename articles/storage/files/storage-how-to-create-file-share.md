@@ -9,18 +9,18 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 728db85e7b5afab676612d908e2ba420c7582194
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 15f9387aac909c0245d25b3a208ed24444b2b343
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645585"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329399"
 ---
 # <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 Per creare una condivisione file di Azure, è necessario rispondere a tre domande sul modo in cui verrà usata:
 
 - **Quali sono i requisiti di prestazioni per la condivisione file di Azure?**  
-    File di Azure offre condivisioni file standard, ospitate su hardware basato su disco rigido (basato su HDD) e condivisioni file Premium, che sono ospitati su hardware a stato solido basato su disco (SSD).
+    File di Azure offre condivisioni file standard (incluse le condivisioni file ottimizzate per le transazioni, ad accesso frequente e ad accesso sporadico), ospitate in hardware basato su disco rigido (basato su HDD) e condivisioni file Premium, ospitate su hardware basato su disco a stato solido (basato su SSD).
 
 - **Quale dimensione è necessaria per la condivisione file?**  
     Le condivisioni file standard possono essere estese fino a 100 TiB, ma questa funzionalità non è abilitata per impostazione predefinita. Se è necessaria una condivisione file di dimensioni maggiori di 5 TiB, sarà necessario abilitare la funzionalità di condivisione file di grandi dimensioni per l'account di archiviazione. Le condivisioni file Premium possono estendersi fino a 100 TiB senza alcuna impostazione speciale, ma viene effettuato il provisioning delle condivisioni file Premium, anziché con pagamento in base al consumo come le condivisioni file standard. Ciò significa che il provisioning di una condivisione file molto più grande rispetto a quello necessario aumenterà il costo totale di archiviazione.
@@ -35,16 +35,16 @@ Per ulteriori informazioni su queste tre scelte, vedere [pianificazione di una d
 ## <a name="prerequisites"></a>Prerequisiti
 - In questo articolo si presuppone che sia già stata creata una sottoscrizione di Azure. Se non si ha già una sottoscrizione, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 - Se si intende usare Azure PowerShell, [installare l'ultima versione](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
-Le condivisioni file di Azure vengono distribuite in *account di archiviazione*, ovvero oggetti di livello superiore che rappresentano un pool condiviso di archiviazione. Questo pool di archiviazione può essere usato per distribuire più condivisioni file. 
+Le condivisioni file di Azure vengono distribuite in *account di archiviazione*, ovvero oggetti di primo livello che rappresentano un pool di archiviazione condiviso. Questo pool di archiviazione può essere usato per distribuire più condivisioni file. 
 
 Azure supporta più tipi di account di archiviazione per diversi scenari di archiviazione che i clienti possono avere, ma esistono due tipi principali di account di archiviazione per File di Azure. Il tipo di account di archiviazione che è necessario creare varia a seconda che si desideri creare una condivisione file standard o una condivisione file Premium: 
 
-- **Account di archiviazione per utilizzo generico versione 2 (GPv2)**: gli account di archiviazione GPv2 consentono di distribuire condivisioni file di Azure in hardware standard o basato su disco rigido (HDD). Oltre a archiviare le condivisioni file di Azure, gli account di archiviazione GPv2 possono archiviare altre risorse di archiviazione, ad esempio contenitori BLOB, code o tabelle. 
+- **Account di archiviazione per utilizzo generico v2**: gli account di archiviazione per utilizzo generico v2 consentono di distribuire condivisioni file di Azure in hardware standard o basato su disco rigido (HDD). Oltre a archiviare le condivisioni file di Azure, gli account di archiviazione per utilizzo generico v2 possono archiviare altre risorse di archiviazione, ad esempio contenitori BLOB, code o tabelle. Le condivisioni file possono essere distribuite nei livelli di transazione ottimizzata (impostazione predefinita), ad accesso frequente o ad accesso sporadico.
 
-- **Account di archiviazione filestorage**: gli account di archiviazione filestorage consentono di distribuire condivisioni file di Azure in hardware Premium/con stato solido basato su disco (basato su SSD). Gli account filestorage possono essere usati solo per archiviare le condivisioni file di Azure. non è possibile distribuire altre risorse di archiviazione (contenitori BLOB, code, tabelle e così via) in un account filestorage.
+- **Account di archiviazione FileStorage**: gli account di archiviazione FileStorage consentono di distribuire condivisioni file di Azure in hardware Premium o basato su unità SSD. Gli account FileStorage possono essere usati solo per archiviare le condivisioni file di Azure. Non è infatti possibile distribuire altre risorse di archiviazione (contenitori BLOB, code, tabelle e così via) in un account FileStorage.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 Per creare un account di archiviazione tramite il portale di Azure, selezionare **+ Crea una risorsa** dal dashboard. Nella finestra di ricerca di Azure Marketplace risultante cercare **account di archiviazione** e selezionare il risultato della ricerca risultante. Verrà quindi illustrata una pagina di panoramica per gli account di archiviazione. Selezionare **Crea** per procedere con la creazione guidata dell'account di archiviazione.
@@ -66,7 +66,10 @@ Gli altri campi di base sono indipendenti dalla scelta dell'account di archiviaz
 - **Nome dell'account di archiviazione**: il nome della risorsa dell'account di archiviazione da creare. Questo nome deve essere globalmente univoco, ma in caso contrario può avere qualsiasi nome desiderato. Il nome dell'account di archiviazione verrà usato come nome del server quando si monta una condivisione file di Azure tramite SMB.
 - **Location**: area per l'account di archiviazione in cui eseguire la distribuzione. Può trattarsi dell'area associata al gruppo di risorse o di qualsiasi altra area disponibile.
 - **Replica**: Sebbene sia etichettata come replica, questo campo significa effettivamente **ridondanza**; Questo è il livello di ridondanza desiderato: ridondanza locale (con ridondanza locale), ridondanza della zona (ZRS), ridondanza geografica (GRS) e ridondanza della zona geografica. Questo elenco a discesa contiene anche la ridondanza geografica e accesso in lettura (RA-GRS) e la ridondanza della zona geografica con accesso in lettura (RA-GZRS), che non si applicano alle condivisioni file di Azure. tutte le condivisioni file create in un account di archiviazione con questi oggetti selezionati saranno in realtà con ridondanza geografica o con ridondanza della zona geografica, rispettivamente. A seconda dell'area geografica o del tipo di account di archiviazione selezionato, è possibile che alcune opzioni di ridondanza non siano consentite.
-- **Livello di accesso**: questo campo non si applica ai file di Azure, quindi è possibile scegliere uno dei pulsanti di opzione.
+- **Livello di accesso BLOB**: questo campo non si applica ai file di Azure, quindi è possibile scegliere uno dei pulsanti di opzione. 
+
+> [!Important]  
+> La selezione del livello di accesso BLOB non influisce sul livello della condivisione file.
 
 #### <a name="the-networking-blade"></a>Pannello rete
 La sezione rete consente di configurare le opzioni di rete. Queste impostazioni sono facoltative per la creazione dell'account di archiviazione e possono essere configurate in un secondo momento, se necessario. Per ulteriori informazioni su queste opzioni, vedere [file di Azure considerazioni sulla rete](storage-files-networking-overview.md).
@@ -92,7 +95,7 @@ Per creare un account di archiviazione con PowerShell, si userà il `New-AzStora
 
 Per semplificare la creazione dell'account di archiviazione e della successiva condivisione file, si archivieranno diversi parametri nelle variabili. È possibile sostituire il contenuto della variabile con qualsiasi valore desiderato. si noti tuttavia che il nome dell'account di archiviazione deve essere globalmente univoco.
 
-```azurepowershell-interactive
+```powershell
 $resourceGroupName = "myResourceGroup"
 $storageAccountName = "mystorageacct$(Get-Random)"
 $region = "westus2"
@@ -100,7 +103,7 @@ $region = "westus2"
 
 Per creare un account di archiviazione in grado di archiviare condivisioni file di Azure standard, viene usato il comando seguente. Il `-SkuName` parametro è correlato al tipo di ridondanza desiderato; se si desidera un account di archiviazione con ridondanza geografica o con ridondanza geografica, è necessario rimuovere anche il `-EnableLargeFileShare` parametro.
 
-```azurepowershell-interactive
+```powershell
 $storAcct = New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $storageAccountName `
@@ -112,7 +115,7 @@ $storAcct = New-AzStorageAccount `
 
 Per creare un account di archiviazione in grado di archiviare le condivisioni file di Azure Premium, viene usato il comando seguente. Si noti che il `-SkuName` parametro è stato modificato in modo da includere sia sia `Premium` il livello di ridondanza desiderato di ridondanza locale ( `LRS` ). Il `-Kind` parametro è `FileStorage` anziché `StorageV2` perché è necessario creare condivisioni file Premium in un account di archiviazione filestorage anziché in un account di archiviazione GPv2.
 
-```azurepowershell-interactive
+```powershell
 $storAcct = New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $storageAccountName `
@@ -126,7 +129,7 @@ Per creare un account di archiviazione usando l'interfaccia della riga di comand
 
 Per semplificare la creazione dell'account di archiviazione e della successiva condivisione file, si archivieranno diversi parametri nelle variabili. È possibile sostituire il contenuto della variabile con qualsiasi valore desiderato. si noti tuttavia che il nome dell'account di archiviazione deve essere globalmente univoco.
 
-```azurecli-interactive
+```bash
 resourceGroupName="myResourceGroup"
 storageAccountName="mystorageacct$RANDOM"
 region="westus2"
@@ -134,7 +137,7 @@ region="westus2"
 
 Per creare un account di archiviazione in grado di archiviare condivisioni file di Azure standard, viene usato il comando seguente. Il `--sku` parametro è correlato al tipo di ridondanza desiderato; se si desidera un account di archiviazione con ridondanza geografica o con ridondanza geografica, è necessario rimuovere anche il `--enable-large-file-share` parametro.
 
-```azurecli-interactive
+```bash
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -146,7 +149,7 @@ az storage account create \
 
 Per creare un account di archiviazione in grado di archiviare le condivisioni file di Azure Premium, viene usato il comando seguente. Si noti che il `--sku` parametro è stato modificato in modo da includere sia sia `Premium` il livello di ridondanza desiderato di ridondanza locale ( `LRS` ). Il `--kind` parametro è `FileStorage` anziché `StorageV2` perché è necessario creare condivisioni file Premium in un account di archiviazione filestorage anziché in un account di archiviazione GPv2.
 
-```azurecli-interactive
+```bash
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -158,11 +161,18 @@ az storage account create \
 ---
 
 ## <a name="create-file-share"></a>Creare la condivisione file
-Dopo aver creato l'account di archiviazione, è possibile creare la condivisione file. Questo processo è essenzialmente lo stesso, indipendentemente dal fatto che si stia usando una condivisione file Premium o una condivisione file standard. La differenza principale è rappresentata dalla **quota** e da ciò che rappresenta.
+Dopo aver creato l'account di archiviazione, è possibile creare la condivisione file. Questo processo è essenzialmente lo stesso, indipendentemente dal fatto che si stia usando una condivisione file Premium o una condivisione file standard. È necessario considerare le differenze seguenti.
 
-Per le condivisioni file standard, si tratta di un limite superiore della condivisione file di Azure, oltre il quale gli utenti finali non possono andare. Lo scopo principale della quota per una condivisione file standard è il budget: "non voglio che la condivisione file cresca oltre questo punto". Se non si specifica una quota, la condivisione file standard può estendersi fino a 100 TiB (o 5 TiB se la proprietà large file Shares non è impostata per un account di archiviazione).
+Le condivisioni file standard possono essere distribuite in uno dei livelli standard: Transaction Optimized (default), Hot o cool. Si tratta di un livello per condivisione file che non è influenzato dal **livello di accesso BLOB** dell'account di archiviazione. questa proprietà è relativa solo all'archiviazione BLOB di Azure, ma non è correlata a file di Azure. È possibile modificare il livello della condivisione in qualsiasi momento dopo la distribuzione. Le condivisioni file Premium non possono essere convertite direttamente in condivisioni file standard in qualsiasi livello standard.
 
-Per le condivisioni file Premium, la quota è sottoposta a overload in dimensioni medie con **provisioning**. Le dimensioni di cui è stato effettuato il provisioning corrispondono alla quantità per la quale verrà fatturato, indipendentemente dall'utilizzo effettivo. Quando si esegue il provisioning di una condivisione file Premium, si desidera considerare due fattori: 1) la crescita futura della condivisione dal punto di vista dell'utilizzo dello spazio e 2) le operazioni di i/o al secondo necessarie per il carico di lavoro. Ogni GiB sottoposta a provisioning ti consente di eseguire operazioni aggiuntive riservate e di IOPS. Per altre informazioni su come pianificare una condivisione file Premium, vedere [provisioning di condivisioni file Premium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+> [!Important]  
+> È possibile spostare le condivisioni file tra livelli all'interno di tipi di account di archiviazione GPv2 (transazione ottimizzata, frequente e sporadica). Gli spostamenti di condivisione tra livelli comportano transazioni: il passaggio da un livello più caldo a un livello più frequente comporta l'addebito per le transazioni di scrittura del livello di raffreddamento per ogni file della condivisione, mentre un passaggio da un livello più sporadico a un livello più caldo comporterà l'addebito delle transazioni di lettura del livello di accesso sporadico per ogni file della condivisione.
+
+La proprietà **quota** indica un valore leggermente diverso tra le condivisioni file Premium e standard:
+
+- Per le condivisioni file standard, si tratta di un limite superiore della condivisione file di Azure, oltre il quale gli utenti finali non possono andare. Lo scopo principale della quota per una condivisione file standard è il budget: "non voglio che la condivisione file cresca oltre questo punto". Se non si specifica una quota, la condivisione file standard può estendersi fino a 100 TiB (o 5 TiB se la proprietà large file Shares non è impostata per un account di archiviazione).
+
+- Per le condivisioni file Premium, la quota è sottoposta a overload in dimensioni medie con **provisioning**. Le dimensioni di cui è stato effettuato il provisioning corrispondono alla quantità per la quale verrà fatturato, indipendentemente dall'utilizzo effettivo. Quando si esegue il provisioning di una condivisione file Premium, si desidera considerare due fattori: 1) la crescita futura della condivisione dal punto di vista dell'utilizzo dello spazio e 2) le operazioni di i/o al secondo necessarie per il carico di lavoro. Ogni GiB sottoposta a provisioning ti consente di eseguire operazioni aggiuntive riservate e di IOPS. Per altre informazioni su come pianificare una condivisione file Premium, vedere [provisioning di condivisioni file Premium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 Se è stato appena creato l'account di archiviazione, è possibile accedervi dalla schermata di distribuzione selezionando **Vai a risorsa**. Se in precedenza è stato creato l'account di archiviazione, è possibile accedervi tramite il gruppo di risorse che lo contiene. Una volta nell'account di archiviazione, selezionare il riquadro **condivisioni file** con etichetta (è anche possibile passare alle **condivisioni file** tramite il sommario per l'account di archiviazione).
@@ -175,69 +185,19 @@ Il pannello nuova condivisione file verrà visualizzato sullo schermo. Completar
 
 - **Nome**: il nome della condivisione file da creare.
 - **Quota**: la quota della condivisione file per le condivisioni file standard. dimensioni del provisioning della condivisione file per le condivisioni file Premium.
+- **Livelli**: il livello selezionato per una condivisione file. Questo campo è disponibile solo in un **account di archiviazione per utilizzo generico (GPv2)**. È possibile scegliere transazione ottimizzata, ad accesso frequente o ad accesso sporadico. Il livello della condivisione può essere modificato in qualsiasi momento. È consigliabile scegliere il livello più alto possibile durante una migrazione, per ridurre al minimo le spese di transazione e quindi passare a un livello inferiore, se necessario, al termine della migrazione.
 
 Selezionare **Crea** per completare la creazione della nuova condivisione. Si noti che se l'account di archiviazione si trova in una rete virtuale, non sarà possibile creare correttamente una condivisione file di Azure, a meno che il client non si trovi anche nella rete virtuale. È anche possibile aggirare questo limite temporizzato usando il `New-AzRmStorageShare` cmdlet Azure PowerShell.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-È possibile creare la condivisione file di Azure con il [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. I comandi di PowerShell riportati di seguito presuppongono che siano state impostate le variabili `$resourceGroupName` e `$storageAccountName` come definito in precedenza nella sezione Creazione di un account di archiviazione con Azure PowerShell. 
+È possibile creare una condivisione file di Azure con il [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. I comandi di PowerShell riportati di seguito presuppongono che siano state impostate le variabili `$resourceGroupName` e `$storageAccountName` come definito in precedenza nella sezione Creazione di un account di archiviazione con Azure PowerShell. 
+
+Nell'esempio seguente viene illustrata la creazione di una condivisione file con un livello esplicito utilizzando il `-AccessTier` parametro. A tale scopo, è necessario usare il modulo di anteprima AZ. storage come indicato nell'esempio. Se non si specifica un livello, perché si sta usando il modulo GA AZ. storage o perché non è stato incluso questo comando, il livello predefinito per le condivisioni file standard è ottimizzato per le transazioni.
 
 > [!Important]  
 > Per le condivisioni file Premium, il `-QuotaGiB` parametro fa riferimento alla dimensione con provisioning della condivisione file. La dimensione di cui è stato effettuato il provisioning della condivisione file è la quantità per la quale verrà fatturato, indipendentemente dall'utilizzo. Le condivisioni file standard vengono fatturate in base all'utilizzo anziché alle dimensioni con provisioning.
 
-```azurepowershell-interactive
-$shareName = "myshare"
-
-New-AzRmStorageShare `
-    -ResourceGroupName $resourceGroupName `
-    -StorageAccountName $storageAccountName `
-    -Name $shareName `
-    -QuotaGiB 1024 | Out-Null
-```
-
-> [!Note]  
-> Il nome della condivisione file deve essere composto solo da caratteri minuscoli. Per informazioni complete sulla denominazione di condivisioni file e file, vedere [denominazione e riferimento a condivisioni, directory, file e metadati](https://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-Prima di poter creare una condivisione file di Azure con l'interfaccia della riga di comando di Azure, è necessario ottenere una chiave dell'account di archiviazione per autorizzare l'operazione di creazione della condivisione file con. Questa operazione può essere eseguita con il [`az storage account keys list`](/cli/azure/storage/account/keys) comando:
-
-```azurecli-interactive
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
-```
-
-Una volta creata la chiave dell'account di archiviazione, è possibile creare la condivisione file di Azure con il [`az storage share create`](/cli/azure/storage/share) comando. 
-
-> [!Important]  
-> Per le condivisioni file Premium, il `--quota` parametro fa riferimento alla dimensione con provisioning della condivisione file. La dimensione di cui è stato effettuato il provisioning della condivisione file è la quantità per la quale verrà fatturato, indipendentemente dall'utilizzo. Le condivisioni file standard vengono fatturate in base all'utilizzo anziché alle dimensioni con provisioning.
-
-```azurecli-interactive
-shareName="myshare"
-
-az storage share create \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
-    --name $shareName \
-    --quota 1024 \
-    --output none
-```
-
-Questo comando avrà esito negativo se l'account di archiviazione è contenuto all'interno di una rete virtuale e il computer da cui si sta richiamando questo comando non fa parte della rete virtuale. È possibile aggirare questa limitazione temporizzata usando il cmdlet Azure PowerShell come descritto in precedenza oppure eseguendo l'interfaccia della riga di comando di `New-AzRmStorageShare` Azure da un computer che fa parte della rete virtuale, anche tramite una connessione VPN.
-
----
-
-> [!Note]  
-> Il nome della condivisione file deve essere composto solo da caratteri minuscoli. Per informazioni complete sulla denominazione di condivisioni file e file, vedere [denominazione e riferimento a condivisioni, directory, file e metadati](https://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-### <a name="create-a-hot-or-cool-file-share"></a>Creare una condivisione file frequente o ad accesso sporadico
-Un **account di archiviazione per utilizzo generico V2 (GPv2)** può contenere condivisioni di file ottimizzate, a caldo o ad accesso sporadico (o una combinazione). Le condivisioni ottimizzate per le transazioni sono disponibili in tutte le aree di Azure, ma le condivisioni di file frequente e sporadico sono disponibili solo [in un subset di aree](storage-files-planning.md#storage-tiers). È possibile creare una condivisione file frequente o ad accesso sporadico usando il modulo Azure PowerShell Preview o l'interfaccia della riga di comando di Azure. 
-
-# <a name="portal"></a>[Portale](#tab/azure-portal)
-Il portale di Azure non supporta ancora la creazione di condivisioni file frequente e sporadico o lo stato di trasferimento di condivisioni file ottimizzate per le transazioni esistenti ad accesso frequente o sporadico Vedere le istruzioni per la creazione di una condivisione file con PowerShell o l'interfaccia della riga di comando di Azure.
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 # Update the Azure storage module to use the preview version. You may need to close and 
 # reopen PowerShell before running this command. If you are running PowerShell 5.1, ensure 
 # the following:
@@ -251,15 +211,70 @@ Install-Module -Name Az.Storage -RequiredVersion "2.1.1-preview" -AllowClobber -
 # Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
 # been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2 
 # storage accounts. Standard tiers are only available in standard storage accounts. 
-$shareName = "myhotshare"
+$shareName = "myshare"
 
 New-AzRmStorageShare `
-    -ResourceGroupName $resourceGroupName `
-    -StorageAccountName $storageAccountName `
-    -Name $shareName `
-    -AccessTier Hot
+        -ResourceGroupName $resourceGroupName `
+        -StorageAccountName $storageAccountName `
+        -Name $shareName `
+        -AccessTier TransactionOptimized `
+        -QuotaGiB 1024 | `
+    Out-Null
+```
 
-# You can also change an existing share's tier.
+> [!Note]  
+> La possibilità di impostare e modificare i livelli tramite PowerShell è disponibile nel modulo anteprima AZ. storage PowerShell. Questi cmdlet o il relativo output possono cambiare prima di essere rilasciati nel modulo AZ. storage PowerShell disponibile a livello generale, quindi creare gli script tenendo conto di questo aspetto.
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+È possibile creare una condivisione file di Azure con il [`az storage share-rm create`](https://docs.microsoft.com/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=true#az_storage_share_rm_create) comando. I comandi dell'interfaccia della riga di comando di Azure seguenti presuppongono che siano state impostate le variabili `$resourceGroupName` e `$storageAccountName` come definito sopra nella sezione Creazione di un account di archiviazione con l'interfaccia della riga
+
+La funzionalità per creare o spostare una condivisione file in un livello specifico è disponibile nell'aggiornamento dell'interfaccia della riga di comando di Azure più recente. L'aggiornamento dell'interfaccia della riga di comando di Azure è specifico per la distribuzione Linux o del sistema operativo in uso. Per istruzioni su come aggiornare l'interfaccia della riga di comando di Azure nel sistema, vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)riga di comando di Azure.
+
+> [!Important]  
+> Per le condivisioni file Premium, il `--quota` parametro fa riferimento alla dimensione con provisioning della condivisione file. La dimensione di cui è stato effettuato il provisioning della condivisione file è la quantità per la quale verrà fatturato, indipendentemente dall'utilizzo. Le condivisioni file standard vengono fatturate in base all'utilizzo anziché alle dimensioni con provisioning.
+
+```bash
+shareName="myshare"
+
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
+    --name $shareName \
+    --access-tier "TransactionOptimized" \
+    --quota 1024 \
+    --output none
+```
+
+> [!Note]  
+> La possibilità di impostare un livello con il `--access-tier` parametro viene fornita come anteprima nel pacchetto dell'interfaccia della riga di comando di Azure più recente. Questo comando o l'output potrebbe cambiare prima di essere contrassegnato come disponibile a livello generale, quindi creare script tenendo presente questo aspetto.
+
+---
+
+> [!Note]  
+> Il nome della condivisione file deve essere composto solo da caratteri minuscoli. Per informazioni complete sulla denominazione di condivisioni file e file, vedere [denominazione e riferimento a condivisioni, directory, file e metadati](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+
+### <a name="changing-the-tier-of-an-azure-file-share"></a>Modifica del livello di una condivisione file di Azure
+Le condivisioni file distribuite nell' **account di archiviazione per utilizzo generico V2 (GPv2)** possono trovarsi nei livelli di transazione ottimizzata, ad accesso frequente o sporadico. È possibile modificare il livello della condivisione file di Azure in qualsiasi momento, in base ai costi delle transazioni, come descritto in precedenza.
+
+# <a name="portal"></a>[Portale](#tab/azure-portal)
+Nella pagina principale dell'account di archiviazione selezionare **condivisioni file**  selezionare il riquadro **condivisioni file** con etichetta. è anche possibile passare a **condivisioni file** tramite il sommario per l'account di archiviazione.
+
+![Screenshot del riquadro condivisioni file](media/storage-how-to-create-file-share/create-file-share-1.png)
+
+Nell'elenco tabella delle condivisioni file selezionare la condivisione file per cui si desidera modificare il livello. Nella pagina Panoramica della condivisione file selezionare **modifica livello** dal menu.
+
+![Screenshot della pagina Panoramica della condivisione file con il pulsante Cambia livello evidenziato](media/storage-how-to-create-file-share/change-tier-0.png)
+
+Nella finestra di dialogo risultante selezionare il livello desiderato: transazione ottimizzata, a caldo o ad accesso sporadico.
+
+![Screenshot della finestra di dialogo del livello di modifica](media/storage-how-to-create-file-share/change-tier-1.png)
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Il cmdlet di PowerShell seguente presuppone che siano state impostate `$resourceGroupName` le `$storageAccountName` variabili,, `$shareName` come descritto nelle sezioni precedenti di questo documento.
+
+```PowerShell
+# This cmdlet requires Az.Storage version 2.1.1-preview, which is installed
+# in the earlier example.
 Update-AzRmStorageShare `
     -ResourceGroupName $resourceGroupName `
     -StorageAccountName $storageAccountName `
@@ -267,27 +282,16 @@ Update-AzRmStorageShare `
     -AccessTier Cool
 ```
 
-> [!Note]  
-> La possibilità di impostare e modificare i livelli tramite PowerShell è disponibile nel modulo anteprima AZ. storage PowerShell. Questi cmdlet o il relativo output possono cambiare prima di essere rilasciati nel modulo AZ. storage PowerShell disponibile a livello generale, quindi creare gli script tenendo conto di questo aspetto.
-
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-La funzionalità per creare o spostare una condivisione file in un livello specifico è disponibile nell'aggiornamento dell'interfaccia della riga di comando di Azure più recente. L'aggiornamento dell'interfaccia della riga di comando di Azure è specifico per la distribuzione Linux o del sistema operativo in uso. Per istruzioni su come aggiornare l'interfaccia della riga di comando di Azure nel sistema, vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli)riga di comando di Azure.
+Il comando dell'interfaccia della riga di comando di Azure seguente presuppone che siano state impostate le `$resourceGroupName` `$storageAccountName` variabili, e, `$shareName` come descritto nelle sezioni precedenti di questo documento.
 
 ```bash
-# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
-# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2
-# storage accounts. Standard tiers are only available in standard storage accounts.
-shareName="myhotshare"
-
-az storage share-rm create \
+az storage share-rm update \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \
     --name $shareName \
-    --access-tier "Hot"
+    --access-tier "Cool"
 ```
-
-> [!Note]  
-> La possibilità di impostare un livello con il `--access-tier` parametro viene fornita come anteprima nel pacchetto dell'interfaccia della riga di comando di Azure più recente. Questo comando o l'output potrebbe cambiare prima di essere contrassegnato come disponibile a livello generale, quindi creare script tenendo presente questo aspetto.
 
 ---
 

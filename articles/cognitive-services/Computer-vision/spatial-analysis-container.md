@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: b17e2618cd87c0689fa531e893149a1b2fab8d20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987193"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277292"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installare ed eseguire il contenitore di analisi spaziale (anteprima)
 
@@ -30,7 +30,7 @@ Il contenitore analisi spaziale consente di analizzare i video in streaming in t
 
 ### <a name="spatial-analysis-container-requirements"></a>Requisiti dei contenitori di analisi spaziale
 
-Per eseguire il contenitore di analisi spaziale, è necessario un dispositivo di calcolo con una [GPU NVIDIA Tesla T4](https://www.nvidia.com/data-center/tesla-t4/). Si consiglia di usare [Azure stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) con accelerazione GPU, tuttavia il contenitore viene eseguito in qualsiasi altro computer desktop che soddisfi i requisiti minimi. Si fa riferimento a questo dispositivo come computer host.
+Per eseguire il contenitore di analisi spaziale, è necessario un dispositivo di calcolo con una [GPU NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). Si consiglia di usare [Azure stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) con accelerazione GPU, tuttavia il contenitore viene eseguito in qualsiasi altro computer desktop che soddisfi i requisiti minimi. Si fa riferimento a questo dispositivo come computer host.
 
 #### <a name="azure-stack-edge-device"></a>[Dispositivo Azure Stack Edge](#tab/azure-stack-edge)
 
@@ -71,7 +71,7 @@ In questo articolo vengono scaricati e installati i pacchetti software seguenti.
 
 ## <a name="request-approval-to-run-the-container"></a>Richiedi l'approvazione per eseguire il contenitore
 
-Compilare e inviare il [modulo di richiesta](https://aka.ms/cognitivegate) per richiedere l'approvazione per l'esecuzione del contenitore. 
+Compilare e inviare il [modulo di richiesta](https://aka.ms/csgate) per richiedere l'approvazione per l'esecuzione del contenitore.
 
 Il modulo richiede informazioni sull'utente, sull'azienda e sullo scenario utente per cui si userà il contenitore. Dopo aver inviato il modulo, il team di servizi cognitivi di Azure lo esaminerà e invierà un messaggio di posta elettronica con una decisione.
 
@@ -116,7 +116,8 @@ Fare clic su **Crea**. La creazione di risorse dell'hub Internet può richiedere
 Quando il ruolo di calcolo Edge è configurato nel dispositivo Edge, crea due dispositivi: un dispositivo IoT e un dispositivo IoT Edge. Entrambi i dispositivi possono essere visualizzati nella risorsa dell'hub IoT. Il runtime di Azure IoT Edge sarà già in esecuzione nel dispositivo IoT Edge.            
 
 > [!NOTE]
-> Attualmente solo la piattaforma Linux è disponibile per i dispositivi IoT Edge. Per informazioni sulla risoluzione dei problemi relativi al dispositivo Azure Stack Edge, vedere l'articolo [registrazione e risoluzione dei problemi](spatial-analysis-logging.md) .
+> * Attualmente è supportata solo la piattaforma Linux per i dispositivi IoT Edge. Per informazioni sulla risoluzione dei problemi relativi al dispositivo Azure Stack Edge, vedere l'articolo [registrazione e risoluzione dei problemi](spatial-analysis-logging.md) .
+> * Per altre informazioni su come configurare un dispositivo IoT Edge per la comunicazione tramite un server proxy, vedere [configurare un dispositivo IOT Edge per la comunicazione tramite un server proxy](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal)
 
 ###  <a name="enable-mps-on-azure-stack-edge"></a>Abilita MPS su Azure Stack Edge 
 
@@ -260,13 +261,14 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Se il computer host non è un dispositivo Azure Stack Edge, sarà necessario installare [Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) versione 1.0.8. Seguire questa procedura per scaricare la versione corretta: Ubuntu server 18,04:
+Se il computer host non è un dispositivo Azure Stack Edge, sarà necessario installare [Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) versione 1.0.8. Per scaricare la versione corretta, attenersi alla procedura seguente:
+
+Server Ubuntu 18,04:
 ```bash
 curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
 ```
 
 Copiare l'elenco generato.
-
 ```bash
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 ```
@@ -316,7 +318,7 @@ Per semplificare la distribuzione di contenitori in più computer host, è possi
 
 La tabella seguente illustra le diverse variabili di ambiente usate dal modulo IoT Edge. È anche possibile impostarli nel manifesto di distribuzione collegato in precedenza, usando l' `env` attributo in `spatialanalysis` :
 
-| Nome dell'impostazione | Valore | Descrizione|
+| Nome dell'impostazione | valore | Descrizione|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | Informazioni Dettagliato | Livello di registrazione, selezionare uno dei due valori|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | Non modificare|
@@ -324,8 +326,8 @@ La tabella seguente illustra le diverse variabili di ambiente usate dal modulo I
 | ARCHON_NODES_LOG_LEVEL | Informazioni Dettagliato | Livello di registrazione, selezionare uno dei due valori|
 | OMP_WAIT_POLICY | PASSIVO | Non modificare|
 | QT_X11_NO_MITSHM | 1 | Non modificare|
-| API_KEY | Chiave API| Raccogliere questo valore da portale di Azure dalla risorsa Visione artificiale. È possibile trovarlo nella sezione **chiave ed endpoint** per la risorsa, nella portale di Azure. |
-| BILLING_ENDPOINT | URI dell'endpoint| Raccogliere questo valore da portale di Azure dalla risorsa Visione artificiale. È possibile trovarlo nella sezione **chiave ed endpoint** per la risorsa, nella portale di Azure.|
+| API_KEY | Chiave API| Raccogliere questo valore da portale di Azure dalla risorsa Visione artificiale. È possibile trovarlo nella sezione **chiave ed endpoint** per la risorsa. |
+| BILLING_ENDPOINT | URI dell'endpoint| Raccogliere questo valore da portale di Azure dalla risorsa Visione artificiale. È possibile trovarlo nella sezione **chiave ed endpoint** per la risorsa.|
 | CONTRATTO DI LICENZA | accettare | Questo valore deve essere impostato in modo da *accettare* l'esecuzione del contenitore |
 | VISUALIZZARE | : 1 | Questo valore deve corrispondere all'output di `echo $DISPLAY` nel computer host. I dispositivi Azure Stack Edge non dispongono di una visualizzazione. Questa impostazione non è applicabile|
 
@@ -339,7 +341,6 @@ Dopo aver aggiornato ilDeploymentManifest.jsdi esempio [ nel](https://go.microso
 az login
 az extension add --name azure-iot
 az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
-
 ```
 
 |Parametro  |Descrizione  |
@@ -418,7 +419,7 @@ Il contenitore di analisi spaziale Invia le informazioni di fatturazione ad Azur
 I contenitori di servizi cognitivi di Azure non sono concessi in licenza per l'esecuzione senza essere connessi all'endpoint di misurazione/fatturazione. È necessario consentire ai contenitori di comunicare sempre le informazioni di fatturazione all'endpoint di fatturazione. I contenitori di servizi cognitivi non inviano dati del cliente, ad esempio il video o l'immagine da analizzare, a Microsoft.
 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione del contenitore di analisi spaziale. In sintesi:
 

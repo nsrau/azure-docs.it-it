@@ -1,6 +1,6 @@
 ---
 title: Configurazione degli endpoint di rete di Sincronizzazione file di Azure | Microsoft Docs
-description: Panoramica delle opzioni di rete per Sincronizzazione file di Azure.
+description: Informazioni su come configurare Sincronizzazione file di Azure endpoint di rete.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7210d414c06f154395b9128be6ed10175ad1e838
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 747d03b228d41066cfc834b4a9c044b16c767622
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077059"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329364"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurazione degli endpoint di rete di Sincronizzazione file di Azure
 File di Azure e Sincronizzazione file di Azure prevedono due tipi principali di endpoint per l'accesso alle condivisioni file di Azure: 

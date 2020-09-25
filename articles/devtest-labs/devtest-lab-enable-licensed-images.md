@@ -3,12 +3,12 @@ title: Abilitare un'immagine concessa in licenza nel lab in Azure DevTest Labs |
 description: Informazioni su come abilitare un'immagine concessa in licenza in Azure DevTest Labs usando il portale di Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2b6e495be2257548782143517f5a970b424860c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276357"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Abilitare un'immagine concessa in licenza nel lab in Azure DevTest Labs
 
@@ -47,7 +47,7 @@ Per assicurarsi che un'immagine concessa in licenza sia disponibile per gli uten
 
 1. Identificare l'immagine con licenza che si vuole rendere accessibile agli utenti ma per la quale non sono stati ancora accettati i termini e le condizioni. Può essere ad esempio presente una macchina virtuale di data science con lo stato **Terms accepted** (Condizioni accettate) o **Terms review needed** (Esame condizioni necessario).
 
-    ![Finestra Configura distribuzione a livello di codice](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
+    ![Screenshot che mostra le immagini Data Science Virtual Machine con lo stato dell'offerta "di" condizioni accettate "e" revisione dei termini necessaria "](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
    > Le macchine virtuali di data science sono immagini di macchine virtuali di Azure preinstallate, configurate e testate con alcuni degli strumenti più diffusi usati comunemente per analisi dei dati, Machine Learning e training per l'intelligenza artificiale. [Introduzione alla macchina virtuale data science di Azure per Linux e Windows](../machine-learning/data-science-virtual-machine/overview.md) offre molte informazioni sulle macchine virtuali di data science.

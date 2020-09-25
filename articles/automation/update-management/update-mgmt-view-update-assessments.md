@@ -3,18 +3,18 @@ title: Visualizzare le valutazioni degli aggiornamenti di Automazione di Azure
 description: Questo articolo descrive come visualizzare le valutazioni degli aggiornamenti per le distribuzioni di Gestione aggiornamenti.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 92861304a946e357b2b265cd825eceb8e22f7d2d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2e32fc7c1872bf18b7f1c995f281a9b09ec45dc8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450121"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264472"
 ---
-# <a name="view-update-assessments"></a>Visualizzare la valutazione degli aggiornamenti
+# <a name="view-update-assessments-in-update-management"></a>Visualizza valutazioni aggiornamenti in Gestione aggiornamenti
 
-In Gestione aggiornamenti, è possibile visualizzare le informazioni relative ai computer, gli aggiornamenti mancanti, le distribuzioni degli aggiornamenti e le distribuzioni degli aggiornamenti pianificati.
+In Gestione aggiornamenti, è possibile visualizzare le informazioni relative ai computer, gli aggiornamenti mancanti, le distribuzioni degli aggiornamenti e le distribuzioni degli aggiornamenti pianificati. È possibile visualizzare le informazioni di valutazione nell'ambito della macchina virtuale di Azure selezionata, dal server abilitato per l'arco selezionato o dall'account di automazione in tutti i computer e i server configurati.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -22,27 +22,33 @@ Accedere al [portale di Azure](https://portal.azure.com)
 
 ## <a name="view-update-assessment"></a>Visualizzare la valutazione degli aggiornamenti
 
-In Gestione aggiornamenti, è possibile visualizzare le informazioni relative ai computer, gli aggiornamenti mancanti, le distribuzioni degli aggiornamenti e le distribuzioni degli aggiornamenti pianificati.
+Per visualizzare la valutazione degli aggiornamenti da una macchina virtuale di Azure, passare a **macchine virtuali** e selezionare la macchina virtuale nell'elenco. Nel menu a sinistra selezionare **guest + host Updates**e quindi selezionare **Vai a gestione aggiornamenti** nella pagina **guest + host Updates** .
+
+In Gestione aggiornamenti, è possibile visualizzare le informazioni relative al computer, gli aggiornamenti mancanti, le distribuzioni degli aggiornamenti e le distribuzioni degli aggiornamenti pianificati.
+
+[![Vista Gestione aggiornamenti assessment per la macchina virtuale di Azure](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm.png)](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
+
+Per visualizzare la valutazione degli aggiornamenti da un server abilitato per Arc, passare a **Server-Azure Arc** e selezionare il server dall'elenco. Nel menu a sinistra selezionare **Guest e host Updates**. Nella pagina **aggiornamenti guest + host** selezionare **Vai a gestione aggiornamenti**.
+
+In Gestione aggiornamenti, è possibile visualizzare le informazioni sul computer abilitato per Arc, gli aggiornamenti mancanti, le distribuzioni di aggiornamenti e le distribuzioni di aggiornamenti pianificati.
+
+[![Visualizzazione della valutazione gestione aggiornamenti per i server abilitati per Arc](./media/update-mgmt-view-update-assessments/update-assessment-arc-server.png)](./media/update-mgmt-view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
+
+Per visualizzare la valutazione degli aggiornamenti in tutti i computer, inclusi i server abilitati per Arc dall'account di automazione, passare a **account di automazione** e selezionare l'account di automazione con gestione aggiornamenti abilitato dall'elenco. Nell'account di automazione selezionare **Gestione aggiornamenti** dal menu a sinistra.
+
+Gli aggiornamenti per l'ambiente sono elencati nella pagina **Gestione aggiornamenti** . Se vengono identificati come mancanti, un elenco di tali aggiornamenti viene visualizzato nella scheda **aggiornamenti mancanti** .
 
 [![Visualizzazione predefinita gestione aggiornamenti](./media/update-mgmt-overview/update-management-view.png)](./media/update-mgmt-overview/update-management-view-expanded.png#lightbox)
 
-Per visualizzare una valutazione degli aggiornamenti, eseguire le operazioni seguenti.
+Nella colonna **conformità** è possibile visualizzare l'ultima volta in cui il computer è stato valutato. Nella colonna **Aggiorna conformità agente** è possibile visualizzare lo stato dell'agente di aggiornamento. Se è presente un problema, selezionare il collegamento alla documentazione sulla risoluzione dei problemi, che contiene informazioni utili per risolverlo.
 
-1. Nella portale di Azure passare a account di **automazione** e selezionare l'account di automazione con gestione aggiornamenti abilitato dall'elenco.
+In **Collegamento alle informazioni** selezionare il collegamento per un aggiornamento per aprire l'articolo del supporto tecnico con informazioni importanti sull'aggiornamento.
 
-2. Nell'account di automazione selezionare **Gestione aggiornamenti** dal riquadro a sinistra.
+[![Visualizza stato aggiornamento](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
 
-3. Gli aggiornamenti per l'ambiente sono elencati nella pagina **Gestione aggiornamenti** . Se vengono identificati come mancanti, un elenco di tali aggiornamenti viene visualizzato nella scheda **aggiornamenti mancanti** .
+Fare clic in altro punto dell'area dell'aggiornamento per aprire il riquadro Ricerca log. La query per la ricerca log è predefinita per tale specifico aggiornamento. È possibile modificare questa query o creare una query personalizzata per visualizzare informazioni dettagliate.
 
-   Nella colonna **conformità** è possibile visualizzare l'ultima volta in cui il computer è stato valutato. Nella colonna **Aggiorna conformità agente** è possibile visualizzare lo stato dell'agente di aggiornamento. Se è presente un problema, selezionare il collegamento alla documentazione sulla risoluzione dei problemi, che contiene informazioni utili per risolverlo.
-
-4. In **Collegamento alle informazioni** selezionare il collegamento per un aggiornamento per aprire l'articolo del supporto tecnico con informazioni importanti sull'aggiornamento.
-
-     [![Visualizza stato aggiornamento](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
-
-5. Fare clic in altro punto dell'area dell'aggiornamento per aprire il riquadro Ricerca log. La query per la ricerca log è predefinita per tale specifico aggiornamento. È possibile modificare questa query o creare una query personalizzata per visualizzare informazioni dettagliate.
-
-    [![Visualizzare i risultati delle query di log](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
+[![Visualizzare i risultati delle query di log](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
 
 ## <a name="view-missing-updates"></a>Visualizzare gli aggiornamenti mancanti
 

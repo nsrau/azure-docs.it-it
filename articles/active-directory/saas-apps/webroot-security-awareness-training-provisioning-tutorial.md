@@ -2,21 +2,25 @@
 title: 'Esercitazione: configurare Webroot Security Awareness Training per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Webroot Security Awareness Training.
 services: active-directory
+documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: CelesteDG
+manager: beatrizd
+ms.assetid: 455f4396-930e-4db5-a167-d3ea6a860a17
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9345aaac306c8c009d6fc0a01c57beed3a22b10b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 31c0e9a690bde7a52a32fd9194afda76e1aaba8c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88523491"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329143"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Esercitazione: configurare Webroot Security Awareness Training per il provisioning utenti automatico
 
@@ -61,7 +65,7 @@ Per connettere il sito a Azure AD, sarà necessario ottenere un **token segreto*
 
 4. Copiare e salvare il **token Secret**. Questo valore verrà immesso nel campo token segreto nella scheda provisioning dell'applicazione Webroot Security Awareness Training nel portale di Azure.
 
-5. Fare clic su **Fine**.
+5. Fare clic su **Done**.
 
     ![Copia token segreto](./media/webroot-security-awareness-training-provisioning-tutorial/copy-secret-token.png)
 
@@ -94,11 +98,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere `https://awarenessapi.webrootanywhere.com/api/v2/scim` in **URL tenant**. Immettere il valore del token segreto recuperato in precedenza in **Token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possibile connettersi a Webroot Security Awareness Training. Se la connessione non riesce, verificare che l'account di formazione Webroot Security Awareness disponga di autorizzazioni di amministratore e riprovare.
 

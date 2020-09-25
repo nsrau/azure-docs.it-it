@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: 943569a16101ac170d01d08250b31ba67c0e590e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8221c77c0e6adeabe869a088089733d289a2f6ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434283"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277942"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Usa autenticazione Azure Active Directory
 
@@ -168,7 +168,7 @@ Per Azure AD entità server (account di accesso) sono supportati i metodi di aut
 - Per una panoramica degli account di accesso, degli utenti, dei ruoli del database e delle autorizzazioni nel database SQL, vedere [account di accesso, utenti, ruoli del database e autorizzazioni](logins-create-manage.md).
 - Per altre informazioni sulle entità di database, vedere [Entità](https://msdn.microsoft.com/library/ms181127.aspx).
 - Per altre informazioni sui ruoli del database, vedere [Ruoli a livello di database](https://msdn.microsoft.com/library/ms189121.aspx).
-- Per la sintassi per la creazione di Azure AD entità server (account di accesso) per SQL Istanza gestita, vedere  [creare un account di accesso](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Per la sintassi per la creazione di Azure AD entità server (account di accesso) per SQL Istanza gestita, vedere  [creare un account di accesso](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 - Per informazioni generali sulle regole del firewall, vedere l'articolo relativo alle [regole del firewall per il database SQL](firewall-configure.md).
 
 <!--Image references-->

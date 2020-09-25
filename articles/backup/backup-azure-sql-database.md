@@ -3,12 +3,12 @@ title: Eseguire un backup dei database SQL Server in Azure
 description: Questo articolo illustra come eseguire il backup di SQL Server in Azure. L'articolo spiega inoltre il recupero di SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 3627162ef2f4330a4b6a78625b5e07bdcf56419b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 510d9637031928e31abaa5f82a5bf58c6ef44719
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376537"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316843"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
@@ -33,7 +33,7 @@ Questa soluzione sfrutta le API native SQL per eseguire i backup dei database SQ
 * Il plug-in Invia i dati direttamente all'insieme di credenziali dei servizi di ripristino, eliminando così la necessità di un percorso di gestione temporanea. I dati vengono crittografati e archiviati dal servizio Backup di Azure negli account di archiviazione.
 * Al termine del trasferimento dei dati, il coordinatore conferma il commit con il servizio di backup.
 
-  ![Architettura del backup SQL](./media/backup-azure-sql-database/backup-sql-overview.png)
+  ![Architettura del backup SQL](./media/backup-azure-sql-database/azure-backup-sql-overview.png)
 
 ## <a name="before-you-start"></a>Prima di iniziare
 

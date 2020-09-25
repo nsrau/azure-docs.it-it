@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 16a133205b13a3d0a4aa76f75c8ce316f6c09199
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4f84ccbddc6f5244ac8f4334b716d770e0ed4afc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014899"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328922"
 ---
 # <a name="http-features"></a>Funzionalità HTTP
 
@@ -251,12 +251,12 @@ public static async Task RunOrchestrator(
     string vmName = "myVM";
     string apiVersion = "2019-03-01";
     
-    // Automatically fetches an Azure AD token for resource = https://management.core.windows.net
+    // Automatically fetches an Azure AD token for resource = https://management.core.windows.net/.default
     // and attaches it to the outgoing Azure Resource Manager API call.
     var restartRequest = new DurableHttpRequest(
         HttpMethod.Post, 
         new Uri($"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/restart?api-version={apiVersion}"),
-        tokenSource: new ManagedIdentityTokenSource("https://management.core.windows.net"));
+        tokenSource: new ManagedIdentityTokenSource("https://management.core.windows.net/.default"));
     DurableHttpResponse restartResponse = await context.CallHttpAsync(restartRequest);
     if (restartResponse.StatusCode != HttpStatusCode.OK)
     {
@@ -275,7 +275,7 @@ module.exports = df.orchestrator(function*(context) {
     const resourceGroup = "myRG";
     const vmName = "myVM";
     const apiVersion = "2019-03-01";
-    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.windows.net");
+    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.windows.net/.default");
 
     // get a list of the Azure subscriptions that I have access to
     const restartResponse = yield context.df.callHttp(
@@ -300,7 +300,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     resource_group = "myRg"
     vm_name = "myVM"
     api_version = "2019-03-01"
-    token_source = df.ManagedIdentityTokenSource("https://management.core.windows.net")
+    token_source = df.ManagedIdentityTokenSource("https://management.core.windows.net/.default")
 
     # get a list of the Azure subscriptions that I have access to
     restart_response = yield context.call_http("POST", 
@@ -315,7 +315,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ---
 
-Nell'esempio precedente, il `tokenSource` parametro è configurato per acquisire i token di Azure ad per [Azure Resource Manager](../../azure-resource-manager/management/overview.md). I token sono identificati dall'URI della risorsa `https://management.core.windows.net` . Nell'esempio si presuppone che l'app per le funzioni corrente sia in esecuzione localmente o sia stata distribuita come app per le funzioni con un'identità gestita. Si presuppone che l'identità locale o l'identità gestita disponga di autorizzazioni per la gestione delle macchine virtuali nel gruppo di risorse specificato `myRG` .
+Nell'esempio precedente, il `tokenSource` parametro è configurato per acquisire i token di Azure ad per [Azure Resource Manager](../../azure-resource-manager/management/overview.md). I token sono identificati dall'URI della risorsa `https://management.core.windows.net/.default` . Nell'esempio si presuppone che l'app per le funzioni corrente sia in esecuzione localmente o sia stata distribuita come app per le funzioni con un'identità gestita. Si presuppone che l'identità locale o l'identità gestita disponga di autorizzazioni per la gestione delle macchine virtuali nel gruppo di risorse specificato `myRG` .
 
 In fase di esecuzione, l'origine del token configurata restituisce automaticamente un token di accesso OAuth 2,0. L'origine aggiunge quindi il token come bearer token all'intestazione di autorizzazione della richiesta in uscita. Questo modello rappresenta un miglioramento rispetto all'aggiunta manuale di intestazioni di autorizzazione alle richieste HTTP per i motivi seguenti:
 

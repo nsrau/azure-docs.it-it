@@ -1,6 +1,6 @@
 ---
 title: Installare e configurare l'estensione Diagnostica di Azure per Windows
-description: Informazioni su come raccogliere i dati di diagnostica di Azure in un account di Archiviazione di Azure per visualizzarli con uno dei diversi strumenti disponibili.
+description: Informazioni sull'installazione e la configurazione dell'estensione di diagnostica Windows. Si apprenderà anche come una descrizione della modalità di archiviazione dei dati nell'account di archiviazione di Azure.
 services: azure-monitor
 author: bwren
 ms.subservice: diagnostic-extension
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 46234f3b4bfd467db9b5754b5590603ff3d42915
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e6ccba27fb599cb26da86e94d3500f4f806ecb76
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974536"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328871"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installare e configurare l'estensione Diagnostica di Azure per Windows
 L'[estensione Diagnostica di Azure](diagnostics-extension-overview.md) è un agente di Monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle macchine virtuali di Azure e di altre risorse di calcolo. Questo articolo include informazioni dettagliate sull'installazione e la configurazione dell'estensione Diagnostica Windows e una descrizione della modalità di archiviazione dei dati in un account di Archiviazione di Azure.

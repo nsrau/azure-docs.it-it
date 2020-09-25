@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/28/2020
+ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 839662e496a61ff9a90a6250b417688b91ccaed1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e504a3ed2d9193bdc85fc08b3ea91c4f4f2c160c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382577"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329505"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
 
@@ -86,7 +86,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Trasferimento di una sottoscrizione a una directory diversa
 
-- Per istruzioni su come trasferire una sottoscrizione a una directory Azure AD diversa, vedere [trasferire la proprietà di una sottoscrizione di Azure a un altro account](../cost-management-billing/manage/billing-subscription-transfer.md).
+- Per istruzioni su come trasferire una sottoscrizione a una directory Azure AD diversa, vedere [trasferire una sottoscrizione di Azure a una directory di Azure ad diversa (anteprima)](transfer-subscription.md).
 - Se si trasferisce una sottoscrizione a una directory Azure AD diversa, tutte le assegnazioni di ruolo vengono eliminate **definitivamente** dalla directory di Azure ad di origine e non vengono migrate alla directory Azure ad di destinazione. È necessario ricreare le assegnazioni di ruolo nella directory di destinazione. È anche necessario ricreare manualmente le identità gestite per le risorse di Azure. Per altre informazioni, vedere [domande frequenti e problemi noti relativi alle identità gestite](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Se si è un Azure AD amministratore globale e non si ha accesso a una sottoscrizione dopo che è stato trasferito tra le directory, usare l'interruttore **gestione accessi per le risorse di Azure** per [elevare](elevate-access-global-admin.md) temporaneamente l'accesso per ottenere l'accesso alla sottoscrizione.
 
@@ -99,11 +99,17 @@ $ras.Count
 - Se si riceve l'errore relativo alle autorizzazioni "Il client con ID oggetto non è autorizzato a eseguire l'azione sull'ambito (codice: AuthorizationFailed)" quando si cerca di creare una risorsa, verificare di aver effettuato l'accesso con un utente a cui è assegnato un ruolo con autorizzazione di scrittura alla risorsa nell'ambito selezionato. Ad esempio, per gestire le macchine virtuali in un gruppo di risorse, è necessario disporre del ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) nel gruppo di risorse (o nell'ambito padre). Per un elenco delle autorizzazioni per ogni ruolo predefinito, vedere [ruoli predefiniti di Azure](built-in-roles.md).
 - Se si riceve l'errore di autorizzazione "non si è autorizzati a creare una richiesta di supporto" quando si tenta di creare o aggiornare un ticket di supporto, verificare di avere eseguito l'accesso con un utente a cui è assegnato un ruolo che dispone dell' `Microsoft.Support/supportTickets/write` autorizzazione, ad esempio [supporto richieste di supporto](built-in-roles.md#support-request-contributor).
 
+## <a name="move-resources-with-role-assignments"></a>Spostare le risorse con assegnazioni di ruolo
+
+Se si sposta una risorsa che dispone di un ruolo di Azure assegnato direttamente alla risorsa (o a una risorsa figlio), l'assegnazione di ruolo non viene spostata e diventa orfana. Dopo lo spostamento, è necessario ricreare l'assegnazione di ruolo. Infine, l'assegnazione di ruolo orfana verrà rimossa automaticamente, ma è consigliabile rimuovere l'assegnazione di ruolo prima di spostare la risorsa.
+
+Per informazioni su come spostare le risorse, vedere [spostare le risorse in un nuovo gruppo di risorse o sottoscrizione](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
 ## <a name="role-assignments-with-identity-not-found"></a>Assegnazioni di ruolo con identità non trovate
 
 Nell'elenco delle assegnazioni di ruolo per la portale di Azure è possibile notare che l'entità di sicurezza (utente, gruppo, entità servizio o identità gestita) è elencata come **identità non trovata** con un tipo **sconosciuto** .
 
-![Gruppo di risorse per app Web](./media/troubleshooting/unknown-security-principal.png)
+![Identità non trovata nell'elenco assegnazioni di ruolo di Azure](./media/troubleshooting/unknown-security-principal.png)
 
 È possibile che l'identità non sia stata trovata per due motivi:
 

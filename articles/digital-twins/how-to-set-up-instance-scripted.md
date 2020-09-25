@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 605df0f26600f962bda7a0a0def800a91d74b022
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90562979"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328641"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurare un'istanza di Azure Digital Twins e l'autenticazione (con script)
 
@@ -26,15 +26,19 @@ Questa versione di questo articolo completa questa procedura eseguendo un esempi
 
 [!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
+## <a name="prerequisites-download-the-script"></a>Prerequisiti: scaricare lo script
+
+Lo script di esempio è scritto in PowerShell. Fa parte degli esempi di [**Azure Digital Twins**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), che è possibile scaricare nel computer passando al collegamento di esempio e selezionando il pulsante *Scarica zip* sotto il titolo.
+
+Il progetto di esempio verrà scaricato nel computer come _**Azure_Digital_Twins_samples.zip**_. Passare alla cartella del computer e decomprimerla per estrarre i file.
+
+Nella cartella decompressa lo script di distribuzione si trova in _Azure_Digital_Twins_samples script > > **deploy.ps1** _.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="run-the-deployment-script"></a>Eseguire lo script di distribuzione
 
 Questo articolo usa un esempio di codice per i dispositivi gemelli digitali di Azure per distribuire un'istanza di Azure Digital Twins e l'autenticazione richiesta parzialmente automaticamente. Può anche essere usato come punto di partenza per la scrittura di interazioni con script.
-
-Lo script di esempio è scritto in PowerShell. Fa parte degli esempi di [Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), che è possibile scaricare nel computer passando al collegamento di esempio e selezionando il pulsante *Scarica zip* sotto il titolo.
-
-Nella cartella di esempio scaricata lo script di distribuzione si trova in _Azure_Digital_Twins_samples.zip script > > **deploy.ps1** _.
 
 Ecco i passaggi per eseguire lo script di distribuzione in Cloud Shell.
 1. Passare a una finestra [Azure cloud Shell](https://shell.azure.com/) nel browser. Accedere con questo comando:
@@ -43,13 +47,23 @@ Ecco i passaggi per eseguire lo script di distribuzione in Cloud Shell.
     ```
     Se l'interfaccia della riga di comando può aprire il browser predefinito, eseguirà questa operazione e caricherà una pagina di accesso di Azure. In caso contrario, aprire una pagina del browser all'indirizzo *https://aka.ms/devicelogin* e immettere il codice di autorizzazione visualizzato nel terminale.
  
-2. Dopo l'accesso, cercare la barra delle icone della finestra Cloud Shell. Selezionare l'icona "Carica/Scarica file" e scegliere "carica".
+2. Nella barra delle icone Cloud Shell verificare che il Cloud Shell sia impostato in modo da eseguire la versione di PowerShell.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell finestra che mostra la selezione dell'opzione di caricamento":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Cloud Shell finestra che mostra la selezione della versione di PowerShell":::
 
-    Passare al file di _**deploy.ps1**_ nel computer e fare clic su "Apri". Il file verrà caricato nel Cloud Shell in modo che sia possibile eseguirlo nella finestra di Cloud Shell.
+1. Selezionare l'icona "Carica/Scarica file" e scegliere "carica".
 
-3. Eseguire lo script inviando il `./deploy.ps1` comando nella finestra cloud Shell. Quando lo script viene eseguito tramite la procedura di installazione automatica, verrà richiesto di passare i valori seguenti:
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell finestra che mostra la selezione dell'icona di caricamento":::
+
+    Passare al file di _**deploy.ps1**_ nel computer (in _Azure_Digital_Twins_samples > script > **deploy.ps1** _) e premere "Apri". Il file verrà caricato nel Cloud Shell in modo che sia possibile eseguirlo nella finestra di Cloud Shell.
+
+4. Eseguire lo script inviando il `./deploy.ps1` comando nella finestra cloud Shell. Ricordare che per incollare in Cloud Shell, è possibile usare **Ctrl + Maiusc + v** in Windows e Linux oppure **cmd + Maiusc + v** in MacOS. È anche possibile usare il menu di scelta rapida.
+
+    ```azurecli
+    ./deploy.ps1
+    ```
+
+    Quando lo script viene eseguito tramite la procedura di installazione automatica, verrà richiesto di passare i valori seguenti:
     * Per l'istanza: *ID sottoscrizione* della sottoscrizione di Azure da usare
     * Per l'istanza: un *percorso* in cui si vuole distribuire l'istanza. Per visualizzare le aree che supportano i dispositivi gemelli digitali di Azure, visitare i [*prodotti Azure disponibili in base all'area*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * Per l'istanza: nome del *gruppo di risorse* . È possibile usare un gruppo di risorse esistente o immetterne uno nuovo da creare.
@@ -107,9 +121,15 @@ Prendere nota dell'ID dell' *applicazione (client)* e della *Directory (tenant)*
 
 Se si desidera verificare la creazione delle risorse e delle autorizzazioni impostate dallo script, è possibile esaminarle nella [portale di Azure](https://portal.azure.com).
 
+Se non si riesce a verificare l'esito positivo di un passaggio, ripetere il passaggio. È possibile eseguire i passaggi singolarmente usando le istruzioni [portale di Azure](how-to-set-up-instance-portal.md) o [CLI](how-to-set-up-instance-cli.md) .
+
 ### <a name="verify-instance"></a>Verifica istanza
 
-Per verificare che l'istanza sia stata creata, passare alla [pagina dei dispositivi gemelli di Azure Digital](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) nella portale di Azure. Questa pagina elenca tutte le istanze di dispositivi gemelli digitali di Azure. Cercare il nome dell'istanza appena creata nell'elenco.
+Per verificare che l'istanza sia stata creata, passare alla [pagina dei dispositivi gemelli di Azure Digital](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) nella portale di Azure. Per ottenere questa pagina, è possibile cercare i dispositivi *gemelli digitali di Azure* nella barra di ricerca del portale.
+
+Questa pagina elenca tutte le istanze di dispositivi gemelli digitali di Azure. Cercare il nome dell'istanza appena creata nell'elenco.
+
+Se la verifica ha esito negativo, è possibile riprovare a creare un'istanza usando il [portale](how-to-set-up-instance-portal.md#create-the-azure-digital-twins-instance) o l' [interfaccia](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)della riga di comando.
 
 ### <a name="verify-user-role-assignment"></a>Verificare l'assegnazione del ruolo utente
 
@@ -117,16 +137,18 @@ Per verificare che l'istanza sia stata creata, passare alla [pagina dei disposit
 
 > [!NOTE]
 > Tenere presente che lo script assegna attualmente questo ruolo necessario allo stesso utente che esegue lo script da Cloud Shell. Se è necessario assegnare questo ruolo a un altro utente che gestirà l'istanza, è possibile farlo ora tramite il portale di Azure ([istruzioni](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) o l'interfaccia della riga di comando ([istruzioni](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
->
-> È anche possibile usare il portale o l'interfaccia della riga di comando per ripetere l'assegnazione di ruolo se si sono verificati problemi con la configurazione con script.
+
+Se la verifica ha avuto esito negativo, è anche possibile ripetere la propria assegnazione di ruolo usando il [portale](how-to-set-up-instance-portal.md#set-up-user-access-permissions) o l' [interfaccia](how-to-set-up-instance-cli.md#set-up-user-access-permissions)della riga di comando.
 
 ### <a name="verify-app-registration"></a>Verificare la registrazione dell'app
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
 
-Prima di tutto, verificare che le impostazioni delle autorizzazioni di Azure Digital Twins siano state impostate correttamente nella registrazione. A tale scopo, selezionare *manifesto* dalla barra dei menu per visualizzare il codice manifesto della registrazione dell'app. Scorrere fino alla fine della finestra del codice e cercare questi campi sotto `requiredResourceAccess` . I valori devono corrispondere a quelli dello screenshot seguente:
+Verificare quindi che le impostazioni delle autorizzazioni di Azure Digital gemelli siano state impostate correttamente nella registrazione. A tale scopo, selezionare *manifesto* dalla barra dei menu per visualizzare il codice manifesto della registrazione dell'app. Scorrere fino alla fine della finestra del codice e cercare questi campi sotto `requiredResourceAccess` . I valori devono corrispondere a quelli dello screenshot seguente:
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+
+Se uno o entrambi i passaggi di verifica hanno esito negativo, riprovare a creare la registrazione dell'app usando il [portale](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) o le istruzioni dell' [interfaccia](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) della riga di comando.
 
 ## <a name="other-possible-steps-for-your-organization"></a>Altri passaggi possibili per l'organizzazione
 
@@ -135,7 +157,7 @@ Prima di tutto, verificare che le impostazioni delle autorizzazioni di Azure Dig
 ## <a name="next-steps"></a>Passaggi successivi
 
 Testare le singole chiamate API REST nell'istanza usando i comandi dell'interfaccia della riga di comando di Azure Digital gemelli: 
-* [riferimento AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [riferimento AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*Procedura: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure*](how-to-use-cli.md)
 
 In alternativa, vedere come connettere l'applicazione client all'istanza scrivendo il codice di autenticazione dell'app client:

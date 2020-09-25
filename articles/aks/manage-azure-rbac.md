@@ -4,15 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: Informazioni su come usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione Kubernetes con il servizio Azure Kubernetes.
 services: container-service
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c1222f671c95d4475de93b9c9e085a94f864b2ae
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 15bd917a16c250807d6848f7bc0ffbdba06b4019
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003091"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329092"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione di Kubernetes (anteprima)
 
@@ -28,7 +28,6 @@ La possibilità di gestire il controllo degli accessi in base al ruolo per le ri
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="prerequisites"></a>Prerequisiti 
-- Iscriversi per l'anteprima <https://aka.ms/aad-rbac-sign-up-form> .
 - Assicurarsi di avere la versione 2.9.0 o successiva dell'interfaccia della riga di comando di Azure
 - Assicurarsi di avere `EnableAzureRBACPreview` abilitato il flag funzionalità.
 - Assicurarsi che sia installata l' `aks-preview` [estensione CLI][az-extension-add] v 0.4.55 o versione successiva
@@ -44,7 +43,7 @@ Registrare il `EnableAzureRBACPreview` flag feature usando il comando [AZ featur
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
 ```
 
-Dopo aver inviato il modulo di anteprima precedente, sarà necessario ottenere l'approvazione prima che il flag possa essere registrato correttamente. È possibile controllare lo stato di registrazione usando il comando [az feature list][az-feature-list]:
+ È possibile controllare lo stato di registrazione usando il comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
@@ -188,7 +187,7 @@ Ora che si dispone della definizione di ruolo, è possibile assegnarla a un uten
 az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
 ```
 
-## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>Usa RBAC di Azure per l'autorizzazione Kubernetes con`kubectl`
+## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>Usa RBAC di Azure per l'autorizzazione Kubernetes con `kubectl`
 
 > [!NOTE]
 > Assicurarsi di disporre della versione più recente di kubectl eseguendo il comando seguente:
@@ -222,7 +221,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
 
-## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubelogin"></a>Usa RBAC di Azure per l'autorizzazione Kubernetes con`kubelogin`
+## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubelogin"></a>Usa RBAC di Azure per l'autorizzazione Kubernetes con `kubelogin`
 
 Per sbloccare altri scenari, ad esempio accessi non interattivi, `kubectl` versioni precedenti o uso di SSO in più cluster senza la necessità di accedere a un nuovo cluster, che il token sia ancora valido, AKS ha creato un plug-in exec denominato [`kubelogin`](https://github.com/Azure/kubelogin) .
 
@@ -285,4 +284,4 @@ az group delete -n MyResourceGroup
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true

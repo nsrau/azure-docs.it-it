@@ -1,7 +1,7 @@
 ---
 title: Aggiornare l'API Suggerimenti automatici Bing da v5 a v7
 titleSuffix: Azure Cognitive Services
-description: Identifica le parti dell'applicazione da aggiornare per usare la versione 7.
+description: Identifica le parti dell'applicazione Suggerimenti automatici Bing che è necessario aggiornare per usare la versione 7.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5249a3a1f51eea2ecd0999d71c6b08fdacf37a34
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65498e25108a28183ae6596a8a7288c071ef1147
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68405405"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277513"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Suggerimenti automatici
 
@@ -25,7 +25,7 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
 
 ### <a name="endpoints"></a>Endpoint
 
-- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio, https:\//API.cognitive.Microsoft.com/Bing/\*\*v 7.0 * */suggestions.
+- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio, https: \/ /API.cognitive.Microsoft.com/Bing/ \* \* v 7.0 * */suggestions.
 
 ### <a name="error-response-objects-and-error-codes"></a>Oggetti di risposta di errore e codici di errore
 

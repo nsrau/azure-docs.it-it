@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 11/14/2018
-ms.openlocfilehash: 4d0800d109d17c1233a18966d84a498596e8e834
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b42624506b3fe3a40cd19353c0dc25ecd8a5da02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188203"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328803"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -201,7 +201,7 @@ La logica di replica descritta in questo articolo smette di funzionare in alcune
 
 Se si vuole pulire i record nella tabella di rilevamento delle modifiche dello schema, usare DELETE anziché TRUNCATE. Non reinizializzare mai la colonna Identity nella tabella di rilevamento delle modifiche dello schema usando DBCC CHECKIDENT. È possibile creare nuove tabelle di rilevamento delle modifiche dello schema e aggiornare il nome della tabella nel trigger DDL se è necessario reinizializzare.
 
-## <a name="other-considerations"></a><a name="other"></a>Altre considerazioni
+## <a name="other-considerations"></a><a name="other"></a> Altre considerazioni
 
 -   Gli utenti del database che configurano l'hub e i database dei membri devono disporre di autorizzazioni sufficienti per eseguire i comandi di modifica dello schema.
 

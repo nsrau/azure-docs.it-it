@@ -10,27 +10,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/23/2019
+ms.date: 09/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4950906e016b9e1915d18ecacc1edcfda8b4d09
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 2a5a4659671f8d4ded64a4f04f84abf1f67d8825
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279398"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265256"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect-msExchUserHoldPolicies e cloudMsExchUserHoldPolicies
 Nel documento di riferimento seguente vengono descritti questi attributi utilizzati da Exchange e il modo corretto per modificare le regole di sincronizzazione predefinite.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Che cosa sono msExchUserHoldPolicies e cloudMsExchUserHoldPolicies?
-Sono disponibili due tipi di [esenzioni](/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) per un server Exchange: la conservazione dei contenziosi e l'attesa sul posto. Quando è abilitata la funzionalità di contenzioso, tutti gli elementi della cassetta postale vengono posizionati in attesa.  Un'attesa sul posto viene usata per mantenere solo gli elementi che soddisfano i criteri di una query di ricerca definita tramite lo strumento eDiscovery sul posto.
+Sono disponibili due tipi di [esenzioni](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) per un server Exchange: la conservazione dei contenziosi e l'attesa sul posto. Quando è abilitata la funzionalità di contenzioso, tutti gli elementi della cassetta postale vengono posizionati in attesa.  Un'attesa sul posto viene usata per mantenere solo gli elementi che soddisfano i criteri di una query di ricerca definita tramite lo strumento eDiscovery sul posto.
 
 Gli attributi MsExchUserHoldPolcies e cloudMsExchUserHoldPolicies consentono AD locale e Azure AD di determinare quali utenti sono in attesa a seconda che utilizzino Exchange locale o Exchange on-line.
 
 ## <a name="msexchuserholdpolicies-synchronization-flow"></a>flusso di sincronizzazione msExchUserHoldPolicies
-Per impostazione predefinita, MsExchUserHoldPolcies viene sincronizzato da Azure AD Connect direttamente all'attributo msExchUserHoldPolicies nel metaverse e quindi all'attributo msExchUserHoldPolices in Azure AD
+Per impostazione predefinita, MsExchUserHoldPolcies vengono sincronizzati da Azure AD Connect direttamente all'attributo msExchUserHoldPolicies nel metaverse e quindi all'attributo msExchUserHoldPolicies in Azure AD
 
 Le tabelle seguenti descrivono il flusso:
 
@@ -38,7 +38,7 @@ In ingresso da Active Directory locale:
 
 |Attributo Active Directory|Nome attributo|Tipo di flusso|Attributo metaverse|Regola di sincronizzazione|
 |-----|-----|-----|-----|-----|
-|Active Directory locale|msExchUserHoldPolicies|Connessione diretta|msExchUserHoldPolices|In da AD-utente Exchange|
+|Active Directory locale|msExchUserHoldPolicies|Connessione diretta|msExchUserHoldPolicies|In da AD-utente Exchange|
 
 In uscita per Azure AD:
 
@@ -47,7 +47,7 @@ In uscita per Azure AD:
 |Azure Active Directory|msExchUserHoldPolicies|Connessione diretta|msExchUserHoldPolicies|Da out ad AAD – UserExchangeOnline|
 
 ## <a name="cloudmsexchuserholdpolicies-synchronization-flow"></a>flusso di sincronizzazione cloudMsExchUserHoldPolicies
-Per impostazione predefinita, cloudMsExchUserHoldPolicies viene sincronizzato da Azure AD Connect direttamente all'attributo cloudMsExchUserHoldPolicies nel metaverse. Quindi, se msExchUserHoldPolices non è null nel metaverse, l'attributo in viene propagato a Active Directory.
+Per impostazione predefinita, cloudMsExchUserHoldPolicies vengono sincronizzati da Azure AD Connect direttamente all'attributo cloudMsExchUserHoldPolicies nel metaverse. Quindi, se msExchUserHoldPolicies non è null nel metaverse, l'attributo in viene propagato a Active Directory.
 
 Le tabelle seguenti descrivono il flusso:
 

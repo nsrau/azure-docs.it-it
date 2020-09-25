@@ -3,18 +3,18 @@ title: Concetti-cloud privati e cluster
 description: Informazioni sulle funzionalità principali dei data center e dei cluster vSphere definiti dal software VMware di Azure in una soluzione VMware in Azure di VMware.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 06161d2ce95415ae3309d58ad18ad0d40b3782fb
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 715293d9951876ff0f794f8f6b580093f89571b3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752285"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316869"
 ---
-# <a name="azure-vmware-solution-preview-private-cloud-and-cluster-concepts"></a>Concetti relativi al cloud privato e ai cluster in anteprima della soluzione VMware di Azure
+#  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Concetti relativi ai cluster e al cloud privato della soluzione VMware di Azure
 
 La soluzione VMware di Azure offre cloud privati basati su VMware in Azure. I cloud privati sono compilati da cluster di host bare metal dedicati e vengono distribuiti e gestiti tramite il portale di Azure. Il provisioning dei cluster nei cloud privati viene effettuato con il software VMware vSphere, vCenter, rete VSAN e NSX. Le distribuzioni software e hardware del cloud privato della soluzione VMware di Azure sono completamente integrate e automatizzate in Azure.
 
-Esiste una relazione logica tra le sottoscrizioni di Azure, i cloud privati della soluzione VMware di Azure, i cluster rete VSAN e gli host. Nel diagramma vengono visualizzati due cloud privati in una singola sottoscrizione di Azure. I cloud privati rappresentano uno sviluppo e un ambiente di produzione, ognuno con il proprio cloud privato. In ognuno di questi cloud privati sono presenti due cluster. Per mostrare le potenziali esigenze inferiori di un ambiente di sviluppo, vengono usati cluster più piccoli con host con capacità inferiore. Tutti questi concetti sono descritti nelle sezioni riportate di seguito.
+Esiste una relazione logica tra le sottoscrizioni di Azure, i cloud privati della soluzione VMware di Azure, i cluster rete VSAN e gli host. Nel diagramma vengono visualizzati due cloud privati in una singola sottoscrizione di Azure. I cloud privati rappresentano uno sviluppo e un ambiente di produzione, ognuno con il proprio cloud privato. In ognuno di questi cloud privati sono disponibili due cluster. Per mostrare le potenziali esigenze inferiori di un ambiente di sviluppo, vengono usati cluster più piccoli con host con capacità inferiore. Tutti questi concetti sono descritti nelle sezioni riportate di seguito.
 
 ![Immagine di due cloud privati in una sottoscrizione del cliente](./media/hosts-clusters-private-clouds-final.png)
 
@@ -61,7 +61,7 @@ I criteri e i processi di aggiornamento generali per il software della piattafor
 
 La gestione del ciclo di vita e la manutenzione dell'host vengono eseguite senza alcun effetto sulla capacità o sulle prestazioni dei cluster di cloud privati. Esempi di manutenzione automatica degli host includono gli aggiornamenti del firmware e la riparazione o la sostituzione dell'hardware.
 
-Microsoft è responsabile della gestione del ciclo di vita di appliance NSX-T, ad esempio NSX-T Manager e NSX-T Edge. Microsoft è anche responsabile del bootstrap della configurazione di rete, ad esempio la creazione del gateway di livello 0 e l'abilitazione del routing nord-sud. In qualità di amministratore del cloud privato della soluzione VMware di Azure, l'utente è responsabile della configurazione NSX-T SDN, ad esempio segmenti di rete, regole firewall distribuite, gateway di livello 1 e bilanciamento del carico.
+Microsoft è responsabile della gestione del ciclo di vita di appliance NSX-T, ad esempio NSX-T Manager e NSX-T Edge. Microsoft è anche responsabile del bootstrap della configurazione di rete, ad esempio la creazione del gateway di livello 0 e l'abilitazione del routing nord-sud. In qualità di amministratore del cloud privato della soluzione VMware di Azure, l'utente è responsabile della configurazione di NSX-T SDN. Ad esempio, i segmenti di rete, le regole del firewall distribuite, i gateway di livello 1 e i bilanciamenti del carico.
 
 > [!IMPORTANT]
 > Un amministratore della soluzione VMware di Azure non deve modificare la configurazione del gateway NSX-T Edge o di livello 0. Questo può comportare una perdita di servizio.

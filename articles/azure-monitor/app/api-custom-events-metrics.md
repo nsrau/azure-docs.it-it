@@ -3,13 +3,13 @@ title: API di Application Insights per metriche ed eventi personalizzati | Micro
 description: Inserire alcune righe di codice nell'app desktop o per dispositivi, nella pagina Web o nel servizio per tenere traccia dell'utilizzo e diagnosticare i problemi.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f60fdf9164d09b10d12ada7481edb503cd57a411
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936572"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264134"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -1094,7 +1094,7 @@ Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conser
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
 * [Riferimento ASP.NET](/dotnet/api/overview/azure/insights?view=azure-dotnet)
-* [Riferimenti per Java](/java/api/overview/azure/appinsights?view=azure-java-stable/)
+* [Riferimento Java](/java/api/overview/azure/appinsights?view=azure-java-stable/)
 * [Informazioni di riferimento su JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## <a name="sdk-code"></a>Codice SDK
@@ -1110,7 +1110,7 @@ Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conser
 
 * *Quali eccezioni potrebbero essere generate dalle chiamate Track_()?*
 
-    Nessuno. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
+    No. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
 * *Esiste un'API REST per ottenere dati dal portale?*
 
     Sì, l'[API di accesso ai dati](https://dev.applicationinsights.io/). Altri modi per estrarre i dati sono l'[esportazione da Analytics a Power BI](./export-power-bi.md) e l'[esportazione continua](./export-telemetry.md).

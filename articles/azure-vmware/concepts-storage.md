@@ -1,16 +1,16 @@
 ---
 title: Concetti-archiviazione
-description: Informazioni sulle funzionalità di archiviazione chiavi in cloud privati in anteprima della soluzione VMware di Azure.
+description: Informazioni sulle funzionalità di archiviazione chiavi in cloud privati della soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 8afd58c61f2f78eec2a92354be6d88178340912e
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 02378040061080d3c9abbfafb26180c9d22e9073
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024316"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316818"
 ---
-# <a name="azure-vmware-solution-preview-storage-concepts"></a>Concetti relativi all'archiviazione anteprima della soluzione VMware di Azure
+#  <a name="azure-vmware-solution-storage-concepts"></a>Concetti relativi all'archiviazione della soluzione VMware di Azure
 
 I cloud privati della soluzione VMware di Azure forniscono l'archiviazione nativa a livello di cluster con VMware rete VSAN. Tutte le archiviazioni locali da ogni host in un cluster vengono usate in un archivio dati rete VSAN e la crittografia dei dati inattivi è disponibile e abilitata per impostazione predefinita. È possibile usare le risorse di archiviazione di Azure per estendere le funzionalità di archiviazione dei cloud privati.
 
@@ -28,9 +28,9 @@ L'archiviazione locale negli host del cluster viene usata nell'archivio dati ret
 
 ## <a name="data-at-rest-encryption"></a>Crittografia dei dati inattivi
 
-per impostazione predefinita, i datastore rete VSAN usano la crittografia dei dati inattivi. La soluzione di crittografia è basata sul KMS e supporta le operazioni vCenter per la gestione delle chiavi. Le chiavi di crittografia della chiave vengono archiviate in una Azure Key Vault e quando un host viene rimosso da un cluster per qualsiasi motivo, i dati nelle unità SSD vengono invalidati immediatamente.
+per impostazione predefinita, i datastore rete VSAN usano la crittografia dei dati inattivi. La soluzione di crittografia è basata sul KMS e supporta le operazioni vCenter per la gestione delle chiavi. Le chiavi vengono archiviate crittografate da una chiave master Azure Key Vault basata sul modulo di protezione hardware. Quando un host viene rimosso da un cluster per qualsiasi motivo, i dati nelle unità SSD vengono invalidati immediatamente.
 
-## <a name="scaling"></a>Scalabilità
+## <a name="scaling"></a>Ridimensionamento
 
 La capacità di archiviazione del cluster nativa viene ridimensionata aggiungendo host a un cluster. Per i cluster che usano host, la capacità a livello di cluster non elaborata viene aumentata di 15,4 TB con ogni host aggiuntivo. I cluster compilati con gli host GP hanno una capacità non elaborata aumentata di 7,7 TB con ogni host aggiuntivo. In entrambi i tipi di cluster, gli host importano circa 10 minuti per essere aggiunti a un cluster. Per istruzioni sulla scalabilità dei cluster, vedere l' [esercitazione scalare un cloud privato][tutorial-scale-private-cloud] .
 

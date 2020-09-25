@@ -5,34 +5,69 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 5db756b60330cdac4e43e13bfe29d9397f87af50
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.date: 09/22/2020
+ms.openlocfilehash: 932d138a4b594aa51b73c365cc3e753f49f886f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421655"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328983"
 ---
-# <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Cache di Azure per Redis con collegamento privato di Azure (anteprima)
+# <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache di Azure per Redis con collegamento privato di Azure (anteprima pubblica)
+Questo articolo illustra come creare una rete virtuale e una cache di Azure per l'istanza di redis con un endpoint privato usando il portale di Azure. Si apprenderà anche come aggiungere un endpoint privato a una cache di Azure esistente per l'istanza di Redis.
+
 L'endpoint privato di Azure è un'interfaccia di rete che si connette privatamente e in modo sicuro alla cache di Azure per il collegamento di redis basato su Azure privato. 
-
-Questo articolo illustra come creare una cache di Azure, una rete virtuale di Azure e un endpoint privato usando il portale di Azure.  
-
-> [!IMPORTANT]
-> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per ulteriori informazioni, vedere le [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
-> 
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Sottoscrizione di Azure- [crearne una gratuitamente](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-> Questa funzionalità è attualmente in anteprima: [Contattaci](mailto:azurecache@microsoft.com) se sei interessato.
+> Questa funzionalità è attualmente disponibile in anteprima pubblica per aree limitate. Se non si ha la possibilità di creare un endpoint privato, [contattare](mailto:azurecache@microsoft.com)Microsoft. Per usare gli endpoint privati, è necessario creare la cache di Azure per l'istanza di redis dopo il 28 luglio 2020.
+>
+> Aree con accesso in anteprima pubblica attualmente: Stati Uniti centro-occidentali, Stati Uniti centro-settentrionali, Stati Uniti occidentali, Stati Uniti orientali 2, Norvegia orientale, Europa settentrionale, Asia orientale, Giappone orientale e India centrale.
 >
 
-## <a name="create-a-cache"></a>Creare una cache
-1. Per creare una cache, accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**. 
+## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Creare un endpoint privato con una nuova cache di Azure per l'istanza di redis 
+
+In questa sezione verrà creata una nuova cache di Azure per l'istanza di redis con un endpoint privato.
+
+### <a name="create-a-virtual-network"></a>Creare una rete virtuale 
+
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**.
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Selezionare Crea una risorsa.":::
+
+2. Nella pagina **nuovo** selezionare **rete e quindi** **rete virtuale**.
+
+3. Selezionare **Aggiungi** per creare una rete virtuale.
+
+4. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
+
+   | Impostazione      | Valore consigliato  | Descrizione |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Sottoscrizione** | Nell'elenco a discesa selezionare la sottoscrizione. | Sottoscrizione in cui creare la rete virtuale. | 
+   | **Gruppo di risorse** | Nell'elenco a discesa selezionare un gruppo di risorse oppure scegliere **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse. | Nome del gruppo di risorse in cui creare la rete virtuale e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
+   | **Nome** | Immettere un nome di rete virtuale. | Il nome deve iniziare con una lettera o un numero, terminare con una lettera, un numero o un carattere di sottolineatura e può contenere solo lettere, numeri, caratteri di sottolineatura, punti o trattini. | 
+   | **Area** | Elenco a discesa e selezionare un'area. | Selezionare un' [area](https://azure.microsoft.com/regions/) accanto ad altri servizi che utilizzeranno la rete virtuale. |
+
+5. Selezionare la scheda **indirizzi IP** oppure fare clic sul pulsante **Avanti: indirizzi IP** nella parte inferiore della pagina.
+
+6. Nella scheda **indirizzi IP** specificare lo spazio degli **indirizzi IPv4** come uno o più prefissi di indirizzo nella notazione CIDR (ad esempio 192.168.1.0/24).
+
+7. In **nome subnet**fare clic su **predefinito** per modificare le proprietà della subnet.
+
+8. Nel riquadro **modifica subnet** specificare un **nome** per la subnet e l'intervallo di **indirizzi della subnet**. L'intervallo di indirizzi della subnet deve essere in notazione CIDR, ad esempio 192.168.1.0/24. Deve essere incluso nello spazio indirizzi della rete virtuale.
+
+9. Selezionare **Salva**.
+
+10. Selezionare la scheda **Verifica + crea** oppure fare clic sul pulsante **Verifica + crea** .
+
+11. Verificare che tutte le informazioni siano corrette e fare clic su **Crea** per effettuare il provisioning della rete virtuale.
+
+### <a name="create-an-azure-cache-for-redis-instance-with-a-private-endpoint"></a>Creare una cache di Azure per l'istanza di redis con un endpoint privato
+Per creare un'istanza della cache, attenersi alla seguente procedura.
+
+1. Tornare alla Home page di portale di Azure o aprire il menu sidebar, quindi selezionare **Crea una risorsa**. 
    
 1. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis**.
 
@@ -42,119 +77,119 @@ Questo articolo illustra come creare una cache di Azure, una rete virtuale di Az
    
    | Impostazione      | Valore consigliato  | Descrizione |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà * \<DNS name> . Redis.cache.Windows.NET*. | 
+   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<DNS name>.redis.cache.windows.net*. | 
    | **Sottoscrizione** | Nell'elenco a discesa selezionare la sottoscrizione. | Sottoscrizione in cui creare la nuova istanza della cache di Azure per Redis. | 
    | **Gruppo di risorse** | Nell'elenco a discesa selezionare un gruppo di risorse oppure scegliere **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse. | Nome del gruppo di risorse in cui creare la cache e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
    | **Posizione** | Nell'elenco a discesa selezionare una località. | Selezionare un'[area](https://azure.microsoft.com/regions/) in prossimità di altri servizi che useranno la cache. |
    | **Piano tariffario** | Nell'elenco a discesa selezionare un [piano tariffario](https://azure.microsoft.com/pricing/details/cache/). |  Il piano tariffario determina le dimensioni, le prestazioni e le funzionalità disponibili per la cache. Per altre informazioni, vedere la [panoramica su Cache Redis di Azure](cache-overview.md). |
-   
-1. Selezionare **Crea**. 
-   
-    :::image type="content" source="media/cache-private-link/3-new-cache.png" alt-text="Creare cache di Azure per Redis.":::
-   
-   La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione**, la cache è pronta per l'uso.
+
+1. Selezionare la scheda **rete** oppure fare clic sul pulsante **rete** nella parte inferiore della pagina.
+
+1. Nella scheda **rete** selezionare **endpoint privato** per il metodo di connettività.
+
+1. Fare clic sul pulsante **Aggiungi** per creare l'endpoint privato.
+
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="In rete aggiungere un endpoint privato.":::
+
+1. Nella pagina **Crea un endpoint privato** configurare le impostazioni per l'endpoint privato con la rete virtuale e la subnet create nell'ultima sezione e selezionare **OK**. 
+
+1. Selezionare la scheda **Avanti: avanzate** oppure fare clic sul pulsante **Avanti: avanzate** nella parte inferiore della pagina.
+
+1. Nella scheda **Avanzate** per un'istanza di cache di base o standard, selezionare l'opzione Abilita se si vuole abilitare una porta non TLS.
+
+1. Nella scheda **Avanzate** per l'istanza di cache Premium configurare le impostazioni per la porta non TLS, il clustering e la persistenza dei dati.
+
+
+1. Selezionare la scheda **Next: Tags (tag successivi** ) oppure fare clic sul pulsante **Next: Tags (tag** ) nella parte inferiore della pagina.
+
+1. Facoltativamente, nella scheda **tag** immettere il nome e il valore se si vuole categorizzare la risorsa. 
+
+1. Selezionare **Rivedi e crea**. Si passa alla scheda Rivedi e crea in cui Azure convalida la configurazione.
+
+1. Dopo che è stato visualizzato il messaggio di convalida verde, selezionare **Crea**.
+
+La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina della **Panoramica**di cache di Azure per Redis   . Quando **lo stato**   viene visualizzato come **in esecuzione**, la cache è pronta per essere utilizzata. 
     
-    :::image type="content" source="media/cache-private-link/4-status.png" alt-text="Cache di Azure per Redis creata.":::
 
-## <a name="create-a-virtual-network"></a>Crea rete virtuale
+## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Creare un endpoint privato con una cache di Azure esistente per l'istanza di redis 
 
-Questa sezione illustra come creare una rete virtuale e una subnet.
+In questa sezione si aggiungerà un endpoint privato a una cache di Azure esistente per l'istanza di Redis. 
 
-1. Selezionare **Crea una risorsa**.
+### <a name="create-a-virtual-network"></a>Creare una rete virtuale 
+Per creare una rete virtuale, attenersi alla seguente procedura.
 
-    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Selezionare Crea una risorsa.":::
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**.
 
 2. Nella pagina **nuovo** selezionare **rete e quindi** **rete virtuale**.
 
-    :::image type="content" source="media/cache-private-link/5-select-vnet.png" alt-text="Creare una rete virtuale.":::
+3. Selezionare **Aggiungi** per creare una rete virtuale.
 
-3. In **Crea rete virtuale**immettere o selezionare queste informazioni nella scheda **nozioni di base** :
+4. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
 
-    | **Impostazione**          | **Valore**                                                           |
-    |------------------|-----------------------------------------------------------------|
-    | **Dettagli del progetto**  |                                                                 |
-    | Subscription     | Nell'elenco a discesa selezionare la sottoscrizione.                                  |
-    | Gruppo di risorse   | Elenco a discesa e selezionare un gruppo di risorse. |
-    | **Dettagli istanza** |                                                                 |
-    | Nome             | Immettere **\<virtual-network-name>**                                    |
-    | Region           | Selezionare**\<region-name>** |
+   | Impostazione      | Valore consigliato  | Descrizione |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Sottoscrizione** | Nell'elenco a discesa selezionare la sottoscrizione. | Sottoscrizione in cui creare la rete virtuale. | 
+   | **Gruppo di risorse** | Nell'elenco a discesa selezionare un gruppo di risorse oppure scegliere **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse. | Nome del gruppo di risorse in cui creare la rete virtuale e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
+   | **Nome** | Immettere un nome di rete virtuale. | Il nome deve iniziare con una lettera o un numero, terminare con una lettera, un numero o un carattere di sottolineatura e può contenere solo lettere, numeri, caratteri di sottolineatura, punti o trattini. | 
+   | **Area** | Elenco a discesa e selezionare un'area. | Selezionare un' [area](https://azure.microsoft.com/regions/) accanto ad altri servizi che utilizzeranno la rete virtuale. |
 
-4. Selezionare la scheda **indirizzi IP** oppure fare clic sul pulsante **Avanti: indirizzi IP** nella parte inferiore della pagina.
+5. Selezionare la scheda **indirizzi IP** oppure fare clic sul pulsante **Avanti: indirizzi IP** nella parte inferiore della pagina.
 
-5. Nella scheda **indirizzi IP** immettere queste informazioni:
+6. Nella scheda **indirizzi IP** specificare lo spazio degli **indirizzi IPv4** come uno o più prefissi di indirizzo nella notazione CIDR (ad esempio 192.168.1.0/24).
 
-    | Impostazione            | Valore                      |
-    |--------------------|----------------------------|
-    | Spazio indirizzi IPv4 | Immettere **\<IPv4-address-space>** |
+7. In **nome subnet**fare clic su **predefinito** per modificare le proprietà della subnet.
 
-6. In **nome subnet**selezionare la parola **default**.
+8. Nel riquadro **modifica subnet** specificare un **nome** per la subnet e l'intervallo di **indirizzi della subnet**. L'intervallo di indirizzi della subnet deve essere in notazione CIDR, ad esempio 192.168.1.0/24. Deve essere incluso nello spazio indirizzi della rete virtuale.
 
-7. In **modifica subnet**immettere queste informazioni:
+9. Selezionare **Salva**.
 
-    | Impostazione            | Valore                      |
-    |--------------------|----------------------------|
-    | Nome della subnet | Immettere **\<subnet-name>** |
-    | Intervallo di indirizzi subnet | Immettere **\<subnet-address-range>**
+10. Selezionare la scheda **Verifica + crea** oppure fare clic sul pulsante **Verifica + crea** .
 
-8. Selezionare **Salva**.
+11. Verificare che tutte le informazioni siano corrette e fare clic su **Crea** per effettuare il provisioning della rete virtuale.
 
-9. Selezionare la scheda **Verifica + crea** oppure selezionare il pulsante **Verifica + crea** .
+### <a name="create-a-private-endpoint"></a>Creare un endpoint privato 
 
-10. Selezionare **Crea**.
+Per creare un endpoint privato, attenersi alla seguente procedura.
 
+1. Nella portale di Azure cercare **cache di Azure per Redis** e premere INVIO o selezionarla dai suggerimenti per la ricerca.
 
-## <a name="create-a-private-endpoint"></a>Creare un endpoint privato 
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Cercare cache di Azure per Redis.":::
 
-In questa sezione si creerà un endpoint privato che verrà connesso alla cache creata in precedenza.
+2. Selezionare l'istanza della cache a cui si vuole aggiungere un endpoint privato.
 
-1. Cercare il **collegamento privato** e premere INVIO o selezionarlo dai suggerimenti per la ricerca.
+3. Sul lato sinistro della schermata selezionare **(anteprima) endpoint privato**.
 
-    :::image type="content" source="media/cache-private-link/7-create-private-link.png" alt-text="Cercare un collegamento privato.":::
+4. Fare clic sul pulsante **endpoint privato** per creare l'endpoint privato.
 
-2. Sul lato sinistro della schermata selezionare **endpoint privati**.
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Aggiungi endpoint privato.":::
 
-    :::image type="content" source="media/cache-private-link/8-select-private-endpoint.png" alt-text="Selezionare collegamento privato.":::
+5. Nella **pagina Crea un endpoint privato**configurare le impostazioni per l'endpoint privato.
 
-3. Selezionare il pulsante **+ Aggiungi** per creare l'endpoint privato. 
+   | Impostazione      | Valore consigliato  | Descrizione |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Sottoscrizione** | Nell'elenco a discesa selezionare la sottoscrizione. | Sottoscrizione in base alla quale creare questo endpoint privato. | 
+   | **Gruppo di risorse** | Nell'elenco a discesa selezionare un gruppo di risorse oppure scegliere **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse. | Nome del gruppo di risorse in cui creare l'endpoint privato e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
+   | **Nome** | Immettere un nome di endpoint privato. | Il nome deve iniziare con una lettera o un numero, terminare con una lettera, un numero o un carattere di sottolineatura e può contenere solo lettere, numeri, caratteri di sottolineatura, punti o trattini. | 
+   | **Area** | Elenco a discesa e selezionare un'area. | Selezionare un' [area](https://azure.microsoft.com/regions/) accanto ad altri servizi che utilizzeranno l'endpoint privato. |
 
-    :::image type="content" source="media/cache-private-link/9-add-private-endpoint.png" alt-text="Aggiungere un collegamento privato.":::
+6. Fare clic sul pulsante **Avanti: risorsa** nella parte inferiore della pagina.
 
-4. Nella **pagina Crea un endpoint privato**configurare le impostazioni per l'endpoint privato.
+7. Nella scheda **risorsa** selezionare la sottoscrizione, scegliere il tipo di risorsa `Microsoft.Cache/Redis` , quindi selezionare la cache a cui si vuole connettere l'endpoint privato.
 
-    | Impostazione | Valore |
-    | ------- | ----- |
-    | **DETTAGLI DEL PROGETTO** | |
-    | Subscription | Nell'elenco a discesa selezionare la sottoscrizione. |
-    | Resource group | Elenco a discesa e selezionare un gruppo di risorse. |
-    | **DETTAGLI DELL'ISTANZA** |  |
-    | Nome |Immettere un nome per l'endpoint privato.  |
-    | Region |Nell'elenco a discesa selezionare una località. |
-    |||
+8. Fare clic sul pulsante **Avanti: configurazione** nella parte inferiore della pagina.
 
-5. Selezionare il pulsante **Next: Resource (risorsa** ) nella parte inferiore della pagina.
+9. Nella scheda **configurazione** selezionare la rete virtuale e la subnet create nella sezione precedente.
 
-6. Nella scheda **risorsa** selezionare la sottoscrizione, scegliere il tipo di risorsa Microsoft. cache/Redis, quindi selezionare la cache creata nella sezione precedente.
+10. Fare clic sul pulsante **Next: Tags (tag** ) nella parte inferiore della pagina.
 
-    :::image type="content" source="media/cache-private-link/10-resource-private-endpoint.png" alt-text="Risorse per il collegamento privato.":::
+11. Facoltativamente, nella scheda **tag** immettere il nome e il valore se si vuole categorizzare la risorsa.
 
-7. Selezionare il pulsante **Next: Configuration (configurazione** ) nella parte inferiore della pagina.
+12. Selezionare **Rivedi e crea**. Si passa alla scheda **Rivedi e crea**in   cui Azure convalida la configurazione.
 
-8. Nella scheda **configurazione** selezionare la rete virtuale e la subnet create nella sezione precedente.
-
-    :::image type="content" source="media/cache-private-link/11-configuration-private-endpoint.png" alt-text="Configurazione per il collegamento privato.":::
-
-9. Selezionare il pulsante **Next: Tags (tag** ) nella parte inferiore della pagina.
-
-10. Nella scheda **tag** immettere il nome e il valore se si vuole categorizzare la risorsa. Questo passaggio è facoltativo.
-
-    :::image type="content" source="media/cache-private-link/12-tags-private-endpoint.png" alt-text="Tag per il collegamento privato.":::
-
-11. Selezionare **Rivedi e crea**. Si passa alla scheda **Rivedi e crea**in   cui Azure convalida la configurazione.
-
-12. Una volta visualizzato il messaggio di **convalida** verde, selezionare **Crea**.
+13. Dopo che è stato visualizzato il messaggio di **convalida** verde, selezionare **Crea**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul collegamento privato, vedere la [documentazione del collegamento privato di Azure](https://docs.microsoft.com/azure/private-link/private-link-overview). 
+Per altre informazioni sul collegamento privato di Azure, vedere la [documentazione del collegamento privato di Azure](https://docs.microsoft.com/azure/private-link/private-link-overview). 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c357720c937a5b63944b7fc598eaff428f85bfb6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: d6222c9275dfe022e897bb6324df5bb30e1a8905
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706818"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276816"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
 
@@ -129,6 +129,8 @@ az cosmosdb create \
 
 ## <a name="building-highly-available-applications"></a>Compilazione di applicazioni a disponibilità elevata
 
+- Esaminare il [comportamento previsto di Azure Cosmos SDK](troubleshoot-sdk-availability.md) durante questi eventi e quali sono le configurazioni che lo interessano.
+
 - Per garantire una disponibilità elevata per la scrittura e la lettura, configurare l'account Azure Cosmos in modo che si estenda ad almeno due aree con aree con più Scritture. Questa configurazione fornirà la massima disponibilità, la latenza più bassa e la migliore scalabilità per letture e scritture supportate da contratti di classe. Per altre informazioni, vedere come [configurare l'account Azure Cosmos con più aree di scrittura](tutorial-global-distribution-sql-api.md).
 
 - Per gli account Azure Cosmos a più aree configurati con un'area a scrittura singola, [abilitare il failover automatico usando l'interfaccia della riga di comando di Azure o portale di Azure](how-to-manage-database-account.md#automatic-failover). Dopo aver abilitato il failover automatico, quando si verifica un'emergenza a livello di aera Cosmos DB esegue automaticamente il failover dell'account.  
@@ -146,3 +148,4 @@ Successivamente si possono leggere gli articoli seguenti:
 - [Distribuzione globale - Informazioni sul funzionamento](global-dist-under-the-hood.md)
 - [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md)
 - [Come configurare l'account Cosmos con più aree di scrittura](how-to-multi-master.md)
+- [Comportamento dell'SDK in ambienti multiarea](troubleshoot-sdk-availability.md)

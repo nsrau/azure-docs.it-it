@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 1793517a76fce3c252c95fb73299d4c4e8c5a216
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: ac6540dfd86430aab518b145ed391d1d6283219e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531815"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276578"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato testo delimitato in Azure Data Factory
 
@@ -151,13 +151,14 @@ Nella tabella seguente sono elencate le proprietà supportate da un'origine test
 
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Percorsi Wild Card | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | No | String[] | wildcardPaths |
-| Partition Root Path (Percorso radice partizione) | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | No | string | partitionRootPath |
-| Elenco di file | Indica se l'origine sta puntando a un file di testo che elenca i file da elaborare | No | `true` o `false` | fileList |
+| Percorsi Wild Card | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | no | String[] | wildcardPaths |
+| Partition Root Path (Percorso radice partizione) | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | no | string | partitionRootPath |
+| Elenco di file | Indica se l'origine sta puntando a un file di testo che elenca i file da elaborare | no | `true` o `false` | fileList |
 | Righe su più righe | Il file di origine contiene righe che si estendono su più righe. I valori multiriga devono essere racchiusi tra virgolette. | No `true` o `false` | multiLineRow |
-| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine | No | string | rowUrlColumn |
-| Al termine | Elimina o sposta i file dopo l'elaborazione. Il percorso del file inizia dalla radice del contenitore | No | Elimina: `true` o `false` <br> Spostare `['<from>', '<to>']` | purgeFiles <br> moveFiles |
-| Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | No | Timestamp | modifiedAfter <br> modifiedBefore |
+| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine | no | string | rowUrlColumn |
+| Al termine | Elimina o sposta i file dopo l'elaborazione. Il percorso del file inizia dalla radice del contenitore | no | Elimina: `true` o `false` <br> Spostare `['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | no | Timestamp | modifiedAfter <br> modifiedBefore |
+| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | no | `true` o `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Esempio di origine
 
@@ -181,9 +182,9 @@ Nella tabella seguente sono elencate le proprietà supportate da un sink di test
 
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | No | `true` o `false` | truncate |
-| Opzione nome file | Formato di denominazione dei dati scritti. Per impostazione predefinita, un file per partizione è nel formato `part-#####-tid-<guid>` | No | Modello: stringa <br> Per partizione: stringa [] <br> Come dati in column: String <br> Output in un singolo file: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
-| Virgolette tutte | Racchiudere tutti i valori tra virgolette | No | `true` o `false` | quoteAll |
+| Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | no | `true` o `false` | truncate |
+| Opzione nome file | Formato di denominazione dei dati scritti. Per impostazione predefinita, un file per partizione è nel formato `part-#####-tid-<guid>` | no | Modello: stringa <br> Per partizione: stringa [] <br> Come dati in column: String <br> Output in un singolo file: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Virgolette tutte | Racchiudere tutti i valori tra virgolette | no | `true` o `false` | quoteAll |
 
 ### <a name="sink-example"></a>Esempio di sink
 
