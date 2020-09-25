@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 74c603576016b72edddb4c0fe7aa970bd8626a4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887383"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325216"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti su Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Si tratta di una limitazione corrente per il componente sottostante che verifica
 
 **Come è possibile ridimensionare l'istanza gestita?**
 
-È possibile ridimensionare l'istanza gestita da [portale di Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) o i [modelli ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+È possibile ridimensionare l'istanza gestita da [portale di Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) o i [modelli ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **È possibile spostare il Istanza gestita da un'area a un'altra?**
 
@@ -102,7 +102,7 @@ Sì, è possibile. Per istruzioni, vedere [spostare le risorse tra le aree](../d
 
 **Come è possibile eliminare la Istanza gestita?**
 
-È possibile eliminare le istanze gestite tramite portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), l' [interfaccia](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) della riga di comando di Azure o le [API REST di gestione risorse](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+È possibile eliminare le istanze gestite tramite portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0&preserve-view=true), l' [interfaccia](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) della riga di comando di Azure o le [API REST di gestione risorse](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **Quanto tempo è necessario per creare o aggiornare un'istanza o per ripristinare un database?**
 
@@ -135,9 +135,9 @@ Istanza gestita offre gli stessi livelli di prestazioni per calcolo e dimensioni
 
 Un'opzione consiste nell' [esportare un database in BacPac](../database/database-export.md) e quindi [importare il file BACPAC](../database/database-import.md). Si tratta dell'approccio consigliato se il database è inferiore a 100 GB.
 
-La [replica transazionale](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) può essere utilizzata se tutte le tabelle del database includono chiavi *primarie* e nel database non sono presenti oggetti OLTP in memoria.
+La [replica transazionale](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) può essere utilizzata se tutte le tabelle del database includono chiavi *primarie* e nel database non sono presenti oggetti OLTP in memoria.
 
-Non è possibile ripristinare i backup nativi di COPY_ONLY eseguiti dall'istanza gestita per SQL Server perché l'istanza gestita ha una versione del database superiore rispetto a SQL Server. Per informazioni dettagliate, vedere [backup di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15).
+Non è possibile ripristinare i backup nativi di COPY_ONLY eseguiti dall'istanza gestita per SQL Server perché l'istanza gestita ha una versione del database superiore rispetto a SQL Server. Per informazioni dettagliate, vedere [backup di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true).
 
 **Come è possibile eseguire la migrazione dell'istanza di SQL Server a SQL Istanza gestita?**
 
@@ -184,11 +184,11 @@ Per tutte le opzioni possibili per il monitoraggio e l'avviso sull'utilizzo e su
 
 **È possibile utilizzare SQL Profiler per il rilevamento delle prestazioni?**
 
-Sì, SQL Profiler è supportato o SQL Istanza gestita. Per ulteriori informazioni, vedere [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15).
+Sì, SQL Profiler è supportato o SQL Istanza gestita. Per ulteriori informazioni, vedere [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true).
 
 **Advisor per database e Informazioni dettagliate prestazioni query sono supportati per i database Istanza gestita?**
 
-No, non sono supportate. È possibile usare [DMV](../database/monitoring-with-dmvs.md) e [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) insieme a [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) e [XEvent](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) per monitorare i database.
+No, non sono supportate. È possibile usare [DMV](../database/monitoring-with-dmvs.md) e [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15&preserve-view=true) insieme a [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true) e [XEvent](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15&preserve-view=true) per monitorare i database.
 
 **È possibile creare avvisi sulle metriche in SQL Istanza gestita?**
 
@@ -228,7 +228,7 @@ Per tenere traccia del momento in cui sono stati eseguiti i backup automatici in
 
 **Il backup su richiesta è supportato?**
 
-Sì, è possibile creare un backup completo di sola copia nell'archiviazione BLOB di Azure, ma sarà ripristinabile solo in Istanza gestita. Per informazioni dettagliate, vedere [backup di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). Il backup di sola copia, tuttavia, non è possibile se il database è crittografato da Transparent Service Management perché il certificato usato per la crittografia non è accessibile. In tal caso, utilizzare la funzionalità di ripristino temporizzato per spostare il database in un altro Istanza gestita SQL oppure passare alla chiave gestita dal cliente.
+Sì, è possibile creare un backup completo di sola copia nell'archiviazione BLOB di Azure, ma sarà ripristinabile solo in Istanza gestita. Per informazioni dettagliate, vedere [backup di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true). Il backup di sola copia, tuttavia, non è possibile se il database è crittografato da Transparent Service Management perché il certificato usato per la crittografia non è accessibile. In tal caso, utilizzare la funzionalità di ripristino temporizzato per spostare il database in un altro Istanza gestita SQL oppure passare alla chiave gestita dal cliente.
 
 **Il ripristino nativo (da file con estensione bak) a Istanza gestita supportato?**
 
@@ -390,7 +390,7 @@ Sì, Transparent Data Encryption è supportato per SQL Istanza gestita. Per info
 
 **È possibile sfruttare il modello "Bring your own key" per Transparent Data Encryption?**
 
-Sì, Azure Key Vault scenario per BYOK è disponibile per Istanza gestita SQL di Azure. Per informazioni dettagliate, vedere [Transparent Data Encryption con chiave gestita dal cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
+Sì, Azure Key Vault scenario per BYOK è disponibile per Istanza gestita SQL di Azure. Per informazioni dettagliate, vedere [Transparent Data Encryption con chiave gestita dal cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key&preserve-view=true).
 
 **È possibile eseguire la migrazione di un database SQL Server crittografato?**
 
@@ -509,6 +509,10 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 
 ## <a name="service-updates"></a>Aggiornamenti del servizio
+
+**Qual è la modifica della CA radice per il database SQL di Azure & SQL Istanza gestita?**
+
+Vedere [rotazione del certificato per il database SQL di Azure & sql istanza gestita](https://docs.microsoft.com/azure/azure-sql/updates/ssl-root-certificate-expiring). 
 
 **Che cos'è un evento di manutenzione pianificata per SQL Istanza gestita?**
 

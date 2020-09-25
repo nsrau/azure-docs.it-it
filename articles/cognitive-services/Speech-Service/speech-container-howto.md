@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: b51319716035cc4f59d50922846b067f4eda31d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6a1f8cc9526d1f8393f8e7aa434587d8e4c0e979
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900468"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334676"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi vocali 
 
@@ -37,13 +37,13 @@ I contenitori del servizio Voce permettono ai clienti di creare un'architettura 
 >
 > Per usare i contenitori di riconoscimento vocale è necessario inviare una richiesta online e approvarla. Per ulteriori informazioni, vedere la sezione relativa all' **approvazione della richiesta per eseguire il contenitore** riportata di seguito.
 
-| Funzione | Funzionalità | Ultima versione |
+| Contenitore | Funzionalità | Ultima versione |
 |--|--|--|
-| Riconoscimento vocale | Analizza i sentimenti e trascrive le registrazioni audio continue in tempo reale o batch con risultati intermedi.  | 2.3.1 |
-| Da Riconoscimento vocale personalizzato a testo | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.3.1 |
-| Sintesi vocale | Converte il testo in sintesi vocale naturale con input di testo normale o linguaggio di markup sintesi vocale (SSML). | 1.5.0 |
-| Sintesi vocale personalizzata | Usando un modello personalizzato dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal), converte il testo in un discorso di suono naturale con input di testo normale o SSML (Speech Synthesis Markup Language). | 1.5.0 |
-| Rilevamento lingua vocale | Rilevare la lingua pronunciata nei file audio. | 1,0 |
+| Riconoscimento vocale | Analizza i sentimenti e trascrive le registrazioni audio continue in tempo reale o batch con risultati intermedi.  | 2.5.0 |
+| Da Riconoscimento vocale personalizzato a testo | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.5.0 |
+| Sintesi vocale | Converte il testo in sintesi vocale naturale con input di testo normale o linguaggio di markup sintesi vocale (SSML). | 1.7.0 |
+| Sintesi vocale personalizzata | Usando un modello personalizzato dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal), converte il testo in un discorso di suono naturale con input di testo normale o SSML (Speech Synthesis Markup Language). | 1.7.0 |
+| Rilevamento lingua vocale | Rilevare la lingua pronunciata nei file audio. | 1.0 |
 | Sintesi vocale neurale | Converte il testo in sintesi vocale naturale usando la tecnologia di rete neurale profonda, consentendo una sintesi vocale più naturale. | 1.1.0 |
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
@@ -96,7 +96,7 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 
 ## <a name="request-approval-to-the-run-the-container"></a>Richiedere l'approvazione all'esecuzione del contenitore
 
-Compilare e inviare il [modulo di richiesta](https://aka.ms/cognitivegate) per richiedere l'accesso al contenitore. 
+Compilare e inviare il [modulo di richiesta](https://aka.ms/csgate) per richiedere l'accesso al contenitore. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -468,7 +468,7 @@ Questo comando:
 * Se il modello personalizzato è stato scaricato in precedenza, `ModelId` viene ignorato.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
 
-# <a name="language-detection"></a>[Rilevamento lingua](#tab/lid)
+# <a name="speech-language-detection"></a>[Rilevamento lingua vocale](#tab/lid)
 
 Per eseguire il *riconoscimento vocale rilevamento lingua* contenitore, eseguire il `docker run` comando seguente.
 
@@ -482,7 +482,7 @@ ApiKey={API_KEY}
 
 Questo comando: 
 
-* Esegue un contenitore di rilevamento del linguaggio vocale dall'immagine del contenitore.
+* Esegue un contenitore di rilevamento del linguaggio vocale dall'immagine del contenitore. Attualmente non verrà addebitato alcun costo per l'esecuzione di questa immagine. 
 * Alloca 1 core CPU e 1 gigabyte (GB) di memoria.
 * Espone la porta TCP 5003 e alloca uno pseudo-TTY per il contenitore.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
@@ -509,7 +509,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 | Contenitori | URL host SDK | Protocollo |
 |--|--|--|
 | Sintesi vocale standard e da Riconoscimento vocale personalizzato a testo | `ws://localhost:5000` | WS |
-| Sintesi vocale (incluso standard, personalizzato e neurale), rilevamento della lingua | `http://localhost:5000` | HTTP |
+| Sintesi vocale (incluso standard, personalizzato e neurale), rilevamento della lingua vocale | `http://localhost:5000` | HTTP |
 
 Per ulteriori informazioni sull'utilizzo di protocolli WSS e HTTPS, vedere [sicurezza dei contenitori](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
@@ -668,7 +668,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](spe
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione di contenitori di sintesi vocale. In sintesi:
 

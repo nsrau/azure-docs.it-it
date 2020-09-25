@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4afaf536a9c65758ad030e5cdeeee5fb97074d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7cf9f18701317482284a3f1fa4b69a2c2927f64a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046667"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287713"
 ---
 # <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>Diagnosticare i problemi di connettività di Azure sinapsi Studio (anteprima) con lo script di PowerShell
 
@@ -27,13 +27,13 @@ Azure sinapsi Studio (anteprima) dipende da un set di endpoint dell'API Web per 
 
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 
-Fare clic con il pulsante destro del mouse sul collegamento seguente e scegliere "Salva destinazione con nome":
+Fare clic con il pulsante destro del mouse sul collegamento seguente e selezionare "Salva destinazione con nome":
 
 - [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
 
 In alternativa, è possibile aprire direttamente il collegamento e salvare il file di script aperto. Non salvare l'indirizzo del collegamento precedente, in quanto potrebbe cambiare in futuro.
 
-In Esplora file fare clic con il pulsante destro del mouse sul file di script scaricato e scegliere "Esegui con PowerShell".
+In Esplora file fare clic con il pulsante destro del mouse sul file di script scaricato e selezionare "Esegui con PowerShell".
 
 ![Eseguire il file di script scaricato con PowerShell](media/troubleshooting-synapse-studio-powershell/run-with-powershell.png)
 

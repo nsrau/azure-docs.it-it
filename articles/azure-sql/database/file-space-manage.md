@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: ebaddbcacbc20097b2ec5606244650ea2916edfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e751a77d40403c7bdd4644e8e6fb03ff89063e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324539"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335070"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Gestire lo spazio file per i database nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,7 +64,7 @@ La comprensione delle quantità di spazio di archiviazione seguenti è important
 |**Spazio dati usato**|Quantità di spazio usato per archiviare i dati del database in pagine da 8 KB.|In genere, lo spazio usato aumenta quando vengono inseriti i dati e diminuisce quando vengono eliminati. In alcuni casi, lo spazio usato non cambia in caso di inserimenti o eliminazioni, a seconda della quantità e del modello di dati coinvolti nell'operazione e dell'eventuale frammentazione. Ad esempio, se si elimina una riga da ogni pagina di dati, non si riduce necessariamente lo spazio usato.|
 |**Spazio dati allocato**|Quantità di spazio file formattato messo a disposizione per l'archiviazione dei dati del database.|La quantità di spazio allocato aumenta automaticamente, ma non diminuisce mai dopo le eliminazioni. Questo comportamento assicura che gli inserimenti futuri avvengano più velocemente, perché non è necessario riformattare lo spazio.|
 |**Spazio dati allocato ma non usato**|Differenza tra la quantità di spazio dati allocato e lo spazio dati usato.|Questa quantità rappresenta la quantità massima di spazio libero che può essere recuperata compattando i file di dati del database.|
-|**Dimensioni massime dati**|Quantità massima di spazio che può essere usata per l'archiviazione dei dati del database.|La quantità di spazio dati allocato non può superare le dimensioni massime dei dati.|
+|**Dimensioni massime dei dati**|Quantità massima di spazio che può essere usata per l'archiviazione dei dati del database.|La quantità di spazio dati allocato non può superare le dimensioni massime dei dati.|
 
 Il diagramma seguente illustra la relazione tra i diversi tipi di spazio di archiviazione per un database.
 
@@ -120,7 +120,7 @@ La comprensione delle quantità di spazio di archiviazione seguenti è important
 |**Spazio dati usato**|Somma dello spazio dati usato da tutti i database nel pool elastico.||
 |**Spazio dati allocato**|Somma dello spazio dati allocato da tutti i database nel pool elastico.||
 |**Spazio dati allocato ma non usato**|Differenza tra la quantità di spazio dati allocato e lo spazio dati usato da tutti i database nel pool elastico.|Questa quantità rappresenta la quantità massima di spazio allocato per il pool elastico che può essere recuperata compattando i file di dati del database.|
-|**Dimensioni massime dati**|Quantità massima di spazio dati che può essere usata dal pool elastico per tutti i rispettivi database.|Lo spazio allocato per il pool elastico non deve superare le dimensioni massime del pool elastico.  Se si verifica questa condizione, lo spazio allocato e non usato può essere recuperato compattando i file di dati del database.|
+|**Dimensioni massime dei dati**|Quantità massima di spazio dati che può essere usata dal pool elastico per tutti i rispettivi database.|Lo spazio allocato per il pool elastico non deve superare le dimensioni massime del pool elastico.  Se si verifica questa condizione, lo spazio allocato e non usato può essere recuperato compattando i file di dati del database.|
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Eseguire una query su un pool elastico per ottenere informazioni sullo spazio di archiviazione
 

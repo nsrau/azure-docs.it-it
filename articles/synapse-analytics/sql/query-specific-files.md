@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 04a308805dd69c4d9245d287a391f1e7fa7d50f2
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.reviewer: jrasnick
+ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055567"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288104"
 ---
 # <a name="use-file-metadata-in-queries"></a>Usare i metadati dei file nelle query
 
@@ -22,7 +22,7 @@ SQL su richiesta può indirizzare più file e cartelle, come descritto nell'arti
 
 In alcuni casi, potrebbe essere necessario individuare l'origine del file o della cartella correlata a una riga specifica nel set di risultati.
 
-È possibile usare la funzione `filepath` e `filename` per restituire i nomi file e/o il percorso nel set di risultati. In alternativa, è possibile usarli per filtrare i dati in base al nome file e/o al percorso della cartella. Queste funzioni sono descritte nella sezione relativa alla sintassi della [funzione filename](query-data-storage.md#filename-function) e della [funzione filepath](query-data-storage.md#filepath-function). Di seguito sono riportate brevi descrizioni insieme agli esempi.
+È possibile usare la funzione `filepath` e `filename` per restituire i nomi file e/o il percorso nel set di risultati. In alternativa, è possibile usarli per filtrare i dati in base al nome file e/o al percorso della cartella. Queste funzioni sono descritte nella sezione relativa alla sintassi della [funzione filename](query-data-storage.md#filename-function) e della [funzione filepath](query-data-storage.md#filepath-function). Nelle sezioni seguenti sono disponibili brevi descrizioni lungo gli esempi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

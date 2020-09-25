@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlr
+ms.reviewer: sstein
 ms.date: 04/16/2019
-ms.openlocfilehash: de8d1b7aba7763799228c831af61bf83a79937bb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 332b5198f046d0096e95e79e27cbc49408e6d136
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325199"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Informazioni di riferimento sul contenuto del Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ In questo articolo è possibile trovare un riferimento al contenuto per diverse 
 
 - [Configurare l'autorizzazione di Azure AD](../database/authentication-aad-configure.md)
 - [Configurare l'accesso condizionale](../database/conditional-access-configure.md)
-- [Autenticazione a più fattori Azure AD](../database/authentication-mfa-ssms-overview.md)
+- [Autenticazione di Azure AD a più fattori](../database/authentication-mfa-ssms-overview.md)
 - [Configurare l'autenticazione a più fattori](../database/authentication-mfa-ssms-configure.md)
 - [Configurare un criterio di conservazione temporale](../database/temporal-tables-retention-policy.md)
 - [Configurare TDE con BYOK](../database/transparent-data-encryption-byok-configure.md)
@@ -77,9 +77,9 @@ In questo articolo è possibile trovare un riferimento al contenuto per diverse 
 
 ### <a name="alerting"></a>Creazione di avvisi
 
-- [Crea avvisi per istanza gestita](alerts-create.md)
+- [Creare avvisi per l'istanza gestita](alerts-create.md)
 
-## <a name="operations"></a>Operazioni
+## <a name="operations"></a>Gestione operativa
 
 - [Failover manuale avviato dall'utente in SQL Istanza gestita](user-initiated-failover.md)
 

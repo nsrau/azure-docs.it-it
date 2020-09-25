@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 88c14ef916847b84f881e8da2deda7835df37ffb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 632330d7c94e145124e202be9050e4e1beeb12b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550285"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265460"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Esercitazione: configurare LucidChart per il provisioning utenti automatico
 
@@ -88,11 +88,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere il valore del **token di porta**  recuperato in precedenza nel campo **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a LucidChart. Se la connessione non riesce, verificare che l'account LucidChart disponga delle autorizzazioni di amministratore e riprovare.
 
