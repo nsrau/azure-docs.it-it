@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 6887371e50f5b7e8706cac0a0700873c42bdac06
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0463d11466859c0f30901a0afd960bdc7b2599a5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321646"
+ms.locfileid: "91357786"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-azure-sql-database-elastic-pools"></a>Strategie di ripristino di emergenza per le applicazioni che usano i pool elastici del database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Un'applicazione SaaS matura con più livelli di offerte del servizio e diversi c
 
 Per supportare questo scenario, separare i tenant delle versioni di valutazione dai tenant delle versioni a pagamento, inserendoli in pool elastici separati. I clienti delle versioni di valutazione avranno valori di eDTU o vCore per tenant inferiori e un contratto di servizio inferiore con tempi di ripristino più lunghi. I clienti delle versioni a pagamento saranno inclusi in un pool con valori di eDTU o vCore per tenant superiori e un contratto di servizio superiore. Per garantire tempi di ripristino minimi, i database tenant dei clienti delle versioni a pagamento sono sottoposti a replica geografica. Questa configurazione è illustrata nel diagramma seguente.
 
-![Figura 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
+![Il diagramma mostra un'area primaria e un'area D R che usano la replica geografica tra il database di gestione e il pool primario dei clienti a pagamento e il pool secondario senza replica per il pool dei clienti di valutazione.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
 Come nel primo scenario, i database di gestione sono abbastanza attivi, quindi si usa allo scopo un database singolo con replica geografica (1). In questo modo si assicurano prestazioni prevedibili per le sottoscrizioni dei nuovi clienti, gli aggiornamenti dei profili e altre operazioni di gestione. L'area in cui risiedono gli elementi primari dei database di gestione è l'area primaria e quella in cui si trovano gli elementi secondari dei database di gestione è l'area di ripristino di emergenza.
 
@@ -86,7 +86,7 @@ I database tenant dei clienti delle versioni a pagamento hanno database attivi n
 
 In caso di interruzione nell'area primaria, la procedura di ripristino per riportare online l'applicazione è illustrata nel diagramma seguente.
 
-![Figura 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
+![Il diagramma mostra un'interruzione per l'area primaria, con failover per il database di gestione, il pool secondario del cliente pagato e la creazione e il ripristino per i clienti della versione di valutazione.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
 * Effettuare immediatamente il failover dei database di gestione nell'area di ripristino di emergenza (3).
 * Modificare la stringa di connessione dell'applicazione in modo che faccia riferimento all'area di ripristino di emergenza. Tutti i nuovi account e database tenant verranno ora creati nell'area di ripristino di emergenza. I dati risulteranno temporaneamente non disponibili per i clienti esistenti delle versioni di valutazione.
@@ -99,7 +99,7 @@ A questo punto l'applicazione è di nuovo online nell'area di ripristino di emer
 
 Quando l'area primaria viene ripristinata da Azure *dopo* il ripristino dell'applicazione nell'area di ripristino di emergenza, è possibile continuare a eseguire l'applicazione in tale area oppure eseguire il failback nell'area primaria. Se l'area primaria viene ripristinata *prima* che il processo di failover sia completato, valutare la possibilità di effettuare immediatamente il failback. Il failback prevede la procedura illustrata nel diagramma seguente:
 
-![Figura 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
+![Il diagramma mostra i passaggi di failback da implementare dopo il ripristino dell'area primaria.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
 * Annullare tutte le richieste di ripristino geografico in sospeso.
 * Effettuare il failover dei database di gestione (8). Dopo il ripristino dell'area, l'elemento primario precedente diventa automaticamente l'elemento secondario. Ora diventa di nuovo primario.  
@@ -128,7 +128,7 @@ Per supportare questo scenario, usare tre pool elastici separati. È necessario 
 
 Per garantire tempi di ripristino minimi durante le interruzioni, i database tenant dei clienti della versione a pagamento sono sottoposti a replica geografica con il 50% dei database primari in ognuna delle due aree. Analogamente, ogni area include il 50% dei database secondari. In questo modo, lo stato offline di un'area influisce solo sul 50% dei database dei clienti a pagamento, di cui viene effettuato il failover. Gli altri database rimangono inalterati. Questa configurazione è illustrata nel diagramma seguente:
 
-![Figura 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
+![Il diagramma mostra un'area primaria denominata area A e area secondaria denominata Region B, che usa la replica geografica tra il database di gestione e il pool primario dei clienti a pagamento e il pool secondario senza replica per il pool dei clienti di valutazione.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
 Come nello scenario precedente, i database di gestione sono abbastanza attivi, quindi devono essere configurati come database singoli con replica geografica (1). In questo modo si assicurano prestazioni prevedibili per le sottoscrizioni dei nuovi clienti, gli aggiornamenti dei profili e altre operazioni di gestione. L'area A è l'area primaria per i database di gestione e l'area B viene usata per il ripristino dei database di gestione.
 
@@ -136,7 +136,7 @@ I database tenant dei clienti della versione a pagamento vengono sottoposti anch
 
 Il diagramma seguente illustra la procedura di ripristino da eseguire in caso di interruzione nell'area A.
 
-![Figura 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
+![Il diagramma mostra un'interruzione per l'area primaria, con failover per il database di gestione, il pool secondario del cliente pagato e la creazione e il ripristino per i clienti della versione di valutazione nell'area B.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
 * Eseguire immediatamente il failover dei database di gestione nell'area B (3).
 * Modificare la stringa di connessione dell'applicazione in modo che faccia riferimento ai database di gestione nell'area B. Modificare i database di gestione affinché i nuovi account e database tenant vengano creati nell'area B e i database tenant esistenti siano disponibili in tale area. I dati risulteranno temporaneamente non disponibili per i clienti esistenti delle versioni di valutazione.
@@ -152,7 +152,7 @@ A questo punto l'applicazione è di nuovo online nell'area B. Tutti i clienti a 
 
 Al termine del ripristino dell'area A, è necessario decidere se si vuole usare l'area B per i clienti della versione di valutazione o eseguire il failback e usare di nuovo il pool dei clienti della versione di valutazione nell'area A. Un criterio per la decisione potrebbe essere rappresentato dalla percentuale di database tenant della versione di valutazione modificati dopo il ripristino. Indipendentemente da questa decisione, è necessario ribilanciare i tenant della versione a pagamento tra i due pool. Il diagramma seguente illustra il processo di failback dei database tenant della versione di valutazione nell'area A.  
 
-![Figura 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
+![Il diagramma mostra i passaggi di failback da implementare dopo il ripristino dell'area A.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
 * Annullare tutte le richieste di ripristino geografico in sospeso verso il pool di ripristino di emergenza della versione di valutazione.
 * Effettuare il failover del database di gestione (8). Dopo il ripristino dell'area, l'elemento primario precedente è diventato automaticamente l'elemento secondario. Ora diventa di nuovo primario.  

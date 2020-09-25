@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 848a0c9817472086dbaf3973dad9c64e3ed74b10
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f47569eef7281840108c32283f664c3218de23dc
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954242"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357788"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Configurare Always Encrypted usando l'archivio certificati di Windows
 
@@ -127,7 +127,7 @@ Verificare che l'**archivio certificati di Windows** sia selezionato e fare clic
 
 Verificare che tutte le impostazioni siano corrette e fare clic su **Fine** per completare la configurazione della crittografia sempre attiva.
 
-![Summary](./media/always-encrypted-certificate-store-configure/summary.png)
+![Screenshot mostra la pagina risultati con attività contrassegnate come passate.](./media/always-encrypted-certificate-store-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Confermare le azioni della procedura guidata
 
@@ -543,7 +543,7 @@ Dopo avere creato un database che usa la crittografia sempre attiva, è possibil
 
 ## <a name="related-information"></a>Informazioni correlate
 
-* [Always Encrypted (sviluppo client)](https://msdn.microsoft.com/library/mt147923.aspx)
+* [Crittografia sempre attiva (sviluppo client)](https://msdn.microsoft.com/library/mt147923.aspx)
 * [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Crittografia di SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Procedura guidata Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)

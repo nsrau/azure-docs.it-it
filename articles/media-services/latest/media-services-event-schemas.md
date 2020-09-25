@@ -1,6 +1,6 @@
 ---
 title: Schemi di Griglia di eventi di Azure per gli eventi di Servizi multimediali
-description: Descrive le proprietà disponibili per gli eventi di Servizi multimediali con Griglia di eventi di Azure
+description: Informazioni sulle proprietà disponibili per gli eventi di servizi multimediali con griglia di eventi di Azure.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: f7c9f3b000973868c003477e58de14634b139cae
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 47ba1af15101ae68cf5311ed73f7078bf9fc7f35
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267667"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336429"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schemi di Griglia di eventi di Azure per gli eventi di Servizi multimediali
 
@@ -446,7 +446,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia. |
-| bitrate | integer | Velocità in bit della traccia. |
+| bitrate | numero intero | Velocità in bit della traccia. |
 | timestamp | string | Timestamp del blocco di dati eliminato. |
 | timescale | string | Scala cronologica del timestamp. |
 | resultCode | string | Motivo dell'eliminazione del blocco di dati. **FragmentDrop_OverlapTimestamp** o **FragmentDrop_NonIncreasingTimestamp**. |
@@ -486,7 +486,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
-| bitrate | integer | Velocità in bit della traccia. |
+| bitrate | numero intero | Velocità in bit della traccia. |
 | ingestUrl | string | URL di inserimento fornito dall'evento live. |
 | encoderIp | string  | Indirizzo IP del codificatore. |
 | encoderPort | string | Porta del codificatore da cui proviene il flusso. |
@@ -603,13 +603,13 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
-| bitrate | integer | Velocità in bit della traccia. |
-| incomingBitrate | integer | Velocità in bit calcolata in base ai blocchi di dati provenienti dal codificatore. |
+| bitrate | numero intero | Velocità in bit della traccia. |
+| incomingBitrate | numero intero | Velocità in bit calcolata in base ai blocchi di dati provenienti dal codificatore. |
 | lastTimestamp | string | Timestamp più recente ricevuto per una traccia negli ultimi 20 secondi. |
 | timescale | string | Scala cronologica in cui sono espressi i timestamp. |
-| overlapCount | integer | Numero di blocchi di dati sovrapposti al timestamp negli ultimi 20 secondi. |
-| discontinuityCount | integer | Numero di discontinuità osservate negli ultimi 20 secondi. |
-| nonIncreasingCount | integer | Numero di blocchi di dati con timestamp ricevuti in passato negli ultimi 20 secondi. |
+| overlapCount | numero intero | Numero di blocchi di dati sovrapposti al timestamp negli ultimi 20 secondi. |
+| discontinuityCount | numero intero | Numero di discontinuità osservate negli ultimi 20 secondi. |
+| nonIncreasingCount | numero intero | Numero di blocchi di dati con timestamp ricevuti in passato negli ultimi 20 secondi. |
 | unexpectedBitrate | bool | Se la velocità in bit prevista e quella effettiva superano il limite consentito negli ultimi 20 secondi. È true se e solo se i valori sono: incomingBitrate >= 2* bitrate O incomingBitrate <= bitrate/2 O incomingBitrate = 0. |
 | state | string | Stato dell'evento live. |
 | healthy | bool | Indica se l'inserimento è integro in base ai conteggi e ai flag. Healthy è true sei valori sono: overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
@@ -647,7 +647,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
-| bitrate | integer | Velocità in bit della traccia. |
+| bitrate | numero intero | Velocità in bit della traccia. |
 | previousTimestamp | string | Timestamp del frammento precedente. |
 | newTimestamp | string | Timestamp del frammento corrente. |
 | discontinuityGap | string | Spazio tra i due timestamp precedenti. |

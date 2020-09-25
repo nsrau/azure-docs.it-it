@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 368843cf9b6e59497fe00e69433ae0d14b3f3398
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb962efd4bcf82518a80eb120579db7835e7115c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84027922"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356775"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant e registrarli nel catalogo
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Per comprendere come l'applicazione Wingtip Tickets implementa il provisioning d
 
 2. Per aggiungere un punto di interruzione, posizionare il cursore in un punto qualsiasi sulla riga contenente il testo *New-Tenant `* e quindi premere F9.
 
-   ![Punto di interruzione](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![Screenshot mostra uno script con nuovo tenant evidenziato per l'aggiunta di un punto di interruzione.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. Per eseguire lo script, premere F5.
 

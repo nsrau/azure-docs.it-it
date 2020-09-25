@@ -11,12 +11,12 @@ ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e46c6d1c14d226522a1d534418b91076efeaaccf
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f1c4fe8268d24026609f55d76a102a5c9a4e8295
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070718"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356302"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Tipi di connessione di Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,14 +27,14 @@ Questo articolo illustra il modo in cui i client si connettono al Istanza gestit
 
 Azure SQL Istanza gestita supporta i due tipi di connessione seguenti:
 
-- **Redirect (scelta consigliata):** i client stabiliscono connessioni dirette al nodo che ospita il database. Per abilitare la connettività tramite il reindirizzamento, è necessario aprire i firewall e i gruppi di sicurezza di rete (NSG) per consentire l'accesso alle porte 1433 e 11000-11999. I pacchetti passano direttamente al database e, di conseguenza, sono disponibili miglioramenti delle prestazioni di latenza e velocità effettiva tramite reindirizzamento sul proxy.
-- **Proxy (predefinito):** In questa modalità tutte le connessioni usano un componente gateway del proxy. Per abilitare la connettività, è necessario aprire solo la porta 1433 per le reti private e la porta 3342 per la connessione pubblica. Se si sceglie questa modalità, è possibile che si riscontri un aumento della latenza e una riduzione della velocità effettiva, a seconda della natura del carico di lavoro. Per la latenza più bassa e la velocità effettiva più elevata, è consigliabile usare i criteri di connessione del proxy per il reindirizzamento.
+- **Redirect (scelta consigliata):** i client stabiliscono connessioni dirette al nodo che ospita il database. Per abilitare la connettività tramite il reindirizzamento, è necessario aprire i firewall e i gruppi di sicurezza di rete (NSG) per consentire l'accesso alle porte 1433 e 11000-11999. I pacchetti passano direttamente al database e, di conseguenza, si riscontrano miglioramenti delle prestazioni di latenza e velocità effettiva con il reindirizzamento sul proxy.
+- **Proxy (predefinito):** In questa modalità tutte le connessioni usano un componente gateway del proxy. Per abilitare la connettività, è necessario aprire solo la porta 1433 per le reti private e la porta 3342 per la connessione pubblica. Se si sceglie questa modalità, è possibile che si riscontri un aumento della latenza e una riduzione della velocità effettiva, a seconda della natura del carico di lavoro. Per la minor latenza e la maggiore velocità effettiva possibili, quindi, è vivamente consigliabile scegliere i criteri di connessione tramite reindirizzamento anziché tramite proxy.
 
 ## <a name="redirect-connection-type"></a>Tipo di connessione di reindirizzamento
 
 Nel tipo di connessione reindirizzamento, dopo che la sessione TCP viene stabilita nel motore SQL, la sessione client ottiene l'indirizzo IP virtuale di destinazione del nodo del cluster virtuale dal servizio di bilanciamento del carico. I pacchetti successivi passano direttamente al nodo del cluster virtuale, ignorando il gateway. Il diagramma seguente illustra il flusso del traffico.
 
-![redirect.png](./media/connection-types-overview/redirect.png)
+![Il diagramma mostra una rete locale con reindirizzamento-Find-DB connesso a un gateway in una rete virtuale di Azure e una query di reindirizzamento connessa a un nodo primario del database nella rete virtuale.](./media/connection-types-overview/redirect.png)
 
 > [!IMPORTANT]
 > Il tipo di connessione di reindirizzamento attualmente funziona solo per un endpoint privato. Indipendentemente dalle impostazioni del tipo di connessione, le connessioni che passano attraverso l'endpoint pubblico passano attraverso un proxy.
@@ -43,7 +43,7 @@ Nel tipo di connessione reindirizzamento, dopo che la sessione TCP viene stabili
 
 Nel tipo di connessione proxy la sessione TCP viene stabilita usando il gateway e tutti i pacchetti successivi li passano. Il diagramma seguente illustra il flusso del traffico.
 
-![proxy.png](./media/connection-types-overview/proxy.png)
+![Il diagramma mostra una rete locale con un proxy connesso a un gateway in una rete virtuale di Azure, connettersi accanto a un nodo primario del database nella rete virtuale.](./media/connection-types-overview/proxy.png)
 
 ## <a name="changing-connection-type"></a>Modifica del tipo di connessione
 

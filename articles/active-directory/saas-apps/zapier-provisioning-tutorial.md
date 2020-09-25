@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4a6b4698a873d6bdba0c4145b5bf7bb486b5e1c5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bb010ea7262de4498d25250845eebaec8606c707
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546146"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327987"
 ---
 # <a name="tutorial-configure-zapier-for-automatic-user-provisioning"></a>Esercitazione: configurare Zapier per il provisioning utenti automatico
 
@@ -87,11 +87,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**.
 
-   ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-   ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere l' **URL del tenant** di Zapier e il **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Zapier. Se la connessione non riesce, verificare che l'account Zapier disponga delle autorizzazioni di amministratore e riprovare.
 

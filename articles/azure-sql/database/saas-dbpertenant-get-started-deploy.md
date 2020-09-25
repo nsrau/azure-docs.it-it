@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 8d71f6e71a7cd6033e570742a23016df0c25dd27
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: cfe440cb8ac98518547248485201b85dc0d0076d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542247"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356826"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Distribuire ed esplorare un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL di Azure
 
@@ -57,7 +57,7 @@ Scegliere ora i nomi e annotarli.
 
 1. Per aprire il modello di distribuzione dell'applicazione SaaS di database per tenant Wingtip Tickets nel portale di Azure, fare clic sul pulsante **Distribuisci in Azure**.
 
-   [![Immagine che mostra un pulsante con etichetta "Distribuisci in Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
+   [![Immagine che mostra il pulsante "Distribuisci in Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
 
 1. Nel modello immettere i valori per i parametri obbligatori.
 
@@ -65,7 +65,7 @@ Scegliere ora i nomi e annotarli.
     > Alcune impostazioni di autenticazione e per i firewall server sono intenzionalmente non protette a scopo dimostrativo. È consigliabile creare un nuovo gruppo di risorse. Non usare gruppi di risorse, server o pool esistenti. Non usare questa applicazione, gli script o eventuali risorse distribuite per la produzione. Eliminare questo gruppo di risorse quando non è più necessario usare l'applicazione per interrompere la fatturazione correlata.
 
     - **Gruppo di risorse**: selezionare **Crea nuovo** e specificare il nome univoco scelto in precedenza per il gruppo di risorse.
-    - **Percorso**: selezionare un percorso dall'elenco a discesa.
+    - **Località**: selezionare un percorso dall'elenco a discesa.
     - **Utente**: usare il valore del nome utente scelto in precedenza.
 
 1. Distribuire l'applicazione.
@@ -128,7 +128,7 @@ L'applicazione Wingtip usa  [*Gestione traffico di Azure*](../../traffic-manage
 
     Le parti del formato precedente sono illustrate nella tabella seguente.
 
-    | Parte URL        | Description       |
+    | Parte URL        | Descrizione       |
     | :-------------- | :---------------- |
     | eventi. Wingtip-criteri di | Le parti degli eventi dell'app Wingtip.<br /><br /> *-dpt* distingue l'implementazione di *database per tenant* dell'app Wingtip Tickets dalle altre implementazioni, ad esempio quelle di app per tenant *singole* (*-sa*) o di *database multi-tenant* (*-mt*). |
     | . * &lt; utente &gt; * di | *af1* nell'esempio. |
@@ -225,7 +225,7 @@ Dopo aver avviato l'esecuzione di un carico sulla raccolta di tenant, è possibi
 1. Nel  [portale di Azure](https://portal.azure.com) passare all'elenco di server SQL. Aprire quindi il server **catalog-dpt-&lt;UTENTE&gt;**.
     - Il server di catalogo contiene due database, **tenantcatalog** e **basetenantdb**, un database modello che viene copiato per creare nuovi tenant.
 
-   ![Database](./media/saas-dbpertenant-get-started-deploy/databases.png)
+   ![Screenshot mostra una pagina di panoramica del server di catalogo con i due database.](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Tornare all'elenco di istanze di SQL Server.
 

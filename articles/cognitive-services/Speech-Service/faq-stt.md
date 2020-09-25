@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 50ca6eacc7e75a3ff391401e7ced0e3583f1a285
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357574"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -29,7 +29,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **D: Da dove è necessario iniziare per usare un modello di base?**
 
-**R**: Prima di tutto è necessario ottenere una [chiave di sottoscrizione](get-started.md). Per effettuare chiamate REST ai modelli di base predistribuiti, vedere le [API REST](rest-apis.md). Se si desidera usare WebSocket, [scaricare l'SDK](speech-sdk.md).
+**R**: Prima di tutto è necessario ottenere una [chiave di sottoscrizione](overview.md#try-the-speech-service-for-free). Per effettuare chiamate REST ai modelli di base predistribuiti, vedere le [API REST](rest-apis.md). Se si desidera usare WebSocket, [scaricare l'SDK](speech-sdk.md).
 
 **: È sempre necessario compilare un modello conversione voce/testo personalizzato?**
 

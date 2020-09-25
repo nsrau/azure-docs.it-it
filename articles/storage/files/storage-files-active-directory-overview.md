@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 04f2b0e989edcb182c6c52ff0479902035137810
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 3f2fd9f2b75faeeb2d40bd71d074a929e86eebdf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561824"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358373"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Panoramica delle opzioni di autenticazione File di Azure basate sull'identità per l'accesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -34,7 +34,7 @@ Per informazioni su come abilitare l'autenticazione di Azure AD DS per le condiv
 
 -   **Azure Active Directory (Azure AD)**
 
-    Azure Active Directory (Azure AD) è il servizio Microsoft di gestione di identità e Directory basato sul cloud multi-tenant. Azure AD combina servizi di directory importanti, gestione dell'accesso all'applicazione e protezione dell'identità in un'unica soluzione. Le macchine virtuali Windows (VM) Unite a Azure AD possono accedere alle condivisioni file di Azure con le credenziali Azure AD. Per ulteriori informazioni, vedere [che cos'è Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+    Azure Active Directory (Azure AD) è il servizio Microsoft di gestione di identità e Directory basato sul cloud multi-tenant. Azure AD combina servizi di directory importanti, gestione dell'accesso all'applicazione e protezione dell'identità in un'unica soluzione. Le macchine virtuali Windows (VM) Unite a Azure AD possono accedere alle condivisioni file di Azure con le credenziali Azure AD. Per altre informazioni, vedere [Informazioni su Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
 
 -   **Azure Active Directory Domain Services (Azure AD DS)**
 
@@ -92,7 +92,7 @@ L'autenticazione basata su identità per File di Azure offre diversi vantaggi ri
 -   **Eseguire il backup degli elenchi di accesso Windows (noti anche come NTFS) insieme ai dati**  
     È possibile usare le condivisioni file di Azure per eseguire il backup delle condivisioni file locali esistenti. File di Azure conserva gli ACL insieme ai dati quando si esegue il backup di una condivisione file in condivisioni file di Azure tramite SMB.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Le condivisioni file di Azure sfruttano il protocollo Kerberos per l'autenticazione con servizi di dominio Active Directory locale o Azure AD DS. Quando un'identità associata a un utente o a un'applicazione in esecuzione su un client tenta di accedere ai dati nelle condivisioni file di Azure, la richiesta viene inviata al servizio del dominio, ad DS o Azure AD DS, per autenticare l'identità. Se l'autenticazione ha esito positivo, viene restituito un token Kerberos. Il client invia una richiesta che include il token Kerberos e le condivisioni file di Azure usano tale token per autorizzare la richiesta. Le condivisioni file di Azure ricevono solo il token Kerberos, non le credenziali di accesso.
 
@@ -114,7 +114,7 @@ Il diagramma seguente rappresenta il flusso di lavoro per l'autenticazione Azure
 
 - In primo luogo, non è necessario creare l'identità in Azure AD DS per rappresentare l'account di archiviazione. Questa operazione viene eseguita dal processo di abilitazione in background.
 
-- In secondo luogo, tutti gli utenti esistono in Azure AD possono essere autenticati e autorizzati. L'utente può essere solo cloud o ibrido. La sincronizzazione da Azure AD a Azure AD DS viene gestita dalla piattaforma senza richiedere alcuna configurazione utente. Tuttavia, il client deve essere aggiunto a un dominio Azure AD DS, non può essere Azure AD aggiunto o registrato. 
+- In secondo luogo, è possibile autenticare e autorizzare tutti gli utenti presenti in Azure AD. L'utente può essere solo cloud o ibrido. La sincronizzazione da Azure AD a Azure AD DS viene gestita dalla piattaforma senza richiedere alcuna configurazione utente. Tuttavia, il client deve essere aggiunto a un dominio Azure AD DS, non può essere Azure AD aggiunto o registrato. 
 
 :::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagramma":::
 

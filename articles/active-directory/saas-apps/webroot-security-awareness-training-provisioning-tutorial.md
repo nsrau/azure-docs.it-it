@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 31c0e9a690bde7a52a32fd9194afda76e1aaba8c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5bdcf197b4e8a619e55895faf7637ebac0ac12ae
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329143"
+ms.locfileid: "91361127"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Esercitazione: configurare Webroot Security Awareness Training per il provisioning utenti automatico
 
@@ -106,7 +106,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 5. Nella sezione **credenziali amministratore** immettere `https://awarenessapi.webrootanywhere.com/api/v2/scim` in **URL tenant**. Immettere il valore del token segreto recuperato in precedenza in **Token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possibile connettersi a Webroot Security Awareness Training. Se la connessione non riesce, verificare che l'account di formazione Webroot Security Awareness disponga di autorizzazioni di amministratore e riprovare.
 
-    ![provisioning](./media/webroot-security-awareness-training-provisioning-tutorial/provisioning.png)
+    ![Screenshot mostra la finestra di dialogo credenziali amministratore, in cui è possibile immettere il tenant U R L e il token segreto.](./media/webroot-security-awareness-training-provisioning-tutorial/provisioning.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 

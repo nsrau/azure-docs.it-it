@@ -1,6 +1,6 @@
 ---
 title: Convertire collegamenti e URL - Proxy di app di Azure AD| Microsoft Docs
-description: Tratta i fondamenti dei connettori del proxy applicazione di Azure AD.
+description: Informazioni su come reindirizzare i collegamenti hardcoded per le app pubblicate con Azure AD proxy di applicazione.
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563e5e811eec907ba286bdfb264fc51d32137e96
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 544aa1a4a859a9c328eb1d36e72d0f9f9ddb55b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282926"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327902"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzamento dei collegamenti hardcoded per le app pubblicate con Azure AD proxy di applicazione
 
@@ -145,7 +145,7 @@ Per iniziare con la conversione dei collegamenti, è sufficiente fare clic su un
 
 Ora, quando gli utenti accedono a questa applicazione, il proxy esegue automaticamente un'analisi per individuare gli URL interni che sono stati pubblicati tramite il proxy di applicazione nel tenant.
 
-## <a name="send-feedback"></a>Inviare un feedback
+## <a name="send-feedback"></a>Invia commenti
 
 Abbiamo bisogno dell'intervento dell'utente per rendere questa funzionalità operante per tutte le app. La ricerca viene eseguita in oltre 30 tag del codice HTML e CSS. Se si hanno esempi di collegamenti generati che non vengono convertiti, inviare un frammento di codice all'area [commenti sul proxy di applicazione](mailto:aadapfeedback@microsoft.com). 
 

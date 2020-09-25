@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 32d0c44abed2d4ace4c8896922ed7f6ed8b596ff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987031"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326100"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Ripristino temporizzato per BLOB in blocchi
 
@@ -36,13 +36,6 @@ Archiviazione di Azure analizza tutte le modifiche apportate ai BLOB specificati
 È possibile eseguire una sola operazione di ripristino in un account di archiviazione alla volta. Un'operazione di ripristino non può essere annullata quando è in corso, ma è possibile eseguire una seconda operazione di ripristino per annullare la prima operazione.
 
 L'operazione **Restore Ranges BLOB** restituisce un ID di ripristino che identifica in modo univoco l'operazione. Per controllare lo stato di un ripristino temporizzato, chiamare l'operazione **Get Restore status** con l'ID di ripristino restituito dall'operazione **Restore Ranges BLOB** .
-
-Tenere presenti le limitazioni seguenti per le operazioni di ripristino:
-
-- Un blocco che è stato caricato tramite [Put Block](/rest/api/storageservices/put-block) o [Put Block dall'URL](/rest/api/storageservices/put-block-from-url), ma non eseguito tramite [Put Block List](/rest/api/storageservices/put-block-list), non fa parte di un BLOB e pertanto non viene ripristinato come parte di un'operazione di ripristino.
-- Non è possibile ripristinare un BLOB con un lease attivo. Se un BLOB con un lease attivo è incluso nell'intervallo di BLOB da ripristinare, l'operazione di ripristino avrà esito negativo atomicamente.
-- Gli snapshot non vengono creati o eliminati come parte di un'operazione di ripristino. Solo il BLOB di base viene ripristinato allo stato precedente.
-- Se un BLOB è stato spostato tra i livelli ad accesso frequente e ad accesso sporadico nel periodo compreso tra il momento corrente e il punto di ripristino, il BLOB viene ripristinato al livello precedente. Tuttavia, un BLOB che è stato spostato nel livello archivio non verrà ripristinato.
 
 > [!IMPORTANT]
 > Quando si esegue un'operazione di ripristino, archiviazione di Azure blocca le operazioni sui dati nei BLOB negli intervalli da ripristinare per la durata dell'operazione. Le operazioni di lettura, scrittura ed eliminazione sono bloccate nella posizione primaria. Per questo motivo, è possibile che le operazioni come l'elenco dei contenitori nell'portale di Azure non vengano eseguite come previsto mentre è in corso l'operazione di ripristino.
@@ -76,9 +69,12 @@ Per avviare un'operazione di ripristino, un client deve disporre delle autorizza
 
 Il ripristino temporizzato per i BLOB in blocchi presenta le limitazioni e i problemi noti seguenti:
 
-- Come parte di un'operazione di ripristino temporizzato, è possibile ripristinare solo i BLOB in blocchi in un account di archiviazione standard per utilizzo generico V2. I BLOB di Accodamento, i BLOB di pagine e i BLOB in blocchi Premium non vengono ripristinati. Se un contenitore è stato eliminato durante il periodo di memorizzazione, il contenitore non verrà ripristinato con l'operazione di ripristino temporizzato. Per informazioni sulla protezione dei contenitori dall'eliminazione, vedere l'articolo [relativo all'eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md).
-- In un'operazione di ripristino temporizzato è possibile ripristinare solo BLOB in blocchi nei livelli ad accesso frequente o sporadico. Il ripristino dei BLOB in blocchi nel livello archivio non è supportato. Se, ad esempio, un BLOB nel livello di accesso frequente è stato spostato nel livello di accesso archivio due giorni fa e si esegue un'operazione di ripristino a tre giorni fa, il BLOB non viene ripristinato nel livello di accesso frequente. Per ripristinare un BLOB archiviato, spostarlo prima dal livello archivio.
-- Se un BLOB in blocchi nell'intervallo da ripristinare dispone di un lease attivo, l'operazione di ripristino temporizzato avrà esito negativo. Interrompere eventuali lease attivi prima di avviare l'operazione di ripristino.
+- Come parte di un'operazione di ripristino temporizzato, è possibile ripristinare solo i BLOB in blocchi in un account di archiviazione standard per utilizzo generico V2. I BLOB di Accodamento, i BLOB di pagine e i BLOB in blocchi Premium non vengono ripristinati. 
+- Se un contenitore è stato eliminato durante il periodo di memorizzazione, il contenitore non verrà ripristinato con l'operazione di ripristino temporizzato. Se si tenta di ripristinare un intervallo di BLOB che include BLOB in un contenitore eliminato, l'operazione di ripristino temporizzato avrà esito negativo. Per informazioni sulla protezione dei contenitori dall'eliminazione, vedere l'articolo [relativo all'eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md).
+- Se un BLOB è stato spostato tra i livelli ad accesso frequente e ad accesso sporadico nel periodo compreso tra il momento corrente e il punto di ripristino, il BLOB viene ripristinato al livello precedente. Il ripristino dei BLOB in blocchi nel livello archivio non è supportato. Se, ad esempio, un BLOB nel livello di accesso frequente è stato spostato nel livello di accesso archivio due giorni fa e si esegue un'operazione di ripristino a tre giorni fa, il BLOB non viene ripristinato nel livello di accesso frequente. Per ripristinare un BLOB archiviato, spostarlo prima dal livello archivio. Per altre informazioni, vedere [reidratare i dati BLOB dal livello archivio](storage-blob-rehydration.md).
+- Un blocco che è stato caricato tramite [Put Block](/rest/api/storageservices/put-block) o [Put Block dall'URL](/rest/api/storageservices/put-block-from-url), ma non eseguito tramite [Put Block List](/rest/api/storageservices/put-block-list), non fa parte di un BLOB e pertanto non viene ripristinato come parte di un'operazione di ripristino.
+- Non è possibile ripristinare un BLOB con un lease attivo. Se un BLOB con un lease attivo è incluso nell'intervallo di BLOB da ripristinare, l'operazione di ripristino avrà esito negativo atomicamente. Interrompere eventuali lease attivi prima di avviare l'operazione di ripristino.
+- Gli snapshot non vengono creati o eliminati come parte di un'operazione di ripristino. Solo il BLOB di base viene ripristinato allo stato precedente.
 - Il ripristino Azure Data Lake Storage Gen2 spazi dei nomi flat e gerarchici non è supportato.
 
 > [!IMPORTANT]

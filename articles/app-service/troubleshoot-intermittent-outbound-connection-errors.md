@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: 467f7b3525883e16e57a06ff97cf4fd386279d22
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: b38ba59b3efc7e5869eecbc84879a6c0a4ce7369
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958236"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360209"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Risoluzione degli errori di connessione in uscita intermittenti nel servizio app Azure
 
@@ -32,7 +32,7 @@ Le applicazioni e le funzioni ospitate nel servizio app Azure possono presentare
 Una causa principale di questi sintomi è che l'istanza dell'applicazione non è in grado di aprire una nuova connessione all'endpoint esterno poiché ha raggiunto uno dei limiti seguenti:
 
 * Connessioni TCP: è previsto un limite per il numero di connessioni in uscita che è possibile effettuare. Questa operazione è associata alle dimensioni del ruolo di lavoro utilizzato.
-* Porte SNAT: come descritto in [connessioni in uscita in Azure](../load-balancer/load-balancer-outbound-connections.md), azure USA Network Address Translation di origine (SNAT) e una Load Balancer (non esposta ai clienti) per comunicare con gli endpoint fuori da Azure nello spazio degli indirizzi IP pubblici. A ogni istanza nel servizio app Azure viene inizialmente assegnato un numero preallocato di **128** porte SNAT. Tale limite influiscono sull'apertura delle connessioni alla stessa combinazione host e porta. Se l'app crea connessioni a una combinazione di combinazioni di indirizzo e porta, le porte SNAT non vengono usate. Le porte SNAT vengono utilizzate quando si hanno ripetute chiamate alla stessa combinazione di indirizzo e porta. Una volta rilasciata una porta, la porta sarà disponibile per il riutilizzo in base alle esigenze. Il servizio di bilanciamento del carico di rete di Azure recupera la porta SNAT dalle connessioni chiuse solo dopo l'attesa di 4 minuti.
+* Porte SNAT: come descritto in [connessioni in uscita in Azure](../load-balancer/load-balancer-outbound-connections.md), azure USA Network Address Translation di origine (SNAT) e un Load Balancer (non esposto ai clienti) per comunicare con gli endpoint esterni ad Azure nello spazio degli indirizzi IP pubblici, nonché per gli endpoint interni di Azure che non sfruttano i vantaggi offerti dagli endpoint del servizio. A ogni istanza nel servizio app Azure viene inizialmente assegnato un numero preallocato di **128** porte SNAT. Tale limite influiscono sull'apertura delle connessioni alla stessa combinazione host e porta. Se l'app crea connessioni a una combinazione di combinazioni di indirizzo e porta, le porte SNAT non vengono usate. Le porte SNAT vengono utilizzate quando si hanno ripetute chiamate alla stessa combinazione di indirizzo e porta. Una volta rilasciata una porta, la porta sarà disponibile per il riutilizzo in base alle esigenze. Il servizio di bilanciamento del carico di rete di Azure recupera la porta SNAT dalle connessioni chiuse solo dopo l'attesa di 4 minuti.
 
 Quando le applicazioni o funzioni aprono rapidamente una nuova connessione, possono esaurire rapidamente la quota preallocata delle porte 128. Vengono quindi bloccati fino a quando non diventa disponibile una nuova porta SNAT, tramite l'allocazione dinamica di porte SNAT aggiuntive o il riutilizzo di una porta SNAT recuperata. Le applicazioni o le funzioni bloccate a causa dell'impossibilità di creare nuove connessioni inizieranno a riscontrare uno o più dei problemi descritti nella sezione relativa ai **sintomi** di questo articolo.
 

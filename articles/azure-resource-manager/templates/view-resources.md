@@ -3,12 +3,12 @@ title: Individuare le proprietà delle risorse
 description: Viene descritto come cercare le proprietà delle risorse.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 75c089ac9d0ca08c788fea1ac9011f018ef0195e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: c8bbe0dcb1bc9dc9751a1dc0d0b98a6368473546
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057076"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327749"
 ---
 # <a name="discover-resource-properties"></a>Individuare le proprietà delle risorse
 
@@ -74,7 +74,7 @@ Esplora inventario risorse è incorporato nel portale di Azure. Prima di usare q
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nella casella di ricerca immettere **Esplora inventario risorse**e quindi selezionare **Esplora inventario risorse**.
 
-    ![portale di Azure Esplora inventario risorse](./media/view-resources/azure-portal-resource-explorer.png)
+    ![Screenshot che mostra la ricerca del Esplora inventario risorse nel portale di Azure.](./media/view-resources/azure-portal-resource-explorer.png)
 
 1. Da sinistra espandere **sottoscrizioni**, quindi espandere la sottoscrizione di Azure. L'account di archiviazione può essere trovato in **provider** o **ResourceGroups**.
 

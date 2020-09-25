@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 9339ed7d0ab122420b37a67a96ee0d9d324e2f15
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 446517f56d1f5ba6fa32408489f07411ee1a3e02
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442906"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356805"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analisi su più tenant con dati estratti in un'app multi-tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 > - Eseguire query sul database di analisi.
 > - Usare Power BI per la visualizzazione dei dati per evidenziare le tendenze nei dati dei tenant e definire raccomandazioni per apportare miglioramenti.
 
-![architectureOverView](./media/saas-multitenantdb-tenant-analytics/architectureOverview.png)
+![Il diagramma mostra una panoramica dell'architettura usata per questo articolo.](./media/saas-multitenantdb-tenant-analytics/architectureOverview.png)
 
 ## <a name="offline-tenant-analytics-pattern"></a>Modello di analisi dei tenant offline
 
@@ -53,7 +53,7 @@ I dati aggregati vengono quindi suddivisi in un set di tabelle con [schema star]
 
 Insieme, la tabella centrale e quelle delle dimensioni supportano un'elaborazione analitica efficiente. L'immagine seguente illustra lo schema star usato in questa esercitazione:
  
-![StarSchema](./media/saas-multitenantdb-tenant-analytics/StarSchema.png)
+![Il diagramma di database Mostra quattro oggetti di database connessi a un oggetto di database centrale.](./media/saas-multitenantdb-tenant-analytics/StarSchema.png)
 
 Vengono infine eseguite query sulle tabelle dello schema star. I risultati delle query vengono visualizzati in modo da evidenziare informazioni dettagliate sul comportamento dei tenant e sul rispettivo uso dell'applicazione. Con questo schema star, è possibile eseguire query che consentono di individuare elementi come i seguenti:
 
@@ -111,7 +111,7 @@ Visualizzare gli elementi di database seguenti in Esplora oggetti di SSMS espand
 - Le tabelle dello schema star, ossia **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** e **dim_Dates**.
 - La stored procedure **sp_ShredRawExtractedData** è usata per popolare le tabelle dello schema star dalle tabelle dei dati non elaborati.
 
-![tenantAnalytics](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
+![Screenshot mostra la Esplora oggetti di S S per il nodo dell'archivio di analisi, incluse le tabelle, le visualizzazioni e i nodi.](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
 
 ## <a name="data-extraction"></a>Estrazione dei dati 
 
@@ -139,7 +139,7 @@ Ogni processo estrae i rispettivi dati e li inserisce nell'archivio di analisi. 
 4. Premere **F5** per eseguire lo script che crea ed esegue il processo che estrae i dati relativi ai ticket e ai clienti da ogni database tenant. Il processo salva i dati nell'archivio di analisi.
 5. Eseguire una query sulla tabella TicketsRawData del database tenantanalytics per verificare che la tabella sia stata popolata con le informazioni sui biglietti di tutti i tenant.
 
-![ticketExtracts](./media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
+![Screenshot mostra il database ExtractTickets con il TicketsRawData d b o selezionato in Esplora oggetti.](./media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
 
 Ripetere i passaggi precedenti, sostituendo però **\ExtractTickets.sql** con **\ExtractVenuesEvents.sql** nel passaggio 2.
 
@@ -159,7 +159,7 @@ In questa sezione dell'esercitazione si definisce e si esegue un processo che un
 4. Attendere il tempo sufficiente per il completamento del processo.
     - Controllare lo stato del processo nella colonna **Lifecycle** della tabella jobs.jobs_execution. Prima di procedere, verificare che lo stato del processo sia **Succeeded**. Al completamento dell'esecuzione verranno visualizzati dati simili all'immagine seguente:
 
-![shreddingJob](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
+![Screenshot indica il risultato positivo dell'esecuzione della procedura di sp_ShredRawExtractedData.](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 
 ## <a name="data-exploration"></a>Esplorazione dati
 
@@ -174,11 +174,11 @@ Seguire questa procedura per connettersi a Power BI e importare le viste create 
 3. Nella finestra **Recupera dati** selezionare il database SQL di Azure.
 4. Nella finestra di accesso al database immettere il nome del server (Catalog-mt- \<User\> . database.Windows.NET). Selezionare **Importa** come **Modalità Connettività dati** e quindi fare clic su OK. 
 
-    ![powerBISignIn](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
+    ![Screenshot mostra SQL Server finestra di dialogo database in cui è possibile immettere il server e il database.](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
 5. Selezionare **database** nel riquadro sinistro, quindi immettere nome utente = *Developer*e immettere password = *P \@ ssword1*. Fare clic su **Connetti**.  
 
-    ![DatabaseSignIn](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
+    ![Screenshot mostra la finestra di dialogo SQL Server database in cui è possibile immettere un nome utente e una password.](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
 6. Nel riquadro **Strumento di navigazione** selezionare le tabelle dello schema star fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates nel database di analisi. Selezionare quindi **Carica**. 
 
@@ -186,13 +186,13 @@ Congratulazioni! Il caricamento dei dati in Power BI è stato completato. È ora
 
 Per iniziare, si analizzano i dati relativi alle vendite di biglietti per individuare la variazione nell'utilizzo tra le diverse sedi. Selezionare le opzioni seguenti in Power BI per tracciare un grafico a barre del numero totale di biglietti venduti da ogni sede. A causa della variazione casuale nel generatore di biglietti, i risultati effettivi potrebbero essere diversi.
  
-![TotalTicketsByVenues](./media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
+![Screenshot mostra una visualizzazione e i controlli di Power B I per la visualizzazione dei dati sul lato destro.](./media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
 
 Il tracciato precedente conferma la variazione nel numero di biglietti venduti da ogni sede. Le sedi che vendono una maggiore quantità di biglietti usano di più il servizio rispetto a quelle con vendite inferiori. Questo potrebbe offrire l'opportunità di adattare l'allocazione delle risorse alle esigenze dei diversi tenant.
 
 È possibile analizzare ulteriormente i dati per individuare la variazione delle vendite di biglietti nel tempo. Selezionare le opzioni seguenti in Power BI per tracciare il numero totale di biglietti venduti ogni giorno per un periodo di 60 giorni.
  
-![SaleVersusDate](./media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
+![Screenshot mostra la visualizzazione di Power B I denominata distribuzione dei biglietti e il giorno della vendita.](./media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
 
 Il grafico precedente mostra un picco nelle vendite di biglietti per alcune sedi. Questi picchi rafforzano l'idea che alcune sedi potrebbe utilizzare le risorse di sistema in modo sproporzionato. Per ora non è stato rilevato un modello ovvio nella ricorrenza dei picchi.
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 2f4f81f8159e5800da7dfec58c01f474cb1c0d07
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 66f22fa2781fb4c0f4caa07323b3de8cac1ef9fd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437446"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361110"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Esplora le analisi SaaS con database SQL di Azure, Azure sinapsi Analytics, Data Factory e Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -111,7 +111,7 @@ In Esplora oggetti:
     1. Le tabelle dello schema star, ossia **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** e **dim_Dates**.
     1. Stored procedure **sp_transformExtractedData**, usata per trasformare i dati e caricarli nelle tabelle dello schema star.
 
-![DWtables](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
+![Screenshot Mostra Esplora oggetti con le tabelle espanse per visualizzare vari oggetti di database.](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
 
 #### <a name="blob-storage"></a>Archiviazione BLOB
 
@@ -167,7 +167,7 @@ Tre set di dati corrispondenti ai tre servizi collegati fanno riferimento ai dat
   
 ### <a name="data-warehouse-pattern-overview"></a>Panoramica del modello del data warehouse
 
-La sinapsi di Azure (in precedenza SQL Data Warehouse) viene usata come archivio di analisi per eseguire l'aggregazione sui dati del tenant. In questo esempio, polibase viene usato per caricare i dati nel data warehouse. I dati non elaborati vengono caricati in tabelle di staging che includono una colonna Identity per tenere traccia delle righe che sono state trasformate nelle tabelle dello schema star. L'immagine seguente illustra il modello di caricamento: ![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+La sinapsi di Azure (in precedenza SQL Data Warehouse) viene usata come archivio di analisi per eseguire l'aggregazione sui dati del tenant. In questo esempio, polibase viene usato per caricare i dati nel data warehouse. I dati non elaborati vengono caricati in tabelle di staging che includono una colonna Identity per tenere traccia delle righe che sono state trasformate nelle tabelle dello schema star. La figura seguente illustra il modello di caricamento: il ![ diagramma mostra il modello di caricamento delle tabelle di database.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 In questo esempio vengono usate tabelle delle dimensioni a modifica lenta di tipo 1. Ogni dimensione ha una chiave sostitutiva definita con una colonna Identity. Come procedura consigliata, la tabella delle dimensioni di data viene prepopolata per risparmiare tempo. Per le altre tabelle delle dimensioni, un CREATE TABLE come SELECT... L'istruzione (CTAS) viene utilizzata per creare una tabella temporanea contenente le righe modificate e non modificate esistenti, insieme alle chiavi surrogate. A questo scopo viene usato IDENTITY_INSERT=ON. Le nuove righe vengono quindi inserite nella tabella con IDENTITY_INSERT=OFF. Per facilitare il rollback, la tabella delle dimensioni esistente viene rinominata e la tabella temporanea viene a propria volta rinominata in modo da diventare la nuova tabella delle dimensioni. Prima di ogni esecuzione, la tabella delle dimensioni precedente viene eliminata.
 
@@ -181,14 +181,14 @@ Per eseguire l'intera pipeline di estrazione, caricamento e trasformazione per t
 
 1. Nella scheda di **creazione** dell'interfaccia utente di Azure Data Factory selezionare la pipeline **SQLDBToDW** nel riquadro sinistro.
 1. Fare clic su **Trigger** e quindi su **Trigger Now** (Attiva adesso) nel menu a discesa visualizzato. Questa azione determina l'esecuzione immediata della pipeline. In uno scenario di produzione si definirà un orario per l'esecuzione della pipeline, per aggiornare i dati in base a una pianificazione.
-  ![adf_trigger](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
+  ![Screenshot mostra le risorse factory per una pipeline denominata S Q L D B a D W con l'opzione trigger Expanded e trigger Now selected.](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
 1. Nella pagina **Pipeline Run** (Esecuzione di pipeline) fare clic su **Fine**.
 
 ### <a name="monitor-the-pipeline-run"></a>Monitorare l'esecuzione della pipeline
 
 1. Nell'interfaccia utente di Azure Data Factory passare alla scheda di **monitoraggio** dal menu a sinistra.
 1. Fare clic su **Aggiorna** finché lo stato della pipeline SQLDBToDW non è **Operazione completata**.
-  ![adf_monitoring](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
+  ![Screenshot mostra le S Q L D B alla pipeline D W con lo stato succeeded.](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
 1. Connettersi al data warehouse con SSMS ed eseguire query sulle tabelle dello schema star per verificare che vi siano stati caricati i dati.
 
 Al termine della pipeline, la tabella dei fatti contiene i dati relativi alle vendite di biglietti per tutte le sedi e le tabelle delle dimensioni sono popolate con le sedi, gli eventi e i clienti corrispondenti.

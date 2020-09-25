@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: ec95cde1f023b4d034c2fae9cc5a54744ccdc9a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4132ca675af136d7fd50b8ddd02277919a5ed28
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549840"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361093"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Creare una valutazione per le macchine virtuali di Azure
 
@@ -43,19 +43,19 @@ Eseguire una valutazione nel modo seguente:
 1. Rivedere le [procedure consigliate](best-practices-assessment.md) per la creazione di valutazioni.
 2. Nella scheda **Server**, nel riquadro **Azure Migrate: Valutazione server**, fare clic su **Valuta**.
 
-    ![Valutare](./media/how-to-create-assessment/assess.png)
+    ![Screenshot mostra i server Azure Migrate con valutazione selezionata in strumenti di valutazione.](./media/how-to-create-assessment/assess.png)
 
-3. In **valuta Server**selezionare il tipo di valutazione come "VM di Azure", selezionare l'origine di individuazione e specificare il nome della valutazione.
+3. In **Valuta server** selezionare "Macchina virtuale di Azure" come tipo di valutazione, selezionare l'origine di individuazione e specificare il nome della valutazione.
 
-    ![Nozioni fondamentali sulla valutazione](./media/how-to-create-assessment/assess-servers-azurevm.png)
+    ![Informazioni di base sulla valutazione](./media/how-to-create-assessment/assess-servers-azurevm.png)
 
 4. Fare clic su **Visualizza tutto** per rivedere le proprietà di valutazione.
 
     ![Proprietà valutazione](./media/how-to-create-assessment//view-all.png)
 
-5. Fare clic su **Avanti** per **selezionare le macchine virtuali da valutare**. In **Selezionare o creare un gruppo** selezionare **Crea nuovo** e specificare un nome per il gruppo. Un gruppo raccoglie una o più VM per la valutazione.
+5. Fare clic su **Avanti** per **selezionare i computer da valutare**. In **Selezionare o creare un gruppo** selezionare **Crea nuovo** e specificare un nome per il gruppo. Un gruppo raccoglie una o più VM per la valutazione.
 6. In **Aggiungere le macchine virtuali al gruppo** selezionare le VM da aggiungere al gruppo.
-7. Fare clic su **Avanti** per **rivedere + crea valutazione** per esaminare i dettagli della valutazione.
+7. Fare clic su **Avanti** per passare a **Rivedi e crea valutazione** e rivedere i dettagli della valutazione.
 8. Fare clic su **Crea valutazione** per creare il gruppo ed eseguire la valutazione.
 
     ![Creare una valutazione](./media/how-to-create-assessment//assessment-create.png)
@@ -65,7 +65,7 @@ Eseguire una valutazione nel modo seguente:
 
 
 
-## <a name="review-an-azure-vm-assessment"></a>Esaminare una valutazione delle VM di Azure
+## <a name="review-an-azure-vm-assessment"></a>Rivedere una valutazione di macchine virtuali di Azure
 
 Una valutazione di VM di Azure descrive:
 

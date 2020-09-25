@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: Azure, Kinect, specifiche, hardware, DK, funzionalità, profondità, colori, RGB, IMU, array, profondità, più sincronizzazioni
-ms.openlocfilehash: e22f42a69e7d9b8283ec2f2da478dde0c27ce4ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85276773"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361161"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronizzare più dispositivi Azure Kinect DK
 
@@ -26,7 +26,7 @@ Esistono diversi motivi per usare più dispositivi Azure Kinect DK, inclusi i se
 
 - Inserire le occlusioni. Sebbene le trasformazioni dei dati di Azure Kinect DK producano una singola immagine, le due fotocamere (Depth e RGB) sono in realtà a distanza limitata. L'offset rende possibili le occlusioni. Un'occlusione si verifica quando un oggetto Foreground blocca la visualizzazione della parte di un oggetto in background per una delle due fotocamere in un dispositivo. Nell'immagine del colore risultante, l'oggetto di primo piano sembra eseguire il cast di un'ombreggiatura sull'oggetto in background.  
    Nel diagramma seguente, ad esempio, la fotocamera a sinistra Visualizza il pixel grigio "P2". Tuttavia, l'oggetto di primo piano bianco blocca il raggio IR della fotocamera a destra. La fotocamera a destra non contiene dati per "P2".  
-   ![Occlusione](./media/occlusion.png)  
+   ![Il diagramma mostra due fotocamere dirette nello stesso punto con una di esse bloccate.](./media/occlusion.png)  
    Dispositivi sincronizzati aggiuntivi possono fornire i dati bloccati.
 - Analizza gli oggetti in tre dimensioni.
 - Aumentare la frequenza dei fotogrammi effettiva a un valore maggiore di 30 fotogrammi al secondo (FPS).
@@ -166,12 +166,12 @@ Per verificare che i dispositivi siano connessi correttamente, usare il [Visuali
    > Per ottenere un allineamento di acquisizione delle immagini preciso tra tutti i dispositivi, è necessario avviare il dispositivo master per ultimo.  
 1. In **sincronizzazione esterna**selezionare **Sub**.  
    ![Avvio della fotocamera subordinata](./media/sub-device-start.png)
-1.  Selezionare **Start**.  
+1.  Selezionare **Inizio**.  
     > [!NOTE]  
     > Poiché si tratta di un dispositivo subordinato, il Visualizzatore Kinect di Azure non visualizza un'immagine dopo l'avvio del dispositivo. Non viene visualizzata alcuna immagine finché il dispositivo subordinato non riceve un segnale di sincronizzazione dal dispositivo master.
 1. Dopo l'avvio del dispositivo subordinato, usare l'altra istanza del Visualizzatore Kinect di Azure per aprire il dispositivo master.
 1. In **sincronizzazione esterna**selezionare **Master**.
-1. Selezionare **Start**.
+1. Selezionare **Inizio**.
 
 Quando il dispositivo Kinect di Azure master viene avviato, entrambe le istanze del Visualizzatore Kinect di Azure devono visualizzare le immagini.
 

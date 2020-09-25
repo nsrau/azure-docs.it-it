@@ -7,18 +7,18 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 00a20ece2358f0054e4490ffb914f78b82d9c509
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 236b69b1e10eb80b9c0a5e27b213eb3972209346
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594260"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361042"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster nel servizio Azure Kubernetes
 
 Questo articolo fornisce i dettagli necessari che consentono di proteggere il traffico in uscita dal servizio Azure Kubernetes (AKS). Contiene i requisiti del cluster per una distribuzione di base AKS e requisiti aggiuntivi per le funzionalità e gli addons facoltativi. [Verrà fornito un esempio alla fine di come configurare questi requisiti con il firewall di Azure](#restrict-egress-traffic-using-azure-firewall). Tuttavia, è possibile applicare queste informazioni a qualsiasi dispositivo o metodo di restrizione in uscita.
 
-## <a name="background"></a>Informazioni di base
+## <a name="background"></a>Background
 
 I cluster AKS vengono distribuiti in una rete virtuale. Questa rete può essere gestita (creata da AKS) o personalizzata (precedentemente configurata dall'utente). In entrambi i casi, il cluster ha dipendenze in **uscita** da servizi esterni a tale rete virtuale (il servizio non ha dipendenze in ingresso).
 
@@ -766,7 +766,7 @@ In un browser accedere all'indirizzo IP front-end di Firewall di Azure per conva
 Verrà visualizzata l'app AKS vote. In questo esempio, l'indirizzo IP pubblico del firewall era `52.253.228.132` .
 
 
-![AKS-Voto](media/limit-egress-traffic/aks-vote.png)
+![Screenshot mostra l'app di voto A K con i pulsanti per gatti, cani, reimpostazione e totale.](media/limit-egress-traffic/aks-vote.png)
 
 
 ### <a name="clean-up-resources"></a>Pulire le risorse

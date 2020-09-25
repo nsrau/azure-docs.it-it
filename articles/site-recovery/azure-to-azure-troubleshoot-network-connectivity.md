@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 6adfd9bc778318b406d5ce27cadccdad02d73d69
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8be0349bfff9ebc858d76928344039b6879d2b80
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437463"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357064"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
 
@@ -74,11 +74,11 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
 1. Creare una regola di sicurezza HTTPS in uscita per NSG, come illustrato nello screenshot seguente. Questo esempio usa il **tag del servizio di destinazione**: _storage. eastus_ e gli **intervalli di porte di destinazione**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="storage-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Screenshot mostra un riquadro Aggiungi regola di sicurezza in uscita per una regola di sicurezza per l'archiviazione punto est U S.":::
 
 1. Creare una regola di sicurezza HTTPS in uscita per NSG, come illustrato nello screenshot seguente. Questo esempio usa il **tag del servizio di destinazione**: _AzureActiveDirectory_ e gli intervalli di **porte di destinazione**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Screenshot mostra un riquadro Aggiungi regola di sicurezza in uscita per una regola di sicurezza per Azure Active Directory.":::
 
 1. Analogamente alle regole di sicurezza sopra riportate, creare una regola di sicurezza HTTPS in uscita (443) per "EventHub. Centralus" in NSG che corrisponda al percorso di destinazione. In questo modo è possibile accedere al monitoraggio Site Recovery.
 1. Creare una regola di sicurezza HTTPS in uscita (443) per "AzureSiteRecovery" in NSG. In questo modo è possibile accedere al servizio Site Recovery in qualsiasi area.
@@ -108,7 +108,7 @@ Non è possibile stabilire una connessione per Azure Site Recovery endpoint di s
 
 #### <a name="resolution"></a>Soluzione
 
-Se si usa un proxy del firewall/regola del gruppo di sicurezza di rete (NSG) di Azure per controllare la connettività di rete in uscita nel computer, è necessario consentire diversi tag di servizio. [Altre informazioni](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
+Se si usa un proxy del firewall/regola del gruppo di sicurezza di rete (NSG) di Azure per controllare la connettività di rete in uscita nel computer, è necessario consentire diversi tag di servizio. [Altre informazioni](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: la replica da Azure ad Azure non è riuscita quando il traffico di rete passa attraverso il server proxy locale (151072)
 
