@@ -1,0 +1,28 @@
+- name: Azure Automanage
+  href: automanage-virtual-machines.md
+- name: Guide rapide introduttive
+  expanded: true
+  items:
+    - name: Abilitare nelle VM nel portale di Azure
+      href: quick-create-virtual-machines-portal.md
+- name: Concetti
+  expanded: true
+  items:
+    - name: Macchine virtuali
+      href: automanage-virtual-machines.md
+    - name: Procedure consigliate per le VM
+      href: virtual-machines-best-practices.md
+- name: Procedura
+  expanded: true
+  items:
+    - name: Creare preferenze personalizzate
+      href: virtual-machines-custom-preferences.md
+    - name: Abilitare nelle VM tramite Criteri di Azure
+      href: virtual-machines-policy-enable.md
+- name: Risorse
+  expanded: true
+  items:
+    - name: Domande frequenti
+      href: faq.md
+    - name: Cloud Adoption Framework
+      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management'

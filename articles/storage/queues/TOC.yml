@@ -5,7 +5,7 @@
   items:
     - name: Che cosa sono le code di Azure?
       href: storage-queues-introduction.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Gestire le code senza codice
       items:
@@ -48,8 +48,8 @@
         - name: Crittografia dei dati inattivi di Archiviazione di Azure
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:
-            - name: Chiavi gestite dal cliente con Azure Key Vault
-              href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Crittografia con chiavi gestite dal cliente
+              href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Autorizzazione di operazioni sui dati
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:
@@ -69,8 +69,6 @@
               href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Autorizzazione di operazioni di gestione
           href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Protezione avanzata dalle minacce
-          href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Criteri di sicurezza integrati
           href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Usare endpoint privati di Azure
@@ -167,17 +165,15 @@
           items:
             - name: Creare un account che supporta chiavi gestite dal cliente
               href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: Configurare le chiavi gestite dal cliente
+            - name: Configurare la crittografia con chiavi gestite dal cliente
               items:
-                - name: Portale
-                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Interfaccia della riga di comando di Azure
-                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Archiviare le chiavi gestite dal cliente in un insieme di credenziali delle chiavi
+                  href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Archiviare le chiavi gestite dal cliente nel modulo di protezione hardware gestito
+                  href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Controllare il modello della chiave di crittografia per l'account
               href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: Abilitare la crittografia dell'infrastruttura per un account di archiviazione
+            - name: Abilitare la crittografia dell'infrastruttura per l'account
               href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Configurare la crittografia lato client
           items:
@@ -199,6 +195,8 @@
                   href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Configurare la versione di TLS per un'applicazione client
                   href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Configurare Azure Defender per la protezione dalle minacce
+          href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Gestire la ridondanza dei dati
       items:
         - name: Cambiare la modalità di replica dei dati

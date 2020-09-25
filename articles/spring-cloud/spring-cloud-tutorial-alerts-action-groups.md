@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 856bace0c67c5afedd6305158326af46037e7f21
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dc8dffb12dcd205671e2219dbef45ac14f9f7df7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299228"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892531"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Esercitazione: Come monitorare le risorse di Spring Cloud tramite avvisi e gruppi di azioni.
+
+**Questo articolo si applica a:** ✔️ Java ✔️ C#
 
 Gli avvisi di Azure Spring Cloud supportano il monitoraggio delle risorse in base a condizioni quali spazio di archiviazione disponibile, frequenza delle richieste o utilizzo dei dati. Un avviso invia una notifica quando le frequenze o le condizioni soddisfano le specifiche definite.
 
@@ -58,11 +60,11 @@ Nella pagina **Aggiungi gruppo di azioni**:
 
 ## <a name="set-up-alert"></a>Configurare l'avviso 
 
-Nei passaggi precedenti è stato creato un **Gruppo di azioni** che usa la posta elettronica. È anche possibile usare la notifica tramite telefono, i webhook, le funzioni di Azure e così via.  
+Nei passaggi precedenti è stato creato un **Gruppo di azioni** che usa la posta elettronica. È anche possibile usare notifiche telefoniche, webhook, funzioni di Azure e così via. Con la procedura seguente viene configurato un **avviso**.
 
-Per configurare un **Avviso**, tornare alla pagina **Avvisi** e fare clic su **Gestisci regole di avviso**.
+1. Tornare nella pagina **Avvisi** e fare clic su **Gestisci regole di avviso**.
 
-  ![Screenshot della definizione dell'avviso nel portale](media/alerts-action-groups/alerts-2.png)
+   ![Screenshot della definizione dell'avviso nel portale](media/alerts-action-groups/alerts-2.png)
 
 1. Selezionare la **Risorsa** per l'avviso.
 
@@ -84,9 +86,9 @@ Per configurare un **Avviso**, tornare alla pagina **Avvisi** e fare clic su **G
 
 1. Fare clic su **Done**.
 
-Per informazioni dettagliate sulle condizioni disponibili per il monitoraggio, vedere [Opzioni delle metriche del portale utenti](spring-cloud-concept-metrics.md#user-metrics-options).
+   Per informazioni dettagliate sulle condizioni disponibili per il monitoraggio, vedere [Opzioni delle metriche del portale utenti](spring-cloud-concept-metrics.md#user-metrics-options).
 
- In **AZIONI** fare clic su **Seleziona gruppo di azioni**. Dal riquadro **AZIONI** selezionare il **Gruppo di azioni** definito in precedenza.
+1. In **AZIONI** fare clic su **Seleziona gruppo di azioni**. Nel riquadro **AZIONI** selezionare il valore di **Gruppo di azioni** definito in precedenza.
 
    ![Screenshot dell'opzione Nuova regola di avviso nel portale 4](media/alerts-action-groups/alerts-3-3.png) 
 
@@ -98,13 +100,13 @@ Per informazioni dettagliate sulle condizioni disponibili per il monitoraggio, v
 
    ![Screenshot dell'opzione Nuova regola di avviso nel portale 5](media/alerts-action-groups/alerts-3-4.png)
 
-Verificare che la nuova regola di avviso sia abilitata.
+1. Verificare che la nuova regola di avviso sia abilitata.
 
    ![Screenshot dell'opzione Nuova regola di avviso nel portale 6](media/alerts-action-groups/alerts-4.png)
 
 È possibile creare una regola anche usando la pagina **Metriche**:
 
-   ![Screenshot dell'opzione Nuova regola di avviso nel portale 7](media/alerts-action-groups/alerts-5.png)
+![Screenshot dell'opzione Nuova regola di avviso nel portale 7](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

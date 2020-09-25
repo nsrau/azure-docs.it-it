@@ -132,6 +132,8 @@
       items:
         - name: Ridimensionare un cluster del servizio Azure Container
           href: scale-cluster.md
+        - name: Arrestare un cluster del servizio Azure Kubernetes (anteprima)
+          href: start-stop-cluster.md
         - name: Aggiornare un cluster del servizio Azure Container
           href: upgrade-cluster.md
         - name: Usare il contratto di servizio relativo al tempo di attività
@@ -307,8 +309,10 @@
           href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: Sviluppare ed eseguire applicazioni
       items:
-        - name: Usare Processo locale con Kubernetes con Visual Studio Code (anteprima)
-          href: 'https://code.visualstudio.com/docs/containers/local-process-kubernetes'
+        - name: Usare Bridge per Kubernetes con Visual Studio Code
+          href: 'https://code.visualstudio.com/docs/containers/bridge-to-kubernetes'
+        - name: Usare Bridge per Kubernetes con Visual Studio
+          href: /visualstudio/containers/bridge-to-kubernetes
         - name: Installare le applicazioni esistenti con Helm
           href: kubernetes-helm.md
         - name: Usare OpenFaaS

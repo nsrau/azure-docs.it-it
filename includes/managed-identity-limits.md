@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: active-directory
 author: daveba
@@ -9,14 +9,17 @@ ms.topic: include
 ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 887646c7e0ae87cd5e290a68ccc43b80dfbb109c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: dc7849e52b3e00c87d271ee8aef8788d816dff7a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67180556"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971022"
 ---
-| Category | Limite |
-| --- | --- |
-| Identità gestite assegnate dall'utente | <ul><li>Quando si creano identità gestite assegnate dall'utente, sono supportati solo i caratteri alfanumerici (0-9, a-z e A-Z) e il trattino (-). Per il corretto funzionamento dell'assegnazione a una macchina virtuale o a un set di scalabilità di macchine virtuali, il nome è limitato a 24 caratteri.</li><li>Se si usa l'estensione della macchina virtuale identità gestita, il limite supportato è 32 identità gestite assegnate dall'utente. Senza l'estensione della macchina virtuale identità gestita, il limite supportato è 512 identità assegnate dall'utente.</li>|
+- Ogni identità gestita viene conteggiata rispetto al limite di quota degli oggetti di un tenant di Azure AD, come descritto in [Restrizioni e limiti del servizio Azure AD](../articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md).
+-   La frequenza con cui è possibile creare identità gestite prevede i limiti seguenti:
 
+    1. Per tenant di Azure per area di Azure: 200 operazioni di creazione ogni 20 secondi.
+    2. Per sottoscrizione di Azure per area di Azure: 40 operazioni di creazione ogni 20 secondi.
+
+- Per la creazione di identità gestite assegnate dall'utente, sono supportati solo caratteri alfanumerici (0-9, a-z, A-Z) e il trattino (-). Per il corretto funzionamento dell'assegnazione a una macchina virtuale o a un set di scalabilità di macchine virtuali, il nome può essere composto da un massimo di 24 caratteri.

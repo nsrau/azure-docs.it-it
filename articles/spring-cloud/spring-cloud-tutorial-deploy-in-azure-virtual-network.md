@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a7905ae0fdbd797d9b544cb71f44b82af1295246
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 979ecf77fe53238dfd377c5fd2baf394de985c2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688454"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892895"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Esercitazione: Distribuire Azure Spring Cloud nella rete virtuale (VNet injection)
+
+**Questo articolo si applica a:** ✔️ Java ✔️ C#
 
 Questa esercitazione illustra come distribuire un'istanza del servizio Azure Spring Cloud nella rete virtuale, una funzionalità anche nota come VNet injection.  
 
@@ -38,7 +40,7 @@ La rete virtuale in cui viene distribuita l'istanza del servizio Azure Spring Cl
 * **Subnet**: la rete virtuale deve includere due subnet dedicate a un'istanza del servizio Azure Spring Cloud: 
     * Una per il runtime del servizio
     * Una per le applicazioni di microservizi Spring Boot. 
-    * Deve esistere una relazione uno-a-uno tra queste subnet e un'istanza del servizio Azure Spring Cloud. Non è possibile condividere più istanze del servizio in una singola subnet. È necessario usare nuove subnet per ogni istanza del servizio distribuita.
+    * Deve esistere una relazione uno-a-uno tra queste subnet e un'istanza del servizio Azure Spring Cloud. È necessario usare una nuova subnet per ogni istanza del servizio distribuita e ogni subnet può includere solo una singola istanza del servizio.
 * **Spazio degli indirizzi**: un blocco CIDR fino a /28 per la subnet del runtime del servizio e un altro blocco CIDR fino a /24 per la subnet delle applicazioni di microservizi Spring Boot.
 * **Tabella di route**: alle subnet non deve essere associata una tabella di route esistente.
 

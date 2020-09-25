@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/10/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: ae4e327b7b4d230bd89baccdd27d5ac416ebb6cb
-  ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+  ms.openlocfilehash: aec131b8c7a3e5092b6b090668fb0eb006b079a3
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90087950"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90904152"
 highlightedContent:
   items:
   - title: Guida introduttiva per gli sviluppatori in Azure
@@ -36,7 +36,7 @@ highlightedContent:
 productDirectory:
   title: Esplorare i prodotti di Azure
   items:
-  - title: Rilevamento anomalie (anteprima)
+  - title: Rilevamento anomalie
     summary: Aggiungere funzionalità di rilevamento anomalie alle app
     imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
     azureCategories:
@@ -144,6 +144,13 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/bing-web-search/overview.md
+  - title: Servizi di comunicazione
+    summary: Aggiungere funzionalità vocali, video e di telefonia in tempo reale alle app
+    imageSrc: ./media/index/communication-services.svg
+    azureCategories:
+    - web
+    - mobile
+    url: communication-services/overview.md
   - title: Visione artificiale
     summary: Estrarre informazioni di utilità pratica dalle immagini
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -610,7 +617,7 @@ productDirectory:
     azureCategories:
     - databases
     url: azure-sql/managed-instance/index.yml
-  - title: SQL Edge di Azure (anteprima)
+  - title: SQL Edge di Azure
     summary: Motore di database con footprint ridotto e ottimizzato per la rete perimetrale con intelligenza artificiale incorporata
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
     azureCategories:

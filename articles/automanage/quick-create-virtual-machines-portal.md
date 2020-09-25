@@ -1,0 +1,122 @@
+---
+title: Avvio rapido - Abilitare Gestione automatica di Azure per le macchine virtuali nel portale di Azure
+description: Informazioni su come abilitare rapidamente Gestione automatica per le macchine virtuali in una VM nuova o esistente nel portale di Azure.
+author: ju-shim
+ms.service: virtual-machines
+ms.subservice: automanage
+ms.workload: infrastructure
+ms.topic: quickstart
+ms.date: 09/04/2020
+ms.author: jushiman
+ms.openlocfilehash: 43e0805a828a2ed32d23984b6ffef95a7e710953
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90944310"
+---
+# <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Avvio rapido: Abilitare Gestione automatica di Azure per le macchine virtuali nel portale di Azure
+
+Questo argomento di avvio rapido spiega come usare il portale di Azure per abilitare Gestione automatica di Azure per le macchine virtuali in una VM nuova o esistente.
+
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) prima di iniziare.
+
+> [!NOTE]
+> Gli account di valutazione gratuiti non hanno accesso alle macchine virtuali usate in questa esercitazione. Eseguire l'aggiornamento a una sottoscrizione con pagamento in base al consumo.
+
+> [!IMPORTANT]
+> Per abilitare Gestione automatica è necessaria l'autorizzazione di controllo degli accessi in base al ruolo seguente: ruolo **Proprietario** o **Collaboratore** insieme al ruolo **Amministratore Accesso utenti**.
+
+
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
+
+Accedere al [portale di Azure](https://portal.azure.com/).
+
+
+## <a name="enable-automanage-for-vms-on-an-existing-vm"></a>Abilitare Gestione automatica per le VM in una VM esistente
+
+1. Nella barra di ricerca cercare e selezionare **Gestione automatica - Procedure consigliate per le macchine virtuali di Azure**.
+
+2. Selezionare **Abilita nella macchina virtuale esistente**.
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\zero-vm-list-view.png" alt-text="Abilita nella macchina virtuale esistente.":::
+
+3. Nel pannello **Seleziona macchine virtuali**:
+    1. Filtrare le VM in base alla **sottoscrizione** e al **gruppo di risorse**.
+    1. Selezionare la casella di controllo di ogni macchina virtuale di cui si vuole eseguire l'onboarding.
+    1. Fare clic sul pulsante **Seleziona**.
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Selezionare la VM esistente dall'elenco delle VM disponibili.":::
+
+4. In **Profilo di configurazione** fare clic su **Esplorare e modificare profili e preferenze**.
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Esplorare e modificare profili e preferenze.":::
+
+5. Nel pannello **Selezionare il profilo di configurazione e le preferenze**:
+    1. Selezionare un profilo a sinistra: *Sviluppo/test* per l'ambiente di test, *Produzione* per quello di produzione.
+    1. Fare clic sul pulsante **Seleziona**.
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Esplorare il profilo di configurazione di produzione.":::
+
+6. Fare clic sul pulsante **Abilita**.
+
+
+## <a name="enable-automanage-for-vms-on-a-new-vm"></a>Abilitare Gestione automatica per le VM in una nuova VM
+
+1. Seguire la procedura di creazione in [Avvio rapido - Creare una macchina virtuale Windows nel portale di Azure](..\virtual-machines\windows\quick-create-portal.md).
+
+2. Dopo la distribuzione della VM, verrà visualizzata la pagina di stato della distribuzione con i **passaggi successivi** consigliati nella parte inferiore.
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Sezione Passaggi successivi nella parte inferiore della pagina di distribuzione.":::
+
+3. In **Passaggi successivi** selezionare **Abilita Gestione automatica delle procedure consigliate per le macchine virtuali**.
+
+4. Nella pagina **Gestione automatica - Procedure consigliate per le macchine virtuali di Azure** la VM appena creata verrà automaticamente inserita nell'elenco **Macchine virtuali**.
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="La macchina virtuale appena creata viene visualizzata come la VM selezionata.":::
+
+5. In **Profilo di configurazione** fare clic su **Esplorare e modificare profili e preferenze**.
+
+6. Nel pannello **Selezionare il profilo di configurazione e le preferenze**:
+    1. Selezionare un profilo a sinistra: *Sviluppo/test* per l'ambiente di test, *Produzione* per quello di produzione.
+    1. Fare clic sul pulsante **Seleziona**.
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Esplorare il profilo di configurazione di produzione.":::
+
+7. Fare clic sul pulsante **Abilita**.
+
+
+## <a name="disable-automanage-for-vms"></a>Disabilitare Gestione automatica per le VM
+
+Per smettere di usare Gestione automatica di Azure, basta disabilitare la funzionalità.
+
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Disabilitazione di Gestione automatica in una macchina virtuale.":::
+
+1. Passare alla pagina **Gestione automatica - Procedure consigliate per le macchine virtuali di Azure** in cui sono elencate tutte le VM gestite automaticamente.
+1. Selezionare la casella di controllo accanto alla macchina virtuale da disabilitare.
+1. Fare clic sul pulsante **Disabilita gestione automatica**.
+1. Leggere attentamente i messaggi nella finestra popup visualizzata prima di fare clic su **Disabilita**.
+
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se per provare Gestione automatica di Azure per le macchine virtuali è stato creato un nuovo gruppo di risorse che ora non serve più, è possibile eliminarlo. Eliminando il gruppo di risorse vengono eliminate anche la VM e tutte le risorse all'interno del gruppo.
+
+Gestione automatica di Azure crea gruppi di risorse predefiniti in cui archiviare le risorse. Selezionare i gruppi di risorse con la convenzione di denominazione "DefaultResourceGroupRegionName" e "AzureBackupRGRegionName" per pulire tutte le risorse.
+
+1. Selezionare **Gruppo di risorse**.
+1. Nella pagina del gruppo di risorse selezionare **Elimina**.
+1. Quando richiesto, confermare il nome del gruppo di risorse e quindi selezionare **Elimina**.
+
+
+## <a name="next-steps"></a>Passaggi successivi
+
+In questa guida di avvio rapido è stata abilitata la funzionalità Gestione automatica di Azure per le macchine virtuali. 
+
+A questo punto è possibile apprendere come creare e applicare preferenze personalizzate quando si abilita Gestione automatica nella macchina virtuale. 
+
+> [!div class="nextstepaction"]
+> [Gestione automatica di Azure per le macchine virtuali - Profilo di configurazione personalizzato](virtual-machines-custom-preferences.md)

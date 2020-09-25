@@ -1,27 +1,27 @@
 ---
-title: Distribuire VM in un dispositivo GPU Azure Stack Edge tramite l'interfaccia della riga di comando di Azure e Python
-description: Informazioni su come creare e gestire macchine virtuali (VM) in un dispositivo GPU Azure Stack Edge tramite interfaccia della riga di comando di Azure e Python.
+title: Distribuire macchine virtuali in un dispositivo Azure Stack Edge Pro con GPU tramite l'interfaccia della riga di comando di Azure e Python
+description: Informazioni su come creare e gestire macchine virtuali in un dispositivo Azure Stack Edge Pro con GPU tramite l'interfaccia della riga di comando di Azure e Python.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: c633cc973cb9e4d4f0375dec638e278c48c6709c
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: c27f6ef47b8e4db83ceb63e308e318803800f8a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500233"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890716"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Distribuire VM in un dispositivo GPU Azure Stack Edge tramite interfaccia della riga di comando di Azure e Python
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Distribuire macchine virtuali in un dispositivo Azure Stack Edge Pro con GPU tramite l'interfaccia della riga di comando di Azure e Python
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]
 
-Questa esercitazione descrive come creare e gestire una macchina virtuale nel dispositivo Azure Stack Edge usando l'interfaccia della riga di comando di Azure e Python.
+Questa esercitazione descrive come creare e gestire una macchina virtuale nel dispositivo Azure Stack Edge Pro usando l'interfaccia della riga di comando di Azure e Python.
 
 ## <a name="vm-deployment-workflow"></a>Flusso di lavoro di distribuzione della VM
 
@@ -43,13 +43,13 @@ Il riepilogo generale del flusso di lavoro di distribuzione è il seguente:
 10. Creare una rete virtuale
 11. Creare una scheda di interfaccia di rete virtuale usando l'ID subnet della rete virtuale
 
-Per una spiegazione dettagliata del diagramma del flusso di lavoro, vedere [Distribuire VM nel dispositivo Azure Stack Edge con Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). Per informazioni su come connettersi ad Azure Resource Manager, vedere [Connettersi ad Azure Resource Manager con Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
+Per una spiegazione dettagliata del diagramma del flusso di lavoro, vedere [Distribuire macchine virtuali nel dispositivo Azure Stack Edge Pro con Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). Per informazioni su come connettersi ad Azure Resource Manager, vedere [Connettersi ad Azure Resource Manager con Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure Stack Edge usando l'interfaccia della riga di comando di Azure e Python, è necessario assicurarsi di aver completato i prerequisiti elencati nei passaggi seguenti:
+Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure Stack Edge Pro usando l'interfaccia della riga di comando di Azure e Python, è necessario assicurarsi di aver soddisfatto i prerequisiti elencati nei passaggi seguenti:
 
-1. Sono state completate le impostazioni di rete nel dispositivo Azure Stack Edge, come descritto in [Passaggio 1: Configurare il dispositivo Azure Stack Edge](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
+1. Sono state completate le impostazioni di rete nel dispositivo Azure Stack Edge Pro, come descritto in [Passaggio 1: Configurare il dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
 2. È stata abilitata un'interfaccia di rete per il calcolo. L'indirizzo IP di questa interfaccia di rete viene usato per creare uno switch virtuale per la distribuzione della VM. I passaggi seguenti illustrano il processo:
 
@@ -58,7 +58,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
         > [!IMPORTANT] 
         > È possibile configurare una sola porta per il calcolo.
 
-    2. Abilitare il calcolo nell'interfaccia di rete. Azure Stack Edge crea e gestisce uno switch virtuale corrispondente a tale interfaccia di rete.
+    2. Abilitare il calcolo nell'interfaccia di rete. Azure Stack Edge Pro crea e gestisce una rete virtuale corrispondente a tale interfaccia di rete.
 
     <!--If you decide to use another network interface for compute, make sure that you:
 
@@ -68,9 +68,9 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
 
     - You can now enable another network interface for compute.-->
 
-3. Sono stati creati e installati tutti i certificati nel dispositivo Azure Stack Edge e nell'archivio attendibile del client. Seguire la procedura descritta in [Passaggio 2: Creare e installare i certificati](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
+3. Sono stati creati e installati tutti i certificati nel dispositivo Azure Stack Edge Pro e nell'archivio attendibile del client. Seguire la procedura descritta in [Passaggio 2: Creare e installare i certificati](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
-4. È stato creato un certificato con estensione *cer* (formato PEM) e codifica Base64 per il dispositivo Azure Stack Edge. Questo certificato è già stato caricato come catena di firma nel dispositivo ed è stato installato nell'archivio radice attendibile del client. Il certificato è necessario anche in formato *pem* per il funzionamento di Python in questo client.
+4. È stato creato un certificato con estensione *cer* (formato PEM) e codifica Base64 per il dispositivo Azure Stack Edge Pro. Questo certificato è già stato caricato come catena di firma nel dispositivo ed è stato installato nell'archivio radice attendibile del client. Il certificato è necessario anche in formato *pem* per il funzionamento di Python in questo client.
 
     Convertire il certificato in formato pem usando il comando `certutil`. È necessario eseguire questo comando nella directory che contiene il certificato.
 
@@ -199,7 +199,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-### <a name="trust-the-azure-stack-edge-ca-root-certificate"></a>Considerare attendibile il certificato radice CA di Azure Stack Edge
+### <a name="trust-the-azure-stack-edge-pro-ca-root-certificate"></a>Considerare attendibile il certificato radice CA di Azure Stack Edge Pro
 
 1. Trovare il percorso del certificato nel computer. Il percorso può variare a seconda della posizione in cui è stato installato `az cli`. Eseguire Windows PowerShell come amministratore. Passare al percorso in cui `az cli` ha installato Python: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe`.
 
@@ -219,7 +219,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
       
     Prendere nota di questo percorso perché verrà usato in un secondo momento: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`
 
-2. Considerare attendibile il certificato radice CA di Azure Stack Edge aggiungendolo al certificato Python esistente. Specificare il percorso in cui è stato salvato il certificato PEM in precedenza.
+2. Considerare attendibile il certificato radice CA di Azure Stack Edge Pro aggiungendolo al certificato Python esistente. Specificare il percorso in cui è stato salvato il certificato PEM in precedenza.
 
     ```powershell
     $pemFile = "<Path to the pem format certificate>"
@@ -252,12 +252,12 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
     Write-Host "Adding the certificate content to Python Cert store"
     Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
     
-    Write-Host "Python Cert store was updated to allow the Azure Stack Edge CA root certificate"
+    Write-Host "Python Cert store was updated to allow the Azure Stack Edge Pro CA root certificate"
     ```
     
-### <a name="connect-to-azure-stack-edge"></a>Connettersi ad Azure Stack Edge
+### <a name="connect-to-azure-stack-edge-pro"></a>Connettersi ad Azure Stack Edge Pro
 
-1. Registrare l'ambiente Azure Stack Edge eseguendo il comando `az cloud register`.
+1. Registrare l'ambiente Azure Stack Edge Pro eseguendo il comando `az cloud register`.
 
     In alcuni scenari la connettività Internet diretta in uscita viene instradata attraverso un proxy o un firewall che impone l'intercettazione SSL. In questi casi, il comando az cloud register può avere esito negativo con un messaggio di errore analogo a \"Non è possibile ottenere gli endpoint dal cloud.\" Come soluzione alternativa per questo errore, impostare le variabili di ambiente seguenti in Windows PowerShell:
 
@@ -266,7 +266,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
     $ENV:ADAL_PYTHON_SSL_NO_VERIFY = 1
     ```
 
-2. Impostare le variabili di ambiente per lo script per l'endpoint di Azure Resource Manager, la posizione in cui vengono create le risorse e il percorso in cui si trova il disco rigido virtuale. La posizione delle risorse è fissa in tutti i dispositivi Azure Stack Edge ed è impostata su `dbelocal`. È anche necessario specificare i prefissi degli indirizzi e l'indirizzo IP privato. Tutte le variabili di ambiente seguenti sono valori basati sui propri valori, ad eccezione di `AZURE_RESOURCE_LOCATION`, che deve essere hardcoded su `"dbelocal"`.
+2. Impostare le variabili di ambiente per lo script per l'endpoint di Azure Resource Manager, la posizione in cui vengono create le risorse e il percorso in cui si trova il disco rigido virtuale. La posizione delle risorse è fissa in tutti i dispositivi Azure Stack Edge Pro ed è impostata su `dbelocal`. È anche necessario specificare i prefissi degli indirizzi e l'indirizzo IP privato. Tutte le variabili di ambiente seguenti sono valori basati sui propri valori, ad eccezione di `AZURE_RESOURCE_LOCATION`, che deve essere hardcoded su `"dbelocal"`.
 
     ```powershell
     $ENV:ARM_ENDPOINT = "https://management.team3device.teatraining1.com"
@@ -308,7 +308,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-4. Accedere all'ambiente Azure Stack Edge eseguendo il comando `az login`. È possibile accedere all'ambiente Azure Stack Edge sia come utente che come [entità servizio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+4. Accedere all'ambiente Azure Stack Edge Pro eseguendo il comando `az login`. È possibile accedere all'ambiente Azure Stack Edge Pro sia come utente che come [entità servizio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 
    Per accedere come *utente*, seguire questa procedura:
 

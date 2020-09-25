@@ -7,14 +7,16 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: c3c660c5e301081ee82a12275b6e9125f0fc781b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 33d25edafa9249300406365699930ded1c8ec75b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89289818"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906845"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Esercitazione: Ridimensionare un'applicazione in Azure Spring Cloud
+
+**Questo articolo si applica a:** ✔️ Java ✔️ C#
 
 Questa esercitazione illustra come ridimensionare qualsiasi applicazione di microservizi usando il dashboard di Azure Spring cloud nel portale di Azure.
 

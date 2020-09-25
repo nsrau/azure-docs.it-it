@@ -445,7 +445,7 @@
           href: supported-accounts-validation.md
         - name: App a tenant singolo e multi-tenant
           href: single-and-multi-tenant-apps.md
-        - name: Verifica dell'autore (anteprima)
+        - name: Verifica dell'autore
           href: publisher-verification-overview.md
     - name: Autorizzazioni e consenso
       displayName: Scopes
@@ -553,9 +553,9 @@
           href: howto-add-terms-of-service-privacy-statement.md
         - name: Configurare la verifica dell'autore per l'app
           items:
-            - name: Contrassegnare l'app come verificata dall'autore (anteprima)
+            - name: Contrassegnare l'app come con autore verificato
               href: mark-app-as-publisher-verified.md
-            - name: Risolvere i problemi di verifica dell'autore (anteprima)
+            - name: Risolvere i problemi di verifica dell'autore
               href: troubleshoot-publisher-verification.md
     - name: Usare Microsoft Authentication Library
       displayName: MSAL

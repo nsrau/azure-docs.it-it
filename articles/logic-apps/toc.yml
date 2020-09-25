@@ -61,10 +61,14 @@
       items:
         - name: Creare da modelli predefiniti
           href: logic-apps-create-logic-apps-from-templates.md
+        - name: Gestire le risorse di Azure creando attività di automazione
+          href: create-automation-tasks-azure-resources.md
         - name: Eseguire la migrazione da Servizi BizTalk
           href: logic-apps-move-from-mabs.md
         - name: Esportare flussi da Power Automate e distribuirli in App per la logica di Azure
           href: export-from-microsoft-flow-logic-app-template.md
+        - name: Creare flussi di lavoro con o senza stato in Visual Studio Code
+          href: create-stateful-stateless-workflows-visual-studio-code.md
         - name: Controllare l'esecuzione del flusso di lavoro
           items:
             - name: Istruzioni condizionali
@@ -166,8 +170,8 @@
               href: logic-apps-enterprise-integration-edifact-decode.md
             - name: Gestire file EDIFACT con un segmento UNH2.5
               href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-        - name: Scambiare messaggi di RosettaNet
-          href: logic-apps-enterprise-integration-rosettanet.md
+            - name: Scambiare messaggi di RosettaNet
+              href: logic-apps-enterprise-integration-rosettanet.md
         - name: Scambiare messaggi X12
           href: logic-apps-enterprise-integration-x12.md
           items:
@@ -312,7 +316,7 @@
         - name: Gestire app per la logica - Visual Studio
           href: manage-logic-apps-with-visual-studio.md
         - name: Gestire gli account di integrazione
-          href: ./logic-apps-enterprise-integration-create-integration-account.md
+          href: logic-apps-enterprise-integration-create-integration-account.md
         - name: Gestire gli ambienti del servizio di integrazione
           href: ise-manage-integration-service-environment.md
         - name: Spostare risorse dell'app per la logica

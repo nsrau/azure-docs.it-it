@@ -1,0 +1,115 @@
+### YamlMime:Landing
+title: Documentazione del confidential computing di Azure
+summary: Il confidential computing di Azure offre soluzioni per consente di isolare i dati sensibili durante l'elaborazione nel cloud. Leggere i concetti, completare le esercitazioni e seguire gli esempi di codice per scoprire come creare e distribuire applicazioni basate sull'infrastruttura di confidential computing. Usare i prodotti Microsoft basati sul confidential computing per preservare il più possibile la sicurezza dei carichi di lavoro.
+metadata:
+  title: Confidential computing di Azure
+  description: Informazioni sul modo in cui il confidential computing di Azure protegge i dati in uso e su come creare carichi di lavoro riservati nel cloud.
+  ms.service: virtual-machines
+  ms.subservice: workloads
+  ms.topic: landing-page
+  author: JBCook
+  ms.author: jencook
+  ms.date: 09/22/2020
+  ms.openlocfilehash: abe5104ff5425103baaca72efdc960a34ffc6a73
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90991993"
+landingContent:
+- title: Informazioni sul confidential computing di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è il confidential computing di Azure?
+      url: overview.md
+    - text: Scenari
+      url: use-cases-scenarios.md
+  - linkListType: concept
+    links:
+    - text: Macchine virtuali
+      url: confidential-computing-enclaves.md
+    - text: Calcolo contenitore nel servizio Azure Kubernetes
+      url: confidential-containers.md
+    - text: Sviluppo di applicazioni
+      url: application-development.md
+    - text: Attestazione
+      url: attestation.md
+  - linkListType: reference
+    links:
+    - text: Macchine virtuali Intel SGX
+      url: ../virtual-machines/dcv2-series.md
+- title: Macchine virtuali
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Macchine virtuali Intel SGX
+      url: confidential-computing-enclaves.md
+  - linkListType: concept
+    links:
+    - text: Soluzioni nelle macchine virtuali
+      url: virtual-machine-solutions.md
+  - linkListType: quickstart
+    links:
+    - text: Distribuire nel portale di Azure
+      url: quick-create-portal.md
+    - text: Distribuire in Azure Marketplace
+      url: quick-create-marketplace.md
+  - linkListType: reference
+    links:
+    - text: Domande frequenti sulle macchie virtuali per il confidential computing
+      url: faq.md
+    - text: Prezzi
+      url: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
+    - text: Disponibilità
+      url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
+- title: Calcolo contenitore
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Nodi di calcolo di confidential computing del servizio Azure Kubernetes (anteprima)
+      url: confidential-nodes-aks-overview.md
+  - linkListType: concept
+    links:
+    - text: Contenitori riservati
+      url: confidential-containers.md
+    - text: Contenitori con riconoscimento dell'enclave
+      url: enclave-aware-containers.md
+    - text: Attestazione out-of-process
+      url: confidential-nodes-out-of-proc-attestation.md
+  - linkListType: quickstart
+    links:
+    - text: Semplice app contenitore di enclave nel servizio Azure Kubernetes
+      url: confidential-nodes-aks-get-started.md
+  - linkListType: sample
+    links:
+    - text: Esempi di contenitori riservati (contenitori non modificati in SGX)
+      url: https://github.com/Azure-Samples/confidential-container-samples
+    - text: Esempi di contenitori con riconoscimento dell'enclave
+      url: https://github.com/Azure-Samples/enclave-aware-container-samples
+  - linkListType: reference
+    links:
+    - text: Domande frequenti sui nodi di confidential computing nel servizio Azure Kubernetes
+      url: confidential-nodes-aks-overview.md
+    - text: Informazioni sul servizio Azure Kubernetes
+      url: ../aks/intro-kubernetes.md
+- title: Servizi cloud riservati
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Attestazione di Microsoft Azure
+      url: ../attestation/overview.md
+    - text: Runtime ONNX per l'inferenza di dati riservati
+      url: https://aka.ms/confidentialinference
+- title: Sviluppare con il confidential computing
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Demo di informazioni sanitarie riservate nel servizio Azure Kubernetes
+      url: https://github.com/Azure-Samples/confidential-container-samples
+    - text: Mutual TLS attestato con Open Enclave nel servizio Azure Kubernetes
+      url: https://github.com/Azure-Samples/enclave-aware-container-samples
+  - linkListType: reference
+    links:
+    - text: Open Enclave (OE) SDK
+      url: https://aka.ms/oesdkGitHubRepo

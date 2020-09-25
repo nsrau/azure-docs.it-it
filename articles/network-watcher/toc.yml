@@ -31,6 +31,8 @@
       href: connection-monitor-preview.md
     - name: Diagnosticare i problemi di filtro del traffico di rete delle VM
       href: network-watcher-ip-flow-verify-overview.md
+    - name: Diagnosticare le regole dei gruppi di sicurezza di rete e il filtro del traffico
+      href: network-watcher-network-configuration-diagnostics-overview.md
     - name: Diagnosticare i problema di routing delle VM
       href: network-watcher-next-hop-overview.md
     - name: Diagnosticare i problemi delle comunicazioni in uscita delle VM

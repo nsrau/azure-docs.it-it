@@ -1,27 +1,65 @@
 - name: Confidential computing di Azure
-  href: overview.md
-- name: Avvi rapidi
+  href: ./index.yml
+- name: Panoramica
   expanded: true
   items:
-    - name: Creare nel portale di Azure
-      href: quick-create-portal.md
-    - name: Creare con Marketplace
-      href: quick-create-marketplace.md
+    - name: Introduzione al confidential computing di Azure
+      href: overview.md
+    - name: Casi d'uso e scenari
+      href: use-cases-scenarios.md
+- name: Guide rapide introduttive
+  expanded: true
+  items:
+    - name: Macchine virtuali
+      items:
+        - name: Creare nel portale di Azure
+          href: quick-create-portal.md
+        - name: Creare con Marketplace
+          href: quick-create-marketplace.md
+    - name: Servizio Azure Kubernetes (AKS)
+      items:
+        - name: Panoramica dei nodi di confidential computing del servizio Azure Kubernetes
+          href: confidential-nodes-aks-overview.md
+        - name: Nodi di confidential computing con l'interfaccia della riga di comando di Azure
+          href: confidential-nodes-aks-get-started.md
+        - name: Domande frequenti sui nodi di confidential computing nel servizio Azure Kubernetes
+          href: confidential-nodes-aks-faq.md
 - name: Concetti
   expanded: true
   items:
-    - name: Soluzioni nelle macchine virtuali
-      href: virtual-machine-solutions.md
+    - name: Macchine virtuali (VM)
+      items:
+        - name: Macchine virtuali con riconoscimento dell'enclave
+          href: confidential-computing-enclaves.md
+        - name: Soluzioni nelle macchine virtuali
+          href: virtual-machine-solutions.md
+        - name: Domande frequenti sulle VM per il confidential computing
+          href: faq.md
+    - name: Calcolo contenitore
+      expanded: true
+      items:
+        - name: Contenitori riservati (lift-and-shift)
+          items:
+            - name: Guida introduttiva
+              href: confidential-containers.md
+        - name: Contenitori con riconoscimento dell'enclave
+          items:
+            - name: Guida introduttiva
+              href: enclave-aware-containers.md
+    - name: Attestazione
+      href: attestation.md
+    - name: Sviluppo di applicazioni
+      href: application-development.md
 - name: Procedure
-  expanded: true
   items:
     - name: Fortanix Enclave Manager
       href: how-to-fortanix-enclave-manager.md
-- name: Risorse
-  expanded: true
+- name: Riferimenti
   items:
-    - name: Domande frequenti
-      href: faq.md
+    - name: Funzionalità helper di citazioni SGX
+      href: confidential-nodes-out-of-proc-attestation.md
+- name: Risorse
+  items:
     - name: Feedback sul confidential computing
       href: 'https://feedback.azure.com/forums/919792-azure-confidential-compute'
     - name: StackOverflow

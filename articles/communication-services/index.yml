@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: Servizi di comunicazione di Azure
+summary: Servizi di comunicazione Azure è un'offerta basata sul cloud che consente di aggiungere funzionalità vocali, video, chat e di telefonia alle app. Servizi di comunicazione di Azure è attualmente disponibile in anteprima pubblica.
+metadata:
+  title: Servizi di comunicazione di Azure
+  description: Servizi di comunicazione Azure è un'offerta basata sul cloud che consente di aggiungere funzionalità vocali, video, chat e di telefonia alle app. Servizi di comunicazione di Azure è attualmente disponibile in anteprima pubblica.
+  ms.service: azure-communication-services
+  ms.topic: landing-page
+  author: mikben
+  ms.author: mikben
+  ms.date: 08/10/2020
+  ms.openlocfilehash: 6081063605439982e29984cc4378ec3aee7ac08a
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90929037"
+landingContent:
+- title: Informazioni su Servizi di comunicazione di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è l'offerta Servizi di comunicazione di Azure?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Opzioni delle librerie client
+      url: concepts/sdk-options.md
+- title: Introduzione
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creare una risorsa di Servizi di comunicazione
+      url: quickstarts/create-communication-resource.md
+    - text: Creare e gestire i token di accesso utente
+      url: quickstarts/access-tokens.md
+  - linkListType: concept
+    links:
+    - text: Architettura client e server
+      url: concepts/client-and-server-architecture.md
+    - text: Autenticazione e autorizzazione
+      url: concepts/authentication.md
+    - text: Gestione degli eventi
+      url: concepts/event-handling.md
+    - text: Notifiche
+      url: concepts/notifications.md
+- title: Chiamate vocali e video
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Aggiungere chiamate vocali e video all'app
+      url: quickstarts/voice-video-calling/getting-started-with-calling.md
+    - text: Usare la libreria client Chiamate
+      url: quickstarts/voice-video-calling/calling-client-samples.md
+  - linkListType: concept
+    links:
+    - text: Concetti sulle chiamate vocali e video
+      url: concepts/voice-video-calling/about-call-types.md
+    - text: Panoramica della libreria client Chiamate
+      url: concepts/voice-video-calling/calling-sdk-features.md
+    - text: Flussi di chiamate
+      url: concepts/call-flows.md
+- title: Telefonia e SMS
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Ottenere un numero di telefono
+      url: quickstarts/telephony-sms/get-phone-number.md
+    - text: Inviare SMS
+      url: quickstarts/telephony-sms/send.md
+    - text: Gestire gli eventi SMS
+      url: quickstarts/telephony-sms/handle-sms-events.md
+  - linkListType: concept
+    links:
+    - text: Concetti sugli SMS
+      url: concepts/telephony-sms/concepts.md
+    - text: Panoramica della libreria client SMS
+      url: concepts/telephony-sms/sdk-features.md
+    - text: Panoramica sulle chiamate
+      url: concepts/voice-video-calling/calling-sdk-features.md
+    - text: Pianificare la soluzione di telefonia e SMS
+      url: concepts/telephony-sms/plan-solution.md
+- title: Chat
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Aggiungere una chat all'app
+      url: quickstarts/chat/get-started.md
+  - linkListType: concept
+    links:
+    - text: Concetti sulle chat
+      url: concepts/chat/concepts.md
+    - text: Panoramica della libreria client Chat
+      url: concepts/chat/sdk-features.md
+- title: Esempi
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Introduzione all'esempio hero di chiamata di gruppo
+      url: samples/calling-hero-sample.md
+    - text: Introduzione all'esempio hero di chat
+      url: samples/chat-hero-sample.md

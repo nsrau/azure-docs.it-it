@@ -39,6 +39,10 @@
       href: powershell-samples.md
 - name: Concetti
   items:
+    - name: Bilanciamento del carico tra aree
+      href: cross-region-overview.md
+    - name: Novità
+      href: whats-new.md
     - name: Componenti
       href: components.md
     - name: Concetti

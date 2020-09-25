@@ -13,12 +13,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 549309a01602206b85a54b47df297735dfc5e709
-  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+  ms.openlocfilehash: bd1a0b2efb01d0db153bd666f8ff4e3911095702
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 08/17/2020
-  ms.locfileid: "88262603"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90984991"
 highlightedContent:
   items:
   - title: Introduzione ad Azure Key Vault
@@ -89,6 +89,20 @@ conceptualContent:
     footerLink:
       url: ./secrets/index.yml
       text: Altre informazioni
+  - title: Modulo di protezione hardware gestito (anteprima)
+    links:
+    - url: ./managed-hsm/overview.md
+      itemType: overview
+      text: Che cos'è il modulo di protezione hardware gestito?
+    - url: ./managed-hsm/best-practices.md
+      itemType: overview
+      text: Procedure consigliate
+    - url: ./managed-hsm/quick-create-cli.md
+      itemType: quickstart
+      text: Effettuare il provisioning di un modulo di protezione hardware gestito e attivarlo
+    footerLink:
+      text: Altre informazioni
+      url: ./managed-hsm/index.yml
   - title: Librerie client
     links:
     - url: ./general/client-libraries.md

@@ -1,0 +1,84 @@
+### YamlMime:Landing
+title: Documentazione del modulo di protezione hardware gestito di Azure Key Vault
+summary: Informazioni su come usare il modulo di protezione hardware gestito per creare e mantenere le chiavi per l'accesso e la crittografia di risorse cloud, app e soluzioni. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
+metadata:
+  title: Documentazione del modulo di protezione hardware gestito di Azure
+  description: Informazioni su come usare il modulo di protezione hardware gestito per creare e mantenere le chiavi per l'accesso e la crittografia di risorse cloud, app e soluzioni. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
+  services: key-vault
+  ms.service: key-vault
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  manager: rkarlin
+  ms.date: 09/15/2020
+  ms.openlocfilehash: d17d119528c04b270e9dffe5b824bafcc89472dc
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90991983"
+landingContent:
+- title: Informazioni sul modulo di protezione hardware gestito di Azure Key Vault (anteprima)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è il modulo di protezione hardware gestito di Azure Key Vault?
+      url: overview.md
+    - text: Panoramica delle API REST
+      url: ../general/about-keys-secrets-certificates.md
+    - text: Chiavi e algoritmi supportati
+      url: ../keys/about-keys.md
+- title: Concetto
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Procedure consigliate per il modulo di protezione hardware gestito
+      url: best-practices.md
+    - text: Controllo di accesso per il modulo di protezione hardware gestito
+      url: access-control.md
+    - text: Dominio di protezione
+      url: security-domain.md
+    - text: Ruoli predefiniti locali di Controllo degli accessi in base al ruolo
+      url: built-in-roles.md
+- title: Introduzione
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Interfaccia della riga di comando di Azure
+      url: quick-create-cli.md
+    - text: Azure Resource Manager
+      url: quick-create-template.md
+- title: Guide pratiche
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gestire con l'interfaccia della riga di comando di Azure
+      url: key-management.md
+    - text: Gestione dei ruoli del modulo di protezione hardware gestito
+      url: role-management.md
+    - text: Proteggere l'accesso al modulo di protezione hardware gestito
+      url: secure-your-managed-hsm.md
+- title: Esercitazioni
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Backup e ripristino
+      url: backup-restore.md
+    - text: Ripristino di emergenza
+      url: disaster-recovery-guide.md
+    - text: Importare chiavi con protezione HSM (panoramica)
+      url: hsm-protected-keys-byok.md
+    - text: Configurare la registrazione per i moduli di protezione hardware gestiti
+      url: logging.md
+- title: Altre informazioni su Key Vault
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Panoramica di Key Vault
+      url: ../general/overview.md
+    - text: Concetti di base di Key Vault
+      url: ../general/basic-concepts.md
+    - text: Panoramica dell'eliminazione temporanea
+      url: ../general/soft-delete-overview.md
+    - text: Panoramica della sicurezza
+      url: ../general/overview-security.md

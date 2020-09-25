@@ -93,7 +93,7 @@
       href: offline-capabilities.md
     - name: Dispositivo IoT Edge come gateway
       href: iot-edge-as-gateway.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Sicurezza in Azure IoT Edge
           href: security.md
@@ -101,6 +101,8 @@
           href: iot-edge-security-manager.md
         - name: Certificati di IoT Edge
           href: iot-edge-certs.md
+        - name: Confidential computing
+          href: deploy-trusted-applications.md
     - name: Piattaforme supportate
       href: support.md
     - name: Elenco di controllo della distribuzione di produzione
