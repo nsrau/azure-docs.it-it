@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d462f146f3f094602835d88e48815d5537c58665
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: afbc16f0fb30c1ada22b668771525288602cda44
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078783"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296638"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenari per l'analisi avanzata in Azure Machine Learning
 Questo articolo descrive le varie origini dati di esempio e gli scenari di destinazione che possono essere gestiti con il [Processo di analisi scientifica dei dati per i team (TDSP)](overview.md). Il TDSP offre un approccio sistematico per consentire ai team di collaborare sulla compilazione di applicazioni intelligenti. Gli scenari presentati illustrano le opzioni disponibili nel flusso di lavoro dell'elaborazione dei dati basato su caratteristiche dei dati, posizioni delle origini e repository di destinazione in Azure.
@@ -31,7 +31,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 > 
 > * [Creare un account di archiviazione](../../storage/common/storage-account-create.md)
 >   <br/>
-> * [Creare un'area di lavoro di Machine Learning di Azure](../studio/create-workspace.md)
+> * [Creare un'area di lavoro di Machine Learning di Azure](../classic/create-workspace.md)
 > 
 > 
 
@@ -184,7 +184,7 @@ Per replicare l'intero database SQL Server nella macchina virtuale di SQL Server
 1. In Esplora risorse o nella finestra del prompt dei comandi di Windows  copiare il file o i file del database scollegato nel percorso di destinazione della macchina virtuale di SQL Server in Azure.
 1. Collegare i file copiati all'istanza di SQL Server di destinazione. Per altre informazioni, vedere [Attach a Database](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
 
-[Spostamento di un database tramite la funzionalità di scollegamento e collegamento (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
+[Spostare un database utilizzando le operazioni di scollegamento e collegamento (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
 ## <a name="scenario-7-big-data-in-local-files-target-hive-database-in-azure-hdinsight-hadoop-clusters"></a><a name="largedbtohive"></a>Scenario \#7: Big Data nei file locali, con destinazione il database Hive nei cluster Hadoop di Azure HDInsight
 ![Big Data nell'Hive di destinazione locale][9]

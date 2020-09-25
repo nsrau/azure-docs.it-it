@@ -1,26 +1,26 @@
 ---
 title: Panoramica della sicurezza
-description: Informazioni di sicurezza sui server abilitati per Azure Arc (anteprima).
+description: Informazioni di sicurezza sui server abilitati per Azure Arc.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 17641fab9933d9d6a60c2b21912f755acc01a6dd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/23/2020
+ms.openlocfilehash: be79be3030af76425b54fd683784d0e216ac2cf5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89447858"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329041"
 ---
-# <a name="azure-arc-for-servers-preview-security-overview"></a>Panoramica della sicurezza di Azure Arc for Servers (anteprima)
+# <a name="azure-arc-for-servers-security-overview"></a>Panoramica della sicurezza di Azure Arc per i server
 
 Questo articolo descrive la configurazione della sicurezza e le considerazioni da valutare prima di distribuire i server abilitati per Azure Arc nell'azienda.
 
 ## <a name="identity-and-access-control"></a>Identità e controllo di accesso
 
-Ogni server abilitato per Azure Arc ha un'identità gestita come parte di un gruppo di risorse all'interno di una sottoscrizione di Azure che rappresenta il server in esecuzione in locale o in un altro ambiente cloud. L'accesso a questa risorsa è controllato dal [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md)standard. Dalla pagina [**controllo di accesso (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) nella portale di Azure è possibile verificare chi ha accesso al server abilitato per Azure Arc.
+Ogni server abilitato per Azure Arc ha un'identità gestita come parte di un gruppo di risorse all'interno di una sottoscrizione di Azure. questa identità rappresenta il server in esecuzione in locale o in un altro ambiente cloud. L'accesso a questa risorsa è controllato dal [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md)standard. Dalla pagina [**controllo di accesso (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) nella portale di Azure è possibile verificare chi ha accesso al server abilitato per Azure Arc.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Controllo di accesso del server abilitato per Azure Arc" border="false" lightbox="./media/security-overview/access-control-page.png":::
 
-Gli utenti e le applicazioni a cui è stato concesso l'accesso al ruolo di amministratore o [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) alla risorsa possono apportare modifiche alla risorsa, inclusa la distribuzione o l'eliminazione di [estensioni](manage-vm-extensions.md) nel computer. Le estensioni possono includere script arbitrari eseguiti in un contesto con privilegi, quindi considerare qualsiasi collaboratore nella risorsa di Azure come amministratore indiretto del server non Azure.
+Gli utenti e le applicazioni a cui è stato concesso l'accesso al ruolo di amministratore o [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) alla risorsa possono apportare modifiche alla risorsa, inclusa la distribuzione o l'eliminazione di [estensioni](manage-vm-extensions.md) nel computer. Le estensioni possono includere script arbitrari eseguiti in un contesto con privilegi, quindi considerare qualsiasi collaboratore nella risorsa di Azure come amministratore indiretto del server.
 
 Il ruolo di **onboarding del computer connesso di Azure** è disponibile per il caricamento su larga scala ed è in grado di leggere o creare nuovi server abilitati per Arc in Azure. Non può essere usato per eliminare i server già registrati o per gestire le estensioni. Come procedura consigliata, è consigliabile assegnare questo ruolo all'entità servizio Azure Active Directory (Azure AD) utilizzata per l'onboarding dei computer su larga scala.
 
@@ -28,9 +28,9 @@ Gli utenti come membri del ruolo di **amministratore delle risorse del computer 
 
 ## <a name="agent-security-and-permissions"></a>Sicurezza e autorizzazioni dell'agente
 
-Per gestire l'agente del computer connesso di Azure (azcmagent), in Windows l'account utente deve essere un membro del gruppo Administrators locale e in Linux è necessario disporre delle autorizzazioni di accesso alla radice.
+Per gestire l'agente del computer connesso di Azure (azcmagent) in Windows, è necessario che l'account utente sia membro del gruppo Administrators locale. In Linux è necessario disporre delle autorizzazioni di accesso alla radice.
 
-L'agente del computer connesso di Azure è costituito da tre servizi che vengono eseguiti nel computer.
+L'agente del computer connesso di Azure è costituito da tre servizi, che vengono eseguiti nel computer.
 
 * Il servizio himds (Hybrid instance Metadata Service) è responsabile di tutte le funzionalità di base di Arc. Ciò include l'invio di heartbeat ad Azure, l'esposizione di un servizio metadati dell'istanza locale per altre app per informazioni sull'ID della risorsa di Azure del computer e il recupero dei token di Azure AD per l'autenticazione ad altri servizi di Azure. Questo servizio viene eseguito come account del servizio virtuale senza privilegi in Windows e come utente **himds** in Linux.
 
@@ -56,4 +56,4 @@ L'agente del computer connesso di Azure usa l'autenticazione con chiave pubblica
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Prima di valutare o abilitare i server abilitati per Arc (anteprima) tra più computer ibridi, vedere [Panoramica dell'agente Connected Machine](agent-overview.md) per informazioni su requisiti, i dettagli tecnici sull'agente e metodi di distribuzione.
+Prima di valutare o abilitare i server con abilitazione di Arc tra più macchine virtuali ibride, vedere [Panoramica dell'agente Connected Machine](agent-overview.md) per informazioni sui requisiti, i dettagli tecnici sull'agente e i metodi di distribuzione.

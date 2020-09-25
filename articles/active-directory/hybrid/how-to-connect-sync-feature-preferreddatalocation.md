@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad2bf071d4aa5b49541c710ef9b0793a1076ea9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662498"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319895"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse Microsoft 365
 Lo scopo di questo argomento è illustrare come configurare l'attributo per la posizione dei dati preferita in Azure Active Directory (Azure AD) Connect Sync. Quando un utente usa funzionalità multigeo in Microsoft 365, questo attributo viene usato per definire la posizione geografica dei dati Microsoft 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.
@@ -118,7 +118,7 @@ Non tutti gli attributi di Azure AD vengono importati nello spazio connettore Ac
 4. Verificare che l'attributo di origine che si è scelto di usare sia selezionato nell'elenco degli attributi. Se l'attributo non viene visualizzato, selezionare la casella di controllo **Mostra tutto**.
 5. Per salvare, selezionare **OK**.
 
-![Screenshot di Synchronization Service Manager e della finestra di dialogo Proprietà](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+![Screenshot che mostra la finestra di dialogo Synchronization Service Manager e proprietà con l'elenco "attributi" evidenziato.](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
 ## <a name="step-4-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>Passaggio 4: aggiungere **preferredDataLocation** allo schema del connettore Azure ad
 **Questo passaggio è necessario solo se si esegue Connect versione 1.3.21 o precedente. Se si è in 1.4.18 o versione successiva, andare al passaggio 5.**  
@@ -140,7 +140,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 3. Per creare una nuova regola in entrata, fare clic sul pulsante **Aggiungi nuova regola**.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | Valore | Dettagli |
+    | Attributo | valore | Dettagli |
     | --- | --- | --- |
     | Nome | *Specificare un nome* | Ad esempio, "In entrata da AD - Utente PreferredDataLocation" |
     | Descrizione | *Fornire una descrizione personalizzata* |  |
@@ -169,7 +169,7 @@ La regola di sincronizzazione in uscita consente il flusso del valore dell'attri
 3. Selezionare **Aggiungi nuova regola**.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | Valore | Dettagli |
+    | Attributo | valore | Dettagli |
     | ----- | ------ | --- |
     | Nome | *Specificare un nome* | Ad esempio, "In uscita verso AAD - Utente PreferredDataLocation" |
     | Descrizione | *Inserire una descrizione* ||

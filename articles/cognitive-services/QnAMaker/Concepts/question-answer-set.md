@@ -1,14 +1,14 @@
 ---
 title: Knowledge base di progettazione-QnA Maker
-description: Una QnA Maker Knowledge base è costituita da un set di coppie di domande e risposte (QnA) e di metadati facoltativi associati a ogni coppia di QnA.
+description: Informazioni su come progettare una Knowledge base-QnA Maker.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: e75a9313f02a6b5cc4235cdcccb381585d2192ae
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 86e176a378d02d294e0123aba0d2e08d99b044fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992998"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330656"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Concetti delle coppie di domande e risposte
 

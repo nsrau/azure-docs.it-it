@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: f0d8a37f0edc161cbd73bf7438dc1c9486c4251b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62d80426dec6f5d63d8fa5d67d64d6aafb881110
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027938"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320014"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Anteprima: creare una VM Windows con Azure Image Builder
 
@@ -161,7 +161,7 @@ vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> Per l'immagine di origine, è sempre necessario [specificare una versione](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), non è possibile utilizzare `latest` .
+> Per l'immagine di origine, è sempre necessario [specificare una versione](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version), non è possibile utilizzare `latest` .
 > Se si aggiunge o modifica il gruppo di risorse in cui viene distribuita l'immagine, è necessario [impostare le autorizzazioni](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) per il gruppo di risorse.
  
 ## <a name="create-the-image"></a>Creare l'immagine
@@ -179,13 +179,13 @@ az resource create \
 
 Al termine, viene restituito un messaggio di operazione riuscita alla console e viene creato un oggetto `Image Builder Configuration Template` in `$imageResourceGroup` . È possibile visualizzare questa risorsa nel gruppo di risorse nel portale di Azure, se si Abilita "Mostra tipi nascosti".
 
-In background, Image Builder creerà anche un gruppo di risorse di staging nella sottoscrizione. Questo gruppo di risorse viene usato per la compilazione dell'immagine. Il formato sarà il seguente:`IT_<DestinationResourceGroup>_<TemplateName>`
+In background, Image Builder creerà anche un gruppo di risorse di staging nella sottoscrizione. Questo gruppo di risorse viene usato per la compilazione dell'immagine. Il formato sarà il seguente: `IT_<DestinationResourceGroup>_<TemplateName>`
 
 > [!Note]
 > Non è necessario eliminare direttamente il gruppo di risorse di staging. Per prima cosa eliminare l'artefatto del modello di immagine, in modo che il gruppo di risorse di staging venga eliminato.
 
 Se il servizio segnala un errore durante l'invio del modello di configurazione immagine:
--  Esaminare le procedure per la [risoluzione dei problemi](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) . 
+-  Esaminare le procedure per la [risoluzione dei problemi](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors) . 
 - È necessario eliminare il modello, usando il frammento di codice seguente, prima di riprovare l'invio.
 
 ```azurecli-interactive
@@ -208,7 +208,7 @@ az resource invoke-action \
 
 Attendere il completamento della compilazione. Questa operazione può richiedere circa 15 minuti.
 
-Se si verificano errori, esaminare le procedure per la [risoluzione dei problemi](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) .
+Se si verificano errori, esaminare le procedure per la [risoluzione dei problemi](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) .
 
 
 ## <a name="create-the-vm"></a>Creare la VM

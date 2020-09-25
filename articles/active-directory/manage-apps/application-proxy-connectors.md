@@ -1,6 +1,6 @@
 ---
 title: Comprendere i connettori del proxy applicazione Azure AD | Microsoft Docs
-description: Tratta i fondamenti dei connettori del proxy applicazione di Azure AD.
+description: Informazioni sui connettori del proxy di applicazione Azure AD.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 236e8e32eedce1a075aa4b3d1600c9c5595b7e2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7f14c757df8bcc38bf226cb6346c400087c2d7a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764673"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319827"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -45,7 +45,7 @@ Per distribuire correttamente il proxy di applicazione, è necessario almeno un 
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
     ```
 
-1. Riavviare il server.
+1. Riavviare il server
 
 Per ulteriori informazioni sui requisiti di rete per il server del connettore, vedere [Introduzione al proxy dell'applicazione e installazione di un connettore](application-proxy-add-on-premises-application.md).
 
@@ -99,7 +99,7 @@ In generale, più utenti si hanno, più sarà grande il computer necessario. Di 
 |8|32|270|1190|
 |16|64|245|1200*|
 
-\*Questo computer usava un'impostazione personalizzata per generare alcuni dei limiti di connessione predefiniti oltre le impostazioni consigliate per .NET. È consigliabile eseguire un test con le impostazioni predefinite prima di contattare il supporto per ottenere la modifica di questo limite per il tenant specifico.
+\* Questo computer usava un'impostazione personalizzata per generare alcuni dei limiti di connessione predefiniti oltre le impostazioni consigliate per .NET. È consigliabile eseguire un test con le impostazioni predefinite prima di contattare il supporto per ottenere la modifica di questo limite per il tenant specifico.
 
 > [!NOTE]
 > Non c'è molta differenza nel numero massimo di TPS tra computer Core 4, 8 e 16. La differenza principale è la latenza prevista.

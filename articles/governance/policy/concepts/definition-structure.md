@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895368"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330282"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -77,7 +77,7 @@ Usare **displayName** e **description** per identificare la definizione dei crit
 > [!NOTE]
 > Durante la creazione o l'aggiornamento di una definizione dei criteri, **ID**, **tipo** e **nome** sono definiti dalle proprietà esterne a JSON e non sono necessari nel file JSON. Il recupero della definizione dei criteri tramite SDK restituisce le proprietà **id**, **tipo** e **nome** come parte di JSON, ma ognuna è costituita da informazioni di sola lettura correlate alla definizione dei criteri.
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 
 Anche se non è possibile impostare la proprietà **Type** , sono disponibili tre valori restituiti da SDK e visibili nel portale:
 
@@ -102,16 +102,19 @@ Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** s
 
 `indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse** e dalle **sottoscrizioni**. Per le definizioni dei criteri che applicano percorsi o tag a un gruppo di risorse o a una sottoscrizione, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups` o `Microsoft.Resources/subscriptions`. Per un esempio, vedere [Modello: Tag - Esempio n. 1](../samples/pattern-tags.md). Per un elenco di risorse che supportano i tag, vedere [Supporto dei tag per le risorse di Azure](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>Modalità del provider di risorse (anteprima)
+### <a name="resource-provider-modes"></a>Modalità del provider di risorse
 
-Le modalità del provider di risorse seguenti sono attualmente supportate durante l'anteprima:
+Il nodo del provider di risorse seguente è completamente supportato:
 
-- `Microsoft.ContainerService.Data` per la gestione delle regole del controller di ammissione nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md). Le definizioni che usano questa modalità del provider di risorse **devono** usare l'effetto [EnforceRegoPolicy](./effects.md#enforceregopolicy) . Questo modello è in fase di _deprecazione_.
-- `Microsoft.Kubernetes.Data` per la gestione dei cluster Kubernetes all'interno o all'esterno di Azure. Le definizioni che usano questa modalità del provider di risorse usano gli effetti _Audit_, _Deny_e _disabled_. L'uso dell'effetto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) verrà _deprecato_.
+- `Microsoft.Kubernetes.Data` per la gestione dei cluster Kubernetes all'interno o all'esterno di Azure. Le definizioni che usano questa modalità del provider di risorse usano gli effetti _Audit_, _Deny_e _disabled_. L'uso dell'effetto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) è _deprecato_.
+
+Le modalità del provider di risorse seguenti sono attualmente supportate come **Anteprima**:
+
+- `Microsoft.ContainerService.Data` per la gestione delle regole del controller di ammissione nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md). Le definizioni che usano questa modalità del provider di risorse **devono** usare l'effetto [EnforceRegoPolicy](./effects.md#enforceregopolicy) . Questa modalità è _deprecata_.
 - `Microsoft.KeyVault.Data` per la gestione di insiemi di credenziali e certificati in [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite e non supportano le iniziative in fase di anteprima.
+> Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite.
 
 ## <a name="metadata"></a>Metadati
 
@@ -552,9 +555,9 @@ Criteri di Azure supporta i tipi di effetto seguenti:
 - **Deny**: genera un evento nel log attività e nega la richiesta
 - **DeployIfNotExists**: distribuisce una risorsa correlata se non esiste già
 - **Disabled**: non valuta le risorse per garantire la conformità alla regola dei criteri
-- **EnforceOPAConstraint** (anteprima): configura il controller di ammissione Open Policy Agent con Gatekeeper v3 per i cluster Kubernetes autogestiti in Azure (anteprima)
-- **EnforceRegoPolicy** (anteprima): configura il controller di ammissione Open Policy Agent con Gatekeeper v2 nel servizio Azure Kubernetes
 - **Modify**: aggiunge, aggiorna o rimuove i tag definiti da una risorsa
+- **EnforceOPAConstraint** (deprecato): configura il controller di ammissione di agenti criteri aperti con gatekeeper V3 per i cluster Kubernetes autogestiti in Azure
+- **EnforceRegoPolicy** (deprecato): configura il controller di ammissione di agenti criteri aperti con gatekeeper V2 nel servizio Azure Kubernetes
 
 Per informazioni dettagliate su ogni effetto, ordine di valutazione, proprietà ed esempi, vedere [Informazioni sugli effetti di Criteri di Azure](effects.md).
 
@@ -592,6 +595,18 @@ Le funzioni seguenti sono disponibili solo nelle regole dei criteri:
 - `requestContext().apiVersion`
   - Restituisce la versione dell'API della richiesta che ha attivato la valutazione del criterio, ad esempio: `2019-09-01`.
     Questo valore è la versione dell'API usata nella richiesta PUT/PATCH per le valutazioni per la creazione o l'aggiornamento di risorse. La versione più recente dell'API viene sempre usata durante la valutazione della conformità sulle risorse esistenti.
+- `policy()`
+  - Restituisce le informazioni seguenti relative ai criteri valutati. È possibile accedere alle proprietà dall'oggetto restituito, ad esempio: `[policy().assignmentId]` .
+  
+  ```json
+  {
+    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+    "definitionReferenceId": "StorageAccountNetworkACLs"
+  }
+  ```
+  
   
 #### <a name="policy-function-example"></a>Esempio di funzione dei criteri
 

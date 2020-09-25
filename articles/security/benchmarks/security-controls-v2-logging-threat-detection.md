@@ -4,17 +4,17 @@ description: Registrazione del benchmark di sicurezza di Azure V2 e rilevamento 
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 24ddca37a729a459382fc96a2f6e0ef1a7832f37
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 9ada1956af2dabdb8e5deff33722af7a8691dd19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059300"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295465"
 ---
-# <a name="security-control-logging-and-threat-detection"></a>Controllo di sicurezza: registrazione e rilevamento minacce
+# <a name="security-control-v2-logging-and-threat-detection"></a>Controllo di sicurezza V2: registrazione e rilevamento minacce
 
 Registrazione e rilevamento delle minacce copre i controlli per il rilevamento di minacce in Azure e l'abilitazione, la raccolta e l'archiviazione dei log di controllo per i servizi di Azure. Questo include l'abilitazione dei processi di rilevamento, analisi e correzione con i controlli per generare avvisi di alta qualità con il rilevamento delle minacce nativo nei servizi di Azure. include anche la raccolta di log con monitoraggio di Azure, la centralizzazione dell'analisi della sicurezza con Sentinel di Azure, la sincronizzazione dell'ora e la conservazione dei log. 
 
@@ -40,11 +40,11 @@ Inoltre, è possibile usare Sentinel di Azure per creare regole di analisi, che 
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operazioni di sicurezza (secops)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -77,11 +77,11 @@ Il Centro sicurezza di Azure può anche inviare avvisi su determinate attività 
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operazioni di sicurezza (secops)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -111,11 +111,11 @@ Abilitare e raccogliere i log delle risorse del gruppo di sicurezza di rete (NSG
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operazioni di sicurezza (secops)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -129,7 +129,7 @@ Abilitare e raccogliere i log delle risorse del gruppo di sicurezza di rete (NSG
 |--|--|--|--|
 | LT-4 | 6,2, 6,3, 8,8 | AU-3, AU-12 |
 
-Abilitare la registrazione per le risorse di Azure in modo da soddisfare i requisiti di conformità, rilevamento e analisi delle minacce e caccia alle minacce. 
+Abilitare la registrazione per le risorse di Azure in modo da soddisfare i requisiti di conformità, rilevamento delle minacce, caccia e analisi degli eventi imprevisti. 
 
 È possibile usare il Centro sicurezza di Azure e i criteri di Azure per abilitare i log delle risorse e la raccolta dei dati di log sulle risorse di Azure per l'accesso ai log di controllo, sicurezza e risorse. I log attività, che sono automaticamente disponibili, includono origine evento, data, utente, timestamp, indirizzi di origine, indirizzi di destinazione e altri elementi utili. 
 
@@ -141,9 +141,9 @@ Abilitare la registrazione per le risorse di Azure in modo da soddisfare i requi
 
 **Responsabilità**: Condiviso
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni di sicurezza (secops)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 Sicurezza dell'infrastruttura e degli endpoint 
 
@@ -171,7 +171,7 @@ Molte organizzazioni scelgono di usare Sentinel di Azure per i dati "attivi" usa
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -185,25 +185,25 @@ Molte organizzazioni scelgono di usare Sentinel di Azure per i dati "attivi" usa
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
-Configurare la conservazione dei log in base alla conformità, al regolamento e ad altri requisiti. 
+Configurare la conservazione dei log in base ai requisiti aziendali, normativi e di conformità. 
 
 In monitoraggio di Azure è possibile impostare il periodo di conservazione dell'area di lavoro Log Analytics in base alle normative di conformità dell'organizzazione. Usare archiviazione di Azure, Data Lake o Log Analytics account dell'area di lavoro per l'archiviazione a lungo termine e di archiviazione.
 
 - [Modificare il periodo di conservazione dei dati in Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure: ttps://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging
+- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 - [Esportazione avvisi e raccomandazioni del Centro sicurezza di Azure](../../security-center/continuous-export.md)
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Operazioni di sicurezza (secops)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [Gestione della conformità alla sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -225,7 +225,7 @@ Tutti i log generati dalle risorse in Azure forniscono indicatori temporali con 
 
 **Responsabilità**: Condiviso
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Criteri e standard](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 

@@ -13,20 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/17/2019
+ms.date: 09/17/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86eec0cf7108e2d3b47f7b98dbdaffe76be8afd8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 23cfc2ea17e1801ec4caeea9e8933cfdc72e33d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603511"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331251"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
 I report di Azure Active Directory (Azure AD) offrono tutte le informazioni necessarie per determinare le prestazioni dell'ambiente.
+
+
 
 L'architettura di report è costituita dai componenti seguenti:
 
@@ -45,7 +47,7 @@ Questo articolo fornisce una panoramica del report di controllo.
 
 ## <a name="audit-logs"></a>Log di controllo
 
-I log di controllo di Azure AD forniscono i record delle attività di sistema per la conformità. Per accedere al report di controllo, selezionare **log di controllo** nella sezione **monitoraggio** del **Azure Active Directory**. Si noti che i log di controllo possono avere una latenza di un massimo di un'ora, quindi potrebbe essere necessario molto tempo per visualizzare i dati dell'attività di controllo nel portale dopo aver completato l'attività.
+I log di controllo di Azure AD forniscono i record delle attività di sistema per la conformità. Per accedere al report di controllo, selezionare **log di controllo** nella sezione **monitoraggio** del **Azure Active Directory**. 
 
 
 
@@ -62,15 +64,15 @@ Un log di controllo è una visualizzazione elenco predefinita che include:
 
 È possibile personalizzare la visualizzazione elenco facendo clic su **colonne** nella barra degli strumenti.
 
-![Log di controllo](./media/concept-audit-logs/columns.png "Log di controllo")
+![Colonne di controllo](./media/concept-audit-logs/columns.png "Colonne di controllo")
 
 In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già visualizzati.
 
-![Log di controllo](./media/concept-audit-logs/columnselect.png "Log di controllo")
+![Rimuovi campi](./media/concept-audit-logs/columnselect.png "Rimuovi campi")
 
 Selezionare un elemento nella visualizzazione elenco per ottenere maggiori informazioni dettagliate.
 
-![Log di controllo](./media/concept-audit-logs/details.png "Log di controllo")
+![Seleziona elemento](./media/concept-audit-logs/details.png "Seleziona elemento")
 
 
 ## <a name="filtering-audit-logs"></a>Filtro dei log di controllo
@@ -85,7 +87,7 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 - Azione avviata da (attore)
 - Intervallo di date
 
-![Log di controllo](./media/concept-audit-logs/filter.png "Log di controllo")
+![Oggetto Filter](./media/concept-audit-logs/filter.png "Filter - oggetto")
 
 Il filtro del **servizio** consente di effettuare una selezione da un elenco a discesa dei servizi seguenti:
 
@@ -157,7 +159,7 @@ Quando si seleziona un intervallo di tempo personalizzato, è possibile configur
 
 È anche possibile scegliere di scaricare i dati filtrati, fino a 250.000 record, selezionando il pulsante **download** . È possibile scaricare i log in formato CSV o JSON. Il numero di record che è possibile scaricare è limitato dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).
 
-![Log di controllo](./media/concept-audit-logs/download.png "Log di controllo")
+![Scaricare i dati](./media/concept-audit-logs/download.png "Scaricare i dati")
 
 ## <a name="audit-logs-shortcuts"></a>Collegamenti ai log di controllo
 
@@ -188,11 +190,11 @@ Con i report di controllo basati su utenti e gruppi, è possibile ottenere rispo
 
 Per rivedere solo i dati di controllo relativi agli utenti, è possibile trovare una visualizzazione filtrata in **log di controllo** nella sezione **monitoraggio** della scheda **utenti** . Questo punto di ingresso ha **UserManagement** come categoria preselezionata.
 
-![Log di controllo](./media/concept-audit-logs/users.png "Log di controllo")
+![Utente](./media/concept-audit-logs/users.png "Utente")
 
 Per rivedere solo i dati di controllo relativi ai gruppi, è possibile trovare una visualizzazione filtrata in **log di controllo** nella sezione **monitoraggio** della scheda **gruppi** . Questo punto di ingresso ha **GroupManagement** come categoria preselezionata.
 
-![Log di controllo](./media/concept-audit-logs/groups.png "Log di controllo")
+![Filtra gruppi](./media/concept-audit-logs/groups.png "Filtra gruppi")
 
 ### <a name="enterprise-applications-audit-logs"></a>Log di controllo di applicazioni aziendali
 
@@ -206,7 +208,7 @@ Con i report di controllo basati sulle applicazioni, è possibile ottenere rispo
 
 Per esaminare i dati di controllo relativi alle applicazioni, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** del pannello **Applicazioni aziendali**. Questo punto di ingresso dispone di **applicazioni aziendali** preselezionate come **tipo di applicazione**.
 
-![Log di controllo](./media/concept-audit-logs/enterpriseapplications.png "Log di controllo")
+![Applicazioni aziendali](./media/concept-audit-logs/enterpriseapplications.png "Applicazioni aziendali")
 
 ## <a name="microsoft-365-activity-logs"></a>Log attività Microsoft 365
 

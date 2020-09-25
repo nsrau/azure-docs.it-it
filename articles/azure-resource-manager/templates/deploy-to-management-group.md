@@ -2,13 +2,13 @@
 title: Distribuire le risorse al gruppo di gestione
 description: Viene descritto come distribuire le risorse nell'ambito del gruppo di gestione in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 2325e9f5a03f7451492c9b9b8e929df95ddc3852
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 09/24/2020
+ms.openlocfilehash: 0c5ed8d2427a9e0329db6ebd7f0aa48aa4912a48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605227"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284823"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Creazione di risorse a livello di gruppo di gestione
 
@@ -45,7 +45,7 @@ Per la gestione delle risorse, usare:
 
 * [tag](/azure/templates/microsoft.resources/tags)
 
-### <a name="schema"></a>SCHEMA
+## <a name="schema"></a>SCHEMA
 
 Lo schema usato per le distribuzioni di gruppi di gestione è diverso dallo schema per le distribuzioni di gruppi di risorse.
 
@@ -60,6 +60,30 @@ Lo schema per un file di parametri è lo stesso per tutti gli ambiti di distribu
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
+
+## <a name="deployment-scopes"></a>Ambiti di distribuzione
+
+Quando si esegue la distribuzione in un gruppo di gestione, è possibile scegliere come destinazione il gruppo di gestione specificato nel comando di distribuzione oppure è possibile selezionare un altro gruppo di gestione nel tenant.
+
+Le risorse definite nella sezione Resources del modello vengono applicate al gruppo di gestione dal comando Deployment.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
+
+Per fare riferimento a un altro gruppo di gestione, aggiungere una distribuzione annidata e specificare la `scope` Proprietà. Impostare la `scope` proprietà su un valore nel formato `Microsoft.Management/managementGroups/<mg-name>` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
+
+È anche possibile fare riferimento a sottoscrizioni o gruppi di risorse all'interno di un gruppo di gestione. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
+
+Per fare riferimento a una sottoscrizione all'interno del gruppo di gestione, usare una distribuzione annidata e la `subscriptionId` Proprietà.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
+
+Per fare riferimento a un gruppo di risorse all'interno di tale sottoscrizione, aggiungere un'altra distribuzione annidata e la `resourceGroup` Proprietà.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
+
+Per usare una distribuzione del gruppo di gestione per creare un gruppo di risorse all'interno di una sottoscrizione e distribuire un account di archiviazione a tale gruppo di risorse, vedere [distribuire a una sottoscrizione e un gruppo di risorse](#deploy-to-subscription-and-resource-group).
 
 ## <a name="deployment-commands"></a>Comandi di distribuzione
 
@@ -94,97 +118,6 @@ Per le distribuzioni a livello di gruppo di gestione, è necessario specificare 
 È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
 
 Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
-
-## <a name="deployment-scopes"></a>Ambiti di distribuzione
-
-Quando si esegue la distribuzione in un gruppo di gestione, è possibile usare come destinazione il gruppo di gestione specificato nel comando di distribuzione o altri gruppi di gestione nel tenant. È anche possibile fare riferimento a sottoscrizioni o gruppi di risorse all'interno di un gruppo di gestione. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
-
-Le risorse definite nella sezione Resources del modello vengono applicate al gruppo di gestione dal comando Deployment.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        management-group-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Per fare riferimento a un altro gruppo di gestione, aggiungere una distribuzione annidata e specificare la `scope` Proprietà.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string"
-        }
-    },
-    "variables": {
-        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2019-10-01",
-            "name": "nestedDeployment",
-            "scope": "[variables('mgId')]",
-            "location": "eastus",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resources-in-different-mg
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-Per fare riferimento a una sottoscrizione all'interno del gruppo di gestione, usare una distribuzione annidata e la `subscriptionId` Proprietà. Per fare riferimento a un gruppo di risorse all'interno di tale sottoscrizione, aggiungere un'altra distribuzione annidata e la `resourceGroup` Proprietà.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "nestedSub",
-      "location": "westus2",
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.Resources/deployments",
-              "apiVersion": "2020-06-01",
-              "name": "nestedRG",
-              "resourceGroup": "rg2",
-              "properties": {
-                "mode": "Incremental",
-                "template": {
-                  nested-template-with-resources-in-resource-group
-                }
-              }
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
-```
-
-Per usare una distribuzione del gruppo di gestione per creare un gruppo di risorse all'interno di una sottoscrizione e distribuire un account di archiviazione a tale gruppo di risorse, vedere [distribuire a una sottoscrizione e un gruppo di risorse](#deploy-to-subscription-and-resource-group).
 
 ## <a name="use-template-functions"></a>Usare le funzioni di modello
 

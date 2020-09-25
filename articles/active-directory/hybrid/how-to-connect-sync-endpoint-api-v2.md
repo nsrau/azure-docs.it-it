@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f4eba1b48b651c8efe9e9d737e226727cb244fb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 779b29c8d31dffa495926a7f2ca5e1f77870078c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662468"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319912"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API dell'endpoint Sync V2 di Azure AD Connect (anteprima pubblica) 
 Microsoft ha distribuito un nuovo endpoint (API) per Azure AD Connect che consente di migliorare le prestazioni delle operazioni del servizio di sincronizzazione per Azure Active Directory. Usando il nuovo endpoint V2, si verificherà un notevole miglioramento delle prestazioni di esportazione e importazione in Azure AD. Questo nuovo endpoint supporta gli elementi seguenti:
@@ -116,12 +116,12 @@ Per aumentare il limite di appartenenza, è possibile usare i passaggi seguenti:
 1. Aprire l'editor delle regole di sincronizzazione di Azure AD 
 2. Nell'editor scegliere **In uscita** per la direzione 
 3. Fare clic sulla regola di sincronizzazione **Uscita in AAD – Group Join** 
-4. Fare clic sul pulsante **Modifica**, ![Modifica regola di sincronizzazione](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
+4. Fare clic sul pulsante **modifica** ![ screenshot che mostra le "visualizzare e gestire le regole di sincronizzazione" con "out to AAD-Group Join" selezionato.](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
 
 6. Fare clic sul pulsante **Sì** per disabilitare la regola predefinita e creare una copia modificabile.
- ![Modifica regola di sincronizzazione](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
+ ![Screenshot che mostra la finestra "modifica conferma della regola riservata" con il pulsante "Sì" selezionato.](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
 
-7. Nella finestra popup della pagina **Descrizione**, impostare la precedenza su un valore disponibile compreso tra 1 e 99 ![Modifica regola di sincronizzazione](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
+7. Nella finestra popup della pagina **Descrizione** impostare la precedenza su un valore disponibile compreso tra 1 e 99 ![ screenshot che mostra la finestra "Modifica regola di sincronizzazione in uscita" con "precedenza" evidenziata.](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
 8. Nella pagina **Trasformazioni** aggiornare il valore **Origine** per la trasformazione dei **membri**, sostituendo "50000" con un valore compreso tra 50001 e 250000. Questa sostituzione aumenterà le dimensioni massime di appartenenza dei gruppi che verranno sincronizzati in Azure AD. Si consiglia di iniziare con un numero di 100.000 per comprendere l'effetto che la sincronizzazione di gruppi di grandi dimensioni avrà sulle prestazioni di sincronizzazione. 
  

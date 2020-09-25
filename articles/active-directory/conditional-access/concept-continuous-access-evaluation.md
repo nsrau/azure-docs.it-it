@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601759"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266060"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -66,8 +66,8 @@ Questo processo Abilita lo scenario in cui gli utenti perdono l'accesso ai file 
 
 | | App Web di Office | App di Office Win32 | Office per iOS | Office per Android | Office per Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Supportato | Supportato | Non supportato | Supportato | Supportato |
-| **Exchange Online** | Supportato | Supportato | Non supportato | Supportato | Supportato |
+| **SharePoint Online** | Non supportato | Supportato | Supportato | Supportato | Supportato |
+| **Exchange Online** | Non supportato | Supportato | Supportato | Supportato | Supportato |
 
 ### <a name="client-side-claim-challenge"></a>Richiesta di attestazione lato client
 

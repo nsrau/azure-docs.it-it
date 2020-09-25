@@ -1,18 +1,18 @@
 ---
 title: Eseguire la migrazione delle macchine virtuali Windows ad Archiviazione Premium di Azure con Azure Site Recovery
-description: Eseguire la migrazione delle macchine virtuali esistenti ad Archiviazione Premium di Azure usando Site Recovery. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure.
+description: Informazioni su come eseguire la migrazione dei dischi delle VM da un account di archiviazione standard a un account di archiviazione Premium usando Azure Site Recovery.
 author: luywang
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 51fa0c063de106f627fc097910514e7c5416ee51
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 203176c4c7ffed95cb4f1616f29f3953fcc0afc5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525960"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320099"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrazione ad Archiviazione Premium con Azure Site Recovery
 

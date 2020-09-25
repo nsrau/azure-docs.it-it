@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: d4da9a819d7aa96992259112c75154b1651341ac
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604758"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319120"
 ---
 # <a name="inspect-custom-speech-data"></a>Esaminare i dati di Riconoscimento vocale personalizzato
 
@@ -79,17 +79,19 @@ Una volta importati correttamente i dati, è possibile fare clic nei set di dati
 
 ### <a name="edit-transcription-by-listening-to-audio"></a>Modificare la trascrizione ascoltando l'audio
 
-Una volta completato il caricamento dei dati, fare clic su ogni nome di elemento per visualizzare i dettagli dei dati. La pagina dei dettagli elenca tutti i file del set di dati ed è possibile fare clic sull'espressione desiderata. Per ogni espressione, è possibile riprodurre l'audio ed esaminare le trascrizioni e modificare le trascrizioni se si riscontrano errori di inserimento, eliminazione o sostituzione. Per ulteriori informazioni sui tipi di errore, vedere la pagina relativa alla [valutazione dei dati](how-to-custom-speech-evaluate-data.md) .
+Una volta completato il caricamento dei dati, fare clic su ogni nome di elemento per visualizzare i dettagli dei dati. È anche possibile usare **Previous** e **Next** per spostarsi tra i singoli file.
+
+La pagina dei dettagli elenca tutti i segmenti in ogni file audio ed è possibile fare clic sull'espressione desiderata. Per ogni espressione, è possibile riprodurre l'audio ed esaminare le trascrizioni e modificare le trascrizioni se si riscontrano errori di inserimento, eliminazione o sostituzione. Per ulteriori informazioni sui tipi di errore, vedere la pagina relativa alla [valutazione dei dati](how-to-custom-speech-evaluate-data.md) .
 
 ![Pagina dell'editor](media/custom-speech/custom-speech-editor.png)
 
-Se il file audio è lungo, viene segmentato automaticamente in parti più piccole. È possibile modificarli uno alla volta usando **Previous** e **Next** per spostarsi tra le pagine. Dopo aver apportato le modifiche, fare clic sul pulsante **Salva** .
+Dopo aver apportato le modifiche, fare clic sul pulsante **Salva** .
 
 ### <a name="export-datasets-from-the-editor"></a>Esportare i set di impostazioni dall'editor
 
 Per esportare di nuovo i set di **dati** nella scheda dati, passare alla pagina dei dettagli dei dati e fare clic sul pulsante **Esporta** per esportare tutti i file come nuovo set di dati. È anche possibile filtrare i file in base all'ora dell'Ultima modifica, alle durate audio e così via per selezionare parzialmente i file desiderati. 
 
-![Esportare i dati](media/custom-speech/custom-speech-editor-export.png)
+![Esportazione dei dati](media/custom-speech/custom-speech-editor-export.png)
 
 I file esportati nei dati verranno usati come set di dati completamente nuovo e non influiscono sulle entità esistenti di dati, training e test.
 

@@ -1,6 +1,6 @@
 ---
 title: Creare il nome di dominio completo per una macchina virtuale nel portale di Azure
-description: Informazioni su come creare un nome di dominio completo o FQDN per un Gestore risorse basato su macchina virtuale nel portale di Azure.
+description: Informazioni su come creare un nome di dominio completo (FQDN) per una macchina virtuale Linux nel portale di Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: networking
@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ac44c8d157102a39df9c580938589862dafd0a4
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: deae22ad0c763e48df053d19beefba6054ed2767
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371890"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331472"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Creare un nome di dominio completo nel portale di Azure per una macchina virtuale Linux
 

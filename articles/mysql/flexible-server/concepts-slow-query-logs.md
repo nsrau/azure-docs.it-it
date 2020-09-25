@@ -6,17 +6,20 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 2ce10353d1d102667718f368dc55a5821f16e25d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8b413b82ceb148374bd89fd2baec7d4db13f54d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938525"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329549"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Log di query lente nel server flessibile database di Azure per MySQL (anteprima)
 
 > [!IMPORTANT] 
 > Il server flessibile di Database di Azure per MySQL è attualmente disponibile in anteprima pubblica.
+
+> [!NOTE]
+> L'integrazione con le impostazioni di diagnostica di monitoraggio di Azure per accedere ai log è in corso di distribuzione e la funzionalità completa sarà presto disponibile.
 
 Nel database di Azure per MySQL server flessibile, il log di query lente è disponibile per gli utenti per la configurazione e l'accesso. I log di query lente sono disabilitati per impostazione predefinita e possono essere abilitati per facilitare l'identificazione di colli di bottiglia delle prestazioni durante la risoluzione dei problemi.
 
@@ -38,6 +41,9 @@ Altri parametri che è possibile modificare per controllare il comportamento del
 Per una descrizione completa dei parametri per il log di query lente, vedere la [documentazione sul log di query lente](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) per MySQL.
 
 ## <a name="access-slow-query-logs"></a>Accedere ai log di query lente
+
+> [!NOTE]
+> L'integrazione con le impostazioni di diagnostica di monitoraggio di Azure per accedere ai log è in corso di distribuzione e la funzionalità completa sarà presto disponibile.
 
 I log di query lente sono integrati con le impostazioni di diagnostica di monitoraggio di Azure. Dopo aver abilitato i log di controllo nel server MySQL flessibile, è possibile crearli in log di monitoraggio di Azure, Hub eventi o archiviazione di Azure. Per ulteriori informazioni sulle impostazioni di diagnostica, vedere la [documentazione relativa ai log di diagnostica](../../azure-monitor/platform/platform-logs-overview.md). Per altre informazioni su come abilitare le impostazioni di diagnostica nella portale di Azure, vedere l' [articolo relativo al portale di log di query lente](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
 

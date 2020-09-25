@@ -1,22 +1,22 @@
 ---
-title: Baseline della sicurezza di Azure per database di Azure per PostgreSQL-scalabilità iperscalabile
-description: La linea di base di sicurezza con iperscalabilità di database di Azure per PostgreSQL fornisce linee guida procedurali e risorse per l'implementazione delle raccomandazioni di sicurezza specificate nel benchmark di sicurezza di Azure.
+title: Baseline della sicurezza di Azure per database di Azure per PostgreSQL-iperscalabilità (CITUS)
+description: La linea di base di sicurezza del database di Azure per PostgreSQL-iperscalabilità (CITUS) fornisce indicazioni e risorse procedurali per l'implementazione delle raccomandazioni di sicurezza specificate nel benchmark di sicurezza di Azure.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 37ebd1702ed8ef059b38378b89f5a5cb61748568
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c82451ca9f1f974aba7578b0dfc4f6f0eb99ac16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231300"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318127"
 ---
-# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Baseline della sicurezza di Azure per database di Azure per PostgreSQL-scalabilità iperscalabile
+# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Baseline della sicurezza di Azure per database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
-La linea di base di sicurezza di Azure per database di Azure per PostgreSQL-iperscalabilità contiene raccomandazioni che consentono di migliorare il comportamento di sicurezza della distribuzione.
+La linea di base di sicurezza di Azure per database di Azure per PostgreSQL-iperscala (CITUS) contiene raccomandazioni che consentono di migliorare il comportamento di sicurezza della distribuzione.
 
 La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
 

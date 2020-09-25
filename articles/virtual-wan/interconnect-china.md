@@ -1,18 +1,18 @@
 ---
 title: Interconnettersi con la Cina tramite l'hub sicuro e la rete WAN virtuale di Azure
-description: Informazioni sulla connettività scalabile da ramo a ramo, sulle aree disponibili e sui partner.
+description: Informazioni su come interconnettersi con la Cina usando la rete WAN virtuale di Azure e un hub protetto.
 services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: d89a3c65eb8d8bffd4cf87160286d1905bd1ba5b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d95330c14e0d088bdee03c0edbc2eb9d1deb12cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747621"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329228"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Interconnettersi con la Cina tramite l'hub sicuro e la rete WAN virtuale di Azure
 

@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: aac7b7d39102a1fe115ddea483aee36af79e7fc4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 6137201f8accb901ffe1892d9876b172411cfe6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612113"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329595"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matrice di supporto di Azure Migrate
 
@@ -92,9 +92,12 @@ Francia | Francia centrale
 India | India centrale o India meridionale
 Giappone |  Giappone orientale o Giappone occidentale
 Corea del Sud | Corea centrale o Corea meridionale
+Svizzera | Svizzera settentrionale
 Regno Unito | Regno Unito meridionale o Regno Unito occidentale
 Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
 
+> [!NOTE]
+> Per la Svizzera geografia, Svizzera occidentale è disponibile solo per gli utenti dell'API REST ed è necessaria una sottoscrizione all'elenco elementi consentiti.
 
 ## <a name="supported-geographies-azure-government"></a>Aree geografiche supportate (Azure per enti pubblici)
 

@@ -2,13 +2,13 @@
 title: Distribuire le risorse nel tenant
 description: Descrive come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: 9b653f3fd4ed66f23521ea3ec8f9972e3b6cc09c
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.date: 09/24/2020
+ms.openlocfilehash: af75e4f0e51ac685986e57b3b92a23dd37174460
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468556"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284760"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creare risorse a livello di tenant
 
@@ -42,7 +42,7 @@ Per la gestione dei costi, usare:
 * [istruzioni](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
-### <a name="schema"></a>Schema
+## <a name="schema"></a>Schema
 
 Lo schema usato per le distribuzioni a livello di tenant è diverso rispetto allo schema per le distribuzioni di gruppi di risorse.
 
@@ -78,11 +78,23 @@ L'amministratore globale di Azure Active Directory non dispone automaticamente d
 
 L'entità di sicurezza ha ora le autorizzazioni necessarie per distribuire il modello.
 
+## <a name="deployment-scopes"></a>Ambiti di distribuzione
+
+Quando si esegue la distribuzione in un tenant, è possibile usare come destinazione il tenant o i gruppi di gestione, le sottoscrizioni e i gruppi di risorse nel tenant. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
+
+Le risorse definite all'interno della sezione Resources del modello vengono applicate al tenant.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+Per impostare come destinazione un gruppo di gestione all'interno del tenant, aggiungere una distribuzione annidata e specificare la `scope` Proprietà.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
 ## <a name="deployment-commands"></a>Comandi di distribuzione
 
 I comandi per le distribuzioni a livello di tenant sono diversi rispetto ai comandi per le distribuzioni di gruppi di risorse.
 
-Per l'interfaccia della riga di comando di Azure usare [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+Per l'interfaccia della riga di comando di Azure usare [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
 ```azurecli-interactive
 az deployment tenant create \
@@ -109,56 +121,6 @@ Per le distribuzioni a livello di tenant, è necessario specificare un percorso 
 È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
 
 Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
-
-## <a name="deployment-scopes"></a>Ambiti di distribuzione
-
-Quando si esegue la distribuzione in un tenant, è possibile usare come destinazione il tenant o i gruppi di gestione, le sottoscrizioni e i gruppi di risorse nel tenant. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
-
-Le risorse definite all'interno della sezione Resources del modello vengono applicate al tenant.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        tenant-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Per impostare come destinazione un gruppo di gestione all'interno del tenant, aggiungere una distribuzione annidata e specificare la `scope` Proprietà.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string"
-        }
-    },
-    "variables": {
-        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedMG",
-            "scope": "[variables('mgId')]",
-            "location": "eastus",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resources-in-mg
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
 
 ## <a name="use-template-functions"></a>Usare le funzioni di modello
 

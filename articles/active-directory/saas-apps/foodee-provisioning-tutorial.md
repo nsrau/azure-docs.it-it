@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 40549fa8880fb4dc4d29046b0037621610f0b130
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1d3ea609cda37c3bb0de28d8eb1a19944809980d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544184"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331162"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Esercitazione: configurare un alimento per il provisioning utenti automatico
 
@@ -75,7 +75,7 @@ Per aggiungere un alimento dalla raccolta di applicazioni di Azure AD, seguire q
 
     ![Comando Azure Active Directory](common/select-azuread.png)
 
-1. Selezionare **applicazioni aziendali**  >  **tutte le applicazioni**.
+1. Selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
 
     ![Riquadro Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -106,11 +106,11 @@ Configurare il provisioning utenti automatico per i buongustai in Azure AD esegu
 
 1. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 1. Nell'elenco a discesa **modalità di provisioning** selezionare **automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 1. In **credenziali amministratore**eseguire le operazioni seguenti:
 

@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: ba4b8f1d3aaa9b06f3bc24e9e267f6778734152a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: bad81e8929cd0c5c66c87fd9f6cc11dc746b3e5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903747"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317786"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Output delle code del bus di servizio da analisi di flusso di Azure
 
@@ -51,6 +51,22 @@ La dimensione massima dei messaggi è 256 KB per messaggio per il livello standa
 ## <a name="custom-metadata-properties-for-output"></a>Proprietà dei metadati personalizzati per l'output
 
 È possibile aggiungere colonne di query come proprietà utente ai messaggi in uscita. Queste colonne non vengono inserite nel payload. Le proprietà sono presenti sotto forma di dizionario nel messaggio di output. *Key* è il nome della colonna e *value* è il valore della colonna nel dizionario delle proprietà. Sono supportati tutti i tipi di dati di Analisi di flusso, ad eccezione di record e matrice.
+
+Nell'esempio seguente i campi `DeviceId` e `DeviceStatus` vengono aggiunti ai metadati.
+
+1. Utilizzare la query seguente:
+
+   ```sql
+   select *, DeviceId, DeviceStatus from iotHubInput
+   ```
+
+1. Configurare `DeviceId,DeviceStatus` come colonne di proprietà nell'output.
+
+   :::image type="content" source="media/service-bus-queues-output/property-columns.png" alt-text="Colonne delle proprietà":::
+
+L'immagine seguente è delle proprietà del messaggio di output previste ispezionate in EventHub tramite [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="Proprietà personalizzate dell'evento":::
 
 ## <a name="system-properties"></a>Proprietà di sistema
 

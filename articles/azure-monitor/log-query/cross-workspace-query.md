@@ -6,27 +6,30 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 7cfa3d5652e13ddc88db70674049069a5b391297
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e2f9430ae039cc54c3e6180eb8ea76791d17f67f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285129"
 ---
-# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Eseguire query di log su più risorse in Monitoraggio di Azure  
+# <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Eseguire query di log in monitoraggio di Azure che si estendono su più aree di lavoro e app
+
+I log di monitoraggio di Azure supportano query tra più aree di lavoro Log Analytics e app Application Insights nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione. Si ottiene così una vista dei dati dell'intero sistema.
+
+Esistono due metodi per eseguire query sui dati archiviati in più aree di lavoro e app:
+1. In modo esplicito specificando i dettagli dell'area di lavoro e dell'app. Questa tecnica è descritta in dettaglio in questo articolo.
+2. Utilizzando in modo implicito le [query del contesto delle risorse](../platform/design-logs-deployment.md#access-mode). Quando si esegue una query nel contesto di una risorsa specifica, un gruppo di risorse o una sottoscrizione, i dati rilevanti verranno recuperati da tutte le aree di lavoro che contengono i dati per queste risorse. I dati Application Insights archiviati nelle app non verranno recuperati.
 
 > [!IMPORTANT]
 > Se si usa una [risorsa di Application Insights basata sull'area di lavoro](../app/create-workspace-resource.md), i dati di telemetria vengono archiviati in un'area di lavoro Log Analytics con tutti gli altri dati di log. Usare l'espressione log () per scrivere una query che includa l'applicazione in più aree di lavoro. Per più applicazioni nella stessa area di lavoro, non è necessaria una query tra aree di lavoro.
 
-Monitoraggio di Azure consentiva in precedenza di analizzare i dati solo all'interno dell'area di lavoro corrente, limitando la possibilità di eseguire query su più aree di lavoro definite nella sottoscrizione.  Inoltre, era possibile solo cercare gli elementi di telemetria raccolti dall'applicazione basata sul Web con Application Insights direttamente in Application Insights o in Visual Studio. Per questi motivi, risultava difficile anche analizzare insieme in modo nativo i dati operativi e quelli dell'applicazione.
-
-Ora è possibile eseguire query non solo tra più aree di lavoro di Log Analytics, ma anche su dati di un'app specifica di Application Insights nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione. Si ottiene così una vista dei dati dell'intero sistema. È possibile eseguire questi tipi di query solo in [Log Analytics](./log-query-overview.md).
 
 ## <a name="cross-resource-query-limits"></a>Limiti di query tra risorse 
 
 * Il numero di risorse Application Insights e le aree di lavoro Log Analytics che è possibile includere in una singola query sono limitate a 100.
-* La query tra risorse non è supportata in Progettazione viste. È possibile creare una query in Log Analytics e aggiungerla al dashboard di Azure per [visualizzare una query di log](../learn/tutorial-logs-dashboards.md). 
-* Le query su più risorse negli avvisi dei log sono supportate nella nuova [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Per impostazione predefinita, Monitoraggio di Azure usa l'[API legacy degli avvisi di Log Analytics](../platform/api-alerts.md) per la creazione di nuove regole di avviso relative ai log dal portale di Azure, a meno che non si esegua la commutazione dall'[API legacy degli avvisi relativi ai log](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Dopo la commutazione, la nuova API diventa quella predefinita per le nuove regole di avviso nel portale di Azure e consente di creare regole di avviso dei log basate su query su più risorse. È possibile creare regole di avviso del log di query tra risorse senza eseguire l'opzione usando il [modello di Azure Resource Manager per l'API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) , ma questa regola di avviso è gestibile anche se l' [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) e non da portale di Azure.
+* Le query su più risorse non sono supportate Progettazione visualizzazioni. È possibile creare una query in Log Analytics e aggiungerla al dashboard di Azure per [visualizzare una query di log](../learn/tutorial-logs-dashboards.md). 
+* Le query tra risorse negli avvisi del log sono supportate solo nell' [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules)corrente. Se si usa l'API legacy Log Analytics Alerts, sarà necessario [passare all'API corrente](../platform/alerts-log-api-switch.md).
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Esecuzione di query tra aree di lavoro di Log Analytics e da Application Insights
@@ -132,7 +135,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
->Questo metodo non può essere usato con gli avvisi del log perché la convalida dell'accesso delle risorse della regola di avviso, incluse le aree di lavoro e le applicazioni, viene eseguita al momento della creazione dell'avviso. L'aggiunta di nuove risorse alla funzione dopo la creazione dell'avviso non è supportata. Se si preferisce usare la funzione per l'ambito delle risorse negli avvisi del log, è necessario modificare la regola di avviso nel portale o con un modello di Gestione risorse per aggiornare le risorse con ambito. In alternativa, è possibile includere l'elenco delle risorse nella query di avviso del log.
+> Questo metodo non può essere usato con gli avvisi del log perché la convalida dell'accesso delle risorse della regola di avviso, incluse le aree di lavoro e le applicazioni, viene eseguita al momento della creazione dell'avviso. L'aggiunta di nuove risorse alla funzione dopo la creazione dell'avviso non è supportata. Se si preferisce usare la funzione per l'ambito delle risorse negli avvisi del log, è necessario modificare la regola di avviso nel portale o con un modello di Gestione risorse per aggiornare le risorse con ambito. In alternativa, è possibile includere l'elenco delle risorse nella query di avviso del log.
 
 
 ![Diagramma temporale](media/cross-workspace-query/chart.png)

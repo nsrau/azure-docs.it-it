@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 62f30d8a0fe1b2f2397fc16161929279a148aaa2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 741bea5129e5fa9660e198a74e23f0ef6c67dc23
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037508"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329755"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Supporto per Microsoft Commercial Marketplace
 
@@ -38,8 +38,7 @@ Aprire un ticket per il [supporto per la pubblicazione nel Marketplace](https://
 ## <a name="marketing-resources"></a>Risorse di marketing  
 
 | Canale di supporto | Descrizione | Disponibilità |  
-|:--- |:--- |:--- |  
-| E-mail: [cosell@microsoft.com](mailto:cosell@microsoft.com) | Supporto per i processi di onboarding e per le domande sul programma di co-selling. | Basato sul fuso orario del Pacifico. |  
+|:--- |:--- |:--- |
 | E-mail: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Supporto per informazioni sui vantaggi e sul programma Go-To-Market. | Basato sull'orario di ufficio nel fuso orario del Pacifico. |  
 | E-mail: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Supporto per informazioni sull'utilizzo del marchio e dei logo di Azure. |  |  
 

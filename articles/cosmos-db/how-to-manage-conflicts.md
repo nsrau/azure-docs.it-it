@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: ec9e6bc7daad05284893ce3148f9a80f500c5cbb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 2ebe4fbf776ffb3b4568f996f20ba721b0cc5fca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019947"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330515"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gestire i criteri di risoluzione dei conflitti in Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionLWWAsync)]
 
-# <a name="sync"></a>[Sincronizza](#tab/api-sync)
+# <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
 
    API sincrona Java SDK V4 (Maven com.azure::azure-cosmos)
 
@@ -250,7 +250,7 @@ await container.Scripts.CreateStoredProcedureAsync(
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionSprocAsync)]
 
-# <a name="sync"></a>[Sincronizza](#tab/api-sync)
+# <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
 
    API sincrona Java SDK V4 (Maven com.azure::azure-cosmos)
 
@@ -365,7 +365,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionCustomAsync)]
 
-# <a name="sync"></a>[Sincronizza](#tab/api-sync)
+# <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
 
    API sincrona Java SDK V4 (Maven com.azure::azure-cosmos)
 

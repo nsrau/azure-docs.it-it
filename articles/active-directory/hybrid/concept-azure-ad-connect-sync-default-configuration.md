@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661852"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295227"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita
 In questo articolo vengono illustrate le regole di configurazione predefinite, elencando le regole e spiegando come influiscono sulla configurazione. Viene inoltre illustrata la configurazione predefinita della sincronizzazione Azure AD Connect. L'obiettivo è che il lettore conosca il modo in cui il modello di configurazione, denominato provisioning dichiarativo, sta funzionando in un esempio reale. Nell'articolo si presuppone che l'utente abbia già installato e configurato il servizio di sincronizzazione Azure AD Connect tramite l'Installazione guidata.
@@ -160,7 +160,7 @@ Sono anche disponibili informazioni sul sistema connesso a cui la regola è corr
 #### <a name="scoping-filter"></a>Filtro per la definizione dell'ambito
 La sezione Filtro per la definizione dell'ambito viene usata per configurare i tempi di applicazione di una regola di sincronizzazione. Dal momento che il nome della regola di sincronizzazione in esame indica che deve essere applicata solo per utenti abilitati, l'ambito viene configurato in modo che l'attributo AD **userAccountControl** non abbia il bit 2 impostato. Quando il motore di sincronizzazione trova un utente in AD, applica questa regola di sincronizzazione quando **userAccountControl** è impostato sul valore decimale 512, ovvero utente normale abilitato. Non applica la regola quando l'utente ha **userAccountControl** impostato su 514, ovvero utente normale disabilitato.
 
-![Scheda Scoping filter (Filtro di ambito) nell'editor delle regole di sincronizzazione](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Screenshot che mostra la sezione "filtro di ambito" della finestra "Modifica regola di sincronizzazione in ingresso".](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 Il filtro per la definizione dell'ambito contiene gruppi e clausole che possono essere annidati. Per essere applicate, tutte le clausole all'interno di un gruppo devono essere soddisfatte per una regola di sincronizzazione. Quando si definiscono più gruppi, affinché la regola venga applicata è necessario che almeno un gruppo venga soddisfatto. In altri termini, un OR logico viene valutato tra gruppi, mentre un AND logico viene valutato all'interno di un gruppo. Un esempio di questa configurazione è costituito dalla regola di sincronizzazione in uscita **Out to AAD – Group Join**. Sono presenti diversi gruppi di filtri di sincronizzazione, ad esempio uno per i gruppi di sicurezza (`securityEnabled EQUAL True`) e uno per i gruppi di distribuzione (`securityEnabled EQUAL False`).
 

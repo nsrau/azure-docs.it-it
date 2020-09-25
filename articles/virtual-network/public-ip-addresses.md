@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 9f3d95d7ae725dba700b0a060ba74552d6b83ad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84172246"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329262"
 ---
 # <a name="public-ip-addresses"></a>Indirizzi IP pubblici
 
@@ -30,7 +30,7 @@ In Gestione risorse di Azure un [indirizzo IP pubblico](virtual-network-public-i
 * Interfacce di rete di macchina virtuale
 * Servizi di bilanciamento del carico con connessione Internet
 * Gateway VPN
-* Gateway di applicazione
+* Gateway applicazione
 * Firewall di Azure
 
 ## <a name="ip-address-version"></a>Versione dell'indirizzo IP
@@ -70,7 +70,7 @@ Indirizzi SKU Basic:
 
 - Assegnati con il metodo di allocazione statica o dinamica.
 - Caratterizzati da un timeout di inattività per i flussi in ingresso modificabile di 4-30 minuti, con un valore predefinito di 4 minuti, e da un timeout di inattività per i flussi in uscita fisso di 4 minuti.
-- Sono aperti per impostazione predefinita.  I gruppi di sicurezza di rete sono consigliati ma facoltativi per limitare il traffico in ingresso o in uscita.
+- Sono aperti per impostazione predefinita.  I gruppi di sicurezza di rete sono consigliati, ma facoltativi, per limitare il traffico in ingresso o in uscita.
 - Assegnati a qualsiasi risorsa di Azure a cui è possibile assegnare un indirizzo IP pubblico, ad esempio:
     * Interfacce di rete
     * Gateway VPN
@@ -158,23 +158,31 @@ Il [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2
 
 Un indirizzo IP pubblico viene assegnato al gateway VPN per consentire la comunicazione con la rete remota. A un gateway VPN è possibile assegnare solo un indirizzo IP pubblico *dinamico* Basic.
 
-## <a name="application-gateways"></a>Gateway di applicazione
+## <a name="application-gateways"></a>Gateway applicazione
 
 È possibile associare un indirizzo IP pubblico a un [gateway applicazione](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)di Azure, assegnandolo alla configurazione **front-end** del gateway. 
 
 * Assegnare un indirizzo IP pubblico di base **dinamico** a una configurazione front-end V1 del gateway applicazione. 
 * Assegnare un indirizzo dello SKU standard **statico** a una configurazione front-end V2.
 
+## <a name="azure-firewall"></a>Firewall di Azure
+
+Il [firewall di Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) consente di creare, applicare e registrare i criteri di connettività di rete e di applicazione tra sottoscrizioni e reti virtuali.
+
+È possibile associare solo indirizzi IP pubblici **statici** con un firewall. Questo consente ai firewall esterni di identificare il traffico proveniente dalla rete virtuale. 
+
+
 ## <a name="at-a-glance"></a>Riepilogo
 
 La tabella seguente illustra la proprietà tramite la quale un indirizzo IP pubblico può essere associato a una risorsa di primo livello e ai possibili metodi di allocazione.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | Statico |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | Static |
 | --- | --- | --- | --- |
-| Macchina virtuale |interfaccia di rete |Sì |Sì |
+| Macchina virtuale |Interfaccia di rete |Sì |Sì |
 | Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Sì |Sì |
 | gateway VPN |Configurazione IP del gateway |Sì |No |
 | gateway applicazione |Configurazione front-end |Sì (solo V1) |Sì (solo V2) |
+| Firewall di Azure | Configurazione front-end | No | Sì|
 
 ## <a name="limits"></a>Limiti
 

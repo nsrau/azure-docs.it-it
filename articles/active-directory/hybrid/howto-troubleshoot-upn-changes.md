@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: caf0fdf5fd167987ea0fd7111a05b04bd5bf848f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279789"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319844"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Pianificare e risolvere i problemi relativi alle modifiche al nome dell'entità utente in Azure Active Directory
 
@@ -94,7 +94,7 @@ Vedere i problemi noti e le soluzioni alternative in questo documento.
 
 Quando si esegue la sincronizzazione degli account utente da Active Directory a Azure AD, assicurarsi che UPN in Active Directory venga eseguito il mapping ai domini verificati in Azure AD.
 
-![Screenshot dei domini verificati](./media/howto-troubleshoot-upn-changes/verified-domains.png)
+![Screenshot che mostra esempi di UPN di cui è stato eseguito il mapping ai domini Azure A D verificati.](./media/howto-troubleshoot-upn-changes/verified-domains.png)
 
 Se il valore dell'attributo userPrincipalName non corrisponde a un dominio verificato in Azure AD, il processo di sincronizzazione sostituisce il suffisso con un valore default. onmicrosoft.com.
 
@@ -140,7 +140,7 @@ Attendere un tempo sufficiente per la sincronizzazione della modifica dell'UPN c
 ![Screenshot dei domini verificati](./media/howto-troubleshoot-upn-changes/other-user.png)
 
 
-### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti ad Azure AD ibridi
+### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti all'identità ibrida di Azure AD
 
 [Azure ad ibrido dispositivi aggiunti](../devices/concept-azure-ad-join-hybrid.md) vengono aggiunti a Active Directory e Azure ad. È possibile implementare Azure AD ibrido join se l'ambiente ha un footprint di Active Directory locale e si vuole anche sfruttare le funzionalità fornite da Azure AD.
 
@@ -237,7 +237,7 @@ L'utente deve selezionare il menu a discesa nell'account abilitato per l'accesso
 ## <a name="security-key-fido2-known-issues-and-workarounds"></a>Problemi noti e soluzioni alternative per la chiave di sicurezza (FIDO2)
 
 **Problemi noti** <br>
-Quando più utenti sono registrati sulla stessa chiave, la schermata di accesso Mostra una pagina di selezione dell'account in cui viene visualizzato il nome UPN precedente. Gli accessi con chiavi di sicurezza non sono interessati dalle modifiche UPN.  
+Quando più utenti sono registrati sulla stessa chiave, la schermata di accesso Mostra una pagina di selezione dell'account in cui viene visualizzato il nome UPN precedente. Gli accessi che usano chiavi di sicurezza non sono interessati dalle modifiche UPN.  
 
 **Soluzione alternativa**<br>
 Per rimuovere i riferimenti a UPN precedenti, gli utenti devono [reimpostare la chiave di sicurezza e ripetere la registrazione](../authentication/howto-authentication-passwordless-security-key.md#known-issues).

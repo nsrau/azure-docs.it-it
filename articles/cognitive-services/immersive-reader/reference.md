@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 73322cdee151969e6e765690284bbffc1c871f4e
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: aa85f1323795098d161e6bfb1b9cf9237b2a5501
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090194"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330605"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Guida di riferimento all'SDK per JavaScript immersive (v 1.1)
 
@@ -273,7 +273,7 @@ Default value: "text/plain"
 | --------- | ----------- |
 | text/plain | Testo normale. |
 | text/html | Contenuto HTML. [Altre informazioni](#html-support)|
-| Application/MathML + XML | Linguaggio di markup matematico (MathML). [Altre informazioni](./how-to/display-math.md).
+| Application/MathML + XML | Linguaggio di markup matematico (MathML). [Altre informazioni](./how-to/display-math.md)
 | applicazione/vnd.openxmlformats-officedocument.wordprocessingml.document | Documento di formato Microsoft Word. docx.
 
 
@@ -308,8 +308,8 @@ Contiene proprietà che configurano comportamenti specifici del lettore immersiv
 | Nome | Type | Descrizione |
 | ---- | ---- |------------ |
 | uiLang | string | Lingua dell'interfaccia utente, il valore è nel formato di tag del linguaggio IETF BCP 47, ad esempio en, es-ES. Se non è specificato, il valore predefinito è lingua del browser. |
-| timeout | Number | Durata (in millisecondi) prima che [launchAsync](#launchasync) abbia esito negativo con un errore di timeout (il valore predefinito è 15000 MS). Questo timeout si applica solo all'avvio iniziale della pagina Reader, in cui l'operazione viene eseguita quando si apre la pagina Reader e viene avviata la casella di selezione. Non è necessario rettificare il timeout. |
-| uiZIndex | Number | Indice Z dell'iframe che verrà creato (il valore predefinito è 1000). |
+| timeout | Numero | Durata (in millisecondi) prima che [launchAsync](#launchasync) abbia esito negativo con un errore di timeout (il valore predefinito è 15000 MS). Questo timeout si applica solo all'avvio iniziale della pagina Reader, in cui l'operazione viene eseguita quando si apre la pagina Reader e viene avviata la casella di selezione. Non è necessario rettificare il timeout. |
+| uiZIndex | Numero | Indice Z dell'iframe che verrà creato (il valore predefinito è 1000). |
 | useWebview | Boolean| Usare un tag WebView anziché un iframe per la compatibilità con le app Chrome (il valore predefinito è false). |
 | onExit | Funzione | Viene eseguito quando il lettore immersivo viene chiuso. |
 | allowFullscreen | Boolean | Possibilità di impostare il controllo a schermo intero (il valore predefinito è true). |
@@ -393,7 +393,7 @@ type ReadAloudOptions = {
 | Nome | Type | Descrizione |
 | ---- | ---- |------------ |
 | voice | string | Voice, "Female" o "male". Si noti che non tutti i linguaggi supportano entrambi i sessi. |
-| velocità | Number | La velocità di riproduzione deve essere compresa tra 0,5 e 2,5 inclusi. |
+| velocità | Numero | La velocità di riproduzione deve essere compresa tra 0,5 e 2,5 inclusi. |
 | autoPlay | Boolean | Avvia automaticamente la lettura a voce alta quando viene caricato il lettore immersivo. |
 
 ##### `-voice`
@@ -459,7 +459,7 @@ type DisplayOptions = {
 
 | Nome | Type | Descrizione |
 | ---- | ---- |------------ |
-| textSize | Number | Imposta la dimensione del testo scelta. |
+| textSize | Numero | Imposta la dimensione del testo scelta. |
 | increaseSpacing | Boolean | Imposta un valore che indica se la spaziatura del testo viene attivata o disattivata. |
 | fontFamily | string | Imposta il tipo di carattere scelto ("calibri", "ComicSans" o "Sitka"). |
 
@@ -493,9 +493,9 @@ enum CookiePolicy { Disable, Enable }
 
 | Impostazione | Type | Descrizione |
 | ------- | ---- | ----------- |
-| textSize | Number | Imposta la dimensione del testo scelta. |
+| textSize | Numero | Imposta la dimensione del testo scelta. |
 | fontFamily | string | Imposta il tipo di carattere scelto ("calibri", "ComicSans" o "Sitka"). |
-| textSpacing | Number | Imposta un valore che indica se la spaziatura del testo viene attivata o disattivata. |
+| textSpacing | Numero | Imposta un valore che indica se la spaziatura del testo viene attivata o disattivata. |
 | formattingEnabled | Boolean | Imposta se la formattazione HTML è attivata o disattivata. |
 | tema | string | Imposta il tema scelto (ad esempio "Light", "Dark"...). |
 | syllabificationEnabled | Boolean | Imposta un valore che indica se syllabification è attivato o disattivato. |
@@ -514,7 +514,7 @@ enum CookiePolicy { Disable, Enable }
 
 ## <a name="supported-languages"></a>Lingue supportate
 
-La funzionalità di traduzione del lettore immersivo supporta diversi linguaggi. Per altri dettagli, vedi [questo articolo](https://www.onenote.com/learningtools/languagesupport).
+La funzionalità di traduzione del lettore immersivo supporta diversi linguaggi. Vedere [supporto linguistico](./language-support.md) per ulteriori dettagli.
 
 <br>
 

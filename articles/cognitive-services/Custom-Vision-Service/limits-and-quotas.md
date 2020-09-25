@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 21b90f423a3ba3c7fa38334c79aec9dc65a250cd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b79bf5e8ead16bbdf9c69e8d7faae43fa778ab3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079182"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316580"
 ---
 # <a name="limits-and-quotas"></a>Limiti e quote
 
@@ -39,7 +39,7 @@ Si prevede che nel tempo il numero di immagini di training per progetto di tag p
 |[Altre chiamate API](https://go.microsoft.com/fwlink/?linkid=865446) (transazioni al secondo)|10|10|
 |Tipi di immagine accettati|jpg, PNG, BMP, gif|jpg, PNG, BMP, gif|
 |Altezza/larghezza minima immagine in pixel|256 (vedere la nota)|256 (vedere la nota)|
-|Altezza/Larghezza immagine massima in pixel|Nessun limite|Nessun limite|
+|Altezza/Larghezza immagine massima in pixel|10.240|10.240|
 |Dimensioni max dell'immagine (caricamento dell'immagine di training) |6 MB|6 MB|
 |Dimensioni max dell'immagine (stima)|4 MB|4 MB|
 |Numero massimo di aree per l'immagine di training del rilevamento oggetti|300|300|
@@ -47,3 +47,4 @@ Si prevede che nel tempo il numero di immagini di training per progetto di tag p
 
 > [!NOTE]
 > Le immagini più piccole di 256 pixel verranno accettate ma ridimensionate.
+> Le proporzioni dell'immagine non devono essere maggiori di 25

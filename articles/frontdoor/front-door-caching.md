@@ -1,6 +1,6 @@
 ---
 title: Sportello anteriore di Azure-Caching | Microsoft Docs
-description: Questo articolo consente di comprendere come il front-end di Azure monitora l'integrità dei backend
+description: Questo articolo consente di comprendere il comportamento per la porta anteriore con le regole di routing che hanno abilitato la memorizzazione nella cache.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: aada5b976721fdfed31131095f7f2b12aefefea9
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 221627a756c69d11ec5385b12970bb835d6a0a0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318455"
 ---
 # <a name="caching-with-azure-front-door"></a>Memorizzazione nella cache con lo sportello anteriore di Azure
 Il documento seguente specifica il comportamento di Frontdoor di Azure con regole di routing che hanno abilitato la memorizzazione nella cache. La porta anteriore è una rete per la distribuzione di contenuti (CDN) moderna e, insieme a bilanciamento del carico e accelerazione sito dinamico, supporta anche i comportamenti di memorizzazione nella cache come qualsiasi altra rete CDN.
@@ -29,7 +29,7 @@ Il front-end di Azure recapita file di grandi dimensioni senza copertura per le 
 </br>Per altre informazioni sulla richiesta di intervalli di byte, vedere [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Frontdoor memorizza nella cache tutti i blocchi alla loro ricezione e pertanto l'intero file non deve essere memorizzato nella cache di Frontdoor. Le richieste successive del file o di intervalli di byte vengono soddisfatte dalla cache. Se non tutti i blocchi vengono memorizzati nella cache, viene usata la prelettura per richiedere i blocchi dal back-end. Questa ottimizzazione si basa sulla capacità del server di back-end di supportare le richieste di intervallo di byte. Se il server di back-end non supporta le richieste di intervallo di byte, questa ottimizzazione non è efficace.
 
-## <a name="file-compression"></a>Compressione dei file
+## <a name="file-compression"></a>Compressione di file
 Frontdoor comprime in modo dinamico il contenuto sull'edge, offrendo così una risposta più rapida ai client. Tutti i file sono idonei alla compressione. Il file, tuttavia, deve essere un tipo MIME che sia idoneo per l'elenco di compressione. Frontdoor attualmente non supporta modifiche a questo elenco. L'elenco corrente consiste in:</br>
 - "application/eot"
 - "application/font"
@@ -113,7 +113,7 @@ L'ordine delle intestazioni seguente viene usato per determinare quanto tempo un
 2. Cache-Control: max-age =\<seconds>
 3. Scadenza \<http-date>
 
-Intestazioni di risposta Cache-Control che indicano che la risposta non verrà memorizzata nella cache, ad esempio cache-Control: private, cache-Control: No-cache e cache-Control: No-Store viene rispettato. Tuttavia, se sono presenti più richieste in elaborazione in un POP per lo stesso indirizzo Web, esse possono condividere la risposta. Se non è presente alcun controllo cache, il comportamento predefinito è che AFD memorizza nella cache la risorsa per l'intervallo di tempo X, dove X viene selezionato in modo casuale da 1 a 3 giorni.
+Intestazioni di risposta Cache-Control che indicano che la risposta non verrà memorizzata nella cache, ad esempio cache-Control: private, cache-Control: No-cache e cache-Control: No-Store viene rispettato.  Se non è presente alcun controllo cache, il comportamento predefinito è che AFD memorizza nella cache la risorsa per l'intervallo di tempo X, dove X viene selezionato in modo casuale da 1 a 3 giorni.
 
 ## <a name="request-headers"></a>Intestazioni della richiesta
 

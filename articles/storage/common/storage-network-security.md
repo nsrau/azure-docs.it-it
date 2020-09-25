@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 3ec4e6ee49052657210fffa8976b661c1a9e5948
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 474b3c4261b412c0c875f7a05802095c9e0c2cd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827461"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320371"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -256,7 +256,7 @@ Le regole di rete per gli IP sono consentite solo per gli indirizzi IP della **r
 
 Per la configurazione delle regole del firewall di archiviazione sono supportati solo gli indirizzi IPV4.
 
-Ogni account di archiviazione supporta fino a 100 regole di rete IP.
+Ogni account di archiviazione supporta fino a 200 regole di rete IP.
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurazione dell'accesso da reti locali
 

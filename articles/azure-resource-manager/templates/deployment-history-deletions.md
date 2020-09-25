@@ -3,12 +3,12 @@ title: Eliminazioni della cronologia di distribuzione
 description: Viene descritto come Azure Resource Manager Elimina automaticamente le distribuzioni dalla cronologia di distribuzione. Le distribuzioni vengono eliminate quando la cronologia è prossima al superamento del limite di 800.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 1d4f49fe6b90e672b65aa97971426186384da02f
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 0c5d972eea9bc9cf2bf8716b26cd0e07d0a07b82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605210"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284734"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Eliminazioni automatiche dalla cronologia di distribuzione
 
@@ -16,7 +16,7 @@ Ogni volta che si distribuisce un modello, le informazioni sulla distribuzione v
 
 Azure Resource Manager Elimina automaticamente le distribuzioni dalla cronologia nel modo più vicino al limite. L'eliminazione automatica è una modifica rispetto al comportamento precedente. In precedenza era necessario eliminare manualmente le distribuzioni dalla cronologia di distribuzione per evitare di ricevere un errore. Questa modifica è stata implementata il 6 agosto 2020.
 
-**Le eliminazioni automatiche sono supportate per le distribuzioni di gruppi di risorse. Attualmente, le distribuzioni nella cronologia di distribuzione per la [sottoscrizione](deploy-to-subscription.md), il [gruppo di gestione](deploy-to-management-group.md)e le distribuzioni [tenant](deploy-to-tenant.md) non vengono eliminate.**
+**Le eliminazioni automatiche sono supportate per le distribuzioni di gruppi di risorse. Attualmente, le distribuzioni nella cronologia per le distribuzioni di [sottoscrizione](deploy-to-subscription.md), [gruppo di gestione](deploy-to-management-group.md)e [tenant](deploy-to-tenant.md) non vengono eliminate automaticamente.**
 
 > [!NOTE]
 > L'eliminazione di una distribuzione dalla cronologia non influisce sulle risorse distribuite.

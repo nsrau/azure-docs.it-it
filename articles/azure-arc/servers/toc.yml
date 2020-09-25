@@ -18,7 +18,7 @@
       href: ./learn/tutorial-enable-vm-insights.md
 - name: Concetti
   items:
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Controlli di sicurezza in base a Criteri di Azure
           displayName: 'regulatory, compliance, standards, domains'
@@ -47,6 +47,8 @@
       items:
         - name: Problemi di connessione agli agenti
           href: troubleshoot-agent-onboard.md
+        - name: Problemi relativi alle estensioni delle macchine virtuali
+          href: troubleshoot-vm-extensions.md
 - name: Informazioni di riferimento
   items:
     - name: Residenza dei dati

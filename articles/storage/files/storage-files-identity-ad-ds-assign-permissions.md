@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 287bd02a11c71fbdd29b28b5ec9fc8424a477fea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535094"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320354"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte 2: assegnare autorizzazioni a livello di condivisione a un'identità
 
@@ -47,7 +47,7 @@ Per assegnare un ruolo di Azure a un'identità di Azure AD, usando il [portale d
 1. Nella portale di Azure passare alla condivisione file o [creare una condivisione file](storage-how-to-create-file-share.md).
 1. Selezionare **Controllo di accesso (IAM)** .
 1. Selezionare **Aggiungi un'assegnazione di ruolo**
-1. Nel pannello **Aggiungi assegnazione ruolo** selezionare il ruolo predefinito appropriato (Storage file data SMB Share Reader, storage file data SMB condivisione Contributor) dall'elenco dei **ruoli** . Lasciare **assegna accesso a** con l'impostazione predefinita: **Azure ad utente, gruppo o entità servizio**. Selezionare la destinazione Azure AD identità in base al nome o all'indirizzo di posta elettronica. L'identità del Azure AD selezionata deve essere un'identità ibrida e non può essere un'identità solo cloud. Ciò significa che la stessa identità viene rappresentata anche in servizi di dominio Active Directory.
+1. Nel pannello **Aggiungi assegnazione ruolo** selezionare il ruolo predefinito appropriato (Storage file data SMB Share Reader, storage file data SMB condivisione Contributor) dall'elenco dei **ruoli** . Lasciare **assegna accesso a** con l'impostazione predefinita: **Azure ad utente, gruppo o entità servizio**. Selezionare la destinazione Azure AD identità in base al nome o all'indirizzo di posta elettronica. **L'identità del Azure AD selezionata deve essere un'identità ibrida e non può essere un'identità solo cloud.** Ciò significa che la stessa identità viene rappresentata anche in servizi di dominio Active Directory.
 1. Selezionare **Salva** per completare l'operazione di assegnazione di ruolo.
 
 ### <a name="powershell"></a>PowerShell

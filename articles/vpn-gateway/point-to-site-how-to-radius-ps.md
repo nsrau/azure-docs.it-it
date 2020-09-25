@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e45afed3332d26006cf0b4296986edb6f6588962
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 2a93f612f5aeb5c2d3a4b83d580b9548f45e4c05
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421731"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329160"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione RADIUS: PowerShell
 
@@ -24,8 +24,9 @@ Una connessione VPN P2S viene avviata dai dispositivi Windows e Mac. I client ch
 
 * Server RADIUS
 * Autenticazione del certificato nativo tramite il gateway VPN
+* Autenticazione Azure Active Directory nativa (solo Windows 10)
 
-Questo articolo illustra come eseguire una configurazione P2S con l'autenticazione usando il server RADIUS. Per eseguire invece l'autenticazione usando i certificati generati e l'autenticazione del certificato nativo tramite il gateway VPN, vedere [Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato nativo tramite il gateway VPN](vpn-gateway-howto-point-to-site-rm-ps.md).
+Questo articolo illustra come eseguire una configurazione P2S con l'autenticazione usando il server RADIUS. Per eseguire l'autenticazione usando i certificati generati e l'autenticazione del certificato nativo del gateway VPN, vedere [configurare una connessione da punto a sito a una VNet usando l'autenticazione del certificato nativo del gateway VPN](vpn-gateway-howto-point-to-site-rm-ps.md) o [creare un tenant di Azure Active Directory per le connessioni del protocollo P2S OpenVPN](openvpn-azure-ad-tenant.md) per l'autenticazione Azure Active Directory.
 
 ![Diagramma di connessione - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
@@ -40,7 +41,7 @@ Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo 
 Le connessioni da punto a sito richiedono gli elementi seguenti:
 
 * Un gateway VPN RouteBased. 
-* Un server RADIUS per gestire l'autenticazione utente. Il server RADIUS può essere distribuito in locale o nella rete virtuale di Azure.
+* Un server RADIUS per gestire l'autenticazione utente. Il server RADIUS può essere distribuito in locale o nella rete virtuale di Azure. È anche possibile configurare due server RADIUS per la disponibilità elevata.
 * Un pacchetto di configurazione del client VPN per i dispositivi Windows che si connetteranno alla rete virtuale. Un pacchetto di configurazione del client VPN fornisce le impostazioni necessarie per la connessione di un client VPN tramite P2S.
 
 ## <a name="about-active-directory-ad-domain-authentication-for-p2s-vpns"></a><a name="aboutad"></a>Informazioni sull'autenticazione di un dominio di Active Directory (AD) per le VPN P2S
@@ -221,6 +222,17 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
     -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+    ```
+
+   Per specificare **due** server RADIUS **(anteprima)** , usare la sintassi seguente. Modificare il valore **-VpnClientProtocol** in base alle esigenze
+
+    ```azurepowershell-interactive
+    $radiusServer1 = New-AzRadiusServer -RadiusServerAddress 10.1.0.15 -RadiusServerSecret $radiuspd -RadiusServerScore 30
+    $radiusServer2 = New-AzRadiusServer -RadiusServerAddress 10.1.0.16 -RadiusServerSecret $radiuspd -RadiusServerScore 1
+
+    $radiusServers = @( $radiusServer1, $radiusServer2 )
+
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $actual -VpnClientAddressPool 201.169.0.0/16 -VpnClientProtocol "IkeV2" -RadiusServerList $radiusServers
     ```
 
 ## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"></a> scaricare il pacchetto di configurazione del client VPN e configurare il client VPN

@@ -1,14 +1,16 @@
 ---
 title: Punteggi di stima-LUIS
 description: Un punteggio di stima indica il grado di attendibilità del servizio API LUIS per i risultati della stima, in base a un enunciato utente.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 709a34f0a278d8a17267c7544583798d54167dad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d836273e61752ff208133466016ce7c6ff9c28fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382369"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316461"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>I punteggi di stima indicano l'accuratezza delle stime per la finalità e le entità
 
@@ -19,8 +21,8 @@ Un punteggio di stima è compreso tra zero (0) e uno (1). Un esempio di punteggi
 |Valore del punteggio|Attendibilità|
 |--|--|
 |1|corrispondenza definita|
-|0,99|attendibilità elevata|
-|0.01|attendibilità bassa|
+|0.99|attendibilità elevata|
+|0,01|attendibilità bassa|
 |0|nessuna corrispondenza|
 
 ## <a name="top-scoring-intent"></a>Finalità con punteggio elevato
@@ -46,7 +48,7 @@ La revisione del punteggio per tutti gli Intent è un buon metodo per verificare
 
 Se più finalità presentano punteggi di stima vicini, in base al contesto di un'espressione, LUIS potrebbe passare da una finalità a un'altra. Per risolvere questo problema, continuare ad aggiungere espressioni a ogni finalità con una varietà più ampia di differenze contestuali oppure è possibile fare in modo che l'applicazione client, ad esempio un bot di chat, faccia scelte a livello di codice su come gestire i 2 Intent principali.
 
-I 2 Intent, che hanno un punteggio troppo ravvicinato, possono essere invertiti a causa della **formazione non deterministica**. Il punteggio superiore può diventare il secondo punteggio mentre il secondo può diventare il primo. Per evitare questa situazione, aggiungere espressioni di esempio a ognuno dei primi due intenti per tale espressione con scelta e contesto di parola che differenziano i due intenti. Le due finalità devono avere circa lo stesso numero di espressioni di esempio. Una regola generale per la separazione per impedire l'inversione a causa del training è una differenza del 15% nei punteggi.
+I due intenti con punteggio troppo simile possono essere invertiti a causa del **training non deterministico**. Il punteggio superiore può diventare il secondo punteggio mentre il secondo può diventare il primo. Per evitare questa situazione, aggiungere espressioni di esempio a ognuno dei primi due intenti per tale espressione con scelta e contesto di parola che differenziano i due intenti. Le due finalità devono avere circa lo stesso numero di espressioni di esempio. Una regola generale per la separazione per impedire l'inversione a causa del training è una differenza del 15% nei punteggi.
 
 È possibile disattivare il **Training non deterministico** eseguendo il [training con tutti i dati](luis-how-to-train.md#train-with-all-data).
 
@@ -68,7 +70,7 @@ I punteggi di stima possono usare la notazione esponenziale, dove _appare_ sopra
 
 <a name="punctuation"></a>
 
-## <a name="application-settings"></a>Impostazioni dell'applicazione
+## <a name="application-settings"></a>Impostazioni applicazione
 
 Usare [le impostazioni dell'applicazione](luis-reference-application-settings.md) per controllare il modo in cui i segni diacritici e la punteggiatura incidono sui punteggi di stima
 

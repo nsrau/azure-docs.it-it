@@ -1,7 +1,7 @@
 ---
 title: Creazione di un servizio di riconoscimento vocale personalizzato
 titleSuffix: Azure Cognitive Services
-description: Quando si è pronti per caricare i dati, passare al portale vocale personalizzato. Creare o selezionare un progetto Voice personalizzato. Il progetto deve condividere la lingua/le impostazioni locali corrette e le proprietà di genere come i dati che si intende usare per la formazione vocale.
+description: Quando si è pronti per caricare i dati, passare al portale vocale personalizzato. Creare o selezionare un progetto Voice personalizzato. Il progetto deve condividere la lingua/le impostazioni locali corrette e le proprietà di genere come i dati che si intende usare per il training vocale.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f087a2880c16218905a4410a2f591511a155ffd
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 3747033fcaf65e0c6da07e9f1bb625771958bb4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629008"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319062"
 ---
 # <a name="create-a-custom-voice"></a>Creare una voce personalizzata
 
@@ -28,7 +28,7 @@ Controllare le lingue supportate per la funzionalità Voice personalizzata: [lin
 
 ## <a name="upload-your-datasets"></a>Caricare i set di dati
 
-Quando si è pronti per caricare i dati, passare al [portale vocale personalizzato](https://aka.ms/custom-voice-portal). Creare o selezionare un progetto Voice personalizzato. Il progetto deve condividere la lingua/le impostazioni locali corrette e le proprietà di genere come i dati che si intende usare per la formazione vocale. Selezionare, ad esempio, `en-GB` se le registrazioni audio disponibili vengono eseguite in inglese con un accento del Regno Unito.
+Quando si è pronti per caricare i dati, passare al [portale vocale personalizzato](https://aka.ms/custom-voice-portal). Creare o selezionare un progetto Voice personalizzato. Il progetto deve condividere la lingua/le impostazioni locali corrette e le proprietà di genere come i dati che si intende usare per il training vocale. Selezionare, ad esempio, `en-GB` se le registrazioni audio disponibili vengono eseguite in inglese con un accento del Regno Unito.
 
 Passare alla scheda **dati** e fare clic su **Carica dati**. Nella procedura guidata selezionare il tipo di dati corretto che corrisponde a quello preparato.
 
@@ -44,7 +44,7 @@ I set di impostazioni vengono convalidati automaticamente quando si preme il pul
 
 Nella tabella seguente sono indicati gli stati di elaborazione per i set di dati importati:
 
-| State | Significato |
+| Stato | Significato |
 | ----- | ------- |
 | Elaborazione in corso | Il set di dati è stato ricevuto ed è in corso l'elaborazione. |
 | Operazione riuscita | Il set di dati è stato convalidato e può ora essere usato per compilare un modello vocale. |
@@ -86,7 +86,7 @@ Nella tabella training viene visualizzata una nuova voce che corrisponde al mode
 
 Lo stato illustrato riflette il processo di conversione del set di dati in un modello vocale, come illustrato di seguito.
 
-| State | Significato |
+| Stato | Significato |
 | ----- | ------- |
 | Elaborazione in corso | È in corso la creazione del modello vocale. |
 | Operazione riuscita | Il modello vocale è stato creato e può essere distribuito. |

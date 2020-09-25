@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: db0c5890add303d85bdec76e00b8377567226a38
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cece53544bfc8287f6ef542575d92b05032991f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904705"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318042"
 ---
 # <a name="feature-coverage-for-machines"></a>Copertura delle funzionalità per i computer
 
@@ -45,7 +45,7 @@ Le due schede seguenti illustrano le funzionalità del Centro sicurezza di Azure
 |Valutazione patch del sistema operativo mancanti|✔|✔|✔|Azure: gratuito<br><br>Non Azure: Sì|
 |Valutazione delle configurazioni errate della sicurezza|✔|✔|✔|Azure: No<br><br>Non Azure: Sì|
 |[Valutazione di Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Non Azure: Sì|
-|Valutazione della crittografia del disco|✔|✔|-|Livello gratuito|
+|Valutazione della crittografia del disco|✔</br>(per gli [scenari supportati](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Livello gratuito|
 |Valutazione della vulnerabilità di terze parti|✔|-|-|Livello gratuito|
 |[Valutazione della sicurezza di rete](security-center-network-recommendations.md)|✔|✔|-|Livello gratuito|
 
@@ -69,7 +69,7 @@ Le due schede seguenti illustrano le funzionalità del Centro sicurezza di Azure
 |Valutazione patch del sistema operativo mancanti|✔|✔|✔|Azure: gratuito<br><br>Non Azure: Sì|
 |Valutazione delle configurazioni errate della sicurezza|✔|✔|✔|Azure: gratuito<br><br>Non Azure: Sì|
 |[Valutazione di Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Livello gratuito|
-|Valutazione della crittografia del disco|✔|✔|-|Livello gratuito|
+|Valutazione della crittografia del disco|✔</br>(per gli [scenari supportati](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Livello gratuito|
 |Valutazione della vulnerabilità di terze parti|✔|-|-|Livello gratuito|
 |[Valutazione della sicurezza di rete](security-center-network-recommendations.md)|✔|✔|-|Livello gratuito|
 

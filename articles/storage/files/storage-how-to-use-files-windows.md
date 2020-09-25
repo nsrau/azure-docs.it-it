@@ -8,12 +8,12 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 485a054a91bd3db9b116cf80a4e457d013c20ea1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071075"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329347"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usare una condivisione file di Azure con Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere usate facilmente in Windows e Windows Server. Questo articolo illustra le considerazioni relative all'uso di una condivisione file di Azure con Windows e Windows Server.
@@ -34,8 +34,8 @@ Per usare una condivisione file di Azure al di fuori dell'area di Azure in cui �
 | Windows 7<sup>3</sup> | SMB 2.1 | Sì | No |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Sì | No |
 
-<sup>1</sup>Windows 10, versioni 1507, 1607, 1709, 1803, 1809, 1903, and 1909.  
-<sup>2</sup>Windows Server, versioni 1809, 1903 e 1909.  
+<sup>1</sup> Windows 10, versioni 1507, 1607, 1803, 1809, 1903, 1909 e 2004.  
+<sup>2</sup> Windows Server, versioni 1809, 1903, 1909, 2004.  
 <sup>3</sup>Il normale supporto tecnico Microsoft per Windows 7 e Windows Server 2008 R2 è terminato. È possibile acquistare supporto tecnico aggiuntivo per gli aggiornamenti della sicurezza solo tramite il programma di [aggiornamenti della sicurezza estesa (ESU)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). È fortemente consigliabile eseguire la migrazione di questi sistemi operativi.
 
 > [!Note]  
