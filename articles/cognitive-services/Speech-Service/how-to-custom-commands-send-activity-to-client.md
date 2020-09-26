@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 520b38f4c733e7bf28a2a06429ad14d016c5bd28
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 6e8e6feb064a5d26eb6cb72b521d3f9df0380086
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027614"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360107"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Invia attività comandi personalizzati all'applicazione client
 
@@ -29,8 +29,8 @@ Completare le attività seguenti:
 ## <a name="prerequisites"></a>Prerequisiti
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) o versione successiva. Questa guida USA Visual Studio 2019
-> * Una chiave di sottoscrizione di Azure per il servizio di riconoscimento vocale: [ottenerne una gratuita](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com)
-> * [App comandi personalizzati creata](quickstart-custom-commands-application.md) in precedenza
+> * Una chiave di sottoscrizione di Azure per il servizio Voce: È possibile [ottenerne una gratuitamente](overview.md#try-the-speech-service-for-free) o crearla nel [portale di Azure](https://portal.azure.com)
+> * Un'[app di comandi personalizzati creata](quickstart-custom-commands-application.md) in precedenza
 > * App client abilitata per l'SDK vocale: [procedura: eseguire l'integrazione con un'applicazione client tramite Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)
 
 ## <a name="setup-send-activity-to-client"></a>Imposta attività di invio sul client 
@@ -150,8 +150,8 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 
 1. Avviare l'applicazione
 1. Selezionare Abilita microfono
-1. Selezionare il pulsante Talk
-1. Ad esempio`turn on the tv`
+1. Selezionare il pulsante Talk (Parla)
+1. Pronunciare la frase `turn on the tv`
 1. Lo stato di visualizzazione della TV deve cambiare in "on"
    > [!div class="mx-imgBorder"]
    > ![Payload dell'attività Send](media/custom-commands/send-activity-to-client-turn-on-tv.png)

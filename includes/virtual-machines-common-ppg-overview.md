@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89569989"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376540"
 ---
 L'inserimento di macchine virtuali in una singola area riduce la distanza fisica tra le istanze. L'inserimento di tali elementi all'interno di una singola zona di disponibilità li rende anche fisicamente più vicini. Tuttavia, man mano che il footprint di Azure cresce, una singola zona di disponibilità può estendersi su più data center fisici, causando una latenza di rete che influisca sull'applicazione. 
 
@@ -47,6 +47,39 @@ I gruppi di posizionamento di prossimità offrono la condivisione percorso nella
 -   Nel caso di carichi di lavoro elastici, in cui si aggiungono e rimuovono le istanze di macchina virtuale, la presenza di un vincolo di gruppo di posizionamento di prossimità nella distribuzione può comportare un errore di soddisfazione della richiesta che ha generato un errore **AllocationFailure** . 
 - Arrestare (deallocare) e avviare le VM in base alle esigenze è un altro modo per ottenere l'elasticità. Poiché la capacità non viene mantenuta quando si arresta (dealloca) una macchina virtuale, il suo avvio può causare un errore **AllocationFailure** .
 
+## <a name="planned-maintenance-and-proximity-placement-groups"></a>Manutenzione pianificata e gruppi di posizionamento di prossimità
+
+Gli eventi di manutenzione pianificata, ad esempio la rimozione delle autorizzazioni per l'hardware in un Data Center di Azure, potrebbero influire sull'allineamento delle risorse nei gruppi di posizionamento in prossimità. Le risorse possono essere spostate in un data center diverso, interrottando la collocazione e le aspettative di latenza associate al gruppo di posizionamento di prossimità.
+
+### <a name="check-the-alignment-status"></a>Verificare lo stato di allineamento
+
+Per verificare lo stato di allineamento dei gruppi di posizionamento vicini, è possibile eseguire le operazioni seguenti.
+
+
+- Lo stato di condivisione percorso gruppo posizionamento prossimità può essere visualizzato usando il portale, l'interfaccia della riga di comando e PowerShell.
+
+    -   Quando si usa PowerShell, è possibile ottenere lo stato della condivisione percorso usando il cmdlet Get-AzProximityPlacementGroup includendo il parametro facoltativo '-ColocationStatus '.
+
+    -   Quando si usa l'interfaccia della riga di comando, è possibile ottenere lo stato della condivisione percorso usando `az ppg show` includendo il parametro facoltativo '--include-Colocation-status '.
+
+- Per ogni gruppo di posizionamento di prossimità, una proprietà di stato di condivisione **percorso** fornisce il riepilogo dello stato di allineamento corrente delle risorse raggruppate. 
+
+    - **Allineato**: la risorsa rientra nella stessa busta di latenza del gruppo di posizionamento di prossimità.
+
+    - **Sconosciuto**: almeno una delle risorse della macchina virtuale è deallocata. Una volta avviate correttamente, lo stato dovrebbe tornare a **allineato**.
+
+    - **Non allineato**: almeno una risorsa VM non è allineata con il gruppo di posizionamento prossimità. Anche le risorse specifiche non allineate verranno richiamate separatamente nella sezione relativa all'appartenenza
+
+- Per i set di disponibilità è possibile visualizzare informazioni sull'allineamento delle singole VM nella pagina Panoramica del set di disponibilità.
+
+- Per i set di scalabilità, le informazioni sull'allineamento delle singole istanze possono essere visualizzate nella scheda **istanze** della pagina **Panoramica** per il set di scalabilità. 
+
+
+### <a name="re-align-resources"></a>Allinea di nuovo le risorse 
+
+Se un gruppo di posizionamento di prossimità è `Not Aligned` , è possibile stop\deallocate, quindi riavviare le risorse interessate. Se la macchina virtuale si trova in un set di disponibilità o in un set di scalabilità, tutte le VM del set di disponibilità o del set di scalabilità devono essere stopped\deallocated prima di riavviarle.
+
+Se si verifica un errore di allocazione a causa di vincoli di distribuzione, potrebbe essere necessario stop\deallocate tutte le risorse nel gruppo di posizionamento vicino interessato (incluse le risorse allineate) e quindi riavviarle per ripristinare l'allineamento.
 
 ## <a name="best-practices"></a>Procedure consigliate 
 - Per la latenza più bassa, usare i gruppi di posizionamento di prossimità insieme alla rete accelerata. Per altre informazioni, vedere [creare una macchina virtuale Linux con rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [creare una macchina virtuale Windows con rete accelerata](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

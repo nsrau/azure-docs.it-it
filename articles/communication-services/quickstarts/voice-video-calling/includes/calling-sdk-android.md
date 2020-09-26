@@ -4,17 +4,17 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: c0213b050745712a5c77d4861b9cfba4fc953dfd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aec9d2049a69aebc7102a70274e5fb2a3ef865a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940074"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377061"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Una risorsa di servizi di comunicazione distribuita. [Creare una risorsa di servizi di comunicazione](../../create-communication-resource.md).
+- Una risorsa di Servizi di comunicazione distribuita. [Creare una risorsa di Servizi di comunicazione](../../create-communication-resource.md).
 - Oggetto `User Access Token` per abilitare il client di chiamata. Per ulteriori informazioni su [come ottenere un `User Access Token` ](../../access-tokens.md)
 - Facoltativo: completare la Guida introduttiva per [iniziare ad aggiungere una chiamata all'applicazione](../getting-started-with-calling.md)
 
@@ -23,7 +23,7 @@ ms.locfileid: "90940074"
 ### <a name="install-the-package"></a>Installare il pacchetto
 
 <!-- TODO: update with instructions on how to download, install and add package to project -->
-Individuare il livello di progetto Build. Gradle e assicurarsi di aggiungere `mavenCentral()` all'elenco dei repository in `buildscript` e `allprojects`
+Individuare build.gradle a livello di progetto e assicurarsi di aggiungere `mavenCentral()` all'elenco dei repository in `buildscript` e `allprojects`
 ```groovy
 buildscript {
     repositories {
@@ -56,13 +56,13 @@ dependencies {
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità dei servizi di comunicazione di Azure che chiamano la libreria client:
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità della libreria client Chiamate di Servizi di comunicazione di Azure:
 
 | Nome                                  | Descrizione                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| CallClient è il punto di ingresso principale della libreria client chiamante.|
-| CallAgent | CallAgent viene utilizzato per avviare e gestire le chiamate. |
-| CommunicationUserCredential | CommunicationUserCredential viene usato come credenziale del token per creare un'istanza di CallAgent.|
+| CallClient| CallClient è il principale punto di ingresso alla libreria client Chiamate.|
+| CallAgent | CallAgent si usa per avviare e gestire le chiamate. |
+| CommunicationUserCredential | CommunicationUserCredential si usa come credenziale del token per creare un'istanza di CallAgent.|
 
 ## <a name="initialize-the-callclient-create-a-callagent-and-access-the-devicemanager"></a>Inizializzare CallClient, creare un CallAgent e accedere a DeviceManager
 
@@ -81,8 +81,8 @@ DeviceManage deviceManager = await callClient.getDeviceManager().get();
 
 ## <a name="place-an-outgoing-call-and-join-a-group-call"></a>Inserire una chiamata in uscita e partecipare a una chiamata di gruppo
 
-Per creare e avviare una chiamata, è necessario chiamare il `CallClient.call()` metodo e fornire l'oggetto `Identifier` del chiamato (s).
-Per aggiungere una chiamata a un gruppo, è necessario chiamare il `CallClient.join()` metodo e specificare GroupID. Gli ID gruppo devono essere in formato GUID o UUID.
+Per creare e avviare una chiamata, è necessario chiamare il `CallAgent.call()` metodo e fornire l'oggetto `Identifier` del chiamato (s).
+Per aggiungere una chiamata a un gruppo, è necessario chiamare il `CallAgent.join()` metodo e specificare GroupID. Gli ID gruppo devono essere in formato GUID o UUID.
 
 La creazione e l'avvio di una chiamata sono sincrone. L'istanza di chiamata consente di sottoscrivere tutti gli eventi della chiamata.
 
@@ -106,7 +106,7 @@ PhoneNumber acsUser2 = new PhoneNumber("<PHONE_NUMBER>");
 CommunicationIdentifier participants[] = new CommunicationIdentifier[]{ acsUser1, acsUser2 };
 StartCallOptions startCallOptions = new StartCallOptions();
 Context appContext = this.getApplicationContext();
-Call groupCall = callClient.call(participants, startCallOptions);
+Call groupCall = callAgent.call(participants, startCallOptions);
 ```
 
 ### <a name="place-a-11-call-with-with-video-camera"></a>Inserire una chiamata 1:1 con con la videocamera video
@@ -266,7 +266,7 @@ Quando la gestione del messaggio di notifica push ha esito positivo e i gestori 
 
 ### <a name="unregister-push-notification"></a>Annulla registrazione notifiche push
 
-- Le applicazioni possono annullare la registrazione della notifica push in qualsiasi momento. È sufficiente chiamare il `unregisterPushNotification()` metodo in callAgent.
+- Le applicazioni possono annullare la registrazione della notifica push in qualsiasi momento. Chiamare il `unregisterPushNotification()` metodo su callAgent per annullare la registrazione.
 
 ```java
 try {
@@ -300,7 +300,7 @@ CommunicationIdentifier callerId = call.getCallerId();
 ```java
 CallState callState = call.getState();
 ```
-Restituisce una stringa reprensting lo stato corrente di una chiamata:
+Restituisce una stringa che rappresenta lo stato corrente di una chiamata:
 * ' None '-stato di chiamata iniziale
 * ' In entrata ': indica che la chiamata è in ingresso, deve essere accettata o rifiutata
 * ' Connecting '-stato di transizione iniziale dopo aver inserito o accettato la chiamata
@@ -354,7 +354,7 @@ Future startVideoFuture = call.startVideo(currentVideoStream);
 startVideoFuture.get();
 ```
 
-Una volta avviato l'invio di video, un' `LocalVideoStream` istanza verrà aggiunta alla raccolta nell' `localVideoStreams` istanza della chiamata.
+Una volta avviato correttamente l'invio del video, `LocalVideoStream` verrà aggiunta un'istanza alla `localVideoStreams` raccolta nell'istanza della chiamata.
 ```java
 currentVideoStream == call.getLocalVideoStreams().get(0);
 ```
@@ -385,7 +385,7 @@ A un determinato partecipante remoto è associato un set di proprietà e raccolt
 * Ottiene l'identificatore per questo partecipante remoto.
 Identity è uno dei tipi ' Identifier '
 ```java
-CommunicationIdentifier participantIdentity = remoteParticipant.getId();
+CommunicationIdentifier participantIdentity = remoteParticipant.getIdentifier();
 ```
 
 * Ottiene lo stato del partecipante remoto.
@@ -397,7 +397,7 @@ Lo stato può essere uno dei
 * ' Connecting '-stato di transizione durante la connessione del partecipante alla chiamata
 * ' Connected ': il partecipante è connesso alla chiamata
 * ' Trattieni ': il partecipante è in attesa
-* ' EarlyMedia '-annoucement viene riprodotto prima della connessione del partecipante alla chiamata
+* ' EarlyMedia '-l'annuncio viene riprodotto prima della connessione del partecipante alla chiamata
 * ' Disconnected '-stato finale-partecipante disconnesso dalla chiamata
 
 

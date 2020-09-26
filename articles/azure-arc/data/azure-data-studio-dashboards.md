@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: c2dd0ce3c3e9a0f1f699b58ed2657394ad9acbe1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 608f984b3e3a3020863e0c28b0aa2ad504531e3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939795"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273224"
 ---
 # <a name="azure-data-studio-dashboards"></a>Dashboard Azure Data Studio
 
@@ -49,7 +49,7 @@ NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)
 controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
 ```
 
-Se si usa un tipo LoadBalancer, è necessario copiare l'indirizzo IP esterno e il numero di porta 300080.  Se si usa Deport, è possibile usare l'indirizzo IP del server dell'API Kubernetes e il numero di porta elencato sotto la colonna porta/e.
+Se si usa un tipo LoadBalancer, è necessario copiare l'indirizzo IP esterno e il numero di porta. Se si usa Deport, è possibile usare l'indirizzo IP del server dell'API Kubernetes e il numero di porta elencato sotto la colonna porta/e.
 
 A questo punto, è necessario creare un URL per l'endpoint Combinando queste informazioni come segue:
 

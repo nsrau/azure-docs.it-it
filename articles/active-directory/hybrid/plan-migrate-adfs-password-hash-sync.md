@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afef3d41212c9366aa696bfcd0abff6c8cfc4eb3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3e85d2ef9d75bbff6357466e76ffcf60e3716e78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662419"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273675"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Eseguire la migrazione dalla federazione alla sincronizzazione degli hash delle password per Azure Active Directory
 
@@ -302,7 +302,7 @@ Prima di tutto, cambiare il metodo di accesso:
 
 5. Nella pagina **Abilita Single Sign-on** immettere le credenziali dell'account amministratore di dominio e quindi fare clic su **Avanti**.
 
-   ![Screenshot della pagina Abilita Single Sign-On](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
+   ![Screenshot della pagina Abilita Single Sign-On in cui è possibile immettere le credenziali dell'account amministratore di dominio.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
 
    > [!NOTE]
    > Le credenziali dell'account amministratore di dominio sono necessarie per abilitare l'accesso Single Sign-on facile. Il processo esegue le operazioni descritte di seguito, che richiedono queste autorizzazioni elevate. Le credenziali dell'account amministratore di dominio non vengono archiviate in Azure AD Connect o in Azure AD, ma vengono usate solo per attivare la funzionalità. Al termine del processo, le credenziali vengono rimosse.
@@ -324,7 +324,7 @@ Prima di tutto, cambiare il metodo di accesso:
    * **Accesso Single Sign-On facile** deve essere impostato su **Abilitato**.
    * **Sincronizzazione password** deve essere impostato su **Abilitata**.<br /> 
 
-   ![Screenshot che mostra le impostazioni nella sezione Accesso utente](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Screenshot che mostra le impostazioni nella sezione di accesso utente del portale di Azure AD.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Proseguire con la sezione [Test e passaggi successivi](#testing-and-next-steps).
 

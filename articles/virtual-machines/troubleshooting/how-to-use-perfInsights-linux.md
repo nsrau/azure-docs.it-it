@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: ce60f360a6839d43b0cbc209242a1385a0984c9d
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d4d25d8e79c30933546af2b823e328a652f482eb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088545"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360532"
 ---
 # <a name="how-to-use-perfinsights"></a>Come usare PerfInsights
 
@@ -218,8 +218,8 @@ Nel file **PerformanceDiagnostics \_ aaaa-mm-gg \_ fff. tar. gz** è possibile t
 
 La scheda **Panoramica** fornisce i dettagli dell'esecuzione di base e le informazioni sulla macchina virtuale. La scheda **risultati** Visualizza un riepilogo delle indicazioni di tutte le diverse sezioni del report PerfInsights.
 
-![Screenshot del report PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
-![Screenshot del report PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
+![Screenshot della scheda Panoramica del report PerfInsights.](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
+![Screenshot della scheda Linux del report PerfInsights.](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
 
 > [!NOTE]
 > I risultati classificati come alti sono problemi noti che possono causare problemi di prestazioni. I risultati classificati come medi rappresentano configurazioni non ottimali che non necessariamente causano problemi di prestazioni. I risultati classificati come bassi sono solo istruzioni informative.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 84a1e2edcbe9e9da93a158ebc11e7bf638dae100
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: a11573da29cead49bfb17c2c5df3951229182959
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462735"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360651"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servizio di riconoscimento vocale per i dati di telefonia
 
@@ -147,4 +147,4 @@ Il codice di esempio è disponibile in GitHub per ognuna delle funzionalità del
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
+> [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](overview.md#try-the-speech-service-for-free)
