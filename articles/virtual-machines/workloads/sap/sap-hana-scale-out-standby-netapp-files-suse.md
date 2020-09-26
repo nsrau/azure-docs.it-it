@@ -1,6 +1,6 @@
 ---
 title: SAP HANA la scalabilità orizzontale con la modalità standby con Azure NetApp Files su SLES | Microsoft Docs
-description: Guida alla disponibilità elevata per SAP NetWeaver su SUSE Linux Enterprise Server con Azure NetApp Files per applicazioni SAP
+description: Informazioni su come distribuire un sistema di SAP HANA con scalabilità orizzontale con un nodo standby in macchine virtuali di Azure usando Azure NetApp Files in SUSE Linux Enterprise Server.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: adc57b213a177e227fe446a4dd24e53dea1cd2fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21d4af6985dbe246e60fe95f8f03de7f8aa0501b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068644"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314063"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Distribuire un sistema di SAP HANA con scale-out con un nodo standby in macchine virtuali di Azure usando Azure NetApp Files su SUSE Linux Enterprise Server 
 
@@ -106,10 +106,10 @@ I volumi di Azure NetApp si trovano in una subnet separata, [delegata a Azure Ne
 
 Per questa configurazione di esempio, le subnet sono:  
 
-  - `client`10.23.0.0/24  
-  - `storage`10.23.2.0/24  
-  - `hana`10.23.3.0/24  
-  - `anf`10.23.1.0/26  
+  - `client` 10.23.0.0/24  
+  - `storage` 10.23.2.0/24  
+  - `hana` 10.23.3.0/24  
+  - `anf` 10.23.1.0/26  
 
 ## <a name="set-up-the-azure-netapp-files-infrastructure"></a>Configurare l'infrastruttura di Azure NetApp Files 
 
@@ -236,7 +236,7 @@ Nelle istruzioni successive si presuppone che siano già stati creati il gruppo 
 
 3. Creare tre interfacce di rete, una per ogni macchina virtuale, per la `storage` subnet della rete virtuale (in questo esempio, **hanadb1-storage**, **hanadb2-storage**e **hanadb3-storage**).  
 
-4. Creare tre interfacce di rete, una per ogni macchina virtuale, per la `hana` subnet della rete virtuale (in questo esempio, **hanadb1-Hana**, **hanadb2-Hana**e **hanadb3-Hana**).  
+4. Creare tre interfacce di rete, una per ogni macchina virtuale, per la `hana`  subnet della rete virtuale (in questo esempio, **hanadb1-Hana**, **hanadb2-Hana**e **hanadb3-Hana**).  
 
 5. Alleghi le interfacce di rete virtuale appena create alle macchine virtuali corrispondenti attenendosi alla procedura seguente:  
 
@@ -250,7 +250,7 @@ Nelle istruzioni successive si presuppone che siano già stati creati il gruppo 
     
     e. Selezionare **Salva**. 
  
-    f. Ripetere i passaggi da b a e per le macchine virtuali rimanenti (in questo esempio, **hanadb2** e **hanadb3**).
+    f. Ripetere i passaggi da b a e per le macchine virtuali rimanenti (in questo esempio,  **hanadb2** e **hanadb3**).
  
     g. Per il momento, lasciare le macchine virtuali in stato di arresto. Successivamente, verrà abilitata la [rete accelerata](../../../virtual-network/create-vm-accelerated-networking-cli.md) per tutte le interfacce di rete appena collegate.  
 
@@ -561,7 +561,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
      * Per **i nomi host delimitati da virgole da aggiungere**: immettere **hanadb2, hanadb3**
      * Per **nome utente radice** [root]: premere INVIO per accettare il valore predefinito
      * Per **password utente root**: immettere la password dell'utente root
-     * Per i ruoli per l'host hanadb2: immettere **1** (per il ruolo di lavoro)
+     * Per i ruoli per l'host hanadb2: immettere **1**  (per il ruolo di lavoro)
      * Per **gruppo di failover host** per host hanadb2 [impostazione predefinita]: premere INVIO per accettare il valore predefinito
      * Per **numero di partizione di archiviazione** per host hanadb2 [<<assign automatically>>]: premere INVIO per accettare il valore predefinito
      * Per **gruppo di lavoro** per host hanadb2 [impostazione predefinita]: premere INVIO per accettare il valore predefinito

@@ -1,174 +1,212 @@
 ---
 title: Avvisi del log in Monitoraggio di Azure
-description: Attivare messaggi di posta elettronica e notifiche, chiamare URL di siti Web (webhook) o usare l'automazione quando vengono soddisfatte le condizioni di query di analisi specificate per Avvisi di Azure.
+description: Attivare messaggi di posta elettronica, notifiche, chiamare URL di siti Web (webhook) o automazione quando viene soddisfatta la condizione di query di log specificata
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 1d3b3215fe05ef2f57805b5df2b441f360f45df2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322347"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294139"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Avvisi del log in Monitoraggio di Azure
 
-Gli avvisi del log sono uno dei tipi di avviso supportati negli [avvisi di Azure](./alerts-overview.md). Gli avvisi del log consentono agli utenti di usare la piattaforma Azure Analytics come base per gli avvisi.
+## <a name="overview"></a>Panoramica
 
-Un avviso di log è costituito da regole di ricerca log create per i [log di monitoraggio di Azure](../log-query/get-started-portal.md) o [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). Per altre informazioni sull'utilizzo, vedere [Creating log alerts in Azure](./alerts-log.md) (Creazione di avvisi dei log in Azure).
+Gli avvisi del log sono uno dei tipi di avviso supportati negli [avvisi di Azure](./alerts-overview.md). Gli avvisi del log consentono agli utenti di usare una query [log Analytics](../log-query/get-started-portal.md) per valutare le risorse registra ogni frequenza impostata e generare un avviso in base ai risultati. Le regole possono attivare una o più azioni utilizzando i [gruppi di azioni](./action-groups.md).
 
 > [!NOTE]
-> I dati di log più comuni dei [log di monitoraggio di Azure](../log-query/get-started-portal.md) sono ora disponibili anche nella piattaforma di metriche in Monitoraggio di Azure. Per i dettagli, vedere [Metric Alert for Logs](./alerts-metric-logs.md) (Avvisi di metrica per i log).
+> I dati di log da un' [area di lavoro log Analytics](../log-query/get-started-portal.md) possono essere inviati all'archivio delle metriche di monitoraggio di Azure. Gli avvisi di metrica hanno un [comportamento diverso](alerts-metric-overview.md), che può essere più utile a seconda dei dati in uso. Per informazioni su cosa e come è possibile indirizzare i log alle metriche, vedere [avviso di metrica per i log](alerts-metric-logs.md).
 
+> [!NOTE]
+> Non sono attualmente previsti addebiti aggiuntivi per la versione dell'API `2020-05-01-preview` e gli avvisi del log incentrato sulle risorse.  I prezzi per le funzionalità in anteprima verranno annunciati in futuro e un avviso fornito prima di iniziare la fatturazione. Se si sceglie di continuare a usare la nuova versione dell'API e gli avvisi del log incentrato sulle risorse dopo il periodo di preavviso, l'addebito sarà addebitato alla tariffa applicabile.
 
-## <a name="log-search-alert-rule---definition-and-types"></a>Regole di avviso di ricerca log - Definizioni e tipi
+## <a name="prerequisites"></a>Prerequisiti
 
-Le regole di ricerca log vengono create da Avvisi di Azure in modo da eseguire automaticamente le query di log specificate a intervalli regolari.  Se i risultati della query del log corrispondono a criteri specifici viene creato un record di avviso. La regola può quindi eseguire automaticamente una o più azioni tramite [gruppi di azioni](./action-groups.md). Potrebbe essere necessario il ruolo di [Collaboratore di Monitoraggio di Azure](./roles-permissions-security.md) per creare, modificare e aggiornare gli avvisi dei log, oltre ai diritti di accesso ed esecuzione di query per le destinazioni dell'analisi in una regola di avviso o una query di avviso. Se la creazione dell'utente non ha accesso a tutte le destinazioni di analisi nella regola di avviso o nella query di avviso, la creazione della regola potrebbe non riuscire o la regola di avviso del log verrà eseguita con risultati parziali.
+Gli avvisi del log eseguono query sui dati Log Analytics. Innanzitutto è necessario iniziare a [raccogliere i dati di log](resource-logs.md) ed eseguire query sui dati di log per individuare eventuali problemi. È possibile usare l' [argomento degli esempi di query di avviso](../log-query/saved-queries.md) in log Analytics per comprendere cosa è possibile individuare o iniziare [a scrivere una query personalizzata](../log-query/get-started-portal.md).
 
-Le regole di ricerca log sono definite dai dettagli seguenti:
+Il [collaboratore di monitoraggio di Azure](./roles-permissions-security.md) è un ruolo comune necessario per la creazione, la modifica e l'aggiornamento degli avvisi del log. Sono necessari anche i diritti di esecuzione delle query & di accesso per i log delle risorse. L'accesso parziale ai log delle risorse può non riuscire a eseguire query o restituire risultati parziali. [Altre informazioni sulla configurazione degli avvisi di log in Azure](./alerts-log.md).
 
-- **Query di log**.  La query eseguita ogni volta che viene attivata la regola di avviso.  I record restituiti da questa query vengono usati per determinare se deve essere attivato un avviso. La query di analisi può essere applicata a un'area di lavoro di Log Analytics o un'app di Application Insights specifica e addirittura a [più risorse di Log Analytics e Application Insights](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights), purché l'utente abbia i diritti di accesso e di query su tutte le risorse. 
-    > [!IMPORTANT]
-    > supporto [delle query tra risorse](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) negli avvisi del log per Application Insights e avvisi del log per [log Analytics configurate solo con l'API scheduledQueryRules](./alerts-log-api-switch.md) .
+> [!NOTE]
+> Avvisi di log per Log Analytics utilizzati per la gestione tramite l' [API log Analytics Alert](api-alerts.md)legacy. [Altre informazioni sul trasferimento all'API ScheduledQueryRules corrente](alerts-log-api-switch.md).
 
-    Alcuni comandi e combinazioni di analisi non sono compatibili con l'uso negli avvisi dei log. Per informazioni più dettagliate, vedere [Query per avvisi dei log in Monitoraggio di Azure](./alerts-log-query.md).
+## <a name="query-evaluation-definition"></a>Definizione di valutazione della query
 
-- **Periodo di tempo**.  Specifica l'intervallo di tempo per la query. La query restituisce solo i record creati in questo intervallo dell'ora corrente. Il periodo di tempo limita i dati recuperati per la query di log in modo da impedirne l'uso improprio e ignora qualsiasi comando di tempo (come ago) usato nella query di log. <br>*Se, ad esempio, il periodo di tempo è impostato su 60 minuti e la query viene eseguita alle 1:15 PM, per eseguire la query di log vengono restituiti solo i record creati tra 12:15 e 1:15 PM. Ora, se la query di log usa il comando time come fa (7D), la query di log verrebbe eseguita solo per i dati compresi tra 12:15 e 1:15 PM, come se i dati fossero disponibili solo negli ultimi 60 minuti. E non per sette giorni di dati come specificato nella query di log.*
+La definizione della condizione delle regole di ricerca log inizia da:
 
-- **Frequenza**.  Specifica la frequenza con cui deve essere eseguita la query. Può essere un valore qualsiasi compreso tra 5 minuti e 24 ore. Deve essere uguale o minore del periodo di tempo.  Se il valore è maggiore del periodo di tempo, il record rischia di essere omesso.<br>*Si consideri, ad esempio, un periodo di tempo di 30 minuti e una frequenza di 60 minuti.  Se la query viene eseguita a 1:00, restituisce record compresi tra 12:30 e 1:00 PM.  Alla successiva esecuzione della query è 2:00 quando restituisce record compresi tra 1:30 e 2:00.  Tutti i record creati tra 1:00 e 1:30 non verranno mai valutati.*
+- Quale query eseguire?
+- Come si usano i risultati?
 
-- **Soglia**.  Per determinare se è necessario creare un avviso, vengono valutati i risultati della ricerca log.  La soglia è diversa per tipi diversi di regole di avviso di ricerca log.
+Le sezioni seguenti descrivono i diversi parametri che è possibile usare per impostare la logica precedente.
 
-Le regole di ricerca log, sia per i [log di monitoraggio di Azure](../log-query/get-started-portal.md) sia per [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events), possono essere di due tipi diversi. Ognuno di questi tipi viene descritto in dettaglio nelle sezioni seguenti.
+### <a name="log-query"></a>Query di log
+Query [log Analytics](../log-query/get-started-portal.md) utilizzata per valutare la regola. I risultati restituiti da questa query vengono usati per determinare se è necessario attivare un avviso. È possibile definire l'ambito della query per:
 
-- **[Numero di risultati](#number-of-results-alert-rules)**. Singolo avviso creato quando i record di numeri restituiti dalla ricerca log superano un numero specificato.
-- **[Misurazione della metrica](#metric-measurement-alert-rules)**.  Avviso creato per ogni oggetto nei risultati della ricerca log quando i valori superano la soglia specificata.
+- Una risorsa specifica, ad esempio una macchina virtuale.
+- Una risorsa su scala, ad esempio una sottoscrizione o un gruppo di risorse.
+- Più risorse che usano [query tra risorse](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
+ 
+> [!IMPORTANT]
+> Le query di avviso presentano vincoli per garantire prestazioni ottimali e la pertinenza dei risultati. [Altre informazioni](./alerts-log-query.md)sono disponibili qui.
 
-Di seguito sono riportate le differenze tra i tipi di regola di avviso.
+> [!IMPORTANT]
+> Le query incentrate sulle risorse e [tra risorse](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) sono supportate solo usando l'API scheduledQueryRules corrente. Se si usa l' [API log Analytics Alert](api-alerts.md)legacy, sarà necessario passare a. [Altre informazioni sul cambio](./alerts-log-api-switch.md)
 
-- Le regole di avviso *Numero di risultati* creano sempre un singolo avviso, mentre una regola di avviso *Unità di misura della metrica* crea un avviso per ogni oggetto che supera la soglia.
-- Le regole di avviso *Numero di risultati* creano un avviso quando la soglia viene superata una sola volta. Le regole di avviso *Unità di misura della metrica* possono creare un avviso quando viene superata la soglia più di una volta in un intervallo di tempo specifico.
+#### <a name="query-time-range"></a>Intervallo di tempo query
 
-### <a name="number-of-results-alert-rules"></a>Regole di avviso Numero di risultati
+L'intervallo di tempo è impostato nella definizione della condizione della regola. Nelle aree di lavoro e in Application Insights, viene chiamato **period**. In tutti gli altri tipi di risorse, viene chiamato **override intervallo di tempo query**.
 
-Le regole di avviso **Numero di risultati** creano un singolo avviso quando il numero di record restituiti dalla query di ricerca supera la soglia specificata. Questo tipo di regola di avviso è adatto per l'uso con eventi come quelli dei log eventi di Windows, Syslog, WebApp Response e log personalizzati.  Si potrebbe voler creare un avviso quando viene creato un determinato evento di errore o quando vengono creati più eventi di errore entro un periodo di tempo specifico.
+Analogamente a log Analytics, l'intervallo di tempo limita i dati delle query all'intervallo specificato. Anche se nella query viene usato il comando **fa** , verrà applicato l'intervallo di tempo.
 
-**Soglia**: la soglia per una regola di avviso Numero di risultati è maggiore o minore di un valore specifico.  Se il numero di record restituiti dalla ricerca log corrisponde a questi criteri, viene creato un avviso.
+Una query, ad esempio, analizza 60 minuti, quando l'intervallo di tempo è di 60 minuti, anche se il testo contiene **ago (1D)**. È necessario che l'intervallo di tempo e il filtro del tempo di query corrispondano. Nel caso di esempio, la modifica **Period**dell'  /  **intervallo di tempo della query di sostituzione** del periodo su un giorno, funziona come previsto.
 
-Per generare un avviso per un evento singolo, impostare il numero di risultati su un valore maggiore di 0 e controllare l'occorrenza di un singolo evento creato dopo l'ultima esecuzione della query. Alcune applicazioni possono registrare un errore occasionale che non deve necessariamente generare un avviso.  Ad esempio, l'applicazione può ripetere il processo che ha creato l'evento di errore e riuscire quindi al tentativo al successivo.  In questo caso, non è consigliabile creare l'avviso, a meno che non vengano creati più eventi entro un periodo di tempo specifico.  
+### <a name="measure"></a>Measure
 
-In alcuni casi, è possibile creare un avviso in assenza di un evento.  Ad esempio, un processo può registrare eventi regolari per indicare che funziona correttamente.  Se non registra uno di questi eventi entro un periodo di tempo specifico, dovrà essere creato un avviso.  In questo caso, impostare la soglia su un valore **minore di 1**.
+Gli avvisi del log consentono di accedere a valori numerici che possono essere valutati. È possibile misurare due elementi diversi:
 
-#### <a name="example-of-number-of-records-type-log-alert"></a>Esempio di avviso di log di tipo Numero di record
+#### <a name="count-of-the-results-table-rows"></a>Conteggio delle righe della tabella dei risultati
 
-Si consideri uno scenario in cui si vuole sapere quando l'app basata sul Web fornisce una risposta agli utenti con codice 500, Errore interno del server. Si deve creare una regola di avviso con i dettagli seguenti:  
+Il conteggio dei risultati è la misura predefinita. Ideale per l'utilizzo di eventi quali i registri eventi di Windows, syslog, le eccezioni delle applicazioni. Viene attivato quando i record del log si verificano o non vengono effettuati nell'intervallo di tempo valutato.
 
-- **Query:** requests | where resultCode == "500"<br>
-- **Periodo di tempo:** 30 minuti<br>
-- **Frequenza avviso:** cinque minuti<br>
-- **Valore di soglia:** maggiore di 0<br>
+Gli avvisi del log funzionano meglio quando si tenta di rilevare i dati nel log. Funziona meno bene quando si tenta di rilevare la mancanza di dati nei log. Ad esempio, avvisi sull'heartbeat della macchina virtuale.
 
-L'avviso esegue la query ogni 5 minuti, con 30 minuti di dati, per cercare tutti i record in cui il codice di risultato è 500. Se viene trovato anche un solo record di questo tipo, viene generato l'avviso e viene attivata l'azione configurata.
+Per le aree di lavoro e Application Insights, viene chiamato **in base** al **numero di risultati della**selezione. In tutti gli altri tipi di risorse, viene chiamato **Measure** con le **righe della tabella**di selezione.
 
-### <a name="metric-measurement-alert-rules"></a>Regole di avviso Unità di misura della metrica
+> [!NOTE]
+> Poiché i log sono dati semi-strutturati, sono intrinsecamente più latenti della metrica, è possibile che si verifichino problemi durante il tentativo di rilevare la mancanza di dati nei log ed è consigliabile usare gli [avvisi delle metriche](alerts-metric-overview.md). È possibile inviare i dati all'archivio delle metriche dai log usando gli [avvisi delle metriche per i log](alerts-metric-logs.md).
 
-Le regole di avviso di **misurazione delle metriche** creano un avviso per ogni oggetto in una query con un valore che supera una soglia specificata e una condizione di trigger specificata. Diversamente dalle regole **di avviso numero di risultati** , le regole di avviso di **misurazione delle metriche** funzionano quando il risultato dell'analisi fornisce una serie temporale. Presentano le differenze seguenti dalle regole di avviso **Numero di risultati**.
+##### <a name="example-of-results-table-rows-count-use-case"></a>Esempio di caso di utilizzo conteggio righe tabella risultati
 
-- **Funzione di aggregazione**: determina il calcolo che viene eseguito e possibilmente un campo numerico da aggregare.  Ad esempio, **count()** restituisce il numero di record nella query, **avg(CounterValue)** restituisce la media del campo CounterValue nell'intervallo. La funzione di aggregazione nella query deve essere denominata AggregatedValue e deve fornire un valore numerico. 
+Si vuole essere a conoscenza del momento in cui l'applicazione ha risposto con il codice di errore 500 (errore interno del server). Si deve creare una regola di avviso con i dettagli seguenti:
 
-- **Campo del gruppo**: viene creato un record con un valore aggregato per ogni istanza di questo campo e può essere generato un avviso per ognuna.  Ad esempio, se si desidera generare un avviso per ogni computer, si userà **dal Computer**. Se nella query di avviso sono specificati più campi gruppo, l'utente può specificare il campo da usare per ordinare i risultati tramite il parametro **Aggregate On** (metricColumn).
+- **Query:** 
 
-    > [!NOTE]
-    > L'opzione *Aggregate On* (metricColumn) è disponibile solo per gli avvisi relativi ai log di tipo Unità di misura della metrica per Application Insights e per gli avvisi relativi ai log per [Log Analytics configurati usando l'API scheduledQueryRules](./alerts-log-api-switch.md).
+```Kusto
+requests
+| where resultCode == "500"
+```
 
-- **Intervallo**: definisce l'intervallo di tempo in cui i dati vengono aggregati.  Ad esempio, specificando **cinque minuti**, viene creato un record per ogni istanza del campo Gruppo, aggregato a intervalli di 5 minuti nel periodo di tempo specificato per l'avviso.
+- **Periodo di tempo:** 15 minuti
+- **Frequenza di avviso:** 15 minuti
+- **Valore di soglia:** maggiore di 0
 
-    > [!NOTE]
-    > Per specificare l'intervallo, è necessario usare la funzione Bin nella query. Poiché la funzione bin() può generare risultati con intervalli di tempo diversi, il servizio convertirà automaticamente il comando bin in comando bin_at con l'ora appropriata al runtime per garantire risultati con punto fisso. Il tipo di avviso di log Unità di misura della metrica è progettato per funzionare con le query che contengono fino a tre istanze del comando bin().
-    
-- **Soglia**: la soglia per le regole di avviso Unità di misurazione della metrica è definita da un valore di aggregazione e da un numero di violazioni della sicurezza.  Se qualsiasi punto dati in una ricerca di log supera questo valore, ciò viene considerato una violazione.  Se il numero di violazioni per un oggetto nei risultati supera il valore specificato, viene creato un avviso per l'oggetto.
+Le regole di avviso monitorano quindi le richieste che terminano con il codice di errore 500. La query viene eseguita ogni 15 minuti negli ultimi 15 minuti. Se viene trovato anche un record, viene attivato l'avviso e vengono attivate le azioni configurate.
 
-L'errata configurazione dell'opzione *Aggregate On* o *metricColumn* può causare errori di attivazione delle regole di avviso. Per altre informazioni, vedere [Risoluzione dei problemi quando la regola di avviso Unità di misura della metrica non è corretta](./alerts-troubleshoot-log.md#metric-measurement-alert-rule-is-incorrect).
+#### <a name="calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value"></a>Calcolo della misura in base a una colonna numerica (ad esempio valore del contatore CPU)
 
-#### <a name="example-of-metric-measurement-type-log-alert"></a>Esempio di avviso di log di tipo Unità di misurazione
+Per le aree di lavoro e Application Insights, viene chiamato **in base** alla **misurazione della metrica**di selezione. In tutti gli altri tipi di risorse, viene chiamato **Measure** con la selezione di un nome di colonna numerico.
 
-Si consideri uno scenario in cui si desidera creare un avviso se l'uso del processo di un computer supera il 90% tre volte in 30 minuti.  Si deve creare una regola di avviso con i dettagli seguenti:  
+### <a name="aggregation-type"></a>Tipo di aggregazione
 
-- **Query:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
-- **Periodo di tempo:** 30 minuti<br>
-- **Frequenza avviso:** cinque minuti<br>
-- **Logica di avviso-soglia & della condizione:** Maggiore di 90<br>
-- **Campo gruppo (aggregate-on):** Computer
-- **Attiva l'avviso in base a:** totale violazioni maggiore di 2<br>
+Calcolo eseguito su più record per aggregarli a un valore numerico. Ad esempio:
+- **Count** restituisce il numero di record nella query
+- **Average** restituisce la media della [**granularità di aggregazione**](#aggregation-granularity) delle colonne di misura definita.
 
-La query crea un valore medio per ogni computer a intervalli di 5 minuti.  Questa query verrebbe eseguita ogni 5 minuti per i dati raccolti nei 30 minuti precedenti. Dato che il campo Gruppo (funzione Aggregate On) scelto fa parte della colonna "Computer" - AggregatedValue viene suddiviso in valori diversi di "Computer" e si determina l'utilizzo medio del processore per ogni computer a intervalli di 5 minuti.  Ad esempio, il risultato della query di esempio per tre computer, sarebbe il seguente.
+Nelle aree di lavoro e Application Insights è supportato solo nel tipo di misura **metrica misurazione** . Il risultato della query deve contenere una colonna denominata AggregatedValue che fornisce un valore numerico dopo un'aggregazione definita dall'utente. In tutti gli altri tipi di risorse, il **tipo di aggregazione** è selezionato dal campo di tale nome.
 
+### <a name="aggregation-granularity"></a>Granularità di aggregazione
 
-|TimeGenerated [UTC] |Computer  |AggregatedValue  |
-|---------|---------|---------|
-|20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
-|20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
-|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
-|...     |   ...      |    ...     |
-|20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
-|20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
-|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+Determina l'intervallo utilizzato per aggregare più record a un valore numerico. Se, ad esempio, sono stati specificati **5 minuti**, i record vengono raggruppati per intervalli di 5 minuti utilizzando il **tipo di aggregazione** specificato.
 
-Se il risultato della query dovesse essere tracciato, verrebbe visualizzato come segue.
+Nelle aree di lavoro e Application Insights è supportato solo nel tipo di misura **metrica misurazione** . Il risultato della query deve contenere [bin ()](/azure/kusto/query/binfunction) che imposta l'intervallo nei risultati della query. In tutti gli altri tipi di risorse, il campo che controlla questa impostazione viene definito **granularità di aggregazione**.
 
-![Risultati della query di esempio](media/alerts-unified-log/metrics-measurement-sample-graph.png)
+> [!NOTE]
+> Poiché [bin ()](/azure/kusto/query/binfunction) può produrre intervalli di tempo non uniformi, il servizio avvisi convertirà automaticamente la funzione [bin ()](/azure/kusto/query/binfunction) in [bin_at funzione ()](/azure/kusto/query/binatfunction) con il tempo appropriato in fase di esecuzione, per garantire i risultati con un punto fisso.
 
-In questo esempio vediamo l'utilizzo medio del processore calcolato per un arco di tempo di 5 minuti, suddiviso a intervalli di 5 minuti per ognuno dei tre computer. La soglia di 90 viene violata una sola volta da srv01 nell'intervallo 1:25. In confronto, srv02 supera la soglia di 90 negli intervalli 1:10, 1:15 e 1:25, mentre srv03 supera la soglia di 90 negli intervalli 1:10, 1:15, 1:20 e 1:30.
-Dato che l'avviso è configurato per attivarsi nel caso in cui il totale delle violazioni sia superiore a due, vediamo che solo srv02 e srv03 soddisfano questi criteri. Di conseguenza, verranno creati avvisi separati per SRV02 e Srv03, poiché hanno violato due volte la soglia del 90% in più cesti temporali.  Se l' *avviso trigger basato su:* parametro è stato invece configurato per l'opzione *violazioni continue* , viene generato un avviso **solo** per Srv03 poiché ha violato la soglia per tre ceste orari consecutivi da 1:10 a 1:20. **Non** verrebbe attivato per srv02, dal momento che ha violato la soglia di due intervalli tempo consecutivi compresi tra 1:10 e 1:15.
+### <a name="split-by-alert-dimensions"></a>Dividi per dimensioni avviso
 
-## <a name="log-search-alert-rule---firing-and-state"></a>Regola di avviso di ricerca log - attivazione e stato
+Suddividere gli avvisi per numero o colonne stringa in avvisi distinti raggruppando in combinazioni univoche. Quando si creano avvisi incentrati sulle risorse su larga scala (ambito di sottoscrizione o di gruppo di risorse), è possibile suddividerli in base alla colonna ID risorsa di Azure. La suddivisione nella colonna ID risorsa di Azure consente di modificare la destinazione dell'avviso sulla risorsa specificata.
 
-Le regole di avviso di ricerca log funzionano solo sulla logica compilata nella query. Il sistema di avvisi non dispone di alcun contesto dello stato del sistema, della finalità o della causa radice implicita nella query. Di conseguenza, gli avvisi del log sono denominati senza stato. Le condizioni vengono valutate come "TRUE" o "FALSE" ogni volta che vengono eseguite.  Verrà generato un avviso ogni volta che la valutazione della condizione di avviso è "TRUE", indipendentemente dal fatto che venga attivata in precedenza.    
+Nelle aree di lavoro e Application Insights è supportato solo nel tipo di misura **metrica misurazione** . Il campo è denominato **Aggregate in**. È limitato a tre colonne. La presenza di più di tre gruppi per colonne nella query può causare risultati imprevisti. In tutti gli altri tipi di risorse, è configurato nella sezione **Split by Dimensions** della condizione (limitata a sei divisioni).
 
-Questo comportamento viene ora visualizzato con un esempio pratico. Si supponga di disporre di una regola di avviso del log denominata *Contoso-Log-Alert*, che è configurata come illustrato nell' [esempio relativo all'avviso di log dei tipi di risultati](#example-of-number-of-records-type-log-alert). La condizione è una query di avviso personalizzata progettata per cercare il codice risultato 500 nei log. Se nei log si trovano più codici di risultato 500, la condizione dell'avviso è true. 
+#### <a name="example-of-splitting-by-alert-dimensions"></a>Esempio di suddivisione in base alle dimensioni di avviso
 
-A ogni intervallo riportato di seguito, il sistema di avvisi di Azure valuta la condizione per *Contoso-Log-Alert*.
+Si desidera, ad esempio, monitorare gli errori per più macchine virtuali che eseguono il sito Web o l'app in un gruppo di risorse specifico. Questa operazione può essere eseguita usando una regola di avviso del log, come indicato di seguito:
 
+- **Query:** 
 
-| Tempo    | Numero di record restituiti dalla query di ricerca nei log | Condizione del log valutazione | Risultato 
+    ```Kusto
+    // Reported errors
+    union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+    | where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+    or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+    ```
+
+    Quando si usano le aree di lavoro e Application Insights con la logica di avviso di **misurazione delle metriche** , è necessario aggiungere questa riga al testo della query:
+
+    ```Kusto
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    ```
+
+- **Colonna ID risorsa:** _ResourceId (la suddivisione in base alla colonna ID risorsa nelle regole di avviso è disponibile solo per le sottoscrizioni e i gruppi di risorse attualmente)
+- **Dimensioni/aggregazione in:**
+  - Computer = VM1, VM2 (i valori di filtro nella definizione delle regole di avviso non sono attualmente disponibili per le aree di lavoro e Application Insights. Filtrare nel testo della query.)
+- **Periodo di tempo:** 15 minuti
+- **Frequenza di avviso:** 15 minuti
+- **Valore di soglia:** maggiore di 0
+
+Questa regola monitora se una macchina virtuale presenta eventi di errore negli ultimi 15 minuti. Ogni macchina virtuale viene monitorata separatamente e attiverà azioni singolarmente.
+
+> [!NOTE]
+> La divisione in base alle dimensioni di avviso è disponibile solo per l'API scheduledQueryRules corrente. Se si usa l' [API log Analytics Alert](api-alerts.md)legacy, sarà necessario passare a. [Altre informazioni sul cambio](./alerts-log-api-switch.md). Gli avvisi incentrati sulle risorse alla scala sono supportati solo nella versione dell'API `2020-05-01-preview` e versioni successive.
+
+## <a name="alert-logic-definition"></a>Definizione della logica di avviso
+
+Una volta definita la query da eseguire e la valutazione dei risultati, è necessario definire la logica di avviso e quando attivare le azioni. Le sezioni seguenti descrivono i diversi parametri che è possibile usare:
+
+### <a name="threshold-and-operator"></a>Threshold e operator
+
+I risultati della query vengono trasformati in un numero che viene confrontato con la soglia e l'operatore.
+
+### <a name="frequency"></a>Frequenza
+
+Intervallo di esecuzione della query. Il set può essere compreso tra 5 minuti e un giorno. Deve essere minore o uguale all'intervallo di [tempo della query](#query-time-range) per non perdere i record del log.
+
+Ad esempio, se si imposta il periodo di tempo su 30 minuti e la frequenza su 1 ora.  Se la query viene eseguita a 00:00, restituisce record compresi tra 23:30 e 00:00. Alla successiva esecuzione della query è 01:00 che restituirà i record compresi tra 00:30 e 01:00. Tutti i record creati tra 00:00 e 00:30 non verranno mai valutati.
+
+### <a name="number-of-violations-to-trigger-alert"></a>Numero di violazioni da attivare per l'avviso
+
+È possibile specificare il periodo di valutazione dell'avviso e il numero di errori necessari per attivare un avviso. Consentendo di definire in modo più efficace un tempo di inefficacia per l'attivazione di un avviso. 
+
+Se, ad esempio, la [**granularità di aggregazione**](#aggregation-granularity) della regola è definita come "5 minuti", è possibile attivare un avviso solo se si verificano tre errori (15 minuti) dell'ultima ora. Questa impostazione è definita dai criteri di business dell'applicazione.
+
+## <a name="state-and-resolving-alerts"></a>Stato e risoluzione degli avvisi
+
+Gli avvisi del log sono senza stato. Gli avvisi vengono attivati ogni volta che viene soddisfatta la condizione, anche se attivata in precedenza. Gli avvisi generati non vengono risolti. È possibile [contrassegnare l'avviso come chiuso](alerts-managing-alert-states.md). È anche possibile disattivare le azioni per impedirne l'attivazione per un periodo dopo il quale è stata attivata una regola di avviso.
+
+Nelle aree di lavoro e in Application Insights, viene chiamato non **visualizzare avvisi**. In tutti gli altri tipi di risorse, viene chiamato **azioni mute**. 
+
+Vedere questo esempio di valutazione degli avvisi:
+
+| Tempo    | Valutazione della condizione del log | Risultato 
 | ------- | ----------| ----------| ------- 
-| 1:05 PM | 0 record | 0 non è > 0, quindi FALSE |  L'avviso non viene attivato. Non è stata chiamata alcuna azione.
-| 1:10 PM | 2 record | 2 > 0, quindi TRUE  | Avvisi attivati e gruppi di azioni chiamati. Stato dell'avviso attivo.
-| 1:15 PM | 5 record | 5 > 0 TRUE  | Avvisi attivati e gruppi di azioni chiamati. Stato dell'avviso attivo.
-| 1:20 PM | 0 record | 0 non è > 0, quindi FALSE |  L'avviso non viene attivato. Non è stata chiamata alcuna azione. Lo stato dell'avviso è rimasto attivo.
+| 00:05 | false | L'avviso non viene attivato. Non è stata chiamata alcuna azione.
+| 00:10 | TRUE  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
+| 00:15 | TRUE  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
+| 00:20 | false | L'avviso non viene attivato. Non è stata chiamata alcuna azione. Lo stato degli avvisi di precedente rimane attivo.
 
-Utilizzando il caso precedente come esempio:
+## <a name="pricing-and-billing-of-log-alerts"></a>Prezzi e fatturazione per gli avvisi del log
 
-Alle 1:15 gli avvisi di Azure non possono determinare se i problemi sottostanti rilevati a 1:10 vengono mantenuti e se i record sono errori di rete nuovi o ripetizioni di errori precedenti alle ore 1:22:00. È possibile che la query fornita dall'utente non tenga conto dei record precedenti e che il sistema non lo conosca. Il sistema di avvisi di Azure è stato creato in modo da essere in errore sul lato dell'attenzione e genera nuovamente l'avviso e le azioni associate alle 1:15 PM. 
+Le informazioni sui prezzi sono disponibili nella [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). Gli avvisi del log sono elencati sotto provider `microsoft.insights/scheduledqueryrules` di risorse con:
 
-Alle 1:20, quando vengono visualizzati zero record con il codice risultato 500, gli avvisi di Azure non possono essere certi che la causa del codice di risultato 500 visualizzato alle 1:10 e 1:15 è ora risolta. Non sa se i problemi di errore 500 si verificheranno di nuovo per gli stessi motivi. Di conseguenza, *Contoso-Log-Alert* non cambia in **risolto** nel dashboard avvisi di Azure e/o le notifiche non vengono inviate indicando che l'avviso è stato risolto. Solo l'utente, che conosce la condizione esatta o il motivo della logica incorporata nella query di analisi, può [contrassegnare l'avviso come chiuso](alerts-managing-alert-states.md) se necessario.
-
-## <a name="pricing-and-billing-of-log-alerts"></a>Prezzi e fatturazione degli avvisi dei log
-
-I prezzi applicabili agli avvisi dei log sono disponibili nella pagina [Prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). Nelle fatture di Azure gli avvisi dei log sono rappresentati come tipo `microsoft.insights/scheduledqueryrules` con:
-
-- Avvisi dei log in Application Insights visualizzati con il nome esatto insieme al gruppo di risorse e alle proprietà dell'avviso
-- Avvisi dei log in Log Analytics visualizzati con il nome esatto insieme al gruppo di risorse e alle proprietà dell'avviso, se creati con l'[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules)
-
-L'[API legacy Log Analytics](./api-alerts.md) ha azioni di avviso e pianificazioni che fanno parte della ricerca salvata di Log Analytics e non [risorse di Azure](../../azure-resource-manager/management/overview.md) vere e proprie. Pertanto per abilitare la fatturazione per tali avvisi di log legacy creati per Log Analytics usando il portale di Azure **senza** [passare alla nuova API](./alerts-log-api-switch.md) o usando l'[API legacy Log Analytics](./api-alerts.md), vengono create pseudo-regole di avviso nascoste in `microsoft.insights/scheduledqueryrules` per la fatturazione in Azure. Le pseudo-regole di avviso nascoste create per la fatturazione in `microsoft.insights/scheduledqueryrules` vengono visualizzate come `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` insieme al gruppo di risorse e alle proprietà di avviso.
+- Registrare gli avvisi in Application Insights visualizzati con il nome esatto della risorsa insieme alle proprietà di avviso e del gruppo di risorse.
+- Avvisi di log su Log Analytics visualizzati con il nome esatto della risorsa insieme alle proprietà di avviso e del gruppo di risorse. Quando viene creato usando l' [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules).
+- Gli avvisi del log creati dall' [API legacy log Analytics](./api-alerts.md) non vengono rilevate [le risorse di Azure](../../azure-resource-manager/management/overview.md) e non hanno imposto nomi di risorse univoci. Questi avvisi vengono ancora creati `microsoft.insights/scheduledqueryrules` come risorse nascoste, che hanno questa struttura di denominazione delle risorse `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Gli avvisi del log nell'API legacy vengono visualizzati con il nome di risorsa nascosto sopra, insieme alle proprietà di avviso e del gruppo di risorse.
 
 > [!NOTE]
-> Se sono presenti caratteri non validi come `<, >, %, &, \, ?, /`, vengono sostituiti con `_` nella pseudo-regola di avviso nascosta e pertanto anche nella fattura di Azure.
+> I caratteri di risorse non supportati, ad esempio, `<, >, %, &, \, ?, /` vengono sostituiti con `_` nei nomi delle risorse nascoste, che verranno inoltre riportate nelle informazioni sulla fatturazione.
 
-Per rimuovere le risorse scheduleQueryRules nascoste create per le regole di avviso mediante l'[API legacy Log Analytics](api-alerts.md), l'utente può eseguire una delle operazioni seguenti:
-
-- Può [cambiare la preferenza dell'API per le regole di avviso nell'area di lavoro di Log Analytics](./alerts-log-api-switch.md) e, senza perdere le regole di avviso o il monitoraggio, passare all'[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) conforme ad Azure Resource Manager. In questo modo non è più necessario creare pseudo-regole di avviso nascoste per la fatturazione.
-- Se l'utente non vuole cambiare la preferenza dell'API, dovrà **eliminare** la pianificazione e l'azione di avviso originali usando l'[API legacy Log Analytics](api-alerts.md) o eliminare nel [portale di Azure la regola di avviso dei log originale](./alerts-log.md#view--manage-log-alerts-in-azure-portal).
-
-Inoltre, per le risorse scheduleQueryRules nascoste create per la fatturazione di regole di avviso tramite l' [API log Analytics legacy](api-alerts.md), qualsiasi operazione di modifica, ad esempio PUT, avrà esito negativo. Poiché le `microsoft.insights/scheduledqueryrules` pseudo regole del tipo hanno lo scopo di addebitare le regole di avviso create usando l' [API log Analytics legacy](api-alerts.md). Qualsiasi modifica della regola di avviso deve essere eseguita usando l' [api log Analytics legacy](api-alerts.md) (o) l'utente può [cambiare la preferenza API per le regole di avviso per l'uso dell'](./alerts-log-api-switch.md) [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) .
+> [!NOTE]
+> Avvisi di log per Log Analytics usati per essere gestiti tramite l' [API log Analytics Alert](api-alerts.md) legacy e i modelli legacy di [log Analytics le ricerche salvate e gli avvisi](../insights/solutions.md). [Altre informazioni sul trasferimento all'API ScheduledQueryRules corrente](alerts-log-api-switch.md). Qualsiasi gestione delle regole di avviso deve essere eseguita usando l' [API log Analytics legacy](api-alerts.md) fino a quando non si decide di cambiare e non è possibile usare le risorse nascoste.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni sulla [creazione di avvisi dei log in Azure](./alerts-log.md).
 * Acquisire familiarità con i [webhook negli avvisi dei log in Azure](alerts-log-webhook.md).
 * Informazioni su [Avvisi di Azure](./alerts-overview.md).
-* Altre informazioni su [Application Insights](../log-query/log-query-overview.md).
 * Altre informazioni su [log Analytics](../log-query/log-query-overview.md).
 

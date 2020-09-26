@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 24e631b3ddb25cc8bed20b432ff2ba31fd331f37
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979598"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314719"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sicurezza in Azure ricerca cognitiva-Panoramica
 
@@ -35,6 +35,8 @@ Guarda questo video veloce per una panoramica dell'architettura della sicurezza 
 ## <a name="encrypted-transmissions-and-storage"></a>Trasmissioni e archiviazione crittografate
 
 In Azure ricerca cognitiva la crittografia inizia con connessioni e trasmissioni e si estende ai contenuti archiviati su disco. Per i servizi di ricerca sulla rete Internet pubblica, Azure ricerca cognitiva è in ascolto sulla porta HTTPS 443. Tutte le connessioni da client a servizio utilizzano la crittografia TLS 1,2. Le versioni precedenti (1,0 o 1,1) non sono supportate.
+
+:::image type="content" source="media/search-security-overview/encryption-at-rest-cmk.png" alt-text="diagramma che illustra i diversi tipi di sicurezza a ogni livello di coinvolgimento del servizio":::
 
 Per i dati gestiti internamente dal servizio di ricerca, nella tabella seguente vengono descritti i [modelli di crittografia dei dati](../security/fundamentals/encryption-models.md). Alcune funzionalità, ad esempio archivio informazioni, arricchimento incrementale e indicizzazione basata su indicizzatore, lettura o scrittura in strutture di dati di altri servizi di Azure. Questi servizi hanno i propri livelli di supporto della crittografia separati da Azure ricerca cognitiva.
 
@@ -92,6 +94,8 @@ L'autenticazione è necessaria per ogni richiesta, dove ogni richiesta è costit
 
 Per controllare ulteriormente l'accesso al servizio di ricerca, è possibile creare regole del firewall in ingresso che consentano l'accesso a un indirizzo IP specifico o a un intervallo di indirizzi IP. Tutte le connessioni client devono essere effettuate tramite un indirizzo IP consentito o la connessione viene negata.
 
+:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="diagramma dell'architettura di esempio per l'accesso con restrizioni IP":::
+
 Per [configurare l'accesso in ingresso](service-configure-firewall.md), è possibile usare il portale.
 
 In alternativa, è possibile usare le API REST di gestione. A partire dall'API versione 2020-03-13, con il parametro [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule) , è possibile limitare l'accesso al servizio identificando gli indirizzi IP, singolarmente o in un intervallo, a cui si vuole concedere l'accesso al servizio di ricerca.
@@ -101,6 +105,8 @@ In alternativa, è possibile usare le API REST di gestione. A partire dall'API v
 Un [endpoint privato](../private-link/private-endpoint-overview.md) per ricerca cognitiva di Azure consente a un client in una [rete virtuale](../virtual-network/virtual-networks-overview.md) di accedere in modo sicuro ai dati in un indice di ricerca tramite un [collegamento privato](../private-link/private-link-overview.md).
 
 L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della rete virtuale per le connessioni al servizio di ricerca. Il traffico di rete tra il client e il servizio di ricerca attraversa la rete virtuale e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica. Un VNET consente la comunicazione sicura tra le risorse, con la rete locale e Internet.
+
+:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="diagramma dell'architettura di esempio per l'accesso agli endpoint privati":::
 
 Anche se questa soluzione è la più sicura, l'uso di servizi aggiuntivi è un costo aggiunto, quindi è necessario assicurarsi di avere una chiara comprensione dei vantaggi prima di immergersi in. Per ulteriori informazioni sui costi, vedere la [pagina](https://azure.microsoft.com/pricing/details/private-link/)relativa ai prezzi. Per ulteriori informazioni sull'interazione tra questi componenti, guardare il video nella parte superiore di questo articolo. Il code coverage dell'opzione di endpoint privato inizia da 5:48 nel video. Per istruzioni su come configurare l'endpoint, vedere [creare un endpoint privato per Azure ricerca cognitiva](service-create-private-endpoint.md).
 

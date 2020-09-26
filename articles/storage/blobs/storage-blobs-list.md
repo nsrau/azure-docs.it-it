@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9295b1d8a54d9c3c1a138a54f4b3706bd39227fd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e8a35902c198412f6e41c0cf39162836deb5e443
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009543"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280097"
 ---
 # <a name="list-blobs-with-net"></a>Elencare BLOB con .NET
 
@@ -59,7 +59,7 @@ Nel codice, controllare il valore del token di continuazione per determinare se 
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrare i risultati con un prefisso
 
-Per filtrare l'elenco dei contenitori, specificare una stringa per il parametro `prefix`. La stringa di prefisso può includere uno o più caratteri. Archiviazione di Azure restituisce solo i BLOB i cui nomi iniziano con tale prefisso.
+Per filtrare l'elenco di BLOB, specificare una stringa per il `prefix` parametro. La stringa di prefisso può includere uno o più caratteri. Archiviazione di Azure restituisce solo i BLOB i cui nomi iniziano con tale prefisso.
 
 ### <a name="return-metadata"></a>Restituire i metadati
 

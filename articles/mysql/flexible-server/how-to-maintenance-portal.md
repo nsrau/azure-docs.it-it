@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 6c3ad5fff6958bce72f876e3ff4701cf081abe60
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c8251eb2a89a7481ebc981f2b89668c363651b39
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940482"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315015"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-mysql--flexible-server"></a>Gestire le impostazioni di manutenzione pianificata per database di Azure per MySQL-server flessibile
  
@@ -31,9 +31,9 @@ Per completare questa guida, è necessario:
  
 ## <a name="notifications-about-scheduled-maintenance-events"></a>Notifiche relative agli eventi di manutenzione pianificata
  
-È possibile usare integrità dei servizi di Azure per [visualizzare le notifiche](/azure/service-health/service-notifications.md) relative alla manutenzione pianificata imminente e eseguita sul server flessibile. È anche possibile [configurare](/azure/service-health/resource-health-alert-monitor-guide.md) gli avvisi in integrità dei servizi di Azure per ricevere notifiche sugli eventi di manutenzione.
+È possibile usare integrità dei servizi di Azure per [visualizzare le notifiche](../../service-health/service-notifications.md) relative alla manutenzione pianificata imminente e eseguita sul server flessibile. È anche possibile [configurare](../../service-health/resource-health-alert-monitor-guide.md) gli avvisi in integrità dei servizi di Azure per ricevere notifiche sugli eventi di manutenzione.
  
 ## <a name="next-steps"></a>Passaggi successivi  
  
 * Informazioni sulla [manutenzione pianificata in database di Azure per MySQL-server flessibile](concepts-maintenance.md)
-* Informazioni sull' [integrità dei servizi di Azure](/azure/service-health/overview.md)
+* Informazioni sull' [integrità dei servizi di Azure](../../service-health/overview.md)

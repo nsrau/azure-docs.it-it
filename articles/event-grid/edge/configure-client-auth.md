@@ -1,18 +1,18 @@
 ---
 title: Configurare l'autenticazione client per le chiamate in ingresso-griglia di eventi di Azure IoT Edge | Microsoft Docs
-description: Configurare i protocolli API esposti da griglia di eventi in IoT Edge.
+description: Informazioni sulle possibili configurazioni di autenticazione client per il modulo di griglia di eventi.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: a0bba9559c2a0b4ff6c8a4e5f2287692e27f8a1a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9525da4204e270d033f0c2354318bd71874eaf54
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171704"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290773"
 ---
 # <a name="configure-client-authentication-of-incoming-calls"></a>Configurare l'autenticazione client delle chiamate in ingresso
 

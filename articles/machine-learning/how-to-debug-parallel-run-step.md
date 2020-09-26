@@ -10,13 +10,13 @@ ms.custom: troubleshooting
 ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 07/16/2020
-ms.openlocfilehash: 010843f4249909e23ffac3b41fb3acaf9c91eb17
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 7866f2dcaebe396759eb7f6315c457bfce307723
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890002"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315576"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Eseguire il debug e risolvere i problemi di ParallelRunStep
 
@@ -35,13 +35,17 @@ Ad esempio, il file di log `70_driver_log.txt` contiene le informazioni del cont
 
 A causa della natura distribuita dei processi ParallelRunStep, sono presenti log di origini diverse. Tuttavia, vengono creati due file consolidati che offrono informazioni di alto livello:
 
-- `~/logs/overview.txt`: questo file offre informazioni di alto livello sul numero di mini-batch (chiamati anche attività) creati e il numero di mini-batch elaborati. A questo scopo, mostra il risultato del processo. Se il processo non è riuscito, verrà visualizzato il messaggio di errore e il punto in cui avviare la risoluzione dei problemi.
+- `~/logs/job_progress_overview.txt`: questo file offre informazioni di alto livello sul numero di mini-batch (chiamati anche attività) creati e il numero di mini-batch elaborati. A questo scopo, mostra il risultato del processo. Se il processo non è riuscito, verrà visualizzato il messaggio di errore e il punto in cui avviare la risoluzione dei problemi.
 
-- `~/logs/sys/master.txt`: Questo file fornisce la visualizzazione del nodo principale, nota anche come agente di orchestrazione, del processo in esecuzione. Include la creazione di attività, il monitoraggio dello stato di avanzamento e il risultato dell'esecuzione.
+- `~/logs/sys/master_role.txt`: Questo file fornisce la visualizzazione del nodo principale, nota anche come agente di orchestrazione, del processo in esecuzione. Include la creazione di attività, il monitoraggio dello stato di avanzamento e il risultato dell'esecuzione.
 
 I log generati dallo script di immissione usando l'helper EntryScript e le istruzioni print sono disponibili nei file seguenti:
 
-- `~/logs/user/<ip_address>/<node_name>.log.txt`: Questi file sono i log scritti da entry_script usando l'helper EntryScript. Include anche l'istruzione print (StdOut) di entry_script.
+- `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`: Questi file sono i log scritti da entry_script usando l'helper EntryScript.
+
+- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`: Questi file sono i log da stdout (ad esempio, l'istruzione Print) del entry_script.
+
+- `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt`: Questi file sono i log di stderr della entry_script.
 
 Per una comprensione immediata degli errori nello script, è disponibile il file:
 
@@ -49,17 +53,17 @@ Per una comprensione immediata degli errori nello script, è disponibile il file
 
 Per altre informazioni sugli errori nello script, è disponibile il file:
 
-- `~/logs/user/error/`: contiene tutti gli errori generati e le analisi dello stack completo suddivise per nodo.
+- `~/logs/user/error/`: Contiene le analisi dello stack complete delle eccezioni generate durante il caricamento e l'esecuzione dello script di immissione.
 
 Quando è necessaria una conoscenza completa del modo in cui ogni nodo ha eseguito lo script del punteggio, esaminare i singoli log dei processi per ogni nodo. I log dei processi sono disponibili nella cartella `sys/node`, raggruppati in base ai nodi di lavoro:
 
-- `~/logs/sys/node/<node_name>.txt`: Questo file fornisce informazioni dettagliate su ogni mini-batch quando viene selezionato o completato da un thread di lavoro. Per ogni mini-batch, il file include:
+- `~/logs/sys/node/<ip_address>/<process_name>.txt`: Questo file fornisce informazioni dettagliate su ogni mini-batch quando viene selezionato o completato da un thread di lavoro. Per ogni mini-batch, il file include:
 
     - Indirizzo IP e PID del processo di lavoro. 
     - Il numero totale di elementi, il numero di elementi elaborati correttamente e il numero di elementi non elaborati.
     - L'ora di inizio, la durata, il tempo di elaborazione e l'ora del metodo run.
 
-È anche possibile trovare informazioni sull'utilizzo delle risorse dei processi per ogni ruolo di lavoro. Queste informazioni sono in formato CSV e si trovano in `~/logs/sys/perf/overview.csv`. Le informazioni su ogni processo sono disponibili in `~logs/sys/processes.csv` .
+È anche possibile trovare informazioni sull'utilizzo delle risorse dei processi per ogni ruolo di lavoro. Queste informazioni sono in formato CSV e si trovano in `~/logs/sys/perf/<ip_address>/node_resource_usage.csv`. Le informazioni su ogni processo sono disponibili in `~logs/sys/perf/<ip_address>/processes_resource_usage.csv` .
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Come registrare dallo script utente personale da un contesto remoto?
 ParallelRunStep può eseguire più processi in un nodo basato su process_count_per_node. Per organizzare i log da ogni processo nel nodo e combinare l'istruzione Print and log, è consigliabile usare ParallelRunStep logger, come illustrato di seguito. Si ottiene un logger da EntryScript e si fa in modo che i log vengano visualizzati nella cartella **logs/utente** nel portale.
@@ -112,6 +116,28 @@ parser.add_argument('--labels_dir', dest="labels_dir", required=True)
 args, _ = parser.parse_known_args()
 
 labels_path = args.labels_dir
+```
+
+### <a name="how-to-use-input-datasets-with-service-principal-authentication"></a>Come usare i set di dati di input con l'autenticazione basata su entità servizio
+
+L'utente può passare set di dati di input con l'autenticazione basata su entità servizio usata nell'area di lavoro. L'uso di tale set di dati in ParallelRunStep richiede la registrazione del set di dati per la costruzione della configurazione ParallelRunStep.
+
+```python
+service_principal = ServicePrincipalAuthentication(
+    tenant_id="***",
+    service_principal_id="***",
+    service_principal_password="***")
+ 
+ws = Workspace(
+    subscription_id="***",
+    resource_group="***",
+    workspace_name="***",
+    auth=service_principal
+    )
+ 
+default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***') 
+ds = Dataset.File.from_files(default_blob_store, '**path***')
+registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

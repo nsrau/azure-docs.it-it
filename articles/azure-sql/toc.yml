@@ -281,7 +281,7 @@
               href: database/geo-distributed-application-configure-tutorial.md
             - name: Replica geografica attiva
               href: database/active-geo-replication-configure-portal.md
-        - name: Security
+        - name: Sicurezza
           items:
             - name: Configurare la sicurezza
               href: database/secure-database-tutorial.md
@@ -860,7 +860,7 @@
               href: 'https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/azure-sql/toc.json'
             - name: Posta elettronica database
               href: 'https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/azure-sql/toc.json'
-        - name: Security
+        - name: Sicurezza
           items:
             - name: Proteggere gli endpoint pubblici
               href: managed-instance/public-endpoint-overview.md
@@ -1210,6 +1210,8 @@
           href: database/database-import-export-hang.md
     - name: Aggiornamenti del servizio
       items:
+        - name: Scadenza del certificato radice SSL
+          href: updates/ssl-root-certificate-expiring.md
         - name: Aggiornamenti degli indirizzi IP del gateway
           href: database/gateway-migration.md
         - name: Eventi di manutenzione periodica

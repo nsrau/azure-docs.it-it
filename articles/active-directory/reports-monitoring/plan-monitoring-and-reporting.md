@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a75cc77b45d41d7fd63eadce34265ca54b663e14
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030991"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331200"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Pianificare un Azure Active Directory la distribuzione di report e monitoraggio
 
@@ -91,7 +91,7 @@ L'infrastruttura e i criteri correnti guideranno la progettazione per la creazio
 
 ## <a name="plan-an-azure-ad-reporting-and-monitoring-deployment"></a>Pianificare un Azure AD la distribuzione di report e monitoraggio
 
-La creazione di report e il monitoraggio vengono usati per soddisfare i requisiti aziendali, ottenere informazioni approfondite sui modelli di utilizzo e t aumentare il comportamento di sicurezza dell'organizzazione.
+La creazione di report e il monitoraggio vengono usati per soddisfare i requisiti aziendali, ottenere informazioni approfondite sui modelli di utilizzo e aumentare il comportamento di sicurezza dell'organizzazione.
 
 ### <a name="business-use-cases"></a>Casi d'uso aziendali
 
@@ -175,7 +175,7 @@ A seconda delle decisioni prese in precedenza utilizzando le linee guida di prog
 
 [Analizzare i log attività di Azure AD con i log di Monitoraggio di Azure](./howto-analyze-activity-logs-log-analytics.md)
 
-* [Interpretare lo schema dei log di controllo in monitoraggio di Azure](./reference-azure-monitor-audit-log-schema.md)
+* [Interpretare lo schema dei log di controllo in Monitoraggio di Azure](./reference-azure-monitor-audit-log-schema.md)
 
 * [Interpretare lo schema dei log di accesso in monitoraggio di Azure](./reference-azure-monitor-sign-ins-log-schema.md)
 
