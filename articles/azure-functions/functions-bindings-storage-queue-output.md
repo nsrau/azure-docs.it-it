@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 06d9ea895607332c8de25176376d52987ceed7a1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1d86009d593ef7e594ec2981132bcfb856569c31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212266"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317226"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Associazioni di output di archiviazione code di Azure per funzioni di Azure
 
@@ -365,7 +365,7 @@ L'elemento della coda di output è disponibile tramite `context.bindings.<NAME>`
 
 # <a name="python"></a>[Python](#tab/python)
 
-Sono disponibili due opzioni per l'output di un messaggio di hub eventi da una funzione:
+Sono disponibili due opzioni per l'output di un messaggio della coda da una funzione:
 
 - **Valore restituito**: impostare la `name` Proprietà in *function.jssu* `$return` . Con questa configurazione, il valore restituito della funzione viene reso permanente come messaggio di archiviazione di Accodamento.
 
@@ -373,11 +373,11 @@ Sono disponibili due opzioni per l'output di un messaggio di hub eventi da una f
 
 # <a name="java"></a>[Java](#tab/java)
 
-Sono disponibili due opzioni per l'output di un messaggio di hub eventi da una funzione tramite l'annotazione [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) :
+Sono disponibili due opzioni per l'output di un messaggio della coda da una funzione tramite l'annotazione [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) :
 
-- **Valore restituito**: applicando l'annotazione alla funzione stessa, il valore restituito della funzione viene reso persistente come messaggio dell'hub eventi.
+- **Valore restituito**: applicando l'annotazione alla funzione stessa, il valore restituito della funzione viene reso persistente come messaggio in coda.
 
-- **Imperativo**: per impostare in modo esplicito il valore del messaggio, applicare l'annotazione a un parametro specifico del tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) , dove `T` è un POJO o qualsiasi tipo Java nativo. Con questa configurazione, il passaggio di un valore al `setValue` metodo rende permanente il valore come messaggio dell'hub eventi.
+- **Imperativo**: per impostare in modo esplicito il valore del messaggio, applicare l'annotazione a un parametro specifico del tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) , dove `T` è un POJO o qualsiasi tipo Java nativo. Con questa configurazione, il passaggio di un valore al `setValue` metodo rende permanente il valore come messaggio in coda.
 
 ---
 

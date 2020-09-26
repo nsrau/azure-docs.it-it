@@ -5,21 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: 9ebd12777c32a9415eeb1b77d9cd487b0f23eb29
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fd4f79e0cae5028e4bbaa8a4f5115d5a767dcf54
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299154"
+ms.locfileid: "91368856"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Proteggere i pod con criteri di Azure
 
 Per migliorare la sicurezza del cluster AKS, è possibile controllare quali funzioni vengono concesse ai pod e se qualsiasi elemento viene eseguito in base ai criteri aziendali. Questo accesso viene definito tramite criteri predefiniti forniti dal [componente aggiuntivo criteri di Azure per AKS][kubernetes-policy-reference]. Garantendo un ulteriore controllo sugli aspetti di sicurezza della specifica del Pod, ad esempio i privilegi radice, consente una maggiore conformità alla sicurezza e la visibilità di ciò che viene distribuito nel cluster. Se un pod non soddisfa le condizioni specificate nei criteri, i criteri di Azure possono impedire al pod di avviare o contrassegnare una violazione. Questo articolo illustra come usare criteri di Azure per limitare la distribuzione di pod in AKS.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-
-> [!IMPORTANT]
-> La disponibilità generale di criteri di Azure su AKS viene rilasciata attivamente in tutte le aree geografiche. Il completamento globale previsto della versione GA è 9/29/2020. Per l'utilizzo in aree senza la versione GA sono necessari i passaggi per la registrazione dell'anteprima. Tuttavia, questo verrà aggiornato automaticamente alla versione GA se disponibile nell'area.
 
 Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
