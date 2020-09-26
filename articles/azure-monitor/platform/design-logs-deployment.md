@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 49ab515c265b4b4444e7d4ca5b93c4e898e4cf54
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: a4186909db3d784938ada4baaaf08aba02b31d30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527310"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317124"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di Monitoraggio di Azure
 
@@ -131,22 +131,31 @@ Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di c
 
 Quando si inviano dati a un'area di lavoro a una velocità del volume superiore all'80% della soglia configurata nell'area di lavoro, viene inviato un evento alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Quando la velocità del volume è superiore alla soglia, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Se la velocità del volume di inserimento continua a superare la soglia o se si prevede di raggiungerla presto, è possibile richiedere di aumentarla aprendo una richiesta di supporto. 
 
-Per ricevere una notifica relativa a approching o raggiungere il limite di velocità del volume di inserimento nell'area di lavoro, creare una [regola di avviso del log](alerts-log.md) usando la query seguente con la base di logica di avviso per il numero di risultati maggiore di zero, il periodo di valutazione di 5 minuti e la frequenza di 5 minuti.
+Per ricevere una notifica sull'avvicinamento o il raggiungimento del limite di velocità del volume di inserimento nell'area di lavoro, creare una [regola di avviso del log](alerts-log.md) usando la query seguente con la base della logica di avviso per il numero di risultati maggiore di zero, periodo di valutazione di 5 minuti e frequenza di 5 minuti.
 
-La velocità del volume di inserimento ha raggiunto l'80% della soglia:
+Velocità del volume di inserimento superata la soglia
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Error"
 ```
 
-La velocità del volume di inserimento ha raggiunto la soglia:
+Frequenza del volume di inserimento superata il 80% della soglia
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Warning"
 ```
 
+Frequenza del volume di inserimento superata il 70% della soglia
+```Kusto
+Operation
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Info"
+```
 
 ## <a name="recommendations"></a>Consigli
 

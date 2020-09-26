@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77271679306b0fbde10c748afc7535f3ad3d0945
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807605"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317566"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect
 
@@ -120,7 +120,7 @@ Ogni istanza locale di Active Directory Connector ha uno specifico canale di sin
 
 Se l'account di Active Directory Domain Services usato dall'istanza locale di Active Directory Connector per sincronizzare gli hash delle password non ha le autorizzazioni appropriate, viene restituito l'errore seguente:
 
-![Credenziali non corrette](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
+![Screenshot che mostra l'errore restituito quando l'account di servizi di dominio Active Directory ha un nome utente o una password non corretta.](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### <a name="incorrect-ad-ds-account-username-or-password"></a>La password o il nome utente dell'account di Active Directory Domain Services non è corretto
 
@@ -338,11 +338,11 @@ Se invece si è usata l'installazione personalizzata, impostare manualmente le a
 
     i. Fare clic su **Metaverse Object Properties** (Proprietà dell'oggetto Metaverse) per visualizzare un elenco di attributi utente.  
 
-    ![Informazioni del metaverse](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
+    ![Screenshot che mostra l'elenco degli attributi utente per le proprietà dell'oggetto metaverse.](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
 
     Verificare che non sia presente alcun attributo **cloudFiltered**. Assicurarsi che gli attributi di dominio (domainFQDN e domainNetBios) abbiano i valori previsti.
 
-    j. Fare clic sulla scheda **Connectors (connettori** ). Assicurarsi di visualizzare i connettori sia per la Active Directory locale sia per Azure ad.
+    j. Fare clic sulla scheda **connettori** . Assicurarsi di visualizzare i connettori sia per la Active Directory locale che per la Azure AD.
 
     ![Informazioni del metaverse](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 

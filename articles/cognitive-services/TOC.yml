@@ -23,7 +23,7 @@
       href: cognitive-services-apis-create-account-client-library.md
     - name: Creare una nuova risorsa con un modello di Resource Manager
       displayName: Resource Manager
-      href: resource-manager-template.md
+      href: create-account-resource-manager-template.md
     - name: Registrazione diagnostica
       href: diagnostic-logging.md
 - name: Sicurezza

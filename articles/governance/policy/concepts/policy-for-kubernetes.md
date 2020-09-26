@@ -3,12 +3,12 @@ title: Informazioni su criteri di Azure per Kubernetes
 description: Informazioni su come il servizio Criteri di Azure usa Rego e Open Policy Agent per gestire i cluster che eseguono Kubernetes in Azure o in locale.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbe7257b577f0526e0d34c13e0102305e58cc656
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bb4345426eddb8b0b5250980eb46cf0509a22cff
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322462"
+ms.locfileid: "91369995"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Informazioni su Criteri di Azure per i cluster Kubernetes
 
@@ -85,9 +85,6 @@ La raccomandazione seguente si applica solo ad AKS e al componente aggiuntivo cr
 ## <a name="install-azure-policy-add-on-for-aks"></a>Installare il componente aggiuntivo Criteri di Azure per il servizio Azure Kubernetes
 
 Prima di installare il componente aggiuntivo Criteri di Azure o di abilitare le funzionalità del servizio, la sottoscrizione deve abilitare i provider di risorse **Microsoft.ContainerService** e **Microsoft.PolicyInsights**.
-
-> [!IMPORTANT]
-> La disponibilità generale di criteri di Azure su AKS viene rilasciata attivamente in tutte le aree geografiche. Il completamento globale previsto della versione GA è 9/29/2020. Per l'utilizzo in aree senza la versione GA sono necessari i passaggi per la registrazione dell'anteprima. Tuttavia, questo verrà aggiornato automaticamente alla versione GA se disponibile nell'area.
 
 1. È necessaria l'interfaccia della riga di comando di Azure versione 2.12.0 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 

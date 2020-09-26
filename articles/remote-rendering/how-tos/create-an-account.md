@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 7a4e6d80d80441a1b94c1fb2bd8f82f247235fe3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057671"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318093"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Creare un account di Rendering remoto di Azure
 
@@ -83,7 +83,7 @@ A questo punto si presuppone che si disponga di un account di archiviazione. Pas
 
  Fare clic sul pulsante **Aggiungi** nel riquadro "Aggiungi un'assegnazione di ruolo" per aggiungere il primo ruolo:
 
-![IAM dell'account di archiviazione](./media/azure-add-role-assignment.png)
+![L'account di archiviazione IAM aggiungere l'assegnazione di ruolo](./media/azure-add-role-assignment.png)
 
 * Il primo ruolo da assegnare è **Proprietario**, come illustrato nella schermata precedente.
 * Selezionare **Account di Rendering remoto** dall'elenco a discesa **Assegna accesso a**.
@@ -100,6 +100,8 @@ Ripetere l'aggiunta di nuovi ruoli altre due volte per le rispettive selezioni d
 Gli altri elenchi a discesa vengono selezionati come nel primo passaggio.
 
 Se sono stati aggiunti tutti e tre i ruoli, l'account di Rendering remoto di Azure ha accesso all'account di archiviazione usando le Identità del servizio gestito assegnate dal sistema.
+> [!IMPORTANT]
+> Le assegnazioni di ruolo di Azure vengono memorizzate nella cache da archiviazione di Azure, pertanto potrebbe verificarsi un ritardo di un massimo di 30 minuti tra il momento in cui si concede l'accesso all'account di rendering remoto e quando può essere usato per accedere all'account di archiviazione. Per informazioni dettagliate, vedere la [documentazione relativa al controllo di accesso di base dei ruoli](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#role-assignment-changes-are-not-being-detected) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

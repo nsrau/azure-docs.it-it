@@ -3,12 +3,12 @@ title: Collegare i modelli per la distribuzione
 description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535559"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369315"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -369,7 +369,7 @@ Non è possibile usare i parametri inline e un collegamento a un file di paramet
 
 ## <a name="template-specs"></a>Specifiche dei modelli
 
-Anziché gestire i modelli collegati in un endpoint accessibile, è possibile creare una [specifica del modello](template-specs.md) che inserisce il modello principale e i relativi modelli collegati in una singola entità che è possibile distribuire. La specifica del modello è una risorsa nella sottoscrizione di Azure. Consente di condividere in modo sicuro il modello con gli utenti dell'organizzazione. Usare il controllo degli accessi in base al ruolo (RBAC) per concedere l'accesso alla specifica del modello. Questa funzionalità è attualmente disponibile in anteprima.
+Anziché gestire i modelli collegati in un endpoint accessibile, è possibile creare una [specifica del modello](template-specs.md) che inserisce il modello principale e i relativi modelli collegati in una singola entità che è possibile distribuire. La specifica del modello è una risorsa nella sottoscrizione di Azure. Consente di condividere in modo sicuro il modello con gli utenti dell'organizzazione. Usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per concedere l'accesso alla specifica del modello. Questa funzionalità è attualmente disponibile in anteprima.
 
 Per altre informazioni, vedere:
 
@@ -731,7 +731,7 @@ Anche se il modello collegato deve essere disponibile esternamente, non è neces
 Attualmente, non è possibile collegarsi a un modello in un account di archiviazione che si trova dietro un [firewall di archiviazione di Azure](../../storage/common/storage-network-security.md).
 
 > [!IMPORTANT]
-> Anziché proteggere il modello collegato con un token di firma di accesso condiviso, provare a creare una [specifica del modello](template-specs.md). La specifica del modello archivia in modo sicuro il modello principale e i relativi modelli collegati come risorsa nella sottoscrizione di Azure. Utilizzare RBAC per concedere l'accesso agli utenti che devono distribuire il modello.
+> Anziché proteggere il modello collegato con un token di firma di accesso condiviso, provare a creare una [specifica del modello](template-specs.md). La specifica del modello archivia in modo sicuro il modello principale e i relativi modelli collegati come risorsa nella sottoscrizione di Azure. Usare il controllo degli accessi in base al ruolo di Azure per concedere l'accesso agli utenti che devono distribuire il modello.
 
 L'esempio seguente mostra come passare un token di firma di accesso condiviso quando si stabilisce un collegamento a un modello:
 

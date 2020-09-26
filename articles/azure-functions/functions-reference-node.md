@@ -4,13 +4,13 @@ description: Informazioni su come sviluppare funzioni con JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6ff56ba6dc85901c8cdc7a9b06fbc261feb8792d
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.custom: devx-track-js
+ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055329"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317177"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -18,7 +18,7 @@ Questa guida contiene informazioni dettagliate che consentono di sviluppare funz
 
 Per gli sviluppatori di Express.js, Node.js o JavaScript, se non si ha familiarità con funzioni di Azure, prendere in considerazione prima di tutto uno degli articoli seguenti:
 
-| Introduzione | Concetti| Apprendimento guidato |
+| Guida introduttiva | Concetti| Apprendimento guidato |
 | -- | -- | -- | 
 | <ul><li>[Node.js funzione utilizzando Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[ FunzioneNode.js con terminale/prompt dei comandi](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Funzioni TypeScript](#typescript)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Creare applicazioni serverless](/learn/paths/create-serverless-applications/)</li><li>[Refactoring Node.js ed Express API per le API senza server](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
@@ -204,8 +204,8 @@ Il contesto passato nella funzione espone una `executionContext` proprietà, ovv
 | Nome proprietà  | Type  | Descrizione |
 |---------|---------|---------|
 | `invocationId` | string | Fornisce un identificatore univoco per la chiamata di funzione specifica. |
-| `functionName` | String | Fornisce il nome della funzione in esecuzione |
-| `functionDirectory` | String | Fornisce la directory dell'app per le funzioni. |
+| `functionName` | string | Fornisce il nome della funzione in esecuzione |
+| `functionDirectory` | string | Fornisce la directory dell'app per le funzioni. |
 
 Nell'esempio seguente viene illustrato come restituire `invocationId` .
 

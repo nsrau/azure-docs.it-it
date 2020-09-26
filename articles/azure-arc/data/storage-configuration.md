@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 782a046b92c9d6cf755bfea0551d7f8153faa859
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939192"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317328"
 ---
 # <a name="storage-configuration"></a>Configurazione dell'archiviazione
 
@@ -151,10 +151,11 @@ Fattori importanti da considerare quando si sceglie una classe di archiviazione 
 
 - È **necessario** usare una classe di archiviazione condivisa remota per garantire la durabilità dei dati e, in questo modo, se un pod o un nodo è in grado di riconnettersi al volume permanente.
 - I dati scritti nell'istanza del controller SQL, nel database di metriche e nei log del database sono in genere un volume abbastanza basso e non sono sensibili alla latenza, pertanto l'archiviazione delle prestazioni estremamente veloce non è fondamentale. Se sono presenti utenti che usano spesso le interfacce Grafana e Kibana e si dispone di un numero elevato di istanze di database, gli utenti potrebbero trarre vantaggio dall'archiviazione più veloce.
-- La capacità di archiviazione necessaria è la variabile con il numero di istanze di database distribuite, perché i log e le metriche vengono raccolti per ogni istanza del database. I dati vengono conservati nei log e nel database di metrica per 2 settimane prima che vengano eliminati. TODO: quanto spazio di archiviazione è necessario per ogni istanza di database?
+- La capacità di archiviazione necessaria è la variabile con il numero di istanze di database distribuite, perché i log e le metriche vengono raccolti per ogni istanza del database. I dati vengono conservati nei log e nel database di metrica per 2 settimane prima che vengano eliminati. 
 - La modifica della classe di archiviazione post-distribuzione è molto difficile, non documentata e non supportata. Assicurarsi di scegliere correttamente la classe di archiviazione in fase di distribuzione.
 
-> **Nota:** Se non viene specificata alcuna classe di archiviazione, verrà usata la classe di archiviazione predefinita. Può essere presente una sola classe di archiviazione predefinita per ogni cluster Kubernetes. È possibile [modificare la classe di archiviazione predefinita](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
+> [!NOTE]
+> Se non viene specificata alcuna classe di archiviazione, verrà usata la classe di archiviazione predefinita. Può essere presente una sola classe di archiviazione predefinita per ogni cluster Kubernetes. È possibile [modificare la classe di archiviazione predefinita](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
 
 ### <a name="database-instance-storage-configuration"></a>Configurazione dell'archiviazione dell'istanza di database
 
@@ -162,7 +163,8 @@ Ogni istanza di database dispone di dati, log e volumi permanenti di backup. È 
 
 Quando si crea un'istanza `azdata arc sql mi create` usando `azdata arc postgres server create` i comandi o sono disponibili due parametri che possono essere usati per impostare le classi di archiviazione:
 
-> **Nota:** Alcuni di questi parametri sono in fase di sviluppo e diventeranno disponibili in `azdata arc sql mi create` e `azdata arc postgres server create` nelle prossime versioni.
+> [!NOTE]
+> Alcuni di questi parametri sono in fase di sviluppo e diventeranno disponibili in `azdata arc sql mi create` e `azdata arc postgres server create` nelle prossime versioni.
 
 |Nome parametro, nome breve|Utilizzato per|
 |---|---|

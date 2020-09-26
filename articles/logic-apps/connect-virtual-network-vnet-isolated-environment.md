@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 41fdc342d82b07e82bb6e7b32e1a4f98f94d2a8e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/25/2020
+ms.openlocfilehash: 49248575cb10f3df746b9ba484244e4702fb5d72
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647549"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369009"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -168,6 +168,8 @@ Se non si consente l'accesso per queste dipendenze, la distribuzione di ISE ha e
 
 * [App per la logica indirizzi in ingresso e in uscita per l'area ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
 
+* [Indirizzi IP di Azure per i connettori nell'area ISE, che si trovano in questo file di download](https://www.microsoft.com/download/details.aspx?id=56519)
+
 * È necessario abilitare gli endpoint di servizio per SQL di Azure, archiviazione, bus di servizio e hub eventi perché non è possibile inviare traffico attraverso un firewall a questi servizi.
 
 <a name="create-environment"></a>
@@ -282,6 +284,21 @@ Se non si consente l'accesso per queste dipendenze, la distribuzione di ISE ha e
 
    > [!IMPORTANT]
    > I connettori ISE gestiti che diventano disponibili dopo la creazione dell’ISE non vengono visualizzati automaticamente nella selezione del connettore della finestra di progettazione dell'app per la logica. Prima di poter usare questi connettori ISE, è necessario [aggiungere i connettori all’ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) manualmente, in modo che vengano visualizzati nella finestra di progettazione dell'app per la logica.
+
+   > [!IMPORTANT]
+   > I connettori ISE gestiti attualmente non supportano i [tag](../azure-resource-manager/management/tag-support.md). Se si configura un criterio che impone l'assegnazione di tag, tentando di aggiungere connettori ISE  
+   > potrebbe non riuscire con un errore simile a questo esempio: 
+   > 
+   > ```json
+   > {
+   >    "error": { 
+   >       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+   >       "message": "The tags are not supported in the managed API 'azureblob'."
+   >    }
+   > }
+   > ```
+   > Per aggiungere i connettori ISE, è necessario disabilitare o rimuovere i criteri.
+   > 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

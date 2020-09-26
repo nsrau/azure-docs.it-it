@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2932bfc2f9606326ae38711237e5e10912d41aca
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 1c3143dac79b37ff6dac04856311394440dec9a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053770"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317413"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usare i gruppi di cloud per gestire le assegnazioni di ruolo in Azure Active Directory (anteprima)
 
@@ -64,7 +64,7 @@ Gli scenari seguenti non sono supportati in questo momento:
   - L'ora di fine per l'assegnazione di ruolo potrebbe non essere visualizzata correttamente.
   - Nel portale di PIM, i **ruoli** possono visualizzare solo un'assegnazione di ruolo indipendentemente dal numero di metodi per cui viene concessa l'assegnazione (tramite uno o più gruppi e direttamente).
 - *Solo per i clienti con licenza Azure ad P2* Anche dopo l'eliminazione del gruppo, viene comunque visualizzato un membro idoneo del ruolo nell'interfaccia utente di PIM. Dal punto di vista funzionale non è presente alcun problema. si tratta semplicemente di un problema relativo alla cache nel portale di Azure.  
-- L'interfaccia di amministrazione di Exchange non riconosce ancora l'appartenenza al ruolo tramite il gruppo, ma il cmdlet di PowerShell funzionerà.
+- Usare il nuovo [centro di amministrazione di Exchange](https://admin.exchange.microsoft.com/) per le assegnazioni di ruolo tramite l'appartenenza al gruppo. Questa funzionalità non è ancora supportata dal vecchio centro di amministrazione di Exchange. I cmdlet di PowerShell per Exchange funzioneranno come previsto.
 - Azure Information Protection portale (il portale classico) non riconosce ancora l'appartenenza al ruolo tramite il gruppo. È possibile [eseguire la migrazione alla piattaforma Unified Sensitivity Labeling](/azure/information-protection/configure-policy-migrate-labels) e quindi usare Office 365 Security & Compliance Center per usare le assegnazioni di gruppo per gestire i ruoli.
 
 Stiamo risolvendo questi problemi.

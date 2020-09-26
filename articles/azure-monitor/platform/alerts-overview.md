@@ -4,21 +4,20 @@ description: Panoramica degli avvisi in Azure. Avvisi, avvisi classici e l'inter
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e0741a23d7e5ece0898d83c53782afc353d9a7e5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: f58175d105e1dd36d58fbe4d8b68109810797b2a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371601"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317141"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
 Questo articolo descrive cosa sono gli avvisi, quali vantaggi offrono e come iniziare a farne uso.  
 
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi in Microsoft Azure?
-Gli avvisi notificano in modo proattivo quando vengono riscontrate importanti condizioni nei dati di monitoraggio. Consentono di identificare e risolvere i problemi prima che si palesino agli utenti. 
 
-Questo articolo illustra l'esperienza di avviso unificata in monitoraggio di Azure, che include gli avvisi gestiti in precedenza da Log Analytics e Application Insights. L'[esperienza degli avvisi precedente](alerts-classic.overview.md) e i tipi di avviso sono definiti *avvisi classici*. È possibile visualizzare questa esperienza precedente e il tipo di avviso precedente selezionando **Visualizza avvisi classici** nella parte superiore della pagina di avviso. 
+Gli avvisi inviano notifiche in modo proattivo quando si riscontrano problemi con l'infrastruttura o l'applicazione usando i dati di monitoraggio in monitoraggio di Azure. Consentono di identificare e risolvere i problemi prima che si palesino agli utenti. 
 
 ## <a name="overview"></a>Panoramica
 
@@ -30,21 +29,28 @@ Le regole di avviso sono separate dagli avvisi e dalle azioni eseguite quando vi
 
 Di seguito sono riportati gli attributi chiave di una regola di avviso:
 
-**Risorsa di destinazione**: definisce l'ambito e i segnali disponibili per gli avvisi. La destinazione può essere una qualsiasi risorsa di Azure. Esempi di destinazione: una macchina virtuale, un account di archiviazione, un set di scalabilità di macchine virtuali, un'area di lavoro Log Analytics o una risorsa di Application Insights. Per alcune risorse, ad esempio le macchine virtuali, è possibile specificare più risorse come destinazione della regola di avviso.
+**Risorsa di destinazione**: definisce l'ambito e i segnali disponibili per la generazione di avvisi. La destinazione può essere una qualsiasi risorsa di Azure. Destinazioni di esempio:
 
-**Signal**: emesso dalla risorsa di destinazione. I segnali possono essere dei tipi seguenti: metrica, log attività, Application Insights e log.
+- macchine virtuali.
+- Account di archiviazione.
+- Area d lavoro Log Analytics.
+- Application Insights. 
 
-**Criteri**: una combinazione di segnale e logica applicata a una risorsa di destinazione. Esempi: 
+Per alcune risorse, ad esempio le macchine virtuali, è possibile specificare più risorse come destinazione della regola di avviso.
+
+**Segnale** emesso dalla risorsa di destinazione. I segnali possono essere dei tipi seguenti: metrica, log attività, Application Insights e log.
+
+**Criteri** : una combinazione di segnale e logica applicata a una risorsa di destinazione. Esempi: 
 
 - Percentuale CPU > 70%
 - Tempo di risposta del server > 4 ms 
 - Numero di risultati di una query di log > 100
 
-**Nome avviso**: un nome specifico per la regola di avviso configurata dall'utente.
+**Nome avviso** : un nome specifico per la regola di avviso configurata dall'utente.
 
-**Avviso Descrizione**: una descrizione per la regola di avviso configurata dall'utente.
+**Descrizione avviso** : Descrizione della regola di avviso configurata dall'utente.
 
-**Gravità**: la gravità dell'avviso dopo che sono stati soddisfatti i criteri specificati nella regola di avviso. La gravità è compresa tra 0 e 4.
+**Gravità** : la gravità dell'avviso dopo che sono stati soddisfatti i criteri specificati nella regola di avviso. La gravità è compresa tra 0 e 4.
 
 - Gravità 0 = critico
 - Gravità 1 = errore
@@ -52,11 +58,11 @@ Di seguito sono riportati gli attributi chiave di una regola di avviso:
 - Gravità 3 = Informativa
 - SEV 4 = verbose 
 
-**Azione**: azione specifica eseguita quando viene attivato l'avviso. Per ulteriori informazioni, vedere [gruppi di azioni](./action-groups.md).
+**Azione**: un'azione specifica eseguita quando viene attivato l'avviso. Per ulteriori informazioni, vedere [gruppi di azioni](./action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>Oggetto degli avvisi
 
-È possibile inviare un avviso sulle metriche e sui log, come descritto in [monitoraggio delle origini dati](./data-sources.md). Sono incluse, ad esempio:
+È possibile inviare un avviso sulle metriche e sui log, come descritto in [monitoraggio delle origini dati](./data-sources.md). I segnali includono ma non sono limitati a:
 
 - Valori delle metriche
 - Query di ricerca log
@@ -64,35 +70,26 @@ Di seguito sono riportati gli attributi chiave di una regola di avviso:
 - Integrità della piattaforma Azure sottostante
 - Test per la disponibilità del sito Web
 
-Nelle versioni precedenti, per le metriche di Monitoraggio di Azure, Application Insights, Log Analytics e Integrità dei servizi erano disponibili funzionalità di gestione degli avvisi separate. Nel corso del tempo, Azure ha migliorato e combinato sia l'interfaccia utente che i diversi metodi di gestione degli avvisi. Il consolidamento è ancora in corso. Alcune funzionalità di invio avvisi di conseguenza non sono ancora integrate nel nuovo sistema di avvisi.  
-
-| **Origine di monitoraggio** | **Tipo di segnale**  | **Descrizione** |
-|-------------|----------------|-------------|
-| Service Health | Log attività  | Non supportata. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
-| Application Insights | Test di disponibilità Web | Non supportata. Vedere [Avvisi di test Web](../app/monitor-web-app-availability.md). Disponibili in qualsiasi sito Web dotato delle funzionalità per l'invio di dati ad Application Insights. Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
-
 ## <a name="manage-alerts"></a>Gestire gli avvisi
+
 È possibile impostare lo stato di un avviso per specificare dove i trova nel processo di risoluzione. Quando vengono soddisfatti i criteri specificati nella regola di avviso, viene creato o generato un avviso e il relativo stato è *nuovo*. È possibile modificare lo stato dell'avviso dopo averlo confermato e chiuso. Tutte le modifiche apportate allo stato vengono archiviate nella cronologia dell'avviso.
 
 Sono supportati i tipi di avviso seguenti.
 
 | State | Descrizione |
 |:---|:---|
-| Nuovo | Il problema è stato appena rilevato e non è ancora stato esaminato. |
+| Nuovo | Il problema è stato rilevato e non è ancora stato esaminato. |
 | Confermato | Un amministratore ha esaminato l'avviso e ha iniziato a lavorare a esso. |
 | Chiusa | Il problema è stato risolto. Dopo che un avviso è stato chiuso, è possibile riaprirlo modificandone lo stato. |
 
-Lo *stato dell'avviso* è diverso ed è indipendente dalla *condizione del monitoraggio*. Lo stato dell'avviso viene impostato dall'utente, mentre la condizione del monitoraggio viene impostata dal sistema. Quando viene generato un avviso, la condizione di monitoraggio dell'avviso è impostata su *attivato*. Quando la condizione sottostante che ha causato l'attivazione dell'avviso viene cancellata, la condizione di monitoraggio è impostata su *risolto*. Lo stato dell'avviso non viene modificato fino a quando l'utente non esegue l'operazione di modifica. Informazioni su [come modificare lo stato degli avvisi e dei gruppi intelligenti](https://aka.ms/managing-alert-smart-group-states).
+Lo *stato dell'avviso* è diverso ed è indipendente dalla *condizione del monitoraggio*. Lo stato dell'avviso viene impostato dall'utente, mentre la condizione del monitoraggio viene impostata dal sistema. Quando viene generato un avviso, la condizione di monitoraggio dell'avviso è impostata su *"attivato"* e quando la condizione sottostante che ha causato l'attivazione dell'avviso viene cancellata, la condizione di monitoraggio è impostata su *"risolto"*. 
 
-## <a name="smart-groups"></a>Gruppi intelligenti 
-
-I gruppi intelligenti sono aggregazioni di avvisi basati sugli algoritmi di Machine Learning, che possono contribuire a ridurre il rumore degli avvisi e ad agevolare la risoluzione dei problemi. [Sono disponibili altre informazioni sui gruppi intelligenti](https://aka.ms/smart-groups) e su [come gestire i gruppi intelligenti](https://aka.ms/managing-smart-groups).
-
+Lo stato dell'avviso non viene modificato fino a quando l'utente non esegue l'operazione di modifica. Informazioni su [come modificare lo stato degli avvisi e dei gruppi intelligenti](https://aka.ms/managing-alert-smart-group-states).
 
 ## <a name="alerts-experience"></a>Esperienza degli avvisi 
 La pagina avvisi predefiniti fornisce un riepilogo degli avvisi creati in un intervallo di tempo specifico. Vengono visualizzati gli avvisi totali per ogni gravità, con colonne che identificano il numero totale di avvisi in ogni stato per ogni gravità. Selezionare uno dei valori di gravità per aprire la pagina [Tutti gli avvisi](#all-alerts-page) filtrata in base al livello di gravità specificato.
 
-In alternativa, è possibile [enumerare a livello di codice le istanze di avviso generate nelle sottoscrizioni usando le API REST](#manage-your-alert-instances-programmatically).
+È invece possibile [enumerare a livello di codice le istanze di avviso generate nelle sottoscrizioni usando le API REST](#manage-your-alert-instances-programmatically).
 
 > [!NOTE]
    >  È possibile accedere solo agli avvisi generati negli ultimi 30 giorni.
@@ -105,13 +102,13 @@ Non Mostra o tiene traccia degli avvisi classici. È possibile modificare le sot
 
 | Colonna | Descrizione |
 |:---|:---|
-| Sottoscrizione | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
+| Subscription | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
 | Resource group | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
 | Intervallo di ore | Nella vista sono inclusi solo gli avvisi generati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. |
 
 Selezionare i valori seguenti nella parte superiore della pagina degli avvisi per aprire un'altra pagina:
 
-| valore | Description |
+| valore | Descrizione |
 |:---|:---|
 | Totale avvisi | Numero totale di avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire la visualizzazione Tutti gli avvisi senza filtri. |
 | Gruppi intelligenti | Numero totale di gruppi intelligenti creati dagli avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire l'elenco dei gruppi intelligenti nella visualizzazione Tutti gli avvisi.
@@ -134,8 +131,8 @@ Ecco come creare una nuova regola di avviso:
 1. Selezionare la _destinazione_ per l'avviso.
 1. Selezionare il _segnale_ dai segnali disponibili per la destinazione.
 1. Specificare la _logica_ da applicare ai dati del segnale.
- 
-Per eseguire questa procedura semplificata, l'utente non deve più conoscere l'origine di monitoraggio o i segnali supportati prima di selezionare una risorsa di Azure. L'elenco dei segnali disponibili è filtrato automaticamente in base alla risorsa di destinazione selezionata. In base a tale destinazione, viene visualizzata una procedura per definire automaticamente la logica della regola di avviso.  
+
+Per eseguire questa procedura semplificata, l'utente non deve più conoscere l'origine di monitoraggio o i segnali supportati prima di selezionare una risorsa di Azure. L'elenco dei segnali disponibili è filtrato automaticamente in base alla risorsa di destinazione selezionata. Inoltre, in base a tale destinazione, viene illustrata la definizione automatica della logica della regola di avviso.  
 
 Altre informazioni su come creare regole di avviso sono disponibili in [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](./alerts-metric.md).
 
@@ -151,7 +148,7 @@ Per visualizzare la pagina **tutti gli avvisi** , selezionare **Total Alerts**. 
 
 | Colonna | Descrizione |
 |:---|:---|
-| Sottoscrizione | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
+| Subscription | Selezionare le sottoscrizioni di Azure per cui si desidera visualizzare gli avvisi. Facoltativamente, è possibile scegliere di selezionare tutte le sottoscrizioni. Nella vista sono inclusi solo gli avvisi a cui si ha accesso nelle sottoscrizioni selezionate. |
 | Resource group | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
 | Tipo di risorsa | Selezionare uno o più tipi di risorsa. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni del tipo selezionato. Questa colonna risulta disponibile solo dopo che è stato specificato un gruppo di risorse. |
 | Risorsa | Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un tipo di risorsa. |
@@ -172,7 +169,7 @@ Nella pagina Dettagli avviso sono incluse le seguenti sezioni:
 
 | Sezione | Descrizione |
 |:---|:---|
-| Riepilogo | Mostra le proprietà e altre informazioni significative sull'avviso. |
+| Summary | Mostra le proprietà e altre informazioni significative sull'avviso. |
 | Cronologia | Elenca tutte le azioni eseguite dall'avviso e tutte le modifiche apportate all'avviso. Questa opzione è attualmente limitata alle modifiche di stato. |
 | Diagnostica | Informazioni sul gruppo intelligente in cui è incluso l'avviso. *Conteggio avvisi* si riferisce al numero di avvisi inclusi nel gruppo intelligente. Include altri avvisi nello stesso gruppo intelligente creati negli ultimi 30 giorni, indipendentemente dal filtro temporale nella pagina dell'elenco degli avvisi. Selezionare un avviso per visualizzarne i dettagli. |
 
@@ -182,11 +179,11 @@ Per il consumo e la gestione delle istanze di avviso è necessario che l'utente 
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gestire le istanze di avviso a livello di codice
 
-Potrebbe essere necessario eseguire una query a livello di codice per gli avvisi generati per la sottoscrizione. Potrebbe trattarsi di creare visualizzazioni personalizzate al di fuori della portale di Azure o di analizzare gli avvisi per identificare modelli e tendenze.
+Potrebbe essere necessario eseguire una query a livello di codice per gli avvisi generati per la sottoscrizione. È possibile che le query creino visualizzazioni personalizzate al di fuori della portale di Azure o per analizzare gli avvisi per identificare modelli e tendenze.
 
 È possibile eseguire una query per gli avvisi generati per le sottoscrizioni usando l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) o il [grafico delle risorse di Azure](../../governance/resource-graph/overview.md) e l' [API REST per le risorse](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
 
-L'API REST del grafico risorse per le risorse consente di eseguire una query per le istanze di avviso su larga scala. Questa operazione è consigliata quando è necessario gestire gli avvisi generati in molte sottoscrizioni. 
+L'API REST del grafico risorse per le risorse consente di eseguire una query per le istanze di avviso su larga scala. Il grafico risorse è consigliato quando è necessario gestire gli avvisi generati in più sottoscrizioni. 
 
 La richiesta di esempio seguente all'API REST del grafico risorse restituisce il numero di avvisi all'interno di una sottoscrizione:
 
@@ -204,6 +201,10 @@ La richiesta di esempio seguente all'API REST del grafico risorse restituisce il
 È possibile eseguire una query sugli avvisi per i campi [essenziali](alerts-common-schema-definitions.md#essentials) .
 
 Usare l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) per ottenere altre informazioni su avvisi specifici, inclusi i relativi campi di [contesto degli avvisi](alerts-common-schema-definitions.md#alert-context) .
+
+## <a name="smart-groups"></a>Gruppi intelligenti
+
+I gruppi intelligenti sono aggregazioni di avvisi basati sugli algoritmi di Machine Learning, che possono contribuire a ridurre il rumore degli avvisi e ad agevolare la risoluzione dei problemi. [Sono disponibili altre informazioni sui gruppi intelligenti](https://aka.ms/smart-groups) e su [come gestire i gruppi intelligenti](https://aka.ms/managing-smart-groups).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,14 +3,14 @@ title: Panoramica di Avvio/Arresto di macchine virtuali durante gli orari di min
 description: Questo articolo illustra la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività, che consente di avviare o arrestare le VM in base a una pianificazione e di monitorarle in modo proattivo dai log di Monitoraggio di Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/04/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064454"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317362"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Panoramica di Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -37,13 +37,15 @@ La funzionalità corrente presenta le limitazioni seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-I runbook per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività funzionano con un [account RunAs di Azure](./manage-runas-account.md). L'account RunAs è il metodo di autenticazione preferito perché usa l'autenticazione del certificato anziché una password, che potrebbe scadere o essere modificata di frequente.
+- I runbook per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività funzionano con un [account RunAs di Azure](./manage-runas-account.md). L'account RunAs è il metodo di autenticazione preferito perché usa l'autenticazione del certificato anziché una password, che potrebbe scadere o essere modificata di frequente.
 
-È consigliabile usare un account di Automazione separato per lavorare con macchine virtuali abilitate per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività. Le versioni dei moduli di Azure vengono aggiornate di frequente ed è possibile che i rispettivi parametri subiscano modifiche. La funzionalità non viene aggiornata in base alla stessa frequenza ed è possibile che non funzioni con le versioni più recenti dei cmdlet usati. È consigliabile testare gli aggiornamenti dei moduli in un account di Automazione di prova prima di importarli in account di Automazione di produzione.
+- L'account di automazione collegato e l'area di lavoro Log Analytics devono trovarsi nello stesso gruppo di risorse.
+
+- È consigliabile usare un account di Automazione separato per lavorare con macchine virtuali abilitate per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività. Le versioni dei moduli di Azure vengono aggiornate di frequente ed è possibile che i rispettivi parametri subiscano modifiche. La funzionalità non viene aggiornata in base alla stessa frequenza ed è possibile che non funzioni con le versioni più recenti dei cmdlet usati. È consigliabile testare gli aggiornamenti dei moduli in un account di Automazione di prova prima di importarli in account di Automazione di produzione.
 
 ## <a name="permissions"></a>Autorizzazioni
 
-Per abilitare la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività sono necessarie determinate autorizzazioni. Le autorizzazioni necessarie se la funzionalità usa un'area di lavoro Log Analytics o un account di Automazione creato in precedenza sono diverse da quelle necessarie se la funzionalità crea un nuovo account e una nuova area di lavoro. 
+Per abilitare la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività sono necessarie determinate autorizzazioni. Le autorizzazioni necessarie se la funzionalità usa un'area di lavoro Log Analytics o un account di Automazione creato in precedenza sono diverse da quelle necessarie se la funzionalità crea un nuovo account e una nuova area di lavoro.
 
 Non è necessario configurare autorizzazioni se si è un Collaboratore per la sottoscrizione e un Amministratore globale nel tenant di Azure Active Directory (AD). Se questi diritti non sono disponibili o se è necessario configurare un ruolo personalizzato, assicurarsi di avere le autorizzazioni illustrate di seguito.
 
@@ -82,10 +84,10 @@ Per abilitare una macchina virtuale per la funzionalità Avvio/Arresto di macchi
 
 | Autorizzazione |Scope|
 | --- | --- |
-| Microsoft.Authorization/Operations/read | Sottoscrizione|
-| Microsoft.Authorization/permissions/read |Sottoscrizione|
-| Microsoft.Authorization/roleAssignments/read | Sottoscrizione |
-| Microsoft.Authorization/roleAssignments/write | Sottoscrizione |
+| Microsoft.Authorization/Operations/read | Subscription|
+| Microsoft.Authorization/permissions/read |Subscription|
+| Microsoft.Authorization/roleAssignments/read | Subscription |
+| Microsoft.Authorization/roleAssignments/write | Subscription |
 | Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Gruppo di risorse |
 | Microsoft.Automation/automationAccounts/certificates/read | Gruppo di risorse |
 | Microsoft.Automation/automationAccounts/write | Gruppo di risorse |
@@ -107,7 +109,7 @@ Tutti i runbook padre includono il parametro `WhatIf`. Se impostato su True, il 
 |Runbook | Parametri | Descrizione|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chiamato dal runbook padre. Questo runbook crea gli avvisi in base alle risorse per lo scenario di arresto automatico.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true o false  | Crea o aggiorna le regole di avviso di Azure nelle macchine virtuali nella sottoscrizione o nei gruppi di risorse selezionati. <br> `VMList`è un elenco delimitato da virgole di macchine virtuali (senza spazi vuoti), ad esempio `vm1,vm2,vm3` .<br> `WhatIf` abilita la convalida della logica del runbook senza eseguirlo.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true o false  | Crea o aggiorna le regole di avviso di Azure nelle macchine virtuali nella sottoscrizione o nei gruppi di risorse selezionati. <br> `VMList` è un elenco delimitato da virgole di macchine virtuali (senza spazi vuoti), ad esempio `vm1,vm2,vm3` .<br> `WhatIf` abilita la convalida della logica del runbook senza eseguirlo.|
 |AutoStop_Disable | nessuno | Disabilita gli avvisi di arresto automatico e la pianificazione predefinita.|
 |AutoStop_VM_Child | WebHookData | Chiamato dal runbook padre. Le regole di avviso chiamano questo runbook per arrestare una VM classica.|
 |AutoStop_VM_Child_ARM | WebHookData |Chiamato dal runbook padre. Le regole di avviso chiamano questo runbook per arrestare una VM.  |

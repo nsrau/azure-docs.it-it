@@ -3,12 +3,12 @@ title: Supporto per la valutazione di Hyper-V in Azure Migrate
 description: Informazioni sul supporto per la valutazione di Hyper-V con Azure Migrate server Assessment
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641824"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318178"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matrice di supporto per la valutazione di Hyper-V
 
@@ -46,7 +46,7 @@ Per configurare la valutazione della macchina virtuale Hyper-V, creare un proget
 | :----------------------------- | :------------------- |
 | **Sistema operativo** | Tutti i sistemi operativi possono essere valutati per la migrazione.  |
 | **Integration Services**       | Per acquisire le informazioni sul sistema operativo, è necessario che [Hyper-V Integration Services](/virtualization/hyper-v-on-windows/reference/integration-services) sia in esecuzione in macchine virtuali valutate. |
-
+| **Storage** | Disco locale, DAS, JBOD, spazi di archiviazione, CSV, SMB. Queste archiviazione host Hyper-V in cui sono archiviati i dischi rigidi virtuali/VHDX sono supportate. <br/> Sono supportati i controller virtuali IDE e SCSI| 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisiti dell'appliance di Azure Migrate
 

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e845136c4fed5a3d2e6863fdab0aa9f70fb30b5d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fb628df5151f9124d7b7f319ff109ffca030ee90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939918"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317345"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creare un gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc
 
@@ -59,7 +59,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 Implementare questo passaggio prima di passare al passaggio successivo. Per distribuire il gruppo di server con iperscalabilità PostgreSQL in Red Hat OpenShift in un progetto diverso da quello predefinito, è necessario eseguire i comandi seguenti sul cluster per aggiornare i vincoli di sicurezza. Questo comando concede i privilegi necessari agli account del servizio che eseguiranno il gruppo di server di iperscala PostgreSQL. Il vincolo del contesto di sicurezza (SCC) **_Arc-data-SCC_** è quello aggiunto al momento della distribuzione del controller di dati di Azure Arc.
 
 ```console
-oc adm policy add-scc-to-group arc-data-scc -z <server-group-name> -n <namespace name>
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
 ```
 
 _**Nome-gruppo-Server** è il nome del gruppo di server che verrà creato nel passaggio successivo._
@@ -72,7 +72,7 @@ Per ulteriori informazioni su SCCs in OpenShift, consultare la documentazione di
 Per creare un gruppo di server con iperscalabilità di database di Azure per PostgreSQL in Azure Arc, usare il comando seguente:
 
 ```console
-azdata arc postgres server create -n <name> --workers 2 --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
+azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2> --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
 
 #Example
 #azdata arc postgres server create -n postgres01 --workers 2
@@ -80,25 +80,14 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 
 > [!NOTE]
 > - **Sono disponibili altri parametri della riga di comando.  Vedere l'elenco completo delle opzioni eseguendo `azdata arc postgres server create --help` .**
-> - In anteprima è necessario indicare una classe di archiviazione per i backup (_--Storage-Class-backups-SCB_) al momento della creazione di un gruppo di server per poter eseguire il backup e il ripristino.
+> - La classe di archiviazione usata per i backup (_--Storage-Class-backups-SCB_) viene impostata per impostazione predefinita sulla classe di archiviazione dati del controller dati, se non è specificata.
 > - L'unità accettata dai parametri--Volume-Size-* è una quantità di risorse Kubernetes (un numero intero seguito da uno di questi è sufficiente (T, G, M, K, m) o dai rispettivi equivalenti di Power-of-Two (ti, Gi, mi, ki)).
-> - I nomi devono avere una lunghezza inferiore a 10 caratteri e rispettare le convenzioni di denominazione DNS.
+> - I nomi devono avere una lunghezza inferiore a 12 caratteri e devono essere conformi alle convenzioni di denominazione DNS.
 > - Verrà richiesto di immettere la password per l'utente amministratore standard _Postgres_ .  È possibile ignorare il prompt interattivo impostando la `AZDATA_PASSWORD` variabile di ambiente della sessione prima di eseguire il comando create.
-> - Se il controller dati è stato distribuito usando AZDATA_USERNAME e AZDATA_PASSWORD nella stessa sessione terminal, i valori per AZDATA_USERNAME e AZDATA_PASSWORD verranno usati anche per distribuire il gruppo di server di scalabilità di PostgreSQL. Il nome dell'utente amministratore predefinito per il motore di database di PostgreSQL iperscale è _PostgreSQL_ e non può essere modificato in questo punto.
+> - Se il controller dati è stato distribuito usando AZDATA_USERNAME e AZDATA_PASSWORD variabili di ambiente della sessione nella stessa sessione terminal, i valori per AZDATA_PASSWORD verranno usati anche per distribuire il gruppo di server di iperscala PostgreSQL. Se si preferisce usare un'altra password, (1) aggiornare il valore per AZDATA_PASSWORD o (2) eliminare la variabile di ambiente AZDATA_PASSWORD o eliminarne il valore verrà richiesto di immettere una password in modo interattivo quando si crea un gruppo di server.
+> - Il nome dell'utente amministratore predefinito per il motore di database di PostgreSQL iperscale è _Postgres_ e non può essere modificato in questo punto.
 > - La creazione di un gruppo di server di iperscala PostgreSQL non registrerà immediatamente le risorse in Azure. Come parte del processo di caricamento di [inventario delle risorse](upload-metrics-and-logs-to-azure-monitor.md)  o [dei dati di utilizzo](view-billing-data-in-azure.md) in Azure, le risorse verranno create in Azure e sarà possibile visualizzare le risorse nella portale di Azure.
-> - A questo punto non è possibile modificare il parametro--Port.
-> - Se non si ha una classe di archiviazione predefinita nel cluster Kubernetes, è necessario usare il parametro--metadataStorageClass per specificarne uno. In caso contrario, verrà generato un errore nel comando create. Per verificare se nel cluster Kubernetes è stata dichiarata una classe di archiviazione predefinita, eseguire il comando seguente: 
->
->   ```console
->   kubectl get sc
->   ```
->
-> - Se è presente una classe di archiviazione configurata come classe di archiviazione predefinita, si vedrà **(impostazione predefinita)** aggiunta al nome della classe di archiviazione. Ad esempio:
->
->   ```output
->   NAME                       PROVISIONER                        AGE
->   local-storage (default)    kubernetes.io/no-provisioner       4d18h
->   ```
+
 
 
 ## <a name="list-your-azure-database-for-postgresql-server-groups-created-in-your-arc-setup"></a>Elencare i gruppi di server di database di Azure per PostgreSQL creati nell'installazione di Arc

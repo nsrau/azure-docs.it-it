@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: fa8ee205952d1bd39e932ca6c91e3cffe608bf95
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5bf94faff86edf954c687ca3024c63229829ca04
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032113"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369723"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Domande comuni sul Marketplace commerciale Microsoft
 
@@ -229,7 +229,7 @@ L'account utente deve disporre delle autorizzazioni di *Proprietario* o *Collabo
 
 I clienti possono acquistare le soluzioni del marketplace commerciale da 141 località in tutto il mondo.
 
-Per consultare l'elenco delle località, passare a [Dettagli sulle imposte per gli autori del marketplace commerciale](partner-center-portal/tax-details-paid-transactions.md).
+Per consultare l'elenco delle località, passare a [Dettagli sulle imposte per gli autori del marketplace commerciale](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).
 
 ### <a name="what-currencies-are-supported-with-the-commercial-marketplace"></a>Quali valute sono supportate nel marketplace commerciale?
 
@@ -274,32 +274,32 @@ In genere, i clienti ricevono un addebito su base mensile per gli acquisti effet
 
 ### <a name="how-often-will-i-receive-payouts-for-sales-through-the-commercial-marketplace"></a>Con quale frequenza vengono accreditati i pagamenti per le vendite concluse tramite il marketplace commerciale?
 
-I pagamenti vengono erogati mensilmente. Per informazioni dettagliate sulle pianificazioni dei pagamenti, la ricerca dei pagamenti imminenti nel centro per i partner e il modo in cui si gestiscono i pagamenti dei clienti, vedere [Dettagli sui criteri](partner-center-portal/payout-policy-details.md)di pagamento.
+I pagamenti vengono erogati mensilmente. Per informazioni dettagliate sulle pianificazioni dei pagamenti, la ricerca dei pagamenti imminenti nel centro per i partner e il modo in cui si gestiscono i pagamenti dei clienti, vedere [Dettagli sui criteri](/partner-center/payout-policy-details?context=/azure/marketplace/context/context)di pagamento.
 
 - Per le transazioni in cui il cliente ha usato una Enterprise Agreement, i pagamenti vengono rilasciati nel ciclo di pagamento successivo di 30 giorni dopo la fattura del cliente. 
 - Per le transazioni in cui il cliente ha usato una carta di credito, è previsto un periodo di deposito aggiuntivo di 30 giorni dopo la ricezione del pagamento per garantire la cancellazione dei fondi e non ci sono chargeback o sospetti illeciti.
 
 I pagamenti vengono emessi solo quando le vendite hanno raggiunto un valore minimo combinato pari a $50,00.
 
-Per ulteriori informazioni, vedere [Soglie, metodi e periodi di pagamento](partner-center-portal/payment-thresholds-methods-timeframes.md).
+Per ulteriori informazioni, vedere [Soglie, metodi e periodi di pagamento](/partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context).
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>In quali paesi o aree geografiche vengono gestite le imposte per conto dell'utente?
 
 I clienti possono trovare soluzioni dal Marketplace commerciale in tutto il mondo e gestire le imposte in molte posizioni. 
 
-Per consultare l'elenco completo delle località, passare a [Dettagli sulle imposte per gli autori del marketplace commerciale](partner-center-portal/tax-details-paid-transactions.md).
+Per consultare l'elenco completo delle località, passare a [Dettagli sulle imposte per gli autori del marketplace commerciale](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).
 
 ### <a name="where-can-i-find-payout-reporting-for-the-commercial-marketplace"></a>Dove è possibile trovare i report dei pagamenti per il marketplace commerciale?
 
 Nel Centro per i partner, gli utenti con le autorizzazioni di *Proprietario* o *Collaboratore finanziario* possono visualizzare i report sui pagamenti e accedervi selezionando l'icona in alto a destra con l'icona di una mano che tiene una fattura.
 
-Per altre informazioni, vedere [Report sui pagamenti](partner-center-portal/payout-summary.md).
+Per altre informazioni, vedere [istruzioni di pagamento](/partner-center/payout-statement?context=/azure/marketplace/context/context).
 
 ### <a name="how-do-i-configure-my-payout-method-and-destination"></a>In che modo è possibile configurare il metodo e la destinazione di pagamento?
 
 Nel Centro per i partner gli utenti con autorizzazioni di *Proprietario* possono configurare l'account di pagamento e i moduli fiscali selezionando il pulsante **Impostazioni** (icona a forma di ingranaggio) in alto a destra.
 
-Per altre informazioni, passare a [Configurare l'account proventi e i moduli fiscali](partner-center-portal/set-up-your-payout-account-tax-forms.md).
+Per altre informazioni, vedere [configurare l'account di pagamento e i moduli fiscali](/partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context).
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>Resi e rimborsi sono supportati nel marketplace commerciale?
 
