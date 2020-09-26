@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 4fed883c8fa92df77af432e1e4a4b3acca72a0d2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f0bad935c7c3d44f57dd171f714f31856bc2089c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265115"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361314"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Larghezza di banda della rete di macchine virtuali
 
@@ -64,7 +64,7 @@ Attualmente, lo stack di rete di Azure supporta 250K totali dei flussi di rete c
 
 Le metriche sono disponibili in [monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) per tenere traccia del numero di flussi di rete e della velocità di creazione del flusso nelle istanze della macchina virtuale o vmss.
 
-![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+![Screenshot mostra la pagina delle metriche di monitoraggio di Azure con un grafico a linee e i totali per i flussi in ingresso e in uscita.](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
 La definizione della connessione e i tassi di terminazione possono anche influire sulle prestazioni di rete durante la creazione e la terminazione della connessione CPU con routine di elaborazione pacchetti. È consigliabile eseguire il benchmark dei carichi di lavoro in base ai modelli di traffico previsti e scalare i carichi di lavoro in modo appropriato per soddisfare le esigenze di prestazioni. 
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 64f2abd2a42fb15b994803a48b97679ee8927233
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 69d388b12e564b307cd117c3a86ae960dabaa937
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594425"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362713"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Creare certificati per consentire il back-end con applicazione Azure gateway
 
@@ -37,7 +37,7 @@ Dal certificato TLS/SSL esportare il file con estensione cer della chiave pubbli
 
 1. Per ottenere un file con estensione cer dal certificato, aprire **Gestire i certificati utente**. Individuare il certificato, in genere in ' Certificates-Current Corrente\personale\certificati ' e fare clic con il pulsante destro del mouse. Fare clic su **Tutte le attività** e quindi su **Esporta**. Si avvia la procedura di **Esportazione guidata certificati**. Se non è possibile trovare il certificato in Utente corrente\Personale\Certificati, è possibile aver accidentalmente aperto Certificati - Computer locale" invece di "Certificati - Utente corrente". Se si vuole aprire Gestione certificati nell'ambito dell'utente corrente usando PowerShell, digitare *certmgr* nella finestra della console.
 
-   ![Esportazione](./media/certificates-for-backend-authentication/export.png)
+   ![Screenshot mostra il gestore di certificati con certificati selezionati e un menu contestuale con tutte le attività, quindi Esporta selezionato.](./media/certificates-for-backend-authentication/export.png)
 
 2. Nella procedura guidata, fare clic su **Avanti**.
 
@@ -53,19 +53,19 @@ Dal certificato TLS/SSL esportare il file con estensione cer della chiave pubbli
 
 5. In **File da esportare** fare clic su **Sfoglia** e passare alla posizione in cui si vuole esportare il certificato. Per **Nome file**, assegnare un nome al file del certificato. Quindi fare clic su **Next**.
 
-   ![Esplora](./media/certificates-for-backend-authentication/browse.png)
+   ![Screenshot che mostra l'esportazione guidata certificati in cui si specifica un file da esportare.](./media/certificates-for-backend-authentication/browse.png)
 
 6. Fare clic su **Fine** per esportare il certificato.
 
-   ![Finish](./media/certificates-for-backend-authentication/finish.png)
+   ![Screenshot mostra l'esportazione guidata certificati dopo aver completato l'esportazione del file.](./media/certificates-for-backend-authentication/finish.png)
 
 7. Il certificato è stato esportato correttamente.
 
-   ![Operazione completata](./media/certificates-for-backend-authentication/success.png)
+   ![Screenshot che mostra l'esportazione guidata certificati con un messaggio di operazione completata.](./media/certificates-for-backend-authentication/success.png)
 
    Il certificato esportato è simile al seguente:
 
-   ![Esportato](./media/certificates-for-backend-authentication/exported.png)
+   ![Screenshot mostra un simbolo del certificato.](./media/certificates-for-backend-authentication/exported.png)
 
 8. Se si apre il certificato esportato usando il Blocco note, viene visualizzato un certificato simile a questo esempio. La sezione in blu contiene le informazioni caricate nel gateway applicazione. Se si apre il certificato con il blocco note e questo non è simile a questo, in genere ciò significa che non è stato esportato usando il codificatore base 64 X. 509 (. Formato CER). Se si vuole usare un editor di testo diverso, è anche utile sapere che alcuni editor possono introdurre una formattazione imprevista in background. Ciò può creare problemi quando il testo viene caricato da questo certificato in Azure.
 

@@ -1,19 +1,19 @@
 ---
 title: Usare l'intelligenza artificiale per comprendere i dati di archiviazione BLOB
 titleSuffix: Azure Cognitive Search
-description: Aggiungere la semantica, l'elaborazione del linguaggio naturale e l'analisi delle immagini ai BLOB di Azure usando una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
+description: Informazioni sulle funzionalità di analisi delle immagini e del linguaggio naturale in Azure ricerca cognitiva e sul modo in cui tali processi si applicano ai contenuti archiviati nei BLOB di Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ce5eafe0b36f07d8de366b6d4adb92e894fcb67e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/23/2020
+ms.openlocfilehash: a0d32f00bd3c7f8daa2984bdc7c9b9dfb5add218
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936742"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362798"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>Usare l'intelligenza artificiale per comprendere i dati di archiviazione BLOB
 
@@ -22,9 +22,9 @@ I dati nell'archiviazione BLOB di Azure spesso sono un'ampia gamma di contenuto 
 + Estrai il testo dalle immagini usando il riconoscimento ottico dei caratteri (OCR)
 + Produrre una descrizione della scena o i tag da una foto
 + Rilevare la lingua e tradurre il testo in lingue diverse
-+ Elaborare il testo con il riconoscimento delle entità denominate (NER) per trovare riferimenti a persone, date, posizioni o organizzazioni 
++ Dedurre la struttura tramite il riconoscimento delle entità mediante la ricerca di riferimenti a persone, date, posizioni o organizzazioni
 
-Sebbene possa essere necessaria solo una di queste funzionalità di intelligenza artificiale, è comune combinare più di essi nella stessa pipeline (ad esempio, estraendo testo da un'immagine digitalizzata e quindi individuando tutte le date e le posizioni a cui viene fatto riferimento). 
+Sebbene possa essere necessaria solo una di queste funzionalità di intelligenza artificiale, è comune combinare più di essi nella stessa pipeline (ad esempio, estraendo testo da un'immagine digitalizzata e quindi individuando tutte le date e le posizioni a cui viene fatto riferimento). È anche comune includere l'intelligenza artificiale personalizzata o l'elaborazione di Machine Learning sotto forma di pacchetti esterni all'avanguardia o di modelli interni personalizzati per i dati e i requisiti.
 
 L'arricchimento di intelligenza artificiale crea nuove informazioni, acquisite come testo, memorizzate nei campi. Dopo l'arricchimento, è possibile accedere a queste informazioni da un indice di ricerca tramite la ricerca full-text oppure inviare documenti arricchiti ad archiviazione di Azure per potenziare le nuove esperienze che includono l'esplorazione dei dati per gli scenari di rilevamento o di analisi. 
 
@@ -36,35 +36,41 @@ L' *arricchimento di intelligenza artificiale* fa parte dell'architettura di ind
 
 Gli input sono i BLOB, in un singolo contenitore, nell'archivio BLOB di Azure. I BLOB possono essere quasi qualsiasi tipo di dati di testo o di immagine. 
 
-L'output è sempre un indice di ricerca, usato per la ricerca di testo veloce, il recupero e l'esplorazione nelle applicazioni client. Inoltre, l'output può essere anche un *Archivio informazioni* che proietta documenti arricchiti in BLOB di Azure o tabelle di Azure per l'analisi downstream in strumenti come Power bi o in carichi di lavoro Data Science.
+L'output è sempre un indice di ricerca, usato per la ricerca di testo veloce, il recupero e l'esplorazione nelle applicazioni client. Inoltre, l'output può essere anche un [*Archivio informazioni*](knowledge-store-concept-intro.md) che proietta documenti arricchiti in BLOB di Azure o tabelle di Azure per l'analisi downstream in strumenti come Power bi o in carichi di lavoro Data Science.
 
 In between è l'architettura della pipeline stessa. La pipeline è basata sulla funzionalità *indicizzatore* , a cui è possibile assegnare un *skillt*, che è costituita da una o più *competenze* che forniscono l'intelligenza artificiale. Lo scopo della pipeline è quello di produrre *documenti arricchiti* che vengono immessi come contenuti non elaborati, ma prelevano strutture, contesto e informazioni aggiuntive mentre si passano attraverso la pipeline. I documenti arricchiti vengono utilizzati durante l'indicizzazione per creare indici invertiti e altre strutture utilizzate nella ricerca full-text o nell'esplorazione e nell'analisi.
 
-## <a name="start-with-services"></a>Iniziare con i servizi
+## <a name="required-resources"></a>Risorse necessarie
 
-Sono necessari i servizi Ricerca cognitiva di Azure ricerca cognitiva di Azure e Archiviazione BLOB di Azure. All'interno dell'archivio BLOB è necessario un contenitore che fornisca il contenuto di origine.
+Sono necessari archiviazione BLOB di Azure, Azure ricerca cognitiva e un terzo servizio o meccanismo che fornisce l'intelligenza artificiale:
 
-Si può iniziare direttamente nella pagina del portale dell'account di archiviazione. Nella pagina di spostamento a sinistra, in **Servizio BLOB** fare clic su **Aggiungi Ricerca cognitiva di Azure** per creare un nuovo servizio o selezionarne uno esistente. 
++ Per l'intelligenza artificiale incorporata, ricerca cognitiva si integra con la visione dei servizi cognitivi di Azure e con le API di elaborazione del linguaggio naturale. È possibile [alleghi una risorsa di servizi cognitivi](cognitive-search-attach-cognitive-services.md) per aggiungere il riconoscimento ottico dei caratteri (OCR), l'analisi delle immagini o l'elaborazione del linguaggio naturale (rilevamento della lingua, traduzione del testo, riconoscimento delle entità, estrazione di frasi chiave). 
 
-Una volta aggiunto Azure ricerca cognitiva all'account di archiviazione, è possibile seguire il processo standard per arricchire i dati in qualsiasi origine dati di Azure. È consigliabile usare la procedura guidata **Importa dati** in Azure ricerca cognitiva per una semplice introduzione iniziale all'arricchimento di intelligenza artificiale. Questa Guida introduttiva illustra la procedura [di creazione di una pipeline di arricchimento ai nel portale](cognitive-search-quickstart-blob.md). 
++ Per l'intelligenza artificiale personalizzata usando le risorse di Azure, è possibile definire un'abilità personalizzata che esegue il wrapping della funzione o del modello esterno che si vuole usare. Le [competenze personalizzate](cognitive-search-custom-skill-interface.md) possono usare il codice fornito da funzioni di azure, Azure Machine Learning, riconoscimento moduli di Azure o un'altra risorsa raggiungibile tramite HTTPS.
 
-Nelle sezioni seguenti verranno esaminati altri componenti e concetti.
++ Per l'intelligenza artificiale non Azure personalizzata, il modello o il modulo deve essere accessibile a un indicizzatore tramite HTTP.
+
+Se non si dispone di tutti i servizi immediatamente disponibili, iniziare direttamente nella pagina del portale dell'account di archiviazione. Nella pagina di spostamento a sinistra, in **Servizio BLOB** fare clic su **Aggiungi Ricerca cognitiva di Azure** per creare un nuovo servizio o selezionarne uno esistente. 
+
+Una volta aggiunto Azure ricerca cognitiva all'account di archiviazione, è possibile seguire il processo standard per arricchire i dati in qualsiasi origine dati di Azure. È consigliabile usare la procedura guidata **Importa dati** in Azure ricerca cognitiva per una semplice introduzione iniziale all'arricchimento di intelligenza artificiale. È possibile aggiungere una risorsa Servizi cognitivi durante il flusso di lavoro. Questa Guida introduttiva illustra la procedura [di creazione di una pipeline di arricchimento ai nel portale](cognitive-search-quickstart-blob.md). 
+
+Nelle sezioni seguenti vengono esaminati in dettaglio i componenti e il flusso di lavoro.
 
 ## <a name="use-a-blob-indexer"></a>Usare un indicizzatore BLOB
 
 L'arricchimento AI è un componente aggiuntivo di una pipeline di indicizzazione e in Azure ricerca cognitiva tali pipeline sono basate su un *indicizzatore*. Un indicizzatore è un sottoservizio in grado di riconoscere le origini dati dotato di logica interna per il campionamento dei dati, la lettura di dati dei metadati, il recupero di dati e la serializzazione dei dati in documenti JSON a partire dal formato nativo per la successiva importazione. Gli indicizzatori vengono spesso usati da soli per l'importazione, separati dall'intelligenza artificiale, ma se si vuole creare una pipeline di arricchimento intelligenza artificiale, è necessario un indicizzatore e un insieme di competenze da usare. In questa sezione viene evidenziato l'indicizzatore; la sezione successiva è incentrata su skillsets.
 
-I BLOB in Archiviazione di Azure vengono indicizzati mediante l'[indicizzatore per l'archivio BLOB di Ricerca cognitiva di Azure](search-howto-indexing-azure-blob-storage.md). Si può richiamare questo indicizzatore usando la procedura guidata **Importa dati**, un'API REST o .NET SDK. Nel codice, questo indicizzatore si usa impostando il tipo e fornendo le informazioni di connessione, che includono un account di Archiviazione di Azure e un contenitore BLOB. È possibile suddividere in subset i BLOB creando una directory virtuale, che si potrà poi passare come parametro, oppure filtrando in base a un'estensione del tipo di file.
+I BLOB in archiviazione di Azure vengono indicizzati usando l' [indicizzatore BLOB](search-howto-indexing-azure-blob-storage.md). È possibile richiamare questo indicizzatore usando la procedura guidata **Importa dati** , un'API REST o un SDK. Un indicizzatore BLOB viene richiamato quando l'origine dati usata dall'indicizzatore è un contenitore BLOB di Azure. È possibile indicizzare un subset di BLOB creando una directory virtuale, che può quindi essere passata come parametro o filtrando in base a un'estensione del tipo di file.
 
 Un indicizzatore esegue il "cracking di documenti", aprendo un BLOB per esaminare il contenuto. Dopo la connessione all'origine dati, è il primo passaggio della pipeline. Per i dati BLOB, questo è il percorso in cui vengono rilevati PDF, documenti di Office, immagini e altri tipi di contenuto. Il cracking di documenti con estrazione del testo non prevede alcun addebito. Il cracking dei documenti con l'estrazione delle immagini viene addebitato in base alle tariffe disponibili nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/search/).
 
 Sebbene tutti i documenti vengano violati, l'arricchimento si verifica solo se si specificano in modo esplicito le competenze necessarie. Ad esempio, se la pipeline è costituita esclusivamente dall'analisi delle immagini, il testo del contenitore o dei documenti viene ignorato.
 
-L'indicizzatore BLOB accetta parametri di configurazione e supporta il rilevamento delle modifiche se i dati sottostanti forniscono informazioni sufficienti. Altre informazioni sulle funzionalità di base sono disponibili in [Indicizzatore per l'archivio BLOB di Ricerca cognitiva di Azure](search-howto-indexing-azure-blob-storage.md).
+L'indicizzatore BLOB viene fornito con i parametri di configurazione e supporta il rilevamento delle modifiche se i dati sottostanti forniscono informazioni sufficienti. Per altre informazioni, vedere [come configurare un indicizzatore BLOB](search-howto-indexing-azure-blob-storage.md).
 
 ## <a name="add-ai-components"></a>Aggiungere componenti di intelligenza artificiale
 
-L'arricchimento di intelligenza artificiale si riferisce a moduli che cercano modelli o caratteristiche, quindi eseguono un'operazione di conseguenza. I riconoscimenti facciali nelle foto, le descrizioni di testo delle foto, il rilevamento di frasi chiave in un documento e l'OCR (o il riconoscimento di testo stampato o scritto in file binari) sono esempi illustrativi.
+L'arricchimento di intelligenza artificiale si riferisce a moduli che cercano modelli o caratteristiche, quindi esegue un'operazione di conseguenza. I riconoscimenti facciali nelle foto, le descrizioni di testo delle foto, il rilevamento di frasi chiave in un documento e l'OCR (o il riconoscimento di testo stampato o scritto in file binari) sono esempi illustrativi.
 
 In ricerca cognitiva di Azure le *competenze* sono i singoli componenti dell'elaborazione di intelligenza artificiale che è possibile usare autonomamente o in combinazione con altre competenze. 
 
@@ -79,20 +85,6 @@ Le competenze personalizzate possono sembrare complesse ma possono essere sempli
 Le competenze predefinite supportate dai servizi cognitivi richiedono una chiave di sottoscrizione all-in-One [connessa di servizi cognitivi](cognitive-search-attach-cognitive-services.md) che consente di accedere alla risorsa. Una chiave all-in-One ti offre analisi delle immagini, rilevamento della lingua, traduzione testuale e analisi del testo. Altre competenze predefinite sono le funzionalità di Azure ricerca cognitiva e non richiedono alcun servizio o chiave aggiuntiva. Il formato di testo, la barra di divisione e la fusione sono esempi di competenze di supporto talvolta necessarie per la progettazione della pipeline.
 
 Se si usano solo competenze personalizzate e competenze di utilità predefinite, non esistono dipendenze o costi correlati ai servizi cognitivi.
-
-<!-- ## Order of operations
-
-Now we've covered indexers, content extraction, and skills, we can take a closer look at pipeline mechanisms and order of operations.
-
-A skillset is a composition of one or more skills. When multiple skills are involved, the skillset operates as sequential pipeline, producing dependency graphs, where output from one skill becomes input to another. 
-
-For example, given a large blob of unstructured text, a sample order of operations for text analytics might be as follows:
-
-1. Use Text Splitter to break the blob into smaller parts.
-1. Use Language Detection to determine if content is English or another language.
-1. Use Text Translator to get all text into a common language.
-1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentiment.
-1. Use Text Merger to reconstitute the document from the smaller chunks. -->
 
 ## <a name="consume-ai-enriched-output-in-downstream-solutions"></a>Utilizzare l'output arricchito con intelligenza artificiale nelle soluzioni downstream
 

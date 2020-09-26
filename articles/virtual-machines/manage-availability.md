@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 4dc3e128ac1c611a8527c3044bfac566edc24c74
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fe89b58f71b14b211863fd46ba523e8c866764f1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91344292"
+ms.locfileid: "91361790"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gestire la disponibilità delle macchine virtuali Linux
 
@@ -36,7 +36,7 @@ Per ridurre le conseguenze dei tempi di inattività causati da uno o più di que
 
 * Usare le zone disponibilità per la protezione da errori dei Data Center
 * Configurare più macchine virtuali in un set di disponibilità per la ridondanza
-* Usare Managed disks per le macchine virtuali in un set di disponibilità]
+* Usare Managed Disks per le macchine virtuali nel set di disponibilità
 * Usare Eventi pianificati per rispondere in modo proattivo agli eventi che hanno impatto sulle macchine virtuali
 * Configurare ogni livello dell'applicazione in set di disponibilità separati
 * Combinare il bilanciamento del carico con zone o set di disponibilità

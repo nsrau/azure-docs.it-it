@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 9f7f44e053cfb26cbf7d897b8a1df1ad2861fd07
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: aecda5ed9b87ba2345a52923a574919d6a08594f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552000"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362672"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Introduzione ad Azure Maps Power BI Visual
 
-<Token>**si applica a:** ![ Sì ](media/power-bi-visual/yes.png) servizio Power BI per ***consumers*** ![ gli utenti Sì ](media/power-bi-visual/yes.png) servizio Power BI per le finestre di progettazione & sviluppatori ![ Sì ](media/power-bi-visual/yes.png) Power bi Desktop ![ Nessuna richiesta di ](media/power-bi-visual/no.png) licenza Pro o Premium</Token>
+<Token>**si applica a:** ![ Segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per ***i consumer*** ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per le finestre di progettazione & gli sviluppatori hanno un ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X che indica No. ](media/power-bi-visual/no.png) Richiede la licenza Pro o Premium </Token>
 
 Questo articolo illustra come usare l'oggetto visivo Microsoft Azure Maps per Power BI.
 
@@ -92,7 +92,7 @@ Per caricare l'oggetto visivo di Azure Maps, seguire questa procedura:
 
 I bucket di dati seguenti sono disponibili nel riquadro **campi** dell'oggetto visivo mappe di Azure.
 
-| Campo     | Description  |
+| Campo     | Descrizione  |
 |-----------|--------------|
 | Latitude  | Campo utilizzato per specificare il valore di latitudine dei punti dati. I valori di latitudine devono essere compresi tra-90 e 90 in formato decimale.  |
 | Longitudine | Campo utilizzato per specificare il valore di longitudine dei punti dati. I valori di longitudine devono essere compresi tra-180 e 180 in formato decimale.  |
