@@ -1,17 +1,17 @@
 ---
 title: Binding di output di archiviazione BLOB di Azure per funzioni di Azure
-description: Informazioni su come fornire dati di archiviazione BLOB di Azure a una funzione di Azure.
+description: Informazioni su come fornire dati di associazione di output dell'archiviazione BLOB di Azure a una funzione di Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 9596e6a6fd32994f782125c9bd4b8ca6d5a94b03
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 56d8078347b5de775b30c8db2c9412598070046c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213060"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285367"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Binding di output di archiviazione BLOB di Azure per funzioni di Azure
 

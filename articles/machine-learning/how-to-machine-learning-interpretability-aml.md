@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: dc07d2826d3c27fad1eee644da36cb7b4f85ea3c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c23522911bd0c8dc9726a62cced839a1c4be37a6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333835"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Usare il pacchetto di interpretazione per spiegare i modelli ML & le stime in Python (anteprima)
 
@@ -42,10 +42,9 @@ Per altre informazioni sulle tecniche di interpretazione e sui modelli di appren
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Genera il valore di importanza della funzionalità nel computer personale 
 L'esempio seguente illustra come usare il pacchetto di interpretazione nel computer personale senza contattare i servizi di Azure.
 
-1. Installare `azureml-interpret` i `azureml-contrib-interpret` pacchetti di e.
+1. Installare il pacchetto `azureml-interpret`.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 
 2. Eseguire il training di un modello di esempio in un notebook Jupyter locale.
@@ -239,15 +238,14 @@ Nell'esempio seguente viene illustrato come è possibile utilizzare la `Explanat
 * Utilizzare il `ExplanationClient` nell'esecuzione remota per caricare il contesto di interpretazione.
 * Scaricare il contesto in un secondo momento in un ambiente locale.
 
-1. Installare `azureml-interpret` i `azureml-contrib-interpret` pacchetti di e.
+1. Installare il pacchetto `azureml-interpret`.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 1. Creare uno script di training in un'istanza di Jupyter Notebook locale. Ad esempio: `train_explain.py`.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     from azureml.core.run import Run
     from interpret.ext.blackbox import TabularExplainer
 
@@ -280,7 +278,7 @@ Nell'esempio seguente viene illustrato come è possibile utilizzare la `Explanat
 1. Scaricare la spiegazione nel notebook di Jupyter locale.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     
     client = ExplanationClient.from_run(run)
     
@@ -332,29 +330,12 @@ I tracciati seguenti forniscono una visualizzazione complessiva del modello sott
 
 [![Tracciati di ghiaccio del dashboard di visualizzazione](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
 
-> [!NOTE]
-> Prima di avviare il kernel Jupyter, assicurarsi di abilitare le estensioni widget per il dashboard di visualizzazione.
-
-* Notebook di Jupyter
-
-    ```shell
-    jupyter nbextension install --py --sys-prefix azureml.contrib.interpret.visualize
-    jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
-    ```
-
-* JupyterLab
-
-    ```shell
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager
-    jupyter labextension install microsoft-mli-widget
-    ```
-
 Per caricare il dashboard di visualizzazione, usare il codice seguente.
 
 ```python
 from interpret_community.widget import ExplanationDashboard
 
-ExplanationDashboard(global_explanation, model, dataset=x_test)
+ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualizzazione in Azure Machine Learning Studio
@@ -370,7 +351,7 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
   1. Selezionare un esperimento specifico per visualizzare tutte le esecuzioni dell'esperimento.
   1. Selezionare un'esecuzione e quindi la scheda **spiegazioni** per il dashboard di visualizzazione spiegazione.
 
-   [![Importanza della funzionalità locale del dashboard di visualizzazione](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Funzionalità locale del dashboard di visualizzazione importanza in AzureML studio negli esperimenti](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * Riquadro **modelli**
   1. Se il modello originale è stato registrato seguendo la procedura descritta in [distribuire modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), è possibile selezionare **modelli** nel riquadro a sinistra per visualizzarlo.

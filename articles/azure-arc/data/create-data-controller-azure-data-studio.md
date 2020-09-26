@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 71678977f899b910a97dbb552233f36ca5a51f26
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939999"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273144"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Crea controller dati in Azure Data Studio
 
@@ -42,7 +42,7 @@ Seguire questa procedura per creare un controller di dati di Azure ARC usando la
 9. Immettere un nome per il controller dati e per lo spazio dei nomi in cui verrà creato il controller dati.  
 
 > [!NOTE]
-> Se lo spazio dei nomi esiste già, verrà usato se lo spazio dei nomi non contiene già altri oggetti Kubernetes-pod e così via.  Se lo spazio dei nomi non esiste, verrà eseguito un tentativo di creare lo spazio dei nomi.  Per creare uno spazio dei nomi in un cluster Kubernetes sono necessari i privilegi di amministratore del cluster Kubernetes.  Se non si dispone dei privilegi di amministratore del cluster Kubernetes, chiedere all'amministratore del cluster Kubernetes di eseguire i primi passaggi dell'articolo [creare un controller di dati usando gli strumenti nativi di Kubernetes](./create-data-controller-using-k8s-native-tools.md) che devono essere eseguiti da un amministratore di Kubernetes prima di completare la procedura guidata.
+> Se lo spazio dei nomi esiste già, verrà usato se lo spazio dei nomi non contiene già altri oggetti Kubernetes-pod e così via.  Se lo spazio dei nomi non esiste, verrà eseguito un tentativo di creare lo spazio dei nomi.  Per creare uno spazio dei nomi in un cluster Kubernetes sono necessari i privilegi di amministratore del cluster Kubernetes.  Se non si dispone dei privilegi di amministratore del cluster Kubernetes, chiedere all'amministratore del cluster Kubernetes di eseguire i primi passaggi dell'articolo [creare un controller di dati usando gli strumenti nativi di Kubernetes](./create-data-controller-using-kubernetes-native-tools.md) che devono essere eseguiti da un amministratore di Kubernetes prima di completare la procedura guidata.
 
 > [!NOTE]
 > Nota: il controller dati e il nome dello spazio dei nomi verranno usati per creare una risorsa personalizzata nel cluster Kubernetes, in modo che siano conformi alle [convenzioni di denominazione di Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).

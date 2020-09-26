@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b96f38d04fe3e3cb59fa75424ae588fe0e38f510
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dc77b3c8bc357b63047d20afa9493bbaaff77113
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938075"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285316"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Aumentare e ridurre il gruppo di server di database di Azure per PostgreSQL usando l'interfaccia della riga di comando (azdata o kubectl)
 
@@ -84,7 +84,7 @@ In una configurazione predefinita, solo la memoria minima è impostata su 256Mi,
 
 Le impostazioni che si sta per impostare devono essere prese in considerazione nella configurazione impostata per il cluster Kubernetes. Assicurarsi di non impostare i valori che il cluster Kubernetes non sarà in grado di soddisfare. Questo potrebbe causare errori o un comportamento imprevedibile. Ad esempio, se lo stato del gruppo di server rimane nell' _aggiornamento_ dello stato per un lungo periodo di tempo dopo la modifica della configurazione, potrebbe essere un'indicazione che è possibile impostare i parametri seguenti sui valori che il cluster Kubernetes non è in grado di soddisfare. In tal caso, ripristinare la modifica o leggere il _troubleshooting_section.
 
-Si supponga di voler eseguire la scalabilità verticale della definizione del gruppo di server per:
+Si supponga, ad esempio, di voler scalare verticalmente la definizione del gruppo di server per:
 
 - Min vCore = 2
 - VCore max = 4
@@ -94,6 +94,13 @@ Si supponga di voler eseguire la scalabilità verticale della definizione del gr
 Usare uno degli approcci seguenti:
 
 ### <a name="cli-with-azdata"></a>INTERFACCIA della riga di comando con azdata
+
+```console
+azdata arc postgres server edit -n <name of your server group> --cores-request <# core-request>  --cores-limit <# core-limit>  --memory-request <# memory-request>Mi  --memory-limit <# memory-limit>Mi
+```
+
+> [!CAUTION]
+> Di seguito è riportato un esempio fornito per illustrare come usare il comando. Prima di eseguire un comando di modifica, assicurarsi di impostare i parametri sui valori che il cluster Kubernetes può rispettare.
 
 ```console
 azdata arc postgres server edit -n <name of your server group> --cores-request 2  --cores-limit 4  --memory-request 512Mi  --memory-limit 1024Mi
@@ -116,6 +123,10 @@ kubectl edit postgresql-12/<server group name> [-n <namespace name>]
 
 Verrà visualizzato l'editor vi, in cui è possibile spostarsi e modificare la configurazione. Usare il comando seguente per eseguire il mapping dell'impostazione desiderata al nome del campo nella specifica:
 
+> [!CAUTION]
+> Di seguito è riportato un esempio fornito per illustrare come modificare la configurazione. Prima di aggiornare la configurazione, assicurarsi di impostare i parametri sui valori che il cluster Kubernetes può rispettare.
+
+Ad esempio:
 - Min vCore = 2-> scheduling\default\resources\requests\cpu
 - Max vCore = 4-> scheduling\default\resources\limits\cpu
 - Memoria minima = 512Mb-> scheduling\default\resources\requests\cpu

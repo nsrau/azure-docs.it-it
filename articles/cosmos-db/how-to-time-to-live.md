@@ -6,17 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 75299ab83543b0f28f4cf8f02e41b692c32d19ed
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 5a310dca40b8f5fea074c0cd3c75751d62ccb8f5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997269"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297896"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurare la durata (TTL) in Azure Cosmos DB
 
 In Azure Cosmos DB è possibile scegliere di configurare la durata (TTL) a livello di contenitore oppure è possibile eseguirne l'override a livello di elemento dopo l'impostazione per il contenitore. È possibile configurare la durata (TTL) per un contenitore usando il portale di Azure o gli SDK specifici del linguaggio. Gli override della durata (TTL) a livello di elemento possono essere configurati usando gli SDK.
+
+> Questo contenuto è correlato a Azure Cosmos DB TTL dell'archivio transazionale. Se si sta cercando analitica Store TTL, che Abilita gli scenari NoETL HTAP tramite il [collegamento sinapsi di Azure](https://docs.microsoft.com/azure/cosmos-db/synapse-link), fare clic [qui](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Abilitare la durata (TTL) in un contenitore usando il portale di Azure
 

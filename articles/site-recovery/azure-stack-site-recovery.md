@@ -3,12 +3,12 @@ title: Replicare le macchine virtuali di Azure Stack in Azure tramite Azure Site
 description: Informazioni su come configurare il ripristino di emergenza in Azure per macchine virtuali di Azure Stack con il servizio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 5bc78dc5b01bb4790190268b303cb894de2b6f71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564310"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333716"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicare le macchine virtuali di Azure Stack in Azure
 
@@ -34,7 +34,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Quando la procedura è completata, è quindi possibile eseguire un failover completo in Azure nel modo e nel momento necessari.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 ![Il diagramma Mostra gli insiemi di credenziali dei servizi di ripristino per due tenant in cloud associati a sottoscrizioni tenant sia in un'infrastruttura Azure Stack comune.](./media/azure-stack-site-recovery/architecture.png)
 
@@ -164,13 +164,13 @@ Impostare il server di configurazione, registrarlo nell'insieme di credenziali e
 1. Fare clic su **Preparare l'infrastruttura** > **Origine**.
 2. In **Prepara origine** fare clic su **+Server di configurazione**.
 
-    ![Impostare l'origine](./media/azure-stack-site-recovery/plus-config-srv.png)
+    ![Screenshot della finestra di dialogo + server di configurazione con il messaggio "fare clic su + server di configurazione nella barra dei comandi in alto per impostarne uno...".](./media/azure-stack-site-recovery/plus-config-srv.png)
 
 3. In **Aggiungi server** verificare che **Tipo di server** contenga **Server di configurazione**.
 5. Scaricare il file di installazione per l'Installazione unificata di Azure Site Recovery.
 6. Scaricare la chiave di registrazione dell'insieme di credenziali, Per eseguire l'installazione unificata, è necessaria la chiave di registrazione. La chiave è valida per cinque giorni dal momento in cui viene generata.
 
-    ![Impostare l'origine](./media/azure-stack-site-recovery/set-source2.png)
+    ![Screenshot della finestra di dialogo Aggiungi server con tipo di server impostato su server di configurazione e il pulsante Scarica chiave di registrazione dell'insieme di credenziali evidenziato.](./media/azure-stack-site-recovery/set-source2.png)
 
 
 ### <a name="run-azure-site-recovery-unified-setup"></a>Eseguire l'Installazione unificata di Azure Site Recovery

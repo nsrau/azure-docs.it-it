@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 7fbf7743eb1c037a364e1004fc3be30db6777bb0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f4c6eb8ad8e3d69d2b3545bc5754e1a632f5cc8c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546643"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285817"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Esercitazione: configurare fiocco di neve per il provisioning utenti automatico
 
@@ -38,7 +38,7 @@ L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in fioc
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
-* [Tenant Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Un tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 * Un account utente in Azure AD con l'[autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
 * [Un tenant A fiocco di neve](https://www.Snowflake.com/pricing/).
 * Un account utente in fiocco di pagina con autorizzazioni di amministratore.
@@ -58,11 +58,11 @@ Prima di configurare il provisioning utenti automatico con Azure AD, sarà neces
 
 2.  Verrà generato un token di accesso SCIM per il tenant di fiocco di neve. Per recuperarlo, fare clic sul collegamento evidenziato di seguito.
 
-    ![Fiocco di SCIM Add](media/Snowflake-provisioning-tutorial/image01.png)
+    ![Screenshot di un foglio di un foglio di neve in U i con il token di accesso S C I M denominato.](media/Snowflake-provisioning-tutorial/image01.png)
 
 3. Copiare il valore del token generato e fare clic su **fine**. Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione fiocco di neve nell'portale di Azure.
 
-    ![Fiocco di SCIM Add](media/Snowflake-provisioning-tutorial/image02.png)
+    ![Screenshot della sezione dei dettagli che mostra il token copiato nel campo di testo e l'opzione Done è stata richiamata.](media/Snowflake-provisioning-tutorial/image02.png)
 
 ## <a name="step-3-add-snowflake-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere fiocco di neve dalla raccolta di applicazioni Azure AD
 
@@ -93,11 +93,11 @@ Questa sezione illustra i passaggi necessari per configurare il servizio di prov
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione credenziali amministratore immettere l'URL di **base SCIM 2,0 e** i valori dei token di autenticazione recuperati in precedenza rispettivamente nei campi **URL tenant** e **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a fiocco di neve. Se la connessione non riesce, verificare che l'account fiocco di neve disponga di autorizzazioni di amministratore e riprovare.
 

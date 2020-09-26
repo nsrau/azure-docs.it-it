@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28fc05be7a5b54713aec8c4f830eeb2f7e6a251c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a1efafd353bea20ea1ada0b5e92a9e6df00deb78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662328"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273601"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Account e autorizzazioni
 
@@ -115,7 +115,7 @@ Con l'installazione personalizzata la procedura guidata offre più opzioni e sce
 
 Di seguito è riportato un riepilogo delle pagine della procedura guidata di installazione personalizzata, le credenziali raccolte e il relativo uso.
 
-![Installazione rapida](./media/reference-connect-accounts-permissions/customize.png)
+![Screenshot che mostra le pagine dell'installazione guidata personalizzata.](./media/reference-connect-accounts-permissions/customize.png)
 
 | Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie | Utilizzo |
 | --- | --- | --- | --- |
@@ -208,7 +208,7 @@ Legenda:
 #### <a name="virtual-service-account"></a>Account del servizio virtuale
 Un account del servizio virtuale è un tipo speciale di account che non ha una password ed è gestito da Windows.
 
-![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
+![Screenshot che mostra l'account del servizio virtuale (VSA).](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
 L'account del servizio virtuale deve essere usato con scenari in cui il motore di sincronizzazione e SQL sono sullo stesso server. Se però si usa un server SQL remoto, è consigliabile usare un account del servizio gestito del gruppo.
 
@@ -241,7 +241,7 @@ L'account concede inoltre le autorizzazioni a file, chiavi del Registro di siste
 ### <a name="azure-ad-connector-account"></a>Account del connettore di Azure AD
 In Azure AD viene creato un account per l'uso con il servizio di sincronizzazione. Questo account può essere identificato in base al relativo nome visualizzato.
 
-![Account AD](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
+![Screenshot che mostra l'account Azure AD.](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
 
 Il nome del server in cui viene usato l'account può essere identificato nella seconda parte del nome utente. Nell'immagine, il nome del server è DC1. Se si dispone di server di gestione temporanea, ogni server avrà il proprio account.
 

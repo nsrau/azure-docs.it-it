@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: ddd1f61ada539ebb00341dd83919f1c851a0f3e1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 16bdb0d8ed421763895e61a6e1173fc7c5a48d4d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816372"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297947"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
@@ -38,7 +38,8 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
 
 
 **v 2.0** include l'aggiornamento seguente:
--   Le [librerie client](quickstarts/client-library.md) per NET, Python, Java e JavaScript hanno immesso la disponibilità a livello generale. 
+
+- Le [librerie client](quickstarts/client-library.md) per NET, Python, Java e JavaScript hanno immesso la disponibilità a livello generale. 
 
 
 I **nuovi esempi** sono disponibili in GitHub. 
@@ -148,7 +149,7 @@ Questa versione introduce il modulo Recognizer 2,0 (Preview). Nelle sezioni segu
   * **Supporto file TIFF** È ora possibile eseguire il training con ed estrarre i dati dai documenti TIFF.
   * **Miglioramenti dell'accuratezza dell'estrazione**
 
-* **Modello di ricevute predefinito**
+* **Modello di ricezione predefinito**
   * **Importi delle mance** È ora possibile estrarre gli importi delle mance e altri valori scritti a mano.
   * **Estrazione di elementi linea** È possibile estrarre i valori degli elementi linea dalle ricevute.
   * **Valori di confidenza** È possibile visualizzare la confidenza del modello per ogni valore estratto.
@@ -176,4 +177,8 @@ Le risposte JSON per tutte le chiamate API hanno nuovi formati. Alcune chiavi e 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Completare un argomento di [avvio rapido](quickstarts/curl-train-extract.md) per iniziare a usare le [API di riconoscimento modulo](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).
+Completare una [Guida introduttiva alla libreria client](quickstarts/client-library.md) per iniziare a scrivere un'app di elaborazione moduli con il riconoscimento del modulo nel linguaggio preferito.
+
+## <a name="see-also"></a>Vedere anche
+
+* [Informazioni su Riconoscimento modulo](./overview.md)

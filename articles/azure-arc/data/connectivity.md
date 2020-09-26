@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 44c1c1860cbea20a7a00da5a396e4d82d79efd8b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4364ed916e2b2783ab09f9d61ae63197d001ad42
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940002"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273182"
 ---
 # <a name="connectivity-modes-and-requirements"></a>Modalità di connettività e requisiti
 
@@ -55,7 +55,7 @@ Attualmente, nell'anteprima solo la modalità connessa indirettamente è support
 |**Monitoraggio**|Supportato<br/>Monitoraggio locale con i dashboard Grafana e Kibana.|Supportato<br/>Oltre ai dashboard di monitoraggio locali, è possibile inviare _facoltativamente_ i dati di monitoraggio e i log a monitoraggio di Azure per monitorare su larga scala più siti in un'unica posizione. **Disponibilità in sospeso della modalità di connessione diretta**|
 |**autenticazione**|Usare il nome utente/password locale per l'autenticazione del controller di dati e del dashboard. Usare gli account di accesso di SQL e Postgres o Active Directory per la connettività alle istanze del database.  Usare i provider di autenticazione K8s per l'autenticazione per l'API Kubernetes.|In aggiunta a o al posto dei metodi di autenticazione per la modalità connessa indirettamente, è possibile usare _facoltativamente_ Azure Active Directory. **Disponibilità in sospeso della modalità di connessione diretta**|
 |**Controllo degli accessi in base al ruolo (RBAC)**|Usare Kubernetes RBAC nell'API Kubernetes. Usare SQL e Postgres RBAC per le istanze di database.|Facoltativamente, è possibile eseguire l'integrazione con Azure Active Directory per RBAC. **Disponibilità in sospeso della modalità di connessione diretta**|
-|**Azure Defender**|Non supportato|Pianificato per il futuro|
+|**Azure Defender**|Non supportate|Pianificato per il futuro|
 
 ## <a name="connectivity-requirements"></a>Requisiti di connettività
 
@@ -86,6 +86,7 @@ Attualmente, nella fase di anteprima è supportata solo la modalità indirettame
 |**API Azure Resource Manager**|Un computer che esegue Azure Data Studio, l'interfaccia della riga di comando di Azure o l'interfaccia della riga di comando di Azure connessa ad Azure.|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`san-af-eastus-prod.azurewebsites.net`<br/>`san-af-eastus2-prod.azurewebsites.net`<br/>`san-af-australiaeast-prod.azurewebsites.net`<br/>`san-af-centralus-prod.azurewebsites.net`<br/>`san-af-westus2-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-southeastasia-prod.azurewebsites.net`<br/>`san-af-koreacentral-prod.azurewebsites.net`<br/>`san-af-northeurope-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-uksouth-prod.azurewebsites.net`<br/>`san-af-francecentral-prod.azurewebsites.net`|HTTPS|443|Sì|Azure Active Directory|Azure Data Studio, interfaccia della riga di comando di Azure e l'interfaccia della riga di comando di Azure si connettono alle API Azure Resource Manager per inviare e recuperare dati da e verso Azure per alcune funzionalità|
 |**API di monitoraggio di Azure**|Un computer che esegue l'interfaccia della riga di comando di Azure o l'interfaccia della riga di comando di Azure che carica le metriche di monitoraggio o i log in monitoraggio di|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`*.ods.opinsights.azure.com`<br/>`*.oms.opinsights.azure.com`<br/>`*.monitoring.azure.com`|HTTPS|443|Sì|Azure Active Directory|Azure Data Studio, interfaccia della riga di comando di Azure e l'interfaccia della riga di comando di Azure si connettono alle API Azure Resource Manager per inviare e recuperare dati da e verso Azure per alcune funzionalità|
 
-> **Nota:** Per il momento, tutte le connessioni HTTPS/443 del browser ai dashboard Grafana e Kibana e dall'interfaccia della riga di comando di Azure Data all'API del controller dati vengono crittografate tramite certificati autofirmati.  In futuro sarà disponibile una funzionalità che consente di fornire i propri certificati per la crittografia delle connessioni SSL.
+> [!NOTE]
+> Per il momento, tutte le connessioni HTTPS/443 del browser ai dashboard Grafana e Kibana e dall'interfaccia della riga di comando di Azure Data all'API del controller dati vengono crittografate tramite certificati autofirmati.  In futuro sarà disponibile una funzionalità che consente di fornire i propri certificati per la crittografia delle connessioni SSL.
 
 La connettività tra Azure Data Studio e l'interfaccia della riga di comando di Azure per il server API Kubernetes usa l'autenticazione Kubernetes e la crittografia stabilita.  Ogni utente che usa Azure Data Studio e l'interfaccia della riga di comando di Azure Data deve avere una connessione autenticata all'API Kubernetes per eseguire molte delle azioni correlate ad Azure Arc Enabled Data Services.

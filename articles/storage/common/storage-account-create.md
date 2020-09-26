@@ -1,27 +1,27 @@
 ---
 title: Creare un account di archiviazione
 titleSuffix: Azure Storage
-description: Informazioni su come creare un account di archiviazione usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure. Un account di archiviazione di Azure offre uno spazio dei nomi univoco in Microsoft Azure per archiviare e accedere ai dati.
+description: Informazioni su come creare un account di archiviazione per archiviare BLOB, file, code e tabelle. Un account di archiviazione di Azure fornisce uno spazio dei nomi univoco in Microsoft Azure per la lettura e la scrittura dei dati.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/07/2020
+ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8b6f5f302465d075b7a0bcb0e6b12c75b1379bb5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069834"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333580"
 ---
-# <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
+# <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
 Un account di archiviazione di Azure contiene tutti gli oggetti dati di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. L'account di archiviazione fornisce uno spazio dei nomi univoco per i dati di archiviazione di Azure accessibili da qualsiasi parte del mondo tramite HTTP o HTTPS. I dati nell'account di archiviazione di Azure sono durevoli e a disponibilità elevata, protetti e altamente scalabili.
 
-In questo articolo sulle procedure viene illustrato come creare un account di archiviazione usando il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), l' [interfaccia](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)della riga di comando di Azure o un [modello di Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
+In questo articolo sulle procedure viene illustrato come creare un account di archiviazione usando il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), l' [interfaccia](https://docs.microsoft.com/cli/azure)della riga di comando di Azure o un [modello di Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Nessuno.
+No.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -64,11 +64,11 @@ Il pulsante avvia una shell interattiva che è possibile usare per eseguire la p
 
 ### <a name="install-the-cli-locally"></a>Installare l'interfaccia della riga di comando in locale
 
-È anche possibile installare e usare l'interfaccia della riga di comando di Azure in locale. Questo articolo illustra le procedure necessarie per eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+È anche possibile installare e usare l'interfaccia della riga di comando di Azure in locale. Gli esempi in questo articolo richiedono l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 # <a name="template"></a>[Modello](#tab/template)
 
-Nessuno.
+No.
 
 ---
 
@@ -104,11 +104,9 @@ N/D
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-A questo punto è possibile creare un account di archiviazione.
-
 Ogni account di archiviazione deve appartenere a un gruppo di risorse di Azure. Un gruppo di risorse è un contenitore logico per raggruppare i servizi di Azure. Quando si crea un account di archiviazione, è possibile creare un nuovo gruppo di risorse o usarne uno esistente. Questo articolo illustra come creare un nuovo gruppo di risorse.
 
-Un account di archiviazione **per utilizzo generico v2** consente l'accesso a tutti i servizi di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. I passaggi descritti di seguito consentono di creare un account di archiviazione per utilizzo generico V2, ma i passaggi per creare qualsiasi tipo di account di archiviazione sono simili.
+Un account di archiviazione **per utilizzo generico v2** consente l'accesso a tutti i servizi di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. I passaggi descritti di seguito consentono di creare un account di archiviazione per utilizzo generico V2, ma i passaggi per creare qualsiasi tipo di account di archiviazione sono simili. Per altre informazioni sui tipi di account di archiviazione e su altre impostazioni dell'account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md).
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -186,7 +184,7 @@ az storage account create \
 ```
 
 > [!IMPORTANT]
-> Se si prevede di utilizzare [Azure Data Lake storage](https://azure.microsoft.com/services/storage/data-lake-storage/), includere `--enable-hierarchical-namespace true` in questo elenco di parametri. 
+> Se si prevede di utilizzare [Azure Data Lake storage](https://azure.microsoft.com/services/storage/data-lake-storage/), includere `--enable-hierarchical-namespace true` in questo elenco di parametri.
 
 Per creare un account di archiviazione per utilizzo generico V2 con un'opzione di replica diversa, sostituire il valore desiderato nella tabella seguente per il parametro **SKU** .
 
@@ -230,8 +228,6 @@ Per informazioni su come modificare il modello o crearne di nuovi, vedere:
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)(Altri esempi di modelli di account di archiviazione).
 
 ---
-
-Per altre informazioni sulle opzioni di replica disponibili, vedere [Opzioni di replica dell'archiviazione](storage-redundancy.md).
 
 ## <a name="delete-a-storage-account"></a>Eliminare un account di archiviazione
 
@@ -287,26 +283,6 @@ In alternativa, è possibile eliminare il gruppo di risorse, che elimina l'accou
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sulle procedure è stato creato un account di archiviazione standard per utilizzo generico V2. Per informazioni su come caricare e scaricare i BLOB da e verso l'account di archiviazione, continuare con una delle guide introduttive di archiviazione BLOB.
-
-# <a name="portal"></a>[Portale](#tab/azure-portal)
-
-> [!div class="nextstepaction"]
-> [Usare i BLOB con il portale di Azure](../blobs/storage-quickstart-blobs-portal.md)
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-> [!div class="nextstepaction"]
-> [Usare i BLOB con PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
-
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
-> [!div class="nextstepaction"]
-> [Usare i BLOB con l'interfaccia della riga di comando di Azure](../blobs/storage-quickstart-blobs-cli.md)
-
-# <a name="template"></a>[Modello](#tab/template)
-
-> [!div class="nextstepaction"]
-> [Usare i BLOB con il portale di Azure](../blobs/storage-quickstart-blobs-portal.md)
-
----
+- [Panoramica dell'account di archiviazione](storage-account-overview.md)
+- [Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2](storage-account-upgrade.md)
+- [Spostare un account di archiviazione di Azure in un'altra area](storage-account-move.md)

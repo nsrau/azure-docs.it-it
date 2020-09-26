@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 8f07ad7ff598445c598ff1d86637856cfd6c8f12
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 62aa8f966126d95af003478e7f43d3ccea2b48cd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087287"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310408"
 ---
 # <a name="create-a-map"></a>Creare una mappa
 
@@ -130,7 +130,7 @@ Nel codice seguente il primo blocco di codice crea una mappa e imposta gli stili
 
 ## <a name="request-transforms"></a>Trasformazioni delle richieste
 
-A volte è utile essere in grado di modificare le richieste HTTP effettuate dal controllo mappa. Esempio:
+A volte è utile essere in grado di modificare le richieste HTTP effettuate dal controllo mappa. Ad esempio:
 
 - Aggiungere intestazioni aggiuntive alle richieste di riquadri. Questa operazione viene spesso eseguita per i servizi protetti da password.
 - Modificare gli URL per eseguire le richieste tramite un servizio proxy.

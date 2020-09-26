@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: c86397b20a95f045ac5edfeb2cfa4833982df990
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a25dcc187c1bb172106a3972c1cb57dfd473bc2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897417"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322377"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 
@@ -136,6 +136,29 @@ Quando si richiede un aumento di quota, è necessario selezionare il servizio pe
 
 > [!NOTE]
 > Le [sottoscrizioni per la versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) non hanno i requisiti necessari per un aumento dei limiti o delle quote. Se si ha una [sottoscrizione per la versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/). Per ulteriori informazioni, vedere [Aggiornare la versione di valutazione gratuita alla sottoscrizione con pagamento in base al consumo](../billing/billing-upgrade-azure-subscription.md) e [Domande frequenti sulla sottoscrizione per la versione di valutazione gratuita](https://azure.microsoft.com/free/free-account-faq).
+
+## <a name="private-endpoint-and-private-dns-quota-increases"></a>Aumenta la quota di endpoint privati e DNS privati
+
+Esistono limitazioni al numero di endpoint privati e di zone DNS private che è possibile creare in una sottoscrizione. Sebbene Azure Machine Learning crei risorse nella sottoscrizione (Customer), esistono alcuni scenari in cui le risorse vengono create in una sottoscrizione di proprietà di Microsoft. Negli scenari seguenti potrebbe essere necessario richiedere una quota di quote nella sottoscrizione di proprietà di Microsoft:
+
+* __Area di lavoro con collegamento privato abilitato con una chiave gestita dal cliente (CMK)__
+* __Container Registry di Azure per l'area di lavoro dietro la rete virtuale__
+* __Collegare un cluster del servizio Azure Kubernetes abilitato al collegamento privato all'area di lavoro__.
+
+Per richiedere una concessione per questi scenari, attenersi alla procedura seguente:
+
+1. [Creare una richiesta di supporto di Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) e selezionare le opzioni seguenti nella sezione __nozioni di base__ :
+
+    | Campo | Selezione |
+    | ----- | ----- |
+    | Tipo di problema | Tecnico |
+    | Servizio | Servizi personali. Selezionare __Machine Learning__ nell'elenco a discesa. |
+    | Tipo di problema | Configurazione dell'area di lavoro, SDK e CLI |
+    | Sottotipo di problema | Problemi di provisioning o gestione dell'area di lavoro |
+
+2. Nella sezione __Dettagli__ usare il campo __Description (Descrizione__ ) per specificare l'area di Azure che si vuole usare e lo scenario che si prevede di usare. Se è necessario richiedere aumenti di quota per più sottoscrizioni, elencare anche gli ID sottoscrizione in questo campo.
+
+3. Usare __create__ per creare la richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eef04be1891eac35577a5f4cb18d5b83b8d0f301
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 6dba592417ca07d1858a7942b162b4dfa6a85680
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669390"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273994"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Aggiungere Google come provider di identità per utenti guest B2B
 
@@ -78,10 +78,10 @@ Prima di tutto creare un nuovo progetto nella console di Google Developers per o
 
 11. In **tipo di applicazione**scegliere **applicazione Web** e assegnare all'applicazione un nome appropriato, ad esempio "Azure ad B2B", quindi in **URI di reindirizzamento autorizzati**immettere gli URI seguenti:
     - `https://login.microsoftonline.com` 
-    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(dove `<directory id>` è l'ID directory)
+    - `https://login.microsoftonline.com/te/<tenant id>/oauth2/authresp` <br>(dove `<tenant id>` è l'ID tenant)
    
     > [!NOTE]
-    > Per trovare l'ID directory, passare a https://portal.azure.com e quindi in **Azure Active Directory** scegliere **Proprietà** e copiare il valore di **ID directory**.
+    > Per trovare l'ID tenant, passare a https://portal.azure.com e in **Azure Active Directory**scegliere **Proprietà** e copiare l' **ID tenant**.
 
     ![Screenshot con la sezione Authorized redirect URIs (URI di reindirizzamento autorizzati)](media/google-federation/google-create-oauth-client-id.png)
 

@@ -3,12 +3,12 @@ title: Escludere dischi dalla replica con Azure Site Recovery
 description: Come escludere dischi dalla replica in Azure con Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 778bb030d9768c5fbe1cb8aeba0becfc68c00629
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245399"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333665"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Escludere dischi dal ripristino di emergenza
 
@@ -207,7 +207,7 @@ DB-Disk3 | Disk3 | F:\ | Dati utente 2
 
 Le impostazioni del file di paging nella macchina virtuale di origine sono le seguenti:
 
-![Impostazioni del file di paging nella macchina virtuale di origine](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
+![Screenshot della finestra di dialogo memoria virtuale con la riga D: unità [volume di paging] evidenziata con le dimensioni del file di paging (MB) di 3000-7000.](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. Viene abilitata la replica per la macchina virtuale.
 2. DB-Disk1 viene escluso dalla replica.
@@ -260,7 +260,7 @@ DB-Disk3 | Disk3 | F:\ | Dati utente 2
 
 Le impostazioni del file di paging nella macchina virtuale di Azure sono le seguenti:
 
-![Impostazioni del file di paging nella macchina virtuale di Azure](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
+![Screenshot della finestra di dialogo memoria virtuale con la riga C: evidenziata che mostra le impostazioni delle dimensioni del file di paging "sistema gestito".](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

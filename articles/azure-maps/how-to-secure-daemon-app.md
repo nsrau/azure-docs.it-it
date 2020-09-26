@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e445f26458d13d28dd4ef50c6c17d434554d9fd5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5af7645db662a238099e013f84b0dc0fee2af62c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311071"
+ms.locfileid: "91355857"
 ---
 # <a name="secure-a-daemon-application"></a>Proteggere un'applicazione daemon
 
@@ -122,7 +122,7 @@ Si concede il *controllo degli accessi in base al ruolo di Azure (RBAC di Azure)
 2. Nella scheda **assegnazioni di ruolo** **aggiungere** un'assegnazione di ruolo. 
 
     > [!div class="mx-imgBorder"]
-    > ![Aggiungere un'assegnazione di ruolo](./media/how-to-manage-authentication/add-role-assignment.png)
+    > ![Screenshot mostra le assegnazioni di roll con Aggiungi selezionato.](./media/how-to-manage-authentication/add-role-assignment.png)
 
 3. Selezionare una definizione di ruolo di Azure Maps predefinita, ad esempio **lettore dati** di Azure Maps o **collaboratore dati di Azure Maps**. In **assegna accesso a**selezionare **Azure ad utente, un gruppo o un'entità servizio** o un'identità gestita con identità gestita assegnata dal sistema di identità gestito assegnato **dall'utente**  /  **System assigned Managed identity**. Selezionare l'entità. Selezionare quindi **Salva**.
 
