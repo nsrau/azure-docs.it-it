@@ -90,6 +90,8 @@
       href: service-bus-throttling.md
     - name: Sicurezza
       items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
         - name: Autenticazione e autorizzazione
           href: service-bus-authentication-and-authorization.md
           items:

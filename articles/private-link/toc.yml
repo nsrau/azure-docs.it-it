@@ -24,6 +24,10 @@
     - name: Creare un servizio Collegamento privato - Modello di Resource Manager
       displayName: Resource Manager
       href: create-private-link-service-template.md
+- name: Esercitazioni
+  items:
+    - name: Eseguire la connessione a un account di archiviazione
+      href: tutorial-private-endpoint-storage-portal.md
 - name: Concetti
   items:
     - name: Endpoint privato
@@ -38,8 +42,6 @@
           href: security-baseline.md
 - name: Procedure
   items:
-    - name: Connettersi privatamente a un account di archiviazione
-      href: create-private-endpoint-storage-portal.md
     - name: Connettersi privatamente a un account Cosmos DB
       href: create-private-endpoint-cosmosdb-portal.md
     - name: Connettersi privatamente a un'app Web

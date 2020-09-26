@@ -112,7 +112,7 @@
     - name: Operazioni del provider di risorse
       href: resource-provider-operations.md
     - name: Limiti relativi al controllo degli accessi in base al ruolo di Azure
-      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: Interfaccia della riga di comando di Azure
