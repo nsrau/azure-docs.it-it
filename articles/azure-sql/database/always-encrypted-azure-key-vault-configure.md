@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: ab1865608146880bbf612b7cb08c2a673c93b31f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa60d6127a42f0118df152e5b3081751c595dbcf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087962"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362632"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configurare Always Encrypted tramite Azure Key Vault 
 
@@ -179,11 +179,11 @@ Questa esercitazione illustra come archiviare le chiavi nell'insieme di credenzi
 
 È attualmente possibile crittografare le colonne o salvare uno script di PowerShell da eseguire in un secondo momento. Per questa esercitazione selezionare **Procedi per completare ora** e fare clic su **Avanti**.
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 
 Verificare che tutte le impostazioni siano corrette e fare clic su **Fine** per completare la configurazione della crittografia sempre attiva.
 
-![Riepilogo](./media/always-encrypted-azure-key-vault-configure/summary.png)
+![Screenshot mostra la pagina risultati con attività contrassegnate come passate.](./media/always-encrypted-azure-key-vault-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Confermare le azioni della procedura guidata
 
@@ -605,7 +605,7 @@ Quando il database è configurato per l'utilizzo di Always Encrypted, è possibi
 
 ## <a name="related-information"></a>Informazioni correlate
 
-- [Always Encrypted (sviluppo client)](https://msdn.microsoft.com/library/mt147923.aspx)
+- [Crittografia sempre attiva (sviluppo client)](https://msdn.microsoft.com/library/mt147923.aspx)
 - [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Crittografia SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Procedura guidata Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 98b1842f81703041f419850be17c0c05a24b7c6b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: a4834ece4741b14981c08721e28bf528cab1da89
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440899"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368890"
 ---
 # <a name="using-openfaas-on-aks"></a>Uso di OpenFaaS in servizio Azure Kubernetes
 
@@ -134,7 +134,7 @@ Ora che OpenFaaS è operativo, creare una funzione usando il portale di OpenFaaS
 
 Fare clic su **Deploy New Function** (Distribuisci nuova funzione) e cercare **Figlet**. Selezionare la funzione Figlet e fare clic su **Deploy** (Distribuisci).
 
-![Figlet](media/container-service-serverless/figlet.png)
+![Screenshot mostra la finestra di dialogo Distribuisci una nuova funzione con il testo FIGlet nella riga di ricerca.](media/container-service-serverless/figlet.png)
 
 Usare cURL per richiamare la funzione. Sostituire l'indirizzo IP nell'esempio seguente con quello del proprio gateway OpenFaaS.
 

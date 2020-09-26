@@ -3,12 +3,12 @@ title: Distribuire una specifica di modello come modello collegato
 description: Informazioni su come distribuire una specifica di modello esistente in una distribuzione collegata.
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: 799dac2bb553983b16f734d1d1abc2ad9281fb58
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4469e793a7da407f793bfe2885f7bb039e29d736
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228019"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369111"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Esercitazione: distribuire una specifica di modello come modello collegato (anteprima)
 
@@ -120,7 +120,7 @@ L'ID della specifica del modello viene generato utilizzando la [`resourceID()`](
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Version.Id
+$id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Versions.Id
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -130,7 +130,7 @@ id = $(az ts show --name $templateSpecName --resource-group $resourceGroupName -
 ```
 
 > [!NOTE]
-> Si è verificato un problema noto con l'ottenimento di un ID specifiche del modello e l'assegnazione a una variabile in Windows PowerShell.
+> È stato rilevato un problema noto relativo al recupero di un ID specifica di modello e all'assegnazione di tale ID a una variabile in Windows PowerShell.
 
 ---
 

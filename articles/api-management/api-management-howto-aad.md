@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: edbe202350b0912372aad822c8530c5f79c76384
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254827"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363206"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 
@@ -34,7 +34,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizzare gli account per sviluppatori usando Azure AD
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
-2. Seleziona ![freccia](./media/api-management-howto-aad/arrow.png).
+2. Select ![Icona freccia.](./media/api-management-howto-aad/arrow.png).
 3. Digitare **API** nella casella di ricerca.
 4. Selezionare **Servizi gestione API**.
 5. Selezionare l'istanza del servizio Gestione API in esecuzione.
@@ -103,7 +103,7 @@ Dopo aver aggiunto un gruppo di Azure AD esterno, è possibile esaminarne e conf
  
 Ora gli utenti dell'istanza di Azure AD configurata possono accedere al portale per sviluppatori. Possono visualizzare e sottoscrivere qualsiasi gruppo per cui hanno visibilità.
 
-## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a>Portale per sviluppatori: aggiungere Azure AD autenticazione dell'account
+## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a> Portale per sviluppatori: aggiungere Azure AD autenticazione dell'account
 
 Nel portale per sviluppatori è possibile accedere con AAD con il **pulsante di accesso: OAuth** widget. Il widget è già incluso nella pagina di accesso del contenuto predefinito del portale per sviluppatori.
 

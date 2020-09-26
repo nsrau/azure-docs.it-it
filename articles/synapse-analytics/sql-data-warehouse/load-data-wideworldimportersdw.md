@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: bb05a817ae553872fa1a6c364da4c075ae454e1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211177"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369094"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Esercitazione: caricare dati nel pool SQL di Azure sinapsi Analytics
 
@@ -83,7 +83,7 @@ Per creare un pool SQL vuoto, seguire questa procedura.
 
 1. Selezionare **Verifica + crea** per rivedere le impostazioni e quindi selezionare **Crea** per creare il data warehouse. È possibile monitorare lo stato di avanzamento aprendo la pagina **distribuzione in corso** dal menu **notifiche** .
 
-     ![notifica](./media/load-data-wideworldimportersdw/notification.png)
+     ![Screenshot che mostra le notifiche con la distribuzione in corso.](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Creare una regola del firewall a livello di server
 
