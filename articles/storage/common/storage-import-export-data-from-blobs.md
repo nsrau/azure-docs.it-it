@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75d8b63328f71df2f8de22a95c106c5cc18dc28f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513499"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275210"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 
@@ -32,7 +32,7 @@ Prima di creare un processo di esportazione per trasferire dati da Archiviazione
   - Generare un numero di tracciabilità per il processo di esportazione.
   - Ogni processo deve avere un numero di tracciabilità separato. Più processi con lo stesso numero di tracciabilità non sono supportati.
   - Se non si dispone di un account del vettore, passare a:
-    - [Creare un account FedEX](https://www.fedex.com/en-us/create-account.html), o
+    - [Creare un account FedEx](https://www.fedex.com/en-us/create-account.html)o
     - [Creare un account DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Passaggio 1: Creare un processo di esportazione
@@ -83,9 +83,9 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
 
 6. In **Informazioni sul mittente della spedizione**:
 
-    - Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box team operativo in `adbops@microsoft.com` con le informazioni relative al vettore che si intende usare.
+    - Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box team operativo in `adbops@microsoft.com`  con le informazioni relative al vettore che si intende usare.
     - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per inviare le unità al termine del processo di esportazione.
-    - Specificare un nome di contatto completo e valido, insieme a numero di telefono, indirizzo di posta elettronica, indirizzo, città, CAP, stato/provincia e paese/area.
+    - Fornire un nome di contatto completo e valido, un telefono, un indirizzo di posta elettronica, via, città, CAP, stato/provincia e paese/area geografica.
 
         > [!TIP]
         > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
@@ -119,7 +119,7 @@ Quando il dashboard segnala che il processo è completo, i dischi vengono spedit
 1. Dopo aver ricevuto le unità con i dati esportati, è necessario ottenere le chiavi BitLocker per sbloccare le unità. Passare al processo di esportazione nel portale di Azure. Fare clic sulla scheda **Importazione/Esportazione**.
 2. Selezionare e fare clic sul processo di esportazione nell'elenco. Passare a **crittografia** e copiare le chiavi.
 
-   ![Visualizzare le chiavi BitLocker per il processo di esportazione](./media/storage-import-export-service/export-job-bitlocker-keys-02.png)
+   ![Visualizzare le chiavi BitLocker per il processo di esportazione](./media/storage-import-export-data-from-blobs/export-from-blob7.png)
 
 3. Usare le chiavi BitLocker per sbloccare i dischi.
 
@@ -127,15 +127,13 @@ L'esportazione è stata completata.
 
 ## <a name="step-5-unlock-the-disks"></a>Passaggio 5: sbloccare i dischi
 
-Se si usa la versione 1.4.0.300 dello strumento WAImportExport, usare il comando seguente per sbloccare l'unità:
+Usare il comando seguente per sbloccare l'unità:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
 
 Di seguito è riportato un esempio dell'input di esempio.
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
-
-Se si utilizzano versioni precedenti dello strumento, utilizzare la finestra di dialogo BitLocker per sbloccare l'unità.
 
 A questo punto, è possibile eliminare il processo o lasciarlo. I processi vengono eliminati automaticamente dopo 90 giorni.
 
@@ -157,7 +155,7 @@ Questo passaggio *facoltativo* aiuta a determinare il numero di unità necessari
 
     |Parametro della riga di comando|Descrizione|  
     |--------------------------|-----------------|  
-    |**/LogDir**|Facoltativa. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|  
+    |**/LogDir**|facoltativo. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|  
     |**Ésn**|Obbligatorio. Il nome dell'account di archiviazione per il processo di esportazione.|  
     |**/SK**|Obbligatorio solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|  
     |**/csas:**|Obbligatorio solo se non è specificata una chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'elenco dei BLOB da esportare nel processo di esportazione.|  

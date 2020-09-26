@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f57e5079543a3112b4fa59f26ba0ae27c24b79a2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 060bb9dcdd504846c76ab4c782b2857fdddfa394
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005514"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354803"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduzione alla scalabilità automatica
 La scalabilità automatica è una funzionalità aggiuntiva di Service Fabric che consente di applicare in modo dinamico la scalabilità ai servizi in base al carico che i servizi segnalano o in base all'utilizzo delle risorse. La scalabilità automatica offre grande elasticità e consente di eseguire il provisioning di istanze o partizioni aggiuntive del servizio su richiesta. L'intero processo di scalabilità è automatico e trasparente e, dopo aver configurato i criteri in un servizio, non è necessario eseguire manualmente le operazioni di scalabilità a livello di servizio. La funzione di scalabilità automatica può essere attivata al momento della creazione del servizio o in qualsiasi momento tramite l'aggiornamento del servizio.
@@ -51,7 +51,7 @@ L'unico meccanismo che può essere utilizzato con questo trigger è PartitionIns
 * Il _numero massimo di istanze_ definisce il limite superiore per la scalabilità. Se il numero di istanze della partizione raggiunge questo limite, non sarà possibile aumentare il servizio, indipendentemente dal carico. È possibile omettere questo limite specificando il valore -1: in tal caso il servizio verrà aumentato quanto più possibile (il limite corrisponde al numero di nodi che sono disponibili nel cluster).
 * Il _numero minimo di istanze_ definisce il limite inferiore per la scalabilità. Se il numero di istanze della partizione raggiunge questo limite, non sarà possibile ridurre il servizio, indipendentemente dal carico.
 
-## <a name="setting-auto-scaling-policy"></a>Impostazione dei criteri di scalabilità automatica
+## <a name="setting-auto-scaling-policy-for-instance-based-scaling"></a>Impostazione dei criteri di scalabilità automatica per il ridimensionamento basato su istanze
 
 ### <a name="using-application-manifest"></a>Tramite il manifesto dell'applicazione
 ``` xml
@@ -133,7 +133,7 @@ Come per il meccanismo che usa la scalabilità per aggiungere o rimuovere istanz
 > [!WARNING] 
 > Quando AddRemoveIncrementalNamedPartitionScalingMechanism viene usata con i servizi con stato, Service Fabric aggiunge o rimuove partizioni **senza produrre notifiche o avvisi**. Quando viene attivato il meccanismo di ridimensionamento, il ripartizionamento dei dati non viene eseguito. Nel caso di un'operazione di scalabilità orizzontale, le nuove partizioni saranno vuote e, in caso di operazione di ridimensionamento, **la partizione verrà eliminata insieme a tutti i dati in esso contenuti**.
 
-## <a name="setting-auto-scaling-policy"></a>Impostazione dei criteri di scalabilità automatica
+## <a name="setting-auto-scaling-policy-for-partition-based-scaling"></a>Impostazione dei criteri di scalabilità automatica per la scalabilità basata su partizioni
 
 ### <a name="using-application-manifest"></a>Tramite il manifesto dell'applicazione
 ``` xml

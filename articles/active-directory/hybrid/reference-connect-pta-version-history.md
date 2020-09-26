@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5e6afef70ee3d4f4d84cb6b867a916ae57da5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 854931273ffebd653615a44dbfa9ce1b846655c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356305"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333427"
 ---
 # <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD agente di autenticazione pass-through: cronologia delle versioni 
  
@@ -56,15 +56,10 @@ Ecco gli argomenti correlati:
 ### <a name="release-status"></a>Stato della versione 
 1/31/2018: rilasciato per il download  
 ### <a name="fixed-issues"></a>Problemi risolti 
-
 - Correzione di un bug che causava alcune perdite di memoria nell'agente. 
 - Aggiornamento della versione del bus di servizio di Azure, che include una correzione di bug per i problemi di timeout del connettore. 
- 
-## <a name="154050"></a>1.5.405.0 
-### <a name="release-status"></a>Stato della versione 
-11/26/2017: rilasciato per il download  
 ### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità 
-- Aggiunta del supporto per le connessioni basate su WebSocket tra l'agente e i servizi Azure AD per migliorare la resilienza della connessione 
+- Aggiunta del supporto per le connessioni basate su WebSocket tra l'agente e i servizi Azure AD per migliorare la resilienza della connessione
 
 ## <a name="154020"></a>1.5.402.0 
 ### <a name="release-status"></a>Stato della versione 

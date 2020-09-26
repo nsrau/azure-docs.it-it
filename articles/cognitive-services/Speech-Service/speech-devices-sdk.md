@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 4ec153a9c770b0001888c972dc44414470e3ddbf
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 560c156c8e2c3d69c099b2ad573fa0d214f3f80b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730306"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355075"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>Che cos'è l'SDK per i dispositivi vocali?
 
@@ -60,4 +60,4 @@ Sono disponibili file binari aggiuntivi per supportare i dispositivi imminenti, 
 > [!div class="nextstepaction"]
 > [Scegliere il dispositivo vocale](get-speech-devices-sdk.md)
 > [!div class="nextstepaction"]
-> [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
+> [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](overview.md#try-the-speech-service-for-free)

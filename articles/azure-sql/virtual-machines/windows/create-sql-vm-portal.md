@@ -7,19 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e315f49cb0b78e13c4b6132f844397d1261ff0f9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a7cd15bab0b26a13f9ffb818aa29e8e262c0bd06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652017"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332917"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Come usare la portale di Azure per eseguire il provisioning di una macchina virtuale Windows con SQL Server
 
@@ -115,7 +115,7 @@ Nella scheda **Rete** configurare le impostazioni di rete.
 
 * Creare una nuova **rete virtuale** o usare una rete virtuale esistente per la VM SQL Server. Designare anche una **subnet**. 
 
-* In **gruppo di sicurezza di rete NIC**selezionare un gruppo di sicurezza di base o il gruppo di sicurezza avanzato. Scegliendo l'opzione di base è possibile selezionare le porte in ingresso per la macchina virtuale SQL Server che corrispondono ai valori configurati nella scheda di **base** . selezionando l'opzione avanzate è possibile scegliere un gruppo di sicurezza di rete esistente o crearne uno nuovo. 
+* In **gruppo di sicurezza di rete NIC**selezionare un gruppo di sicurezza di base o il gruppo di sicurezza avanzato. La scelta dell'opzione di base consente di selezionare le porte in ingresso per la macchina virtuale SQL Server che corrispondono ai valori configurati nella scheda di **base** . Selezionando l'opzione avanzate è possibile scegliere un gruppo di sicurezza di rete esistente o crearne uno nuovo. 
 
 * È possibile apportare altre modifiche alle impostazioni di rete o mantenere i valori predefiniti.
 

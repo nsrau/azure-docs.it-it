@@ -3,12 +3,12 @@ title: Matrice di supporto di MAB & System Center DPM
 description: Questo articolo riepiloga il supporto di backup di Azure quando si usa Backup di Microsoft Azure Server (MAB) o System Center DPM per eseguire il backup delle risorse locali e delle macchine virtuali di Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: e3ca83b8a2874304521d84f6901fcb9627ce80db
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506611"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332696"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con Backup di Microsoft Azure server o System Center DPM
 
@@ -24,7 +24,7 @@ MAB si basa su System Center DPM e fornisce funzionalità simili con alcune diff
 
 - Per eseguire il server di Backup di Microsoft Azure non è necessaria alcuna licenza System Center.
 - Per gli oggetti MAB e DPM, Azure offre un'archiviazione di backup a lungo termine. DPM inoltre consente di eseguire il backup dei dati per l'archiviazione a lungo termine su nastro. Questa funzionalità non è disponibile con il server di Backup di Microsoft Azure.
-- [È possibile eseguire il backup di un server DPM primario con un server DPM secondario](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019). Il server secondario proteggerà il database del server primario e le repliche delle origini dati archiviate sul server primario. In caso di guasto del server primario, il server secondario può continuare a proteggere i carichi di lavoro protetti dal server primario, finché il server primario non sarà nuovamente disponibile.  Questa funzionalità non è disponibile con il server di Backup di Microsoft Azure.
+- [È possibile eseguire il backup di un server DPM primario con un server DPM secondario](/system-center/dpm/back-up-the-dpm-server). Il server secondario proteggerà il database del server primario e le repliche delle origini dati archiviate sul server primario. In caso di guasto del server primario, il server secondario può continuare a proteggere i carichi di lavoro protetti dal server primario, finché il server primario non sarà nuovamente disponibile.  Questa funzionalità non è disponibile con il server di Backup di Microsoft Azure.
 
 È possibile scaricare MAB dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Può essere eseguito in locale o in una macchina virtuale di Azure.
 
@@ -84,8 +84,8 @@ Backup di Azure può eseguire il backup di istanze di DPM/MAB che eseguono uno d
 --- | ---
 **Installazione** | Installare DPM/MAB in un computer con un solo scopo.<br/><br/> Non installare DPM/MAB in un controller di dominio, in un computer con l'installazione del ruolo server applicazioni, in un computer in cui è in esecuzione Microsoft Exchange Server o System Center Operations Manager o in un nodo del cluster.<br/><br/> [Esaminare tutti i requisiti di sistema di DPM](/system-center/dpm/prepare-environment-for-dpm#dpm-server).
 **Dominio** | DPM/MAB deve essere aggiunto a un dominio. Installare e quindi aggiungere DPM o il server di Backup di Microsoft Azure a un dominio. Lo spostamento di DPM o del server di Backup di Microsoft Azure in un nuovo dominio dopo la distribuzione non è supportato.
-**Archiviazione** | Modern backup storage (MBS) è supportato da DPM 2016/MAB V2 e versioni successive. Non è disponibile per il server di Backup di Microsoft Azure v1.
-**Aggiornamento del server di Backup di Microsoft Azure** | È possibile installare direttamente il server di Backup di Microsoft Azure v3 oppure eseguire l'aggiornamento dal server di Backup di Microsoft Azure v2 al server di Backup di Microsoft Azure v3. [Altre informazioni](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
+**Storage** | Modern backup storage (MBS) è supportato da DPM 2016/MAB V2 e versioni successive. Non è disponibile per il server di Backup di Microsoft Azure v1.
+**Aggiornamento del server di Backup di Microsoft Azure** | È possibile installare direttamente il server di Backup di Microsoft Azure v3 oppure eseguire l'aggiornamento dal server di Backup di Microsoft Azure v2 al server di Backup di Microsoft Azure v3. [Altre informazioni](backup-azure-microsoft-azure-backup.md#upgrade-mabs)
 **Spostamento del server di Backup di Microsoft Azure** | Se si usa MBS, è possibile spostare il server di Backup di Microsoft Azure in un nuovo server conservando l'archivio.<br/><br/> Il server deve avere lo stesso nome dell'originale. Non è possibile cambiare il nome se si intende mantenere lo stesso pool di archiviazione e usare lo stesso database del server di Backup di Microsoft Azure per archiviare i punti di ripristino dei dati.<br/><br/> È necessario un backup del database MAB perché sarà necessario ripristinarlo.
 
 ## <a name="mabs-support-on-azure-stack"></a>Supporto per il server di Backup di Microsoft Azure in Azure Stack
@@ -158,13 +158,13 @@ Nessuna connettività per più di 15 giorni | Scaduta/sottoposta a deprovisionin
 |Requisito |Dettagli |
 |---------|---------|
 |Dominio    | Il server DPM/MAB deve trovarsi in un dominio Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012.        |
-|Trust tra domini   |  DPM/MAB supporta la protezione dei dati tra foreste, a condizione che si stabilisca una relazione di trust bidirezionale a livello di foresta tra le foreste separate.   <BR><BR>   DPM/MAB può proteggere i server e le workstation tra domini, all'interno di una foresta che abbia una relazione di trust bidirezionale con il dominio del server DPM/MAB. Per proteggere i computer in gruppi di lavoro o domini non trusted, vedere [eseguire il backup e il ripristino dei carichi di lavoro in gruppi di lavoro e domini non trusted.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)  |
+|Trust tra domini   |  DPM/MAB supporta la protezione dei dati tra foreste, a condizione che si stabilisca una relazione di trust bidirezionale a livello di foresta tra le foreste separate.   <BR><BR>   DPM/MAB può proteggere i server e le workstation tra domini, all'interno di una foresta che abbia una relazione di trust bidirezionale con il dominio del server DPM/MAB. Per proteggere i computer in gruppi di lavoro o domini non trusted, vedere [eseguire il backup e il ripristino dei carichi di lavoro in gruppi di lavoro e domini non trusted.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)  |
 
 ## <a name="dpmmabs-storage-support"></a>Supporto dell'archiviazione per DPM o il server di Backup di Microsoft Azure
 
 I dati di cui viene eseguito il backup in DPM/MAB vengono archiviati nell'archiviazione su disco locale.
 
-**Archiviazione** | **Dettagli**
+**Storage** | **Dettagli**
 --- | ---
 **MBS** | Modern backup storage (MBS) è supportato da DPM 2016/MAB V2 e versioni successive. Non è disponibile per il server di Backup di Microsoft Azure v1.
 **Archiviazione del server di Backup di Microsoft Azure in una macchina virtuale di Azure** | I dati vengono archiviati nei dischi di Azure collegati alla macchina virtuale DPM/MAB e gestiti in DPM/MAB. Il numero di dischi che è possibile usare per il pool di archiviazione DPM/MAB è limitato dalle dimensioni della macchina virtuale.<br/><br/> VM a2:4 dischi; VM A3:8 dischi; VM A4:16 dischi, con una dimensione massima di 1 TB per ogni disco. Ciò determina il pool di archiviazione di backup totale disponibile.<br/><br/> La quantità di dati di cui è possibile eseguire il backup dipende dal numero e dalle dimensioni dei dischi collegati.
@@ -185,7 +185,7 @@ Per informazioni sui vari server e carichi di lavoro che è possibile proteggere
 
 ## <a name="supported-backups-to-dpm"></a>Backup in DPM supportati
 
-Per informazioni sui vari server e carichi di lavoro che è possibile proteggere con Data Protection Manager, vedere l'articolo su [cosa è possibile eseguire il backup di DPM](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
+Per informazioni sui vari server e carichi di lavoro che è possibile proteggere con Data Protection Manager, vedere l'articolo su [cosa è possibile eseguire il backup di DPM](/system-center/dpm/dpm-protection-matrix).
 
 - I carichi di lavoro del cluster sottoposti a backup da DPM/MAB devono trovarsi nello stesso dominio di DPM/MAB o in un dominio figlio o trusted.
 - È possibile usare l'autenticazione NTLM/del certificato per eseguire il backup dei dati in gruppi di lavoro o domini non attendibili.

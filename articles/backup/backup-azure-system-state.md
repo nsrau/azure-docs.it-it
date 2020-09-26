@@ -3,12 +3,12 @@ title: Eseguire il backup dello stato del sistema Windows in Azure
 description: Informazioni su come eseguire il backup dello stato del sistema dei computer Windows Server in Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ebe527ef7ddb32d46c2f39970f74b64c2594bf60
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1b3573d757d2f7b1ffec9ae718aa791488960f3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90975486"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332891"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Eseguire il backup dello stato del sistema Windows in Azure
 
@@ -38,7 +38,7 @@ Quando si crea un insieme di credenziali dei Servizi di ripristino, assicurarsi 
     ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 4. Scegliere l'opzione di replica di archiviazione appropriata per l'insieme di credenziali.
 
-    ![Opzioni di configurazione dell'archiviazione](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+    ![Opzioni di configurazione dell'archiviazione](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration-for-vault.png)
 
     Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica. Se si usa Azure come endpoint di archiviazione di backup primario, continuare a usare l'opzione **Con ridondanza geografica**. Se non si usa Azure come endpoint di archiviazione di backup primario, scegliere l'opzione **Con ridondanza locale**, che riduce i costi di archiviazione di Azure. Per altre informazioni sulle opzioni di archiviazione con ridondanza [geografica](../storage/common/storage-redundancy.md#geo-redundant-storage)e con ridondanza [locale](../storage/common/storage-redundancy.md#locally-redundant-storage) e con [ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) , vedere la [Panoramica della ridondanza di archiviazione](../storage/common/storage-redundancy.md)
 

@@ -12,19 +12,19 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 09/21/2020
-ms.openlocfilehash: f3ae5e1ef4dc2968724daeafb32f26cf445b0d2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885299"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321425"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Panoramica delle funzionalità di sicurezza del database SQL di Azure e di SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Questo articolo illustra le nozioni di base per la protezione del livello dati di un'applicazione tramite il [database SQL di Azure](sql-database-paas-overview.md) e [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md). La strategia di sicurezza descritta segue l'approccio a più livelli di difesa avanzata come illustrato nell'immagine seguente e si sposta dall'esterno in:
 
-![layer.png sicurezza SQL](./media/security-overview/sql-security-layer.png)
+![Diagramma della difesa in profondità a più livelli. I dati dei clienti sono racchiusi in livelli di sicurezza di rete, gestione dell'accesso e protezione delle minacce e delle informazioni.](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Sicurezza di rete
 
@@ -77,7 +77,7 @@ Come procedura consigliata, creare ruoli personalizzati quando necessario. Aggiu
 
 La sicurezza a livello di riga consente ai clienti di controllare l'accesso alle righe in una tabella del database in base alle caratteristiche dell'utente che esegue una query (ad esempio l'appartenenza al gruppo o il contesto di esecuzione). La sicurezza a livello di riga può essere usata anche per implementare concetti di sicurezza personalizzati basati su etichetta. Per ulteriori informazioni, vedere [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security).
 
-![rls.png di database di Azure](./media/security-overview/azure-database-rls.png)
+![Diagramma che mostra che la sicurezza a livello di riga scherma le singole righe di un database SQL dall'accesso da parte degli utenti tramite un'app client.](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Protezione dalle minacce
 
@@ -91,7 +91,7 @@ Il controllo del database SQL e di SQL Istanza gestita tiene traccia delle attiv
 
 Advanced Threat Protection sta analizzando i log per rilevare comportamenti insoliti e tentativi potenzialmente dannosi di accesso o exploit dei database. Gli avvisi vengono creati per attività sospette, ad esempio SQL injection, potenziali infiltrazione dei dati e attacchi di forza bruta o per le anomalie nei modelli di accesso per intercettare le escalation dei privilegi e l'uso delle credenziali violate. Gli avvisi vengono visualizzati dal  [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), in cui vengono forniti i dettagli delle attività sospette e le raccomandazioni per un'ulteriore analisi fornita insieme alle azioni per attenuare la minaccia. Advanced Threat Protection può essere abilitato per ogni server per un costo aggiuntivo. Per altre informazioni, vedere [Introduzione al database SQL Advanced Threat Protection](threat-detection-configure.md).
 
-![td.jpg di database di Azure](./media/security-overview/azure-database-td.jpg)
+![Diagramma che mostra il monitoraggio delle minacce SQL per l'accesso al database SQL per un'app Web da un utente malintenzionato esterno e da insider dannoso.](./media/security-overview/azure-database-td.jpg)
 
 ## <a name="information-protection-and-encryption"></a>Crittografia e protezione delle informazioni
 
@@ -122,13 +122,13 @@ Il supporto [Bring your own key](transparent-data-encryption-byok-overview.md) (
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (crittografia in uso)
 
-![ae.png di database di Azure](./media/security-overview/azure-database-ae.png)
+![Diagramma che illustra le nozioni di base della funzionalità Always Encrypted. È possibile accedere a un database SQL con blocco solo da un'app contenente una chiave.](./media/security-overview/azure-database-ae.png)
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) è una funzionalità progettata per proteggere da accessi i dati sensibili archiviati in colonne specifiche del database (ad esempio, i numeri delle carte di credito o i numeri di identificazione nazionale o dati sulla base della _necessità di conoscere_). Sono inclusi gli amministratori del database o altri utenti con privilegi che sono autorizzati ad accedere al database per eseguire attività di gestione, ma che non hanno esigenza di accedere a dati particolari nelle colonne crittografate. I dati vengono sempre crittografati, ossia i dati crittografati vengono decrittografati solo per l'elaborazione da parte di applicazioni client con accesso alla chiave di crittografia. La chiave di crittografia non viene mai esposta al database SQL o a SQL Istanza gestita e può essere archiviata nell' [archivio certificati di Windows](always-encrypted-certificate-store-configure.md) o in [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Maschera dati dinamica
 
-![ddm.png di database di Azure](./media/security-overview/azure-database-ddm.png)
+![Diagramma che mostra la maschera dati dinamica. Un'app aziendale invia dati a un database SQL che maschera i dati prima di inviarli di nuovo all'app aziendale.](./media/security-overview/azure-database-ddm.png)
 
 La maschera dati dinamica limita l'esposizione dei dati sensibili nascondendoli agli utenti senza privilegi. La maschera dati dinamica individua automaticamente dati potenzialmente sensibili nel database SQL di Azure e in SQL Istanza gestita e fornisce indicazioni utili per mascherare questi campi, con un minimo effetto sul livello dell'applicazione. Questa funzionalità si basa sull'offuscamento dei dati sensibili nel set dei risultati di una query su campi designati del database, mentre i dati del database non subiscono modifiche. Per altre informazioni, vedere [Introduzione al database SQL e alla maschera dati dinamica di sql istanza gestita](dynamic-data-masking-overview.md).
 
@@ -140,7 +140,7 @@ La maschera dati dinamica limita l'esposizione dei dati sensibili nascondendoli 
 
 ### <a name="data-discovery-and-classification"></a>Individuazione e classificazione dei dati
 
-Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure e in SQL Istanza gestita per l'individuazione, la classificazione, l'assegnazione di etichette e la protezione dei dati sensibili nei database. L'individuazione e la classificazione dei dati più sensibili (dati commerciali e finanziari, dati relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
+Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure e in SQL Istanza gestita per l'individuazione, la classificazione, l'assegnazione di etichette e la protezione dei dati sensibili nei database. L'individuazione e la classificazione dei dati più sensibili (dati commerciali e finanziari, dati relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Possono costituire l'infrastruttura per:
 
 - Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
 - Controllare l'accesso ai database che contengono dati molto sensibili e rafforzarne la sicurezza.

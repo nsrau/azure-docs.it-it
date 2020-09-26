@@ -4,13 +4,13 @@ description: Informazioni sui passaggi necessari per aggiornare il monitoraggio 
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: caaf5469eace891f2996a565af183b411ad1d740
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: aab2d1ec5a6c3e046840e736ced0993e560c4661
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938276"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333342"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Eseguire la migrazione a risorse Application Insights basate sull'area di lavoro
 
@@ -34,12 +34,11 @@ Application Insights basata sull'area di lavoro consente di sfruttare tutte le f
 
 Quando si esegue la migrazione a una risorsa basata sull'area di lavoro, nessun dato viene trasferito dall'archiviazione della risorsa classica alla nuova archiviazione basata sull'area di lavoro. Se si sceglie di eseguire la migrazione, viene invece modificato il percorso in cui vengono scritti i nuovi dati in un'area di lavoro Log Analytics mantenendo l'accesso ai dati della risorsa classica. 
 
-I dati della risorsa classica verranno mantenuti ed essere soggetti alle impostazioni di conservazione al momento dell'inserimento. Tutti i nuovi dati inseriti dopo la migrazione saranno soggetti alle impostazioni di conservazione dell'area di lavoro Log Analytics associata. 
-
+I dati della risorsa classica verranno mantenuti e saranno soggetti alle impostazioni di conservazione della risorsa di Application Insights classica. Tutti i nuovi dati inseriti dopo la migrazione saranno soggetti alle [impostazioni di conservazione](../platform/manage-cost-storage.md#change-the-data-retention-period) dell'area di lavoro log Analytics associata, che supporta anche [impostazioni di conservazione diverse in base al tipo di dati](../platform/manage-cost-storage.md#retention-by-data-type).
 Il processo di migrazione è **permanente e non può essere annullato**. Quando si esegue la migrazione di una risorsa a Application Insights basata sull'area di lavoro, sarà sempre una risorsa basata sull'area di lavoro. Tuttavia, una volta eseguita la migrazione, è possibile modificare l'area di lavoro di destinazione con la frequenza necessaria. 
 
 > [!NOTE]
-> L'inserimento e la conservazione di dati per le risorse di Application Insights basate sull'area di lavoro vengono fatturate tramite l'area di lavoro Log Analytics in cui si trovano i dati. [Altre informazioni]( ./pricing.md#workspace-based-application-insights) sulla fatturazione per le risorse di Application Insights basate sull'area di lavoro. (Classiche Application Insights i dati delle risorse inseriti prima della migrazione continueranno a rientrare in Application Insights conservazione/prezzi per la durata della conservazione dei dati). 
+> L'inserimento e la conservazione dei dati per le risorse Application Insights basate sull'area di lavoro vengono [fatturate tramite l'area di lavoro log Analytics in](../platform/manage-cost-storage.md) cui si trovano i dati. Se è stata selezionata la conservazione dei dati superiore a 90 giorni per i dati inseriti nella risorsa Application Insights classica prima della migrazione, la conservazione dei dati continuerà a essere fatturata attraverso la risorsa Application Insights. [Altre informazioni]( ./pricing.md#workspace-based-application-insights) sulla fatturazione per le risorse di Application Insights basate sull'area di lavoro.
 
 Se non è necessario eseguire la migrazione di una risorsa esistente e si vuole creare una nuova risorsa Application Insights basata sull'area di lavoro, usare la [Guida alla creazione di risorse basata sull'area di lavoro](create-workspace-resource.md).
 

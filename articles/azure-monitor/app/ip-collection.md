@@ -2,14 +2,14 @@
 title: Raccolta di indirizzi IP di applicazione Azure Insights | Microsoft Docs
 description: Informazioni su come gestire gli indirizzi IP e la georilevazione con applicazione Azure Insights
 ms.topic: conceptual
-ms.date: 09/11/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: b702494347874a1b4977179ba882490223bdf924
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.date: 09/23/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: 6131105ef78a8559b0fb95043a87e562e887ebfd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032827"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333308"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Georilevazione e gestione degli indirizzi IP
 
@@ -62,9 +62,7 @@ Per abilitare la raccolta e l'archiviazione IP, `DisableIpMasking` è necessario
 
 Se è necessario modificare solo il comportamento per una singola risorsa di Application Insights, usare il portale di Azure. 
 
-1. Passare al **Settings**  >  **modello di esportazione** delle impostazioni della risorsa Application Insights > 
-
-    ![Esporta modello](media/ip-collection/export-template.png)
+1. Passare alla risorsa Application Insights > **Automation**  >  **modello di esportazione** di automazione 
 
 2. Selezionare **Distribuisci**
 

@@ -1,34 +1,34 @@
 ---
-title: Eseguire ricerche nel contenuto di archiviazione BLOB di Azure
+title: Configurare un indicizzatore BLOB
 titleSuffix: Azure Cognitive Search
-description: Informazioni su come indicizzare i documenti nell'archivio BLOB di Azure ed estrarre il testo dai documenti con ricerca cognitiva di Azure.
+description: Configurare un indicizzatore BLOB di Azure per automatizzare l'indicizzazione del contenuto BLOB per le operazioni di ricerca full-text in Azure ricerca cognitiva.
 manager: nitinme
 author: mgottein
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2ba511d3747ba308ae04ab1bbe3dcb89bca6a8a8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/23/2020
+ms.openlocfilehash: 9fccd731cee5044b36de9a0dba4a408a9a5b9a49
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328293"
+ms.locfileid: "91355279"
 ---
-# <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Come indicizzare i documenti nell'archivio BLOB di Azure con Azure ricerca cognitiva
+# <a name="how-to-configure-a-blob-indexer-in-azure-cognitive-search"></a>Come configurare un indicizzatore BLOB in Azure ricerca cognitiva
 
-Questo articolo illustra come usare ricerca cognitiva di Azure per indicizzare i documenti, ad esempio i file PDF, i documenti Microsoft Office e diversi altri formati comuni, archiviati nell'archivio BLOB di Azure. In primo luogo, vengono illustrate le nozioni di base per l'impostazione e la configurazione di un indicizzatore BLOB. Vengono inoltre descritti in modo più dettagliato i comportamenti e gli scenari che possono verificarsi.
+Questo articolo illustra come usare ricerca cognitiva di Azure per indicizzare documenti basati su testo (ad esempio, PDF, documenti Microsoft Office e altri formati comuni) archiviati nell'archivio BLOB di Azure. In primo luogo, vengono illustrate le nozioni di base per l'impostazione e la configurazione di un indicizzatore BLOB. Vengono inoltre descritti in modo più dettagliato i comportamenti e gli scenari che possono verificarsi.
 
 <a name="SupportedFormats"></a>
 
-## <a name="supported-document-formats"></a>Formati di documento supportati
+## <a name="supported-formats"></a>Formati supportati
+
 L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## <a name="setting-up-blob-indexing"></a>Configurazione dell'indicizzazione BLOB
+## <a name="set-up-blob-indexing"></a>Configurare l'indicizzazione BLOB
 È possibile impostare un indicizzatore dell'Archiviazione BLOB di Azure usando:
 
 * [Azure portal](https://ms.portal.azure.com)
@@ -130,7 +130,7 @@ Per altre informazioni sulla definizione delle pianificazioni degli indicizzator
 
 <a name="how-azure-search-indexes-blobs"></a>
 
-## <a name="how-azure-cognitive-search-indexes-blobs"></a>Modalità di indicizzazione di BLOB in Azure ricerca cognitiva
+## <a name="how-blobs-are-indexed"></a>Modalità di indicizzazione di BLOB
 
 A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore BLOB può indicizzare solo i metadati di archiviazione, opzione utile quando si è interessati solo ai metadati e non è necessario indicizzare il contenuto dei BLOB, indicizzare i metadati del contenuto e di archiviazione o indicizzare sia i metadati che il contenuto di testo. Per impostazione predefinita, l'indicizzatore estrae sia i metadati che il contenuto.
 
@@ -170,7 +170,7 @@ In Azure ricerca cognitiva la chiave del documento identifica un documento in mo
 
 È necessario valutare attentamente di quale campo estratto eseguire il mapping al campo chiave per l'indice. I candidati sono:
 
-* **metadata\_storage\_name**: può essere un candidato valido, tuttavia è bene notare che 1) è possibile che i nomi non siano univoci, perché potrebbero esserci BLOB con lo stesso nome in cartelle diverse e 2) è possibile che il nome contenga caratteri non validi nelle chiavi dei documenti, ad esempio trattini. È possibile gestire i caratteri non validi usando la  [funzione di mapping dei campi](search-indexer-field-mappings.md#base64EncodeFunction)`base64Encode`. In questo caso, è necessario ricordarsi di codificare le chiavi dei documenti quando si passano nelle chiamate API, ad esempio in una ricerca. In .NET, ad esempio, è possibile usare il metodo [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) a tale scopo.
+* **metadata\_storage\_name**: può essere un candidato valido, tuttavia è bene notare che 1) è possibile che i nomi non siano univoci, perché potrebbero esserci BLOB con lo stesso nome in cartelle diverse e 2) è possibile che il nome contenga caratteri non validi nelle chiavi dei documenti, ad esempio trattini. È possibile gestire i caratteri non validi usando la  [funzione di mapping dei campi](search-indexer-field-mappings.md#base64EncodeFunction)`base64Encode`. In questo caso, è necessario ricordarsi di codificare le chiavi dei documenti quando si passano nelle chiamate API, ad esempio in una ricerca. In .NET, ad esempio, è possibile usare il metodo [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode) a tale scopo.
 * **metadata\_storage\_path**: l'uso del percorso completo garantisce l'univocità, ma il percorso contiene sicuramente caratteri `/` che [non sono validi nella chiave di un documento](/rest/api/searchservice/naming-rules).  Come prima, è possibile codificare le chiavi usando la  [funzione](search-indexer-field-mappings.md#base64EncodeFunction)`base64Encode`.
 * Se nessuna delle opzioni elencate è appropriata, è possibile aggiungere una proprietà di metadati personalizzati ai BLOB. Questa opzione, tuttavia, richiede che il processo di caricamento del BLOB aggiunga la proprietà dei metadati a tutti i BLOB. Poiché la chiave è una proprietà obbligatoria, tutti i BLOB privi di tale proprietà non potranno essere indicizzati.
 
@@ -231,10 +231,12 @@ In alcuni casi è necessario usare una versione codificata di un campo come meta
     }
 ```
 <a name="WhichBlobsAreIndexed"></a>
-## <a name="controlling-which-blobs-are-indexed"></a>Controllo dei BLOB da indicizzare
+## <a name="index-by-file-type"></a>Indice per tipo di file
+
 È possibile controllare quali BLOB vengono indicizzati e quali vengono ignorati.
 
-### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indicizzare solo i BLOB con estensioni di file specifiche
+### <a name="include-blobs-having-specific-file-extensions"></a>Includi BLOB con estensioni di file specifiche
+
 È possibile indicizzare solo i BLOB con le estensioni di file specificate tramite il parametro di configurazione dell'indicizzatore `indexedFileNameExtensions`. Il valore è una stringa contenente un elenco delimitato da virgole di estensioni di file (precedute da un punto). Ad esempio, per indicizzare solo i BLOB .PDF e .DOCX eseguire questa operazione:
 
 ```http
@@ -248,7 +250,8 @@ In alcuni casi è necessario usare una versione codificata di un campo come meta
     }
 ```
 
-### <a name="exclude-blobs-with-specific-file-extensions"></a>Escludere BLOB con estensioni di file specifiche
+### <a name="exclude-blobs-having-specific-file-extensions"></a>Escludere BLOB con estensioni di file specifiche
+
 È possibile escludere dall'indicizzazione i BLOB con estensioni di file specifiche usando il parametro di configurazione `excludedFileNameExtensions`. Il valore è una stringa contenente un elenco delimitato da virgole di estensioni di file (precedute da un punto). Ad esempio, per indicizzare tutti i BLOB ad eccezione di quelli con le estensioni .PNG e .JPEG eseguire questa operazione:
 
 ```http
@@ -265,7 +268,7 @@ In alcuni casi è necessario usare una versione codificata di un campo come meta
 Se `indexedFileNameExtensions` `excludedFileNameExtensions` sono presenti entrambi i parametri e, Azure ricerca cognitiva esamina prima di tutto `indexedFileNameExtensions` , quindi all'indirizzo `excludedFileNameExtensions` . Ciò significa che se la stessa estensione di file è presente in entrambi gli elenchi, verrà esclusa dall'indicizzazione.
 
 <a name="PartsOfBlobToIndex"></a>
-## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Controllo delle parti di BLOB da indicizzare
+## <a name="index-parts-of-a-blob"></a>Indicizzare parti di un BLOB
 
 Il parametro di configurazione `dataToExtract` permette di controllare quali parti dei BLOB vengono indicizzate. I valori possibili sono i seguenti:
 
@@ -296,7 +299,8 @@ I parametri di configurazione descritti in precedenza si applicano a tutti i BLO
 | AzureSearch_SkipContent |"true" |Equivale all'impostazione `"dataToExtract" : "allMetadata"` descritta [in precedenza](#PartsOfBlobToIndex) nell'ambito di un BLOB specifico. |
 
 <a name="DealingWithErrors"></a>
-## <a name="dealing-with-errors"></a>Gestione degli errori
+
+## <a name="handle-errors"></a>Gestire gli errori
 
 Per impostazione predefinita, l'indicizzatore BLOB viene arrestato non appena viene rilevato un BLOB con un tipo di contenuto non supportato, ad esempio un'immagine. Naturalmente, è possibile usare il parametro `excludedFileNameExtensions` per ignorare determinati tipi di contenuto. Potrebbe tuttavia essere necessario indicizzare BLOB senza conoscere in anticipo tutti i tipi di contenuto possibili. Per continuare l'indicizzazione quando viene rilevato un tipo di contenuto non supportato, impostare il parametro di configurazione `failOnUnsupportedContentType` su `false`:
 
@@ -466,7 +470,7 @@ Per impostazione predefinita, verrà utilizzata la codifica `UTF-8`. Per specifi
 ## <a name="content-type-specific-metadata-properties"></a>Proprietà di metadati specifiche del tipo di contenuto
 La tabella seguente riepiloga l'elaborazione eseguita per ogni formato di documento e descrive le proprietà dei metadati estratte da Azure ricerca cognitiva.
 
-| Formato documento/tipo di contenuto | Proprietà di metadati specifiche del tipo di contenuto | Dettagli elaborazione |
+| Formato documento/tipo di contenuto | Metadati estratti | Dettagli elaborazione |
 | --- | --- | --- |
 | HTML (testo/HTML) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Rimozione del markup HTML ed estrazione del testo |
 | PDF (applicazione/PDF) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Estrazione del testo, inclusi i documenti incorporati (escluse le immagini) |

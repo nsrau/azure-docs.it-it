@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 8033e64924b5faa1cfdc9c04cdd8711850185dca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74fc317dbb97c14c27e6355e100a6e6b5e767363
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195454"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333019"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>Agente di sincronizzazione dati per sincronizzazione dati SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -96,7 +96,7 @@ Se si vuole eseguire l'agente locale da un computer diverso da quello corrente, 
 
 - [L'app dell'agente di sincronizzazione locale non riesce a connettersi al servizio di sincronizzazione locale](#agent-connect)
 
-### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a>L'installazione, la disinstallazione o la riparazione dell'agente client non riesce
+### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a> L'installazione, la disinstallazione o la riparazione dell'agente client non riesce
 
 - **Causa**. Molti scenari potrebbero causare questo errore. Per determinare la causa specifica di questo errore, analizzare i log.
 
@@ -118,7 +118,7 @@ L'agente client non funziona, anche dopo che è stata annullata la disinstallazi
     -   Usare services.msc per immettere di nuovo le credenziali per l'agente client.
     -   Disinstallare questo agente client e installarne uno nuovo. Scaricare e installare l'agente client più recente dall'[Area download](https://www.microsoft.com/download/details.aspx?id=27693).
 
-### <a name="my-database-isnt-listed-in-the-agent-list"></a><a name="agent-list"></a>Il database non è elencato nell'elenco degli agenti
+### <a name="my-database-isnt-listed-in-the-agent-list"></a><a name="agent-list"></a> Il database non è elencato nell'elenco degli agenti
 
 Quando si prova ad aggiungere un database di SQL Server a un gruppo di sincronizzazione, il database non è presente nell'elenco di agenti.
 
@@ -148,7 +148,7 @@ Si scopre che l'agente è in esecuzione in un computer che ospita SQL Server. Qu
 - **Risoluzione**. Aggiornare la password dell'agente alla password del server corrente:
 
   1. Individuare il servizio agente client di sincronizzazione dati SQL.  
-    a. Selezionare **Start**.  
+    a. Selezionare **Inizio**.  
     b. Immettere **services.msc** nella casella di ricerca.  
     c. Nei risultati della ricerca fare clic su **Servizi**.  
     d. Nella finestra **Servizi** scorrere fino alla voce **SQL Data Sync Agent** (Agente di sincronizzazione dati SQL).  
@@ -208,7 +208,7 @@ Se un endpoint locale, ovvero un database, registrato con un agente client di si
 > [!NOTE]
 > Se dopo una eliminazione forzata le tabelle di metadati di sincronizzazione sono ancora presenti, usare `deprovisioningutil.exe` per pulirle.
 
-### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a>L'app dell'agente di sincronizzazione locale non è in grado di connettersi al servizio di sincronizzazione locale
+### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a> L'app dell'agente di sincronizzazione locale non è in grado di connettersi al servizio di sincronizzazione locale
 
 - **Risoluzione**. Attenersi alla procedura seguente:
 
@@ -226,7 +226,7 @@ Se un endpoint locale, ovvero un database, registrato con un agente client di si
 
 ### <a name="ping-the-service"></a>Eseguire il ping del servizio
 
-#### <a name="usage"></a>Utilizzo
+#### <a name="usage"></a>Uso
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action pingsyncservice
@@ -240,7 +240,7 @@ SqlDataSyncAgentCommand.exe -action "pingsyncservice"
 
 ### <a name="display-registered-databases"></a>Visualizzare i database registrati
 
-#### <a name="usage"></a>Utilizzo
+#### <a name="usage"></a>Uso
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action displayregistereddatabases
@@ -254,7 +254,7 @@ SqlDataSyncAgentCommand.exe -action "displayregistereddatabases"
 
 ### <a name="submit-the-agent-key"></a>Inviare la chiave dell'agente
 
-#### <a name="usage"></a>Utilizzo
+#### <a name="usage"></a>Uso
 
 ```cmd
 Usage: SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key]  -username [user name] -password [password]
@@ -268,7 +268,7 @@ SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key generate
 
 ### <a name="register-a-database"></a>Registrare un database
 
-#### <a name="usage"></a>Utilizzo
+#### <a name="usage"></a>Uso
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
@@ -287,7 +287,7 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 
 Quando si usa questo comando per annullare la registrazione di un database, si effettua il deprovisioning completo del database. Se il database fa parte di altri gruppi di sincronizzazione, questa operazione li interrompe.
 
-#### <a name="usage"></a>Utilizzo
+#### <a name="usage"></a>Uso
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action unregisterdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]
@@ -301,7 +301,7 @@ SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -
 
 ### <a name="update-credentials"></a>Aggiornare le credenziali
 
-#### <a name="usage"></a>Utilizzo
+#### <a name="usage"></a>Uso
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action updatecredential -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]

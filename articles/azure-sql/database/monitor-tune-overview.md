@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 6e17e2a6e5c9151080facc3a2dd8c1a18c0580fe
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 36a1be4f802292e62c98098508927b06a5851afa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982169"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333087"
 ---
-# <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitoraggio e ottimizzazione delle prestazioni nel database SQL di Azure e Istanza gestita SQL di Azure
+# <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitoraggio e ottimizzazione delle prestazioni del database SQL di Azure e di Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Per monitorare le prestazioni di un database nel database SQL di Azure e Istanza gestita di Azure SQL, iniziare monitorando le risorse di CPU e i/o usate dal carico di lavoro in relazione al livello di prestazioni del database scelto per la selezione di un livello di servizio e di prestazioni specifico. A tale scopo, il database SQL di Azure e Azure SQL Istanza gestita emettono metriche delle risorse che possono essere visualizzate nella portale di Azure o usando uno di questi strumenti di gestione SQL Server: [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).

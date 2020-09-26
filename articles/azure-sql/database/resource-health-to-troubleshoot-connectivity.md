@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: 27865afd356be9eac64083c1ebdeb6ced43dbd18
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8be537fd28adce45b7fc106cc3798688ee4c54ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986943"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321578"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Usare Integrità risorse per risolvere i problemi di connettività per il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,7 +39,7 @@ Lo stato **disponibile** indica che integrità risorse non ha rilevato errori di
 
 ### <a name="degraded"></a>Degraded
 
-Uno stato ridotto **indica che** integrità risorse ha rilevato la maggior parte degli accessi riusciti, ma anche alcuni errori. Si tratta con ogni probabilità di errori di accesso temporanei. Per ridurre l'effetto dei problemi di connessione causati da errori di accesso temporanei, implementare la [logica di ripetizione dei tentativi](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) nel codice.
+Lo stato **Danneggiato** indica che Integrità risorse ha rilevato una maggioranza di accessi riusciti, ma anche alcuni accessi non riusciti. Si tratta con ogni probabilità di errori di accesso temporanei. Per ridurre l'effetto dei problemi di connessione causati da errori di accesso temporanei, implementare la [logica di ripetizione dei tentativi](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) nel codice.
 
 ![Degraded](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-degraded.jpg)
 

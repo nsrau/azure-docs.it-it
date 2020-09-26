@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de41d9c1dc69726f5f7f031616462b2d1d330476
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040583"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333189"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Controllo per il database SQL di Azure e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -119,7 +119,7 @@ Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analy
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-Per altre informazioni sulle aree di lavoro dei log di monitoraggio di Azure, vedere [progettazione della distribuzione dei log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
+Per altri dettagli sull'area di lavoro Log Analytics di monitoraggio di Azure, vedere [progettazione della distribuzione dei log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Controllare la destinazione dell'hub eventi
 
@@ -150,7 +150,7 @@ Se si sceglie di scrivere i log di controllo nei log di monitoraggio di Azure:
     ![Informazioni dettagliate sulla sicurezza Log Analytics](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
 - In alternativa, è possibile accedere anche i log di controllo dal pannello Log Analytics. Aprire l'area di lavoro Log Analytics e nella sezione **generale** fare clic su **log**. È possibile iniziare con una query semplice, ad esempio: *cercare "SQLSecurityAuditEvents"* per visualizzare i log di controllo.
-    Da qui è anche possibile usare i [log di monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md) per eseguire ricerche avanzate sui dati del log di controllo. Log di Monitoraggio di Azure consente di ottenere informazioni operative in tempo reale tramite funzionalità di ricerca integrate e dashboard personalizzati per analizzare rapidamente milioni di record in tutti i carichi di lavoro e i server. Per altre informazioni utili sul linguaggio di ricerca e i comandi di Log di Monitoraggio di Azure, vedere [Guida di riferimento alla ricerca in Log di Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
+    Da qui è anche possibile usare i [log di monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md)  per eseguire ricerche avanzate sui dati del log di controllo. Log di Monitoraggio di Azure consente di ottenere informazioni operative in tempo reale tramite funzionalità di ricerca integrate e dashboard personalizzati per analizzare rapidamente milioni di record in tutti i carichi di lavoro e i server. Per altre informazioni utili sul linguaggio di ricerca e i comandi di Log di Monitoraggio di Azure, vedere [Guida di riferimento alla ricerca in Log di Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
 
 Se si sceglie di scrivere i log di controllo su Hub eventi:
 

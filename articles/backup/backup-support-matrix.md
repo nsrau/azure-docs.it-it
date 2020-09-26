@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 94a795ad91be1d648ad025287f5c5bc6f1d8d07e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d9da2ee893244afc7150ab6249dbe51845d5d0c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332713"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -39,6 +39,7 @@ Nella tabella seguente vengono descritte le funzioni dell'insieme di credenziali
 **Spostamento di insiemi di credenziali** | È possibile [spostare insiemi di credenziali](./backup-azure-move-recovery-services-vault.md) fra sottoscrizioni o fra gruppi di risorse nella stessa sottoscrizione. Tuttavia, lo spostamento di insiemi di credenziali tra aree non è supportato.
 **Spostamento dei dati tra insiemi di credenziali** | Lo spostamento di dati sottoposti a backup tra insiemi di credenziali non è supportato.
 **Modifica del tipo di archiviazione dell'insieme di credenziali** | È possibile modificare il tipo di replica di archiviazione (archiviazione con ridondanza geografica o archiviazione con ridondanza locale) per un insieme di credenziali prima che vengano archiviati i backup. Dopo l'avvio dei backup nell'insieme di credenziali, il tipo di replica non può essere modificato.
+**Archiviazione con ridondanza della zona (ZRS)** | Disponibile nelle aree Regno Unito meridionale (UKS) e South Asia orientale (SEA).
 
 ## <a name="on-premises-backup-support"></a>Supporto del backup in locale
 
@@ -150,9 +151,9 @@ Backup di Azure ha aggiunto la funzionalità di ripristino tra aree per rafforza
 | Tipo di gestione di backup | Supportato                                                    | Aree supportate |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Macchina virtuale di Azure               | Sì.   Supportato per VM e VM crittografate con meno di 4 TB di dischi | Tutte le aree pubbliche e i cloud sovrani di Azure.  |
-| SQL/SAP HANA | Sì                                                          | Tutte le aree pubbliche e i cloud sovrani di Azure.             |
+| SQL/SAP HANA | Sì                                                          | Stati Uniti occidentali 2 (WUS2), Stati Uniti centro-occidentali (WCUS), Canada centrale (CNC), Canada orientale (cloud ed Enterprise), Stati Uniti orientali (EUS), Stati Uniti occidentali (WUS), Giappone orientale (JPE), Giappone orientale (JPE) |
 | Agente MARS/locale  | No                                                           | N/D               |
-| AFS                    | No                                                           | N/D               |
+| AFS (condivisioni file di Azure)                 | No                                                           | N/D               |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

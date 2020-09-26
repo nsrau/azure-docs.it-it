@@ -1,6 +1,6 @@
 ---
 title: Estensione VM Snapshot Linux per Backup di Azure
-description: Effettuare un backup coerente dell'applicazione della macchina virtuale da Azure Backup usando l'estensione di VM Snapshot
+description: Eseguire il backup coerente con l'applicazione della macchina virtuale da backup di Azure usando l'estensione Linux snapshot VM.
 services: backup, virtual-machines-linux
 documentationcenter: ''
 author: trinadhkotturu
@@ -10,12 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: d0ad54c19749d670f9ab753e1e6d8eb130475ffc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fe50388e2fc21c28ca1f04035cc7c725e4f87ec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79415109"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275048"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Estensione VM Snapshot Linux per Backup di Azure
 

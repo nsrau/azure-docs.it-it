@@ -3,12 +3,12 @@ title: Come creare e gestire DHCP
 description: Questo articolo illustra come gestire DHCP in una soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ba7c3983f55ed729c77d2f24d3ef311a00522148
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 2c059918f57b7f01058a031f1bf281b243855661
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332832"
 ---
 # <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Come creare e gestire DHCP in una soluzione VMWare di Azure
 
@@ -24,7 +24,7 @@ Da gestione NSX, passare alla scheda **rete** e selezionare **DHCP** in **Gestio
 
 ### <a name="connect-dhcp-server-to-the-tier-1-gateway"></a>Connettere il server DHCP al gateway di primo livello.
 
-1. Selezionare **gateway di livello 1**, selezionare il gateway e scegliere **modifica** .
+1. Selezionare **gateway di livello 1**, gateway e quindi selezionare **modifica** .
 
    :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Selezionare il gateway da usare" border="true":::
 
@@ -56,7 +56,7 @@ Dopo aver creato il server DHCP, è necessario aggiungervi segmenti di rete.
 
 ## <a name="create-dhcp-relay-service"></a>Crea servizio di inoltro DHCP
 
-1. Nella finestra NSX-T Selezionare la scheda **rete** e in **gestione IP**Selezionare **DHCP**. Selezionare **Aggiungi server**. Scegliere inoltro DHCP per il **tipo di server** e immettere il nome del server e l'indirizzo IP per il server di inoltro. Fare clic su **Salva** per salvare le modifiche.
+1. Nella finestra NXT-T Selezionare la scheda **rete** e in **gestione IP**Selezionare **DHCP**. Selezionare **Aggiungi server**. Scegliere inoltro DHCP per il **tipo di server** e immettere il nome del server e l'indirizzo IP per il server di inoltro. Fare clic su **Salva** per salvare le modifiche.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Crea server di inoltro DHCP" border="true":::
 

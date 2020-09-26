@@ -3,12 +3,12 @@ title: Risolvere i problemi di SQL Server backup del database
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: c81230a5b32ddb1487bf59e8e43dbb96328d8620
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: f215b848bedae333979f0fed8eb7f216fb6e25f4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89513967"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332781"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -130,7 +130,7 @@ In alcuni casi, è possibile che si verifichino errori casuali nelle operazioni 
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non può essere usato per arrestare in un punto nel tempo arbitrario in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non può essere usato per arrestare in un punto nel tempo arbitrario in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](/sql/relational-databases/backup-restore/recovery-models-sql-server)
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -172,7 +172,7 @@ L'operazione è bloccata perché l'insieme di credenziali ha raggiunto il limite
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-La macchina virtuale non è in grado di contattare il servizio backup di Azure a causa di problemi di connettività Internet. | Per la macchina virtuale è necessaria la connettività in uscita al servizio backup di Azure, archiviazione di Azure o servizi Azure Active Directory.| -Se si usa NSG per limitare la connettività, è necessario usare il tag del servizio AzureBackup per consentire l'accesso in uscita al servizio backup di Azure, all'archiviazione di Azure o ai servizi Azure Active Directory. Per concedere l'accesso, seguire questa [procedura](./backup-sql-server-database-azure-vms.md#nsg-tags) .<br>-Assicurarsi che DNS stia risolvendo gli endpoint di Azure.<br>-Verificare se la macchina virtuale si trova dietro un servizio di bilanciamento del carico che blocca l'accesso a Internet. Assegnando un indirizzo IP pubblico alle macchine virtuali, l'individuazione funzionerà.<br>-Verificare che non esistano firewall/antivirus/proxy che bloccano le chiamate ai tre servizi di destinazione precedenti.
+La macchina virtuale non è in grado di contattare il servizio backup di Azure a causa di problemi di connettività Internet. | Per la macchina virtuale è necessaria la connettività in uscita al servizio backup di Azure, archiviazione di Azure o servizi Azure Active Directory.| -Se si usa NSG per limitare la connettività, è necessario usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita al servizio backup di Azure e allo stesso modo per i servizi di Azure ad (*AzureActiveDirectory*) e archiviazione di Azure (*archiviazione*). Per concedere l'accesso, seguire questa [procedura](./backup-sql-server-database-azure-vms.md#nsg-tags) .<br>-Assicurarsi che DNS stia risolvendo gli endpoint di Azure.<br>-Verificare se la macchina virtuale si trova dietro un servizio di bilanciamento del carico che blocca l'accesso a Internet. Assegnando un indirizzo IP pubblico alle macchine virtuali, l'individuazione funzionerà.<br>-Verificare che non esistano firewall/antivirus/proxy che bloccano le chiamate ai tre servizi di destinazione precedenti.
 
 ## <a name="re-registration-failures"></a>Errori di ripetizione della registrazione
 

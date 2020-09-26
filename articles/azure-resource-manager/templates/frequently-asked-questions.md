@@ -2,21 +2,21 @@
 title: Domande frequenti sul modello ARM
 description: Domande frequenti sui modelli Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327260"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333121"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Domande frequenti sui modelli ARM
 
 Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure Resource Manager (ARM).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 * **Che cosa sono i modelli ARM e perché è consigliabile usarli?**
 
@@ -88,7 +88,7 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
 * **Ho sentito dire che stai lavorando a un nuovo linguaggio del modello. Dove è possibile reperire ulteriori informazioni?**
 
-  Per informazioni sul nuovo linguaggio del modello, [iscriversi per le notifiche](https://aka.ms/armLangUpdates).
+  Per visualizzare l'anteprima del nuovo linguaggio, vedere [Project bicipit repository](https://github.com/Azure/bicep). Per rimanere sempre aggiornati sulla nuova lingua, [iscriversi per le notifiche](https://aka.ms/armLangUpdates).
 
 * **È previsto un piano per supportare la creazione di modelli in YAML?**
 
@@ -118,7 +118,7 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
 * **Le specifiche di modello possono essere condivise tra le sottoscrizioni?**
 
-  Sì, possono essere usate tra le sottoscrizioni, purché l'utente disponga dell'accesso in lettura alla specifica del modello. non è possibile usare le specifiche dei modelli tra i tenant.
+  Sì, possono essere usate tra le sottoscrizioni, purché l'utente disponga dell'accesso in lettura alla specifica del modello. Le specifiche del modello non possono essere usate tra i tenant.
 
 ## <a name="scripts-in-templates"></a>Script nei modelli
 
@@ -154,7 +154,7 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
 * **Quando si usa simulazione, vengono visualizzate le modifiche apportate alle proprietà che non sono presenti nel modello. Si tratta di un "rumore" previsto?**
 
-  Cosa-se è in anteprima. Stiamo lavorando per ridurre il rumore. Per contribuire a migliorare inviando i problemi nel repository GitHub, vedere:https://aka.ms/WhatIfIssues
+  Cosa-se è in anteprima. Stiamo lavorando per ridurre il rumore. Per contribuire a migliorare inviando i problemi nel repository GitHub, vedere: https://aka.ms/WhatIfIssues
 
 ## <a name="template-visualizer"></a>Visualizzatore modelli
 
@@ -174,7 +174,7 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
 * **Si è ricevuto un errore relativo al limite di 800 distribuzioni nella cronologia di distribuzione. Cosa dovrei fare?**
 
-  Si sta cambiando il modo in cui viene mantenuta la cronologia di distribuzione per un gruppo di risorse. In passato era necessario eliminare manualmente le distribuzioni da questa cronologia per evitare questo errore. A partire da giugno 2020, verranno eliminate automaticamente le distribuzioni dalla cronologia Man seconda del limite. Per altre informazioni, vedere [eliminazioni automatiche dalla cronologia di distribuzione](deployment-history-deletions.md).
+  Si sta cambiando il modo in cui viene mantenuta la cronologia di distribuzione per un gruppo di risorse. In passato era necessario eliminare manualmente le distribuzioni da questa cronologia per evitare questo errore. A partire da giugno 2020, verranno eliminate automaticamente le distribuzioni dalla cronologia Man seconda del limite. Per alter informazioni, vedere [Eliminazioni automatiche dalla cronologia delle distribuzioni](deployment-history-deletions.md).
 
   L'eliminazione di una distribuzione dalla cronologia non influisce sulle risorse distribuite.
 

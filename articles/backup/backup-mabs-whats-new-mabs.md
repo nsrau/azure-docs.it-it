@@ -3,12 +3,12 @@ title: Novità del server di Backup di Microsoft Azure
 description: Il server di Backup di Microsoft Azure offre funzionalità avanzate di backup per la protezione di macchine virtuali, file e cartelle, carichi di lavoro e altro ancora.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: ca06e52c81b909bb19008fdccfe4b3fdeb7e6248
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 39050d0f658e29b82f270f1fe53026e2fb80bfa1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182140"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332764"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Novità di Backup di Microsoft Azure Server (MAB)
 
@@ -23,7 +23,7 @@ Backup di Microsoft Azure Server (MAB) versione 3 UR1 è l'aggiornamento più re
 
 In MAB V2 è stato introdotto [Modern backup storage](backup-mabs-add-storage.md) (MBS), che migliora l'utilizzo e le prestazioni dello spazio di archiviazione. MBS usa ReFS come file system sottostante ed è progettato l'uso dell'archiviazione ibrida come l'archiviazione a livelli.
 
-Per ottenere scalabilità e prestazioni per MB è consigliabile usare una piccola percentuale (4% di archiviazione complessiva) di archiviazione Flash (SSD) con MAB V3 UR1 come volume a livelli in combinazione con l'archiviazione HDD di DPM. MAB V3 UR1 con archiviazione a livelli offre backup del 50-70% più veloci. Vedere l'articolo su DPM [configurare MBS con archiviazione a livelli](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) per i passaggi necessari per configurare l'archiviazione a livelli.
+Per ottenere scalabilità e prestazioni per MB è consigliabile usare una piccola percentuale (4% di archiviazione complessiva) di archiviazione Flash (SSD) con MAB V3 UR1 come volume a livelli in combinazione con l'archiviazione HDD di DPM. MAB V3 UR1 con archiviazione a livelli offre backup del 50-70% più veloci. Vedere l'articolo su DPM [configurare MBS con archiviazione a livelli](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage) per i passaggi necessari per configurare l'archiviazione a livelli.
 
 ### <a name="support-for-refs-volumes"></a>Supporto per i volumi ReFS
 
