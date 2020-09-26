@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 85a54ce7c8b3beea102fad7c3adb58f92c8574dd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907940"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372596"
 ---
 # <a name="import-data-module"></a>Modulo Import Data
 
@@ -56,7 +56,7 @@ Se i dati di origine cambiano, è possibile aggiornare il set di dati e aggiunge
 
 1. Selezionare **origine dati**e scegliere il tipo di origine dati. Potrebbe essere HTTP o archivio dati.
 
-    Se si sceglie archivio dati, è possibile selezionare gli archivi dati esistenti che sono già stati registrati nell'area di lavoro di Azure Machine Learning o creare un nuovo archivio dati. Definire quindi il percorso dei dati da importare nell'archivio dati. È possibile esplorare facilmente il percorso facendo clic su **Esplora percorso** ![ Import-Data-Path](media/module/import-data-path.png)
+    Se si sceglie archivio dati, è possibile selezionare gli archivi dati esistenti che sono già stati registrati nell'area di lavoro di Azure Machine Learning o creare un nuovo archivio dati. Definire quindi il percorso dei dati da importare nell'archivio dati. Per esplorare facilmente il percorso, fare clic su **Sfoglia percorso** ![ screenshot per visualizzare il collegamento Esplora percorso che consente di aprire la finestra di dialogo Selezione percorso.](media/module/import-data-path.png)
 
 1. Selezionare lo schema di anteprima per filtrare le colonne che si desidera includere. È anche possibile definire impostazioni avanzate come delimitatore nelle opzioni di analisi.
 

@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434232"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370879"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
 
@@ -53,7 +53,7 @@ Dopo aver identificato il collo di bottiglia del flusso di dati, usare le strate
 
 La scheda **optimize (Ottimizza** ) contiene le impostazioni per configurare lo schema di partizionamento del cluster Spark. Questa scheda esiste in ogni trasformazione del flusso di dati e specifica se si desidera ripartizionare i dati **dopo** il completamento della trasformazione. La regolazione del partizionamento consente di controllare la distribuzione dei dati tra i nodi di calcolo e le ottimizzazioni di località dei dati che possono avere effetti positivi e negativi sulle prestazioni complessive del flusso di dati.
 
-![Optimize](media/data-flow/optimize.png "Ottimizzazione") (Ottimizza)
+![Screenshot mostra la scheda Ottimizza, che include l'opzione di partizione, il tipo di partizione e il numero di partizioni.](media/data-flow/optimize.png)
 
 Per impostazione predefinita, è selezionata l'opzione *Usa il partizionamento corrente* che indica Azure Data Factory Mantieni il partizionamento dell'output corrente della trasformazione. Poiché i dati di ripartizionamento richiedono tempo, nella maggior parte degli scenari è consigliabile *utilizzare il partizionamento corrente* . Scenari in cui potrebbe essere necessario ripartizionare i dati, tra cui aggregazioni e join che dipendono in modo significativo i dati o quando si usa il partizionamento di origine in un database SQL.
 

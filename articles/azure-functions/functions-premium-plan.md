@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
 ms.custom: references_regions
-ms.openlocfilehash: 4f6e2008cad66ce7cd68016d3873ecbc18b1961c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: a650c6d5aeea28e800b1a4ce9db325a52d60d5cc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145751"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372222"
 ---
 # <a name="azure-functions-premium-plan"></a>Piano Premium di funzioni di Azure
 
@@ -139,15 +139,17 @@ Di seguito sono riportati i valori di scalabilità orizzontale massimi attualmen
 
 Vedere la disponibilità completa a livello di area delle funzioni qui: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
-|Area| Windows | Linux |
+|Region| Windows | Linux |
 |--| -- | -- |
-|Australia centrale| 20 | Non disponibile |
-|Australia centrale 2| 20 | Non disponibile |
+|Australia centrale| 100 | Non disponibile |
+|Australia centrale 2| 100 | Non disponibile |
 |Australia orientale| 100 | 20 |
 |Australia sud-orientale | 100 | 20 |
-|Brasile meridionale| 60 | 20 |
+|Brasile meridionale| 100 | 20 |
 |Canada centrale| 100 | 20 |
 |Stati Uniti centrali| 100 | 20 |
+|Cina orientale 2| 100 | 20 |
+|Cina settentrionale 2| 100 | 20 |
 |Asia orientale| 100 | 20 |
 |Stati Uniti orientali | 100 | 20 |
 |Stati Uniti orientali 2| 100 | 20 |
@@ -156,19 +158,26 @@ Vedere la disponibilità completa a livello di area delle funzioni qui: [Azure.c
 |Giappone orientale| 100 | 20 |
 |Giappone occidentale| 100 | 20 |
 |Corea centrale| 100 | 20 |
+|Corea meridionale| Non disponibile | 20 |
 |Stati Uniti centro-settentrionali| 100 | 20 |
 |Europa settentrionale| 100 | 20 |
-|Norvegia orientale| 20 | 20 |
+|Norvegia orientale| 100 | 20 |
 |Stati Uniti centro-meridionali| 100 | 20 |
 |India meridionale | 100 | Non disponibile |
 |Asia sud-orientale| 100 | 20 |
+|Svizzera settentrionale| 100 | Non disponibile |
+|Svizzera occidentale| 100 | Non disponibile |
 |Regno Unito meridionale| 100 | 20 |
 |Regno Unito occidentale| 100 | 20 |
+|USGov Arizona| 100 | 20 |
+|USGov Virginia| 100 | 20 |
+|USNat est| 100 | Non disponibile |
+|USNat ovest| 100 | Non disponibile |
 |Europa occidentale| 100 | 20 |
 |India occidentale| 100 | 20 |
-|Stati Uniti centro-occidentali| 20 | 20 |
+|Stati Uniti centro-occidentali| 100 | 20 |
 |Stati Uniti occidentali| 100 | 20 |
-|West US 2| 100 | 20 |
+|Stati Uniti occidentali 2| 100 | 20 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

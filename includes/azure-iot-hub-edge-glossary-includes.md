@@ -4,14 +4,14 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: dobett
-ms.openlocfilehash: 30b8facfef6d90a444bd61d0ce041ed7dfef324e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b478775aa572ce89f3dcdc6f28ee0418e818d99
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82132249"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376562"
 ---
-## <a name="automatic-device-management"></a>Gestione automatica dei dispositivi
+## <a name="automatic-device-management-in-azure-iot-hub"></a>Gestione automatica dei dispositivi nell'hub Azure
 La gestione automatica dei dispositivi nell'hub IoT di Azure consente di automatizzare molte attività ripetitive e complesse di gestione di un numero elevato di dispositivi nel loro intero ciclo di vita. La gestione automatica dei dispositivi consente di gestire un insieme di dispositivi in base alle proprietà, definire la configurazione desiderata e permette all'hub IoT di aggiornare i dispositivi quando rientrano nell'ambito.  Si compone delle [configurazioni automatiche del dispositivo](../articles/iot-hub/iot-hub-auto-device-config.md) e delle [distribuzioni automatiche di IoT Edge](../articles/iot-edge/how-to-deploy-at-scale.md).
 
 ## <a name="iot-edge"></a>IoT Edge

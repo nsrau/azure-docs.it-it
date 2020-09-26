@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: a6543c56f7170f674a227421575ba7f842fb29a8
-ms.sourcegitcommit: 4ce82b6df65ebd81157b6168d3aa4e7323355022
+ms.openlocfilehash: 221039ad1dc30e645d98ba6dd7e79c7b81ba3430
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90761530"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313060"
 ---
 # <a name="tutorial-configure-apple-school-manager-for-automatic-user-provisioning"></a>Esercitazione: configurare Apple School Manager per il provisioning utenti automatico
 
@@ -159,7 +159,8 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 * [Eliminare gli account di Azure AD visualizzati in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apdaa5798fbe)
 * [Visualizzare l'attività SCIM in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apd1bfd8dfde)
 * [Gestire le connessioni e il token SCIM esistenti in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apdc9a823611)
-* [Disconnettere la connessione scim in Apple School Manager gestire il](URL=https://support.apple.com/guide/apple-school-manager/apd609be3a61)[token scim e le connessioni esistenti in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apdc9a8236e9)
+* [Disconnettere la connessione SCIM in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apd609be3a61)
+* [Gestire le connessioni e il token SCIM esistenti in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apdc9a8236e9)
 * [Risoluzione dei problemi relativi alla connessione SCIM in Apple School Manager](URL=https://support.apple.com/guide/apple-school-manager/apd403a0f3bd)
 
 ## <a name="next-steps"></a>Passaggi successivi

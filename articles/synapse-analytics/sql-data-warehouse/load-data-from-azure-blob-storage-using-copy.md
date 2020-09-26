@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 67392f965b3fddec7fc7a03bd328a224dad42208
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442982"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371525"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Esercitazione: caricare il set di dati del taxi di New York
 
@@ -58,7 +58,7 @@ Per creare un database vuoto, seguire questa procedura.
 
    | Impostazione            | Valore consigliato       | Descrizione                                                  |
    | ------------------ | --------------------- | ------------------------------------------------------------ |
-   | *Nome**            | mySampleDataWarehouse | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
+   | *Name**            | mySampleDataWarehouse | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
    | **Sottoscrizione**   | Sottoscrizione in uso     | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
    | **Gruppo di risorse** | myResourceGroup       | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
    | **Seleziona origine**  | Database vuoto        | Specificare che venga creato un database vuoto. Si noti che un data warehouse è un tipo di database. |
@@ -91,7 +91,7 @@ Per creare un database vuoto, seguire questa procedura.
 
 11. Per monitorare il processo di distribuzione, selezionare **Notifiche** sulla barra degli strumenti.
   
-     ![notifica](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+     ![Screenshot mostra la portale di Azure con il riquadro Notifiche aperto con la distribuzione in corso.](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Creare una regola del firewall a livello di server
 

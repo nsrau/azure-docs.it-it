@@ -3,12 +3,12 @@ title: Operazioni del piano di controllo e del piano dati
 description: Descrive la differenza tra le operazioni del piano di controllo e del piano dati. Le operazioni del piano di controllo vengono gestite da Azure Resource Manager. Le operazioni del piano dati vengono gestite da un servizio.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: a0575c37c80417d9859ef36366dc9f26cdb4dbe4
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: f478037c3e83c1d28cc900d64512a41619628dd7
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90039039"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371270"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Piano di controllo e piano dati di Azure
 
@@ -41,7 +41,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Azure Resource Manager gestisce tutte le richieste del piano di controllo. Applica automaticamente le funzionalità di Azure implementate per gestire le risorse, ad esempio:
 
-* [Controllo degli accessi in base al ruolo di Azure (RBAC)](../../role-based-access-control/overview.md)
+* [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md)
 * [Criteri di Azure](../../governance/policy/overview.md)
 * [Blocchi di gestione](lock-resources.md)
 * [Log attività](view-activity-logs.md)

@@ -3,12 +3,12 @@ title: Creare e distribuire progetti Gruppo di risorse con Visual Studio
 description: Usare Visual Studio per creare un progetto Gruppo di risorse di Azure e distribuire le risorse in Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: eacab3e1919b68661dd24eb78e3b0eca51cf4972
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 479dbed1f288148c24fc8464f7895cd3e2b182f9
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985248"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372647"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 
@@ -370,7 +370,7 @@ Non si è limitati solo alle risorse disponibili tramite l'interfaccia di Visual
 
    ![Dashboard personalizzato](./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png)
 
-È possibile gestire l'accesso al dashboard usando i gruppi RBAC. È anche possibile personalizzare l'aspetto del dashboard dopo la distribuzione. Tuttavia, se si ridistribuisce il gruppo di risorse, il dashboard viene ripristinato allo stato predefinito nel modello. Per altre informazioni sulla creazione di dashboard, vedere [Creazione di dashboard di Azure a livello di codice](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+È possibile gestire l'accesso al dashboard usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). È anche possibile personalizzare l'aspetto del dashboard dopo la distribuzione. Tuttavia, se si ridistribuisce il gruppo di risorse, il dashboard viene ripristinato allo stato predefinito nel modello. Per altre informazioni sulla creazione di dashboard, vedere [Creazione di dashboard di Azure a livello di codice](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

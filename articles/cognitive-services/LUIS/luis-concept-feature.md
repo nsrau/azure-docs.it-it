@@ -1,14 +1,16 @@
 ---
 title: Funzionalità di Machine Learning con LUIS
 description: L'aggiunta di funzionalità a un modello linguistico consente di fornire suggerimenti sul riconoscimento dell'input a cui assegnare un'etichetta o da classificare.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: 02a6fd27dbe22a40b29b47515edec5506d3b2075
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/22/2020
+ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075164"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372016"
 ---
 # <a name="machine-learning-features"></a>Funzionalità di Machine Learning
 
@@ -20,12 +22,10 @@ Una funzionalità può essere descritta come funzione, ad esempio f (x) = y. Nel
 
 ## <a name="types-of-features"></a>Tipi di funzionalità
 
-LUIS supporta sia gli elenchi di frasi che i modelli come funzionalità:
+Le funzionalità sono una parte necessaria della progettazione dello schema. LUIS supporta sia gli elenchi di frasi che i modelli come funzionalità:
 
-* Funzionalità elenco frasi 
+* Funzionalità elenco frasi
 * Modello (finalità o entità) come funzionalità
-
-Le funzionalità devono essere considerate una parte necessaria della progettazione dello schema.
 
 ## <a name="find-features-in-your-example-utterances"></a>Trovare le funzionalità nelle espressioni di esempio
 
@@ -43,32 +43,6 @@ Determinare se il testo, poiché distingue un tratto, deve:
 * Trovare la corrispondenza con una parola o una frase esatta: è consigliabile aggiungere un'entità di espressione regolare o un'entità di elenco come funzionalità all'entità o allo scopo.
 * Trovare la corrispondenza con un concetto noto, ad esempio date, ore o nomi di persone: usare un'entità predefinita come funzionalità per l'entità o finalità.
 * Informazioni sui nuovi esempi nel tempo: usare un elenco di frasi di alcuni esempi del concetto come funzionalità per l'entità o finalità.
-
-## <a name="combine-features"></a>Combinare le funzionalità
-
-È possibile usare più di una funzionalità per descrivere un tratto o un concetto. Un abbinamento comune prevede l'uso di una funzionalità elenco di frasi e di un tipo di entità usato spesso come funzionalità:
-
- * entità predefinita
- * entità Regular-Expression
- * entità elenco
-
-### <a name="ticket-booking-entity-example"></a>Esempio di entità prenotazione ticket
-
-Come primo esempio, si consideri un'app per la prenotazione di un volo con finalità di prenotazione del volo e un'entità di prenotazione di ticket.
-
-L'entità di prenotazione del ticket è un'entità di machine learning per la destinazione del volo. Per estrarre il percorso, usare due funzionalità:
-
-* Elenco di parole rilevanti, ad esempio **piano**, **volo**, **prenotazione**o **ticket**
-* Entità **geographyV2** predefinita come funzionalità per l'entità
-
-### <a name="pizza-entity-example"></a>Esempio di entità pizza
-
-Come altro esempio, si consideri un'app per ordinare una pizza con finalità create-Pizza-Order e un'entità pizza.
-
-L'entità pizza è un'entità di machine learning per i dettagli della pizza. Per estrarre i dettagli, usare due funzionalità:
-
-* Elenco di parole rilevanti, ad esempio **Cheese**, **crosta**, **peperoni**o **ananas**
-* Entità **numero** predefinita come funzionalità per l'entità
 
 ## <a name="create-a-phrase-list-for-a-concept"></a>Creare un elenco di frasi per un concetto
 
@@ -176,12 +150,12 @@ Continuando con l'esempio di indirizzo di spedizione:
 
 Indirizzo di spedizione (entità Machine Learn)
 
- * Numero civico (sottoentità) 
- * Via (sottoentità) 
- * Nome via (sottoentità) 
- * Città (sottoentità) 
- * Stato o provincia (sottoentità) 
- * Paese/area geografica (sottoentità) 
+ * Numero civico (sottoentità)
+ * Via (sottoentità)
+ * Nome via (sottoentità)
+ * Città (sottoentità)
+ * Stato o provincia (sottoentità)
+ * Paese/area geografica (sottoentità)
  * Cap (sottoentità)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Funzionalità obbligatoria con le entità predefinite
@@ -217,6 +191,59 @@ Sebbene l'uso più comune consiste nell'applicare una funzionalità a un modello
 L'uso più comune di una funzionalità globale è l'aggiunta di un vocabolario aggiuntivo all'app. Se, ad esempio, i clienti usano una lingua primaria, ma si prevede di poter usare un altro linguaggio all'interno della stessa espressione, è possibile aggiungere una funzionalità che includa parole della lingua secondaria.
 
 Poiché l'utente prevede di usare la lingua secondaria in qualsiasi finalità o entità, aggiungere parole dalla lingua secondaria all'elenco di frasi. Configurare l'elenco di frasi come funzionalità globale.
+
+## <a name="combine-features-for-added-benefit"></a>Combina le funzionalità per i vantaggi aggiunti
+
+È possibile usare più di una funzionalità per descrivere un tratto o un concetto. Un'associazione comune consiste nell'usare:
+
+* Funzionalità elenco frasi: è possibile usare più elenchi di frasi come funzionalità per lo stesso modello.
+* Un modello come funzionalità: entità [predefinita](luis-reference-prebuilt-entities.md), entità di [espressioni regolari](reference-entity-regular-expression.md), entità [List](reference-entity-list.md). 
+
+### <a name="example-ticket-booking-entity-features-for-a-travel-app"></a>Esempio: funzionalità dell'entità di prenotazione di ticket per un'app di viaggio  
+
+Come esempio di base, si consideri un'app per la prenotazione di un volo con _finalità_ di prenotazione del volo e un' _entità_di prenotazione di ticket. L'entità prenotazione biglietti acquisisce le informazioni per prenotare un ticket aereo in un sistema di prenotazione. 
+
+L'entità Machine Learning per il ticket-Book ha due sottoentità per l'acquisizione dell'origine e della destinazione. Le funzionalità devono essere aggiunte a ogni sottoentità, non all'entità di primo livello.
+
+:::image type="content" source="media/luis-concept-features/ticket-booking-entity.png" alt-text="Schema di entità Ticketbooking":::
+
+L'entità di prenotazione del ticket è un'entità di Machine Learning, con sottoentità, tra cui l' _origine_ e la _destinazione_. Entrambe le sottoentità indicano una posizione geografica. Per estrarre i percorsi e distinguere tra l' _origine_ e la _destinazione_, è necessario che ogni sottoentità disponga di funzionalità.
+
+|Type|Sottoentità di origine |Sottoentità di destinazione|
+|--|--|--|
+|Modello come funzionalità|entità predefinita [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|entità predefinita [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|
+|Elenco di frasi|**Parole di origine**: `start at` , `begin from` , `leave`|**Parole di destinazione**: `to` , `arrive` , `land at` , `go` , `going` , `stay` , `heading`|
+|Elenco di frasi|Codici aeroportuali-stesso elenco per origine e destinazione|Codici aeroportuali-stesso elenco per origine e destinazione|
+|Elenco di frasi|Nomi aeroportuali-stesso elenco per origine e destinazione|Codici aeroportuali-stesso elenco per origine e destinazione|
+
+Se si prevede che gli utenti usino i codici aeroportuali e i nomi degli aeroporti, è necessario che LUIS disponga di elenchi di frasi che usano entrambi i tipi di frasi. I codici aeroportuali possono essere più comuni con il testo immesso in un chatbot, mentre i nomi degli aeroporti possono essere più comuni con la conversazione vocale, ad esempio un chatbot abilitato per la voce.
+
+I dettagli corrispondenti delle funzionalità vengono restituiti solo per i modelli, non per gli elenchi di frasi perché solo i modelli vengono restituiti nel codice JSON di stima.
+
+#### <a name="ticket-booking-labeling-in-the-intent"></a>Assegnazione di etichette ai biglietti nella finalità
+
+Dopo aver creato l'entità Machine Learning, è necessario aggiungere espressioni di esempio a un Intent ed etichettare l'entità padre e tutte le sottoentità.
+
+Per l'esempio di prenotazione di ticket, etichettare le espressioni di esempio nello scopo con l' `TicketBooking` entità e le eventuali sottoentità nel testo.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Etichettare le espressioni di esempio":::
+
+### <a name="example-pizza-ordering-app"></a>Esempio: Pizza ordering app
+
+Per un secondo esempio, si consideri un'app per un ristorante pizzeria che riceve gli ordini di pizza, inclusi i dettagli del tipo di pizza che un utente sta ordinando. Per completare l'elaborazione degli ordini, è necessario estrarre ogni dettaglio della pizza, se possibile.
+
+L'entità Machine Learning in questo esempio è più complessa con le sottoentità nidificate, gli elenchi di frasi, le entità predefinite e le entità personalizzate.
+
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Schema dell'entità dell'ordine di pizza":::
+
+In questo esempio vengono utilizzate le funzionalità a livello di sottoentità e figlio del livello di sottoentità. Il livello che ottiene il tipo di elenco di frasi o di modello come funzionalità è una parte importante della progettazione dell'entità.
+
+Sebbene le sottoentità possano avere molti elenchi di frasi come funzionalità che consentono di rilevare l'entità, ogni sottoentità ha un solo modello come funzionalità. In questa [app](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)per la pizza questi modelli sono principalmente elenchi.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Finalità dell'ordine di pizza con espressioni di esempio con etichetta":::
+
+Le espressioni di esempio correttamente etichettate vengono visualizzate in modo da illustrare il modo in cui le entità sono annidate. 
+
 
 ## <a name="best-practices"></a>Procedure consigliate
 

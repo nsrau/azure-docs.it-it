@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 3e7469f0d53a154f605480b811d36937e3d4ad6c
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c74f2ef9eed25719e722970671406c850b6a59b2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649858"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361858"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Risolvere gli errori di eliminazione delle risorse di archiviazione della versione classica
 Questo articolo fornisce indicazioni sulla risoluzione dei problemi quando si verifica uno degli errori seguenti durante il tentativo di eliminare un account o un contenitore di archiviazione oppure un file BLOB di pagine *.vhd della versione classica di Azure. 
@@ -36,7 +36,7 @@ Una risorsa "disco" viene usata per montare un file BLOB di pagine *.vhd in una 
 
 1. Eliminare la macchina virtuale classica.
 2. Se è selezionata la casella di controllo "Dischi", il **lease del disco** (illustrato nell'immagine precedente) associato al BLOB di pagine *.vhd viene interrotto. Il file *.vhd BLOB di pagine effettivo rimarrà comunque nell'account di archiviazione.
-![Screenshot del portale, con il riquadro di errore di "eliminazione" (versione classica) della macchina virtuale aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
+![Screenshot mostra una finestra di dialogo per confermare l'eliminazione di una macchina virtuale.](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
 
 3. Dopo aver interrotto il lease dei dischi, è possibile eliminare i BLOB di pagine. Un account o un contenitore di archiviazione può essere eliminato dopo che sono state eliminate tutte le risorse "disco" in esso contenute.
 
@@ -52,7 +52,7 @@ L'utente passa all'account di archiviazione della versione classica nel [portale
 
 Con i dischi "collegati" a una macchina virtuale
 
-![Screenshot del portale, con il riquadro di errore di "eliminazione" (versione classica) della macchina virtuale aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
+![Screenshot mostra un messaggio che spiega il motivo per cui non è possibile eliminare un account di archiviazione.](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
 
 
 Con i dischi "scollegati" da una macchina virtuale
@@ -93,12 +93,12 @@ Dopo aver eliminato la macchina virtuale di Azure, l'utente tenta di eliminare i
 Nel portale possono verificarsi due situazioni in base all'elenco di BLOB selezionati per l'eliminazione.
 
 1. Se sono selezionati solo i BLOB "Con lease", il pulsante Elimina non viene visualizzato.
-![Screenshot del portale, con il riquadro "elenco" dei BLOB contenitori aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
+![Screenshot del portale, con il riquadro dell'elenco di BLOB del contenitore aperto e solo i BLOB con lease selezionati.](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
 
 
 2. Se è selezionata una combinazione di BLOB "Con lease" e "Disponibili", il pulsante "Elimina" viene visualizzato. L'operazione di "eliminazione" tuttavia ignorerà i BLOB di pagine con un lease di disco. 
-![Screenshot del portale, con il riquadro "elenco" BLOB contenitori aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
-![Screenshot del portale, con il riquadro di "eliminazione" dei BLOB selezionati aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
+![Screenshot del portale, con il riquadro dell'elenco di BLOB del contenitore aperto ed è stato selezionato il lease e i BLOB disponibili. ](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
+ ![ Schermata del portale, con il riquadro "Elimina" del BLOB selezionato aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Se l'utente sceglie di effettuare l'eliminazione tramite PowerShell, si verificherà l'errore seguente. 
@@ -114,10 +114,10 @@ Se l'utente sceglie di effettuare l'eliminazione tramite PowerShell, si verifich
 Seguire questa procedura nel portale di Azure:
 1.  Passare al [portale di Azure](https://portal.azure.com).
 2.  Passare ai dischi (versione classica). 
-3.  Fare clic sulla scheda dischi. ![ Screenshot del portale, con il riquadro "elenco" del blob contenitore aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  Fare clic sulla scheda dischi. ![ Screenshot mostra i portale di Azure con dischi (classico) selezionati e un nome di disco e un account di archiviazione classici.](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  Selezionare il disco dati, quindi fare clic su Elimina disco.
- ![Screenshot del portale, con il riquadro "elenco" dei BLOB contenitori aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
+ ![Screenshot mostra la portale di Azure con dischi (versione classica) selezionata, con un disco dati selezionato e l'opzione da eliminare.](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
  
 5.  Ripetere l'operazione di eliminazione precedentemente non riuscita.
 6.  Non è possibile eliminare un account o contenitori di archiviazione se dispongono di un singolo disco.

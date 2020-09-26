@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 65f6c239f34775efff6a2ea2e399064a7702606a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 8882625d28871135223dd30e3fd96a385a13e8fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664147"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377087"
 ---
 ![Documentazione di Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -85,3 +85,9 @@ Metriche che consentono di diagnosticare la limitazione di i/o del disco:
 - Percentuale di utilizzo della **larghezza di banda del disco dati** : percentuale calcolata dalla velocità effettiva del disco dati completata sulla velocità effettiva del disco dati sottoposta a provisioning. Se questa quantità è pari al 100%, l'applicazione in esecuzione sarà IO limitata dal limite di larghezza di banda del disco dati.
 - **Percentuale di IOPS** del disco del sistema operativo: percentuale calcolata dall'IOPS del disco del sistema operativo completata rispetto al IOPS del disco del sistema operativo con provisioning. Se questa quantità è pari al 100%, l'applicazione in esecuzione sarà IO limitata dal limite IOPS del disco del sistema operativo.
 - **Percentuale** di utilizzo della larghezza di banda del disco del sistema operativo: percentuale calcolata dalla velocità effettiva del disco del sistema operativo completata sulla velocità effettiva del disco del sistema operativo. Se questa quantità è pari al 100%, l'applicazione in esecuzione sarà IO limitata dal limite di larghezza di banda del disco del sistema operativo.
+
+Metriche che consentono di diagnosticare la limitazione delle operazioni di i/o della macchina virtuale:
+- **Percentuale di IOPS utilizzata nella cache della VM** : percentuale calcolata in base al numero totale di IOPS completati sul limite massimo di IOPS della macchina virtuale memorizzato nella cache. Se questa quantità è pari al 100%, l'applicazione in esecuzione sarà IO limitata dal limite di IOPs memorizzati nella cache della VM.
+- Percentuale di utilizzo della **larghezza di banda della VM memorizzata nella** cache: percentuale calcolata in base alla velocità effettiva totale del disco completata sulla velocità effettiva massima della macchina virtuale Se questa quantità è pari al 100%, l'applicazione in esecuzione sarà IO limitata dal limite di larghezza di banda memorizzato nella cache della macchina virtuale.
+- Percentuale di IOPS di **VM non memorizzata nella cache** : la percentuale calcolata in base al numero totale di IOPS in una macchina virtuale è stata completata sul limite massimo di IOPS della macchina virtuale non memorizzato nella cache. Se questa quantità è pari al 100%, l'applicazione in esecuzione sarà IO limitata dal limite di IOPs non memorizzato nella cache della macchina virtuale.
+- Percentuale di utilizzo della **larghezza di banda della VM non memorizzata nella cache** : percentuale calcolata in base alla velocità effettiva totale del disco in una macchina virtuale completata tramite la velocità effettiva massima di provisioning della macchina virtuale. Se questa quantità è pari al 100%, l'applicazione in esecuzione sarà IO limitata dal limite di larghezza di banda non memorizzato nella cache della macchina virtuale.

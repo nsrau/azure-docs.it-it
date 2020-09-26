@@ -3,12 +3,12 @@ title: Visualizzare i log attività di Azure per monitorare le risorse
 description: Usare i log attività per esaminare le azioni degli utenti e gli errori. Mostra portale di Azure PowerShell, l'interfaccia della riga di comando di Azure e REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827062"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371593"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visualizzare i log attività per monitorare le azioni sulle risorse
 
@@ -20,7 +20,7 @@ Con i log attività è possibile determinare:
 * lo stato dell'operazione;
 * i valori delle altre proprietà che potrebbero essere utili per esaminare l'operazione.
 
-Il log attività contiene tutte le operazioni di scrittura (PUT, POST, DELETE) per le risorse. Non include le operazioni di lettura (GET). Per un elenco azioni risorsa, vedere [Operazioni di provider di risorse con Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). È possibile usare i log attività per trovare un errore durante la risoluzione dei problemi o monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa.
+Il log attività contiene tutte le operazioni di scrittura (PUT, POST, DELETE) per le risorse. Non include le operazioni di lettura (GET). Per un elenco delle azioni delle risorse, vedere [operazioni del provider di risorse di Azure](../../role-based-access-control/resource-provider-operations.md). È possibile usare i log attività per trovare un errore durante la risoluzione dei problemi o monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa.
 
 I log attività vengono conservati per 90 giorni. È possibile eseguire query per qualsiasi intervallo di date, purché la data di inizio non risalga a più di 90 giorni prima.
 
@@ -195,4 +195,4 @@ Le operazioni REST per l'uso del log attività fanno parte delle [Informazioni d
 * Per visualizzare altri dettagli sulle modifiche apportate alle applicazioni dal livello dell'infrastruttura fino alla distribuzione delle applicazioni, vedere [usare l'analisi delle modifiche dell'applicazione in monitoraggio di Azure](../../azure-monitor/app/change-analysis.md).
 * Per informazioni sui comandi per visualizzare le operazioni di distribuzione, vedere [Visualizzare le operazioni di distribuzione](../templates/deployment-history.md).
 * Per informazioni su come impedire operazioni di eliminazione su una risorsa per tutti gli utenti, vedere [Bloccare le risorse con Azure Resource Manager](lock-resources.md).
-* Per visualizzare l'elenco delle operazioni disponibili per ogni provider Microsoft Azure Resource Manager, vedere [Operazioni di provider di risorse con Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md)
+* Per visualizzare l'elenco delle operazioni disponibili per ogni provider di Gestione risorse Microsoft Azure, vedere [operazioni del provider di risorse di Azure](../../role-based-access-control/resource-provider-operations.md)

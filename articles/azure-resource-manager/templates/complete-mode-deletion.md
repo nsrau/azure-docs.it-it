@@ -3,12 +3,12 @@ title: Eliminazione in modalità completa
 description: Descrive in che modo i tipi di risorsa gestiscono l'eliminazione in modalità completa in modelli di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: e288d3af080a96616026e94ac7be352a7684c181
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1e27960953aeb16486f893054c7653edb98bbdbc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327664"
+ms.locfileid: "91372462"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminazione di risorse di Azure per distribuzioni in modalità completa
 
@@ -1502,11 +1502,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | aree di lavoro | Sì |
-> | aree di lavoro/CodeJobs | No |
 > | workspaces/computes | No |
 > | aree di lavoro/eventGridFilters | No |
-> | aree di lavoro/inferenceEndpoints | Sì |
-> | aree di lavoro/inferenceEndpoints/distribuzioni | Sì |
 > | aree di lavoro/linkedServices | No |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance

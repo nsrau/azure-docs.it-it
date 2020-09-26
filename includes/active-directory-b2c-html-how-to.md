@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80116856"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376727"
 ---
 ## <a name="use-custom-page-content"></a>USA contenuto pagina personalizzata
 
@@ -165,9 +165,9 @@ Configurare l'archiviazione BLOB per la condivisione di risorse tra le origini e
 
 Verificare che l'utente sia pronto attenendosi alla procedura seguente:
 
-1. Ripetere il passaggio Configure CORS. Per le **origini consentite**, immettere`https://www.test-cors.org`
+1. Ripetere il passaggio Configure CORS. Per le **origini consentite**, immettere `https://www.test-cors.org`
 1. Passare a [www.test-CORS.org](https://www.test-cors.org/) 
-1. Per la casella **URL remoto** incollare l'URL del file HTML. Ad esempio: `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
+1. Per la casella **URL remoto** incollare l'URL del file HTML. Ad esempio, usare `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Selezionare **Invia richiesta**.
     Il risultato deve essere `XHR status: 200` . 
     Se si riceve un messaggio d'errore, verificare che le impostazioni CORS siano corrette. Potrebbe anche essere necessario cancellare la cache del browser o aprire una sessione di esplorazione anonima premendo Ctrl+Maiusc+P.

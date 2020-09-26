@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 59935d2659d27059617059c021fef9b6a2b552e0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e48261c4c6aeb75556663e1bf77c675557bcd1b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440202"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315491"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Processo di analisi scientifica dei dati per i team in azione: uso di Azure sinapsi Analytics
 Questa esercitazione illustra la creazione e la distribuzione di un modello di apprendimento automatico usando Azure sinapsi Analytics per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . Il modello di classificazione binaria costruito prevede se viene o meno pagata una mancia per una corsa.  I modelli includono la classificazione multiclasse (indipendentemente dalla presenza di un suggerimento) e la regressione (la distribuzione per gli importi delle mance a pagamento).
@@ -117,7 +117,7 @@ BEGIN CATCH
 END CATCH;
 ```
 
-**Creare un'area di lavoro di Azure Machine Learning nella sottoscrizione di Azure.** Per istruzioni, vedere [Creare un'area di lavoro di Machine Learning di Azure](../studio/create-workspace.md).
+**Creare un'area di lavoro di Azure Machine Learning nella sottoscrizione di Azure.** Per istruzioni, vedere [Creare un'area di lavoro di Machine Learning di Azure](../classic/create-workspace.md).
 
 ## <a name="load-the-data-into-azure-synapse-analytics"></a><a name="getdata"></a>Caricare i dati in Azure sinapsi Analytics
 Aprire una console dei comandi di Windows PowerShell. Eseguire i comandi di PowerShell seguenti per scaricare i file script SQL di esempio condivisi con l'utente in GitHub in una directory locale specificata con il parametro *-DESTDIR*. È possibile sostituire il valore del parametro *-DestDir* con quello di qualsiasi directory locale. Se *-DestDir* non esiste, verrà creata dallo script di PowerShell.
@@ -941,9 +941,9 @@ A questo punto è possibile procedere con la creazione e la distribuzione di mod
 2. **Classificazione multiclasse**: consente di stimare l'intervallo di mance pagato, in base alle classi definite in precedenza.
 3. **Attività di regressione**: per stimare l'importo della Mancia pagata per una corsa.
 
-Per iniziare l'esercizio di modellazione, accedere all'area di lavoro di **Azure Machine Learning (classica)** . Se non è stata ancora creata un'area di lavoro di Machine Learning, vedere [creare un'area di lavoro di Azure Machine Learning Studio (classica)](../studio/create-workspace.md).
+Per iniziare l'esercizio di modellazione, accedere all'area di lavoro di **Azure Machine Learning (classica)** . Se non è stata ancora creata un'area di lavoro di Machine Learning, vedere [creare un'area di lavoro di Azure Machine Learning Studio (classica)](../classic/create-workspace.md).
 
-1. Per iniziare a usare Azure Machine Learning, vedere [che cos'è Azure Machine Learning Studio (classico)?](../studio/what-is-ml-studio.md)
+1. Per iniziare a usare Azure Machine Learning, vedere [che cos'è Azure Machine Learning Studio (classico)?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Accedere a [Azure Machine Learning Studio (versione classica)](https://studio.azureml.net).
 3. La Home page di Machine Learning Studio (classica) fornisce un'ampia gamma di informazioni, video, esercitazioni, collegamenti ai moduli di riferimento e ad altre risorse. Per ulteriori informazioni su Azure Machine Learning, vedere il [centro di documentazione di Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -983,7 +983,7 @@ Un esempio di un esperimento di classificazione binaria per la lettura dei dati 
 >
 
 ## <a name="deploy-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Distribuire modelli in Azure Machine Learning
-Quando il modello è pronto, è possibile distribuirlo in modo semplice come servizio Web direttamente dall'esperimento. Per ulteriori informazioni sulla distribuzione di servizi Web Azure ML, vedere [Distribuzione di un servizio Web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+Quando il modello è pronto, è possibile distribuirlo in modo semplice come servizio Web direttamente dall'esperimento. Per ulteriori informazioni sulla distribuzione di servizi Web Azure ML, vedere [Distribuzione di un servizio Web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 
 Per distribuire un nuovo servizio Web, è necessario effettuare le seguenti operazioni:
 
@@ -1006,7 +1006,7 @@ Nella figura di seguito viene fornito un esperimento di assegnazione dei puntegg
 
 ![Pubblicazione di Azure ML][11]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Ricapitolando quanto è stato fatto, durante questa procedura è stato creato un ambiente di analisi scientifica dei dati di Azure da usare con set di dati pubblici di grandi dimensioni, seguendo l'intero Processo di analisi scientifica dei dati per i team, dall'acquisizione dei dati al training del modello e quindi alla distribuzione di un servizio Web Azure Machine Learning.
 
 ### <a name="license-information"></a>Informazioni sulla licenza

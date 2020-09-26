@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jgao
-ms.openlocfilehash: a6925ef8f72615cc3868c8b5cd4ea030ed3c3c40
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 63879350eba897cfe5a793309e5129323fe8bbde
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278065"
+ms.locfileid: "91372375"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzione all'integrazione dell'integrità in Azure Deployment Manager (anteprima pubblica)
 
@@ -41,7 +41,7 @@ Il flusso per ottenere la configurazione con i controlli di integrità Deploymen
     1. Informazioni di autenticazione. Attualmente è supportata solo l'autenticazione di tipo chiave API. Per monitoraggio di Azure, il tipo di autenticazione deve essere impostato su "RolloutIdentity" perché l'identità gestita assegnata dall'utente usata per l'implementazione di Azure Deployment Manager si estende per monitoraggio di Azure.
     1. [Codici di stato http](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) o espressioni regolari che definiscono una risposta integro. Si noti che è possibile fornire espressioni regolari, che devono corrispondere a tutti affinché la risposta venga considerata integra, oppure è possibile fornire espressioni di cui qualsiasi deve corrispondere affinché la risposta venga considerata integra. Sono supportati entrambi i metodi.
 
-    Il codice JSON seguente è un esempio per l'integrazione di monitoraggio di Azure con Deployment Manager di Azure che sfrutta RolloutIdentity e stabilisce il controllo dell'integrità in cui viene eseguito il processo di implementazione se non sono presenti avvisi. L'unica API di monitoraggio di Azure supportata: [Alerts – Get all](/rest/api/monitor/alertsmanagement/alerts/getall.md).
+    Il codice JSON seguente è un esempio per l'integrazione di monitoraggio di Azure con Deployment Manager di Azure che sfrutta RolloutIdentity e stabilisce il controllo dell'integrità in cui viene eseguito il processo di implementazione se non sono presenti avvisi. L'unica API di monitoraggio di Azure supportata: [Alerts – Get all](/rest/api/monitor/alertsmanagement/alerts/getall).
 
     ```json
     {

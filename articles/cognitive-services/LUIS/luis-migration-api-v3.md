@@ -1,15 +1,17 @@
 ---
 title: Modifiche all'endpoint di stima nell'API V3
 description: Le API di query PREDICTION endpoint V3 sono state modificate. Usare questa guida per comprendere come eseguire la migrazione alle API endpoint della versione 3.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: diberry
-ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 3e4567eea02b3b7db9514f4e03c7f7f36496449b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610881"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309431"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifiche all'endpoint di stima per V3
 
@@ -39,14 +41,14 @@ V3 ha apportato le modifiche seguenti come parte del passaggio a GA:
     * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
     * [GeographyV2](luis-reference-prebuilt-geographyv2.md)
     * [DatetimeV2](luis-reference-prebuilt-datetimev2.md)
-    * Nome chiave unità misurabile da `units` a`unit`
+    * Nome chiave unità misurabile da `units` a `unit`
 
 * Modifica JSON del corpo della richiesta:
-    * da `preferExternalEntities` a`preferExternalEntities`
+    * da `preferExternalEntities` a `preferExternalEntities`
     * `score`parametro facoltativo per entità esterne
 
 * Modifiche JSON del corpo della risposta:
-    * `normalizedQuery`rimosso
+    * `normalizedQuery` rimosso
 
 ## <a name="suggested-adoption-strategy"></a>Strategia di adozione consigliata
 
@@ -77,7 +79,7 @@ Il [formato della chiamata http dell'endpoint V3](developer-reference-resource.m
 
 Per eseguire una query in base alla versione, è prima di tutto necessario [pubblicare tramite l'API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) con `"directVersionPublish":true` . Eseguire una query sull'endpoint che fa riferimento all'ID versione anziché al nome dello slot.
 
-|Valori validi per`SLOT-NAME`|
+|Valori validi per `SLOT-NAME`|
 |--|
 |`production`|
 |`staging`|

@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 069387b5c761d502d960d0284d156b4ee6431a55
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: d95bf9ed50f819c5a92c7945827ee82a2c6ecdc9
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357013"
+ms.locfileid: "91371780"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Ripristino usando i backup automatici del database: database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -196,7 +196,7 @@ Per uno script di PowerShell che illustra come eseguire il ripristino geografico
 Non è possibile eseguire un ripristino temporizzato in un database di replica geografica secondaria. Questa operazione può essere eseguita solo su un database primario. Per informazioni dettagliate sull'uso del ripristino geografico per il ripristino da un'interruzione, vedere [ripristino da un'interruzione del](../../key-vault/general/disaster-recovery-guidance.md)servizio.
 
 > [!IMPORTANT]
-> Il ripristino geografico è la soluzione di ripristino di emergenza più semplice disponibile nel database SQL e in SQL Istanza gestita. Si basa su backup con replica geografica creati automaticamente con un obiettivo del punto di ripristino (RPO) pari a 1 ora e un tempo di recupero stimato di un massimo di 12 ore. Non garantisce che l'area di destinazione abbia la capacità di ripristinare i database dopo un'interruzione a livello di area, perché è probabile che si verifichi un forte aumento della domanda. Se l'applicazione usa database relativamente piccoli e non è cruciale per l'azienda, il ripristino geografico è una soluzione di ripristino di emergenza appropriata. 
+> Il ripristino geografico è la soluzione di ripristino di emergenza più semplice disponibile nel database SQL e in SQL Istanza gestita. Si basa su backup con replica geografica creati automaticamente con un obiettivo del punto di ripristino (RPO) fino a 1 ora e un tempo di recupero stimato di un massimo di 12 ore. Non garantisce che l'area di destinazione abbia la capacità di ripristinare i database dopo un'interruzione a livello di area, perché è probabile che si verifichi un forte aumento della domanda. Se l'applicazione usa database relativamente piccoli e non è cruciale per l'azienda, il ripristino geografico è una soluzione di ripristino di emergenza appropriata. 
 >
 > Per le applicazioni critiche per l'azienda che richiedono database di grandi dimensioni e che devono garantire la continuità aziendale, usare i [gruppi di failover automatico](auto-failover-group-overview.md). Offre un obiettivo molto più basso per RPO e tempo di ripristino e la capacità è sempre garantita. 
 >

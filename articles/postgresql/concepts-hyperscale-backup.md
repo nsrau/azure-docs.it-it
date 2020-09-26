@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 22bc3d6efca24a88b28217b2e06ac79d33f16b2e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2d781ca7293d4bd95ae62eadc50295ca14c2d381
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030080"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314931"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e ripristino nel database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -35,7 +35,7 @@ Per i prezzi correnti di archiviazione di backup, vedere la [pagina dei prezzi](
 Nel database di Azure per PostgreSQL il ripristino di un cluster con iperscalabilità (CITUS) crea un nuovo cluster dai backup dei nodi originali. 
 
 > [!IMPORTANT]
->È possibile ripristinare solo il cluster con iperscalabilità all'interno della stessa sottoscrizione e del gruppo di risorse e con un nome di cluster diverso.
+>È possibile ripristinare solo il cluster iperscalabile (CITUS) all'interno della stessa sottoscrizione e del gruppo di risorse e con un nome di cluster diverso.
 
 
 > [!IMPORTANT]

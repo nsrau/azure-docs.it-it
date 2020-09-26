@@ -4,12 +4,12 @@ description: Descrive come risolvere errori comuni durante la distribuzione di r
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650947"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372239"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -34,6 +34,7 @@ Se si cercano informazioni su un codice di errore non riportato in questo artico
 | DeploymentNameLengthLimitExceeded | I nomi di distribuzione sono limitati a 64 caratteri.  | |
 | DeploymentFailed | DeploymentFailed è un errore generale che non fornisce i dettagli necessari per risolvere l'errore. Nei dettagli cercare un codice di errore che fornisca maggiori informazioni. | [Trovare il codice di errore](#find-error-code) |
 | DeploymentQuotaExceeded | Se si raggiunge il limite di 800 distribuzioni per gruppo di risorse, eliminare dalla cronologia le distribuzioni che non sono più necessarie. | [Risolvere l'errore quando il numero di distribuzioni supera 800](deployment-quota-exceeded.md) |
+| DeploymentSizeExceeded | Semplificare il modello per ridurre le dimensioni. | [Risolvere gli errori delle dimensioni del modello](error-job-size-exceeded.md) |
 | DnsRecordInUse | Il nome del record DNS deve essere univoco. Immettere un nome diverso. | |
 | ImageNotFound | Controllare le impostazioni dell'immagine della macchina virtuale. |  |
 | InUseSubnetCannotBeDeleted | Questo errore può essere ricevuto quando si tenta di aggiornare una risorsa e la richiesta viene elaborata eliminando e creando la risorsa. Assicurarsi di specificare tutti i valori invariati. | [Aggiornare una risorsa](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,6 +50,7 @@ Se si cercano informazioni su un codice di errore non riportato in questo artico
 | InvalidSubscriptionRegistrationState | Registrare la sottoscrizione con il provider di risorse. | [Risoluzione degli errori di registrazione del provider di risorse](error-register-resource-provider.md) |
 | InvalidTemplate | Ricercare eventuali errori nella sintassi del modello. | [Risolvere errori dovuti a modelli non validi](error-invalid-template.md) |
 | InvalidTemplateCircularDependency | Rimuovere le dipendenze non necessarie. | [Risolvere le dipendenze circolari](error-invalid-template.md#circular-dependency) |
+| JobSizeExceeded | Semplificare il modello per ridurre le dimensioni. | [Risolvere gli errori delle dimensioni del modello](error-job-size-exceeded.md) |
 | LinkedAuthorizationFailed | Controllare se l'account appartiene allo stesso tenant del gruppo di risorse in cui si sta eseguendo la distribuzione. | |
 | LinkedInvalidPropertyId | La risoluzione dell'ID risorsa per una risorsa non è stato eseguito correttamente. Verificare di avere fornito tutti i valori necessari per l'ID risorsa, incluso l'ID sottoscrizione, il nome del gruppo di risorse, il tipo di risorsa, il nome della risorsa padre (se necessario) e il nome della risorsa. | |
 | LocationRequired | Specificare un percorso per la risorsa. | [Impostare la posizione](resource-location.md) |
