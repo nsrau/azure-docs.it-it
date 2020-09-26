@@ -5,12 +5,12 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
 ms.date: 09/24/2018
-ms.openlocfilehash: a22d7b7b962b36f93ee804c64b3bc6b08ecceb0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a53390dee8eb504f92e66bb3573814bd411be0b7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77667517"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358964"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Gestire gli stati di avvisi e gruppi intelligenti
 
@@ -20,30 +20,30 @@ Gli avvisi in Monitoraggio di Azure ora dispongono di uno [stato di avviso e di 
 
 1. È possibile modificare lo stato di un avviso nei diversi modi seguenti: 
     * Nella pagina Tutti gli avvisi selezionare la casella di controllo accanto agli avvisi di cui si desidera modificare lo stato e fare clic su Cambia stato.   
-    ![Monitoraggio](./media/alerts-managing-alert-states/state-all-alerts.jpg)
+    ![Screenshot mostra la pagina tutti gli avvisi con stato modifica selezionato.](./media/alerts-managing-alert-states/state-all-alerts.jpg)
     * Nella pagina Dettagli avviso di una particolare istanza di avviso è possibile fare clic su Cambia stato   
-    ![Monitoraggio](./media/alerts-managing-alert-states/state-alert-details.jpg)
+    ![Screenshot mostra la pagina dei dettagli dell'avviso con lo stato di avviso modifica selezionato.](./media/alerts-managing-alert-states/state-alert-details.jpg)
     * Nella pagina Dettagli avviso di una particolare istanza di avviso nel riquadro Gruppo intelligente è possibile fare clic sulla casella di controllo accanto agli avvisi desiderati    
-    ![Monitoraggio](./media/alerts-managing-alert-states/state-alert-details-sg.jpg)
+    ![Screenshot mostra la pagina dei dettagli dell'avviso per l'avviso heartbeat con alcune istanze con segni di spunta.](./media/alerts-managing-alert-states/state-alert-details-sg.jpg)
 
     * Nella pagina dei dettagli del gruppo intelligente nell'elenco degli avvisi dei membri è possibile fare clic sulla casella di controllo accanto agli avvisi di cui si desidera modificare lo stato di e fare clic su Cambia stato per modificare lo stato.   
-    ![Monitoraggio](./media/alerts-managing-alert-states/state-sg-details-alerts.jpg)
+    ![Screenshot mostra la pagina dei dettagli del gruppo intelligente in cui è possibile selezionare gli avvisi per i quali modificare lo stato.](./media/alerts-managing-alert-states/state-sg-details-alerts.jpg)
 1. Facendo clic su Cambia stato si apre una finestra popup che consente di selezionare lo stato (Nuovo/Confermato/Chiuso) e immettere un commento, se necessario.   
-![Monitoraggio](./media/alerts-managing-alert-states/state-alert-change.jpg)
+![Screenshot mostra la finestra di dialogo Dettagli modifica avviso.](./media/alerts-managing-alert-states/state-alert-change.jpg)
 1. Al termine, la modifica dello stato viene registrata nella cronologia dell'avviso corrispondente. È possibile visualizzare ciò aprendo la pagina Dettagli corrispondente e controllando la sezione della cronologia.    
-![Monitoraggio](./media/alerts-managing-alert-states/state-alert-history.jpg)
+![Screenshot mostra la cronologia delle modifiche di stato.](./media/alerts-managing-alert-states/state-alert-history.jpg)
 
 ## <a name="change-the-state-of-a-smart-group"></a>Modificare lo stato di un gruppo intelligente
 1. È possibile modificare lo stato di un gruppo intelligente nei diversi modi seguenti:
     1. Nella pagina dell'elenco del gruppo intelligente fare clic sulla casella di controllo accanto ai gruppi intelligenti di cui si desidera modificare lo stato e fare clic su Cambia stato  
-    ![Monitoraggio](./media/alerts-managing-alert-states/state-sg-list.jpg)
+    ![Screenshot mostra la pagina modifica stato per gruppi intelligenti.](./media/alerts-managing-alert-states/state-sg-list.jpg)
     1. Nella pagina dei dettagli del gruppo intelligente è possibile fare clic su Cambia stato        
-    ![Monitoraggio](./media/alerts-managing-alert-states/state-sg-details.jpg)
+    ![Screenshot mostra la pagina dei dettagli del gruppo smart con la modifica dello stato del gruppo Smart selezionato.](./media/alerts-managing-alert-states/state-sg-details.jpg)
 1. Facendo clic su Cambia stato si apre una finestra popup che consente di selezionare lo stato (Nuovo/Confermato/Chiuso) e immettere un commento, se necessario. 
-![Monitoring](./media/alerts-managing-alert-states/state-sg-change.jpg)
+![Screenshot mostra la finestra di dialogo Cambia stato per il gruppo smart.](./media/alerts-managing-alert-states/state-sg-change.jpg)
    > [!NOTE]
    >  La modifica dello stato di un gruppo intelligente non modifica lo stato degli avvisi dei membri individuali.
 
 1. Al termine, la modifica dello stato viene registrata nella cronologia del gruppo intelligente corrispondente. È possibile visualizzare ciò aprendo la pagina Dettagli corrispondente e controllando la sezione della cronologia.     
-![Monitoraggio](./media/alerts-managing-alert-states/state-sg-history.jpg)
+![Screenshot mostra la cronologia delle modifiche per il gruppo smart.](./media/alerts-managing-alert-states/state-sg-history.jpg)
 

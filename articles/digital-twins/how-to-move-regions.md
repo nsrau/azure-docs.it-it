@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e2cb8ee282666d7a9a567ca04762b26de3b3b9bd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328497"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Spostare un'istanza di Azure Digital Twins in un'altra area di Azure
 
@@ -51,7 +51,7 @@ Di seguito sono riportate alcune domande che è possibile prendere in consideraz
 
 È possibile raccogliere queste informazioni usando il [portale di Azure](https://portal.azure.com), le [API e gli SDK di Azure Digital](how-to-use-apis-sdks.md)gemelli, i [comandi dell'interfaccia](how-to-use-cli.md)della riga di comando di Azure Digital gemelli o l'esempio di esplorazione di [Azure Digital Twins (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
 
-## <a name="prepare"></a>Preparazione
+## <a name="prepare"></a>Preparare
 
 In questa sezione si prepara la ricreazione dell'istanza **scaricando i modelli, i dispositivi gemelli e il grafo originali** dall'istanza originale. Questo articolo usa l'esempio di [Esplora risorse di Azure Digital gemelli (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
 
@@ -88,7 +88,7 @@ A questo punto è necessario che l'app di esempio ADT Explorer sia in esecuzione
 
 Per verificare la connessione, è possibile fare clic sul pulsante *Esegui query* per eseguire la query predefinita che Visualizza tutti i gemelli e le relazioni nel grafico nella casella *Esplora grafico* .
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Pulsante Run Query evidenziato nella parte superiore del riquadro" lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Pulsante "Run Query" evidenziato nella parte superiore del riquadro" lightbox="media/how-to-move-regions/run-query.png":::
 
 È possibile lasciare la finestra di esplorazione di ADT in esecuzione, perché verrà usata di nuovo più avanti in questo articolo per caricare nuovamente questi elementi nella nuova istanza nell'area di destinazione.
 
@@ -113,7 +113,7 @@ Successivamente, si completerà lo "spostamento" dell'istanza creando una nuova 
 
 ### <a name="create-a-new-instance"></a>Crea una nuova istanza
 
-Per prima cosa, **creare una nuova istanza di Azure Digital gemelli nell'area di destinazione**. A tale scopo, seguire la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-scripted.md), tenendo conto di questi puntatori:
+Per prima cosa, **creare una nuova istanza di Azure Digital gemelli nell'area di destinazione**. A tale scopo, seguire la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md), tenendo conto di questi puntatori:
 * **Se** si trova in un gruppo di risorse diverso, è possibile usare lo stesso nome per la nuova istanza. Se è necessario usare lo stesso gruppo di risorse che contiene l'istanza originale, la nuova istanza dovrà avere un proprio nome distinto.
 * Quando viene richiesta una località, immettere la nuova area di destinazione.
 * Non è **necessario** ricreare la registrazione dell'app. La nuova istanza può riusare la stessa registrazione dell'app già presente.
@@ -182,7 +182,7 @@ Per verificare che tutto sia stato caricato correttamente, fare clic sul pulsant
 
 Il grafo dovrebbe essere visualizzato con tutti i gemelli e le relazioni visualizzate nella casella *Esplora grafico* . È anche possibile visualizzare i modelli elencati nella casella *vista modello* .
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Visualizzazione di ADT Explorer che mostra 2 modelli evidenziati nella casella visualizzazione modello e un grafico evidenziato nella casella Esplora grafico" lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Visualizzazione di ADT Explorer che mostra 2 modelli evidenziati nella casella "visualizzazione modello" e un grafico evidenziato nella casella "Esplora grafico"" lightbox="media/how-to-move-regions/post-upload.png":::
 
 In questo modo viene confermato che i modelli, i dispositivi gemelli e i grafici sono stati caricati nuovamente nella nuova istanza nell'area di destinazione.
 

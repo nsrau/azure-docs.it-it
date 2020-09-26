@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: be113fec596d4730d55403b6ce4dbd6d2709e273
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 68aa3342ab09be73a82f4f896ffdff99d15a5350
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260070"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329574"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Informazioni sull'anteprima dell'area perimetrale di Azure
 
@@ -74,7 +74,7 @@ I casi d'uso tipici includono:
 
 Le zone perimetrali verranno offerte in collaborazione con gli operatori seguenti:
 
-- ALLE&T (Atlanta, Dallas e Los Angeles) 
+- ALLE&T (Atlanta, Dallas e Los Angeles)
 
 Gli ISV che lavorano su applicazioni ottimizzate e scalabili connesse a reti 5G possono ora usare la nuova posizione di anteprima di Los Angeles per le zone perimetrali di Azure con&T durante la compilazione e la sperimentazione con piattaforme con latenza ultra-bassa, scenari mobili e connessi. Registrati per il programma early adopter per sfruttare la connettività sicura e a larghezza di banda elevata.
 
@@ -86,9 +86,9 @@ Per ulteriori informazioni, [contattare il team dell'area perimetrale](https://a
 
 Le zone perimetrali private di Azure sono estensioni con footprint ridotto di Azure inserite in locale. La zona Edge privata di Azure è basata sulla piattaforma [Azure stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) . Consente l'accesso a bassa latenza ai servizi di calcolo e di archiviazione distribuiti in locale. La zona Edge privata consente inoltre di distribuire le applicazioni da ISV e funzioni di rete virtualizzate (VNFs) come [applicazioni gestite di Azure](https://azure.microsoft.com/services/managed-applications/) insieme alle macchine virtuali e ai contenitori in locale. Questi VNFs possono includere i core dei pacchetti mobili, i router, i firewall e le appliance SD-WAN. La zona Edge privata di Azure viene fornita con una soluzione di orchestrazione nativa del cloud che consente di gestire i cicli di vita di VNFs e applicazioni dal portale di Azure.
 
-La zona Edge privata di Azure consente di sviluppare e distribuire applicazioni in locale usando gli stessi strumenti noti usati per compilare e distribuire applicazioni in Azure. 
+La zona Edge privata di Azure consente di sviluppare e distribuire applicazioni in locale usando gli stessi strumenti noti usati per compilare e distribuire applicazioni in Azure.
 
-Consente inoltre di: 
+Consente inoltre di:
 
 - Eseguire reti mobili private (LTE privato, privato 5G).
 - Implementare funzioni di sicurezza come i firewall.
@@ -113,6 +113,7 @@ Abbiamo un ampio ecosistema di fornitori di VNF, ISV e partner MSP per abilitare
 ##### <a name="virtualized-evolved-packet-core-vepc-for-mobile-networks"></a><a name="vEPC"></a>VEPC (virtuald Packet Core) per reti mobili
 
 - [Reti affermate](https://www.affirmednetworks.com/)
+- [Celona](https://www.celona.io/azure-edge)
 - [Software Druid](https://www.druidsoftware.com/)
 - [Expeto](https://www.expeto.io/)
 - [Mavenir](https://mavenir.com/)
@@ -121,12 +122,15 @@ Abbiamo un ampio ecosistema di fornitori di VNF, ISV e partner MSP per abilitare
 
 ##### <a name="mobile-radio-partners"></a><a name="mobile-radio"></a>Partner radio per dispositivi mobili
 
+- [Celona](https://www.celona.io/azure-edge)
 - [CommScope](https://support.ruckuswireless.com/)
 
 ##### <a name="sd-wan-vendors"></a><a name="sdwan-vendors"></a>Fornitori SD-WAN
 
+- [128 Technology](https://www.128technology.com/)
 - [NetFoundry](https://netfoundry.io/)
 - [Reti Nuage da Nokia](https://www.nuagenetworks.net/)
+- [Reti versali](https://www.versa-networks.com/)
 - [VMware SD-WAN di Velocloud](https://www.velocloud.com/)
 
 ##### <a name="router-vendors"></a><a name="router-vendors"></a>Fornitori di router
@@ -158,10 +162,10 @@ Per informazioni su come diventare un partner, [contattare il team di zona Edge 
 
 ![Rete mobile privata in zone perimetrali private](./media/edge-zones-overview/mobile-networks.png "Rete mobile privata in zone perimetrali private")
 
-È ora possibile distribuire una rete mobile privata in zone perimetrali private. Le reti mobili private consentono una latenza ultra-bassa, una capacità elevata e la rete wireless affidabile e sicura necessaria per le applicazioni aziendali cruciali. 
+È ora possibile distribuire una rete mobile privata in zone perimetrali private. Le reti mobili private consentono una latenza ultra-bassa, una capacità elevata e la rete wireless affidabile e sicura necessaria per le applicazioni aziendali cruciali.
 
-Le reti mobili private possono abilitare scenari come: 
-- Comando e controllo dei veicoli autoguidati (AGV) nei warehouse. 
+Le reti mobili private possono abilitare scenari come:
+- Comando e controllo dei veicoli autoguidati (AGV) nei warehouse.
 - Comunicazione in tempo reale tra i robot nelle Smart Factory.
 - Realtà aumentata e applicazioni Edge di realtà virtuale.
 
@@ -174,7 +178,7 @@ Microsoft fornisce un ecosistema di partner che può essere utile per tutti gli 
 #### <a name="sd-wan-on-private-edge-zones"></a><a name="sdwan-private-edge"></a>SD-WAN nelle zone perimetrali private
 
 ![SD-WAN nelle zone perimetrali private](./media/edge-zones-overview/sd-wan.png "SD-WAN nelle zone perimetrali private")
- 
+
 SD-WAN consente di creare reti WAN (Wide Area Network) di livello aziendale con i vantaggi seguenti:
 
 - Maggiore larghezza di banda
@@ -183,7 +187,7 @@ SD-WAN consente di creare reti WAN (Wide Area Network) di livello aziendale con 
 - Affidabilità
 - Gestione dei criteri
 - Visibilità estesa della rete
-    
+
 SD-WAN offre una connettività senza problemi di succursale orchestrata da controller centrali ridondanti a costi inferiori di proprietà.
 SD-WAN nelle zone perimetrali private consente di passare da un modello incentrato su investimenti a un modello SaaS (software-as-a-Service) per ridurre i budget IT. È possibile usare i partner SD, l'agente di orchestrazione o il controller, per abilitare nuovi servizi e propagarli immediatamente in tutta la rete.
 

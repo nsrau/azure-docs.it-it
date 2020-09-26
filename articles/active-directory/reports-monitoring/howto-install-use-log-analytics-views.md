@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56eee39a9e99e9d6752d1b4f6eb7182043ff14d6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 168b41534f6ea6055294cc9e9cec139853904fea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230586"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358900"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installare e usare le viste di analisi dei log per Azure Active Directory
 
@@ -56,7 +56,7 @@ Per usare le viste di analisi dei log, è necessario:
 
 3. Selezionare una di queste viste per passare ai singoli report. È anche possibile impostare avvisi per qualsiasi parametro dei report. Ad esempio, di seguito viene descritto come impostare un avviso per ogni errore di accesso. Selezionare prima di tutto la vista **Sign-ins Events** (Eventi di accesso), selezionare il report **Sign-in errors over time** (Errori di accesso nel tempo) e quindi selezionare **Analytics** (Analisi) per aprire la pagina dei dettagli con la query effettiva associata al report. 
 
-    ![Dettagli](./media/howto-install-use-log-analytics-views/details.png)
+    ![Screenshot che mostra la pagina dei dettagli di analisi con la query per il report.](./media/howto-install-use-log-analytics-views/details.png)
 
 
 4. Selezionare **Imposta avviso** e quindi selezionare **Ogni volta che l'operazione di ricerca log personalizzata è &lt;logica non definita&gt;** nella sezione **Criteri di avviso**. Poiché si vuole generare un avviso ogni volta che si verifica un errore di accesso, impostare la **Soglia** della logica di avviso predefinita su **1** e quindi selezionare **Fine**. 

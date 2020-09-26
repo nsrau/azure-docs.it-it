@@ -3,12 +3,12 @@ title: Configurare le impostazioni di avvio automatico per una macchina virtuale
 description: Informazioni su come configurare le impostazioni di avvio automatico per le macchine virtuali in un Lab. Questa impostazione consente di avviare automaticamente le macchine virtuali nel Lab in base a una pianificazione.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4ff2a156367b6a65e75b1c8b907da91dc3c88eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83e7b0836273a59eaaf66471bd0cb42d63ccf1c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482786"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328481"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>Macchine virtuali del Lab di avvio automatico  
 Azure DevTest Labs consente di configurare le macchine virtuali nel Lab in modo che vengano avviate e arrestate automaticamente in base a una pianificazione. Per informazioni sulla configurazione delle impostazioni di arresto automatico, vedere [gestire i criteri di arresto automatico per un Lab in Azure DevTest Labs](devtest-lab-auto-shutdown.md). 
@@ -21,7 +21,7 @@ Questo articolo illustra come configurare i criteri di avvio automatico per un L
 1. Passare alla home page per il Lab. 
 2. Selezionare **configurazione e criteri** dal menu a sinistra. 
 
-    ![Menu configurazione e criteri](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
+    ![Screenshot che mostra il menu "configurazione e criteri" in DevTest Lab.](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
 3. Nella pagina **configurazione e criteri** seguire questa procedura:
     
     1. Selezionare **on** per **consentire alle macchine virtuali di essere pianificate per l'avvio automatico** per abilitare la funzionalità di avvio automatico per questo Lab. 

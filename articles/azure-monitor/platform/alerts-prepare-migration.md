@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 24897826c6a70d0810b239b9b8f639787c3dac2a
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 9df5d702019063ffba6d79cc63370cd25a7242fd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843386"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358782"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparare le app per la logica e manuali operativi per la migrazione delle regole di avviso classiche
 
@@ -70,13 +70,13 @@ I payload sono simili, come si può vedere. La sezione seguente offre:
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modificare un'app per la logica per ricevere una notifica di avviso per la metrica
 
-Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. Attenersi ai passaggi descritti di seguito.
+Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. Seguire questa procedura:
 
 1. Creare una nuova app per la logica.
 
 1. Usare il modello "monitoraggio di Azure-gestore avvisi metriche". Questo modello include un trigger di **richiesta http** con lo schema appropriato definito.
 
-    ![logica-app-modello](media/alerts-migration/logic-app-template.png "Modello di avviso della metrica")
+    ![Screenshot mostra due pulsanti, app per la logica vuota e monitoraggio di Azure-gestore avvisi metrica.](media/alerts-migration/logic-app-template.png "Modello di avviso della metrica")
 
 1. Aggiungere un'azione per ospitare la logica di elaborazione.
 
