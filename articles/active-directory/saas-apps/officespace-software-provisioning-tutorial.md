@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: Zhchia
-ms.openlocfilehash: ab2fd7f78373f9fee349e59c374088f67f165339
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 123f35154c3b87ff1ed479084f5e9dfa35043b9a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554201"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287204"
 ---
 # <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>Esercitazione: configurare il software OfficeSpace per il provisioning utenti automatico
 
@@ -103,13 +103,13 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** , `https://<subdomain>.officespacesoftware.com/api/scim/v2/` formato URL di input nell' **URL tenant**. Ad esempio, `https://contoso.officespacesoftware.com/api/scim/v2/`. Immettere il valore del **token di autenticazione scim** recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi al software OfficeSpace. Se la connessione non riesce, verificare che l'account software OfficeSpace disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** , `https://<subdomain>.officespacesoftware.com/api/scim/v2/` formato URL di input nell' **URL tenant**. Ad esempio `https://contoso.officespacesoftware.com/api/scim/v2/`. Immettere il valore del **token di autenticazione scim** recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi al software OfficeSpace. Se la connessione non riesce, verificare che l'account software OfficeSpace disponga delle autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 

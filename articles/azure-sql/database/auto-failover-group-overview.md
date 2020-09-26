@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 7b4a85077c8e0147f926f9a86fc8a003591ec8ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 469620456fecb7c0cb398988c4a4fc25da97f863
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277734"
+ms.locfileid: "91357710"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -153,7 +153,7 @@ Per eseguire il failover di un gruppo di failover, è necessario l'accesso in sc
 
 Il gruppo di failover automatico deve essere configurato sul server primario e lo connette al server secondario in un'area di Azure diversa. I gruppi possono includere alcuni o tutti i database in questi server. Il diagramma seguente illustra una configurazione tipica di un'applicazione cloud con ridondanza geografica con più database e un gruppo di failover automatico.
 
-![failover automatico](./media/auto-failover-group-overview/auto-failover-group.png)
+![Il diagramma mostra una configurazione tipica di un'applicazione cloud con ridondanza geografica usando più database e il gruppo di failover automatico.](./media/auto-failover-group-overview/auto-failover-group.png)
 
 > [!NOTE]
 > Per un'esercitazione dettagliata sull'aggiunta di un database nel database SQL a un gruppo di failover, vedere [aggiungere un database SQL a un gruppo di failover](failover-group-add-single-database-tutorial.md) .

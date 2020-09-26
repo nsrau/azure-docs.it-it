@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 39000a34d1d19026ce406eeb996f89d1acc7ea04
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b733fbc44deefe46e3496e288ebad525346ef005
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897369"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322309"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creazione, esecuzione ed eliminazione di risorse di Azure ML con REST
 
 
 
-Esistono diversi modi per gestire le risorse di Azure ML. È possibile usare il [portale](https://portal.azure.com/), l' [interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)o [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). In alternativa, è possibile scegliere l'API REST. L'API REST usa verbi HTTP in modo standard per creare, recuperare, aggiornare ed eliminare le risorse. L'API REST funziona con qualsiasi linguaggio o strumento in grado di effettuare richieste HTTP. La struttura semplice di REST lo rende spesso una scelta ottimale negli ambienti di scripting e nell'automazione MLOps. 
+Esistono diversi modi per gestire le risorse di Azure ML. È possibile usare il [portale](https://portal.azure.com/), l' [interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true)o [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). In alternativa, è possibile scegliere l'API REST. L'API REST usa verbi HTTP in modo standard per creare, recuperare, aggiornare ed eliminare le risorse. L'API REST funziona con qualsiasi linguaggio o strumento in grado di effettuare richieste HTTP. La struttura semplice di REST lo rende spesso una scelta ottimale negli ambienti di scripting e nell'automazione MLOps. 
 
 In questo articolo vengono illustrate le operazioni seguenti:
 

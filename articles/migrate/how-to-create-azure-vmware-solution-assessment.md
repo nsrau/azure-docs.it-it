@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: b2917c10e13f110d7ac9784da16a10fc61eb9298
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 192780f1340b09cd2579e31f4023acb101d0e1f9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288853"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358084"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Creare una valutazione della soluzione VMware di Azure (AVS)
 
@@ -23,7 +23,7 @@ Questo articolo descrive come creare una valutazione della soluzione VMware di A
 
 - Assicurarsi di aver [creato](how-to-add-tool-first-time.md) un progetto Azure migrate.
 - Se è già stato creato un progetto, verificare di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server assessment.
-- Per creare una valutazione, è necessario configurare un'appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md), che individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure migrate: valutazione del server. [Altre informazioni](migrate-appliance.md).
+- Per creare una valutazione, è necessario configurare un'appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md), che individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure migrate: valutazione del server. [Altre informazioni](migrate-appliance.md)
 - È anche possibile [importare i metadati del server](tutorial-assess-import.md) nel formato con valori delimitati da virgole (CSV).
 
 
@@ -56,7 +56,7 @@ Eseguire una valutazione della soluzione VMware di Azure (AVS) come indicato di 
 
 2. Nella scheda **Server**, nel riquadro **Azure Migrate: Valutazione server**, fare clic su **Valuta**.
 
-    ![Valutare](./media/how-to-create-assessment/assess.png)
+    ![Screenshot mostra i server Azure Migrate con valutazione selezionata in strumenti di valutazione.](./media/how-to-create-assessment/assess.png)
 
 3. In **valuta Server**selezionare il tipo di valutazione come "soluzione VMware di Azure (AVS)", selezionare l'origine di individuazione e specificare il nome della valutazione.
 

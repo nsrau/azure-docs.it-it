@@ -3,12 +3,12 @@ title: Installare VMware HCX
 description: Configurare la soluzione VMware HCX per il cloud privato della soluzione VMware di Azure
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.openlocfilehash: 76a7432b78ec2141039dcdc5dd1d7572335b18e1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a101712f2d80e0d8e70d37bd5b7b08931f62ba3d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263202"
+ms.locfileid: "91356554"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installare HCX per la soluzione Azure VMware
 
@@ -40,7 +40,7 @@ Dopo aver completato l'installazione, è possibile seguire i passaggi successivi
 
 Il dimensionamento dei carichi di lavoro rispetto alle risorse di calcolo e di archiviazione è un passaggio di pianificazione essenziale quando si sta preparando l'uso della soluzione HCX cloud privata della soluzione VMware di Azure. Risolvere il passaggio di ridimensionamento nell'ambito della pianificazione iniziale dell'ambiente del cloud privato. 
 
-È anche possibile ridimensionare i carichi di lavoro completando una [valutazione della soluzione VMware di Azure](https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) nel portale di Azure migrate.
+È anche possibile ridimensionare i carichi di lavoro completando una [valutazione della soluzione VMware di Azure](../migrate/how-to-create-azure-vmware-solution-assessment.md) nel portale di Azure migrate.
 
 ## <a name="software-version-requirements"></a>Requisiti della versione software
 

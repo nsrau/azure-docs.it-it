@@ -7,12 +7,12 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fdf5f25ae6f89ccc06c95ee1be021691dab0047a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76902694"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322428"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Gestione delle eccezioni e registrazione degli errori per le app per la logica
 
@@ -103,15 +103,15 @@ Viene usato un trigger di **richiesta** come illustrato nell'esempio seguente:
 
    **Inserire una voce di log**
 
-   ![Inserire una voce di log](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Screenshot della finestra di progettazione di app per la logica che mostra le impostazioni di configurazione per Insertlogentry dell'.](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
    **Inserire una voce di log**
 
-   ![Inserire una voce di log](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Screenshot della finestra di progettazione di app per la logica che mostra le impostazioni di configurazione per CreateErrorRecord.](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
    **Verificare la presenza di errori nella creazione di record**
 
-   ![Condizione](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Screenshot della schermata CreateErrorRecord nella finestra di progettazione dell'app per la logica che mostra i campi per la creazione di una voce di errore.](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Codice sorgente dell'app per la logica
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 675d9c76841ba1a4b94b666c7ff4ac4287fc5264
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3f480cb0d478ca60555fa15849d5fcbed6cda684
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525191"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286115"
 ---
 # <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>Esercitazione: configurare SmartFile per il provisioning utenti automatico
 
@@ -58,9 +58,9 @@ Prima di configurare SmartFile per il provisioning utenti automatico con Azure A
 
 2. Per generare una bearer token, copiare il **codice Product Key** e la relativa **password**. Incollarli in un blocco note con i due punti tra di essi.
     
-     ![SmartFile aggiungere SCIM](media/smartfile-provisioning-tutorial/auth.png)
+     ![Screenshot della sezione codice Product Key con le caselle di testo codice Product Key e password prodotto denominate.](media/smartfile-provisioning-tutorial/auth.png)
 
-    ![SmartFile aggiungere SCIM](media/smartfile-provisioning-tutorial/key.png)
+    ![Screenshot del testo non crittografato che mostra il codice Product Key e la password del prodotto separati da due punti.](media/smartfile-provisioning-tutorial/key.png)
 
 ## <a name="add-smartfile-from-the-gallery"></a>Aggiungere SmartFile dalla raccolta
 
@@ -103,11 +103,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5.  Nella sezione **credenziali amministratore** immettere `https://<SmartFile sitename>.smartfile.com/ftp/scim` in **URL tenant**. Un esempio potrebbe essere simile a `https://demo1test.smartfile.com/ftp/scim` . Immettere il valore del **token di porta** (ProductKey: ProductPassword) recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a SmartFile. Se la connessione non riesce, verificare che l'account SmartFile disponga delle autorizzazioni di amministratore e riprovare.
 

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e267a30d6f73b48f825c4b61b3bc1106133b8cdf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938096"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285384"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Scalabilità orizzontale del gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc aggiungendo più nodi di lavoro
 Questo documento illustra come aumentare il livello di scalabilità orizzontale di un gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc. Questa operazione viene eseguita tramite uno scenario. **Se non si vuole eseguire lo scenario e si vuole semplicemente leggere le informazioni su come aumentare la scalabilità orizzontale, passare al paragrafo [scale out (scalabilità orizzontale](#scale-out)**).
@@ -151,7 +151,11 @@ Il formato generale del comando di scalabilità orizzontale è:
 azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
 ```
 
-Ad esempio, aumentare il numero di nodi del ruolo di lavoro da 2 a 4 eseguendo il comando seguente:
+> [!CAUTION]
+> La versione di anteprima non supporta la scalabilità in. Ad esempio, non è ancora possibile ridurre il numero di nodi del ruolo di lavoro. Se è necessario eseguire questa operazione, è necessario estrarre o eseguire il backup dei dati, eliminare il gruppo di server, creare un nuovo gruppo di server con meno nodi di lavoro e quindi importare i dati.
+
+In questo esempio, si aumenta il numero di nodi del ruolo di lavoro da 2 a 4 eseguendo il comando seguente:
+
 ```console
 azdata arc postgres server edit -n postgres01 -w 4
 ```
@@ -196,7 +200,8 @@ Restituisce l'elenco dei gruppi di server creati nello spazio dei nomi e indica 
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h
 ```
-> **Nota:** Se è stato creato un gruppo di server della versione 11 di PostgreSQL invece di 12, eseguire invece il comando seguente: _kubectl Get PostgreSQL-11_
+> [!NOTE]
+> Se è stato creato un gruppo di server della versione 11 di PostgreSQL invece di 12, eseguire invece il comando seguente: _kubectl Get PostgreSQL-11_
 
 #### <a name="with-a-sql-query"></a>Con una query SQL:
 Connettersi al gruppo di server con lo strumento client desiderato ed eseguire la query seguente:
@@ -230,7 +235,6 @@ Prendere nota del tempo di esecuzione.
 >* [HTAP ad alte prestazioni con Azure PostgreSQL iperscalabile (CITUS)](https://www.youtube.com/watch?v=W_3e07nGFxY)
 >* [Creazione di applicazioni HTAP con Python & l'iperscalabilità di Azure PostgreSQL (CITUS)](https://www.youtube.com/watch?v=YDT8_riLLs0)
 
-> La versione di anteprima non supporta la scalabilità in. Ad esempio, non è ancora possibile ridurre il numero di nodi del ruolo di lavoro. Se è necessario eseguire questa operazione, è necessario estrarre o eseguire il backup dei dati, eliminare il gruppo di server, creare un nuovo gruppo di server con meno nodi di lavoro e quindi importare i dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,12 +3,12 @@ title: Guida al controllo del comportamento di arresto di Windows in Azure Lab S
 description: Viene descritta la procedura per arrestare automaticamente una macchina virtuale di Windows inattiva e rimuovere il comando di arresto di Windows.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e17f6e79c3d18d82dd206954dcfb0e06b02b4d53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c20bc2bb79faf53c4f3fbd113c18c5c6d923e59
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445169"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334022"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guida al controllo del comportamento di arresto di Windows
 
@@ -61,12 +61,12 @@ In alternativa, è possibile scegliere di seguire questi passaggi manuali usando
 
 1. Passare a **Configurazione Computer > Modelli amministrativi > componenti Windows > Servizi Desktop remoto**> host sessione Desktop remoto limiti di tempo della sessione.  
 
-    ![Editor criteri di gruppo locali](./media/how-to-windows-shutdown/group-policy-idle.png)
+    ![Screenshot che mostra "Editor criteri di gruppo locali" con i limiti di tempo della sessione selezionati.](./media/how-to-windows-shutdown/group-policy-idle.png)
    
 1. Fare clic con il pulsante destro del mouse su **Imposta limite di tempo per le sessioni attive ma inattive Servizi Desktop remoto**, quindi scegliere **modifica**.
 
 1. Immetti le impostazioni seguenti e quindi fai clic su **OK**:
-   1. Selezionare **Abilitato**.
+   1. Selezionare **Enabled**.
    1. In **Opzioni**specificare il **limite della sessione inattiva**.
 
     ![Limite sessione inattiva](./media/how-to-windows-shutdown/edit-idle-time-limit.png)

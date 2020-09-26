@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: d2ad302042b277cf29b3a7b22af88b662686b3fd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90994909"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289770"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configurare Azure Defender per l'archiviazione
 
@@ -23,11 +23,11 @@ Azure Defender per l'archiviazione offre un ulteriore livello di intelligence pe
 
 Gli avvisi di sicurezza vengono attivati quando si verifica un'anomalia nell'attività. Questi avvisi di sicurezza sono integrati con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/)e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con informazioni dettagliate sulle attività sospette e consigli su come analizzare e correggere le minacce.
 
-Il servizio inserisce i log delle risorse di richieste di lettura, scrittura ed eliminazione nell'archivio BLOB e in File di Azure (anteprima) per il rilevamento delle minacce. Per esaminare gli avvisi di Azure Defender, è possibile visualizzare le attività di archiviazione correlate usando Analisi archiviazione registrazione. Per altre informazioni, vedere **configurare la registrazione** in [monitorare un account di archiviazione nell'portale di Azure](storage-monitor-storage-account.md#configure-logging).
+Il servizio inserisce i log delle risorse di richieste di lettura, scrittura ed eliminazione nell'archivio BLOB e in File di Azure per il rilevamento delle minacce. Per esaminare gli avvisi di Azure Defender, è possibile visualizzare le attività di archiviazione correlate usando Analisi archiviazione registrazione. Per altre informazioni, vedere **configurare la registrazione** in [monitorare un account di archiviazione nell'portale di Azure](storage-monitor-storage-account.md#configure-logging).
 
 ## <a name="availability"></a>Disponibilità
 
-Azure Defender per l'archiviazione è attualmente disponibile per l'archiviazione BLOB, File di Azure (anteprima) ed Azure Data Lake Storage Gen2 (anteprima). I tipi di account che supportano Azure Defender includono gli account per utilizzo generico V2, BLOB in blocchi e archiviazione BLOB. Azure Defender per l'archiviazione è disponibile in tutti i cloud pubblici e negli Stati Uniti, ma non in altre aree del cloud di Azure per enti pubblici o sovrani.
+Azure Defender per l'archiviazione è attualmente disponibile per l'archiviazione BLOB, File di Azure e Azure Data Lake Storage Gen2. I tipi di account che supportano Azure Defender includono gli account per utilizzo generico V2, BLOB in blocchi e archiviazione BLOB. Azure Defender per l'archiviazione è disponibile in tutti i cloud pubblici e negli Stati Uniti, ma non in altre aree del cloud di Azure per enti pubblici o sovrani.
 
 Gli account con spazi dei nomi gerarchici abilitati per Data Lake Storage supportano le transazioni usando le API di archiviazione BLOB di Azure e le API di Data Lake Storage. Le condivisioni file di Azure supportano le transazioni tramite SMB.
 
@@ -37,8 +37,8 @@ Nell'elenco seguente viene riepilogata la disponibilità di Azure Defender per l
 
 - Stato versione:
   - [Archiviazione BLOB](https://azure.microsoft.com/services/storage/blobs/) (disponibilità generale)
-  - [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (anteprima supporta le transazioni SMB e REST)
-  - Versione di anteprima di Azure Data Lake Storage Gen2
+  - [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (disponibilità generale)
+  - Azure Data Lake Storage Gen2 (disponibilità generale)
 - Cloud:<br>
     ✔ Cloud commerciali<br>
     ✔ US Gov<br>

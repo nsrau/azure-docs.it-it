@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: a009361267a364f04237716f3623921c892e2708
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7958ef9195c9dcef65fab70fbf48edf2021ff94b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546424"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355823"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Esercitazione: Configurare ThousandEyes per il provisioning utenti automatico
 
@@ -63,11 +63,11 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Provisioning di ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
+    ![Screenshot mostra la scheda provisioning per ThousandEyes con la modalità di provisioning selezionata automaticamente.](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
 5. Nella sezione **Credenziali amministratore** inserire il **token di connessione OAuth** generato dal proprio account ThousandEyes (è possibile trovare o generare il token nella sezione **Profilo** dell'account ThousandEyes.
 
-    ![Provisioning di ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
+    ![Screenshot mostra dove trovare il collegamento delle impostazioni dell'account per il gruppo di account corrente.](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
 6. Nel portale di Azure fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app ThousandEyes. Se la connessione non riesce, verificare che l'account ThousandEyes abbia autorizzazioni di amministratore di team e ripetere il passaggio 5.
 

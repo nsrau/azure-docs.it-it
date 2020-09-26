@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 5dce7cde3c46fbcf3f764819f730f42cace4a74c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0c5f91f1423bc20b2202589c488c9b225ed3fbaa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897537"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333852"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
@@ -56,8 +56,7 @@ Ad esempio, se si usano gruppi di sicurezza di rete (NSG) per limitare il traffi
 
 ## <a name="access-data-using-the-studio"></a>Accedere ai dati tramite studio
 
-Se i dati vengono archiviati in una rete virtuale, è necessario configurare gli account di archiviazione in modo da usare l' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per concedere a Studio l'accesso ai dati.
-
+Dopo aver [aggiunto un account di archiviazione di Azure alla rete virtuale](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts), è necessario configurare l'account di archiviazione in modo da usare l' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per concedere a Studio l'accesso ai dati. Studio supporta gli account di archiviazione configurati per l'uso di endpoint di servizio o di endpoint privati. Per impostazione predefinita, gli account di archiviazione usano gli endpoint del servizio. Per abilitare gli endpoint privati per l'archiviazione, vedere [usare endpoint privati per archiviazione di Azure](../storage/common/storage-private-endpoints.md)
 
 Se non si Abilita l'identità gestita, verrà visualizzato questo errore, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` inoltre, verranno disabilitate le operazioni seguenti:
 
@@ -72,7 +71,6 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
 * Database SQL di Azure
-
 
 ### <a name="configure-datastores-to-use-managed-identity"></a>Configurare gli archivi dati per usare l'identità gestita
 

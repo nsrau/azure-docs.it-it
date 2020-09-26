@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: Zhchia
-ms.openlocfilehash: bca751c55182df99e87ff1651de534985d9b5e76
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 43f5b96c7029da6b49bc9df40d92fbd250145715
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548991"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326015"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Esercitazione: configurare la matrice di priorità per il provisioning utenti automatico
 
@@ -114,11 +114,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere `https://sync.appfluence.com/scim/v2/` in **URL tenant**. Immettere il valore recuperato e salvato in precedenza dalla matrice di priorità nel **token segreto**. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi alla matrice di priorità. Se la connessione non riesce, verificare che l'account della matrice di priorità disponga delle autorizzazioni di amministratore e riprovare.
 

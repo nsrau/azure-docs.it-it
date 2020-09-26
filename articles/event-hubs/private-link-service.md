@@ -1,14 +1,14 @@
 ---
 title: Integrare Hub eventi di Azure con il servizio Collegamento privato di Azure
 description: Informazioni su come integrare Hub eventi di Azure con il servizio Collegamento privato di Azure
-ms.date: 07/29/2020
+ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716792"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334243"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure tramite endpoint privati 
 Il servizio Collegamento privato di Azure consente di accedere ai servizi di Azure, ad esempio Hub eventi di Azure, Archiviazione di Azure e Azure Cosmos DB, e ai servizi di clienti/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
@@ -24,7 +24,6 @@ Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../pr
 > 
 > Di seguito sono riportati alcuni dei servizi che non possono accedere alle risorse di hub eventi quando sono abilitati gli endpoint privati. Si noti che l'elenco **non** è esaustivo.
 >
-> - Analisi di flusso di Azure
 > - Route dell'hub IoT di Azure
 > - Azure IoT Device Explorer
 > - Griglia di eventi di Azure

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: 7408d7609cbceb4ac39298680b6d3854a2d71306
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b88408480bb0822a061e97336eee5c6b3ccfc8e0
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589215"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358322"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Esercitazione: Configurare GitHub per il provisioning utenti automatico
 
@@ -71,11 +71,11 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 6. Nella nuova finestra accedere a GitHub con l'account di amministratore. Nella finestra di dialogo di autorizzazione risultante selezionare il team GitHub per cui si vuole abilitare il provisioning e quindi **Authorize** (Autorizza). Al termine, tornare al portale di Azure per completare la configurazione del provisioning.
 
-    ![Finestra di dialogo di autorizzazione](./media/github-provisioning-tutorial/GitHub2.png)
+    ![Screenshot che mostra la pagina di accesso per GitHub.](./media/github-provisioning-tutorial/GitHub2.png)
 
 7. Nel portale di Azure immettere l'**URL tenant** e fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app GitHub. Se la connessione non riesce, verificare che l'account GitHub abbia le autorizzazioni di amministratore e che l'**URL tenant** sia stato immesso correttamente, quindi provare a eseguire di nuovo il passaggio per l'autorizzazione. È possibile calcolare l'**URL tenant** seguendo la regola: `https://api.github.com/scim/v2/organizations/<Organization_name>`. È possibile individuare le organizzazioni nell'account GitHub in **Impostazioni** > **Organizzazioni**.
 
-    ![Finestra di dialogo di autorizzazione](./media/github-provisioning-tutorial/GitHub3.png)
+    ![Screenshot mostra la pagina delle organizzazioni in GitHub.](./media/github-provisioning-tutorial/GitHub3.png)
 
 8. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo "Invia una notifica di posta elettronica in caso di errore".
 

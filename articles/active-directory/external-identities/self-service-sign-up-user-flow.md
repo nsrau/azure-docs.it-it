@@ -1,6 +1,6 @@
 ---
 title: Aggiungere un flusso utente di iscrizione self-service - Azure AD
-description: Aggiungere la federazione con Facebook per consentire a utenti esterni (guest) di accedere alle app Azure AD con i propri account Facebook.
+description: Creare flussi utente per le app compilate dall'organizzazione. Quindi, gli utenti che visitano l'app possono ottenere un account Guest usando le opzioni configurate nel flusso utente.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fa9d9e23de9a4ec93cbef6d2696d7bec70d41d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ffb1d5eb756c7bc316a6d8e1de30a95eb1ac5194
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909021"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287050"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Aggiungere un flusso utente di iscrizione self-service a un'app (anteprima)
 > [!NOTE]

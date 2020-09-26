@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 4312c6b89a7ba3e56e39050d76c673aa532f6f92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cfc746d883b565fe7a082a316ce314f385225df
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737343"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358170"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Creare un servizio di collegamento privato usando l'interfaccia della riga di comando
 Questo articolo illustra come creare un servizio di collegamento privato in Azure usando l'interfaccia della riga di comando di Azure.
@@ -88,7 +88,7 @@ Il servizio di collegamento privato richiede un indirizzo IP da qualsiasi subnet
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
 ```
  
-## <a name="create-a-private-link-service"></a>Creare un servizio Collegamento privato  
+## <a name="create-a-private-link-service-using-standard-load-balancer"></a>Creare un servizio di collegamento privato utilizzando Load Balancer Standard 
  
 Creare un servizio di collegamento privato usando Load Balancer Standard configurazione IP front [-end con AZ network private-Link-Service create](/cli/azure/network/private-link-service#az-network-private-link-service-create). Questo esempio crea un servizio di collegamento privato denominato *myPLS* usando Load Balancer standard denominato *myLoadBalancer* nel gruppo di risorse denominato *myResourceGroup*. 
  

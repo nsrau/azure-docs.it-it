@@ -34,12 +34,14 @@
         - name: Panoramica di Azure Defender
           href: azure-defender.md
         - name: Azure Defender per server
+          displayName: VM
           href: defender-for-servers-introduction.md
         - name: Azure Defender per il servizio app
           href: defender-for-app-service-introduction.md
         - name: Azure Defender per Archiviazione
           href: defender-for-storage-introduction.md
         - name: Azure Defender per SQL
+          displayName: database
           href: defender-for-sql-introduction.md
         - name: Azure Defender per IoT
           href: defender-for-iot-introduction.md
@@ -55,6 +57,7 @@
         - name: Altre misure di protezione dalle minacce
           href: other-threat-protections.md
     - name: Funzionalità di sicurezza dei contenitori di Centro sicurezza
+      displayName: 'kubernetes, aks, acr, registries'
       href: container-security.md
     - name: Prezzi
       href: security-center-pricing.md
@@ -134,6 +137,7 @@
         - name: Gestire le raccomandazioni per la sicurezza
           items:
             - name: Automatizzare le risposte alle raccomandazioni
+              displayName: workflow
               href: workflow-automation.md
             - name: Esportare le raccomandazioni
               href: continuous-export.md
@@ -222,6 +226,7 @@
         - name: Convalidare la configurazione degli avvisi (file di test EICAR)
           href: security-center-alert-validation.md
         - name: Automatizzare le risposte agli avvisi
+          displayName: workflow
           href: workflow-automation.md
         - name: Esportare gli avvisi
           displayName: continuous

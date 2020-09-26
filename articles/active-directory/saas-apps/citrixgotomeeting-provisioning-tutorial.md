@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 23af7ff9e4740b88d3d1f8cffb3d79a46c8d0d61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6cb2c90658a69f3e63e9ebe08db41eea0a9bc7fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544452"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299698"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Esercitazione: Configurare GoToMeeting per il provisioning utenti automatico
 
@@ -60,7 +60,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 1. Impostare la modalità di **provisioning** su **automatico**. 
 
-    ![provisioning](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Screenshot della scheda provisioning per GoToMeeting in portale di Azure. La modalità di provisioning è impostata su automatico e il nome utente amministratore, la password e la connessione di test sono evidenziati.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. Nella sezione Credenziali amministratore, seguire questa procedura:
    

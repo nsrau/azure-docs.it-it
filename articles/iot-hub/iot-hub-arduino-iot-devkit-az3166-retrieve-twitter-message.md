@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f0aa71b34818cf373d1bb58531ee5c68c8d3d5ec
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 187e44a40228adb62a1d97f4e0df8a7ad3a7e2d3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004324"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356068"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Usare lo scuotimento per recuperare un messaggio di Twitter con Funzioni di Azure
 
@@ -61,7 +61,7 @@ Nella finestra della soluzione eseguire l'attività desiderata premendo `Ctrl+P`
 
 Nel terminale di Visual Studio Code una riga di comando interattiva guiderà nel processo di provisioning dei servizi di Azure necessari:
 
-![cloud-provision](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
+![Screenshot mostra la riga di comando Visual Studio Code terminale interattivo.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
 > Se la pagina resta in stato di caricamento quando si prova ad accedere ad Azure, fare riferimento al [passaggio "login page hangs" (blocco della pagina di accesso) nelle domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
@@ -80,7 +80,7 @@ Sostituire la stringa `iot` tra le parentesi graffe con il proprio hashtag prefe
 
 Usare `Ctrl+P` (macOS: `Cmd+P`) per eseguire `task cloud-deploy` e avviare la distribuzione del codice di Funzioni di Azure:
 
-![cloud-deploy](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-deploy.png)
+![Screenshot mostra Visual Studio Code dove è possibile eseguire task cloud-deploy per distribuire il codice di funzioni di Azure.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-deploy.png)
 
 > [!NOTE]
 > In alcuni casi la funzione di Azure potrebbe non funzionare correttamente. Per risolvere questo problema quando si verifica, vedere la [sezione "compilation error" (errore di compilazione) nelle domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#compilation-error-for-azure-function).
@@ -115,7 +115,7 @@ A questo punto la stringa di connessione è impostata, verifica e carica l'app, 
 
 1. Visual Studio Code inizia a verificare e a caricare lo sketch Arduino nel dispositivo DevKit:
 
-   ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
+   ![Screenshot mostra Visual Studio Code verifica e caricamento dello sketch Arduino.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
 
 2. DevKit viene riavviato e avvia l'esecuzione del codice.
 
@@ -154,7 +154,7 @@ Dopo l'inizializzazione dell'app, premere e rilasciare il pulsante A, quindi scu
 
 ## <a name="how-it-works"></a>Come funziona
 
-![diagramma](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
+![Il diagramma mostra un dispositivo mobile che invia un evento all'hub I o T di Azure che attiva un'app per le funzioni di Azure per richiedere un tweet, che viene inviato all'app e inoltrato all'hub e al dispositivo mobile.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
 Lo sketch Arduino invia un evento all'hub IoT di Azure. Questo evento attiva l'app Funzioni di Azure. L'app Funzioni di Azure contiene la logica per la connessione all'API di Twitter e il recupero di un tweet. Successivamente, esegue il wrapping del testo visualizzato in un messaggio da cloud a dispositivo (C2D) e lo invia al dispositivo.
 
@@ -170,7 +170,7 @@ A scopo di test, questo progetto di esempio usa un token di connessione a Twitte
 
 4. Nel [portale di Azure](https://portal.azure.com/){:target="_blank"} passare a **Gruppo di risorse** e trovare la funzione di Azure (Tipo: Servizio app) per questo progetto. Il nome contiene sempre la stringa "shake".
 
-   ![azure-function](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
+   ![Screenshot della portale di Azure Mostra un servizio app per il progetto.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
 5. Aggiornare il codice per `run.csx`in **Funzioni > shakeshake-cs** con il proprio token:
 
@@ -178,7 +178,7 @@ A scopo di test, questo progetto di esempio usa un token di connessione a Twitte
    string authHeader = "Bearer " + "[your own token]";
    ```
   
-   ![twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
+   ![Screenshot mostra il codice C# per la funzione in cui è possibile immettere il token.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
 
 6. Salvare il file e fare clic su **Esegui**.
 
@@ -196,7 +196,7 @@ Può anche capitare che, durante l'esecuzione del codice, si verifichi un proble
 
 2. Nel [portale di Azure](https://portal.azure.com/) trovare l'app Funzioni di Azure creata e riavviarla:
 
-   ![azure-function-restart](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
+   ![Screenshot mostra la portale di Azure con un'app funzioni di Azure e il pulsante Riavvia.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
 
 Se si verificano altri problemi, fare riferimento alle [domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) o contattare i canali seguenti:
 

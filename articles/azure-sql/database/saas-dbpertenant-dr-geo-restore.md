@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 44ed9c0d19b6e0034b49e36448765d098d575273
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f3c7c166b72a43b6b11dc1830643332b032abad2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325318"
+ms.locfileid: "91356877"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usare il ripristino geografico per ripristinare un'applicazione SaaS dai backup di database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Questa esercitazione illustra uno scenario di ripristino di emergenza completo per un'applicazione SaaS multi-tenant implementata con il database per modello di tenant. Si usa il [ripristino geografico](recovery-using-backups.md) per ripristinare in un'area alternativa i database di catalogo e tenant dai backup con ridondanza geografica gestiti automaticamente. Dopo aver risolto il problema, si usa la [replica geografica](active-geo-replication-overview.md) per ricollocare i database modificati nella rispettiva area di origine.
 
-![Architettura di ripristino geografico](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![Il diagramma mostra le aree originali e di ripristino, entrambe con un'app, un catalogo, immagini originali o speculari di server e pool, backup automatici nell'archivio, con l'area di ripristino che accetta la replica geografica del backup e il server e il pool per i nuovi tenant.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
 Il ripristino geografico è la soluzione di ripristino di emergenza a minor costo per il database SQL di Azure. Il ripristino da backup con ridondanza geografica, tuttavia, può comportare la perdita di dati fino a un'ora. Tale operazione può richiedere tempi lunghi, a seconda della dimensione di ogni database. 
 
