@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71c470bd1bb71b55d6643ac6305a054f1c934948
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 88349e90102bf3b0e4dc2868d5f65d476aac51f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229040"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280369"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Impostare gli elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake Storage Gen2
 
@@ -41,7 +41,7 @@ L'ereditarietà ACL è già disponibile per i nuovi elementi figlio creati in un
 
 Vedere la sezione **configurare il progetto** di questo articolo per visualizzare le linee guida per l'installazione di PowerShell, .NET SDK e Python SDK.
 
-## <a name="set-up-your-project"></a>Configurare il progetto
+## <a name="set-up-your-project"></a>Impostare il progetto
 
 Installare le librerie necessarie.
 
@@ -55,7 +55,7 @@ Installare le librerie necessarie.
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Per aggiornare la versione di PowerShell, vedere [aggiornamento di Windows PowerShell esistente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   Per aggiornare la versione di PowerShell, vedere [aggiornamento di Windows PowerShell esistente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell)
     
 3. Installare la versione più recente del modulo PowershellGet.
 
@@ -71,7 +71,7 @@ Installare le librerie necessarie.
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   Per altre informazioni su come installare i moduli di PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   Per altre informazioni su come installare i moduli di PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -279,7 +279,9 @@ except Exception as e:
 
 ## <a name="set-an-acl-recursively"></a>Impostare un ACL in modo ricorsivo
 
-È possibile impostare gli ACL in modo ricorsivo.  
+Quando si *imposta* un ACL, si **sostituisce** l'intero ACL, incluse tutte le voci. Se si desidera modificare il livello di autorizzazione di un'entità di sicurezza o aggiungere una nuova entità di sicurezza all'ACL senza influire sulle altre voci esistenti, è necessario *aggiornare* invece l'ACL. Per aggiornare un ACL anziché sostituirlo, vedere la sezione [aggiornare un ACL in modo ricorsivo](#update-an-acl-recursively) di questo articolo.   
+
+Questa sezione contiene esempi su come impostare un ACL 
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -367,13 +369,17 @@ def set_permission_recursively():
 
 ## <a name="update-an-acl-recursively"></a>Aggiornare un ACL in modo ricorsivo
 
-È possibile aggiornare un ACL esistente in modo ricorsivo.
+Quando si *Aggiorna* un ACL, si modifica l'ACL anziché sostituire l'ACL. Ad esempio, è possibile aggiungere una nuova entità di sicurezza all'ACL senza influire sulle altre entità di sicurezza elencate nell'ACL.  Per sostituire l'ACL anziché aggiornarlo, vedere la sezione [impostare un ACL in modo ricorsivo](#set-an-acl-recursively) di questo articolo. 
+
+Per aggiornare un ACL, creare un nuovo oggetto ACL con la voce ACL che si vuole aggiornare e quindi usare tale oggetto in Update ACL Operation. Non ottenere l'ACL esistente, fornire solo le voci ACL da aggiornare.
+
+Questa sezione contiene esempi su come aggiornare un ACL.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aggiornare un ACL in modo ricorsivo usando il cmdlet  **Update-AzDataLakeGen2AclRecursive** . 
 
-Questo esempio aggiorna una voce ACL con autorizzazione di scrittura.
+Questo esempio aggiorna una voce ACL con autorizzazione di scrittura. 
 
 ```powershell
 $filesystemName = "my-container"
@@ -445,7 +451,9 @@ def update_permission_recursively():
 
 ## <a name="remove-acl-entries-recursively"></a>Rimuovi le voci ACL in modo ricorsivo
 
-È possibile rimuovere una o più voci ACL in modo ricorsivo.
+È possibile rimuovere una o più voci ACL in modo ricorsivo. Per rimuovere una voce ACL, creare un nuovo oggetto ACL per la voce ACL da rimuovere, quindi utilizzare l'oggetto in Rimuovi operazione ACL. Non ottenere l'ACL esistente, fornire solo le voci ACL da rimuovere. 
+
+Questa sezione contiene esempi su come rimuovere un ACL.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

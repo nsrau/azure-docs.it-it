@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59dc94e37dfa1ef8b0b079bf5d78d0504e0cb8c7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60246446"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313621"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo
 Questo argomento illustra il modello di configurazione in Azure AD Connect. Il modello è denominato provisioning dichiarativo e consente di modificare una configurazione con facilità. Molte operazioni descritte in questo argomento sono avanzate e non necessarie per la maggior parte degli scenari dei clienti.
@@ -29,11 +29,11 @@ Questo argomento illustra il modello di configurazione in Azure AD Connect. Il m
 ## <a name="overview"></a>Panoramica
 Il provisioning dichiarativo è l'elaborazione di oggetti provenienti da una directory di origine connessa e determina il modo in cui l'oggetto e gli attributi devono essere trasformati da un'origine a una destinazione. Un oggetto viene elaborato in una pipeline di sincronizzazione e la pipeline è la stessa per le regole in ingresso e in uscita. Una regola in ingresso origina da uno spazio connettore e ha come destinazione il metaverse, mentre una regola in uscita ha origine nel metaverse e ha come destinazione uno spazio connettore.
 
-![Pipeline di sincronizzazione](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
+![Diagramma che illustra un esempio di pipeline di sincronizzazione.](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
 
 La pipeline include diversi moduli. Ognuno di essi è responsabile di un concetto nella sincronizzazione degli oggetti.
 
-![Pipeline di sincronizzazione](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
+![Diagramma che mostra i moduli nella pipeline.](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
 
 * Origine, l'oggetto di origine
 * [Ambito](#scope), consente di trovare tutte le regole di sincronizzazione che si trovano nell'ambito
@@ -42,13 +42,13 @@ La pipeline include diversi moduli. Ognuno di essi è responsabile di un concett
 * [Precedenza](#precedence), risolve i conflitti tra attributi
 * Destinazione, l'oggetto di destinazione
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>Ambito
 Il modulo scope valuta un oggetto e determina le regole che si trovano nell'ambito e devono essere incluse nell'elaborazione. A seconda dei valori degli attributi sull'oggetto, viene valutata la presenza di diverse regole di sincronizzazione nell'ambito. Ad esempio, un utente disabilitato senza alcuna cassetta postale di Exchange ha regole diverse rispetto a un utente abilitato che ha una cassetta postale.  
-![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![Diagramma che mostra il modulo ambito per un oggetto.](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 L'ambito è definito sotto forma di gruppi e clausole. Le clausole si trovano all'interno di un gruppo. Tra tutte le clausole in un gruppo viene usato un operatore logico AND. Ad esempio, (department =IT AND country = Denmark). Viene usato un operatore logico OR tra gruppi.
 
-![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
+![Ambito](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
  L'ambito in questa immagine deve essere letto come (department = IT AND country = Denmark) OR (country=Sweden). Se il gruppo 1 o il gruppo 2 viene valutato su true, la regola si trova nell'ambito.
 
 Il modulo dell'ambito supporta le operazioni seguenti.
@@ -78,7 +78,7 @@ I join sono definiti come uno o più gruppi. All'interno di un gruppo sono prese
  I join in questa immagine vengono elaborati dall'alto verso il basso. La pipeline di sincronizzazione verifica prima di tutto se è presente una corrispondenza in employeeID. Se non sono presenti corrispondenze, la seconda regola verifica se è possibile usare il nome account per unire gli oggetti. Se neanche in questo caso vengono trovate corrispondenze, la terza e ultima regola rappresenta una corrispondenza fuzzy che usa il nome dell'utente.
 
 Se tutte le regole di join sono state valutate e non è presente esattamente una corrispondenza, verrà usato il valore di **Link Type** (Tipo di collegamento) indicato nella pagina **Description** (Descrizione). Se per questa impostazione è specificato il valore **Provision**(Provisioning), nella destinazione verrà creato un nuovo oggetto.  
-![Provisioning o join](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
+![Screenshot che mostra il menu a discesa "tipo di collegamento" aperto.](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
 
 Un oggetto deve avere una sola regola di sincronizzazione con regole di join nell'ambito. Se sono presenti più regole di sincronizzazione in cui è definito il join, si verificherà un errore. La precedenza non viene usata per risolvere i conflitti di join. Un oggetto deve avere una regola di join nell'ambito per far sì che gli attributi vengano trasferiti nella stessa direzione in ingresso/in uscita. Se è necessario trasferire gli attributi sia in ingresso che in uscita nello stesso oggetto, è necessario avere una regola di sincronizzazione sia in ingresso che in uscita con il join.
 
@@ -101,7 +101,7 @@ La casella di controllo **Apply once** (Applica una volta) definisce che l'attri
 ### <a name="merging-attribute-values"></a>Unione di valori degli attributi
 Nei flussi di attributi è disponibile un'impostazione per stabilire se gli attributi multivalore devono essere uniti da molti connettori diversi. Il valore predefinito è **Update**(Aggiorna) e indica che la regola di sincronizzazione con precedenza più alta avrà la priorità.
 
-![Tipi di unione](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
+![Screenshot che mostra la sezione "aggiunta di trasformazioni" con il menu a discesa "tipi di Unione" aperto.](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
 
 Sono disponibili anche **Merge** (Unisci) e **MergeCaseInsensitive** (Unisci senza distinzione maiuscole/minuscole). Queste opzioni consentono di unire i valori da diverse origini. Ad esempio, possono essere usate per unire l'attributo proxyAddresses o membro di più foreste diverse. Quando si usano queste opzioni, tutte le regole di sincronizzazione nell'ambito per un oggetto devono usare lo stesso tipo di unione. Non è possibile definire **Update** (Aggiorna) da un connettore e **Merge** (Unisci) da un altro. In questo caso, viene visualizzato un errore.
 
@@ -146,7 +146,7 @@ Questo ordinamento consente di definire flussi di attributi più precisi per un 
 
 ### <a name="multiple-objects-from-the-same-connector-space"></a>Più oggetti dallo stesso spazio connettore
 Se sono presenti più oggetti nello stesso spazio connettore uniti nello stesso oggetto del metaverse, è necessario definire la precedenza. Se più oggetti si trovano nell'ambito della stessa regola di sincronizzazione, il motore di sincronizzazione non riesce a determinare la precedenza. Non è chiaro quale oggetto di origine debba passare il valore al metaverse. Questa configurazione viene indicata come ambigua anche se gli attributi nell'origine hanno lo stesso valore.  
-![Più oggetti uniti nello stesso oggetto mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
+![Diagramma che Mostra più oggetti Uniti allo stesso oggetto MV con una sovrapposizione rossa X trasparente. ](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
 
 Per questo scenario è necessario modificare l'ambito delle regole di sincronizzazione in modo che gli oggetti di origine abbiano regole di sincronizzazione diverse nell'ambito. È così possibile definire una precedenza diversa.  
 ![Più oggetti uniti nello stesso oggetto mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple2.png)  

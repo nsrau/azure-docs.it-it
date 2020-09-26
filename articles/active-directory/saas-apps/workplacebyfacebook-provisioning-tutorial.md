@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Configurare Workplace by Facebook per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Workplace by Facebook.
+description: Per configurare il provisioning utenti automatico, è possibile ottenere informazioni sui passaggi da eseguire sia nell'area di lavoro di Facebook che in Azure Active Directory (Azure AD).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ae13e062f50e1e8eefeaa886c67c636cf6230c18
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c72ca7cb521c5c7e7ed33e9a0539de0df252ac92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973879"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321901"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workplace by Facebook per il provisioning utenti automatico
 
@@ -81,11 +81,11 @@ Il servizio di provisioning di Azure AD consente di definire l'ambito per gli ut
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** fare clic su **autorizza**. Si verrà reindirizzati all'area di lavoro dalla pagina di autorizzazione di Facebook. Immettere l'area di lavoro per nome utente di Facebook e fare clic sul pulsante **continue (continua** ). Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi all'area di lavoro da Facebook. Se la connessione ha esito negativo, verificare che l'account di lavoro per Facebook disponga delle autorizzazioni di amministratore e riprovare.
 
@@ -131,7 +131,7 @@ Il servizio di provisioning di Azure AD consente di definire l'ambito per gli ut
    |urn:scim:schemas:extension:enterprise:1.0.organization|string|
    |urn:scim:schemas:extension:enterprise:1.0.costCenter|string|
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|string|
-   |urn: SCIM: schemas: estensione: Facebook: auth_method: 1.0: auth_method|Stringa|
+   |urn: SCIM: schemas: estensione: Facebook: auth_method: 1.0: auth_method|string|
    |urn: SCIM: schemas: estensione: Facebook: Frontline: 1.0. is_frontline|Boolean|
    |urn: SCIM: schemas: estensione: Facebook: starttermdates: 1.0. startDate|Integer|
 
