@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bad9a706c5289966334af26eacbfa41c418b7ab5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360804"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -77,7 +77,7 @@ Nel portale di Azure accedere alla data factory. Selezionare **crea & monitoragg
 
 6. Se necessario, specificare un filtro. Se il OHD contiene solo i dati di una singola esecuzione del processo di trasferimento dei dati (DTP) con un solo ID richiesta o se si è certi che il DTP è terminato e si vogliono copiare i dati, deselezionare la casella di controllo **Escludi ultima richiesta** .
 
-   Altre informazioni su queste impostazioni sono disponibili nella sezione [SAP BW configurazioni di destinazione dell'hub aperto](#sap-bw-open-hub-destination-configurations) di questo articolo. Selezionare **convalida** per controllare i dati che verranno restituiti. Selezionare quindi **Avanti**.
+   Altre informazioni su queste impostazioni sono disponibili nella sezione [SAP BW configurazioni di destinazione dell'hub aperto](#sap-bw-open-hub-destination-configurations) di questo articolo. Selezionare **convalida** per controllare i dati che verranno restituiti. Fare quindi clic su **Avanti**.
 
    ![Configurare SAP BW filtro Hub aperto](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -88,9 +88,9 @@ Nel portale di Azure accedere alla data factory. Selezionare **crea & monitoragg
    ![Creare una pagina del servizio collegato ADLS Gen2](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. Selezionare l'account che supporta Data Lake Storage Gen2 dall'elenco a discesa **nome** .
-   2. Selezionare **Fine** per creare la connessione. Selezionare quindi **Avanti**.
+   2. Selezionare **Fine** per creare la connessione. Fare quindi clic su **Avanti**.
 
-9. Nella pagina **scegliere il file o la cartella** di output immettere **copyfromopenhub** come nome della cartella di output. Selezionare quindi **Avanti**.
+9. Nella pagina **scegliere il file o la cartella** di output immettere **copyfromopenhub** come nome della cartella di output. Fare quindi clic su **Avanti**.
 
    ![Pagina Scegli cartella di output](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -98,11 +98,11 @@ Nel portale di Azure accedere alla data factory. Selezionare **crea & monitoragg
 
     ![Pagina specifica formato sink](media/load-sap-bw-data/specify-sink-format.png)
 
-11. Nella pagina **Impostazioni** espandere **Impostazioni prestazioni**. Immettere un valore per il **grado di parallelismo di copia** , ad esempio 5, da caricare SAP BW in parallelo. Selezionare quindi **Avanti**.
+11. Nella pagina **Impostazioni** espandere **Impostazioni prestazioni**. Immettere un valore per il **grado di parallelismo di copia** , ad esempio 5, da caricare SAP BW in parallelo. Fare quindi clic su **Avanti**.
 
     ![Configurare le impostazioni di copia](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. Nella pagina **Riepilogo** esaminare le impostazioni. Selezionare quindi **Avanti**.
+12. Nella pagina **Riepilogo** esaminare le impostazioni. Fare quindi clic su **Avanti**.
 
 13. Nella pagina **distribuzione** selezionare **monitoraggio** per monitorare la pipeline.
 
@@ -217,7 +217,7 @@ Se è necessaria una copia cronologica e una copia incrementale o solo una copia
 
    È possibile aumentare il numero di processi di lavoro SAP con esecuzione parallela per il DTP:
 
-   ![creazione-SAP-BW-OHD-Delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![Screenshot mostra le impostazioni per l'elaborazione parallela in cui è possibile selezionare il numero di processi paralleli per D T P.](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. Pianificare il DTP nelle catene di processi.
 

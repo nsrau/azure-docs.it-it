@@ -1,52 +1,72 @@
 ---
 title: Panoramica dell'archiviazione-Azure Time Series Insights Gen2 | Microsoft Docs
 description: Informazioni sull'archiviazione dei dati in Azure Time Series Insights Gen2.
-author: esung22
-ms.author: elsung
-manager: diviso
+author: lyrana
+ms.author: lyhughes
+manager: deepakpalled
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: c05de0462dde2b09e0e01919dfc691a85df153fa
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: d8e3c7258a70902fe362ee73c2f366146484ce54
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483270"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287542"
 ---
 # <a name="data-storage"></a>Archiviazione dati
 
-Quando si crea un ambiente Azure Time Series Insights Gen2, si creano due risorse di Azure:
+Questo articolo descrive l'archiviazione dei dati in Azure Time Series Insights Gen2. Vengono illustrate le procedure consigliate, la disponibilità dei dati e le attività a caldo e a freddo.
 
-* Un ambiente Azure Time Series Insights Gen2 che può essere configurato per l'archiviazione dei dati a caldo.
-* Un account di archiviazione di Azure per l'archiviazione dei dati a freddo.
+## <a name="provisioning"></a>Provisioning
 
-I dati nell'archivio a caldo sono disponibili solo tramite le [API di query di serie temporali](./time-series-insights-update-tsq.md) e [Esplora Azure Time Series Insights](./time-series-insights-update-explorer.md). Il negozio caldo conterrà i dati recenti entro il [periodo di memorizzazione](./time-series-insights-update-plan.md#the-preview-environment) selezionato durante la creazione dell'ambiente di Azure Time Series Insights Gen2.
+Quando si crea un ambiente Azure Time Series Insights Gen2, sono disponibili le opzioni seguenti:
 
-Azure Time Series Insights Gen2 Salva i dati dell'archivio a freddo nell'archivio BLOB di Azure nel [formato di file parquet](#parquet-file-format-and-folder-structure). Azure Time Series Insights Gen2 gestisce esclusivamente i dati di archivio a freddo, ma è possibile leggerli direttamente come file parquet standard.
+* Archiviazione dati a freddo:
+   * Creare una nuova risorsa di archiviazione di Azure nella sottoscrizione e nell'area scelte per l'ambiente.
+   * Alleghi un account di archiviazione di Azure preesistente. Questa opzione è disponibile solo distribuendo da un [modello](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)di Azure Resource Manager e non è visibile nel portale di Azure.
+* Archiviazione dati a caldo:
+   * Un archivio caldo è facoltativo e può essere abilitato o disabilitato durante o dopo l'esecuzione del provisioning. Se si decide di abilitare l'archivio a caldo in un secondo momento e sono già presenti dati nell'archivio a freddo, esaminare [questa](concepts-storage.md#warm-store-behavior) sezione per comprendere il comportamento previsto. È possibile configurare il periodo di conservazione dei dati dell'archivio di riscaldamento per 7 o 31 giorni. questa operazione può anche essere regolata in base alle esigenze.
+
+Quando un evento viene inserito, viene indicizzato sia nell'archivio a caldo (se abilitato) che nell'archivio a freddo.
+
+[![Panoramica dell'archiviazione](media/concepts-storage/pipeline-to-storage.png)](media/concepts-storage/pipeline-to-storage.png#lightbox)
+
 
 > [!WARNING]
 > In qualità di proprietario dell'account di Archiviazione BLOB di Azure in cui si trovano i dati dell'archivio ad accesso sporadico, l'utente ha completo accesso a tutti i dati dell'account. Questo accesso include le autorizzazioni di scrittura ed eliminazione. Non modificare o eliminare i dati che Azure Time Series Insights Scritture Gen2 perché ciò può causare la perdita di dati.
 
 ## <a name="data-availability"></a>Disponibilità dei dati
 
-Azure Time Series Insights Gen2 le partizioni e indicizza i dati per ottenere prestazioni ottimali delle query. I dati diventeranno disponibili per eseguire una query sia dal sistema caldo (se abilitato) che dall'archivio a freddo dopo che è stato indicizzato. La quantità di dati inseriti può influire sulla disponibilità.
+Azure Time Series Insights Gen2 le partizioni e indicizza i dati per ottenere prestazioni ottimali delle query. I dati diventeranno disponibili per eseguire una query sia dal sistema caldo (se abilitato) che dall'archivio a freddo dopo che è stato indicizzato. La quantità di dati da inserire e la velocità effettiva per partizione possono influire sulla disponibilità. Esaminare le limitazioni relative alla [velocità effettiva](./concepts-streaming-ingress-throughput-limits.md) dell'origine eventi e le [procedure](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) consigliate per ottenere prestazioni ottimali. È anche possibile configurare un [avviso](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) di ritardo per ricevere una notifica nel caso in cui si verifichino problemi di elaborazione dei dati nell'ambiente.
 
 > [!IMPORTANT]
 > È possibile che si verifichi un periodo di tempo massimo di 60 secondi prima che i dati diventino disponibili. Se si verifica una latenza significativa superiore a 60 secondi, inviare un ticket di supporto tramite il portale di Azure.
 
-## <a name="azure-storage"></a>Archiviazione di Azure
+## <a name="warm-store"></a>Negozio caldo
+
+I dati nell'archivio a caldo sono disponibili solo tramite le [API di query della serie temporale](./time-series-insights-update-tsq.md), il [Azure Time Series Insights di gestione](./time-series-insights-update-explorer.md)delle chiavi di gestione delle chiavi o il [connettore Power bi](./how-to-connect-power-bi.md). Le query di archivio warm sono gratuite e non esiste alcuna quota, ma è previsto un [limite di 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) richieste simultanee.
+
+### <a name="warm-store-behavior"></a>Comportamento dell'archivio caldo 
+
+* Quando questa funzionalità è abilitata, tutti i dati trasmessi nell'ambiente verranno indirizzati all'archivio a caldo, indipendentemente dal timestamp dell'evento. Si noti che la pipeline di inserimento del flusso è compilata per lo streaming quasi in tempo reale e l'inserimento di eventi cronologici [non è supportato](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion).
+* Il periodo di memorizzazione viene calcolato in base al momento in cui l'evento è stato indicizzato nell'archivio a caldo, non al timestamp dell'evento. Ciò significa che i dati non sono più disponibili in warm Store dopo che è trascorso il periodo di memorizzazione, anche se il timestamp dell'evento è per il futuro.
+  - Esempio: un evento con previsioni meteorologiche di 10 giorni viene inserito e indicizzato in un contenitore di archiviazione a caldo configurato con un periodo di conservazione di 7 giorni. Dopo 7 giorni di tempo, la stima non è più accessibile nell'archivio a caldo, ma è possibile eseguire query a freddo. 
+* Se si Abilita l'archiviazione a caldo in un ambiente esistente in cui sono già stati indicizzati i dati recenti nell'archiviazione a freddo, si noti che l'archivio di riscaldamento non verrà riempito con questi dati.
+* Se è stata appena abilitata l'opzione warm Store e si verificano problemi durante la visualizzazione dei dati recenti in Esplora risorse, è possibile disattivare temporaneamente le query di warm Store:
+
+   [![Disabilitare le query a caldo](media/concepts-storage/toggle-warm.png)](media/concepts-storage/toggle-warm.png#lightbox)
+
+## <a name="cold-store"></a>Archivio a freddo
 
 Questa sezione descrive i dettagli di archiviazione di Azure rilevanti per Azure Time Series Insights Gen2.
 
 Per una descrizione completa dell'Archiviazione BLOB di Azure, vedere l'[introduzione ai BLOB di archiviazione ](../storage/blobs/storage-blobs-introduction.md).
 
-### <a name="your-storage-account"></a>Account di archiviazione
-
-Quando si crea un ambiente di Azure Time Series Insights Gen2, viene creato un account di archiviazione di Azure come archivio a lungo termine a freddo.  
+### <a name="your-cold-storage-account"></a>L'account di archiviazione a freddo
 
 Azure Time Series Insights Gen2 conserva fino a due copie di ogni evento nell'account di archiviazione di Azure. Una copia archivia gli eventi ordinati in base al momento dell'inserimento, consentendo sempre l'accesso agli eventi in una sequenza temporale ordinata. Nel corso del tempo, Azure Time Series Insights Gen2 crea anche una copia ripartizionata dei dati per ottimizzare le query efficienti.
 

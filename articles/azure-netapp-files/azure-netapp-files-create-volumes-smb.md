@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a90a4ad44bff392b5fe6cd0af13313bd98ce2a6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e2c487b62813bc4480786daa08666fe6471bd18d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988368"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325709"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -255,7 +255,7 @@ Questa impostazione viene configurata in **Connessioni Active Directory** in **A
 
         Un nome di volume deve essere univoco all'interno di ogni pool di capacità. Deve essere composto da almeno tre caratteri. È possibile usare qualsiasi carattere alfanumerico.   
 
-        Non è possibile usare `default` come nome del volume.
+        Non è possibile usare `default` o `bin` come nome del volume.
 
     * **Pool di capacità**  
         Specificare il pool di capacità in cui si vuole creare il volume.
@@ -264,6 +264,11 @@ Questa impostazione viene configurata in **Connessioni Active Directory** in **A
         Specificare la quantità di spazio di archiviazione logico allocato al volume.  
 
         Il campo **Quota disponibile** mostra la quantità di spazio inutilizzato nel pool di capacità scelto che è possibile usare per la creazione di un nuovo volume. Le dimensioni del nuovo volume non devono superare la quota disponibile.  
+
+    * **Velocità effettiva (MiB/S)**   
+        Se il volume viene creato in un pool di capacità QoS manuale, specificare la velocità effettiva desiderata per il volume.   
+
+        Se il volume viene creato in un pool di capacità QoS automatica, il valore visualizzato in questo campo è (quota x velocità effettiva del livello di servizio).   
 
     * **Rete virtuale**  
         Specificare la rete virtuale di Azure da cui si vuole accedere al volume.  

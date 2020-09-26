@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 52cdf25b4d77fee0a7a2182e3f1ce60865caf066
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088562"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361348"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Come usare PerfInsights in Azure
 
@@ -104,22 +104,22 @@ Vengono raccolte informazioni sulla macchina virtuale Windows, sulla configurazi
 | Dati raccolti | Analisi rapida delle prestazioni | Benchmarking | Analisi delle prestazioni | Analisi di File di Azure | Analisi avanzata delle prestazioni |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|
 | Informazioni dei log eventi       | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Informazioni di sistema                | Sì                        | Sì                                | Sì                      | Sì                  | Yes                  |
+| Informazioni di sistema                | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
 | Mapping del volume                        | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
 | Mapping del disco                          | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
 | Attività in esecuzione                     | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Contatori di affidabilità di archiviazione      | Sì                        | Yes                                | Sì                      | Yes                  | Yes                  |
+| Contatori di affidabilità di archiviazione      | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
 | Informazioni sull'archiviazione               | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Output di fsutil                     | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Output di fsutil                     | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
 | Informazioni sul driver filtro                | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Output di netstat                    | Sì                        | Sì                                | Sì                      | Yes                  | Sì                  |
-| Configurazione di rete             | Sì                        | Yes                                | Yes                      | Yes                  | Yes                  |
-| Configurazione del firewall            | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Output di netstat                    | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
+| Configurazione di rete             | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
+| Configurazione del firewall            | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
 | Configurazione di SQL Server          | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Tracce di diagnostica delle prestazioni *  | Sì                        | Sì                                | Yes                      | Yes                  | Yes                  |
-| Traccia del contatore delle prestazioni **      |                            |                                    | Yes                      |                      | Yes                  |
-| Traccia del contatore SMB **              |                            |                                    |                          | Yes                  |                      |
-| Traccia del contatore SQL Server **       |                            |                                    | Yes                      |                      | Sì                  |
+| Tracce di diagnostica delle prestazioni *  | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
+| Traccia del contatore delle prestazioni **      |                            |                                    | Sì                      |                      | Sì                  |
+| Traccia del contatore SMB **              |                            |                                    |                          | Sì                  |                      |
+| Traccia del contatore SQL Server **       |                            |                                    | Sì                      |                      | Sì                  |
 | Traccia di XPerf                       |                            |                                    |                          |                      | Sì                  |
 | Traccia di StorPort                    |                            |                                    |                          |                      | Sì                  |
 | Traccia di rete                     |                            |                                    |                          | Sì                  | Sì                  |
@@ -259,8 +259,8 @@ Nel file **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** è possibile t
 
 Selezionare la scheda **Risultati**.
 
-![Screenshot del report di PerfInsights](media/how-to-use-perfInsights/pi-finding-tab.png)
-![Screenshot del report di PerfInsights](media/how-to-use-perfInsights/pi-findings.png)
+![Screenshot della scheda Panoramica del report PerfInsights. ](media/how-to-use-perfInsights/pi-finding-tab.png)
+ ![ Screenshot della scheda archiviazione del report PerfInsights.](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > I risultati classificati come alti sono problemi noti che possono causare problemi di prestazioni. I risultati classificati come medi rappresentano configurazioni non ottimali che non necessariamente causano problemi di prestazioni. I risultati classificati come bassi sono solo istruzioni informative.

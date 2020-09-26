@@ -3,12 +3,12 @@ title: Analisi di video in tempo reale su IoT Edge note sulla versione-Azure
 description: Questo argomento fornisce le note sulla versione di analisi video in tempo reale su IoT Edge versioni, miglioramenti, correzioni di bug e problemi noti.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 0bdf11cd99d99067dc53dde7d55fd37b96a382c9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e33a62891f9503a4f2ff907585316c3737c876e6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882731"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250471"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Note sulla versione di analisi video in tempo reale su IoT Edge
 
@@ -36,7 +36,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ### <a name="module-updates"></a>Aggiornamenti del modulo
 
-* Un nuovo nodo di estensione del grafico, [MediaGraphCognitiveServicesVisionExtension](custom-vision-tutorial.md) è disponibile per l'integrazione con il [modulo di analisi spaziale](spatial-analysis-tutorial.md)(anteprima) di servizi cognitivi.
+* Un nuovo nodo di estensione del grafico, [MediaGraphCognitiveServicesVisionExtension](spatial-analysis-tutorial.md) è disponibile per l'integrazione con il modulo di [analisi spaziale](https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview)(anteprima) di servizi cognitivi.
 * Aggiunta del supporto per i dispositivi Linux ARM64: usare i [passaggi manuali](deploy-iot-edge-device.md) per la distribuzione in tali dispositivi.
 
 ### <a name="documentation-updates"></a>Aggiornamenti della documentazione

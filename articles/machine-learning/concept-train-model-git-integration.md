@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: bd77af133b88e1ba93054dbb7e0f896d8d418f89
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 71ac7793fe5226215c5d4eab98f84dba356b114c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893553"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275966"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integrazione git per Azure Machine Learning
 
@@ -35,7 +35,89 @@ Si consiglia di clonare il repository nella directory degli utenti in modo che a
 
 È possibile clonare qualsiasi repository git a cui è possibile eseguire l'autenticazione (GitHub, Azure Repos, BitBucket e così via)
 
-Per una guida su come usare l'interfaccia della riga di comando di Git, vedere [qui.](https://guides.github.com/introduction/git-handbook/)
+Per altre informazioni sulla clonazione, vedere la guida su [come usare l'interfaccia](https://guides.github.com/introduction/git-handbook/)della riga di comando di git.
+
+## <a name="authenticate-your-git-account-with-ssh"></a>Autenticare l'account git con SSH
+### <a name="generate-a-new-ssh-key"></a>Genera una nuova chiave SSH
+1) [Aprire la finestra del terminale](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) nella scheda Azure Machine Learning notebook.
+
+2) Incollare il testo seguente, sostituendo l'indirizzo di posta elettronica.
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+Viene creata una nuova chiave SSH, usando il messaggio di posta elettronica fornito come etichetta.
+
+```
+> Generating public/private rsa key pair.
+```
+
+3) Quando viene richiesto di "immettere un file in cui salvare la chiave" premere INVIO. Accetta il percorso del file predefinito.
+
+4) Verificare che il percorso predefinito sia "/Home/azureuser/.ssh" e premere INVIO. In caso contrario, specificare il percorso '/Home/azureuser/.ssh '.
+
+> [!TIP]
+> Verificare che la chiave SSH sia salvata in '/Home/azureuser/.ssh '. Questo file viene salvato nell'istanza di calcolo è accessibile solo al proprietario dell'istanza di calcolo
+
+```
+> Enter a file in which to save the key (/home/azureuser/.ssh/id_rsa): [Press enter]
+```
+
+5) Al prompt dei comandi digitare una passphrase sicura. È consigliabile aggiungere una passphrase alla chiave SSH per una maggiore sicurezza
+
+```
+> Enter passphrase (empty for no passphrase): [Type a passphrase]
+> Enter same passphrase again: [Type passphrase again]
+```
+
+### <a name="add-the-public-key-to-git-account"></a>Aggiungere la chiave pubblica all'account git
+1) Nella finestra del terminale copiare il contenuto del file di chiave pubblica. Se la chiave è stata rinominata, sostituire id_rsa. pub con il nome del file di chiave pubblica.
+
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+> [!TIP]
+> **Copiare e incollare nel terminale**
+> * Windows: `Ctrl-Insert` per copiare e usare `Ctrl-Shift-v` o `Shift-Insert` per incollare.
+> * Mac OS: `Cmd-c` per copiare e `Cmd-v` per incollare.
+> * FireFox o Internet Explorer potrebbero non supportare correttamente le autorizzazioni per gli appunti.
+
+2) Selezionare e copiare l'output della chiave negli Appunti.
+
++ [GitHub](https://docs.github.com/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+
++ [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
+
++ [Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Iniziare dal **passaggio 2**.
+
++ [Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Iniziare dal **passaggio 4**.
+
+### <a name="clone-the-git-repository-with-ssh"></a>Clonare il repository git con SSH
+
+1) Copiare l'URL del clone git SSH dal repository git.
+
+2) Incollare l'URL nel `git clone` comando riportato di seguito per usare l'URL del repository git SSH. Il risultato sarà simile al seguente:
+
+```bash
+git clone git@example.com:GitUser/azureml-example.git
+Cloning into 'azureml-example'...
+```
+
+Viene visualizzata una risposta simile alla seguente:
+
+```bash
+The authenticity of host 'example.com (192.30.255.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of known hosts.
+```
+
+SSH può visualizzare l'impronta digitale SSH del server e richiedere di verificarla. È necessario verificare che l'impronta digitale visualizzata corrisponda a una delle impronte digitali nella pagina chiavi pubbliche SSH.
+
+SSH Visualizza questa impronta digitale quando si connette a un host sconosciuto per proteggersi dagli [attacchi man-in-the-Middle](https://technet.microsoft.com/library/cc959354.aspx). Una volta accettata l'impronta digitale dell'host, SSH non verrà più richiesto se l'impronta digitale non cambia.
+
+3) Quando viene chiesto se si desidera continuare la connessione, digitare `yes` . Git clona il repository e configura l'origine remota per connettersi con SSH per i comandi Git futuri.
 
 ## <a name="track-code-that-comes-from-git-repositories"></a>Tenere traccia del codice che deriva da repository git
 
@@ -110,7 +192,7 @@ Il `az ml run` comando CLI può essere usato per recuperare le proprietà da un'
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Per ulteriori informazioni, vedere la documentazione di riferimento [AZ ml Run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest) .
+Per ulteriori informazioni, vedere la documentazione di riferimento [AZ ml Run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

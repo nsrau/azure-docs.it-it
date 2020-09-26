@@ -3,13 +3,13 @@ title: Panoramica delle API Node di inoltro di Azure | Microsoft Docs
 description: Questo articolo fornisce una panoramica dell'API Node.js per il servizio di inoltro di Azure. Viene inoltre illustrato come utilizzare il pacchetto del nodo Hyco-WS.
 ms.topic: article
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 67d818a95d63b3097f81f799a287fb4c48a1cfb7
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: 558f49c09203192ff4cbb1af392eaeef8d705c94
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386249"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263488"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Panoramica dell'API del pacchetto Node per Connessioni ibride di inoltro
 

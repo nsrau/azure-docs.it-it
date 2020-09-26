@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7b6fa2395e81089e8b4523929a4a7a583b0788a2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852294"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360770"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint REST tramite Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -318,7 +318,7 @@ Questo connettore REST generico supporta i modelli di paginazione seguenti:
 
 **Valori supportati** nelle regole di paginazione:
 
-| Valore | Description |
+| valore | Descrizione |
 |:--- |:--- |
 | Headers.*intestazione_risposta* o Headers['intestazione_risposta'] | "response_header" è definito dall'utente, che fa riferimento a un nome di intestazione nella risposta HTTP corrente, il cui valore verrà usato per emettere la richiesta successiva. |
 | Espressione JSONPath che inizia con "$" (che rappresenta la radice del corpo della risposta) | Il corpo della risposta deve contenere un solo oggetto JSON. L'espressione JSONPath deve restituire un singolo valore primitivo, che verrà usato per inviare la richiesta successiva. |
@@ -404,13 +404,13 @@ Il modello definisce due parametri:
 3. Selezionare **Usa questo modello**.
     ![Usa questo modello](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
-4. Si noterà che la pipeline è stata creata come illustrato nell'esempio seguente: ![ pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. Si noterà che la pipeline è stata creata come illustrato nell'esempio seguente:  ![ screenshot mostra la pipeline creata dal modello.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
 5. Selezionare attività **Web** . In **Impostazioni**specificare l' **URL**, il **Metodo**, le **intestazioni**e il **corpo** corrispondenti per recuperare i Bearer token OAuth dall'API di accesso del servizio da cui si desidera copiare i dati. Il segnaposto nel modello presenta un esempio di Azure Active Directory OAuth (AAD). Nota l'autenticazione AAD è supportata in modo nativo dal connettore REST. di seguito è riportato solo un esempio di flusso OAuth. 
 
     | Proprietà | Descrizione |
     |:--- |:--- |:--- |
-    | URL |Specificare l'URL da cui recuperare il bearer token OAuth. Nell'esempio seguente, ad esempio,https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |Specificare l'URL da cui recuperare il bearer token OAuth. Nell'esempio seguente, ad esempio, https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Metodo | Metodo HTTP. I valori consentiti sono **post** e **Get**. | 
     | Intestazioni | L'intestazione è definita dall'utente, che fa riferimento a un nome di intestazione nella richiesta HTTP. | 
     | Corpo | Corpo della richiesta HTTP. | 

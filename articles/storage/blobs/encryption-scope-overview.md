@@ -4,17 +4,17 @@ description: Gli ambiti di crittografia offrono la possibilità di gestire la cr
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 041b0bf57f57fd8ddd74c8330888d75e31aacc83
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996401"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326117"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Ambiti di crittografia per l'archiviazione BLOB (anteprima)
 
@@ -22,7 +22,7 @@ Gli ambiti di crittografia offrono la possibilità di gestire la crittografia a 
 
 Per impostazione predefinita, un account di archiviazione viene crittografato con una chiave con ambito per l'intero account di archiviazione. Con un ambito di crittografia, è possibile specificare che uno o più contenitori sono crittografati con una chiave che ha come ambito solo i contenitori.
 
-È possibile scegliere di usare chiavi gestite da Microsoft o chiavi gestite dal cliente archiviate in Azure Key Vault o Key Vault modello di protezione hardware (HSM) gestito (anteprima) per proteggere e controllare l'accesso alla chiave che crittografa i dati. Diversi ambiti di crittografia nello stesso account di archiviazione possono usare chiavi gestite da Microsoft o gestite dal cliente.
+È possibile scegliere di usare chiavi gestite da Microsoft o chiavi gestite dal cliente archiviate in Azure Key Vault per proteggere e controllare l'accesso alla chiave che crittografa i dati. Diversi ambiti di crittografia nello stesso account di archiviazione possono usare chiavi gestite da Microsoft o gestite dal cliente.
 
 Dopo aver creato un ambito di crittografia, è possibile specificare tale ambito di crittografia per una richiesta di creazione di un contenitore o di un BLOB. Per ulteriori informazioni su come creare un ambito di crittografia, vedere [creare e gestire ambiti di crittografia (anteprima)](encryption-scope-manage.md).
 
@@ -50,7 +50,7 @@ Quando si disabilita un ambito di crittografia, le operazioni di lettura o scrit
 
 Quando un ambito di crittografia è disabilitato, non viene più fatturato. Disabilitare gli ambiti di crittografia non necessari per evitare addebiti superflui.
 
-Se l'ambito di crittografia è protetto con chiavi gestite dal cliente, è anche possibile eliminare la chiave associata nell'insieme di credenziali delle chiavi o nel modulo di protezione hardware gestito per disabilitare l'ambito di crittografia. Tenere presente che le chiavi gestite dal cliente sono protette dall'eliminazione temporanea e dall'eliminazione della protezione nell'insieme di credenziali delle chiavi o nel modulo di protezione hardware gestito e una chiave eliminata è soggetta al comportamento definito da tali proprietà. Per ulteriori informazioni, vedere uno degli argomenti seguenti nella documentazione di Azure Key Vault:
+Se l'ambito di crittografia è protetto con chiavi gestite dal cliente, è anche possibile eliminare la chiave associata nell'insieme di credenziali delle chiavi per disabilitare l'ambito di crittografia. Tenere presente che le chiavi gestite dal cliente sono protette dall'eliminazione temporanea e dall'eliminazione della protezione nell'insieme di credenziali delle chiavi e una chiave eliminata è soggetta al comportamento definito da tali proprietà. Per ulteriori informazioni, vedere uno degli argomenti seguenti nella documentazione di Azure Key Vault:
 
 - [Come usare la funzionalità di eliminazione temporanea con PowerShell](../../key-vault/general/soft-delete-powershell.md)
 - [Come usare l'eliminazione temporanea con l'interfaccia della riga di comando](../../key-vault/general/soft-delete-cli.md)
