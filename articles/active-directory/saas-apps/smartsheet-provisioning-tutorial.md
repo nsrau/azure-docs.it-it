@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f323b563d90de315bdbb317f88d7f9449be6c008
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 623ec6999add175e85f117e547fba61734d2b892
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546696"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286010"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Esercitazione: configurare Smartsheet per il provisioning utenti automatico
 
@@ -37,7 +37,7 @@ Questa esercitazione illustra i passaggi da eseguire in Smartsheet e Azure Activ
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
-* [Tenant Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Un tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 * Un account utente in Azure AD con l'[autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
 * [Tenant Smartsheet](https://www.smartsheet.com/pricing).
 * Un account utente in un piano Smartsheet Enterprise o Enterprise Premier con autorizzazioni di amministratore di sistema.
@@ -69,15 +69,15 @@ Prima di configurare Smartsheet per il provisioning utenti automatico con Azure 
 
 5. Generare il **token segreto** necessario per configurare il provisioning utenti automatico con Azure ad passando ad **app e integrazioni**.
 
-    ![Installazione di Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
+    ![Screenshot della pagina di amministrazione di Smartsheet con l'opzione avatar utente e app & Integrations denominata.](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
 
 6. Scegliere **accesso all'API**. Fare clic su **genera nuovo token di accesso**.
 
-    ![Installazione di Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
+    ![Screenshot della finestra di dialogo Impostazioni personali con l'accesso all'API e generare nuove opzioni per il token di accesso.](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
 7. Definire il nome del token di accesso all'API. Fare clic su **OK**.
 
-    ![Installazione di Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
+    ![Screenshot del passaggio 1 di 2: generare un token di accesso all'API con l'opzione OK richiamata.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
 8. Copiare il token di accesso all'API e salvarlo perché questo sarà l'unico momento in cui è possibile visualizzarlo. Questa operazione è necessaria nel campo **token segreto** in Azure ad.
 
@@ -117,11 +117,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere l'URL di **base scim 2,0 e** i valori dei token di accesso recuperati in precedenza da Smartsheet rispettivamente in **URL tenant** e **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Smartsheet. Se la connessione non riesce, verificare che l'account Smartsheet disponga delle autorizzazioni SysAdmin e riprovare.
 
@@ -150,7 +150,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
    |externalId|string|
    |ruoli [Primary EQ "true"]. display|string|
    |ruoli [Primary EQ "true"]. Type|string|
-   |ruoli [Primary EQ "true"]. Value|string|
+   |roles[primary eq "True"].value|string|
    |Ruoli|string|
    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|

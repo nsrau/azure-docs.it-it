@@ -2,17 +2,17 @@
 title: Pipeline CI/CD con Azure DevOps Starter-Azure IoT Edge | Microsoft Docs
 description: Azure DevOps Starter consente di iniziare a usare Azure senza difficoltà. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure IoT Edge a scelta.
 author: shizn
-ms.author: xshi
+ms.author: kgremban
 ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7251e84af001422de2c0e33ca04fdfdb309f7afd
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f0f0452854ef7456d1bdf7caf0674fab5bd14557
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89303001"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297131"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Creare una pipeline di integrazione continua/distribuzione continua per IoT Edge con Azure DevOps Starter
 

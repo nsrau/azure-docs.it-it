@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 6c85fce45bcfa63d921297b068066b8f6e814223
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a154f9a75a70ed46155424d676d2b2cd8c6df3bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987131"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277972"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurare un gruppo di failover per il database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -389,7 +389,7 @@ Creare il gateway di rete virtuale primario usando il portale di Azure.
     | **Posizione**| Il percorso in cui si trova l'istanza gestita secondaria e la rete virtuale secondaria.   |
     | **Rete virtuale**| Selezionare la rete virtuale per l'istanza gestita secondaria. |
     | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
-    | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP. |
+    | **Nome indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP. |
     | &nbsp; | &nbsp; |
 
 1. Lasciare gli altri valori predefiniti e quindi selezionare **Verifica + crea** per esaminare le impostazioni per il gateway di rete virtuale.
@@ -451,7 +451,7 @@ La tabella seguente mostra i valori necessari per il gateway per l'istanza gesti
    | **Posizione**| Il percorso in cui si trova l'istanza gestita secondaria e la rete virtuale secondaria.   |
    | **Rete virtuale**| Selezionare la rete virtuale creata nella sezione 2, ad esempio `vnet-sql-mi-secondary` . |
    | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
-   | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `secondary-gateway-IP` . |
+   | **Nome indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `secondary-gateway-IP` . |
    | &nbsp; | &nbsp; |
 
    ![Impostazioni del gateway secondario](./media/auto-failover-group-configure/settings-for-secondary-gateway.png)

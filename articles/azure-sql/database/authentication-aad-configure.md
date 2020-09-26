@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 22ed36213c932c7e202817fd093e1ec96aec94fd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: f354cb25c93826b50c0094e75ef7a1756f7625b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278176"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurare e gestire l'autenticazione di Azure AD con Azure SQL
 
@@ -89,19 +89,19 @@ Per concedere l'autorizzazione di lettura a SQL Istanza gestita Azure AD usando 
 
 3. Passare alla Istanza gestita SQL che si desidera utilizzare per l'integrazione Azure AD.
 
-   ![aad](./media/authentication-aad-configure/aad.png)
+   ![Screenshot del portale di Azure che mostra la pagina di amministrazione Active Directory aperta per l'istanza di SQL gestita selezionata.](./media/authentication-aad-configure/aad.png)
 
 4. Selezionare il banner nella parte superiore della pagina di amministrazione di Active Directory e concedere l'autorizzazione all'utente corrente.
 
-    ![concessione di autorizzazioni-portale](./media/authentication-aad-configure/grant-permissions.png)
+    ![Screenshot della finestra di dialogo per la concessione di autorizzazioni a un'istanza gestita di SQL per l'accesso Active Directory. Il pulsante Concedi autorizzazioni è selezionato.](./media/authentication-aad-configure/grant-permissions.png)
 
 5. Una volta completata l'operazione, la notifica seguente viene visualizzata nell'angolo in alto a destra:
 
-    ![esito positivo](./media/authentication-aad-configure/success.png)
+    ![Screenshot di una notifica che conferma che le autorizzazioni di lettura di Active Directory sono state aggiornate correttamente per l'istanza gestita.](./media/authentication-aad-configure/success.png)
 
 6. A questo punto è possibile scegliere l'amministratore di Azure AD per il Istanza gestita SQL. Nella pagina Amministratore di Active Directory selezionare il comando **Imposta amministratore**.
 
-    ![set-admin](./media/authentication-aad-configure/set-admin.png)
+    ![Screenshot che illustra il comando imposta amministratore evidenziato nella pagina Active Directory amministratore per l'istanza di SQL gestito selezionata.](./media/authentication-aad-configure/set-admin.png)
 
 7. Nella pagina Amministratore Azure AD cercare un utente, selezionare l'utente o il gruppo da impostare come amministratore e quindi selezionare **Seleziona**.
 
@@ -111,7 +111,7 @@ Per concedere l'autorizzazione di lettura a SQL Istanza gestita Azure AD usando 
 
 8. Nella parte superiore della pagina Amministratore di Active Directory selezionare **Salva**.
 
-    ![Salva](./media/authentication-aad-configure/save.png)
+    ![Screenshot della pagina di amministrazione di Active Directory con il pulsante Salva nella riga superiore accanto ai pulsanti Imposta amministratore e Rimuovi amministratore.](./media/authentication-aad-configure/save.png)
 
     Il processo di modifica dell'amministratore può richiedere alcuni minuti. Al termine del processo, nella casella Amministratore di Active Directory verrà visualizzato il nome del nuovo amministratore.
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 8645e8c1f1f371f1416a998af41104ebb6867eea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 44005dafb1e3eee60f163f80ad2e4282147233e4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334884"
+ms.locfileid: "91355619"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gestire gli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Se l'applicazione si basa sui backup automatici del database e usa il ripristino
 > [!NOTE]
 > Questi passaggi di preparazione non avranno alcun impatto sull'ambiente di produzione, che può funzionare in modalità di accesso completo.
 
-![Configurazione della replica geografica del database SQL per il ripristino di emergenza cloud.](./media/manage-application-rolling-upgrade/option1-1.png)
+![Il diagramma mostra la configurazione della replica geografica del database SQL per il ripristino di emergenza cloud.](./media/manage-application-rolling-upgrade/option1-1.png)
 
 Al termine dei passaggi di preparazione, l'applicazione è pronta per l'aggiornamento effettivo. Il diagramma seguente illustra i passaggi richiesti per il processo di aggiornamento:
 
@@ -48,7 +48,7 @@ Al termine dei passaggi di preparazione, l'applicazione è pronta per l'aggiorna
 2. Disconnettere il database secondario usando la modalità di terminazione pianificata (4). Questa azione crea una copia indipendente completamente sincronizzata del database primario. Questo database verrà aggiornato.
 3. Attivare la modalità di lettura/scrittura nel database secondario ed eseguire lo script di aggiornamento (5).
 
-![Configurazione della replica geografica del database SQL per il ripristino di emergenza cloud.](./media/manage-application-rolling-upgrade/option1-2.png)
+![Il diagramma mostra la configurazione della replica geografica del database SQL per il ripristino di emergenza cloud che esegue lo script di aggiornamento.](./media/manage-application-rolling-upgrade/option1-2.png)
 
 Se l'aggiornamento ha esito positivo, è possibile far passare gli utenti alla copia aggiornata dell'applicazione, che diventa un ambiente di produzione. L'operazione di scambio richiede alcuni passaggi aggiuntivi, come illustrato nel diagramma seguente:
 
@@ -67,7 +67,7 @@ A questo punto, l'applicazione è perfettamente funzionante ed è possibile ripe
 > [!NOTE]
 > Il rollback non richiede modifiche al DNS perché non è stata ancora eseguita un'operazione di scambio.
 
-![Configurazione della replica geografica del database SQL per il ripristino di emergenza cloud.](./media/manage-application-rolling-upgrade/option1-4.png)
+![Il diagramma mostra la configurazione della replica geografica del database SQL per il ripristino di emergenza cloud con l'ambiente di staging ritirato.](./media/manage-application-rolling-upgrade/option1-4.png)
 
 Il vantaggio principale di questa opzione è dato dalla possibilità di aggiornare un'applicazione in una singola area con una serie di semplici passaggi. Il costo dell'aggiornamento è relativamente basso. 
 
@@ -98,7 +98,7 @@ Per poter eseguire il rollback dell'aggiornamento, è necessario creare un ambie
 > [!NOTE]
 > Questi passaggi di preparazione non avranno alcun impatto sull'applicazione nell'ambiente di produzione, che continuerà a funzionare perfettamente in modalità di lettura/scrittura.
 
-![Configurazione della replica geografica del database SQL per il ripristino di emergenza cloud.](./media/manage-application-rolling-upgrade/option2-1.png)
+![Il diagramma mostra la configurazione della replica geografica del database SQL per il ripristino di emergenza cloud con una copia completamente sincronizzata dell'applicazione.](./media/manage-application-rolling-upgrade/option2-1.png)
 
 Al termine dei passaggi di preparazione, l'ambiente di gestione temporanea è pronto per l'aggiornamento. Il diagramma seguente illustra questi passaggi di aggiornamento:
 
@@ -120,14 +120,14 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 
 3. Eseguire lo script di aggiornamento su `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` e sul database primario di gestione temporanea (12). Le modifiche del database verranno replicate automaticamente sul database secondario di gestione temporanea.
 
-![Configurazione della replica geografica del database SQL per il ripristino di emergenza cloud.](./media/manage-application-rolling-upgrade/option2-2.png)
+![Diagramma mostra la configurazione della replica geografica del database SQL per il ripristino di emergenza cloud con le modifiche al database replicate nella gestione temporanea.](./media/manage-application-rolling-upgrade/option2-2.png)
 
 Se l'aggiornamento ha esito positivo, è possibile far passare gli utenti alla versione V2 dell'applicazione. Il diagramma seguente illustra i passaggi richiesti:
 
 1. Attivare un'operazione di scambio tra l'ambiente di produzione e quello di gestione temporanea dell'app Web nell'area primaria (13) e nell'area di backup (14). A questo punto la versione V2 dell'applicazione diventa un ambiente di produzione con una copia ridondante nell'area di backup.
 2. Se la versione V1 dell'applicazione (15 e 16) non è più necessaria, è possibile rimuovere le autorizzazioni dell'ambiente di gestione temporanea.
 
-![Configurazione della replica geografica del database SQL per il ripristino di emergenza cloud.](./media/manage-application-rolling-upgrade/option2-3.png)
+![Il diagramma mostra la configurazione della replica geografica del database SQL per il ripristino di emergenza cloud con rimozione facoltativa dell'ambiente di gestione temporanea.](./media/manage-application-rolling-upgrade/option2-3.png)
 
 Se il processo di aggiornamento non riesce, ad esempio a causa di un errore nello script di aggiornamento, tenere presente che lo stato dell'ambiente di gestione temporanea sarà incoerente. Per eseguire il rollback dell'applicazione allo stato di pre-aggiornamento, tornare a usare la versione V1 dell'applicazione nell'ambiente di produzione. Il diagramma seguente mostra i passaggi da seguire:
 
@@ -139,7 +139,7 @@ A questo punto, l'applicazione è perfettamente funzionante ed è possibile ripe
 > [!NOTE]
 > Il rollback non richiede modifiche al DNS perché non è stata ancora eseguita un'operazione di scambio.
 
-![Configurazione della replica geografica del database SQL per il ripristino di emergenza cloud.](./media/manage-application-rolling-upgrade/option2-4.png)
+![Il diagramma mostra la configurazione della replica geografica del database SQL per il ripristino di emergenza cloud con il rollback del processo di aggiornamento.](./media/manage-application-rolling-upgrade/option2-4.png)
 
 Il vantaggio principale di questa opzione è dato dalla possibilità di aggiornare in parallelo sia l'applicazione sia la copia con ridondanza geografica senza compromettere la continuità aziendale durante l'aggiornamento.
 

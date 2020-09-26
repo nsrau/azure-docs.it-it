@@ -3,13 +3,13 @@ title: Monitorare le prestazioni dei servizi app di Azure | Microsoft Docs
 description: Monitoraggio delle prestazioni applicative per i servizi app di Azure. Tempo di caricamento e di risposta del grafico, informazioni sulle dipendenze e impostazione di avvisi sulle prestazioni.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-javascript, devx-track-dotnet
-ms.openlocfilehash: 952cd9669ecc3fb5ff1326d15aef25e1a1524ca5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-js, devx-track-dotnet
+ms.openlocfilehash: 2ac5466e280bb7dd835314561f565ca72be2743c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979429"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321816"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -162,7 +162,7 @@ Per abilitare la raccolta di dati di telemetria con Application Insights, è nec
 
 ### <a name="application-settings-definitions"></a>Definizioni delle impostazioni dell'applicazione
 
-|Nome impostazione app |  Definizione | Valore |
+|Nome impostazione app |  Definizione | valore |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Estensione principale, che controlla il monitoraggio in fase di esecuzione. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Solo in modalità predefinita sono abilitate le funzionalità essenziali per garantire prestazioni ottimali. | `default` o `recommended`. |

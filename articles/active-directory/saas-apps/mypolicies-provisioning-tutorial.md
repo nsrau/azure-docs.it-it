@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: fe85dfb39a9787376221cb9beeea11bec35293f4
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: a6db1866c42dbb90d6ea0f288aceed4672424fe0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604462"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321978"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Esercitazione: configurare i criteri per il provisioning utenti automatico
 
@@ -97,11 +97,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning automatica](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere l' `https://<myPoliciesCustomDomain>.mypolicies.com/scim` URL del **tenant** in cui `<myPoliciesCustomDomain>` è il dominio personalizzato dei criteri. Dall'URL è possibile recuperare il dominio Customer dei criteri.
 Esempio: `<demo0-qa>` . mypolicies.com.
