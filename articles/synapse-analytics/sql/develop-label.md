@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 596b18332fc490f72ad185699fc59bf4521eca69
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: e8f78d6031e57da42e1d69587aedca0763c9fec2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032181"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289073"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Usare le etichette delle query in sinapsi SQL
 Le informazioni contenute in questo articolo sono suggerimenti essenziali per l'uso delle etichette di query in sinapsi SQL.
@@ -34,9 +34,9 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-L'ultima riga contrassegna la stringa 'My Query Label' per la query. Questo tag è particolarmente utile in quanto l'etichetta suppor la query tramite le DMV. L'esecuzione di query per le etichette fornisce un meccanismo per individuare le query sui problemi e consente di identificare lo stato di avanzamento tramite un'esecuzione ELT.
+L'ultima riga contrassegna la stringa 'My Query Label' per la query. Questo tag è utile perché l'etichetta è in grado di eseguire query tramite il DMV. L'esecuzione di query per le etichette fornisce un meccanismo per individuare le query sui problemi e consente di identificare lo stato di avanzamento tramite un'esecuzione ELT.
 
-Una buona convenzione di denominazione è molto utile. Ad esempio, se si avvia l'etichetta con PROJECT, PROCEDURE, istruzione o commento, viene identificata in modo univoco la query tra tutto il codice nel controllo del codice sorgente.
+Sono molto utili le convenzioni di denominazione ottimali. Ad esempio, se si avvia l'etichetta con PROJECT, PROCEDURE, istruzione o commento, viene identificata in modo univoco la query tra tutto il codice nel controllo del codice sorgente.
 
 Nella query seguente viene utilizzata una vista a gestione dinamica per eseguire la ricerca in base all'etichetta:
 

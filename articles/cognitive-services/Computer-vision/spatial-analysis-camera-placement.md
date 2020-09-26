@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 00bca2d0c7e267bef8cd4a917463c5e7db159792
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8e951e6cb18596b19f49bf42179297f656e3fa5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937411"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304296"
 ---
 # <a name="camera-placement-guide"></a>Guida al posizionamento della fotocamera
 
@@ -56,7 +56,7 @@ In genere, le fotocamere devono essere montate 12-14 metri dalla superficie. Qua
 
 ## <a name="camera-to-focal-point-distance"></a>Distanza da fotocamera a punto focale
 
-La _distanza da fotocamera a punto focale_ è la distanza lineare dal punto focale (o punto focale centrale del punto di interesse) alla fotocamera.
+La _distanza da fotocamera a punto focale_ è la distanza lineare tra il punto focale (o il centro dell'immagine della fotocamera) e la fotocamera misurata.
 
 ![Da fotocamera a focale-punto-distanza](./media/spatial-analysis/camera-focal-point.png)
 

@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
-ms.openlocfilehash: 88e69ac4156bb2bdfb217a4fc83ac2d798d08211
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/24/2020
+ms.openlocfilehash: 2559c4f54aa19df248ddf756e376809dea516997
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987927"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330961"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Monitoraggio di Azure per le reti (anteprima)
 Monitoraggio di Azure per la rete offre una panoramica completa dell' [integrità](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) e delle [metriche](../platform/metrics-supported.md) per tutte le risorse di rete distribuite senza alcuna configurazione.  Consente inoltre di accedere a tutte le funzionalità di monitoraggio della rete, ad esempio il [monitoraggio della connessione](../../network-watcher/connection-monitor-preview.md), [la registrazione dei flussi per i gruppi di sicurezza di rete (gruppi)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [analisi del traffico](../../network-watcher/traffic-analytics.md)e altre funzionalità di [diagnostica](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) di rete.

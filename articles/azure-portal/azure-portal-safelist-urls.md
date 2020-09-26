@@ -9,12 +9,12 @@ ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 67ccf6e2f113c0ec72cfcbccedf88017e452ec4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16acedc8fad97c1752d71c8643b1655015484e5d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361660"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330860"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Aggiungere gli URL del portale di Azure nell’elenco di indirizzi attendibili nel firewall o nel server proxy
 
@@ -34,7 +34,7 @@ Gli endpoint URL per la portale di Azure di sicurezza sono specifici del cloud d
 *.applicationinsights.io
 *.azure.com
 *.azure.net
-*.azureafd.net
+*.azurefd.net
 *.azure-api.net
 *.azuredatalakestore.net
 *.azureedge.net

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a547a874c42d06d8453b154847561d8b5f0dabb8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846562"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361390"
 ---
 # <a name="manage-process-servers"></a>Gestire server di elaborazione
 
@@ -41,11 +41,11 @@ Bilanciare il carico spostando le macchine virtuali tra due server di elaborazio
 2. Fare clic sul server di configurazione con cui vengono registrati i server di elaborazione.
 3. Fare clic sul server di elaborazione per il quale si desidera bilanciare il carico del traffico.
 
-    ![Bilanciamento del carico](media/vmware-azure-manage-process-server/LoadBalance.png)
+    ![Screenshot mostra un server di elaborazione per il quale è possibile bilanciare il carico del traffico.](media/vmware-azure-manage-process-server/LoadBalance.png)
 
 4. Fare clic su **bilanciamento del carico**, selezionare il server di elaborazione di destinazione in cui si desidera spostare i computer. Quindi fare clic su **OK**
 
-    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+    ![Screenshot mostra il riquadro del bilanciamento del carico con selezionare il server di elaborazione di destinazione selezionato.](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
 2. Fare clic su **Seleziona computer**e scegliere i computer che si desidera spostare dall'attuale al server di elaborazione di destinazione. Per ogni macchina virtuale vengono visualizzate informazioni dettagliate sulla modifica dei dati media. Fare quindi clic su **OK**. 
 3. Nell'insieme di credenziali monitorare lo stato di avanzamento del processo in **monitoraggio**  >  **Site Recovery processi**.
@@ -61,7 +61,7 @@ Spostare l'intero carico di lavoro gestito da un server di elaborazione in un se
 3. Fare clic sul server di elaborazione da cui si desidera passare il carico di lavoro.
 4. Fare clic su **Switch**, selezionare il server di elaborazione di destinazione in cui si desidera spostare il carico di lavoro. Quindi fare clic su **OK**
 
-    ![Opzione](media/vmware-azure-manage-process-server/Switch.PNG)
+    ![Screenshot mostra il riquadro selezionare il server di elaborazione di destinazione.](media/vmware-azure-manage-process-server/Switch.PNG)
 
 5. Nell'insieme di credenziali monitorare lo stato di avanzamento del processo in **monitoraggio**  >  **Site Recovery processi**.
 

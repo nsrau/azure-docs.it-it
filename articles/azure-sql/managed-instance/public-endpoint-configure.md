@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: 498d00b4f6a0ca16d07663641a46f30109b39d5f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a9bf3fbf28d8ac525f2937812742e850a5427cc9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325063"
+ms.locfileid: "91360821"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configurare l'endpoint pubblico nell'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ A causa della riservatezza dei dati presenti in un'istanza gestita, la configura
 1. In impostazioni **sicurezza** selezionare la scheda **rete virtuale** .
 1. Nella pagina Configurazione rete virtuale selezionare **Abilita** e quindi l'icona **Salva** per aggiornare la configurazione.
 
-![mi-vnet-config.png](./media/public-endpoint-configure/mi-vnet-config.png)
+![Screenshot mostra una pagina rete virtuale dell'istanza gestita di SQL con l'endpoint pubblico abilitato.](./media/public-endpoint-configure/mi-vnet-config.png)
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Abilitazione dell'endpoint pubblico per un'istanza gestita tramite PowerShell
 
@@ -84,11 +84,11 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Se la pagina Configurazione dell'istanza gestita è ancora aperta, passare alla scheda **Panoramica** . In caso contrario, tornare alla risorsa **istanza gestita di SQL** . Selezionare il collegamento **rete virtuale/subnet** , che consente di passare alla pagina Configurazione rete virtuale.
 
-    ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
+    ![Screenshot che mostra la pagina di configurazione della rete virtuale in cui è possibile trovare il valore della rete virtuale o della subnet.](./media/public-endpoint-configure/mi-overview.png)
 
 1. Selezionare la scheda **subnet** nel riquadro di configurazione a sinistra della rete virtuale e prendere nota del **gruppo di sicurezza** per l'istanza gestita.
 
-    ![mi-vnet-subnet.png](./media/public-endpoint-configure/mi-vnet-subnet.png)
+    ![Screenshot mostra la scheda subnet, in cui è possibile ottenere il gruppo di sicurezza per l'istanza gestita.](./media/public-endpoint-configure/mi-vnet-subnet.png)
 
 1. Tornare al gruppo di risorse che contiene l'istanza gestita. Verrà visualizzato il nome del **gruppo di sicurezza di rete** indicato in precedenza. Selezionare il nome da visualizzare nella pagina di configurazione del gruppo di sicurezza di rete.
 
@@ -104,7 +104,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Azione**     |Consenti         |Consentire il traffico in ingresso verso l'istanza gestita tramite l'endpoint pubblico |
     |**Priorità**     |1300         |Verificare che questa regola abbia una priorità più alta rispetto alla regola di **deny_all_inbound** |
 
-    ![mi-nsg-rules.png](./media/public-endpoint-configure/mi-nsg-rules.png)
+    ![Screenshot Visualizza le regole di sicurezza in ingresso con la nuova regola di public_endpoint_inbound al di sopra della regola di deny_all_inbound.](./media/public-endpoint-configure/mi-nsg-rules.png)
 
     > [!NOTE]
     > La porta 3342 viene usata per le connessioni dell'endpoint pubblico all'istanza gestita e non può essere modificata in questo momento.
@@ -114,7 +114,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 1. Passare alla pagina di configurazione dell'istanza gestita abilitata per l'endpoint pubblico. Selezionare la scheda **stringhe di connessione** nella configurazione **Impostazioni** .
 1. Si noti che il nome host dell'endpoint pubblico è nel formato <mi_name>. **public**. <dns_zone>. database.Windows.NET e che la porta usata per la connessione è 3342.
 
-    ![mi-public-endpoint-conn-string.png](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
+    ![Screenshot mostra le stringhe di connessione per gli endpoint pubblici e privati.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7c7aba1c1f091efa0ddd4417ef0a03f3f4ca4d36
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320630"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361008"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Creare ed eseguire test di disponibilità personalizzati con funzioni di Azure
 
@@ -32,7 +32,7 @@ Questo articolo illustra come creare una funzione di Azure con TrackAvailability
 
             ![Selezione della risorsa Application Insights esistente](media/availability-azure-functions/app-insights-resource.png)
 
-        - Selezionare **Verifica + crea**
+        - Selezionare **Rivedi e crea**
 - Se non è ancora stata creata una risorsa di Application Insights per la funzione attivata dal timer:
     - Per impostazione predefinita, durante la creazione dell'applicazione funzioni di Azure verrà creata automaticamente una risorsa Application Insights.
     - Seguire le istruzioni su come [creare una risorsa di funzioni di Azure e una funzione attivata dal timer](../../azure-functions/functions-create-scheduled-function.md) (arresta prima della pulizia).
@@ -183,7 +183,7 @@ Se è stato eseguito tutto come è (senza aggiungere la logica di business), si 
 >![Risultati della disponibilità](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
->![Dipendenze](media/availability-azure-functions/dependencies.png)
+>![Screenshot mostra la nuova scheda query con dipendenze limitate a 50.](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

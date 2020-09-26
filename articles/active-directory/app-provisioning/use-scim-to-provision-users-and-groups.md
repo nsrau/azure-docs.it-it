@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: fc77d8cbb88385d9be65ccb8df80e922704640a4
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 59c899d2450e9d439426239384945258e8df694a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563806"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266650"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creare un endpoint SCIM e configurare il provisioning utenti con Azure AD
 
@@ -1193,7 +1193,7 @@ La specifica SCIM non definisce uno schema specifico di SCIM per l'autenticazion
 |--|--|--|--|
 |Nome utente e password (non consigliato o supportato da Azure AD)|Facile da implementare|Non sicuro. [La pa$$word è irrilevante](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984).|Supportato caso per caso per le app della raccolta. Non supportato per le app non nella raccolta.|
 |Token di connessione di lunga durata|I token di lunga durata non richiedono che sia presente un utente. Possono essere usati facilmente dagli amministratori durante la configurazione del provisioning.|I token di lunga durata possono essere difficili da condividere con un amministratore senza usare metodi non sicuri come la posta elettronica. |Supportato sia per le app della raccolta che per quelle non nella raccolta. |
-|Concessione del codice di autorizzazione OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata.  Durante l'autorizzazione iniziale deve essere presente un utente reale e questo offre un livello di affidabilità aggiuntivo. |Deve essere presente un utente. Se l'utente lascia l'organizzazione, il token non è valido ed è necessario completare nuovamente l'autorizzazione.|Supportato per le app della raccolta, ma non per le app non della raccolta. Il supporto per la raccolta non è nel backlog.|
+|Concessione del codice di autorizzazione OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata.  Durante l'autorizzazione iniziale deve essere presente un utente reale e questo offre un livello di affidabilità aggiuntivo. |Deve essere presente un utente. Se l'utente lascia l'organizzazione, il token non è valido ed è necessario completare nuovamente l'autorizzazione.|Supportato per le app della raccolta, ma non per le app non della raccolta. Tuttavia, è possibile fornire un token di accesso nell'interfaccia utente come token segreto a scopo di test a breve termine. Il supporto per la concessione di codice OAuth per la raccolta non è nel backlog.|
 |Concessione di credenziali client OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata. Sia la concessione del codice di autorizzazione che la concessione delle credenziali client creano lo stesso tipo di token di accesso, quindi il passaggio tra questi metodi è trasparente per l'API.  Il provisioning può essere completamente automatizzato e i nuovi token possono essere richiesti automaticamente senza interazione dell'utente. ||Non supportato sia per le app della raccolta che per quelle non nella raccolta. Il supporto è incluso nel backlog di Microsoft.|
 
 > [!NOTE]
@@ -1210,6 +1210,17 @@ OAuth v1 non è supportato a causa dell'esposizione del segreto client. OAuth v2
 Procedure consigliate (ma non obbligatorie):
 * Supportare più URL di reindirizzamento. Gli amministratori possono configurare il provisioning sia da "portal.azure.com" che da "aad.portal.azure.com". Il supporto di più URL di reindirizzamento garantirà agli utenti la possibilità di ottenere l'autorizzazione dell'accesso da uno dei due portali.
 * Supportare più segreti per garantirne un rinnovo ottimale, senza tempi di inattività. 
+
+Passaggi nel flusso di concessione del codice OAuth:
+1. L'utente accede al portale di Azure > applicazioni aziendali > selezionare > provisioning dell'applicazione > fare clic su autorizza.
+2. Portale di Azure reindirizza l'utente all'URL di autorizzazione (pagina di accesso per l'app di terze parti).
+3. L'amministratore fornisce le credenziali per l'applicazione di terze parti. 
+4. L'app di terze parti reindirizza l'utente a portale di Azure e fornisce il codice di concessione 
+5. Azure AD servizi di provisioning chiama l'URL del token e fornisce il codice di concessione. L'applicazione di terze parti risponde con il token di accesso, il token di aggiornamento e la data di scadenza
+6. Quando inizia il ciclo di provisioning, il servizio controlla se il token di accesso corrente è valido e lo scambia per un nuovo token, se necessario. Il token di accesso viene fornito in ogni richiesta effettuata all'app e la validità della richiesta viene verificata prima di ogni richiesta.
+
+> [!NOTE]
+> Sebbene non sia possibile configurare OAuth nell'applicazione non della raccolta, è possibile generare manualmente un token di accesso dal server di autorizzazione e immetterlo nel campo token segreto dell'applicazione non della raccolta. In questo modo è possibile verificare la compatibilità del server SCIM con il client di Azure AD SCIM prima del caricamento nella raccolta di app, che supporta la concessione del codice OAuth.  
 
 **Token di porta OAuth di lunga durata:** Se l'applicazione non supporta il flusso di concessione del codice di autorizzazione OAuth, è anche possibile generare un bearer token OAuth di lunga durata che può essere usato da un amministratore per configurare l'integrazione del provisioning. Il token deve essere perpetuo, altrimenti il processo di provisioning verrà messo [in quarantena](application-provisioning-quarantine-status.md) alla scadenza del token. Il token deve essere di dimensioni inferiori a 1 KB.  
 

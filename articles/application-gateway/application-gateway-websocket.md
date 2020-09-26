@@ -7,12 +7,12 @@ ms.service: application-gateway
 services: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
-ms.openlocfilehash: baa02c4d946a121f26f421af99835ae2bea18847
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59ca7708b24d2e75381290b80adeb671e2b49822
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74130339"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362696"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Panoramica del supporto di WebSocket nel gateway dell'applicazione
 
@@ -28,7 +28,7 @@ Viene usato nelle app che sfruttano comunicazioni veloci e in tempo reale, ad es
 
 Per stabilire una connessione WebSocket, viene scambiato uno specifico handshake basato su HTTP tra il client e il server. In caso di esito positivo, il protocollo a livello di applicazione viene "aggiornato" da HTTP in WebSocket, usando la connessione TCP stabilita in precedenza. Una volta che questo si verifica, HTTP è completamente fuori dai giochi, i dati possono essere inviati o ricevuti tramite il protocollo WebSocket da entrambi gli endpoint, fino alla chiusura della connessione WebSocket. 
 
-![WebSocket](./media/application-gateway-websocket/websocket.png)
+![Il diagramma confronta un client che interagisce con un server Web, connettendosi due volte per ottenere due risposte, con un'interazione WebSocket, in cui un client si connette a un server una sola volta per ottenere più risposte.](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>Elemento di configurazione del listener
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 55b789363397945e01d02d76cb0e573660d18b67
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607499"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369910"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Domande frequenti sulla transizione dalla portale Cloud Partner al centro per i partner
 
@@ -28,7 +28,7 @@ Il portale Cloud Partner è passato al centro per i partner. Il centro per i par
 | Offrire un'esperienza di gestione di pubblicazione e offerta | I dati dell'offerta sono stati spostati dal portale Cloud Partner al centro per i partner. Ora potrai accedere alle tue offerte nel centro per i partner, che offre un'esperienza utente migliorata e un'interfaccia intuitiva. Informazioni su come [aggiornare un'offerta esistente nel Marketplace commerciale](partner-center-portal/update-existing-offer.md). |
 | Disponibilità delle offerte nel Marketplace commerciale | Nessuna modifica. Se l'offerta è Live nel Marketplace commerciale, continuerà a essere attiva. |
 | Nuovi acquisti e distribuzioni | Nessuna modifica. I clienti possono continuare l'acquisto e la distribuzione delle offerte senza interruzioni. |
-| Proventi | Eventuali acquisti e distribuzioni continueranno a essere pagati come di consueto. Scopri di più su [come ricevere pagamenti nel Marketplace commerciale](partner-center-portal/get-paid.md). |
+| Proventi | Eventuali acquisti e distribuzioni continueranno a essere pagati come di consueto. Scopri di più su [come ricevere pagamenti nel Marketplace commerciale](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
 | Integrazioni di API con [API del portale Cloud Partner esistenti](cloud-partner-portal-api-overview.md) | Le API di portale Cloud Partner esistenti sono ancora supportate e le integrazioni esistenti continuano a funzionare. Per altre informazioni, vedere l'articolo relativo alle [API REST di portale cloud partner.](#are-the-cloud-partner-portal-rest-apis-still-supported) |
 | Analytics | Puoi continuare a monitorare le vendite, valutare le prestazioni e ottimizzare le tue offerte nel Marketplace commerciale visualizzando le analisi nel centro per i partner. Esistono differenze tra la modalità di visualizzazione dei report di analisi in CPP e nel centro per i partner. Ad esempio, **Seller Insights** in CPP dispone di una scheda **Orders & Usage** che Visualizza i dati per le offerte basate sull'utilizzo e le offerte non basate sull'utilizzo, mentre nel centro per i partner la pagina **Orders** include una scheda separata per le offerte SaaS. Per altre informazioni, vedere [Access Analytics Reports for the Commercial Marketplace in Partner Center](partner-center-portal/analytics.md). |
 |||
@@ -162,7 +162,9 @@ Le informazioni fornite in precedenza per gli SKU in una singola pagina del port
 - Pagina Configura piano
 - Pagina Elenco piani
 - Pagina Disponibilità del piano
-- Pianificare la pagina configurazione tecnica, come illustrato di seguito: ![ ! [ Screenshot che mostra la pagina di configurazione tecnica del centro per i partner.] (media/cpp-PC-domande frequenti/technical-configuration.png "Mostra la pagina di configurazione tecnica del centro per i partner")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+- Pianificare la pagina configurazione tecnica, come illustrato di seguito:
+
+![! [Screenshot mostra la pagina di configurazione tecnica del centro per i partner.] (media/cpp-PC-domande frequenti/technical-configuration.png "Mostra la pagina di configurazione tecnica del centro per i partner")](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 L'ID offerta è ora visualizzato sulla barra di spostamento a sinistra dell'offerta:
 
@@ -179,7 +181,7 @@ L'ID offerta è ora visualizzato sulla barra di spostamento a sinistra dell'offe
 
 Le API portale Cloud Partner sono integrate con il centro per i partner e continueranno a funzionare. La transizione al centro per i partner introduce piccole modifiche. Esaminare la tabella seguente per assicurarsi che il codice continui a funzionare nel centro per i partner.
 
-| API <img src="" width=100px>| Descrizione modifica: | Impatto |
+| API <img src="" width=100px>| Descrizione delle modifiche | Impatto |
 | --- | --- | --- |
 | Pubblicazione POST, GoLive, annullamento | Per le offerte migrate, l'intestazione della risposta avrà un formato diverso ma continuerà a funzionare allo stesso modo, indicando un percorso relativo per recuperare lo stato dell'operazione. | Quando si inviano le richieste POST corrispondenti per un'offerta, l'intestazione Location avrà uno dei due formati a seconda dello stato di migrazione dell'offerta: <ul><li>Offerte senza migrazione: `/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Offerte migrate: `/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
 | Operazione GET | Per le offerte che in precedenza supportavano un campo "Notification-email" nella risposta, questo campo sarà deprecato e non verrà più restituito per le offerte migrate. | Per le offerte migrate, non verranno più inviate notifiche all'elenco dei messaggi di posta elettronica specificati nelle richieste. Al contrario, il servizio API si allineerà con il processo di posta elettronica di notifica nel Centro per i partner per inviare messaggi di posta elettronica. In particolare, le notifiche dello stato di avanzamento dell'operazione verranno inviate all'indirizzo di posta elettronica impostato nella sezione informazioni di contatto del venditore delle impostazioni dell'account nel centro per i partner.<br><br>Verificare che l'indirizzo di posta elettronica impostato nella sezione informazioni di contatto del venditore nelle [impostazioni dell'account](https://partner.microsoft.com/dashboard/account/management) nel centro partner sia corretto per la ricezione delle notifiche. |

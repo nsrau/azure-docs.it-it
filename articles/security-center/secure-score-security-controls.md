@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b7cbba051dd0833a039d378cd73a59314c0221c8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905567"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268265"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Punteggio di sicurezza nel Centro sicurezza di Azure
 
@@ -179,7 +179,7 @@ La tabella seguente elenca i controlli di sicurezza nel Centro sicurezza di Azur
     <td class="tg-lboi"; width=55%>- È necessario abilitare il controllo in SQL Server<br>- È necessario abilitare i log di diagnostica in Servizi app<br>- È necessario abilitare i log di diagnostica in Azure Data Lake Store<br>- È necessario abilitare i log di diagnostica in Analisi di flusso di Azure<br>- È necessario abilitare i log di diagnostica negli account Batch<br>- È necessario abilitare i log di diagnostica in Data Lake Analytics<br>- È necessario abilitare i log di diagnostica nell'hub eventi<br>- È necessario abilitare i log di diagnostica nell'hub IoT<br>- È necessario abilitare i log di diagnostica in Key Vault<br>- È necessario abilitare i log di diagnostica in App per la logica<br>- È necessario abilitare i log di diagnostica nel servizio di ricerca<br>- È necessario abilitare i log di diagnostica nel bus di servizio<br>- È necessario abilitare i log di diagnostica nei set di scalabilità di macchine virtuali<br>- È necessario configurare le regole di avviso per le metriche negli account Batch<br>- È necessario configurare i gruppi di azione nelle impostazioni di controllo SQL per acquisire attività critiche<br>- È necessario configurare i server SQL con un periodo di conservazione di controllo maggiore di 90 giorni</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Abilita Advanced Threat Protection (Punteggio massimo 0)</p></strong>La protezione dalle minacce del Centro sicurezza di Azure offre difese complete per l'ambiente. Quando il Centro sicurezza rileva una minaccia in qualsiasi area dell'ambiente, viene generato un avviso. Questi avvisi descrivono i dettagli sulle risorse interessate, le procedure di correzione consigliate e, in alcuni casi, un'opzione per attivare un'app per la logica in risposta.<br>Ogni bundle di protezione dalle minacce è un'offerta separata e facoltativa che è possibile abilitare usando la raccomandazione pertinente in questo controllo di sicurezza.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Scopri di più sulla protezione dalle minacce nel centro sicurezza</a>.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Abilita Advanced Threat Protection (Punteggio massimo 0)</p></strong>I piani facoltativi di protezione dalle minacce di Azure Defender del Centro sicurezza di Azure forniscono difese complete per l'ambiente. Quando il Centro sicurezza rileva una minaccia in qualsiasi area dell'ambiente, viene generato un avviso. Questi avvisi descrivono i dettagli sulle risorse interessate, le procedure di correzione consigliate e, in alcuni casi, un'opzione per attivare un'app per la logica in risposta.<br>Ogni piano di Azure Defender è un'offerta separata e facoltativa che è possibile abilitare usando la raccomandazione pertinente in questo controllo di sicurezza.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Scopri di più sulla protezione dalle minacce nel centro sicurezza</a>.</td>
     <td class="tg-lboi"; width=55%>- La sicurezza dei dati avanzata deve essere abilitata nei server di database SQL di Azure<br>- È necessario abilitare la sicurezza dei dati avanzata in SQL Server nei computer<br>- Advanced Threat Protection deve essere abilitato nelle macchine virtuali<br>- È necessario abilitare Advanced Threat Protection nei piani di servizio app Azure<br>- Advanced Threat Protection deve essere abilitato negli account di archiviazione di Azure<br>- È necessario abilitare Advanced Threat Protection nei cluster del servizio Azure Kubernetes<br>- È necessario abilitare Advanced Threat Protection nei registri di Container Registry di Azure<br>- Advanced Threat Protection deve essere abilitato negli insiemi di credenziali Azure Key Vault</td>
   </tr>
   <tr>
@@ -197,14 +197,8 @@ La tabella seguente elenca i controlli di sicurezza nel Centro sicurezza di Azur
 
 ## <a name="secure-score-faq"></a>Domande frequenti sul punteggio di sicurezza
 
-### <a name="why-has-my-secure-score-gone-down"></a>Perché il punteggio di sicurezza è diminuito?
-Il Centro sicurezza è passato a un punteggio sicuro migliorato, che include modifiche nel modo in cui viene calcolato il punteggio. Ora, per ricevere i punti, è necessario correggere tutte le raccomandazioni relative a una risorsa. I punteggi cambiano anche in una scala da 0-10.
-
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Se si correggono solo tre su quattro raccomandazioni in un controllo di sicurezza, il punteggio di sicurezza cambierà?
 No. Non verrà modificato fino a quando non si correggeranno tutte le raccomandazioni relative una singola risorsa. Per ottenere il punteggio massimo per un controllo, è necessario correggere tutte le raccomandazioni relative a tutte le risorse.
-
-### <a name="is-the-previous-experience-of-the-secure-score-still-available"></a>L'esperienza precedente del punteggio di sicurezza è ancora disponibile? 
-No. Per un periodo di tempo sono stati eseguiti side-by-side per semplificare la transizione. Il modello precedente è stato deprecato. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Se una raccomandazione non è applicabile all'utente e viene disabilitata nei criteri, il controllo di sicurezza sarà soddisfatto e il punteggio di sicurezza sarà aggiornato?
 Sì. Si consiglia di disabilitare le raccomandazioni quando non sono applicabili all'ambiente in uso. Per istruzioni su come disabilitare una raccomandazione specifica, vedere [Disabilitare i criteri di sicurezza](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).

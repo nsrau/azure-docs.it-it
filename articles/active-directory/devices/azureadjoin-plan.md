@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a8a70097cbae3bc5ebf48c0358faa32aea0a6be5
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268228"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370178"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -184,7 +184,7 @@ I dispositivi aggiunti ad Azure AD non supportano le applicazioni locali basate 
 
 La connessione Desktop remoto a dispositivi aggiunti ad Azure AD richiede che il computer host sia stato aggiunto ad Azure AD o ad Azure AD ibrido. Desktop remoto da un dispositivo non aggiunto o non Windows non è supportato. Per altre informazioni, vedere [Connettersi a un PC remoto aggiunto ad Azure Active Directory](/windows/client-management/connect-to-remote-aadj-pc)
 
-A partire dall'aggiornamento di Windows 10 2004, gli utenti possono usare desktop remoto da un dispositivo Windows 10 registrato Azure AD a un dispositivo Azure AD aggiunto. 
+A partire dall'aggiornamento di Windows 10 2004, gli utenti possono anche usare desktop remoto da un dispositivo Windows 10 registrato Azure AD a un dispositivo Azure AD aggiunto. 
 
 ## <a name="understand-your-provisioning-options"></a>Identificazione delle opzioni di provisioning
 
