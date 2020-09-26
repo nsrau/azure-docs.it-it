@@ -4,16 +4,16 @@ description: Configurare un disco gestito di Azure con dischi condivisi in modo 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 09/22/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ad70aa1d044649a0ca61060fff9880d4ef1e34c1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 447380c7aed7e765695ea5389f0b3f2973a16b0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752039"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328140"
 ---
 # <a name="enable-shared-disk"></a>Abilitare il disco condiviso
 
@@ -147,7 +147,7 @@ Prima di usare il modello seguente, sostituire,,,, `[parameters('dataDiskName')]
 Una volta distribuito un disco condiviso con `maxShares>1` , è possibile montare il disco in una o più macchine virtuali.
 
 > [!NOTE]
-> Se si distribuisce un disco Ultra, assicurarsi che corrisponda ai requisiti necessari. Per informazioni dettagliate, vedere la sezione [PowerShell](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) o l' [interfaccia](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) della riga di comando dell'articolo su disco Ultra.
+> Se si distribuisce un disco Ultra, assicurarsi che corrisponda ai requisiti necessari. Per informazioni dettagliate, vedere [uso di Azure ultra disks](disks-enable-ultra-ssd.md) .
 
 ```azurepowershell-interactive
 

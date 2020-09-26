@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: e9e66cbb024aa64e8c4cb5db9fc1c172fdc573fc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135372"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336206"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Risolvere i problemi di replica per macchine virtuali VMware e server fisici
 
@@ -192,6 +192,24 @@ Verificare che il tipo di avvio del servizio provider del servizio Copia Shadow 
         - Servizio Copia Shadow del volume
         - Provider VSS di Azure Site Recovery
         - Servizio VDS
+
+## <a name="error-id-95001---insufficient-permissions-found"></a>ID errore 95001-sono state trovate autorizzazioni insufficienti
+
+Questo errore si verifica quando si tenta di abilitare la replica e le cartelle dell'applicazione non dispongono di autorizzazioni sufficienti.
+
+**Come correggere**: per risolvere questo problema, assicurarsi che l'utente IUSR abbia il ruolo di proprietario per tutte le cartelle indicate di seguito.
+
+- *C\ProgramData\Microsoft sito di Azure Recovery\private*
+- Directory di installazione. Se ad esempio la directory di installazione è unità F, fornire le autorizzazioni corrette per-
+    - *File F:\Program (x86) \Microsoft Azure site Recovery\home\svsystems*
+- La cartella *\pushinstallsvc* nella directory di installazione. Se ad esempio la directory di installazione è unità F, fornire le autorizzazioni corrette per-
+    - *File F:\Program (x86) \Microsoft Azure site Recovery\home\svsystems\pushinstallsvc*
+- La cartella *etc* nella directory di installazione. Se ad esempio la directory di installazione è unità F, fornire le autorizzazioni corrette per-
+    - *File F:\Program (x86) \Microsoft Azure site Recovery\home\svsystems\etc*
+- *C:\Temp*
+- *C:\thirdparty\php5nts*
+- Tutti gli elementi nel percorso seguente:
+    - *C:\thirdparty\rrdtool-1.2.15-win32-perl58\rrdtool\Release\**
 
 ## <a name="next-steps"></a>Passaggi successivi
 

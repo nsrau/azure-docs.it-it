@@ -9,19 +9,28 @@ ms.devlang: ''
 ms.topic: conceptual
 author: mashamsft
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a6d95bbcb0873086a799dcf216beab4a6b0d33de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c679b6bb0f5645ea7a972be03ba3621b824a501
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344697"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327630"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Recupero accelerato del database in SQL di Azure 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-Il **recupero accelerato del database** è una funzionalità del motore di database SQL Server che migliora notevolmente la disponibilità dei database, soprattutto in presenza di transazioni a esecuzione prolungata, riprogettando il processo di ripristino del motore di database SQL Server. ADR è attualmente disponibile per database SQL di Azure, Istanza gestita SQL di Azure, SQL Server nella macchina virtuale di Azure e database in Azure sinapsi Analytics (attualmente in anteprima). I principali vantaggi del ripristino accelerato del database sono i seguenti:
+Il **recupero accelerato del database** è una funzionalità del motore di database SQL Server che migliora notevolmente la disponibilità dei database, soprattutto in presenza di transazioni a esecuzione prolungata, riprogettando il processo di ripristino del motore di database SQL Server. 
+
+ADR è attualmente disponibile per il database SQL di Azure, Istanza gestita SQL di Azure, i database in Azure sinapsi Analytics (attualmente in anteprima) e SQL Server nelle VM di Azure a partire da SQL Server 2019. 
+
+> [!NOTE] 
+> ADR è abilitato per impostazione predefinita nel database SQL di Azure e in Azure SQL Istanza gestita e la disabilitazione dell'ADR per uno dei due prodotti non è supportata. 
+
+## <a name="overview"></a>Panoramica
+
+I principali vantaggi del ripristino accelerato del database sono i seguenti:
 
 - **Ripristino rapido e coerente del database**
 
@@ -76,7 +85,7 @@ Il processo di ripristino accelerato del database prevede le stesse tre fasi del
 
   Il processo resta identico a quello precedente, con l'aggiunta di ricostruire i record di log di sgobbare e di copia per le operazioni senza versione.
   
-- Fase di **rollforward**
+- **Fase di rollforward**
 
   Suddivisa in due fasi (P)
   - Fase 1
@@ -95,7 +104,7 @@ Il processo di ripristino accelerato del database prevede le stesse tre fasi del
 
 I quattro componenti chiave del ripristino accelerato del database sono i seguenti:
 
-- **Archivio versioni permanente (PVS)**
+- **Archivio versioni permanente**
 
   L'archivio versioni persistente è un nuovo meccanismo del motore di database SQL Server per salvare in modo permanente le versioni di riga generate nel database stesso anziché nell' `tempdb` archivio versioni tradizionale. L'archivio versioni permanente (PVS) abilita l'isolamento delle risorse e migliora la disponibilità delle repliche secondarie leggibili.
 

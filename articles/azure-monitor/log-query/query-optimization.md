@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: efbc0ba4ef39be6a2a8598ad006cb3aea090974c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 31b1ff3324c610c385ad793f124735be30cab9f9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177744"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327715"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in monitoraggio di Azure
 Log di monitoraggio di Azure usa [Esplora dati di Azure (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce i cluster ADX per l'utente e li ottimizza per il carico di lavoro di analisi dei log. Quando si esegue una query, questa viene ottimizzata e indirizzata al cluster ADX appropriato che archivia i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Esplora dati usano molti meccanismi di ottimizzazione automatica delle query. Sebbene le ottimizzazioni automatiche forniscano un incremento significativo, in alcuni casi è possibile migliorare notevolmente le prestazioni di esecuzione delle query. Questo articolo illustra le considerazioni sulle prestazioni e alcune tecniche per risolverle.
@@ -98,18 +98,34 @@ Ad esempio, le query seguenti producono esattamente lo stesso risultato, ma la s
 
 ```Kusto
 //less efficient
-Heartbeat 
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| where IPRegion == "WestCoast"
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| extend Msg = strcat("Syslog: ",SyslogMessage)
+| where  Msg  has "Error"
+| count 
 ```
 ```Kusto
 //more efficient
-Heartbeat 
-| where RemoteIPLongitude  < -94
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| where  SyslogMessage  has "Error"
+| count 
 ```
+
+In alcuni casi la colonna valutata viene creata in modo implicito dal Enine di elaborazione della query, perché il filtro viene eseguito non solo nel campo:
+```Kusto
+//less efficient
+SecurityEvent
+| where tolower(Process) == "conhost.exe"
+| count 
+```
+```Kusto
+//more efficient
+SecurityEvent
+| where Process =~ "conhost.exe"
+| count 
+```
+
+
+
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Usare comandi e dimensioni di aggregazione efficaci in riepilogo e join
 
@@ -279,7 +295,7 @@ SecurityEvent
 | distinct FilePath, CallerProcessName1
 ```
 
-Quando il codice precedente non consente di evitare l'uso di sottoquery, un'altra tecnica consiste nell'indicare al motore di query che sono presenti dati di origine singoli usati in ognuno di essi usando la [funzione materializzate ()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Questa operazione è utile quando i dati di origine provengono da una funzione utilizzata più volte all'interno della query.
+Quando il codice precedente non consente di evitare l'uso di sottoquery, un'altra tecnica consiste nell'indicare al motore di query che sono presenti dati di origine singoli usati in ognuno di essi usando la [funzione materializzate ()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Questa operazione è utile quando i dati di origine provengono da una funzione utilizzata più volte all'interno della query. Il materializzamento è efficace quando l'output della sottoquery è molto più piccolo dell'input. Il motore di query eseguirà la memorizzazione nella cache e riutilizzerà l'output in tutte le occorrenze.
 
 
 

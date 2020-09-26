@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: 86fedfc75d95ef8d864a50d2425e329cec3ec84f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: dee9ca2879d456270cfed667b8a02a6e5c4f100b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536578"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328055"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Esercitazione: configurare il dispositivo per il provisioning utenti automatico
 
@@ -119,11 +119,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere `https://dialpad.com/scim` in **URL tenant**. Immettere il valore recuperato e salvato in precedenza da Dialpad nel **token Secret**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a un. Se la connessione non riesce, verificare che l'account Dialpad disponga di autorizzazioni di amministratore e riprovare.
 

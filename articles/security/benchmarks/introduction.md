@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 53473b6be9e91adb636c3c9528e97ec644616115
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058615"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328259"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introduzione al benchmark di sicurezza di Azure
 
@@ -23,8 +23,8 @@ Microsoft ha scoperto che l'uso di *benchmark di sicurezza* può aiutarti a prot
 
 Il benchmark di sicurezza di Azure include una raccolta di consigli sulla sicurezza a elevato utilizzo che è possibile usare per proteggere i servizi usati in Azure:
 
-- Controlli di sicurezza: queste raccomandazioni sono generalmente applicabili nei servizi tenant di Azure e Azure. Ogni raccomandazione identifica un elenco di stakeholder che in genere sono coinvolti nella pianificazione, nell'approvazione o nell'implementazione del benchmark. 
-- Baseline del servizio: questi applicano i controlli ai singoli servizi di Azure per fornire consigli sulla configurazione di sicurezza del servizio.
+- **Controlli di sicurezza**: queste raccomandazioni sono generalmente applicabili nei servizi tenant di Azure e Azure. Ogni raccomandazione identifica un elenco di stakeholder che in genere sono coinvolti nella pianificazione, nell'approvazione o nell'implementazione del benchmark. 
+- **Baseline del servizio**: questi applicano i controlli ai singoli servizi di Azure per fornire consigli sulla configurazione di sicurezza del servizio.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Implementare il benchmark di sicurezza di Azure
 - **Pianificare** l'implementazione del benchmark di sicurezza di Azure esaminando la [documentazione](overview.md) per i controlli aziendali e le linee di base specifiche del servizio per pianificare il Framework di controllo e il modo in cui viene eseguito il mapping a linee guida come CIS (Controls v 7.1) e NIST (SP800-53) Framework.

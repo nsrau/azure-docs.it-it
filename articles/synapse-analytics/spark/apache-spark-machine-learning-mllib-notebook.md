@@ -4,21 +4,21 @@ description: Informazioni su come usare MLlib di Apache Spark per creare un'app 
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: e1ece0add7b0749cfd808b0a3ec7962dd43a302d
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 2b641075a45db29c07b96c1934d4540f4c3292dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719343"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259986"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Creare un'app di Machine Learning con MLlib di Apache Spark e Azure Synapse Analytics
 
-Questo articolo illustra come usare [MLlib](https://spark.apache.org/mllib/) di Apache Spark per creare un'applicazione di apprendimento automatico che effettui analisi predittive semplici su un set di dati aperto. Spark offre librerie di apprendimento automatico predefinite. Questo esempio usa la *classificazione* tramite regressione logistica.
+Questo articolo illustra come usare Apache Spark [MLlib](https://spark.apache.org/mllib/) per creare un'applicazione di Machine Learning che esegue un'analisi predittiva semplice su un set di dati aperto di Azure. Spark offre librerie di apprendimento automatico predefinite. Questo esempio usa la *classificazione* tramite regressione logistica.
 
 MLlib è una libreria Spark di base che offre diverse utilità in grado di agevolare le attività di apprendimento automatico, incluse utilità adatte a:
 
@@ -96,7 +96,7 @@ Poiché i dati non elaborati sono in formato Parquet, è possibile usare il cont
     display(sampled_taxi_df)
     ```
 
-4. A seconda delle dimensioni del set di dati generato e della necessità di sperimentare o eseguire il notebook più volte, potrebbe essere consigliabile memorizzare nella cache il set di dati in locale nell'area di lavoro. Esistono tre modi per eseguire la memorizzazione nella cache esplicita:
+4. A seconda delle dimensioni delle dimensioni del set di dati generate e della necessità di sperimentare o eseguire il notebook più volte, potrebbe essere consigliabile memorizzare nella cache il set di dati in locale nell'area di lavoro. Esistono tre modi per eseguire la memorizzazione nella cache esplicita:
 
    - Salvare il dataframe in locale come file
    - Salvare il dataframe come tabella o vista temporanea
@@ -193,7 +193,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Creare un modello di regressione logistica
 
-L'ultima attività è la conversione dei dati con etichetta in un formato che possa essere analizzato dalla regressione logistica. L'input per un algoritmo di regressione logistica deve essere un set di *coppie etichetta-vettore di funzionalità*, dove il *vettore di funzionalità* è un vettore di numeri che rappresenta il punto di ingresso. Quindi, è necessario convertire le colonne categoriche in numeri. Le colonne `trafficTimeBins` e `weekdayString` devono essere convertite in rappresentazioni di tipo integer. Esistono diversi approcci per eseguire la conversione. L'approccio adottato in questo esempio è *OneHotEncoding*, un approccio comune.
+L'ultima attività è la conversione dei dati con etichetta in un formato che possa essere analizzato dalla regressione logistica. L'input per un algoritmo di regressione logistica deve essere un set di *coppie etichetta-vettore di funzionalità*, dove il *vettore di funzionalità* è un vettore di numeri che rappresenta il punto di ingresso. Quindi, è necessario convertire le colonne categoriche in numeri. È `trafficTimeBins` `weekdayString` necessario convertire le colonne e in rappresentazioni di tipo Integer. Esistono diversi approcci per eseguire la conversione. L'approccio adottato in questo esempio è *OneHotEncoding*, un approccio comune.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
@@ -206,7 +206,7 @@ en2 = OneHotEncoder(dropLast=False, inputCol="weekdayIndex", outputCol="weekdayV
 encoded_final_df = Pipeline(stages=[sI1, en1, sI2, en2]).fit(taxi_featurised_df).transform(taxi_featurised_df)
 ```
 
-In questo modo viene generato un nuovo dataframe con tutte le colonne nel formato corretto per eseguire il training di un modello.
+Questa azione consente di eseguire il training di un modello in un nuovo frame di dati con tutte le colonne nel formato corretto.
 
 ## <a name="train-a-logistic-regression-model"></a>Eseguire il training di un modello di regressione logistica
 

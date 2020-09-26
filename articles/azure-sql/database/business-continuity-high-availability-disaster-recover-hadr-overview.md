@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 8ceef173e33c3603d9bc5d6ef217d54eef88609c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a69332f1534e32a85ce084289dd00533612cc282
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982473"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327562"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -65,11 +65,11 @@ I [gruppi di failover automatico](auto-failover-group-overview.md#terminology-an
 
 |                                              | Replica geografica | Gruppi di failover  |
 |:---------------------------------------------| :-------------- | :----------------|
-| **Failover automatico**                          |     No          |      Sì         |
-| **Eseguire contemporaneamente il failover di più database**  |     No          |      Sì         |
+| **Automatic failover**                          |     No          |      Sì         |
+| **Failover di più database contemporaneamente**  |     No          |      Sì         |
 | **L'utente deve aggiornare la stringa di connessione dopo il failover**      |     Sì         |      No          |
-| **Supporto di SQL Istanza gestita**                   |     No          |      Sì         |
-| **Può trovarsi nella stessa area del database primario**             |     Sì         |      No          |
+| **Supporto per Istanza gestita di SQL**                   |     No          |      Sì         |
+| **Può trovarsi nella stessa area della replica primaria**             |     Sì         |      No          |
 | **Più repliche**                            |     Sì         |      No          |
 | **Supporta la scalabilità in lettura**                          |     Sì         |      Sì         |
 

@@ -4,19 +4,22 @@ description: Informazioni su come configurare il collegamento privato di Azure p
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aa8fd911aaf5c61fc8c33ca469798291fca3d3d1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502121"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334430"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurare il collegamento privato di Azure per un account Azure Cosmos
 
 Con il collegamento privato di Azure è possibile connettersi a un account Azure Cosmos tramite un endpoint privato. L'endpoint privato è un set di indirizzi IP privati in una subnet all'interno della rete virtuale. È quindi possibile limitare l'accesso a un account Azure Cosmos tramite indirizzi IP privati. Quando è combinato con criteri di gruppo di sicurezza di rete limitati, il collegamento privato contribuisce a ridurre il rischio di esfiltrazione dei dati. Per altre informazioni sugli endpoint privati, vedere l'articolo [Collegamento privato di Azure](../private-link/private-link-overview.md).
+
+> [!NOTE]
+> Il collegamento privato non impedisce la risoluzione degli endpoint di Azure Cosmos da un DNS pubblico. Il filtro delle richieste in ingresso si verifica a livello di applicazione, non a livello di trasporto o di rete.
 
 Il collegamento privato consente agli utenti di accedere a un account Azure Cosmos dall'interno della rete virtuale o da qualsiasi rete virtuale con peering. Le risorse mappate al collegamento privato sono accessibili anche in locale tramite peering privato attraverso la VPN o Azure ExpressRoute. 
 
@@ -627,7 +630,18 @@ Quando si usa il collegamento privato in combinazione con le regole del firewall
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Blocco dell'accesso alla rete pubblica durante la creazione dell'account
 
-Come descritto nella sezione precedente, se non sono state impostate regole del firewall specifiche, l'aggiunta di un endpoint privato rende l'account Azure Cosmos accessibile solo tramite endpoint privati. Ciò significa che è possibile raggiungere l'account Azure Cosmos dal traffico pubblico dopo che è stato creato e prima che venga aggiunto un endpoint privato. Per assicurarsi che l'accesso alla rete pubblica sia disabilitato anche prima della creazione di endpoint privati, è possibile impostare il flag `publicNetworkAccess` su `Disabled` durante la creazione dell'account. Per un esempio che illustra come usare questo flag, vedere [questo modello di Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/).
+Come descritto nella sezione precedente, se non sono state impostate regole del firewall specifiche, l'aggiunta di un endpoint privato rende l'account Azure Cosmos accessibile solo tramite endpoint privati. Ciò significa che è possibile raggiungere l'account Azure Cosmos dal traffico pubblico dopo che è stato creato e prima che venga aggiunto un endpoint privato. Per assicurarsi che l'accesso alla rete pubblica sia disabilitato anche prima della creazione di endpoint privati, è possibile impostare il flag `publicNetworkAccess` su `Disabled` durante la creazione dell'account. Si noti che questo flag ha la precedenza su qualsiasi regola IP o rete virtuale. tutto il traffico di rete pubblico e virtuale viene bloccato quando il flag è impostato su `Disabled` , anche se l'IP di origine o la rete virtuale è consentita nella configurazione del firewall.
+
+Per un esempio che illustra come usare questo flag, vedere [questo modello di Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/).
+
+## <a name="adding-private-endpoints-to-an-existing-cosmos-account-with-no-downtime"></a>Aggiunta di endpoint privati a un account Cosmos esistente senza tempi di inattività
+
+Per impostazione predefinita, l'aggiunta di un endpoint privato a un account esistente comporta un breve tempo di inattività di circa 5 minuti. Per evitare questo tempo di inattività, seguire le istruzioni seguenti:
+
+1. Aggiungere regole IP o della rete virtuale alla configurazione del firewall per consentire in modo esplicito le connessioni client.
+1. Attendere 10 minuti per verificare che l'aggiornamento della configurazione venga applicato.
+1. Configurare il nuovo endpoint privato.
+1. Rimuovere le regole del firewall impostate nel passaggio 1.
 
 ## <a name="port-range-when-using-direct-mode"></a>Intervallo di porte quando si usa la modalità diretta
 
@@ -635,7 +649,7 @@ Quando si usa un collegamento privato con un account Azure Cosmos tramite una co
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Aggiornare un endpoint privato quando si aggiunge o si rimuove un'area
 
-Per aggiungere o rimuovere aree in un account Azure Cosmos è necessario aggiungere o rimuovere le voci DNS per l'account. Dopo l'aggiunta o la rimozione delle aree, è possibile aggiornare la zona DNS privata della subnet in modo da riflettere le voci DNS aggiunte o rimosse e i rispettivi indirizzi IP privati.
+A meno che non si usi un gruppo di zone DNS privato, per aggiungere o rimuovere aree a un account Azure Cosmos è necessario aggiungere o rimuovere le voci DNS per tale account. Dopo l'aggiunta o la rimozione delle aree, è possibile aggiornare la zona DNS privata della subnet in modo da riflettere le voci DNS aggiunte o rimosse e i rispettivi indirizzi IP privati.
 
 Ad esempio, si supponga di distribuire un account Azure Cosmos in tre aree: "Stati Uniti occidentali", "Stati Uniti centrali" ed "Europa occidentale". Quando si crea un endpoint privato per l'account, nella subnet vengono riservati quattro indirizzi IP privati. Esiste un solo IP per ognuna delle tre aree ed esiste un solo IP per l'endpoint globale o indipendente dall'area.
 
@@ -659,7 +673,7 @@ Quando si usa il collegamento privato con un account Azure Cosmos, si applicano 
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Limitazioni per l'integrazione della zona DNS privata
 
-I record DNS nella zona DNS privata non vengono rimossi automaticamente quando si elimina un endpoint privato o si rimuove un'area dall'account Azure Cosmos. È necessario rimuovere manualmente i record DNS prima di:
+A meno che non si stia usando un gruppo di zone DNS privato, i record DNS nella zona DNS privata non vengono rimossi automaticamente quando si elimina un endpoint privato o si rimuove un'area dall'account Azure Cosmos. È necessario rimuovere manualmente i record DNS prima di:
 
 * Aggiungere un nuovo endpoint privato collegato alla zona DNS privata.
 * Aggiungere una nuova area a un account di database con endpoint privati collegati alla zona DNS privata.

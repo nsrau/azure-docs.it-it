@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 3f1c7fb08c3dcaa078de8f1ee0b90409289cfb43
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469243"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336004"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Come espandere l'unità del sistema operativo di una macchina virtuale
 
@@ -30,7 +30,7 @@ Quando si crea una nuova macchina virtuale (VM) in un gruppo di risorse distribu
 - Per eseguire la migrazione di un computer fisico o di una macchina virtuale da locale con un'unità del sistema operativo più grande.
 
 > [!IMPORTANT]
-> Il ridimensionamento del disco del sistema operativo di una macchina virtuale di Azure richiede la deallocazione della macchina virtuale.
+> Il ridimensionamento di un sistema operativo o di un disco dati di una macchina virtuale di Azure richiede la deallocazione della macchina virtuale.
 >
 > Dopo l'espansione dei dischi è necessario [espandere il volume all'interno del sistema operativo](#expand-the-volume-within-the-os) per sfruttare i vantaggi del disco più grande.
 > 

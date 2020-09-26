@@ -6,19 +6,19 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 2a06c182f1f37942ac0921db254bf63bf177fec2
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 29033cbabfcfa00c9f8458cbc161af67df5806cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595734"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325964"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Dimensioni delle macchine virtuali di calcolo ad alte prestazioni
 
-Le macchine virtuali (VM) della serie H di Azure sono progettate per offrire prestazioni di classe leadership, scalabilità MPI ed efficienza dei costi per un'ampia gamma di carichi di lavoro HPC reali.
+Le macchine virtuali della serie H di Azure sono progettate per offrire prestazioni, scalabilità e efficienza dei costi della classe di leadership per un'ampia gamma di carichi di lavoro HPC reali.
 
 [Serie HBv2](hbv2-series.md) Le macchine virtuali sono ottimizzate per le applicazioni basate sulla larghezza di banda della memoria, ad esempio fluidodinamica, analisi degli elementi finiti e simulazione del serbatoio. Macchine virtuali HBv2 funzionalità 120 processori AMD EPYC 7742 core, 4 GB di RAM per core CPU e nessun multithreading simultaneo. Ogni macchina virtuale HBv2 offre fino a 340 GB al secondo di larghezza di banda di memoria e fino a 4 teraflop di calcolo FP64.
 
@@ -31,22 +31,23 @@ Funzionalità VM HBv2 200 GB/sec Mellanox HDR InfiniBand, mentre le VM serie HB 
 [Serie H](h-series.md) Le macchine virtuali sono ottimizzate per le applicazioni basate su frequenze di CPU elevate o memoria di grandi dimensioni per i requisiti di base. Le macchine virtuali serie H dispongono di core del processore Intel Xeon E5 2667 V3, 7 o 14 GB di RAM per core CPU e senza hyperthreading. Le funzionalità della serie H 56 GB/sec Mellanox FDR InfiniBand in una configurazione di albero FAT non bloccante per prestazioni RDMA coerenti. Le macchine virtuali serie H supportano Intel MPI 5. x e MS-MPI.
 
 > [!NOTE]
-> Il ritiro delle macchine virtuali A8 -A11 è previsto per marzo 2021. Per altre informazioni, vedere [Guida alla migrazione HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> Le [macchine virtuali a8-a11](./sizes-previous-gen.md#a-series---compute-intensive-instances) sono pianificate per il ritiro in 3/2021. Per altre informazioni, vedere [Guida alla migrazione HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 ## <a name="rdma-capable-instances"></a>Istanze con supporto per RDMA
 
-La maggior parte delle dimensioni delle VM HPC (HBv2, HB, HC, H16r, H16mr, A8 e A9) è caratterizzata da un'interfaccia di rete per la connettività ad accesso diretto a memoria remota (RDMA). Anche le dimensioni selezionate della [serie N](./nc-series.md) designate con ' r ' (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 e NC24r) sono in grado di supportare RDMA. Questa interfaccia è aggiunta all'interfaccia di rete standard di Azure disponibile in altre dimensioni di VM.
+La maggior parte delle dimensioni delle VM HPC (HBv2, HB, HC, H16r, H16mr, A8 e A9) è caratterizzata da un'interfaccia di rete per la connettività ad accesso diretto a memoria remota (RDMA). Anche le dimensioni selezionate della [serie N](./nc-series.md) designate con ' r ' (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 e NC24r) sono in grado di supportare RDMA. Questa interfaccia è aggiunta all'interfaccia di rete Ethernet standard di Azure disponibile nelle altre dimensioni delle macchine virtuali.
 
 Questa interfaccia consente alle istanze con supporto per RDMA di comunicare attraverso una rete InfiniBand (IB), operando a frequenze HDR per HBv2, tariffe EDR per HB, HC, NDv2, tariffe FDR per H16r, H16mr e altre macchine virtuali serie N con supporto per RDMA e tariffe QDR per le VM a8 e A9. Queste funzionalità RDMA possono migliorare la scalabilità e le prestazioni di determinate applicazioni di interfaccia MPI (Message Passing Interface).
 
 > [!NOTE]
 > In HPC di Azure sono disponibili due classi di macchine virtuali, a seconda che si tratti di SR-IOV abilitato per InfiniBand. Attualmente, SR-IOV per le macchine virtuali abilitate per InfiniBand è: HBv2, HB, HC, NCv3 e NDv2. Le altre macchine virtuali abilitate per InfiniBand non sono attualmente abilitate per SR-IOV.
-> RDMA su IB è supportato per tutte le VM con supporto per RDMA.
+> RDMA è abilitato solo sulla rete InfiniBand (IB) ed è supportato per tutte le VM con supporto per RDMA.
 > IP over IB è supportato solo nelle VM abilitate per SR-IOV.
+> RDMA non è abilitato sulla rete Ethernet.
 
 - **Sistema operativo** : Linux è molto supportato per le VM HPC. sono comunemente usate distribuzioni come CentOS, RHEL, Ubuntu e SUSE. Per quanto riguarda il supporto di Windows, Windows Server 2016 e versioni più recenti sono supportati in tutte le VM della serie HPC. Windows Server 2012 R2, Windows Server 2012 sono supportati anche nelle VM abilitate per non SR-IOV (H16r, H16mr, A8 e A9). Si noti che [Windows Server 2012 R2 non è supportato in HBv2 e in altre VM con più di 64 core (virtuali o fisici)](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Vedere [Immagini VM](./workloads/hpc/configure.md) per un elenco di immagini di VM supportate nel Marketplace e come è possibile configurarle in modo appropriato.
 
-- **Driver InfiniBand e RDMA** : nelle macchine virtuali abilitate per InfiniBand, i driver appropriati sono necessari per abilitare RDMA. In Linux, per le macchine virtuali abilitate per SR-IOV e non SR-IOV, le immagini di VM CentOS-HPC nel Marketplace sono preconfigurate con i driver appropriati. Le immagini di macchine virtuali Ubuntu possono essere configurate con i driver appropriati seguendo le istruzioni riportate [qui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Per altri dettagli sulle immagini del sistema operativo Linux pronte per l'uso, vedere [configurare e ottimizzare le VM per il sistema operativo Linux](./workloads/hpc/configure.md) .
+- **InfiniBand e driver** : per le macchine virtuali abilitate per InfiniBand, i driver appropriati sono necessari per abilitare RDMA. In Linux, per le macchine virtuali abilitate per SR-IOV e non SR-IOV, le immagini di VM CentOS-HPC nel Marketplace sono preconfigurate con i driver appropriati. Le immagini di macchine virtuali Ubuntu possono essere configurate con i driver appropriati seguendo le istruzioni riportate [qui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Per altri dettagli sulle immagini del sistema operativo Linux pronte per l'uso, vedere [configurare e ottimizzare le VM per il sistema operativo Linux](./workloads/hpc/configure.md) .
 
    In Linux l' [estensione della macchina virtuale InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) può essere usata per installare i driver OFED di Mellanox e abilitare InfiniBand sulle VM serie H e N abilitate per SR-IOV. Altre informazioni sull'abilitazione di InfiniBand in macchine virtuali con supporto per RDMA in [carichi di lavoro HPC](./workloads/hpc/enable-infiniband.md).
 

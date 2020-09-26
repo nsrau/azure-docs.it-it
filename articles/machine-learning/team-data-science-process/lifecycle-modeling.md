@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3406b28c44644053fa984f2cf7739bb53ccf6c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336446"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Fase di modellazione del ciclo di vita del processo di data science per i team
 
 Questo argomento descrive gli obiettivi, le attività e i risultati finali associati alla fase di modellazione del processo TDSP. Questo processo offre un ciclo di vita consigliato da usare per strutturare i progetti di data science. Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
 
-   1. **Informazioni commerciali**
+   1. **Informazioni aziendali**
    2. **Acquisizione e comprensione dei dati**
    3. **Modellazione**
    4. **Distribuzione**
@@ -53,7 +53,7 @@ Questo passaggio richiede una combinazione creativa di competenze a livello di d
 Per indicazioni tecniche sulla progettazione delle funzionalità quando si usano varie tecnologie di dati di Azure, vedere [Progettazione di funzionalità nell'analisi scientifica dei dati](create-features.md). 
 
 ### <a name="model-training"></a>Training dei modelli
-A seconda del tipo di domanda a cui si tenta di rispondere, sono disponibili numerosi algoritmi di modellazione. Per istruzioni sulla scelta dell'algoritmo, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Sebbene questo articolo sia stato scritto per Microsoft Azure Machine Learning, le informazioni fornite possono essere usate per qualsiasi progetto Machine Learning. 
+A seconda del tipo di domanda a cui si tenta di rispondere, sono disponibili numerosi algoritmi di modellazione. Per istruzioni sulla scelta dell'algoritmo, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](../how-to-select-algorithms.md). Sebbene questo articolo sia stato scritto per Microsoft Azure Machine Learning, le informazioni fornite possono essere usate per qualsiasi progetto Machine Learning. 
 
 Il processo di training del modello include i passaggi seguenti: 
 

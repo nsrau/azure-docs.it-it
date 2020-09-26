@@ -2,13 +2,13 @@
 title: Eliminazione in modalità completa
 description: Descrive in che modo i tipi di risorsa gestiscono l'eliminazione in modalità completa in modelli di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 08fed3420cf74d328dd9a92a6a2c9235c5d11300
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 09/21/2020
+ms.openlocfilehash: e288d3af080a96616026e94ac7be352a7684c181
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855161"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327664"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminazione di risorse di Azure per distribuzioni in modalità completa
 
@@ -26,6 +26,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft.Addons](#microsoftaddons)
 > - [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft.Advisor](#microsoftadvisor)
+> - [Microsoft. AgFoodPlatform](#microsoftagfoodplatform)
 > - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
@@ -69,6 +70,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft.CustomProviders](#microsoftcustomproviders)
+> - [Microsoft. D365CustomerInsights](#microsoftd365customerinsights)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
@@ -158,6 +160,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
+> - [Microsoft. ScVmm](#microsoftscvmm)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
@@ -237,6 +240,13 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | metadata | No |
 > | raccomandazioni di film | No |
 > | suppressions | No |
+
+## <a name="microsoftagfoodplatform"></a>Microsoft. AgFoodPlatform
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Eliminazione in modalità completa |
+> | ------------- | ----------- |
+> | farmBeats | Sì |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
@@ -399,6 +409,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | cloudManifestFiles | No |
 > | edgeSubscriptions | Sì |
+> | linkedSubscriptions | Sì |
 > | registrations | Sì |
 > | registrazioni/customerSubscriptions | No |
 > | registrations/products | No |
@@ -454,6 +465,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | billingAccounts/billingProfiles/pricesheets | No |
 > | billingAccounts / billingProfiles / pricesheetDownloadOperations | No |
 > | billingAccounts/billingProfiles/Products | No |
+> | billingAccounts/billingProfiles/prenotazioni | No |
 > | billingAccounts/billingProfiles/Transactions | No |
 > | billingAccounts / billingProfiles / validateDetachPaymentMethodEligibility | No |
 > | billingAccounts / billingRoleAssignments | No |
@@ -497,6 +509,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | billingAccounts / patchOperations | No |
 > | billingAccounts / paymentMethods | No |
 > | billingAccounts/prodotti | No |
+> | billingAccounts/prenotazioni | No |
 > | billingAccounts/transazioni | No |
 > | billingPeriods | No |
 > | billingPermissions | No |
@@ -578,6 +591,10 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Redis/privateEndpointConnections | No |
 > | Redis/privateLinkResources | No |
 > | redisEnterprise | Sì |
+> | RedisEnterprise / privateEndpointConnectionProxies | No |
+> | RedisEnterprise/privateEndpointConnectionProxies/convalida | No |
+> | RedisEnterprise / privateEndpointConnections | No |
+> | RedisEnterprise / privateLinkResources | No |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -592,6 +609,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | catalogs | No |
 > | commercialReservationOrders | No |
 > | exchange | No |
+> | ownReservations | No |
 > | placePurchaseOrder | No |
 > | reservationOrders | No |
 > | reservationOrders / calculateRefund | No |
@@ -745,6 +763,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | availabilitySets | Sì |
 > | cloudServices | Sì |
+> | cloudServices/networkInterfaces | No |
+> | cloudServices/publicIPAddresses | No |
+> | cloudServices/roleInstances | No |
+> | cloudServices/roleInstances/networkInterfaces | No |
+> | cloudServices/ruoli | No |
 > | diskAccesses | Sì |
 > | diskEncryptionSets | Sì |
 > | disks | Sì |
@@ -917,6 +940,13 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | associations | No |
 > | resourceProviders | Sì |
 
+## <a name="microsoftd365customerinsights"></a>Microsoft. D365CustomerInsights
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Eliminazione in modalità completa |
+> | ------------- | ----------- |
+> | instances | Sì |
+
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
@@ -1025,6 +1055,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Server/privateLinkResources | No |
 > | Server/queryTexts | No |
 > | Server/recoverableServers | No |
+> | Server/avvio | No |
+> | Server/arresta | No |
 > | Server/topQueryStatistics | No |
 > | servers/virtualNetworkRules | No |
 > | Server/waitStatistics | No |
@@ -1034,6 +1066,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
+> | flexibleServers | Sì |
 > | servers | Sì |
 > | servers/advisors | No |
 > | servers/keys | No |
@@ -1042,7 +1075,10 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Server/privateLinkResources | No |
 > | Server/queryTexts | No |
 > | Server/recoverableServers | No |
+> | Server/avvio | No |
+> | Server/arresta | No |
 > | Server/topQueryStatistics | No |
+> | Server/aggiornamento | No |
 > | servers/virtualNetworkRules | No |
 > | Server/waitStatistics | No |
 
@@ -1217,6 +1253,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | namespaces/eventhubs/authorizationrules | No |
 > | namespaces/eventhubs/consumergroups | No |
 > | namespaces/networkrulesets | No |
+> | spazi dei nomi/privateEndpointConnections | No |
 
 ## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
 
@@ -1313,8 +1350,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Servizi/iomtconnectors/connessioni | No |
 > | Servizi/iomtconnectors/mapping | No |
 > | Servizi/privateEndpointConnectionProxies | No |
-> | Servizi/privateEndpointConnections | Sì |
-> | Servizi/privateLinkResources | Sì |
+> | Servizi/privateEndpointConnections | No |
+> | Servizi/privateLinkResources | No |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
@@ -1322,7 +1359,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | machines | Sì |
+> | computer/assessPatches | No |
 > | machines/extensions | Sì |
+> | computer/installPatches | No |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
@@ -1393,6 +1432,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | insiemi di credenziali | Sì |
 > | insiemi di credenziali/accessPolicies | No |
 > | insiemi di credenziali/eventGridFilters | No |
+> | insiemi di credenziali/chiavi | No |
+> | insiemi di credenziali/chiavi/versioni | No |
 > | vaults/secrets | No |
 
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
@@ -1461,6 +1502,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | aree di lavoro | Sì |
+> | aree di lavoro/CodeJobs | No |
 > | workspaces/computes | No |
 > | aree di lavoro/eventGridFilters | No |
 > | aree di lavoro/inferenceEndpoints | Sì |
@@ -1669,6 +1711,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | frontdoorWebApplicationFirewallPolicies | Sì |
 > | getDnsResourceReference | No |
 > | internalNotify | No |
+> | ipGroups | Sì |
 > | loadBalancers | Sì |
 > | localNetworkGateways | Sì |
 > | natGateways | Sì |
@@ -1832,6 +1875,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | account | Sì |
+> | deletedAccounts | No |
 
 ## <a name="microsoftproviderhub"></a>Microsoft.ProviderHub
 
@@ -1931,6 +1975,17 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | scala Web | Sì |
 > | saasresources | No |
 
+## <a name="microsoftscvmm"></a>Microsoft. ScVmm
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Eliminazione in modalità completa |
+> | ------------- | ----------- |
+> | Cloud | Sì |
+> | VirtualMachines | Sì |
+> | VirtualMachineTemplates | Sì |
+> | VirtualNetworks | Sì |
+> | vmmservers | Sì |
+
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tableFixed"]
@@ -1962,6 +2017,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | discoveredSecuritySolutions | No |
 > | externalSecuritySolutions | No |
 > | InformationProtectionPolicies | No |
+> | iotDefenderSettings | No |
 > | iotSecuritySolutions | Sì |
 > | iotSecuritySolutions / analyticsModels | No |
 > | iotSecuritySolutions / analyticsModels / aggregatedAlerts | No |
@@ -1970,6 +2026,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | iotSecuritySolutions / iotAlertTypes | No |
 > | iotSecuritySolutions / iotRecommendations | No |
 > | iotSecuritySolutions / iotRecommendationTypes | No |
+> | iotSensors | No |
 > | jitNetworkAccessPolicies | No |
 > | jitPolicies | No |
 > | criteri | No |
@@ -1988,6 +2045,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | securityStatusesSummaries | No |
 > | serverVulnerabilityAssessments | No |
 > | Scheda Impostazioni | No |
+> | sqlVulnerabilityAssessments | No |
 > | sottovalutazioni | No |
 > | attività | No |
 > | topologies | No |
@@ -2039,6 +2097,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | namespaces/disasterrecoveryconfigs | No |
 > | namespaces/eventgridfilters | No |
 > | namespaces/networkrulesets | No |
+> | spazi dei nomi/privateEndpointConnections | No |
 > | namespaces/queues | No |
 > | namespaces/queues/authorizationrules | No |
 > | namespaces/topics | No |
@@ -2153,6 +2212,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
+> | deletedAccounts | No |
 > | storageAccounts | Sì |
 > | storageAccounts/blobServices | No |
 > | storageAccounts/fileServices | No |

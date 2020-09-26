@@ -2,15 +2,15 @@
 title: Abilitare Gestione aggiornamenti di Automazione di Azure da una macchina virtuale di Azure
 description: Questo articolo illustra come abilitare Gestione aggiornamenti da una macchina virtuale di Azure.
 services: automation
-ms.date: 07/28/2020
+ms.date: 09/16/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 27832190125840e367edbfb2db8e4134f98b192d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dead4649635bebd9f73f79937dea1d24565f273e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450562"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327799"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Abilitare Gestione aggiornamenti da una macchina virtuale di Azure
 
@@ -35,13 +35,15 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Selezionare la macchina virtuale per la quale si vuole abilitare Gestione aggiornamenti. Le macchine virtuali possono esistere in qualsiasi area, indipendentemente dalla posizione dell'account di Automazione. Queste informazioni verranno usate
 
-3. Nella pagina della macchina virtuale, in **Operazioni** selezionare **Gestione aggiornamenti**.
+3. Nella pagina VM, in **operazioni**, selezionare **guest + host Updates**.
+
+    ![Selezione degli aggiornamenti guest + host dal riquadro a sinistra](media/update-mgmt-enable-vm/select-guest-and-os-updates.png)
 
 4. È necessario avere l'autorizzazione `Microsoft.OperationalInsights/workspaces/read` per determinare se la macchina virtuale è abilitata per un'area di lavoro. Per informazioni sulle autorizzazioni aggiuntive necessarie, vedere [Autorizzazioni necessarie per abilitare i computer](../automation-role-based-access-control.md#feature-setup-permissions). Per informazioni su come abilitare più computer contemporaneamente, vedere [Abilitare Gestione aggiornamenti da un account di Automazione](update-mgmt-enable-automation-account.md).
 
-5. Scegliere l'area di lavoro Log Analytics e l'account di Automazione da usare e fare clic su **Abilita** per abilitare Gestione aggiornamenti. Dopo aver abilitato Gestione aggiornamenti, prima di poter visualizzare la valutazione dell'aggiornamento dalla macchina virtuale potrebbero essere necessari circa 15 minuti.
+5. Nella pagina Abilita Gestione aggiornamenti scegliere l'area di lavoro Log Analytics e l'account di automazione e fare clic su **Abilita** per abilitare Gestione aggiornamenti. Dopo aver abilitato Gestione aggiornamenti, prima di poter visualizzare la valutazione dell'aggiornamento dalla macchina virtuale potrebbero essere necessari circa 15 minuti.
 
-    ![Abilitare la gestione degli aggiornamenti](media/update-mgmt-enable-vm/manageupdates-update-enable.png)
+    ![Abilitare la gestione degli aggiornamenti](media/update-mgmt-enable-vm/enable-update-management.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

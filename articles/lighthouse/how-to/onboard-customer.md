@@ -1,14 +1,14 @@
 ---
 title: Eseguire l'onboarding dei clienti in Azure Lighthouse
 description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
-ms.date: 08/20/2020
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 4de31a0ad2cdc3134cd61654a71ebe803982b52e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0b941c82c2ba0e98f524587f5ef4c4ecf86249eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483797"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336548"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Eseguire l'onboarding dei clienti in Azure Lighthouse
 
@@ -19,7 +19,7 @@ Questo articolo illustra come un provider di servizi può caricare un cliente ne
 
 È possibile ripetere il processo di onboarding per più clienti. Quando un utente con le autorizzazioni appropriate accede al tenant di gestione, tale utente può essere autorizzato negli ambiti di locazione dei clienti per eseguire operazioni di gestione, senza dover accedere a ogni singolo tenant del cliente.
 
-Per tenere traccia dell'impatto sull'engagement dei clienti e ricevere il riconoscimento, associare l'ID MPN (Microsoft Partner Network) ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. È necessario eseguire questa associazione nel tenant del provider di servizi. È consigliabile creare un account dell'entità servizio nel tenant associato all'ID MPN, quindi includere tale entità servizio ogni volta che si carica un cliente. Per altre informazioni, vedere [collegare l'ID partner per abilitare il credito guadagnato dal partner per le risorse delegate](partner-earned-credit.md).
+Per tenere traccia dell'impatto sull'engagement dei clienti e ricevere il riconoscimento, associare l'ID MPN (Microsoft Partner Network) ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. È necessario eseguire questa associazione nel tenant del provider di servizi. È consigliabile creare un account dell'entità servizio nel tenant associato all'ID MPN, quindi includere tale entità servizio ogni volta che si carica un cliente. Per altre informazioni, vedere [collegare l'ID partner per abilitare il credito guadagnato dal partner per le risorse Delegate.
 
 > [!NOTE]
 > I clienti possono anche essere caricati in Azure Lighthouse quando acquistano un'offerta di servizio gestita (pubblica o privata) [pubblicata in Azure Marketplace](publish-managed-services-offers.md). È anche possibile usare la procedura di onboarding descritta qui insieme alle offerte pubblicate in Azure Marketplace.
@@ -33,9 +33,6 @@ Per eseguire l'onboarding del tenant di un cliente, è necessario che abbia una 
 - ID del tenant del provider di servizi, in cui si gestiranno le risorse del cliente
 - ID del tenant del cliente, che avrà le risorse gestite dal provider di servizi
 - ID di ogni specifica sottoscrizione nel tenant del cliente che verrà gestito dal provider di servizi o che contiene i gruppi di risorse che verranno gestiti dal provider di servizi.
-
-> [!NOTE]
-> Anche se si vuole caricare solo uno o più gruppi di risorse all'interno di una sottoscrizione, la distribuzione deve essere eseguita a livello di sottoscrizione, quindi è necessario l'ID sottoscrizione.
 
 Se i valori ID non sono già disponibili, è possibile recuperarli in uno dei modi seguenti. Assicurarsi di usare questi valori esatti nella distribuzione.
 
@@ -128,6 +125,11 @@ Per eseguire l'onboarding del cliente, sarà necessario creare un modello di [Az
 
 Il processo di onboarding richiede un modello di Azure Resource Manager, disponibile nel [repository di esempi](https://github.com/Azure/Azure-Lighthouse-samples/), e un file di parametri corrispondente modificato in modo che corrisponda alla configurazione e definisca le autorizzazioni.
 
+> [!IMPORTANT]
+> Il processo descritto di seguito richiede una distribuzione separata per ogni sottoscrizione da caricare, anche se si esegue il caricamento di sottoscrizioni nello stesso tenant del cliente. Le distribuzioni separate sono necessarie anche se si esegue l'onboarding di più gruppi di risorse all'interno di sottoscrizioni diverse nello stesso tenant del cliente. Tuttavia, l'onboarding di più gruppi di risorse all'interno di una singola sottoscrizione può essere eseguito in una sola distribuzione.
+>
+> Le distribuzioni separate sono necessarie anche se si applicano più offerte alla stessa sottoscrizione (o gruppi di risorse all'interno di una sottoscrizione). Ogni offerta applicata deve usare un diverso **mspOfferName**.
+
 Il modello scelto dipenderà dal fatto che si esegua l'onboarding di un'intera sottoscrizione, di un gruppo di risorse o di più gruppi di risorse all'interno di una sottoscrizione. Viene anche fornito un modello che può essere usato per i clienti che hanno acquistato un'offerta di servizio gestito pubblicata in Azure Marketplace, se si preferisce eseguire l'onboarding delle sottoscrizioni in questo modo.
 
 |Onboarding di  |Usare questo modello di Azure Resource Manager  |E modificare questo file dei parametri |
@@ -137,10 +139,8 @@ Il modello scelto dipenderà dal fatto che si esegua l'onboarding di un'intera s
 |Più gruppi di risorse all'interno di una sottoscrizione   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |Sottoscrizione (quando si usa un'offerta pubblicata in Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
-> [!IMPORTANT]
-> Il processo descritto di seguito richiede una distribuzione separata per ogni sottoscrizione da caricare, anche se si esegue il caricamento di sottoscrizioni nello stesso tenant del cliente. Le distribuzioni separate sono necessarie anche se si esegue l'onboarding di più gruppi di risorse all'interno di sottoscrizioni diverse nello stesso tenant del cliente. Tuttavia, l'onboarding di più gruppi di risorse all'interno di una singola sottoscrizione può essere eseguito in una sola distribuzione.
->
-> Le distribuzioni separate sono necessarie anche se si applicano più offerte alla stessa sottoscrizione (o gruppi di risorse all'interno di una sottoscrizione). Ogni offerta applicata deve usare un diverso **mspOfferName**.
+> [!TIP]
+> Sebbene non sia possibile caricare un intero gruppo di gestione in una distribuzione, è possibile [distribuire un criterio a livello di gruppo di gestione](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). Il criterio verificherà se ogni sottoscrizione all'interno del gruppo di gestione è stata delegata al tenant di gestione specificato e, in caso contrario, creerà l'assegnazione in base ai valori forniti.
 
 L'esempio seguente illustra un file **delegatedResourceManagement.parameters.json** modificato che potrà essere usato per eseguire l'onboarding di una sottoscrizione. I file di parametri dei gruppi di risorse (disponibili nella cartella [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management)) sono simili, ma includono anche un parametro**rgName** per identificare i gruppi di risorse specifici di cui eseguire l'onboarding.
 

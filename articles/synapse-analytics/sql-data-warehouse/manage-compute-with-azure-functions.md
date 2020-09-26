@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 11cb0c30a1a6ed70cca82e494fcec73936975f39
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 0e14bba7b2982dd12fcca0d7aedc864b2a65288f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442223"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259952"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usare funzioni di Azure per gestire le risorse di calcolo nel pool SQL di Azure sinapsi Analytics
 
@@ -124,10 +124,10 @@ Attualmente, nel modello sono incluse solo due funzioni di ridimensionamento. Co
        "operationType": "PauseDw"
    }
 
-   // Scale the SQL pool instance to DW600
+   // Scale the SQL pool instance to DW600c
    var operation = {
        "operationType": "ScaleDw",
-       "ServiceLevelObjective": "DW600"
+       "ServiceLevelObjective": "DW600c"
    }
    ```
 
@@ -137,33 +137,33 @@ Questa sezione illustra brevemente gli elementi necessari per ottenere una piani
 
 ### <a name="example-1"></a>Esempio 1
 
-Eseguire ogni giorno l'aumento delle prestazioni a DW600 alle ore 8 e la riduzione delle prestazioni a DW200 alle ore 20.
+Scalabilità giornaliera fino a 8 a DW600c e riduzione alle 20.00 a DW200c.
 
-| Funzione  | Pianificazione     | Operazione                                |
+| Funzione  | Pianifica     | Operazione                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Funzione 1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600"}` |
-| Funzione 2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
+| Funzione 1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600c"}` |
+| Funzione 2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
 
 ### <a name="example-2"></a>Esempio 2
 
-Eseguire ogni giorno l'aumento delle prestazioni a DW1000 alle ore 8 e la riduzione delle prestazioni a DW600 alle ore 16 e a DW200 alle ore 22.
+Scalabilità giornaliera fino a 8 a compreso dw1000c, riduzione delle prestazioni una volta al DW600 alle 16.00 e riduzione delle ore 10:00 a DW200c.
 
-| Funzione  | Pianificazione     | Operazione                                |
+| Funzione  | Pianifica     | Operazione                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Funzione 1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
-| Funzione 2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
-| Funzione 3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
+| Funzione 1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
+| Funzione 2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
+| Funzione 3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
 
 ### <a name="example-3"></a>Esempio 3
 
-Eseguire nei giorni feriali l'aumento delle prestazioni a DW1000 alle ore 8 e la riduzione delle prestazioni a DW600 alle ore 16, nonché sospendere alle ore 23 di venerdì e riprendere alle ore 7 di lunedì.
+Scalabilità verticale a compreso dw1000c, con scalabilità verticale una volta DW600c alle 16.00 nei giorni feriali. nonché sospendere alle ore 23 di venerdì e riprendere alle ore 7 di lunedì.
 
-| Funzione  | Pianificazione       | Operazione                                |
+| Funzione  | Pianifica       | Operazione                                |
 | :-------- | :------------- | :--------------------------------------- |
-| Funzione 1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
-| Funzione 2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
+| Funzione 1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
+| Funzione 2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
 | Funzione 3 | 0 0 23 * * 5   | `var operation = {"operationType": "PauseDw"}` |
-| Funzione 4 | 0 0 7 * * 0    | `var operation = {"operationType": "ResumeDw"}` |
+| Funzione 4 | 0 0 7 * * 1    | `var operation = {"operationType": "ResumeDw"}` |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

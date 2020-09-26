@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e25b2b53acdfb05af8572a01109961bf3002e429
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a221ba8fe14db37729183774197bfc2db8bf2baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499433"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328106"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>Anteprima: creare una VM Windows con Azure Image Builder usando PowerShell
 
@@ -37,7 +37,7 @@ Se si sceglie di usare PowerShell in locale, per questo articolo è necessario i
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Se si possiedono più sottoscrizioni di Azure, scegliere quella appropriata in cui verranno fatturate le risorse. Selezionare una sottoscrizione specifica usando il cmdlet [set-AzContext](/powershell/module/az.accounts/set-azcontext) .
+Se si possiedono più sottoscrizioni di Azure, scegliere quella appropriata in cui verranno fatturate le risorse. Selezionare una sottoscrizione specifica usando il cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -75,7 +75,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Compute, Microsoft.KeyVault,
 
 ## <a name="define-variables"></a>Definire le variabili
 
-Verranno usate più volte le informazioni. Creare variabili per archiviare le informazioni.
+Verranno usate più volte diverse informazioni. Creare variabili in cui archiviarle.
 
 ```azurepowershell-interactive
 # Destination image resource group name
@@ -103,7 +103,7 @@ Write-Output $subscriptionID
 
 Creare un [gruppo di risorse di Azure](../../azure-resource-manager/management/overview.md) con il cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo.
 
-Nell'esempio seguente viene creato un gruppo di risorse basato sul nome della `$imageResourceGroup` variabile nell'area specificata nella `$location` variabile. Questo gruppo di risorse viene usato per archiviare l'artefatto del modello di configurazione dell'immagine e l'immagine.
+L'esempio seguente crea un gruppo di risorse basato sul nome incluso nella variabile `$imageResourceGroup` nell'area specificata nella variabile `$location`. Questo gruppo di risorse viene usato per archiviare l'artefatto del modello di configurazione dell'immagine e l'immagine.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
@@ -271,7 +271,7 @@ In background, Image Builder crea anche un gruppo di risorse di staging nella so
 
 Se il servizio segnala un errore durante l'invio del modello di configurazione immagine:
 
-- Vedere [risoluzione dei problemi relativi a errori di compilazione di immagini VM di Azure (AIB)](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting).
+- Vedere [risoluzione dei problemi relativi a errori di compilazione di immagini VM di Azure (AIB)](../linux/image-builder-troubleshoot.md).
 - Eliminare il modello usando l'esempio seguente prima di riprovare.
 
 ```azurepowershell-interactive
@@ -288,11 +288,11 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 Attendere il completamento del processo di compilazione dell'immagine. Questo passaggio potrebbe richiedere fino a un'ora.
 
-Se si verificano errori, vedere [risoluzione dei problemi relativi a errori di compilazione immagine di VM di Azure (AIB)](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting).
+Se si verificano errori, vedere [risoluzione dei problemi relativi a errori di compilazione immagine di VM di Azure (AIB)](../linux/image-builder-troubleshoot.md).
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
-Archiviare le credenziali di accesso per la macchina virtuale in una variabile. La password deve essere complessa.
+Archiviare le credenziali di accesso per la VM in una variabile. La password deve essere complessa.
 
 ```azurepowershell-interactive
 $Cred = Get-Credential
@@ -334,7 +334,7 @@ Remove-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imag
 
 > [!CAUTION]
 > L'esempio seguente elimina il gruppo di risorse specificato e tutte le risorse al suo interno.
-> Se le risorse al di fuori dell'ambito di questo articolo sono presenti nel gruppo di risorse specificato, verranno eliminate anche.
+> Se nel gruppo di risorse specificato sono presenti anche risorse diverse da quelle usate in questo articolo, verranno eliminate.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $imageResourceGroup

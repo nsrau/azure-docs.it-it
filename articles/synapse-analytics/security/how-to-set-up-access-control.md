@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6b1fe78ac00b57d7627a64970e84ae8b717ae5c3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501917"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260156"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteggere l'area di lavoro Synapse (anteprima)
 
@@ -97,8 +97,8 @@ L'area di lavoro Synapse deve accedere a STG1 e CNT1 per poter eseguire le pipel
 
 - Aprire il portale di Azure
 - Passare a WS1
-- In **Impostazioni**, fare clic su **Amministratore SQL Active Directory**
-- Fare clic su **Imposta amministratore** e selezionare WS1\_SQLAdmins
+- In **Impostazioni**selezionare **amministratore di SQL Active Directory**
+- Selezionare **imposta amministratore** e scegliere WS1 \_ sqladmins
 
 ## <a name="step-6-maintain-access-control"></a>PASSAGGIO 6: gestire il controllo di accesso
 
@@ -112,7 +112,7 @@ Sebbene sia possibile assegnare manualmente gli utenti ai ruoli Synapse, sceglie
 
 Gli utenti in ogni ruolo devono completare i passaggi seguenti:
 
-| Number | Passaggio | Amministratori dell'area di lavoro | Amministratori Spark | Amministratori SQL |
+| Numero | Passaggio | Amministratori dell'area di lavoro | Amministratori Spark | Amministratori SQL |
 | --- | --- | --- | --- | --- |
 | 1 | Caricare un file parquet in CNT1 | YES | YES | YES |
 | 2 | Leggere il file parquet usando SQL su richiesta | YES | NO | YES |
@@ -123,8 +123,9 @@ Gli utenti in ogni ruolo devono completare i passaggi seguenti:
 
 > [!NOTE]
 > [1] Per creare pool di Spark o SQL, l'utente deve avere almeno il ruolo di Collaboratore nell'area di lavoro Synapse.
-> [!TIP]
 >
+ 
+>[!TIP]
 > - Alcuni passaggi non saranno consentiti di proposito a seconda del ruolo.
 > - Tenere presente che alcune attività potrebbero avere esito negativo se la sicurezza non è stata configurata completamente. Tali attività sono evidenziate nella tabella.
 

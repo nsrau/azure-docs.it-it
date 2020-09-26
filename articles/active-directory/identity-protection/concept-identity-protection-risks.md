@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3dd4d5f413238e0d0da79ff43deeee6245681f4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 7bc7b0ce521522e677e0dc53809c8c33e0743f0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327919"
 ---
 # <a name="what-is-risk"></a>Che cosa sono i rischi?
 
@@ -30,7 +30,7 @@ Identity Protection consente alle organizzazioni di accedere a risorse potenti p
 
 Esistono due tipi di **utente** di rischio e di **accesso** e due tipi di rilevamento o calcolo in **tempo reale** e **offline**.
 
-I rilevamenti in tempo reale potrebbero non essere visualizzati nella creazione di report da cinque a dieci minuti. I rilevamenti offline potrebbero non essere visualizzati nella creazione di report per due o quattro ore.
+I rilevamenti in tempo reale potrebbero non essere visualizzati nella creazione di report da cinque a dieci minuti. I rilevamenti offline potrebbero non essere visualizzati nella creazione di report per due o ventiquattro ore.
 
 ### <a name="user-risk"></a>Rischio utente
 

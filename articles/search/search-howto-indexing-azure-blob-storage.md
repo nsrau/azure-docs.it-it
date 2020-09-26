@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9caa377ebcdff5b0ae379f1b0b8269dac5b8f499
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2ba511d3747ba308ae04ab1bbe3dcb89bca6a8a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924096"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328293"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Come indicizzare i documenti nell'archivio BLOB di Azure con Azure ricerca cognitiva
 
@@ -73,6 +73,7 @@ Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare u
 
 Per specificare le credenziali per il contenitore BLOB, sono disponibili questi modi:
 
+- **Stringa di connessione identità gestita**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` questa stringa di connessione non richiede una chiave dell'account, ma è necessario seguire le istruzioni per la [configurazione di una connessione a un account di archiviazione di Azure usando un'identità gestita](search-howto-managed-identities-storage.md).
 - **Stringa di connessione dell'account di archiviazione con accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` è possibile ottenere la stringa di connessione dal portale di Azure passando al pannello dell'account di archiviazione > impostazioni > chiavi (per gli account di archiviazione classici) o impostazioni > chiavi di accesso (per Azure Resource Manager account di archiviazione).
 - **Stringa di connessione della firma di accesso condiviso (SAS) dell'account di archiviazione**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` la SAS deve avere le autorizzazioni per le operazioni di elenco e lettura per i contenitori e gli oggetti (oggetti binario di grandi dimensioni).
 -  **Firma di accesso condiviso del contenitore: la firma di accesso condiviso** `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` deve avere le autorizzazioni di elenco e lettura per il contenitore.
@@ -148,7 +149,7 @@ A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore 
 
   * **metadata\_storage\_name** (Edm.String): nome file del BLOB. Se, ad esempio, è presente un BLOB /my-container/my-folder/subfolder/resume.pdf, il valore di questo campo è `resume.pdf`.
   * **metadata\_storage\_path** (Edm.String): URI completo del BLOB, incluso l'account di archiviazione. Ad esempio, usare `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **metadata\_storage\_content\_type** (Edm.String): tipo di contenuto specificato dal codice usato per caricare il BLOB. Ad esempio, `application/octet-stream`
+  * **metadata\_storage\_content\_type** (Edm.String): tipo di contenuto specificato dal codice usato per caricare il BLOB. Ad esempio: `application/octet-stream`.
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): ultimo timestamp modificato per il BLOB. Azure ricerca cognitiva usa questo timestamp per identificare i BLOB modificati, in modo da evitare di reindicizzare tutto dopo l'indicizzazione iniziale.
   * **metadata\_storage\_size** (Edm.Int64): dimensioni del BLOB in byte.
   * **metadata\_storage\_content\_md5** (Edm.String): hash MD5 dei contenuti del BLOB, se disponibile.
@@ -352,7 +353,7 @@ Esistono due modi per implementare l'approccio di eliminazione temporanea. Entra
 
 In questo metodo si userà la funzionalità di [eliminazione temporanea BLOB nativa](../storage/blobs/soft-delete-blob-overview.md) offerta dall'archiviazione BLOB di Azure. Se l'eliminazione temporanea del BLOB nativo è abilitata nell'account di archiviazione, l'origine dati include un set di criteri nativi di eliminazione temporanea e l'indicizzatore trova un BLOB che è stato passato a uno stato di eliminazione temporanea, l'indicizzatore rimuoverà tale documento dall'indice. I criteri di eliminazione temporanea BLOB nativi non sono supportati durante l'indicizzazione di BLOB da Azure Data Lake Storage Gen2.
 
-Eseguire la procedura descritta di seguito:
+Eseguire i passaggi seguenti:
 1. Abilitare l' [eliminazione temporanea nativa per l'archiviazione BLOB di Azure](../storage/blobs/soft-delete-blob-overview.md). È consigliabile impostare i criteri di conservazione su un valore molto superiore rispetto alla pianificazione dell'intervallo dell'indicizzatore. In questo modo, se si verifica un problema durante l'esecuzione dell'indicizzatore o se si dispone di un numero elevato di documenti da indicizzare, l'indicizzatore potrebbe elaborare i BLOB eliminati temporaneamente. Gli indicizzatori di Azure ricerca cognitiva elimineranno un documento dall'indice solo se elabora il BLOB mentre si trova in uno stato di eliminazione temporanea.
 1. Configurare i criteri di rilevamento dell'eliminazione temporanea dei BLOB nativi nell'origine dati. Di seguito è illustrato un esempio. Poiché questa funzionalità è in anteprima, è necessario usare l'API REST di anteprima.
 1. Eseguire l'indicizzatore o impostare l'indicizzatore per l'esecuzione in base a una pianificazione. Quando l'indicizzatore viene eseguito ed elabora il BLOB, il documento verrà rimosso dall'indice.
@@ -380,7 +381,7 @@ Se si elimina un BLOB dall'archiviazione BLOB di Azure con l'eliminazione tempor
 
 In questo metodo verranno utilizzati i metadati di un BLOB per indicare quando è necessario rimuovere un documento dall'indice di ricerca.
 
-Eseguire la procedura descritta di seguito:
+Eseguire i passaggi seguenti:
 
 1. Aggiungere una coppia chiave-valore dei metadati personalizzata al BLOB per indicare ad Azure ricerca cognitiva che è stata eliminata logicamente.
 1. Configurare un criterio di rilevamento della colonna di eliminazione temporanea nell'origine dati. Di seguito è illustrato un esempio.

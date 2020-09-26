@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 09181a28edf21f0a4da11a244d3c094469446ab5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6726dab6f1037f01eda316968e3c5b503aa9dbfb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983480"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326578"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Eseguire l'integrazione con app per la logica usando un connettore personalizzato
 
@@ -28,7 +28,7 @@ In questo articolo si userà il [portale di Azure](https://portal.azure.com) per
 Se non si ha una sottoscrizione di Azure, **creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** prima di iniziare.
 Accedere al [portale di Azure](https://portal.azure.com) con questo account. 
 
-Nella parte restante di questa sezione vengono illustrati i passaggi seguenti:
+È anche necessario completare gli elementi seguenti come parte dell'installazione dei prerequisiti. Nella parte restante di questa sezione vengono illustrati i passaggi seguenti:
 - Configurare un'istanza di Gemelli digitali di Azure
 - Ottenere il segreto client di registrazione dell'app
 - Aggiungere un dispositivo gemello digitale
@@ -37,9 +37,9 @@ Nella parte restante di questa sezione vengono illustrati i passaggi seguenti:
 
 Per connettere un'istanza di Azure Digital Twins alle app per la logica in questo articolo, è necessario che l' **istanza di Azure Digital Twins** sia già configurata. 
 
-Se ora è necessario configurare una nuova istanza, il modo più semplice per farlo è eseguire un esempio di script di distribuzione automatica. Seguire le istruzioni in [*procedura: configurare un'istanza e l'autenticazione (con script)*](how-to-set-up-instance-scripted.md) per configurare una nuova istanza e la registrazione dell'app Azure ad richiesta. Le istruzioni contengono anche le operazioni da eseguire per verificare che ogni passaggio sia stato completato correttamente e sia quindi possibile passare all'uso della nuova istanza.
+Prima di tutto, configurare un'istanza di Azure Digital Twins e l'autenticazione necessaria per poterla usare. A tale scopo, seguire le istruzioni in [*How-to: set up an instance and Authentication*](how-to-set-up-instance-portal.md). A seconda dell'esperienza preferita, l'articolo di installazione è disponibile per l'esempio [portale di Azure](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md)o [script di distribuzione automatizzata cloud Shell](how-to-set-up-instance-scripted.md). Tutte le versioni delle istruzioni contengono anche i passaggi per verificare che tutti i passaggi siano stati completati correttamente e che siano pronti per passare all'uso della nuova istanza.
 
-In questa esercitazione saranno necessari i valori seguenti ottenuti al momento della configurazione dell'istanza. Se è necessario raccogliere nuovamente questi valori, usare i collegamenti seguenti alle sezioni corrispondenti nell'articolo relativo alla configurazione per individuarli nel [portale di Azure](https://portal.azure.com).
+In questa esercitazione sono necessari diversi valori da quando si configura l'istanza di. Se è necessario raccogliere nuovamente questi valori, usare i collegamenti seguenti alle sezioni corrispondenti nell'articolo relativo alla configurazione per individuarli nel [portale di Azure](https://portal.azure.com).
 * **_Nome host_** dell'istanza di Gemelli digitali di Azure ([trova nel portale](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * **_ID applicazione (client)_** della registrazione app Azure AD ([trova nel portale](how-to-set-up-instance-portal.md#collect-important-values))
 * **_ID directory (tenant)_** della registrazione app Azure AD ([trova nel portale](how-to-set-up-instance-portal.md#collect-important-values))
@@ -160,13 +160,13 @@ A questo punto è stata eseguita la configurazione di un connettore personalizza
 
 Si creerà quindi un'app per la logica che userà il nuovo connettore per automatizzare gli aggiornamenti dei dispositivi gemelli digitali di Azure.
 
-Passare alla pagina [app per la logica (consumo)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) nella portale di Azure (è possibile usare questo collegamento o cercarla nella barra di ricerca del portale). Fare clic sul pulsante *Aggiungi* per creare un'app per la logica.
+Nella [portale di Azure](https://portal.azure.com)cercare app per la *logica* nella barra di ricerca del portale. Se si seleziona questa finestra, viene visualizzata la pagina app per la *logica* . Premere il pulsante *Crea app* per la logica per creare una nuova app per la logica.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="La pagina ' app per la logica (consumo)' nella portale di Azure. Premere il pulsante ' Aggiungi '":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Pagina "app per la logica" nel portale di Azure. Premere il pulsante ' Aggiungi '":::
 
-Nella pagina *app per la logica (consumo)* riportata di seguito immettere la sottoscrizione, il gruppo di risorse. Scegliere anche un nome per l'app per la logica e selezionare il percorso.
+Nella pagina dell'app per la *logica* che segue immettere la sottoscrizione e il gruppo di risorse. Scegliere anche un nome per l'app per la logica e selezionare il percorso di distribuzione.
 
-Selezionare il pulsante _Verifica + crea_ .
+Premere il pulsante _Verifica + crea_ .
 
 Verrà visualizzata la scheda *Verifica + crea* , in cui è possibile esaminare i dettagli e fare clic su *Crea* nella parte inferiore per creare la risorsa.
 

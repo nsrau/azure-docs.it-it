@@ -1,6 +1,6 @@
 ---
-title: includere il file
-description: Includere file
+title: includere file
+description: includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 546c21802d275fe99ed2acbf00e32d37db3603f2
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: db377a933507f9a25b377ba52ebd956416a1dfd2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225198"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328215"
 ---
 Per il momento, i dischi Ultra presentano limitazioni aggiuntive, come indicato di seguito:
 
@@ -24,26 +24,28 @@ La tabella seguente descrive le aree in cui sono disponibili i dischi Ultra, olt
 > [!NOTE]
 > Se una regione nell'elenco seguente non dispone di zone di disponibilità con supporto di dischi Ultra, le macchine virtuali in tale area devono essere distribuite senza opzioni di ridondanza dell'infrastruttura per poter alleghire un disco Ultra.
 
-|Regioni  |Numero di zone di disponibilità che supportano dischi ultra  |
+|Regioni  |Opzioni di ridondanza  |
 |---------|---------|
-|US Gov Virginia     |nessuno         |
-|US Gov Arizona     |nessuno         |
-|Stati Uniti centro-meridionali     |nessuno         |
-|Stati Uniti centrali     |Tre zone         |
-|Stati Uniti occidentali     |nessuno         |
-|West US 2    |Tre zone         |
-|Stati Uniti orientali     |Tre zone         |
-|Stati Uniti orientali 2     |Tre zone         |
-|Asia sudorientale     |Tre zone         |
-|Asia orientale     |nessuno         |
-|Europa settentrionale     |Tre zone          |
-|Europa occidentale     |Tre zone          |
-|Regno Unito meridionale     |Tre zone          |
-|Giappone orientale     |Tre zone         |
-|Francia centrale    |Due zone        |
-|Brasile meridionale    |nessuno        |
-|Australia orientale    |Tre zone        |
-|Canada centrale *    |Tre zone        |
+|Brasile meridionale     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
+|India centrale     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
+|Asia orientale     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
+|Germania centro-occidentale     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
+|Corea centrale     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
+|Stati Uniti centro-meridionali    |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
+|US Gov Arizona     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
+|US Gov Virginia     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
+|Stati Uniti occidentali     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)        |
+|Australia orientale     |Tre zone di disponibilità         |
+|Canada centrale *     |Tre zone di disponibilità          |
+|Stati Uniti centrali     |Tre zone di disponibilità          |
+|Stati Uniti orientali     |Tre zone di disponibilità          |
+|Stati Uniti orientali 2     |Tre zone di disponibilità         |
+|Francia centrale    |Due zone di disponibilità        |
+|Giappone orientale    |Tre zone di disponibilità        |
+|Europa settentrionale    |Tre zone di disponibilità        |
+|Regno Unito meridionale    |Tre zone di disponibilità        |
+|Europa occidentale    | Tre zone di disponibilità|
+|Stati Uniti occidentali 2    |Tre zone di disponibilità|
 
 \* Contattare il supporto tecnico di Azure per ottenere l'accesso ai zone di disponibilità per questa area.
 
@@ -53,16 +55,20 @@ La tabella seguente descrive le aree in cui sono disponibili i dischi Ultra, olt
     - [Edsv4](../articles/virtual-machines/edv4-edsv4-series.md#edsv4-series)
     - [Esv4](../articles/virtual-machines/ev4-esv4-series.md#esv4-series)
     - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
+    - [Dasv4](../articles/virtual-machines/dav4-dasv4-series.md#dasv4-series)
+    - [Ddsv4](../articles/virtual-machines/ddv4-ddsv4-series.md#ddsv4-series)
+    - [Dsv4](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-- Non tutte le dimensioni della macchina virtuale sono disponibili in ogni area supportata con dischi ultra
-- Sono disponibili solo come dischi dati e supportano solo le dimensioni del settore fisico 4K. A causa delle dimensioni del settore nativo 4K del disco Ultra, sono disponibili alcune applicazioni che non saranno compatibili con i dischi Ultra. Un esempio è Oracle Database, che richiede la versione 12,2 o successiva per supportare i dischi Ultra.  
-- Possono essere creati solo come dischi vuoti  
-- Attualmente non supporta gli snapshot del disco, le immagini di VM, i set di disponibilità, gli host dedicati di Azure o crittografia dischi di Azure
-- Attualmente non supporta l'integrazione con backup di Azure o Azure Site Recovery
-- Supporta solo letture non memorizzate nella cache e scritture non memorizzate nella cache
+- Non tutte le dimensioni della macchina virtuale sono disponibili in ogni area supportata con dischi Ultra.
+- Sono disponibili solo come dischi dati. 
+- Supportare le dimensioni del settore fisico 4K per impostazione predefinita. le dimensioni del settore 512E sono disponibili come offerta disponibile a livello generale, ma è necessario [iscriversi](https://aka.ms/ultradisk512e). La maggior parte delle applicazioni è compatibile con le dimensioni del settore 4K, ma alcune richiedono dimensioni di settore a 512 byte. Un esempio è Oracle Database, che richiede la versione 12,2 o successiva per supportare i dischi nativi 4K. Per le versioni precedenti di Oracle DB, sono richieste dimensioni di settore di 512 byte.
+- Può essere creato solo come dischi vuoti.
+- Attualmente non supporta gli snapshot del disco, le immagini di VM, i set di disponibilità, gli host dedicati di Azure o crittografia dischi di Azure.
+- Attualmente non supporta l'integrazione con backup di Azure o Azure Site Recovery.
+- Supporta solo letture non memorizzate nella cache e scritture non memorizzate nella cache.
 - Il limite massimo corrente per IOPS nelle VM GA è 80.000.
 
 Azure ultra Disks offre fino a 16 TiB per area per sottoscrizione per impostazione predefinita, ma i dischi Ultra supportano una capacità superiore per richiesta. Per richiedere un aumento della capacità, contattare il supporto tecnico di Azure.

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 23898969f254063ee9e5385fee577661871ccf45
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 0eb814ea0d941ca01d3a21db1cb507ef273a1a18
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328344"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -60,7 +60,7 @@ Il filtro dinamico viene usato per controllare il numero di tracce, formati, vel
 
 ### <a name="pass-through"></a>Pass-through
 
-![pass-through](./media/live-streaming/pass-through.svg)
+![Diagramma che illustra come vengono inseriti ed elaborati i feed audio e video di un evento Live pass-through.](./media/live-streaming/pass-through.svg)
 
 Quando si usa l' **evento Live**pass-through, si fa affidamento sul codificatore Live locale per generare un flusso video a bitrate multipli e inviarlo come feed di contributo all'evento Live (usando il protocollo di input RTMP o frammentato-MP4). L'evento Live trasporta quindi i flussi video in ingresso verso Dynamic Packager (endpoint di streaming) senza ulteriore transcodifica. Questo evento Live pass-through è ottimizzato per eventi live a esecuzione prolungata o streaming live lineare 24x365. 
 

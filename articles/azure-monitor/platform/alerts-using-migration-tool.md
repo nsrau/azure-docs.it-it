@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 5e811e487856ea38f96b669ccb12cabda655a8cd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852124"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358662"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Usare lo strumento di migrazione volontaria per eseguire la migrazione delle regole di avviso classiche
 
@@ -49,7 +49,7 @@ Per attivare la migrazione delle regole di avviso classiche nella portale di Azu
 
 1. Selezionare **Esegui migrazione a nuove regole** per passare alla pagina di destinazione della migrazione. In questa pagina viene visualizzato un elenco di tutte le sottoscrizioni e del relativo stato di migrazione:
 
-    ![Migrazione-destinazione](media/alerts-migration/migration-landing.png "Eseguire la migrazione delle regole")
+    ![Screenshot mostra la pagina della migrazione delle regole di avviso.](media/alerts-migration/migration-landing.png "Eseguire la migrazione delle regole")
 
     Tutte le sottoscrizioni di cui è possibile eseguire la migrazione tramite lo strumento sono contrassegnate come **pronte per la migrazione**.
 
@@ -60,7 +60,7 @@ Per attivare la migrazione delle regole di avviso classiche nella portale di Azu
 
     La pagina risultante Mostra i dettagli delle regole di avviso classiche di cui verrà eseguita la migrazione per una sottoscrizione alla volta. È anche possibile selezionare **Scarica i dettagli della migrazione per questa sottoscrizione** per ottenere i dettagli in formato CSV.
 
-    ![migrazione-anteprima](media/alerts-migration/migration-preview.png "Anteprima migrazione")
+    ![Screenshot mostra la pagina della migrazione delle regole di avviso con un collegamento per scaricare i dettagli della migrazione per questa sottoscrizione ed è possibile specificare la posta elettronica per la notifica di migrazione.](media/alerts-migration/migration-preview.png "Anteprima migrazione")
 
 1. Specificare uno o più indirizzi di posta elettronica per ricevere notifiche sullo stato della migrazione. Si riceverà un messaggio di posta elettronica al termine della migrazione o se è necessaria un'azione da parte dell'utente.
 
@@ -69,7 +69,7 @@ Per attivare la migrazione delle regole di avviso classiche nella portale di Azu
     > [!IMPORTANT]
     > Dopo aver avviato la migrazione per una sottoscrizione, non sarà possibile modificare o creare regole di avviso classiche per tale sottoscrizione. Questa restrizione garantisce che non vengano perse modifiche alle regole di avviso classiche durante la migrazione alle nuove regole. Sebbene non sia possibile modificare le regole di avviso classiche, continueranno a essere eseguite e a fornire avvisi finché non ne viene eseguita la migrazione. Al termine della migrazione per la sottoscrizione, non è più possibile usare le regole di avviso classiche.
 
-    ![migrazione-conferma](media/alerts-migration/migration-confirm.png "Conferma avvio migrazione")
+    ![Screenshot Visualizza una richiesta di conferma per la migrazione, incluse informazioni importanti con collegamenti per ottenere ulteriori informazioni prima di procedere.](media/alerts-migration/migration-confirm.png "Conferma avvio migrazione")
 
 1. Al termine della migrazione o se è richiesta un'azione da parte dell'utente, si riceverà un messaggio di posta elettronica con gli indirizzi specificati in precedenza. È anche possibile controllare periodicamente lo stato nella pagina di destinazione della migrazione nel portale.
 

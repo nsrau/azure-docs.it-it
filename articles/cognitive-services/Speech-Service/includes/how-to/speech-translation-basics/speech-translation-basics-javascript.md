@@ -4,14 +4,24 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/14/2020
 ms.author: v-demjoh
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6fe89e36685a2db0bf7b570ab6e7150bacf34857
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 9e1e81c70e21022364e52698f96213c01b452da4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405833"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326922"
 ---
+Una delle funzionalità principali del servizio di riconoscimento vocale è la possibilità di riconoscere la voce umana e tradurla in altre lingue. Questa Guida introduttiva illustra come usare l'SDK di riconoscimento vocale nelle app e nei prodotti per eseguire la traduzione vocale di alta qualità. Questa Guida introduttiva illustra gli argomenti tra cui:
+
+* Conversione vocale in testo
+* Conversione di riconoscimento vocale in più lingue di destinazione
+* Esecuzione della traduzione vocale diretta
+
+## <a name="skip-to-samples-on-github"></a>Passare agli esempi in GitHub
+
+Per passare direttamente al codice di esempio, vedere gli esempi di [avvio rapido JavaScript](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node) su GitHub.
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che si abbia un account Azure e una sottoscrizione del servizio Voce. Se l'account e la sottoscrizione non sono disponibili, [provare il servizio Voce gratuitamente](../../../get-started.md).

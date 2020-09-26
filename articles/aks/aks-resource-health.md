@@ -6,12 +6,12 @@ author: yunjchoi
 ms.topic: troubleshooting
 ms.date: 08/18/2020
 ms.author: yunjchoi
-ms.openlocfilehash: d14ed7e714eac175dc7a17bbccd2150f9bb01ef9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f830debafb1a9b6b303ee6af987c7cd4fbf34aea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752735"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358254"
 ---
 # <a name="check-for-resource-health-events-impacting-your-aks-cluster-preview"></a>Verificare la presenza di eventi di Integrità risorse che incidono sul cluster AKS (anteprima)
 
@@ -33,7 +33,7 @@ Quando si eseguono i carichi di lavoro del contenitore su AKS, è necessario ass
 - Selezionare **integrità risorsa** nel percorso di spostamento a sinistra.
 - Selezionare la sottoscrizione e impostare il tipo di risorsa su Azure Kubernetes Service (AKS).
 
-![risorsa-controllo integrità](./media/aks-resource-health/resource-health-check.png)
+![Screenshot mostra lo stato di integrità delle risorse per i cluster A K S.](./media/aks-resource-health/resource-health-check.png)
 
 ## <a name="check-the-health-status"></a>Verificare lo stato di integrità
 
