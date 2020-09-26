@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 25ab7d275957aff03ad76bf2e946a98fc6cd8821
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: fecb78b240f5c983580d4bdb34535a879ffe3e2e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032963"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289277"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Massimizza la qualità rowgroup per le prestazioni degli indici columnstore
 
@@ -26,7 +26,7 @@ La qualità di un gruppo di righe è determinata dal numero di righe nel gruppo.
 
 Poiché un indice columnstore analizza una tabella eseguendo la scansione di segmenti di colonna di singoli gruppi di righe, accrescendo al massimo il numero di righe in ogni gruppo di righe le prestazioni delle query migliorano. Quando i gruppi di righe hanno un numero elevato di righe, la compressione dei dati migliora, il che significa meno dati da leggere dal disco.
 
-Per altre informazioni sui gruppi di righe, vedere [Descrizione degli indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Per altre informazioni sui gruppi di righe, vedere [Descrizione degli indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="target-size-for-rowgroups"></a>Dimensioni di destinazione per i gruppi di righe
 
@@ -34,15 +34,15 @@ Per ottimizzare le prestazioni delle query, l'obiettivo è accrescere al massimo
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>I gruppi di righe possono essere tagliati durante la compressione
 
-Durante un caricamento bulk o la ricompilazione di un indice columnstore, talvolta non è disponibile memoria sufficiente per comprimere tutte le righe per ogni gruppo di righe. Quando la memoria disponibile è scarsa, gli indici columnstore riducono le dimensioni del gruppo di righe in modo da consentire la compressione nel columnstore.
+Durante un caricamento bulk o la ricompilazione di un indice columnstore, a volte non è disponibile memoria sufficiente per comprimere tutte le righe designate per ogni rowgroup. Quando la memoria disponibile è scarsa, gli indici columnstore riducono le dimensioni del gruppo di righe in modo da consentire la compressione nel columnstore.
 
 Quando la memoria disponibile non è sufficiente per comprimere almeno 10.000 righe in ogni rowgroup, viene generato un errore.
 
-Per altre informazioni sul caricamento bulk, vedere [Caricamento bulk in un indice columnstore cluster](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk ).
+Per altre informazioni sul caricamento bulk, vedere [Caricamento bulk in un indice columnstore cluster](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk&preserve-view=true ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Come monitorare la qualità di un gruppo di righe
 
-La DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys. dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) contiene la definizione di vista corrispondente al database SQL) che espone informazioni utili, ad esempio il numero di righe in RowGroups e il motivo per cui è stato tagliato il taglio. Per effettuare una query su questa DMV allo scopo di ottenere informazioni sul trimming di un gruppo di righe, è possibile creare la vista seguente.
+La DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys. dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contiene la definizione di vista corrispondente al database SQL) che espone informazioni utili, ad esempio il numero di righe in RowGroups e il motivo per cui è stato tagliato il taglio. Per effettuare una query su questa DMV allo scopo di ottenere informazioni sul trimming di un gruppo di righe, è possibile creare la vista seguente.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -77,14 +77,15 @@ trim_reason_desc specifica se il gruppo di righe è stato tagliato (trim_reason_
 
 ## <a name="how-to-estimate-memory-requirements"></a>Come stimare i requisiti di memoria
 
-La memoria massima necessaria per comprimere un gruppo di righe è circa
+La quantità massima di memoria necessaria per comprimere un rowgroup è approssimativamente, come indicato di seguito:
 
 - 72 MB +
 - \#righe \* \# colonne \* 8 byte +
 - \#righe \* \# stringa breve-colonne \* 32 byte +
 - \#colonne stringa lunga \* 16 MB per il dizionario di compressione
 
-dove le colonne stringa breve usano tipi di dati stringa < = 32 byte e le colonne stringa lunga usano tipi di dati stringa > 32 byte.
+> [!NOTE]
+> Dove le colonne short string usano i tipi di dati stringa di <= 32 byte e le colonne con stringhe lunghe usano i tipi di dati stringa di > 32 byte.
 
 Le stringhe lunghe vengono compresse con un metodo di compressione progettato per la compressione del testo. Questo metodo di compressione usa un *dizionario* per archiviare i modelli di testo. La dimensione massima di un oggetto dictionary è 16 MB. Esiste un solo dizionario per ogni colonna stringa lunga nel gruppo di righe.
 
@@ -121,7 +122,7 @@ Progettare la query di caricamento concentrandosi solo sul caricamento. Se è ne
 
 ### <a name="adjust-maxdop"></a>Regolare MAXDOP
 
-Ogni distribuzione comprime i gruppi di righe nel columnstore in parallelo quando c'è più di un core CPU disponibile per distribuzione. Il parallelismo richiede risorse di memoria aggiuntive che possono portare a richieste di memoria pesanti e al taglio del gruppo di righe.
+Ogni distribuzione comprime RowGroups nel columnstore in parallelo quando è disponibile più di un core CPU per ogni distribuzione. Il parallelismo richiede risorse di memoria aggiuntive che possono portare a richieste di memoria pesanti e al taglio del gruppo di righe.
 
 Per ridurre le richieste di memoria, è possibile usare l'hint di query MAXDOP per forzare l'esecuzione seriale dell'operazione di caricamento in ogni distribuzione.
 

@@ -9,20 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 07/31/2020
-ms.openlocfilehash: 39869e74fcb3e8f3deae1273721093f3f85e8d78
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.reviewer: ''
+ms.date: 09/16/2020
+ms.openlocfilehash: 41760eb91d2a8406d4deb52cd8e247731239e2b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541686"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309864"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
 Questo articolo descrive come ridimensionare le risorse di calcolo e di archiviazione disponibili per un database SQL di Azure nel livello di calcolo di cui è stato effettuato il provisioning. In alternativa, il [livello di calcolo senza server](serverless-tier-overview.md) fornisce scalabilità automatica di calcolo e fatture al secondo per il calcolo usato.
 
-Dopo aver selezionato inizialmente il numero di Vcore o DTU, è possibile ridimensionare un singolo database in modo dinamico in base all'esperienza effettiva usando il [portale di Azure](single-database-manage.md#the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'interfaccia della riga di comando di [Azure](/cli/azure/sql/db#az-sql-db-update)o l' [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+Dopo aver selezionato inizialmente il numero di Vcore o DTU, è possibile ridimensionare un singolo database in modo dinamico in base all'esperienza effettiva usando il [portale di Azure](single-database-manage.md#the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'interfaccia della riga di comando di [Azure](/cli/azure/sql/db#az-sql-db-update)o l' [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 Il video seguente mostra come modificare in modo dinamico il livello di servizio e le dimensioni di calcolo per aumentare le DTU disponibili per un singolo database.
 
@@ -53,14 +53,14 @@ La latenza stimata per modificare il livello di servizio, ridimensionare le dime
 |Livello di servizio|Database singolo di base,</br>Standard (S0-S1)|Pool elastico di base,</br>Standard (S2-S12), </br>per utilizzo generico database singolo o il pool elastico|Premium o business critical database singolo o pool elastico|Hyperscale
 |:---|:---|:---|:---|:---|
 |**Database singolo Basic, </br> standard (S0-S1)**|&bull;&nbsp;Latenza temporale costante indipendente dallo spazio usato</br>&bull;&nbsp;In genere, meno di 5 minuti|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
-|**Pool elastico Basic, </br> standard (S2-S12), </br> per utilizzo generico database singolo o pool elastico**|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza temporale costante indipendente dallo spazio usato</br>&bull;&nbsp;In genere, meno di 5 minuti|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
+|**Pool elastico Basic, </br> standard (S2-S12), </br> per utilizzo generico database singolo o pool elastico**|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Per i database singoli, latenza temporale costante indipendente dallo spazio usato</br>&bull;&nbsp;In genere, meno di 5 minuti per database singoli</br>&bull;&nbsp;Per i pool elastici, proporzionale al numero di database|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
 |**Premium o business critical database singolo o pool elastico**|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
 |**Hyperscale**|N/D|N/D|N/D|&bull;&nbsp;Latenza temporale costante indipendente dallo spazio usato</br>&bull;&nbsp;In genere, meno di 2 minuti|
 
 > [!NOTE]
 > Inoltre, per i database standard (S2-S12) e per utilizzo generico, la latenza per lo stato di trasferimento di un database all'interno o all'esterno di un pool elastico o tra pool elastici sarà proporzionale alle dimensioni del database se il database utilizza l'archiviazione di condivisione file Premium ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)).
 >
-> Per determinare se un database utilizza l'archiviazione PFS, eseguire la query seguente nel contesto del database. Se il valore nella colonna AccountType è `PremiumFileStorage` , il database utilizza l'archiviazione PFS.
+> Per determinare se un database utilizza l'archiviazione PFS, eseguire la query seguente nel contesto del database. Se il valore nella colonna AccountType è `PremiumFileStorage` o `PremiumFileStorage-ZRS` , il database utilizza l'archiviazione PFS.
  
 ```sql
 SELECT s.file_id,
@@ -122,9 +122,9 @@ Viene addebitata ogni ora di esistenza di un database usando il livello di servi
 ### <a name="vcore-based-purchasing-model"></a>Modello di acquisto basato su vCore
 
 - È possibile eseguire il provisioning dell'archiviazione fino al limite massimo di dimensioni di archiviazione dati con incrementi di 1 GB. L'archiviazione dei dati minima configurabile è di 1 GB. Vedere le pagine relative al limite delle risorse per [database singoli](resource-limits-vcore-single-databases.md) e [pool elastici](resource-limits-vcore-elastic-pools.md) per i limiti di dimensioni massime per l'archiviazione dei dati in ogni obiettivo di servizio.
-- È possibile eseguire il provisioning dell'archiviazione dei dati per un singolo database aumentando o diminuendo le dimensioni massime usando il [portale di Azure](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'interfaccia della riga di comando di [Azure](/cli/azure/sql/db#az-sql-db-update)o l' [API REST](https://docs.microsoft.com/rest/api/sql/databases/update). Se il valore delle dimensioni massime viene specificato in byte, deve essere un multiplo di 1 GB (1073741824 byte).
+- È possibile eseguire il provisioning dell'archiviazione dei dati per un singolo database aumentando o diminuendo le dimensioni massime usando il [portale di Azure](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'interfaccia della riga di comando di [Azure](/cli/azure/sql/db#az-sql-db-update)o l' [API REST](https://docs.microsoft.com/rest/api/sql/databases/update). Se il valore delle dimensioni massime viene specificato in byte, deve essere un multiplo di 1 GB (1073741824 byte).
 - La quantità di dati che può essere archiviata nei file di dati di un database è limitata dalle dimensioni massime di archiviazione dati configurate. Oltre a tale archiviazione, il database SQL di Azure alloca automaticamente il 30% di spazio di archiviazione da usare per il log delle transazioni.
-- Il database SQL di Azure alloca automaticamente 32 GB per vCore per il `tempdb` database. `tempdb`si trova nell'archivio SSD locale in tutti i livelli di servizio.
+- Il database SQL di Azure alloca automaticamente 32 GB per vCore per il `tempdb` database. `tempdb` si trova nell'archivio SSD locale in tutti i livelli di servizio.
 - Il prezzo di archiviazione per un singolo database o un pool elastico è la somma degli importi di archiviazione dei dati e dei log delle transazioni moltiplicati per il prezzo unitario di archiviazione del livello di servizio. Il costo di `tempdb` è incluso nel prezzo. Per informazioni dettagliate sui prezzi di archiviazione, vedere [prezzi del database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -133,7 +133,7 @@ Viene addebitata ogni ora di esistenza di un database usando il livello di servi
 ### <a name="dtu-based-purchasing-model"></a>modello di acquisto basato su DTU
 
 - Il prezzo DTU per un singolo database include una determinata quantità di risorse di archiviazione senza costi aggiuntivi. Le risorse di archiviazione extra rispetto alla quantità inclusa possono essere sottoposte a provisioning per un costo aggiuntivo fino alla quantità massima in incrementi di 250 GB fino a 1 TB e quindi in incrementi di 256 GB oltre 1 TB. Per gli spazi di archiviazione inclusi e i limiti di dimensioni massime, vedere [Database singolo: dimensioni di archiviazione e dimensioni di calcolo](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- È possibile eseguire il provisioning di spazio di archiviazione aggiuntivo per un singolo database aumentando le dimensioni massime usando il portale di Azure, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'interfaccia della riga di comando di [Azure](/cli/azure/sql/db#az-sql-db-update)o l' [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+- È possibile eseguire il provisioning di spazio di archiviazione aggiuntivo per un singolo database aumentando le dimensioni massime usando il portale di Azure, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'interfaccia della riga di comando di [Azure](/cli/azure/sql/db#az-sql-db-update)o l' [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 - Il prezzo delle risorse di archiviazione extra per un singolo database corrisponde allo spazio di archiviazione extra moltiplicato per il prezzo unitario del livello di servizio. Per informazioni dettagliate sul prezzo di archiviazione aggiuntiva, vedere [prezzi del database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]

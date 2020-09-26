@@ -3,33 +3,24 @@ title: Connettersi a desktop virtuale Windows 10 o 7-Azure
 description: Come connettersi al desktop virtuale di Windows tramite il client desktop di Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0e4f41cb23ec4a9463b983049f5f37d09d1b8c71
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c9da2acac0957d7fe06d0249775fbed73b5f458d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226710"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287339"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Connettersi con il client desktop di Windows
 
-> Si applica a: Windows 7, Windows 10 e Windows 10 le aziende
+> Si applica a: Windows 10, Windows 10 IoT Enterprise e Windows 7
 
 >[!IMPORTANT]
 >Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
 
-È possibile accedere alle risorse del desktop virtuale di Windows nei dispositivi con Windows 7, Windows 10 e Windows 10, Enterprise usando il client desktop di Windows. Il client non supporta la finestra 8 o Windows 8.1.
-
->[!NOTE]
->Il client Windows si imposta automaticamente sul desktop virtuale Windows (classico). Tuttavia, se il client rileva che l'utente dispone anche di Azure Resource Manager risorse, aggiunge automaticamente le risorse o notifica all'utente che sono disponibili.
-
-> [!IMPORTANT]
-> Desktop virtuale Windows non supporta il client RADC (RemoteApp and Desktop Connections) o il client Connessione Desktop remoto.
-
-> [!IMPORTANT]
-> Desktop virtuale Windows non supporta attualmente il client Desktop remoto di Windows Store.
+È possibile accedere alle risorse di desktop virtuali Windows nei dispositivi con Windows 10, Windows 10 Internet e Windows 7 utilizzando il client desktop di Windows. Il client non supporta la finestra 8 o Windows 8.1.
 
 ## <a name="install-the-windows-desktop-client"></a>Installare il client desktop di Windows
 
@@ -43,6 +34,9 @@ Puoi installare il client per l'utente corrente, nel qual caso non sono richiest
 
 Dopo l'installazione, il client può essere avviato dal menu Start cercando **Desktop remoto**.
 
+> [!IMPORTANT]
+> Desktop virtuale Windows non supporta il client RADC (RemoteApp and Desktop Connections) o il client Connessione Desktop remoto.
+
 ## <a name="subscribe-to-a-workspace"></a>Sottoscrivere un'area di lavoro
 
 Esistono due modi per sottoscrivere un'area di lavoro. Il client può provare a individuare le risorse disponibili dall'account aziendale o dell'istituto di istruzione oppure puoi specificare direttamente l'URL in cui si trovano le risorse quando il client non riesce a trovarle. Dopo aver sottoscritto un'area di lavoro, puoi avviare le risorse con uno dei metodi seguenti:
@@ -55,6 +49,9 @@ Esistono due modi per sottoscrivere un'area di lavoro. Il client può provare a 
 1. Dalla pagina principale del client selezionare **Sottoscrivi**.
 2. Accedi con l'account utente quando richiesto.
 3. Le risorse verranno visualizzate nel Centro connessioni e raggruppate in base all'area di lavoro.
+
+>[!NOTE]
+>Il client Windows si imposta automaticamente sul desktop virtuale Windows (classico). Tuttavia, se il client rileva che l'utente dispone anche di Azure Resource Manager risorse, aggiunge automaticamente le risorse o notifica all'utente che sono disponibili.
 
 ### <a name="subscribe-with-a-url"></a>Sottoscrivere un URL
 

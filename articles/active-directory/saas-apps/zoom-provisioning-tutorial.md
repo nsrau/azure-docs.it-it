@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 15e3d72661ad35335c744fbaf0ab39627d254750
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f5d76168b75d9352898d8f0abf80a6ccfb83af30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545982"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333444"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Esercitazione: configurare lo zoom per il provisioning utenti automatico
 
@@ -34,7 +34,7 @@ Questa esercitazione descrive i passaggi necessari per eseguire lo zoom e la Azu
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
-* [Tenant Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Un tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 * Un account utente in Azure AD con l'[autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
 * [Tenant di zoom](https://zoom.us/pricing).
 * Un account utente in zoom con autorizzazioni di amministratore.
@@ -52,19 +52,19 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 2. Passare a **Manage (Gestisci** ) nell'angolo superiore destro della pagina. 
 
-    ![Installazione zoom](media/zoom-provisioning-tutorial/zoom02.png)
+    ![Screenshot dello zoom App Marketplace con l'opzione Gestisci denominata.](media/zoom-provisioning-tutorial/zoom02.png)
 
 3. Passare all'app Azure AD creata. 
     
-    ![App zoom](media/zoom-provisioning-tutorial/zoom03.png)
+    ![Screenshot della sezione app create con l'app Azure A D denominata.](media/zoom-provisioning-tutorial/zoom03.png)
 
 4. Selezionare **credenziali dell'app** nel riquadro di spostamento a sinistra.
 
-    ![App zoom](media/zoom-provisioning-tutorial/zoom04.png)
+    ![Screenshot del riquadro di spostamento a sinistra con l'opzione relativa alle credenziali dell'app evidenziata.](media/zoom-provisioning-tutorial/zoom04.png)
 
 5. Copiare e salvare il **token JWT**. Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione Zoom nel portale di Azure. Se è necessario un nuovo token non in scadenza, sarà necessario riconfigurare l'ora di scadenza che genererà automaticamente un nuovo token. 
 
-    ![Installazione zoom](media/zoom-provisioning-tutorial/zoom05.png)
+    ![Screenshot della pagina delle credenziali dell'app.](media/zoom-provisioning-tutorial/zoom05.png)
 
 ## <a name="step-3-add-zoom-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere lo zoom dalla raccolta di applicazioni Azure AD
 
@@ -95,11 +95,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere `https://api.zoom.us/scim` in **URL tenant**. Immettere il valore del **token JWT** recuperato in precedenza nel **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possibile connettersi allo zoom. Se la connessione non riesce, verificare che l'account di zoom disponga di autorizzazioni di amministratore e riprovare.
 
