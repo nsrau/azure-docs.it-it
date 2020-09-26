@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python
-ms.openlocfilehash: 264976fdfe514a8778c60fe9242ac555f268718d
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 54e4ce409eb9f2a6bedd7861b3e268311f886b49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962571"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273246"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Eseguire la distribuzione nel servizio app usando GitHub Actions
 
@@ -23,6 +23,22 @@ ms.locfileid: "88962571"
 > 
 
 Un flusso di lavoro viene definito da un file YAML (con estensione yml) nel percorso `/.github/workflows/` del repository. Questa definizione contiene i vari passaggi e i parametri che costituiscono il flusso di lavoro.
+
+## <a name="use-the-deployment-center"></a>Usare il centro distribuzione
+
+È possibile iniziare rapidamente a usare le azioni di GitHub tramite il centro distribuzione del servizio app. Verrà generato automaticamente un file del flusso di lavoro in base allo stack dell'applicazione ed eseguito il commit nel repository GitHub nella directory corretta.
+
+1. Passare a webapp nel portale di Azure
+1. Sul lato sinistro fare clic su **centro distribuzione**
+1. In **distribuzione continua (ci/CD)** selezionare **GitHub**
+1. Selezionare quindi **azioni di GitHub**
+1. Usare gli elenchi a discesa per selezionare il repository GitHub, il ramo e lo stack di applicazioni
+    - Se il ramo selezionato è protetto, è comunque possibile continuare ad aggiungere il file del flusso di lavoro. Prima di continuare, assicurarsi di controllare le protezioni dei rami.
+1. Nella schermata finale è possibile verificare le selezioni e visualizzare in anteprima il file del flusso di lavoro di cui verrà eseguito il commit nel repository. Se le selezioni sono corrette, fare clic su **fine** .
+
+Verrà eseguito il commit del file del flusso di lavoro nel repository. Il flusso di lavoro per compilare e distribuire l'app viene avviato immediatamente.
+
+## <a name="add-the-workflow-manually"></a>Aggiungere manualmente il flusso di lavoro
 
 Per un flusso di lavoro del servizio app di Azure, il file è costituito da tre sezioni:
 

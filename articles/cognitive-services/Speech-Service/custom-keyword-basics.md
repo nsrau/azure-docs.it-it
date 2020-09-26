@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/20/2019
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d80f244f7b5e17d730451093070b971e9aa041b9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 188824b9c43387cf106a3cdd53a09fd6bcb198b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919013"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360668"
 ---
 # <a name="custom-keyword-basics"></a>Informazioni di base sulle parole chiave personalizzate
 
@@ -24,7 +24,7 @@ Questo articolo illustra le nozioni di base per l'uso di parole chiave personali
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-I passaggi descritti in questo articolo richiedono una sottoscrizione vocale e l'SDK vocale. Se non si ha già una sottoscrizione, [provare il servizio di riconoscimento vocale gratuitamente](get-started.md). Per ottenere l'SDK, vedere la [Guida all'installazione](quickstarts/setup-platform.md) per la piattaforma in uso.
+I passaggi descritti in questo articolo richiedono una sottoscrizione vocale e l'SDK vocale. Se non si ha già una sottoscrizione, [provare il servizio di riconoscimento vocale gratuitamente](overview.md#try-the-speech-service-for-free). Per ottenere l'SDK, vedere la [Guida all'installazione](quickstarts/setup-platform.md) per la piattaforma in uso.
 
 ## <a name="create-a-keyword-in-speech-studio"></a>Creare una parola chiave in speech studio
 

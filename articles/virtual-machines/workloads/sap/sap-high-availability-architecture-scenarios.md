@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4ab403ebafbf078accd2ee2256c0c5bb69548e9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c837a4020ab1aaad1798d6b19e72e09edafea1f5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288263"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360353"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Architettura e scenari di disponibilità elevata per SAP NetWeaver
 
@@ -344,7 +344,7 @@ Le sezioni seguenti illustrano come ottenere la disponibilità elevata per tutti
 
 > Questa sezione si applica a:
 >
-> ![Windows][Logo_Windows] Windows e ![Linux][Logo_Linux] Linux
+> ![Logo Windows.][Logo_Windows] Windows e ![Logo Linux.][Logo_Linux] Linux
 >
 
 In genere non è necessaria una specifica soluzione a disponibilità elevata per le istanze del server applicazioni SAP e le istanze di dialogo. La disponibilità elevata si ottiene tramite la ridondanza e si dovranno configurare più istanze di dialogo in varie istanze di macchine virtuali di Azure. È necessario avere almeno due istanze dell'applicazione SAP installate in due istanze di macchine virtuali di Azure.
@@ -382,7 +382,7 @@ Per altre informazioni, vedere la sezione [Set di disponibilità di Azure][plann
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Architettura di disponibilità elevata per un'istanza di SAP ASCS/SCS in Windows
 
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 
 È possibile usare una soluzione WSFC per proteggere l'istanza di SAP ASCS/SCS. La soluzione presenta due varianti:
@@ -395,7 +395,7 @@ Per altre informazioni, vedere la sezione [Set di disponibilità di Azure][plann
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Architettura di disponibilità elevata per un'istanza di SAP ASCS/SCS in Linux
 
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 > 
 > Per altre informazioni sul clustering dell'istanza di SAP ASCS/SCS tramite il framework di clustering SLES, vedere [Disponibilità elevata per SAP NetWeaver su macchine virtuali di Azure in SUSE Linux Enterprise Server per le applicazioni SAP][sap-suse-ascs-ha]. Per l'architettura di disponibilità elevata alternativa in SLES, che non richiede NFS a disponibilità elevata, vedere [Guida alla disponibilità elevata per SAP NetWeaver su SUSE Linux Enterprise Server con Azure NetApp Files per applicazioni SAP][sap-suse-ascs-ha-anf].
 
@@ -404,7 +404,7 @@ Per altre informazioni sul clustering dell'istanza ASCS/SCS di SAP usando il fra
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Configurazione multi-SID dell'istanza di SAP ASCS/SCS con cluster di SAP NetWeaver
 
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 > 
 > La configurazione multi-SID è supportata con WSFC, tramite la condivisione file e il disco condiviso.
 > 
@@ -414,7 +414,7 @@ Per altre informazioni sul clustering dell'istanza ASCS/SCS di SAP usando il fra
 
 * [Disponibilità elevata multi-SID dell'istanza di SAP ASCS/SCS con Windows Server Failover Clustering e disco condiviso][sap-ascs-ha-multi-sid-wsfc-shared-disk]
 
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 > 
 > Il clustering multi-SID è supportato nei cluster Linux Pacemaker per SAP ASCS/ERS, limitatamente a **cinque** SID SAP nello stesso cluster.
 > Per altre informazioni sull'architettura di disponibilità elevata multi-SID in Linux, vedere:
