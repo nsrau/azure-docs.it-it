@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/28/2019
-ms.openlocfilehash: a02583825f4a1ef15992aa2307e7f666d5abeaba
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: b3eda2c8de8319552f32938f20ff98af0e0a49fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136457"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314828"
 ---
 # <a name="nodes-and-tables-in-azure-database-for-postgresql--hyperscale-citus"></a>Nodi e tabelle nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
 
@@ -24,7 +24,7 @@ Il tipo di hosting iperscalabile (CITUS) consente ai server di database di Azure
 
 Ogni gruppo di server dispone di un nodo coordinatore e di più ruoli di lavoro. Le applicazioni inviano le query al nodo coordinatore, che lo inoltra ai dipendenti pertinenti e accumula i risultati. Le applicazioni non sono in grado di connettersi direttamente ai thread di lavoro.
 
-Iperscale (CITUS) consente all'amministratore del database di *distribuire* tabelle, archiviando righe diverse in nodi di lavoro diversi. Le tabelle distribuite sono la chiave per le prestazioni con iperscalabilità. Se non si riesce a distribuire le tabelle, queste rimangono interamente nel nodo coordinatore e non possono sfruttare il parallelismo tra computer.
+Iperscale (CITUS) consente all'amministratore del database di *distribuire* tabelle, archiviando righe diverse in nodi di lavoro diversi. Le tabelle distribuite rappresentano le prestazioni principali per l'iperscalabilità (CITUS). Se non si riesce a distribuire le tabelle, queste rimangono interamente nel nodo coordinatore e non possono sfruttare il parallelismo tra computer.
 
 Per ogni query sulle tabelle distribuite, il coordinatore lo instrada a un singolo nodo di lavoro o parallelizzazione tra diversi a seconda che i dati necessari si trovino in un singolo nodo o in più. Il coordinatore decide cosa fare consultando le tabelle di metadati. In queste tabelle vengono rilevati i nomi DNS e l'integrità dei nodi del ruolo di lavoro e la distribuzione dei dati tra i nodi.
 

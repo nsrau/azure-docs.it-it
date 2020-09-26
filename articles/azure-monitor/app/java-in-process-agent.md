@@ -3,12 +3,12 @@ title: 'Monitorare le applicazioni Java in qualsiasi ambiente: monitoraggio di A
 description: Application Performance Monitoring per le applicazioni Java in esecuzione in qualsiasi ambiente senza strumentazione dell'app. Traccia distribuita e mappa delle applicazioni.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: e1442d1b1fb1bf8fbef82354b8aa1d2354640aa9
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 08e5b68ea5e5ec63531bb4f9c6b4483e9afbb9bc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902083"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370035"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Monitoraggio di Azure per il monitoraggio di applicazioni Java non codificate Application Insights-anteprima pubblica
 
@@ -20,15 +20,17 @@ L'aggiunta di Application Insights Java SDK all'applicazione non è più necessa
 
 È comunque possibile inviare dati di telemetria personalizzati dall'applicazione. L'agente 3,0 lo registrerà e lo correla insieme a tutti i dati di telemetria di raccolta automatica.
 
-## <a name="quickstart"></a>Guida introduttiva
+L'agente 3,0 supporta Java 8 e versioni successive.
+
+## <a name="quickstart"></a>Avvio rapido
 
 **1. scaricare l'agente**
 
-Scaricare [applicationinsights-Agent-3.0.0-Preview. 5. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
+Scaricare [applicationinsights-Agent-3.0.0-Preview. 7. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.7/applicationinsights-agent-3.0.0-PREVIEW.7.jar)
 
 **2. puntare la JVM all'agente**
 
-Aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` agli argomenti JVM dell'applicazione
+Aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.7.jar` agli argomenti JVM dell'applicazione
 
 Gli argomenti JVM tipici includono `-Xmx512m` e `-XX:+UseG1GC` . Quindi, se si conosce la posizione in cui aggiungere questi, si sa già dove aggiungere questa.
 
@@ -44,7 +46,7 @@ Puntare l'agente alla risorsa Application Insights impostando una variabile di a
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Oppure creando un file di configurazione denominato `ApplicationInsights.json` e inserendolo nella stessa directory di `applicationinsights-agent-3.0.0-PREVIEW.5.jar` , con il contenuto seguente:
+Oppure creando un file di configurazione denominato `ApplicationInsights.json` e inserendolo nella stessa directory di `applicationinsights-agent-3.0.0-PREVIEW.7.jar` , con il contenuto seguente:
 
 ```json
 {
@@ -89,7 +91,7 @@ Vedere i dettagli all' [anteprima pubblica 3,0: opzioni di configurazione](./jav
 * Utenti JMS
 * Consumatori Kafka
 * Netty/webflux
-* Servlets
+* Servlet
 * Pianificazione della molla
 
 ### <a name="dependencies-with-distributed-trace-propagation"></a>Dipendenze con propagazione di traccia distribuita
@@ -164,7 +166,7 @@ private static final TelemetryClient telemetryClient = new TelemetryClient();
 
 e usarlo per l'invio di dati di telemetria personalizzati.
 
-### <a name="events"></a>Events
+### <a name="events"></a>Eventi
 
   ```java
 telemetryClient.trackEvent("WinGame");
@@ -184,7 +186,7 @@ In alternativa, è anche possibile usare Application Insights Java SDK 2. x:
   telemetryClient.trackMetric("queueLength", 42.0);
 ```
 
-### <a name="dependencies"></a>Dipendenze
+### <a name="dependencies"></a>Dependencies
 
 ```java
   boolean success = false;
@@ -225,6 +227,8 @@ In alternativa, è anche possibile usare Application Insights Java SDK 2. x:
 ## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Aggiornamento da Application Insights Java SDK 2. x
 
 Se si sta già usando Application Insights Java SDK 2. x nell'applicazione, non è necessario rimuoverlo. L'agente Java 3,0 lo rileva e acquisisce e mette in correlazione i dati di telemetria personalizzati che vengono inviati tramite Java SDK 2. x, evitando in tal modo la raccolta automatica eseguita da Java SDK 2. x per impedire l'acquisizione di duplicati.
+
+Se si usa Application Insights agente 2. x, è necessario rimuovere la `-javaagent:` JVM ARG che punta all'agente 2. x.
 
 > [!NOTE]
 > Nota: Java SDK 2. x TelemetryInitializers e TelemetryProcessors non verranno eseguiti quando si usa l'agente 3,0.

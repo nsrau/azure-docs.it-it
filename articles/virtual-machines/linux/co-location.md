@@ -1,18 +1,18 @@
 ---
 title: Condivisione percorso di macchine virtuali Linux
-description: Informazioni su come condividere il percorso delle risorse delle macchine virtuali di Azure per migliorare la latenza.
+description: Informazioni sul modo in cui la condivisione percorso risorse di macchine virtuali di Azure per Linux può migliorare la latenza.
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: 000c8c8955314060ae9bdedb96b086a509fb3e96
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6bf01f4da6ce96b413c87b81c14a998603cebd6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368643"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279724"
 ---
-# <a name="co-locate-resources-for-improved-latency"></a>Condivisione percorso risorse per una latenza migliorata
+# <a name="co-locate-resources-for-improved-latency"></a>Condividere il percorso tra le risorse per una latenza ottimale
 
 Quando si distribuisce l'applicazione in Azure, la distribuzione di istanze tra aree o zone di disponibilità crea una latenza di rete che può influisca sulle prestazioni complessive dell'applicazione. 
 

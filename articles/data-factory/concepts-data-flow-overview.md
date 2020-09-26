@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
-ms.openlocfilehash: b5042eb86f5d534655fd831147a9ab4ebb094e9b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419965"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370913"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapping di flussi di dati in Azure Data Factory
 
@@ -25,7 +25,7 @@ I flussi di dati di mapping sono le trasformazioni di dati progettate visivament
 
 I flussi di dati di mapping forniscono un'esperienza visiva completamente senza necessità di scrivere codice. I flussi di dati vengono eseguiti in cluster di esecuzione gestiti da ADF per l'elaborazione dei dati con scalabilità orizzontale. Azure Data Factory gestisce tutta la conversione del codice, l'ottimizzazione del percorso e l'esecuzione dei processi del flusso di dati.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 I flussi di dati vengono creati dal riquadro risorse Factory, ad esempio pipeline e set di dati. Per creare un flusso di dati, selezionare il segno più accanto a **risorse Factory**, quindi selezionare **flusso di dati**. 
 
@@ -61,7 +61,7 @@ La prima scheda del riquadro di configurazione di ogni trasformazione contiene l
 
 La scheda **ottimizza** contiene le impostazioni per la configurazione degli schemi di partizionamento. Per ulteriori informazioni su come ottimizzare i flussi di dati, vedere la [Guida alle prestazioni del flusso di dati di mapping](concepts-data-flow-performance.md).
 
-![Optimize](media/data-flow/optimize.png "Ottimizzazione") (Ottimizza)
+![Screenshot mostra la scheda Ottimizza, che include l'opzione di partizione, il tipo di partizione e il numero di partizioni.](media/data-flow/optimize.png)
 
 #### <a name="inspect"></a>Controllare
 

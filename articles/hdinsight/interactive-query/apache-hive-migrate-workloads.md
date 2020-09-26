@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 313b6afb8bd96f8ae507118cd552110d5f07ff78
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 26dfe8d134f9f38d8272895583ba2eff614d78e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087520"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308385"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Eseguire la migrazione di carichi di lavoro Azure HDInsight 3.6 Hive a HDInsight 4.0
 
@@ -41,7 +41,7 @@ Una volta completata la **copia** del Metastore, eseguire uno script di aggiorna
 
 Usare i valori nella tabella più avanti. Sostituire `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` con i valori appropriati per la **copia**Metastore hive, separati da spazi. Non includere ". database.windows.net" quando si specifica il nome del server SQL.
 
-|Proprietà | Valore |
+|Proprietà | valore |
 |---|---|
 |Tipo di script|- Personalizzato|
 |Nome|Aggiornamento hive|
@@ -70,7 +70,7 @@ Per altre informazioni sull'aggiunta di account di archiviazione ai cluster HDIn
 
 Per impostazione predefinita, le tabelle gestite devono essere conformi a ACID in HDInsight 4,0. Dopo aver completato la migrazione del Metastore, eseguire uno strumento di post-aggiornamento per rendere le tabelle gestite precedentemente non ACID compatibili con il cluster HDInsight 4,0. Questo strumento applicherà la seguente conversione:
 
-|3.6 |4.0 |
+|3,6 |4.0 |
 |---|---|
 |Tabelle esterne|Tabelle esterne|
 |Tabelle gestite non ACID|Tabelle esterne con proprietà' External. Table. Purge ' =' true '|
@@ -79,7 +79,7 @@ Per impostazione predefinita, le tabelle gestite devono essere conformi a ACID i
 Eseguire lo strumento di post-aggiornamento hive dal cluster HDInsight 4,0 usando la shell SSH:
 
 1. Connettersi al cluster nodo head usando SSH. Per istruzioni, vedere [connettersi a HDInsight tramite SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
-1. Aprire una shell di accesso come utente hive eseguendo`sudo su - hive`
+1. Aprire una shell di accesso come utente hive eseguendo `sudo su - hive`
 1. Eseguire il comando seguente dalla Shell.
 
     ```bash
@@ -208,30 +208,9 @@ Una volta confermato che la versione è completa e completamente operativa, è p
 
 ## <a name="query-execution-across-hdinsight-versions"></a>Esecuzione di query tra versioni di HDInsight
 
-Esistono due modi per eseguire ed eseguire il debug di query hive/LLAP all'interno di un cluster HDInsight 3,6. HiveCLI offre un'esperienza da riga di comando e la visualizzazione Tez/hive fornisce un flusso di lavoro basato su GUI.
+Esistono due modi per eseguire ed eseguire il debug di query hive/LLAP all'interno di un cluster HDInsight 3,6. HiveCLI offre un'esperienza da riga di comando e la visualizzazione [Tez/hive](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) fornisce un flusso di lavoro basato su GUI.
 
-In HDInsight 4,0, HiveCLI è stato sostituito da. HiveCLI è un client di parsimonia per del 1 e è un client JDBC che fornisce l'accesso a del 2. È inoltre possibile utilizzare l'estensione per connettersi a qualsiasi altro endpoint del database compatibile con JDBC. È possibile usare l'installazione predefinita di HDInsight 4,0 senza alcuna installazione necessaria.
-
-In HDInsight 3,6, il client GUI per interagire con il server hive è la visualizzazione hive di Ambari. HDInsight 4,0 non viene fornito con la visualizzazione Ambari. Per i clienti è stato fornito un modo per usare Data Analytics Studio (DAS), che non è un servizio HDInsight di base. DAS non viene fornito con i cluster HDInsight predefiniti e non è un pacchetto supportato ufficialmente. Tuttavia, è possibile installare DAS nel cluster usando un' [azione script](../hdinsight-hadoop-customize-cluster-linux.md) come indicato di seguito:
-
-|Proprietà | Valore |
-|---|---|
-|Tipo di script|- Personalizzato|
-|Nome|DAS|
-|URI script Bash|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
-|Tipo/i di nodo|Head|
-
-Attendere da 10 a 15 minuti, quindi avviare Data Analytics studio usando questo URL: `https://CLUSTERNAME.azurehdinsight.net/das/` .
-
-Prima di accedere a DAS, potrebbe essere necessario aggiornare l'interfaccia utente di Ambari e/o riavviare tutti i componenti di Ambari.
-
-Dopo aver installato DAS, se non vengono visualizzate le query eseguite nel Visualizzatore query, seguire questa procedura:
-
-1. Impostare le configurazioni per hive, Tez e DAS come descritto in [questa guida per la risoluzione dei problemi relativi all'installazione di das](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
-2. Assicurarsi che le seguenti configurazioni di directory di archiviazione di Azure siano BLOB di pagine e che siano elencate in `fs.azure.page.blob.dirs` :
-    * `hive.hook.proto.base-directory`
-    * `tez.history.logging.proto-base-dir`
-3. Riavviare HDFS, hive, Tez e DAS in entrambi nodi head.
+In HDInsight 4,0, HiveCLI è stato sostituito da. La visualizzazione Tez/hive fornisce un flusso di lavoro basato su GUI. HiveCLI è un client di parsimonia per del 1 e è un client JDBC che fornisce l'accesso a del 2. Può inoltre essere utilizzato per connettersi a qualsiasi altro endpoint del database compatibile con JDBC. È possibile usare l'installazione predefinita di HDInsight 4,0 senza alcuna installazione necessaria.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

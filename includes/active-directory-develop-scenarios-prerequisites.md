@@ -1,31 +1,39 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: e52433cfae1e889f07818f582fc3aef0752932ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79952ad04df4780e1b30eb9cf5c7a35f49cc34c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74482503"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257071"
 ---
-Prima di leggere questo articolo, è necessario avere familiarità con i concetti seguenti:
+Se non si ha familiarità con la gestione delle identità e degli accessi (IAM) con OAuth 2,0 e OpenID Connect o anche solo per gli elementi IAM nella piattaforma Microsoft Identity, il set di articoli seguente dovrebbe essere elevato nell'elenco di lettura.
 
-- [Panoramica di Microsoft Identity Platform](../articles/active-directory/develop/v2-overview.md)
-- [Nozioni di base sull'autenticazione](../articles/active-directory/develop/authentication-scenarios.md)
-- [Destinatari](../articles/active-directory/develop/v2-supported-account-types.md)
-- [Entità servizio e applicazione](../articles/active-directory/develop/app-objects-and-service-principals.md)
-- [Autorizzazioni e consenso](../articles/active-directory/develop/v2-permissions-and-consent.md)
-- [Token ID](../articles/active-directory/develop/id-tokens.md) e [token di accesso](../articles/active-directory/develop/access-tokens.md)
+Sebbene non sia necessario leggere prima di completare la prima Guida introduttiva o l'esercitazione, gli argomenti sono trattati come parte integrante della piattaforma e la loro familiarità sarà utile per il proprio percorso durante la creazione di scenari più complessi.
+
+:::row:::
+    :::column:::
+        **Autenticazione e autorizzazione**
+
+        - [Nozioni di base sull'autenticazione](../articles/active-directory/develop/authentication-vs-authorization.md)
+        - [Token ID](../articles/active-directory/develop/id-tokens.md)
+        - [Token di accesso](../articles/active-directory/develop/access-tokens.md)
+    :::column-end:::
+    :::column:::
+        **Microsoft Identity Platform**
+
+        - [Destinatari](../articles/active-directory/develop/v2-supported-account-types.md)
+        - [Applicazioni ed entità servizio](../articles/active-directory/develop/app-objects-and-service-principals.md)
+        - [Autorizzazioni e consenso](../articles/active-directory/develop/v2-permissions-and-consent.md)
+    :::column-end:::
+:::row-end:::

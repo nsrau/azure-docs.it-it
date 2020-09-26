@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 5d2ff25762f28c19b6d389a779fb455de3c84f3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a24433389e738bf5d0ecb7ecac6bf369c8ba183
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253769"
+ms.locfileid: "91369485"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Tag dell'immagine del contenitore di servizi cognitivi di Azure
 
@@ -1131,22 +1131,22 @@ Questa immagine del contenitore include i tag seguenti:
 | Tag immagine                                  | Note                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Immagine del contenitore con le `en-US` impostazioni locali e la `en-US-AriaNeural` voce.      |
-| `1.1.0-amd64-de-de-katjaneural-preview`     | Immagine del contenitore con le `de-DE` impostazioni locali e la `de-DE-KatjaNeural` voce.     |
-| `1.1.0-amd64-en-au-natashaneural-preview`   | Immagine del contenitore con le `en-AU` impostazioni locali e la `en-AU-NatashaNeural` voce.   |
-| `1.1.0-amd64-en-ca-claraneural-preview`     | Immagine del contenitore con le `en-CA` impostazioni locali e la `en-CA-ClaraNeural` voce.     |
-| `1.1.0-amd64-en-gb-libbyneural-preview`     | Immagine del contenitore con le `en-GB` impostazioni locali e la `en-GB-LibbyNeural` voce.     |
-| `1.1.0-amd64-en-gb-mianeural-preview`       | Immagine del contenitore con le `en-GB` impostazioni locali e la `en-GB-MiaNeural` voce.       |
-| `1.1.0-amd64-en-us-arianeural-preview`      | Immagine del contenitore con le `en-US` impostazioni locali e la `en-US-AriaNeural` voce.      |
-| `1.1.0-amd64-en-us-guyneural-preview`       | Immagine del contenitore con le `en-US` impostazioni locali e la `en-US-GuyNeural` voce.       |
-| `1.1.0-amd64-es-es-elviraneural-preview`    | Immagine del contenitore con le `es-ES` impostazioni locali e la `es-ES-ElviraNeural` voce.    |
-| `1.1.0-amd64-es-mx-dalianeural-preview`     | Immagine del contenitore con le `es-MX` impostazioni locali e la `es-MX-DaliaNeural` voce.     |
-| `1.1.0-amd64-fr-ca-sylvieneural-preview`    | Immagine del contenitore con le `fr-CA` impostazioni locali e la `fr-CA-SylvieNeural` voce.    |
-| `1.1.0-amd64-fr-fr-deniseneural-preview`    | Immagine del contenitore con le `fr-FR` impostazioni locali e la `fr-FR-DeniseNeural` voce.    |
-| `1.1.0-amd64-it-it-elsaneural-preview`      | Immagine del contenitore con le `it-IT` impostazioni locali e la `it-IT-ElsaNeural` voce.      |
-| `1.1.0-amd64-ja-jp-nanamineural-preview`    | Immagine del contenitore con le `ja-JP` impostazioni locali e la `ja-JP-NanamiNeural` voce.    |
-| `1.1.0-amd64-ko-kr-sunhineural-preview`     | Immagine del contenitore con le `ko-KR` impostazioni locali e la `ko-KR-SunHiNeural` voce.     |
-| `1.1.0-amd64-pt-br-franciscaneural-preview` | Immagine del contenitore con le `pt-BR` impostazioni locali e la `pt-BR-FranciscaNeural` voce. |
-| `1.1.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Immagine del contenitore con le `zh-CN` impostazioni locali e la `zh-CN-XiaoxiaoNeural` voce.  |
+| `1.2.0-amd64-de-de-katjaneural-preview`     | Immagine del contenitore con le `de-DE` impostazioni locali e la `de-DE-KatjaNeural` voce.     |
+| `1.2.0-amd64-en-au-natashaneural-preview`   | Immagine del contenitore con le `en-AU` impostazioni locali e la `en-AU-NatashaNeural` voce.   |
+| `1.2.0-amd64-en-ca-claraneural-preview`     | Immagine del contenitore con le `en-CA` impostazioni locali e la `en-CA-ClaraNeural` voce.     |
+| `1.2.0-amd64-en-gb-libbyneural-preview`     | Immagine del contenitore con le `en-GB` impostazioni locali e la `en-GB-LibbyNeural` voce.     |
+| `1.2.0-amd64-en-gb-mianeural-preview`       | Immagine del contenitore con le `en-GB` impostazioni locali e la `en-GB-MiaNeural` voce.       |
+| `1.2.0-amd64-en-us-arianeural-preview`      | Immagine del contenitore con le `en-US` impostazioni locali e la `en-US-AriaNeural` voce.      |
+| `1.2.0-amd64-en-us-guyneural-preview`       | Immagine del contenitore con le `en-US` impostazioni locali e la `en-US-GuyNeural` voce.       |
+| `1.2.0-amd64-es-es-elviraneural-preview`    | Immagine del contenitore con le `es-ES` impostazioni locali e la `es-ES-ElviraNeural` voce.    |
+| `1.2.0-amd64-es-mx-dalianeural-preview`     | Immagine del contenitore con le `es-MX` impostazioni locali e la `es-MX-DaliaNeural` voce.     |
+| `1.2.0-amd64-fr-ca-sylvieneural-preview`    | Immagine del contenitore con le `fr-CA` impostazioni locali e la `fr-CA-SylvieNeural` voce.    |
+| `1.2.0-amd64-fr-fr-deniseneural-preview`    | Immagine del contenitore con le `fr-FR` impostazioni locali e la `fr-FR-DeniseNeural` voce.    |
+| `1.2.0-amd64-it-it-elsaneural-preview`      | Immagine del contenitore con le `it-IT` impostazioni locali e la `it-IT-ElsaNeural` voce.      |
+| `1.2.0-amd64-ja-jp-nanamineural-preview`    | Immagine del contenitore con le `ja-JP` impostazioni locali e la `ja-JP-NanamiNeural` voce.    |
+| `1.2.0-amd64-ko-kr-sunhineural-preview`     | Immagine del contenitore con le `ko-KR` impostazioni locali e la `ko-KR-SunHiNeural` voce.     |
+| `1.2.0-amd64-pt-br-franciscaneural-preview` | Immagine del contenitore con le `pt-BR` impostazioni locali e la `pt-BR-FranciscaNeural` voce. |
+| `1.2.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Immagine del contenitore con le `zh-CN` impostazioni locali e la `zh-CN-XiaoxiaoNeural` voce.  |
 
 ## <a name="key-phrase-extraction"></a>Estrazione frasi chiave
 

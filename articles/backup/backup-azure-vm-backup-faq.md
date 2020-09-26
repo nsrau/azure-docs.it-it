@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite le risposte alle domande comuni 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 7206a62e3148c1bbb8d2e3704d991025deeece37
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 8813794d44803a32bc6e156d3ca76360d84604c5
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377319"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370828"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
@@ -20,6 +20,12 @@ Questo articolo risponde a domande comuni sul backup di macchine virtuali di Azu
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quali immagini di macchina virtuale possono essere abilitate per il backup durante la creazione?
 
 Quando si crea una macchina virtuale, è possibile abilitare il backup per le macchine virtuali che eseguono [sistemi operativi supportati](backup-support-matrix-iaas.md#supported-backup-actions).
+
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Perché il backup iniziale richiede molto tempo?
+
+Il backup iniziale è sempre un backup completo che dipende dalle dimensioni dei dati e dal momento in cui viene elaborato il backup. <br>
+Per migliorare le prestazioni del backup, vedere [procedure consigliate](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices)per il backup; [Considerazioni sul backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) e [prestazioni di backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+anche se il tempo totale di backup per i backup incrementali è inferiore a 24 ore, potrebbe non essere così per il primo backup.
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Il costo del backup è incluso nel costo della macchina virtuale?
 
@@ -154,6 +160,10 @@ Operazioni come il rollup della chiave/segreto non richiedono questo passaggio e
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>È possibile accedere alla VM una volta ripristinato a causa di una relazione tra una macchina virtuale e il controller di dominio?
 
 Sì, si accede alla macchina virtuale dopo il ripristino a causa di una relazione di una macchina virtuale con il controller di dominio. Per altre informazioni, vedere questo [articolo](./backup-azure-arm-restore-vms.md#post-restore-steps)
+
+### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Perché il completamento dell'operazione di ripristino richiede molto tempo?
+
+Il tempo di ripristino totale dipende dalle operazioni di input/output al secondo (IOPS) e dalla velocità effettiva dell'account di archiviazione. Il tempo di ripristino totale può essere influenzato se l'account di archiviazione di destinazione viene caricato con altre operazioni di lettura e scrittura dell'applicazione. Per migliorare l'operazione di ripristino, selezionare un account di archiviazione che non sia caricato con altri dati dell'applicazione.
 
 ## <a name="manage-vm-backups"></a>Gestire i backup delle macchine virtuali
 

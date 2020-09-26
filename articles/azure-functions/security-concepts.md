@@ -3,12 +3,12 @@ title: Protezione di Funzioni di Azure
 description: Informazioni su come proteggere l'esecuzione del codice funzione in Azure dagli attacchi comuni.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e48991788307a47d0e01a7921e0c94d77ddcd5ad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294751"
 ---
 # <a name="securing-azure-functions"></a>Protezione di Funzioni di Azure
 
@@ -76,7 +76,7 @@ Per altre informazioni sulle chiavi di accesso, vedere l'[articolo sull'associaz
 
 Per impostazione predefinita, le chiavi vengono archiviate in un contenitore di archiviazione BLOB nell'account fornito dall' `AzureWebJobsStorage` impostazione. È possibile usare impostazioni specifiche dell'applicazione per eseguire l'override di questo comportamento e archiviare le chiavi in un percorso diverso.
 
-|Percorso  |Impostazione | Valore | Description  |
+|Location  |Impostazione | valore | Descrizione  |
 |---------|---------|---------|---------|
 |Account di archiviazione diverso     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Archivia le chiavi nell'archiviazione BLOB di un secondo account di archiviazione, in base all'URL SAS fornito. Le chiavi vengono crittografate prima di essere archiviate usando un segreto univoco per l'app per le funzioni. |
 |File system   | `AzureWebJobsSecretStorageType`   |  `files`       | Le chiavi vengono salvate in modo permanente nella file system, crittografate prima dell'archiviazione usando un segreto univoco per l'app per le funzioni. |
@@ -128,6 +128,8 @@ Per impostazione predefinita, le stringhe di connessione e i segreti usati dall'
 Per ogni app per le funzioni, ad esempio, è necessario un account di archiviazione associato, che viene usato dal runtime. Per impostazione predefinita, la connessione a questo account di archiviazione è archiviata in un'impostazione applicazione denominata `AzureWebJobsStorage`.
 
 Le impostazioni dell'app e le stringhe di connessione vengono archiviate crittografate in Azure. Vengono decrittografate solo prima di essere inserite nella memoria del processo dell'app all'avvio dell'app. Le chiavi di crittografia vengono sottoposte a rotazione regolarmente. Se invece si preferisce gestire l'archiviazione protetta dei segreti, l'impostazione dell'app deve fare riferimento ad Azure Key Vault. 
+
+Per impostazione predefinita, è anche possibile crittografare le impostazioni nel local.settings.jsfile durante lo sviluppo di funzioni nel computer locale. Per ulteriori informazioni, vedere la `IsEncrypted` proprietà nel [file di impostazioni locali](functions-run-local.md#local-settings-file).  
 
 #### <a name="key-vault-references"></a>Riferimenti a Key Vault
 

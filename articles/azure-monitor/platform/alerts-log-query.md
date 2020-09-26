@@ -1,217 +1,218 @@
 ---
-title: Query per avvisi del log in Monitoraggio di Azure | Microsoft Docs
-description: Indicazioni sulla scrittura di query efficienti per gli avvisi del log negli aggiornamenti di Monitoraggio di Azure e su un processo per la conversione delle query esistenti.
-author: yossi-y
-ms.author: yossiy
+title: Ottimizzazione delle query di avviso del log | Microsoft Docs
+description: Suggerimenti per la scrittura di query di avviso efficaci
+author: yanivlavi
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: be2d49a824066b8926ae455978facb34c0b44310
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7f03858b2427b2a2069ebe2c9d06425e7a741e2b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505466"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294360"
 ---
-# <a name="log-alert-queries-in-azure-monitor"></a>Query per avvisi del log in Monitoraggio di Azure
-Le [regole di avviso basate sui log di Monitoraggio di Azure](alerts-unified-log.md) vengono eseguite a intervalli regolari, pertanto è necessario assicurarsi che siano scritte in modo da ridurre al minimo il sovraccarico e la latenza. Questo articolo include consigli per la scrittura di query efficienti per gli avvisi del log e un processo per la conversione delle query esistenti. 
+# <a name="optimizing-log-alert-queries"></a>Ottimizzazione delle query di avviso del log
+Questo articolo descrive come scrivere e convertire le query di [Avviso del log](alerts-unified-log.md) per ottenere prestazioni ottimali. Le query ottimizzate riducono la latenza e il carico degli avvisi che vengono eseguiti di frequente.
 
-## <a name="types-of-log-queries"></a>Tipi di query di log
-Le [query di log in monitoraggio di Azure](../log-query/log-query-overview.md) iniziano con una tabella o un operatore di [ricerca](/azure/kusto/query/searchoperator) o di [Unione](/azure/kusto/query/unionoperator) .
+## <a name="how-to-start-writing-an-alert-log-query"></a>Come iniziare a scrivere una query del log degli avvisi
 
-Ad esempio, la query seguente ha come ambito la tabella _SecurityEvent_ e cerca un ID evento specifico. Questa è l'unica tabella che deve elaborare la query.
+Le query di avviso iniziano a [eseguire query sui dati di log in log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) che indica il problema. È possibile usare l' [argomento degli esempi di query di avviso](../log-query/saved-queries.md) per comprendere cosa è possibile individuare. È anche possibile [iniziare a scrivere una query personalizzata](../log-query/get-started-portal.md). 
+
+### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>Query che indicano il problema e non l'avviso
+
+Il flusso di avvisi è stato creato per trasformare i risultati che indicano il problema a un avviso. Ad esempio, nel caso di una query come la seguente:
 
 ``` Kusto
-SecurityEvent | where EventID == 4624 
+SecurityEvent
+| where EventID == 4624
 ```
 
-Le query che iniziano con `search` o `union` consentono di eseguire la ricerca in più colonne in una tabella o anche in più tabelle. Gli esempi seguenti illustrano diversi metodi per la ricerca del termine _Memory_:
+Se lo scopo dell'utente è di avvisare, quando si verifica questo tipo di evento, la logica di avviso viene accodata `count` alla query. La query che verrà eseguita sarà:
 
-```Kusto
-search "Memory"
-search * | where == "Memory"
-search ObjectName: "Memory"
-search ObjectName == "Memory"
-union * | where ObjectName == "Memory"
+``` Kusto
+SecurityEvent
+| where EventID == 4624
+| count
 ```
 
-Anche se `search` e `union` sono utili durante l'esplorazione dei dati, cercando i termini nell'intero modello di dati, risultano meno efficienti rispetto all'uso di una tabella perché devono analizzare più tabelle. Dato che le query nelle regole di avviso vengono eseguite a intervalli regolari, ciò può comportare un sovraccarico eccessivo aumentando la latenza per l'avviso. A causa di questo sovraccarico, le query per le regole di avviso di log in Azure devono sempre iniziare con una tabella per definire un ambito specifico, con conseguente miglioramento sia delle prestazioni che della pertinenza dei risultati.
+Non è necessario aggiungere la logica di avviso alla query e questa operazione potrebbe causare problemi. Nell'esempio precedente, se si include `count` nella query, il valore risultante sarà sempre 1, dal momento che il servizio Alert esegue `count` `count` .
 
-## <a name="unsupported-queries"></a>Query non supportate
-A partire dal 11 gennaio 2019, creare o modificare le regole di avviso di log che usano gli operatori `search` o `union` non sarà supportato nel portale di Azure. L'uso di questi operatori in una regola di avviso restituirà un messaggio di errore. Le regole di avviso esistenti e le regole di avviso create e modificate con l'API di Log Analytics non sono interessate da questa modifica. È comunque consigliabile prendere in considerazione la modifica di qualsiasi regola di avviso che usa questi tipi di query per migliorarne l'efficienza.  
+### <a name="avoid-limit-and-take-operators"></a>Evitare `limit` `take` operatori and
 
-Le regole di avviso del log che usano [query per ricerche in più risorse](../log-query/cross-workspace-query.md) non sono interessate da questa modifica, perché queste query usano `union`, che limita l'ambito della query a risorse specifiche. Ciò non equivale a `union *`, che non può essere usato.  L'esempio seguente sarebbe valido in una regola di avviso di log:
+L'uso di `limit` e `take` nelle query può aumentare la latenza e il carico degli avvisi perché i risultati non sono coerenti nel tempo. È preferibile utilizzarlo solo se necessario.
+
+## <a name="log-query-constraints"></a>Vincoli di query di log
+Le [query di log nel monitoraggio di Azure](../log-query/log-query-overview.md) iniziano con un [`search`](/azure/kusto/query/searchoperator) operatore Table, o [`union`](/azure/kusto/query/unionoperator) .
+
+Le query per le regole di avviso del log devono sempre iniziare con una tabella per definire un ambito chiaro, che consente di migliorare le prestazioni delle query e la pertinenza dei risultati. Le query nelle regole di avviso vengono eseguite di frequente, pertanto l'utilizzo `search` `union` di e può comportare un sovraccarico eccessivo nell'aggiunta di latenza all'avviso, in quanto richiede l'analisi tra più tabelle. Questi operatori riducono inoltre la capacità del servizio di avvisi di ottimizzare la query.
+
+Non è supportata la creazione o la modifica delle regole di avviso del log che usano `search` `union` gli operatori o, che prevedono query tra risorse.
+
+La query di avviso seguente, ad esempio, ha come ambito la tabella _SecurityEvent_ e cerca un ID evento specifico. Si tratta dell'unica tabella che la query deve elaborare.
+
+``` Kusto
+SecurityEvent
+| where EventID == 4624
+```
+
+Le regole di avviso del log che usano [query tra risorse](../log-query/cross-workspace-query.md) non sono interessate da questa modifica, poiché le query tra risorse usano un tipo di `union` , che limita l'ambito della query a risorse specifiche. L'esempio seguente è una query di avviso del log valida:
 
 ```Kusto
-union 
-app('Contoso-app1').requests, 
-app('Contoso-app2').requests, 
+union
+app('Contoso-app1').requests,
+app('Contoso-app2').requests,
 workspace('Contoso-workspace1').Perf 
 ```
 
 >[!NOTE]
->Le [query su più risorse](../log-query/cross-workspace-query.md) negli avvisi dei log sono supportate nella nuova [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Per impostazione predefinita, Monitoraggio di Azure usa l'[API legacy degli avvisi di Log Analytics](api-alerts.md) per la creazione di nuove regole di avviso relative ai log dal portale di Azure, a meno che non si esegua la commutazione dall'[API legacy degli avvisi relativi ai log](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Dopo la commutazione, la nuova API diventa quella predefinita per le nuove regole di avviso nel portale di Azure e consente di creare regole di avviso dei log basate su query su più risorse. È possibile creare regole di avviso dei log basate su [query su più risorse](../log-query/cross-workspace-query.md) senza effettuare la commutazione usando il [modello ARM per l'API scheduledQueryRules](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template), ma questa regola di avviso è gestibile tramite l'[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) e non dal portale di Azure.
+> Le [query tra risorse](../log-query/cross-workspace-query.md) sono supportate nella nuova [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Se si usa ancora l' [API legacy log Analytics Alert](api-alerts.md) per creare gli avvisi del log, è possibile ottenere informazioni [sul cambio.](alerts-log-api-switch.md)
 
 ## <a name="examples"></a>Esempi
-Gli esempi seguenti includono query di log che usano `search` e `union` con indicazione delle procedure che è possibile usare per modificare queste query per l'uso con le regole di avviso.
+Gli esempi seguenti includono query di log che usano `search` e `union` e forniscono passaggi che è possibile usare per modificare queste query da usare nelle regole di avviso.
 
 ### <a name="example-1"></a>Esempio 1
-Si vuole creare una regola di avviso di log usando la query seguente che recupera informazioni sulle prestazioni tramite `search`: 
+Si desidera creare una regola di avviso del log utilizzando la query seguente che recupera le informazioni sulle prestazioni utilizzando `search` : 
 
 ``` Kusto
-search * | where Type == 'Perf' and CounterName == '% Free Space' 
-| where CounterValue < 30 
-| summarize count()
+search *
+| where Type == 'Perf' and CounterName == '% Free Space'
+| where CounterValue < 30
 ```
-  
 
 Per modificare questa query, iniziare usando la query seguente per identificare la tabella a cui appartengono le proprietà:
 
 ``` Kusto
-search * | where CounterName == '% Free Space'
+search *
+| where CounterName == '% Free Space'
 | summarize by $table
 ```
- 
 
-Il risultato di questa query indicherebbe che la proprietà _CounterName_ proviene dalla tabella _Perf_. 
+Il risultato di questa query indicherebbe che la proprietà _CounterName_ proviene dalla tabella _Perf_.
 
-È possibile usare questo risultato per creare la query seguente che verrebbe usata per la regola di avviso:
+È possibile utilizzare questo risultato per creare la query seguente che verrà utilizzata per la regola di avviso:
 
 ``` Kusto
-Perf 
-| where CounterName == '% Free Space' 
-| where CounterValue < 30 
-| summarize count()
+Perf
+| where CounterName == '% Free Space'
+| where CounterValue < 30
 ```
-
 
 ### <a name="example-2"></a>Esempio 2
-Si vuole creare una regola di avviso di log usando la query seguente che recupera informazioni sulle prestazioni tramite `search`: 
+Si desidera creare una regola di avviso del log utilizzando la query seguente che recupera le informazioni sulle prestazioni utilizzando `search` : 
 
 ``` Kusto
-search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"  
-| summarize Avg_Memory_Usage =avg(CounterValue) by Computer 
+search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"
+| summarize Avg_Memory_Usage =avg(CounterValue) by Computer
 | where Avg_Memory_Usage between(90 .. 95)  
-| count 
 ```
-  
 
 Per modificare questa query, iniziare usando la query seguente per identificare la tabella a cui appartengono le proprietà:
 
 ``` Kusto
-search ObjectName=="Memory" and CounterName=="% Committed Bytes In Use" 
-| summarize by $table 
+search ObjectName=="Memory" and CounterName=="% Committed Bytes In Use"
+| summarize by $table
 ```
- 
 
-Il risultato di questa query indicherebbe che le proprietà _ObjectName_ e _CounterName_ provengono dalla tabella _Perf_. 
+Il risultato di questa query indicherebbe che le proprietà _ObjectName_ e _CounterName_ provengono dalla tabella _Perf_.
 
-È possibile usare questo risultato per creare la query seguente che verrebbe usata per la regola di avviso:
+È possibile utilizzare questo risultato per creare la query seguente che verrà utilizzata per la regola di avviso:
 
 ``` Kusto
-Perf 
-| where ObjectName =="Memory" and CounterName=="% Committed Bytes In Use" 
-| summarize Avg_Memory_Usage=avg(CounterValue) by Computer 
-| where Avg_Memory_Usage between(90 .. 95)  
-| count 
+Perf
+| where ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"
+| summarize Avg_Memory_Usage=avg(CounterValue) by Computer
+| where Avg_Memory_Usage between(90 .. 95)
 ```
- 
 
 ### <a name="example-3"></a>Esempio 3
 
-Si vuole creare una regola di avviso di log usando la query seguente che usa sia `search` che `union` per recuperare informazioni sulle prestazioni: 
+Si vuole creare una regola di avviso del log usando la query seguente che usa sia che `search` `union` per recuperare le informazioni sulle prestazioni: 
 
 ``` Kusto
-search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")  
-| where Computer !in ((union * | where CounterName == "% Processor Utility" | summarize by Computer))
-| summarize Avg_Idle_Time = avg(CounterValue) by Computer|  count  
+search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")
+| where Computer !in (
+    union *
+    | where CounterName == "% Processor Utility"
+    | summarize by Computer)
+| summarize Avg_Idle_Time = avg(CounterValue) by Computer
 ```
- 
 
 Per modificare questa query, iniziare usando la query seguente per identificare la tabella a cui appartengono le proprietà nella prima parte della query: 
 
 ``` Kusto
-search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")  
-| summarize by $table 
+search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")
+| summarize by $table
 ```
 
-Il risultato di questa query indicherebbe che tutte queste proprietà provengono dalla tabella _Perf_. 
+Il risultato di questa query indicherebbe che tutte queste proprietà provengono dalla tabella _Perf_.
 
 A questo punto usare `union` con il comando `withsource` per identificare la tabella di origine da cui proviene ogni riga.
 
 ``` Kusto
-union withsource=table * | where CounterName == "% Processor Utility" 
-| summarize by table 
+union withsource=table *
+| where CounterName == "% Processor Utility"
+| summarize by table
 ```
- 
 
-Il risultato di questa query indicherebbe che anche queste proprietà provengono dalla tabella _Perf_. 
+Il risultato di questa query indicherebbe che anche queste proprietà provengono dalla tabella _Perf_.
 
-È possibile usare questi risultati per creare la query seguente che verrebbe usata per la regola di avviso: 
+È possibile utilizzare questi risultati per creare la query seguente che verrà utilizzata per la regola di avviso: 
 
 ``` Kusto
-Perf 
-| where ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total" 
-| where Computer !in ( 
-    (Perf 
-    | where CounterName == "% Processor Utility" 
-    | summarize by Computer)) 
-| summarize Avg_Idle_Time = avg(CounterValue) by Computer 
-| count 
+Perf
+| where ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total"
+| where Computer !in (
+    (Perf
+    | where CounterName == "% Processor Utility"
+    | summarize by Computer))
+| summarize Avg_Idle_Time = avg(CounterValue) by Computer
 ``` 
 
 ### <a name="example-4"></a>Esempio 4
-Si vuole creare una regola di avviso di log usando la query seguente che unisce in join i risultati di due query `search`:
+Si desidera creare una regola di avviso del log utilizzando la query seguente che unisce i risultati di due `search` query:
 
 ```Kusto
-search Type == 'SecurityEvent' and EventID == '4625' 
-| summarize by Computer, Hour = bin(TimeGenerated, 1h) 
-| join kind = leftouter ( 
-    search in (Heartbeat) OSType == 'Windows' 
-    | summarize arg_max(TimeGenerated, Computer) by Computer , Hour = bin(TimeGenerated, 1h) 
-    | project Hour , Computer  
-)  
-on Hour 
-| count 
+search Type == 'SecurityEvent' and EventID == '4625'
+| summarize by Computer, Hour = bin(TimeGenerated, 1h)
+| join kind = leftouter (
+    search in (Heartbeat) OSType == 'Windows'
+    | summarize arg_max(TimeGenerated, Computer) by Computer , Hour = bin(TimeGenerated, 1h)
+    | project Hour , Computer
+) on Hour
 ```
- 
 
 Per modificare questa query, iniziare usando la query seguente per identificare la tabella che contiene le proprietà nel lato sinistro del join: 
 
 ``` Kusto
-search Type == 'SecurityEvent' and EventID == '4625' 
-| summarize by $table 
+search Type == 'SecurityEvent' and EventID == '4625'
+| summarize by $table
 ```
- 
 
 Il risultato indica che le proprietà nel lato sinistro del join appartengono alla tabella _SecurityEvent_. 
 
 Ora è possibile usare la query seguente per identificare la tabella che contiene le proprietà sul lato destro del join: 
-
  
 ``` Kusto
-search in (Heartbeat) OSType == 'Windows' 
-| summarize by $table 
+search in (Heartbeat) OSType == 'Windows'
+| summarize by $table
 ```
-
  
-Il risultato indica che le proprietà sul lato destro del join appartengono alla tabella Heartbeat. 
+Il risultato indica che le proprietà sul lato destro del join appartengono alla tabella _heartbeat_ .
 
-È possibile usare questi risultati per creare la query seguente che verrebbe usata per la regola di avviso: 
-
+È possibile utilizzare questi risultati per creare la query seguente che verrà utilizzata per la regola di avviso: 
 
 ``` Kusto
 SecurityEvent
 | where EventID == '4625'
 | summarize by Computer, Hour = bin(TimeGenerated, 1h)
 | join kind = leftouter (
-    Heartbeat  
-    | where OSType == 'Windows' 
-    | summarize arg_max(TimeGenerated, Computer) by Computer , Hour = bin(TimeGenerated, 1h) 
-    | project Hour , Computer  
-)  
-on Hour 
-| count 
+    Heartbeat
+    | where OSType == 'Windows'
+    | summarize arg_max(TimeGenerated, Computer) by Computer , Hour = bin(TimeGenerated, 1h)
+    | project Hour , Computer
+) on Hour
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
