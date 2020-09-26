@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/21/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12aa400d6ca44043d3d90e78a93ae49d97a927e8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270151"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265791"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modello di fatturazione per Azure AD identità esterne
 
@@ -37,17 +37,17 @@ Per sfruttare i vantaggi della fatturazione di MAU, il tenant di Azure AD deve e
 
 ## <a name="about-monthly-active-users-mau-billing"></a>Informazioni sulla fatturazione mensile di utenti attivi (MAU)
 
-Nel tenant di Azure AD l'utilizzo della collaborazione utente guest viene fatturato in base al numero di utenti Guest univoci con attività di autenticazione in un mese di calendario. Questo modello sostituisce il modello di fatturazione 1:5 ratio, che ha consentito fino a cinque utenti guest per ogni licenza Azure AD Premium nel tenant. Quando il tenant è collegato a una sottoscrizione e si usano le funzionalità di identità esterne per collaborare con gli utenti guest, la fatturazione verrà eseguita automaticamente usando il modello di fatturazione basato su MAU.
+Nel tenant di Azure AD l'utilizzo della collaborazione utente guest viene fatturato in base al numero di utenti Guest univoci con attività di autenticazione in un mese di calendario. Questo modello sostituisce il modello di fatturazione con rapporto 1:5, che consentiva fino a cinque utenti guest per ogni licenza di Azure AD Premium nel tenant. Se il tenant è collegato a una sottoscrizione e si usano le funzionalità di identità esterne per collaborare con utenti guest, la fatturazione verrà eseguita automaticamente usando il modello di fatturazione basato sugli utenti attivi mensili.
   
 Il piano tariffario applicabile agli utenti Guest si basa sul piano tariffario più alto assegnato al tenant Azure AD. Ad esempio, se il piano tariffario più alto nel tenant è Azure AD Premium P1, il piano tariffario Premium P1 si applica anche agli utenti guest. Se i prezzi più elevati sono Azure AD Free, verrà richiesto di eseguire l'aggiornamento a un piano tariffario Premium quando si tenta di usare le funzionalità Premium per gli utenti guest.
 
 ## <a name="link-your-azure-ad-tenant-to-a-subscription"></a>Collegare il tenant di Azure AD a una sottoscrizione
 
-Un tenant di Azure AD deve essere collegato a una sottoscrizione di Azure per la fatturazione e l'accesso alle funzionalità appropriate.
+Un tenant di Azure AD deve essere collegato a una sottoscrizione di Azure per la fatturazione e l'accesso alle funzionalità appropriate. Se la directory non dispone già di una sottoscrizione a cui è possibile collegarsi, sarà possibile aggiungerne una durante questo processo.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un account Azure a cui è stato assegnato almeno il ruolo [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) all'interno della sottoscrizione o un gruppo di risorse all'interno della sottoscrizione.
 
-2. Selezionare la directory che contiene la sottoscrizione: nella barra degli strumenti portale di Azure selezionare l'icona **directory + sottoscrizione** e quindi selezionare la directory che contiene la sottoscrizione.
+2. Selezionare la directory che si desidera collegare: nella barra degli strumenti portale di Azure selezionare l'icona **directory + sottoscrizione** e quindi selezionare la directory.
 
     ![Selezionare l'icona directory + sottoscrizione](media/external-identities-pricing/portal-mau-pick-directory.png)
 
@@ -62,6 +62,9 @@ Un tenant di Azure AD deve essere collegato a una sottoscrizione di Azure per la
     ![Selezionare il tenant e collegare una sottoscrizione](media/external-identities-pricing/linked-subscriptions.png)
 
 7. Nel riquadro collegamento a una sottoscrizione selezionare una **sottoscrizione** e un **gruppo di risorse**. Selezionare quindi **Applica**.
+
+   > [!NOTE]
+   > Se non sono elencate sottoscrizioni, è possibile [associare una sottoscrizione al tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md). In alternativa, è possibile aggiungere una nuova sottoscrizione selezionando il collegamento **se non si ha già una sottoscrizione di cui è possibile crearne una qui**.
 
     ![Selezionare una sottoscrizione e un gruppo di risorse](media/external-identities-pricing/link-subscription-resource.png)
 

@@ -3,12 +3,12 @@ title: Gestione immagini firmate
 description: Informazioni su come abilitare l'attendibilità dei contenuti per il Registro Azure Container ed eseguire il push e il pull di immagini firmate. Il trust del contenuto è una funzionalità del livello di servizio Premium.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 34bb56bab869cb1f12541b65c59b06a73b215377
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 36d2a8ddef184804facdace2d517d7e2fdf1b24c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076856"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253480"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Attendibilità dei contenuti in Registro Azure Container
 
@@ -40,7 +40,7 @@ Il primo passaggio consiste nell'abilitare l'attendibilità dei contenuti a live
 
 Per abilitare l'attendibilità dei contenuti per il registro, passare al registro nel portale di Azure. In **Criteri** selezionare **Attendibilità contenuto** > **Abilitata** > **Salva**. È possibile usare anche il comando[az acr config content-trust update][az-acr-config-content-trust-update] nell'interfaccia della riga di comando di Azure.
 
-![Abilitazione dell'attendibilità dei contenuti per un registro nel portale di Azure][content-trust-01-portal]
+![Screenshot mostra l'abilitazione del trust del contenuto per un registro nel portale di Azure.][content-trust-01-portal]
 
 ## <a name="enable-client-content-trust"></a>Abilitare l'attendibilità dei contenuti nel client
 
