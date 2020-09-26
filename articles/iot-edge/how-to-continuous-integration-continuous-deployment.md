@@ -3,17 +3,17 @@ title: Integrazione continua e distribuzione continua nei dispositivi Azure IoT 
 description: Configurare l'integrazione continua e la distribuzione continua usando YAML-Azure IoT Edge con Azure DevOps, Azure Pipelines
 author: shizn
 manager: philmea
-ms.author: xshi
+ms.author: kgremban
 ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b68e354099a0038e1b418d6973eca2c774aed94
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d29a5a6d0d4745655ce5b6d0cead3eaba77ed423
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89303011"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281627"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices"></a>Integrazione continua e distribuzione continua nei dispositivi Azure IoT Edge
 
@@ -111,7 +111,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. La pipeline v
        | Parametro | Descrizione |
        | --- | --- |
        | Cartella di origine | Cartella di origine da cui eseguire la copia. Empty è la radice del repository. Usare le variabili se i file non sono presenti nel repository. Esempio: `$(agent.builddirectory)`.
-       | Contenuto | Aggiungere due righe: `deployment.template.json` e `**/module.json` . |
+       | Sommario | Aggiungere due righe: `deployment.template.json` e `**/module.json` . |
        | Cartella di destinazione | Specificare la variabile `$(Build.ArtifactStagingDirectory)` . Vedere [variabili di compilazione](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) per informazioni sulla descrizione. |
 
    * Attività: **pubblicare artefatti di compilazione**

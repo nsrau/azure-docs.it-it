@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 897c0f3c51d6d9bea1f90a66ccf50aa51e22f118
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: c46d977b6ce4eaa62aefc6874ce2b855a4711670
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088307"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317513"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Risolvere i problemi di connettività Azure AD
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -85,7 +85,7 @@ Per verificare se il server Azure AD Connect può effettivamente connettersi al 
 
 PowerShell usa la configurazione presente in machine.config per contattare il proxy. Le impostazioni in winhttp/netsh non dovranno influire su questi cmdlet.
 
-Se il proxy è configurato correttamente, viene visualizzato lo stato corrispondente alla riuscita dell'operazione: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+Se il proxy è configurato correttamente, si dovrebbe ottenere uno stato di esito positivo: ![ screenshot che mostra lo stato di esito positivo quando il proxy è configurato correttamente.](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
 Se non si **riesce a connettersi al server remoto**, PowerShell sta provando a effettuare una chiamata diretta senza usare il proxy oppure il DNS non è configurato correttamente. Verificare che il file **machine.config** sia configurato correttamente.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
@@ -93,7 +93,7 @@ Se non si **riesce a connettersi al server remoto**, PowerShell sta provando a e
 Se il proxy non è configurato correttamente, verrà visualizzato un errore: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
 
-| Errore | Testo dell'errore | Commento |
+| Errore | Testo dell'errore | Comment |
 | --- | --- | --- |
 | 403 |Accesso negato |Il proxy non è stato aperto per l'URL richiesto. Rivedere la configurazione del proxy e assicurarsi che gli [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) siano stati aperti. |
 | 407 |Autenticazione proxy obbligatoria |Il server proxy ha richiesto l'accesso, che non è stato eseguito. Se il server proxy richiede l'autenticazione, assicurarsi che questa impostazione sia configurata nel machine.config. Assicurarsi inoltre di utilizzare gli account di dominio per l'utente che esegue la procedura guidata e per l'account del servizio. |

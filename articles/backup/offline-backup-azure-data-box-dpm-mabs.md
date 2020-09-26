@@ -3,12 +3,12 @@ title: Backup offline con Azure Data Box per DPM e MAB
 description: È possibile utilizzare Azure Data Box per inizializzare i dati di backup iniziali offline da DPM e da MAB.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177687"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271495"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Seeding offline con Azure Data Box per DPM e MAB (anteprima)
 
@@ -110,7 +110,7 @@ Specificare l'origine alternativa: *WIM:D:\Sources\Install.wim:4*
 
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Trasferire i dati di backup iniziali a dispositivi Azure Data Box
 
-1. Nel server DPM/MAB, attenersi alla procedura per [creare un nuovo gruppo protezione](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019)dati. Se si aggiunge una protezione in linea al gruppo protezione dati esistente, fare clic con il pulsante destro del mouse sul gruppo protezione dati esistente, quindi scegliere **Aggiungi protezione dati online** e iniziare dal **passaggio 8**.
+1. Nel server DPM/MAB, attenersi alla procedura per [creare un nuovo gruppo protezione](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)dati. Se si aggiunge una protezione in linea al gruppo protezione dati esistente, fare clic con il pulsante destro del mouse sul gruppo protezione dati esistente, quindi scegliere **Aggiungi protezione dati online** e iniziare dal **passaggio 8**.
 2. Nella pagina **Selezione membri del gruppo** specificare i computer e le origini di cui si vuole eseguire il backup.
 3. Nella pagina **Seleziona metodo protezione dati** specificare come si vuole gestire i backup a breve e lungo termine. Assicurarsi di selezionare **Protezione dati online**.
 

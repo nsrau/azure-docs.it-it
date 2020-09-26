@@ -4,15 +4,15 @@ description: Usare Azure PowerShell per gestire gli account, i database, i conte
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 09/18/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: d17d7e03c1a0fff642edbac912e596ecb030706d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: fa3d044bbbce2a8c85f01517b918ffc57c10c759
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486477"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316206"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gestire le risorse dell'API SQL di Azure Cosmos DB tramite PowerShell
 
@@ -52,16 +52,18 @@ Questo comando crea un account del database Azure Cosmos DB con [più aree][dist
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
-$locations = @("West US 2", "East US 2")
 $accountName = "mycosmosaccount"
 $apiKind = "Sql"
 $consistencyLevel = "BoundedStaleness"
 $maxStalenessInterval = 300
 $maxStalenessPrefix = 100000
+$locations = @()
+$locations += New-AzCosmosDBLocationObject -LocationName "East US" -FailoverPriority 0 -IsZoneRedundant 0
+$locations += New-AzCosmosDBLocationObject -LocationName "West US" -FailoverPriority 1 -IsZoneRedundant 0
 
 New-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
-    -Location $locations `
+    -LocationObject $locations `
     -Name $accountName `
     -ApiKind $apiKind `
     -EnableAutomaticFailover:$true `
@@ -71,7 +73,7 @@ New-AzCosmosDBAccount `
 ```
 
 * `$resourceGroupName`: gruppo di risorse di Azure in cui distribuire l'account Cosmos. Deve essere già esistente.
-* `$locations`: aree per l'account del database, a partire dall'area di scrittura e ordinate in base alla priorità di failover.
+* `$locations` Le aree per l'account del database, l'area con `FailoverPriority 0` è l'area di scrittura.
 * `$accountName` Il nome dell'account Azure Cosmos. Deve essere univoco, includere solo caratteri alfanumerici minuscoli e '-' e avere una lunghezza compresa tra 3 e 31 caratteri.
 * `$apiKind`: tipo di account Cosmos da creare. Per altre informazioni, vedere [API in Cosmos DB](introduction.md#develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis).
 * `$consistencyPolicy`,`$maxStalenessInterval` e`$maxStalenessPrefix`: livello di coerenza predefinito e impostazioni dell'account Azure Cosmos. Per altre informazioni, vedere [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md).
@@ -117,33 +119,33 @@ Questo comando consente di aggiornare le proprietà di un account del database A
 ```azurepowershell-interactive
 # Create account with two regions
 $resourceGroupName = "myResourceGroup"
-$locations = @("West US 2", "East US 2")
 $accountName = "mycosmosaccount"
 $apiKind = "Sql"
 $consistencyLevel = "Session"
 $enableAutomaticFailover = $true
+$locations = @()
+$locations += New-AzCosmosDBLocationObject -LocationName "East US" -FailoverPriority 0 -IsZoneRedundant 0
+$locations += New-AzCosmosDBLocationObject -LocationName "West US" -FailoverPriority 1 -IsZoneRedundant 0
 
 # Create the Cosmos DB account
 New-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
-    -Location $locations `
+    -LocationObject $locations `
     -Name $accountName `
     -ApiKind $apiKind `
     -EnableAutomaticFailover:$enableAutomaticFailover `
     -DefaultConsistencyLevel $consistencyLevel
 
 # Add a region to the account
-$locations2 = @("West US 2", "East US 2", "South Central US")
-$locationObjects2 = @()
-$i = 0
-ForEach ($location in $locations2) {
-    $locationObjects2 += @{ locationName = "$location"; failoverPriority = $i++ }
-}
+$locationObject2 = @()
+$locationObject2 += New-AzCosmosDBLocationObject -LocationName "East US" -FailoverPriority 0 -IsZoneRedundant 0
+$locationObject2 += New-AzCosmosDBLocationObject -LocationName "West US" -FailoverPriority 1 -IsZoneRedundant 0
+$locationObject2 += New-AzCosmosDBLocationObject -LocationName "South Central US" -FailoverPriority 2 -IsZoneRedundant 0
 
 Update-AzCosmosDBAccountRegion `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
-    -LocationObject $locationObjects2
+    -LocationObject $locationObject2
 
 Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is complete."
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."
@@ -151,18 +153,15 @@ Write-Host "When region was added, press any key to continue."
 $HOST.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") | OUT-NULL
 $HOST.UI.RawUI.Flushinputbuffer()
 
-# Remove a region from the account
-$locations3 = @("West US 2", "South Central US")
-$locationObjects3 = @()
-$i = 0
-ForEach ($location in $locations3) {
-    $locationObjects3 += @{ locationName = "$location"; failoverPriority = $i++ }
-}
+# Remove West US region from the account
+$locationObject3 = @()
+$locationObject3 += New-AzCosmosDBLocationObject -LocationName "East US" -FailoverPriority 0 -IsZoneRedundant 0
+$locationObject3 += New-AzCosmosDBLocationObject -LocationName "South Central US" -FailoverPriority 1 -IsZoneRedundant 0
 
 Update-AzCosmosDBAccountRegion `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
-    -LocationObject $locationObjects3
+    -LocationObject $locationObject3
 
 Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is complete."
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."

@@ -11,13 +11,13 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-- devx-track-javascript
-ms.openlocfilehash: b6d2f502eb6bb6bd70e6d76ec88aa332c9ecdc77
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+ms.openlocfilehash: 78db26318fc95adec1b31799ed143b3e4a6b3acc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281457"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo downstream a un gateway Azure IoT Edge
 

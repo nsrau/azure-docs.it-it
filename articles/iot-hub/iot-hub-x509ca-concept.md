@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019904"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308113"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Comprensione concettuale dei certificati x.509 nel settore IoT
 
@@ -87,7 +87,7 @@ Il processo di caricamento del certificato della CA X.509 è proprio quello di c
 
 ### <a name="proof-of-possession-of-the-certificate"></a>Proof-of-Possession del certificato
 
-Il certificato della CA X.509, come qualsiasi certificato digitale, contiene informazioni pubbliche che sono soggette a intercettazione. Di conseguenza, un utente malintenzionato può intercettare un certificato e provare a caricarlo come proprio. In questo esempio, l'hub IoT desidera assicurarsi che il certificato della CA che la Società-X sta caricando appartenga davvero alla Società-X. Lo fa richiedendo alla Società-X di dimostrare di essere realmente in possesso del certificato tramite un [flusso di proof-of-possession (PoP)](https://tools.ietf.org/html/rfc5280#section-3.1). Il flusso di proof-of-possession comporta che la generazione di un numero casuale da parte dell'hub IoT sia firmata dalla Società-X con la propria chiave privata. Se la Società-X ha seguito le procedure consigliate dell'infrastruttura a chiave pubblica e ha protetto la propria chiave privata, allora è l'unica nella posizione di poter rispondere correttamente alla richiesta di proof-of-possession. L'hub IoT prosegue per registrare il certificato della CA di X.509 al momento di una risposta con esito positivo della richiesta di proof-of-possession.
+Il certificato della CA X.509, come qualsiasi certificato digitale, contiene informazioni pubbliche che sono soggette a intercettazione. Di conseguenza, un utente malintenzionato può intercettare un certificato e provare a caricarlo come proprio. In questo esempio, l'hub IoT desidera assicurarsi che il certificato della CA che la Società-X sta caricando appartenga davvero alla Società-X. Questa operazione viene eseguita da una sfida aziendale-X per dimostrare di avere effettivamente il certificato tramite un [flusso di proof-of-Possession (pop)](https://tools.ietf.org/html/rfc5280#section-3.1). Il flusso di proof-of-possession comporta che la generazione di un numero casuale da parte dell'hub IoT sia firmata dalla Società-X con la propria chiave privata. Se la Società-X ha seguito le procedure consigliate dell'infrastruttura a chiave pubblica e ha protetto la propria chiave privata, allora è l'unica nella posizione di poter rispondere correttamente alla richiesta di proof-of-possession. L'hub IoT prosegue per registrare il certificato della CA di X.509 al momento di una risposta con esito positivo della richiesta di proof-of-possession.
 
 Una risposta corretta alla richiesta di proof-of-possession da parte dell'hub IoT completa la registrazione dell'autorità di certificazione X.509.
 

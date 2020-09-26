@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 84f5a8f638e4a9525b330277ff1eaa26ba035e1a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907416"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295737"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Creare utenti in database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -28,7 +28,7 @@ Il motore PostgreSQL usa i [ruoli](https://www.postgresql.org/docs/current/sql-c
 * `postgres`
 * `citus`
 
-Poiché iperscale è un servizio PaaS gestito, solo Microsoft può accedere con il `postgres` ruolo utente con privilegi avanzati. Per un accesso amministrativo limitato, l'iperscalabilità fornisce il `citus` ruolo.
+Poiché iperscale (CITUS) è un servizio PaaS gestito, solo Microsoft può accedere con il `postgres` ruolo utente con privilegi avanzati. Per un accesso amministrativo limitato, iperscale (CITUS) fornisce il `citus` ruolo.
 
 Autorizzazioni per il `citus` ruolo:
 
@@ -46,7 +46,7 @@ In particolare, il `citus` ruolo presenta alcune restrizioni:
 
 Come indicato in precedenza, l' `citus` account amministratore non dispone dell'autorizzazione per la creazione di altri utenti. Per aggiungere un utente, utilizzare l'interfaccia portale di Azure.
 
-1. Andare alla pagina **ruoli** per il gruppo di server con iperscalabilità e fare clic su **+ Aggiungi**:
+1. Passare alla pagina **ruoli** per il gruppo di server iperscalare (CITUS) e fare clic su **+ Aggiungi**:
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="Pagina ruoli":::
 
@@ -75,7 +75,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Come eliminare un ruolo utente o modificare la password
 
-Per aggiornare un utente, visitare la pagina **ruoli** per il gruppo di server con iperscalabilità e fare clic sui puntini di sospensione **...** accanto all'utente. I puntini di sospensione aprono un menu per eliminare l'utente o reimpostare la password.
+Per aggiornare un utente, visitare la pagina **ruoli** per il gruppo di server iperscalabile (CITUS) e fare clic sui puntini di sospensione **...** accanto all'utente. I puntini di sospensione aprono un menu per eliminare l'utente o reimpostare la password.
 
    :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Modificare un ruolo":::
 

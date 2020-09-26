@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 678b7571d54c8938c163801a584ad813c6e5963f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9e7ac5afb176e58ce47f918ddcbab742ecb90baf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551167"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317447"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Esercitazione: Configurare Concur per il provisioning utenti automatico
 
@@ -96,7 +96,7 @@ Per i seguenti motivi è consigliabile non eseguire questa operazione con il pro
 
 9. Impostare **Modalità di provisioning** su **Automatico**. 
  
-    ![provisioning](./media/concur-provisioning-tutorial/provisioning.png)
+    ![Screenshot della scheda provisioning per l'accordo portale di Azure. La modalità di provisioning è impostata su automatico e il pulsante Test connessione è evidenziato.](./media/concur-provisioning-tutorial/provisioning.png)
 
 10. Nella sezione **Credenziali amministratore** immettere il **nome utente** e la **password** dell'amministratore di Concur.
 

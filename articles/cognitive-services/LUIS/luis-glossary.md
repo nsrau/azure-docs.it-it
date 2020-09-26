@@ -1,14 +1,16 @@
 ---
 title: Glossario-LUIS
 description: Il glossario contiene termini che è probabile trovare durante l'uso del servizio API LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836412"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309490"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
 Il Glossario di Language Understanding (LUIS) illustra i termini che possono verificarsi durante l'utilizzo del servizio LUIS.
@@ -67,7 +69,7 @@ Nei test in batch i punti dati rappresentano espressioni in cui l'app ha erronea
 
 Nei test in batch i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato la presenza della finalità/entità di destinazione.
 
-### <a name="precision"></a>Precisione
+### <a name="precision"></a>Precision
 Nei test in batch, la precisione (denominata anche valore predittivo positivo) è la frazione delle espressioni rilevanti tra le espressioni recuperate.
 
 Un esempio di test batch di animali è il numero di pecore stimate divise per il numero totale di animali (pecore e non pecore).
@@ -309,7 +311,7 @@ Per l' **inglese**, un token è un intervallo continuo (senza spazi o punteggiat
 |--|--|--|
 |`Dog`|1|Una singola parola senza segni di punteggiatura o spazi.|
 |`RMT33W`|1|Numero del localizzatore di record. Può contenere numeri e lettere, ma non presenta segni di punteggiatura.|
-|`425-555-5555`|5|Numero di telefono. Ogni segno di punteggiatura è `425-555-5555` costituito da un singolo token, quindi da 5 token:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
+|`425-555-5555`|5|Numero di telefono. Ogni segno di punteggiatura è  `425-555-5555` costituito da un singolo token, quindi da 5 token:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
 |`https://luis.ai`|7|`https`<br>`:`<br>`/`<br>`/`<br>`luis`<br>`.`<br>`ai`<br>|
 
 ## <a name="train"></a>Eseguire il training

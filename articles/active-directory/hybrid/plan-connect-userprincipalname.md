@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e105d4909705622a931c51bcb7cf0a9db4179525
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 58b4bbcac110398ee4ff132b76ce8c4868ee17f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279602"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317592"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Popolamento di UserPrincipalName di Azure AD
 
@@ -54,7 +54,7 @@ L’ID di accesso alternativo consente di configurare un'esperienza di accesso i
 
 Per abilitare l'ID di accesso alternativo con Azure AD, non sono necessari passaggi di configurazione aggiuntivi quando si usa Azure AD Connect. È possibile configurare l'ID alternativo direttamente dalla procedura guidata. Vedere la pagina relativa alla configurazione dell'accesso Azure AD per gli utenti nella sezione Sync. Nell'elenco a discesa **nome entità utente** selezionare l'attributo per ID di accesso alternativo.
 
-![Domini non verificati](./media/plan-connect-userprincipalname/altloginid.png)  
+![Screenshot che evidenzia l'elenco dei nomi dell'entità utente in cui si seleziona l'attributo ID di accesso alternativo.](./media/plan-connect-userprincipalname/altloginid.png)  
 
 Per altre informazioni, vedere [Configurare l'ID di accesso alternativo](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) e [Configurazione dell'accesso ad Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 

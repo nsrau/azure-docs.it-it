@@ -4,17 +4,17 @@ description: Azure Security benchmark V2 Identity Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bcd88f9f21c68f7f6cdda7299ac97d67e97dc009
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: a007b8e85440faab6f3d9f35c49ee207ee1597ff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059310"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295499"
 ---
-# <a name="security-control-identity-management"></a>Controllo di sicurezza: gestione delle identità
+# <a name="security-control-v2-identity-management"></a>Controllo di sicurezza V2: gestione delle identità
 
 Gestione delle identità riguarda i controlli per stabilire un'identità sicura e i controlli di accesso usando Azure Active Directory. Sono inclusi l'uso di Single Sign-On, le autenticazioni complesse, le identità gestite (e i principi di servizio) per le applicazioni, l'accesso condizionale e il monitoraggio delle anomalie dell'account.
 
@@ -45,9 +45,9 @@ Nota: Azure AD supporta provider di identità esterni, che consentono agli utent
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Identità e chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
+- [Gestione delle identità e delle chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -77,9 +77,9 @@ Usare Azure Key Vault per la registrazione dell'entità di sicurezza: Authentica
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Identità e chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Gestione delle identità e delle chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [Sicurezza delle applicazioni e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -97,11 +97,11 @@ Usare Azure AD Single Sign-On (SSO) per gestire e proteggere l'accesso ai dati e
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Identità e chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Gestione delle identità e delle chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [Sicurezza delle applicazioni e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -132,11 +132,11 @@ Nota: l'autenticazione basata solo sulle credenziali password è soggetta ai met
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Identità e chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Gestione delle identità e delle chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [Sicurezza delle applicazioni e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -179,7 +179,7 @@ Azure Advanced Threat Protection (ATP) è una soluzione di sicurezza che può us
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza delle applicazioni e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -201,9 +201,9 @@ Usare Azure AD accesso condizionale per un controllo di accesso più granulare i
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Identità e chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Gestione delle identità e delle chiavi](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [Sicurezza delle applicazioni e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -217,13 +217,17 @@ Usare Azure AD accesso condizionale per un controllo di accesso più granulare i
 |--|--|--|--|
 | ID-7 | 18,1, 18,7 | IA-5 |
 
-Implementare Credential scanner per identificare le credenziali all'interno del codice. Credential scanner consiglia inoltre di trasferire le credenziali individuate a posizioni più sicure, ad esempio Azure Key Vault.
+Implementare Azure DevOps Credential scanner per identificare le credenziali all'interno del codice. Credential scanner consiglia inoltre di trasferire le credenziali individuate a posizioni più sicure, ad esempio Azure Key Vault.
+
+Per GitHub, è possibile usare la funzionalità di analisi dei segreti nativi per identificare le credenziali o altre forme di segreti all'interno del codice.
 
 - [Come impostare Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
+- [Analisi dei segreti di GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
+
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza delle applicazioni e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -247,7 +251,7 @@ In alternativa, Microsoft Cloud App Security è un servizio CASB (cloud Access S
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

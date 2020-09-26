@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 1d0687e6cdcc8208218183cb873f9620a5525d37
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b8fe32a079358fda48c6f5ee0c7eec9894a543a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295907"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurare e accedere ai log di controllo per database di Azure per MySQL-server flessibile usando il portale di Azure
 
@@ -50,6 +50,9 @@ Abilitare e configurare la registrazione di controllo.
     <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/save-parameters.png" alt-text="Save":::-->
 
 ## <a name="set-up-diagnostics"></a>Configurare la diagnostica
+
+> [!NOTE]
+> L'integrazione con le impostazioni di diagnostica di monitoraggio di Azure per accedere ai log è in corso di distribuzione e la funzionalità completa sarà presto disponibile.
 
 I log di controllo sono integrati con le impostazioni di diagnostica di monitoraggio di Azure per consentire l'invio tramite pipe dei log a log di monitoraggio di Azure, Hub eventi o archiviazione di Azure.
 

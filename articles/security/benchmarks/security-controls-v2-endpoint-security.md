@@ -4,17 +4,17 @@ description: Sicurezza degli endpoint di benchmark di sicurezza di Azure V2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c04e4233ded34ceaeec9cd9afb240d3d1ac864e0
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 3eab0080f80b26fc7074d8a64885148c0568d8b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059260"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280623"
 ---
-# <a name="security-control-endpoint-security"></a>Controllo di sicurezza: Endpoint Security
+# <a name="security-control-v2-endpoint-security"></a>Controllo di sicurezza V2: sicurezza degli endpoint
 
 Endpoint Security copre i controlli nel rilevamento e nella risposta degli endpoint. Questo include l'uso del servizio di rilevamento e risposta dell'endpoint e del servizio antimalware per gli endpoint negli ambienti di Azure.
 
@@ -36,7 +36,7 @@ Microsoft Defender Advanced Threat Protection offre la funzionalità EDR come pa
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -64,7 +64,7 @@ Microsoft antimalware per servizi cloud di Azure è l'anti-malware predefinito p
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -88,7 +88,7 @@ Seguire le raccomandazioni nel centro sicurezza di Azure: " &amp; app di calcolo
 
 **Responsabilità**: Customer
 
-**Stakeholder**per la sicurezza dei clienti:
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security)
 

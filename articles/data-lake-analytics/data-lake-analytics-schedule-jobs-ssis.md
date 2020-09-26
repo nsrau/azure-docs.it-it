@@ -8,12 +8,12 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: ac747b87cf1a0f2d7c85d05975a31f953bfa5aae
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a5c7b9fb6a3431534d743f1ebd0b21f1da9fab7b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132501"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318705"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Pianificare processi U-SQL tramite SQL Server Integration Services (SSIS)
 
@@ -56,7 +56,7 @@ Eseguire i passaggi seguenti per configurare la connessione tra l'attività File
 
 Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività File system di Azure Data Lake Store**, un **contenitore del ciclo ForEach** e un'**attività di Azure Data Lake Analytics** nel contenitore del ciclo ForEach. L'attività File system di Azure Data Lake Store consente di scaricare file U-SQL in una cartella temporanea dell'account ADLS. Il contenitore del ciclo ForEach e l'attività di Azure Data Lake Analytics consentono di inviare i file U-SQL nella cartella temporanea all'account Azure Data Lake Analytics come processo U-SQL.
 
-![Usare file U-SQL in Azure Data Lake Store](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
+![Diagramma che mostra un'attività Azure Data Lake Store file System aggiunta a un contenitore ciclo foreach.](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
 
 ### <a name="configure-azure-data-lake-store-file-system-task"></a>Configurare l'attività File system di Azure Data Lake Store
 
@@ -77,7 +77,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
 
 3. Impostare **File** in **Configurazione enumeratore** su `*.usql` in modo che il contenitore del ciclo rilevi solo i file che terminano con `.usql`.
 
-    ![Configurare il contenitore del ciclo ForEach](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
+    ![Screenshot che mostra l'Editor ciclo foreach con "raccolta" selezionato e le sezioni di configurazione enumeratore ed enumeratore evidenziate.](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
 
 4. Nella pagina **Mapping variabili** aggiungere una variabile definita dall'utente per ottenere il nome per ogni file U-SQL. Impostare **Indice** su 0 per ottenere il nome file. In questo esempio definire una variabile denominata `User::FileName`. Questa variabile verrà usata per ottenere la connessione ai file degli script U-SQL e impostare il nome del processo U-SQL nell'attività di Azure Data Lake Analytics in modo dinamico.
 
@@ -94,7 +94,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
    1. Scegliere **\<New Connection...>** nell'impostazione FileConnection.
    2. Impostare **Tipo di utilizzo** su **File esistente**e **File** sul percorso di qualsiasi file esistente.
 
-       ![Configurare il contenitore del ciclo ForEach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Screenshot che mostra l'Editor gestione connessione file con "file esistente" selezionato per "tipo di utilizzo".](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
    3. Nella visualizzazione **Gestioni connessioni** fare con il pulsante destro del mouse sulla connessione file appena creata e scegliere **Proprietà**.
 

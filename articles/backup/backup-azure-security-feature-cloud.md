@@ -3,18 +3,18 @@ title: Eliminazione temporanea per backup di Azure
 description: Informazioni su come usare le funzionalità di sicurezza in backup di Azure per rendere più sicuri i backup.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 76928b98bdb21ffa79fce8435bfe4dda92e0c72d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d7998c7f9def6ce9965ded3b6ec700f7975891eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179964"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271546"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Eliminazione temporanea per backup di Azure
 
 Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e intrusioni, aumentano continuamente. Questi problemi di sicurezza possono essere costosi in termini di denaro e di dati. Per evitare tali attacchi, backup di Azure offre ora funzionalità di sicurezza che consentono di proteggere i dati di backup anche dopo l'eliminazione.
 
-Una di queste funzionalità è l'eliminazione temporanea. Con l'eliminazione temporanea, anche se un attore malintenzionato Elimina un backup (o elimina accidentalmente i dati di backup), i dati di backup vengono conservati per 14 giorni aggiuntivi, consentendo il ripristino di tale elemento di backup senza perdita di dati. Gli altri 14 giorni di conservazione per i dati di backup nello stato "eliminazione temporanea" non comportano alcun costo per l'utente.
+Una di queste funzionalità è l'eliminazione temporanea. Con l'eliminazione temporanea, anche se un attore malintenzionato Elimina un backup (o elimina accidentalmente i dati di backup), i dati di backup vengono conservati per 14 giorni aggiuntivi, consentendo il ripristino di tale elemento di backup senza perdita di dati. Gli altri 14 giorni di conservazione per i dati di backup nello stato "eliminazione temporanea" non comportano alcun costo.
 
 La protezione per l'eliminazione temporanea è disponibile per questi servizi:
 
@@ -29,7 +29,7 @@ Questo diagramma di flusso Mostra i diversi passaggi e Stati di un elemento di b
 
 L'eliminazione temporanea è abilitata per impostazione predefinita negli insiemi di credenziali appena creati per proteggere i dati di backup da eliminazioni accidentali o dannose.  La disabilitazione di questa funzionalità non è consigliata. L'unica circostanza in cui è consigliabile disabilitare l'eliminazione temporanea è se si prevede di trasferire gli elementi protetti in un nuovo insieme di credenziali e non è possibile attendere i 14 giorni necessari prima dell'eliminazione e della riprotezione (ad esempio in un ambiente di test). Questa funzionalità può essere disabilitata solo dal proprietario dell'insieme di credenziali. Se questa funzionalità viene disabilitata, tutte le successive eliminazioni di elementi protetti comporteranno la rimozione immediata, senza la possibilità di eseguire il ripristino. I dati di backup presenti nello stato di eliminazione temporanea prima di disabilitare questa funzionalità rimarranno in stato di eliminazione temporanea per il periodo di 14 giorni. Per eliminare definitivamente questi elementi immediatamente, è necessario annullarne l'eliminazione ed eliminarli di nuovo per eliminarli definitivamente.
 
- È importante ricordare che quando l'eliminazione temporanea è disabilitata, la funzionalità è disabilitata per tutti i tipi di carichi di lavoro, inclusi i carichi di lavoro di SQL Server e SAP HANA. Ad esempio, una volta abilitata l' [Anteprima di SQL Server/SAP Hana](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) per una sottoscrizione, non è possibile disabilitare l'eliminazione temporanea solo per SQL Server o SAP Hana i database mantenendola abilitata per le macchine virtuali nello stesso insieme di credenziali. È possibile creare insiemi di credenziali separati per il controllo granulare.
+È importante ricordare che quando l'eliminazione temporanea è disabilitata, la funzionalità è disabilitata per tutti i tipi di carichi di lavoro. Ad esempio, non è possibile disabilitare l'eliminazione temporanea solo per SQL Server o SAP HANA database e mantenerlo abilitato per le macchine virtuali nello stesso insieme di credenziali. È possibile creare insiemi di credenziali separati per il controllo granulare.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Disabilitazione dell'eliminazione temporanea con portale di Azure
 

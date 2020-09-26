@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 3a39b12afb715cf091ff1af1dcc7cc702769bed3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3a02581ab898fad0440f45626676ec6bdd7227eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908028"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318265"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 
@@ -58,7 +58,7 @@ if spec is None:
 > Se la pipeline contiene più moduli Execute Python script che richiedono pacchetti non inclusi nell'elenco preinstallato, installare i pacchetti in ogni modulo.
 
 ## <a name="upload-files"></a>Caricare file
-Il modulo Execute Python script supporta il caricamento di file tramite il [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#&preserve-view=trueupload-file-name--path-or-stream-).
+Il modulo Execute Python script supporta il caricamento di file tramite il [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
 
 L'esempio seguente illustra come caricare un file di immagine nel modulo Execute Python script:
 

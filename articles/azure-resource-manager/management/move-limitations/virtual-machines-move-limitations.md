@@ -2,13 +2,13 @@
 title: Spostare le macchine virtuali di Azure in una nuova sottoscrizione o in un gruppo di risorse
 description: Usare Azure Resource Manager per spostare le macchine virtuali in un nuovo gruppo di risorse o una nuova sottoscrizione.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 3878113f6874c40953bec87518a89519bdc6cb1a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/21/2020
+ms.openlocfilehash: 219a8b438d2715f6e97085a527b386e51759ec2c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230960"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317107"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Spostare le linee guida per le macchine virtuali
 
@@ -50,7 +50,7 @@ Se l' [eliminazione](../../../backup/backup-azure-security-feature-cloud.md) tem
    1. Trovare il percorso della macchina virtuale.
    2. Trovare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<VM location>_1` . Ad esempio, il nome è nel formato *AzureBackupRG_westus2_1*.
    3. Nella portale di Azure selezionare **Mostra tipi nascosti**.
-   4. Trovare la risorsa con il tipo **Microsoft. Compute/restorePointCollections** con il modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########` .
+   4. Trovare la risorsa con il tipo **Microsoft. Compute/restorePointCollections** con il modello di denominazione `AzureBackup_<VM name>_###########` .
    5. Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
    6. Al termine dell'operazione di eliminazione, è possibile spostare la macchina virtuale.
 
@@ -63,16 +63,31 @@ Se l' [eliminazione](../../../backup/backup-azure-security-feature-cloud.md) tem
 
 1. Trovare un gruppo di risorse con il modello di denominazione- `AzureBackupRG_<VM location>_1` . Ad esempio, il nome potrebbe essere `AzureBackupRG_westus2_1` .
 
-1. Usare il comando seguente per ottenere la raccolta di punti di ripristino.
+1. Se si sta muovendo una sola macchina virtuale, ottenere la raccolta di punti di ripristino per la macchina virtuale.
 
-   ```azurepowershell
-   $RestorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -ResourceType Microsoft.Compute/restorePointCollections
+   ```azurepowershell-interactive
+   $restorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -name AzureBackup_<VM name>* -ResourceType Microsoft.Compute/restorePointCollections
    ```
 
-1. Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
+   Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
 
-   ```azurepowershell
-   Remove-AzResource -ResourceId $RestorePointCollection.ResourceId -Force
+   ```azurepowershell-interactive
+   Remove-AzResource -ResourceId $restorePointCollection.ResourceId -Force
+   ```
+
+1. Se si stanno migrando tutte le macchine virtuali con backup in questa posizione, ottenere le raccolte di punti di ripristino per tali macchine virtuali.
+
+   ```azurepowershell-interactive
+   $restorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -ResourceType Microsoft.Compute/restorePointCollections
+   ```
+
+   Eliminare ogni risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
+
+   ```azurepowershell-interactive
+   foreach ($restorePoint in $restorePointCollection)
+   {
+     Remove-AzResource -ResourceId $restorePoint.ResourceId -Force
+   }
    ```
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
@@ -81,18 +96,28 @@ Se l' [eliminazione](../../../backup/backup-azure-security-feature-cloud.md) tem
 
 1. Trovare un gruppo di risorse con il modello di denominazione- `AzureBackupRG_<VM location>_1` . Ad esempio, il nome potrebbe essere `AzureBackupRG_westus2_1` .
 
-1. Usare il comando seguente per ottenere la raccolta di punti di ripristino.
+1. Se si sta muovendo una sola macchina virtuale, ottenere la raccolta di punti di ripristino per la macchina virtuale.
 
-   ```azurecli
-   az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections
+   ```azurecli-interactive
+   RESTOREPOINTCOL=$(az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections --query "[?starts_with(name, 'AzureBackup_<VM name>')].id" --output tsv)
    ```
 
-1. Trovare l'ID risorsa per la risorsa con il modello di denominazione `AzureBackup_<VM name>_###########`
+   Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
 
-1. Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
+   ```azurecli-interactive
+   az resource delete --ids $RESTOREPOINTCOL
+   ```
 
-   ```azurecli
-   az resource delete --ids /subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/Microsoft.Compute/restorePointCollections/<name>
+1. Se si stanno migrando tutte le macchine virtuali con backup in questa posizione, ottenere le raccolte di punti di ripristino per tali macchine virtuali.
+
+   ```azurecli-interactive
+   RESTOREPOINTCOL=$(az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections)
+   ```
+
+   Eliminare ogni risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
+
+   ```azurecli-interactive
+   az resource delete --ids $RESTOREPOINTCOL
    ```
 
 ## <a name="next-steps"></a>Passaggi successivi

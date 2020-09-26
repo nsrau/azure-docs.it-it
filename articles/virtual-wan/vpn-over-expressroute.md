@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: d3a2c85540a4efa2f934605c4c056b458e2879ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe8cf0da6cb6542646f3107980b49fb6fef9cb45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749590"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317634"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Crittografia ExpressRoute: IPsec su ExpressRoute per la rete WAN virtuale
 
@@ -222,7 +222,7 @@ Se sono necessarie istruzioni per configurare il dispositivo, è possibile usare
 ## <a name="5-view-your-virtual-wan"></a><a name="viewwan"></a>5. visualizzare la rete WAN virtuale
 
 1. Passare alla rete WAN virtuale.
-1. Nella pagina **Overview** ogni punto della mappa rappresenta un hub.
+1. Nella pagina **Panoramica** ogni punto sulla mappa rappresenta un hub.
 1. Nella sezione **Hub e connessioni** è possibile visualizzare lo stato di hub, sito, area e connessione VPN. È anche possibile visualizzare i byte in uscita e in uscita.
 
 ## <a name="7-monitor-a-connection"></a><a name="connectmon"></a>7. monitorare una connessione

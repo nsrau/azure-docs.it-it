@@ -1,16 +1,18 @@
 ---
 title: Progettare con i modelli-LUIS
 description: La comprensione del linguaggio offre diversi tipi di modelli. Alcuni modelli possono essere usati in più modi.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: bbb1f0d43b2a3fd2e8a2dff2201a09622ecaf977
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 576ba945018d13db9cd24888f3c41a2215857694
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683925"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316512"
 ---
-# <a name="design-with-intent-and-entity-models"></a>Progettazione con modelli di entità e finalità
+# <a name="design-with-intent-and-entity-models"></a>Modelli di progettazione con finalità ed entità
 
 La comprensione del linguaggio fornisce due tipi di modelli per definire lo schema dell'app. Lo schema dell'app determina quali informazioni vengono ricevute dalla stima di un nuovo enunciato utente.
 
@@ -63,7 +65,7 @@ LUIS supporta la _scomposizione dei modelli_ con le API di creazione, suddividen
 
 La scomposizione dei modelli include le parti seguenti:
 
-* [Intent](#intents-classify-utterances)
+* [intents](#intents-classify-utterances)
     * [funzionalità](#features)
 * [entità di Machine Learning](reference-entity-machine-learned-entity.md)
     * sottoentità (anche entità di machine learning)
@@ -78,7 +80,7 @@ La scomposizione dei modelli include le parti seguenti:
 
 Una [funzionalità](luis-concept-feature.md) è un tratto di distinzione o un attributo di dati osservato dal sistema. Le funzionalità di Machine Learning offrono a LUIS importanti indicazioni per la posizione in cui cercare gli elementi che distinguono un concetto. Sono suggerimenti che LUIS può usare, ma non regole rigide. Questi hint vengono usati insieme alle etichette per trovare i dati.
 
-## <a name="patterns"></a>Criteri
+## <a name="patterns"></a>Modelli
 
 I [modelli](luis-concept-patterns.md) sono progettati per migliorare l'accuratezza quando più espressioni sono molto simili. Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni.
 

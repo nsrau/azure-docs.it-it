@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: fadcefb0b802ec3064ac917ab98320f61f24ae5c
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: eb25fc0d7831bc06b708431ce3d47c73b36fe5c6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033524"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281251"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Supporto dell'hub IoT per le reti virtuali con collegamento privato e identità gestita
 
@@ -236,7 +236,7 @@ La funzionalità di caricamento dei file dell'hub IoT consente ai dispositivi di
 
 4. Nella pagina delle risorse dell'hub IoT, passare alla scheda **Caricamento file**.
 
-5. Nella pagina visualizzata selezionare il contenitore che si desidera utilizzare nell'archivio BLOB, configurare i valori per i campi **Impostazioni di notifica file**, **Durata TTL della firma di accesso condiviso**, **Durata (TTL) predefinita** e **Numero massimo di distribuzioni** in base alle esigenze. Selezionare **Identity-based** come **tipo di autenticazione** per l'endpoint di archiviazione. Fare clic sul pulsante **Create** (Crea).
+5. Nella pagina visualizzata selezionare il contenitore che si desidera utilizzare nell'archivio BLOB, configurare i valori per i campi **Impostazioni di notifica file**, **Durata TTL della firma di accesso condiviso**, **Durata (TTL) predefinita** e **Numero massimo di distribuzioni** in base alle esigenze. Selezionare **Identity-based** come **tipo di autenticazione** per l'endpoint di archiviazione. Fare clic sul pulsante **Crea**. Se si riceve un errore in questo passaggio, impostare temporaneamente l'account di archiviazione per consentire l'accesso da **tutte le reti**, quindi riprovare. È possibile configurare il firewall nell'account di archiviazione al termine della configurazione del caricamento del file.
 
 A questo punto, l'endpoint di archiviazione per il caricamento dei file è impostato per l'uso dell'identità assegnata dal sistema dell'hub e dispone dell'autorizzazione per accedere alla risorsa di archiviazione nonostante le restrizioni del firewall.
 

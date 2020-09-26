@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 80796d852c07952b7100c6dd7802bc9279f3218c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feef35ef86a933f32949468366fea85eb87d4866
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84198788"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315780"
 ---
 # <a name="bring-your-own-key-specification"></a>Specifica di BYOK (Bring Your Own Key)
 
@@ -33,9 +33,9 @@ Di seguito sono riportati i requisiti:
 
 |Nome chiave|Tipo chiave|Origine|Descrizione|
 |---|---|---|---|
-|Chiave scambio chiavi (KEK)|RSA|Modulo di protezione hardware Azure Key Vault|Coppia di chiavi RSA supportata da HSM generata in Azure Key Vault
-Chiave di wrapping|AES|HSM fornitore|Chiave AES [temporanea] generata da HSM locale
-Chiave di destinazione|RSA, EC, AES|HSM fornitore|Chiave da trasferire al modulo di protezione hardware Azure Key Vault
+|Chiave KEK (Key Exchange Key)|RSA|Modulo di protezione hardware di Azure Key Vault|Coppia di chiavi RSA supportata da HSM generata in Azure Key Vault
+Chiave di wrapping|AES|Modulo di protezione hardware del fornitore|Chiave AES [temporanea] generata da HSM locale
+Chiave di destinazione|RSA, EC, AES|Modulo di protezione hardware del fornitore|Chiave da trasferire nel modulo di protezione hardware di Azure Key Vault
 
 Chiave per lo **scambio delle chiavi**: chiave supportata da HSM generata dal cliente nell'insieme di credenziali delle chiavi in cui verrà importata la chiave BYOK. Questo KEK deve avere le proprietà seguenti:
 
@@ -119,7 +119,7 @@ Se si usa CKM_RSA_AES_KEY_WRAP_PAD, la serializzazione JSON del BLOB di trasferi
 
 ```
 
-* Kid = identificatore chiave di KEK. Per Key Vault chiavi, l'aspetto è simile al seguente:https://ContosoKeyVaultHSM.vault.azure.net/keys/mykek/eba63d27e4e34e028839b53fac905621
+* Kid = identificatore chiave di KEK. Per Key Vault chiavi, l'aspetto è simile al seguente: https://ContosoKeyVaultHSM.vault.azure.net/keys/mykek/eba63d27e4e34e028839b53fac905621
 * ALG = algoritmo. 
 * dir = modalità diretta, ovvero l'oggetto Kid a cui viene fatto riferimento viene usato per proteggere direttamente il testo crittografato, che è una rappresentazione accurata di CKM_RSA_AES_KEY_WRAP
 * Generator = campo informativo che indica il nome e la versione dello strumento BYOK e il produttore e il modello del modulo di protezione hardware di origine. Queste informazioni vengono utilizzate per la risoluzione dei problemi e il supporto.
@@ -159,19 +159,7 @@ Corpo della richiesta:
 il valore "key_hsm" è l'intero contenuto di KeyTransferPackage-ContosoFirstHSMkey. Byok codificato nel formato Base64.
 
 ## <a name="references"></a>Riferimenti
-
-### <a name="azure-key-vault-rest-api"></a>API REST di Azure Key Vault
-
-* [Creare la chiave](https://docs.microsoft.com/rest/api/keyvault/createkey/createkey)
-* [Ottenere la chiave (solo attributi chiave e chiave pubblica)](https://docs.microsoft.com/rest/api/keyvault/getkey/getkey)
-* [Importa chiave](https://docs.microsoft.com/rest/api/keyvault/importkey/importkey)
-
-
-### <a name="azure-cli-commands"></a>Comandi dell'interfaccia della riga di comando di Azure
-* [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
-* [Download della chiave AZ Key Vault](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download)
-* [importazione chiave di Key Vault](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import)
-
+- [Guida per gli sviluppatori all'insieme di credenziali delle chiavi](../general/developers-guide.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Istruzioni dettagliate per BYOK: [importare chiavi HSM protette in Key Vault (BYOK)](hsm-protected-keys-byok.md)

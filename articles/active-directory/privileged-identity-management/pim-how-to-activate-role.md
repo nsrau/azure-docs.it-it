@@ -14,12 +14,12 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 2a2c3c112183e102f6c3c4a0bebb83376c7e8d85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055453"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317538"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Attivare i ruoli di Azure AD in PIM
 
@@ -40,7 +40,7 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
 
 # <a name="new-version"></a>[Nuova versione](#tab/new)
 
-## <a name="activate-a-role"></a>Attivare un ruolo
+## <a name="activate-a-role-for-new-version"></a>Attivare un ruolo per la nuova versione
 
 Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'attivazione aprendo **ruoli personali** in Privileged Identity Management.
 
@@ -80,7 +80,7 @@ Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'at
 
     ![La richiesta di attivazione è una notifica di approvazione in sospeso](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## <a name="view-the-status-of-your-requests"></a>Visualizzare lo stato della richiesta da attivare
+## <a name="view-the-status-of-your-requests-for-new-version"></a>Visualizzare lo stato delle richieste per la nuova versione
 
 È possibile visualizzare lo stato delle richieste in attesa da attivare.
 
@@ -92,7 +92,7 @@ Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'at
 
 1. Scorrere verso destra per visualizzare la colonna **Stato richiesta**.
 
-## <a name="cancel-a-pending-request"></a>Annullare una richiesta in sospeso
+## <a name="cancel-a-pending-request-for-new-version"></a>Annulla una richiesta in sospeso per la nuova versione
 
 Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approvazione, è possibile annullare una richiesta in sospeso in qualsiasi momento.
 
@@ -106,7 +106,7 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 
    ![Elenco di richieste con azione di annullamento evidenziato](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot-for-new-version"></a>Risoluzione dei problemi per la nuova versione
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Le autorizzazioni non vengono concesse dopo l'attivazione di un ruolo
 

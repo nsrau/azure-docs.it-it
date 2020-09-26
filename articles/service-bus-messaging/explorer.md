@@ -3,12 +3,12 @@ title: Usare Azure Service Bus Explorer per eseguire operazioni sui dati nel bus
 description: Questo articolo fornisce informazioni su come usare Azure Service Bus Explorer basato sul portale per accedere ai dati del bus di servizio di Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 3fa619334f1918e16c487269fe3715f5338adf85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e97c6860c2cc01048f4f7caf9f40f9e07592d0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340534"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295601"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Usare Service Bus Explorer per eseguire operazioni sui dati nel bus di servizio (anteprima)
 
@@ -104,7 +104,7 @@ Per ricevere un messaggio da una coda (o dalla relativa coda secondaria dei mess
 
 Quando l'operazione di ricezione ha esito positivo, i dettagli del messaggio vengono visualizzati nella griglia come illustrato di seguito. È possibile selezionare il messaggio dalla griglia per visualizzarne i dettagli.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Screenshot della finestra code in Esplora bus di servizio di Azure con i dettagli del messaggio visualizzati per un messaggio attivo selezionato nella coda.":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>Anteprima di un messaggio da una coda
@@ -156,7 +156,7 @@ Come nel caso di una coda, è possibile eseguire l'operazione di ***ricezione***
 
 Quando l'operazione di ricezione ha esito positivo, il messaggio ricevuto verrà visualizzato nella griglia come illustrato di seguito. Per visualizzare i dettagli del messaggio, fare clic sul messaggio.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Screenshot della scheda ricezione in Esplora bus di servizio di Azure con i dettagli del messaggio visualizzati per un messaggio attivo che è stato ricevuto.":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Anteprima di un messaggio da una sottoscrizione
 
