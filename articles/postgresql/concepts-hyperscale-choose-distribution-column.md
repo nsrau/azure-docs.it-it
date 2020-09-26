@@ -1,22 +1,22 @@
 ---
 title: Scegliere le colonne di distribuzione-iperscala (CITUS)-database di Azure per PostgreSQL
-description: Informazioni su come scegliere le colonne di distribuzione in scenari con iperscalabilità comuni nel database di Azure per PostgreSQL.
+description: Informazioni su come scegliere le colonne di distribuzione in scenari comuni in database di Azure per PostgreSQL-iperscalabilità (CITUS).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3c86f4b194e6d3935434b35cae958dfcf772986
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975670"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314913"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Scegliere le colonne di distribuzione nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
 
-La scelta della colonna di distribuzione di ogni tabella è una delle decisioni di modellazione più importanti da eseguire. Database di Azure per PostgreSQL – iperscalabilità (CITUS) archivia le righe nelle partizioni in base al valore della colonna di distribuzione Rows.
+La scelta della colonna di distribuzione per ogni tabella è una delle decisioni più importanti da prendere per la modellazione. Database di Azure per PostgreSQL – iperscalabilità (CITUS) archivia le righe nelle partizioni in base al valore della colonna di distribuzione Rows.
 
 La scelta corretta raggruppa i dati correlati sugli stessi nodi fisici, rendendo rapidamente le query e aggiunge il supporto per tutte le funzionalità SQL. Una scelta non corretta rende l'esecuzione lenta del sistema e non supporta tutte le funzionalità SQL tra i nodi.
 

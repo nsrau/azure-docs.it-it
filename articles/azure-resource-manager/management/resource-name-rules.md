@@ -2,13 +2,13 @@
 title: Restrizioni di denominazione per le risorse
 description: Illustra le regole e le restrizioni di denominazione per le risorse di Azure.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 56c50354a6ecbd6ba1d9a806f986cea1c4f3215f
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.date: 09/23/2020
+ms.openlocfilehash: 0ee19140d3105e101c44ce70d77ccc9427600aa0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235979"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317090"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regole di denominazione e restrizioni per le risorse di Azure
 
@@ -174,8 +174,8 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > | galleries/images/versions | image | Intero a 32 bit | Numeri e punti. |
 > | images | gruppo di risorse | 1-80 | Caratteri alfanumerici, caratteri di sottolineatura, punti e trattini.<br><br>Deve iniziare con un carattere alfanumerico. Deve terminare con un carattere alfanumerico o di sottolineatura. |
 > | snapshots | gruppo di risorse | 1-80 | Caratteri alfanumerici, caratteri di sottolineatura, punti e trattini.<br><br>Deve iniziare con un carattere alfanumerico. Deve terminare con un carattere alfanumerico o di sottolineatura. |
-> | virtualMachines | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Non può iniziare con un carattere di sottolineatura. Non può terminare con un punto o un trattino. |
-> | virtualMachineScaleSets | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Non può iniziare con un carattere di sottolineatura. Non può terminare con un punto o un trattino. |
+> | virtualMachines | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare lo spazio o i caratteri seguenti:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Non può iniziare con un carattere di sottolineatura. Non può terminare con un punto o un trattino. |
+> | virtualMachineScaleSets | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare lo spazio o i caratteri seguenti:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Non può iniziare con un carattere di sottolineatura. Non può terminare con un punto o un trattino. |
 
 > [!NOTE]
 > Le macchine virtuali di Azure hanno due nomi distinti: il nome della risorsa e il nome host. Quando si crea una macchina virtuale nel portale, viene usato lo stesso valore per entrambi i nomi. Le restrizioni nella tabella precedente sono relative al nome host. Il nome della risorsa effettivo può avere al massimo 64 caratteri.

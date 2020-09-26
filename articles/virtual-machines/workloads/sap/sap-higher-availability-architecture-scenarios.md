@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f43ba78bc9c48b003d4718945dc47b0a076a048f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 82b0b53b1933a7ca08163a12b2b7649b7b9538f4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134541"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361637"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Uso del riavvio delle macchine virtuali dell'infrastruttura di Azure per ottenere una "maggiore disponibilità" di un sistema SAP
 
@@ -210,7 +210,7 @@ ms.locfileid: "86134541"
 
 > Questa sezione si applica a:
 >
-> ![Windows][Logo_Windows] Windows e ![Linux][Logo_Linux] Linux
+> ![Logo Windows.][Logo_Windows] Windows e ![Logo Linux.][Logo_Linux] Linux
 >
 
 Se si decide di non usare funzionalità come Windows Server Failover Clustering (WSFC) o Pacemaker in Linux (attualmente supportato solo per SUSE Linux Enterprise Server [SLES] 12 e versioni successive), viene usato il riavvio delle macchine virtuali di Azure. Questa funzionalità protegge i sistemi SAP da tempi di inattività pianificati e non pianificati dell'infrastruttura di server fisici di Azure e della piattaforma Azure sottostante nel suo complesso.

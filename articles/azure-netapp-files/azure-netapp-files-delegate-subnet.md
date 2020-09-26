@@ -14,28 +14,30 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 9bb3e93b99ce8d5a61501d417a71e5e38753f5ff
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: da7aa0889940c560df705e3c47f5ccb1960aee2c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513027"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361025"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegare una subnet ad Azure NetApp Files 
 
 È necessario delegare una subnet ad Azure NetApp Files.   Quando si crea un volume, è necessario specificare la subnet delegata.
 
 ## <a name="considerations"></a>Considerazioni
+
 * La procedura guidata per la creazione di una nuova subnet una maschera di rete /24, che serve 251 indirizzi IP disponibili. L'uso di un network mask/28, che fornisce 11 indirizzi IP utilizzabili, è sufficiente per il servizio.
 * In ogni rete virtuale di Azure (VNet), è possibile delegare solo una subnet in Azure NetApp Files.   
    Azure consente di creare più subnet delegate in un VNet.  Tuttavia, eventuali tentativi di creare un nuovo volume avranno esito negativo se si utilizza più di una subnet delegata.  
    In un VNet è possibile avere una sola subnet delegata. Un account NetApp può distribuire volumi in più reti virtuali, ognuno dei quali ha una propria subnet delegata.  
 * Non è possibile designare un gruppo di sicurezza di rete o un endpoint di servizio nella subnet delegata. In questo modo, la delegazione della subnet ha esito negativo.
 * L'accesso a un volume da una rete virtuale con peering globale non è attualmente supportato.
-* La creazione di [route personalizzate definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) in subnet VM con prefisso di indirizzo (destinazione) a una subnet delegata a Azure NetApp files non è supportata. Questa operazione influirà sulla connettività della macchina virtuale.
+* La creazione di [route personalizzate definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) in subnet VM con prefisso di indirizzo (destinazione) a una subnet delegata a Azure NetApp files non è supportata. Questa operazione influirà sulla connettività della macchina virtuale. Azure NetApp Files crea una route di sistema alla subnet delegata. Se necessario per la risoluzione dei problemi, la route viene visualizzata in **route valide** nella tabella di route.
 
-## <a name="steps"></a>Passaggi 
-1.  Andare al pannello **Reti virtuali** nel portale di Azure e selezionare la rete virtuale che si desidera usare per Azure NetApp Files.    
+## <a name="steps"></a>Passaggi
+
+1.  Passare al pannello **reti virtuali** nella portale di Azure e selezionare la rete virtuale che si vuole usare per Azure NetApp files.    
 
 1. Selezionare **Subnet** dal pannello Rete virtuale e fare clic sul pulsante **+Subnet**. 
 
@@ -48,7 +50,8 @@ ms.locfileid: "87513027"
     
 È anche possibile creare e delegare una subnet quando si [crea un volume per Azure NetApp Files](azure-netapp-files-create-volumes.md). 
 
-## <a name="next-steps"></a>Passaggi successivi  
+## <a name="next-steps"></a>Passaggi successivi
+
 * [Creare un volume per Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Informazioni sull'integrazione delle reti virtuali per i servizi di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
 

@@ -7,16 +7,16 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: victorh
-ms.openlocfilehash: 22273cf23e48de62d99a8c149ae3e2b1c05db3af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 733a9af589718e9abe8736491023003744428cd6
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005430"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361059"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Usare Log Analytics per esaminare i log del Web Application Firewall (WAF) del gateway applicazione
 
-Quando il gateway applicazione WAF è operativo, è possibile abilitare i log per controllare cosa accade con ogni richiesta. I log del firewall forniscono informazioni sulle attività di valutazione, corrispondenza e blocco del WAF. Con monitoraggio di Azure Log Analytics, è possibile esaminare i dati all'interno dei log del firewall per fornire informazioni ancora più dettagliate. Per ulteriori informazioni sulla creazione di un'area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md). Per altre informazioni sulle query di log, vedere [Panoramica delle query di log in monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
+Quando il gateway applicazione WAF è operativo, è possibile abilitare i log per controllare cosa accade con ogni richiesta. I log del firewall forniscono informazioni sulle attività di valutazione, corrispondenza e blocco del WAF. Con monitoraggio di Azure Log Analytics, è possibile esaminare i dati all'interno dei log del firewall per fornire informazioni ancora più dettagliate. Per ulteriori informazioni sulla creazione di un'area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md). Per altre informazioni sulle query di log, vedere [Panoramica delle query di log in Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="import-waf-logs"></a>Importa log WAF
 
@@ -79,7 +79,7 @@ AzureDiagnostics
 
 Dopo aver creato una query, è possibile aggiungerla al dashboard.  Selezionare il **Aggiungi al dashboard** nella parte superiore destra dell'area di lavoro di log Analytics. Con le quattro query precedenti aggiunte a un dashboard di esempio, si tratta dei dati che è possibile visualizzare a colpo d'occhio:
 
-![Dashboard](../media/log-analytics/dashboard.png)
+![Screenshot mostra un dashboard di Azure in cui è possibile aggiungere la query.](../media/log-analytics/dashboard.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

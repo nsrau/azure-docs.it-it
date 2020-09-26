@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d2e7be89b3319445a69d5b91990e9888cccd484a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b0bff0c6b3ef7934188b548bd06c35d83b323fde
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268622"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359597"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Come codificare un asset mediante Media Encoder Standard
 
@@ -101,7 +101,7 @@ Il seguente esempio mostra impostare l'attributo assetName:
 { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}`
 ```
 
-## <a name="considerations"></a>Considerazioni
+### <a name="considerations"></a>Considerazioni
 * Le proprietà TaskBody devono usare codice XML letterale per definire il numero di asset di input o di output che vengono usati dall'attività. L'articolo Attività contiene la definizione dello schema XML per il codice XML.
 * Nella definizione TaskBody ogni valore interno per `<inputAsset>` e `<outputAsset>`deve essere impostato come JobInputAsset(value) o JobOutputAsset(value).
 * Un'attività può avere più asset di output. Un oggetto JobOutputAsset(x) può essere usato solo una volta come output di un'attività in un processo.
@@ -295,5 +295,5 @@ HTTP/1.1 201 Created
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver spiegato il processo per la codifica di un asset, si può passare all'argomento [Procedura per controllare lo stato dei processi con Servizi multimediali](media-services-rest-check-job-progress.md).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 [Ottenere processori di contenuti multimediali](media-services-rest-get-media-processor.md)

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: vaidyas
-author: vaidyas
+author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python
-ms.openlocfilehash: b386c058a2795402cc60fddf6c187b57aec2185e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 133c885f29ceff0b8c4764507a80df5ee24cf4a1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328395"
+ms.locfileid: "91361728"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuire un modello di Machine Learning in funzioni di Azure (anteprima)
 
@@ -120,7 +120,7 @@ Quando `show_output=True` viene visualizzato l'output del processo di compilazio
 
 ## <a name="deploy-image-as-a-web-app"></a>Distribuire un'immagine come app Web
 
-1. Usare il comando seguente per ottenere le credenziali di accesso per il Container Registry di Azure che contiene l'immagine. Sostituire `<myacr>` con il valore restituito in precedenza da `package.location` : 
+1. Usare il comando seguente per ottenere le credenziali di accesso per il Container Registry di Azure che contiene l'immagine. Sostituire `<myacr>` con il valore restituito in precedenza da `blob.location` : 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>

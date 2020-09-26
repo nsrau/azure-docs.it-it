@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: de2579868ad72bdf4cf78c552e9553f289ecabd0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ed023f17e19c6a018f55cb95df6447c6e5474ce8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259066"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314879"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Estensioni PostgreSQL nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
 
@@ -74,7 +74,7 @@ Le tabelle seguenti includono un elenco delle estensioni standard di PostgreSQL 
 > | [ma viaggiarenel tempo](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | Funzioni per l'implementazione del viaggio temporale. |
 > | [uuid-ossp](https://www.postgresql.org/docs/current/static/uuid-ossp.html) | Genera identificatori universalmente univoci (UUID). |
 
-### <a name="hyperscale-extensions"></a>Estensioni di iperscala
+### <a name="hyperscale-citus-extensions"></a>Estensioni iperscale (CITUS)
 
 > [!div class="mx-tableFixed"]
 > | **Estensione** | **Descrizione** |

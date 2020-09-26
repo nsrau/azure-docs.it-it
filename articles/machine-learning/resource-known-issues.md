@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 1524e51fff64b00a798f15425973145feee730fe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 67ab15a6b890bc5f28cd18fca8a35adbc7437778
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651647"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280981"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi in Azure Machine Learning
 
@@ -291,12 +291,12 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **ModuleErrors (nessun modulo denominato)**: se si esegue ModuleErrors durante l'invio di esperimenti in Azure ml, significa che lo script di training prevede l'installazione di un pacchetto, ma non viene aggiunto. Una volta fornito il nome del pacchetto, Azure ML installa il pacchetto nell'ambiente usato per l'esecuzione del training. 
 
-    Se si usano gli [estimatori](concept-azure-machine-learning-architecture.md#estimators) per inviare esperimenti, è possibile specificare un nome di pacchetto `pip_packages` tramite `conda_packages` il parametro o nello strumento di stima basato su da quale origine si vuole installare il pacchetto. È anche possibile specificare un file yml con tutte le dipendenze usando `conda_dependencies_file` o elencare tutti i requisiti PIP in un file txt usando il `pip_requirements_file` parametro. Se si dispone di un oggetto ambiente di Azure ML personalizzato per cui si vuole eseguire l'override dell'immagine predefinita usata dallo strumento di stima, è possibile specificare tale ambiente tramite il `environment` parametro del costruttore Estimator.
+    Se si usano gli estimatori per inviare esperimenti, è possibile specificare un nome di pacchetto `pip_packages` tramite `conda_packages` il parametro o nello strumento di stima basato su da quale origine si vuole installare il pacchetto. È anche possibile specificare un file yml con tutte le dipendenze usando `conda_dependencies_file` o elencare tutti i requisiti PIP in un file txt usando il `pip_requirements_file` parametro. Se si dispone di un oggetto ambiente di Azure ML personalizzato per cui si vuole eseguire l'override dell'immagine predefinita usata dallo strumento di stima, è possibile specificare tale ambiente tramite il `environment` parametro del costruttore Estimator.
 
     Azure ML fornisce anche estimatori specifici del Framework per TensorFlow, PyTorch, Chainer e SKLearn. Con questi estimatori si assicurerà che le dipendenze del Framework di base siano installate per conto dell'utente nell'ambiente utilizzato per il training. È possibile specificare dipendenze aggiuntive, come descritto in precedenza. 
  
     Le immagini Docker gestite da Azure ML e il relativo contenuto possono essere visualizzate nei [contenitori AzureML](https://github.com/Azure/AzureML-Containers).
-    Le dipendenze specifiche del Framework sono elencate nella rispettiva documentazione di Framework- [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#&preserve-view=trueremarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#&preserve-view=trueremarks).
+    Le dipendenze specifiche del Framework sono elencate nella rispettiva documentazione di Framework- [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks).
 
     > [!Note]
     > Se si ritiene che un particolare pacchetto sia abbastanza comune da essere aggiunto in ambienti e immagini gestite da Azure ML, è necessario generare un problema di GitHub nei [contenitori AzureML](https://github.com/Azure/AzureML-Containers). 
@@ -305,7 +305,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **Horovod è stato arrestato**: nella maggior parte dei casi se si verifica l'arresto di "AbortedError: Horovod" questa eccezione significa che è presente un'eccezione sottostante in uno dei processi che hanno causato l'arresto di Horovod. Ogni rango nel processo MPI ottiene il proprio file di log dedicato in Azure ML. Questi log sono denominati `70_driver_logs` . In caso di training distribuito, i nomi dei log sono con suffisso `_rank` per semplificare la differenziazione dei log. Per individuare l'errore esatto che ha causato l'arresto di Horovod, esaminare tutti i file di log e cercare `Traceback` alla fine dei file di driver_log. Uno di questi file fornirà l'effettiva eccezione sottostante. 
 
-* **Esecuzione o eliminazione dell'esperimento**: gli esperimenti possono essere archiviati tramite il metodo [Experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truearchive--) o dalla visualizzazione della scheda dell'esperimento nel client di Azure Machine Learning Studio tramite il pulsante "Archivia esperimento". Questa azione consente di nascondere l'esperimento dall'elenco di query e viste, ma non di eliminarlo.
+* **Esecuzione o eliminazione dell'esperimento**: gli esperimenti possono essere archiviati tramite il metodo [Experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truearchive--) o dalla visualizzazione della scheda dell'esperimento nel client di Azure Machine Learning Studio tramite il pulsante "Archivia esperimento". Questa azione consente di nascondere l'esperimento dall'elenco di query e viste, ma non di eliminarlo.
 
     L'eliminazione permanente di singoli esperimenti o esecuzioni non è attualmente supportata. Per ulteriori informazioni sull'eliminazione delle risorse dell'area di lavoro, vedere [esportare o eliminare i dati dell'area di lavoro del servizio Machine Learning](how-to-export-delete-data.md).
 
@@ -320,7 +320,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>Funzionalità automatizzate di Machine Learning
 
-* Il **recente aggiornamento delle dipendenze di AutoML con le versioni più recenti verrà**suddiviso in compatibilitity: a partire dalla versione 1.13.0 dell'SDK, i modelli non verranno caricati in SDK precedenti a causa dell'incompatibilità tra le versioni precedenti che sono state aggiunte nei pacchetti precedenti e le versioni più recenti aggiunte ora. Verrà visualizzato un errore simile al seguente:
+* Il **recente aggiornamento delle dipendenze di AutoML a versioni più recenti avrà**una maggiore compatibilità: a partire dalla versione 1.13.0 dell'SDK, i modelli non verranno caricati in SDK precedenti a causa dell'incompatibilità tra le versioni precedenti che sono state aggiunte nei pacchetti precedenti e le versioni più recenti che si aggiungono ora. Verrà visualizzato un errore simile al seguente:
   * Il modulo non è stato trovato: es. `No module named 'sklearn.decomposition._truncated_svd` ,
   * Errori di importazione: es. `ImportError: cannot import name 'RollingOriginValidator'` ,
   * Errori di attributo: es. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
@@ -340,7 +340,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade scikit-learn==0.20.3
   ```
  
-* Il **Punteggio di previsione R2 è sempre zero**: questo problema si verifica se i dati di training forniti hanno una serie temporale che contiene lo stesso valore per gli ultimi `n_cv_splits`  +  `forecasting_horizon` punti dati. Se questo modello è previsto nella serie temporale, è possibile cambiare la metrica primaria in modo da normalizzare l'errore quadratico medio.
+* Il **Punteggio di previsione R2 è sempre zero**: questo problema si verifica se i dati di training forniti hanno una serie temporale che contiene lo stesso valore per gli ultimi `n_cv_splits`  +  `forecasting_horizon` punti dati. Se questo modello è previsto nella serie temporale, è possibile passare dalla metrica primaria alla radice normalizzata con l'errore quadratico medio.
  
 * **TensorFlow**: a partire dalla versione 1.5.0 dell'SDK, Machine Learning automatico non installa i modelli TensorFlow per impostazione predefinita. Per installare TensorFlow e usarlo con gli esperimenti di Machine Learning automatici, installare TensorFlow = = 1.12.0 tramite CondaDependecies. 
  
@@ -366,7 +366,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     * Verificare che sia installato conda 64 bit, anziché 32 bit eseguendo il `conda info` comando. `platform`Deve essere `win-64` per Windows o `osx-64` per Mac.
     * Verificare che sia installato conda 4.4.10 o versione successiva. È possibile controllare la versione con il comando `conda -V` . Se è installata una versione precedente, è possibile aggiornarla usando il comando: `conda update conda` .
     * Linux `gcc: error trying to exec 'cc1plus'`
-      *  Se `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` viene rilevato l'errore, installare build Essentials usando il comando ther `sudo apt-get install build-essential` .
+      *  Se `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` viene rilevato l'errore, installare build Essentials usando il comando `sudo apt-get install build-essential` .
       * Passare un nuovo nome come primo parametro per automl_setup per creare un nuovo ambiente conda. Visualizzare gli ambienti conda esistenti usando `conda env list` e rimuoverli con `conda env remove -n <environmentname>` .
       
 * **automl_setup_linux. sh ha esito negativo**: se automl_setup_linus. sh non riesce in Ubuntu Linux con l'errore: `unable to execute 'gcc': No such file or directory`-
@@ -376,7 +376,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   4. Esegui di `automl_setup_linux.sh` nuovo
 
 * **Configuration. ipynb ha esito negativo**:
-  * Per conda locale, assicurarsi prima di tutto che automl_setup sia in esecuzione susccessfully.
+  * Per conda locale, verificare innanzitutto che automl_setup sia stato eseguito correttamente.
   * Verificare che il subscription_id sia corretto. Trovare i subscription_id nel portale di Azure selezionando tutti i servizi e quindi sottoscrizioni. I caratteri "<" e ">" non devono essere inclusi nel valore di subscription_id. Ad esempio, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` ha il formato valido.
   * Assicurarsi che collaboratore o proprietario acceda alla sottoscrizione.
   * Verificare che l'area sia una delle aree supportate: `eastus2` , `eastus` , `westcentralus` , `southeastasia` , `westeurope` , `australiaeast` , `westus2` , `southcentralus` .
@@ -390,15 +390,15 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   3. Se è in uso una nuova sottoscrizione, un gruppo di risorse, un'area di lavoro o un'area, assicurarsi di eseguire di `configuration.ipynb` nuovo il notebook. La modifica di config.jsdirettamente funzionerà solo se l'area di lavoro esiste già nel gruppo di risorse specificato nella sottoscrizione specificata.
   4. Per modificare l'area, modificare l'area di lavoro, il gruppo di risorse o la sottoscrizione. `Workspace.create` non creerà o aggiornerà un'area di lavoro, se esiste già, anche se l'area specificata è diversa.
   
-* Errore del **notebook di esempio**: se un notebook di esempio ha esito negativo e si verifica un errore, il metodo o la libreria non esiste:
-  * Verificare che il kernel correctcorrect sia stato selezionato in jupyter notebook. Il kernel viene visualizzato nella parte superiore destra della pagina del notebook. Il valore predefinito è azure_automl. Si noti che il kernel viene salvato come parte del notebook. Se quindi si passa a un nuovo ambiente conda, sarà necessario selezionare il nuovo kernel nel notebook.
+* Errore del **notebook di esempio**: se un notebook di esempio ha esito negativo e si verifica un errore, la proprietà, il metodo o la libreria non esiste:
+  * Verificare che sia stato selezionato il kernel corretto nel notebook di jupyter. Il kernel viene visualizzato nella parte superiore destra della pagina del notebook. Il valore predefinito è azure_automl. Si noti che il kernel viene salvato come parte del notebook. Se quindi si passa a un nuovo ambiente conda, sarà necessario selezionare il nuovo kernel nel notebook.
       * Ad Azure Notebooks, deve essere Python 3,6. 
-      * Per gli ambienti conda locali, deve corrispondere al nome conda envioronment specificato in automl_setup.
+      * Per gli ambienti conda locali, deve essere il nome dell'ambiente conda specificato in automl_setup.
   * Verificare che il notebook sia per la versione dell'SDK in uso. È possibile controllare la versione dell'SDK eseguendo `azureml.core.VERSION` in una cella del notebook di jupyter. È possibile scaricare la versione precedente dei notebook di esempio da GitHub facendo clic sul `Branch` pulsante, selezionando la `Tags` scheda e quindi selezionando la versione.
 
 * L' **importazione numpy non riesce in Windows**: alcuni ambienti Windows visualizzano un errore durante il caricamento di numpy con la versione più recente di Python 3.6.8 tramite. Se viene visualizzato questo problema, provare con Python versione 3.6.7.
 
-* **Importazione numpy non riuscita**: controllare la versione di tensorflow nell'ambiente automatico ML conda. Le versioni supportate sono < 1,13. Disinstallare tensorflow dall'ambiente se la versione è >= 1,13 è possibile verificare la versione di tensorflow e disinstallarla come segue:
+* **Importazione numpy non riuscita**: controllare la versione di TensorFlow nell'ambiente automatico ML conda. Le versioni supportate sono < 1,13. Disinstallare TensorFlow dall'ambiente se la versione è >= 1,13 è possibile verificare la versione di TensorFlow e disinstallarla come segue:
   1. Avviare una shell dei comandi, attivare l'ambiente conda in cui sono installati i pacchetti di Machine Learning automatici.
   2. Immettere `pip freeze` e cercare `tensorflow` , se presente, la versione elencata deve essere < 1,13
   3. Se la versione elencata non è supportata, `pip uninstall tensorflow` nella shell dei comandi e immettere y per la conferma.

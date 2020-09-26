@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: 305242e13dab23b6a003c5d864073372a052601a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d6b1085d51d7345b233087986127cbc97c0597e1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593172"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362062"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Eseguire la migrazione dalla API Traduzione vocale al servizio riconoscimento vocale
 
@@ -26,7 +26,7 @@ Usare questo articolo per eseguire la migrazione delle applicazioni da Microsoft
 
 ## <a name="comparison-of-features"></a>Confronto delle funzionalità
 
-| Feature                                           | API Traduzione vocale                                  | Servizio Voce | Dettagli                                                                                                                                                                                                                                                                            |
+| Funzionalità                                           | API Traduzione vocale                                  | Servizio Voce | Dettagli                                                                                                                                                                                                                                                                            |
 |---------------------------------------------------|-----------------------------------------------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Traduzione in testo                               | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Traduzione in voce                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
@@ -61,7 +61,7 @@ Se l'utente o l'organizzazione dispone di applicazioni in fase di sviluppo o pro
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Prova gratuitamente il servizio vocale](get-started.md)
+* [Prova gratuitamente il servizio vocale](overview.md#try-the-speech-service-for-free)
 * [Avvio rapido: Riconoscimento vocale in un'applicazione piattaforma UWP con Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Vedere anche

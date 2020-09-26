@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80293938"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361365"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connettore SAP LaMa per Azure
 
@@ -124,7 +124,7 @@ Nella configurazione del connettore di Azure per SAP LaMa selezionare "Usa ident
 
 ### <a name="create-a-new-connector-in-sap-lama"></a>Creare un nuovo connettore in SAP LaMa
 
-Aprire il sito Web di SAP LaMa e passare a Infrastructure (Infrastruttura). Scegliere la scheda Cloud Managers (Gestori cloud) e fare clic su Add (Aggiungi). Selezionare Microsoft Azure Cloud Adapter e fare clic su Next (Avanti). Immettere le seguenti informazioni:
+Aprire il sito Web di SAP LaMa e passare a Infrastructure (Infrastruttura). Scegliere la scheda Cloud Managers (Gestori cloud) e fare clic su Add (Aggiungi). Selezionare Microsoft Azure Cloud Adapter e fare clic su Next (Avanti). Immettere le informazioni seguenti:
 
 * Label (Etichetta): scegliere un nome per l'istanza del connettore
 * Nome utente: ID dell'applicazione dell'entità servizio o ID dell'identità assegnata all'utente della macchina virtuale. Per ulteriori informazioni, vedere [utilizzo di un'identità assegnata a un sistema o a un utente]
@@ -260,14 +260,14 @@ Negli esempi seguenti si presuppone di aver installato SAP HANA con l'ID sistema
 
 Prima di avviare SAP Software Provisioning Manager (SWPM), è necessario montare l'indirizzo IP del nome host virtuale di ASCS. A tale scopo è consigliabile usare sapacext. Se si monta l'indirizzo IP usando sapacext, assicurarsi di rimontare l'indirizzo IP dopo un riavvio.
 
-![Linux][Logo_Linux] Linux
+![Logo Linux.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Logo Windows.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -276,7 +276,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-as
 
 Eseguire SWPM e usare *ah1-ascs* per *ASCS Instance Host Name* (Nome host istanza ASCS).
 
-![Linux][Logo_Linux] Linux  
+![Logo Linux.][Logo_Linux] Linux  
 Aggiungere il parametro seguente al profilo di SAP Host Agent che si trova in /usr/sap/hostctrl/exe/host_profile. Per altre informazioni, vedere la nota SAP [2628497].
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
@@ -387,14 +387,14 @@ Eseguire l'installazione dell'istanza del database di SWPM nella macchina virtua
 
 Prima di avviare SAP Software Provisioning Manager (SWPM), è necessario montare l'indirizzo IP del nome host virtuale del server applicazioni. A tale scopo è consigliabile usare sapacext. Se si monta l'indirizzo IP usando sapacext, assicurarsi di rimontare l'indirizzo IP dopo un riavvio.
 
-![Linux][Logo_Linux] Linux
+![Logo Linux.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Logo Windows.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>

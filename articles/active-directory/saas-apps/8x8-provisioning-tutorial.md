@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 41ffd7606cb4c01cd8c2da56898b67cf177c358e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 850db53cbf88968a413d72527d76463e17aa8f5d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329177"
+ms.locfileid: "91361705"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Esercitazione: Configurare 8x8 per il provisioning utenti automatico
 
@@ -104,7 +104,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 5. Nella sezione **Credenziali di amministratore** copiare l'**URL 8x8** da Configuration Manager in **URL tenant**. Copiare il **token API 8x8 Virtual** da Configuration Manager in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a 8x8. Se la connessione non riesce, verificare che l'account 8x8 abbia autorizzazioni di amministratore e riprovare.
 
-    ![Provisioning](./media/8x8-provisioning-tutorial/provisioning.png)
+    ![Screenshot mostra la finestra di dialogo credenziali amministratore, in cui è possibile immettere il tenant U R L e il token segreto.](./media/8x8-provisioning-tutorial/provisioning.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 

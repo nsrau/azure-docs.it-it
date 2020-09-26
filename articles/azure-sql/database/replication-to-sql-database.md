@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 6f1eb48655c4e38e2cf0520409e5e2b38750baf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 079d187f66cf77585121198df06cabafc454fea1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324148"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362130"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replica nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -52,7 +52,7 @@ Per usare tutte le funzionalità del database SQL di Azure, è necessario usare 
 
 Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
 
-| Replica | database SQL di Azure | Istanza gestita di SQL di Azure |
+| Replica | Database SQL di Azure | Istanza gestita di SQL di Azure |
 | :----| :------------- | :--------------- |
 | [**Transazionale standard**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Sì | 
 | [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Sì|
@@ -78,7 +78,7 @@ Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-dat
 
 ## <a name="replication-architecture"></a>Architettura della replica  
 
-![replica in un database sql](./media/replication-to-sql-database/replication-to-sql-database.png)  
+![Il diagramma illustra l'architettura di replica con il database SQL di Azure, che contiene diversi cluster di sottoscrittori in aree diverse e macchine virtuali di Azure locali, che contiene un server di pubblicazione, un eseguibile Logread e i file eseguibili del server di distribuzione che si connettono a cluster remoti.](./media/replication-to-sql-database/replication-to-sql-database.png)  
 
 ## <a name="scenarios"></a>Scenari  
 

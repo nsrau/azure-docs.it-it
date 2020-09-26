@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d453bb4071c4a6972e01b8f7e90375181caf6d01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d8bd72b6a03164a41e0b7c0ff00ac728cecf7f5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74806525"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355384"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transazioni e controllo della concorrenza ottimistica
 
@@ -53,9 +53,9 @@ Il controllo della concorrenza ottimistica consente di evitare la perdita di agg
 
 Gli aggiornamenti simultanei di un oggetto sono soggetti al controllo di concorrenza ottimistica dal livello di protocollo di comunicazione di Azure Cosmos DB. Il database di Azure Cosmos garantisce che la versione lato client dell'elemento in fase di aggiornamento (o di eliminazione) sia la stessa versione dell'elemento nel contenitore di Azure Cosmos. In questo modo si garantisce che le scritture non vengano sovrascritta accidentalmente dalle operazioni di scrittura di altri utenti e viceversa. In un ambiente multiutente, il controllo della concorrenza ottimistica protegge l'utente da un'accidentale eliminazione o aggiornamento della versione errata di un elemento. Di conseguenza, gli elementi sono protetti contro i famigerati problemi di "aggiornamento perso" o "eliminazione persa".
 
-Ogni elemento archiviato in un contenitore di Azure Cosmos ha un sistema definito proprietà `_etag`. Il valore di `_etag` viene automaticamente generato e aggiornato dal server ogni volta che viene aggiornato l'elemento. `_etag`può essere usato con l'intestazione della richiesta fornita dal client `if-match` per consentire al server di decidere se un elemento può essere aggiornato in modo condizionale. Il valore dell' `if-match` intestazione corrisponde al valore di `_etag` nel server, l'elemento viene quindi aggiornato. Se il valore dell' `if-match` intestazione della richiesta non è più aggiornato, il server rifiuta l'operazione con un messaggio di risposta "errore di precondizione HTTP 412". Il client può quindi recuperare nuovamente l'elemento per acquisire la versione corrente dell'elemento nel server o eseguire l'override della versione dell'elemento nel server con il proprio `_etag` valore per l'elemento. Inoltre, `_etag` può essere usato con l' `if-none-match` intestazione per determinare se è necessaria una rilettura di una risorsa.
+Ogni elemento archiviato in un contenitore di Azure Cosmos ha un sistema definito proprietà `_etag`. Il valore di `_etag` viene automaticamente generato e aggiornato dal server ogni volta che viene aggiornato l'elemento. `_etag` può essere usato con l'intestazione della richiesta fornita dal client `if-match` per consentire al server di decidere se un elemento può essere aggiornato in modo condizionale. Il valore dell' `if-match` intestazione corrisponde al valore di `_etag` nel server, l'elemento viene quindi aggiornato. Se il valore dell' `if-match` intestazione della richiesta non è più aggiornato, il server rifiuta l'operazione con un messaggio di risposta "errore di precondizione HTTP 412". Il client può quindi recuperare nuovamente l'elemento per acquisire la versione corrente dell'elemento nel server o eseguire l'override della versione dell'elemento nel server con il proprio `_etag` valore per l'elemento. Inoltre, `_etag` può essere usato con l' `if-none-match` intestazione per determinare se è necessaria una rilettura di una risorsa.
 
-Il valore dell'elemento `_etag` viene modificato ogni volta che l'elemento viene aggiornato. Per le operazioni Replace Item, `if-match` deve essere espressa in modo esplicito come parte delle opzioni di richiesta. Per un esempio, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674). `_etag`i valori vengono controllati in modo implicito per tutti gli elementi scritti dal stored procedure. Se viene rilevato un conflitto, il stored procedure eseguirà il rollback della transazione e genererà un'eccezione. Con questo metodo, tutte o nessuna scrittura all'interno della stored procedure viene applicata in modo atomico. Si tratta di un segnale per l'applicazione per riapplicare gli aggiornamenti e ripetere la richiesta del client originale.
+Il valore dell'elemento `_etag` viene modificato ogni volta che l'elemento viene aggiornato. Per le operazioni Replace Item, `if-match` deve essere espressa in modo esplicito come parte delle opzioni di richiesta. Per un esempio, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L676-L772). `_etag` i valori vengono controllati in modo implicito per tutti gli elementi scritti dal stored procedure. Se viene rilevato un conflitto, il stored procedure eseguirà il rollback della transazione e genererà un'eccezione. Con questo metodo, tutte o nessuna scrittura all'interno della stored procedure viene applicata in modo atomico. Si tratta di un segnale per l'applicazione per riapplicare gli aggiornamenti e ripetere la richiesta del client originale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

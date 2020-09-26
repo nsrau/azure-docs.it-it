@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/20/2020
-ms.openlocfilehash: f7327079e365bcd8a99a8274828f7c14e2337a34
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3487b5a069b1862ec302a979318ea78722b1433c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121555"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361688"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contratto standard per il marketplace commerciale Microsoft
 
@@ -21,7 +21,7 @@ Microsoft offre un contratto standard per il marketplace commerciale Microsoft c
 I termini e le condizioni di un'offerta vengono definiti durante la creazione dell'offerta nel Centro per i partner. È possibile scegliere di usare il contratto standard per il marketplace commerciale Microsoft anziché fornire termini e condizioni personalizzati.
 
 >[!Note]
->Dopo la pubblicazione di un'offerta con il contratto standard per il marketplace commerciale Microsoft, non è possibile usare i termini e le condizioni personalizzati. Si tratta di uno scenario "or". È possibile offrire la propria soluzione con il contratto standard *o* con i propri termini e condizioni. Se si vogliono modificare le condizioni del contratto standard, è possibile usare le modifiche del contratto standard stesso.
+>Dopo la pubblicazione di un'offerta con il contratto standard per Microsoft Commercial Marketplace, non sarà possibile usare i termini e le condizioni personalizzati. È possibile offrire la propria soluzione ai sensi del contratto standard *o* di termini e condizioni personalizzati. I termini e le condizioni personalizzati sono definiti a livello di offerta e si applicano a tutti i piani; scrivere i termini e le condizioni personalizzati nella pagina delle **Proprietà** dell'offerta nel centro per i partner. Se si desidera modificare le condizioni del contratto standard, è possibile eseguire questa operazione tramite le modifiche del contratto standard.
 
 ## <a name="standard-contract-amendments"></a>Modifiche del contratto standard
 

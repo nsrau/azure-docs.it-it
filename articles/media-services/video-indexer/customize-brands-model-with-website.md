@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: kumud
-ms.openlocfilehash: c3223bed6c8335a31b1bfb918e6d44e3b54a7787
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5bd88493324867dc957922a732506f5cfb8bbc20
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047268"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361235"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personalizzare un modello di Marchi con il sito Web di Video Indexer
 
@@ -42,7 +42,7 @@ Per una panoramica dettagliata, vedere questa [Panoramica](customize-brands-mode
 
 3. Per modificare i marchi, selezionare la scheda **Marchi**.
 
-    ![Personalizzare il modello di marchi in Video Indexer](./media/customize-brand-model/customize-brand-model.png)
+    ![Screenshot mostra la scheda marchi della finestra di dialogo personalizzazione modello di contenuto.](./media/customize-brand-model/customize-brand-model.png)
 
 4. Selezionare l'opzione **Mostra marchi suggeriti da Bing** se si vuole che video Indexer rilevi i marchi suggeriti da Bing. se non è possibile, lasciare l'opzione deselezionata.
 
@@ -54,7 +54,7 @@ La sezione **Includi marchi** rappresenta le marche personalizzate che si deside
 
 1. Selezionare **+ Aggiungi marchio**.
 
-    ![Personalizzare il modello di marchi in Video Indexer](./media/customize-brand-model/add-brand.png)
+    ![Screenshot mostra la finestra di dialogo Includi marchi in cui è possibile aggiungere i marchi.](./media/customize-brand-model/add-brand.png)
 
     Specificare un nome (obbligatorio), una categoria (facoltativa), una descrizione (facoltativa) e un URL di riferimento (facoltativo).
     Il campo categoria è pensato per facilitare l'aggiunta di tag ai marchi. Questo campo viene visualizzato come *tag* del marchio quando si usano le API di Video Indexer. Ad esempio, il marchio "Azure" può essere contrassegnato o classificato come "Cloud".

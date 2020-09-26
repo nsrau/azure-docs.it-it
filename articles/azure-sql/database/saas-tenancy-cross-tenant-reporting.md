@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: fe4b25dfd8bf96d1ed6dab189543e0e1b810ecd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3542bb502bbb0d41ff6a35902bc38262c26876de
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84026932"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361739"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Reporting tra tenant tramite query distribuite
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -93,7 +93,7 @@ Per esaminare la definizione della vista *Venues*:
 
 1. In **Esplora oggetti** espandere **contosoconcerthall** > **Viste**:
 
-   ![Viste](./media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Screenshot mostra il contenuto del nodo views, inclusi quattro tipi di evento d b o.](./media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Fare clic con il pulsante destro del mouse su **dbo.Venues**.
 3. Selezionare **la visualizzazione script come**  >  **Crea in**una  >  **nuova finestra dell'editor di query**
