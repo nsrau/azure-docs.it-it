@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 07a8c26f7fc314680c51270ebafe03d4e3a84757
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 098c0a85dc6c0fac8b78f344c4c8559b168b9114
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749846"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371338"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identità gestite in Azure HDInsight
 
@@ -27,7 +27,7 @@ Esistono due tipi di identità gestite: assegnato dall'utente e assegnato dal si
 
 In Azure HDInsight, le identità gestite sono utilizzabili solo dal servizio HDInsight per i componenti interni. Attualmente non è disponibile alcun metodo supportato per generare token di accesso usando le identità gestite installate nei nodi del cluster HDInsight per l'accesso ai servizi esterni. Per alcuni servizi di Azure, come le macchine virtuali di calcolo, le identità gestite vengono implementate con un endpoint che è possibile usare per acquisire i token di accesso. Questo endpoint non è attualmente disponibile nei nodi HDInsight.
 
-Se è necessario avviare le applicazioni per evitare di inserire segreti/password nei processi di analisi (ad esempio, i processi SCALA), è possibile distrubte i propri certificati ai nodi del cluster usando azioni script e quindi usare tale certificato per acquisire un token di accesso (ad esempio, per accedere ad Azure Vault).
+Se è necessario avviare le applicazioni per evitare di inserire segreti/password nei processi di analisi (ad esempio, i processi SCALA), è possibile distribuire i propri certificati ai nodi del cluster usando azioni script e quindi usare tale certificato per acquisire un token di accesso (ad esempio, per accedere ad Azure Vault).
 
 ## <a name="create-a-managed-identity"></a>Creare un'identità gestita
 
@@ -47,6 +47,15 @@ Le identità gestite vengono usate in HDInsight di Azure in più scenari. Per is
 * [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Crittografia dischi con chiavi gestite dal cliente](disk-encryption.md)
+
+HDInsight rinnoverà automaticamente i certificati per le identità gestite usate per questi scenari. Tuttavia, esiste una limitazione quando più identità gestite diverse vengono usate per i cluster con esecuzione prolungata, il rinnovo del certificato potrebbe non funzionare come previsto per tutte le identità gestite. A causa di questa limitazione, se si prevede di usare cluster con esecuzione prolungata, ad esempio più di 60 giorni, si consiglia di usare la stessa identità gestita per tutti gli scenari precedenti. 
+
+Se è già stato creato un cluster con esecuzione prolungata con più identità gestite diverse ed è in corso uno di questi problemi:
+ * Nei cluster ESP, i servizi cluster iniziano a funzionare in caso di errore o di scalabilità verticale e altre operazioni non riescono con errori di autenticazione.
+ * Nei cluster ESP, quando si modifica il certificato LDAPs di AAD-DS, il certificato LDAPs non viene aggiornato automaticamente e pertanto la sincronizzazione LDAP e le scale UPS iniziano a non riuscire.
+ * Accesso MSI a ADLS Gen2 avvio non riuscito.
+ * Non è possibile ruotare le chiavi di crittografia nello scenario CMK.
+quindi, è necessario assegnare i ruoli e le autorizzazioni richiesti per gli scenari precedenti a tutte le identità gestite utilizzate nel cluster. Se, ad esempio, sono state usate identità gestite diverse per i cluster ADLS Gen2 e ESP, è necessario che siano presenti i ruoli "proprietario dati BLOB di archiviazione" e "collaboratore servizi di dominio HDInsight" per evitare l'esecuzione di questi problemi.
 
 ## <a name="faq"></a>Domande frequenti
 

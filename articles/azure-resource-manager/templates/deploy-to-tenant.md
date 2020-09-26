@@ -3,12 +3,12 @@ title: Distribuire le risorse nel tenant
 description: Descrive come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: af75e4f0e51ac685986e57b3b92a23dd37174460
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284760"
+ms.locfileid: "91372392"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creare risorse a livello di tenant
 
@@ -24,7 +24,7 @@ Per i criteri di Azure, usare:
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
-Per il controllo degli accessi in base al ruolo, usare:
+Per il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), usare:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 

@@ -12,12 +12,12 @@ manager: rkarlin
 author: memildin
 ms.reviewer: vanto
 ms.date: 09/21/2020
-ms.openlocfilehash: b789cd423d2260ce709a02ffb3ac5ea500997609
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d567876e0210c025fa34c5b82791eafe4cdff561
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938625"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372154"
 ---
 # <a name="azure-defender-for-sql"></a>Azure Defender per SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -39,7 +39,7 @@ Per altre informazioni sui prezzi di Azure Defender per SQL, vedere la [pagina d
 
 Per iniziare a usare Azure Defender, seguire questa procedura.
 
-## <a name="1-enable-azure-defender"></a>1. abilitare Azure Defender
+## <a name="enable-azure-defender"></a>Abilitare Azure Defender
 
 È possibile accedere ad Azure Defender tramite il [portale di Azure](https://portal.azure.com). Abilitare Azure Defender passando al **Centro sicurezza** sotto l'intestazione di **sicurezza** per il server o l'istanza gestita.
 
@@ -48,15 +48,15 @@ Per iniziare a usare Azure Defender, seguire questa procedura.
 >
 > Il costo di Azure Defender è allineato con i prezzi del livello standard del Centro sicurezza di Azure per nodo, dove un nodo è l'intero server o istanza gestita. Si paga una sola volta per proteggere tutti i database nel server o nell'istanza gestita con Azure Defender. È possibile provare Azure Defender inizialmente con una versione di valutazione gratuita.
 
-## <a name="2-start-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. iniziare a tenere traccia delle vulnerabilità ed esaminare gli avvisi per le minacce
+## <a name="start-tracking-vulnerabilities-and-investigating-threat-alerts"></a>Inizia a tenere traccia delle vulnerabilità ed esamina gli avvisi relativi alle minacce
 
 Fare clic sulla scheda **Valutazione della vulnerabilità** per visualizzare e gestire le analisi e i report sulle vulnerabilità e tenere traccia del livello di sicurezza. Se sono stati ricevuti gli avvisi di sicurezza, fare clic sulla scheda **Advanced Threat Protection** per visualizzare i dettagli degli avvisi e per visualizzare un report consolidato su tutti gli avvisi nella sottoscrizione di Azure tramite la pagina avvisi di sicurezza del Centro sicurezza di Azure.
 
-## <a name="3-manage-azure-defender-settings"></a>3. gestire le impostazioni di Azure Defender
+## <a name="manage-azure-defender-settings"></a>Gestire le impostazioni di Azure Defender
 
 Per visualizzare e gestire le impostazioni di Azure Defender, passare al **Centro sicurezza** sotto l'intestazione di **sicurezza** per il server o l'istanza gestita. In questa pagina è possibile abilitare o disabilitare Azure Defender e modificare la valutazione della vulnerabilità e le impostazioni di Advanced Threat Protection per l'intero server o istanza gestita.
 
-## <a name="4-manage-azure-defender-settings-for-a-database"></a>4. gestire le impostazioni di Azure Defender per un database
+## <a name="manage-azure-defender-settings-for-a-database"></a>Gestire le impostazioni di Azure Defender per un database
 
 Per eseguire l'override delle impostazioni di Azure Defender per un determinato database, selezionare la casella **di controllo Abilita Azure Defender per SQL a livello di database** . Utilizzare questa opzione solo se si dispone di un particolare requisito per la ricezione di avvisi di protezione avanzata da minacce o di valutazione della vulnerabilità per il singolo database, al posto di o in aggiunta agli avvisi e ai risultati ricevuti per tutti i database nel server o nell'istanza gestita.
 
@@ -66,6 +66,6 @@ Azure Defender per le impostazioni SQL per il server o l'istanza gestita può es
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scopri di più sulla [valutazione della vulnerabilità](sql-vulnerability-assessment.md)
+- Altre informazioni su [Valutazione della vulnerabilità](sql-vulnerability-assessment.md)
 - Altre informazioni su [Advanced Threat Protection](threat-detection-configure.md)
 - Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)

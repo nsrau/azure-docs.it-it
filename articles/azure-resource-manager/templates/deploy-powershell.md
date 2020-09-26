@@ -3,12 +3,12 @@ title: Distribuire le risorse con PowerShell e il modello
 description: Usare Azure Resource Manager e Azure PowerShell per distribuire le risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: ef2ff71430f0dcaca660666bb9a6c015c923da3f
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: e47de54558962215fe3be78f5b9c45c8d46c54a3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536073"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372443"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell
 
@@ -124,7 +124,7 @@ L'esempio precedente richiede l'utilizzo di un URI accessibile pubblicamente per
 
 ## <a name="deploy-template-spec"></a>Distribuire la specifica di modello
 
-Anziché distribuire un modello locale o remoto, è possibile creare una [specifica del modello](template-specs.md). La specifica del modello è una risorsa nella sottoscrizione di Azure che contiene un modello ARM. Consente di condividere in modo sicuro il modello con gli utenti dell'organizzazione. Usare il controllo degli accessi in base al ruolo (RBAC) per concedere l'accesso alla specifica del modello. Questa funzionalità è attualmente disponibile in anteprima.
+Anziché distribuire un modello locale o remoto, è possibile creare una [specifica del modello](template-specs.md). La specifica del modello è una risorsa nella sottoscrizione di Azure che contiene un modello ARM. Consente di condividere in modo sicuro il modello con gli utenti dell'organizzazione. Usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per concedere l'accesso alla specifica del modello. Questa funzionalità è attualmente disponibile in anteprima.
 
 Gli esempi seguenti illustrano come creare e distribuire una specifica del modello. Questi comandi sono disponibili solo se è stata effettuata [l'iscrizione per l'anteprima](https://aka.ms/templateSpecOnboarding).
 

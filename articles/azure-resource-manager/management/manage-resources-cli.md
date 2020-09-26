@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8ecaf7a7df80cbb62bcb27373c47e26c70108d1e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9111a16a4264c4b225eaf0888fc09bd1bba07ef4
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827011"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372120"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Gestire le risorse di Azure usando l'interfaccia della riga di comando
 
@@ -137,7 +137,7 @@ L'assegnazione di tag consente di organizzare logicamente il gruppo di risorse e
 
 ## <a name="manage-access-to-resources"></a>Gestire l'accesso alle risorse
 
-Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) è la modalità di gestione dell'accesso alle risorse in Azure. Per altre informazioni, vedere [gestire l'accesso con RBAC e l'interfaccia della riga](../../role-based-access-control/role-assignments-cli.md)di comando di Azure.
+Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) è la modalità di gestione dell'accesso alle risorse in Azure. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia](../../role-based-access-control/role-assignments-cli.md)della riga di comando di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,12 +3,12 @@ title: Supporto dei tag per le risorse
 description: Informazioni sui tipi di risorse di Azure che supportano i tag. Include informazioni dettagliate per tutti i servizi di Azure.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: dd991167e703ad9faa7803bcecbbb6dc7eff94e7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 27e25b1048bb759a3b38859788c27c03f1cf0447
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284959"
+ms.locfileid: "91371542"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](tag-resources.md). La colonna con etichetta **supporta i tag** indica se il tipo di risorsa ha una proprietà per il tag. La colonna etichetta **nel report dei costi** indica se il tipo di risorsa passa il tag al report dei costi. È possibile visualizzare i costi in base ai tag nell' [analisi dei costi di gestione costi](../../cost-management-billing/costs/group-filter.md) e la [fattura e i dati di utilizzo giornalieri di Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -1537,11 +1537,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | aree di lavoro | Sì | Sì |
-> | aree di lavoro/CodeJobs | No | No |
 > | workspaces/computes | No | No |
 > | aree di lavoro/eventGridFilters | No | No |
-> | aree di lavoro/inferenceEndpoints | Sì | Sì |
-> | aree di lavoro/inferenceEndpoints/distribuzioni | Sì | Sì |
 > | aree di lavoro/linkedServices | No | No |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance

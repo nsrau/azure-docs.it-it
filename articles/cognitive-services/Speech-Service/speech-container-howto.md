@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: 6a1f8cc9526d1f8393f8e7aa434587d8e4c0e979
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: be4b7f6a0f8afae9188b1f969956424041e77d9e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334676"
+ms.locfileid: "91371678"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi vocali 
 
@@ -44,7 +44,7 @@ I contenitori del servizio Voce permettono ai clienti di creare un'architettura 
 | Sintesi vocale | Converte il testo in sintesi vocale naturale con input di testo normale o linguaggio di markup sintesi vocale (SSML). | 1.7.0 |
 | Sintesi vocale personalizzata | Usando un modello personalizzato dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal), converte il testo in un discorso di suono naturale con input di testo normale o SSML (Speech Synthesis Markup Language). | 1.7.0 |
 | Rilevamento lingua vocale | Rilevare la lingua pronunciata nei file audio. | 1.0 |
-| Sintesi vocale neurale | Converte il testo in sintesi vocale naturale usando la tecnologia di rete neurale profonda, consentendo una sintesi vocale più naturale. | 1.1.0 |
+| Sintesi vocale neurale | Converte il testo in sintesi vocale naturale usando la tecnologia di rete neurale profonda, consentendo una sintesi vocale più naturale. | 1.2.0 |
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 
@@ -245,7 +245,7 @@ Tutti i tag, ad eccezione di, `latest` sono nel formato seguente e fanno distinz
 Il seguente tag è un esempio del formato:
 
 ```
-1.1.0-amd64-en-us-arianeural-preview
+1.2.0-amd64-en-us-arianeural-preview
 ```
 
 Per tutte le impostazioni locali supportate e le voci corrispondenti del contenitore **da testo a voce neurale** , vedere [tag di immagine neurale da sintesi vocale](../containers/container-image-tags.md#neural-text-to-speech).

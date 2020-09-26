@@ -3,12 +3,12 @@ title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: fcbca4a1e3152dfa36d71031c2f69e8a40125380
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 004c3f35dae4a4966e9ac3d4756aecfba7df2075
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971028"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371731"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -328,7 +328,7 @@ Se non diversamente specificato, la tabella è valida per gli SKU v1, v2, Standa
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
-## <a name="role-based-access-control-limits"></a>Limiti relativi al controllo degli accessi in base al ruolo
+## <a name="azure-role-based-access-control-limits"></a>Limiti di controllo degli accessi in base al ruolo di Azure
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
 

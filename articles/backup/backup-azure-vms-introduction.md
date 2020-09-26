@@ -3,12 +3,12 @@ title: Informazioni sul backup di macchine virtuali di Azure
 description: Questo articolo illustra come il servizio backup di Azure esegue il backup delle macchine virtuali di Azure e come seguire le procedure consigliate.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 58079cba9a65ab4df3632bb641397ba10496ae81
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014643"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371508"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
@@ -105,6 +105,13 @@ Questi scenari comuni possono influire sul tempo di backup totale:
 - **Dischi frammentati:** Le operazioni di backup sono più veloci quando le modifiche del disco sono contigue. Se invece le modifiche sono distribuite e frammentate su un disco, il backup sarà più lento.
 - **Varianza del disco:** Se i dischi protetti di cui è in corso il backup incrementale hanno una varianza giornaliera superiore a 200 GB, il backup può richiedere molto tempo (più di otto ore) per il completamento.
 - **Versioni di backup:** La versione più recente di backup, nota come versione di ripristino istantaneo, usa un processo più ottimizzato rispetto al confronto tra checksum per l'identificazione delle modifiche. Tuttavia, se si usa il ripristino istantaneo ed è stato eliminato uno snapshot di backup, il backup passa a checksum checksum (confronto checksum). In questo caso, l'operazione di backup avrà una maggiore o uguale a 24 ore.
+
+### <a name="restore-performance"></a>Prestazioni di ripristino
+
+Questi scenari comuni possono influire sul tempo di ripristino totale:
+
+- Il tempo di ripristino totale dipende dalle operazioni di input/output al secondo (IOPS) e dalla velocità effettiva dell'account di archiviazione.
+- Il tempo di ripristino totale può essere influenzato se l'account di archiviazione di destinazione viene caricato con altre operazioni di lettura e scrittura dell'applicazione. Per migliorare l'operazione di ripristino, selezionare un account di archiviazione che non sia caricato con altri dati dell'applicazione.
 
 ## <a name="best-practices"></a>Procedure consigliate
 
