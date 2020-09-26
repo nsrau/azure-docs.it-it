@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
-ms.date: 7/31/2020
-ms.openlocfilehash: d8055c89af8adcb88a2055e617e27c030e05d5ae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: sstein
+ms.date: 09/16/2020
+ms.openlocfilehash: 2792a93748600d71c37972058c8e496928543c9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504382"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330707"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Ridimensionare le risorse dei pool elastici nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,12 +44,12 @@ La modifica del livello di servizio o delle dimensioni di calcolo di un pool ela
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latenza di modifica del livello di servizio o di ridimensionamento delle dimensioni di calcolo
 
-La latenza stimata per modificare il livello di servizio o ridimensionare le dimensioni di calcolo di un singolo database o di un pool elastico è parametrizzata come indicato di seguito:
+La latenza stimata per modificare il livello di servizio, ridimensionare le dimensioni di calcolo di un singolo database o di un pool elastico, spostare un database all'interno o all'esterno di un pool elastico oppure spostare un database tra pool elastici è parametrizzato come indicato di seguito:
 
 |Livello di servizio|Database singolo di base,</br>Standard (S0-S1)|Pool elastico di base,</br>Standard (S2-S12), </br>per utilizzo generico database singolo o il pool elastico|Premium o business critical database singolo o pool elastico|Hyperscale
 |:---|:---|:---|:---|:---|
 |**Database singolo Basic, </br> standard (S0-S1)**|&bull;&nbsp;Latenza temporale costante indipendente dallo spazio usato</br>&bull;&nbsp;In genere, meno di 5 minuti|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
-|**Pool elastico Basic, </br> standard (S2-S12), </br> per utilizzo generico database singolo o pool elastico**|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza temporale costante indipendente dallo spazio usato</br>&bull;&nbsp;In genere, meno di 5 minuti|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
+|**Pool elastico Basic, </br> standard (S2-S12), </br> per utilizzo generico database singolo o pool elastico**|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Per i database singoli, latenza temporale costante indipendente dallo spazio usato</br>&bull;&nbsp;In genere, meno di 5 minuti per database singoli</br>&bull;&nbsp;Per i pool elastici, proporzionale al numero di database|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
 |**Premium o business critical database singolo o pool elastico**|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
 |**Hyperscale**|N/D|N/D|N/D|&bull;&nbsp;Latenza temporale costante indipendente dallo spazio usato</br>&bull;&nbsp;In genere, meno di 2 minuti|
 
@@ -57,7 +57,7 @@ La latenza stimata per modificare il livello di servizio o ridimensionare le dim
 >
 > - In caso di modifica del livello di servizio o di ridimensionamento del calcolo per un pool elastico, è necessario usare la somma dello spazio usato in tutti i database nel pool per calcolare la stima.
 > - Nel caso in cui si sposti un database da e verso un pool elastico, solo lo spazio usato dal database influisca sulla latenza, non sullo spazio usato dal pool elastico.
-> - Per i pool elastici standard e per utilizzo generico, la latenza di trasferimento di un database all'interno o all'esterno di un pool elastico o tra pool elastici sarà proporzionale alle dimensioni del database se il pool elastico usa l'archiviazione di condivisione file Premium ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)). Per determinare se un pool utilizza l'archiviazione PFS, eseguire la query seguente nel contesto di qualsiasi database nel pool. Se il valore nella colonna AccountType è `PremiumFileStorage` , il pool utilizza l'archiviazione PFS.
+> - Per i pool elastici standard e per utilizzo generico, la latenza di trasferimento di un database all'interno o all'esterno di un pool elastico o tra pool elastici sarà proporzionale alle dimensioni del database se il pool elastico usa l'archiviazione di condivisione file Premium ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)). Per determinare se un pool utilizza l'archiviazione PFS, eseguire la query seguente nel contesto di qualsiasi database nel pool. Se il valore nella colonna AccountType è `PremiumFileStorage` o `PremiumFileStorage-ZRS` , il pool utilizza l'archiviazione PFS.
 
 ```sql
 SELECT s.file_id,

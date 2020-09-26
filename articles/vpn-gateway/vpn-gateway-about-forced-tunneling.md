@@ -1,18 +1,18 @@
 ---
 title: 'Gateway VPN di Azure: configurare il tunneling forzato-connessioni da sito a sito: versione classica'
-description: Come reindirizzare o forzare tutto il traffico associato a Internet verso il percorso locale.
+description: Informazioni su come configurare il tunneling forzato per le reti virtuali create usando il modello di distribuzione classica.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: fe06257127ff352f68fb27d3507cee0229e31498
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5999ef8431ce1e128c3775450eedf13644505918
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77201578"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313536"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configurare il tunneling forzato con il modello di distribuzione classico
 

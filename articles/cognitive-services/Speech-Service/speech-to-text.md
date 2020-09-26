@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
-keywords: sintesi vocale, riconoscimento vocale e testo
-ms.openlocfilehash: 804acd17f3df91cc3df949d6d9ccac0450bb225f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+keywords: riconoscimento vocale, software di riconoscimento vocale
+ms.openlocfilehash: f4392881c2f572b1e53d7c283ef5c1debc1d20ea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569221"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359937"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è il riconoscimento vocale?
 
@@ -58,5 +58,5 @@ La trascrizione batch è un set di operazioni API REST che consentono di trascri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
+- [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](overview.md#try-the-speech-service-for-free)
 - [Ottenere Speech SDK](speech-sdk.md)

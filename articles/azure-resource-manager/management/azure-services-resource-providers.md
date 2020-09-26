@@ -3,12 +3,12 @@ title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 34b2476b8194b8ad6f8e7e86e2644a1c0d0bbb4b
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b740c8ee7c28bfeeaecc42121d0c7ce4a323ab3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484002"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330826"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -18,7 +18,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 
 | Spazio dei nomi del provider di risorse | Servizio di Azure |
 | --------------------------- | ------------- |
-| Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
+| Microsoft.AAD | [Servizi di dominio Azure Active Directory](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | core |
 | Microsoft. ADHybridHealthService<sup>1</sup> | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft.Advisor | [Azure Advisor](../../advisor/index.yml) |
@@ -43,7 +43,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.BlockchainTokens | [Token di blockchain di Azure](https://azure.microsoft.com/services/blockchain-tokens/) |
 | Microsoft.Blueprint | [Azure Blueprint](../../governance/blueprints/index.yml) |
 | Microsoft.BotService | [Servizio Azure Bot](/azure/bot-service/) |
-| Microsoft.Cache | [Cache di Azure per Redis](../../azure-cache-for-redis/index.yml) |
+| Microsoft.Cache | [Cache Redis di Azure](../../azure-cache-for-redis/index.yml) |
 | Microsoft.Capacity | core |
 | Microsoft.Cdn | [Rete per la distribuzione di contenuti (CDN)](../../cdn/index.yml) |
 | Microsoft.CertificateRegistration | [Certificati del servizio app](../../app-service/configure-ssl-certificate.md#import-an-app-service-certificate) |
@@ -56,12 +56,12 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.CognitiveServices | [Servizi cognitivi](../../cognitive-services/index.yml) |
 | Microsoft. Commerce<sup>1</sup> | core |
 | Microsoft.Compute | [Macchine virtuali](../../virtual-machines/index.yml)<br />[Set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/index.yml) |
-| Microsoft. consumo<sup>1</sup> | [Gestione costi](/azure/cost-management/) |
-| Microsoft.ContainerInstance | [Istanze di contenitore](../../container-instances/index.yml) |
-| Microsoft.ContainerRegistry | [Registro contenitori](../../container-registry/index.yml) |
+| Microsoft. consumo<sup>1</sup> | [Gestione dei costi](/azure/cost-management/) |
+| Microsoft.ContainerInstance | [Istanze di Container](../../container-instances/index.yml) |
+| Microsoft.ContainerRegistry | [Registro Container](../../container-registry/index.yml) |
 | Microsoft.ContainerService | [Servizio Azure Kubernetes](../../aks/index.yml) |
-| Microsoft. CostManagement<sup>1</sup> | [Gestione costi](/azure/cost-management/) |
-| Microsoft.CostManagementExports | [Gestione costi](/azure/cost-management/) |
+| Microsoft. CostManagement<sup>1</sup> | [Gestione dei costi](/azure/cost-management/) |
+| Microsoft.CostManagementExports | [Gestione dei costi](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | [Customer Lockbox per Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft.CustomProviders | [Provider personalizzati di Azure](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](../../databox/index.yml) |
@@ -98,7 +98,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.HealthcareApis | [API di Azure per FHIR](../../healthcare-apis/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
-| Microsoft. HybridNetwork  | Supporto dello stack Edge |
+| Microsoft. HybridNetwork  | [Zone perimetrali private](../../networking/edge-zones-overview.md) |
 | Microsoft.ImportExport | [Importazione/Esportazione di Azure](../../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
@@ -163,9 +163,9 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.Solutions | [Applicazioni gestite di Azure](../managed-applications/index.yml) |
 | Microsoft.Sql | [Database SQL di Azure](../../azure-sql/database/index.yml)<br /> [Istanza gestita di database SQL di Azure](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [SQL Server in macchine virtuali di Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
-| Microsoft.Storage | [Archiviazione](../../storage/index.yml) |
+| Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft.StorageCache | [Cache HPC di Azure](../../hpc-cache/index.yml) |
-| Microsoft.StorageSync | [Archiviazione](../../storage/index.yml) |
+| Microsoft.StorageSync | [Storage](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
@@ -188,4 +188,4 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui provider di risorse, ad esempio su come registrare un provider di risorse, vedere [provider e tipi di risorse di Azure](resource-providers-and-types.md) .
+Per altre informazioni sui provider di risorse, ad esempio su come registrare un provider di risorse, vedere [provider e tipi di risorse di Azure](resource-providers-and-types.md).

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: ea5f2d5838c926fa8ee7b92278b0854264346a7b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 7d36984e7117305b22381e4266575e998c080ae5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543759"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360192"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importare o esportare un database SQL di Azure senza consentire ai servizi di Azure di accedere al server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Creare una macchina virtuale di Azure selezionando il pulsante **Distribuisci in
 Questo modello consente di distribuire una semplice macchina virtuale Windows usando alcune opzioni diverse per la versione di Windows, usando la versione più recente con patch. Verrà distribuita una macchina virtuale di dimensioni a2 nella posizione del gruppo di risorse e verrà restituito il nome di dominio completo della macchina virtuale.
 <br><br>
 
-[![Immagine che mostra un pulsante con etichetta "Distribuisci in Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
+[![Immagine che mostra il pulsante "Distribuisci in Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
 
 Per altre informazioni, vedere [distribuzione molto semplice di una macchina virtuale Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows).
 
@@ -44,7 +44,7 @@ Nei passaggi seguenti viene illustrato come connettersi alla macchina virtuale t
 
 1. Al termine della distribuzione, passare alla risorsa macchina virtuale.
 
-   ![VM](./media/database-import-export-azure-services-off/vm.png)  
+   ![Screenshot mostra una pagina di panoramica della macchina virtuale con un pulsante Connetti.](./media/database-import-export-azure-services-off/vm.png)  
 
 2. Selezionare **Connetti**.
 

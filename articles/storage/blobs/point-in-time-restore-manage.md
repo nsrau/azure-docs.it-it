@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 226e35452e4b266c3c0a698505d47ab9a53b9761
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984382"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280471"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Eseguire un ripristino temporizzato sui dati BLOB in blocchi
 
@@ -54,9 +54,7 @@ L'immagine seguente illustra un account di archiviazione configurato per il ripr
 
 Per configurare il ripristino temporizzato con PowerShell, installare prima il modulo [AZ. storage](https://www.powershellgallery.com/packages/Az.Storage) versione 2.6.0 o successiva. Chiamare quindi il comando Enable-AzStorageBlobRestorePolicy per abilitare il ripristino temporizzato per l'account di archiviazione.
 
-L'esempio seguente abilita l'eliminazione temporanea e imposta il relativo periodo di conservazione, abilita il feed di modifiche e quindi abilita il ripristino temporizzato. Prima di eseguire l'esempio, usare il portale di Azure o un modello di Azure Resource Manager per abilitare anche il controllo delle versioni dei BLOB.
-
-Quando si esegue l'esempio, assicurarsi di sostituire i valori tra parentesi uncinate con i propri valori:
+L'esempio seguente abilita l'eliminazione temporanea e imposta il periodo di memorizzazione dell'eliminazione temporanea, Abilita il feed delle modifiche e il controllo delle versioni, quindi Abilita il ripristino temporizzato.    Quando si esegue l'esempio, assicurarsi di sostituire i valori tra parentesi uncinate con i propri valori:
 
 ```powershell
 # Sign in to your Azure account.
@@ -71,10 +69,11 @@ Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 14
 
-# Enable change feed.
+# Enable change feed and versioning.
 Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -EnableChangeFeed $true
+    -EnableChangeFeed $true `
+    -IsVersioningEnabled $true
 
 # Enable point-in-time restore with a retention period of 7 days.
 # The retention period for point-in-time restore must be at least

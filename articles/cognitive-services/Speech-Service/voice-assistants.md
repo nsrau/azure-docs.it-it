@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 18a9de8a2eaa2364e89e831db8dab5cbbb061c10
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 4bdca8921a99db764cbc8ee1edfdad8cf8b8568f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299246"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360940"
 ---
 # <a name="what-is-a-voice-assistant"></a>Che cos'è un assistente vocale?
 
@@ -27,7 +27,7 @@ Il servizio Voice Assistant fornisce un'interazione rapida e affidabile tra un d
 
 Il primo passaggio per la creazione di un assistente vocale è quello di decidere cosa fare. Il servizio di riconoscimento vocale offre più soluzioni complementari per la creazione di interazioni con gli assistenti. È possibile aggiungere funzionalità Voice in e Voice out ai bot flessibili e versatili creati usando il servizio Azure bot con il canale di [sintesi vocale Direct Line](direct-line-speech.md) o sfruttare la semplicità di creazione di un'app di [comandi personalizzata](custom-commands.md) per gli scenari di comandi vocali semplici.
 
-| Per... | Quindi, prendere in considerazione... | Per esempio... |
+| Per... | Quindi, prendere in considerazione... | Ad esempio... |
 |-------------------|------------------|----------------|
 |Conversazione aperta con Solid Skills Integration e controllo completo della distribuzione | Bot del servizio bot di Azure con canale [vocale Direct Line](direct-line-speech.md) | <ul><li>"Devo andare a Seattle"</li><li>"Che tipo di pizza è possibile ordinare?"</li></ul>
 |Comandi vocali o conversazioni semplici orientate alle attività con creazione e hosting semplificate | [Comandi personalizzati](custom-commands.md) | <ul><li>"Accendere la luce del sovraccarico"</li><li>"Renderlo 5 gradi più caldo"</li><li>Altri esempi [disponibili qui](https://speech.microsoft.com/customcommands)</li></ul>
@@ -81,7 +81,7 @@ Gli assistenti vocali creati con servizi di riconoscimento vocale di Azure posso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
+* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](overview.md#try-the-speech-service-for-free)
 * [Altre informazioni sui comandi personalizzati](custom-commands.md)
 * [Scopri di più su Direct Line Speech](direct-line-speech.md)
 * [Ottenere Speech SDK](speech-sdk.md)

@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ac0b3c151b379096ffb60e049d18b8f6219b1445
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651173"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359682"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteggere l'accesso ai dati in Azure Machine Learning
 
@@ -48,7 +48,7 @@ Quando si è pronti per usare i dati nella soluzione di archiviazione basata su 
 
 Il diagramma seguente fornisce una dimostrazione visiva di questo flusso di lavoro consigliato.
 
-![Data-Concept-diagramma](./media/concept-data/data-concept-diagram.svg)
+![Il diagramma mostra il servizio di archiviazione di Azure che scorre in un archivio dati, che scorre in un set di dati. Il set di dati passa al training del modello, che passa alla deviazione dei dati, che esegue il flusso al set di dati.](./media/concept-data/data-concept-diagram.svg)
 
 ## <a name="datastores"></a>Archivi dati
 
