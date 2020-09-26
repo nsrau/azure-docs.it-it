@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 2edb3060437080e528d41d4af5f4affd4fbf3316
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d32a51e391edbfd32cf57265562d4e0cb8fe0681
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010189"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362181"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Risoluzione dei problemi di connettività nel pool Synapse SQL
 
@@ -34,13 +34,14 @@ Verrà visualizzato lo stato del pool SQL. Se il servizio non viene indicato com
 
 Se Integrità risorsa indica che l'istanza del pool SQL è in pausa o in fase di ridimensionamento, seguire le istruzioni per riprenderne l'esecuzione.
 
-![Servizio sospeso](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Qui è possibile trovare altre informazioni su Integrità risorsa.
+![Screenshot mostra un'istanza di SQL data warehouse sospesa o in scala.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+Altre informazioni su Integrità risorse sono disponibili qui.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Verificare la presenza di operazioni in pausa o in fase di ridimensionamento
 
 Controllare il portale per verificare se l'istanza del pool SQL è in pausa o in fase di ridimensionamento.
 
-![Servizio sospeso](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![Screenshot che illustra come verificare se un data warehouse è sospeso.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
 Se il servizio risulta in pausa o in fase di ridimensionamento, verificare se è in corso un intervento di manutenzione pianificata. Nella finestra *Panoramica* del portale per il pool SQL verrà visualizzata la data pianificata per la manutenzione.
 

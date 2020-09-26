@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf9e00e8acba241f1445977dcc53724b9981039f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 721389b557fde41b1461654b03299601e2384108
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068682"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361331"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Clustering di un'istanza ASCS/SCS di SAP in un cluster di failover Windows tramite una condivisione file in Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 
 Windows Server Failover Clustering è alla base di un'istallazione ASCS/SCS di SAP a disponibilità elevata e di un sistema DBMS in Windows.
@@ -137,7 +137,7 @@ Per usare una condivisione file di tipo scale-out, il sistema deve soddisfare i 
 * Per ottenere prestazioni di rete di buon livello tra le macchine virtuali, necessari per la sincronizzazione dei dischi di Spazi di archiviazione diretta, usare un tipo di macchina virtuale che abbia almeno una larghezza di banda "alta".
     Per altre informazioni, vedere le specifiche [DSv2-Series][dv2-series] e [DS-Series][ds-series].
 * È consigliabile riservare capacità non allocata nel pool di archiviazione. Se si lascia capacità non allocata nel pool di archiviazione, si lascia ai volumi lo spazio per il ripristino "sul posto" nel caso in cui un'unità si guasti. Questo approccio migliora le prestazioni e la sicurezza dei dati.  Per altre informazioni, vedere [Scelta delle dimensioni dei volumi][choosing-the-size-of-volumes-s2d].
-* Non è necessario configurare il servizio di bilanciamento del carico interno di Azure per il nome di rete della condivisione file di scalabilità orizzontale, ad esempio per \<SAP global host\> . Questa operazione viene eseguita per l' \<ASCS/SCS virtual host name\> istanza di SAP ASC/SCS o per il sistema DBMS. Una condivisione file di tipo scale-out scala orizzontalmente il carico su tutti i nodi del cluster. \<SAP global host\>Usa l'indirizzo IP locale per tutti i nodi del cluster.
+* Non è necessario configurare il servizio di bilanciamento del carico interno di Azure per il nome di rete della condivisione file di scalabilità orizzontale, ad esempio per \<SAP global host\> . Questa operazione viene eseguita per l' \<ASCS/SCS virtual host name\> istanza di SAP ASC/SCS o per il sistema DBMS. Una condivisione file di tipo scale-out scala orizzontalmente il carico su tutti i nodi del cluster. \<SAP global host\> Usa l'indirizzo IP locale per tutti i nodi del cluster.
 
 
 > [!IMPORTANT]

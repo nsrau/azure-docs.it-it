@@ -1,18 +1,18 @@
 ---
 title: Reindirizzamento del traffico esterno tramite l'interfaccia della riga di comando-applicazione Azure gateway
-description: Informazioni su come creare un gateway applicazione che reindirizza il traffico Web interno al pool appropriato usando l'interfaccia della riga di comando di Azure.
+description: Informazioni su come creare un gateway applicazione che reindirizza il traffico Web esterno al pool appropriato usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 7566122e4edf4357562e830197fade746f18a16f
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5a8d7aff6a030b3adbb5370caa166bbd290e09bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594245"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331047"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento esterno tramite l'interfaccia della riga di comando di Azure
 
@@ -131,8 +131,4 @@ Nel browser dovrebbe essere visualizzato *bing.com*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le procedure per:
-
-> * Configurare la rete
-> * Creare un listener e una regola di reindirizzamento
-> * Creare un gateway applicazione
+- [Creare un gateway applicazione con reindirizzamento interno tramite l'interfaccia della riga di comando di Azure](redirect-internal-site-cli.md)

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/07/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1690d4b236fce53e033f08fa6825eefe6359d9e9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362215"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Panoramica dell'isolamento e della privacy della rete virtuale
 
@@ -80,10 +80,20 @@ Per istruzioni dettagliate su come eseguire questa procedura, vedere [proteggere
 ### <a name="limitations"></a>Limitazioni
 
 La protezione dell'area di lavoro e delle risorse associate all'interno di una rete virtuale presenta le limitazioni seguenti:
-- Il collegamento privato dell'area di lavoro è disponibile solo nelle aree seguenti: eastus, westus2, southcentralus
-    - Questa limitazione non si applica alle risorse associate. Ad esempio, è possibile abilitare VNet per l'archiviazione in qualsiasi area Azure Machine Learning.
+- Il collegamento privato dell'area di lavoro è disponibile solo nelle aree seguenti:
+    - **Stati Uniti orientali**
+    - **Stati Uniti centro-meridionali**
+    - **Stati Uniti occidentali**
+    - **Stati Uniti occidentali 2**
+    - **Canada centrale**
+    - **Asia sud-orientale**
+    - **Giappone orientale**
+    - **Europa settentrionale**
+    - **Australia orientale**
+    - **Regno Unito meridionale**
+    
+    Questa limitazione non si applica alle risorse associate. Ad esempio, è possibile abilitare VNet per l'archiviazione in qualsiasi area Azure Machine Learning.
 - Tutte le risorse devono trovarsi dietro la stessa VNet. Tuttavia, le subnet all'interno dello stesso VNet sono consentite.
-- Alcune funzionalità di studio come la finestra di progettazione, AutoML, l'assegnazione di etichette e il profiling dei dati non possono essere usate con gli account di archiviazione configurati per usare un endpoint privato. Se è necessario usare queste funzionalità di studio, usare invece gli endpoint di servizio.
 
 ## <a name="secure-the-training-environment"></a>Proteggere l'ambiente di training
 
@@ -150,7 +160,7 @@ Sebbene studio possa accedere ai dati in un account di archiviazione configurato
 * Inviare un esperimento AutoML.
 * Avviare un progetto di assegnazione di etichette.
 
-Per abilitare la funzionalità completa durante l'uso di un endpoint del servizio di archiviazione, vedere [usare Azure Machine Learning Studio in una rete virtuale](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Attualmente, studio non supporta gli endpoint privati di archiviazione.
+Per abilitare la funzionalità completa durante l'uso di un endpoint del servizio di archiviazione, vedere [usare Azure Machine Learning Studio in una rete virtuale](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Studio supporta sia gli endpoint di servizio sia gli endpoint privati per gli account di archiviazione.
 
 ### <a name="limitations"></a>Limitazioni
 - Studio non è in grado di accedere ai dati negli account di archiviazione configurati per l'uso di endpoint privati. Per la funzionalità completa, è necessario usare gli endpoint di servizio per l'archiviazione e usare l'identità gestita.

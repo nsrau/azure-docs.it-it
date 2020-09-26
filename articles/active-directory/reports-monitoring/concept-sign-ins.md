@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99e15c6d1ca33623151b7a2d75e3e28878f673ef
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2791b62d8abb1ade199ae3eb72deaf4db56f3725
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603595"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361297"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -142,18 +142,18 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 ![Filtro app client](./media/concept-sign-ins/client-app-filter.png)
 
 
-|NOME|Autenticazione moderna|Descrizione|
+|Nome|Autenticazione moderna|Descrizione|
 |---|:-:|---|
 |SMTP autenticato| |Usato dai client POP e IMAP per inviare messaggi di posta elettronica.|
 |Individuazione automatica| |Usato dai client Outlook e EAS per trovare e connettersi alle cassette postali in Exchange Online.|
 |Exchange ActiveSync| |Questo filtro Mostra tutti i tentativi di accesso in cui è stato tentato il protocollo EAS.|
-|Browser|![Segno di spunta](./media/concept-sign-ins/check.png)|Mostra tutti i tentativi di accesso degli utenti che usano i Web browser|
+|Browser|![Segno di spunta blu.](./media/concept-sign-ins/check.png)|Mostra tutti i tentativi di accesso degli utenti che usano i Web browser|
 |Exchange ActiveSync| | Mostra tutti i tentativi di accesso da parte degli utenti con le app client che usano Exchange ActiveSync per connettersi a Exchange Online|
 |PowerShell per Exchange Online| |Usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [Connettersi a Exchange Online PowerShell con l'autenticazione a più fattori](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Servizi Web Exchange| |Interfaccia di programmazione usata da Outlook, Outlook per Mac e app di terze parti.|
 |IMAP4| |Un client di posta legacy che usa IMAP per recuperare la posta elettronica.|
 |MAPI su HTTP| |Usato da Outlook 2010 e versioni successive.|
-|App per dispositivi mobili e client desktop|![Segno di spunta blu](./media/concept-sign-ins/check.png)|Mostra tutti i tentativi di accesso degli utenti che usano app per dispositivi mobili e client desktop.|
+|App per dispositivi mobili e client desktop|![Segno di spunta blu.](./media/concept-sign-ins/check.png)|Mostra tutti i tentativi di accesso degli utenti che usano app per dispositivi mobili e client desktop.|
 |Rubrica non in linea| |Copia delle raccolte di elenchi di indirizzi scaricate e utilizzate da Outlook.|
 |Outlook Anywhere (RPC su HTTP)| |Usato da Outlook 2016 e versioni precedenti.|
 |Servizio Outlook| |Usato dall'app mail e Calendar per Windows 10.|
@@ -228,7 +228,7 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 
 - ID utente
 - Utente
-- Nome utente
+- Username
 - ID applicazione
 - Applicazione
 - Client

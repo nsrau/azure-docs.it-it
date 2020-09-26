@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: db4c3be7c79448e4cf0df39688959ae09a671dbd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527378"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361416"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informazioni sulle reti in ripristino di emergenza per macchine virtuali di Azure
 
@@ -82,11 +82,11 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
 1. Creare una regola di sicurezza HTTPS in uscita (443) per "Storage.EastUS" nel gruppo di sicurezza di rete, come illustrato nello screenshot seguente.
 
-      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![Screenshot mostra aggiungere una regola di sicurezza in uscita per un gruppo di sicurezza di rete per l'archiviazione punto est U S.](./media/azure-to-azure-about-networking/storage-tag.png)
 
 2. Creare una regola di sicurezza HTTPS in uscita (443) per "AzureActiveDirectory" nel gruppo di sicurezza di rete, come illustrato nello screenshot seguente.
 
-      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![Screenshot mostra la regola di sicurezza in uscita aggiunta per un gruppo di sicurezza di rete per Azure A D.](./media/azure-to-azure-about-networking/aad-tag.png)
 
 3. Analogamente alle regole di sicurezza sopra riportate, creare una regola di sicurezza HTTPS in uscita (443) per "EventHub. Centralus" in NSG che corrisponde al percorso di destinazione. In questo modo è possibile accedere al monitoraggio Site Recovery.
 

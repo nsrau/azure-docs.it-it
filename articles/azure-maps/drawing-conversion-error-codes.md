@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681984"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361535"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Errori e avvisi di conversione dei disegni
 
@@ -35,9 +35,9 @@ Il servizio di conversione non è in grado di creare una funzionalità di mappa 
 
 * Le due immagini seguenti mostrano esempi di poligoni che si auto-intersecano.
 
-     ![Esempio di poligono che si auto-interseca](./media/drawing-conversion-error-codes/geometry-warning-1.png)
+     ![Esempio di poligono con intersezione automatica, ad esempio uno.](./media/drawing-conversion-error-codes/geometry-warning-1.png)
 
-     ![Esempio di poligono che si auto-interseca](./media/drawing-conversion-error-codes/geometry-warning-2.png)
+     ![Esempio di poligono con intersezione automatica, esempio due.](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
 * Di seguito è riportata un'immagine che mostra una polilinea non chiusa. Si supponga che il livello supporti solo la geometria chiusa.
 

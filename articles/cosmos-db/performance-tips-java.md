@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d6aad3107acbeaa76f1cf7e5d9c631a2a5aa8b6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ac7879590424fa921425dcd077503733affeb634
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327821"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361748"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB Sync Java SDK v2
 
@@ -65,14 +65,14 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
       DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
       ```
 
-      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Illustrazione dei criteri di connessione di Azure Cosmos DB" border="false":::
+      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Il diagramma mostra i criteri di connessione di Azure Cosmos D B." border="false":::
 
    <a id="same-region"></a>
 2. **Collocare i client nella stessa area di Azure per ottenere prestazioni migliori**
 
     Quando possibile, posizionare eventuali applicazioni che chiamano Azure Cosmos DB nella stessa area del database Azure Cosmos. Per un confronto approssimativo, le chiamate ad Azure Cosmos DB eseguite nella stessa area vengono completate entro 1-2 millisecondi, mentre la latenza tra la costa occidentale e quella orientale degli Stati Uniti è > 50 millisecondi. Questa latenza può variare da richiesta a richiesta, in base alla route seguita dalla richiesta durante il passaggio dal client al limite del data center di Azure. È possibile ottenere la latenza più bassa possibile assicurandosi che l'applicazione chiamante si trovi nella stessa area di Azure in cui si trova l'endpoint di Azure Cosmos DB con provisioning. Per un elenco delle aree disponibili, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Illustrazione dei criteri di connessione di Azure Cosmos DB" border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Il diagramma mostra le richieste e le risposte in due aree, in cui i computer si connettono a un account Cosmos D B attraverso servizi di livello intermedio." border="false":::
    
 ## <a name="sdk-usage"></a>Uso dell'SDK
 1. **Installare l'SDK più recente**

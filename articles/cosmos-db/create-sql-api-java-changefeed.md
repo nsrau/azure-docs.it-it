@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 3f2dcefa8ed2f4b80ec66851cdc67ee2283a6ac7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
-ms.translationtype: HT
+ms.openlocfilehash: 86fcdde72145cf25ee289ef3869976fecd628707
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322823"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362045"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Come creare un'applicazione Java che usa l'API SQL di Azure Cosmos DB e il processore del feed di modifiche
 
@@ -110,11 +110,11 @@ mvn clean package
 
 1. A questo punto, in Esplora dati passare a **InventoryContainer-PKType > items** (InventoryContainer-pktype > elementi). Questa è la vista materializzata. È stato eseguito il mirroring degli elementi di **InventoryContainer** in questo contenitore perché sono stati inseriti a livello di codice dal feed di modifiche. Si noti la chiave di partizione (```type```). Questa vista materializzata è quindi ottimizzata per le query che filtrano in base a ```type```, operazione che non risulterebbe efficiente in **InventoryContainer** perché è partizionato su ```id```.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Vista materializzata":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Screenshot mostra la pagina Esplora dati per un account Azure Cosmos D B con gli elementi selezionati.":::
 
 1. Verrà ora eliminato un documento da **InventoryContainer** e **InventoryContainer-PKType** usando solo una singola chiamata a ```upsertItem()```. Osservare Esplora dati nel portale di Azure. Verrà eliminato il documento per cui ```/type == "plums"``` è cerchiato in rosso sotto
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Vista materializzata":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Screenshot mostra la pagina di Esplora dati per un account Azure Cosmos D B con un determinato elemento I D selezionato.":::
 
     Premere di nuovo INVIO per chiamare la funzione ```deleteDocument()``` nel codice di esempio. Questa funzione, mostrata sotto, esegue l'upsert di una nuova versione del documento con ```/ttl == 5```, che imposta il valore della durata TTL del documento su 5 secondi. 
     
