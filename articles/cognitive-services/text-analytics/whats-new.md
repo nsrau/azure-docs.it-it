@@ -10,16 +10,40 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: f017960e304df04148c318b5098f384e6140de9a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 436d64583184ca2cd59b4ddf33056922c746fb34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930911"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271172"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
 Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sempre aggiornati sui recenti sviluppi, in questo articolo vengono fornite informazioni sulle nuove versioni e funzionalità.
+
+## <a name="september-2020"></a>Settembre 2020
+
+### <a name="general-api-updates"></a>Aggiornamenti generali dell'API
+
+* Rilascio di un nuovo URL per l'anteprima pubblica di Analisi del testo v 3.1 per supportare gli aggiornamenti agli endpoint denominati di Entity Recognition V3 seguenti: 
+    * `/pii` l'endpoint include ora la nuova `redactedText` proprietà nel codice JSON della risposta dove le entità pii rilevate nel testo di input vengono sostituite da un `*` per ogni carattere di tali entità.
+    * `/linking` l'endpoint include ora la `bingID` proprietà nel codice JSON della risposta per le entità collegate.
+* Gli endpoint dell'API Analisi del testo anteprima seguenti sono stati ritirati il 4 settembre 2020:
+    * versione 2.1-anteprima
+    * v3.0 - Anteprima
+    * v 3.0-Anteprima. 1
+    
+> [!div class="nextstepaction"]
+> [Altre informazioni su API Analisi del testo v 3.1-Preview. 2](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Languages)
+
+### <a name="text-analytics-for-health-container-updates"></a>Analisi del testo per gli aggiornamenti del contenitore di integrità
+
+Gli aggiornamenti seguenti sono specifici della versione di settembre del Analisi del testo solo per il contenitore di integrità.
+* Una nuova immagine contenitore con tag `1.1.013530001-amd64-preview` con la nuova versione del modello `2020-09-03` è stata rilasciata nel repository containerpreview. 
+* Questa versione del modello offre miglioramenti al riconoscimento delle entità, al rilevamento delle abbreviazioni e ai miglioramenti della latenza.
+
+> [!div class="nextstepaction"]
+> [Altre informazioni su Analisi del testo per l'integrità](how-tos/text-analytics-for-health.md)
 
 ## <a name="august-2020"></a>Agosto 2020
 
@@ -31,7 +55,7 @@ Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sem
 * Verrà ora restituito un errore HTTP 400 per le richieste API V3 che superano i [limiti dei dati](concepts/data-limits.md)pubblicati. 
 * Gli endpoint che restituiscono un offset supportano ora il `stringIndexType` parametro facoltativo, che consente di modificare `offset` i `length` valori restituiti e in modo che corrispondano a uno [schema di indice delle stringhe](concepts/text-offsets.md)supportato.
 
-### <a name="text-analytics-for-health-container-august-updates"></a>Analisi del testo per il contenitore di integrità aggiornamenti agosto
+### <a name="text-analytics-for-health-container-updates"></a>Analisi del testo per gli aggiornamenti del contenitore di integrità
 
 Gli aggiornamenti seguenti sono specifici della versione di agosto del Analisi del testo solo per il contenitore di integrità.
 
@@ -151,7 +175,7 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
     * Organization
     * Age come sottotipo sotto Quantity
     * Data come sottotipo sotto DateTime
-    * Posta elettronica 
+    * E-mail 
     * Numero di telefono (solo Stati Uniti)
     * URL
     * Indirizzo IP
@@ -191,7 +215,7 @@ Supporta inglese (), `en` giapponese () `ja` , cinese semplificato ( `zh-Hans` )
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Qual è la API Analisi del testo?](overview.md)  
+* [Informazioni sull'API Analisi del testo](overview.md)  
 * [Esempi di scenari utente](text-analytics-user-scenarios.md)
 * [Analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Rilevamento della lingua](how-tos/text-analytics-how-to-language-detection.md)

@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 182b4f262361db001dcb6d47bf3e8f2aac6bc9b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6a272294ca602e3f482156a7334084bf041f683e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091522"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307552"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure usando Azure PowerShell
 
@@ -40,7 +40,7 @@ Si apprenderà come:
 
 Prima di iniziare:
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](azure-to-azure-architecture.md).
-- Esaminare i [requisiti di supporto](azure-to-azure-support-matrix.md) per tutti i componenti.
+- Verificare i [requisiti di supporto](azure-to-azure-support-matrix.md) per tutti i componenti.
 - Si dispone del `Az` modulo Azure PowerShell. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Accedere alla sottoscrizione di Microsoft Azure
@@ -623,7 +623,7 @@ Al termine della riprotezione, è possibile eseguire il failover in direzione in
 È possibile disabilitare la replica con il `Remove-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet.
 
 ```azurepowershell
-Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicationProtectedItem
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

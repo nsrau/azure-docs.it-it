@@ -6,19 +6,19 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: da827b994685e95baf28e3ad34072642c24fa510
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: c1a64bff8b81735d9c4c9a14d2c1e12bd0bfe57e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422607"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296162"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Scrittura di plug-in per Azure Media Player #
 
 Un plug-in è scritto da JavaScript per estendere o migliorare il lettore. È possibile scrivere plug-in che modificano l'aspetto di Azure Media Player, la funzionalità o anche l'interfaccia it con altri servizi. Questa operazione può essere eseguita in due semplici passaggi:
 
-## <a name="step-1"></a>Step 1 ##
+## <a name="step-1"></a>Passaggio 1 ##
 
 Scrivere il codice JavaScript in una funzione come segue:
 

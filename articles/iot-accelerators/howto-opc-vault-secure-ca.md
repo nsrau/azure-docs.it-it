@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d702a3cca6a24819d2d184dc6df09153c9dcc860
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687073"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281882"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Eseguire il servizio di gestione certificati dell'insieme di credenziali OPC in modo sicuro
+
+> [!IMPORTANT]
+> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
 
 Questo articolo illustra come eseguire il servizio di gestione certificati dell'insieme di credenziali OPC in modo sicuro in Azure ed esamina le altre linee guida per la sicurezza da prendere in considerazione.
 
@@ -82,7 +85,7 @@ Usare la funzionalità di autenticazione a più fattori (detta anche autenticazi
 
 Il servizio certificati deve disporre di un piano di risposta di sicurezza aggiornato sul file, che contiene contatti dettagliati di risposta agli eventi imprevisti.
 
-### <a name="security-updates"></a>Aggiornamenti della sicurezza
+### <a name="security-updates"></a>Aggiornamenti per la sicurezza
 
 Tutti i sistemi devono essere monitorati e aggiornati continuamente con gli aggiornamenti della sicurezza più recenti.
 

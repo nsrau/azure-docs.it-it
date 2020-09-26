@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f39aa76e4bd2ce3d298e555f56b09d0218ef0862
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2d5637be547b28c231ef757b5dd4355692dab88f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318824"
 ---
 # <a name="client-libraries-and-rest-apis"></a>Librerie client e API REST
 
@@ -28,7 +28,7 @@ Le funzionalità dei servizi di comunicazione di Azure sono organizzate concettu
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | Apri            | Azure. ResourceManager. Communication | Provisioning e gestione delle risorse di servizi di comunicazione             |
 | Comuni                 | REST | Apri               | Azure. Communication. Common          | Fornisce tipi di base per altre librerie client |
-| Amministrazione         | REST |                | Azure. Communication. Administration  | Gestire gli utenti, i token di accesso e i numeri di telefono, allocare i server STUN e TURN conformi agli standard |
+| Amministrazione         | REST | Apri               | Azure. Communication. Administration  | Gestire gli utenti, i token di accesso e i numeri di telefono, allocare i server STUN e TURN conformi agli standard |
 | Chat                   | REST con segnalazione proprietaria | Apri con pacchetto di segnalazione origine chiuso    | Azure. Communication. chat            | Aggiungere chat basate su testo in tempo reale alle applicazioni  |
 | SMS                    | REST | Apri              | Azure. Communication. SMS             | Inviare e ricevere messaggi SMS |
 | Chiamata                | Trasporto proprietario | Chiusa |Azure. Communication. Calling         | Sfrutta le funzionalità di comunicazione, video, condivisione dello schermo e altre funzionalità di comunicazione dati in tempo reale          |

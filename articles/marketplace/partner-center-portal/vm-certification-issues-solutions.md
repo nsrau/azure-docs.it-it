@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181443"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296451"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemi e soluzioni durante la certificazione della macchina virtuale 
 
@@ -21,7 +21,7 @@ Quando si pubblica l'immagine della macchina virtuale (VM) in Azure Marketplace,
 Questo articolo illustra i messaggi di errore comuni durante la pubblicazione di immagini di VM, insieme alle soluzioni correlate.
 
 > [!NOTE]
-> In caso di domande o commenti e suggerimenti, contattare il [supporto tecnico del centro](https://partner.microsoft.com/support/v2/?stage=1)per i partner.
+> Per domande o commenti e suggerimenti per il miglioramento, contattare il [supporto tecnico del centro](https://partner.microsoft.com/support/v2/?stage=1)per i partner.
 
 ## <a name="approved-base-image"></a>Immagine di base approvata
 
@@ -33,6 +33,9 @@ Per risolvere questo problema, recuperare l'immagine da Azure Marketplace e appo
 
 - [Immagini di Linux](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Immagini di Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
+
+> [!Note]
+> Se si usa un'immagine di base Linux non ricavata da Marketplace, è possibile sfalsare la prima partizione di 2048 KB. Questo consente di usare lo spazio non formattato per l'aggiunta di nuove informazioni di fatturazione e consente ad Azure di procedere con la pubblicazione della VM nel Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Errore di estensione della macchina virtuale
 
@@ -184,7 +187,7 @@ Per controllare la versione di Windows Server con patch per i dettagli del siste
 |---|---|
 |Windows serve 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|
-|R2 per Windows Server 2012|6.3.9600.18604|
+|Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|N/D|
 
@@ -214,7 +217,7 @@ Se l'immagine non è installata con una delle seguenti versioni del kernel, aggi
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
 ||7.4|3.10.0-693.50.3|
-||7.5|3.10.0-862.34.2|
+||7,5|3.10.0-862.34.2|
 ||7.6|3.10.0-957.21.3|
 ||7.7|3.10.0-1062.1.1|
 ||8.0|4.18.0-80.4.2|
@@ -270,9 +273,12 @@ Vedere la tabella seguente per eventuali problemi che si verificano quando si sc
 |6|Intestazione condizionale HTTP|L'URL SAS non è valido.|Ottenere l'URL SAS corretto.|
 |7|Nome VHD non valido|Controllare se sono presenti caratteri speciali, ad esempio un segno di percentuale (%) o virgolette ("), esiste nel nome del disco rigido virtuale.|Rinominare il file VHD rimuovendo i caratteri speciali.|
 
-## <a name="first-1-mb-partition"></a>Prima partizione da 1 MB
+## <a name="first-mb-2048-kb-partition-only-for-linux"></a>Prima partizione MB (2048 KB) (solo per Linux)
 
-Quando si invia il disco rigido virtuale, assicurarsi che la prima partizione da 1 MB del disco rigido virtuale sia vuota. In caso contrario, la richiesta avrà esito negativo.
+Quando si invia il disco rigido virtuale, assicurarsi che i primi 2048 KB del disco rigido virtuale siano vuoti. In caso contrario, la richiesta avrà esito negativo *.
+
+>[!NOTE]
+>* Per alcune immagini speciali, ad esempio quelle basate sulle immagini di base di Windows di Azure tratte da Azure Marketplace, viene verificata la presenza di un tag di fatturazione e viene ignorata la partizione MB se il tag di fatturazione è presente e corrisponde ai valori interni disponibili.
 
 ## <a name="default-credentials"></a>Credenziali predefinite
 

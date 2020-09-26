@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/18/2020
-ms.openlocfilehash: fef873d5122fefb48c85281f71e206f95f3fbe48
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: dd59d0b09a28febfc0afe35d9f008ba0e0ee19ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986726"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295715"
 ---
 # <a name="server-group-size"></a>Dimensioni del gruppo di server
 
@@ -26,13 +26,13 @@ Le dimensioni di un gruppo di server, in termini di numero di nodi e di capacit�
 
 Per coloro che eseguono la migrazione a iperscale (CITUS) da un'istanza di database PostgreSQL a nodo singolo esistente, è consigliabile scegliere un cluster in cui il numero di Vcore e RAM del ruolo di lavoro in totale sia uguale a quello dell'istanza originale. In questi scenari sono stati rilevati miglioramenti delle prestazioni da 2 a 3 volte perché il partizionamento orizzontale migliora l'utilizzo delle risorse, consentendo indici più piccoli e così via.
 
-Il numero di Vcore necessari per il nodo coordinatore dipende dal carico di lavoro esistente (velocità effettiva di scrittura/lettura). Il nodo coordinatore non richiede la stessa quantità di RAM dei nodi del ruolo di lavoro, ma l'allocazione di RAM viene determinata in base al numero di vCore (come descritto nelle [Opzioni di configurazione di iperscalabilità](concepts-hyperscale-configuration-options.md)), quindi il conteggio vCore è essenzialmente la decisione reale.
+Il numero di Vcore necessari per il nodo coordinatore dipende dal carico di lavoro esistente (velocità effettiva di scrittura/lettura). Il nodo coordinatore non richiede la stessa quantità di RAM dei nodi del ruolo di lavoro, ma l'allocazione di RAM viene determinata in base al numero di vCore (come descritto nelle [Opzioni di configurazione dell'iperscala (CITUS)](concepts-hyperscale-configuration-options.md)), quindi il numero di vCore è essenzialmente la decisione reale.
 
 ### <a name="real-time-analytics-use-case"></a>Casi d'uso di analisi in tempo reale
 
 Totale VCore: quando i dati di lavoro si adattano alla RAM, è possibile prevedere un miglioramento delle prestazioni lineare su iperscala (CITUS) proporzionale al numero di core del ruolo di lavoro. Per determinare il numero corretto di Vcore per le proprie esigenze, prendere in considerazione la latenza corrente per le query nel database a nodo singolo e la latenza necessaria in iperscala (CITUS). Dividere la latenza corrente per la latenza desiderata e arrotondare il risultato.
 
-RAM del ruolo di lavoro: il caso migliore è rendere disponibile memoria sufficiente per fare in modo che la maggior parte del working set venga salvato nella memoria. Il tipo di query che l'applicazione utilizza influisce sui requisiti di memoria. È possibile eseguire EXPLAIN ANALYZe su una query per determinare la quantità di memoria richiesta. Tenere presente che Vcore e RAM vengono ridimensionati insieme come descritto nell'articolo relativo alle [Opzioni di configurazione dell'iperscalabilità](concepts-hyperscale-configuration-options.md) .
+RAM del ruolo di lavoro: il caso migliore è rendere disponibile memoria sufficiente per fare in modo che la maggior parte del working set venga salvato nella memoria. Il tipo di query che l'applicazione utilizza influisce sui requisiti di memoria. È possibile eseguire EXPLAIN ANALYZe su una query per determinare la quantità di memoria richiesta. Tenere presente che Vcore e RAM vengono ridimensionati insieme come descritto nell'articolo [Opzioni di configurazione dell'iperscalabilità (CITUS)](concepts-hyperscale-configuration-options.md) .
 
 ## <a name="scale-a-hyperscale-citus-server-group"></a>Ridimensionare un gruppo di server di scalabilità (CITUS)
 

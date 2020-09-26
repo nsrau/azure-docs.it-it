@@ -3,18 +3,18 @@ title: Installare VMware HCX
 description: Configurare la soluzione VMware HCX per il cloud privato della soluzione VMware di Azure
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.openlocfilehash: a101712f2d80e0d8e70d37bd5b7b08931f62ba3d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: cdeffa41db5aac597d8dfcf3a735cbeb7f0d8a8e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356554"
+ms.locfileid: "91370845"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installare HCX per la soluzione Azure VMware
 
 Questo articolo illustra le procedure per la configurazione della soluzione VMWare HCX per il cloud privato della soluzione VMWare di Azure. HCX consente la migrazione dei carichi di lavoro VMware nel cloud e in altri siti connessi tramite vari tipi di migrazione supportati da HCX predefiniti.
 
-HCX Advanced, l'installazione predefinita, supporta fino a tre connessioni al sito (in locale o da cloud a cloud). Se sono necessarie più di tre connessioni del sito, i clienti hanno la possibilità di abilitare il componente aggiuntivo HCX Enterprise tramite il supporto, che è attualmente in fase di anteprima. HCX Enterprise comporta costi aggiuntivi per i clienti oltre la disponibilità generale, ma offre [funzionalità aggiuntive](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, l'installazione predefinita, supporta fino a tre connessioni al sito (in locale o da cloud a cloud). Se sono necessarie più di tre connessioni al sito o HCX [Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) , i clienti hanno la possibilità di abilitare il componente aggiuntivo HCX Enterprise tramite il supporto, che è attualmente in fase di anteprima. HCX EE è disponibile con AVS come funzione/servizio in anteprima. Anche se HCX EE per AVS è in anteprima, si tratta di una funzione/servizio gratuita, soggetta a termini e condizioni del servizio in anteprima. Una volta che il servizio HCX EE è disponibile a livello generale, si riceverà un avviso di 30 giorni che la fatturazione passerà. Sarà anche possibile disattivare o rifiutare esplicitamente il servizio.
 
 
 Esaminare innanzitutto [Prima di iniziare](#before-you-begin), [Requisiti della versione software](#software-version-requirements) e [Prerequisiti](#prerequisites) con attenzione. 
@@ -63,17 +63,15 @@ I componenti dell'infrastruttura devono eseguire la versione minima richiesta.
 
 * Le appliance HCX IX e NE locali dovrebbero essere in grado di raggiungere l'infrastruttura vCenter e ESXi.
 
-* Per distribuire l'appliance WAN Interconnect, oltre al blocco di indirizzi di rete /22 CIDR usato per la distribuzione SDDC nella portale di Azure, HCX richiede un blocco /29. Assicurarsi di fattorizzare questo requisito nella pianificazione della rete.
+* Per distribuire l'appliance di interconnessione WAN, gli intervalli CIDR specifici sono già allocati dal cliente per la creazione del cloud privato.
 
 ## <a name="deploy-the-vmware-hcx-ova-on-premises"></a>Distribuire VMware HCX OVA in locale
 
 1. Accedere alla soluzione VMware di Azure HCX Manager sulla `https://x.x.x.9` porta 443 con le credenziali utente di **cloudadmin** e quindi fare clic su **supporto**.
 
-1. Selezionare il collegamento per il download del file OVA HCX di VMware. 
+1. Selezionare il collegamento per il download del file OVA VMware HCX da distribuire in vCenter.
 
-1. Accedere alla soluzione VMware di Azure SDDC vCenter e selezionare **HCX**.
-   
-1. Passare a vCenter locale e selezionare un modello OVF da distribuire in vCenter locale.  
+1. Passare a vCenter locale e selezionare il modello OVF appena scaricato per eseguire la distribuzione in vCenter locale.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/select-template.png" alt-text="Passare quindi a vCenter locale e selezionare un modello OVF per la distribuzione in vCenter locale.":::
 

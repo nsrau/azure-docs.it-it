@@ -4,17 +4,17 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 6922ab2aac8529da8ba55a98f465e3c0e3123b53
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5542ca2f50152e7588f32e9ac8717f691fdb4d63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940083"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376746"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Una risorsa di servizi di comunicazione distribuita. [Creare una risorsa di servizi di comunicazione](../../create-communication-resource.md).
+- Una risorsa di Servizi di comunicazione distribuita. [Creare una risorsa di Servizi di comunicazione](../../create-communication-resource.md).
 - Oggetto `User Access Token` per abilitare il client di chiamata. Per ulteriori informazioni su [come ottenere un `User Access Token` ](../../access-tokens.md)
 - Facoltativo: completare la Guida introduttiva per [iniziare ad aggiungere una chiamata all'applicazione](../getting-started-with-calling.md)
 
@@ -33,13 +33,13 @@ npm install @azure/communication-calling --save
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità dei servizi di comunicazione di Azure che chiamano la libreria client:
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità della libreria client Chiamate di Servizi di comunicazione di Azure:
 
 | Nome                             | Descrizione                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                       | CallClient è il punto di ingresso principale della libreria client chiamante.                                                                       |
-| CallAgent                        | CallAgent viene utilizzato per avviare e gestire le chiamate.                                                                                            |
-| AzureCommunicationUserCredential | La classe AzureCommunicationUserCredential implementa l'interfaccia CommunicationUserCredential utilizzata per creare un'istanza di CallAgent. |
+| CallClient                       | CallClient è il principale punto di ingresso alla libreria client Chiamate.                                                                       |
+| CallAgent                        | CallAgent si usa per avviare e gestire le chiamate.                                                                                            |
+| AzureCommunicationUserCredential | La classe AzureCommunicationUserCredential implementa l'interfaccia CommunicationUserCredential usata per creare un'istanza di CallAgent. |
 
 
 ## <a name="initialize-the-callclient-create-callagent-and-access-devicemanager"></a>Inizializzare CallClient, creare CallAgent e accedere a DeviceManager
@@ -80,11 +80,11 @@ La risorsa di servizi di comunicazione deve essere configurata in modo da consen
 
 const userCallee = { communicationUserId: <ACS_USER_ID> }
 const pstnCallee = { phoneNumber: <PHONE_NUMBER>};
-const groupCall = callClient.call([userCallee, pstnCallee], placeCallOptions);
+const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 
 ```
 
-### <a name="place-a-11-call-with-with-video-camera"></a>Inserire una chiamata 1:1 con con la videocamera video
+### <a name="place-a-11-call-with-video-camera"></a>Inserire una chiamata 1:1 con la videocamera video
 > [!WARNING]
 > Attualmente non è possibile avere più di un flusso video locale in uscita.
 Per effettuare una chiamata video, è necessario enumerare le telecamere locali usando l' `getCameraList` API deviceManager.
@@ -95,7 +95,7 @@ const deviceManager = await callClient.getDeviceManager();
 const videoDeviceInfo = deviceManager.getCameraList()[0];
 localVideoStream = new LocalVideoStream(videoDeviceInfo);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
-const call = callClient.call(['acsUserId'], placeCallOptions);
+const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
@@ -104,7 +104,7 @@ Per avviare una nuova chiamata di gruppo o partecipare a una chiamata di gruppo 
 ```js
 
 const context = { groupId: <GUID>}
-const call = callClient.join(context);
+const call = callAgent.join(context);
 
 ```
 
@@ -113,19 +113,19 @@ const call = callClient.join(context);
 È possibile accedere alle proprietà delle chiamate ed eseguire varie operazioni durante una chiamata per gestire le impostazioni relative a video e audio.
 
 ### <a name="call-properties"></a>Proprietà della chiamata
-* Ottiene l'ID univoco per questa chiamata.
+* Ottiene l'ID univoco (stringa) per questa chiamata.
 ```js
 
 const callId: string = call.id;
 
 ```
 
-* Per informazioni sugli altri partecipanti alla chiamata, controllare la `remoteParticipant` raccolta nell'istanza di `call` .
+* Per informazioni sugli altri partecipanti alla chiamata, controllare la `remoteParticipant` raccolta nell'istanza di `call` . Matrice contenente `RemoteParticipant` oggetti elenco
 ```js
-const remoteParticipants: RemoteParticipants = call.remoteParticipants;
+const remoteParticipants = call.remoteParticipants;
 ```
 
-* Identità del chiamante se la chiamata è in arrivo.
+* Identità del chiamante se la chiamata è in arrivo. Identity è uno dei `Identifier` tipi
 ```js
 
 const callerIdentity = call.callerIdentity;
@@ -135,7 +135,7 @@ const callerIdentity = call.callerIdentity;
 * Ottiene lo stato della chiamata.
 ```js
 
-const callState: CallState = call.state;
+const callState = call.state;
 
 ```
 Restituisce una stringa che rappresenta lo stato corrente di una chiamata:
@@ -153,35 +153,34 @@ Restituisce una stringa che rappresenta lo stato corrente di una chiamata:
 * Per individuare il motivo per cui una determinata chiamata è terminata, controllare la `callEndReason` Proprietà.
 ```js
 
-const callEndReason: CallEndReason = call.callEndReason;
+const callEndReason = call.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* Per sapere se la chiamata corrente è una chiamata in ingresso, controllare la `isIncoming` proprietà, che restituisce `Boolean` .
+```js
+const isIncoming = call.isIncoming;
+```
+
+*  Per verificare se il microfono corrente è disattivato, controllare la `muted` proprietà, che restituisce `Boolean` .
+```js
+
+const muted = call.isMicrophoneMuted;
 
 ```
 
-* Per sapere se la chiamata corrente è una chiamata in ingresso, controllare la `isIncoming` Proprietà
+* Per verificare se il flusso di condivisione dello schermo viene inviato da un determinato endpoint, controllare la `isScreenSharingOn` proprietà, restituisce `Boolean` .
 ```js
 
-const isIncoming: boolean = call.isIncoming;
+const isScreenSharingOn = call.isScreenSharingOn;
 
 ```
 
-*  Per verificare se il microfono corrente è disattivato, controllare la `muted` proprietà:
+* Per esaminare i flussi video attivi, controllare la `localVideoStreams` raccolta, che contiene `LocalVideoStream` gli oggetti
 ```js
 
-const muted: boolean = call.isMicrophoneMuted;
-
-```
-
-* Per verificare se è in corso l'invio del flusso di condivisione dello schermo da un determinato endpoint, controllare la `isScreenSharingOn` proprietà:
-```js
-
-const isScreenSharingOn: boolean = call.isScreenSharingOn;
-
-```
-
-* Per esaminare i flussi video attivi, controllare la `localVideoStreams` raccolta:
-```js
-
-const localVideoStreams: LocalVideoStream[] = call.localVideoStreams;
+const localVideoStreams = call.localVideoStreams;
 
 ```
 
@@ -194,7 +193,7 @@ Per disattivare o disattivare l'endpoint locale è possibile usare le `mute` `un
 //mute local device 
 await call.mute();
 
-//unmute device 
+//unmute local device 
 await call.unmute();
 
 ```
@@ -206,7 +205,7 @@ Per avviare un video, è necessario enumerare le fotocamere usando il `getCamera
 
 
 ```js
-const localVideoStream = new SDK.LocalVideoStream(videoDeviceInfo);
+const localVideoStream = new LocalVideoStream(videoDeviceInfo);
 await call.startVideo(localVideoStream);
 
 ```
@@ -254,49 +253,49 @@ Al partecipante remoto è associato un set di proprietà e raccolte
 * Ottiene l'identificatore per questo partecipante remoto.
 Identity è uno dei tipi ' Identifier ':
 ```js
-
-const identity: CommunicationUser | PhoneNumber | CallingApplication | UnknownIdentifier;
-
+const identifier = remoteParticipant.identifier;
+//It can be one of:
+// { communicationUserId: '<ACS_USER_ID'> } - object representing ACS User
+// { phoneNumber: '<E.164>' } - object representing phone number in E.164 format
 ```
 
 * Ottiene lo stato del partecipante remoto.
 ```js
 
-const state: RemoteParticipantState = remoteParticipant.state;
+const state = remoteParticipant.state;
 ```
 Lo stato può essere uno dei
 * ' Idle '-stato iniziale
 * ' Connecting '-stato di transizione durante la connessione del partecipante alla chiamata
 * ' Connected ': il partecipante è connesso alla chiamata
 * ' Trattieni ': il partecipante è in attesa
-* ' EarlyMedia '-annoucement viene riprodotto prima della connessione del partecipante alla chiamata
+* ' EarlyMedia '-l'annuncio viene riprodotto prima della connessione del partecipante alla chiamata
 * ' Disconnected '-stato finale-partecipante disconnesso dalla chiamata
 
 Per informazioni sul motivo per cui il partecipante ha lasciato la chiamata, controllare la `callEndReason` proprietà:
 ```js
 
-const callEndReason: CallEndReason = remoteParticipant.callEndReason;
+const callEndReason = remoteParticipant.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* Per verificare se il partecipante remoto è disattivato o meno, controllare la `isMuted` proprietà, restituisce `Boolean`
+```js
+const isMuted = remoteParticipant.isMuted;
+```
+
+* Per verificare se il partecipante remoto sta parlando o meno, controllare la `isSpeaking` proprietà restituita `Boolean`
+```js
+
+const isSpeaking = remoteParticipant.isSpeaking;
 
 ```
 
-* Per verificare se il partecipante remoto è disattivato o meno, controllare la `isMuted` proprietà:
+* Per controllare tutti i flussi video che un determinato partecipante sta inviando in questa chiamata, controllare la `videoStreams` raccolta, contiene `RemoteVideoStream` oggetti
 ```js
 
-const isMuted: boolean = remoteParticipant.isMuted;
-
-```
-
-* Per verificare se il partecipante remoto sta parlando o meno, controllare la `isSpeaking` proprietà:
-```js
-
-const isSpeaking: boolean = remoteParticipant.isSpeaking;
-
-```
-
-* Per controllare tutti i flussi video inviati da un determinato partecipante in questa chiamata, controllare la `videoStreams` raccolta:
-```js
-
-const videoStreams: RemoteVideoStream[] = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
+const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
 
 ```
 
@@ -312,7 +311,6 @@ const userIdentifier = { communicationUserId: <ACS_USER_ID> };
 const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>}
 const remoteParticipant = call.addParticipant(userIdentifier);
 const remoteParticipant = call.addParticipant(pstnIdentifier);
-
 ```
 
 ### <a name="remove-participant-from-a-call"></a>Rimuovi partecipante da una chiamata
@@ -333,7 +331,6 @@ await call.removeParticipant(pstnIdentifier);
 Per elencare i flussi video e i flussi di condivisione dello schermo dei partecipanti remoti, esaminare le `videoStreams` Raccolte:
 
 ```js
-
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.type;
 ```

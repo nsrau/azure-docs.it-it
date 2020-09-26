@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 087c5e5716a4c8c640faebd7470905fde85d0136
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 916d491c45a2979c59580328a721c11bd79d49c0
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038267"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372205"
 ---
 # <a name="video-analytics---object-and-motion-detection-application-architecture"></a>Analisi video-architettura delle applicazioni di rilevamento di oggetti e movimenti
 
 Il modello di applicazione **Video Analytics-oggetto e rilevamento movimento** consente di compilare soluzioni di Internet delle cose che includono funzionalità di analisi video in tempo reale.
 
-:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Architettura":::
+:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Diagramma dei componenti di analisi video e di rilevamento di movimento.":::
 
 I componenti principali della soluzione di analisi video includono:
 
 ## <a name="live-video-analytics-lva"></a>Analisi video in tempo reale (LVA)
 
-LVA offre una piattaforma per la creazione di applicazioni video intelligenti che si estendono sul perimetro e sul cloud. La piattaforma consente di creare applicazioni video intelligenti che si estendono sul perimetro e sul cloud. La piattaforma offre la possibilità di acquisire, registrare, analizzare video in tempo reale e pubblicare i risultati, che possono essere analisi video o video, per i servizi di Azure. I servizi di Azure potrebbero essere in esecuzione nel cloud o nei dispositivi perimetrali. La piattaforma può essere usata per migliorare le soluzioni IoT grazie all'analisi video.
+LVA offre una piattaforma per la creazione di applicazioni video intelligenti che si estendono sul perimetro e sul cloud. La piattaforma consente di creare applicazioni video intelligenti che si estendono sul perimetro e sul cloud. La piattaforma offre la possibilità di acquisire, registrare e analizzare video live e di pubblicare i risultati, ovvero video o analisi video, nei servizi di Azure. I servizi di Azure possono essere in esecuzione sul cloud o nei dispositivi perimetrali. La piattaforma può essere usata per migliorare le soluzioni IoT grazie all'analisi video.
 
 Per altre informazioni, vedere [analisi dei video in tempo reale](https://github.com/Azure/live-video-analytics) su GitHub.
 

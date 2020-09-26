@@ -4,12 +4,12 @@ description: Application Performance Monitoring senza codice per applicazioni Ja
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 561a6405a49d8f15affbf6d8d4de1a7f4886826a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 93b0b89cff7e48ddc4eb9173c9423961f96ec4bb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056099"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371304"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opzioni di configurazione-Application Insights agente autonomo Java per monitoraggio di Azure
 
@@ -49,7 +49,18 @@ Se si specifica un percorso relativo, questo verrà risolto in relazione alla di
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Stringa di connessione Application Insights":::
 
+
+```json
+{
+  "instrumentationSettings": {
+    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  }
+}
+```
+
 È anche possibile impostare la stringa di connessione usando la variabile di ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING` .
+
+Se non si imposta la stringa di connessione, l'agente Java viene disattivato.
 
 ## <a name="cloud-role-name"></a>Nome del ruolo Cloud
 
@@ -93,7 +104,7 @@ Se si desidera impostare l'istanza del ruolo Cloud su un valore diverso anziché
 
 Application Insights Java 3,0 Preview acquisisce automaticamente la registrazione delle applicazioni tramite log4j, Logback e Java. util. Logging.
 
-Per impostazione predefinita, acquisisce tutte le registrazioni eseguite a `WARN` livello o superiore.
+Per impostazione predefinita, acquisisce tutte le registrazioni eseguite a `INFO` livello o superiore.
 
 Se si vuole modificare questa soglia:
 
@@ -103,13 +114,15 @@ Se si vuole modificare questa soglia:
     "preview": {
       "instrumentation": {
         "logging": {
-          "threshold": "ERROR"
+          "threshold": "WARN"
         }
       }
     }
   }
 }
 ```
+
+È anche possibile impostare la soglia di registrazione usando la variabile di ambiente `APPLICATIONINSIGHTS_LOGGING_THRESHOLD` .
 
 Questi sono i `threshold` valori validi che è possibile specificare nel `ApplicationInsights.json` file e il modo in cui corrispondono ai livelli di registrazione tra diversi framework di registrazione:
 
@@ -136,9 +149,9 @@ Se sono presenti alcune metriche JMX che si desidera acquisire:
     "preview": {
       "jmxMetrics": [
         {
-          "objectName": "java.lang:type=ClassLoading",
-          "attribute": "LoadedClassCount",
-          "display": "Loaded Class Count"
+          "objectName": "java.lang:type=Runtime",
+          "attribute": "Uptime",
+          "display": "JVM uptime (millis)"
         },
         {
           "objectName": "java.lang:type=MemoryPool,name=Code Cache",
@@ -150,6 +163,10 @@ Se sono presenti alcune metriche JMX che si desidera acquisire:
   }
 }
 ```
+
+È anche possibile impostare la metrica JMX usando la variabile di ambiente `APPLICATIONINSIGHTS_JMX_METRICS` .
+
+Questo contenuto della variabile di ambiente deve essere costituito da dati JSON che corrispondono alla struttura precedente, ad esempio `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Code Cache", "attribute": "Usage.used", "display": "Code Cache Used"}]`
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometro (incluse le metriche dell'attuatore Spring boot)
 
@@ -214,6 +231,8 @@ Di seguito è riportato un esempio di come impostare il campionamento sul **10% 
   }
 }
 ```
+
+È inoltre possibile impostare la percentuale di campionamento utilizzando la variabile di ambiente `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
 
 ## <a name="http-proxy"></a>Proxy HTTP
 

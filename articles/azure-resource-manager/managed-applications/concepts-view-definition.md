@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bff846b4b64778d5e40ea7f08f88faf3dde81d9e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81391701"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371610"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Visualizzazione dell'elemento di definizione nelle applicazioni gestite di Azure
 
@@ -131,7 +131,7 @@ Quando si fornisce questa visualizzazione in **viewDefinition.json**, viene sost
 |description|No|Descrizione dell'applicazione gestita.|
 |commands|No|La matrice di pulsanti aggiuntivi della barra degli strumenti della pagina Panoramica, vedere [comandi](#commands).|
 
-![Panoramica](./media/view-definition/overview.png)
+![Screenshot mostra la Panoramica di un'applicazione gestita con un controllo azione di test per l'esecuzione di un'applicazione demo.](./media/view-definition/overview.png)
 
 ## <a name="metrics"></a>Metriche
 
@@ -183,12 +183,12 @@ La visualizzazione metriche consente di raccogliere e aggregare dati dalle risor
 |Proprietà|Obbligatoria|Descrizione|
 |---------|---------|---------|
 |name|Sì|Nome della metrica.|
-|aggregationType|Sì|Tipo di aggregazione da utilizzare per questa metrica. Tipi di aggregazione supportati:`none, sum, min, max, avg, unique, percentile, count`|
-|spazio dei nomi|No|Informazioni aggiuntive da usare per determinare il provider di metriche corretto.|
+|aggregationType|Sì|Tipo di aggregazione da utilizzare per questa metrica. Tipi di aggregazione supportati: `none, sum, min, max, avg, unique, percentile, count`|
+|namespace|No|Informazioni aggiuntive da usare per determinare il provider di metriche corretto.|
 |resourceTagFilter|No|La matrice dei tag delle risorse (sarà separata da `or` Word) per la quale verranno visualizzate le metriche. Si applica al filtro del tipo di risorsa.|
 |resourceType|Sì|Tipo di risorsa per cui visualizzare le metriche.|
 
-![Metriche](./media/view-definition/metrics.png)
+![Screenshot mostra una pagina di monitoraggio denominata questa è la visualizzazione delle metriche per un'applicazione gestita.](./media/view-definition/metrics.png)
 
 ## <a name="custom-resources"></a>Risorse personalizzate
 
@@ -234,7 +234,7 @@ In questa visualizzazione è possibile eseguire operazioni GET, PUT, DELETE e PO
 |commands|No|La matrice di pulsanti aggiuntivi della barra degli strumenti della visualizzazione CustomResources, vedere [comandi](#commands).|
 |colonne|No|Matrice di colonne della risorsa personalizzata. Se non è definito `name` , la colonna verrà visualizzata per impostazione predefinita. La colonna deve avere `"key"` e `"displayName"` . Per chiave, fornire la chiave della proprietà da visualizzare in una visualizzazione. Se annidato, utilizzare il punto come delimitatore, ad esempio `"key": "name"` o `"key": "properties.property1"` . Per nome visualizzato specificare il nome visualizzato della proprietà da visualizzare in una vista. È anche possibile specificare una `"optional"` Proprietà. Se è impostato su true, per impostazione predefinita la colonna è nascosta in una visualizzazione.|
 
-![CustomResources](./media/view-definition/customresources.png)
+![Screenshot mostra una pagina delle risorse denominata testare il tipo di risorsa personalizzata e l'azione del contesto del controllo personalizzato.](./media/view-definition/customresources.png)
 
 ## <a name="commands"></a>Comandi
 

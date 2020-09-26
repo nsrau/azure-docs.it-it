@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: a9ca77a059625ace13e6798e3fde84f11f3fe1db
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 26f12b18e2199fb45e6eb94f2a136d2af2b1576c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546791"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317583"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Esercitazione: configurare Keeper Password Manager & l'insieme di credenziali digitale per il provisioning utenti automatico
 
@@ -90,11 +90,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere l'URL del **tenant** e il **token del segreto** di Keeper Password Manager & account dell'insieme di credenziali digitale, come descritto nel passaggio 6.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: c48ef0321ece2e7e0ffcdfcb8c0907c5f839e738
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aba47500400004c1d6a7044a266bad6f20d5d9c9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831363"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360549"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>È possibile risparmiare molto tempo assicurandosi in modo proattivo di avere accesso a GRUB e SysRq
 
@@ -210,11 +210,11 @@ Interrompere il processo di avvio e accedere al menu GRUB
 
 Selezionare Opzioni avanzate per Ubuntu e premere Invio
 
-![ubunturec1](./media/virtual-machines-serial-console/ubunturec1.png)
+![Screenshot mostra il console seriale con le opzioni avanzate per Ubuntu selezionato.](./media/virtual-machines-serial-console/ubunturec1.png)
 
 Selezionare la riga che visualizza *(modalità di ripristino)* non premere Invio ma premere "e"
 
-![ubunturec2](./media/virtual-machines-serial-console/ubunturec2.png)
+![Screenshot mostra la console seriale con una versione della modalità di ripristino selezionata.](./media/virtual-machines-serial-console/ubunturec2.png)
 
 Individuare la riga che caricherà il kernel e sostituire l'ultimo parametro **nomodeset** con destinazione **console=ttyS0**
 
@@ -226,12 +226,12 @@ change to
 linux /boot/vmlinuz-4.15.0-1023-azure root=UUID=21b294f1-25bd-4265-9c4e-d6e4aeb57e97 ro recovery console=ttyS0
 ```
 
-![ubunturec3](./media/virtual-machines-serial-console/ubunturec3.png)
+![Screenshot mostra la console seriale con il valore modificato.](./media/virtual-machines-serial-console/ubunturec3.png)
 
 Premere **CTRL+x** per avviare e caricare il kernel.
 Se tutto viene eseguito correttamente, vengono visualizzate le opzioni aggiuntive che consentono di eseguire altre opzioni di ripristino
 
-![ubunturec4](./media/virtual-machines-serial-console/ubunturec4.png)
+![Screenshot mostra la console seriale dal menu ripristino, che offre opzioni di ripristino aggiuntive.](./media/virtual-machines-serial-console/ubunturec4.png)
 
 
 ## <a name="red-hat-grub-configuration"></a>Configurazione di Red Hat GRUB
@@ -337,11 +337,11 @@ terminal --timeout=5 serial console
 
 L'ultima riga *terminal –-timeout=5 serial console* aumenterà ulteriormente il timeout di **GRUB** aggiungendo un prompt di 5 secondi che visualizza **Premere un tasto qualsiasi per continuare.**
 
-![rh6-1](./media/virtual-machines-serial-console/rh6-1.png)
+![Screenshot mostra una console con output.](./media/virtual-machines-serial-console/rh6-1.png)
 
 Il menu GRUB verrà visualizzato sullo schermo per il timeout configurato (15) senza la necessità di premere il tasto ESC. Assicurarsi di fare clic nella console del browser per rendere attivo il menu e selezionare il kernel necessario
 
-![rh6-2](./media/virtual-machines-serial-console/rh6-2.png)
+![Screenshot mostra una console con due opzioni di Linux.](./media/virtual-machines-serial-console/rh6-2.png)
 
 ## <a name="suse"></a>SuSE
 
@@ -405,18 +405,18 @@ Si otterrà l'accesso a una shell senza dover immettere una password. È quindi 
 L'accesso a GRUB consente di interrompere il processo di inizializzazione. Questa interazione è utile per molte procedure di ripristino.
 Se non si dispone della password radice e l'utente singolo richiede una password radice, è possibile avviare il kernel sostituendo il programma init con un prompt bash. Per ottenere questa interruzione, aggiungere init =/bin/bash alla riga di avvio del kernel
 
-![bash1](./media/virtual-machines-serial-console/bash1.png)
+![Screenshot mostra una console con la riga di avvio aggiornata.](./media/virtual-machines-serial-console/bash1.png)
 
 Rimontare l'RW del file system (radice) usando il comando
 
 `mount -o remount,rw /`
 
-![bash2](./media/virtual-machines-serial-console/bash2.png)
+![Screenshot mostra una console con un'azione di rimontaggio.](./media/virtual-machines-serial-console/bash2.png)
 
 
 A questo punto è possibile eseguire una modifica della password radice o molte altre modifiche alla configurazione di Linux
 
-![bash3](./media/virtual-machines-serial-console/bash3.png)
+![Screenshot mostra una console in cui è possibile modificare la password radice e altre configurazioni.](./media/virtual-machines-serial-console/bash3.png)
 
 Riavviare la macchina virtuale con 
 

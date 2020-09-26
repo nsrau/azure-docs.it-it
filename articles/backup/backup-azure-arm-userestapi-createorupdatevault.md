@@ -4,12 +4,12 @@ description: Questo articolo illustra come gestire le operazioni di backup e rip
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: d0baac97b7a1bfb5ac55ee8cacc40dc8f13994a5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a37808548ec58977b7d6af16c75b94b7b5efe446
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012603"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271597"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Creare un insieme di credenziali di servizi di ripristino di Azure usando l'API
 
@@ -23,7 +23,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>Creare una richiesta
 
-Per creare la richiesta *PUT* è necessario il `{subscription-id}`. Se si dispone di più sottoscrizioni, vedere [utilizzo di più sottoscrizioni](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Si definiscono `{resourceGroupName}` e `{vaultName}` per le risorse, insieme al parametro `api-version`. Questo articolo usa `api-version=2016-06-01`.
+Per creare la richiesta *PUT* è necessario il `{subscription-id}`. Se si dispone di più sottoscrizioni, vedere [utilizzo di più sottoscrizioni](/cli/azure/manage-azure-subscriptions-azure-cli). Si definiscono `{resourceGroupName}` e `{vaultName}` per le risorse, insieme al parametro `api-version`. Questo articolo usa `api-version=2016-06-01`.
 
 Gli argomenti seguenti sono obbligatori:
 
@@ -38,10 +38,10 @@ Per altre informazioni su come creare la richiesta, vedere [Componenti di una ri
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-|Name  |Obbligatorio  |Tipo  |Descrizione  |
+|Nome  |Obbligatoria  |Type  |Descrizione  |
 |---------|---------|---------|---------|
-|eTag     |         |   String      |  eTag facoltativo       |
-|posizione     |  true       |String         |   Posizione risorsa      |
+|eTag     |         |   string      |  eTag facoltativo       |
+|posizione     |  true       |string         |   Posizione risorsa      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Proprietà dell'insieme di credenziali       |
 |sku     |         |  [Sku](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Indica l'identificatore di sistema univoco per ogni risorsa di Azure     |
 |tags     |         | Oggetto        |     Tag delle risorse    |
@@ -66,7 +66,7 @@ Il corpo di esempio riportato di seguito viene usato per creare un insieme di cr
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di un insieme di credenziali di Servizi di ripristino:
 
-|Nome  |Tipo  |Descrizione  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |   [Insiemi di credenziali](/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Creato     | [Insiemi di credenziali](/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Data di creazione      |

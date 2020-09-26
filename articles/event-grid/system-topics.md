@@ -2,13 +2,13 @@
 title: Argomenti di sistema in griglia di eventi di Azure
 description: Descrive gli argomenti di sistema in griglia di eventi di Azure.
 ms.topic: conceptual
-ms.date: 08/27/2020
-ms.openlocfilehash: f5ca472ab5141207222987d476284813c2aacf56
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 09/24/2020
+ms.openlocfilehash: b3a6e7528da2a11c2f91007425ab8beecaf920c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019097"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297284"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Argomenti di sistema in griglia di eventi di Azure
 Un argomento di sistema in griglia di eventi rappresenta uno o più eventi pubblicati da servizi di Azure, ad esempio archiviazione di Azure e hub eventi di Azure. Un argomento di sistema, ad esempio, può rappresentare **tutti gli eventi BLOB** o solo gli eventi BLOB **creati** e BLOB **eliminati** per un **account di archiviazione specifico**. In questo esempio, quando un BLOB viene caricato nell'account di archiviazione, il servizio di archiviazione di Azure pubblica un evento **BLOB creato** nell'argomento sistema in griglia di eventi, che quindi trasmette l'evento ai [sottoscrittori](event-handlers.md) dell'argomento che ricevono ed elaborano l'evento. 
@@ -22,6 +22,7 @@ Di seguito è riportato l'elenco corrente dei servizi di Azure che supportano la
 - [Configurazione app di Azure](event-schema-app-configuration.md)
 - [Servizio app di Azure](event-schema-app-service.md)
 - [Archiviazione BLOB di Azure](event-schema-blob-storage.md)
+- [Servizi di comunicazione di Azure](event-schema-communication-services.md) 
 - [Registro Azure Container](event-schema-container-registry.md)
 - [Hub eventi di Azure](event-schema-event-hubs.md)
 - [Hub IoT Azure](event-schema-iot-hub.md)
