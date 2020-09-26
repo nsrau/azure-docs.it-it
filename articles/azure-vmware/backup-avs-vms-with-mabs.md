@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali della soluzione VMware di Azure c
 description: Configurare l'ambiente della soluzione VMware di Azure per eseguire il backup di macchine virtuali usando server di Backup di Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 9b37f909fc8199975eb399fe5ca28ebb53ab2789
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cba224de3d8b223ebcc1ac4d2d8d569275b4e3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817944"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272248"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali della soluzione VMware di Azure con server di Backup di Azure
 
@@ -105,9 +105,9 @@ In VMware 6,7 in poi è stato abilitato TLS come protocollo di comunicazione.
 
 1. Fare clic con il pulsante destro del mouse su TLS. REG file e selezionare **merge** o **Open** per aggiungere le impostazioni al registro di sistema.
 
-## <a name="add-the-provisioning-ip-address-for-azure-vmware-solution-esxi-hosts-on-azure-backup-server"></a>Aggiungere l'indirizzo IP di provisioning per gli host ESXi della soluzione VMware di Azure in server di Backup di Azure
+## <a name="add-the-provisioning-ip-address"></a>Aggiungere l'indirizzo IP del provisioning 
 
-Durante l'anteprima, la soluzione VMware di Azure non risolve l'host ESX dalla macchina virtuale distribuita nella rete virtuale. È necessario eseguire passaggi aggiuntivi per aggiungere la voce del file host nella macchina virtuale server di Backup di Azure.
+La soluzione VMware di Azure non risolve l'host ESX dalla VM distribuita nella rete virtuale. È necessario eseguire passaggi aggiuntivi per aggiungere la voce del file host nella macchina virtuale server di Backup di Azure.
 
 ### <a name="identify-the-ip-address-for-esxi-hosts"></a>Identificare l'indirizzo IP per gli host ESXi
 
@@ -144,7 +144,7 @@ Durante l'anteprima, la soluzione VMware di Azure non risolve l'host ESX dalla m
 
 1. Nella finestra di dialogo **Gestisci credenziali** selezionare **Aggiungi**.
 
-   ![Finestra di dialogo Gestisci credenziali del server di Backup di Azure](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
+   ![Nella finestra di dialogo Gestisci credenziali selezionare Aggiungi.](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
 1. Nella finestra di dialogo **Aggiungi credenziali** immettere il nome e la descrizione delle nuove credenziali. Specificare il nome utente e la password definiti nel server VMware.
 
@@ -155,7 +155,7 @@ Durante l'anteprima, la soluzione VMware di Azure non risolve l'host ESX dalla m
 
 1. Selezionare **Aggiungi** per aggiungere le nuove credenziali.
 
-   ![Finestra di dialogo Gestisci credenziali del server di Backup di Azure](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
+   ![Screenshot mostra la finestra di dialogo server di Backup di Azure Gestisci credenziali con le nuove credenziali visualizzate.](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 ## <a name="add-the-vcenter-server-to-azure-backup-server"></a>Aggiungere il server vCenter a server di Backup di Azure
 
@@ -192,7 +192,10 @@ Durante l'anteprima, la soluzione VMware di Azure non risolve l'host ESX dalla m
 
    ![Pagina Fine](../backup/media/backup-azure-backup-server-vmware/summary-screen.png)
 
-   Il server vCenter verrà elencato in server di **produzione** con il tipo come **server VMware** e **lo stato dell'agente** come **OK**. Se lo **stato dell'agente** è **sconosciuto**, selezionare **Aggiorna**.
+   Il server vCenter verrà elencato in server di **produzione** con il tipo come **server VMware** e **lo stato dell'agente** come **OK**. 
+
+   >[!TIP]
+   >Se lo **stato dell'agente** è **sconosciuto**, selezionare **Aggiorna**.
 
 ## <a name="configure-a-protection-group"></a>Configurazione di un gruppo protezione dati
 
@@ -242,7 +245,7 @@ I gruppi protezione dati raccolgono più macchine virtuali e applicano le stesse
 
 1. Nella pagina **scelta del metodo** per la creazione della replica indicare come si desidera eseguire il backup iniziale e selezionare **Avanti**.
 
-   - Il valore predefinito è **Automaticamente tramite rete** e **Ora**. Se si usa il valore predefinito, specificare un'ora non di punta. Se si sceglie in **seguito**, specificare un giorno e un'ora.
+   - Il valore predefinito è **Automaticamente tramite rete** e **Ora**. Se si usa il valore predefinito, specificare un'ora non di punta. Se si seleziona in **seguito**, specificare un giorno e un'ora.
    - Per grandi quantità di dati o condizioni della rete non ottimali, tenere in considerazione la replica dei dati offline tramite supporti di memorizzazione rimovibili.
 
    ![Scelta del metodo per la creazione della replica](../backup/media/backup-azure-backup-server-vmware/replica-creation.png)
@@ -300,7 +303,7 @@ Nella server di Backup di Azure Console di amministrazione sono disponibili due 
 
 1. Nella Console di amministrazione server di Backup di Azure selezionare la visualizzazione **ripristino** . 
 
-1. Usare il riquadro **Sfoglia** per cercare la macchina virtuale da ripristinare o applicare un filtro per trovarla. Dopo aver selezionato una macchina virtuale o una cartella, nel riquadro **punti di ripristino** vengono visualizzati i punti di ripristino disponibili.
+1. Dal riquadro **Sfoglia** , sfogliare o filtrare per trovare la macchina virtuale che si vuole ripristinare. Dopo aver selezionato una macchina virtuale o una cartella, vengono visualizzati i punti di ripristino disponibili.
 
    ![Punti di ripristino disponibili](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
 
@@ -317,12 +320,13 @@ Nella server di Backup di Azure Console di amministrazione sono disponibili due 
 
    ![Ripristino guidato, pagina Verifica selezione per ripristino](../backup/media/restore-azure-backup-server-vmware/recovery-wizard.png)
 
-1. Selezionare **Avanti** per passare alla schermata **Specifica opzioni di ripristino** . Fare di nuovo clic su **Avanti** per passare alla schermata **Selezione tipo di ripristino** . 
+1. Selezionare **Avanti** per passare alla schermata **Specifica opzioni di ripristino** . 
+1. Fare di nuovo clic su **Avanti** per passare alla schermata **Selezione tipo di ripristino** . 
 
    > [!NOTE]
    > I carichi di lavoro VMware non supportano l'abilitazione della limitazione della larghezza di banda.
 
-1. Nella pagina **Selezione tipo di ripristino** scegliere se eseguire il ripristino nell'istanza originale o in una nuova posizione, quindi selezionare **Avanti**.
+1. Nella pagina **Selezione tipo di ripristino** selezionare Ripristina nell'istanza originale o in un nuovo percorso, quindi fare clic su **Avanti**.
 
    - Se si sceglie **Ripristina nell'istanza originale** non è necessario effettuare altre selezioni nella procedura guidata. Vengono usati i dati per l'istanza originale.
    - Se si sceglie **Ripristina come macchina virtuale in qualsiasi host**, nella schermata **Specifica destinazione** specificare le informazioni per **Host ESXi**, **Pool di risorse**, **Cartella** e **Percorso**.
@@ -342,7 +346,7 @@ Nella server di Backup di Azure Console di amministrazione sono disponibili due 
 
 1. Nella Console di amministrazione server di Backup di Azure selezionare la visualizzazione **ripristino** .
 
-1. Usare il riquadro **Sfoglia** per cercare la macchina virtuale da ripristinare o applicare un filtro per trovarla. Dopo aver selezionato una macchina virtuale o una cartella, nel riquadro **punti di ripristino** vengono visualizzati i punti di ripristino disponibili.
+1. Dal riquadro **Sfoglia** , sfogliare o filtrare per trovare la macchina virtuale che si vuole ripristinare. Dopo aver selezionato una macchina virtuale o una cartella, vengono visualizzati i punti di ripristino disponibili.
 
    ![Punti di ripristino disponibili](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: c9abc4dc89651eec7df635fb415314b2c12da3a6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356367"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usare il feed di modifiche di Azure Cosmos DB per visualizzare l'analisi dei dati in tempo reale
 
@@ -315,7 +315,7 @@ Power BI è una suite di strumenti di analisi business che consente di analizzar
 
    Ecco come appare un dashboard di esempio con questi grafici:
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Visualizzazioni":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Screenshot mostra un dashboard di esempio con grafici denominati Prezzo medio degli elementi per azione, visitatori univoci, ricavi e 5 elementi acquistati.":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Facoltativo: visualizzazione con un sito di e-commerce
 

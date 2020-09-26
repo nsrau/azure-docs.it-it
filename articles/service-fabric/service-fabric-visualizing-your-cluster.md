@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256255"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357217"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizzare il cluster con Service Fabric Explorer
 
@@ -106,7 +106,7 @@ Ad esempio, per eliminare un'istanza dell'applicazione, scegliere l'applicazione
 ## <a name="event-store"></a>EventStore
 EventStore è una funzionalità offerta dalla piattaforma che rende disponibili gli eventi della piattaforma Service Fabric in Service Fabric Explorer e tramite l'API REST. È possibile visualizzare uno snapshot di cosa sta succedendo nel cluster per ogni entità, ad esempio nodo, servizio, applicazione e query in base all'ora dell'evento. Altre informazioni sull'archivio eventi sono disponibili in [Panoramica del servizio EventStore](service-fabric-diagnostics-eventstore.md).   
 
-![EventStore][sfx-eventstore]
+![Screenshot mostra il riquadro nodi con gli eventi selezionati.][sfx-eventstore]
 
 >[!NOTE]
 >A partire da Service Fabric versione 6.4. Il servizio EventStore non è abilitato per impostazione predefinita e deve essere abilitato nel modello di Resource Manager

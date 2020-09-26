@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
-ms.openlocfilehash: 164e5a8c107f445b376d26f9be7db92a7983b0d3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3957a9cde957c8e92806f10d39c949d73f20153e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73743070"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323023"
 ---
 # <a name="face-recognition-concepts"></a>Concetti relativi al riconoscimento del viso
 
@@ -25,12 +25,12 @@ In questo articolo vengono illustrati i concetti relativi alle operazioni Verify
 
 Le operazioni di riconoscimento utilizzano principalmente le strutture di dati seguenti. Questi oggetti vengono archiviati nel cloud ed è possibile farvi riferimento dalle relative stringhe ID. Le stringhe ID sono sempre univoche all'interno di una sottoscrizione. I campi nome possono essere duplicati.
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |:--|:--|
 |DetectedFace| Questa rappresentazione con una sola faccia viene recuperata dall'operazione di [rilevamento della faccia](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md) . Il relativo ID scade 24 ore dopo la creazione.|
 |PersistedFace| Quando gli oggetti DetectedFace vengono aggiunti a un gruppo, ad esempio facet o person, diventano oggetti PersistedFace. Possono essere [recuperati](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) in qualsiasi momento e non scadono.|
 |[Facet](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) o [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)| Questa struttura di dati è un elenco assortito di oggetti PersistedFace. Un oggetto facet ha un ID univoco, una stringa del nome e, facoltativamente, una stringa di dati utente.|
-|[Persona](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)| Questa struttura di dati è un elenco di oggetti PersistedFace che appartengono alla stessa persona. Ha un ID univoco, una stringa del nome e, facoltativamente, una stringa di dati utente.|
+|[Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)| Questa struttura di dati è un elenco di oggetti PersistedFace che appartengono alla stessa persona. Ha un ID univoco, una stringa del nome e, facoltativamente, una stringa di dati utente.|
 |[Gruppo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) o [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)| Questa struttura di dati è un elenco assortito di oggetti Person. Ha un ID univoco, una stringa del nome e, facoltativamente, una stringa di dati utente. Per poter essere utilizzato nelle operazioni di riconoscimento, è necessario eseguire il [Training](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) di un gruppo.|
 
 ## <a name="recognition-operations"></a>Operazioni di riconoscimento
@@ -45,7 +45,7 @@ L'operazione [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/5
 
 L'operazione [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) accetta un ID faccia da DetectedFace o PersistedFace e da un facet o una matrice di altri ID Face. Con un oggetto Facet, viene restituito un facet più piccolo di visi simili alla faccia specificata. Con una matrice di ID viso, restituisce in modo analogo una matrice più piccola.
 
-### <a name="group"></a>Gruppo
+### <a name="group"></a>Group
 
 L'operazione di [raggruppamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) accetta una matrice di ID viso assortiti da DetectedFace o PersistedFace e restituisce gli stessi ID raggruppati in diverse matrici più piccole. Ogni matrice "groups" contiene ID facciali simili. Una singola matrice "messyGroup" contiene ID viso per i quali non sono state trovate analogie.
 
@@ -69,6 +69,6 @@ Usare i suggerimenti seguenti per assicurarsi che le immagini di input forniscan
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si ha familiarità con i concetti relativi al riconoscimento facciale, è possibile scrivere uno script che identifichi i visi rispetto a un gruppo con training.
+Ora che si ha familiarità con i concetti relativi al riconoscimento facciale, scrivere uno script che identifichi i visi con un gruppo sottoposto a training.
 
-* [Identificare i visi nelle immagini](../Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
+* [Guida introduttiva alla libreria client Face](../Quickstarts/client-libraries.md)

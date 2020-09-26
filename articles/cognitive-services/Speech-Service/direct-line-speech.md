@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2b0bb997ecea55d25748152bab7bb6963d67657f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402399"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357642"
 ---
 # <a name="what-is-direct-line-speech"></a>Che cos'è Direct Line Speech?
 
@@ -27,7 +27,7 @@ Direct Line Speech offre i livelli più elevati di personalizzazione e complessi
 
 ## <a name="getting-started-with-direct-line-speech"></a>Introduzione a direct line Speech
 
-I primi passaggi per la creazione di un assistente vocale con la sintesi vocale diretta sono l' [ottenimento di una chiave di sottoscrizione vocale](get-started.md), la creazione di un nuovo bot associato a tale sottoscrizione e la connessione del bot al canale di riconoscimento vocale diretto.
+I primi passaggi per la creazione di un assistente vocale con la sintesi vocale diretta sono l' [ottenimento di una chiave di sottoscrizione vocale](overview.md#try-the-speech-service-for-free), la creazione di un nuovo bot associato a tale sottoscrizione e la connessione del bot al canale di riconoscimento vocale diretto.
 
    ![Diagramma concettuale del flusso del servizio di orchestrazione vocale direct line](media/voice-assistants/overview-directlinespeech.png "Flusso del canale vocale")
 
@@ -64,7 +64,7 @@ Il riconoscimento diretto della linea e la relativa funzionalità associata per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
+* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](overview.md#try-the-speech-service-for-free)
 * [Ottenere Speech SDK](speech-sdk.md)
 * [Creare e distribuire un bot di base](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Ottenere la soluzione Virtual Assistant e il modello Enterprise](https://github.com/Microsoft/AI)

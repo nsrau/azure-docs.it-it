@@ -1,6 +1,6 @@
 ---
 title: Modificare l'appartenenza a un gruppo statico a Dynamic-Azure AD | Microsoft Docs
-description: Come creare regole di appartenenza per popolare automaticamente i gruppi e informazioni di riferimento sulle regole.
+description: Informazioni su come convertire i gruppi esistenti dall'appartenenza statica a quella dinamica usando Azure AD interfaccia di amministrazione o i cmdlet di PowerShell.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ee5af5d7489835f125319050d291a89ab252a6
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 381ee08f44ad8fb4dade9b6229f5a5925cf2b6b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797123"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325862"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Modificare l'appartenenza a gruppi statica in dinamica in Azure Active Directory
 

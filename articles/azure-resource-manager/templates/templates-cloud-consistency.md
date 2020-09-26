@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509757"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356886"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Sviluppare modelli ARM per la coerenza cloud
 
@@ -655,7 +655,7 @@ Tenere traccia di tutte le impostazioni, capacità e limitazioni correlate duran
 
 L'immagine seguente mostra un esempio tipico di processo di sviluppo per un team che utilizza un ambiente di sviluppo integrato (IDE). In diverse fasi della sequenza temporale, vengono eseguiti diversi tipi di test. In questo caso, due sviluppatori stanno lavorando sulla stessa soluzione, ma questo scenario si applica allo stesso modo a un singolo sviluppatore o a un team di grandi dimensioni. Ogni sviluppatore tipicamente crea una copia locale di un repository centrale, permettendo a ciascuno di lavorare sulla copia locale senza influire sugli altri che possono lavorare sugli stessi file.
 
-![Flusso di lavoro](./media/templates-cloud-consistency/workflow.png)
+![Il diagramma mostra due set di unit test e test di integrazione in parallelo negli I/o locali, che si uniscono al flusso di sviluppo C I/C in unit test, quindi test di integrazione, test della distribuzione, quindi distribuzione.](./media/templates-cloud-consistency/workflow.png)
 
 Prendere in considerazione i suggerimenti seguenti per il test e l’automazione:
 

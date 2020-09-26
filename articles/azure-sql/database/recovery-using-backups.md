@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 6b07b6c3e54f4aebcda6c2e84047ecd1a27b3d5b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 069387b5c761d502d960d0284d156b4ee6431a55
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809477"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357013"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Ripristino usando i backup automatici del database: database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,13 +91,13 @@ In genere si ripristina un database a un punto precedente per scopi di ripristin
 
 Per ripristinare un database a un punto nel tempo tramite il portale di Azure, aprire la pagina Panoramica database e selezionare **Ripristina** sulla barra degli strumenti. Scegliere l'origine di backup e selezionare il punto di backup temporizzato da cui verrà creato un nuovo database.
 
-  ![Screenshot delle opzioni di ripristino del database](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
+  ![Screenshot delle opzioni di ripristino del database per il database SQL.](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>Istanza gestita di SQL
 
 Per ripristinare un database di istanza gestita a un punto nel tempo tramite il portale di Azure, aprire la pagina Panoramica database e selezionare **Ripristina** sulla barra degli strumenti. Scegliere il punto di backup temporizzato da cui verrà creato un nuovo database.
 
-  ![Screenshot delle opzioni di ripristino del database](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
+  ![Screenshot delle opzioni di ripristino del database per l'istanza gestita di SQL.](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
 > Per ripristinare a livello di codice un database da un backup, vedere esecuzione di un [ripristino a livello di codice tramite backup automatici](recovery-using-backups.md).
@@ -255,7 +255,7 @@ Per ripristinare un database usando l'interfaccia della riga di comando di Azure
 
 Per ripristinare un database di istanza gestita usando l'interfaccia della riga di comando di Azure, vedere [AZ SQL MidB Restore](/cli/azure/sql/midb#az-sql-midb-restore).
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 I backup automatici proteggono i database da errori dell'utente e delle applicazioni, dall'eliminazione accidentale e da interruzioni prolungate. Questa funzionalità incorporata è disponibile per tutti i livelli di servizio e le dimensioni di calcolo.
 

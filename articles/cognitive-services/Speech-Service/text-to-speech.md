@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: sintesi vocale
-ms.openlocfilehash: 8b8430135ffd15e8331b654628236a315f10cce3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5d60279a2e3cb6aa7226f518783d53a1a38ddaa8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401181"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357455"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
@@ -77,5 +77,5 @@ Per informazioni dettagliate, vedere [prezzi](https://azure.microsoft.com/pricin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ricevi una sottoscrizione gratuita per il servizio riconoscimento vocale](get-started.md)
+- [Ricevi una sottoscrizione gratuita per il servizio riconoscimento vocale](overview.md#try-the-speech-service-for-free)
 - [Ottenere Speech SDK](speech-sdk.md)

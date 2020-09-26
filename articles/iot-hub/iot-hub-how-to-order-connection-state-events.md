@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af8bd9a0420c90df4dea16fa8ebacbf4ea6494db
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 815dc0a90d79323fb88c98867b5540105a6fa8cc
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87488129"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356197"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordinare gli eventi di connessione dei dispositivi dall'hub IoT di Azure tramite Azure Cosmos DB
 
@@ -227,11 +227,11 @@ Nel flusso di lavoro dell'app per la logica, le condizioni consentono di eseguir
 
 5. Selezionare **Aggiungi nuovo parametro**. Nell'elenco a discesa visualizzato selezionare le caselle accanto a **Chiave di partizione** e **Parametri per la stored procedure**, quindi fare clic in un punto qualsiasi dello schermo; verrà aggiunto un campo per il valore della chiave di partizione e un campo per i parametri per la stored procedure.
 
-   ![Popolamento dell'azione dell'app per la logica](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
+   ![Screenshot mostra un elemento EXECUTE stored procedure con Aggiungi nuovo parametro selezionato.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
 6. Immettere ora il valore della chiave di partizione e i parametri come illustrato di seguito. Assicurarsi di effettuare l'inserimento tra parentesi quadre e virgolette doppie, come illustrato. Potrebbe essere necessario fare clic su **Aggiungi contenuto dinamico** per ottenere i valori validi che è possibile usare qui.
 
-   ![Popolamento dell'azione dell'app per la logica](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+   ![Screenshot mostra un elemento EXECUTE stored procedure con i parametri immessi.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
 7. Nella parte superiore del riquadro in cui viene indicato **Per ogni**, in **Seleziona un output dai passaggi precedenti**, assicurarsi di selezionare **Corpo**.
 

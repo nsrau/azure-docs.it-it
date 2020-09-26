@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c19650a8f36181e3e003414ff15add071e9a8ac
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b2763372cc63637f73610e1936e3ea54a4524e7d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918894"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356605"
 ---
 # <a name="what-is-a-keyword"></a>Che cos'è una parola chiave?
 
@@ -61,6 +61,6 @@ La creazione di una parola chiave efficace è essenziale per garantire che il di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
+* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](overview.md#try-the-speech-service-for-free)
 * [Ottenere Speech SDK](speech-sdk.md)
 * [Altre informazioni sugli assistenti vocali](voice-assistants.md)

@@ -4,12 +4,12 @@ description: Informazioni su come eseguire il backup di un server di Exchange in
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 02d1cde7ab48aa951c47cfbfea29c90c3f53f768
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: ee89af311619922fa6ca585381d70ca66955f36a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378390"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271648"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
 
@@ -38,8 +38,8 @@ Prima di continuare, assicurarsi che tutti i [prerequisiti](backup-azure-dpm-int
 
 Per installare l'agente protezione DPM nel server di Exchange, seguire questi passaggi:
 
-1. Assicurarsi che i firewall siano configurati correttamente. Vedere [Configurare le eccezioni del firewall per l'agente](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Installare l'agente sul server Exchange selezionando **Management > agents > installa** in console amministrazione DPM. Per la procedura dettagliata, vedere [Installare l'agente protezione DPM](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) .
+1. Assicurarsi che i firewall siano configurati correttamente. Vedere [Configurare le eccezioni del firewall per l'agente](/system-center/dpm/configure-firewall-settings-for-dpm).
+2. Installare l'agente sul server Exchange selezionando **Management > agents > installa** in console amministrazione DPM. Per la procedura dettagliata, vedere [Installare l'agente protezione DPM](/system-center/dpm/deploy-dpm-protection-agent) .
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Creare un gruppo di protezione per il server di Exchange
 
@@ -62,7 +62,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 
    * Protezione dati breve termine tramite: Disco.
    * Protezione dati online.
-6. Selezionare **Next** (Avanti).
+6. Selezionare **Avanti**.
 7. Selezionare l'opzione **Esegui Eseutil per controllare l'integrità dei dati** se si vuole controllare l'integrità dei database di Exchange Server.
 
     Dopo aver selezionato questa opzione, la verifica della coerenza dei backup verrà eseguita nel server DPM per evitare il traffico di I/O generato eseguendo il comando **eseutil** sul server Exchange.
@@ -72,7 +72,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
    > ![Errore di Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Selezionare **Next** (Avanti).
+8. Selezionare **Avanti**.
 9. Selezionare il database per **copia backup**, quindi fare clic su **Avanti**.
 
    > [!NOTE]

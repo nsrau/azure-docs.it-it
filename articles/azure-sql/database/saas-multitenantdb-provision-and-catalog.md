@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 88f1e40101b807e82eaf69be6c167cd4aa2e2831
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4413a987af7a4802366556fb86c0c55e7b401776
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539194"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356796"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Effettuare il provisioning di nuovi tenant e catalogarli in un'applicazione SaaS usando un database SQL di Azure multi-tenant partizionato
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -169,7 +169,7 @@ Per comprendere in che modo l'app Wingtip implementi il nuovo provisioning di te
 
 4. Quando l'esecuzione dello script si arresta in corrispondenza del punto di interruzione, premere **F11** per eseguire l'istruzione del codice.
 
-   ![debug](./media/saas-multitenantdb-provision-and-catalog/debug.png)
+   ![Screenshot mostra la Windows PowerShell ISE con il menu debug Apri e Esegui istruzione selezionata.](./media/saas-multitenantdb-provision-and-catalog/debug.png)
 
 5. Tenere traccia dell'esecuzione dello script usando le opzioni del menu **Debug****F10** e **F11** per eseguire le istruzioni delle funzioni chiamate.
 
@@ -237,7 +237,7 @@ L'elenco completo dei tenant e i database corrispondenti a ciascuno è disponibi
 - Il nome del tenant viene archiviato nella tabella Tenants.
 - Il nome del database viene archiviato nelle tabelle di gestione delle partizioni.
 
-1. In SQL Server Management Studio (SSMS) connettersi al server tenant in **Catalog-mt. \<USER\> . database.Windows.NET**, con login = **Developer**e password = **P \@ ssword1**
+1. In SQL Server Management Studio (SSMS) connettersi al server tenant in **Catalog-mt. \<USER\> . database.windows.net**, con login = **Developer**e password = **P \@ ssword1**
 
     ![Finestra di dialogo di connessione di SQL Server Management Studio](./media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

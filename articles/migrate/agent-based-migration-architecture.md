@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
-ms.openlocfilehash: d345d707cbf58f48466c3bd830d93250d13397c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425859"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357166"
 ---
 # <a name="agent-based-migration-architecture"></a>Architettura di migrazione basata su agente
 
@@ -34,11 +34,11 @@ La migrazione basata su agenti viene usata per eseguire la migrazione di server 
 
 Il diagramma illustra i componenti necessari per la migrazione basata su agenti.
 
-![Architecture](./media/agent-based-replication-architecture/architecture.png)
+![Il diagramma mostra i componenti per la migrazione basata su agenti, illustrati in una tabella.](./media/agent-based-replication-architecture/architecture.png)
 
 Nella tabella vengono riepilogati i componenti utilizzati per la migrazione basata su agenti.
 
-**Componente** | **Dettagli** | **Installazione**
+**Componente** | **Informazioni dettagliate** | **Installazione**
 --- | --- | ---
 **Appliance di replica** | Il dispositivo di replica (server di configurazione/server di elaborazione) è un computer locale che funge da Bridge tra l'ambiente locale e la migrazione del server. L'appliance individua l'inventario del computer locale, in modo che la migrazione del server possa orchestrare la replica e la migrazione. Il dispositivo è costituito da due componenti:<br/><br/> **Server di configurazione**: si connette alla migrazione del server e coordina la replica.<br/> **Server di elaborazione**: gestisce la replica dei dati. Il server di elaborazione riceve i dati del computer, li comprime e li crittografa e li invia ad Azure. In Azure, la migrazione del server scrive i dati in Managed Disks. | Per impostazione predefinita, il server di elaborazione viene installato insieme al server di configurazione nell'appliance di replica.
 **Servizio Mobility** | Il servizio Mobility è un agente installato in ogni computer di cui si vuole eseguire la replica e la migrazione. Invia i dati di replica dal computer al server di elaborazione. | I file di installazione per versioni diverse del servizio Mobility si trovano nell'appliance di replica. Scaricare e installare l'agente necessario, in base al sistema operativo e alla versione del computer che si vuole replicare.

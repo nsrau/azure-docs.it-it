@@ -1,14 +1,16 @@
 ---
 title: Estendi app in fase di esecuzione-LUIS
 description: ''
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: c0f9d71f5d89d73d9cdce2a2f646859d8eba3adc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69e2608fb01ece81f555aae2f3d4a2e4a05cfc90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81538578"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322802"
 ---
 # <a name="extend-app-at-prediction-runtime"></a>Estendi app a runtime di stima
 
@@ -34,7 +36,7 @@ Le entità esterne fanno parte dell'API di creazione V3. Altre informazioni sull
 
 ### <a name="entity-already-exists-in-app"></a>L'entità esiste già nell'app
 
-Il valore di `entityName` per l'entità esterna, passato nel corpo della richiesta dell'endpoint, deve esistere già nell'app sottoposta a training e pubblicata al momento della richiesta. Il tipo di entità non è rilevante, sono supportati tutti i tipi.
+Il valore di `entityName` per l'entità esterna, passato nel corpo della richiesta dell'endpoint, deve esistere già nell'app SOTTOposta a training e pubblicata al momento della richiesta. Il tipo di entità non è rilevante, sono supportati tutti i tipi.
 
 ### <a name="first-turn-in-conversation"></a>Primo turno di conversazione
 
@@ -42,7 +44,7 @@ Si consideri un primo enunciato in una conversazione bot chat in cui un utente i
 
 `Send Hazem a new message`
 
-La richiesta dal bot della chat a LUIS può passare informazioni sul `Hazem` corpo del post, in modo che corrisponda direttamente a uno dei contatti dell'utente.
+La richiesta dal bot della chat a LUIS può passare informazioni sul corpo del POST, in `Hazem` modo che corrisponda direttamente a uno dei contatti dell'utente.
 
 ```json
     "externalEntities": [
@@ -66,7 +68,7 @@ Il successivo enunciato dell'utente in chat bot usa un termine più vago:
 
 `Send him a calendar reminder for the party.`
 
-In questo turno della conversazione, l'espressione USA `him` come riferimento a. `Hazem` Il bot della chat conversazione, nel corpo POST, può eseguire `him` il mapping al valore dell'entità Estratto dal primo enunciato, `Hazem`.
+In questo turno della conversazione, l'espressione USA `him` come riferimento a `Hazem` . Il bot della chat conversazione, nel corpo POST, può eseguire `him` il mapping al valore dell'entità Estratto dal primo enunciato, `Hazem` .
 
 ```json
     "externalEntities": [
@@ -117,7 +119,7 @@ Se l'utente invia l'entità esterna:
 }
 ```
 
-Se `preferExternalEntities` è impostato su `false`, Luis restituisce una risposta come se l'entità esterna non venisse inviata.
+Se `preferExternalEntities` è impostato su `false` , Luis restituisce una risposta come se l'entità esterna non venisse inviata.
 
 ```JSON
 "datetimeV2": [
@@ -133,7 +135,7 @@ Se `preferExternalEntities` è impostato su `false`, Luis restituisce una rispos
 ]
 ```
 
-Se `preferExternalEntities` è impostato su, `true`Luis restituisce una risposta che include:
+Se `preferExternalEntities` è impostato su `true` , Luis restituisce una risposta che include:
 
 ```JSON
 "datetimeV2": [
@@ -173,7 +175,7 @@ L'entità List può essere vuota nell'app LUIS, ma deve esistere. L'entità List
 
 ### <a name="dynamic-list-json-request-body"></a>Corpo della richiesta JSON dell'elenco dinamico
 
-Inviare il corpo JSON seguente per aggiungere un nuovo sottoelenco con sinonimi all'elenco e stimare l'entità list per il testo, `LUIS`, con la `POST` richiesta di stima della query:
+Inviare il corpo JSON seguente per aggiungere un nuovo sottoelenco con sinonimi all'elenco e stimare l'entità list per il testo, `LUIS` , con la `POST` richiesta di stima della query:
 
 ```JSON
 {
