@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: c50a19acceeb68ead4d86a59bbe8275ae97ecb5f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019590"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332730"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -155,7 +155,7 @@ Backup di macchine virtuali di Azure con blocchi | Non supportato per le macchin
 
 **Componente** | **Supporto**
 --- | ---
-Dischi di dati delle VM di Azure | Il supporto per il backup di macchine virtuali di Azure con un massimo di 32 dischi è in anteprima pubblica in tutte le aree.<br><br> Il supporto per il backup di macchine virtuali di Azure con dischi non gestiti o di macchine classiche copre un massimo di soli 16 dischi.
+Dischi di dati delle VM di Azure | Supporto per il backup di macchine virtuali di Azure con un massimo di 32 dischi.<br><br> Il supporto per il backup di macchine virtuali di Azure con dischi non gestiti o di macchine classiche copre un massimo di soli 16 dischi.
 Dimensioni del disco dati | Le dimensioni possono raggiungere i 32 TB per un disco singolo e un massimo di 256 TB combinati per tutti i dischi in una VM.
 Tipo di archiviazione | HDD Standard, SDD Standard, SDD Premium.
 Dischi gestiti | Supportato.

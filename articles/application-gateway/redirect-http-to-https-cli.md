@@ -1,19 +1,19 @@
 ---
 title: Reindirizzamento da HTTP a HTTPS tramite l'interfaccia della riga di comando
 titleSuffix: Azure Application Gateway
-description: Informazioni su come creare un gateway applicazione e aggiungere un certificato per la terminazione TLS usando l'interfaccia della riga di comando di Azure.
+description: Informazioni su come creare un Reindirizzamento da HTTP a HTTPS e aggiungere un certificato per la terminazione TLS usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/15/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 828012e7e41f8710dc57f1c830b81d403507d27d
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 7dbfa877f634256c86166892a38d048a95e56baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594248"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331030"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite l'interfaccia della riga di comando di Azure
 
@@ -223,13 +223,6 @@ Per accettare l'avviso di sicurezza se è stato usato un certificato autofirmato
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le procedure per:
-
-> [!div class="checklist"]
-> * Creare un certificato autofirmato
-> * Configurare una rete
-> * Creare un gateway applicazione con il certificato
-> * Aggiungere un listener e una regola di reindirizzamento
-> * Creare un set di scalabilità di macchine virtuali con il pool back-end predefinito
+- [Creare un gateway applicazione con reindirizzamento interno tramite l'interfaccia della riga di comando di Azure](redirect-internal-site-cli.md)
 
 

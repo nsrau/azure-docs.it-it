@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9db8a50e670e3c6af7adce0a8efcf3ce569ac89
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b1206d9e4d6eec7b2bf029310360f563849d61d6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009628"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268301"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizzatori per l'elaborazione del testo in Azure ricerca cognitiva
 
@@ -147,7 +147,7 @@ Passaggi di questo esempio:
 * In questo caso, l'analizzatore personalizzato è "my_analyzer", che a sua volta usa il tokenizer standard personalizzato "my_standard_tokenizer" e due filtri token: un filtro asciifolding minuscolo e uno personalizzato "my_asciifolding".
 * Definisce inoltre due filtri di caratteri personalizzati: "map_dash" e "remove_whitespace". Il primo sostituisce tutti i trattini con caratteri di sottolineatura, mentre il secondo rimuove tutti gli spazi. Nelle regole di mapping gli spazi devono essere codificati con UTF-8. I filtri di caratteri vengono applicati prima della tokenizzazione e influiranno sui token risultanti (le interruzioni standard dei tokenizer sui trattini e gli spazi, ma non sui caratteri di sottolineatura).
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -206,7 +206,7 @@ Passaggi di questo esempio:
         }
      ]
   }
-~~~~
+```
 
 <a name="Per-field-analyzer-assignment-example"></a>
 
@@ -216,7 +216,7 @@ L'analizzatore Standard è l'impostazione predefinita. Si supponga di volere sos
 
 L'elemento "analizzatore" sostituisce l'analizzatore Standard campo per campo. Non vi è alcun override globale. In questo esempio, `text1` usa l'analizzatore Pattern, mentre `text2`, che non specifica un analizzatore, usa l'elemento predefinito.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -239,7 +239,7 @@ L'elemento "analizzatore" sostituisce l'analizzatore Standard campo per campo. N
         }
      ]
   }
-~~~~
+```
 
 <a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
@@ -248,7 +248,7 @@ L'elemento "analizzatore" sostituisce l'analizzatore Standard campo per campo. N
 Le API includono attributi di indice aggiuntivi per specificare analizzatori diversi per l'indicizzazione e la ricerca. Gli attributi **searchAnalyzer** e **indexAnalyzer** devono essere specificati come coppia, sostituendo il singolo attributo **analizzatore**.
 
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -267,7 +267,7 @@ Le API includono attributi di indice aggiuntivi per specificare analizzatori div
         },
      ],
   }
-~~~~
+```
 
 <a name="Language-analyzer-example"></a>
 
@@ -275,7 +275,7 @@ Le API includono attributi di indice aggiuntivi per specificare analizzatori div
 
 I campi contenenti stringhe in diverse lingue possono utsare un analizzatore del linguaggio, mentre altri campi mantengono il valore predefinito (o usano altri analizzatori predefiniti o personalizzati). Se si usa un analizzatore del linguaggio, questo deve essere usato per le operazioni di indicizzazione e ricerca. I campi che usano un analizzatore del linguaggio non possono disporre di analizzatori diversi per indicizzazione e ricerca.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -300,7 +300,7 @@ I campi contenenti stringhe in diverse lingue possono utsare un analizzatore del
         }
      ],
   }
-~~~~
+```
 
 ## <a name="c-examples"></a>Esempi di C#
 

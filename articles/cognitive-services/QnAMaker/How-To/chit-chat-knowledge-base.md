@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0aca072a9e659d242dec9dd45a12f9568d419599
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3d5c47d3e3e9485c3a6de8f93782c654fb34a516
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124426"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330639"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Aggiungere chit chat a una knowledge base
 
@@ -37,7 +37,7 @@ Per la query utente di `When is your birthday?` , ogni personalità ha una rispo
 ||
 
 
-## <a name="language-support"></a>Lingue supportate
+## <a name="language-support"></a>Supporto delle lingue
 
 I set di dati Chit-Chat sono supportati nelle seguenti lingue:
 
@@ -72,7 +72,7 @@ Per visualizzare i metadati, selezionare Visualizza **Opzioni** sulla barra degl
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Aggiungere ulteriori domande e risposte alle chit chat
 È possibile aggiungere una nuova coppia Chit-Chat QnA che non si trova nel set di dati predefinito. Assicurarsi che non venga duplicata una coppia di QnA già inclusa nel set di chit chat. Quando si aggiunge una nuova QnA chit chat, viene aggiunta al provider di origine **Editoriale.** Per assicurarsi che il Ranker riconosca che si tratta di una Chit-Chat, aggiungere la coppia chiave/valore dei metadati "Editorial: chiacchiere", come illustrato nell'immagine seguente:
 
-![! [Aggiungere Chit-Chat QnAs] (.. add-new-chit-chat.png/media/qnamaker-How-to-Chit-Chat/)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
+:::image type="content" source="../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png" alt-text="Aggiungere QnA chit chat" lightbox="../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png":::
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>Eliminare una chit chat da una KB esistente
 Selezionare la KB e passare alla pagina **Impostazioni**. L'origine di una chit chat specifica è elencata come un file con il nome della personalità selezionata. È possibile eliminarla come un file di origine.

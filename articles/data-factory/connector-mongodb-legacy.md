@@ -1,6 +1,6 @@
 ---
 title: Copiare dati da MongoDB usando legacy
-description: Informazioni su come copiare dati da MongoDB in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
+description: Informazioni su come copiare dati da Mongo DB in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory legacy.
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: ce1419c7dbb2cdecfd653995707fd1ece7798557
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf4be078a7bee0bedbeac4326acb9ca290cde88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558173"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331982"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copiare dati da MongoDB usando Azure Data Factory (legacy)
 
@@ -45,7 +45,7 @@ In particolare, il connettore MongoDB supporta:
 
 Il runtime di integrazione offre un driver per MongoDB predefinito e non è quindi necessario installare manualmente alcun driver quando si copiano dati da MongoDB.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

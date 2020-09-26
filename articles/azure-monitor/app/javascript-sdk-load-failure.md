@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 83f518326b38e9832c46997a0a2791eb9f35705e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371635"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333257"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Risoluzione degli errori di caricamento SDK per app Web JavaScript
 
@@ -115,7 +115,7 @@ Se quando si usa questa configurazione minima si sta ancora visualizzando un'ecc
 
 Se l'eccezione scompare, il problema è probabilmente causato da una mancata corrispondenza del tipo o da un valore imprevisto. Iniziare ad aggiungere le opzioni di configurazione indietro una alla volta e testare finché l'eccezione non si ripete. Controllare quindi la documentazione relativa all'elemento che ha causato il problema. Se la documentazione non è chiara o è necessaria assistenza, [archiviare un problema in GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues).
 
-Se la configurazione in precedenza è stata distribuita e funzionante ma è stata appena avviata la segnalazione di questa eccezione, potrebbe trattarsi di un problema con una versione appena distribuita, controllare se influisce solo su un piccolo set di utenti/browser e [inviare un problema in GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues) o [creare un nuovo ticket di supporto](https://azure.microsoft.com/support/create-ticket/).
+Se la configurazione in precedenza è stata distribuita e funzionante ma è stata appena avviata la segnalazione di questa eccezione, potrebbe trattarsi di un problema con una versione appena distribuita, controllare se influisce solo su un piccolo set di utenti/browser e [inviare un problema in GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues) o  [creare un nuovo ticket di supporto](https://azure.microsoft.com/support/create-ticket/).
 
 ### <a name="enable-console-debugging"></a>Abilita il debug della console
 

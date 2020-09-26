@@ -1,15 +1,15 @@
 ---
 title: 'Distribuzione sicura tra aree: Azure Deployment Manager'
-description: Descrive come distribuire un servizio in più aree con Azure Deployment Manager. Illustra le procedure di distribuzione sicure per verificare la stabilità della distribuzione prima dell'implementazione in tutte le aree.
+description: Informazioni su come distribuire un servizio in molte aree con Deployment Manager di Azure e sulle procedure di distribuzione sicure.
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27e8c9c0aa2ee86b490d266fc6ff76f263eee7ef
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8b950fdc36fe3fbea1ce9436bdd7f7372c64c055
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130223"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333206"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Abilitare procedure di distribuzione sicure con Deployment Manager di Azure (anteprima pubblica)
 
@@ -32,7 +32,7 @@ Risorse aggiuntive:
 
 - Il [riferimento all'API REST di Azure Deployment Manager](/rest/api/deploymentmanager/).
 - [Esercitazione: usare Deployment Manager di Azure con modelli di gestione risorse](./deployment-manager-tutorial.md).
-- [Esercitazione: usare il controllo integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+- [Esercitazione: Usare il controllo integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 - [Usare un esempio di Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identità e accesso

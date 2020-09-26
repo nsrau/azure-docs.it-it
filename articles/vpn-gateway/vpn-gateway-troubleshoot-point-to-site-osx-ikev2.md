@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 33e67df5ad68a78cc35f7168813716d1d794d527
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: be7b6349a7bf51a4fb99e3604a04f9d95403b74f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442803"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359325"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Risolvere i problemi di connessione VPN da punto a sito dai client Mac OS X
 
@@ -34,7 +34,7 @@ Questo articolo consente di risolvere i problemi di connettività da punto a sit
 4. L'**ID locale** deve essere uguale al **soggetto** del certificato client.
 5. Fare clic su **Authentication Settings** (Impostazioni di autenticazione) per aprire la pagina Authentication Settings (Impostazioni di autenticazione).
 
-   ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
+   ![Screenshot mostra una finestra di dialogo Impostazioni di autenticazione con certificato selezionato.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
 6. Verificare che **Certificate** (Certificato) sia stato selezionato dall'elenco a discesa.
 7. Fare clic sul pulsante **Select** (Seleziona) e verificare che sia stato selezionato il certificato corretto. Fare clic su **OK** per salvare le modifiche.
 
@@ -48,7 +48,7 @@ Questo articolo consente di risolvere i problemi di connettività da punto a sit
 4. Il campo **Local ID** (ID locale) può essere vuoto.
 5. Fare clic sul pulsante **Authentication Setting** (Impostazioni di autenticazione) e verificare che "Username" (Nome utente) sia stato selezionato nell'elenco a discesa.
 
-   ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
+   ![Screenshot mostra una finestra di dialogo Impostazioni di autenticazione con il nome utente selezionato.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Verificare che siano state immesse le credenziali corrette.
 
 ## <a name="additional-steps"></a><a name="additional"></a>Passaggi aggiuntivi

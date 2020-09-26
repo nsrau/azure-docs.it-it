@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: bbabceeea2fd009efe1098e37a0b1c9dcb8a48aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 17a3d0364f3085e4baf4e0faa40f117d9fbbb04f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894730"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268163"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Usare i controlli delle applicazioni adattivi per ridurre la superficie di attacco dei computer
 
@@ -229,4 +229,4 @@ Di seguito sono riportate alcune delle funzioni disponibili nell'API REST:
 In questo documento si è appreso come usare il controllo delle applicazioni adattivi nel centro sicurezza di Azure per definire gli elenchi di applicazioni in esecuzione nei computer Azure e non Azure. Per ulteriori informazioni sulle altre funzionalità di protezione del carico di lavoro cloud del Centro sicurezza, vedere:
 
 * [Informazioni sull'accesso alla VM JIT (just-in-Time)](just-in-time-explained.md)
-* [Protezione dei cluster Kubernetes di Azure](azure-kubernetes-service-integration.md)
+* [Protezione dei cluster Kubernetes di Azure](defender-for-kubernetes-introduction.md)

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 02/11/2019
-ms.openlocfilehash: 106337fb4756052ee682624290620093bf4a70b3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 275ad3f2dfa04241b1f2a5687cb5dc32b7a31e75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081945"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333172"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migrazione di un database SQL Server al database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,14 +84,14 @@ Con la replica transazionale, tutte le modifiche apportate ai dati o allo schema
 > Usare la versione più recente di SQL Server Management Studio per restare sincronizzati con gli aggiornamenti di Azure e del database SQL. Le versioni precedenti di SQL Server Management Studio non sono in grado di impostare il database SQL come sottoscrittore. [Aggiornare SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Configurare la distribuzione
-   - [Usando SQL Server Management Studio (SSMS)](/sql/relational-databases/replication/configure-publishing-and-distribution/)
+   - [Utilizzo di SQL Server Management Studio (SSMS)](/sql/relational-databases/replication/configure-publishing-and-distribution/)
    - [Utilizzo di Transact-SQL](/sql/relational-databases/replication/configure-publishing-and-distribution/)
 
 2. Creare la pubblicazione
-   - [Usando SQL Server Management Studio (SSMS)](/sql/relational-databases/replication/configure-publishing-and-distribution/)
+   - [Utilizzo di SQL Server Management Studio (SSMS)](/sql/relational-databases/replication/configure-publishing-and-distribution/)
    - [Utilizzo di Transact-SQL](/sql/relational-databases/replication/configure-publishing-and-distribution/)
 3. Creazione di sottoscrizioni
-   - [Usando SQL Server Management Studio (SSMS)](/sql/relational-databases/replication/create-a-push-subscription/)
+   - [Utilizzo di SQL Server Management Studio (SSMS)](/sql/relational-databases/replication/create-a-push-subscription/)
    - [Utilizzo di Transact-SQL](/sql/relational-databases/replication/create-a-push-subscription/)
 
 Suggerimenti e differenze per la migrazione al database SQL

@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 93b0547ba25f6534593a0a016ebfa5cbe4d2be2e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940794"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331013"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Ottenere gli endpoint di connessione e le stringhe di connessione del modulo per il gruppo di server con iperscalabilità PostgreSQL abilitato per Arc
 
@@ -77,7 +77,7 @@ postgres=#
 ```
 > [!NOTE]
 >
-> - La password dell'utente _PostgreSQL_ indicata nel punto finale denominato "istanza di_PostgreSQL_ è la password scelta al momento della creazione del gruppo di server.
+> - La password dell'utente _Postgres_ indicata nel punto finale denominato "istanza di_PostgreSQL_" è la password scelta per la distribuzione del gruppo di server.
 > - Informazioni su azdata: il lease associato alla connessione dura circa 10 ore. Dopodiché è necessario riconnettersi. Se il lease è scaduto, viene ricevuto il messaggio di errore seguente quando si tenta di eseguire un comando con azdata (diverso dall'account di accesso di azdata): _errore: (401)_ 
 >  motivo: intestazioni di risposta http_non autorizzate_ 
 >  _: HTTPHeaderDict ({' date ':' Sun, 06 Sep 2020 16:58:38 GMT ',' Content-Length ':' 0',' www-Authenticate ':'_ 
