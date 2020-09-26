@@ -5,21 +5,24 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: c5f120d6d9d80db4eaa9cf6f68e8dd27d45c8aea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 83267b1bebd501871277ea3e40b7fa9ba38f33cd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098597"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313757"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Come creare un'appliance virtuale di rete in un hub WAN virtuale di Azure (anteprima)
 
 Questa esercitazione illustra come usare la rete WAN virtuale per connettersi alle risorse in Azure tramite un' **appliance virtuale di rete** in Azure. Questo tipo di connessione richiede un dispositivo VPN che si trova in locale con un indirizzo IP pubblico esterno assegnato. Per altre informazioni sulla rete WAN virtuale, vedere la [panoramica sulla rete WAN virtuale](virtual-wan-about.md).
 
 I passaggi descritti in questo articolo consentono di creare un'appliance virtuale di rete **WAN Barracuda CloudGen** nell'hub WAN virtuale. Per completare questo esercizio, è necessario disporre di un dispositivo di cloud locale Barracuda e di una licenza per l'appliance Barracuda CloudGen WAN distribuita nell'hub prima di iniziare.
+
+Per la documentazione sulla distribuzione di **Cisco SD-WAN** all'interno della rete WAN virtuale di Azure, inviare un messaggio di posta elettronica a Cisco all'indirizzo di posta elettronica seguente: vwan_public_preview@cisco.com .
+
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

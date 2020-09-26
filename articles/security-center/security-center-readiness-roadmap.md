@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 3a3dd1c0df32e7d6a67e63c9e148327d30f0082c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 52ea6f862b7ef6190348743a128912131e6a9609
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904721"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314488"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Guida di orientamento alla preparazione del Centro sicurezza di Azure
 Questo documento fornisce una guida di orientamento alla preparazione utile per iniziare a usare il Centro sicurezza di Azure.
@@ -29,8 +29,8 @@ Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la pr
 Usare le risorse seguenti per iniziare a usare il Centro sicurezza.
 
 Articoli
-- [Introduzione al Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- [Guida introduttiva per il Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Introduzione al Centro sicurezza di Azure](security-center-introduction.md)
+- [Guida introduttiva per il Centro sicurezza di Azure](security-center-get-started.md)
 
 Video
 - [Breve video introduttivo](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
@@ -42,7 +42,7 @@ Per sfruttare tutti i vantaggi del Centro sicurezza, è importante sapere come i
 
 Usare le risorse seguenti per semplificare i processi di pianificazione e gestione.
 
-- [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md)
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Onboarding di computer nel Centro sicurezza

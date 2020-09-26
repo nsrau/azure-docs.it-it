@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 217e3b9de7c9a46174c6ce6d1a3b151c904a7bf2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498953"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314114"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da VMware ad Azure
 
@@ -43,12 +43,14 @@ Affinché Site Recovery funzioni come previsto, è necessario modificare la conn
 
 Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, consentire l'accesso a questi URL:
 
-| **Nome**                  | **Commerciale**                               | **Enti governativi**                                 | **Descrizione** |
+| **Nome**                  | **Commerciale**                               | **Enti pubblici**                                 | **Descrizione** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Archiviazione                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Consente la scrittura di dati dalla macchina virtuale nell'account di archiviazione della cache all'area di origine. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornisce l'autenticazione e l'autorizzazione per gli URL del servizio Site Recovery. |
 | Replica               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Consente alla macchina virtuale di comunicare con il servizio Site Recovery. |
 | Bus di servizio               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Consente alla macchina virtuale di scrivere i dati di diagnostica e monitoraggio di Site Recovery. |
+
+Per un elenco completo degli URL da includere nell'elenco elementi consentiti per la comunicazione tra l'infrastruttura Azure Site Recovery locale e i servizi di Azure, vedere [la sezione requisiti di rete nell'articolo prerequisiti](vmware-azure-deploy-configuration-server.md#prerequisites).
 
 ## <a name="replication-process"></a>Processo di replica
 
@@ -82,6 +84,54 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 5. Per impostazione predefinita, la risincronizzazione è pianificata per l'esecuzione automatica al di fuori degli orari lavorativi. Se non si vuole attendere la risincronizzazione predefinita al di fuori degli orari di lavoro, è possibile risincronizzare una macchina virtuale manualmente, A tale scopo, passare a portale di Azure e selezionare la macchina virtuale > **Risincronizza**.
 6. Se la risincronizzazione predefinita non riesce al di fuori dell'orario di ufficio ed è necessario un intervento manuale, viene generato un errore nel computer specifico in portale di Azure. È possibile risolvere l'errore e attivare manualmente la risincronizzazione.
 7. Al termine della risincronizzazione, la replica delle modifiche delta riprenderà.
+
+## <a name="replication-policy"></a>Criteri di replica 
+
+Quando si abilita la replica delle macchine virtuali di Azure, per impostazione predefinita Site Recovery crea nuovi criteri di replica con le impostazioni predefinite riepilogate nella tabella.
+
+**Impostazione di criteri** | **Dettagli** | **Default**
+--- | --- | ---
+**Conservazione del punto di ripristino** | Specifica per quanto tempo Site Recovery conserva i punti di ripristino | 24 ore
+**Frequenza snapshot coerenti con l'applicazione** | Specifica con quale frequenza Site Recovery accetta uno snapshot coerente con l'app. | Ogni quattro ore
+
+### <a name="managing-replication-policies"></a>Gestione dei criteri di replica
+
+È possibile gestire e modificare le impostazioni predefinite dei criteri di replica nei modi seguenti:
+- È possibile modificare le impostazioni quando si abilita la replica.
+- È possibile creare criteri di replica in qualsiasi momento e quindi applicarli quando si abilita la replica.
+
+### <a name="multi-vm-consistency"></a>Coerenza tra più macchine virtuali
+
+Se si vuole che le macchine virtuali vengano replicate insieme e abbiano punti di ripristino condivisi coerenti con l'arresto anomalo del sistema e coerenti con l'app in caso di failover, è possibile raccoglierle in un gruppo di replica. La coerenza tra più macchine virtuali influisce sulle prestazioni dei carichi di lavoro e deve essere usata solo per le macchine virtuali che eseguono carichi di lavoro per cui la coerenza fra tutte le macchine è fondamentale. 
+
+
+
+## <a name="snapshots-and-recovery-points"></a>Snapshot e punti di ripristino
+
+I punti di ripristino vengono creati da snapshot dei dischi delle macchine virtuali acquisiti in un momento specifico. Quando si effettua il failover di una macchina virtuale, si usa un punto di ripristino per ripristinare la VM nella posizione di destinazione.
+
+Prima di effettuare il failover è importante assicurarsi che la macchina virtuale venga avviata senza danneggiamenti o perdita di dati e che i dati della VM siano coerenti per il sistema operativo e per le app in esecuzione su di essa. Tutto questo dipende dal tipo di snapshot acquisiti.
+
+Site Recovery acquisisce snapshot nel modo seguente:
+
+1. Site Recovery acquisisce snapshot dei dati coerenti con l'arresto anomalo del sistema per impostazione predefinita, oltre a snapshot coerenti con l'app se si specifica una frequenza.
+2. Dagli snapshot vengono creati punti di ripristino che vengono archiviati in base alle impostazioni di conservazione dei criteri di replica.
+
+### <a name="consistency"></a>Consistenza
+
+La tabella seguente illustra i vari tipi di coerenza.
+
+### <a name="crash-consistent"></a>Coerenza con l'arresto anomalo del sistema
+
+**Descrizione** | **Dettagli** | **Consiglio**
+--- | --- | ---
+Uno snapshot coerente con l'arresto anomalo del sistema acquisisce i dati contenuti nel disco al momento dell'acquisizione dello snapshot. Non include alcun dato in memoria.<br/><br/> Contiene l'equivalente dei dati su disco che sarebbero presenti se si verificasse un arresto anomalo della macchina virtuale o se il cavo di alimentazione del server venisse scollegato nell'istante esatto dell'acquisizione dello snapshot.<br/><br/> Uno snapshot coerente con l'arresto anomalo del sistema non garantisce la coerenza dei dati per il sistema operativo o per le app in esecuzione nella macchina virtuale. | Per impostazione predefinita, Site Recovery crea punti di ripristino coerenti con l'arresto anomalo del sistema ogni cinque minuti. Questa impostazione non può essere modificata.<br/><br/>  | Attualmente, la maggior parte delle app può essere ripristinata correttamente da punti coerenti con l'arresto anomalo del sistema.<br/><br/> I punti di ripristino coerenti con l'arresto anomalo del sistema sono in genere sufficienti per la replica di sistemi operativi e app come i server DHCP e i server di stampa.
+
+### <a name="app-consistent"></a>Coerenza con l'app
+
+**Descrizione** | **Dettagli** | **Consiglio**
+--- | --- | ---
+I punti di ripristino coerenti con l'app vengono creati dagli snapshot coerenti con l'app.<br/><br/> Uno snapshot coerente con l'app contiene tutte le informazioni contenute in uno snapshot coerente con l'arresto anomalo del sistema, oltre a tutti i dati in memoria e le transazioni in corso. | Gli snapshot coerenti con l'app usano il servizio Copia Shadow del volume:<br/><br/>   1) Azure Site Recovery usa il metodo di backup di sola copia (VSS_BT_COPY) che non modifica l'ora e il numero di sequenza del backup del log delle transazioni di Microsoft SQL </br></br> 2) quando viene avviato uno snapshot, VSS esegue un'operazione di copia in scrittura (COW) nel volume.<br/><br/>   3) prima di eseguire la mucca, VSS informa ogni app nel computer che deve scaricare i dati residenti in memoria su disco.<br/><br/>   4) VSS consente quindi all'app di backup/ripristino di emergenza (in questo caso Site Recovery) di leggere i dati dello snapshot e continuare. | Gli snapshot vengono acquisiti in base alla frequenza specificata. Questa frequenza deve essere sempre inferiore a quella impostata per la conservazione dei punti di ripristino. Ad esempio, se i punti di ripristino vengono conservati in base all'impostazione predefinita di 24 ore, la frequenza deve essere impostata su un periodo inferiore a 24 ore.<br/><br/>Gli snapshot coerenti con l'app sono più complessi e il loro completamento richiede più tempo rispetto agli snapshot coerenti con l'arresto anomalo del sistema.<br/><br/> Influiscono sulle prestazioni delle app in esecuzione su una macchina virtuale abilitata per la replica. 
 
 ## <a name="failover-and-failback-process"></a>Processo di failover e failback
 
