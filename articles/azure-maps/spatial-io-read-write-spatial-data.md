@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7c588e1db7cbf35d2a5192805674f88905599e8e
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: dd4a02ffdc062ed1940d35ca64e02a5e0a88a248
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085142"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333325"
 ---
 # <a name="read-and-write-spatial-data"></a>Leggere e scrivere dati spaziali
 
@@ -160,38 +160,31 @@ Analizzerà le `GmlReader` coordinate che hanno uno dei seguenti SRID:
 - EPSG: 4269, EPSG: 4283, EPSG: 4258, EPSG: 4308, EPSG: 4230, EPSG: 4272, EPSG: 4271, EPSG: 4267, EPSG: 4608, EPSG: 4674 eventualmente con un margine di errore ridotto.
 - EPSG: 3857, EPSG: 102100, EPSG: 3785, EPSG: 900913, EPSG: 102113, EPSG: 41001, EPSG: 54004
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="more-resources"></a>Altre risorse
 
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
-> [!div class="nextstepaction"]
-> [funzioni statiche atlas.io](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io)
+[funzioni statiche atlas.io](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSet](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
+[SpatialDataSet](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
+[SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
 
-> [!div class="nextstepaction"]
-> [GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
+[GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
 
-> [!div class="nextstepaction"]
-> [GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
+[GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
 
-> [!div class="nextstepaction"]
-> [funzioni Atlas. io. OGC. WKT](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+[funzioni Atlas. io. OGC. WKT](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+
+[Connettersi a un servizio WFS](spatial-io-connect-wfs-service.md)
+
+[Sfruttare le operazioni principali](spatial-io-core-operations.md)
+
+[Dettagli sul formato dati supportato](spatial-io-supported-data-format-details.md)
+
+
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 
-> [!div class="nextstepaction"]
-> [Aggiungere un livello mappa OGC](spatial-io-add-ogc-map-layer.md)
-
-> [!div class="nextstepaction"]
-> [Connettersi a un servizio WFS](spatial-io-connect-wfs-service.md)
-
-> [!div class="nextstepaction"]
-> [Sfruttare le operazioni principali](spatial-io-core-operations.md)
-
-> [!div class="nextstepaction"]
-> [Dettagli sul formato dati supportato](spatial-io-supported-data-format-details.md)
+[Aggiungere un livello mappa OGC](spatial-io-add-ogc-map-layer.md)

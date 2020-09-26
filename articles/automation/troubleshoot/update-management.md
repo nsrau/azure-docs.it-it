@@ -2,15 +2,15 @@
 title: Risolvere i problemi relativi a Gestione aggiornamenti di Automazione di Azure
 description: Questo articolo mostra come risolvere i problemi relativi alla Gestione aggiornamenti di Automazione di Azure.
 services: automation
-ms.date: 06/30/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: b0b1e31a8c10ba372473c36e35c19044ef02898a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26ce59c1d4ec8e3e2bf2096a4688b7639148410f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003355"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359240"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Risolvere i problemi relativi a Gestione aggiornamenti
 
@@ -65,9 +65,9 @@ Quando un aggiornamento sostituito diventa non disponibile al 100%, è necessari
 
 1. Selezionare **Gestione aggiornamenti** nell'account di Automazione per visualizzare lo stato del computer. Vedere [Visualizzare la valutazione degli aggiornamenti](../update-management/update-mgmt-view-update-assessments.md).
 
-2. Controllare l'aggiornamento sostituito per assicurarsi che sia non disponibile al 100%. 
+2. Controllare l'aggiornamento sostituito per assicurarsi che sia non disponibile al 100%.
 
-3. Contrassegnare l'aggiornamento come rifiutato, a meno che non si abbiano domande sull'aggiornamento. 
+3. Contrassegnare l'aggiornamento come rifiutato, a meno che non si abbiano domande sull'aggiornamento.
 
 4. Selezionare **Computer** e nella colonna **Conformità** forzare la ripetizione dell'analisi per la conformità. Vedere [gestire gli aggiornamenti per le macchine virtuali](../update-management/update-mgmt-manage-updates-for-vm.md).
 
@@ -112,9 +112,9 @@ Questo problema può essere causato da anomalie relative alla configurazione loc
    | summarize by Computer, Solutions
    ```
 
-4. Se il computer non viene visualizzato nei risultati della query, non è stato sincronizzato di recente. Probabilmente si è verificato un problema di configurazione locale ed è necessario [reinstallare l'agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). 
+4. Se il computer non viene visualizzato nei risultati della query, non è stato sincronizzato di recente. Probabilmente si è verificato un problema di configurazione locale ed è necessario [reinstallare l'agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. Se il computer viene visualizzato nei risultati della query, verificare la presenza di problemi di configurazione dell'ambito. La [configurazione ambito](../update-management/update-mgmt-scope-configuration.md) determina quali computer sono configurati per Gestione aggiornamenti. 
+5. Se il computer viene visualizzato nei risultati della query, verificare la presenza di problemi di configurazione dell'ambito. La [configurazione ambito](../update-management/update-mgmt-scope-configuration.md) determina quali computer sono configurati per Gestione aggiornamenti.
 
 6. Se il computer viene visualizzato nell'area di lavoro ma non in Gestione aggiornamenti, è necessario impostare la configurazione dell'ambito per usare i computer come destinazione. Per informazioni su come eseguire questa operazione, vedere [Abilitare i computer nell'area di lavoro](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace).
 
@@ -180,7 +180,7 @@ Se la sottoscrizione non è configurata per il provider di risorse di Automazion
 
 1. Nel [portale di Azure](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), accedere all'elenco dei servizi di Azure.
 
-2. Selezionare **Tutti i servizi** e quindi **Sottoscrizioni** nel gruppo di servizi Generale. 
+2. Selezionare **Tutti i servizi** e quindi **Sottoscrizioni** nel gruppo di servizi Generale.
 
 3. Trovare la sottoscrizione definita nell'ambito della distribuzione.
 
@@ -251,7 +251,7 @@ Attenersi ai passaggi seguenti per determinare se le query funzionano correttame
     | project id, location, name, tags
     ```
 
-2. Controllare che i computer desiderati siano elencati nei risultati della query. 
+2. Controllare che i computer desiderati siano elencati nei risultati della query.
 
 3. Se i computer non sono elencati, probabilmente si è verificato un problema con il filtro selezionato nel gruppo dinamico. Apportare le modifiche necessarie alla configurazione del gruppo.
 
@@ -325,7 +325,7 @@ Se si usa un'immagine clonata, nomi computer diversi hanno lo stesso ID computer
 
 3. Eseguire `Restart-Service HealthService` per riavviare il servizio integrità. Questa operazione ricrea la chiave e genera un nuovo UUID.
 
-4. Se questo approccio non funziona, eseguire prima sysprep sull'immagine, quindi installare MMA.
+4. Se questo approccio non funziona, eseguire prima Sysprep sull'immagine, quindi installare l'agente di Log Analytics per Windows.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Scenario: viene visualizzato un errore di sottoscrizione collegata durante la creazione di una distribuzione degli aggiornamenti per i computer in un altro tenant di Azure
 
@@ -343,7 +343,7 @@ Questo errore si verifica quando si crea una distribuzione degli aggiornamenti c
 
 ### <a name="resolution"></a>Risoluzione
 
-Usare la soluzione alternativa seguente per la pianificazione degli elementi. È possibile usare il cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) con il parametro `ForUpdateConfiguration` per creare una pianificazione. Usare quindi il cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passare i computer nell'altro tenant al parametro `NonAzureComputer`. L'esempio seguente illustra come farlo:
+Usare la soluzione alternativa seguente per la pianificazione degli elementi. È possibile usare il cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) con il parametro `ForUpdateConfiguration` per creare una pianificazione. Usare quindi il cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) e passare i computer nell'altro tenant al parametro `NonAzureComputer`. L'esempio seguente illustra come farlo:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -386,24 +386,15 @@ Questo errore può verificarsi per uno dei motivi seguenti:
 * Il computer non esiste più.
 * Il computer è disattivato e non è raggiungibile.
 * Il computer ha un problema di connettività di rete e quindi il ruolo di lavoro ibrido nel computer non è raggiungibile.
-* È stato eseguito un aggiornamento di MMA che ha modificato l'ID del computer di origine.
+* Aggiornamento dell'agente di Log Analytics che ha modificato l'ID del computer di origine.
 * L'esecuzione dell'aggiornamento è stata limitata se si raggiunge il limite di 200 processi simultanei in un account di automazione. Ogni distribuzione viene considerata un processo e ogni computer in una distribuzione di aggiornamenti conta come processo. Qualsiasi altro processo di automazione o distribuzione di aggiornamenti attualmente in esecuzione nell'account di Automazione viene conteggiato verso il limite di processi simultanei.
 
 ### <a name="resolution"></a>Risoluzione
 
 Se applicabili, usare i [gruppi dinamici](../update-management/update-mgmt-groups.md) per le distribuzioni degli aggiornamenti. Inoltre, è possibile eseguire i passaggi seguenti.
 
-1. Verificare che il computer esista ancora e che sia raggiungibile. 
-2. Se il computer non esiste, modificare la distribuzione e rimuoverlo.
-3. Per un elenco delle porte e degli indirizzi necessari per Gestione aggiornamenti, vedere la sezione [Pianificazione della rete](../update-management/update-mgmt-overview.md#ports), quindi verificare che il computer soddisfi tali requisiti.
-4. Verificare la connettività al ruolo di lavoro ibrido per runbook usando lo strumento di risoluzione dei problemi dell'agente del ruolo lavoro ibrido per runbook. Per altre informazioni sullo strumento di risoluzione dei problemi, vedere [Risolvere i problemi dell'agente di aggiornamento](update-agent-issues.md).
-5. Eseguire la query seguente in Log Analytics per trovare i computer nell'ambiente per cui è stato modificato l'ID del computer di origine. Cercare i computer con lo stesso valore `Computer` ma con un valore `SourceComputerId` diverso.
-
-   ```kusto
-   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
-   ```
-
-6. Dopo aver individuato i computer interessati, modificare le distribuzioni degli aggiornamenti destinate a tali computer, quindi rimuoverle e aggiungerle nuovamente in modo che `SourceComputerId` rifletta il valore corretto.
+1. Verificare che il computer o il server soddisfi i [requisiti](../update-management/update-mgmt-overview.md#client-requirements).
+2. Verificare la connettività al ruolo di lavoro ibrido per runbook usando lo strumento di risoluzione dei problemi dell'agente del ruolo lavoro ibrido per runbook. Per altre informazioni sullo strumento di risoluzione dei problemi, vedere [Risolvere i problemi dell'agente di aggiornamento](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Scenario: gli aggiornamenti vengono installati senza una distribuzione
 
@@ -466,7 +457,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 ### <a name="cause"></a>Causa
 
-La comunicazione di rete potrebbe essere bloccata da un proxy, un gateway o un firewall. 
+La comunicazione di rete potrebbe essere bloccata da un proxy, un gateway o un firewall.
 
 ### <a name="resolution"></a>Risoluzione
 

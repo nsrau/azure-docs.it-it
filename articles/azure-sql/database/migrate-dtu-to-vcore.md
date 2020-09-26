@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 05/28/2020
-ms.openlocfilehash: 0193e7f7001fb8f63794a379c4d2b8e28abd5c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8c7671e655594456621e4489cb06191d820b134
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297869"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333155"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Eseguire la migrazione del database SQL di Azure dal modello basato su DTU al modello basato su vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -168,13 +168,13 @@ La tabella seguente fornisce indicazioni per scenari di migrazione specifici:
 |Livello di servizio corrente|Livello di servizio di destinazione|Tipo di migrazione|Azioni utente|
 |---|---|---|---|
 |Standard|Scopo generico|Laterale|È possibile eseguire la migrazione in qualsiasi ordine, ma è necessario garantire il dimensionamento vCore appropriato come descritto in precedenza.|
-|Premium|Business Critical|Laterale|È possibile eseguire la migrazione in qualsiasi ordine, ma è necessario garantire il dimensionamento vCore appropriato come descritto in precedenza.|
-|Standard|Business Critical|Aggiornamento|È necessario eseguire prima la migrazione del database secondario|
-|Business Critical|Standard|Downgrade|È necessario eseguire prima la migrazione del database primario|
+|Premium|Business critical|Laterale|È possibile eseguire la migrazione in qualsiasi ordine, ma è necessario garantire il dimensionamento vCore appropriato come descritto in precedenza.|
+|Standard|Business critical|Aggiornamento|È necessario eseguire prima la migrazione del database secondario|
+|Business critical|Standard|Downgrade|È necessario eseguire prima la migrazione del database primario|
 |Premium|Scopo generico|Downgrade|È necessario eseguire prima la migrazione del database primario|
 |Scopo generico|Premium|Aggiornamento|È necessario eseguire prima la migrazione del database secondario|
-|Business Critical|Scopo generico|Downgrade|È necessario eseguire prima la migrazione del database primario|
-|Scopo generico|Business Critical|Aggiornamento|È necessario eseguire prima la migrazione del database secondario|
+|Business critical|Scopo generico|Downgrade|È necessario eseguire prima la migrazione del database primario|
+|Scopo generico|Business critical|Aggiornamento|È necessario eseguire prima la migrazione del database secondario|
 ||||
 
 ## <a name="migrate-failover-groups"></a>Eseguire la migrazione dei gruppi di failover

@@ -1,6 +1,6 @@
 ---
 title: Configurazione degli endpoint di rete di File di Azure | Microsoft Docs
-description: Panoramica delle opzioni di rete per File di Azure.
+description: Informazioni su come configurare gli endpoint di rete di file di Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a38528e32061f57e3239ef4be26cdd437f4f8746
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4e08c74e1fbc3da1ed11d6a2f7faeb26780d2a37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078593"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333546"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurazione degli endpoint di rete di File di Azure
 

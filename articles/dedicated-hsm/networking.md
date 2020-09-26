@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 06cd02177d7d5c478f3378eb05517f1a37297e92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300733"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359155"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Reti con HSM dedicato di Azure
 
@@ -83,13 +83,13 @@ Per le applicazioni distribuite a livello globale o per gli scenari di failover 
 > [!NOTE]
 > Al momento il peering di rete virtuale globale in scenari di connettività fra aree non è disponibile con HSM dedicato e al suo posto si deve usare un gateway VPN. 
 
-![rete virtuale globale](media/networking/global-vnet.png)
+![Il diagramma mostra due aree connesse da due gateway V P N. Ogni area contiene reti virtuali con peering.](media/networking/global-vnet.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Domande frequenti](faq.md)
-- [Facilità di supporto](supportability.md)
+- [Supporto](supportability.md)
 - [Disponibilità elevata](high-availability.md)
 - [Sicurezza fisica](physical-security.md)
-- [Monitoring](monitoring.md)
+- [Monitoraggio](monitoring.md)
 - [Architettura di distribuzione](deployment-architecture.md)

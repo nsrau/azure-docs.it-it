@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 6b66db639e0b22a7e0c45486465a1fa395aba33d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653512"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359614"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Distribuzione di Macchine virtuali di Microsoft Azure per SAP NetWeaver
 
@@ -543,11 +543,11 @@ Poiché le diverse versioni di un sistema operativo o DBMS richiedono patch dive
 La procedura per creare un'immagine privata per Linux è diversa da quella per crearne una per Windows.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > Per preparare un'immagine Windows da poter usare per distribuire più macchine virtuali, è necessario eseguire l'astrazione o la generalizzazione delle impostazioni di Windows (come il nome host e il SID di Windows) nella VM locale. A tale scopo, è possibile usare [sysprep](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825084(v=win.10)).
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > Per preparare un'immagine Linux da poter usare per distribuire più macchine virtuali, è necessario eseguire l'astrazione o la generalizzazione di alcune impostazioni di Linux nella VM locale. A tale scopo, è possibile usare `waagent -deprovision`. Per altre informazioni, vedere [Acquisire una macchina virtuale Linux in esecuzione in Azure][virtual-machines-linux-capture-image] e [Guida dell'utente dell'agente Linux di Azure][virtual-machines-linux-agent-user-guide-command-line-options].
 >
@@ -683,11 +683,11 @@ In questo scenario l'agente di macchine virtuali **non** viene installato automa
 Per altre informazioni sull'agente di macchine virtuali di Azure, vedere le risorse seguenti.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > [Panoramica dell'agente di macchine virtuali di Azure][virtual-machines-windows-agent-user-guide]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo Linux.][Logo_Linux] Linux
 >
 > [Guida dell'utente dell'agente Linux di Azure][virtual-machines-linux-agent-user-guide]
 >
@@ -1309,7 +1309,7 @@ Se alcuni dei dati dell'infrastruttura non vengono recapitati correttamente come
 > [!NOTE]
 > Esistono due versioni dell'estensione della macchina virtuale. Questo capitolo illustra l'estensione predefinita della macchina virtuale. Se è stata installata la nuova estensione VM, vedere il capitolo [risoluzione dei problemi relativi alla nuova estensione di Azure per SAP][deployment-guide-5.3-new].
 
-#### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] I contatori delle prestazioni di Azure non vengono visualizzati
+#### <a name="windows-logologo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Logo Windows.][Logo_Windows] I contatori delle prestazioni di Azure non vengono visualizzati
 
 Il servizio di Windows AzureEnhancedMonitoring raccoglie le metriche delle prestazioni in Azure. Se il servizio non è stato installato correttamente o non è in esecuzione nella VM, non può essere raccolta alcuna metrica delle prestazioni.
 
@@ -1350,13 +1350,13 @@ Il servizio di Windows AzureEnhancedMonitoring esiste ed è abilitato, ma non si
 
 La configurazione non è corretta. Riavviare l'estensione Azure per SAP nella VM, come descritto in [Configurare l'estensione Azure per SAP][deployment-guide-4.5].
 
-#### <a name="windowslogo_windows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Alcuni contatori delle prestazioni di Azure non sono presenti
+#### <a name="windows-logologo_windows-some-azure-performance-counters-are-missing"></a>![Logo Windows.][Logo_Windows] Alcuni contatori delle prestazioni di Azure non sono presenti
 
 Il servizio di Windows AzureEnhancedMonitoring raccoglie le metriche delle prestazioni in Azure. Il servizio ottiene dati da più origini. Alcuni dati di configurazione vengono raccolti in locale e alcune metriche delle prestazioni vengono lette da Diagnostica di Azure. Vengono usati contatori di archiviazione dalla registrazione a livello di sottoscrizione di archiviazione.
 
 Se la soluzione indicata nella nota SAP [1999351] non risolve il problema, eseguire di nuovo lo script di configurazione `Set-AzVMAEMExtension`. Potrebbe essere necessario attendere un'ora perché i contatori relativi all'analisi dell'archiviazione o alla diagnostica non possono essere creati subito dopo essere stati abilitati. Se il problema persiste, inviare un messaggio all'assistenza clienti SAP in merito al componente BC-OP-NT-AZR per Windows o al componente BC-OP-LNX-AZR per una macchina virtuale Linux.
 
-#### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] I contatori delle prestazioni di Azure non vengono visualizzati
+#### <a name="linux-logologo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Logo Linux.][Logo_Linux] I contatori delle prestazioni di Azure non vengono visualizzati
 
 Le metriche delle prestazioni in Azure vengono raccolte da un daemon. Se il daemon non è in esecuzione, non può essere raccolta alcuna metrica delle prestazioni.
 
@@ -1389,7 +1389,7 @@ L'esecuzione di azperfli.exe come descritto in precedenza potrebbe consistere in
 I messaggi sono causati dal fatto che i Managed Disks Standard non consegnano le API usate dall'estensione Azure per SAP per verificare le statistiche degli account di archiviazione Standard di Azure. Questo non consiste in un problema. Motivo per cui è stata introdotta la raccolta dei dati per gli account archiviazione su disco standard è stata applicata la limitazione degli input e degli output che si sono verificati I dischi gestiti eviteranno tale limitazione, limitando il numero di dischi in un account di archiviazione. Pertanto, la mancanza di quel tipo di dati non è critica.
 
 
-#### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Alcuni contatori delle prestazioni di Azure non sono presenti
+#### <a name="linux-logologo_linux-some-azure-performance-counters-are-missing"></a>![Logo Linux.][Logo_Linux] Alcuni contatori delle prestazioni di Azure non sono presenti
 
 Le metriche delle prestazioni in Azure vengono raccolte da un daemon, che ottiene i dati da diverse origini. Alcuni dati di configurazione vengono raccolti in locale e alcune metriche delle prestazioni vengono lette da Diagnostica di Azure. I contatori di archiviazione provengono dai log nella sottoscrizione di archiviazione.
 
@@ -1402,7 +1402,7 @@ Se la soluzione indicata nella nota SAP [1999351] non risolve il problema, esegu
 > [!NOTE]
 > Esistono due versioni dell'estensione della macchina virtuale. Questo capitolo illustra la nuova estensione della macchina virtuale. Se è stata installata l'estensione predefinita della macchina virtuale, vedere [il capitolo Risoluzione dei problemi relativi all'estensione Azure per SAP][deployment-guide-5.3].
 
-#### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] I contatori delle prestazioni di Azure non vengono visualizzati
+#### <a name="windows-logologo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Logo Windows.][Logo_Windows] I contatori delle prestazioni di Azure non vengono visualizzati
 
 Il processo AzureEnhancedMonitoring raccoglie le metriche delle prestazioni in Azure. Se il processo non è in esecuzione nella macchina virtuale, non è possibile raccogliere le metriche delle prestazioni.
 
@@ -1416,13 +1416,13 @@ La directory di installazione C: \\ packages \\ plugins \\ Microsoft. AzureCAT. 
 
 L'estensione non è installata. Determinare se si tratta di un problema del proxy (come descritto prima). Potrebbe essere necessario riavviare il computer o installare di nuovo l'estensione della macchina virtuale.
 
-#### <a name="windowslogo_windows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Alcuni contatori delle prestazioni di Azure non sono presenti
+#### <a name="windows-logologo_windows-some-azure-performance-counters-are-missing"></a>![Logo Windows.][Logo_Windows] Alcuni contatori delle prestazioni di Azure non sono presenti
 
 Il processo AzureEnhancedMonitoring di Windows raccoglie le metriche delle prestazioni in Azure. Il processo ottiene i dati da diverse origini. Alcuni dati di configurazione vengono raccolti localmente e alcune metriche delle prestazioni vengono lette da monitoraggio di Azure.
 
 Se la risoluzione dei problemi con la nota SAP [1999351] non risolve il problema, aprire un messaggio di supporto tecnico SAP nel componente BC-op-NT-AZR per Windows o BC-op-lnx-AZR per una macchina virtuale Linux. Alleghi il file di log C: \\ packages \\ plugins \\ Microsoft. AzureCAT. AzureEnhancedMonitoring. MonitorX64Windows \\ &lt; Version>\\logapp.txt all'evento imprevisto.
 
-#### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] I contatori delle prestazioni di Azure non vengono visualizzati
+#### <a name="linux-logologo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Logo Linux.][Logo_Linux] I contatori delle prestazioni di Azure non vengono visualizzati
 
 Le metriche delle prestazioni in Azure vengono raccolte da un daemon. Se il daemon non è in esecuzione, non può essere raccolta alcuna metrica delle prestazioni.
 
@@ -1436,7 +1436,7 @@ La directory \\var\\lib\\waagent\\ non ha una sottodirectory per l'estensione Az
 
 L'estensione non è installata. Determinare se si tratta di un problema del proxy (come descritto prima). Potrebbe essere necessario riavviare il computer e/o installare di nuovo l'estensione della macchina virtuale.
 
-#### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Alcuni contatori delle prestazioni di Azure non sono presenti
+#### <a name="linux-logologo_linux-some-azure-performance-counters-are-missing"></a>![Logo Linux.][Logo_Linux] Alcuni contatori delle prestazioni di Azure non sono presenti
 
 Le metriche delle prestazioni in Azure vengono raccolte da un daemon, che ottiene i dati da diverse origini. Alcuni dati di configurazione vengono raccolti localmente e alcune metriche delle prestazioni vengono lette da monitoraggio di Azure.
 

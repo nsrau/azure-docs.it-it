@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: b52c493a700cd258e1458b0127aa19cebc714822
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b5bf29969f8b6d54215e2b2f1a2d0b1587faad6f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891600"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332186"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Domande frequenti su Collegamento ad Azure Synapse per Azure Cosmos DB
 
@@ -82,7 +82,7 @@ L'archivio analitico è di sola lettura nei contenitori Azure Cosmos. Non è qui
 
 ### <a name="is-the-autosync-replication-from-transactional-store-to-the-analytical-store-asynchronous-or-synchronous-and-what-are-the-latencies"></a>La replica con sincronizzazione automatica dall'archivio transazionale all'archivio analitico è asincrona o sincrona e quali sono le latenze?
 
-La replica è asincrona e attualmente la latenza prevista è di circa 2 minuti.
+La latenza di sincronizzazione automatica è in genere entro 2 minuti. Nei casi di database con velocità effettiva condivisa con un numero elevato di contenitori, la latenza di sincronizzazione automatica dei singoli contenitori potrebbe essere superiore e richiedere fino a 5 minuti. Si vuole ottenere altre informazioni su come questa latenza si riferisce agli scenari. Rivolgersi al [team di Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 ### <a name="are-there-any-scenarios-where-the-items-from-the-transactional-store-are-not-automatically-propagated-to-the-analytical-store"></a>Esistono scenari in cui gli elementi dell'archivio transazionale non vengono propagati automaticamente nell'archivio analitico?
 

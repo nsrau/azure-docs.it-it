@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: f8bec6b3065cc58f9589cfba0d6f494a9d065355
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b81a0fc81478fb50c356a92371ece2e79ff417ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549688"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333563"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Esercitazione: configurare looop per il provisioning utenti automatico
 
@@ -113,13 +113,13 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere `https://<organisation_domain>.looop.co/scim/v2` in **URL tenant**. Ad esempio, `https://demo.looop.co/scim/v2`. Immettere il valore recuperato e salvato in precedenza da looop nel **token Secret**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a looop. Se la connessione non riesce, verificare che l'account looop disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere `https://<organisation_domain>.looop.co/scim/v2` in **URL tenant**. Ad esempio `https://demo.looop.co/scim/v2`. Immettere il valore recuperato e salvato in precedenza da looop nel **token Secret**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a looop. Se la connessione non riesce, verificare che l'account looop disponga delle autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
