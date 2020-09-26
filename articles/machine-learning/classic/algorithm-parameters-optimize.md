@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 5daa15dd01be3726ea1ff8e093d1fe94d1755122
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0ed958d24a7ff499c8cf33974648afb0f4e0a81d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91343708"
+ms.locfileid: "91367989"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Scegliere i parametri per ottimizzare gli algoritmi in Machine Learning Studio (versione classica)
 
-**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**si applica a:** ![ Si applica a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 In questo argomento viene descritto come scegliere il set di iperparametri corretti per un algoritmo in Azure Machine Learning Studio (classico). Per la maggior parte degli algoritmi di Machine Learning è necessario impostare i parametri. Quando si esegue il training di un modello, è necessario specificare valori per questi parametri. L'efficacia del modello di cui è stato eseguito il training dipende dai parametri scelti per il modello. Il processo per trovare il set ottimale di parametri è noto come *selezione del modello*.
 

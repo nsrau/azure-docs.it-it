@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: dcce4485e00415f9caa706966cac1c936c1f15f6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9a6d8843acf27a53e261d9c7180906b15d05cc33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690409"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314811"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Monitorare e ottimizzare database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -32,7 +32,7 @@ Queste metriche sono disponibili per i nodi iperscalari (CITUS):
 |---|---|---|---|
 |active_connections|Connessioni attive|Conteggio|Numero di connessioni al server attive.|
 |cpu_percent|Percentuale CPU|Percentuale|Percentuale di CPU in uso.|
-|iops|IOPS|Conteggio|Vedere la [definizione IOPS](../virtual-machines/premium-storage-performance.md#iops) e la [velocità effettiva con scalabilità](concepts-hyperscale-configuration-options.md) elevata|
+|iops|IOPS|Conteggio|Vedere la [definizione IOPS](../virtual-machines/premium-storage-performance.md#iops) e la [velocità effettiva di iperscala (CITUS)](concepts-hyperscale-configuration-options.md)|
 |memory_percent|Percentuale memoria|Percentuale|Percentuale di memoria in uso.|
 |network_bytes_ingress|Rete in ingresso|Byte|Rete in ingresso tra connessioni attive.|
 |network_bytes_egress|Rete in uscita|Byte|Rete in uscita tra connessioni attive.|

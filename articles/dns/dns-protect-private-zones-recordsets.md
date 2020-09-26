@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1bbb410b3aac7d1e30db075003eb30ec27b11a38
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 20e20968b6367e0a8c0131d6e7e8d15e56c06d63
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926587"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363223"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Come proteggere le zone e i record DNS privati
 
@@ -102,9 +102,9 @@ Le autorizzazioni vengono applicate a livello di set di record.  All'utente vien
 
 Le autorizzazioni RBAC a livello di set di record possono essere configurate tramite il portale di Azure, usando il pulsante di **controllo di accesso (IAM)** nella pagina del set di record:
 
-![Controllo degli accessi in base al ruolo a livello di set di record tramite il portale di Azure](./media/dns-protect-private-zones-recordsets/rbac3.png)
+![Screenshot che mostra il pulsante di controllo di accesso (I M).](./media/dns-protect-private-zones-recordsets/rbac3.png)
 
-![Controllo degli accessi in base al ruolo a livello di set di record tramite il portale di Azure](./media/dns-protect-private-zones-recordsets/rbac4.png)
+![Screenshot che mostra il controllo di accesso con l'opzione Aggiungi assegnazione ruolo selezionata.](./media/dns-protect-private-zones-recordsets/rbac4.png)
 
 Le autorizzazioni del Controllo degli accessi in base al ruolo a livello di set di record possono anche essere [concesse tramite Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -165,7 +165,7 @@ L'esempio seguente illustra la definizione di un ruolo personalizzato per gestir
 La proprietà Actions definisce le autorizzazioni specifiche di DNS seguenti:
 
 * `Microsoft.Network/privateDnsZones/CNAME/*` concede il controllo completo sui record CNAME
-* `Microsoft.Network/privateDNSZones/read`concede l'autorizzazione per leggere le zone DNS private, ma non per modificarle, consentendo di visualizzare l'area in cui viene creato il record CNAME.
+* `Microsoft.Network/privateDNSZones/read` concede l'autorizzazione per leggere le zone DNS private, ma non per modificarle, consentendo di visualizzare l'area in cui viene creato il record CNAME.
 
 > [!NOTE]
 > L'uso di un ruolo personalizzato di Azure per impedire l'eliminazione di set di record consentendo comunque l'aggiornamento non è un controllo efficace. Impedisce l'eliminazione di set di record, ma non la relativa modifica.  Le modifiche consentite includono l'aggiunta e la rimozione di record dal set di record, inclusa la rimozione di tutti i record per ottenere un set di record vuoto. Questo è lo stesso effetto ottenuto eliminando il set di record dal punto di vista della risoluzione DNS.

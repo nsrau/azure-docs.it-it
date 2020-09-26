@@ -5,20 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: 008274c86944b06b168bf52ca501c655bbe78434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bde4c11e9dc34be13efb25864fe75054d22bddb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610626"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363104"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrare Firewall di Azure con Azure Load Balancer Standard
 
 È possibile integrare un firewall di Azure in una rete virtuale con un servizio di bilanciamento del carico standard di Azure (pubblico o interno). 
 
-La progettazione preferita prevede l'integrazione di un servizio di bilanciamento del carico interno con il firewall di Azure, poiché si tratta di una progettazione molto più semplice. È possibile usare un servizio di bilanciamento del carico pubblico se ne è già stato distribuito uno e si vuole mantenerlo. È tuttavia necessario tenere presente un problema di routing asimmetrico che può interrompere la funzionalità con lo scenario di bilanciamento del carico pubblico.
+La progettazione preferita prevede l'integrazione di un servizio di bilanciamento del carico interno con Firewall di Azure, poiché si tratta di una soluzione molto più semplice. È possibile usare un servizio di bilanciamento del carico pubblico se ne è già stato distribuito uno e si desidera mantenerlo. È tuttavia necessario tenere presente un problema di routing asimmetrico che può interrompere la funzionalità con lo scenario di bilanciamento del carico pubblico.
 
 Per altre informazioni su Azure Load Balancer, vedere [Informazioni su Azure Load Balancer](../load-balancer/load-balancer-overview.md).
 
@@ -64,6 +64,10 @@ Un servizio di bilanciamento del carico interno viene distribuito con un indiriz
 Questo scenario non presenta problemi di routing asimmetrico. I pacchetti in ingresso arrivano all'indirizzo IP pubblico del firewall, vengono convertiti nell'indirizzo IP privato del servizio di bilanciamento del carico e quindi tornano all'indirizzo IP privato del firewall usando lo stesso percorso di ritorno.
 
 È quindi possibile distribuire questo scenario in modo simile allo scenario di bilanciamento del carico pubblico, ma senza la necessità della route host per l'indirizzo IP pubblico del firewall.
+
+>[!NOTE]
+>Le macchine virtuali nel pool back-end non avranno connettività Internet in uscita con questa configurazione. </br> Per altre informazioni su come fornire la connettività in uscita, vedere: </br> **[Connessioni in uscita in Azure](../load-balancer/load-balancer-outbound-connections.md)**</br> Opzioni per fornire la connettività: </br> **[Configurazione del servizio di bilanciamento del carico solo in uscita](../load-balancer/egress-only.md)** </br> [**Che cos'è NAT di rete virtuale?**](../virtual-network/nat-overview.md)
+
 
 ## <a name="additional-security"></a>Sicurezza aggiuntiva
 

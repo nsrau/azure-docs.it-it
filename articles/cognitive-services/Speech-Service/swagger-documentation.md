@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: fcc43caf895dadfaf832a47c3254f9b828bcb71a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e42d9713d1d61bb681c0ee51e46cc52eb0bcc807
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77430806"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363189"
 ---
 # <a name="swagger-documentation"></a>Documentazione di Swagger
 
@@ -32,7 +32,7 @@ La [specifica di Swagger](https://cris.ai/swagger/ui/index) include opzioni che 
 
 1. Passare a https://editor.swagger.io.
 2. Fare clic su **File** e quindi su **Import** (Importa).
-3. Immettere l'URL di spavalderia, inclusa l'area per la sottoscrizione al servizio di riconoscimento vocale`https://<your-region>.cris.ai/docs/v2.0/swagger`
+3. Immettere l'URL di spavalderia, inclusa l'area per la sottoscrizione al servizio di riconoscimento vocale `https://<your-region>.cris.ai/docs/v2.0/swagger`
 4. Fare clic su **genera client** e selezionare Python
 5. Salvare la libreria client
 
@@ -47,4 +47,4 @@ La [specifica di Swagger](https://cris.ai/swagger/ui/index) include opzioni che 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Esempi di servizi vocali su GitHub](https://aka.ms/csspeech/samples).
-* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
+* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](overview.md#try-the-speech-service-for-free)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 1c041d594b29c6e93b73eb1b0c623b3e566ceef5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2195ac4e5753addaee9e13c368b6e6a1b94354ff
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935501"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363138"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Arricchimento tramite intelligenza artificiale con Ricerca cognitiva di Azure
 
@@ -69,7 +69,7 @@ All'inizio della pipeline è presente un testo non strutturato o contenuto non d
 
 ![Fase di cracking dei documenti](./media/cognitive-search-intro/document-cracking-phase-blowup.png "cracking di documenti")
 
- Le origini supportate includono archiviazione BLOB di Azure, archiviazione tabelle di Azure, database SQL di Azure e Azure Cosmos DB. I contenuti testuali possono essere estratti dai seguenti tipi di file: PDF, Word, PowerPoint e file CSV. Per un elenco completo, vedere [Formati supportati](search-howto-indexing-azure-blob-storage.md#supported-document-formats). L'indicizzazione richiede tempo; si consiglia quindi di iniziare con un set di dati piccolo ma rappresentativo, per poi compilarlo in modo incrementale con l'evolversi della soluzione.
+ Le origini supportate includono archiviazione BLOB di Azure, archiviazione tabelle di Azure, database SQL di Azure e Azure Cosmos DB. I contenuti testuali possono essere estratti dai seguenti tipi di file: PDF, Word, PowerPoint e file CSV. Per un elenco completo, vedere [Formati supportati](search-howto-indexing-azure-blob-storage.md#SupportedFormats). L'indicizzazione richiede tempo; si consiglia quindi di iniziare con un set di dati piccolo ma rappresentativo, per poi compilarlo in modo incrementale con l'evolversi della soluzione.
 
 ### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Passaggio 2: competenze cognitive e fase di arricchimento
 

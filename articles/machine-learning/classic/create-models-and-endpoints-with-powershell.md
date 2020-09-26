@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 744b8e3ecf067e6f5986dde4fbf8abbe3a4c6224
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ab14547ef5d9791728ce96fdf2c414945a46aab9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91343575"
+ms.locfileid: "91362487"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Creare più endpoint di servizio Web da un esperimento con ML Studio (classico) e PowerShell
 
-**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**si applica a:** ![ Si applica a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 Uno scenario di apprendimento automatico comune è il seguente: si vuole creare più modelli che usano lo stesso flusso di lavoro di training e lo stesso algoritmo, ma si desidera che abbiano set di dati di training diversi come input. Questo articolo illustra come eseguire questa operazione su larga scala in Azure Machine Learning Studio (classico) usando un solo esperimento.
 

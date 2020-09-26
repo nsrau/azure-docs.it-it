@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: b4441c58838c3c44b01e57642e4433b12b2d1bc1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f3bbab14152f16515c93972e6b41ef34693e1143
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91343703"
+ms.locfileid: "91367955"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guida al linguaggio di specifica NET # per la rete neurale per Machine Learning Studio (versione classica)
 
-**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**si applica a:** ![ Si applica a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 NET # è un linguaggio sviluppato da Microsoft e usato per definire architetture di reti neurali complesse, ad esempio reti neurali profonde o convoluzioni di dimensioni arbitrarie. È possibile usare strutture complesse per migliorare l'apprendimento relativo a dati quali immagini, audio e video.
 

@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 15e1af35def6a3cb6ffaf5df2db53326fba60bc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 641f6de00f641f52db4f0b1e799d02397d01989d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883071"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315661"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creare ed eseguire le pipeline di Machine Learning con Azure Machine Learning SDK
 
@@ -24,7 +24,7 @@ ms.locfileid: "90883071"
 
 In questo articolo viene illustrato come creare ed eseguire una pipeline di [Machine Learning](concept-ml-pipelines.md) usando il [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Usare le **pipeline di ml** per creare un flusso di lavoro che unisce varie fasi di machine learning. Pubblicare quindi la pipeline per l'accesso successivo o la condivisione con altri utenti. Tenere traccia delle pipeline di ML per vedere le prestazioni del modello nel mondo reale e per rilevare la tendenza ai dati. Le pipeline di ML sono ideali per gli scenari di assegnazione dei punteggi in batch, l'uso di diversi calcoli, il riutilizzo dei passaggi anziché la loro esecuzione, nonché la condivisione di flussi di lavoro ML con altri utenti.
 
-Sebbene sia possibile usare un tipo diverso di pipeline denominato [pipeline di Azure](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) per l'automazione ci/CD di attività di Machine Learning, questo tipo di pipeline non è archiviato nell'area di lavoro. [Confrontare queste diverse pipeline](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+Sebbene sia possibile usare un tipo diverso di pipeline denominato [pipeline di Azure](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml&preserve-view=true) per l'automazione ci/CD di attività di Machine Learning, questo tipo di pipeline non è archiviato nell'area di lavoro. [Confrontare queste diverse pipeline](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
 Le pipeline di ML create sono visibili ai membri dell' [area di lavoro](how-to-manage-workspace.md)Azure Machine Learning. 
 
@@ -56,7 +56,7 @@ Creare le risorse necessarie per eseguire una pipeline di ML:
 * Configurare un `Dataset` oggetto in modo che punti ai dati persistenti che si trovano in o è accessibile in un archivio dati. Configurare un `PipelineData` oggetto per i dati temporanei passati tra i passaggi della pipeline. 
 
     > [!TIP]
-    > Un'esperienza migliorata per il passaggio di dati temporanei tra i passaggi della pipeline è disponibile nella classe di anteprima pubblica  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) .  Questa classe è una funzionalità di anteprima [sperimentale](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=truestable-vs-experimental) e può cambiare in qualsiasi momento.
+    > Un'esperienza migliorata per il passaggio di dati temporanei tra i passaggi della pipeline è disponibile nella classe di anteprima pubblica  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) .  Questa classe è una funzionalità di anteprima [sperimentale](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=truestable-vs-experimental) e può cambiare in qualsiasi momento.
 
 * Configurare le [destinazioni di calcolo](concept-azure-machine-learning-architecture.md#compute-targets) in cui verranno eseguiti i passaggi della pipeline.
 
@@ -85,7 +85,7 @@ I passaggi utilizzano in genere i dati e producono dati di output. Un passaggio 
 Il modo migliore per fornire i dati a una pipeline è un oggetto [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) . L' `Dataset` oggetto punta ai dati presenti in o è accessibile da un archivio dati o da un URL Web. La `Dataset` classe è astratta, quindi si creerà un'istanza di un `FileDataset` (che fa riferimento a uno o più file) o di un oggetto `TabularDataset` creato da da uno o più file con colonne di dati delimitate.
 
 
-Si crea un oggetto `Dataset` usando metodi come [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#&preserve-view=truefrom-files-path--validate-true-) o [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#&preserve-view=truefrom-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
+Si crea un oggetto `Dataset` usando metodi come [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py&preserve-view=true#&preserve-view=truefrom-files-path--validate-true-) o [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py&preserve-view=true#&preserve-view=truefrom-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
 ```python
 from azureml.core import Dataset
@@ -239,7 +239,7 @@ Il codice precedente è molto simile a quello per la fase di preparazione dei da
 Dopo la definizione dei passaggi, si crea la pipeline usando alcuni o tutti i passaggi definiti.
 
 > [!NOTE]
-> Nessun file o dati viene caricato in Azure Machine Learning quando si definiscono i passaggi o si compila la pipeline. I file vengono caricati quando si chiama [Experiment. Submit ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-).
+> Nessun file o dati viene caricato in Azure Machine Learning quando si definiscono i passaggi o si compila la pipeline. I file vengono caricati quando si chiama [Experiment. Submit ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true#&preserve-view=truesubmit-config--tags-none----kwargs-).
 
 ```python
 # list of steps to run (`compare_step` definition not shown)
@@ -269,7 +269,7 @@ dataset_consuming_step = PythonScriptStep(
 )
 ```
 
-Il set di dati viene quindi recuperato nella pipeline utilizzando il dizionario [Run. input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueinput-datasets) .
+Il set di dati viene quindi recuperato nella pipeline utilizzando il dizionario [Run. input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueinput-datasets) .
 
 ```python
 # iris_train.py

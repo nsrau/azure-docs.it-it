@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 4f594f663267de7ed746082e77ae603e5592e721
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c229fe6c1ccc7e2ce8e4f46ece51f315c8b7a90
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84034712"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362615"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossario sugli strumenti di database elastici
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -67,7 +67,7 @@ Ecco una rappresentazione di database a tenant singolo e multi-tenant **partizio
 
 **Gestore mappe partizioni**: un archivio di dati e oggetti di gestione che contiene le mappe partizioni, i percorsi delle partizioni e i mapping per uno o più set di partizioni.
 
-![Mapping][2]
+![Il diagramma mostra un gestore delle mappe partizioni associato a shardmaps_global, shards_global e shard_mappings_global.][2]
 
 ## <a name="verbs"></a>Verbi
 **Scalare orizzontalmente**: aumentare o ridurre le dimensioni di una raccolta di partizioni aggiungendo o rimuovendo partizioni a una mappa partizioni.
