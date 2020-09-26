@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230467"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294530"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installare Log Analytics Agent nei computer Linux
 Questo articolo fornisce informazioni dettagliate sull'installazione dell'agente di Log Analytics nei computer Linux usando i metodi seguenti:
@@ -100,12 +100,12 @@ Vedere [Panoramica dell'agente di log Analytics](log-analytics-agent.md#network-
 
 L'agente di Log Analytics per Linux è costituito da più pacchetti. Il file di versione contiene i pacchetti seguenti, disponibili eseguendo il bundle della shell con il `--extract` parametro:
 
-**Pacchetto** | **Versione** | **Descrizione**
+**Pacchetto** | **Version** | **Descrizione**
 ----------- | ----------- | --------------
-omsagent | 1.12.15 | Agente di Log Analytics per Linux
+omsagent | 1.13.9 | Agente di Log Analytics per Linux
 omsconfig | 1.1.1 | Agente di configurazione per l'agente di Log Analytics
-omi | 1.6.3 | OMI (Open Management Infrastructure): un server CIM leggero. *Si noti che OMI richiede l'accesso alla radice per eseguire un processo cron necessario per il funzionamento del servizio*
-scx | 1.6.3 | Provider OMI CIM per metriche delle prestazioni del sistema operativo
+omi | 1.6.4 | OMI (Open Management Infrastructure): un server CIM leggero. *Si noti che OMI richiede l'accesso alla radice per eseguire un processo cron necessario per il funzionamento del servizio*
+scx | 1.6.4 | Provider OMI CIM per metriche delle prestazioni del sistema operativo
 apache-cimprov | 1.0.1 | Monitoraggio delle prestazioni del server HTTP Apache per OMI. Installato solo se viene rilevato il server HTTP Apache.
 mysql-cimprov | 1.0.1 | Monitoraggio delle prestazioni del server MySQL per OMI. Installato solo se viene rilevato il server MySQL/MariaDB.
 docker-cimprov | 1.0.0 | Provider Docker per OMI. Installato solo se viene rilevato Docker.

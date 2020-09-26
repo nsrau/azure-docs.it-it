@@ -4,17 +4,17 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: fa7fd73a7d8019919a89dd9e9522b7389dc9c18f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 31f7e348a805c86964a8856fb81b83831c611de5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940062"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376336"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Una risorsa di servizi di comunicazione distribuita. [Creare una risorsa di servizi di comunicazione](../../create-communication-resource.md).
+- Una risorsa di Servizi di comunicazione distribuita. [Creare una risorsa di Servizi di comunicazione](../../create-communication-resource.md).
 - Oggetto `User Access Token` per abilitare il client di chiamata. Per ulteriori informazioni su [come ottenere un `User Access Token` ](../../access-tokens.md)
 - Facoltativo: completare la Guida introduttiva per [iniziare ad aggiungere una chiamata all'applicazione](../getting-started-with-calling.md)
 
@@ -22,32 +22,32 @@ ms.locfileid: "90940062"
 
 ### <a name="creating-the-xcode-project"></a>Creazione del progetto Xcode
 
-In Xcode creare un nuovo progetto iOS e selezionare il modello **app visualizzazione singola** . Questa Guida introduttiva usa il [Framework SwiftUI](https://developer.apple.com/xcode/swiftui/), quindi è necessario impostare la **lingua** su **Swift** e l' **interfaccia utente** su **SwiftUI**. Non verranno creati unit test o test dell'interfaccia utente durante questa Guida introduttiva. È possibile deselezionare Includi **unit test** e deselezionare **Includi test dell'interfaccia utente**.
+In Xcode creare un nuovo progetto iOS e selezionare il modello **Single View Application**. Questa Guida introduttiva usa il [Framework SwiftUI](https://developer.apple.com/xcode/swiftui/), quindi è necessario impostare la **lingua** su **Swift** e l' **interfaccia utente** su **SwiftUI**. Non verranno creati unit test o test dell'interfaccia utente durante questa Guida introduttiva. È possibile deselezionare Includi **unit test** e deselezionare **Includi test dell'interfaccia utente**.
 
-:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot che mostra la finestra Crea nuovo progetto in Xcode.":::
+:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot che mostra la finestra per la creazione di un nuovo progetto in Xcode.":::
 
 ### <a name="install-the-package"></a>Installare il pacchetto
 
-Aggiungere i servizi di comunicazione di Azure che chiamano la libreria client e le relative dipendenze (AzureCore. Framework e AzureCommunication. Framework) al progetto.
+Aggiungere la libreria client Chiamate di Servizi di comunicazione di Azure e le relative dipendenze (AzureCore.framework e AzureCommunication.framework) al progetto.
 
 > [!NOTE]
-> Con il rilascio di AzureCommunicationCalling SDK è possibile trovare uno script bash `BuildAzurePackages.sh` . Lo script quando `sh ./BuildAzurePackages.sh` viene eseguito fornirà il percorso dei pacchetti di Framework generati che devono essere importati nell'app di esempio nel passaggio successivo. Si noti che è necessario configurare gli strumenti da riga di comando Xcode se non è stato fatto prima di eseguire lo script: avviare Xcode, selezionare "Preferenze-> percorsi". Selezionare la versione di Xcode per gli strumenti da riga di comando.
+> Con la versione di AzureCommunicationCalling SDK è possibile trovare uno script bash `BuildAzurePackages.sh`. Quando viene eseguito, lo script `sh ./BuildAzurePackages.sh` fornisce il percorso dei pacchetti di framework generati che è necessario importare nell'app di esempio nel passaggio successivo. Si noti che è necessario configurare gli strumenti da riga di comando di Xcode se non è già stato fatto prima di eseguire lo script: Avviare Xcode, selezionare "Preferences -> Locations" (Preferenze -> Percorsi). Selezionare la versione di Xcode per gli strumenti da riga di comando. **Si noti che lo script BuildAzurePackages.sh funziona solo con Xcode 11,5 e versioni successive.**
 
-1. Scaricare i servizi di comunicazione di Azure che chiamano la libreria client per iOS.
-2. In Xcode fare clic sul file di progetto e selezionare la destinazione di compilazione per aprire l'editor delle impostazioni del progetto.
-3. Nella scheda **generale** scorrere fino alla sezione **Framework, librerie e contenuto incorporato** e fare clic sull'icona **"+"** .
-4. Nella parte inferiore sinistra della finestra di dialogo scegliere **Aggiungi file**, passare alla directory **AzureCommunicationCalling. Framework** del pacchetto della libreria client non compresso.
-    1. Ripetere l'ultimo passaggio per aggiungere **AzureCore. Framework** e **AzureCommunication. Framework**.
-5. Aprire la scheda **impostazioni di compilazione** dell'Editor impostazioni progetto e scorrere fino alla sezione percorsi di **ricerca** . Aggiungere una nuova voce dei **percorsi di ricerca del Framework** per la directory che contiene **AzureCommunicationCalling. Framework**.
-    1. Aggiungere un'altra voce dei percorsi di ricerca del Framework che punta alla cartella che contiene le dipendenze.
+1. Scaricare la libreria client Chiamate di Servizi di comunicazione di Azure per iOS.
+2. In Xcode fare clic sul file di progetto e selezionare la destinazione di compilazione per aprire l'editor delle impostazioni.
+3. Nella scheda **General** (Generale) scorrere fino alla sezione **Frameworks, Libraries, and Embedded Content** (Framework, librerie e contenuto incorporato) e fare clic sull'icona **"+"** .
+4. In basso a sinistra nella finestra di dialogo scegliere **Add Files** (Aggiungi file) e passare alla directory **AzureCommunicationCalling.framework** del pacchetto della libreria client decompresso.
+    1. Ripetere l'ultimo passaggio per aggiungere **AzureCore.framework** e **AzureCommunication.framework**.
+5. Aprire la scheda **Build Settings** (Impostazioni di compilazione) dell'editor di impostazioni del progetto e scorrere fino alla sezione **Search Paths** (Percorsi di ricerca). Aggiungere una nuova voce **Framework Search Paths** per la directory contenente **AzureCommunicationCalling.framework**.
+    1. Aggiungere un'altra voce nei percorsi di ricerca di framework che punta alla cartella contenente le dipendenze.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot che illustra l'aggiornamento dei percorsi di ricerca del Framework all'interno di XCode.":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot che illustra l'aggiornamento dei percorsi di ricerca di framework all'interno di XCode.":::
 
 ### <a name="request-access-to-the-microphone"></a>Richiedere l'accesso al microfono
 
-Per accedere al microfono del dispositivo, è necessario aggiornare l'elenco delle proprietà delle informazioni dell'app con un `NSMicrophoneUsageDescription` . Il valore associato viene impostato su un oggetto `string` che verrà incluso nella finestra di dialogo utilizzata dal sistema per richiedere l'accesso alla richiesta da parte dell'utente.
+Per accedere al microfono del dispositivo, è necessario aggiornare il file Information Property List dell'app con `NSMicrophoneUsageDescription`. Impostare il valore associato su un oggetto `string` che verrà incluso nella finestra di dialogo usata dal sistema per richiedere l'accesso dell'utente.
 
-Fare clic con il pulsante destro del mouse sulla `Info.plist` voce dell'albero del progetto e scegliere **Apri come**  >  **codice sorgente**. Aggiungere le righe seguenti nella sezione di primo livello `<dict>` e quindi salvare il file.
+Fare clic con il pulsante destro del mouse sulla voce `Info.plist` dell'albero del progetto e scegliere **Open As** > **Source Code** (Apri come > Codice sorgente). Aggiungere le righe seguenti nella sezione `<dict>` di primo livello e quindi salvare il file.
 
 ```xml
 <key>NSMicrophoneUsageDescription</key>
@@ -56,7 +56,7 @@ Fare clic con il pulsante destro del mouse sulla `Info.plist` voce dell'albero d
 
 ### <a name="set-up-the-app-framework"></a>Configurare il framework dell'app
 
-Aprire il file **contentView. Swift** del progetto e aggiungere una `import` dichiarazione all'inizio del file per importare il `AzureCommunicationCalling library` . Inoltre, l'importazione `AVFoundation` sarà necessaria per la richiesta di autorizzazione audio nel codice.
+Aprire il file **ContentView.swift** del progetto e aggiungere una dichiarazione `import` all'inizio del file per importare `AzureCommunicationCalling library`. Inoltre, l'importazione `AVFoundation` sarà necessaria per la richiesta di autorizzazione audio nel codice.
 
 ```swift
 import AzureCommunicationCalling
@@ -72,8 +72,8 @@ Le classi e le interfacce seguenti gestiscono alcune delle principali funzionali
 | ------------------------------------- | ------------------------------------------------------------ |
 | ACSCallClient | ACSCallClient è il punto di ingresso principale della libreria client chiamante.|
 | ACSCallAgent | ACSCallAgent viene utilizzato per avviare e gestire le chiamate. |
-| CommunicationUserCredential | CommunicationUserCredential viene usato come credenziale del token per creare un'istanza di CallAgent.| 
-| CommunicationIndentifier | CommunicationIndentifier viene usato per rappresentare l'identità dell'utente che può essere una delle seguenti: CommunicationUser/PhoneNumber/CallingApplication. |
+| CommunicationUserCredential | CommunicationUserCredential si usa come credenziale del token per creare un'istanza di CallAgent.| 
+| CommunicationIndentifier | CommunicationIndentifier si usa per rappresentare l'identità dell'utente, che può essere una delle seguenti: CommunicationUser/PhoneNumber/CallingApplication. |
 
 > [!NOTE]
 > Quando si implementano delegati di eventi, l'applicazione deve mantenere un riferimento sicuro agli oggetti che richiedono sottoscrizioni di eventi. Ad esempio, quando un `ACSRemoteParticipant` oggetto viene restituito quando si richiama il `call.addParticipant` metodo e l'applicazione imposta il delegato per l'ascolto `ACSRemoteParticipantDelegate` , l'applicazione deve mantenere un riferimento sicuro all' `ACSRemoteParticipant` oggetto. In caso contrario, se l'oggetto viene raccolto, il delegato genererà un'eccezione irreversibile quando l'SDK chiamante tenterà di richiamare l'oggetto.

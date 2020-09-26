@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 0800a287b747a8a421958d20f0b1ce56247d6d01
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: c9f7168bc0524b483413ade9792af18ff9cfebfa
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362160"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358543"
 ---
 # <a name="what-is-custom-commands"></a>Che cosa sono i comandi personalizzati?
 
@@ -52,7 +52,7 @@ Una volta completata la Guida introduttiva, esplorare le guide alle procedure pe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
+* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](overview.md#try-the-speech-service-for-free)
 * [Visualizzare il repository di assistenti vocali su GitHub per gli esempi](https://aka.ms/speech/cc-samples)
 * [Passare a speech studio per provare i comandi personalizzati](https://speech.microsoft.com/customcommands)
 * [Ottenere Speech SDK](speech-sdk.md)

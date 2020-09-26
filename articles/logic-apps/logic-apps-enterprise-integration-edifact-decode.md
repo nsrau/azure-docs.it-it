@@ -1,6 +1,6 @@
 ---
 title: Decodificare messaggi EDIFACT
-description: Convalidare le proprietà EDI e generare i riconoscimenti con il decodificatore di messaggi EDIFACT per App per la logica di Azure con Enterprise Integration Pack
+description: Convalidare EDI e generare riconoscimenti con il decodificatore di messaggi EDIFACT per app per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: c32b3ee5c4689e960834d543de1ca377e918751d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b36641677dbf36402c7f578b9b1887c52f441afd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82106288"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322479"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Decode EDIFACT in App per la logica di Azure con Enterprise Integration Pack
 
@@ -84,13 +84,13 @@ Il connettore Decode EDIFACT esegue queste attività:
   * Controlla il numero di controllo del set di transazioni con gli altri numeri di controllo del set transazioni in tale gruppo.
 * Suddivide l'interscambio in set di transazioni o mantiene l'intero interscambio:
   * Suddivide l'interscambio in set di transazioni - sospende i set di transazioni in caso di errore: suddivide l'interscambio in set di transazioni e analizza ogni set di transazioni. 
-  L'azione X12 Decode restituisce solo i set di transazioni che non sono stati convalidati in `badMessages` e restituisce i restanti set di transazioni in `goodMessages`.
+  L'azione EDIFACT Decode restituisce solo i set di transazioni che non superano `badMessages` la convalida e restituisce i set di transazioni rimanenti a `goodMessages` .
   * Suddivide l'interscambio in set di transazioni - sospende l'interscambio in caso di errore: suddivide l'interscambio in set di transazioni e analizza ogni set di transazioni. 
-  Se la convalida di uno o più set di transazioni dell'interscambio non riesce, l'azione X12 Decode restituisce tutti i set di transazioni in quell'interscambio in `badMessages`.
+  Se la convalida di uno o più set di transazioni dell'interscambio ha esito negativo, l'azione EDIFACT Decode restituisce tutti i set di transazioni di tale interscambio a `badMessages` .
   * Mantiene l'interscambio - sospende i set transazioni in caso di errore: mantiene l'interscambio ed elabora l'intero interscambio in batch. 
-  L'azione X12 Decode restituisce solo i set di transazioni che non sono stati convalidati in `badMessages` e restituisce i restanti set di transazioni in `goodMessages`.
+  L'azione EDIFACT Decode restituisce solo i set di transazioni che non superano `badMessages` la convalida e restituisce i set di transazioni rimanenti a `goodMessages` .
   * Mantiene l'interscambio - sospende l'interscambio in caso di errore: mantiene l'interscambio ed elabora l'intero interscambio in batch. 
-  Se la convalida di uno o più set di transazioni dell'interscambio non riesce, l'azione X12 Decode restituisce tutti i set di transazioni in quell'interscambio in `badMessages`.
+  Se la convalida di uno o più set di transazioni dell'interscambio ha esito negativo, l'azione EDIFACT Decode restituisce tutti i set di transazioni di tale interscambio a `badMessages` .
 * Genera un riconoscimento tecnico (controllo) e/o funzionale (se configurata).
   * Un riconoscimento tecnico o CONTRL ACK segnala i risultati di un controllo sintattico dell'interscambio completo ricevuto.
   * Un riconoscimento funzionale riconosce l'accettazione o il rifiuto di un interscambio o un gruppo ricevuto.

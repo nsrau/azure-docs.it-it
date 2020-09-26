@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: abb6f8bcaa3b8e356bea00185702bc0ae783e071
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/25/2020
+ms.openlocfilehash: 1f67d7228da8529699a26539f20efd55f9a20c27
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270253"
+ms.locfileid: "91370981"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creare flussi di lavoro con stato o senza stato in Visual Studio Code con l'estensione app per la logica di Azure (anteprima)
 
@@ -72,11 +72,11 @@ L'estensione app per la logica di Azure (anteprima) offre numerose funzionalità
 
 * *Senza stato*
 
-  Creare app per la logica senza stato quando non è necessario salvare, rivedere o fare riferimento ai dati degli eventi precedenti. Queste app per la logica mantengono l'input e l'output per ogni azione e i relativi stati del flusso di lavoro solo in memoria, anziché trasferire tali informazioni in un archivio esterno. Di conseguenza, le app per la logica senza stato hanno esecuzioni più brevi che in genere non durano più di 5 minuti, prestazioni più veloci con tempi di risposta più rapidi, velocità effettiva più elevata e costi di esecuzione ridotti perché i dettagli e la cronologia dell'esecuzione non vengono conservati nell'archiviazione esterna. Tuttavia, se o quando si verificano interruzioni, le esecuzioni interrotte non vengono ripristinate automaticamente, quindi il chiamante deve inviare nuovamente le esecuzioni interrotte manualmente. Per semplificare il debug, è possibile [abilitare la cronologia di esecuzione](#run-history) per le app per la logica senza stato.
+  Creare app per la logica senza stato quando non è necessario salvare, rivedere o fare riferimento ai dati degli eventi precedenti nell'archivio esterno per una revisione successiva. Queste app per la logica mantengono l'input e l'output per ogni azione e i relativi stati del flusso di lavoro solo in memoria, anziché trasferire tali informazioni in un archivio esterno. Di conseguenza, le app per la logica senza stato hanno esecuzioni più brevi che in genere non durano più di 5 minuti, prestazioni più veloci con tempi di risposta più rapidi, velocità effettiva più elevata e costi di esecuzione ridotti perché i dettagli e la cronologia dell'esecuzione non vengono conservati nell'archiviazione esterna. Tuttavia, se o quando si verificano interruzioni, le esecuzioni interrotte non vengono ripristinate automaticamente, quindi il chiamante deve inviare nuovamente le esecuzioni interrotte manualmente. Queste app per la logica possono essere eseguite solo in modo sincrono e per semplificare il debug, è possibile [abilitare la cronologia di esecuzione](#run-history), che ha un certo effetto sulle prestazioni.
 
   I flussi di lavoro senza stato attualmente supportano solo azioni per i [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), non per i trigger. Per avviare il flusso di lavoro, selezionare la [richiesta predefinita, gli hub eventi o il trigger del bus di servizio](../connectors/apis-list.md#built-ins). Per ulteriori informazioni sui trigger, le azioni e i connettori non supportati, vedere [funzionalità non supportate](#unsupported).
 
-Per le differenze di funzionamento delle app per la logica annidate tra app per la logica con stato e senza stato, vedere [differenze di comportamento annidate tra app per la logica con stato e senza stato](#nested-behavior).
+Per informazioni sul comportamento delle app per la logica annidate in modo diverso tra app per la logica con stato e senza stato, vedere [differenze di comportamento annidate tra app per la logica con stato e senza stato](#nested-behavior)
 
 <a name="pricing-model"></a>
 
@@ -918,7 +918,7 @@ Usando lo [strumento dell'interfaccia della riga di comando di .NET Core](/dotne
 
 ## <a name="nested-behavior-differences-between-stateful-and-stateless-logic-apps"></a>Differenze di comportamento annidate tra app per la logica con stato e senza stato
 
-È possibile [creare un flusso di lavoro di app per la logica chiamabile](../logic-apps/logic-apps-http-endpoint.md) da altri flussi di lavoro di app per la logica usando il trigger di [richiesta](../connectors/connectors-native-reqres.md) , il trigger [http webhook](../connectors/connectors-native-webhook.md) o i trigger del connettore gestito che hanno il [tipo ApiConnectionWehook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e possono ricevere richieste HTTPS.
+È possibile [creare un flusso di lavoro di app per la logica chiamabile](../logic-apps/logic-apps-http-endpoint.md) da altri flussi di lavoro di app per la logica presenti nella stessa risorsa dell'app per la **logica (anteprima)** usando il trigger di [richiesta](../connectors/connectors-native-reqres.md) , il trigger [http webhook](../connectors/connectors-native-webhook.md) o i trigger del connettore gestito che hanno il [tipo ApiConnectionWehook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e possono ricevere richieste HTTPS.
 
 Ecco i modelli di comportamento che possono seguire i flussi di lavoro delle app per la logica annidati dopo che un flusso di lavoro padre chiama un flusso di lavoro figlio
 
@@ -930,7 +930,7 @@ Ecco i modelli di comportamento che possono seguire i flussi di lavoro delle app
 
   Il figlio riconosce la chiamata restituendo immediatamente una `202 ACCEPTED` risposta e l'elemento padre continua a eseguire l'azione successiva senza attendere i risultati dell'elemento figlio. Al contrario, l'elemento padre riceve i risultati al termine dell'esecuzione dell'elemento figlio. I flussi di lavoro con stato figlio che non includono un'azione di risposta seguono sempre il modello sincrono. Per i flussi di lavoro con stato figlio, la cronologia di esecuzione è disponibile per la revisione.
 
-  Per abilitare questo comportamento, nella definizione JSON del flusso di lavoro impostare la `OperationOptions` proprietà su `DisableAsyncPattern` . Per ulteriori informazioni, vedere [trigger e tipi di azione-opzioni operazione](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+  Per abilitare questo comportamento, nella definizione JSON del flusso di lavoro impostare la `operationOptions` proprietà su `DisableAsyncPattern` . Per ulteriori informazioni, vedere [trigger e tipi di azione-opzioni operazione](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Trigger e Wait
 
@@ -966,7 +966,9 @@ Per questa anteprima pubblica, queste funzionalità non sono disponibili o non s
 
 * La creazione della nuova risorsa app per la **logica (anteprima)** non è attualmente disponibile in MacOS.
 
-* I connettori personalizzati, i trigger basati su webhook e il trigger finestra temporale scorrevole non sono supportati in questa versione di anteprima. Per i flussi di lavoro di app per la logica senza stato, è possibile aggiungere solo azioni per i [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), non per i trigger. Per avviare il flusso di lavoro, usare la [richiesta predefinita, gli hub eventi o il trigger del bus di servizio](../connectors/apis-list.md#built-ins).
+* Per avviare il flusso di lavoro, usare la [richiesta, http, Hub eventi o il trigger del bus di servizio](../connectors/apis-list.md). Attualmente, i [connettori aziendali](../connectors/apis-list.md#enterprise-connectors), i [trigger del gateway dati locale](../connectors/apis-list.md#on-premises-connectors), i trigger basati su webhook, il trigger finestra scorrevole, i [connettori personalizzati](../connectors/apis-list.md#custom-apis-and-connectors), gli account di integrazione, i relativi elementi e [i relativi connettori](../connectors/apis-list.md#integration-account-connectors) non sono supportati in questa versione di anteprima. La funzionalità "chiama una funzione di Azure" non è disponibile. per ora, usare l' *azione* http per chiamare l'URL della richiesta per la funzione di Azure.
+
+  I flussi di lavoro di app per la logica senza stato possono usare solo azioni per [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), non per trigger. Ad eccezione dei trigger specificati in precedenza, i flussi di lavoro con stato possono usare sia trigger che azioni per i connettori gestiti.
 
 * È possibile distribuire il nuovo tipo di risorsa app per la **logica (anteprima)** solo a un [piano di hosting del servizio app o Premium in Azure](#publish-azure) o a un [contenitore Docker](#deploy-docker)e non agli [ambienti del servizio di integrazione (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). I piani di hosting a **consumo** non sono supportati né disponibili per la distribuzione di questo tipo di risorsa.
 

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 01/30/2020
-ms.openlocfilehash: 37dd6881876df010b548a8bb48ca88bb72dab764
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: c1f60888a3d1fda50e63c7d11ea5d871f7c1e9fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986604"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321340"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Livelli di servizio del database SQL di Azure e di Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Questo articolo illustra le differenze tra i livelli di servizio, le considerazi
 
 Nella tabella seguente vengono descritte le differenze principali tra i livelli di servizio per la generazione più recente (Quinta generazione). Si noti che le caratteristiche del livello di servizio possono essere diverse nel database SQL e in SQL Istanza gestita.
 
-|-| Tipo di risorsa | Utilizzo generico |  Hyperscale | Business Critical |
+|-| Tipo di risorsa | Utilizzo generico |  Hyperscale | Business critical |
 |:---:|:---:|:---:|:---:|:---:|
 | **Ideale per** | |  Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti. | La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale del calcolo, ripristino rapido del database. | Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|
 |  **Disponibile in tipo di risorsa:** ||Database SQL/SQL Istanza gestita | Singolo database SQL di Azure | Database SQL/SQL Istanza gestita |

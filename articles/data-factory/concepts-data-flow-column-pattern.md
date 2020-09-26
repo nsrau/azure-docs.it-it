@@ -6,19 +6,19 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: c6a2d38644d844cb1231a24465478b7f70a85111
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/16/2020
+ms.openlocfilehash: 74656401d7b0ef12cf509674921a6a5153ce992d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531151"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282919"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Utilizzo di modelli di colonna nel flusso di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Diverse trasformazioni del flusso di dati di mapping consentono di fare riferimento a colonne modello basate su modelli anziché nomi di colonna hardcoded. Questa corrispondenza è nota come *modelli di colonna*. È possibile definire criteri per la corrispondenza delle colonne in base al nome, al tipo di dati, al flusso o alla posizione anziché richiedere nomi di campo esatti. Esistono due scenari in cui i modelli di colonna sono utili:
+Diverse trasformazioni del flusso di dati di mapping consentono di fare riferimento a colonne modello basate su modelli anziché nomi di colonna hardcoded. Questa corrispondenza è nota come *modelli di colonna*. È possibile definire criteri per la corrispondenza delle colonne in base al nome, al tipo di dati, al flusso, all'origine o alla posizione anziché richiedere nomi di campo esatti. Esistono due scenari in cui i modelli di colonna sono utili:
 
 * Se i campi di origine in ingresso cambiano spesso, ad esempio se si modificano le colonne nei file di testo o nei database NoSQL. Questo scenario è noto come [Drift dello schema](concepts-data-flow-schema-drift.md).
 * Se si desidera eseguire un'operazione comune su un gruppo di colonne di grandi dimensioni. Ad esempio, se si desidera eseguire il cast di ogni colonna con ' Total ' nel nome della colonna in un valore Double.
@@ -31,7 +31,7 @@ Per aggiungere un modello di colonna in una colonna derivata, un'aggregazione o 
 
 ![modelli di colonna](media/data-flow/add-column-pattern.png "Criteri delle colonne")
 
-Utilizzare il [Generatore di espressioni](concepts-data-flow-expression-builder.md) per immettere la condizione di corrispondenza. Creare un'espressione booleana che corrisponda alle colonne basate su `name` , `type` , `stream` e `position` della colonna. Il criterio influirà su qualsiasi colonna, a cui viene applicata la deviazione o definita, in cui la condizione restituisce true.
+Utilizzare il [Generatore di espressioni](concepts-data-flow-expression-builder.md) per immettere la condizione di corrispondenza. Creare un'espressione booleana che corrisponda alle colonne basate su `name` , `type` , `stream` , `origin` e `position` della colonna. Il criterio influirà su qualsiasi colonna, a cui viene applicata la deviazione o definita, in cui la condizione restituisce true.
 
 Le due caselle di espressione sotto la condizione di corrispondenza specificano i nuovi nomi e i nuovi valori delle colonne interessate. Usare `$$` per fare riferimento al valore esistente del campo corrispondente. Nella casella espressione a sinistra viene definito il nome e la casella espressione a destra definisce il valore.
 
@@ -45,7 +45,7 @@ Per verificare che la condizione di corrispondenza sia corretta, è possibile co
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Mapping basato su regole in Select e sink
 
-Quando si esegue il mapping delle colonne nell'origine e si selezionano le trasformazioni, è possibile aggiungere mapping fissi o basati su regole. Corrispondenza basata sulle `name` colonne, `type` , `stream` e `position` . È possibile avere qualsiasi combinazione di mapping corretti e basati su regole. Per impostazione predefinita, tutte le proiezioni con colonne maggiori di 50 vengono predefinite in un mapping basato su regole che corrisponde a ogni colonna e restituisce il nome inputted. 
+Quando si esegue il mapping delle colonne nell'origine e si selezionano le trasformazioni, è possibile aggiungere mapping fissi o basati su regole. Corrispondenza basata sulle `name` colonne, `type` , `stream` , `origin` e `position` . È possibile avere qualsiasi combinazione di mapping corretti e basati su regole. Per impostazione predefinita, tutte le proiezioni con colonne maggiori di 50 vengono predefinite in un mapping basato su regole che corrisponde a ogni colonna e restituisce il nome inputted. 
 
 Per aggiungere un mapping basato su regole, fare clic su **Aggiungi mapping** e selezionare **mapping basato su regole**.
 
@@ -82,6 +82,7 @@ L'esempio precedente corrisponde a tutte le sottocolonne della colonna complessa
 * `type` rappresenta il tipo di dati di ogni colonna in ingresso
 * `stream` rappresenta il nome associato a ogni flusso o trasformazione nel flusso
 * `position` posizione ordinale delle colonne nel flusso di dati
+* `origin` trasformazione in cui è stata originata una colonna o è stato eseguito l'ultimo aggiornamento
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sul [linguaggio delle espressioni](data-flow-expression-functions.md) del flusso di dati di mapping per le trasformazioni dei dati

@@ -5,15 +5,15 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 7d1d7f9759fc8e2826da6232981eb3a389576c07
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: b0957219308dfaab2d375fb7c23926a13c745344
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937243"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314675"
 ---
-# <a name="monitor-metrics-azure-database-for-postgresql---flexible-server"></a>Monitorare le metriche database di Azure per PostgreSQL-server flessibile
+# <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Monitorare le metriche nel database di Azure per PostgreSQL-server flessibile
 
 > [!IMPORTANT]
 > Il server flessibile di Database di Azure per PostgreSQL è disponibile in anteprima
@@ -29,6 +29,7 @@ Per i server flessibili PostgreSQL sono disponibili le metriche seguenti:
 
 |Metrica|Nome visualizzato per la metrica|Unità|Descrizione|
 |---|---|---|---|
+| active_connections | Connessioni attive | Conteggio | Il numero di connessioni al server. | 
 | backup_storage_used | Risorse di backup in uso | Byte | Quantità di spazio di archiviazione di backup utilizzato. Questa metrica rappresenta la somma dello spazio di archiviazione utilizzato da tutti i backup completi del database, backup differenziali e backup del log mantenuti in base al periodo di conservazione dei backup impostato per il server. La frequenza dei backup è gestita dal servizio. Per l'archiviazione con ridondanza geografica, l'utilizzo dell'archiviazione di backup è due volte quello dell'archiviazione con ridondanza locale. |
 | connections_failed | Connessioni non riuscite | Conteggio | Connessioni non riuscite. |
 | connections_succeeded | Connessioni riuscite | Conteggio | Connessioni riuscite. |

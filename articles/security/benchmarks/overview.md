@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2be5df88a665c800f55f773b2470cc095fa27b2b
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: fb6813875858ab6cc438df5abb78a75391adfeac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058683"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280658"
 ---
-# <a name="overview-of-the-azure-security-benchmark"></a>Panoramica del benchmark di sicurezza di Azure
+# <a name="overview-of-the-azure-security-benchmark-v2"></a>Panoramica del benchmark di sicurezza di Azure (v2)
 
 Il benchmark di sicurezza di Azure (ASB) fornisce procedure consigliate e consigli per migliorare la sicurezza dei carichi di lavoro, dei dati e dei servizi in Azure.
 
@@ -24,6 +24,7 @@ Questo benchmark è parte di una serie di indicazioni di sicurezza olistiche che
 - **Framework di adozione del cloud** : linee guida sulla sicurezza, tra cui [strategie](/azure/cloud-adoption-framework/strategy/define-security-strategy), [ruoli e responsabilità](/azure/cloud-adoption-framework/organize/cloud-security), procedure consigliate per la [sicurezza di Azure Top 10](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)e [implementazione di riferimento](/azure/cloud-adoption-framework/ready/enterprise-scale/).
 - **Framework ben architettato di Azure** : informazioni aggiuntive sulla [protezione dei carichi di lavoro](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) in Azure.
 - Procedure consigliate per la **sicurezza Microsoft** : [raccomandazioni](/security/compass/microsoft-security-compass-introduction) con esempi in Azure.
+
  Il benchmark di sicurezza di Azure è incentrato sulle aree di controllo incentrate sul cloud. Questi controlli sono coerenti con i benchmark di sicurezza noti, ad esempio quelli descritti da Center for Internet Security (CIS) Controls versione 7,1 e National Institute of Standards and Technology (NIST) SP800-53.
 I controlli seguenti sono inclusi nel benchmark di sicurezza di Azure:
 
@@ -52,7 +53,7 @@ Ogni raccomandazione include le informazioni seguenti:
 - **NIST SP800-53 R4 ID**: i controlli NIST SP800-53 R4 (moderato) che corrispondono a questa raccomandazione.
 - **Dettagli**: la logica per la raccomandazione e i collegamenti alle indicazioni su come implementarla. Se la raccomandazione è supportata dal centro sicurezza di Azure, verranno elencate anche le informazioni.
 - **Responsabilità**: se il cliente, il provider di servizi o entrambi sono responsabili dell'implementazione di questa raccomandazione. Le responsabilità di sicurezza sono condivise nel cloud pubblico. Alcuni controlli di sicurezza sono disponibili solo per il provider di servizi cloud e pertanto il provider è responsabile di risolverli. Queste sono osservazioni generali: per alcuni singoli servizi, la responsabilità sarà diversa da quella elencata nel benchmark di sicurezza di Azure. Queste differenze sono descritte nelle raccomandazioni di base per il singolo servizio.
-- **Stakeholder**per la sicurezza dei clienti: le funzioni di sicurezza dell'organizzazione del cliente che possono essere responsabili, responsabili o consultate per il rispettivo controllo. Può essere diverso dall'organizzazione all'organizzazione, a seconda della struttura dell'organizzazione di sicurezza della società e dei ruoli e delle responsabilità configurati in relazione alla sicurezza di Azure.
+- **Stakeholder**per la sicurezza dei clienti: [le funzioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security#security-functions) dell'organizzazione del cliente che possono essere responsabili, responsabili o consultate per il rispettivo controllo. Può essere diverso dall'organizzazione all'organizzazione, a seconda della struttura dell'organizzazione di sicurezza della società e dei ruoli e delle responsabilità configurati in relazione alla sicurezza di Azure.
 
 > [!NOTE]
 > I mapping dei controlli tra ASB e i benchmark di settore (ad esempio NIST e CIS) indicano solo che una specifica funzionalità di Azure può essere usata per soddisfare completamente o parzialmente un requisito di controllo definito in NIST o CIS. È necessario tenere presente che tale implementazione non si traduce necessariamente nella conformità completa del controllo corrispondente in CIS o NIST.

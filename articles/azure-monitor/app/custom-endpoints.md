@@ -3,13 +3,13 @@ title: applicazione Azure Insights sostituisce gli endpoint SDK predefiniti
 description: Modificare gli endpoint di Azure Application Insights SDK predefiniti per le aree come Azure per enti pubblici.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.custom: references_regions, devx-track-javascript
-ms.openlocfilehash: 22f81b327c161df4f6605cfcb64b48b8d75beed3
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: references_regions, devx-track-js
+ms.openlocfilehash: d6cea9044cd4898480fcc30532a05e6c8a407012
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373131"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333291"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights l'override degli endpoint predefiniti
 
@@ -79,7 +79,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 Per funzioni di Azure è ora consigliabile usare le [stringhe di connessione](./sdk-connection-string.md?tabs=net) impostate nelle impostazioni dell'applicazione della funzione. Per accedere alle impostazioni dell'applicazione per la funzione dall'interno del riquadro funzioni, selezionare **Impostazioni**  >  **Configuration**  >  **Impostazioni applicazione**di configurazione. 
 
-Nome: `APPLICATIONINSIGHTS_CONNECTION_STRING` valore:`Connection String Value`
+Nome: `APPLICATIONINSIGHTS_CONNECTION_STRING` valore: `Connection String Value`
 
 # <a name="java"></a>[Java](#tab/java)
 

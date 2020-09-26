@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: 4b4e454532dec31cbcc92269d63c8be1ff92a9f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 25a50a2841a03929804be45be8012f9b5d0457ff
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247524"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357132"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoraggio e diagnostica in Azure Service Fabric
 
@@ -39,7 +39,7 @@ Service Fabric offre un set completo di eventi immediatamente disponibili. Tali 
 
 * EventStore - EventStore è una funzionalità offerta dalla piattaforma che fornisce gli eventi della piattaforma Service Fabric disponibili in Service Fabric Explorer e tramite l'API REST. È possibile visualizzare uno snapshot di cosa sta succedendo nel cluster per ogni entità, ad esempio nodo, servizio, applicazione e query in base all'ora dell'evento. Per altre informazioni su EventStore, vedere [Panoramica di EventStore](service-fabric-diagnostics-eventstore.md).    
 
-![EventStore](media/service-fabric-diagnostics-overview/eventstore.png)
+![Screenshot mostra la scheda eventi del riquadro nodi diversi eventi, incluso un evento NodeDown.](media/service-fabric-diagnostics-overview/eventstore.png)
 
 Le funzionalità di diagnostica fornite sono costituite da un set completo di eventi predefiniti. Questi [eventi Service Fabric](service-fabric-diagnostics-events.md) illustrano le azioni eseguite dalla piattaforma su entità diverse, ad esempio nodi, applicazioni, servizi, partizioni e così via. Nell'ultimo scenario precedente, se un nodo venisse arrestato, la piattaforma emetterebbe un `NodeDown` evento e si potrebbe ricevere una notifica immediatamente dallo strumento di monitoraggio desiderato. Altri esempi comuni sono `ApplicationUpgradeRollbackStarted` o `PartitionReconfigured` durante un failover. **Gli stessi eventi sono disponibili sia in cluster di Windows che in cluster di Linux.**
 

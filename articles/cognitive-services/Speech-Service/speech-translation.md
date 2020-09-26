@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traduzione vocale
-ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e4bc2f07fce3917bfa59f79305498bb91889344d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401215"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359801"
 ---
 # <a name="what-is-speech-translation"></a>Che cos'è la traduzione vocale?
 
@@ -63,5 +63,5 @@ Se le applicazioni, gli strumenti o i prodotti usano la [API traduzione vocale](
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Completare la [Guida introduttiva](get-started-speech-translation.md) alla traduzione vocale
-* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
+* [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](overview.md#try-the-speech-service-for-free)
 * [Ottenere Speech SDK](speech-sdk.md)

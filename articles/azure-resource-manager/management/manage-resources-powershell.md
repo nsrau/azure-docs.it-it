@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 10f8c2a17c161d7e5622636b08b524932defe451
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d97390861200a0a7f3b04d951e0ca2a17796835d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826875"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372502"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Gestire le risorse di Azure tramite Azure PowerShell
 
@@ -133,7 +133,7 @@ L'assegnazione di tag consente di organizzare logicamente il gruppo di risorse e
 
 ## <a name="manage-access-to-resources"></a>Gestire l'accesso alle risorse
 
-Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) è la modalità di gestione dell'accesso alle risorse in Azure. Per altre informazioni, vedere [gestire l'accesso con RBAC e Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) è la modalità di gestione dell'accesso alle risorse in Azure. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

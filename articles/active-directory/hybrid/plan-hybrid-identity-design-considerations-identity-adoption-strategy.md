@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659536"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294868"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definire una strategia di adozione della soluzione ibrida di gestione delle identità
 In questa attività viene definita la strategia di adozione della soluzione ibrida di gestione delle identità in modo che soddisfi i requisiti aziendali definiti in:
@@ -55,7 +55,7 @@ La tabella seguente consente di determinare i vantaggi e gli svantaggi di ognuna
 | Strategia | Vantaggi | Svantaggi |
 | --- | --- | --- |
 | **Identità cloud** |Più facile da gestire per le organizzazioni di piccole dimensioni. <br> Non ci sono componenti da installare in locale. Non è necessario alcun hardware aggiuntivo.<br> Facile da disabilitare se l'utente lascia la società |Gli utenti devono eseguire l'accesso per usare i carichi di lavoro nel cloud <br>  Le password per le identità cloud e locale possono essere uguali oppure no |
-| **Identità sincronizzate** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br>  Più facile da gestire |Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
+| **Identità sincronizzate** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br>  Più facile da gestire |Alcuni clienti potrebbero essere riluttanti a sincronizzare le directory con il cloud a causa di criteri aziendali specifici |
 | **Federato** |Gli utenti possono usufruire dell'accesso Single Sign-On  <br>Se un utente cessa di lavorare in azienda, l'account viene disabilitato immediatamente e l'accesso revocato,<br> Supporta scenari avanzati che non sono disponibili con le identità sincronizzate |Altri passaggi di configurazione <br> Manutenzioni superiori <br> Può richiedere hardware aggiuntivo per l'infrastruttura del servizio token di sicurezza <br> Può richiedere hardware aggiuntivo per installare il server federativo. Se si usa AD FS, è necessario software aggiuntivo <br> È richiesta una configurazione estesa per SSO <br> Punto critico di errore se il server federativo è inattivo, gli utenti non potranno eseguire l'autenticazione |
 
 ### <a name="client-experience"></a>Esperienza client
@@ -185,8 +185,8 @@ Opzioni di progettazione per l'autenticazione a più fattori:
 | App Microsoft |sì |sì |
 | App SaaS nella Raccolta di app |sì |sì |
 | Le applicazioni IIS pubblicate tramite proxy app per Azure AD |sì |sì |
-| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD |No |sì |
-| Accesso remoto, ad esempio VPN, Gateway Desktop remoto |No |sì |
+| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD |no |sì |
+| Accesso remoto, ad esempio VPN, Gateway Desktop remoto |no |sì |
 
 Anche se è già stata scelta una soluzione per la strategia, è comunque necessario riesaminare la valutazione riportata in precedenza a seconda di dove risiedono gli utenti  ed eventualmente cambiare il tipo di soluzione.  A questo scopo, usare la tabella seguente:
 

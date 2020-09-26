@@ -17,25 +17,25 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a013af680ecc84a2a981341ba4bb95148adc799f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357257"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319878"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso dei connettori con Sync Service Manager di Azure AD Connect
 
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
+![Screenshot che mostra la Service Manager di sincronizzazione.](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
 
 La scheda Connettori consente di gestire tutti i sistemi a cui il motore di sincronizzazione è connesso.
 
 ## <a name="connector-actions"></a>Azioni del connettore
-| Action | Commento |
+| Action | Comment |
 | --- | --- |
 | Create |Non usare. Per la connessione ad altre foreste AD, usare l'installazione guidata. |
 | Proprietà |Si usa per i filtri di unità organizzativa e dominio. |
-| [Eliminazione](#delete) |Si usa per eliminare i dati nello spazio connettore o per eliminare la connessione a una foresta. |
+| [Elimina](#delete) |Si usa per eliminare i dati nello spazio connettore o per eliminare la connessione a una foresta. |
 | [Configura profili di esecuzione](#configure-run-profiles) |Fatta eccezione per i filtri di dominio, qui non è richiesta alcuna configurazione. Questa azione consente di visualizzare i profili di esecuzione già configurati. |
 | Esegui |Si usa per avviare l'esecuzione occasionale di un profilo. |
 | Arresto |Arresta un connettore che sta eseguendo attualmente un profilo. |
@@ -45,9 +45,9 @@ La scheda Connettori consente di gestire tutti i sistemi a cui il motore di sinc
 | Aggiorna schema |Aggiorna lo schema memorizzato nella cache. È preferibile usare l'opzione nell'installazione guidata perché aggiorna anche le regole di sincronizzazione. |
 | [Spazio connettore di ricerca](#search-connector-space) |Consente di trovare oggetti e seguire un oggetto e i relativi dati attraverso il sistema. |
 
-### <a name="delete"></a>Elimina
+### <a name="delete"></a>Delete
 L'azione di eliminazione viene usata per due scopi diversi.  
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
+![Screenshot che mostra la finestra "Elimina connettore" con il "Elimina solo spazio connettore" selezionato.](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
 L'opzione **Delete connector space only** (Elimina solo lo spazio connettore) rimuove tutti i dati, ma mantiene la configurazione.
 
@@ -58,17 +58,17 @@ Entrambe le opzioni sincronizzano tutti gli oggetti e aggiornano gli oggetti del
 ### <a name="configure-run-profiles"></a>Configura profili di esecuzione
 Questa opzione consente di visualizzare i profili di esecuzione configurati per un connettore.
 
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
+![Screenshot che mostra la finestra "Configura profili di esecuzione" con l'opzione "importazione delta" selezionata.](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
 
 ### <a name="search-connector-space"></a>Spazio connettore di ricerca
 L’azione Cerca spazio connettore è utile per trovare oggetti e risolvere problemi relativi ai dati.
 
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
+![Screenshot che mostra la finestra "spazio connettore di ricerca".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
 
 Iniziare selezionando un **ambito**. È possibile eseguire ricerche in base ai dati (RDN, DN, Ancoraggio, Sottoalbero) o allo stato dell'oggetto (tutte le altre opzioni).  
-![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
+![Screenshot che mostra il menu a discesa "scope".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
  Se ad esempio si esegue una ricerca nel sottoalbero, si ottengono tutti gli oggetti in una OU.  
-![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
+![Screenshot che mostra un esempio di ricerca di un sottoalbero.](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 Da questa griglia è possibile selezionare un oggetto, selezionare le **proprietà** e [seguirlo](tshoot-connect-object-not-syncing.md) dallo spazio connettore di origine attraverso il metaverse e fino allo spazio connettore di destinazione.
 
 ### <a name="changing-the-ad-ds-account-password"></a>Modifica della password dell'account Active Directory Domain Services

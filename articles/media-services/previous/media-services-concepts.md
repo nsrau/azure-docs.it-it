@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: e75dde14cf7182f5153b3a42b26f1c7e8a4e78ac
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2a251ef426d41413cf81f46ca05b11640f01e87a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258028"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333784"
 ---
 # <a name="azure-media-services-concepts"></a>Concetti relativi ai Servizi multimediali di Azure
 
@@ -106,9 +106,8 @@ Per sfruttare i vantaggi della [creazione dinamica dei pacchetti](media-services
 Servizi multimediali supporta i seguenti codificatori su richiesta descritti in questo articolo:
 
 * [Codificatore multimediale standard](media-services-encode-asset.md#media-encoder-standard)
-* [Flusso di lavoro Premium del codificatore multimediale](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Per informazioni sui codificatori supportati, vedere [Codificatori](media-services-encode-asset.md).
+Per informazioni su questo codificatore supportato, vedere [encoder](media-services-encode-asset.md).
 
 ## <a name="live-streaming"></a>Streaming live
 In Servizi multimediali di Azure un canale rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Un canale riceve i flussi di input live in uno dei due modi seguenti:

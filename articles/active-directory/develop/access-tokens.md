@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 09/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 9aa5eb54d79d98627697c51ee7dcb16a44fccb60
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c59dbe9464e70c1a071b64fabf91ce56f409d8d7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053209"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258522"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso di Microsoft Identity Platform
 
@@ -266,9 +266,17 @@ I token di aggiornamento possono essere revocati dal server a causa di una modif
 | L'amministratore revoca tutti i token di aggiornamento per un utente [tramite PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revocato | Revocato |Revocato | Revocato | Revocato |
 | Single Sign-Out ([v 1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out), [v 2.0](v2-protocols-oidc.md#single-sign-out)) sul Web | Revocato | Rimarrà attivo | Revocato | Rimarrà attivo | Rimarrà attivo |
 
+#### <a name="non-password-based"></a>Non basato su password
+
+Un account di accesso *non basato su password* è quello in cui l'utente non ha digitato una password per ottenerlo. Esempi di account di accesso non basati su password includono:
+
+- Uso del viso con Windows Hello
+- Chiave di FIDO2
+- SMS
+- Chiamata vocale
+- PIN 
+
 > [!NOTE]
-> Un accesso "Non basato su password" si ha quando l'utente non digita alcuna password per accedere. Ad esempio, con il riconoscimento facciale di Windows Hello, una chiave FIDO2 o un PIN.
->
 > I token di aggiornamento primari in Windows 10 vengono separati in base alle credenziali. Ad esempio, Windows Hello e le password hanno i rispettivi token di aggiornamento primari, isolati uno dall'altro. Quando un utente accede con le credenziali di Hello (PIN o biometria) e poi cambia la password, il token di aggiornamento primario basato su password ottenuto in precedenza verrà revocato. Se si accede di nuovo con una password, il token di aggiornamento primario precedente viene invalidato e ne viene richiesto uno nuovo.
 >
 > I token di aggiornamento non vengono invalidati o revocati quando vengono usati per recuperare un nuovo token di accesso e un token di aggiornamento.  Tuttavia, l'app deve rimuovere quello precedente non appena viene usato e sostituirlo con quello nuovo, perché il nuovo token include una nuova data di scadenza. 

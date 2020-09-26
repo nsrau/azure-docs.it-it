@@ -1,7 +1,7 @@
 ---
 title: Split Image Directory
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Score Image Model in Azure Machine Learning per generare stime usando un modello di immagine con training.
+description: Informazioni su come usare il modulo Split Image directory in Azure Machine Learning Designer (Preview) per dividere le immagini di una directory immagine in due set distinti.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 63ae7115f905523a3aac131fd7e77b56eb695243
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 49c2d2c24cc8acd8468f660189212a8ae71a1d6e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890256"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268928"
 ---
 # <a name="split-image-directory"></a>Split Image Directory
 
@@ -35,19 +35,19 @@ Questo modulo è particolarmente utile quando è necessario separare i dati dell
 
 ### <a name="expected-inputs"></a>Input previsti
 
-| Nome                  | Tipo           | Descrizione              |
+| Nome                  | Type           | Descrizione              |
 | --------------------- | -------------- | ------------------------ |
 | Directory dell'immagine di input | ImageDirectory | Directory immagine da dividere |
 
 ### <a name="module-parameters"></a>Parametri del modulo
 
-| Nome                                   | Tipo  | Range | Facoltativo | Descrizione                            | Predefinito |
+| Nome                                   | Type  | Range | Facoltativo | Descrizione                            | Predefinito |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
 | Frazione di immagini nel primo output | Float | 0-1   | Necessario | Frazione di immagini nel primo output | 0.9     |
 
 ### <a name="outputs"></a>Output
 
-| Nome                    | Tipo           | Descrizione                              |
+| Nome                    | Type           | Descrizione                              |
 | ----------------------- | -------------- | ---------------------------------------- |
 | Immagine di output directory1 | ImageDirectory | Directory immagini che contiene le immagini selezionate |
 | Immagine di output directory2 | ImageDirectory | Directory immagini che contiene tutte le altre immagini |

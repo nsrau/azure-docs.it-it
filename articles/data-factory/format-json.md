@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 7c1a2cf4b9b476a8f31f38fea45b2e1ef3fe4307
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0b80c2f125e7eddaa427b75e3e0fe2aff6c679be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531780"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334328"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON in Azure Data Factory
 
@@ -206,17 +206,18 @@ La tabella seguente elenca le proprietà supportate da un'origine JSON. È possi
 
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Percorsi Wild Card | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | No | String[] | wildcardPaths |
-| Partition Root Path (Percorso radice partizione) | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | No | string | partitionRootPath |
-| Elenco di file | Indica se l'origine sta puntando a un file di testo che elenca i file da elaborare | No | `true` o `false` | fileList |
-| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine | No | string | rowUrlColumn |
-| Al termine | Elimina o sposta i file dopo l'elaborazione. Il percorso del file inizia dalla radice del contenitore | No | Elimina: `true` o `false` <br> Spostare `['<from>', '<to>']` | purgeFiles <br> moveFiles |
-| Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | No | Timestamp | modifiedAfter <br> modifiedBefore |
-| Documento singolo | Mapping dei flussi di dati leggere un documento JSON da ogni file | No | `true` o `false` | singleDocument |
-| Nomi di colonna non racchiusi tra virgolette | Se è selezionato **nomi di colonna non racchiusi tra virgolette** , il mapping dei flussi di dati legge le colonne JSON che non sono racchiuse tra virgolette | No | `true` o `false` |  unquotedColumnNames |
-| Con commenti | Select **ha commenti** se i dati JSON hanno commenti in stile C o C++ | No | `true` o `false` | asComments |
-| Virgoletta singola | Legge le colonne JSON che non sono racchiuse tra virgolette | No | `true` o `false` | singleQuoted |
-| Barra rovesciata con escape | Selezionare la **barra rovesciata** con caratteri di escape se vengono usate barre rovesciate per l'escape dei caratteri nei dati JSON | No | `true` o `false` | backslashEscape |
+| Percorsi Wild Card | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | no | String[] | wildcardPaths |
+| Partition Root Path (Percorso radice partizione) | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | no | string | partitionRootPath |
+| Elenco di file | Indica se l'origine sta puntando a un file di testo che elenca i file da elaborare | no | `true` o `false` | fileList |
+| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine | no | string | rowUrlColumn |
+| Al termine | Elimina o sposta i file dopo l'elaborazione. Il percorso del file inizia dalla radice del contenitore | no | Elimina: `true` o `false` <br> Spostare `['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | no | Timestamp | modifiedAfter <br> modifiedBefore |
+| Documento singolo | Mapping dei flussi di dati leggere un documento JSON da ogni file | no | `true` o `false` | singleDocument |
+| Nomi di colonna non racchiusi tra virgolette | Se è selezionato **nomi di colonna non racchiusi tra virgolette** , il mapping dei flussi di dati legge le colonne JSON che non sono racchiuse tra virgolette | no | `true` o `false` |  unquotedColumnNames |
+| Con commenti | Select **ha commenti** se i dati JSON hanno commenti in stile C o C++ | no | `true` o `false` | asComments |
+| Virgoletta singola | Legge le colonne JSON che non sono racchiuse tra virgolette | no | `true` o `false` | singleQuoted |
+| Barra rovesciata con escape | Selezionare la **barra rovesciata** con caratteri di escape se vengono usate barre rovesciate per l'escape dei caratteri nei dati JSON | no | `true` o `false` | backslashEscape |
+| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | no | `true` o `false` | ignoreNoFilesFound |
 
 ### <a name="source-format-options"></a>Opzioni del formato di origine
 
@@ -224,7 +225,7 @@ L'uso di un set di dati JSON come origine nel flusso di dati consente di imposta
 
 ![Impostazioni JSON](media/data-flow/json-settings.png "Impostazioni JSON")
 
-#### <a name="default"></a>Impostazione predefinita
+#### <a name="default"></a>Predefinito
 
 Per impostazione predefinita, i dati JSON vengono letti nel formato seguente.
 
@@ -301,8 +302,8 @@ La tabella seguente elenca le proprietà supportate da un sink JSON. È possibil
 
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | No | `true` o `false` | truncate |
-| Opzione nome file | Formato di denominazione dei dati scritti. Per impostazione predefinita, un file per partizione è nel formato `part-#####-tid-<guid>` | No | Modello: stringa <br> Per partizione: stringa [] <br> Come dati in column: String <br> Output in un singolo file: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | no | `true` o `false` | truncate |
+| Opzione nome file | Formato di denominazione dei dati scritti. Per impostazione predefinita, un file per partizione è nel formato `part-#####-tid-<guid>` | no | Modello: stringa <br> Per partizione: stringa [] <br> Come dati in column: String <br> Output in un singolo file: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
 
 ### <a name="creating-json-structures-in-a-derived-column"></a>Creazione di strutture JSON in una colonna derivata
 

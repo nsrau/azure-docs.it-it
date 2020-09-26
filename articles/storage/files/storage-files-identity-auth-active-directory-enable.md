@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 1a517b5eeac12f7d1ff342206300831d7c38ed28
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: f64cad731998fefb2cfa694314e42f0dfb629eb4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563404"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322071"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Panoramica-autenticazione Active Directory Domain Services locale su SMB per le condivisioni file di Azure
 
@@ -24,7 +24,7 @@ Se non si ha familiarità con le condivisioni file di Azure, è consigliabile le
 
 - Le identità di servizi di dominio Active Directory usate per File di Azure autenticazione di servizi di dominio Active Directory locale devono essere sincronizzate con Azure AD. La sincronizzazione dell'hash delle password è facoltativa. 
 - Supporta le condivisioni file di Azure gestite da Sincronizzazione file di Azure.
-- Supporta l'autenticazione Kerberos con Active Directory con crittografia RC4-HMAC e AES 256. La crittografia Kerberos AES 128 non è ancora supportata.
+- Supporta l'autenticazione Kerberos con Active Directory con crittografia RC4-HMAC e [AES 256](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). La crittografia Kerberos AES 128 non è ancora supportata.
 - Supporta Single Sign-On esperienza.
 - Supportato solo nei client che eseguono versioni del sistema operativo più recenti di Windows 7 o Windows Server 2008 R2.
 - Supportato solo per la foresta di Active Directory in cui è registrato l'account di archiviazione. Per impostazione predefinita, è possibile accedere solo alle condivisioni file di Azure con le credenziali di servizi di dominio Active Directory di una singola foresta. Se è necessario accedere alla condivisione file di Azure da una foresta diversa, verificare che sia configurato il trust tra foreste appropriato. per informazioni dettagliate, vedere le [domande frequenti](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) .

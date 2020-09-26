@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230076"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280301"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Abilitare e gestire l'eliminazione temporanea per i contenitori (anteprima)
 
-L'eliminazione temporanea del contenitore (anteprima) impedisce che i dati vengano modificati o eliminati accidentalmente o in modo errato. Quando l'eliminazione temporanea del contenitore è abilitata per un account di archiviazione, è possibile recuperare un contenitore e il relativo contenuto dopo che è stato eliminato, entro il periodo di memorizzazione specificato.
+L'eliminazione temporanea del contenitore (anteprima) impedisce che i dati vengano modificati o eliminati accidentalmente o in modo errato. Quando l'eliminazione temporanea del contenitore è abilitata per un account di archiviazione, è possibile recuperare un contenitore e il relativo contenuto dopo che è stato eliminato, entro un periodo di conservazione specificato.
 
 Se è possibile che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione, Microsoft consiglia di attivare l'eliminazione temporanea del contenitore. Questo articolo illustra come abilitare l'eliminazione temporanea per i contenitori. Per altri dettagli sull'eliminazione temporanea dei contenitori, inclusa la registrazione per l'anteprima, vedere [eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md).
 
@@ -93,7 +93,7 @@ Per visualizzare i contenitori eliminati temporaneamente nella portale di Azure,
 È possibile ripristinare un contenitore eliminato temporaneamente e il relativo contenuto entro il periodo di memorizzazione. Per ripristinare un contenitore eliminato temporaneamente nella portale di Azure, attenersi alla procedura seguente:
 
 1. Passare all'account di archiviazione nell'portale di Azure e visualizzare l'elenco dei contenitori.
-1. Consente di visualizzare il menu di scelta rapida per il contenitore che si desidera eliminare e scegliere **Annulla eliminazione** dal menu.
+1. Visualizzare il menu di scelta rapida per il contenitore che si desidera ripristinare e scegliere **Annulla eliminazione** dal menu.
 
     :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Screenshot che illustra come ripristinare un contenitore eliminato temporaneamente in portale di Azure":::
 

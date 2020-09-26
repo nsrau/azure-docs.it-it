@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 05/21/2020
 ms.author: arremana
-ms.openlocfilehash: 079574ab4c5846eae6266d1e13240baf99428a69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed355f82b88f460ff4b372484a690f166a15550
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449244"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359512"
 ---
 # <a name="upgrade-azure-vm-with-sles-12-to-sles-15-sp1"></a>Aggiornare la macchina virtuale di Azure con SLES 12 a SLES 15 SP1
 
@@ -66,11 +66,11 @@ Per poter passare a SLES 15 SP1 è necessario che la versione SLES corrente sia 
 
 6. Passare al [portale di Azure](https://portal.azure.com), selezionare la macchina virtuale e quindi selezionare **Console seriale**. Si noterà che il sistema si interrompe su "reboot: Restarting system" (riavvio: Riavvio del sistema in corso). Questo processo richiede circa 15-45 minuti. Per una macchina virtuale di seconda generazione, l'esecuzione potrebbe bloccarsi sulla schermata "reboot: Restarting system" (riavvio: Riavvio del sistema in corso). In questo caso, attendere 45 minuti. Se l'esecuzione resta bloccata, passare alla pagina **Panoramica** della macchina virtuale nel portale di Azure, arrestare la macchina virtuale e quindi riavviarla.
 
-     ![Screenshot dei messaggi nella console seriale](./media/linux-upgrade-suse-15sp1/reboot-message.png)
+     ![Screenshot dei messaggi nella console seriale.](./media/linux-upgrade-suse-15sp1/reboot-message.png)
 
 8. Dopo il riavvio del sistema con nuovo kernel viene visualizzato il messaggio seguente.
 
-     ![Screenshot dei messaggi nella console seriale](./media/linux-upgrade-suse-15sp1/output-message.png)
+     ![Screenshot dei messaggi nella console seriale dopo il riavvio del sistema con il nuovo kernel.](./media/linux-upgrade-suse-15sp1/output-message.png)
 9. Verificare la versione del kernel e del sistema operativo, per assicurarsi che il sistema sia stato aggiornato correttamente.
 
     ```

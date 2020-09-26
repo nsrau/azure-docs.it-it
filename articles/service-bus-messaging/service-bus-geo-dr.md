@@ -3,12 +3,12 @@ title: Ripristino di emergenza geografico per il bus di servizio di Azure | Micr
 description: Come usare le aree geografiche per il failover ed eseguire il ripristino di emergenza nel bus di servizio di Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fcdeb499b8ebecc4ecddbfcbe32b812ce7e3efe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c203ed197c1e5bfb15cfb503a04df79b85c630e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341473"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372524"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Ripristino di emergenza geografico per il bus di servizio di Azure
 
@@ -149,7 +149,7 @@ Se si tenta di creare un'associazione tra uno spazio dei nomi primario con un en
 > [!NOTE]
 > Quando si tenta di associare lo spazio dei nomi primario con un endpoint privato e lo spazio dei nomi secondario, il processo di convalida controlla solo se esiste un endpoint privato nello spazio dei nomi secondario. Non controlla se l'endpoint funziona o se funzionerà dopo il failover. È responsabilità dell'utente assicurarsi che lo spazio dei nomi secondario con endpoint privato funzioni come previsto dopo il failover.
 >
-> Per verificare che le configurazioni degli endpoint privati siano uguali, inviare una richiesta [Get queues](/rest/api/servicebus/queues/get) allo spazio dei nomi secondario dall'esterno della rete virtuale e verificare che si riceva un messaggio di errore dal servizio.
+> Per verificare che le configurazioni degli endpoint privati siano uguali, inviare una richiesta [Get queues](/rest/api/servicebus/stable/queues/get) allo spazio dei nomi secondario dall'esterno della rete virtuale e verificare che si riceva un messaggio di errore dal servizio.
 
 ### <a name="existing-pairings"></a>Associazioni esistenti
 Se l'associazione tra uno spazio dei nomi primario e uno secondario esiste già, la creazione di endpoint privati nello spazio dei nomi primario ha esito negativo. Per risolvere il problema, creare prima un endpoint privato nello spazio dei nomi secondario e quindi crearne uno per lo spazio dei nomi primario.
@@ -179,7 +179,7 @@ Il vantaggio di questo approccio è che il failover può verificarsi a livello d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni di riferimento sull'API REST per il ripristino di emergenza geografico, vedere [qui](/rest/api/servicebus/disasterrecoveryconfigs).
+- Per informazioni di riferimento sull'API REST per il ripristino di emergenza geografico, vedere [qui](/rest/api/servicebus/stable/disasterrecoveryconfigs).
 - Eseguire l'[esempio di GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) sul ripristino di emergenza geografico.
 - Vedere l'[esempio che invia messaggi a un alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) per il ripristino di emergenza geografico.
 

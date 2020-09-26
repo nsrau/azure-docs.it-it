@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: caa3717fdf915e205c1a4f82f4e199346ca29fcb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e95edf21b7d6dce29b31220533269439fac120e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082812"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281954"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Usare il servizio di gestione certificati dell'insieme di credenziali OPC
+
+> [!IMPORTANT]
+> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
 
 Questo articolo illustra come registrare le applicazioni e come rilasciare i certificati dell'applicazione firmata per i dispositivi OPC UA.
 

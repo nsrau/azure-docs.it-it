@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2512602b0c8c00c696253a708af13278bc513a1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602065"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258745"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accesso condizionale: App o azioni cloud
 
@@ -31,9 +31,9 @@ Le app cloud o le azioni sono un segnale chiave in un criterio di accesso condiz
 
 Molte delle applicazioni cloud Microsoft esistenti sono incluse nell'elenco selezionabile di applicazioni. 
 
-Gli amministratori possono assegnare un criterio di accesso condizionale alle seguenti applicazioni cloud di Microsoft. Alcune app come Office 365 (anteprima) e gestione di Microsoft Azure includono più app o servizi figlio correlati. L'elenco riportato di seguito non è esaustivo ed è soggetto a modifiche.
+Gli amministratori possono assegnare un criterio di accesso condizionale alle seguenti applicazioni cloud di Microsoft. Alcune app come Office 365 e gestione Microsoft Azure includono più app o servizi figlio correlati. L'elenco riportato di seguito non è esaustivo ed è soggetto a modifiche.
 
-- [Office 365 (anteprima)](#office-365-preview)
+- [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
 - [Database SQL di Azure e Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
@@ -67,15 +67,15 @@ Gli amministratori possono assegnare un criterio di accesso condizionale alle se
 - Rete privata virtuale (VPN)
 - Windows Defender ATP
 
-### <a name="office-365-preview"></a>Office 365 (anteprima)
+### <a name="office-365"></a>Office 365
 
 Microsoft 365 offre servizi di produttività e collaborazione basati sul cloud come Exchange, SharePoint e Microsoft teams. I servizi cloud Microsoft 365 sono profondamente integrati per garantire esperienze uniformi e collaborative. Questa integrazione può causare confusione quando si creano criteri perché alcune app, come ad esempio Microsoft Teams, presentano dipendenze da altre, quali SharePoint o Exchange.
 
-L'app Office 365 (anteprima) consente di fare riferimento a tutti i servizi in una sola volta. È consigliabile usare la nuova app Office 365 (anteprima), anziché fare riferimento a singole app cloud per evitare problemi con le [dipendenze del servizio](service-dependencies.md). Facendo riferimento a questo gruppo di applicazioni è possibile evitare problemi che possono verificarsi a causa di criteri e dipendenze non coerenti.
+L'app Office 365 rende possibile la destinazione di questi servizi in una sola volta. È consigliabile usare la nuova app Office 365, anziché indirizzare le singole app cloud per evitare problemi con le [dipendenze del servizio](service-dependencies.md). Facendo riferimento a questo gruppo di applicazioni è possibile evitare problemi che possono verificarsi a causa di criteri e dipendenze non coerenti.
 
-Se lo desiderano, gli amministratori possono scegliere di escludere app specifiche dai criteri includendo l'app Office 365 (anteprima) ed escludendo le app specifiche di loro scelta nei criteri.
+Gli amministratori possono scegliere di escludere app specifiche dai criteri se desiderano includere l'app Office 365 ed escludere le app specifiche di loro scelta nei criteri.
 
-Applicazioni chiave incluse nell'app client Office 365 (anteprima):
+Applicazioni principali incluse nell'app client Office 365:
 
    - Microsoft Flow
    - Microsoft Forms

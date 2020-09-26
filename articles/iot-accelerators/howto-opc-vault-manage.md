@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0829d4b3fca068ddb0db2df53dd635ab7ad80bed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71203663"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281916"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Gestire il servizio certificati dell'insieme di credenziali OPC
+
+> [!IMPORTANT]
+> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
 
 Questo articolo illustra le attività amministrative per il servizio di gestione certificati dell'insieme di credenziali OPC in Azure. Sono incluse informazioni su come rinnovare i certificati della CA emittente, su come rinnovare l'elenco di revoche di certificati (CRL) e su come concedere e revocare l'accesso utente.
 
@@ -35,7 +38,7 @@ Dopo aver distribuito l'insieme di credenziali OPC, è necessario creare il cert
 6. Selezionare **Salva**.
 7. Se a questo punto si verifica un errore "accesso negato", le credenziali utente non hanno l'autorizzazione di amministratore per modificare o creare un nuovo certificato radice. Per impostazione predefinita, l'utente che ha distribuito il servizio dispone di ruoli di amministratore e firma con il servizio. Gli altri utenti devono essere aggiunti ai ruoli responsabile approvazione, writer o amministratore, a seconda delle esigenze nella registrazione dell'applicazione Azure Active Directory (Azure AD).
 8. Selezionare **Dettagli**. Verranno visualizzate le informazioni aggiornate.
-9. Selezionare **Rinnova certificato CA** per emettere il certificato CA del primo emittente o per rinnovare il certificato dell'autorità emittente. Selezionare **OK**.
+9. Selezionare **Rinnova certificato CA** per emettere il certificato CA del primo emittente o per rinnovare il certificato dell'autorità emittente. Quindi scegliere **OK**.
 10. Dopo alcuni secondi, verranno visualizzati **i dettagli del certificato**. Per scaricare la versione più recente del certificato CA e CRL per la distribuzione nelle applicazioni OPC UA, selezionare **autorità** di certificazione o **CRL**.
 
 Il servizio di gestione dei certificati OPC UA è ora pronto per emettere certificati per le applicazioni OPC UA.
@@ -72,10 +75,10 @@ Per impostazione predefinita, un utente autenticato nel tenant può accedere al 
 5. Selezionare **Aggiungi utente**.
 6. Consente di selezionare o invitare l'utente per l'assegnazione a un ruolo specifico.
 7. Selezionare il ruolo per gli utenti.
-8. Selezionare **assegna**.
+8. Selezionare **Assegna**.
 9. Per gli utenti con ruolo di amministratore o responsabile approvazione, continuare ad aggiungere Azure Key Vault criteri di accesso.
 
-### <a name="remove-user"></a>Rimuovere un utente
+### <a name="remove-user"></a>Rimuovi utente
 
 1. Aprire il portale di Azure.
 2. Passare a **Azure Active Directory**  >  **applicazioni aziendali**.

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c99aa1bdb246d242c4c1cbd33672367b66f923ea
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f2f01e2b58c997db08ad4427de7eef1ee3760c4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229972"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323501"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurare il modulo PowerShell per Desktop virtuale Windows
 
@@ -41,7 +41,8 @@ Eseguire quindi il cmdlet seguente per connettersi ad Azure:
 Connect-AzAccount
 ```
 
->! IMPORTANTE Se ci si connette al portale di US Gov, eseguire invece questo cmdlet:
+>[!IMPORTANT]
+>Se ci si connette al portale di US Gov, eseguire invece questo cmdlet:
 > 
 > ```powershell
 > Connect-AzAccount -EnvironmentName AzureUSGovernment

@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: b879fac7482b000e1b92f2fcc3f7586ae7dae321
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b30cd926f6908c26c6f71c1513a8c68c8a46bf43
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91343839"
+ms.locfileid: "91359750"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Abilitare la registrazione per i servizi Web di Azure Machine Learning Studio (classico)
 
-**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**si applica a:** ![ Si applica a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 In questo documento vengono fornite informazioni sulla funzionalità di registrazione dei servizi Web di Machine Learning Studio (classico). La registrazione fornisce informazioni aggiuntive, oltre a un numero di errore e un messaggio, che consentono di risolvere i problemi relativi alle chiamate alle API Machine Learning Studio (classiche).  
