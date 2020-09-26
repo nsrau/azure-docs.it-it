@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fad7ca60e98dcaabc5f6fc106e0d2c1b77085d67
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0516947ff134992d684aa6826999c4d65bba1457
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227883"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369077"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specifiche del modello di Azure Resource Manager (anteprima)
 
-Una specifica del modello è un nuovo tipo di risorsa per l'archiviazione di un modello di Azure Resource Manager (ARM template) in Azure per una distribuzione successiva. Questo tipo di risorsa consente di condividere i modelli ARM con altri utenti dell'organizzazione. Analogamente a qualsiasi altra risorsa di Azure, è possibile usare il controllo degli accessi in base al ruolo per condividere la specifica del modello.
+Una specifica del modello è un nuovo tipo di risorsa per l'archiviazione di un modello di Azure Resource Manager (ARM template) in Azure per una distribuzione successiva. Questo tipo di risorsa consente di condividere i modelli ARM con altri utenti dell'organizzazione. Analogamente a qualsiasi altra risorsa di Azure, è possibile usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per condividere la specifica del modello.
 
 **Microsoft. resources/templateSpecs** è il nuovo tipo di risorsa per le specifiche del modello. È costituito da un modello principale e da un numero qualsiasi di modelli collegati. Azure archivia in modo sicuro le specifiche del modello nei gruppi di risorse. Le specifiche del modello supportano il [controllo delle versioni](#versioning).
 
@@ -27,7 +27,7 @@ Per distribuire la specifica del modello, si usano strumenti standard di Azure c
 
 Se i modelli sono attualmente presenti in un repository GitHub o in un account di archiviazione, si verificano diverse esigenze durante il tentativo di condividere e usare i modelli. Per la distribuzione da parte di un utente, il modello deve essere locale o l'URL del modello deve essere accessibile pubblicamente. Per aggirare questa limitazione, è possibile condividere copie del modello con gli utenti che devono distribuirlo o aprire l'accesso al repository o all'account di archiviazione. Quando gli utenti possiedono copie locali di un modello, queste copie possono divergere dal modello originale. Quando si rende accessibile pubblicamente un repository o un account di archiviazione, è possibile consentire agli utenti non intenzionati di accedere al modello.
 
-Il vantaggio di usare le specifiche dei modelli è che è possibile creare modelli canonici e condividerli con i team dell'organizzazione. Le specifiche del modello sono sicure perché sono disponibili per Azure Resource Manager per la distribuzione, ma non sono accessibili agli utenti senza autorizzazione RBAC. Gli utenti devono solo accedere in lettura alla specifica del modello per distribuire il modello, in modo da poter condividere il modello senza consentire ad altri utenti di modificarlo.
+Il vantaggio di usare le specifiche dei modelli è che è possibile creare modelli canonici e condividerli con i team dell'organizzazione. Le specifiche dei modelli sono sicure perché sono disponibili per Azure Resource Manager per la distribuzione, ma non sono accessibili agli utenti senza autorizzazione RBAC di Azure. Gli utenti devono solo accedere in lettura alla specifica del modello per distribuire il modello, in modo da poter condividere il modello senza consentire ad altri utenti di modificarlo.
 
 I modelli inclusi in una specifica del modello devono essere verificati dagli amministratori dell'organizzazione per seguire i requisiti e le linee guida dell'organizzazione.
 
