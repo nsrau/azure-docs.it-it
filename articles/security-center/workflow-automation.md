@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 7933cc692ebc3b40e5f608a917dce51f5298fbe3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f3a1dc716e4db51d9d8b488bd98fc254f8dad842
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904633"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322156"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Creare risposte automatiche agli avvisi e alle raccomandazioni con l'automazione dei flussi di lavoro
 
@@ -67,11 +67,9 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
 
     Nella finestra di progettazione dell'app per la logica sono supportati i trigger seguenti dei connettori del Centro sicurezza:
 
-    * **Quando viene creata o attivata una raccomandazione del Centro sicurezza di Azure**
-    * **Quando viene creato o attivato un avviso del Centro sicurezza di Azure** 
-    
-    > [!TIP]
-    > È possibile personalizzare il trigger in modo che si riferisca solo agli avvisi con i livelli di gravità che interessano.
+    * **Quando viene creata o attivata una raccomandazione del Centro sicurezza di Azure** , se l'app per la logica si basa su una raccomandazione che viene deprecata o sostituita, l'automazione smetterà di funzionare ed è necessario aggiornare il trigger. Per tenere traccia delle modifiche apportate alle raccomandazioni, vedere [Note sulla versione del Centro sicurezza di Azure](release-notes.md).
+
+    * **Quando viene creato o attivato un avviso del Centro sicurezza di Azure** , è possibile personalizzare il trigger in modo che si riferisca solo agli avvisi con i livelli di gravità che interessano.
     
     > [!NOTE]
     > Se si usa il trigger legacy "quando viene attivata una risposta a un avviso del Centro sicurezza di Azure", le app per la logica non verranno avviate dalla funzionalità di automazione del flusso di lavoro. Usare invece uno dei trigger indicati in precedenza. 

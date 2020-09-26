@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: d8da8bcf3d2bb6b2af2b5c69ce003289d83d3884
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 517fed0dd9eb1736344546bde9f79e52ee17182f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939392"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333104"
 ---
 # <a name="troubleshooting-azure-sql-edge-deployments"></a>Risoluzione dei problemi relativi alle distribuzioni di Azure SQL Edge 
 
@@ -138,32 +138,12 @@ docker exec -it <Container ID> /bin/bash
 
 A questo punto è possibile eseguire i comandi come se fossero in esecuzione nel terminale all'interno del contenitore. Al termine, digitare `exit`. Viene così chiusa la sessione di esecuzione interattiva dei comandi, ma l'esecuzione del contenitore continua.
 
-## <a name="troubleshooting-issues-with-data-streaming"></a>Risoluzione dei problemi relativi al flusso di dati
-
-Per impostazione predefinita, i log del motore di flusso di Azure SQL Edge vengono scritti in un file denominato `current` nella directory **/var/opt/MSSQL/log/Services/00000001-0000-0000-0000-000000000000** È possibile accedere al file direttamente tramite il volume mappato o il contenitore del volume di dati oppure avviando una sessione interattiva del prompt dei comandi nel contenitore SQL Edge. 
-
-Inoltre, se è possibile connettersi all'istanza di SQL Edge usando gli strumenti client, è possibile usare il comando T-SQL seguente per accedere al log del motore di flusso corrente. 
-
-```sql
-
-select value as log, try_convert(DATETIME2, substring(value, 0, 26)) as timestamp 
-from 
-    STRING_SPLIT
-    (
-        (
-            select BulkColumn as logs
-            FROM OPENROWSET (BULK '/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000/current', SINGLE_CLOB) MyFile
-        ),
-        CHAR(10)
-    ) 
-where datalength(value) > 0
-
-```
-
 ### <a name="enabling-verbose-logging"></a>Abilitazione della registrazione dettagliata
 
 Se il livello di registrazione predefinito per il motore di flusso non fornisce informazioni sufficienti, la registrazione del debug per il motore di flusso può essere abilitata in SQL Edge. Per abilitare la registrazione di debug `RuntimeLogLevel=debug` , aggiungere la variabile di ambiente alla distribuzione di SQL Edge. Dopo aver abilitato la registrazione del debug, provare a riprodurre il problema e verificare la presenza di eventuali messaggi o eccezioni rilevanti nei log. 
 
+> [!NOTE]
+> L'opzione di registrazione dettagliata deve essere utilizzata solo per la risoluzione dei problemi e non per il carico di lavoro di produzione normale. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: f4a851377128577cc7e50af777b502c9f59211c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a251d7a1ff4063178a6c03d71fedc5adfca423
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188251"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332866"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Risolvere i problemi della sincronizzazione dati SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -105,7 +105,7 @@ Le prestazioni vengono considerevolmente ridotte, anche al punto da non poter ap
 
 - **Risoluzione**. La correzione migliore è prevenire questa situazione. Verificare che non siano presenti riferimenti circolari nei gruppi di sincronizzazione. Le righe sincronizzate da un gruppo di sincronizzazione non possono essere sincronizzate da un altro gruppo di sincronizzazione.
 
-### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a><a name="sync-nulls"></a>Viene visualizzato il messaggio seguente: "Impossibile inserire il valore NULL nella colonna \<column> . La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore? 
+### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a><a name="sync-nulls"></a> Viene visualizzato il messaggio seguente: "Impossibile inserire il valore NULL nella colonna \<column> . La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore? 
 Questo messaggio di errore indica che si è verificato uno dei due problemi seguenti:
 -  Una tabella non dispone di una chiave primaria. Per risolvere il problema, aggiungere una chiave primaria a tutte le tabelle da sincronizzare.
 -  Potrebbe essere presente una clausola WHERE nell'istruzione CREATE INDEX. La sincronizzazione dati non gestisce questa condizione. Per risolvere il problema, rimuovere la clausola WHERE o apportare manualmente le modifiche a tutti i database. 
@@ -166,7 +166,7 @@ Non si riesce a eliminare un gruppo di sincronizzazione. Gli scenari seguenti po
 
 - **Risoluzione**. Attendere il termine del processo di provisioning o di sincronizzazione, quindi riprovare a eliminare il gruppo di sincronizzazione.
 
-### <a name="i-cant-unregister-a-sql-server-database"></a><a name="setup-unreg"></a>Non è possibile annullare la registrazione di un database di SQL Server
+### <a name="i-cant-unregister-a-sql-server-database"></a><a name="setup-unreg"></a> Non è possibile annullare la registrazione di un database di SQL Server
 
 - **Causa**. Molto probabilmente si sta provando ad annullare la registrazione di un database che è già stato eliminato.
 

@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 878b3d4a522fd2b7567ed6005283d041064d9fe5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, has-adal-ref, devx-track-js
+ms.openlocfilehash: 0650b1c6364a187447ea3a378675df9d76eef4d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885996"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275728"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurare l'autenticazione per le risorse e i flussi di lavoro di Azure Machine Learning
 
@@ -77,7 +77,7 @@ Per utilizzare l'autenticazione dell'entità servizio (SP), è necessario innanz
 >
 > Il motivo per cui si concede l'accesso minimo è che un'entità servizio usa una password per l'autenticazione e la password può essere archiviata come parte di uno script di automazione. Se la password viene persa, l'accesso minimo richiesto per le attività specifiche riduce al minimo l'utilizzo dannoso di SP.
 
-Il modo più semplice per creare un SP e concedere l'accesso all'area di lavoro consiste nell'usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Per creare un'entità servizio e concedere l'accesso all'area di lavoro, seguire questa procedura:
+Il modo più semplice per creare un SP e concedere l'accesso all'area di lavoro consiste nell'usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Per creare un'entità servizio e concedere l'accesso all'area di lavoro, seguire questa procedura:
 
 > [!NOTE]
 > Per eseguire tutti questi passaggi, è necessario essere un amministratore della sottoscrizione.
@@ -92,7 +92,7 @@ Il modo più semplice per creare un SP e concedere l'accesso all'area di lavoro 
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    Per altri metodi di autenticazione, vedere [Accedere con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Per altri metodi di autenticazione, vedere [Accedere con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 1. Installare l'estensione Azure Machine Learning:
 
@@ -190,7 +190,7 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Usare un'entità servizio dall'interfaccia della riga di comando di Azure
 
-È possibile usare un'entità servizio per i comandi dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [accedere usando un'entità servizio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal).
+È possibile usare un'entità servizio per i comandi dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [accedere usando un'entità servizio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal).
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Usare un'entità servizio con l'API REST (anteprima)
 

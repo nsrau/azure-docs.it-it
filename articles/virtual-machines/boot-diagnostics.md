@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 0b3e1b3bc296676c44eddf34b35a0d4e06d3b8c4
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: b51b44f3a3d0889836bb41e0bf2fa37234338cf4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007333"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287084"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostica di avvio di Azure
 
@@ -38,6 +38,7 @@ Nel pannello della macchina virtuale l'opzione diagnostica di avvio si trova nel
 - La diagnostica di avvio non supporta gli account di archiviazione Premium, se viene usato un account di archiviazione Premium per la diagnostica di avvio, gli utenti riceveranno un `StorageAccountTypeNotSupported` errore all'avvio della macchina virtuale. 
 - Gli account di archiviazione gestiti sono supportati nella versione API Gestione risorse "2020-06-01" e versioni successive.
 - La console seriale di Azure non è attualmente compatibile con un account di archiviazione gestito per la diagnostica di avvio. Scopri di più sulla [console seriale di Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview).
+- La diagnostica di avvio usando un account di archiviazione di gestione può attualmente essere applicata solo tramite il portale di Azure. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

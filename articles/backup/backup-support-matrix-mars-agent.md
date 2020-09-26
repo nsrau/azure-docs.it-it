@@ -3,12 +3,12 @@ title: Matrice di supporto per l'agente MARS
 description: Questo articolo riepiloga il supporto di backup di Azure quando si esegue il backup dei computer che eseguono l'agente di Servizi di ripristino di Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: b11a2e3ec2fdf3a46b324dcc0f95d4666a84c179
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872413"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332679"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -44,7 +44,7 @@ Quando si usa l'agente MARS per eseguire il backup dei dati, l'agente acquisisce
 **Cache** | **Dettagli**
 --- | ---
 Dimensione |  Lo spazio disponibile nella cartella della cache deve essere almeno compreso tra 5 e 10% delle dimensioni complessive dei dati di backup.
-Percorso | La cartella della cache deve essere archiviata localmente nel computer di cui viene eseguito il backup e deve essere online. La cartella della cache non deve trovarsi in una condivisione di rete, in un supporto rimovibile o in un volume offline.
+Location | La cartella della cache deve essere archiviata localmente nel computer di cui viene eseguito il backup e deve essere online. La cartella della cache non deve trovarsi in una condivisione di rete, in un supporto rimovibile o in un volume offline.
 Cartella | La cartella della cache non deve essere crittografata in un volume deduplicato o in una cartella compressa, di tipo sparse o con un punto di analisi.
 Modifiche alla posizione | È possibile modificare il percorso della cache arrestando il motore di backup ( `net stop bengine` ) e copiando la cartella della cache in una nuova unità. Assicurarsi che la nuova unità disponga di spazio sufficiente. Aggiornare quindi due voci del registro di sistema in **HKLM\Software\Microsoft\Windows Azure Backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) al nuovo percorso e riavviare il motore.
 
@@ -67,6 +67,15 @@ E a questi indirizzi IP:
 
 L'accesso a tutti gli URL e gli indirizzi IP elencati in precedenza usa il protocollo HTTPS sulla porta 443.
 
+Quando si esegue il backup di file e cartelle da macchine virtuali di Azure usando l'agente MARS, è necessario configurare anche la rete virtuale di Azure per consentire l'accesso. Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita a Backup di Azure. Oltre al tag di backup di Azure, è anche necessario consentire la connettività per l'autenticazione e il trasferimento dei dati creando [regole NSG](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) simili per Azure ad (*AzureActiveDirectory*) e archiviazione di Azure (*archiviazione*). I passaggi seguenti descrivono il processo di creazione di una regola per il tag di Backup di Azure:
+
+1. In **Tutti i servizi**, passare a **Gruppi di sicurezza di rete** e selezionare il gruppo di sicurezza di rete.
+2. In **Impostazioni** selezionare **Regole di sicurezza in uscita**.
+3. Selezionare **Aggiungi**. Immettere tutti i dettagli necessari per la creazione di una nuova regola, come descritto nelle [impostazioni delle regole di sicurezza](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Assicurarsi che l'opzione **Destinazione** sia impostata su *Tag del servizio* e che l'opzione **Tag del servizio di destinazione** sia impostata su *AzureBackup*.
+4. Selezionare **Aggiungi** per salvare la regola di sicurezza in uscita appena creata.
+
+È possibile creare in modo analogo le regole di sicurezza NSG in uscita NSG per Archiviazione di Azure e Azure AD. Per altre informazioni sui tag di servizio, vedere [questo articolo](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+
 ### <a name="azure-expressroute-support"></a>Supporto di Azure ExpressRoute
 
 È possibile eseguire il backup dei dati tramite Azure ExpressRoute con il peering pubblico (disponibile per i circuiti precedenti) e il peering Microsoft. Il backup sul peering privato non è supportato.
@@ -81,11 +90,11 @@ Con peering pubblico: garantire l'accesso ai seguenti domini/indirizzi:
 
 Con il peering Microsoft selezionare i servizi/le aree e i valori della community pertinenti seguenti:
 
+- Backup di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
 - Azure Active Directory (12076:5060)
-- Area Microsoft Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
 - Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
 
-Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](../expressroute/expressroute-routing.md).
+Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](../expressroute/expressroute-routing.md#bgp).
 
 >[!NOTE]
 >Il peering pubblico è deprecato per i nuovi circuiti.
@@ -180,7 +189,7 @@ Flusso di tipo sparse| Non supportata. Ignorato.
 OneDrive (i file sincronizzati sono flussi sparse)| Non supportata.
 Cartelle con Replica DFS abilitata | Non supportata.
 
-\*Verificare che l'agente MARS abbia accesso ai certificati richiesti per accedere ai file crittografati. I file inaccessibili verranno ignorati.
+\* Verificare che l'agente MARS abbia accesso ai certificati richiesti per accedere ai file crittografati. I file inaccessibili verranno ignorati.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unità o volumi supportati per il backup
 

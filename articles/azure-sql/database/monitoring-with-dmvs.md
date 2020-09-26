@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: f0a9e36113226a40f4bd21a7b171ca7a65930f95
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 7ee876b1d65e71657cb1af857cdad9f62a32100e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987238"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333053"
 ---
-# <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitoraggio di database SQL di Microsoft Azure e delle prestazioni di Istanza gestita SQL di Azure tramite le viste a gestione dinamica
+# <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitoraggio di database SQL di Microsoft Azure e delle prestazioni di Istanza gestita di SQL di Azure tramite le viste a gestione dinamica
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Database SQL di Microsoft Azure e Azure SQL Istanza gestita consentono un subset di viste a gestione dinamica per diagnosticare problemi di prestazioni, che potrebbero essere causati da query bloccate o con esecuzione prolungata, colli di bottiglia delle risorse, piani di query insufficienti e così via. Questo argomento fornisce informazioni su come rilevare problemi comuni relativi alle prestazioni tramite le DMV.

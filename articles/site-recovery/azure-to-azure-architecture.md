@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 08796b0a9b232c7b42b3f62fea69ab49b8957c60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498617"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322088"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
 
@@ -104,7 +104,7 @@ Uno snapshot coerente con l'arresto anomalo del sistema acquisisce i dati conten
 
 **Descrizione** | **Dettagli** | **Consiglio**
 --- | --- | ---
-I punti di ripristino coerenti con l'app vengono creati dagli snapshot coerenti con l'app.<br/><br/> Uno snapshot coerente con l'app contiene tutte le informazioni contenute in uno snapshot coerente con l'arresto anomalo del sistema, oltre a tutti i dati in memoria e le transazioni in corso. | Gli snapshot coerenti con l'app usano il servizio Copia Shadow del volume:<br/><br/>   1) All'avvio di uno snapshot, il servizio esegue un'operazione di copia su scrittura sul volume.<br/><br/>   2) Prima di eseguire l'operazione di copia su scrittura, il servizio informa ogni app presente nella macchina virtuale che dovrà scaricare i dati residenti in memoria su disco.<br/><br/>   3) Il servizio Copia Shadow del volume consente quindi all'app di backup/ripristino di emergenza (in questo caso Site Recovery) di leggere i dati dello snapshot e di procedere. | Gli snapshot vengono acquisiti in base alla frequenza specificata. Questa frequenza deve essere sempre inferiore a quella impostata per la conservazione dei punti di ripristino. Ad esempio, se i punti di ripristino vengono conservati in base all'impostazione predefinita di 24 ore, la frequenza deve essere impostata su un periodo inferiore a 24 ore.<br/><br/>Gli snapshot coerenti con l'app sono più complessi e il loro completamento richiede più tempo rispetto agli snapshot coerenti con l'arresto anomalo del sistema.<br/><br/> Influiscono sulle prestazioni delle app in esecuzione su una macchina virtuale abilitata per la replica. 
+I punti di ripristino coerenti con l'app vengono creati dagli snapshot coerenti con l'app.<br/><br/> Uno snapshot coerente con l'app contiene tutte le informazioni contenute in uno snapshot coerente con l'arresto anomalo del sistema, oltre a tutti i dati in memoria e le transazioni in corso. | Gli snapshot coerenti con l'app usano il servizio Copia Shadow del volume:<br/><br/>   1) Azure Site Recovery usa il metodo di backup di sola copia (VSS_BT_COPY) che non modifica l'ora e il numero di sequenza del backup del log delle transazioni di Microsoft SQL </br></br> 2) quando viene avviato uno snapshot, VSS esegue un'operazione di copia in scrittura (COW) nel volume.<br/><br/>   3) prima di eseguire la mucca, VSS informa ogni app nel computer che deve scaricare i dati residenti in memoria su disco.<br/><br/>   4) VSS consente quindi all'app di backup/ripristino di emergenza (in questo caso Site Recovery) di leggere i dati dello snapshot e continuare. | Gli snapshot vengono acquisiti in base alla frequenza specificata. Questa frequenza deve essere sempre inferiore a quella impostata per la conservazione dei punti di ripristino. Ad esempio, se i punti di ripristino vengono conservati in base all'impostazione predefinita di 24 ore, la frequenza deve essere impostata su un periodo inferiore a 24 ore.<br/><br/>Gli snapshot coerenti con l'app sono più complessi e il loro completamento richiede più tempo rispetto agli snapshot coerenti con l'arresto anomalo del sistema.<br/><br/> Influiscono sulle prestazioni delle app in esecuzione su una macchina virtuale abilitata per la replica. 
 
 ## <a name="replication-process"></a>Processo di replica
 
@@ -128,7 +128,7 @@ Quando si abilita la replica per una macchina virtuale di Azure, accade quanto s
 
 Se l'accesso in uscita per le macchine virtuali è controllato tramite URL, consentire gli URL seguenti.
 
-| **Nome**                  | **Commerciale**                               | **Enti governativi**                                 | **Descrizione** |
+| **Nome**                  | **Commerciale**                               | **Enti pubblici**                                 | **Descrizione** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Archiviazione                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Consente la scrittura di dati dalla macchina virtuale nell'account di archiviazione della cache all'area di origine. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornisce l'autenticazione e l'autorizzazione per gli URL del servizio Site Recovery. |
@@ -144,7 +144,7 @@ Si noti che i dettagli relativi ai requisiti di connettività di rete sono dispo
 
 #### <a name="source-region-rules"></a>Regole dell'area di origine
 
-**Regola** |  **Dettagli** | **Tag servizio**
+**Regola** |  **Dettagli** | **Tag di servizio**
 --- | --- | --- 
 Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di origine. | Archiviazione.\<region-name>
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Active Directory (Azure AD)  | AzureActiveDirectory
@@ -155,7 +155,7 @@ Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono al c
 
 #### <a name="target-region-rules"></a>Regole dell'area di destinazione
 
-**Regola** |  **Dettagli** | **Tag servizio**
+**Regola** |  **Dettagli** | **Tag di servizio**
 --- | --- | --- 
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono agli account di archiviazione nell'area di destinazione | Archiviazione.\<region-name>
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure AD  | AzureActiveDirectory

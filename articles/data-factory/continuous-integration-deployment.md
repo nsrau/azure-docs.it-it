@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 8749b64b664571abab6f354018dcbd2bd797531e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/23/2020
+ms.openlocfilehash: a5856d85b6a967f49fd651942ca6e4596bf15e7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531220"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320978"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -212,13 +212,17 @@ Se la factory di sviluppo dispone di un repository Git associato, è possibile e
 * Si usano CI/CD automatizzati e si desidera modificare alcune proprietà durante la distribuzione di Resource Manager, ma le proprietà non sono parametrizzate per impostazione predefinita.
 * La factory è talmente grande che il modello di Resource Manager predefinito non è valido perché contiene più del numero massimo di parametri consentito (256).
 
-Per eseguire l'override del modello di parametrizzazione predefinito, creare un file denominato **arm-template-parameters-definition.json** nella cartella radice del ramo Git. È necessario usare il nome file esatto.
+Per sostituire il modello di parametrizzazione predefinito, passare all'hub di gestione e selezionare **modello di parametrizzazione** nella sezione controllo del codice sorgente. Selezionare **modifica modello** per aprire l'editor del codice del modello di parametrizzazione. 
 
-   ![File dei parametri personalizzati](media/continuous-integration-deployment/custom-parameters.png)
+![Gestire parametri personalizzati](media/author-management-hub/management-hub-custom-parameters.png)
+
+La creazione di un modello di parametrizzazione personalizzato consente di creare un file denominato **arm-template-parameters-definition.js** nella cartella radice del ramo git. È necessario usare il nome file esatto.
+
+![File dei parametri personalizzati](media/continuous-integration-deployment/custom-parameters.png)
 
 Quando si esegue la pubblicazione dal ramo di collaborazione, Data Factory leggerà questo file e userà la relativa configurazione per generare le proprietà da parametrizzare. Se non viene trovato alcun file, viene usato il modello predefinito.
 
-Quando si esporta un modello di Resource Manager, Data Factory legge questo file da qualunque ramo in cui si sta lavorando, non solo dal ramo di collaborazione. È possibile creare o modificare il file da un ramo privato, in cui è possibile testare le modifiche selezionando **Esporta modello ARM** nell'interfaccia utente. È quindi possibile unire il file nel ramo di collaborazione.
+Quando si esporta un modello di Gestione risorse, Data Factory legge questo file da qualsiasi ramo attualmente in uso, non dal ramo di collaborazione. È possibile creare o modificare il file da un ramo privato, in cui è possibile testare le modifiche selezionando **Esporta modello ARM** nell'interfaccia utente. È quindi possibile unire il file nel ramo di collaborazione.
 
 > [!NOTE]
 > Un modello di parametrizzazione personalizzato non modifica il limite di parametri del modello ARM di 256. Consente di scegliere e diminuire il numero di proprietà con parametri.

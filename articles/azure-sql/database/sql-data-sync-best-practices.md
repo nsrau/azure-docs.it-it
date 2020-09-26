@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: a45fc5f4e56ff3a5d7f0be167c5d758aa0e47caf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd9bc17db3eccc64f35d7295d57dc120364481dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196360"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332985"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Procedure consigliate per la sincronizzazione dati SQL di Azure 
 
@@ -103,7 +103,7 @@ Per quanto riguarda il provisioning automatico, la sincronizzazione dati SQL pre
 -   Usare la funzionalità di provisioning automatico della sincronizzazione dati SQL solo per testare il servizio.  
 -   Per la fase di produzione eseguire il provisioning dello schema del database.
 
-### <a name="where-to-locate-the-hub-database"></a><a name="locate-hub"></a>Posizione in cui trovare il database hub
+### <a name="where-to-locate-the-hub-database"></a><a name="locate-hub"></a> Posizione in cui trovare il database hub
 
 #### <a name="enterprise-to-cloud-scenario"></a>Scenario da azienda a cloud
 
@@ -118,7 +118,7 @@ Per ridurre al minimo la latenza, mantenere il database hub in prossimità della
 
 Applicare le linee guida precedenti a configurazioni più complesse di gruppi di sincronizzazione, ad esempio a scenari misti da azienda a cloud e da cloud a cloud.
 
-## <a name="sync"></a>Sincronizzazione
+## <a name="sync"></a>Sincronizza
 
 ### <a name="avoid-slow-and-costly-initial-sync"></a><a name="avoid-a-slow-and-costly-initial-synchronization"></a> Evitare una sincronizzazione iniziale lenta e dispendiosa
 

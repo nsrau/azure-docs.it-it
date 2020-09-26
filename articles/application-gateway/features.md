@@ -5,18 +5,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: bbb78fd879bc5c6bb8c2624329a23d7137b11660
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651986"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355738"
 ---
 # <a name="azure-application-gateway-features"></a>Funzionalità del gateway applicazione Azure
 
-[Applicazione Azure gateway](overview.md) è un servizio di bilanciamento del carico del traffico Web che consente di gestire il traffico per le applicazioni Web.
+Il [gateway applicazione di Azure](overview.md) è un servizio di bilanciamento del carico del traffico Web che consente di gestire il traffico verso le applicazioni Web.
 
 ![Concetti relativi al gateway applicazione](media/overview/figure1-720.png)
 
@@ -147,9 +147,9 @@ Per altre informazioni, vedere [riscrivere le intestazioni HTTP e l'URL](rewrite
 
 ## <a name="sizing"></a>Ridimensionamento
 
-Il Standard_v2 del gateway applicazione può essere configurato per la scalabilità automatica o per le distribuzioni a dimensione fissa. Questo SKU non offre dimensioni diverse per le istanze. Per altre informazioni sulle prestazioni e sui prezzi di V2, vedere [scalabilità automatica V2](application-gateway-autoscaling-zone-redundant.md) e [informazioni sui prezzi](understanding-pricing.md).
+Il Standard_v2 del gateway applicazione può essere configurato per la scalabilità automatica o per le distribuzioni a dimensione fissa. Lo SKU V2 non offre dimensioni diverse per le istanze. Per altre informazioni sulle prestazioni e sui prezzi di V2, vedere [scalabilità automatica V2](application-gateway-autoscaling-zone-redundant.md) e [informazioni sui prezzi](understanding-pricing.md).
 
-Lo standard del gateway applicazione è disponibile in tre dimensioni: **small**, **medium**e **large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
+Il gateway applicazione standard (V1) viene offerto in tre dimensioni: **small**, **medium**e **large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
 
 Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del servizio Gateway applicazione](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 

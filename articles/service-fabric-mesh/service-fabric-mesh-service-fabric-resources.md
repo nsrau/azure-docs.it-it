@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7f25d4156c3d2671e1a15a1253ed7ba22265af0
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847000"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354871"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Introduzione al modello di risorsa di Service Fabric
 
@@ -66,7 +66,7 @@ Le risorse segrete sono distribuibili indipendentemente da un'applicazione o ris
 
 I contenitori spesso rendono disponibili i dischi temporanei. I dischi sono temporanei, quindi si riceve un nuovo disco temporaneo e si perdono le informazioni in caso di arresto anomalo di un contenitore. È anche difficile condividere le informazioni sui dischi temporanei con altri contenitori. I volumi sono le directory che vengono montate all'interno di istanze del contenitore che è possibile usare per mantenere la persistenza dello stato. I volumi offrono una risorsa di archiviazione file per utilizzo generico e consentono di leggere/scrivere i file usando le normali API di file I/O del disco. La risorsa di volume è una modalità dichiarativa per descrivere come viene montata una directory e la risorsa di archiviazione di backup per essa (Volume di file di Azure o Reliable Volume di Service Fabric).  Per altre informazioni, leggere [stato di archiviazione](service-fabric-mesh-storing-state.md#volumes).
 
-![Volumi][Image3]
+![Il diagramma mostra il flusso di un servizio in un volume del disco, che scorre sia in Service Fabric volume affidabile, quindi in un disco locale replicato e in File di Azure volume, quindi nell'archiviazione di rete.][Image3]
 
 ## <a name="programming-models"></a>Modelli di programmazione
 La risorsa del servizio richiede solo l'esecuzione di un'immagine del contenitore a cui viene fatto riferimento nei pacchetti di codice associati alla risorsa. È possibile eseguire qualsiasi codice, in qualsiasi linguaggio, usando qualsiasi framework all'interno del contenitore senza necessità di conoscere o usare le API specifiche di mesh Service Fabric. 

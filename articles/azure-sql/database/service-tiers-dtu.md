@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 11/26/2019
-ms.openlocfilehash: fbf753436a259993f6869372ae3ba7272f2a181a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: ba2170923885eac19af4bfe3ce55ea653371c0e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541703"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321357"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -109,7 +109,7 @@ Le dimensioni del database si basano su un "fattore di scala" (SF), che determin
 
 Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato nella tabella riportata di seguito. Ogni transazione è progettata per evidenziare un insieme specifico di caratteristiche di sistema nel motore di database e nell'hardware del sistema, con un contrasto elevato rispetto alle altre transazioni. Questo approccio consente di valutare l'impatto dei diversi componenti sulle prestazioni globali. La transazione "Operazioni lettura intense" ad esempio produce un numero significativo di operazioni di lettura dal disco.
 
-| Tipo di transazione | Description |
+| Tipo di transazione | Descrizione |
 | --- | --- |
 | Operazioni lettura leggere |SELECT, in memoria, sola lettura |
 | Operazioni lettura medie |SELECT, principalmente in memoria, sola lettura |
@@ -147,7 +147,7 @@ Il carico di lavoro del benchmark si basa su uno strumento che invia transazioni
    - Eseguire la transazione selezionata e misurare il tempo di risposta.
    - Attendere un ritardo velocità.
 3. Chiudere la connessione di database.
-4. Uscire.
+4. Exit.
 
 Il ritardo velocità (passaggio 2c) viene selezionato in modo casuale, ma con una distribuzione che presenta una media di 1,0 secondi. Pertanto, ogni utente in media può generare al massimo una transazione al secondo.
 

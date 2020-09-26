@@ -1,39 +1,42 @@
 ---
-title: Aggiungere la ricerca full-text ad Archiviazione BLOB di Azure
+title: Eseguire ricerche nel contenuto di archiviazione BLOB di Azure
 titleSuffix: Azure Cognitive Search
-description: Estrarre il contenuto e aggiungere la struttura ai BLOB di Azure durante la compilazione di un indice di ricerca full-text in Ricerca cognitiva di Azure.
+description: Informazioni su come estrarre il testo dai BLOB di Azure e renderlo ricercabile full-text in un indice di ricerca cognitiva di Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 72d00b70cf3568466715668aa441ee295614c740
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/23/2020
+ms.openlocfilehash: f61bf635cc61a2153a7bb016ef4b4711d7ba7391
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935246"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355296"
 ---
-# <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Aggiungere la ricerca full-text ai dati BLOB di Azure con Ricerca cognitiva di Azure
+# <a name="search-over-azure-blob-storage-content"></a>Eseguire ricerche nel contenuto di archiviazione BLOB di Azure
 
-La ricerca in un'ampia gamma di tipi di contenuto inclusi nell'archiviazione BLOB di Azure può rivelarsi un problema complesso da risolvere. Tuttavia, è possibile indicizzare e cercare il contenuto dei BLOB in pochi clic usando [Ricerca cognitiva di Azure](search-what-is-azure-search.md). Ricerca cognitiva di Azure offre integrazione incorporata per l'indicizzazione dell'archivio BLOB tramite un [*indicizzatore BLOB*](search-howto-indexing-azure-blob-storage.md), che aggiunge all'indicizzazione capacità di riconoscimento delle origini dati.
+La ricerca in un'ampia gamma di tipi di contenuto inclusi nell'archiviazione BLOB di Azure può rivelarsi un problema complesso da risolvere. In questo articolo viene esaminato il flusso di lavoro di base per estrarre contenuto e metadati dai BLOB e inviarli a un indice di ricerca in Azure ricerca cognitiva. Per eseguire query sull'indice risultante è possibile utilizzare la ricerca full-text.
+
+> [!NOTE]
+> Si ha già familiarità con il flusso di lavoro e la composizione? [Come configurare un indicizzatore BLOB](search-howto-indexing-azure-blob-storage.md) è il passaggio successivo.
 
 ## <a name="what-it-means-to-add-full-text-search-to-blob-data"></a>Cosa significa aggiungere la ricerca full-text ai dati BLOB
 
-Ricerca cognitiva di Azure è un servizio di ricerca cloud che fornisce motori di indicizzazione e query che operano su indici definiti dall'utente ospitati nel servizio di ricerca. Collocare il contenuto ricercabile insieme al motore di query nel cloud è necessario per le prestazioni, per restituire i risultati alla velocità che gli utenti si aspettano dalle query di ricerca.
+Azure ricerca cognitiva è un servizio di ricerca che supporta l'indicizzazione e i carichi di lavoro di query su indici definiti dall'utente che contengono il contenuto ricercabile remoto ospitato nel cloud. Il percorso di condivisione del contenuto ricercabile con il motore di query è necessario per le prestazioni, restituendo i risultati a una velocità prevista dagli utenti dalle query di ricerca.
 
-Ricerca cognitiva di Azure si integra con l'archiviazione BLOB di Azure al livello di indicizzazione, importando il contenuto BLOB sotto forma di documenti di ricerca che vengono indicizzati in *indici invertiti* e altre strutture di query che supportano query di testo in formato libero ed espressioni di filtro. Poiché il contenuto del BLOB è indicizzato in un indice di ricerca, è possibile accedervi sfruttando la gamma completa di funzionalità di query in Ricerca cognitiva di Azure.
+Ricerca cognitiva si integra con l'archiviazione BLOB di Azure a livello di indicizzazione, importando il contenuto BLOB come documenti di ricerca indicizzati in *indici invertiti* e altre strutture di query che supportano query di testo e espressioni di filtro gratuite. Poiché il contenuto del BLOB è indicizzato in un indice di ricerca, è possibile usare l'intera gamma di funzionalità di query in Azure ricerca cognitiva per trovare informazioni nel contenuto del BLOB.
 
-Una volta creato e popolato, l'indice esiste indipendentemente dal contenitore BLOB, ma è possibile eseguire nuovamente le operazioni di indicizzazione per aggiornare l'indice con le modifiche apportate al contenitore sottostante. Le informazioni di data e ora nei singoli BLOB vengono usate per il rilevamento delle modifiche. Come meccanismo di aggiornamento si può optare per l'esecuzione pianificata o per l'indicizzazione su richiesta.
-
-Gli input sono i BLOB, in un singolo contenitore, nell'archivio BLOB di Azure. I BLOB possono essere pressoché qualunque tipo di dati di testo. Se i BLOB contengono immagini, è possibile aggiungere l'[arricchimento tramite intelligenza artificiale all'indicizzazione BLOB](search-blob-ai-integration.md) per creare ed estrarre il testo dalle immagini.
+Gli input sono i BLOB, in un singolo contenitore, nell'archivio BLOB di Azure. I BLOB possono essere pressoché qualunque tipo di dati di testo. Se i BLOB contengono immagini, è possibile aggiungere l' [arricchimento di intelligenza artificiale all'indicizzazione BLOB](search-blob-ai-integration.md) per creare ed estrarre il testo dalle immagini.
 
 L'output è sempre un indice di Ricerca cognitiva di Azure, usato per la ricerca, il recupero e l'esplorazione veloci del testo nelle applicazioni client. Al centro c'è l'architettura della pipeline di indicizzazione vera e propria. La pipeline è basata sulla funzionalità *indicizzatore*, descritta più avanti in questo articolo.
 
-## <a name="start-with-services"></a>Iniziare con i servizi
+Quando l'indice viene creato e popolato, esiste indipendentemente dal contenitore BLOB, ma è possibile rieseguire le operazioni di indicizzazione per aggiornare l'indice in base ai documenti modificati. Le informazioni di data e ora nei singoli BLOB vengono usate per il rilevamento delle modifiche. Come meccanismo di aggiornamento si può optare per l'esecuzione pianificata o per l'indicizzazione su richiesta.
 
-Sono necessari i servizi Ricerca cognitiva di Azure ricerca cognitiva di Azure e Archiviazione BLOB di Azure. All'interno dell'archivio BLOB è necessario un contenitore che fornisca il contenuto di origine.
+## <a name="required-resources"></a>Risorse necessarie
+
+Sono necessari sia ricerca cognitiva di Azure che archiviazione BLOB di Azure. All'interno dell'archivio BLOB è necessario un contenitore che fornisca il contenuto di origine.
 
 Si può iniziare direttamente nella pagina del portale dell'account di archiviazione. Nella pagina di spostamento a sinistra, in **Servizio BLOB** fare clic su **Aggiungi Ricerca cognitiva di Azure** per creare un nuovo servizio o selezionarne uno esistente. 
 
@@ -41,7 +44,7 @@ Dopo aver aggiunto Ricerca cognitiva di Azure all'account di archiviazione, è p
 
 ## <a name="use-a-blob-indexer"></a>Usare un indicizzatore BLOB
 
-Un *indicizzatore* è un sottoservizio in grado di riconoscere le origini dati dotato di logica interna per il campionamento dei dati, la lettura di dati dei metadati, il recupero di dati e la serializzazione dei dati in documenti JSON a partire dal formato nativo per la successiva importazione. 
+Un *indicizzatore* è un sottoservizio compatibile con l'origine dati in ricerca cognitiva, dotato di logica interna per il campionamento dei dati, la lettura dei dati dei metadati, il recupero dei dati e la serializzazione dei dati dai formati nativi ai documenti JSON per l'importazione successiva. 
 
 I BLOB in Archiviazione di Azure vengono indicizzati mediante l'[indicizzatore per l'archivio BLOB di Ricerca cognitiva di Azure](search-howto-indexing-azure-blob-storage.md). Si può richiamare questo indicizzatore usando la procedura guidata **Importa dati**, un'API REST o .NET SDK. Nel codice, questo indicizzatore si usa impostando il tipo e fornendo le informazioni di connessione, che includono un account di Archiviazione di Azure e un contenitore BLOB. È possibile suddividere in subset i BLOB creando una directory virtuale, che si potrà poi passare come parametro, oppure filtrando in base a un'estensione del tipo di file.
 
@@ -65,11 +68,12 @@ Uno scenario comune che semplifica l'ordinamento nei BLOB di qualsiasi tipo di c
 > Per altre informazioni sull'indice BLOB, vedere [Manage and find data on Azure Blob Storage with Blob Index](../storage/blobs/storage-manage-find-blobs.md) (Gestire e trovare i dati nell'archiviazione BLOB di Azure con l'indice BLOB).
 
 ### <a name="indexing-json-blobs"></a>Indicizzazione di BLOB JSON
+
 È possibile configurare gli indicizzatori in modo da estrarre il contenuto strutturato trovato nei BLOB che contengono JSON. Un indicizzatore può leggere BLOB JSON e analizzare il contenuto strutturato nei campi appropriati di un documento di ricerca. Gli indicizzatori possono anche usare BLOB che contengono una matrice di oggetti JSON ed eseguire il mapping di ogni elemento a un documento di ricerca separato. È possibile impostare una modalità di analisi per influenzare il tipo di oggetto JSON creato dall'indicizzatore.
 
 ## <a name="search-blob-content-in-a-search-index"></a>Cercare contenuto BLOB in un indice di ricerca 
 
-L'output di un'indicizzazione è un indice di ricerca, usato per l'esplorazione interattiva con query con testo libero e filtrate in un'app client. Per l'esplorazione e la verifica iniziale del contenuto, è consigliabile iniziare con [Esplora ricerche](search-explorer.md) nel portale per esaminare la struttura del documento. In Esplora ricerche è possibile usare una [sintassi di query semplice](query-simple-syntax.md), una [sintassi di query completa](query-lucene-syntax.md) e una [sintassi delle espressioni di filtro](query-odata-filter-orderby-syntax.md).
+L'output di un indicizzatore è un indice di ricerca, usato per l'esplorazione interattiva con testo libero e query filtrate in un'app client. Per l'esplorazione e la verifica iniziale del contenuto, è consigliabile iniziare con [Esplora ricerche](search-explorer.md) nel portale per esaminare la struttura del documento. In Esplora ricerche è possibile usare una [sintassi di query semplice](query-simple-syntax.md), una [sintassi di query completa](query-lucene-syntax.md) e una [sintassi delle espressioni di filtro](query-odata-filter-orderby-syntax.md).
 
 Una soluzione più permanente consiste nel raccogliere gli input della query e presentare la risposta sotto forma di risultati della ricerca in un'applicazione client. L'esercitazione per C# seguente illustra come creare un'applicazione di ricerca: [Creare la prima applicazione in Ricerca cognitiva di Azure](tutorial-csharp-create-first-app.md).
 

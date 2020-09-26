@@ -3,12 +3,12 @@ title: Specifica degli endpoint di servizio Service Fabric
 description: Come descrivere le risorse di endpoint in un manifesto del servizio, inclusa l'impostazione di endpoint HTTPS
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 8fdd95a7c0390c987b7c59663e0ee12e4a4a968e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267806"
+ms.locfileid: "91354760"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
 ## <a name="overview"></a>Panoramica
@@ -227,9 +227,9 @@ Si supponga di specificare un valore errato. Supponiamo che per Port sia stato s
 Questo articolo ha illustrato come definire gli endpoint nel manifesto del servizio Service Fabric. Per esempi più dettagliati, vedere:
 
 > [!div class="nextstepaction"]
-> [Esempi di manifesti dell'applicazione e del servizio](https://docs.microsoft.com/azure/service-fabric/service-fabric-manifest-examples.md)
+> [Esempi di manifesti dell'applicazione e del servizio](service-fabric-manifest-examples.md)
 
 Per una procedura dettagliata per la creazione di pacchetti e la distribuzione di un'applicazione esistente in un cluster Service Fabric, vedere:
 
 > [!div class="nextstepaction"]
-> [Creare il pacchetto e distribuire un eseguibile esistente in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-existing-app.md)
+> [Creare il pacchetto e distribuire un eseguibile esistente in Service Fabric](service-fabric-deploy-existing-app.md)
