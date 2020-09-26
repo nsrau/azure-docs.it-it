@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e5d483af44116274019851f049d6222adfd8dbcd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4ef879806555634598d5de999bcd9fc01c050d60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904839"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314556"
 ---
 # <a name="planning-and-operations-guide"></a>Guida alla pianificazione e alle operazioni
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud che pianificano l'uso del Centro sicurezza di Azure.
@@ -117,21 +117,21 @@ Quando si pianifica il controllo di accesso con il Controllo degli accessi in ba
 Un criterio di sicurezza definisce la configurazione specifica dei carichi di lavoro e contribuisce ad assicurare la conformità ai requisiti aziendali o normativi per la sicurezza. Nel Centro sicurezza è possibile definire criteri per le sottoscrizioni di Azure, che possono essere adattati al tipo di carico di lavoro o alla riservatezza dei dati.
 
 I criteri del Centro sicurezza includono i componenti seguenti:
-- [Raccolta di dati](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): provisioning dell'agente e impostazioni della raccolta di dati.
-- [Criteri di sicurezza](https://docs.microsoft.com/azure/security-center/security-center-policies): un [criterio di Azure](../governance/policy/overview.md) che determina quali controlli vengono monitorati e consigliati dal Centro sicurezza. In alternativa, è possibile usare i criteri di Azure per creare nuove definizioni, definire criteri aggiuntivi e assegnare criteri nei gruppi di gestione.
-- [Notifiche tramite posta elettronica](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): contatti e impostazioni di notifica relativi alla sicurezza.
-- Piano [tariffario](https://docs.microsoft.com/azure/security-center/security-center-pricing): con o senza Azure Defender, che determina le funzionalità del Centro sicurezza disponibili per le risorse nell'ambito (può essere specificato per sottoscrizioni, gruppi di risorse e aree di lavoro).
+- [Raccolta di dati](security-center-enable-data-collection.md): provisioning dell'agente e impostazioni della raccolta di dati.
+- [Criteri di sicurezza](tutorial-security-policy.md): un [criterio di Azure](../governance/policy/overview.md) che determina quali controlli vengono monitorati e consigliati dal Centro sicurezza. In alternativa, è possibile usare i criteri di Azure per creare nuove definizioni, definire criteri aggiuntivi e assegnare criteri nei gruppi di gestione.
+- [Notifiche tramite posta elettronica](security-center-provide-security-contact-details.md): contatti e impostazioni di notifica relativi alla sicurezza.
+- Piano [tariffario](security-center-pricing.md): con o senza Azure Defender, che determina le funzionalità del Centro sicurezza disponibili per le risorse nell'ambito (può essere specificato per sottoscrizioni, gruppi di risorse e aree di lavoro).
 
 > [!NOTE]
-> Specificando un contatto di sicurezza, Azure potrà raggiungere la persona corretta dell'organizzazione in caso di evento imprevisto relativo alla sicurezza. Per altre informazioni su come abilitare questa raccomandazione, vedere [Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) .
+> Specificando un contatto di sicurezza, Azure potrà raggiungere la persona corretta dell'organizzazione in caso di evento imprevisto relativo alla sicurezza. Per altre informazioni su come abilitare questa raccomandazione, vedere [Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure](security-center-provide-security-contact-details.md) .
 
 ### <a name="security-policies-definitions-and-recommendations"></a>Definizioni dei criteri di sicurezza e raccomandazioni
 Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito per ogni sottoscrizione di Azure. È possibile modificare il criterio nel Centro sicurezza o usare i criteri di Azure per creare nuove definizioni, definire criteri aggiuntivi e assegnare criteri a gruppi di gestione, che possono rappresentare l'intera organizzazione, una business unit specifica e così via, e infine monitorare la conformità a tali criteri negli ambiti.
 
-Prima di configurare i criteri di sicurezza, è consigliabile esaminare tutte le [raccomandazioni sulla sicurezza](https://docs.microsoft.com/azure/security-center/security-center-recommendations)e determinare se sono appropriate per le varie sottoscrizioni e i vari gruppi di risorse usati. È importante sapere anche quali azioni devono essere eseguite in relazione alle raccomandazioni sulla sicurezza e quali utenti dell'organizzazione sono responsabili del monitoraggio per le nuove raccomandazioni e dell'adozione delle misure necessarie.
+Prima di configurare i criteri di sicurezza, è consigliabile esaminare tutte le [raccomandazioni sulla sicurezza](security-center-recommendations.md)e determinare se sono appropriate per le varie sottoscrizioni e i vari gruppi di risorse usati. È importante sapere anche quali azioni devono essere eseguite in relazione alle raccomandazioni sulla sicurezza e quali utenti dell'organizzazione sono responsabili del monitoraggio per le nuove raccomandazioni e dell'adozione delle misure necessarie.
 
 ## <a name="data-collection-and-storage"></a>Raccolta dati e archiviazione
-Il Centro sicurezza di Azure usa l'agente di Log Analytics, ovvero lo stesso agente usato dal servizio monitoraggio di Azure, per raccogliere i dati di sicurezza dalle macchine virtuali. I [dati raccolti](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) dall'agente verranno archiviati nelle aree di lavoro Log Analytics.
+Il Centro sicurezza di Azure usa l'agente di Log Analytics, ovvero lo stesso agente usato dal servizio monitoraggio di Azure, per raccogliere i dati di sicurezza dalle macchine virtuali. I [dati raccolti](security-center-enable-data-collection.md) dall'agente verranno archiviati nelle aree di lavoro Log Analytics.
 
 ### <a name="agent"></a>Agente
 
@@ -189,9 +189,9 @@ Quando si aggiungono nuove risorse all'ambiente Azure, come VM o database SQL, i
 
 ### <a name="hardening-access-and-applications"></a>Applicare la protezione avanzata all'accesso e alle applicazioni
 
-Come parte delle operazioni di sicurezza è consigliabile adottare misure preventive per limitare l'accesso alle VM e controllare le applicazioni in esecuzioni sulle VM. Bloccando il traffico in ingresso nelle VM di Azure si riduce l'esposizione agli attacchi e si offre al tempo stesso un accesso facilitato per la connessione alle VM quando necessario. Usare la funzionalità di accesso [just-in-time alle VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) per rafforzare l'accesso alle VM.
+Come parte delle operazioni di sicurezza è consigliabile adottare misure preventive per limitare l'accesso alle VM e controllare le applicazioni in esecuzioni sulle VM. Bloccando il traffico in ingresso nelle VM di Azure si riduce l'esposizione agli attacchi e si offre al tempo stesso un accesso facilitato per la connessione alle VM quando necessario. Usare la funzionalità di accesso [just-in-time alle VM](security-center-just-in-time.md) per rafforzare l'accesso alle VM.
 
-È possibile usare i [controlli delle applicazioni adattivi](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) per limitare le applicazioni che possono essere eseguite nelle macchine virtuali situate in Azure. Tra gli altri vantaggi, questo semplifica la protezione delle macchine virtuali da malware. Usando Machine Learning, il Centro sicurezza analizza i processi in esecuzione nella macchina virtuale per semplificare la creazione delle regole di elenco.
+È possibile usare i [controlli delle applicazioni adattivi](security-center-adaptive-application.md) per limitare le applicazioni che possono essere eseguite nelle macchine virtuali situate in Azure. Tra gli altri vantaggi, questo semplifica la protezione delle macchine virtuali da malware. Usando Machine Learning, il Centro sicurezza analizza i processi in esecuzione nella macchina virtuale per semplificare la creazione delle regole di elenco.
 
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
