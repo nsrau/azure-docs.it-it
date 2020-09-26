@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e31f5e6afb3b586cd8eb20db8d1ca34e95de86cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8aa45294de4ef644c20ef66b7163706dca9759d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356798"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313417"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: aggiornamento da DirSync
 Azure AD Connect è il successore di DirSync. Questo argomento illustra come eseguire l'aggiornamento da DirSync. Questi passaggi non si applicano all'aggiornamento da un'altra versione di Azure AD Connect o da Azure AD Sync.
@@ -100,10 +100,10 @@ Nei casi seguenti sono necessari altri passaggi:
    * Se si usa SQL Server Express e sono disponibili meno di 50.000 oggetti, viene visualizzata la schermata seguente:   
      ![Analisi completata. È possibile eseguire l'aggiornamento da DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisReady.png)
    * Se si usa una versione completa di SQL Server per DirSync, viene invece visualizzata questa pagina:  
-     ![Analisi completata. È possibile eseguire l'aggiornamento da DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
+     ![screenshot che mostra il server di database SQL esistente in uso.](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
       Le informazioni visualizzate riguardano il server di database SQL Server esistente usato da DirSync. Se necessario, apportare le modifiche appropriate. Fare clic su **Avanti** per continuare l'installazione.
    * Se sono presenti più di 50.000 oggetti, viene invece visualizzata questa pagina:  
-     ![Analisi completata. È possibile eseguire l'aggiornamento da DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
+     ![Screenshot che mostra la schermata visualizzata quando sono presenti più di 50.000 oggetti da aggiornare.](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
      Per continuare con un aggiornamento sul posto, fare clic sulla casella di controllo accanto a questo messaggio: **Continue upgrading DirSync on this computer** (Continua ad aggiornare DirSync in questo computer).
      Per eseguire invece una [distribuzione parallela](#parallel-deployment), esportare le impostazioni di configurazione di DirSync e spostarle nel nuovo server.
 5. Fornire la password per l'account attualmente usato per la connessione ad Azure AD. Deve essere l'account usato attualmente da DirSync.  
@@ -140,7 +140,7 @@ Se sono presenti meno di 50.000 oggetti ma si desidera comunque eseguire una dis
 4. Dall'installazione locale di Azure AD Connect (percorso predefinito: C:\Programmi\Microsoft Azure Active Directory Connect) eseguire il comando seguente: `AzureADConnect.exe /ForceExport`.
 5. Fare clic sul pulsante **Esporta impostazioni** . Quando si installa Azure AD Connect in un server separato, viene eseguita la migrazione di queste impostazioni dall'installazione di DirSync corrente alla nuova installazione di Azure AD Connect.
 
-![Analisi completata](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
+![Screenshot che mostra l'opzione Esporta impostazioni per la migrazione delle impostazioni alla nuova installazione di Azure AD Connect.](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
 
 Una volta esportate le impostazioni, è possibile chiudere la procedura guidata di Azure AD Connect nel server DirSync. Continuare con il passaggio successivo per installare Azure AD Connect in un server separato.
 
@@ -152,14 +152,14 @@ Quando si installa Azure AD Connect in un nuovo server, il sistema presuppone ch
 3. Aprire un prompt dei comandi.
 4. Dall'installazione locale di Azure AD Connect (percorso predefinito: C:\Programmi\Microsoft Azure Active Directory Connect) eseguire il comando seguente: `AzureADConnect.exe /migrate`.
    Viene avviata l'installazione guidata di Azure AD Connect e viene visualizzata la schermata seguente:  
-   ![Immettere le credenziali di Azure AD](./media/how-to-dirsync-upgrade-get-started/ImportSettings.png)
+   ![Screenshot che mostra dove importare il file di impostazioni durante l'aggiornamento.](./media/how-to-dirsync-upgrade-get-started/ImportSettings.png)
 5. Selezionare il file di impostazioni esportato dall'installazione di DirSync.
 6. Configurare tutte le opzioni avanzate, tra cui:
    * Un percorso di installazione personalizzato per Azure AD Connect.
    * Un'istanza esistente di SQL Server (per impostazione predefinita, Azure AD Connect installa SQL Server 2012 Express). Non usare la stessa istanza di database come server DirSync.
    * Un account di servizio usato per connettersi a SQL Server (se il database di SQL Server è remoto, deve essere un account di servizio del dominio).
      Queste opzioni possono essere visualizzate in questa schermata:   
-     ![Immettere le credenziali di Azure AD](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
+     ![Screenshot che mostra le opzioni di configurazione avanzate per l'aggiornamento da DirSync.](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. Fare clic su **Avanti**.
 8. Nella pagina **Pronto per la configurazione** lasciare selezionata l'opzione **Start the synchronization process as soon as the configuration completes** (Avvia il processo di sincronizzazione non appena viene completata la configurazione). Il server è in [modalità di gestione temporanea](how-to-connect-sync-staging-server.md) , quindi le modifiche non vengono esportate in Azure AD.
 9. Fare clic su **Installa**.
@@ -204,7 +204,7 @@ Dovrebbe essere visualizzata la seguente schermata:
 * Selezionare **Configurazione della modalità di gestione temporanea**.
 * Disattivare la gestione temporanea deselezionando la casella di controllo **Modalità di gestione temporanea abilitata** .
 
-![Immettere le credenziali di Azure AD](./media/how-to-dirsync-upgrade-get-started/configurestaging.png)
+![Screenshot che mostra l'opzione per abilitare la modalità di gestione temporanea.](./media/how-to-dirsync-upgrade-get-started/configurestaging.png)
 
 * Fare clic sul pulsante **Avanti**
 * Nella pagina di conferma fare clic sul pulsante **Installa** .

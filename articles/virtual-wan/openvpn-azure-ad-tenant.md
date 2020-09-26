@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: f77d17881054440b01e30e738a8c38407c38b4a4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a54397fe7cfecef6813105645b7f2b218894875e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306549"
+ms.locfileid: "91367853"
 ---
 # <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Preparare Azure Active Directory tenant per le connessioni del protocollo OpenVPN VPN utente
 
@@ -76,7 +76,7 @@ Usare la procedura descritta in [questo articolo](../active-directory/fundamenta
 
 4. Quando richiesto, selezionare **Accetta**.
 
-    ![Accept](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![Screenshot Visualizza la finestra di dialogo con le autorizzazioni per i messaggi accettate per l'organizzazione e altre informazioni.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 5. Nel Azure AD, in **applicazioni aziendali**, verrà visualizzata la VPN di **Azure** elencata.
 

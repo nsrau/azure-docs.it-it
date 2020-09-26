@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0e24c08c9689394fa6efdbc03d960c597496e8ad
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: b1bb22b702cae77ba40fbeeaca1c11c9063bffe8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231249"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331608"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Baseline della sicurezza di Azure per protezione DDoS di Azure standard
 
@@ -96,7 +96,7 @@ Eseguire l'onboarding di un'area di lavoro Log Analytics in Azure Sentinel perch
 
 Inoltre, Azure Active Directory (AD) include ruoli predefiniti che devono essere assegnati in modo esplicito e possono essere sottoposte a query. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
 
-- [Informazioni sulle autorizzazioni per la protezione DDoS di Azure](../../virtual-network/manage-ddos-protection.md#permissions)
+- [Informazioni sulle autorizzazioni per la protezione DDoS di Azure](../../virtual-network/manage-ddos-protection.md#permissions-and-restrictions)
 
 - [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 

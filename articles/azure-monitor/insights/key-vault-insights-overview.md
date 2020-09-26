@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
-ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b91a9a73035b3add309e72ce544375520cf279e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894505"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278618"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitoraggio del servizio Key Vault con monitoraggio di Azure per Key Vault
 Monitoraggio di Azure per Key Vault offre un monitoraggio completo degli insiemi di credenziali delle chiavi grazie a una visualizzazione unificata delle richieste Key Vault, delle prestazioni, degli errori e della latenza.
@@ -25,21 +25,6 @@ Prima di approfondire l'esperienza è necessario comprendere il modo in cui le i
 -    **Personalizzabile** perché è possibile cambiare le metriche da visualizzare, modificare o su cui impostare soglie in linea con i limiti previsti e salvare la propria cartella di lavoro. I grafici della cartella di lavoro possono essere aggiunti ai dashboard di Azure.
 
 Monitoraggio di Azure per Key Vault combina log e metriche per offrire una soluzione di monitoraggio globale. Tutti gli utenti possono accedere ai dati di monitoraggio basati su metriche, tuttavia l'inclusione di visualizzazioni basate su log potrebbe richiedere di [abilitare la registrazione dell'istanza di Azure Key Vault](../../key-vault/general/logging.md).
-
-## <a name="configuring-your-key-vaults-for-monitoring"></a>Configurazione degli insiemi di credenziali delle chiavi per il monitoraggio
-
-> [!NOTE]
-> L'abilitazione dei log è un servizio a pagamento che fornisce funzionalità di monitoraggio aggiuntive.
-
-1. La scheda Operazioni e latenza consente di determinare quanti e quali insiemi di credenziali delle chiavi sono abilitati. Per iniziare la raccolta, selezionare il pulsante **Abilita**, che apre una cartella di lavoro separata con l'elenco di insiemi di credenziali delle chiavi per cui è necessario abilitare i log di diagnostica.
-
-    ![Screenshot della scheda di operazioni e latenza con il pulsante Abilita blu visualizzato](./media/key-vaults-insights-overview/enable-logging.png)
-
-2. Per abilitare i log di diagnostica, fare clic sul collegamento **Abilita** sotto la colonna di azioni e creare una nuova impostazione di diagnostica per l'invio dei log a un'area di lavoro Log Analytics. È consigliabile inviare tutti i log alla stessa area di lavoro.
-
-3. Dopo aver salvato le impostazioni di diagnostica, sarà possibile visualizzare tutti i grafici e le visualizzazioni basati su log sotto le informazioni dettagliate di Key Vault. Si noti che potrebbero essere necessari diversi minuti prima che i log inizino a essere popolati.
-
-4. Per ulteriore assistenza su come abilitare i log di diagnostica per il servizio Key Vault, vedere la [guida completa](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Visualizzazione in Monitoraggio di Azure
 
@@ -165,10 +150,6 @@ Per risolvere i problemi relativi all'insieme di credenziali delle chiavi identi
 Vengono mostrate solo le sottoscrizioni che contengono insiemi di credenziali delle chiavi, scelte tramite il filtro di sottoscrizioni selezionato, che sono selezionate nella sezione "Directory e sottoscrizione" nell'intestazione del portale di Azure.
 
 ![Screenshot del filtro di sottoscrizioni](./media/key-vaults-insights-overview/Subscriptions.png)
-
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Viene ricevuto un messaggio di errore che segnala che la query supera il numero massimo di aree di lavoro/aree consentite ", cosa fare ora
-
-Attualmente è previsto un limite di 25 aree e 200 aree di lavoro. Per visualizzare i dati, sarà necessario ridurre il numero di sottoscrizioni e/o di gruppi di risorse.
 
 ### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Desidero apportare modifiche o aggiungere altre visualizzazioni a Key Vault Insights, come faccio
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: aaaa073f798998ed97be1bd3cd66795d7b3dfb23
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: dc83ea424aca1166d2b9c45b45255fbca865a7d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069663"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278754"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Esercitazione: configurare RingCentral per il provisioning utenti automatico
 
@@ -88,15 +88,15 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere `https://platform.ringcentral.com/scim/v2` in **URL tenant**. Immettere il valore del **token di autenticazione scim** recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a RingCentral. Se la connessione non riesce, verificare che l'account RingCentral disponga delle autorizzazioni di amministratore e riprovare.
 
-    ![Scheda Provisioning](./media/ringcentral-provisioning-tutorial/provisioning.png)
+    ![Screenshot dei campi URL tenant e testo token segreto con l'opzione test connection denominata.](./media/ringcentral-provisioning-tutorial/provisioning.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 

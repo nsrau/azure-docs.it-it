@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/03/2019
+ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: 5040fca85857cd131731d67c543c08fb1114ccee
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235225"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266701"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -316,6 +316,7 @@ La selezione di questa opzione forza una nuova sincronizzazione di tutti gli ute
 - Il servizio di provisioning di Azure AD non supporta il provisioning di valori Null.
 - La chiave primaria, in genere "ID", non deve essere inclusa come attributo di destinazione nei mapping degli attributi. 
 - In genere l'attributo Role deve essere mappato usando un'espressione anziché un mapping diretto. Per altre informazioni sul mapping dei ruoli, vedere la sezione precedente. 
+- Sebbene sia possibile disabilitare i gruppi dai mapping, la disabilitazione degli utenti non è supportata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

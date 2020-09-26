@@ -16,17 +16,17 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1e988bef3876fafdee4f7f6f109858e85d75d0
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: efb332cf8d5e34a435010a39a12b38f87cff5875
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278735"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313366"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorare la sincronizzazione di Azure AD Connect con Azure AD Connect Health
 La documentazione seguente è specifica per il monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health.  Per informazioni sul monitoraggio di AD FS con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md). Per informazioni sul monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](how-to-connect-health-adds.md).
 
-![Azure AD Connect Health per la sincronizzazione](./media/how-to-connect-health-sync/syncsnapshot.png)
+![Screenshot della pagina Azure AD Connect Health per la sincronizzazione.](./media/how-to-connect-health-sync/syncsnapshot.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>Avvisi per Azure AD Connect Health per la sincronizzazione
 La sezione Avvisi di Azure AD Connect Health contiene l'elenco degli avvisi attivi. Ogni avviso include informazioni pertinenti, la procedura di risoluzione e collegamenti alla documentazione correlata. Selezionando un avviso attivo o risolto, verrà visualizzato un nuovo pannello con altre informazioni, oltre ai passaggi che è possibile eseguire per risolvere l'avviso e i collegamenti ad altri documenti. È anche possibile visualizzare dati storici sugli avvisi risolti in passato.
@@ -40,11 +40,11 @@ Se Azure AD Connect NON usa la configurazione predefinita (ad esempio, se il fil
 
 La valutazione degli avvisi da parte del servizio è quindi soggetta a limiti. Verrà visualizzato un banner indicante questa condizione nel portale di Azure sotto il servizio.
 
-![Azure AD Connect Health per la sincronizzazione](./media/how-to-connect-health-sync/banner.png)
+![Screenshot del banner di avviso che indica che la valutazione dell'avviso è limitata. Aggiornare le impostazioni per abilitare tutti gli avvisi.](./media/how-to-connect-health-sync/banner.png)
 
 Per modificare questa condizione, fare clic su "Impostazioni" e consentire all'agente Azure AD Connect Health di caricare tutti i log degli errori.
 
-![Azure AD Connect Health per la sincronizzazione](./media/how-to-connect-health-sync/banner2.png)
+![Screenshot dell'opzione Settings (impostazioni) e della sezione Settings con l'opzione Save e l'opzione ON.](./media/how-to-connect-health-sync/banner2.png)
 
 ## <a name="sync-insight"></a>Informazioni dettagliate sulla sincronizzazione
 Gli amministratori in genere vogliono conoscere il tempo richiesto per sincronizzare le modifiche in Azure AD e la quantità di modifiche apportate. Questa funzionalità consente di visualizzare facilmente queste informazioni usando i grafici seguenti:   
@@ -55,14 +55,14 @@ Gli amministratori in genere vogliono conoscere il tempo richiesto per sincroniz
 ### <a name="sync-latency"></a>Latenza della sincronizzazione
 Questa funzionalità fornisce una tendenza grafica della latenza delle operazioni di sincronizzazione, importazione, esportazione e così via, per i connettori.  È così disponibile un modo semplice e rapido per conoscere non solo la latenza delle operazioni (che è superiore in caso di set di modifiche esteso), ma anche per rilevare le anomalie a livello di latenza che potrebbero richiedere approfondimenti.
 
-![Latenza della sincronizzazione](./media/how-to-connect-health-sync/synclatency02.png)
+![Screenshot della latenza del profilo di esecuzione dal grafico degli ultimi 3 giorni.](./media/how-to-connect-health-sync/synclatency02.png)
 
 Per impostazione predefinita, viene visualizzata solo la latenza dell'operazione di esportazione per il connettore Azure AD.  Per visualizzare altre operazioni nel connettore o le operazioni di altri connettori, fare clic con il pulsante destro del mouse sul grafico e scegliere Modifica grafico oppure fare clic sul pulsante "Modifica il grafico sulla latenza" e scegliere l'operazione e i connettori specifici.
 
 ### <a name="sync-object-changes"></a>Sincronizzazione delle modifiche agli oggetti
 Questa funzionalità fornisce una tendenza grafica del numero di modifiche valutate ed esportate in Azure AD.  Attualmente, è difficile provare a raccogliere informazioni dai log di sincronizzazione.  Il grafico fornisce non solo un modo più semplice per monitorare il numero di modifiche in corso nell'ambiente, ma anche una panoramica visiva degli errori che si sono verificati.
 
-![Latenza della sincronizzazione](./media/how-to-connect-health-sync/syncobjectchanges02.png)
+![Screenshot delle statistiche di esportazione da Azure AD del grafico di 3 giorni precedenti.](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
 ## <a name="object-level-synchronization-error-report"></a>Report degli errori di sincronizzazione a livello di oggetto
 Questa funzionalità offre un report sugli errori di sincronizzazione che possono verificarsi durante la sincronizzazione dei dati relativi alle identità tra Active Directory di Windows Server e Azure AD con Azure AD Connect.
@@ -88,7 +88,7 @@ Il report suddivide gli errori di sincronizzazione esistenti nelle categorie seg
 | Errore di convalida dei dati |Errori causati da dati non validi, ad esempio caratteri non supportati in attributi critici come UserPrincipalName o errori di formato che non superano la convalida prima della scrittura in Azure AD. |
 | Modifica del dominio federato | Errori che si verificano quando gli account usano un dominio federato diverso. |
 | Attributo di grandi dimensioni |Errori che si verificano quando uno o più attributi superano le dimensioni, la lunghezza o il numero consentito. |
-| Altri |Tutti gli altri errori che non rientrano nelle categorie precedenti. Questa categoria verrà suddivisa in sottocategorie in base ai commenti e suggerimenti. |
+| Altro |Tutti gli altri errori che non rientrano nelle categorie precedenti. Questa categoria verrà suddivisa in sottocategorie in base ai commenti e suggerimenti. |
 
 ![Riepilogo del report degli errori di sincronizzazione](./media/how-to-connect-health-sync/errorreport01.png)
 ![Categorie del report degli errori di sincronizzazione](./media/how-to-connect-health-sync/SyncErrorByTypes.PNG)

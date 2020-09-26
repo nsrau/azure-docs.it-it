@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/16/2020
+ms.date: 09/23/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 051d88494049662891e1891f900aa580a005ffe4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 00771f950271cfbc86994c01b6d866c5983f1b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799469"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278669"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Domande frequenti sull'app Microsoft Authenticator
 
@@ -29,6 +29,7 @@ L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è l'ap
 
 | Domanda | Risposta |
 | -------- | ------ |
+| Perché si verificano problemi con Apple Watch su watchos 7? | Si è verificato un problema con l'approvazione delle notifiche per watchos 7 e si sta lavorando con Apple per risolvere il problema. Nel frattempo, è necessario approvare tutte le notifiche che richiedono l'applicazione Microsoft Authenticator watchos sul telefono.  |
 | La registrazione di un dispositivo concede all'azienda o al servizio l'accesso al dispositivo stesso? | La registrazione di un dispositivo consente al dispositivo stesso di accedere ai servizi dell'organizzazione e non consente all'organizzazione di accedere al dispositivo. |
 | Che cos'è il blocco app e come è possibile usarlo per garantire maggiore sicurezza? | Il blocco app consente di proteggere in modo più sicuro i codici di accesso monouso, le informazioni sulle app e le impostazioni dell'app. Quando il blocco app è abilitato, verrà richiesto di eseguire l'autenticazione usando il PIN del dispositivo o la biometria ogni volta che si apre Authenticator. Il blocco app consente anche di assicurarsi di essere l'unico utente che può approvare le notifiche richiedendo il PIN o la biometria ogni volta che viene approvata una notifica di accesso. È possibile attivare o disattivare blocco app nella pagina impostazioni di autenticazione. Per impostazione predefinita, il blocco app viene attivato quando si configura un PIN o una biometria nel dispositivo.<br><br>Sfortunatamente, non c'è alcuna garanzia che il blocco app arresti l'accesso dell'autenticatore da parte di un utente. Questo perché la registrazione del dispositivo può avvenire in altre posizioni all'esterno dell'autenticatore, ad esempio nelle impostazioni dell'account Android o nell'app Portale aziendale. |
 | Ho un dispositivo Windows Mobile e il Microsoft Authenticator su Windows Mobile è stato deprecato. È possibile continuare l'autenticazione con l'app? | Tutte le autenticazioni che utilizzano il Microsoft Authenticator su Windows Mobile verranno ritirate dopo il 15 luglio 2020. Si consiglia vivamente di usare un metodo di autenticazione alternativo per evitare che gli account vengano bloccati.<br>Le opzioni alternative per gli utenti aziendali includono:<br><ul><li>Configurazione del Microsoft Authenticator per [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) o [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>[Configurazione di SMS per la](multi-factor-authentication-setup-phone-number.md) ricezione di codici di verifica.</li><li>Impostazione del numero di telefono per ricevere [chiamate telefoniche per verificarne l'identità](multi-factor-authentication-setup-office-phone.md).</li></ul><br>Opzioni alternative per utenti Personal account Microsoft includono:<br><ul><li>Configurazione del Microsoft Authenticator per [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) o [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>Configurazione di un metodo di accesso alternativo (SMS o posta elettronica) tramite l'aggiornamento delle info di sicurezza dalla [pagina sicurezza account Microsoft](https://account.microsoft.com/security/).</li></ul> |

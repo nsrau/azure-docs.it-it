@@ -1,7 +1,7 @@
 ---
 title: Aggiornare l'API Controllo ortografico Bing da v5 a v7
 titleSuffix: Azure Cognitive Services
-description: Identifica le parti dell'applicazione da aggiornare per usare la versione 7.
+description: Identifica le parti dell'applicazione Controllo ortografico Bing che è necessario aggiornare per usare la versione 7.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 545772a28a67310b12eb55cd1fb14e8d12a95a58
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 642aa23bc74f1f3f44deb6e489e6f7aafe7ff237
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68500810"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254126"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Controllo ortografico
 

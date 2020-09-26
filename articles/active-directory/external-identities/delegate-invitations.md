@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae8bb66141e4cc4e67f1502b208cf519d37c0374
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705996"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278788"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Abilitare la collaborazione esterna B2B e gestire chi può invitare utenti guest
 
@@ -24,7 +24,7 @@ Questo articolo descrive come abilitare la collaborazione B2B Azure Active Direc
 
 Per impostazione predefinita, tutti gli utenti e gli utenti guest nella directory possono invitare utenti guest anche se non sono assegnati a un ruolo di amministratore. Le impostazioni di collaborazione esterna consentono di attivare o disattivare gli inviti guest per diversi tipi di utenti dell'organizzazione. È anche possibile delegare gli inviti a singoli utenti assegnando ruoli che consentono loro di invitare utenti guest.
 
-Azure AD consente di limitare le informazioni che gli utenti Guest esterni possono visualizzare nella directory Azure AD. Per impostazione predefinita, gli utenti Guest sono impostati su un livello di autorizzazione limitato che impedisce l'enumerazione di utenti, gruppi o altre risorse della directory, ma consente di visualizzare l'appartenenza di gruppi non nascosti. Una nuova impostazione di anteprima consente di limitare ulteriormente l'accesso guest, in modo che i guest possano visualizzare solo le proprie informazioni sul profilo. 
+Azure AD consente di limitare le informazioni che gli utenti Guest esterni possono visualizzare nella directory Azure AD. Per impostazione predefinita, gli utenti Guest sono impostati su un livello di autorizzazione limitato che impedisce l'enumerazione di utenti, gruppi o altre risorse della directory, ma consente di visualizzare l'appartenenza di gruppi non nascosti. Una nuova impostazione di anteprima consente di limitare ulteriormente l'accesso guest, in modo che i guest possano visualizzare solo le proprie informazioni sul profilo. Per informazioni dettagliate, vedere [limitare le autorizzazioni di accesso Guest (anteprima)](../users-groups-roles/users-restrict-guest-permissions.md).
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>Configurare le impostazioni di collaborazione esterna B2B
 
@@ -44,9 +44,6 @@ Per impostazione predefinita, tutti gli utenti, inclusi gli utenti guest, posson
 3. Selezionare **Identità esterne** > **Impostazioni di collaborazione esterna**.
 
 4. In **restrizioni di accesso utente Guest (anteprima)** scegliere il livello di accesso che si desidera che gli utenti Guest dispongano di:
-
-   > [!IMPORTANT]
-   > Per un breve periodo di tempo, questi nuovi controlli del portale per le autorizzazioni utente Guest saranno visibili solo tramite l'URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess) . Per altre informazioni, vedere [limitare le autorizzazioni di accesso Guest (anteprima)](https://aka.ms/exid-users-restrict-guest-permissions).
 
    - **Gli utenti Guest hanno lo stesso accesso dei membri (più inclusivo)**: questa opzione consente agli utenti Guest lo stesso accesso alle risorse Azure ad e ai dati di directory come utenti membro.
 

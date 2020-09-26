@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 268cf61596366d451057861db1fa5ac2d35e87d0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d1d364089d5df24cfc4e7a75c3fd6b81248f0cd6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313315"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronizzazione delle identità e resilienza degli attributi duplicati
 La resilienza degli attributi duplicati è una funzionalità di Azure Active Directory che eliminerà i conflitti causati dai conflitti **userPrincipalName** e SMTP **ProxyAddress** durante l'esecuzione di uno degli strumenti di sincronizzazione Microsoft.
@@ -124,7 +124,7 @@ Per eseguire una ricerca di stringhe estesa, usare il flag **-SearchString** . P
 ## <a name="microsoft-365-admin-center"></a>Interfaccia di amministrazione di Microsoft 365
 È possibile visualizzare gli errori di sincronizzazione della directory nell'interfaccia di amministrazione di Microsoft 365. Il report nell'interfaccia di amministrazione di Microsoft 365 Visualizza solo gli oggetti **utente** che contengono questi errori. Non vengono visualizzate informazioni sui conflitti tra **Gruppi** e **Contatti**.
 
-![Utenti attivi](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Active users")
+![Screenshot che Mostra gli errori di sincronizzazione della directory nell'interfaccia di amministrazione di Microsoft 365.](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Active users")
 
 Per istruzioni su come visualizzare gli errori di sincronizzazione della directory nell'interfaccia di amministrazione di Microsoft 365, vedere [identificare gli errori di sincronizzazione della directory nel Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
@@ -132,7 +132,7 @@ Per istruzioni su come visualizzare gli errori di sincronizzazione della directo
 Quando un oggetto con un conflitto di attributi duplicati viene gestito con questo nuovo comportamento, nel messaggio di posta elettronica standard di segnalazione dell'errore di sincronizzazione delle identità inviato al contatto per le comunicazioni tecniche del tenant viene inclusa una notifica. Questo comportamento include tuttavia una modifica importante. In passato le informazioni su un conflitto di attributi duplicati sarebbe stato incluso in tutte le segnalazioni degli errori successive, fino alla risoluzione del conflitto. Con questo nuovo comportamento la notifica di errore per un determinato conflitto viene visualizzata solo una volta, nel momento in cui l'attributo in conflitto viene messo in quarantena.
 
 Di seguito è riportato un esempio dell'aspetto della notifica di posta elettronica per un conflitto relativo a ProxyAddress:   
-    ![Utenti attivi](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Active users")  
+    ![Screenshot che mostra un esempio di una notifica di posta elettronica per un conflitto di ProxyAddress.](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Active users")  
 
 ## <a name="resolving-conflicts"></a>Risoluzione dei conflitti
 La strategia di risoluzione dei problemi e le tattiche per risolvere questi errori non dovranno essere diverse dal modo in cui venivano gestiti in passato gli errori relativi agli attributi duplicati. L'unica differenza è che l'attività timer scorre il tenant sul lato del servizio per aggiungere automaticamente l'attributo in questione all'oggetto corretto dopo la risoluzione del conflitto.

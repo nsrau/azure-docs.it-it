@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/31/2020
-ms.openlocfilehash: 1ea6d09609d1b7b3f7ba7297a040447d1fc24756
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f9578fadfbe057b723af63e338bf8bda63cf6f21
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684388"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330911"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Creare un grafico delle prestazioni con Monitoraggio di Azure per le macchine virtuali
 
@@ -21,7 +21,7 @@ Monitoraggio di Azure per le macchine virtuali include un set di grafici delle p
 Di seguito sono riportate alcune limitazioni nella raccolta delle prestazioni con Monitoraggio di Azure per le macchine virtuali.
 
 - **Memoria disponibile** non è disponibile per le macchine virtuali che eseguono Red Hat Linux (RHEL) 6. Questa metrica viene calcolata da **MemAvailable** introdotto nella [versione kernel 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html).
-- Le metriche sono disponibili solo per i dischi dati nelle macchine virtuali Linux che usano la famiglia di file system EXT (EXT2, EXT3, EXT4).
+- Le metriche sono disponibili solo per i dischi dati nelle macchine virtuali Linux usando il file system XFS o la famiglia di file System EXT (EXT2, EXT3, EXT4).
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Prospettiva di più macchine virtuali da Monitoraggio di Azure
 

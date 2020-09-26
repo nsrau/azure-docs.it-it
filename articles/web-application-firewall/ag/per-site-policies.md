@@ -5,15 +5,15 @@ description: Informazioni su come configurare i criteri di web application firew
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 01/24/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7e40370421214ebe026090007122a641a216c256
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 340b184ac56d4734431b154ec647e5e7af19ea16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143943"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267245"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configurare i criteri WAF per sito usando Azure PowerShell
 
@@ -25,14 +25,13 @@ Applicando criteri WAF a un listener, è possibile configurare le impostazioni W
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
-> [!div class="checklist"]
-> * Configurare la rete
-> * Creare un criterio WAF
-> * Creare un gateway applicazione con WAF abilitato
-> * Applicare i criteri di WAF a livello globale, per sito e per URI (anteprima)
-> * Creare un set di scalabilità di macchine virtuali
-> * Creare un account di archiviazione e configurare la diagnostica
-> * Testare il gateway applicazione
+* Configurare la rete
+* Creare un criterio WAF
+* Creare un gateway applicazione con WAF abilitato
+* Applicare i criteri di WAF a livello globale, per sito e per URI (anteprima)
+* Creare un set di scalabilità di macchine virtuali
+* Creare un account di archiviazione e configurare la diagnostica
+* Testare il gateway applicazione
 
 ![Esempio di web application firewall](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 

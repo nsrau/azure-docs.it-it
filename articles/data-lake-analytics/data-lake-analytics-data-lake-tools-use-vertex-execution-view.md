@@ -6,12 +6,12 @@ ms.service: data-lake-analytics
 ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: how-to
 ms.date: 10/13/2016
-ms.openlocfilehash: 2fdce38b19cd38439baa5d640707d159cd713657
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b8688af24e2b67f0e21de8344188b9a946f3258b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125617"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331948"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Usare la visualizzazione esecuzioni vertici in Azure Data Lake Tools per Visual Studio
 Informazioni su come usare la visualizzazione esecuzioni vertici per esaminare i processi di Data Lake Analytics.
@@ -20,20 +20,20 @@ Informazioni su come usare la visualizzazione esecuzioni vertici per esaminare i
 ## <a name="open-the-vertex-execution-view"></a>Aprire la visualizzazione esecuzioni vertici
 Aprire un processo U-SQL in Strumenti Data Lake per Visual Studio. Fare clic su **Vista esecuzione vertici** nell'angolo in basso a sinistra. È possibile che venga chiesto di caricare prima i profili e l'operazione può richiedere alcuni minuti in base alla connettività di rete.
 
-![Visualizzazione esecuzioni vertici di Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
+![Screenshot che mostra la visualizzazione di esecuzione dei vertici degli strumenti Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
 
 ## <a name="understand-vertex-execution-view"></a>Informazioni sulla visualizzazione esecuzioni vertici
 La visualizzazione esecuzioni vertici comprende tre parti:
 
-![Visualizzazione esecuzioni vertici di Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
+![Screenshot che mostra la visualizzazione esecuzioni vertici con i riquadri "Vertex Selector" e Center-Top e Center-Bottom evidenziati.](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
 
 **Selettore vertice** a sinistra consente di selezionare i vertici in base alle funzionalità, ad esempio i primi 10 dati letti, o di scegliere in base alla fase. Uno dei filtri di uso più comune è quello per visualizzare i **vertici sul percorso critico**. **Percorso critico** è la catena di vertici più lunga di un processo U-SQL. Conoscere il percorso critico è utile per ottimizzare i processi controllando il vertice che richiede maggiore tempo.
   
-![Visualizzazione esecuzioni vertici di Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
+![Screenshot che mostra il riquadro superiore centrale della visualizzazione esecuzioni vertici che visualizza lo stato di esecuzione di tutti i vertici.](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
 
 Il riquadro in alto al centro mostra lo **stato di esecuzione di tutti i vertici**.
   
-![Visualizzazione esecuzioni vertici di Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
+![Screenshot che mostra il riquadro centrale della visualizzazione esecuzioni vertici che visualizza le informazioni su ogni vertice.](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 
 Il riquadro in basso al centro mostra le informazioni su ogni vertice:
 * Process Name (Nome processo): il nome dell'istanza del vertice, costituito da parti differenti in NomeFase | NomeVertice | IstanzaEsecuzioneVertice. Ad esempio, il vertice SV7_Split[62].v1 indica la seconda istanza in esecuzione (.v1, l'indice inizia da 0) del vertice numero 62 nella fase SV7_Split.

@@ -1,6 +1,6 @@
 ---
 title: Informazioni di riferimento sugli attributi di Workday
-description: Informazioni sugli attributi di SuccessFactors supportati dal provisioning basato su SuccessFactors-HR
+description: Informazioni sugli attributi che è possibile recuperare dalla giornata lavorativa usando le query XPATH.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 4d6e5fb765125a4cf68c4939e7350feb84509bf2
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 5892100140c6022763453a4141d87e6a7ba4ed75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068099"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266565"
 ---
 # <a name="workday-attribute-reference"></a>Informazioni di riferimento sugli attributi di Workday
 

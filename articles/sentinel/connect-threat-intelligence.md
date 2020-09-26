@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: 8036203e33fd63a25ecfa7c4ea720e01259be04a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d794b0a33eabedd3e6e309f291543ba23bc40f79
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769874"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362747"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Connettere i dati dai provider di intelligence per le minacce
 
@@ -59,13 +59,13 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
 
 ## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Connettere Azure Sentinel alla piattaforma di intelligence per le minacce
 
-## <a name="prerequisites"></a>Prerequisiti  
+### <a name="prerequisites"></a>Prerequisiti  
 
 - Azure AD ruolo di amministratore globale o amministratore della sicurezza per concedere le autorizzazioni al prodotto TIP o all'applicazione personalizzata che usa l'integrazione diretta con l'API di sicurezza di Microsoft Graph tiIndicators.
 
 - Autorizzazioni di lettura e scrittura per l'area di lavoro di Azure Sentinel per archiviare gli indicatori di minaccia.
 
-## <a name="instructions"></a>Istruzioni
+### <a name="instructions"></a>Istruzioni
 
 1. [Registrare un'applicazione](/graph/auth-v2-service#1-register-your-app) in Azure Active Directory per ottenere un ID applicazione, un segreto dell'applicazione e un ID tenant di Azure Active Directory. Questi valori sono necessari quando si configura il prodotto TIP integrato o l'app che usa l'integrazione diretta con Microsoft Graph Security tiIndicators API.
 
@@ -89,13 +89,13 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>Connettere Azure Sentinel ai server TAXI
 
-## <a name="prerequisites"></a>Prerequisiti  
+### <a name="prerequisites"></a>Prerequisiti
 
 - Autorizzazioni di lettura e scrittura per l'area di lavoro di Azure Sentinel per archiviare gli indicatori di minaccia.
 
 - ID di raccolta e URI del server TAXIi 2,0.
 
-## <a name="instructions"></a>Istruzioni
+### <a name="instructions"></a>Istruzioni
 
 1. Nella portale di Azure passare a connettori dati **sentinella di Azure**  >  **Data connectors** e quindi selezionare il connettore Intelligence per le **minacce-Taxii (anteprima)** .
 
