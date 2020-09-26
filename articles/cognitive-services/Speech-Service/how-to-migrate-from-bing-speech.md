@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 7b78bdb070cdf1364fe7fbdc75f175be7ce145ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43679c52727f8cc84c7292592b68dddae7f1ea68
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80656457"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362079"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Eseguire la migrazione dal riconoscimento vocale Bing al servizio riconoscimento vocale
 
@@ -51,7 +51,7 @@ Il servizio riconoscimento vocale è in gran parte simile a Bing Speech, con le 
 | Riconoscimento delle finalità semplice | :heavy_minus_sign: | :heavy_check_mark: |
 | Trascrizione in batch di file audio lunghi | :heavy_minus_sign: | :heavy_check_mark: |
 | Modalità di riconoscimento | Manuale tramite l'URI dell'endpoint | Automatico | La modalità di riconoscimento non è disponibile nel servizio di riconoscimento vocale. |
-| Località dell'endpoint | Global | Regionale | Gli endpoint a livello di area migliorano la latenza. |
+| Località dell'endpoint | Globale | Regionale | Gli endpoint a livello di area migliorano la latenza. |
 | API REST | :heavy_check_mark: | :heavy_check_mark: | Le API REST del servizio di riconoscimento vocale sono compatibili con il riconoscimento vocale Bing (endpoint diverso). Le API REST supportano la sintesi vocale e funzionalità limitate di riconoscimento vocale. |
 | Protocolli WebSocket | :heavy_check_mark: | :heavy_check_mark: | L'API WebSocket del servizio di riconoscimento vocale è compatibile con il riconoscimento vocale Bing (endpoint diverso). Se possibile, eseguire la migrazione a Speech SDK per semplificare il codice. |
 | Chiamate API da servizio a servizio | :heavy_check_mark: | :heavy_minus_sign: | Fornito in Riconoscimento vocale Bing tramite la libreria di servizio di C#. |
@@ -87,7 +87,7 @@ Per il supporto di riconoscimento vocale, SDK e API, visitare la [pagina del sup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Prova gratuitamente il servizio vocale](get-started.md)
+* [Prova gratuitamente il servizio vocale](overview.md#try-the-speech-service-for-free)
 * [Avvio rapido: Riconoscimento vocale in un'applicazione piattaforma UWP con Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Vedere anche

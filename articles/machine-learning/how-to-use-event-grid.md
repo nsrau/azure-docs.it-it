@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 7b1030c816bff5b50c0c47a16fa5f1812bb16b15
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e033f00f7657f7f4e5e63509672e924979ce03e7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250828"
+ms.locfileid: "91362517"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Attivazione di applicazioni, processi o flussi di lavoro CI/CD basati su eventi di Azure Machine Learning (anteprima)
 
@@ -126,7 +126,7 @@ Griglia di eventi di Azure consente ai clienti di compilare gestori di messaggi 
 
 1. Selezionare l'endpoint in cui pubblicare l'evento. Nello screenshot seguente __Hub eventi__ è l'endpoint selezionato:
 
-    ![gestore eventi](./media/how-to-use-event-grid/select-event-handler.png)
+    ![Screenshot mostra il riquadro Crea sottoscrizione evento con selezionare Hub eventi aperto.](./media/how-to-use-event-grid/select-event-handler.png)
 
 Dopo aver confermato la selezione, fare clic su __Crea__. Dopo la configurazione, questi eventi verranno inseriti nell'endpoint.
 
@@ -164,15 +164,15 @@ Usare [App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/)
 
 1. Nel portale di Azure accedere all'area di lavoro di Azure Machine Learning e selezionare la scheda eventi nella barra a sinistra. Da qui, selezionare __App per la logica__. 
 
-    ![Select-Logic-app](./media/how-to-use-event-grid/select-logic-ap.png)
+    ![Screenshot mostra una pagina degli eventi dell'area di lavoro Machine Learning con app per la logica.](./media/how-to-use-event-grid/select-logic-ap.png)
 
 1. Accedere all'interfaccia utente App per la logica e selezionare il servizio Machine Learning come tipo di argomento. 
 
-    ![argomento-tipo](./media/how-to-use-event-grid/select-topic-type.png)
+    ![Screenshot mostra la finestra di dialogo quando si verifica un evento di risorsa con Machine Learning selezionato come tipo di risorsa.](./media/how-to-use-event-grid/select-topic-type.png)
 
 1. Selezionare gli eventi per cui si vogliono ricevere avvisi. Ad esempio, come nello screenshot seguente, __RunCompleted__.
 
-    ![Select-Event-run-complete](./media/how-to-use-event-grid/select-event-runcomplete.png)
+    ![Screenshot mostra la finestra di dialogo quando si verifica un evento di risorsa con un tipo di evento selezionato.](./media/how-to-use-event-grid/select-event-runcomplete.png)
 
 1. È possibile usare il metodo di filtraggio nella sezione precedente o aggiungere filtri per attivare solo l'app per la logica in un subset di tipi di evento. Nello screenshot seguente viene usato un __filtro per prefisso__ di __/datadriftID/runs/__ .
 
@@ -180,15 +180,15 @@ Usare [App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/)
 
 1. Successivamente, aggiungere un passaggio per usare questo evento e cercare la posta elettronica. Sono disponibili diversi account di posta elettronica che è possibile usare per ricevere eventi. È anche possibile configurare delle condizioni per l'invio di un avviso di posta elettronica.
 
-    ![posta elettronica-azione](./media/how-to-use-event-grid/select-email-action.png)
+    ![Screenshot mostra la finestra di dialogo scegliere un'azione con messaggio di posta elettronica immesso nella riga di ricerca.](./media/how-to-use-event-grid/select-email-action.png)
 
 1. Selezionare __Invia un messaggio di posta elettronica__ e specificare i parametri. Nell'oggetto è possibile includere __Tipo di evento__ e __Argomento__ per filtrare meglio gli eventi. È possibile includere anche un collegamento alla pagina dell'area di lavoro per le esecuzioni nel corpo del messaggio. 
 
-    ![Configura-posta elettronica](./media/how-to-use-event-grid/configure-email-body.png)
+    ![Screenshot mostra la finestra di dialogo Invia un messaggio di posta elettronica con l'argomento e il tipo di evento aggiunti alla riga dell'oggetto dall'elenco a destra.](./media/how-to-use-event-grid/configure-email-body.png)
 
 1. Per salvare questa azione, selezionare **Salva con nome** nell'angolo sinistro della pagina. Dalla barra che viene visualizzata a destra, confermare la creazione dell'azione.
 
-    ![conferma-logica-Creazione app](./media/how-to-use-event-grid/confirm-logic-app-create.png)
+    ![Screenshot mostra i pulsanti Salva con nome e crea nella finestra di progettazione delle app per la logica.](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
 ### <a name="example-data-drift-triggers-retraining"></a>Esempio: ripetizione del training attivata dalla deriva dei dati
@@ -204,7 +204,7 @@ Prima di iniziare, eseguire le azioni seguenti:
 
 In questo esempio viene usata una semplice pipeline di Data Factory per copiare i file in un archivio BLOB ed eseguire una pipeline di Machine Learning pubblicata. Per altre informazioni su questo scenario, vedere come configurare un [Passaggio di Machine Learning in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)
 
-![ADF-mlpipeline](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
+![Screenshot mostra la pipeline di training nelle risorse di fabbrica con Copy Data1 Nutrition M L Execute Pipeline1.](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
 
 1. Iniziare con la creazione dell'app per la logica. Accedere al [portale di Azure](https://portal.azure.com), cercare le App per la logica e selezionare Crea.
 
@@ -212,31 +212,31 @@ In questo esempio viene usata una semplice pipeline di Data Factory per copiare 
 
 1. Inserire le informazioni richieste. Per semplificare l'esperienza, usare la stessa sottoscrizione e lo stesso gruppo di risorse della pipeline di Azure Data Factory e dell'area di lavoro di Azure Machine Learning.
 
-    ![Impostazione-logica-app-ADF](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
+    ![Screenshot che mostra il riquadro di creazione dell'app per la logica.](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
 
 1. Dopo aver creato l'app per la logica, selezionare __Quando si verifica l'evento di una risorsa di Griglia di eventi__. 
 
-    ![Select-eventgrid-trigger](./media/how-to-use-event-grid/select-event-grid-trigger.png)
+    ![Screenshot mostra la finestra di progettazione di app per la logica con Start con le opzioni di trigger comuni, incluso quando si verifica un evento di risorsa di griglia di eventi.](./media/how-to-use-event-grid/select-event-grid-trigger.png)
 
 1. Accedere e inserire i dettagli relativi all'evento. Impostare __Nome risorsa__ sul nome dell'area di lavoro. Impostare __Tipo di evento__ su __DatasetDriftDetected__.
 
-    ![Login-Add-Event](./media/how-to-use-event-grid/login-and-add-event.png)
+    ![Screenshot mostra quando si verifica un evento di risorsa con un elemento del tipo di evento selezionato.](./media/how-to-use-event-grid/login-and-add-event.png)
 
 1. Aggiungere un nuovo passaggio e cercare __Azure Data Factory__. Selezionare __Crea un'esecuzione della pipeline__. 
 
-    ![creazione-ADF-pipeline-esecuzione](./media/how-to-use-event-grid/create-adfpipeline-run.png)
+    ![Screenshot mostra il riquadro scegliere un'azione con crea un'esecuzione della pipeline selezionata.](./media/how-to-use-event-grid/create-adfpipeline-run.png)
 
 1. Accedere e specificare la pipeline di Azure Data Factory pubblicata da eseguire.
 
-    ![specifica-adfpipeline](./media/how-to-use-event-grid/specify-adf-pipeline.png)
+    ![Screenshot mostra il riquadro crea un'esecuzione pipeline con diversi valori.](./media/how-to-use-event-grid/specify-adf-pipeline.png)
 
 1. Salvare e creare l'app per la logica usando il pulsante **salva** nell'area in alto a sinistra della pagina. Per visualizzare l'app, passare all'area di lavoro nel [portale di Azure](https://portal.azure.com) e fare clic su **Eventi**.
 
-    ![Show-logicapp-webhook](./media/how-to-use-event-grid/show-logic-app-webhook.png)
+    ![Screenshot Mostra gli eventi con l'app per la logica evidenziata.](./media/how-to-use-event-grid/show-logic-app-webhook.png)
 
 Ora la pipeline data factory viene attivata quando si verifica la deriva. Visualizzare i dettagli sull'esecuzione della deriva dei dati e sulla pipeline di Machine Learning nel [nuovo portale dell'area di lavoro](https://ml.azure.com). 
 
-![Visualizza-area di lavoro](./media/how-to-use-event-grid/view-in-workspace.png)
+![Screenshot Mostra gli endpoint della pipeline.](./media/how-to-use-event-grid/view-in-workspace.png)
 
 ### <a name="example-deploy-a-model-based-on-tags"></a>Esempio: distribuzione di un modello in base ai tag
 

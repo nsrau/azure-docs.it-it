@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 3214ce260fa4981b8ac970bdf3520ecd7de59e18
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 47df04a0195c4cfcc4e40db5bf21387a284f682c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985577"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362249"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 
@@ -143,7 +143,7 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
 
 1. Opzionale Visualizza impostazioni conteggi: se si sceglie di abilitare **conteggi automatici** nel modulo **impostazioni di configurazione aggiuntive** , vengono applicate le tecniche conteggi predefinite. Nelle **impostazioni di visualizzazione conteggi** è possibile modificare queste impostazioni predefinite e personalizzarle di conseguenza. Informazioni su come [personalizzare featurizations](#customize-featurization). 
 
-    ![Form del tipo di attività di Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
+    ![Screenshot mostra la finestra di dialogo Seleziona tipo di attività con Visualizza impostazioni conteggi.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 ## <a name="customize-featurization"></a>Personalizzare conteggi
 
@@ -196,7 +196,7 @@ ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
 
 1. Inserire i dati nel riquadro **Distribuisci modello**.
 
-    Campo| Valore
+    Campo| valore
     ----|----
     Nome| Specificare un nome univoco per la distribuzione.
     Descrizione| Immettere una descrizione per identificare meglio le finalità della distribuzione.

@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 2c29ad48e8dc626617786e519e84c92875bc6170
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378526"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362266"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ottimizzazione delle prestazioni con memorizzazione nella cache dei set di risultati
 
@@ -56,11 +56,11 @@ WHERE request_id  = <'request_id'>;
 
 Ecco un esempio di output di una query eseguita con la memorizzazione nella cache dei set di risultati disabilitata.
 
-![Query-steps-with-rsc-disabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+![Screenshot mostra i risultati della query, inclusi il tipo e il comando del percorso.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
 
 Ecco un esempio di output di una query eseguita con la memorizzazione nella cache dei set di risultati abilitata.
 
-![Query-steps-with-rsc-enabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
+![Screenshot mostra i risultati della query con il comando selezionato * da [D W ResultCache D b] punto d b o denominato out.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## <a name="when-cached-results-are-used"></a>Quando vengono usati i risultati memorizzati nella cache
 

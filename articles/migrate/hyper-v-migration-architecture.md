@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 8bca88fc63a7fc04a22d2a68adbe59259b07f50e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74185871"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362198"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Funzionamento della replica Hyper-V
 
@@ -30,7 +30,7 @@ Azure Migrate migrazione del server è uno strumento per la migrazione di carich
 
 ## <a name="architectural-components"></a>Componenti dell'architettura
 
-![Architecture](./media/hyper-v-replication-architecture/architecture.png)
+![Il diagramma mostra una rete Hyper-V di origine con un canale dati t t P S da Microsoft Azure, con i dettagli illustrati in una tabella.](./media/hyper-v-replication-architecture/architecture.png)
 
 
 

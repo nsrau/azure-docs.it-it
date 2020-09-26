@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 9a5925b9667cf0db5003584c3bf6a30d8611c5ce
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 881dbd02a6bf069fbe68108cc6eab0cb6b909a13
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986000"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362651"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Usare Log Analytics per esaminare i log del Web Application Firewall (WAF) del gateway applicazione
 
@@ -80,7 +80,7 @@ AzureDiagnostics
 
 Dopo aver creato una query, è possibile aggiungerla al dashboard.  Selezionare il **Aggiungi al dashboard** nella parte superiore destra dell'area di lavoro di log Analytics. Con le quattro query precedenti aggiunte a un dashboard di esempio, si tratta dei dati che è possibile visualizzare a colpo d'occhio:
 
-![Dashboard](media/log-analytics/dashboard.png)
+![Screenshot mostra un dashboard di Azure in cui è possibile aggiungere la query.](media/log-analytics/dashboard.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

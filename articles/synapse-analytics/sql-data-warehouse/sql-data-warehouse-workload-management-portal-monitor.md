@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f46ed1890bb62acc92eea28c55bf9abd6153e8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13b0dc3af524b16430408f8a920c7477c412414d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208689"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362730"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics - Monitoraggio del portale di gestione del carico di lavoro
 
@@ -59,7 +59,8 @@ Il grafico seguente viene configurato come indicato:<br>
 Metrica 1: *Percentuale risorse minima effettiva* (aggregazione Avg, `blue line`)<br>
 Metrica 2: *Allocazione del gruppo di carico di lavoro per percentuale di sistema* (aggregazione Avg, `purple line`)<br>
 Filtro: [Gruppo di carico di lavoro] = `wgPriority`<br>
-![underutilized-wg.png](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png) Il grafico indica che con un isolamento del carico di lavoro del 25% si usa in media solo il 10%.  In questo caso, il valore del parametro `MIN_PERCENTAGE_RESOURCE` potrebbe essere ridotto a un valore compreso tra 10 e 15 per consentire ad altri carichi di lavoro nel sistema di utilizzare le risorse.
+![Screenshot mostra un grafico con due metriche e un filtro.](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png)
+Il grafico mostra che con l'isolamento del carico di lavoro del 25% viene usato in media solo il 10%.  In questo caso, il valore del parametro `MIN_PERCENTAGE_RESOURCE` potrebbe essere ridotto a un valore compreso tra 10 e 15 per consentire ad altri carichi di lavoro nel sistema di utilizzare le risorse.
 
 ### <a name="workload-group-bottleneck"></a>Collo di bottiglia del gruppo di carico di lavoro
 
@@ -81,7 +82,8 @@ Metrica 1: *Percentuale limite di risorse effettiva* (aggregazione Avg, `blue li
 Metrica 2: *Allocazione del gruppo di carico di lavoro per percentuale risorse massima* (aggregazione Avg, `purple line`)<br>
 Metrica 3: *Query accodate del gruppo di carico di lavoro* (aggregazione Sum, `turquoise line`)<br>
 Filtro: [Gruppo di carico di lavoro] = `wgDataAnalyst`<br>
-![bottle-necked-wg](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) Il grafico indica che con un limite del 9% sulle risorse, il gruppo di carico di lavoro è utilizzato al 90%+ (dalla metrica *Allocazione del gruppo di carico di lavoro per percentuale risorse massima*).  Si verifica un accodamento costante delle query come indicato dalla metrica *Query accodate del gruppo di carico di lavoro*.  In questo caso, l'aumento di `CAP_PERCENTAGE_RESOURCE` a un valore superiore al 9% consentirà l'esecuzione simultanea di più query.  L'aumento di `CAP_PERCENTAGE_RESOURCE` presuppone che siano disponibili risorse sufficienti e non isolate da altri gruppi di carico di lavoro.  Verificare il limite aumentato controllando la metrica *Percentuale limite di risorse effettiva*.  Se si desidera una maggiore velocità effettiva, provare anche ad aumentare `REQUEST_MIN_RESOURCE_GRANT_PERCENT` a un valore superiore a 3.  L'aumento di `REQUEST_MIN_RESOURCE_GRANT_PERCENT` potrebbe consentire una maggiore velocità di esecuzione delle query.
+![Screenshot mostra un grafico con le tre metriche e il filtro.](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png)
+Il grafico mostra che con un limite del 9% sulle risorse, il gruppo del carico di lavoro è pari al 90% + usato (dal *gruppo di carico di lavoro allocato per la metrica massima percentuale di risorse*).  Si verifica un accodamento costante delle query come indicato dalla metrica *Query accodate del gruppo di carico di lavoro*.  In questo caso, l'aumento di `CAP_PERCENTAGE_RESOURCE` a un valore superiore al 9% consentirà l'esecuzione simultanea di più query.  L'aumento di `CAP_PERCENTAGE_RESOURCE` presuppone che siano disponibili risorse sufficienti e non isolate da altri gruppi di carico di lavoro.  Verificare il limite aumentato controllando la metrica *Percentuale limite di risorse effettiva*.  Se si desidera una maggiore velocità effettiva, provare anche ad aumentare `REQUEST_MIN_RESOURCE_GRANT_PERCENT` a un valore superiore a 3.  L'aumento di `REQUEST_MIN_RESOURCE_GRANT_PERCENT` potrebbe consentire una maggiore velocità di esecuzione delle query.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
