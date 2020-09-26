@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: c3e4b1c97c5fcc86a863313c2d6f54d93f26390e
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3b9edab6e908b4506a92c78aa8f3f53277b9c17b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360872"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Riproteggere macchine virtuali di Azure sottoposte a failover nell'area primaria
 
@@ -31,7 +31,7 @@ Quando si esegue il failover di macchine virtuali di Azure da un'area a un'altra
 
 1. In **insieme**di credenziali  >  **elementi replicati**fare clic con il pulsante destro del mouse sulla macchina virtuale sottoposta a failover e selezionare **riproteggi**. La direzione della riprotezione deve essere da area secondaria ad area primaria.
 
-   ![Riproteggere](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Screenshot mostra una macchina virtuale con un menu contestuale con la riprotezione selezionata.](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 1. Rivedere il gruppo di risorse, la rete, la risorsa di archiviazione e i set di disponibilità. Fare quindi clic su **OK**. Se sono presenti risorse contrassegnate come nuove, vengono create come parte del processo di riprotezione.
 1. Con questo processo il sito di destinazione viene aggiornato con i dati più recenti. Al termine del processo, si verifica delta replication. Sarà quindi possibile effettuare il failover al sito primario. È possibile selezionare l'account di archiviazione o la rete da usare durante la riprotezione tramite l'opzione Personalizza.

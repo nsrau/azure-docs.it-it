@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 562acfe1ae96f7f88b72945846bcb49c0cc1f216
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 2a0093ebb6e3214553cf5603151831d6ae53d862
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179539"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332050"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copiare i dati dal server HDFS usando Azure Data Factory
 
@@ -34,6 +34,7 @@ Il connettore HDFS è supportato per le attività seguenti:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine e sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
+- [Attività Delete](delete-activity.md)
 
 In particolare, il connettore HDFS supporta:
 
@@ -165,13 +166,15 @@ Le proprietà seguenti sono supportate per HDFS `storeSettings` in impostazioni 
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La proprietà *Type* in `storeSettings` deve essere impostata su **HdfsReadSettings**. | Sì                                           |
 | ***Individuare i file da copiare*** |  |  |
-| OPZIONE 1: percorso statico<br> | Copiare la cartella o il percorso del file specificato nel set di dati. Se si desidera copiare tutti i file da una cartella, specificare anche `wildcardFileName` come `*`. |  |
+| OPZIONE 1: percorso statico<br> | Copiare la cartella o il percorso del file specificato nel set di dati. Se si vogliono copiare tutti i file da una cartella, specificare anche `wildcardFileName` come `*`. |  |
 | OPZIONE 2: carattere jolly<br>- wildcardFolderPath | Percorso della cartella con caratteri jolly per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella effettivo ha un carattere jolly o questo carattere di escape all'interno di. <br>Per altri esempi, vedere [esempi di filtro di file e cartelle](#folder-and-file-filter-examples). | No                                            |
 | OPZIONE 2: carattere jolly<br>- wildcardFileName | Nome file con caratteri jolly sotto il folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo); usare `^` per eseguire l'escape se il nome della cartella effettivo contiene un carattere jolly o questo carattere di escape.  Per altri esempi, vedere [esempi di filtro di file e cartelle](#folder-and-file-filter-examples). | Sì |
 | OPZIONE 3: un elenco di file<br>- fileListPath | Indica la copia di un set di file specificato. Puntare a un file di testo che include un elenco di file da copiare, ovvero un file per riga, con il percorso relativo del percorso configurato nel set di dati.<br/>Quando si usa questa opzione, non specificare il nome del file nel set di dati. Per altri esempi, vedere [esempi di elenco di file](#file-list-examples). |No |
 | ***Impostazioni aggiuntive*** |  | |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando `recursive` è impostato su *true* e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono *true* (predefinito) e *false*.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |
+| deleteFilesAfterCompletion | Indica se i file binari verranno eliminati dall'archivio di origine dopo che è stato eseguito il passaggio all'archivio di destinazione. L'eliminazione del file è per file, pertanto quando l'attività di copia ha esito negativo, si noterà che alcuni file sono già stati copiati nella destinazione ed eliminati dall'origine, mentre altri ancora rimangono nell'archivio di origine. <br/>Questa proprietà è valida solo nello scenario di copia di file binari. Valore predefinito: false. |No |
 | modifiedDatetimeStart    | I file vengono filtrati in base all' *Ultima modifica*apportata all'attributo. <br>I file vengono selezionati se l'ora dell'Ultima modifica rientra nell'intervallo di `modifiedDatetimeStart` a `modifiedDatetimeEnd` . L'ora viene applicata al fuso orario UTC nel formato *2018-12-01T05:00:00Z*. <br> Le proprietà possono essere NULL, il che significa che al set di dati non viene applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è null, significa che i file il cui ultimo attributo modificato è maggiore o uguale al valore DateTime sono selezionati.  Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è null, significa che i file il cui attributo Last modified è minore del valore DateTime sono selezionati.<br/>Questa proprietà non è applicabile quando si configura `fileListPath`. | No                                            |
+| modifiedDatetimeEnd      | Come sopra.  
 | enablePartitionDiscovery | Per i file partizionati, specificare se analizzare le partizioni dal percorso del file e aggiungerle come colonne di origine aggiuntive.<br/>I valori consentiti sono **false** (impostazione predefinita) e **true**. | No                                            |
 | partitionRootPath | Quando è abilitata l'individuazione delle partizioni, specificare il percorso radice assoluto per leggere le cartelle partizionate come colonne di dati.<br/><br/>Se non viene specificato, per impostazione predefinita<br/>-Quando si usa il percorso del file in un set di dati o un elenco di file nell'origine, il percorso radice della partizione è il percorso configurato nel set di dati.<br/>-Quando si usa il filtro di cartelle con caratteri jolly, il percorso radice della partizione è il percorso secondario prima del primo carattere jolly.<br/><br/>Si supponga, ad esempio, di configurare il percorso nel set di dati come "root/folder/Year = 2020/month = 08/Day = 27":<br/>-Se si specifica il percorso radice della partizione come "root/folder/Year = 2020", l'attività di copia genererà altre due colonne `month` e `day` con il valore "08" e "27", oltre alle colonne all'interno dei file.<br/>-Se il percorso radice della partizione non è specificato, non verrà generata alcuna colonna aggiuntiva. | No                                            |
 | maxConcurrentConnections | Il numero di connessioni che possono connettersi all'archivio di archiviazione simultaneamente. Specificare un valore solo quando si desidera limitare la connessione simultanea all'archivio dati. | No                                            |
@@ -431,6 +434,10 @@ Sono disponibili due opzioni per la configurazione dell'ambiente locale per l'us
 ## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
 Per informazioni sulle proprietà dell'attività Lookup, vedere [attività Lookup in Azure Data Factory](control-flow-lookup-activity.md).
+
+## <a name="delete-activity-properties"></a>Proprietà dell'attività Delete
+
+Per informazioni sulle proprietà dell'attività Delete, vedere [attività Delete in Azure Data Factory](delete-activity.md).
 
 ## <a name="legacy-models"></a>Modalità legacy
 

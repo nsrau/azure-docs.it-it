@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: fd68c33e4425d717837923b90119d42569a1f003
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292966"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -303,16 +303,16 @@ Se si esegue lo script in un computer con accesso limitato, verificare che sia d
 
 - `download.microsoft.com`
 - URL del servizio di ripristino (nome geografico si riferisce all'area in cui risiede l'insieme di credenziali dei servizi di ripristino)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Per le aree pubbliche di Azure)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (per Azure China (21Vianet))
-  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Per Azure US Gov)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (Per Azure Germania)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (Per le aree pubbliche di Azure)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (per Azure China (21Vianet))
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (Per Azure US Gov)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (Per Azure Germania)
 - Porte in uscita 53 (DNS), 443, 3260
 
 > [!NOTE]
 >
-> - Il nome del file di script scaricato avrà il **nome geografico** che dovrà essere compilato nell'URL. Ad esempio: il nome dello script scaricato inizia con \' VMName \' \_ \' geoname \' _ \' GUID \' , come *ContosoVM_wcus_12345678*
-> - L'URL sarà <https://pod01-rec2.wcus.backup.windowsazure.com>"
+> Il file di script scaricato nel passaggio 5 [precedente](#mount-the-volume-and-copy-files) avrà il **nome geografico** nel nome del file. Usare tale **nome geografico** per inserire l'URL. Il nome dello script scaricato inizierà con: \' VMName \' \_ \' geoname \' _ \' GUID \' .<br><br>
+> Se, ad esempio, il nome del file di script è *ContosoVM_wcus_12345678*, il **nome geografico** è *wcus* e l'URL sarà:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
 >
 
 Per Linux, lo script richiede i componenti "open-iscsi" e "lshw" per la connessione al punto di ripristino. Se i componenti non sono presenti nel computer in cui viene eseguito, lo script chiede l'autorizzazione per installarli. Acconsentire all'installazione dei componenti necessari.

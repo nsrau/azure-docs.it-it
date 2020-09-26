@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 75633521474ec3bcbc35cea49ea7a2da6a271e01
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362581"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Informazioni di riferimento del motore regole della rete CDN di Azure da Verizon Premium
 
@@ -41,7 +41,7 @@ Una regola identifica uno o più tipi di richieste e il set di azioni da applica
 - Un set di funzionalità che definiscono la modalità di gestione delle richieste suddette da parte della rete CDN.
 Questi elementi sono identificati nella figura seguente.
 
-![Flusso di lavoro per la distribuzione dei criteri](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
+![Screenshot con etichette Mostra l'espressione condizionale, la corrispondenza e le funzionalità di una regola.](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
 
 ### <a name="policy"></a>Policy
 Un criterio, costituito da un set di regole di sola lettura, offre i mezzi per:
