@@ -1,19 +1,19 @@
 ---
 title: Integrazione continua e distribuzione continua nei dispositivi Azure IoT Edge (Editor classico)-Azure IoT Edge
 description: Configurare l'integrazione continua e la distribuzione continua usando il Azure IoT Edge di Editor classico con Azure DevOps, Azure Pipelines
-author: shizn
+author: kgremban
 manager: philmea
-ms.author: xshi
+ms.author: kgremban
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9cb1a2074e7ec64ed16f1f7c9a1f70bf2307b5c3
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 427d72b2a8531fa4dafa0040266249b138b6edf3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033490"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291079"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integrazione continua e distribuzione continua nei dispositivi Azure IoT Edge (Editor classico)
 
@@ -103,7 +103,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. La pipeline v
     | Parametro | Descrizione |
     | --- | --- |
     | Nome visualizzato | Il nome visualizzato viene aggiornato automaticamente quando viene modificato il campo dell'azione. |
-    | Azione | Selezionare **Compila immagini del modulo**. |
+    | Action | Selezionare **Compila immagini del modulo**. |
     | .template.jssu file | Selezionare i puntini di sospensione (**...**) e passare al file **deployment.template.json** nel repository che contiene la soluzione IoT Edge. |
     | Piattaforma predefinita | Selezionare il sistema operativo appropriato per i moduli in base al dispositivo IoT Edge di destinazione. |
     | Variabili di output | Consente di specificare un nome di riferimento da associare al percorso del file in cui viene generato il deployment.jsnel file, ad esempio **Edge**. |
@@ -119,7 +119,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. La pipeline v
     | Parametro | Descrizione |
     | --- | --- |
     | Nome visualizzato | Il nome visualizzato viene aggiornato automaticamente quando viene modificato il campo dell'azione. |
-    | Azione | Selezionare le **Immagini del modulo push**. |
+    | Action | Selezionare le **Immagini del modulo push**. |
     | Tipo di registro contenitori | Usare il tipo predefinito: `Azure Container Registry` . |
     | Sottoscrizione di Azure | Scegliere la propria sottoscrizione. |
     | Registro Azure Container | selezionare il tipo di registro contenitori che si usa per archiviare le immagini dei moduli. A seconda del tipo di registro scelto, il modulo cambia. Se si sceglie **Registro Azure Container**, usare gli elenchi a discesa per selezionare la sottoscrizione di Azure e il nome del registro contenitori. Se si sceglie **Generic Container Registry** (Registro contenitori generico), selezionare **Nuovo** per creare una connessione al servizio di registro. |
@@ -135,7 +135,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. La pipeline v
     | --- | --- |
     | Nome visualizzato | Usare il nome predefinito o personalizzare |
     | Cartella di origine | Cartella contenente i file da copiare. |
-    | Contenuto | Aggiungere due righe: `deployment.template.json` e `**/module.json` . Questi due file vengono usati come input per generare il manifesto di distribuzione di IoT Edge. |
+    | Sommario | Aggiungere due righe: `deployment.template.json` e `**/module.json` . Questi due file vengono usati come input per generare il manifesto di distribuzione di IoT Edge. |
     | Cartella di destinazione | Specificare la variabile `$(Build.ArtifactStagingDirectory)` . Vedere [variabili di compilazione](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) per informazioni sulla descrizione. |
 
 10. Selezionare l'attività **Pubblica artefatti di compilazione** per modificarla. Fornire il percorso della directory di gestione temporanea dell'artefatto all'attività in modo che sia possibile pubblicare il percorso nella pipeline di rilascio.

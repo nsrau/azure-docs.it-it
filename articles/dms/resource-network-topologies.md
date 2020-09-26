@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: reference
 ms.date: 01/08/2020
-ms.openlocfilehash: 69926671730e41845cd28df3108ec86b24a57075
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5839de1fde8e4a4d5e661d232ae91099a9483bcb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291572"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologie di rete per le migrazioni di Istanza gestita SQL di Azure con il servizio migrazione del database di Azure
 
@@ -77,14 +77,14 @@ Usare questa topologia di rete se l'ambiente richiede uno o più degli scenari s
 
 | **NOME**   | **PORTA** | **PROTOCOLLO** | **ORIGINE** | **DESTINAZIONE** | **AZIONE** |
 |------------|----------|--------------|------------|-----------------|------------|
-| DMS_subnet | Qualsiasi      | Qualsiasi          | SUBNET DMS | Qualsiasi             | Consenti      |
+| DMS_subnet | Qualsiasi      | Qualsiasi          | SUBNET DMS | Qualsiasi             | Allow      |
 
 ## <a name="outbound-security-rules"></a>Regole di sicurezza in uscita
 
 | **NOME**                  | **PORTA**                                              | **PROTOCOLLO** | **ORIGINE** | **DESTINAZIONE**           | **AZIONE** | **Motivo della regola**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| management                | 443.9354                                              | TCP          | Qualsiasi        | Qualsiasi                       | Consenti      | Comunicazione del piano di gestione tramite il bus di servizio e l'archiviazione BLOB di Azure. <br/>Se il peering Microsoft è abilitato, questa regola potrebbe non essere necessaria.                                                             |
-| Diagnostica               | 12000                                                 | TCP          | Qualsiasi        | Qualsiasi                       | Consenti      | Il servizio Migrazione del database usa questa regola per raccogliere informazioni di diagnostica ai fini della risoluzione dei problemi.                                                                                                                      |
+| management                | 443.9354                                              | TCP          | Qualsiasi        | Qualsiasi                       | Allow      | Comunicazione del piano di gestione tramite il bus di servizio e l'archiviazione BLOB di Azure. <br/>Se il peering Microsoft è abilitato, questa regola potrebbe non essere necessaria.                                                             |
+| Diagnostica               | 12000                                                 | TCP          | Qualsiasi        | Qualsiasi                       | Allow      | Il servizio Migrazione del database usa questa regola per raccogliere informazioni di diagnostica ai fini della risoluzione dei problemi.                                                                                                                      |
 | Server di origine SQL         | 1433 (o la porta TCP IP su cui SQL Server è in ascolto) | TCP          | Qualsiasi        | Spazio indirizzi locale | Consenti      | Connettività dell'origine di SQL Server dal servizio Migrazione del database <br/>In presenza di una connettività da sito a sito questa regola potrebbe non essere necessaria.                                                                                       |
 | Istanza denominata di SQL Server | 1434                                                  | UDP          | Qualsiasi        | Spazio indirizzi locale | Consenti      | Connettività dell'origine dell'istanza denominata di SQL Server dal servizio Migrazione del database <br/>In presenza di una connettività da sito a sito questa regola potrebbe non essere necessaria.                                                                        |
 | Condivisione SMB                 | 445                                                   | TCP          | Qualsiasi        | Spazio indirizzi locale | Consenti      | Condivisione di rete SMB in cui il servizio Migrazione del database può archiviare i file di backup dei database per le migrazioni nell'istanza gestita del database SQL di Azure e nei server SQL nella macchina virtuale di Azure <br/>In presenza di una connettività da sito a sito questa regola potrebbe non essere necessaria. |

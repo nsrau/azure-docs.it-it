@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820124"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290688"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurare l'acceleratore di soluzioni Fabbrica connessa
+
+> [!IMPORTANT]
+> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
 
 L'acceleratore di soluzioni Fabbrica connessa mostra un dashboard simulato per la società fittizia Contoso. Questa società ha fabbriche in numerose località a livello globale.
 
@@ -29,7 +32,7 @@ Ogni fabbrica Contoso ha linee di produzione costituite da tre stazioni ognuna. 
 * Stazione di test
 * Stazione di imballaggio
 
-Questi server OPC UA hanno nodi OPC UA e il [server di pubblicazione OPC](overview-opc-publisher.md) invia i valori di questi nodi a Fabbrica connessa. Ciò include:
+Questi server OPC UA hanno nodi OPC UA e il [server di pubblicazione OPC](overview-opc-publisher.md) invia i valori di questi nodi a Fabbrica connessa. ad esempio:
 
 * Stato operativo corrente, ad esempio il consumo di energia corrente.
 * Informazioni relative alla produzione, ad esempio il numero di articoli prodotti.
@@ -262,11 +265,11 @@ Tutte le proprietà usate nel file di configurazione possono essere raggruppate 
 
 ### <a name="visual-appearance"></a>Aspetto visivo
 
-Le proprietà in questa categoria definiscono l'aspetto visivo del dashboard di Fabbrica connessa. Tra gli esempi sono inclusi:
+Le proprietà in questa categoria definiscono l'aspetto visivo del dashboard di Fabbrica connessa. Ecco alcuni esempi:
 
 * Nome
 * Descrizione
-* Image
+* Immagine
 * Location
 * Unità
 * Visible
@@ -291,7 +294,7 @@ Gli oggetti nodo OPC UA nelle stazioni consentono l'uso di tag nel calcolo dei v
 Fabbrica connessa supporta un semplice meccanismo di generazione di avvisi basati sulla soglia minima o massima. Ci sono diverse azioni predefinite che è possibile configurare in risposta agli avvisi. Il meccanismo è controllato dalle proprietà seguenti:
 
 * Massimo
-* Minimo
+* Minima
 * MaximumAlertActions
 * MinimumAlertActions
 

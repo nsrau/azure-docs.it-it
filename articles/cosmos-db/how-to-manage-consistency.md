@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 85c99892a225de933da337e748ebde3370b6f7a3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 7a07a42e208cb0f6fe91f6a65777fd28155106a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019607"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330588"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gestire i livelli di coerenza in Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Questo articolo illustra come gestire i livelli di coerenza in Azure Cosmos DB. 
 
 Il [livello di coerenza predefinito](consistency-levels.md) è il livello di coerenza utilizzato dai client per impostazione predefinita.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Per visualizzare o modificare il livello di coerenza predefinito, accedere al portale di Azure. Individuare l'account Azure Cosmos e aprire il riquadro **Coerenza predefinita**. Selezionare il livello di coerenza desiderato come il nuovo valore predefinito e quindi selezionare **Salva**. Il portale di Azure offre anche una visualizzazione dei diversi livelli di coerenza con note musicali. 
 
@@ -101,7 +101,7 @@ var response = await client.GetContainer(databaseName, containerName)
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencyAsync)]
 
-# <a name="sync"></a>[Sincronizza](#tab/api-sync)
+# <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
 
    API sincrona Java SDK V4 (Maven com.azure::azure-cosmos)
 
@@ -127,7 +127,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-# <a name="sync"></a>[Sincronizza](#tab/api-sync)
+# <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
 
 Sync Java V2 SDK (Maven com. Microsoft. Azure:: Azure-documentdb)
 
@@ -202,7 +202,7 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencySessionAsync)]
 
-# <a name="sync"></a>[Sincronizza](#tab/api-sync)
+# <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
 
    API sincrona Java SDK V4 (Maven com.azure::azure-cosmos)
 
@@ -236,7 +236,7 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-# <a name="sync"></a>[Sincronizza](#tab/api-sync)
+# <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
 
 Sync Java V2 SDK (Maven com. Microsoft. Azure:: Azure-documentdb)
 
@@ -279,7 +279,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorare la metrica del decadimento ristretto probabilistico (Probabilistic Bounded Staleness, PBS)
 
-Com'è la coerenza finale? Per il caso medio, è possibile offrire un decadimento ristretto rispetto alla cronologia delle versioni e al tempo. La metrica del decadimento ristretto probabilistico ([**Probabilistic Bounded Staleness, PBS)**](https://pbs.cs.berkeley.edu/) cerca di quantificare la probabilità di decadimento e la mostra come metrica. Per visualizzare la metrica PBS, passare all'account Azure Cosmos nel portale di Azure. Aprire il riquadro **metriche** e selezionare la scheda **coerenza** . esaminare il grafo denominato **probabilità di letture fortemente coerenti in base al carico di lavoro (vedere PBS)**.
+Com'è la coerenza finale? Per il caso medio, è possibile offrire un decadimento ristretto rispetto alla cronologia delle versioni e al tempo. La metrica del decadimento ristretto probabilistico ([**Probabilistic Bounded Staleness, PBS)**](https://pbs.cs.berkeley.edu/) cerca di quantificare la probabilità di decadimento e la mostra come metrica. Per visualizzare la metrica PBS, passare all'account Azure Cosmos nel portale di Azure. Aprire il riquadro **metriche** e selezionare la scheda **coerenza** . Esaminare il grafo denominato **probabilità di letture fortemente coerenti in base al carico di lavoro (vedere PBS)**.
 
 :::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Grafico PBS nel portale di Azure":::
 

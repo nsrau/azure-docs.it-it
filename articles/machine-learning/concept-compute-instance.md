@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/25/2020
-ms.openlocfilehash: ec7fc5cec7d8ba63d9a628c3ede978818a2c3012
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 14229af9766f6604e71713f835935d43f6c7fcc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031025"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330146"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo di Azure Machine Learning?
 
@@ -69,7 +69,7 @@ Tali strumenti e ambienti sono installati nell'istanza di calcolo.
 |Anaconda Python||
 |Jupyter ed estensioni||
 |Jupyterlab ed estensioni||
-[Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>da PyPI|Include la maggior parte dei pacchetti aggiuntivi di azureml.  Per visualizzare l'elenco completo, [aprire una finestra del terminale nell'istanza di calcolo in uso](how-to-run-jupyter-notebooks.md#terminal) e avviare l'esecuzione <br/> `conda list -n azureml_py36 azureml*` |
+[Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)</br>da PyPI|Include la maggior parte dei pacchetti aggiuntivi di azureml.  Per visualizzare l'elenco completo, [aprire una finestra del terminale nell'istanza di calcolo in uso](how-to-run-jupyter-notebooks.md#terminal) e avviare l'esecuzione <br/> `conda list -n azureml_py36 azureml*` |
 |Altri pacchetti PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pacchetti Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pacchetti Deep Learning|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -91,6 +91,30 @@ In alternativa, è possibile accedere a una finestra del terminale in uno dei mo
 * Jupyter Lab:  selezionare il riquadro **Terminal** (Terminale) nell'intestazione **Other** (Altro) nella scheda Launcher (Utilità di avvio).
 * Jupyter:  selezionare **New>Terminal** (Nuovo>Terminale) in alto a destra nella scheda File.
 * Accedere con SSH al computer  e quindi installare i pacchetti Python nell'ambiente **Python 3.6 - AzureML**.  Installare i pacchetti R nell'ambiente **R**.
+
+### <a name="add-new-kernels"></a>Aggiungere nuovi kernel
+
+Per aggiungere un nuovo kernel Jupyter all'istanza di calcolo:
+
+1. Creare un nuovo terminale da Jupyter, JupyterLab o dal riquadro notebook o SSH nell'istanza di calcolo
+2. Usare la finestra del terminale per creare un nuovo ambiente.  Il codice seguente, ad esempio, crea `newenv` :
+    ```shell
+    conda create --name newenv
+    ```
+3. Attivare l'ambiente.  Ad esempio, dopo aver creato `newenv`:
+
+    ```shell
+    conda activate newenv
+    ```
+4. Installare il pacchetto PIP e ipykernel nel nuovo ambiente e creare un kernel per la conda ENV
+
+    ```shell
+    conda install pip
+    conda install ipykernel
+    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
+    ```
+
+È possibile installare uno dei [kernel Jupyter disponibili](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
 
 ## <a name="accessing-files"></a>Accesso ai file
 
@@ -136,7 +160,7 @@ Queste azioni possono essere controllate da RBAC:
 * *Microsoft. MachineLearningServices/Workspaces/Computes/Stop/Action*
 * *Microsoft. MachineLearningServices/Workspaces/Computes/restart/Action*
 
-### <a name="create-a-compute-instance"></a><a name="create"></a>Creare un'istanza di calcolo
+### <a name="create-a-compute-instance"></a><a name="create"></a>Creare un'istanza di ambiente di calcolo
 
 Nell'area di lavoro in Azure Machine Learning Studio [creare una nuova istanza di calcolo](how-to-create-attach-compute-studio.md#compute-instance) dalla sezione **calcolo** o nella sezione **notebook** quando si è pronti per eseguire uno dei notebook. 
 
@@ -153,7 +177,7 @@ I core dedicati per area per la quota della famiglia di VM e la quota di area to
 ### <a name="create-on-behalf-of-preview"></a>Crea per conto di (anteprima)
 
 In qualità di amministratore, è possibile creare un'istanza di calcolo per conto di un data scientist a cui assegnare l'istanza:
-* [Azure Resource Manager modello](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/2020-06-01/workspaces/computes).  Per informazioni dettagliate su come trovare TenantID e ObjectID necessari in questo modello, vedere [trovare ID oggetto Identity per la configurazione dell'autenticazione](../healthcare-apis/find-identity-object-ids.md).  È anche possibile trovare questi valori nel portale Azure Active Directory.
+* [Azure Resource Manager modello](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  Per informazioni dettagliate su come trovare TenantID e ObjectID necessari in questo modello, vedere [trovare ID oggetto Identity per la configurazione dell'autenticazione](../healthcare-apis/find-identity-object-ids.md).  È anche possibile trovare questi valori nel portale Azure Active Directory.
 * API REST
 
 Per i data scientist per cui si crea l'istanza di calcolo sono necessarie le autorizzazioni RBAC seguenti: 

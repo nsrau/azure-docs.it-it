@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3cb35cdf217d497b612dee12aedb869b0583e464
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 556177b0f3eb156f5b128995cb81555aa77bc8d2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986690"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289906"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -288,7 +288,7 @@ Le impostazioni predefinite di sicurezza forniscono impostazioni di sicurezza de
 
 Il Centro sicurezza offre ora una raccomandazione di sicurezza ogni volta che identifica una sottoscrizione di Azure senza che siano abilitate le impostazioni predefinite di sicurezza. Fino ad ora, il Centro sicurezza consiglia di abilitare la funzionalità di autenticazione a più fattori tramite l'accesso condizionale, che fa parte della licenza di Azure Active Directory (AD) Premium. Per i clienti che usano Azure AD gratuita, è ora consigliabile abilitare le impostazioni predefinite di sicurezza. 
 
-Il nostro obiettivo è incoraggiare più clienti a proteggere gli ambienti cloud con l'autenticazione a più fattori e mitigare uno dei rischi più elevati che è anche il più significativo per il [Punteggio sicuro](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
+Il nostro obiettivo è incoraggiare più clienti a proteggere gli ambienti cloud con l'autenticazione a più fattori e mitigare uno dei rischi più elevati che è anche il più significativo per il [Punteggio sicuro](secure-score-security-controls.md).
 
 Altre informazioni sulle [impostazioni predefinite di sicurezza](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
@@ -335,7 +335,7 @@ Se si dispone di script, query o automazione che fanno riferimento ai consigli p
 ||||
 
 
-|Criteri|Ambito|
+|Policy|Ambito|
 |----|:----|
 |**La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali**<br>ID criterio: 501541f7-f7e7-4cd6-868C-4190fdad3ac9|Predefinito|
 |**Le vulnerabilità devono essere risolte da una soluzione di valutazione della vulnerabilità**<br>ID criterio: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
@@ -350,7 +350,7 @@ Se si dispone di script, query o automazione che fanno riferimento ai consigli p
 |**È necessario correggere le vulnerabilità nelle macchine virtuali**<br>Chiave: 1195afff-c881-495E-9bc5-1486211ae03f|Incorporato + BYOL|
 ||||
 
-|Criteri|Ambito|
+|Policy|Ambito|
 |----|:----|
 |[**La valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>ID criterio: 501541f7-f7e7-4cd6-868C-4190fdad3ac9 |Incorporato + BYOL|
 ||||
@@ -429,7 +429,7 @@ Le raccomandazioni includono inoltre la funzionalità di correzione rapida.
 
 Per altre informazioni, vedere la pagina di [riferimento](recommendations-reference.md)relativa alle raccomandazioni sulla sicurezza.
 
-Scopri di più sulla [protezione dalle minacce nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/threat-protection).
+Scopri di più sulla [protezione dalle minacce nel centro sicurezza di Azure](azure-defender.md).
 
 
 
@@ -442,13 +442,13 @@ Per migliorare la chiarezza e le linee guida relative alle funzionalità di sicu
 
 Altre informazioni sulla sicurezza del contenitore del Centro sicurezza sono disponibili negli articoli seguenti:
 
-- [Panoramica delle funzionalità di sicurezza del contenitore del Centro sicurezza](https://docs.microsoft.com/azure/security-center/container-security)
-- [Dettagli dell'integrazione con Container Registry di Azure](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
-- [Dettagli dell'integrazione con il servizio Azure Kubernetes](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
-- [Procedura: analizzare i registri e rafforzare gli host Docker](https://docs.microsoft.com/azure/security-center/monitor-container-security)
-- [Avvisi di sicurezza dalle funzionalità di protezione dalle minacce per i cluster del servizio Kubernetes di Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
-- [Avvisi di sicurezza dalle funzionalità di protezione dalle minacce per gli host del servizio Kubernetes di Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
-- [Raccomandazioni sulla sicurezza per i contenitori](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
+- [Panoramica delle funzionalità di sicurezza del contenitore del Centro sicurezza](container-security.md)
+- [Dettagli dell'integrazione con Container Registry di Azure](defender-for-container-registries-introduction.md)
+- [Dettagli dell'integrazione con il servizio Azure Kubernetes](defender-for-kubernetes-introduction.md)
+- [Procedura: analizzare i registri e rafforzare gli host Docker](container-security.md)
+- [Avvisi di sicurezza dalle funzionalità di protezione dalle minacce per i cluster del servizio Kubernetes di Azure](alerts-reference.md#alerts-akscluster)
+- [Avvisi di sicurezza dalle funzionalità di protezione dalle minacce per gli host del servizio Kubernetes di Azure](alerts-reference.md#alerts-containerhost)
+- [Raccomandazioni sulla sicurezza per i contenitori](recommendations-reference.md#recs-containers)
 
 
 
@@ -537,10 +537,9 @@ Le raccomandazioni includono inoltre la funzionalità di correzione rapida che c
 
 Altre informazioni su queste due nuove raccomandazioni sono disponibili nella tabella [consigli calcolo e app](recommendations-reference.md#recs-computeapp) .
 
-Altre informazioni sul modo in cui il Centro sicurezza di Azure usa l'agente in [che cos'è il log Analytics Agent?](https://docs.microsoft.com/azure/security-center/faq-data-collection-agents#what-is-the-log-analytics-agent).
+Altre informazioni sul modo in cui il Centro sicurezza di Azure usa l'agente in [che cos'è il log Analytics Agent?](faq-data-collection-agents.md#what-is-the-log-analytics-agent).
 
-Altre informazioni sulle [estensioni per i computer Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
-
+Altre informazioni sulle [estensioni per i computer Azure Arc](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal).
 
 
 ### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>Nuovi criteri per creare configurazioni di automazione del flusso di lavoro e esportazione continua su larga scala
@@ -552,7 +551,7 @@ Per distribuire le configurazioni di automazione nell'organizzazione, usare i cr
 I criteri si trovano in criteri di Azure:
 
 
-|Obiettivo  |Criteri  |ID condizione  |
+|Obiettivo  |Policy  |ID condizione  |
 |---------|---------|---------|
 |Esportazione continua nell'hub eventi|[Distribuisci esportazione in hub eventi per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
 |Esportazione continua nell'area di lavoro Log Analytics|[Distribuisci esportazione nell'area di lavoro Log Analytics per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
@@ -585,7 +584,7 @@ I nuovi criteri indicati di seguito sono stati aggiunti all'iniziativa ASC defau
 I criteri si trovano in criteri di Azure:
 
 
-| Criteri                                                                                                                                                                                                                                                                | ID condizione                            |
+| Policy                                                                                                                                                                                                                                                                | ID condizione                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | [La soluzione Sicurezza dei dati avanzata deve essere abilitata nei server del database SQL di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
 | [La soluzione Sicurezza dei dati avanzata deve essere abilitata in SQL Server in macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
@@ -597,7 +596,7 @@ I criteri si trovano in criteri di Azure:
 | [La soluzione Advanced Threat Protection deve essere abilitata nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
 |                                                                                                                                                                                                                                                                       |                                      |
 
-Scopri di più sulla [protezione dalle minacce nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/threat-protection).
+Scopri di più sulla [protezione dalle minacce nel centro sicurezza di Azure](azure-defender.md).
 
 
 
@@ -721,7 +720,7 @@ Sono disponibili altre informazioni sull'[ottimizzazione delle raccomandazioni p
 
 ### <a name="crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection"></a>Migrazione delle funzionalità di analisi dei dump di arresto anomalo al rilevamento di attacchi senza file 
 
-Le funzionalità di rilevamento delle analisi dei dump di arresto anomalo di Windows sono state integrate nel [rilevamento degli attacchi senza file](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless). L'analisi di rilevamento degli attacchi senza file offre versioni migliorate dei seguenti avvisi di sicurezza per i computer Windows: individuazione di code injection, rilevamento di moduli Windows mascherati, individuazione di shellcode e rilevamento di un segmento di codice sospetto.
+Le funzionalità di rilevamento delle analisi dei dump di arresto anomalo di Windows sono state integrate nel [rilevamento degli attacchi senza file](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers). L'analisi di rilevamento degli attacchi senza file offre versioni migliorate dei seguenti avvisi di sicurezza per i computer Windows: individuazione di code injection, rilevamento di moduli Windows mascherati, individuazione di shellcode e rilevamento di un segmento di codice sospetto.
 
 Alcuni vantaggi di questa transizione:
 

@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 6d720eee668edf2de968f0ce6955a5a586a92419
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e950e34a1965e309d226c42bf4b3128cbe3bf3c5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087680"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291504"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Ruoli personalizzati per SQL Server ad Azure SQL Istanza gestita migrazioni online
 
@@ -138,7 +138,7 @@ Se il numero di ruoli personalizzati nell'Azure Active Directory non costituisce
 }
 ```
 
-## <a name="role-assignment"></a>Assegnazione del ruolo
+## <a name="role-assignment"></a>Assegnazione di ruolo
 
 Per assegnare un ruolo a utenti/ID APP, aprire il portale di Azure, seguire questa procedura:
 

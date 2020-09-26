@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dcbaaeb2868a421a41227e1b5d9fdd84a96248eb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6c8e6fee2b9f01b8d7ab48990760aa4c4d6e11b2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852362"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361501"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accedere a set di dati con Python mediante la libreria client Python di Azure Machine Learning
 L'anteprima della libreria client Python di Microsoft Azure Machine Learning consente l'accesso sicuro a set di dati di Azure Machine Learning da un ambiente Python locale, nonché la creazione e la gestione di set di dati in un'area di lavoro.
@@ -71,7 +71,7 @@ I frammenti di codice forniti da Azure Machine Learning Studio (classico) per l'
 
 Per motivi di sicurezza, le funzionalità dei frammenti di codice sono disponibili solo per gli utenti il cui ruolo nell'area di lavoro è impostato su **Owner** . Il ruolo viene visualizzato in Azure Machine Learning Studio (classico) nella pagina **utenti** in **Impostazioni**.
 
-![Sicurezza][security]
+![Screenshot mostra le impostazioni nella pagina utenti di Azure Machine Learning Studio.][security]
 
 Se il proprio ruolo non è impostato su **Owner**, è possibile chiedere di essere nuovamente invitati con il ruolo di proprietario o chiedere il frammento di codice al proprietario dell'area di lavoro.
 
@@ -92,7 +92,7 @@ I token di autorizzazione vengono gestiti nella pagina **AUTHORIZATION TOKENS** 
 2. Selezionare il set di dati a cui si desidera accedere. È possibile selezionare qualsiasi set di dati dall'elenco **MY DATASETS** o **SAMPLES**.
 3. Sulla barra degli strumenti inferiore fare clic su **Generate Data Access Code**(Genera codice di accesso ai dati). Se i dati si presentano in un formato non compatibile con la raccolta client di Python, questo pulsante non è attivo.
    
-    ![Set di dati][datasets]
+    ![Screenshot mostra i set di dati con il codice di generazione del codice di accesso ai dati.][datasets]
 4. Selezionare il frammento di codice dalla finestra che viene visualizzata e copiarlo negli Appunti.
    
     ![Pulsante per generare il codice di accesso ai dati][dataset-access-code]

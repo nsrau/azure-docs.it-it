@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: 1493a15a97ca88d0ed914f78b1906088c03dff10
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a0cc70f5bf994e03088511a0d10796746a434bd7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037410"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300310"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Ridimensionare il processo di Analisi di flusso con funzioni di Azure Machine Learning Studio (versione classica)
 
@@ -25,7 +25,7 @@ Questo articolo illustra come ridimensionare in modo efficiente i processi di an
 
 Una funzione di Machine Learning in Analisi di flusso può essere usata come una normale chiamata di funzione nel linguaggio di query di Analisi di flusso. Tuttavia, queste chiamate di funzione sono in realtà richieste del servizio Web Azure Machine Learning.
 
-È possibile migliorare la velocità effettiva delle richieste al servizio Web Machine Learning tramite "invio in batch" di più righe nella stessa chiamata all'API del servizio Web. Questo raggruppamento è denominato mini-batch. Per altre informazioni, vedere [Servizi Web di Azure Machine Learning Studio (versione classica)](../machine-learning/studio/consume-web-services.md). Il supporto per Azure Machine Learning Studio (versione classica) in Analisi di flusso è in anteprima.
+È possibile migliorare la velocità effettiva delle richieste al servizio Web Machine Learning tramite "invio in batch" di più righe nella stessa chiamata all'API del servizio Web. Questo raggruppamento è denominato mini-batch. Per altre informazioni, vedere [Servizi Web di Azure Machine Learning Studio (versione classica)](../machine-learning/classic/consume-web-services.md). Il supporto per Azure Machine Learning Studio (versione classica) in Analisi di flusso è in anteprima.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurare un processo di Analisi di flusso con funzioni di Machine Learning
 
@@ -58,7 +58,7 @@ In generale, posto che ***B*** sta per dimensioni batch e ***L*** sta per latenz
 
 È anche possibile configurare il numero massimo di chiamate simultanee nel servizio Web di Machine Learning. È consigliabile impostare questo parametro sul valore massimo (200 attualmente).
 
-Per altre informazioni su questa impostazione, vedere l'articolo [Ridimensionamento di un servizio Web di Azure Machine Learning](../machine-learning/studio/create-endpoint.md).
+Per altre informazioni su questa impostazione, vedere l'articolo [Ridimensionamento di un servizio Web di Azure Machine Learning](../machine-learning/classic/create-endpoint.md).
 
 ## <a name="example--sentiment-analysis"></a>Esempio: Analisi di valutazione
 L'esempio seguente include un processo di Analisi di flusso con la funzione di Machine Learning di analisi di valutazione, come descritto nell' [esercitazione sull'integrazione tra Analisi di flusso e Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).

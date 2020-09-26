@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d6be74e5748d364fd9f56f4af96bb3229ddb61c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50d077c1d7c9e4e421a43a4e0379b57608d1192c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85113690"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361767"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Informazioni sulle differenze tra NoSQL e i database relazionali
 
@@ -49,7 +49,7 @@ Sono emerse varie forme di database di "rete" durante il periodo in cui emergono
 
 Se si gestisce una rete complessa di relazioni nel database, è possibile prendere in considerazione un database a grafo, ad esempio l' [API Gremlin Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) per la gestione di questi dati.
 
-:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Graph":::
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Il diagramma di database Mostra diversi dipendenti e reparti collegati tra loro.":::
 
 Azure Cosmos DB è un servizio di database multimodello, che offre una proiezione API per tutti i principali tipi di modelli di NoSQL. Famiglia di colonne, documento, grafo e chiave-valore. I livelli di API dei documenti [Gremlin (Graph)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) e SQL (Core) sono completamente interoperativi. Questa operazione offre vantaggi per il cambio tra modelli diversi a livello di programmabilità. È possibile eseguire query sugli archivi Graph in termini di attraversamenti di rete complessi e di transazioni modellate come record di documenti nello stesso archivio.
 

@@ -1,5 +1,5 @@
 ---
-title: Sintassi di query di ricerca Graph
+title: Sintassi della query di ricerca di grafi
 titleSuffix: Azure Machine Learning
 description: Informazioni su come usare la sintassi di query di ricerca per cercare i nodi in in Graph della pipeline.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: 122da78206ef2055b4867727b174293e74133c05
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 166b87159b5ac2434c3ce7a7c66529a4b61ee565
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817553"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290501"
 ---
-# <a name="graph-search-query-syntax"></a>Sintassi di query di ricerca Graph
+# <a name="graph-search-query-syntax"></a>Sintassi della query di ricerca di grafi
 
 In questo articolo vengono fornite informazioni sulla sintassi di query di ricerca Graph in Azure Machine Learning. La funzionalità di ricerca Graph consente di cercare un nodo in base al nome e alle proprietà. 
 
@@ -49,7 +49,7 @@ La ricerca Graph usa la query semplice Lucene come sintassi della ricerca full-t
  
 - Corrispondenza con caratteri jolly: 
     - `machi?e learning`
-    -   `mach*ing`
+    - `mach*ing`
  
 >[!NOTE]
 > Non è possibile avviare una query Lucene con un carattere "*".
@@ -59,7 +59,7 @@ La ricerca Graph usa la query semplice Lucene come sintassi della ricerca full-t
  
 Le query di filtro usano il modello seguente:
  
-    **[key1] [operator1] [value1]; [key2] [operator1] [value2];**
+`**[key1] [operator1] [value1]; [key2] [operator1] [value2];**`
 
  
 È possibile utilizzare le seguenti proprietà del nodo come chiavi:

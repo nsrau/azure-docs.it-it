@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
-ms.openlocfilehash: 86927a525fbfcb6a252d8e3d214733a0f1e83ed1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 60bf2034f1e6404f3f09bf25a66c497dbbaf4d05
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550376"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361654"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Esercitazione: configurare Insight4GRC per il provisioning utenti automatico
 
@@ -80,15 +80,15 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Scheda Provisioning](common/provisioning.png)
+    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere l'URL dell'endpoint scim nell' **URL del tenant**. L'URL dell'endpoint deve essere nel formato in `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` cui il **nome di dominio di Insight4GRC** è il valore recuperato nei passaggi precedenti. Immettere il valore bearer token recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Insight4GRC. Se la connessione non riesce, verificare che l'account Insight4GRC disponga delle autorizzazioni di amministratore e riprovare.
 
-    ![provisioning](./media/insight4grc-provisioning-tutorial/provisioning.png)
+    ![Screenshot mostra la finestra di dialogo credenziali amministratore, in cui è possibile immettere il tenant U R L e il token segreto.](./media/insight4grc-provisioning-tutorial/provisioning.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 

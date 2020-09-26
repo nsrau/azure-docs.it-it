@@ -3,12 +3,12 @@ title: Ottenere i dati di conformità ai criteri
 description: Le valutazioni e gli effetti di Criteri di Azure determinano la conformità. Informazioni su come ottenere informazioni dettagliate sulle risorse di Azure.
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2ab75bdab0dcf910da91eb60b5f0cf23892d6c51
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 83bf00710346193a89b59c6a72a0e4840dd5abfb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895430"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291021"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -605,12 +605,17 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-Esempio: ottenere gli eventi correlati alle risorse di rete virtuale non conformi che si sono verificati dopo una data specifica.
+Esempio: recupero di eventi correlati a risorse di rete virtuale non conformi che si sono verificate dopo una data specifica, conversione in un oggetto CSV ed esportazione in un file.
 
 ```azurepowershell-interactive
-PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
+$policyEvents = Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2020-09-19'
+$policyEvents | ConvertTo-Csv | Out-File 'C:\temp\policyEvents.csv'
+```
 
-Timestamp                  : 5/19/2018 5:18:53 AM
+L'output dell' `$policyEvents` oggetto è simile al seguente:
+
+```output
+Timestamp                  : 9/19/2020 5:18:53 AM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
                              crosoft.Network/virtualNetworks/RG-Tags-vnet
 PolicyAssignmentId         : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -642,7 +647,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-Se si dispone di un'[area di lavoro Log Analytics](../../../azure-monitor/log-query/log-query-overview.md) con `AzureActivity` dalla [soluzione di Analisi log attività](../../../azure-monitor/platform/activity-log.md) collegata alla sottoscrizione in uso, è anche possibile visualizzare i risultati di non conformità dal ciclo di valutazione usando semplici query Kusto e la tabella `AzureActivity`. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
+Se si dispone di un' [area di lavoro log Analytics](../../../azure-monitor/log-query/log-query-overview.md) con `AzureActivity` dalla [soluzione analisi log attività](../../../azure-monitor/platform/activity-log.md) collegata alla sottoscrizione, è anche possibile visualizzare i risultati di non conformità dalla valutazione delle risorse nuove e aggiornate usando semplici query kusto e la `AzureActivity` tabella. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Screenshot dei log di monitoraggio di Azure che illustrano le azioni dei criteri di Azure nella tabella AzureActivity." border="false":::
 

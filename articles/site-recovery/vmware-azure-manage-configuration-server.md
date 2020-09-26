@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 83535fde7f577c4cd5d0b3866afcc0a916c16337
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134828"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361484"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware/server fisici
 
@@ -71,7 +71,7 @@ Se non si sono aggiunte le credenziali durante la distribuzione OVF del server d
 
 1. Dopo l'[accesso](#access-configuration-server), selezionare **Gestisci credenziali della macchina virtuale**.
 2. Fare clic su **Aggiungi credenziali della macchina virtuale**.
-    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![Screenshot Visualizza il riquadro Gestisci credenziali macchina virtuale con il collegamento Aggiungi credenziali macchina virtuale.](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Immettere le nuove credenziali e fare clic su **Aggiungi**.
 
 È possibile aggiungere le credenziali anche tramite CSPSConfigtool.exe.
@@ -212,21 +212,21 @@ Eseguire il file di installazione come segue:
 
 ### <a name="parameters"></a>Parametri
 
-|Nome parametro| Type | Description| Valori|
+|Nome parametro| Type | Descrizione| Valori|
 |-|-|-|-|
-| /Modalità server|Obbligatoria|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
-|/InstallLocation|Obbligatoria|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
-|/MySQLCredsFilePath|Obbligatoria|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
-|/VaultCredsFilePath|Obbligatoria|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
-|/EnvType|Obbligatoria|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
-|/PSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
-|/CSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
-|/PassphraseFilePath|Obbligatoria|Percorso completo del file della passphrase|Percorso del file valido|
+| /Modalità server|Necessario|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
+|/InstallLocation|Necessario|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
+|/MySQLCredsFilePath|Necessario|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
+|/VaultCredsFilePath|Necessario|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
+|/EnvType|Necessario|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
+|/PSIP|Necessario|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
+|/CSIP|Necessario|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
+|/PassphraseFilePath|Necessario|Percorso completo del file della passphrase|Percorso del file valido|
 |/BypassProxy|Facoltativo|Specifica che il server di configurazione si connette ad Azure senza un proxy|Per ottenere questo valore da Venu|
 |/ProxySettingsFilePath|Facoltativo|Impostazioni proxy, il proxy predefinito richiede l'autenticazione o un proxy personalizzato|Il file deve essere nel formato specificato di seguito|
 |DataTransferSecurePort|Facoltativo|Numero di porta su PSIP da usare per i dati di replica| Numero di porta valido (il valore predefinito è 9433)|
 |/SkipSpaceCheck|Facoltativo|Ignora la verifica dello spazio per il disco della cache| |
-|/AcceptThirdpartyEULA|Obbligatoria|Il flag implica l'accettazione dell'EULA di terze parti| |
+|/AcceptThirdpartyEULA|Necessario|Il flag implica l'accettazione dell'EULA di terze parti| |
 |/ShowThirdpartyEULA|Facoltativo|Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati| |
 
 

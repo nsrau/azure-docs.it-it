@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: e3814c753a182ce11d9062a665adc137f80c206f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1363ccfcf20312fb7273526349e27e8f424b6b41
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255638"
+ms.locfileid: "91361552"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Esercitazione: configurare TeamViewer per il provisioning utenti automatico
 
@@ -99,7 +99,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 5. Nella sezione **credenziali amministratore** immettere `ttps://webapi.teamviewer.com/scim/v2`  nel campo **URL tenda** e immettere il token di script creato in precedenza nel **token segreto**. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi a TeamViewer. Se la connessione non riesce, verificare che l'account TeamViewer disponga delle autorizzazioni di amministratore e riprovare.
 
-    ![provisioning](./media/teamViewer-provisioning-tutorial/provisioning.png)
+    ![Screenshot mostra la finestra di dialogo credenziali amministratore, in cui è possibile immettere il tenant U R L e il token segreto.](./media/teamViewer-provisioning-tutorial/provisioning.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 

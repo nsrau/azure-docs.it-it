@@ -11,24 +11,24 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fe847dfa24e618d2e837943309475f0a436d3a44
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4c07ad2aaf6c682dc370e3223dba1f199242ca2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459301"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289232"
 ---
 # <a name="best-practices-for-loading-data-for-data-warehousing"></a>Procedure consigliate per il caricamento di dati per il data warehousing
 
-Suggerimenti e ottimizzazioni delle prestazioni per il caricamento di dati
+In questo articolo sono disponibili indicazioni e ottimizzazioni delle prestazioni per il caricamento dei dati.
 
 ## <a name="prepare-data-in-azure-storage"></a>Preparare i dati in archiviazione di Azure
 
-Per ridurre al minimo la latenza, usare un percorso condiviso per il livello di archiviazione e il data warehouse.
+Per ridurre al minimo la latenza, colocare il livello di archiviazione e il data warehouse.
 
 In caso di esportazione di dati in un formato di file ORC, quando sono presenti colonne di testo di grandi dimensioni potrebbero verificarsi errori di memoria insufficiente di Java. Per risolvere questo problema, esportare solo un subset di colonne.
 
-PolyBase non può caricare righe contenenti più di 1.000.000 di byte di dati. I dati inseriti nei file di testo nell'archivio BLOB di Azure o in Azure Data Lake Store devono corrispondere a meno di 1.000.000 di byte. Questa limitazione in termini di byte vale indipendentemente dallo schema di tabella.
+La polibase non può caricare righe contenenti più di 1 milione byte di dati. I dati inseriti nei file di testo nell'archivio BLOB di Azure o in Azure Data Lake Store devono corrispondere a meno di 1.000.000 di byte. Questa limitazione in termini di byte vale indipendentemente dallo schema di tabella.
 
 Tutti i formati di file hanno caratteristiche di prestazioni diverse. Per ottenere la velocità di caricamento massima, usare file di testo delimitati compressi. La differenza di prestazioni tra UTF-8 e UTF-16 è minima.
 
@@ -64,7 +64,7 @@ Eseguire i caricamenti con classi di risorse statiche anziché dinamiche. L'uso 
 
 ## <a name="allow-multiple-users-to-load"></a>Consentire il caricamento di più utenti
 
-È spesso necessario fare in modo che più utenti possano caricare dati in un data warehouse. Il caricamento con [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) richiede autorizzazioni CONTROL per il database.  L'autorizzazione CONTROL fornisce il controllo degli accessi a tutti gli schemi. È consigliabile che non tutti gli utenti che eseguono caricamenti abbiano il controllo degli accessi a tutti gli schemi. Per limitare le autorizzazioni, usare l'istruzione DENY CONTROL.
+È spesso necessario fare in modo che più utenti possano caricare dati in un data warehouse. Il caricamento con [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) richiede autorizzazioni CONTROL per il database.  L'autorizzazione CONTROL fornisce il controllo degli accessi a tutti gli schemi. È consigliabile che non tutti gli utenti che eseguono caricamenti abbiano il controllo degli accessi a tutti gli schemi. Per limitare le autorizzazioni, usare l'istruzione DENY CONTROL.
 
 Si supponga ad esempio che esistano gli schemi di database schema_A per il reparto A e schema_B per il reparto B e che gli utenti di database user_A e user_B siano gli utenti addetti al caricamento PolyBase rispettivamente nel reparto A e nel reparto B. A entrambi gli utenti sono state concesse le autorizzazioni di database CONTROL. Gli autori di schema A e B usano a questo punto DENY per bloccare i rispettivi schemi:
 
@@ -83,14 +83,14 @@ Il caricamento è in genere un processo in due fasi in cui i dati vengono prima 
 
 ## <a name="load-to-a-columnstore-index"></a>Caricare in un indice columnstore
 
-Gli indici columnstore richiedono una grande quantità di memoria per la compressione dei dati in rowgroup di qualità elevata. Per una compressione e un'efficienza dell'indice ottimali, l'indice columnstore deve comprimere il valore massimo di 1.048.576 righe in ogni rowgroup. In caso di utilizzo elevato di memoria, l'indice columnstore potrebbe non riuscire a raggiungere i tassi di compressione massimi. Questo influisce a propria volta sulle prestazioni delle query. Per un approfondimento, vedere l'articolo relativo alle [ottimizzazioni della memoria columnstore](data-load-columnstore-compression.md).
+Gli indici columnstore richiedono una grande quantità di memoria per la compressione dei dati in rowgroup di qualità elevata. Per una compressione e un'efficienza dell'indice ottimali, l'indice columnstore deve comprimere il valore massimo di 1.048.576 righe in ogni rowgroup. In caso di utilizzo elevato di memoria, l'indice columnstore potrebbe non riuscire a raggiungere i tassi di compressione massimi. Questa operazione ha effetto sulle prestazioni di esecuzione delle query. Per un approfondimento, vedere l'articolo relativo alle [ottimizzazioni della memoria columnstore](data-load-columnstore-compression.md).
 
 - Per garantire all'utente addetto al caricamento una quantità di memoria sufficiente per raggiungere i massimi tassi di compressione, usare utenti addetti al caricamento che siano membri di una classe di risorse di medie o grandi dimensioni.
-- Caricare un numero di righe sufficiente a riempire completamente i nuovi rowgroup. Durante un caricamento bulk, ogni gruppo di 1.048.576 righe viene compresso direttamente nel columnstore come rowgroup completo. In caso di caricamenti con meno di 102.400 righe, le righe vengono inviate nell'archivio differenziale, in cui vengono mantenute in un indice albero B. Se si carica un numero troppo basso di righe, le righe potrebbero essere inserite tutte nell'archivio differenziale e non essere immediatamente compresse nel formato columnstore.
+- Caricare un numero di righe sufficiente a riempire completamente i nuovi rowgroup. Durante un caricamento bulk ogni 1.048.576 di righe viene compresso direttamente nel columnstore come rowgroup completo. In caso di caricamenti con meno di 102.400 righe, le righe vengono inviate nell'archivio differenziale, in cui vengono mantenute in un indice albero B. Se si carica un numero troppo basso di righe, le righe potrebbero essere inserite tutte nell'archivio differenziale e non essere immediatamente compresse nel formato columnstore.
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentare le dimensioni del batch quando si usa l'API SQLBulkCopy o BCP
 
-Come indicato in precedenza, il caricamento con polibase fornirà la massima velocità effettiva con il pool SQL sinapsi. Se non è possibile usare la modalità polibase per caricare e usare l'API SQLBulkCopy (o BCP), è consigliabile aumentare le dimensioni del batch per una migliore velocità effettiva. una regola empirica ottimale è una dimensione del batch compresa tra 100.000 e 1 milione di righe.
+Come indicato in precedenza, il caricamento con polibase fornirà la massima velocità effettiva con il pool SQL sinapsi. Se non è possibile usare la modalità polibase per caricare e deve usare l'API SQLBulkCopy (o BCP), è consigliabile aumentare le dimensioni del batch per una migliore velocità effettiva. una regola empirica è una dimensione del batch compresa tra 100.000 e 1 milione di righe.
 
 ## <a name="manage-loading-failures"></a>Gestione degli errori di caricamento
 
@@ -100,13 +100,13 @@ Per risolvere questo problema, assicurarsi che la tabella esterna e le definizio
 
 ## <a name="insert-data-into-a-production-table"></a>Inserire dati in una tabella di produzione
 
-Per una singola operazione di caricamento in una tabella di piccole dimensioni con un'[istruzione INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) o anche un ricaricamento periodico di una ricerca, è possibile ottenere prestazioni soddisfacenti con un'istruzione come `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Gli inserimenti singleton non offrono tuttavia la stessa efficienza di un caricamento bulk.
+Per una singola operazione di caricamento in una tabella di piccole dimensioni con un'[istruzione INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) o anche un ricaricamento periodico di una ricerca, è possibile ottenere prestazioni soddisfacenti con un'istruzione come `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Tuttavia, gli inserimenti singleton non sono efficienti quanto l'esecuzione di un caricamento bulk.
 
 Se nel corso di una giornata si eseguono migliaia di singoli inserimenti o più, inviare in batch gli inserimenti per poterne eseguire il caricamento bulk.  Sviluppare i processi per aggiungere i singoli inserimenti in un file e quindi creare un altro processo che carica periodicamente il file.
 
 ## <a name="create-statistics-after-the-load"></a>Creare statistiche dopo il caricamento
 
-Per migliorare le prestazioni delle query, è importante creare statistiche su tutte le colonne di tutte le tabelle dopo il primo caricamento o modifiche sostanziali ai dati.  Questa operazione può essere eseguita manualmente oppure è possibile abilitare le [statistiche create automaticamente](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Per migliorare le prestazioni delle query, è importante creare statistiche su tutte le colonne di tutte le tabelle dopo il primo caricamento oppure apportare modifiche sostanziali ai dati. Create Statistics può essere eseguita manualmente oppure è possibile abilitare la [creazione automatica delle statistiche](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 Per una spiegazione dettagliata delle statistiche, vedere [Statistiche](develop-tables-statistics.md). Nell'esempio seguente viene illustrato come creare manualmente statistiche per cinque colonne della tabella Customer_Speed.
 
@@ -124,7 +124,7 @@ Ai fini della sicurezza è consigliabile modificare regolarmente la chiave di ac
 
 Per ruotare le chiavi dell'account di archiviazione di Azure:
 
-Per ogni account di archiviazione la cui chiave ha subito modifiche, eseguire [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Per ogni account di archiviazione la cui chiave ha subito modifiche, eseguire [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Esempio:
 

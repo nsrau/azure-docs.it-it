@@ -2,15 +2,15 @@
 title: Usare un certificato TLS/SSL nel codice
 description: Informazioni su come usare i certificati client nel codice. Eseguire l'autenticazione con le risorse remote con un certificato client o eseguire attività crittografiche.
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: b62352d09419de11135f4d7a2740e0e74b80255d
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: e791e4ca3481bc0aea931abe946751415f1e1614
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962129"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311819"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Usare un certificato TLS/SSL nel codice nel Servizio app di Azure
 
@@ -107,29 +107,6 @@ PrivateKey privKey = (PrivateKey) ks.getKey("<subject-cn>", ("<password>").toCha
 
 Per le lingue che non supportano o non offrono supporto insufficiente per l'archivio certificati di Windows, vedere [caricare il certificato da un file](#load-certificate-from-file).
 
-## <a name="load-certificate-in-linux-apps"></a>Caricare il certificato nelle app Linux
-
-Le `WEBSITE_LOAD_CERTIFICATES` impostazioni dell'app rendono i certificati specificati accessibili alle app ospitate da Linux, incluse le app contenitore personalizzate, come file. I file si trovano nelle directory seguenti:
-
-- Certificati privati- `/var/ssl/private` ( `.p12` file)
-- Certificati pubblici- `/var/ssl/certs` ( `.der` file)
-
-I nomi dei file di certificato sono le identificazioni personali del certificato. Il codice C# seguente illustra come caricare un certificato pubblico in un'app Linux.
-
-```csharp
-using System;
-using System.IO;
-using System.Security.Cryptography.X509Certificates;
-
-...
-var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
-var cert = new X509Certificate2(bytes);
-
-// Use the loaded certificate
-```
-
-Per informazioni su come caricare un certificato TLS/SSL da un file in Node.js, PHP, Python, Java o Ruby, vedere la documentazione relativa alla rispettiva lingua o piattaforma Web.
-
 ## <a name="load-certificate-from-file"></a>Carica certificato da file
 
 Se è necessario caricare un file di certificato caricato manualmente, è preferibile caricare il certificato usando [FTPS](deploy-ftp.md) invece di [git](deploy-local-git.md), ad esempio. È necessario tenere i dati sensibili come un certificato privato fuori dal controllo del codice sorgente.
@@ -152,6 +129,39 @@ using System.Security.Cryptography.X509Certificates;
 
 ...
 var bytes = File.ReadAllBytes("~/<relative-path-to-cert-file>");
+var cert = new X509Certificate2(bytes);
+
+// Use the loaded certificate
+```
+
+Per informazioni su come caricare un certificato TLS/SSL da un file in Node.js, PHP, Python, Java o Ruby, vedere la documentazione relativa alla rispettiva lingua o piattaforma Web.
+
+## <a name="load-certificate-in-linuxwindows-containers"></a>Caricare il certificato nei contenitori Linux/Windows
+
+Le `WEBSITE_LOAD_CERTIFICATES` impostazioni dell'app rendono i certificati specificati accessibili alle app contenitore Windows o Linux (inclusi i contenitori Linux predefiniti) come file. I file si trovano nelle directory seguenti:
+
+| Piattaforma contenitore | Certificati pubblici | Certificati privati |
+| - | - | - |
+| Contenitore Windows | `C:\appservice\certificates\public` | `C:\appservice\certificates\private` |
+| Contenitore Linux | `/var/ssl/certs` | `/var/ssl/private` |
+
+I nomi dei file di certificato sono le identificazioni personali del certificato. 
+
+> [!NOTE]
+> Il servizio app inserisce i percorsi dei certificati nei contenitori di Windows come le variabili di ambiente seguenti `WEBSITE_PRIVATE_CERTS_PATH` ,, `WEBSITE_INTERMEDIATE_CERTS_PATH` `WEBSITE_PUBLIC_CERTS_PATH` e `WEBSITE_ROOT_CERTS_PATH` . È preferibile fare riferimento al percorso del certificato con le variabili di ambiente anziché impostare come hardcoded il percorso del certificato, nel caso in cui i percorsi del certificato cambino in futuro.
+>
+
+Inoltre, i [contenitori di Windows Server Core](configure-custom-container.md#supported-parent-images) caricano automaticamente i certificati nell'archivio certificati, in **LocalMachine\MY**. Per caricare i certificati, seguire lo stesso modello di [caricamento del certificato nelle app di Windows](#load-certificate-in-windows-apps). Per i contenitori basati su Windows nano, usare i percorsi di file indicati in precedenza per [caricare il certificato direttamente da file](#load-certificate-from-file).
+
+Il codice C# seguente illustra come caricare un certificato pubblico in un'app Linux.
+
+```csharp
+using System;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+
+...
+var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate

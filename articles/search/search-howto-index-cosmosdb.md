@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 9402b1d38457c979f00d05f56b8ed45d2d37dfca
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 9b3353d3ba1af572b118001691e38af497f6f1fd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290042"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Come indicizzare i dati di Cosmos DB usando un indicizzatore in Ricerca cognitiva di Azure 
 
@@ -72,9 +72,11 @@ Nella pagina **origine dati** , l'origine deve essere **Cosmos DB**, con le spec
 
 + **Nome** è il nome dell'oggetto origine dati. Una volta creato, è possibile sceglierlo per altri carichi di lavoro.
 
-+ **Cosmos DB account** deve essere la stringa di connessione primaria o secondaria da Cosmos DB con il formato seguente: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;` .
-    + Per la versione 3,2 e la versione 3,6 le **raccolte MongoDB** usano il formato seguente per l'account Cosmos DB nel portale di Azure: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
-    + Per i **grafici Gremlin e le tabelle Cassandra**, iscriversi all' [anteprima dell'indicizzatore gestita](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e informazioni su come formattare le credenziali.
++ **Cosmos DB account** deve essere in uno dei formati seguenti:
+    1. Stringa di connessione primaria o secondaria di Cosmos DB con il formato seguente: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;` .
+        + Per la versione 3,2 e la versione 3,6 le **raccolte MongoDB** usano il formato seguente per l'account Cosmos DB nel portale di Azure: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
+        + Per i **grafici Gremlin e le tabelle Cassandra**, iscriversi all' [anteprima dell'indicizzatore gestita](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e informazioni su come formattare le credenziali.
+    1.  Una stringa di connessione di identità gestita con il formato seguente che non include una chiave dell'account: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)` . Per usare questo formato della stringa di connessione, seguire le istruzioni per la [configurazione di una connessione dell'indicizzatore a un database di Cosmos DB usando un'identità gestita](search-howto-managed-identities-cosmos-db.md).
 
 + Il **database** è un database esistente dall'account. 
 
@@ -183,7 +185,7 @@ Il corpo della richiesta contiene la definizione dell'origine dati, che deve inc
 |---------|-------------|
 | **nome** | Obbligatorio. Scegliere un nome qualsiasi per rappresentare l’oggetto origine dati. |
 |**type**| Obbligatorio. Deve essere `cosmosdb`. |
-|**credentials** | Obbligatorio. Deve essere una stringa di connessione Cosmos DB.<br/><br/>Per le **raccolte SQL**, le stringhe di connessione sono nel formato seguente: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>Per la versione 3,2 e la versione 3,6 le **raccolte MongoDB** usano il formato seguente per la stringa di connessione: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Per i **grafici Gremlin e le tabelle Cassandra**, iscriversi all' [anteprima dell'indicizzatore gestita](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e informazioni su come formattare le credenziali.<br/><br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Azure ricerca cognitiva non sarà in grado di indicizzare il database Azure Cosmos DB.|
+|**credentials** | Obbligatorio. Deve seguire il formato della stringa di connessione Cosmos DB o un formato della stringa di connessione identità gestita.<br/><br/>Per le **raccolte SQL**, le stringhe di connessione possono seguire uno dei formati seguenti: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>Una stringa di connessione di identità gestita con il formato seguente che non include una chiave dell'account: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;` . Per usare questo formato della stringa di connessione, seguire le istruzioni per la [configurazione di una connessione dell'indicizzatore a un database di Cosmos DB usando un'identità gestita](search-howto-managed-identities-cosmos-db.md).<br/><br/>Per la versione 3,2 e la versione 3,6 le **raccolte MongoDB** utilizzano uno dei formati seguenti per la stringa di connessione: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>Una stringa di connessione di identità gestita con il formato seguente che non include una chiave dell'account: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;` . Per usare questo formato della stringa di connessione, seguire le istruzioni per la [configurazione di una connessione dell'indicizzatore a un database di Cosmos DB usando un'identità gestita](search-howto-managed-identities-cosmos-db.md).<br/><br/>Per i **grafici Gremlin e le tabelle Cassandra**, iscriversi all' [anteprima dell'indicizzatore gestita](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e informazioni su come formattare le credenziali.<br/><br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Azure ricerca cognitiva non sarà in grado di indicizzare il database Azure Cosmos DB.|
 | **container** | Contiene gli elementi seguenti: <br/>**name**: Obbligatorio. Specificare l'ID della raccolta di database da indicizzare.<br/>**query**: Facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che possa essere indicizzato da Ricerca cognitiva di Azure.<br/>Per le API MongoDB, Gremlin e Apache Cassandra, le query non sono supportate. |
 | **dataChangeDetectionPolicy** | Consigliato. Vedere la sezione [Indicizzazione di documenti modificati](#DataChangeDetectionPolicy).|
 |**dataDeletionDetectionPolicy** | facoltativo. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).|
@@ -272,7 +274,7 @@ Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo sch
 | Bool |Edm.Boolean, Edm.String |
 | Numeri che rappresentano numeri interi |Edm.Int32, Edm.Int64, Edm.String |
 | Numeri che rappresentano numeri a virgola mobile |Edm.Double, Edm.String |
-| Stringa |Edm.String |
+| string |Edm.String |
 | Matrici di tipi primitivi, ad esempio ["a", "b", "c"] |Collection(Edm.String) |
 | Stringhe che rappresentano date |Edm.DateTimeOffset, Edm.String |
 | Oggetti GeoJSON, ad esempio { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |

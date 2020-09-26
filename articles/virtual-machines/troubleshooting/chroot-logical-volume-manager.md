@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 03e6f51d2ab7138675f7d79c04faa2e4dffec60c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825685"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361467"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Risoluzione dei problemi di una VM Linux quando non è possibile accedere alla console seriale di Azure e il layout del disco usa LVM (Logical Volume Manager)
 
@@ -88,7 +88,7 @@ lsblk
 
 Individuare il percorso per montare il volume logico che contiene la partizione/(radice). Contiene i file di configurazione, ad esempio/etc/default/grub
 
-In questo esempio, l'output del comando **lsblk** precedente **rootvg-rootlv** è la **radice** BT corretta da montare e può essere usato nel comando successivo.
+In questo esempio, l'output del comando **lsblk** precedente  **rootvg-rootlv** è la **radice** BT corretta da montare e può essere usato nel comando successivo.
 
 L'output del comando successivo indicherà il percorso da montare per la **radice** LV
 
@@ -143,7 +143,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 È possibile utilizzare i comandi per installare, rimuovere e aggiornare il software. Risolvere i problemi relativi alle macchine virtuali per correggere gli errori.
 
 
-Eseguire il comando lsblk e/Rescue è ora/e/Rescue/boot è/boot ![ chroot](./media/chroot-logical-volume-manager/chrooted.png)
+Eseguire il comando lsblk e/Rescue è Now/e/Rescue/boot è/boot ![ screenshot mostra una finestra della console con il comando l s BLK e la relativa struttura di output.](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>Eseguire correzioni
 
@@ -169,7 +169,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 *Walkthrough*
 
 Il comando **grep** elenca i kernel che **grub. cfg** è in grado di riconoscere.
-![Kernel](./media/chroot-logical-volume-manager/kernels.png)
+![Screenshot mostra una finestra della console che Visualizza il risultato di una ricerca grep per i kernel.](./media/chroot-logical-volume-manager/kernels.png)
 
 l' **elenco GRUB2-editenv** Visualizza il kernel che verrà caricato al prossimo avvio ![ predefinito del kernel](./media/chroot-logical-volume-manager/kernel-default.png)
 
@@ -190,7 +190,7 @@ Eseguire il comando **LVS** per verificare quali **LVS** sono disponibili per il
 
 Uscire dall'ambiente **chroot** montare la richiesta **LV**
 
-![Avanzate](./media/chroot-logical-volume-manager/advanced.png)
+![Screenshot mostra una finestra della console con un comando l v s, quindi montando una V.](./media/chroot-logical-volume-manager/advanced.png)
 
 Ora accedere di nuovo all'ambiente **chroot** eseguendo
 
@@ -198,11 +198,11 @@ Ora accedere di nuovo all'ambiente **chroot** eseguendo
 
 Tutti LVs devono essere visibili come partizioni montate
 
-![Avanzate](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Avanzato](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 Eseguire una query sul **kernel** installato
 
-![Avanzate](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Avanzato](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 Se necessario, rimuovere o aggiornare il **kernel** 
  ![ Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)

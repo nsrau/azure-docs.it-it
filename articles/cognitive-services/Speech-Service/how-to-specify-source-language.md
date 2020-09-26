@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 820e0b78b986a8836e173513e1508641ac450333
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1b134fd3d09eeda340e7323638a36b68336242c2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282930"
+ms.locfileid: "91362028"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>Specificare la lingua di origine per il riconoscimento vocale
 
@@ -27,20 +27,20 @@ In questo articolo si apprenderà come specificare la lingua di origine per un i
 
 ## <a name="how-to-specify-source-language-in-c"></a>Come specificare la lingua di origine in C #
 
-In questo esempio, la lingua di origine viene fornita in modo esplicito come parametro mediante `SpeechRecognizer` costrutto.
+Nell'esempio seguente, la lingua di origine viene fornita in modo esplicito come parametro mediante `SpeechRecognizer` costrutto.
 
 ```csharp
 var recognizer = new SpeechRecognizer(speechConfig, "de-DE", audioConfig);
 ```
 
-In questo esempio, la lingua di origine viene fornita utilizzando `SourceLanguageConfig` . `sourceLanguageConfig`Viene quindi passato come parametro per `SpeechRecognizer` costruire.
+Nell'esempio seguente, la lingua di origine viene fornita utilizzando `SourceLanguageConfig` . `sourceLanguageConfig`Viene quindi passato come parametro per `SpeechRecognizer` costruire.
 
 ```csharp
 var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE");
 var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-In questo esempio la lingua di origine e l'endpoint personalizzato vengono forniti utilizzando `SourceLanguageConfig` . `sourceLanguageConfig`Viene quindi passato come parametro per `SpeechRecognizer` costruire.
+Nell'esempio seguente vengono forniti la lingua di origine e l'endpoint personalizzato utilizzando `SourceLanguageConfig` . `sourceLanguageConfig`Viene quindi passato come parametro per `SpeechRecognizer` costruire.
 
 ```csharp
 var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE", "The Endpoint ID for your custom model.");
@@ -57,20 +57,20 @@ var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioC
 
 ## <a name="how-to-specify-source-language-in-c"></a>Come specificare la lingua di origine in C++
 
-In questo esempio, la lingua di origine viene fornita in modo esplicito come parametro usando il `FromConfig` metodo.
+Nell'esempio seguente, la lingua di origine viene fornita in modo esplicito come parametro usando il `FromConfig` metodo.
 
 ```C++
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, "de-DE", audioConfig);
 ```
 
-In questo esempio, la lingua di origine viene fornita utilizzando `SourceLanguageConfig` . `sourceLanguageConfig`Viene quindi passato come parametro a `FromConfig` quando si crea l'oggetto `recognizer` .
+Nell'esempio seguente, la lingua di origine viene fornita utilizzando `SourceLanguageConfig` . `sourceLanguageConfig`Viene quindi passato come parametro a `FromConfig` quando si crea l'oggetto `recognizer` .
 
 ```C++
 auto sourceLanguageConfig = SourceLanguageConfig::FromLanguage("de-DE");
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-In questo esempio la lingua di origine e l'endpoint personalizzato vengono forniti utilizzando `SourceLanguageConfig` . `sourceLanguageConfig`Viene passato come parametro a quando si `FromConfig` crea l'oggetto `recognizer` .
+Nell'esempio seguente vengono forniti la lingua di origine e l'endpoint personalizzato utilizzando `SourceLanguageConfig` . `sourceLanguageConfig`Viene passato come parametro a quando si `FromConfig` crea l'oggetto `recognizer` .
 
 ```C++
 auto sourceLanguageConfig = SourceLanguageConfig::FromLanguage("de-DE", "The Endpoint ID for your custom model.");
@@ -86,20 +86,20 @@ auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfi
 
 ## <a name="how-to-specify-source-language-in-java"></a>Come specificare la lingua di origine in Java
 
-In questo esempio la lingua di origine viene fornita in modo esplicito durante la creazione di un nuovo oggetto `SpeechRecognizer` .
+Nell'esempio seguente la lingua di origine viene fornita in modo esplicito durante la creazione di un nuovo oggetto `SpeechRecognizer` .
 
 ```Java
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, "de-DE", audioConfig);
 ```
 
-In questo esempio, la lingua di origine viene fornita utilizzando `SourceLanguageConfig` . `sourceLanguageConfig`Viene quindi passato come parametro durante la creazione di un nuovo oggetto `SpeechRecognizer` .
+Nell'esempio seguente, la lingua di origine viene fornita utilizzando `SourceLanguageConfig` . `sourceLanguageConfig`Viene quindi passato come parametro durante la creazione di un nuovo oggetto `SpeechRecognizer` .
 
 ```Java
 SourceLanguageConfig sourceLanguageConfig = SourceLanguageConfig.fromLanguage("de-DE");
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-In questo esempio la lingua di origine e l'endpoint personalizzato vengono forniti utilizzando `SourceLanguageConfig` . `sourceLanguageConfig`Viene quindi passato come parametro durante la creazione di un nuovo oggetto `SpeechRecognizer` .
+Nell'esempio seguente vengono forniti la lingua di origine e l'endpoint personalizzato utilizzando `SourceLanguageConfig` . `sourceLanguageConfig`Viene quindi passato come parametro durante la creazione di un nuovo oggetto `SpeechRecognizer` .
 
 ```Java
 SourceLanguageConfig sourceLanguageConfig = SourceLanguageConfig.fromLanguage("de-DE", "The Endpoint ID for your custom model.");
@@ -115,14 +115,14 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageC
 
 ## <a name="how-to-specify-source-language-in-python"></a>Come specificare la lingua di origine in Python
 
-In questo esempio, la lingua di origine viene fornita in modo esplicito come parametro mediante `SpeechRecognizer` costrutto.
+Nell'esempio seguente, la lingua di origine viene fornita in modo esplicito come parametro mediante `SpeechRecognizer` costrutto.
 
 ```Python
 speech_recognizer = speechsdk.SpeechRecognizer(
         speech_config=speech_config, language="de-DE", audio_config=audio_config)
 ```
 
-In questo esempio, la lingua di origine viene fornita utilizzando `SourceLanguageConfig` . `SourceLanguageConfig`Viene quindi passato come parametro per `SpeechRecognizer` costruire.
+Nell'esempio seguente, la lingua di origine viene fornita utilizzando `SourceLanguageConfig` . `SourceLanguageConfig`Viene quindi passato come parametro per `SpeechRecognizer` costruire.
 
 ```Python
 source_language_config = speechsdk.languageconfig.SourceLanguageConfig("de-DE")
@@ -130,7 +130,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(
         speech_config=speech_config, source_language_config=source_language_config, audio_config=audio_config)
 ```
 
-In questo esempio la lingua di origine e l'endpoint personalizzato vengono forniti utilizzando `SourceLanguageConfig` . `SourceLanguageConfig`Viene quindi passato come parametro per `SpeechRecognizer` costruire.
+Nell'esempio seguente vengono forniti la lingua di origine e l'endpoint personalizzato utilizzando `SourceLanguageConfig` . `SourceLanguageConfig`Viene quindi passato come parametro per `SpeechRecognizer` costruire.
 
 ```Python
 source_language_config = speechsdk.languageconfig.SourceLanguageConfig("de-DE", "The Endpoint ID for your custom model.")
@@ -167,14 +167,14 @@ speechConfig.endpointId = "The Endpoint ID for your custom model.";
 
 ## <a name="how-to-specify-source-language-in-objective-c"></a>Come specificare la lingua di origine in Objective-C
 
-In questo esempio, la lingua di origine viene fornita in modo esplicito come parametro mediante `SPXSpeechRecognizer` costrutto.
+Nell'esempio seguente, la lingua di origine viene fornita in modo esplicito come parametro mediante `SPXSpeechRecognizer` costrutto.
 
 ```Objective-C
 SPXSpeechRecognizer* speechRecognizer = \
     [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig language:@"de-DE" audioConfiguration:audioConfig];
 ```
 
-In questo esempio, la lingua di origine viene fornita utilizzando `SPXSourceLanguageConfiguration` . `SPXSourceLanguageConfiguration`Viene quindi passato come parametro per `SPXSpeechRecognizer` costruire.
+Nell'esempio seguente, la lingua di origine viene fornita utilizzando `SPXSourceLanguageConfiguration` . `SPXSourceLanguageConfiguration`Viene quindi passato come parametro per `SPXSpeechRecognizer` costruire.
 
 ```Objective-C
 SPXSourceLanguageConfiguration* sourceLanguageConfig = [[SPXSourceLanguageConfiguration alloc]init:@"de-DE"];
@@ -183,7 +183,7 @@ SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpe
                                                                               audioConfiguration:audioConfig];
 ```
 
-In questo esempio la lingua di origine e l'endpoint personalizzato vengono forniti utilizzando `SPXSourceLanguageConfiguration` . `SPXSourceLanguageConfiguration`Viene quindi passato come parametro per `SPXSpeechRecognizer` costruire.
+Nell'esempio seguente vengono forniti la lingua di origine e l'endpoint personalizzato utilizzando `SPXSourceLanguageConfiguration` . `SPXSourceLanguageConfiguration`Viene quindi passato come parametro per `SPXSpeechRecognizer` costruire.
 
 ```Objective-C
 SPXSourceLanguageConfiguration* sourceLanguageConfig = \

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cd80f0b2a5e2ad1fd4c2cff73728d57a2beafc7e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437395"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361518"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analisi su più tenant con dati estratti in un'app a singolo tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 > - Eseguire query sul database di analisi.
 > - Usare Power BI per la visualizzazione dei dati per evidenziare le tendenze nei dati dei tenant e definire raccomandazioni per apportare miglioramenti.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
+![Il diagramma mostra una panoramica dell'architettura usata per questo articolo.](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
 
 ## <a name="offline-tenant-analytics-pattern"></a>Modello di analisi dei tenant offline
 
@@ -138,7 +138,7 @@ Ogni processo estrae i rispettivi dati e li inserisce nell'archivio di analisi. 
 4. Premere F5 per eseguire lo script che crea ed esegue il processo che estrae i dati relativi ai biglietti e ai clienti dal database di ogni tenant. Il processo salva i dati nell'archivio di analisi.
 5. Eseguire una query sulla tabella TicketsRawData del database tenantanalytics per verificare che la tabella sia stata popolata con le informazioni sui biglietti di tutti i tenant.
 
-![ticketExtracts](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
+![Screenshot mostra il database ExtractTickets con il TicketsRawData d b o selezionato in Esplora oggetti.](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
 
 Ripetere i passaggi precedenti, sostituendo però **\ExtractTickets.sql** con **\ExtractVenuesEvents.sql** nel passaggio 2.
 
@@ -177,7 +177,7 @@ Seguire questa procedura per connettersi a Power BI e importare le viste create 
 
 5. Selezionare **database** nel riquadro sinistro, quindi immettere nome utente = *Developer*e immettere password = *P \@ ssword1*. Fare clic su **Connetti**.  
 
-    ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![Screenshot mostra la finestra di dialogo SQL Server database in cui è possibile immettere un nome utente e una password.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. Nel riquadro **Strumento di navigazione** selezionare le tabelle dello schema star fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates nel database di analisi. Selezionare quindi **Carica**. 
 
@@ -185,13 +185,13 @@ Congratulazioni! Il caricamento dei dati in Power BI è stato completato. È ora
 
 Per iniziare, si analizzano i dati relativi alle vendite di biglietti per individuare la variazione nell'utilizzo tra le diverse sedi. Selezionare le opzioni seguenti in Power BI per tracciare un grafico a barre del numero totale di biglietti venduti da ogni sede. A causa della variazione casuale nel generatore di biglietti, i risultati effettivi potrebbero essere diversi.
  
-![TotalTicketsByVenues](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
+![Screenshot mostra una visualizzazione e i controlli di Power B I per la visualizzazione dei dati sul lato destro.](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
 
 Il tracciato precedente conferma la variazione nel numero di biglietti venduti da ogni sede. Le sedi che vendono una maggiore quantità di biglietti usano di più il servizio rispetto a quelle con vendite inferiori. Questo potrebbe offrire l'opportunità di adattare l'allocazione delle risorse alle esigenze dei diversi tenant.
 
 È possibile analizzare ulteriormente i dati per individuare la variazione delle vendite di biglietti nel tempo. Selezionare le opzioni seguenti in Power BI per tracciare il numero totale di biglietti venduti ogni giorno per un periodo di 60 giorni.
  
-![SaleVersusDate](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
+![Screenshot mostra la visualizzazione di Power B I denominata distribuzione dei biglietti e il giorno della vendita.](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
 
 Il grafico precedente mostra un picco nelle vendite di biglietti per alcune sedi. Questi picchi rafforzano l'idea che alcune sedi potrebbe utilizzare le risorse di sistema in modo sproporzionato. Per ora non è stato rilevato un modello ovvio nella ricorrenza dei picchi.
 
@@ -217,7 +217,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 Selezionare le opzioni di visualizzazione seguenti per tracciare la percentuale di biglietti venduta da ogni sede e determinare così il successo relativo di ognuna.
 
-![AvgTicketsByVenues](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
+![Screenshot mostra la visualizzazione di Power B I denominata media dei ticket venduti da ogni sede.](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
 
 Il tracciato precedente mostra che nonostante la maggior parte delle sedi venda oltre l'80% dei propri biglietti, alcune hanno difficoltà a riempire più della metà dei posti. Modificare la selezione nell'area dei valori per ottenere la percentuale minima o massima di biglietti venduta per ogni sede.
 
