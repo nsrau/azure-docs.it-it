@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 3e1832d656ea2bad772a686e52a357c1daf0ded5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f75853a66c43c69ec191f28951f8f6ffc4353f93
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883195"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330163"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -51,7 +51,7 @@ Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning.
 È possibile creare Azure Machine Learning istanze di calcolo o cluster di calcolo da:
 * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
 * Portale di Azure
-* Classi [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true) e [AMLCOMPUTE](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) per Python SDK
+* Classi [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance%28class%29?view=azure-ml-py&preserve-view=true) e [AMLCOMPUTE](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) per Python SDK
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (anteprima)
 * Gestione risorse modello. Per un modello di esempio, vedere [creare Azure Machine Learning modello di calcolo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * [Estensione di machine learning per l'interfaccia della riga di comando di Azure](reference-azure-machine-learning-cli.md#resource-management).  
@@ -84,7 +84,9 @@ Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle seri
 |------------|------------|
 | D | nessuno |
 | Dv2 | nessuno |  
-| DSv2 | nessuno |  
+| Dv3 | nessuno|
+| DSv2 | nessuno | 
+| DSv3 | nessuno|
 | FSv2 | nessuno | 
 | HBv2 | Richiede approvazione |  
 | Servizio di elaborazione host | Richiede approvazione |  

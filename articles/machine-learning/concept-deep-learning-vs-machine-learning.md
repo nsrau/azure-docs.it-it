@@ -1,24 +1,27 @@
 ---
 title: Apprendimento avanzato e Machine Learning
-titleSuffix: Azure
-description: Scopri in che modo Deep Learning è correlato a Machine Learning e intelligenza artificiale. L'apprendimento avanzato viene usato in scenari come il rilevamento delle frodi, il riconoscimento facciale & vocale, l'analisi dei sentimenti e la previsione delle serie temporali.
+titleSuffix: Azure Machine Learning
+description: Scopri in che modo Deep Learning è correlato a Machine Learning e AI. In Azure Machine Learning usare modelli di apprendimento avanzato per il rilevamento di frodi, il rilevamento di oggetti e altro ancora.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 03/05/2020
-ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/22/2020
+ms.custom: contperfq1
+ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905135"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330129"
 ---
-# <a name="deep-learning-vs-machine-learning"></a>Apprendimento avanzato e Machine Learning
+# <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprendimento avanzato e Machine Learning in Azure Machine Learning
 
-Questo articolo consente di confrontare apprendimento avanzato e machine learning. Verranno illustrate le differenze tra i due concetti e il modo in cui rientrano nella categoria più ampia di intelligenza artificiale. L'articolo descrive anche il modo in cui l'apprendimento avanzato può essere applicato a scenari reali come il rilevamento delle frodi, il riconoscimento vocale e facciale, l'analisi dei sentimenti e la previsione delle serie temporali.
+Questo articolo illustra l'apprendimento avanzato e l'apprendimento automatico e il modo in cui rientrano nella categoria più ampia di intelligenza artificiale. Informazioni sulle soluzioni di apprendimento avanzato che è possibile creare in Azure Machine Learning, ad esempio il rilevamento delle frodi, il riconoscimento vocale e facciale, l'analisi dei sentimenti e la previsione delle serie temporali.
+
+Per indicazioni sulla scelta degli algoritmi per le soluzioni, vedere il foglio informativo sull' [algoritmo Machine Learning](algorithm-cheat-sheet.md).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Deep Learning, Machine Learning e intelligenza artificiale
 
@@ -37,7 +40,7 @@ Prendere in considerazione le seguenti definizioni per comprendere l'apprendimen
 
 - **Intelligenza artificiale (ai)** è una tecnica che consente ai computer di simulare l'intelligenza umana. Include machine learning. 
  
-È importante comprendere la relazione tra intelligenza artificiale, Machine Learning e apprendimento avanzato. Machine Learning è un modo per ottenere l'intelligenza artificiale. Grazie alle tecniche di apprendimento automatico e apprendimento avanzato, è possibile creare sistemi di computer e applicazioni che eseguono attività comunemente associate all'intelligence umana. Queste attività includono il riconoscimento delle immagini, il riconoscimento vocale e la traduzione della lingua.
+Grazie alle tecniche di apprendimento automatico e apprendimento avanzato, è possibile creare sistemi di computer e applicazioni che eseguono attività comunemente associate all'intelligence umana. Queste attività includono il riconoscimento delle immagini, il riconoscimento vocale e la traduzione della lingua.
 
 ## <a name="techniques-of-deep-learning-vs-machine-learning"></a>Tecniche di apprendimento avanzato rispetto a Machine Learning 
 
@@ -58,7 +61,7 @@ Nella tabella seguente vengono confrontate le due tecniche in modo più dettagli
 
 Grazie alla struttura di rete neurale artificiale, l'apprendimento avanzato eccelle nell'identificare i modelli nei dati non strutturati, ad esempio immagini, audio, video e testo. Per questo motivo, l'apprendimento avanzato sta trasformando rapidamente molti settori, tra cui Healthcare, energia, finanza e trasporto. Questi settori ora ripensano i tradizionali processi aziendali. 
 
-Alcune delle applicazioni più comuni per l'apprendimento approfondito sono descritte nei paragrafi seguenti.
+Alcune delle applicazioni più comuni per l'apprendimento approfondito sono descritte nei paragrafi seguenti. In Azure Machine Learning, è possibile usare un modello da compilare da un framework open source o compilare il modello usando gli strumenti forniti.
 
 ### <a name="named-entity-recognition"></a>Riconoscimento di entità denominate
 
@@ -69,6 +72,8 @@ Il riconoscimento delle entità denominate è un metodo di apprendimento avanzat
 L'apprendimento avanzato è stato applicato in molti casi d'uso di rilevamento oggetti. Il rilevamento degli oggetti è costituito da due parti: classificazione delle immagini e quindi localizzazione delle immagini. _Classificazione_ immagini identifica gli oggetti dell'immagine, ad esempio automobili o persone. La _localizzazione_ delle immagini fornisce la posizione specifica di questi oggetti. 
 
 Il rilevamento degli oggetti è già in uso in settori quali giochi, vendite al dettaglio, turismo e auto autoguidate.
+
+Informazioni su come usare un modello di classificazione delle immagini da un framework open source in Azure Machine Learning: [classificare le immagini usando un modello Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Generazione didascalia immagine
 
@@ -87,6 +92,8 @@ Con la trasformazione dei dati appropriata, una rete neurale può comprendere il
 L'analisi del testo basata su metodi di apprendimento avanzato comporta l'analisi di grandi quantità di dati di testo (ad esempio, documenti medici o ricevute di spese), il riconoscimento dei modelli e la creazione di informazioni organizzate e concise.
 
 Le aziende usano l'apprendimento avanzato per eseguire analisi del testo per rilevare il trading di insider e la conformità alle normative governative. Un altro esempio comune è la frode delle assicurazioni: l'analisi del testo è stata spesso usata per analizzare grandi quantità di documenti per riconoscere le probabilità che un reclamo assicurativo sia illecito. 
+
+Informazioni su come usare un modello TensorFlow in Azure Machine Learning: [classificare le cifre scritte a mano usando un modello TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 
 ## <a name="artificial-neural-networks"></a>Reti neurali artificiali
 
@@ -110,14 +117,8 @@ Le reti neurali di convoluzione sono state usate in aree quali il riconoscimento
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli articoli seguenti illustrano come usare la tecnologia Deep Learning in [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
-
-- [Classificare le cifre scritte a mano usando un modello TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+Gli articoli seguenti illustrano altre opzioni per l'uso di modelli di apprendimento avanzato open source in [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
 
 - [Classificare le cifre scritte a mano usando uno strumento di stima TensorFlow e keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 
-- [Classificare le immagini usando un modello Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
-
 - [Classificare le cifre scritte a mano usando un modello Chainer](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
-
-Usare anche il foglio informativo sugli [algoritmi di Machine Learning](algorithm-cheat-sheet.md) per scegliere gli algoritmi per il modello.
