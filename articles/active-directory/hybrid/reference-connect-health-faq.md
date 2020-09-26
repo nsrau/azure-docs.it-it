@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d15b12b758adbf99ddabc88eb06be9daba1ece3e
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6140f5fd431a0b089b45892130e075bde02a2eb2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276202"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299766"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
 Questo articolo include risposte alle domande frequenti su Azure Active Directory (Azure AD) Connect Health. Le domande sono relative all'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
@@ -129,6 +129,10 @@ Quando si rimuove un agente da un server, tale server non viene automaticamente 
 
 In questo caso, eliminare manualmente la voce appartenente al server meno recente. I dati per questo server non dovrebbero essere aggiornati.
 
+**D: è possibile installare l'agente di Azure AD Connect Health in Windows Server Core?**
+
+No.  L'installazione in Server Core non è supportata.
+
 ## <a name="health-agent-registration-and-data-freshness"></a>Registrazione dell'agente per l'integrità e aggiornamento dati
 
 **D: Quali sono le cause più comuni che generano errori nella registrazione dell'agente per l'integrità e come risolverle?**
@@ -198,6 +202,7 @@ Usare il cmdlet di PowerShell <i>Get-AdfsProperties -AuditLevel</i> per assicura
 
 **D: quando il certificato dell'agente viene rinnovato automaticamente prima della scadenza?**
 La certificazione dell'agente verrà rinnovata automaticamente **6 mesi** prima della data di scadenza. Se non viene rinnovato, verificare che la connessione di rete dell'agente sia stabile. È possibile risolvere il problema anche riavviare i servizi dell'agente o eseguire l'aggiornamento alla versione più recente.
+
 
 
 ## <a name="related-links"></a>Collegamenti correlati
