@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
-ms.openlocfilehash: 4d07feb54a689c32e119d997275416a5dd8f0aad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ec4b9343efab9ae501b2b3dcc606e6e3f5fe826
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725087"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399687"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete con Network Watcher e Grafana
 
@@ -199,7 +199,7 @@ Ora che Grafana è stata configurata correttamente per leggere l'indice ElasticS
 
 La schermata seguente illustra un grafo e un grafico che mostrano i flussi principali e la loro frequenza. I flussi vengono visualizzati anche dalla regola NSG e dai flussi per decisione. Grafana è altamente personalizzabile, pertanto è consigliabile creare dashboard in base alle esigenze di monitoraggio specifiche. L'esempio seguente illustra un dashboard tipico:
 
-![Grafo del dashboard](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
+![Screenshot che mostra la configurazione del grafo di esempio con flussi segmentati in base alla regola NSG.](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
 ## <a name="conclusion"></a>Conclusioni
 

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d6222c9275dfe022e897bb6324df5bb30e1a8905
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3f882375197fa45cfbc74ff7a80ed33fd33f33a3
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276816"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400299"
 ---
-# <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
+# <a name="how-does-azure-cosmos-db-provide-high-availability"></a>In che modo Azure Cosmos DB fornisce disponibilità elevata? 
 
 Azure Cosmos DB replica in modo trasparente i dati in tutte le aree di Azure associate all'account Azure Cosmos. Azure Cosmos DB usa più livelli di ridondanza per i dati, come illustrato nell'immagine seguente:
 
@@ -79,7 +79,7 @@ La ridondanza della zona è una *funzionalità aggiuntiva* per la [replica nella
 
 Quando si configurano le Scritture in più aree per l'account Azure Cosmos, è possibile acconsentire esplicitamente alla ridondanza della zona senza costi aggiuntivi. In caso contrario, vedere la nota riportata di seguito relativa ai prezzi per il supporto della ridondanza della zona. È possibile abilitare la ridondanza della zona in un'area esistente dell'account Azure Cosmos rimuovendo l'area e aggiungendola nuovamente con la ridondanza della zona abilitata.
 
-Questa funzionalità è disponibile in: *Regno Unito meridionale, Asia sudorientale, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa occidentale, Stati Uniti occidentali 2, Giappone orientale, Europa settentrionale, Francia centrale, aree Australia orientale* .
+Questa funzionalità è disponibile in: *Regno Unito meridionale, Asia sudorientale, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa occidentale, Stati Uniti occidentali 2, Giappone orientale, Europa settentrionale, Francia centrale, Australia orientale, Stati Uniti orientali 2 EUAP* .
 
 > [!NOTE]
 > L'abilitazione di zone di disponibilità per un account Azure Cosmos con una sola area comporterà addebiti equivalenti all'aggiunta di un'area aggiuntiva al proprio account. Per informazioni dettagliate sui prezzi, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) e il costo per più [aree in Azure Cosmos DB](optimize-cost-regions.md) articoli.

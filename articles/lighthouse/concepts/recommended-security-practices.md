@@ -3,12 +3,12 @@ title: Procedure di sicurezza consigliate
 description: Quando si usa Azure Lighthouse, è importante prendere in considerazione la sicurezza e il controllo degli accessi.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ddc4d2c69e7aacc49c5309bc407aecd9bc8e572f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163272"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399381"
 ---
 # <a name="recommended-security-practices"></a>Procedure di sicurezza consigliate
 
@@ -28,7 +28,7 @@ Si consiglia di chiedere ai clienti di implementare Azure Multi-Factor Authentic
 Per semplificare la gestione, usare i gruppi Azure Active Directory (Azure AD) per ogni ruolo necessario per gestire le risorse dei clienti. Ciò consente di aggiungere o rimuovere singoli utenti al gruppo in base alle esigenze, anziché assegnare le autorizzazioni direttamente a ogni utente.
 
 > [!IMPORTANT]
-> Per aggiungere autorizzazioni per un gruppo di Azure AD, il **tipo di gruppo** deve essere **Sicurezza** e non **Office 365**. Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Per aggiungere autorizzazioni per un gruppo di Azure AD, il **tipo di gruppo** deve essere impostato su **sicurezza**. Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Quando si crea la struttura di autorizzazioni, assicurarsi di seguire il principio dei privilegi minimi, in modo che gli utenti abbiano solo le autorizzazioni necessarie per completare il proprio lavoro, riducendo la possibilità di errori accidentali.
 
@@ -39,7 +39,7 @@ Quando si crea la struttura di autorizzazioni, assicurarsi di seguire il princip
 |Architetti     |Gruppo utenti         |\<principalId\>         |Collaboratore         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Valutazione     |Gruppo utenti         |\<principalId\>         |Lettore         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |Specialisti di macchine virtuali     |Gruppo utenti         |\<principalId\>         |Collaboratore macchina virtuale         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automazione     |Nome dell'entità servizio (SPN)         |\<principalId\>         |Autore di contributi         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automazione     |Nome dell'entità servizio (SPN)         |\<principalId\>         |Collaboratore         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 Una volta creati questi gruppi, è possibile assegnare gli utenti in base alle esigenze. Aggiungere solo gli utenti che devono avere effettivamente accesso. Controllare regolarmente l'appartenenza ai gruppi e rimuovere gli utenti che non è più appropriato o necessario includere.
 

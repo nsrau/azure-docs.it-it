@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
-ms.openlocfilehash: fbb9a6237aafe1c1b7c94d9dd23ad4c3665c0c73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef573817927cf732da3426d802f8f26e2e9cd4ec
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871461"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398998"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Registrare una connessione del servizio di peering usando l'interfaccia della riga di comando di Azure
 
-Il servizio di peering di Azure è un servizio di rete che migliora la connettività dei clienti ai servizi cloud Microsoft, come Office 365, Dynamics 365, i servizi SaaS (Software as a Service), Azure o qualsiasi servizio Microsoft accessibile tramite la rete Internet pubblica. Questo articolo illustra come registrare una connessione al servizio di peering usando l'interfaccia della riga di comando di Azure.
+Il servizio peering di Azure è un servizio di rete che migliora la connettività dei clienti ai servizi cloud Microsoft, ad esempio Microsoft 365, Dynamics 365, Servizi Software as a Service (SaaS), Azure o tutti i servizi Microsoft accessibili tramite la rete Internet pubblica. Questo articolo illustra come registrare una connessione al servizio di peering usando l'interfaccia della riga di comando di Azure.
 
 Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ora.
 

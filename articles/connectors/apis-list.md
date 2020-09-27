@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 4876c5cb0490a96d5a77da9ced83e1650e98379a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488831"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400809"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connettori per App per la logica di Azure
 
@@ -136,7 +136,7 @@ App per la logica fornisce questi comuni connettori standard per l'automazione d
 | [![Connettore gestito del bus di servizio di Azure- ][azure-service-bus-icon]<br> **bus di servizio di Azure**][azure-service-bus-doc] | Gestire i messaggi asincroni, le sessioni e le sottoscrizioni agli argomenti con il connettore più utilizzato nelle app per la logica. |
 | [![SQL Server SQL Server Connector ][sql-server-icon]<br> **SQL Server** gestito][sql-server-doc] | Connettersi al SQL Server locale o a un database SQL di Azure nel cloud per poter gestire i record, eseguire stored procedure o eseguire query. |
 | [![Connettore gestito di archiviazione BLOB di Azure ][azure-blob-storage-icon]<br> ** <br> archiviazione BLOB di Azure**][azure-blob-storage-doc] | Connettersi all'account di archiviazione in modo che sia possibile creare e gestire il contenuto BLOB. |
-| [![Office 365 Outlook Managed Connector Office ][office-365-outlook-icon]<br> **365 <br> Outlook**][office-365-outlook-doc] | Connettersi all'account di posta elettronica di Office 365 per poter creare e gestire messaggi di posta elettronica, attività, eventi del calendario e riunioni, contatti, richieste e altro ancora. |
+| [![Office 365 Outlook Managed Connector Office ][office-365-outlook-icon]<br> **365 <br> Outlook**][office-365-outlook-doc] | Connettersi all'account aziendale o dell'Istituto di istruzione per poter creare e gestire messaggi di posta elettronica, attività, eventi del calendario e riunioni, contatti, richieste e altro ancora. |
 | [![SFTP: connettore gestito SSH ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | Connettersi ai server SFTP a cui è possibile accedere da Internet usando SSH per poter usare i file e le cartelle. |
 | [![Connettore gestito SharePoint Online ][sharepoint-online-icon]<br> **SharePoint <br> online**][sharepoint-online-doc] | Connettersi a SharePoint online in modo da poter gestire file, allegati, cartelle e altro ancora. |
 | [![Code di Azure connettore gestito code di ][azure-queues-icon]<br> **Azure <br> **][azure-queues-doc] | Connettersi all'account di archiviazione di Azure in modo che sia possibile creare e gestire code e messaggi. |
@@ -588,7 +588,7 @@ Anche se si creano connessioni dall'interno di un'app per la logica, le connessi
 [instagram-doc]: ./connectors-create-api-instagram.md "Connettersi a Instagram. Attivare o agire sugli eventi"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Connettersi a Mandrill per la comunicazione"
 [mysql-doc]: /connectors/mysql/ "Connettersi al database MySQL locale in modo da poter leggere e scrivere dati"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Connettersi all'account Office 365 per poter inviare e ricevere messaggi di posta elettronica, gestire il calendario e i contatti e altro ancora"
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Connettersi all'account aziendale o dell'Istituto di istruzione in modo che sia possibile inviare e ricevere messaggi di posta elettronica, gestire il calendario e i contatti e altro ancora"
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Connettiti a Microsoft OneDrive personali per poter caricare, eliminare, elencare file e altro ancora"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Connetti all'azienda Microsoft OneDrive per poter caricare, eliminare, elencare i file e altro ancora"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connettersi a un database Oracle in modo da poter aggiungere, inserire, eliminare righe e altro ancora"

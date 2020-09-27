@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 123fa86714ae3cefe7de5bebda9e0fccd385ecb4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0e0bcde44ba28751761b7db3f6d6fcae8f7bd49c
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836599"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400546"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Scegliere una soluzione di Azure per il trasferimento dei dati
 
@@ -74,7 +74,7 @@ Rispondere alle domande seguenti per selezionare una soluzione di trasferimento 
 - [Leggere una panoramica di AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
 - [Avvio rapido: Caricare, scaricare ed elencare BLOB con PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Avvio rapido: Creare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure](../blobs/storage-quickstart-blobs-cli.md)
-- Informazioni su:
+- Vengono fornite informazioni su:
 
     - [Azure Data Box, Azure Data Box Disk e Azure Data Box Heavy per i trasferimenti offline](https://docs.microsoft.com/azure/databox/).
     - [Azure Data Box gateway e Azure stack Edge per i trasferimenti online](https://docs.microsoft.com/azure/databox-online/).

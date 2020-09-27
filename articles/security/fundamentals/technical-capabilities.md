@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: d861388c8c7a5ff64a17607736d4c8a292343dec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071602"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399534"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 Questo articolo fornisce un'introduzione ai servizi di sicurezza in Azure che consentono di proteggere i dati, le risorse e le applicazioni nel cloud e di soddisfare le esigenze di sicurezza dell'azienda.
@@ -66,9 +66,9 @@ Il [portale Azure Active Directory](https://aad.portal.azure.com/) è disponibil
 
 Di seguito sono riportate le principali funzionalità di gestione delle identità di Azure:
 
-- Accesso Single Sign-On
+- Single sign-on
 
-- Multi-Factor Authentication
+- Autenticazione a più fattori
 
 - Monitoraggio della sicurezza, avvisi e report basati su Machine Learning
 
@@ -78,19 +78,19 @@ Di seguito sono riportate le principali funzionalità di gestione delle identit�
 
 - Privileged Identity Management
 
-- Protezione dell'identità
+- Identity Protection
 
-#### <a name="single-sign-on"></a>Accesso Single Sign-On
+#### <a name="single-sign-on"></a>Single sign-on
 
 [Single Sign-on (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) consente di accedere a tutte le applicazioni e risorse necessarie per le attività aziendali effettuando l'accesso una sola volta con un singolo account utente. Dopo aver effettuato l'accesso, è possibile accedere a tutte le applicazioni necessarie senza dover ripetere una seconda volta l'autenticazione (ad esempio, digitando una password).
 
-Molte organizzazioni si basano su applicazioni SaaS (Software as a Service), ad esempio Office 365, box e Salesforce, per la produttività degli utenti finali. In passato, il personale IT doveva creare e aggiornare singoli account utente in ogni applicazione SaaS e gli utenti dovevano ricordare una password per ogni applicazione SaaS.
+Molte organizzazioni si basano su applicazioni SaaS (Software as a Service), ad esempio Microsoft 365, box e Salesforce, per la produttività degli utenti finali. In passato, il personale IT doveva creare e aggiornare singoli account utente in ogni applicazione SaaS e gli utenti dovevano ricordare una password per ogni applicazione SaaS.
 
 [Azure ad estende l'Active Directory locale nel cloud](../../active-directory/manage-apps/what-is-single-sign-on.md), consentendo agli utenti di usare il proprio account aziendale principale non solo per accedere ai dispositivi appartenenti a un dominio e alle risorse aziendali, ma anche a tutte le applicazioni Web e SaaS necessarie per il loro lavoro.
 
 Non solo gli utenti non devono più gestire diversi set di nomi utente e password, ma è anche possibile eseguire il provisioning o deprovisioning automatico dell'accesso alle applicazioni in base ai gruppi aziendali e al relativo stato di dipendente. [Azure ad introduce controlli di governance di sicurezza e accesso](../../active-directory/active-directory-enterprise-apps-manage-sso.md) che consentono di gestire centralmente l'accesso degli utenti tra le applicazioni SaaS.
 
-#### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+#### <a name="multi-factor-authentication"></a>Autenticazione a più fattori
 
 [Azure multi-factor authentication (](../../active-directory/authentication/multi-factor-authentication.md) multi-factor authentication) è un metodo di autenticazione che richiede l'uso di più di un metodo di verifica e aggiunge un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. L'autenticazione a più fattori [consente di proteggere](../../active-directory/authentication/concept-mfa-howitworks.md) l'accesso ai dati e alle applicazioni, garantendo al tempo stesso agli utenti una procedura di accesso semplice. Offre autenticazione avanzata tramite diverse opzioni di verifica, ad esempio una telefonata, un SMS, una notifica o un codice di verifica dell'app per dispositivi mobili e token OAuth di terze parti.
 
@@ -126,21 +126,21 @@ In combinazione con una soluzione di [gestione di dispositivi mobili (MDM)](http
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 
-[Azure Active Directory (ad) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) consente di gestire, controllare e monitorare le identità con privilegi e l'accesso alle risorse in Azure ad, oltre ad altre servizi online Microsoft come Office 365 o Microsoft Intune.
+[Azure Active Directory (ad) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) consente di gestire, controllare e monitorare le identità con privilegi e l'accesso alle risorse in Azure ad, oltre ad altre servizi online Microsoft come Microsoft 365 o Microsoft Intune.
 
-In alcuni casi gli utenti hanno la necessità di eseguire operazioni privilegiate in risorse di Azure o Office 365 o altre app SaaS. Per questa ragione, è spesso necessario che le organizzazioni concedano agli utenti l'accesso con privilegi permanente in Azure AD. Questo rappresenta un rischio di sicurezza crescente per le risorse ospitate nel cloud poiché le organizzazioni non sono in grado di monitorare completamente le operazioni eseguite dagli utenti con i privilegi amministrativi. Inoltre, se un account utente con accesso privilegiato è compromesso, tale singola violazione può compromettere la sicurezza dell'intero cloud. Gestione identità con privilegi di Azure AD consente di risolvere questo rischio.
+A volte gli utenti devono eseguire operazioni con privilegi in Azure o Microsoft 365 risorse o altre app SaaS. Per questa ragione, è spesso necessario che le organizzazioni concedano agli utenti l'accesso con privilegi permanente in Azure AD. Questo rappresenta un rischio di sicurezza crescente per le risorse ospitate nel cloud poiché le organizzazioni non sono in grado di monitorare completamente le operazioni eseguite dagli utenti con i privilegi amministrativi. Inoltre, se un account utente con accesso privilegiato è compromesso, tale singola violazione può compromettere la sicurezza dell'intero cloud. Gestione identità con privilegi di Azure AD consente di risolvere questo rischio.
 
 Azure AD Privileged Identity Management consente di effettuare le operazioni seguenti:
 
 - Individuare gli utenti amministratori di Azure AD
 
-- Abilitare l'accesso come amministratore Just-In-Time su richiesta ai Microsoft Online Services, ad esempio Office 365 e Intune
+- Abilitare l'accesso amministrativo "just-in-Time" su richiesta ai Microsoft Online Services, ad esempio Microsoft 365 e Intune
 
 - Ottenere report sulla cronologia degli accessi degli amministratori e sulle modifiche alle assegnazioni degli amministratori
 
 - Ricevere avvisi relativi all'accesso a un ruolo con privilegi
 
-#### <a name="identity-protection"></a>Protezione dell'identità
+#### <a name="identity-protection"></a>Identity Protection
 
 [Azure ad Identity Protection](../../active-directory/identity-protection/overview.md) è un servizio di sicurezza che offre una visualizzazione consolidata dei rilevamenti dei rischi e potenziali vulnerabilità che interessano le identità dell'organizzazione. Identity Protection usa le funzionalità di rilevamento anomalie di Azure Active Directory esistenti (disponibili tramite i report di attività anomale di Azure AD) e introduce nuovi tipi di rilevamento dei rischi in grado di rilevare le anomalie in tempo reale.
 
@@ -339,7 +339,7 @@ Il [Centro sicurezza di Azure](../../security-center/security-center-intro.md) c
 
 Il Centro sicurezza analizza lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Un elenco di suggerimenti illustra in dettaglio il processo di configurazione dei controlli necessari.
 
-Tra gli esempi sono inclusi:
+Ecco alcuni esempi:
 
 - Provisioning di antimalware per identificare e rimuovere il software dannoso
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: dddf402455292e19bf0fcda3c50d9ce10d5888d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f25e42b1785f83e0b93c346e260055247a4ab29d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71099066"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400707"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Configurare e convalidare la rete virtuale o le connessioni VPN
 
@@ -64,7 +64,7 @@ Per controllare la configurazione del peering, usare il metodo seguente:
 
 ![Selezioni per il controllo della configurazione del peering di rete virtuale](./media/virtual-network-configure-vnet-connections/4034496_en_1.png)
  
-Per Azure PowerShell, eseguire il comando [Get-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?view=azurermps-4.1.0) per ottenere il peering di rete virtuale. Ad esempio:
+Per Azure PowerShell, eseguire il comando [Get-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?view=azurermps-4.1.0) per ottenere il peering di rete virtuale. Ecco un esempio:
 
 ```
 PS C:\Users\User1> Get-AzureRmVirtualNetworkPeering -VirtualNetworkName Vnet10-01 -ResourceGroupName dev-vnets
@@ -182,7 +182,7 @@ Questo scenario è supportato quando BGP è abilitato nella VPN da sito a sito t
 
 ### <a name="configure-transit-routing-in-an-expressroute-connection"></a>Configurare il routing di transito in una connessione ExpressRoute
 
-Azure ExpressRoute consente di estendere le reti locali in Microsoft Cloud tramite una connessione privata dedicata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure, Office 365 e Dynamics 365. Per altre informazioni, vedere [Panoramica di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+Azure ExpressRoute consente di estendere le reti locali in Microsoft Cloud tramite una connessione privata dedicata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure, Microsoft 365 e Dynamics 365. Per altre informazioni, vedere la [panoramica di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 ![Connessione peering privato ExpressRoute alle reti virtuali di Azure](./media/virtual-network-configure-vnet-connections/4034395_en_1.png)
 

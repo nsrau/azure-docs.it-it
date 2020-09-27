@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: fba6943adb18675bc804a3881042fe9d68f5b331
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abd18132c7489153566042b0b7e3557662864f30
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85114742"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399466"
 ---
-# <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Informazioni sulla distribuzione globale con Azure Cosmos DB - panoramica
+# <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribuire i dati a livello globale con Azure Cosmos DB
 
 Le applicazioni moderne devono garantire velocità di risposta elevate ed essere sempre online. Per ottenere bassa latenza e disponibilità elevata, è necessario che le istanze di queste applicazioni siano distribuite in data center vicini agli utenti. Queste applicazioni vengono in genere distribuite in più data center e vengono definite distribuite a livello globale. Per le applicazioni distribuite a livello globale è necessario un database distribuito a livello globale, che può replicare in modo trasparente i dati ovunque nel mondo per consentire alle applicazioni di operare su una copia dei dati vicina agli utenti. 
 

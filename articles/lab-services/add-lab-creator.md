@@ -3,12 +3,12 @@ title: Aggiungere un utente come creatore del Lab in Azure Lab Services
 description: Questo articolo illustra come aggiungere un utente al ruolo Lab Creator per un account Lab in Azure Lab Services. Gli autori del Lab possono creare Lab all'interno di questo account Lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 34fbf9085f36d008607b648825585d3435cc2895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444285"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399483"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Aggiungi Lab Creators a un account Lab in Azure Lab Services
 Questo articolo illustra come aggiungere utenti come autori di Lab a un account Lab in Azure Lab Services. Questi usi possono quindi creare Lab in aula nell'account Lab. 
@@ -31,7 +31,7 @@ Per fornire ai docenti l'autorizzazione per creare lab per le proprie classi, ag
 ## <a name="add-a-non-microsoft-account-user-as-a-lab-creator"></a>Aggiungere un utente non account Microsoft come autore del Lab
 Per aggiungere un utente come autore del Lab, è possibile usare gli account di posta elettronica. Potrebbero essere usati i tipi di account di posta elettronica seguenti:
 
-- Un account di posta elettronica fornito dall'Ufficio 365 Azure Active Directory (AAD) dell'Università. 
+- Un account di posta elettronica fornito dall'Azure Active Directory dell'Università (AAD).
 - Un account di posta elettronica Microsoft, ad esempio `@outlook.com` ,, `@hotmail.com` `@msn.com` o `@live.com` .
 - Un account di posta elettronica non Microsoft, ad esempio uno fornito da Yahoo o Google. Tuttavia, questi tipi di account devono essere collegati con un account Microsoft.
 - Un account GitHub. Questo account deve essere collegato a un account Microsoft.

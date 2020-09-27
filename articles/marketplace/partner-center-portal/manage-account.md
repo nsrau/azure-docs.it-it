@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: 7438351aa9849e3110952043eff8f7d860b5b7de
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015833"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400690"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire il proprio account del marketplace commerciale nel Centro per i partner
 
@@ -306,7 +306,7 @@ Per altre informazioni sulla gestione di ruoli e autorizzazioni in altre aree de
 
 ## <a name="manage-tenants"></a>Gestire i tenant
 
-Un tenant di Azure Active Directory (AD), detto anche "account aziendale" in questa serie di documenti, è una rappresentazione dell'organizzazione configurata nel portale di Azure e consente di gestire un'istanza specifica dei servizi cloud Microsoft per gli utenti interni ed esterni. Se l'organizzazione ha sottoscritto un servizio cloud Microsoft, ad esempio Azure, Microsoft Intune o Office 365, è stato creato un tenant di Azure AD.
+Un tenant di Azure Active Directory (AD), detto anche "account aziendale" in questa serie di documenti, è una rappresentazione dell'organizzazione configurata nel portale di Azure e consente di gestire un'istanza specifica dei servizi cloud Microsoft per gli utenti interni ed esterni. Se l'organizzazione ha sottoscritto un servizio cloud Microsoft, ad esempio Azure, Microsoft Intune o Microsoft 365, è stato stabilito un tenant Azure AD.
 
 È possibile configurare più tenant da usare con il Centro per i partner. Tutti gli utenti con il ruolo **Responsabile** nell'account del Centro per i partner potranno aggiungere e rimuovere tenant di Azure AD dall'account.  
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3b83899ad21cf125105881a7ffb526f5c607c6d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e48c6cfd1160406d55ffdc3c9bafe733a6e5e4a6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322211"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400078"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Crittografia dischi di Azure
 
@@ -34,7 +34,7 @@ Tutte le impostazioni dei gruppi di sicurezza di rete devono consentire all'endp
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault protetto da firewall
 
-Quando la crittografia è abilitata con le [credenziali di Azure AD](disk-encryption-windows-aad.md#), la macchina virtuale di destinazione deve consentire la connettività sia sugli endpoint di Azure Active Directory sia sugli endpoint di Key Vault. Gli endpoint di autenticazione di Azure Active Directory correnti sono mantenuti nelle sezioni 56 e 59 della documentazione [URL e intervalli di indirizzi IP per Office 365](/office365/enterprise/urls-and-ip-address-ranges). Le istruzioni di Key Vault sono fornite nella documentazione [Accedere ad Azure Key Vault protetto da firewall](../../key-vault/general/access-behind-firewall.md).
+Quando la crittografia è abilitata con le [credenziali di Azure AD](disk-encryption-windows-aad.md#), la macchina virtuale di destinazione deve consentire la connettività sia sugli endpoint di Azure Active Directory sia sugli endpoint di Key Vault. Gli endpoint di autenticazione Azure Active Directory correnti sono conservati nelle sezioni 56 e 59 della documentazione relativa agli [url Microsoft 365 e agli intervalli di indirizzi IP](/microsoft-365/enterprise/urls-and-ip-address-ranges) . Le istruzioni di Key Vault sono fornite nella documentazione [Accedere ad Azure Key Vault protetto da firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure 
 La macchina virtuale deve essere in grado di accedere all'endpoint del [servizio metadati dell'istanza di Azure](../windows/instance-metadata-service.md) che usa un indirizzo IP noto e non instradabile (`169.254.169.254`) accessibile solo dall'interno della macchina virtuale.  Non sono supportate le configurazioni proxy che modificano il traffico HTTP locale a questo indirizzo, ad esempio aggiungendo un'intestazione X-Forwarded-For.

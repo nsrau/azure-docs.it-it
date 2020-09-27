@@ -4,12 +4,12 @@ description: Questo articolo descrive come usare Azure AD in Automazione di Azur
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: c17c9cdc02c87037a39b8d6029bc4506afa8ad28
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbd1f977b548c2b8e7980709ea125c07e22b1fa2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064381"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400673"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Usare Azure AD per l'autenticazione in Azure
 
@@ -21,7 +21,7 @@ Il servizio [Azure Active Directory (AD)](../active-directory/fundamentals/activ
 
 * Azure Active Directory PowerShell per Graph (moduli AzureRM e Az). Automazione di Azure viene fornito con il modulo AzureRM e l'aggiornamento recente relativo, il modulo AZ. La funzionalità include l'autenticazione non interattiva in Azure tramite l'autenticazione basata su credenziali dell'utente Azure AD (OrgId). Vedere [Azure AD 2.0.2.76](https://www.powershellgallery.com/packages/AzureAD/2.0.2.76).
 
-* Microsoft Azure Active Directory per Windows PowerShell (modulo MSOnline). Questo modulo consente le interazioni con Microsoft Online, incluso Office 365.
+* Microsoft Azure Active Directory per Windows PowerShell (modulo MSOnline). Questo modulo consente di interagire con Microsoft online, incluso Microsoft 365.
 
 >[!NOTE]
 >PowerShell Core non supporta il modulo MSOnline. Per usare i cmdlet del modulo, è necessario eseguirli da Windows PowerShell. Si consiglia di usare la versione più recente di Azure Active Directory PowerShell per i moduli Graph anziché il modulo MSOnline. 
@@ -46,7 +46,7 @@ Prima di installare i moduli Azure AD nel computer, eseguire queste operazioni.
 ### <a name="install-the-msonline-module"></a>Installare il modulo MSonline
 
 >[!NOTE]
->Per installare il modulo MSOnline, è necessario essere membro di un ruolo di amministratore di Office 365. Vedere [Informazioni sui ruoli di amministratore](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
+>Per installare il modulo MSOnline, è necessario essere un membro di un ruolo di amministratore. Vedere [Informazioni sui ruoli di amministratore](/microsoft-365/admin/add-users/about-admin-roles).
 
 1. Verificare che la funzionalità Microsoft .NET Framework 3.5. x sia abilitata nel computer. È probabile che nel computer sia installata una versione più recente, ma la compatibilità con le versioni precedenti del .NET Framework può essere abilitata o disabilitata. 
 

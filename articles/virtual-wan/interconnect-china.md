@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: d95330c14e0d088bdee03c0edbc2eb9d1deb12cb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 83cc7757f31a631af755155b49c7c26753618426
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329228"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399109"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Interconnettersi con la Cina tramite l'hub sicuro e la rete WAN virtuale di Azure
 
-Quando si esamina la connettività delle comuni aziende del settore automobilistico, manifatturiero o logistico oppure di istituzioni come le ambasciate, spesso si pone la domanda su come migliorare l'interconnessione con la Cina. Questi miglioramenti sono particolarmente rilevanti per l'uso di servizi cloud come Office 365, servizi globali di Azure o rami di interconnessione dall'interno della Cina con il backbone di un cliente.
+Quando si esamina la connettività delle comuni aziende del settore automobilistico, manifatturiero o logistico oppure di istituzioni come le ambasciate, spesso si pone la domanda su come migliorare l'interconnessione con la Cina. Questi miglioramenti sono per lo più rilevanti per l'uso di servizi cloud come Microsoft 365, servizi globali di Azure o rami di interconnessione all'interno della Cina con una dorsale del cliente.
 
 Nella maggior parte dei casi, i clienti riscontrano difficoltà relative a latenze elevate, larghezza di banda ridotta, connessione instabile e costi elevati per la connessione dalla Cina verso l'esterno, ad esempio l'Europa o gli Stati Uniti.
 
@@ -95,7 +95,7 @@ Nella figura seguente sono illustrati entrambi gli esempi per questo scenario.
 
 ![Copertura globale](./media/interconnect-china/global.png)
 
-## <a name="secure-internet-breakout-for-office-365"></a><a name="secure"></a>Breakout a Internet sicuro per Office 365
+## <a name="secure-internet-breakout-for-microsoft-365"></a><a name="secure"></a>Secure Internet breakout per Microsoft 365
 
 Un'altra considerazione riguarda la sicurezza di rete, nonché la registrazione per il punto di ingresso tra la Cina, con il componente backbone stabilito dalla rete WAN virtuale, e il backbone del cliente. Nella maggior parte dei casi, è necessario stabilire il breakout a Internet a Hong Kong per raggiungere direttamente la rete perimetrale Microsoft e, con questa, i server Frontdoor di Azure usati per i servizi Microsoft 365.
 
@@ -109,7 +109,7 @@ La figura seguente illustra un esempio di questo scenario:
 
 A seconda della scelta effettuata per la connessione a Hong Kong, l'architettura complessiva può variare leggermente. Questa sezione mostra tre architetture disponibili con una combinazione diversa di VPN o SDWAN e/o ExpressRoute.
 
-Tutte queste opzioni usano l'hub protetto della rete WAN virtuale di Azure per la connettività M365 diretta a Hong Kong. Queste architetture supportano anche i requisiti di conformità per [Office 365 Multi-Geo](https://docs.microsoft.com/office365/enterprise/office-365-multi-geo) e mantengono il traffico in prossimità della successiva frontdoor di Office 365. Si ottiene così anche un miglioramento per l'uso di Microsoft 365 al di fuori della Cina.
+Tutte queste opzioni usano l'hub protetto WAN virtuale di Azure per la connettività Direct Microsoft 365 in Hong Kong. Queste architetture supportano anche i requisiti di conformità per [Microsoft 365 la funzionalità multigeo](/microsoft-365/enterprise/microsoft-365-multi-geo) e mantengono il traffico vicino alla successiva posizione di Azure front door. Si ottiene così anche un miglioramento per l'uso di Microsoft 365 al di fuori della Cina.
 
 Quando si usa una rete WAN virtuale di Azure con connessioni Internet, ogni connessione può trarre vantaggio da servizi aggiuntivi come il [Servizio di peering di Microsoft Azure (MAPS)](https://docs.microsoft.com/azure/peering-service/about), appositamente creato per ottimizzare il traffico verso la rete globale Microsoft da provider di servizi Internet di terze parti.
 

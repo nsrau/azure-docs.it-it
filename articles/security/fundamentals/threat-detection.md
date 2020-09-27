@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1522d143f2837a57481a4d678911e7a3c44d084d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 78043e3d95a94d0e9be810164b31ef031234d620
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541023"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399602"
 ---
 # <a name="azure-advanced-threat-detection"></a>Rilevamento delle minacce avanzato in Azure
 
@@ -64,13 +64,13 @@ Di seguito sono riportati esempi di alcuni dei modi in cui Azure Identity Protec
 
 ### <a name="azure-ad-privileged-identity-management"></a>Gestione identità con privilegi di Azure AD
 
-Con [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) è possibile gestire, il controllo e monitorare l'accesso all'interno dell'organizzazione. Questa funzionalità include l'accesso alle risorse in Azure AD e altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.
+Con [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) è possibile gestire, il controllo e monitorare l'accesso all'interno dell'organizzazione. Questa funzionalità include l'accesso alle risorse in Azure AD e altri Servizi online Microsoft, ad esempio Microsoft 365 o Microsoft Intune.
 
 ![Schema di gestione identità con privilegi di Azure AD](./media/threat-detection/azure-threat-detection-fig2.png)
 
 PIM consente di:
 
--   Ricevere avvisi e report sugli amministratori di Azure AD e accesso just-in-time (JIT) come amministratore ai Microsoft Online Services, ad esempio Office 365 e Intune.
+-   Ottenere avvisi e report sugli amministratori Azure AD e l'accesso amministrativo JIT (just-in-Time) a Microsoft Servizi online, ad esempio Microsoft 365 e Intune.
 
 -   Ottenere report sulla cronologia degli accessi degli amministratori e sulle modifiche alle assegnazioni degli amministratori.
 
@@ -155,7 +155,7 @@ Il Centro sicurezza si avvale di analisi della sicurezza avanzate, che vanno ben
 
 Microsoft ha accesso a un'enorme quantità di dati di intelligence per le minacce globali.
 
-Il flusso di dati di telemetria proviene da più origini, ad esempio Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Crimes Unit (DCU) e Microsoft Security Response Center (MSRC).
+I dati di telemetria passano da più origini, ad esempio Azure, Microsoft 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Crimes Unit (DC) e Microsoft Security Response Center (MSRC).
 
 ![Risultati di intelligence sulle minacce](./media/threat-detection/azure-threat-detection-fig10.jpg)
 
@@ -190,7 +190,7 @@ Di seguito sono riportati alcuni esempi:
 
 -   **Script di PowerShell dannosi**: PowerShell può essere usato da utenti malintenzionati per eseguire codice dannoso in macchine virtuali di destinazione per molteplici scopi. Il Centro sicurezza ispeziona l'attività di PowerShell alla ricerca di prove di attività sospette.
 
--   **Attacchi in uscita**: gli utenti malintenzionati prendono spesso di mira le risorse cloud con l'obiettivo di usarle per organizzare altri attacchi. Le macchine virtuali compromesse, ad esempio, possono essere usate per sferrare attacchi di forza bruta contro altre macchine virtuali, inviare posta indesiderata o analizzare le porte aperte e altri dispositivi su Internet. Applicando le tecniche di apprendimento automatico al traffico di rete, il Centro sicurezza può rilevare quando le comunicazioni di rete in uscita superano la norma. Nel caso in cui venga rilevata posta indesiderata, il Centro sicurezza correla anche il traffico di posta elettronica insolito con le informazioni di Office 365 per determinare se la posta elettronica è probabilmente dannosa o il risultato di una campagna di posta elettronica legittima.
+-   **Attacchi in uscita**: gli utenti malintenzionati prendono spesso di mira le risorse cloud con l'obiettivo di usarle per organizzare altri attacchi. Le macchine virtuali compromesse, ad esempio, possono essere usate per sferrare attacchi di forza bruta contro altre macchine virtuali, inviare posta indesiderata o analizzare le porte aperte e altri dispositivi su Internet. Applicando le tecniche di apprendimento automatico al traffico di rete, il Centro sicurezza può rilevare quando le comunicazioni di rete in uscita superano la norma. Quando viene rilevata una posta indesiderata, il Centro sicurezza correla anche il traffico di posta elettronica insolito con Intelligence da Microsoft 365 per determinare se la posta è probabilmente nefasta o il risultato di una campagna di posta elettronica legittima.
 
 ### <a name="anomaly-detection"></a>Rilevamento anomalie
 

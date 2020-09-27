@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: victorh
-ms.openlocfilehash: da5100fafc98ae38809c93e9b3db5ef41c58766a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68789d3b8a4be51a381e95d6e6f840331b46b4e9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82863417"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400112"
 ---
 # <a name="azure-firewall-remote-work-support"></a>Supporto per lavoro remoto del firewall di Azure
 
@@ -24,7 +24,7 @@ Il lavoro dei criteri domestici richiede che molte organizzazioni IT affrontino 
 
 ## <a name="azure-windows-virtual-desktop-support"></a>Supporto per desktop virtuali Windows di Azure
 
-Desktop virtuale di Windows è un servizio di virtualizzazione desktop e app completo in esecuzione in Azure. Si tratta dell'unica infrastruttura VDI (Virtual Desktop Infrastructure) che offre funzionalità di gestione semplificata, Windows 10 multisessione, ottimizzazioni per Office 365 ProPlus e supporto per gli ambienti Servizi Desktop remoto (RDS). Puoi distribuire e ridimensionare le tue app e i tuoi desktop Windows in Azure in pochi minuti e ottenere funzionalità predefinite di sicurezza e conformità. Per desktop virtuale Windows non è necessario aprire alcun accesso in ingresso alla rete virtuale. È tuttavia necessario consentire un set di connessioni di rete in uscita per le macchine virtuali di desktop virtuali Windows in esecuzione nella rete virtuale. Per altre informazioni, vedere [Usare Firewall di Azure per proteggere le distribuzioni di Desktop virtuale Windows](protect-windows-virtual-desktop.md).
+Desktop virtuale di Windows è un servizio di virtualizzazione desktop e app completo in esecuzione in Azure. Si tratta dell'unica infrastruttura VDI (Virtual Desktop Infrastructure) che offre funzionalità di gestione semplificata, Windows 10 multisessione, ottimizzazioni per Microsoft 365 app per le aziende e supporto per gli ambienti Servizi Desktop remoto (RDS). Puoi distribuire e ridimensionare le tue app e i tuoi desktop Windows in Azure in pochi minuti e ottenere funzionalità predefinite di sicurezza e conformità. Per desktop virtuale Windows non è necessario aprire alcun accesso in ingresso alla rete virtuale. È tuttavia necessario consentire un set di connessioni di rete in uscita per le macchine virtuali di desktop virtuali Windows in esecuzione nella rete virtuale. Per altre informazioni, vedere [Usare Firewall di Azure per proteggere le distribuzioni di Desktop virtuale Windows](protect-windows-virtual-desktop.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,19 +1,19 @@
 ---
 title: Partizionamento dei dati nell'API Gremlin di Azure Cosmos DB
 description: Informazioni su come usare un grafo partizionato in Azure Cosmos DB. Questo articolo descrive anche i requisiti e le procedure consigliate per un grafo partizionato.
-author: luisbosquez
-ms.author: lbosq
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78c15da1ea9fe5f6307ce388e4d64d372e9eb8c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a993779bc47f1a9b2be8851fafe628ae4286f4a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261767"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400503"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Uso di un grafo partizionato in Azure Cosmos DB
 
@@ -33,39 +33,39 @@ Le linee guida seguenti descrivono il funzionamento della strategia di partizion
 
 - **Gli archi verranno archiviati insieme al relativo vertice di origine**. In altre parole, per ogni vertice la relativa chiave di partizione definisce la posizione di archiviazione insieme ai relativi archi in uscita. Questa ottimizzazione viene eseguita per evitare query tra partizioni quando si usa la `out()` cardinalità nelle query Graph.
 
-- **I bordi contengono riferimenti ai vertici a cui puntano**. Tutti i bordi vengono archiviati con le chiavi di partizione e gli ID dei vertici a cui puntano. Questo calcolo rende sempre tutte le query `out()` di direzione una query partizionata con ambito e non una query nascosta tra partizioni. 
+- **I bordi contengono riferimenti ai vertici a cui puntano**. Tutti i bordi vengono archiviati con le chiavi di partizione e gli ID dei vertici a cui puntano. Questo calcolo rende sempre tutte le query `out()` di direzione una query partizionata con ambito e non una query nascosta tra partizioni.
 
 - **Per le query sul grafo è necessario specificare una chiave di partizione**. Per sfruttare appieno il partizionamento orizzontale in Azure Cosmos DB, è necessario specificare la chiave di partizione quando si seleziona un singolo vertice, ogni volta possibile. Le query seguenti consentono la selezione di uno o più vertici in un grafo partizionato:
 
     - `/id` e `/label` non sono supportate come chiavi di partizione per un contenitore nell'API Gremlin.
 
 
-    - Selezione di un vertice in base all'ID, quindi **uso del passaggio `.has()` per specificare la proprietà chiave di partizione**: 
-    
+    - Selezione di un vertice in base all'ID, quindi **uso del passaggio `.has()` per specificare la proprietà chiave di partizione**:
+
         ```java
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-    
-    - Selezione di un vertice **specificando una tupla che include il valore della chiave di partizione e l'ID**: 
-    
+
+    - Selezione di un vertice **specificando una tupla che include il valore della chiave di partizione e l'ID**:
+
         ```java
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-        
+
     - Specifica di una **matrice di tuple di valori di chiave di partizione e ID**:
-    
+
         ```java
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-        
-    - Selezione di un set di vertici con i relativi ID e **specifica di un elenco di valori di chiave di partizione**: 
-    
+
+    - Selezione di un set di vertici con i relativi ID e **specifica di un elenco di valori di chiave di partizione**:
+
         ```java
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
 
-    - Usando la **strategia di partizione** all'inizio di una query e specificando una partizione per l'ambito del resto della query Gremlin: 
-    
+    - Usando la **strategia di partizione** all'inizio di una query e specificando una partizione per l'ambito del resto della query Gremlin:
+
         ```java
         g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V()
         ```

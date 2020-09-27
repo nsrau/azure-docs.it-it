@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: b9e6561c1ed9870b669ec5e9825a376f8bd03c4d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b67de07777fa3f4f2b6190d8b003eb0495e66d15
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145702"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400486"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Estrarre informazioni in Excel usando Analisi del testo e Power Automate 
 
@@ -33,11 +33,11 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un account Microsoft Azure. [Crea un account gratuito](https://azure.microsoft.com/free/cognitive-services/) o [Accedi](https://portal.azure.com/).
+- Un account Microsoft Azure. [Creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/) o [eseguire l'accesso](https://portal.azure.com/).
 - Una risorsa Analisi del testo. Se non si dispone di un, è possibile [crearne uno nella portale di Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e usare il livello gratuito per completare questa esercitazione.
 - [Chiave e endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) generati automaticamente durante l'iscrizione.
 - Un foglio di calcolo contenente problemi del tenant. I dati di esempio sono disponibili in GitHub
-- Office 365, con OneDrive for business.
+- Microsoft 365 con OneDrive for business.
 
 ## <a name="add-the-excel-file-to-onedrive-for-business"></a>Aggiungere il file di Excel a OneDrive for business
 
@@ -76,12 +76,12 @@ Creare variabili che rappresentano le informazioni che verranno aggiunte al file
 
 Aggiungere le informazioni seguenti alle variabili create. Rappresentano le colonne del file di Excel. Se sono presenti variabili compresse, è possibile fare clic su di esse per espanderle.
 
-| Operazione |Nome   | Type | valore |
+| Action |Nome   | Type | valore |
 |---------|---------|---|---|
-| Inizializzare una variabile | var_person | Stringa | Persona |
-| Inizializza variabile 2 | var_phone | Stringa | Phone_Number |
-| Inizializza variabile 3 | var_plumbing | Stringa | tubature |
-| Inizializza variabile 4 | var_other | Stringa | altro | 
+| Inizializzare una variabile | var_person | string | Persona |
+| Inizializza variabile 2 | var_phone | string | Phone_Number |
+| Inizializza variabile 3 | var_plumbing | string | tubature |
+| Inizializza variabile 4 | var_other | string | altro | 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="informazioni contenute nelle variabili di flusso":::
@@ -123,8 +123,8 @@ Nel flusso immettere le informazioni seguenti per creare una nuova connessione A
 
 | Campo           | Valore                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
-| Connection Name (Nome connessione) | Nome della connessione alla risorsa Analisi del testo. Ad esempio, `TAforPowerAutomate` |
-| Chiave dell'account     | Chiave per la risorsa Analisi del testo.                                                                                   |
+| Connection Name (Nome connessione) | Nome della connessione alla risorsa Analisi del testo. Ad esempio: `TAforPowerAutomate`. |
+| Chiave account     | Chiave per la risorsa Analisi del testo.                                                                                   |
 | Site URL        | Endpoint per la risorsa Analisi del testo.                                                       |
 
 > [!div class="mx-imgBorder"] 
@@ -218,7 +218,7 @@ Nella condizione **se no** fare clic su **Aggiungi un'azione**e selezionare **Ag
 
 ## <a name="test-the-workflow"></a>Testare il flusso di lavoro
 
-Nell'angolo in alto a destra della schermata fare clic su **Salva**, quindi su **test**. Selezionare **eseguirò l'azione trigger**. Fare clic su **salva & test**, **Esegui flusso**, quindi **completato**.
+Nell'angolo in alto a destra della schermata fare clic su **Salva**, quindi su **test**. Selezionare  **eseguirò l'azione trigger**. Fare clic su **salva & test**, **Esegui flusso**, quindi **completato**.
 
 Il file di Excel verrà aggiornato nell'account OneDrive. L'aspetto sarà simile al seguente.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d702a3cca6a24819d2d184dc6df09153c9dcc860
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 01213cd4d04783d0d877b4565493f06fa3718f8d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281882"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399636"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Eseguire il servizio di gestione certificati dell'insieme di credenziali OPC in modo sicuro
 
@@ -94,7 +94,7 @@ Tutti i sistemi devono essere monitorati e aggiornati continuamente con gli aggi
 
 ### <a name="security-monitoring"></a>Monitoraggio della protezione
 
-Sottoscrivere o implementare il monitoraggio della sicurezza appropriato. Ad esempio, sottoscrivere una soluzione di monitoraggio centrale, ad esempio il Centro sicurezza di Azure o la soluzione di monitoraggio Office 365, e configurarla in modo appropriato per assicurarsi che gli eventi di sicurezza vengano trasmessi alla soluzione di monitoraggio.
+Sottoscrivere o implementare il monitoraggio della sicurezza appropriato. Ad esempio, sottoscrivere una soluzione di monitoraggio centrale, ad esempio il Centro sicurezza di Azure o la soluzione di monitoraggio Microsoft 365, e configurarla in modo appropriato per assicurarsi che gli eventi di sicurezza vengano trasmessi alla soluzione di monitoraggio.
 
 > [!IMPORTANT]
 > Per impostazione predefinita, il servizio dell'insieme di credenziali OPC viene distribuito con [applicazione Azure Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) come soluzione di monitoraggio. Si consiglia vivamente di aggiungere una soluzione di sicurezza come il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/) .

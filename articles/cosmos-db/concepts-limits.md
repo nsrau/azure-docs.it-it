@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: deda5b9dab416258f9db1c76e9b41f781101e2fd
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 373463ff9024ec3b657df6d141ed830142b23f2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033014"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400061"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -27,8 +27,8 @@ Dopo aver creato un account Azure Cosmos nella propria sottoscrizione, è possib
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Numero massimo di UR per ogni contenitore ([modalità di provisioning con velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
-| Numero massimo di UR per ogni database ([modalità di provisioning con velocità effettiva condivisa](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
+| Numero massimo di UR per ogni contenitore ([modalità di provisioning con velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](create-support-request-quota-increase.md) |
+| Numero massimo di UR per ogni database ([modalità di provisioning con velocità effettiva condivisa](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](create-support-request-quota-increase.md) |
 | Numero massimo di ur per partizione (logica) | 10,000 |
 | Archiviazione massima in tutti gli elementi per ogni partizione (logica) | 20 GB |
 | Numero massimo di chiavi di partizione (logica) distinte | Nessuna limitazione |
@@ -79,8 +79,8 @@ Senza [Server](serverless.md) è possibile usare le risorse di Azure Cosmos DB i
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Numero massimo di account di database per ogni sottoscrizione | 50 per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
-| Numero massimo di failover a livello di area | 1 all'ora per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
+| Numero massimo di account di database per ogni sottoscrizione | 50 per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](create-support-request-quota-increase.md)|
+| Numero massimo di failover a livello di area | 1 all'ora per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](create-support-request-quota-increase.md)|
 
 > [!NOTE]
 > I failover a livello di area si applicano solo ad account di scrittura su singola area. Gli account di scrittura su più aree non richiedono o non hanno limiti per la modifica dell'area di scrittura.
@@ -120,7 +120,7 @@ A seconda dell'API usata, un contenitore di Azure Cosmos può rappresentare una 
 | Numero massimo di percorsi per ogni vincolo di chiave univoca|16 <sup>*</sup>|
 | Valore TTL massimo |2147483647|
 
-<sup>*</sup> È possibile aumentare uno qualsiasi di questi limiti per contenitore contattando il supporto di Azure.
+<sup>*</sup> È possibile aumentare i limiti per ogni contenitore creando un [richiesta di supporto di Azure](create-support-request-quota-increase.md).
 
 ## <a name="per-item-limits"></a>Limiti per elemento
 
@@ -160,7 +160,7 @@ Cosmos DB usa HMAC per l'autorizzazione. È possibile usare una chiave master o 
 | --- | --- |
 | Tempo di scadenza massimo del token master | 15 min  |
 | Tempo di scadenza minimo del token di risorsa | 10 min  |
-| Tempo di scadenza massimo del token di risorsa | 24 ore per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
+| Tempo di scadenza massimo del token di risorsa | 24 ore per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](create-support-request-quota-increase.md)|
 | Massimo sfasamento di orario per l'autorizzazione con token| 15 min |
 
 Cosmos DB supporta l'esecuzione di trigger durante le operazioni di scrittura. Il servizio supporta al massimo un pre-trigger e un post-trigger per ogni operazione di scrittura.
@@ -202,7 +202,7 @@ Cosmos DB supporta l'esecuzione di query sugli elementi tramite [SQL](how-to-sql
 | Numero massimo di percorsi esclusi per ogni contenitore| 500 |
 | Numero massimo di proprietà in un indice composto| 8 |
 
-<sup>*</sup> È possibile aumentare questi limiti per le query SQL contattando il supporto di Azure.
+<sup>*</sup> È possibile aumentare i limiti di query SQL creando un Richiesta di supporto di [Azure](create-support-request-quota-increase.md).
 
 ## <a name="mongodb-api-specific-limits"></a>Limiti specifici dell'API MongoDB
 

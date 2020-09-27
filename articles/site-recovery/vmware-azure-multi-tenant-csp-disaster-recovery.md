@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 334cbef7460306ef2954881a1cab918573e1e371
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924581"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400639"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurare il ripristino di emergenza di VMware in un ambiente multi-tenancy con il programma Cloud Solution Provider (CSP)
 
-Il [programma CSP](https://partner.microsoft.com/cloud-solution-provider) promuove scenari di collaborazione per i servizi cloud Microsoft, tra cui Office 365, Enterprise Mobility Suite e Microsoft Azure. Con CSP, i partner acquisiscono una relazione end-to-end con i clienti e diventano il punto di contatto primario della relazione. I partner possono distribuire le sottoscrizioni di Azure per i clienti e combinarle con le proprie offerte personalizzate a valore aggiunto.
+Il [programma CSP](https://partner.microsoft.com/cloud-solution-provider) promuove storie migliori per i servizi cloud Microsoft, tra cui Microsoft 365, Enterprise Mobility Suite e Microsoft Azure. Con CSP, i partner acquisiscono una relazione end-to-end con i clienti e diventano il punto di contatto primario della relazione. I partner possono distribuire le sottoscrizioni di Azure per i clienti e combinarle con le proprie offerte personalizzate a valore aggiunto.
 
 Con [Azure Site Recovery](site-recovery-overview.md), i partner possono gestire il ripristino di emergenza per i clienti direttamente tramite CSP. Possono in alternativa usare il programma CSP per configurare gli ambienti di Site Recovery e consentire ai clienti di gestire le proprie esigenze di ripristino di emergenza in modalità self-service. In entrambi gli scenari, i partner rappresentano l'anello di congiunzione tra Site Recovery e i clienti. I partner gestiscono la relazione con i clienti, addebitando loro l'uso di Site Recovery.
 

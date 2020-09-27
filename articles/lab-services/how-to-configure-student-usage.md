@@ -3,12 +3,12 @@ title: Configurare le impostazioni di utilizzo nei Lab della classe Azure Lab Se
 description: Informazioni su come configurare il numero di studenti per un Lab, registrarli con il Lab, controllare il numero di ore per cui è possibile usare la macchina virtuale e altro ancora.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 229147891d1456d7b7b11fd5297755842d85e600
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 742fcd2b504bce7ad2257edd559e4b66a9172d24
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445951"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399670"
 ---
 # <a name="add-and-manage-lab-users"></a>Aggiungere e gestire gli utenti del lab
 
@@ -166,7 +166,7 @@ Per impostare quote aggiuntive, procedere come segue:
 
 Per aggiungere studenti a un Lab della classe, è possibile usare gli account di posta elettronica. Gli studenti potrebbero avere i seguenti tipi di account di posta elettronica:
 
-- Un account di posta elettronica per studenti fornito dall'istanza di Azure Active Directory dell'Università per Office 365. 
+- Un account di posta elettronica per studenti fornito dall'istanza di Azure Active Directory dell'Università.
 - Un account di posta elettronica del dominio Microsoft, ad esempio *Outlook.com*, *hotmail.com*, *MSN.com*o *Live.com*.
 - Un account di posta elettronica non Microsoft, ad esempio quello fornito da Yahoo! o Google. Tuttavia, questi tipi di account devono essere collegati con un account Microsoft.
 - Un account GitHub. Questo account deve essere collegato a un account Microsoft.

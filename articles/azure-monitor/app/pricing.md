@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5dd1fd1209be29774d19a155b6e585fa6ebcc036
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b695205c08f9039fbf91eaeddb7622b784d81d12
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930486"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400588"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -264,7 +264,7 @@ Il valore predefinito di conservazione dei dati per le risorse Application Insig
 
 Per modificare il periodo di conservazione, dalla risorsa Application Insights passare alla pagina **Utilizzo e costi stimati** e selezionare l'opzione **Conservazione dei dati**:
 
-![Regolazione del limite del volume dei dati di telemetria giornaliero](./media/pricing/pricing-005.png)
+![Screenshot che mostra dove modificare il periodo di conservazione dei dati.](./media/pricing/pricing-005.png)
 
 Quando il periodo di conservazione viene ridotto, è previsto un periodo di tolleranza di diversi giorni prima che i dati meno recenti vengano rimossi.
 

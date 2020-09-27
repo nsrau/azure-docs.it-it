@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: b82b79d076871b961d5c496bc70beac1b5067b2d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2a5204be638f108b40e431b148c9cb97788c4a52
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288114"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400758"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Sicurezza dei dati e criteri di privacy per i connettori Google in app per la logica di Azure
 
@@ -40,7 +40,7 @@ Con questi criteri, quando si usa un account del consumer Gmail, è possibile us
 
 * Google Services: Gmail, Google Calendar, Google Contacts, Google Drive, Google Sheets e Google Task
 
-* Servizi Microsoft approvati: Dynamics 365, Excel online, Microsoft teams, Office 365, OneDrive e SharePoint Online
+* Servizi Microsoft approvati: Dynamics 365, Excel online, Microsoft teams, Microsoft 365, OneDrive e SharePoint Online
 
 * Connettori per le origini dati gestite dal cliente: FTP, RSS, SFTP, SMTP e SQL Server
 
@@ -98,7 +98,7 @@ Per usare l'ID client e il segreto client dall'app client Google nel trigger o n
 
    ![Specificare le informazioni di connessione](./media/connectors-google-data-security-privacy-policy/authentication-type-bring-your-own.png)
 
-   | Proprietà | valore | Descrizione |
+   | Proprietà | Valore | Descrizione |
    |----------|-------|-------------|
    | **Tipo di autenticazione** | **Porta la tua applicazione** | Specifica che verrà usata l'app client personalizzata per l'autenticazione. |
    | **ID client** | <*client-ID*> | ID client dall'app client Google |

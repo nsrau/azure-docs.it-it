@@ -8,12 +8,12 @@ ms.date: 09/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 71caad8ce650b86f4350b32974bb8d980538b223
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 10e091ed58146d992d7b9c1f65b8b64f881a41b9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489018"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400282"
 ---
 # <a name="connecting-to-servers"></a>Connessione ai server
 
@@ -23,7 +23,7 @@ Questo articolo descrive la connessione a un server usando la modellazione dei d
 
 [Ottenere le librerie client più recenti](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 
-Tutte le connessioni a qualunque tipo di server richiedono le librerie client AMO, ADOMD.NET e OLEDB aggiornate per connettersi e interagire con un server di Analysis Services. Per SSMS, Visual Studio, Excel 2016 e versioni successive e Power BI, le librerie client più recenti vengono installate o aggiornate con le versioni mensili. In alcuni casi, tuttavia, è possibile che un'applicazione non abbia la versione più recente. Ad esempio, quando alcuni criteri ritardano gli aggiornamenti o quando gli aggiornamenti di Office 365 sono su Deferred Channel.
+Tutte le connessioni a qualunque tipo di server richiedono le librerie client AMO, ADOMD.NET e OLEDB aggiornate per connettersi e interagire con un server di Analysis Services. Per SSMS, Visual Studio, Excel 2016 e versioni successive e Power BI, le librerie client più recenti vengono installate o aggiornate con le versioni mensili. In alcuni casi, tuttavia, è possibile che un'applicazione non abbia la versione più recente. Ad esempio, quando i criteri ritardano gli aggiornamenti o Microsoft 365 aggiornamenti si trovano sul canale posticipato.
 
 > [!NOTE]
 > Le librerie client non sono in grado di connettersi a Azure Analysis Services tramite i server proxy che richiedono un nome utente e una password. 

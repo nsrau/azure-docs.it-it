@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 0cb51cd224145e7fe359e2b14a87ed2b87b18c26
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: f331c62060b2d8a39a87bab95b00225f363b4a56
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563025"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400248"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoraggio della connettività di rete con monitoraggio connessione (anteprima)
 
@@ -30,7 +30,7 @@ Di seguito sono riportati alcuni casi d'uso per monitoraggio connessione (antepr
 
 - La VM del server Web front-end comunica con una macchina virtuale del server di database in un'applicazione multilivello. Si vuole controllare la connettività di rete tra le due VM.
 - Si vuole che le macchine virtuali nell'area Stati Uniti orientali per il ping delle macchine virtuali nell'area Stati Uniti centrali e si desideri confrontare le latenze di rete tra aree.
-- Sono disponibili più siti di Office locali a Seattle, Washington e in Ashburn, Virginia. I siti di Office si connettono agli URL di Office 365. Per gli utenti degli URL di Office 365, confrontare le latenze tra Seattle e Ashburn.
+- Sono disponibili più siti di Office locali a Seattle, Washington e in Ashburn, Virginia. I siti di Office si connettono a Microsoft 365 URL. Per gli utenti di Microsoft 365 URL, confrontare le latenze tra Seattle e Ashburn.
 - Per l'applicazione ibrida è necessaria la connettività a un endpoint di archiviazione di Azure. Il sito locale e l'applicazione Azure si connettono allo stesso endpoint di archiviazione di Azure. Si desidera confrontare le latenze del sito locale con le latenze dell'applicazione Azure.
 - Si vuole controllare la connettività tra le installazioni locali e le macchine virtuali di Azure che ospitano l'applicazione cloud.
 
@@ -87,7 +87,7 @@ Per ulteriori informazioni, vedere [Enable Network Watcher](https://docs.microso
 
 Il monitoraggio della connessione monitora la comunicazione a intervalli regolari. Indica le modifiche apportate alla raggiungibilità e alla latenza. È anche possibile controllare la topologia di rete corrente e cronologica tra gli agenti di origine e gli endpoint di destinazione.
 
-Le origini possono essere macchine virtuali di Azure o computer locali in cui è installato un agente di monitoraggio. Gli endpoint di destinazione possono essere URL di Office 365, URL di Dynamics 365, URL personalizzati, ID di risorsa di VM di Azure, IPv4, IPv6, FQDN o qualsiasi nome di dominio.
+Le origini possono essere macchine virtuali di Azure o computer locali in cui è installato un agente di monitoraggio. Gli endpoint di destinazione possono essere Microsoft 365 URL, URL Dynamics 365, URL personalizzati, ID risorsa VM di Azure, IPv4, IPv6, FQDN o qualsiasi nome di dominio.
 
 ### <a name="access-connection-monitor-preview"></a>Monitoraggio connessione di accesso (anteprima)
 
@@ -124,20 +124,20 @@ Tutte le origini, le destinazioni e le configurazioni di test aggiunte a un grup
 
 | Numero di test | Source (Sorgente) | Destination | Configurazione di test |
 | --- | --- | --- | --- |
-| 1 | Una | D | Configurazione 1 |
-| 2 | Una | D | Configurazione 2 |
-| 3 | Una | E | Configurazione 1 |
-| 4 | Una | E | Configurazione 2 |
-| 5 | b | D | Configurazione 1 |
-| 6 | b | D | Configurazione 2 |
-| 7 | b | E | Configurazione 1 |
-| 8 | b | E | Configurazione 2 |
+| 1 | A | D | Configurazione 1 |
+| 2 | A | D | Configurazione 2 |
+| 3 | A | E | Configurazione 1 |
+| 4 | A | E | Configurazione 2 |
+| 5 | B | D | Configurazione 1 |
+| 6 | B | D | Configurazione 2 |
+| 7 | B | E | Configurazione 1 |
+| 8 | B | E | Configurazione 2 |
 | 9 | C | D | Configurazione 1 |
 | 10 | C | D | Configurazione 2 |
 | 11 | C | E | Configurazione 1 |
 | 12 | C | E | Configurazione 2 |
 
-### <a name="scale-limits"></a>Limiti di scalabilità
+### <a name="scale-limits"></a> Limiti di scalabilità
 
 I monitoraggi connessione presentano i limiti di scalabilità seguenti:
 
@@ -276,7 +276,7 @@ Nei monitoraggi connessioni creati prima dell'esperienza di monitoraggio conness
 
 Quando si usano le metriche, impostare il tipo di risorsa come Microsoft. Network/networkWatchers/connectionMonitors
 
-| Metrica | Nome visualizzato | Unità | Tipo di aggregazione | Description | Dimensioni |
+| Metrica | Nome visualizzato | Unità | Tipo di aggregazione | Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % di probe non riusciti | Percentuale | Media | Percentuale di probe di monitoraggio della connettività non riuscita. | Nessuna dimensione |
 | AverageRoundtripMs | Avg. Tempo di round trip (ms) | Millisecondi | Media | RTT di rete medio per i probe di monitoraggio della connettività inviati tra l'origine e la destinazione. |             Nessuna dimensione |

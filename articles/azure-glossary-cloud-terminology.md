@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 63adb5d6898fd467a0557aa147e54f814c167e72
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079571"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400131"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
 
@@ -30,7 +30,7 @@ Il glossario di Microsoft Azure è un breve dizionario di terminologia cloud per
 * [Terminologia del cloud computing](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - Terminologia generale relativa al cloud.
 
 ## <a name="account"></a>account
-Account usato per accedere alla sottoscrizione di Azure e gestirla. Viene spesso definito account Azure anche se un account può essere un account Microsoft aziendale, dell'istituto di istruzione o personale esistente oppure un nome utente e una password di Office 365. È anche possibile creare un account per gestire una sottoscrizione di Azure quando ci si iscrive alla [versione di valutazione gratuita](https://azure.microsoft.com).  
+Account usato per accedere alla sottoscrizione di Azure e gestirla. Viene spesso definito account Azure anche se un account può essere uno dei seguenti: un lavoro, un'istituto di istruzione o un account Microsoft personale esistente. È anche possibile creare un account per gestire una sottoscrizione di Azure quando ci si iscrive alla [versione di valutazione gratuita](https://azure.microsoft.com).  
 Vedere [iscriversi a una sottoscrizione di Azure con l'account Microsoft 365 e gli](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) [account che è possibile usare per accedere](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>App per le API

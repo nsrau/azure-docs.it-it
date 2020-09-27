@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 1a829f4e5f45394d9c5bbed0db9289727b816917
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a73a2bc82c7f4e77808f751bb8ba24adcacd2e31
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315032"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400384"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurare e accedere ai log di query lente per database di Azure per MySQL-server flessibile usando il portale di Azure
 
@@ -45,9 +45,6 @@ Dalla pagina **parametri server** è possibile tornare all'elenco dei log chiude
 
 ## <a name="set-up-diagnostics"></a>Configurare la diagnostica
 
-> [!NOTE]
-> L'integrazione con le impostazioni di diagnostica di monitoraggio di Azure per accedere ai log è in corso di distribuzione e la funzionalità completa sarà presto disponibile.
-
 I log di query lente sono integrati con le impostazioni di diagnostica di monitoraggio di Azure per consentire la Reindirizzamento dei log ai log di monitoraggio di Azure, agli hub eventi o all'archiviazione di Azure.
 
 1. Nella sezione **monitoraggio** della barra laterale selezionare impostazioni di **diagnostica**  >  **Aggiungi impostazioni di diagnostica**.
@@ -66,7 +63,7 @@ I log di query lente sono integrati con le impostazioni di diagnostica di monito
 
 1. Per accedere ai log di query lente, esplorarli nei sink di dati configurati. Possono essere necessari fino a 10 minuti per la visualizzazione dei log.
 
-Se i log sono stati reindirizzati ai log di monitoraggio di Azure (Log Analytics), vedere alcune [query di esempio](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) che è possibile usare per l'analisi. 
+Se i log sono stati reindirizzati ai log di monitoraggio di Azure (Log Analytics), vedere alcune [query di esempio](concepts-slow-query-logs.md#analyze-logs-in-azure-monitor-logs) che è possibile usare per l'analisi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 <!-- - See [Access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.-->

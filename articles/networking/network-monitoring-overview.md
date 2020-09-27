@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e2d3f0b5abcd7a9dcd4f49c120353adacffcb31
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67672173"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399653"
 ---
 # <a name="network-monitoring-solutions"></a>Soluzioni di monitoraggio della rete 
 
@@ -65,7 +65,7 @@ Monitoraggio prestazioni rete per ExpressRoute offre una soluzione di monitoragg
 * Rilevamento della topologia di rete da applicazioni locali ad applicazioni cloud
 * Pianificazione della capacità, analisi dell'utilizzo della larghezza di banda
 * Monitoraggio e avviso per percorsi primari e secondari
-* Monitoraggio della connettività a servizi di Azure, come Office 365, Dynamics 365 e così via tramite ExpressRoute
+* Monitoraggio della connettività ai servizi di Azure, ad esempio Microsoft 365, Dynamics 365,... su ExpressRoute
 * Rilevamento della riduzione delle prestazioni della connettività delle reti virtuali
 
 ![Mappa geografica che mostra il traffico tra le varie aree geografiche](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -84,7 +84,7 @@ Con il monitoraggio della connettività di servizio è possibile testare la ragg
 * Testare la raggiungibilità delle applicazioni da più posizioni utente a livello globale
 * Determinare la perdita di latenza di rete e pacchetti per le applicazioni line-of-business e SaaS
 * Determinare le aree sensibili della rete alla base delle scadenti prestazioni delle applicazioni
-* Monitorare la raggiungibilità alle applicazioni di Office 365 tramite test predefiniti per Microsoft Office 365, Dynamics 365, Skype for Business e altri servizi Microsoft
+* Monitora la raggiungibilità delle applicazioni Microsoft 365, usando test predefiniti per Microsoft 365, Dynamics 365, Skype for business e altri servizi Microsoft
 
 Per altre informazioni, vedere gli articoli seguenti:
 

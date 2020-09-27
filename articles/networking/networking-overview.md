@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 39601da6cc8e10ba8f4a24eeddb97cfe677c031f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 364f4f38599508e4dfb455f1336d4a6978cdf5b6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651735"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400452"
 ---
 # <a name="azure-networking-services-overview"></a>Panoramica dei servizi di rete di Azure
 
@@ -53,7 +53,7 @@ Rete virtuale di Azure (VNet) è il blocco predefinito fondamentale per la rete 
 Per altre informazioni, vedere informazioni su [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
 
 ### <a name="expressroute"></a><a name="expressroute"></a>ExpressRoute
-ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata facilitata da un provider di connettività. La connessione è privata. Il traffico non passa da Internet. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure, Office 365 e Dynamics 365.  Per ulteriori informazioni, vedere [che cos'è ExpressRoute?](../expressroute/expressroute-introduction.md).
+ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata facilitata da un provider di connettività. La connessione è privata. Il traffico non passa da Internet. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure, Microsoft 365 e Dynamics 365.  Per ulteriori informazioni, vedere [che cos'è ExpressRoute?](../expressroute/expressroute-introduction.md).
 
 ![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
 
@@ -84,7 +84,7 @@ NAT (Network Address Translation) di rete virtuale semplifica la connettività I
 ![Gateway NAT della rete virtuale](./media/networking-overview/flow-map.png)
 
 ### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a> Servizio peering di Azure
-Il servizio peering di Azure migliora la connettività dei clienti ai servizi cloud Microsoft, ad esempio Office 365, Dynamics 365, Software as a Service (SaaS) Services, Azure o tutti i servizi Microsoft accessibili tramite la rete Internet pubblica. Per altre informazioni, vedere [che cos'è il servizio peering di Azure?](../peering-service/about.md).
+Il servizio peering di Azure migliora la connettività dei clienti ai servizi cloud Microsoft, ad esempio Microsoft 365, Dynamics 365, Software as a Service (SaaS) Services, Azure o qualsiasi servizio Microsoft accessibile tramite la rete Internet pubblica. Per altre informazioni, vedere [che cos'è il servizio peering di Azure?](../peering-service/about.md).
 
 ## <a name="application-protection-services"></a><a name="protect"></a>Servizi di protezione delle applicazioni
 

@@ -7,18 +7,18 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 51f4c9a5748896eff9e9f3ae9719b2e7e7cdd4e7
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 247a5c89b52c6b58f2e1d04723f4f73b85aeb153
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607488"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400741"
 ---
 # <a name="cloud-solution-provider-program"></a>Programma per provider di soluzioni cloud
 
 Questo articolo illustra come configurare l'offerta in modo che sia disponibile per il programma Cloud Solution Provider (CSP). Oltre alla pubblicazione delle offerte tramite i [negozi online del Marketplace commerciale](comparing-appsource-azure-marketplace.md), è anche possibile vendere tramite il programma CSP per raggiungere milioni di clienti Microsoft qualificati che il programma serve.
 
-È possibile configurare offerte nuove o esistenti in modo che siano disponibili nel programma CSP per il consenso esplicito. Ciò consente ai partner CSP di vendere i prodotti e creare soluzioni in bundle per i clienti.
+È possibile configurare offerte nuove o esistenti per la disponibilità nel programma CSP su base esplicita, in modo da consentire ai partner CSP di vendere i prodotti e creare soluzioni in bundle per i clienti.
 
 Gli editori sono tenuti a fornire il supporto in garanzia ai clienti finali e a fornire un meccanismo per essere contattati dai partner del programma CSP e/o dai clienti per richiedere supporto. È consigliabile fornire ai partner del programma CSP la documentazione per gli utenti, il training e le notifiche sull'integrità/interruzione dei servizi (se applicabile), in modo che i partner del programma CSP siano in grado di gestire le richieste di supporto di livello 1 da parte dei clienti.  
 

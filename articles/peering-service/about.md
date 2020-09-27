@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 548d4f90bd9632e4807547120ac1be589668e8fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03ece391b6f33b47f34705cec1c5907602ac7b23
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871341"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400180"
 ---
 # <a name="azure-peering-service-overview"></a>Panoramica del servizio peering di Azure
 
-Il servizio di peering di Azure è un servizio di rete che migliora la connettività dei clienti ai servizi cloud Microsoft, come Office 365, Dynamics 365, i servizi SaaS (Software as a Service), Azure o qualsiasi servizio Microsoft accessibile tramite la rete Internet pubblica. Microsoft ha collaborato con i provider di servizi Internet (ISP), Internet Exchange partner (IXPs) e i provider SDCI (software-defined cloud Interconnect) in tutto il mondo per offrire una connettività pubblica affidabile e ad alte prestazioni con routing ottimale dal cliente alla rete Microsoft.
+Il servizio peering di Azure è un servizio di rete che migliora la connettività dei clienti ai servizi cloud Microsoft, ad esempio Microsoft 365, Dynamics 365, Servizi Software as a Service (SaaS), Azure o tutti i servizi Microsoft accessibili tramite la rete Internet pubblica. Microsoft ha collaborato con i provider di servizi Internet (ISP), Internet Exchange partner (IXPs) e i provider SDCI (software-defined cloud Interconnect) in tutto il mondo per offrire una connettività pubblica affidabile e ad alte prestazioni con routing ottimale dal cliente alla rete Microsoft.
 
 Con il servizio peering, i clienti possono selezionare un provider di servizi partner ben connesso in una determinata area. La connettività pubblica è ottimizzata per un'affidabilità elevata e una latenza minima dai servizi cloud al percorso dell'utente finale.
 
@@ -48,9 +48,9 @@ Il servizio di peering non è un prodotto di connettività privato come Azure Ex
 > Per ulteriori informazioni su ExpressRoute, vedere la [documentazione di ExpressRoute](https://docs.microsoft.com/azure/expressroute/).
 >
 
-## <a name="background"></a>Sfondo
+## <a name="background"></a>Background
 
-Office 365, Dynamics 365 e qualsiasi altro servizio SaaS Microsoft sono ospitati in più Data Center Microsoft ed è possibile accedervi da qualsiasi posizione geografica. La rete globale Microsoft dispone di località PoP (Point of Presence) Microsoft Edge in tutto il mondo in cui è in grado di connettersi a un utente finale tramite i propri provider di servizi. 
+Microsoft 365, Dynamics 365 e qualsiasi altro servizio SaaS Microsoft sono ospitati in più Data Center Microsoft ed è possibile accedervi da qualsiasi posizione geografica. La rete globale Microsoft dispone di località PoP (Point of Presence) Microsoft Edge in tutto il mondo in cui è in grado di connettersi a un utente finale tramite i propri provider di servizi. 
 
 I provider di servizi Microsoft e dei partner assicurano che il traffico per i prefissi registrati con una connessione al servizio di peering entri e esca dalle località PoP Microsoft Edge più vicine sulla rete globale Microsoft. Microsoft garantisce che il traffico di rete in uscita da dai prefissi registrati con le connessioni al servizio di peering accetti le località PoP Microsoft Edge più vicine sulla rete globale Microsoft.
 

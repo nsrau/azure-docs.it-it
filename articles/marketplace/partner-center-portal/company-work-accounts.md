@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/30/2019
-ms.openlocfilehash: 6fca3429ab96a63b01eaa7e9d1f0ae83dc46e9c7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 246fbcd9bc72683e41489daf105f174f9380c029
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119753"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400265"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Account di lavoro aziendali e centro per i partner
 
@@ -20,7 +20,7 @@ Il centro per i partner USA account aziendali aziendali, noti anche come tenant 
 
 ## <a name="check-whether-your-company-already-has-a-work-account"></a>Controllare se la società dispone già di un account di lavoro
 
-Se la società ha effettuato la sottoscrizione a un servizio cloud Microsoft, ad esempio Azure, Microsoft Intune o Office 365, si dispone già di un dominio di account di posta elettronica di lavoro (noto anche come tenant di Azure Active Directory) che può essere usato con il centro per i partner.
+Se la società ha effettuato la sottoscrizione a un servizio cloud Microsoft, ad esempio Azure, Microsoft Intune o Microsoft 365, si dispone già di un dominio di account di posta elettronica di lavoro (noto anche come tenant Azure Active Directory) che può essere usato con il centro per i partner.
 
 Seguire questa procedura per verificare:
 1. Accedere al portale di amministrazione di Azure all'indirizzo https://portal.azure.com .

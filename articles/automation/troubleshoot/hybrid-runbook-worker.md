@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187201"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400418"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Risolvere i problemi di un ruolo di lavoro ibrido per runbook
 
@@ -234,11 +234,11 @@ I log vengono archiviati localmente in ogni ruolo di lavoro ibrido in C:\Program
 
 I ruoli di lavoro ibridi inviano [output e messaggi del runbook](../automation-runbook-output-and-messages.md) ad Automazione di Azure nello stesso modo in cui li inviano i processi del runbook in esecuzione nel cloud. È possibile abilitare i flussi dettagliati e di stato esattamente come per i runbook.
 
-### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Scenario: Connessione di Orchestrator.Sandbox.exe a Office 365 tramite proxy non riuscita
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-microsoft-365-through-proxy"></a>Scenario: Orchestrator.Sandbox.exe non è possibile connettersi al Microsoft 365 tramite il proxy
 
 #### <a name="issue"></a>Problema
 
-Uno script in esecuzione in un ruolo di lavoro ibrido per runbook di Windows non si connette come previsto a Office 365 su una sandbox di Orchestrator. Lo script usa [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) per la connessione. 
+Uno script in esecuzione in un ruolo di lavoro ibrido per Runbook Windows non può connettersi come previsto per Microsoft 365 su un agente di orchestrazione sandbox. Lo script usa [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) per la connessione. 
 
 Se si modifica **Orchestrator.Sandbox.exe.config** per configurare il proxy e l'elenco di esclusione, la sandbox continua a non connettersi correttamente. Un file **Powershell_ise.exe.config** con le stesse impostazioni del proxy e dell'elenco di esclusione. I registri di Service Management Automation (SMA) e PowerShell non forniscono alcuna informazione relativa al proxy.
 
