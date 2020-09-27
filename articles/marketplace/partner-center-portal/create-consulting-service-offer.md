@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 6ca03e56d49d26fcd34a25ce1e3734db65b19b65
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7b42c12499977b5f7bc1704c57904e90be2e8466
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646837"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398015"
 ---
 # <a name="create-a-consulting-service-offer"></a>Creare un'offerta di un servizio di consulenza
 
@@ -25,7 +25,7 @@ Prima di creare l'offerta, esaminare i prerequisiti in [Prerequisiti dei servizi
 Vantaggi della pubblicazione nel marketplace commerciale:
 
 - Promozione della propria azienda usando il marchio Microsoft.
-- Possibilità di raggiungere potenzialmente più di 100 milioni di utenti di Office 365 e Dynamics 365 in AppSource e più di 200.000 organizzazioni tramite Azure Marketplace.
+- È potenzialmente raggiungibile da più di 100 milioni Microsoft 365 e dagli utenti di Dynamics 365 in AppSource e da più di 200.000 organizzazioni tramite Azure Marketplace.
 - Acquisizione di lead di alta qualità dai marketplace.
 - Promozione dei propri servizi da parte dei team sul campo e di televendita di Microsoft.
 
@@ -140,7 +140,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 3. Aree della soluzione
 4. Settori
 5. Nome offerta
-6. Riepilogo
+6. Summary
 7. Descrizione
 8. Screenshot/video
 
@@ -155,7 +155,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 3. Prodotti
 4. Settori
 5. Nome offerta
-6. Riepilogo
+6. Summary
 7. Descrizione
 8. Screenshot/video
 9. Documenti

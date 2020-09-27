@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083821"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397964"
 ---
-# <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Risolvere gli errori di replica delle macchine virtuali da Azure ad Azure
+# <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Correggere gli errori di replica delle macchine virtuali da Azure ad Azure
 
 Questo articolo descrive come risolvere gli errori comuni in Azure Site Recovery durante la replica e il ripristino di macchine virtuali (VM) di Azure da un'area a un'altra. Per altre informazioni sulle configurazioni supportate, vedere la [matrice di supporto per la replica delle VM di Azure](azure-to-azure-support-matrix.md).
 
@@ -197,11 +197,11 @@ Provare ad accedere al server DNS dalla macchina virtuale. Se il server DNS non 
 
 #### <a name="possible-cause"></a>Possibile causa
 
-Non è possibile stabilire una connessione agli endpoint IP4 di autenticazione e identità di Office 365.
+Non è possibile stabilire una connessione per Microsoft 365 gli endpoint IP4 di autenticazione e identità.
 
 #### <a name="fix-the-problem"></a>Risolvere il problema
 
-Azure Site Recovery l'accesso necessario agli intervalli IP di Office 365 per l'autenticazione.
+Azure Site Recovery l'accesso necessario agli intervalli IP Microsoft 365 per l'autenticazione.
 Se si usano regole del gruppo di sicurezza di rete di Azure (NSG)/proxy firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di usare la regola NSG basata su [tag di servizio Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) per consentire l'accesso ad AAD. Le regole NSG basate sull'indirizzo IP non sono più supportate.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: La configurazione di Site Recovery non è riuscita (151197)
@@ -225,8 +225,8 @@ Le impostazioni proxy personalizzate non sono valide e l'agente del servizio Mob
 1. L'agente del servizio Mobility rileva le impostazioni proxy da Internet Explorer in Windows e `/etc/environment` in Linux.
 1. Se si preferisce impostare il proxy solo per il servizio Mobility, è possibile specificare i dettagli del proxy in _ProxyInfo. conf_ disponibile all'indirizzo:
 
-   - **Linux**:`/usr/local/InMage/config/`
-   - **Windows**:`C:\ProgramData\Microsoft Azure Site Recovery\Config`
+   - **Linux**: `/usr/local/InMage/config/`
+   - **Windows**: `C:\ProgramData\Microsoft Azure Site Recovery\Config`
 
 1. _ProxyInfo. conf_ deve avere le impostazioni proxy nel formato _ini_ seguente.
 
@@ -575,4 +575,4 @@ Per risolvere il problema, attenersi alla procedura seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Replicare le VM di Azure in un'altra area di Azure](azure-to-azure-how-to-enable-replication.md)
+[Replica delle macchine virtuali di Azure in un'altra area di Azure](azure-to-azure-how-to-enable-replication.md)

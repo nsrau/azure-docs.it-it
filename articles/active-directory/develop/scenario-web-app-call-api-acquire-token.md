@@ -1,5 +1,6 @@
 ---
-title: Ottenere un token in un'app Web che chiama API Web-piattaforma di identità Microsoft | Azure
+title: Ottenere un token in un'app Web che chiama le API Web | Azure
+titleSuffix: Microsoft identity platform
 description: Informazioni su come acquisire un token per un'app Web che chiama API Web
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4904cd95dc81aad959c88c1dfdb09416923046e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4fe3744f3f8cb39a7493ce788ee9badc1b31b75e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518182"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396179"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Un'app Web che chiama le API Web: acquisire un token per l'app
 
@@ -27,7 +28,11 @@ L'oggetto applicazione client è stato compilato. A questo punto, verrà usato p
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-I metodi controller sono protetti da un `[Authorize]` attributo che impone agli utenti autenticati di usare l'app Web. Ecco il codice che chiama Microsoft Graph:
+*Microsoft. Identity. Web* aggiunge metodi di estensione che forniscono servizi pratici per chiamare Microsoft Graph o un'API Web downstream. Questi metodi sono descritti in dettaglio in [un'app Web che chiama API Web: chiamare un'API](scenario-web-app-call-api-call-api.md). Con questi metodi helper non è necessario acquisire manualmente un token.
+
+Se tuttavia si desidera acquisire manualmente un token, il codice seguente illustra un esempio di utilizzo di *Microsoft. Identity. Web* a tale scopo in un controller Home. Chiama Microsoft Graph usando l'API REST (invece di Microsoft Graph SDK). Per ottenere un token per chiamare l'API downstream, inserire il `ITokenAcquisition` servizio tramite l'inserimento di dipendenze nel costruttore del controller (o nel costruttore della pagina se si usa Blazer) e usarlo nelle azioni del controller, ottenendo un token per l'utente ( `GetAccessTokenForUserAsync` ) o per l'applicazione stessa ( `GetAccessTokenForAppAsync` ) in uno scenario daemon.
+
+I metodi controller sono protetti da un `[Authorize]` attributo che garantisce che solo gli utenti autenticati possano usare l'app Web.
 
 ```csharp
 [Authorize]
@@ -82,7 +87,7 @@ Il codice per ASP.NET è simile al codice illustrato per ASP.NET Core:
 - Un'azione del controller, protetta da un attributo [autorizzate], estrae l'ID tenant e l'ID utente del `ClaimsPrincipal` membro del controller. (ASP.NET usa `HttpContext.User` ).
 - Da qui, compila un oggetto MSAL.NET `IConfidentialClientApplication` .
 - Infine, viene chiamato il `AcquireTokenSilent` metodo dell'applicazione client riservata.
-- Se è richiesta l'interazione, l'app Web deve richiedere l'intervento dell'utente (accedere nuovamente) e richiedere altre attestazioni.
+- Se è richiesta l'interazione, l'app Web deve richiedere l'intervento dell'utente (eseguire nuovamente l'accesso) e richiedere altre attestazioni.
 
 Il frammento di codice seguente viene Estratto da [HomeController. cs # L157-L192](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Controllers/HomeController.cs#L157-L192) nell'esempio di codice MVC [MS-Identity-ASPNET-webapp-openidconnect](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) ASP.NET:
 

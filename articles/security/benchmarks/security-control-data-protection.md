@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2622d7a2e54dac710ac09d61dee639ab1d104f02
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f2162ee6df551e1bc64741229aec99d5e697fd29
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078997"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395992"
 ---
 # <a name="security-control-data-protection"></a>Controllo di sicurezza: protezione dei dati
 
@@ -22,7 +22,7 @@ I suggerimenti sulla protezione dei dati sono incentrati sulla risoluzione dei p
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.1 | 13.1 | Cliente |
+| 4.1 | 13.1 | Customer |
 
 Usare i tag per semplificare il monitoraggio delle risorse di Azure che archiviano o elaborano informazioni riservate.
 
@@ -32,7 +32,7 @@ Usare i tag per semplificare il monitoraggio delle risorse di Azure che archivia
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.2 | 13,2, 2,10 | Cliente |
+| 4.2 | 13,2, 2,10 | Customer |
 
 Implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). 
 
@@ -74,7 +74,7 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 Quando non è disponibile alcuna funzionalità per il servizio specifico in Azure, usare uno strumento di individuazione attiva di terze parti per identificare tutte le informazioni riservate archiviate, elaborate o trasmesse dai sistemi tecnologici dell'organizzazione, incluse quelle situate in loco o a un provider di servizi remoti, e aggiornare l'inventario delle informazioni riservate dell'organizzazione.
 
-Usare Azure Information Protection per identificare le informazioni riservate nei documenti di Office 365.
+Utilizzare Azure Information Protection per identificare le informazioni riservate all'interno di Microsoft 365 documenti.
 
 Usare Information Protection SQL di Azure per semplificare la classificazione e l'assegnazione di etichette alle informazioni archiviate nel database SQL di Azure.
 
@@ -88,7 +88,7 @@ Usare Information Protection SQL di Azure per semplificare la classificazione e 
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4,6 | 14,6 | Cliente |
+| 4.6 | 14,6 | Customer |
 
 Usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso ai dati e alle risorse; in caso contrario, usare i metodi di controllo di accesso specifici del servizio.
 
@@ -110,7 +110,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.8 | 14.8 | Cliente |
+| 4.8 | 14.8 | Customer |
 
 Usare la crittografia inattiva in tutte le risorse di Azure. Microsoft consiglia di consentire ad Azure di gestire le chiavi di crittografia. Tuttavia, è possibile gestire le proprie chiavi in alcune istanze. 
 
@@ -122,7 +122,7 @@ Usare la crittografia inattiva in tutte le risorse di Azure. Microsoft consiglia
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.9 | 14,9 | Cliente |
+| 4.9 | 14,9 | Customer |
 
 Usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle risorse di Azure critiche.
 

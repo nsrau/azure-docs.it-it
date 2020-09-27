@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc229b366a7816c861da665c73d6421e67545c6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985916"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395890"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Archivi dati relativi all'identità per i clienti Europai - Azure Active Directory
 I dati di identità vengono archiviati da Azure AD in una posizione geografica in base all'indirizzo fornito dall'organizzazione quando si sottoscrive un servizio online Microsoft, ad esempio Microsoft 365 e Azure. Per informazioni sul percorso di archiviazione dei dati di identità, è possibile usare la sezione [dove si trovano i dati?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) di Microsoft Trust Center.
@@ -35,6 +35,10 @@ Per la Multi-Factor Authentication di Azure basata sul cloud, l'autenticazione �
 * Le richieste di autenticazione a più fattori mediante codici di GIURAmento che provengono dai data center dell'UE vengono convalidate nell'Unione europea.
 
 Per altre informazioni sulle informazioni sugli utenti raccolte da Azure server Multi-Factor Authentication (server di autenticazione a più fattori) e dall'autenticazione a più fattori di Azure basata sul cloud, vedere [raccolta di dati utente multi-factor authentication di Azure](../authentication/howto-mfa-reporting-datacollection.md).
+
+## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Single Sign-on basato su password per le applicazioni aziendali
+ 
+Se un cliente crea una nuova applicazione aziendale (tramite Azure AD raccolta o non raccolta) e Abilita l'accesso SSO basato su password, l'URL di accesso dell'applicazione e i campi di accesso di acquisizione personalizzati vengono archiviati nel Stati Uniti. Per ulteriori informazioni su questa funzionalità, vedere [configurare Single Sign-on basato su password](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 

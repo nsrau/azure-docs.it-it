@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4226676ed7fbaf5b2998306fa5240316c327d59c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 89282b0cc07f210e7bbf80503c9dbef5f97b13a2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891490"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397335"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Che cos'è Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)?
 
@@ -116,7 +116,7 @@ L'uso di Collegamento a Synapse non è consigliato se è necessario rispettare i
 
 ## <a name="limitations"></a>Limitazioni
 
-* Il collegamento sinapsi di Azure è supportato per l'API Azure Cosmos DB SQL (Core) e l'API Azure Cosmos DB per MongoDB. Il supporto per API Cassandra è attualmente disponibile in un'anteprima gestita. Per richiedere l'accesso all'anteprima controllata, inviare un messaggio di posta elettronica al [team di Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+* Il collegamento sinapsi di Azure è supportato per l'API Azure Cosmos DB SQL (Core) e l'API Azure Cosmos DB per MongoDB.
 
 * Attualmente, l'archivio analitico può essere abilitato solo per i nuovi contenitori. Per usare l'archivio analitico per i contenitori esistenti, migrare i dati dai contenitori esistenti ai nuovi contenitori usando [Azure Cosmos DB strumenti di migrazione](cosmosdb-migrationchoices.md). È possibile abilitare il collegamento sinapsi su account Azure Cosmos DB nuovi ed esistenti.
 

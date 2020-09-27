@@ -7,13 +7,13 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ea0dac74d4f995e41513b3451dd28d177040e672
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: cd21197d6d1559b681ae622b974f6eb7ba95ad3d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935025"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397369"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelli di progettazione per applicazioni SaaS multi-tenant e Azure ricerca cognitiva
 
@@ -76,7 +76,8 @@ Nel caso di uno scenario multi-tenant, lo sviluppatore dell'applicazione usa uno
 3. *Combinazione di entrambi:* ai tenant più grandi e attivi vengono assegnati servizi dedicati mentre ai tenant più piccoli vengono assegnati singoli indici all'interno di servizi condivisi.
 
 ## <a name="1-index-per-tenant"></a>1. indice per tenant
-![Un'immagine del modello "indice per tenant"](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="Un'immagine del modello "indice per tenant"" border="false":::
 
 In un modello di indice per tenant, più tenant occupano un singolo servizio ricerca cognitiva di Azure in cui ogni tenant dispone di un proprio indice.
 
@@ -93,7 +94,8 @@ Azure ricerca cognitiva consente la scalabilità sia dei singoli indici che del 
 Se il numero totale di indici diventa troppo grande per un singolo servizio, è necessario eseguire il provisioning di un altro servizio per accogliere i nuovi tenant. Se gli indici devono essere spostati tra i servizi di ricerca man mano che vengono aggiunti nuovi servizi, i dati dell'indice devono essere copiati manualmente da un indice all'altro in quanto ricerca cognitiva di Azure non consente lo spostamento di un indice.
 
 ## <a name="2-service-per-tenant"></a>2. servizio per tenant
-![Un'immagine del modello "servizio per tenant"](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Un'immagine del modello "servizio per tenant"" border="false":::
 
 In un'architettura "servizio per tenant" ogni tenant dispone di un proprio servizio di ricerca.
 

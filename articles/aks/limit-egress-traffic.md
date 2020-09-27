@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 236b69b1e10eb80b9c0a5e27b213eb3972209346
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 67eeb181f64f5924a90fd2c03e39e1be9887dd2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361042"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397165"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster nel servizio Azure Kubernetes
 
@@ -205,10 +205,7 @@ Le regole delle applicazioni e FQDN seguenti sono obbligatorie per i cluster del
 | `storage.googleapis.com` | **`HTTPS:443`** | Questo indirizzo viene usato per eseguire il pull di immagini Helm/Tiller |
 
 
-### <a name="azure-policy-preview"></a>Criteri di Azure (anteprima)
-
-> [!CAUTION]
-> Alcune delle funzionalità seguenti sono disponibili in anteprima.  I suggerimenti in questo articolo sono soggetti a modifiche quando la funzionalità passerà alla versione di anteprima pubblica e alle fasi di rilascio successive.
+### <a name="azure-policy"></a>Criteri di Azure
 
 #### <a name="required-fqdn--application-rules"></a>Regole dell'applicazione o FQDN obbligatorie 
 
@@ -219,7 +216,6 @@ Le regole delle applicazioni e FQDN seguenti sono obbligatorie per i cluster del
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Questo indirizzo viene usato per il corretto funzionamento di Criteri di Azure (attualmente in anteprima nel servizio Azure Kubernetes). |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Questo indirizzo viene usato per eseguire il pull dei criteri predefiniti da GitHub per assicurare il corretto funzionamento di Criteri di Azure (attualmente in anteprima nel servizio Azure Kubernetes). |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Componente aggiuntivo di Criteri di Azure che invia i dati di telemetria all'endpoint di Application Insights. |
-
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Limitare il traffico in uscita con il firewall di Azure
 

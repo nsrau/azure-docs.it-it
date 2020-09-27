@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 663c852574667e45a39241575d6b50038495c33d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319589"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397080"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorare il database SQL di Azure usando Analisi SQL di Azure (anteprima)
 
@@ -90,11 +90,11 @@ Se alcune metriche o log non vengono trasmessi in monitoraggio di Azure, i riqua
 
 Una volta selezionato il riquadro di Analisi SQL di Azure per il database, viene visualizzato il dashboard di monitoraggio.
 
-![Panoramica di Analisi SQL di Azure](./media/azure-sql/azure-sql-sol-overview.png)
+![Screenshot che mostra il dashboard di monitoraggio.](./media/azure-sql/azure-sql-sol-overview.png)
 
 La selezione di uno dei riquadri consente di visualizzare un report drill-down nella prospettiva specifica. Dopo che la prospettiva è stata selezionata, viene aperto il report drilldown.
 
-![Timeout di Analisi SQL di Azure](./media/azure-sql/azure-sql-sol-metrics.png)
+![Screenshot che mostra il report drill-down nel punto di vista specifico.](./media/azure-sql/azure-sql-sol-metrics.png)
 
 Ogni prospettiva in questa vista fornisce riepiloghi a livello di sottoscrizione, server, pool elastico e database. Inoltre ogni prospettiva mostra una prospettiva specifica del report a destra. Selezionando una sottoscrizione, un server, un pool o un database nell'elenco, il drilldown continua.
 

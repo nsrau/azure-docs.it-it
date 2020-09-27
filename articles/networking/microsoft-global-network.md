@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 9420d52cf7d88ff84fd23928f92cdc62e9627619
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 00199f81e2dc8ca699fabf312955bf7a8a2b5cbd
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280903"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398390"
 ---
 # <a name="microsoft-global-network"></a>Rete globale Microsoft
 
 Microsoft possiede e gestisce una delle più grandi reti backbone del mondo. Questa architettura globale e sofisticata, che si estende su più di 250.000 chilometri, connette i data center Microsoft e i clienti. 
  
-Ogni giorno, clienti di tutto il mondo si connettono e inviano trilioni di richieste a Microsoft Azure, Bing, Dynamics 365, Office 365, XBox e molti altri. Indipendentemente dal tipo, i clienti si aspettano affidabilità e velocità di risposta istantanee dai servizi Microsoft. 
+Ogni giorno, i clienti di tutto il mondo si connettono e passano trilioni di richieste a Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox e molti altri. Indipendentemente dal tipo, i clienti si aspettano affidabilità e velocità di risposta istantanee dai servizi Microsoft. 
  
 La [rete globale Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) è una parte essenziale dell'erogazione di un'esperienza eccezionale sul cloud. Connettendo i [data center](https://azure.microsoft.com/global-infrastructure/) Microsoft tra 54 aree di Azure e su una vasta struttura di nodi perimetrali strategicamente ubicati in tutto il mondo, la rete globale Microsoft offre la disponibilità, la capacità e la flessibilità necessarie per soddisfare qualsiasi esigenza.
 

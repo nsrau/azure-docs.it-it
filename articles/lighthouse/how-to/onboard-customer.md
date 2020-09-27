@@ -3,12 +3,12 @@ title: Eseguire l'onboarding dei clienti in Azure Lighthouse
 description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 0b941c82c2ba0e98f524587f5ef4c4ecf86249eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e404c471990575460ccda3a26e7cdcb3ec1cf1d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336548"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396672"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Eseguire l'onboarding dei clienti in Azure Lighthouse
 
@@ -69,7 +69,7 @@ Per semplificare la gestione, è consigliabile usare Azure AD gruppi di utenti p
 Quando si definiscono le autorizzazioni, assicurarsi di seguire il principio dei privilegi minimi, in modo che gli utenti dispongano solo delle autorizzazioni necessarie per completare il processo. Per le linee guida e le informazioni sui ruoli supportati, vedere [tenant, utenti e ruoli negli scenari di Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 > [!IMPORTANT]
-> Per aggiungere autorizzazioni per un gruppo di Azure AD, il **tipo di gruppo** deve essere **Sicurezza** e non **Office 365**. Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Per aggiungere autorizzazioni per un gruppo di Azure AD, il **tipo di gruppo** deve essere impostato su **sicurezza**. Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Per definire le autorizzazioni, è necessario essere a conoscenza dei valori ID per ogni utente, gruppo di utenti o entità servizio nel tenant del provider di servizi a cui si vuole concedere l'accesso. È anche necessario l'ID di definizione del ruolo per ogni ruolo predefinito che si vuole assegnare. Se non sono già presenti, è possibile recuperarli eseguendo i comandi seguenti dall'interno del tenant del provider di servizi.
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 4e970f242d1c51218865fe459b8012f97add3d02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 836a5a003268a98dd8e63eed9bfdba741abcf4ed
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299290"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397046"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usare identità gestite in Azure Kubernetes Service
 
@@ -30,6 +30,8 @@ Le *identità gestite* sono essenzialmente un wrapper per le entità servizio e 
 * Non è possibile eseguire la migrazione dei cluster AKS esistenti alle identità gestite.
 * Durante le operazioni di **aggiornamento** del cluster, l'identità gestita è temporaneamente non disponibile.
 * Lo spostamento/migrazione dei tenant di cluster abilitati per identità gestite non è supportato.
+* Se il cluster ha `aad-pod-identity` abilitato, i pod di identità gestita del nodo modificano i iptables dei nodi per intercettare le chiamate all'endpoint dei metadati dell'istanza di Azure. Questa configurazione significa che tutte le richieste effettuate all'endpoint dei metadati vengono intercettate da NMI anche se il Pod non lo usa `aad-pod-identity` . AzurePodIdentityException CRD può essere configurato per informare `aad-pod-identity` che qualsiasi richiesta all'endpoint di metadati originata da un pod che corrisponde alle etichette definite in CRD deve essere inoltrata senza alcuna elaborazione in NMI. I pod di sistema con `kubernetes.azure.com/managedby: aks` etichetta nello spazio dei nomi _Kube-System_ devono essere esclusi in `aad-pod-identity` tramite la configurazione di AzurePodIdentityException CRD. Per altre informazioni, vedere [disabilitare AAD-Pod-Identity per un pod o un'applicazione specifica](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+  Per configurare un'eccezione, installare la [YAML di eccezione MIC](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## <a name="summary-of-managed-identities"></a>Riepilogo delle identità gestite
 

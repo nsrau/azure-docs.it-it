@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 326d3a4783b058855d86e17198cbe8d7492feba2
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 2c21c872649e3b171f2658ef6bdb0476552f0e59
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370641"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397191"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installare ed eseguire i contenitori di lettura (anteprima)
 
@@ -24,9 +24,26 @@ ms.locfileid: "91370641"
 
 I contenitori consentono di eseguire le API di Visione artificiale nell'ambiente in uso. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati. In questo articolo si apprenderà come scaricare, installare ed eseguire un contenitore Visione artificiale.
 
-Il contenitore *Read* consente di rilevare ed estrarre il *testo stampato* da immagini di vari oggetti con diverse superfici e sfondi, ad esempio ricevute, poster e biglietti da visita. Il contenitore *Read* rileva inoltre il *testo scritto a mano* nelle immagini e fornisce il supporto per file PDF, TIFF e a più pagine. Per ulteriori informazioni, vedere la documentazione relativa all'API di [lettura](concept-recognizing-text.md#read-api) .
+Il contenitore *Read* consente di rilevare ed estrarre il *testo stampato* da immagini di vari oggetti con diverse superfici e sfondi, ad esempio ricevute, poster e biglietti da visita. Il contenitore *Read* rileva inoltre il *testo scritto a mano* nelle immagini e fornisce il supporto per file PDF, TIFF e a più pagine. Per ulteriori informazioni, vedere la [documentazione relativa all'API di lettura](concept-recognizing-text.md#read-api).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
+Sono disponibili due versioni dei contenitori 3. x disponibili in anteprima. Entrambe le versioni forniscono accuratezza e funzionalità aggiuntive rispetto al contenitore precedente.
+
+Il contenitore Read 3,0-Preview fornisce:
+* Nuovi modelli per una maggiore accuratezza.
+* Supporto per più lingue nello stesso documento
+* Supporto per: olandese, inglese, francese, tedesco, italiano, portoghese e spagnolo.
+* Una singola operazione per documenti e immagini.
+* Supporto per documenti e immagini di dimensioni maggiori.
+* Punteggi di confidenza da 0 a 1.
+* Supporto per documenti con testo stampato e scritto a mano
+
+Il contenitore Read 3,1-Preview offre gli stessi vantaggi della versione 3.0-Preview, con funzionalità aggiuntive:
+
+* Supporto per il cinese semplificato e il giapponese.
+* punteggi di confidenza ed etichette per testo stampato e scritto a mano. 
+* Possibilità di estrarre il testo solo da una o più pagine selezionate in un documento.
+
+Quando si considera la versione del contenitore da usare, si noti che v 3.1-Preview è in uno stato precedente di anteprima. Se si usa attualmente la lettura di contenitori 2,0, vedere la [Guida alla migrazione](read-container-migration-guide.md) per informazioni sulle modifiche apportate alle nuove versioni.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,6 +54,8 @@ Prima di usare i contenitori, è necessario soddisfare i prerequisiti seguenti:
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
 |Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **visione artificiale** di Azure e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina **Panoramica**|
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 
 ## <a name="request-approval-to-run-the-container"></a>Richiedi l'approvazione per eseguire il contenitore
 
@@ -71,6 +90,7 @@ Sono disponibili le immagini del contenitore per la lettura.
 
 | Contenitore | Container Registry/repository/nome dell'immagine |
 |-----------|------------|
+| Leggi 2,0-Anteprima | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 | Leggi 3,0-Anteprima | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
 | Leggi 3,1-anteprima | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 
@@ -88,6 +108,12 @@ docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview
+```
+
+# <a name="version-20-preview"></a>[Versione 2,0-Preview](#tab/version-2)
+
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
 ```
 
 ---
@@ -142,6 +168,23 @@ Questo comando:
 * Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
 
+# <a name="version-20-preview"></a>[Versione 2,0-Preview](#tab/version-2)
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+Questo comando:
+
+* Esegue il contenitore di lettura dall'immagine del contenitore.
+* Alloca 8 core CPU e 16 gigabyte (GB) di memoria.
+* Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore.
+* Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
+
 ---
 
 
@@ -177,6 +220,10 @@ Usare l'host `http://localhost:5000` per le API del contenitore. È possibile vi
 # <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
 
 Usare l'host `http://localhost:5000` per le API del contenitore. È possibile visualizzare il percorso di spavalderia in: `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json` .
+
+# <a name="version-20-preview"></a>[Versione 2,0-Preview](#tab/version-2)
+
+Usare l'host `http://localhost:5000` per le API del contenitore. È possibile visualizzare il percorso di spavalderia in: `http://localhost:5000/swagger/vision-v2.0-preview-read/swagger.json` .
 
 ---
 
@@ -330,6 +377,67 @@ Quando il POST asincrono viene eseguito correttamente, restituisce un codice di 
 }
 ```
 
+# <a name="version-20-preview"></a>[Versione 2,0-Preview](#tab/version-2)
+
+È possibile usare le `POST /vision/v2.0/read/core/asyncBatchAnalyze` `GET /vision/v2.0/read/operations/{operationId}` operazioni e in Concert per leggere in modo asincrono un'immagine, in modo analogo a come il servizio visione artificiale usa le operazioni REST corrispondenti. Il metodo POST asincrono restituirà un oggetto `operationId` che viene usato come identificatore per la richiesta HTTP Get.
+
+Dall'interfaccia utente di spavalderia selezionare il `asyncBatchAnalyze` per espanderlo nel browser. Quindi selezionare **try it out**  >  **Choose file**. In questo esempio si userà l'immagine seguente:
+
+![tabulazioni e spazi](media/tabs-vs-spaces.png)
+
+Quando il POST asincrono viene eseguito correttamente, restituisce un codice di stato **HTTP 202** . Come parte della risposta, è presente un' `operation-location` intestazione che contiene l'endpoint di risultato per la richiesta.
+
+```http
+ content-length: 0
+ date: Fri, 13 Sep 2019 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v2.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ server: Kestrel
+```
+
+`operation-location`È l'URL completo a cui è possibile accedere tramite HTTP Get. Ecco la risposta JSON dall'esecuzione dell' `operation-location` URL dall'immagine precedente:
+
+```json
+{
+  "status": "Succeeded",
+  "recognitionResults": [
+    {
+      "page": 1,
+      "clockwiseOrientation": 2.42,
+      "width": 502,
+      "height": 252,
+      "unit": "pixel",
+      "lines": [
+        {
+          "boundingBox": [ 56, 39, 317, 50, 313, 134, 53, 123 ],
+          "text": "Tabs VS",
+          "words": [
+            {
+              "boundingBox": [ 90, 43, 243, 53, 243, 123, 94, 125 ],
+              "text": "Tabs",
+              "confidence": "Low"
+            },
+            {
+              "boundingBox": [ 259, 55, 313, 62, 313, 122, 259, 123 ],
+              "text": "VS"
+            }
+          ]
+        },
+        {
+          "boundingBox": [ 221, 148, 417, 146, 417, 206, 227, 218 ],
+          "text": "Spaces",
+          "words": [
+            {
+              "boundingBox": [ 230, 148, 416, 141, 419, 211, 232, 218 ],
+              "text": "Spaces"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
 ---
 
 > [!IMPORTANT]
@@ -346,6 +454,10 @@ Per leggere in modo sincrono un'immagine, è possibile usare l'operazione seguen
 # <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
 
 `POST /vision/v3.0/read/syncAnalyze`
+
+# <a name="version-20-preview"></a>[Versione 2,0-Preview](#tab/version-2)
+
+`POST /vision/v2.0/read/core/Analyze`
 
 ---
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0cc54bcc23e354ae8cc807e63a0039286e295181
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1157a18954c30e1f1d93aa33dbea6104491b5353
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970950"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396452"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Crittografia dischi di Azure in una rete isolata
 
@@ -43,7 +43,7 @@ Tutte le impostazioni dei gruppi di sicurezza di rete devono consentire all'endp
 
 Se si usa [crittografia dischi di Azure con Azure ad (versione precedente)](disk-encryption-overview-aad.md), è necessario installare la [libreria Azure Active Directory](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) manualmente per tutte le distribuzioni (oltre ai pacchetti appropriati per la distribuzione, come [indicato in precedenza](#package-management)).
 
-Quando la crittografia è abilitata con le [credenziali di Azure AD](disk-encryption-linux-aad.md), la macchina virtuale di destinazione deve consentire la connettività sia sugli endpoint di Azure Active Directory sia sugli endpoint di Key Vault. Gli endpoint di autenticazione di Azure Active Directory correnti sono mantenuti nelle sezioni 56 e 59 della documentazione [URL e intervalli di indirizzi IP per Office 365](/office365/enterprise/urls-and-ip-address-ranges). Le istruzioni di Key Vault sono fornite nella documentazione [Accedere ad Azure Key Vault protetto da firewall](../../key-vault/general/access-behind-firewall.md).
+Quando la crittografia è abilitata con le [credenziali di Azure AD](disk-encryption-linux-aad.md), la macchina virtuale di destinazione deve consentire la connettività sia sugli endpoint di Azure Active Directory sia sugli endpoint di Key Vault. Gli endpoint di autenticazione Azure Active Directory correnti sono conservati nelle sezioni 56 e 59 della documentazione relativa agli [url Microsoft 365 e agli intervalli di indirizzi IP](/microsoft-365/enterprise/urls-and-ip-address-ranges) . Le istruzioni di Key Vault sono fornite nella documentazione [Accedere ad Azure Key Vault protetto da firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure 
 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: ad77278d593e4b2165708e0c9110a9ffff19a255
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 71114b6663d010437e5778d288eacf4e120b3da5
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017703"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395975"
 ---
 # <a name="multitenant-applications-in-azure"></a>Applicazioni multi-tenant in Azure
-Un'applicazione multi-tenant è una risorsa condivisa che consente agli utenti in tenant distinti di visualizzare l'applicazione come se fosse propria. Uno scenario tipico che si presta a un'applicazione multi-tenant è quello in cui tutti gli utenti dell'applicazione da tenant diversi possono desiderare di personalizzare l'esperienza utente, ma in caso contrario hanno gli stessi requisiti aziendali di base. Esempi di grandi applicazioni multi-tenant sono Office 365, Outlook.com e visualstudio.com.
+Un'applicazione multi-tenant è una risorsa condivisa che consente agli utenti in tenant distinti di visualizzare l'applicazione come se fosse propria. Uno scenario tipico che si presta a un'applicazione multi-tenant è quello in cui tutti gli utenti dell'applicazione da tenant diversi possono desiderare di personalizzare l'esperienza utente, ma in caso contrario hanno gli stessi requisiti aziendali di base. Esempi di applicazioni multi-tenant di grandi dimensioni sono Microsoft 365, Outlook.com e visualstudio.com.
 
 Dal punto di vista del fornitore di applicazioni, i vantaggi della multi-tenancy risiedono principalmente nell'efficienza operativa e dei costi. Una versione dell'applicazione può soddisfare le esigenze di molti tenant/client, consentendo il consolidamento di attività amministrative del sistema come il monitoraggio, l'ottimizzazione delle prestazioni, la manutenzione del software e i backup di dati.
 

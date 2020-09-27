@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 14ae9103571d72b0a48ee8e1a9c9dc6bb008373b
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 0689cea221142ec9c9bdbb18ab82fab00a3e2fe5
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552130"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398613"
 ---
 # <a name="dynamic-data-masking"></a>Maschera dati dinamica 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -47,7 +47,7 @@ Il mascheramento dei dati dinamici può essere configurato dai ruoli Amministrat
 | **Default** |**Mascheramento completo in base ai tipi di dati dei campi designati**<br/><br/>• Usare XXXX o un numero minore di X se la dimensione del campo è inferiore a 4 caratteri per i tipi di dati di stringa (nchar, ntext, nvarchar).<br/>• Usare un valore pari a zero per i tipi di dati numerici (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Usare 01-01-1900 per i tipi di dati data/ora (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Per sql_variant viene usato il valore predefinito del tipo corrente.<br/>• Per XML viene usato il documento \<masked/>.<br/>• Usare un valore vuoto per i tipi di dati speciali (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types). |
 | **Carta di credito** |**Metodo di mascheramento che espone le ultime quattro cifre dei campi designati** e aggiunge una stringa costante come prefisso sotto forma di carta di credito.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **Indirizzo di posta elettronica** |**Metodo di mascheramento che espone la prima lettera e sostituisce il dominio con xxx.com** usando un prefisso di stringa costante sotto forma di indirizzo di posta elettronica.<br/><br/>aXX@XXXX.com |
-| **Numero casuale** |**Metodo di mascheramento che genera un numero casuale** secondo i limiti selezionati e i tipi di dati effettivi. Se i limiti designati sono uguali, la funzione maschera è un numero costante.<br/><br/>![Riquadro di spostamento](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
+| **Numero casuale** |**Metodo di mascheramento che genera un numero casuale** secondo i limiti selezionati e i tipi di dati effettivi. Se i limiti designati sono uguali, la funzione maschera è un numero costante.<br/><br/>![Screenshot che mostra il metodo di mascheramento per la generazione di un numero casuale.](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
 | **Testo personalizzato** |**Metodo di mascheramento che espone il primo e l'ultimo carattere** e aggiunge una stringa di riempimento personalizzata al centro. Se la stringa originale è più corta del prefisso e del suffisso visibili, viene usata solo la stringa di riempimento. <br/>prefisso[riempimento]suffisso<br/><br/>![Riquadro di spostamento](./media/dynamic-data-masking-overview/2_DDM_Custom_text.png) |
 
 <a name="Anchor1"></a>

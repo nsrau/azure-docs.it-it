@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 09/24/2020
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: dfb9cb80bdcd2854a3ddd5b273806fbcdda916b0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 0868d87d977b15a552b04d5dbd6d19de6931f0ae
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705640"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395907"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Tenancy in Azure Active Directory
 
@@ -43,7 +43,7 @@ Nel portale di Azure è possibile configurare l'app come multi-tenant o a tenant
 Creare ottime app multi-tenant può risultare difficile a causa del numero di diversi criteri che gli amministratori IT possono impostare nei tenant. Se si sceglie di creare un'app multi-tenant, seguire queste procedure consigliate:
 
 * Testare l'app in un tenant con criteri di [accesso condizionale](../azuread-dev/conditional-access-dev-guide.md)configurati.
-* Seguire il principio dell'accesso utente con privilegi minimi per assicurarsi che l'app richieda solo le autorizzazioni effettivamente necessarie. Evitare di richiedere autorizzazioni che necessitino del consenso amministratore, perché in alcune organizzazioni potrebbe comportare il mancato acquisto dell'app. 
+* Seguire il principio dell'accesso utente con privilegi minimi per assicurarsi che l'app richieda solo le autorizzazioni effettivamente necessarie. 
 * Specificare nomi e descrizioni appropriati per tutte le autorizzazioni esposte come parte dell'app. In questo modo, utenti e amministratori sanno esattamente quello che stanno accettando quando tentano di usare le API dell'app. Per altre informazioni, vedere la sezione delle procedure consigliate nella [guida alle autorizzazioni](v2-permissions-and-consent.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

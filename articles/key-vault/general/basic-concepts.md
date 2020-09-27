@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e0bb3c3f3a6a1a38f974acf361937928ad4e2cfd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983302"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398511"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault concetti di base
 
@@ -23,7 +23,7 @@ Azure Key Vault è un servizio cloud per archiviare e accedere in modo sicuro ai
 
 Ecco altri termini importanti:
 
-- **Tenant**: un tenant è l'organizzazione che possiede e gestisce una specifica istanza dei servizi cloud Microsoft. Viene spesso usato per fare riferimento al set di servizi di Azure e Office 365 per un'organizzazione.
+- **Tenant**: un tenant è l'organizzazione che possiede e gestisce una specifica istanza dei servizi cloud Microsoft. Viene spesso usato per fare riferimento al set di servizi di Azure e Microsoft 365 per un'organizzazione.
 
 - **Proprietario dell'insieme di credenziali**: il proprietario può creare un insieme di credenziali delle chiavi e ottenerne un accesso e controllo completi. Il proprietario dell'insieme di credenziali può anche configurare il controllo per registrare chi accede a segreti e chiavi. Gli amministratori possono controllare il ciclo di vita delle chiavi. Possono passare a una nuova versione della chiave, eseguirne il backup e svolgere attività correlate.
 

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4c39a24664d36e4a69a44b7fe06835572e0cfe75
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b07ed4589a54948ef87f516ac4bb97ef8492283e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329245"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398836"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Eseguire la migrazione alla rete WAN virtuale di Azure
 
@@ -72,7 +72,7 @@ Riepilogo:
 - Gli hub forniscono anche la terminazione VPN per gli utenti in roaming tra più tipi di client tramite connettività OpenVPN alla rete a mesh globale, consentendo l'accesso non solo alle applicazioni trasferite in Azure ma anche alle risorse rimaste nell'ambiente locale.
 - Connettività Internet per le risorse interne a una rete virtuale fornita dalla rete WAN virtuale di Azure.
 
-Anche la connettività Internet per i siti remoti è fornita dalla rete WAN virtuale di Azure. Breakout Internet locale supportato tramite l'integrazione di partner per l'accesso ottimizzato a servizi SaaS come Office 365.
+Anche la connettività Internet per i siti remoti è fornita dalla rete WAN virtuale di Azure. Internet breakout locale supportato tramite l'integrazione dei partner per l'accesso ottimizzato ai servizi SaaS, ad esempio Microsoft 365.
 
 ## <a name="migrate-to-virtual-wan"></a>Eseguire la migrazione alla rete WAN virtuale
 

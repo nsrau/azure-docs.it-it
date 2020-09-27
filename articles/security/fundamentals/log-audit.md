@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: bd0f42507e22559690e2682a391c53b9c090aa6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5ac9daeb741d400a759603c7a3e3e462cc9294f
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75750794"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398870"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Registrazione e controllo di sicurezza di Azure
 
@@ -46,7 +46,7 @@ I log di Azure sono suddivisi nei tipi seguenti:
 
 La tabella seguente elenca i più importanti tipi di log disponibili in Azure.
 
-| Categoria di log | Tipo di log | Utilizzo | Integrazione |
+| Categoria di log | Tipo di log | Uso | Integrazione |
 | ------------ | -------- | ------ | ----------- |
 |[Log attività](../../azure-monitor/platform/platform-logs-overview.md)|Gli eventi del piano di controllo sulle risorse di Azure Resource Manager|  Offrono informazioni dettagliate sulle operazioni eseguite sulle risorse nella sottoscrizione.|    API REST e [Monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md)|
 |[Log delle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md)|Dati frequenti sul funzionamento delle risorse di Azure Resource Manager nella sottoscrizione|   Offrono informazioni dettagliate sulle operazioni eseguite dalla risorsa stessa.| Monitoraggio di Azure|
@@ -68,4 +68,4 @@ L' [integrazione degli avvisi del Centro sicurezza](../../security-center/securi
 
 - [Configurare le impostazioni di controllo per una raccolta siti](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): gli amministratori di raccolte siti possono recuperare la cronologia delle azioni di singoli utenti e di quelle eseguite durante un intervallo di date specifico.
 
-- [Cercare il log di controllo nel Centro sicurezza e conformità di Office 365](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US): è possibile ricorrere al Centro sicurezza e conformità di Office 365 per cercare il log di controllo unificato e visualizzare l'attività dell'utente e dell'amministratore nell'organizzazione di Office 365.
+- [Eseguire una ricerca nel log di controllo nel centro sicurezza Microsoft 365](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance): usare il centro sicurezza Microsoft 365 per eseguire ricerche nel log di controllo unificato e visualizzare l'attività di utenti e amministratori nell'organizzazione.

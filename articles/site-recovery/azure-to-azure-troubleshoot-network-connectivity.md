@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 8be0349bfff9ebc858d76928344039b6879d2b80
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 59bbca9461ff174ebe2451a6c01d84dee404cf56
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357064"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398307"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
 
@@ -51,16 +51,16 @@ Provare ad accedere al server DNS dalla macchina virtuale. Se il server DNS non 
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: La configurazione di Site Recovery non è riuscita (151196)
 
 > [!NOTE]
-> Se le macchine virtuali si trovano dietro un servizio di bilanciamento del carico interno **standard** , per impostazione predefinita non avrà accesso agli indirizzi IP di Office 365, ad esempio `login.microsoftonline.com` . Impostarlo sul tipo di servizio di bilanciamento del carico interno di **base** o creare un accesso in uscita come indicato nell'articolo [configurare le regole di bilanciamento del carico e in uscita in Load Balancer standard usando l'interfaccia della](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration)riga di comando di Azure.
+> Se le macchine virtuali si trovano dietro un servizio di bilanciamento del carico interno **standard** , per impostazione predefinita non avrebbe accesso ai Microsoft 365 IP, ad esempio `login.microsoftonline.com` . Impostarlo sul tipo di servizio di bilanciamento del carico interno di **base** o creare un accesso in uscita come indicato nell'articolo [configurare le regole di bilanciamento del carico e in uscita in Load Balancer standard usando l'interfaccia della](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration)riga di comando di Azure.
 
 #### <a name="possible-cause"></a>Possibile causa
 
-Non è possibile stabilire una connessione agli endpoint IP4 di autenticazione e identità di Office 365.
+Non è possibile stabilire una connessione per Microsoft 365 gli endpoint IP4 di autenticazione e identità.
 
 #### <a name="resolution"></a>Soluzione
 
-- Azure Site Recovery richiede l'accesso agli intervalli IP di Office 365 per l'autenticazione.
-- Se si usano regole del gruppo di sicurezza di rete di Azure (NSG)/proxy firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di consentire la comunicazione con gli intervalli IP di Office 365. Creare Azure Active Directory una regola NSG [(Azure ad)](../virtual-network/security-overview.md#service-tags) basata su tag di servizio che consenta l'accesso a tutti gli indirizzi IP corrispondenti a Azure ad.
+- Azure Site Recovery richiede l'accesso agli intervalli IP Microsoft 365 per l'autenticazione.
+- Se si usano regole del gruppo di sicurezza di rete di Azure (NSG)/proxy firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di consentire la comunicazione con gli intervalli di indirizzi IP Microsoft 365. Creare Azure Active Directory una regola NSG [(Azure ad)](../virtual-network/security-overview.md#service-tags) basata su tag di servizio che consenta l'accesso a tutti gli indirizzi IP corrispondenti a Azure ad.
 - Se vengono aggiunti nuovi indirizzi a Azure AD in futuro, è necessario creare nuove regole NSG.
 
 ### <a name="example-nsg-configuration"></a>Esempio di configurazione del gruppo di sicurezza di rete

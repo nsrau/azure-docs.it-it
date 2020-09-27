@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 5ba3fc70a2ccfbe342e222dbb475658629ec60a4
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 8f482c4fe6817c75079ceb98e981c846c395ad13
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851702"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396026"
 ---
-# <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
+# <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>Che cosa sono i livelli di coerenza in Azure Cosmos DB?
 
 I database distribuiti che si basano sulla replica per garantire disponibilità elevata, bassa latenza o entrambe, applicano il compromesso fondamentale tra coerenza di lettura e disponibilità, latenza e velocità effettiva. La maggior parte dei database distribuiti disponibili in commercio chiede agli sviluppatori di scegliere tra i due modelli di coerenza *estremi: coerenza assoluta e coerenza* *finale* . Il della linearità del modello di coerenza forte è lo standard Gold di programmabilità dei dati. Ma aggiunge un prezzo di latenza di scrittura superiore (in stato stabile) e una disponibilità ridotta (durante gli errori). D'altra parte, la coerenza finale offre una maggiore disponibilità e prestazioni migliori, ma rende difficile programmare le applicazioni.
 
@@ -91,12 +91,12 @@ Il grafico seguente illustra la coerenza del prefisso di coerenza con le note mu
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="video":::
 
-- **Eventuale**: non esiste alcuna garanzia di ordinamento per le letture. In assenza di altre scritture, le repliche finiscono per convergere.  
+- **Eventuale**: non esiste alcuna garanzia di ordinamento per le letture. In assenza di ulteriori operazioni di scrittura, le repliche alla fine convergeranno.  
 La coerenza finale è la forma di coerenza più debole, perché un client può leggere i valori più vecchi di quelli precedentemente letti. La coerenza finale è ideale in cui l'applicazione non richiede alcuna garanzia di ordinamento. Gli esempi includono il numero di Retweet, mi piace o commenti non thread. Il grafico seguente illustra la coerenza finale con le note musicali.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="video":::
 
-## <a name="additional-reading"></a>Informazioni aggiuntive
+## <a name="additional-reading"></a>Altre letture
 
 Per altre informazioni sui concetti di coerenza, vedere gli articoli seguenti:
 

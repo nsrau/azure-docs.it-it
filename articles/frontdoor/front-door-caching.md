@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: 221627a756c69d11ec5385b12970bb835d6a0a0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9279b3e77147449ae0ede0cc0b76e57f130c9a44
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318455"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398032"
 ---
 # <a name="caching-with-azure-front-door"></a>Memorizzazione nella cache con lo sportello anteriore di Azure
 Il documento seguente specifica il comportamento di Frontdoor di Azure con regole di routing che hanno abilitato la memorizzazione nella cache. La porta anteriore è una rete per la distribuzione di contenuti (CDN) moderna e, insieme a bilanciamento del carico e accelerazione sito dinamico, supporta anche i comportamenti di memorizzazione nella cache come qualsiasi altra rete CDN.
@@ -83,7 +83,7 @@ Quando una richiesta per una risorsa indica la compressione e i risultati della 
 
 ## <a name="query-string-behavior"></a>Comportamento di memorizzazione della stringa di query
 Frontdoor consente di controllare la modalità di memorizzazione nella cache dei file per una richiesta Web contenente una stringa di query. In una richiesta Web con una stringa di query, la stringa di query è la parte della richiesta che si verifica dopo un punto di domanda (?). Una stringa di query può contenere una o più coppie chiave-valore, in cui il nome del campo e il relativo valore sono separati da un segno di uguale (=). Ogni coppia chiave-valore è separata da una e commerciale (&). Ad esempio: `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Se è presente più di una coppia chiave-valore in una stringa di query di una richiesta, l'ordine non ha importanza.
-- **Ignora stringhe di query**: modalità predefinita. In questa modalità Frontdoor passa la stringa di query dal richiedente al back-end alla prima richiesta ed esegue la memorizzazione nella cache dell'asset. Tutte le richieste successive dell'asset gestite dall'ambiente Frontdoor ignoreranno le stringhe di query finché l'asset memorizzato nella cache non sarà scaduto.
+- **Ignora stringhe di query**: in questa modalità, la porta anteriore passa le stringhe di query dal richiedente al back-end alla prima richiesta e memorizza nella cache l'asset. Tutte le richieste successive dell'asset gestite dall'ambiente Frontdoor ignoreranno le stringhe di query finché l'asset memorizzato nella cache non sarà scaduto.
 
 - **Memorizza nella cache tutti gli URL univoci**: in questa modalità ogni richiesta con URL univoco, compresa la stringa di query, viene considerata un asset univoco con la propria cache. Ad esempio, la risposta inviata da back-end per una richiesta di `www.example.ashx?q=test1` viene memorizzata nella cache nell'ambiente Frontdoor e restituita per le memorizzazioni nella cache successive con la stessa stringa di query. Una richiesta di `www.example.ashx?q=test2` viene memorizzata nella cache come asset separato con la propria impostazione di durata (TTL).
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0e13d69b8d821267a993cd2ca9a3b6d0d686ccf9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e96db18993dbb18ebf51d0b30e9172901d10df5b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284551"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398273"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,7 +103,7 @@ Se si vuole, è possibile aggiungere nuovamente gli elementi ignorati all'elenco
    ![Impostazioni di Advisor](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Selezionare le azioni da automatizzare:
 
-   ![Indici consigliati](./media/database-advisor-find-recommendations-portal/server.png)
+   ![Screenshot che mostra dove selezionare le azioni da automatizzare.](./media/database-advisor-find-recommendations-portal/server.png)
 
 > [!NOTE]
 > Si noti che l'opzione **DROP_INDEX** non è attualmente compatibile con le applicazioni che usano cambi di partizione e hint di indice.
@@ -139,7 +139,7 @@ L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portal
 
 Fare clic su una raccomandazione in-process nell'elenco per visualizzare altre informazioni:
 
-![Indici consigliati](./media/database-advisor-find-recommendations-portal/operations.png)
+![Screenshot che mostra l'elenco delle raccomandazioni in-process.](./media/database-advisor-find-recommendations-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>Ripristino di una raccomandazione
 

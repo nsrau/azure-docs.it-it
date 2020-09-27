@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
-ms.openlocfilehash: 363af1012b327a55703cc6e35a02dc1f27869bd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99d90e4d93f0e4a70350a5a33a65700c3e14acb4
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82629066"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398324"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copia i file nuovi e modificati da LastModifiedDate con Azure Data Factory
 
@@ -75,7 +75,7 @@ Il modello definisce sei parametri:
     
 7. A questo punto è possibile aggiungere un trigger Windows a cascata per automatizzare questa pipeline, in modo che la pipeline possa sempre copiare i file nuovi e modificati solo da LastModifiedDate periodicamente.  Selezionare **Aggiungi trigger**e selezionare **nuovo/modifica**.
 
-    ![Esaminare il risultato](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
+    ![Schermata che evidenzia l'opzione di menu nuovo/modifica visualizzata quando si seleziona Aggiungi trigger.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
 8. Nella finestra **Add Triggers** (Aggiungi trigger) selezionare **+ Nuovo**.
 
@@ -103,7 +103,7 @@ Il modello definisce sei parametri:
 
 14. Esaminare il risultato. Si noterà che la pipeline verrà attivata automaticamente ogni 15 minuti e solo i file nuovi o modificati dall'archivio di origine verranno copiati nell'archivio di destinazione in ogni esecuzione della pipeline.
 
-    ![Esaminare il risultato](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
+    ![Screenshot che mostra i risultati che restituiscono quando viene attivata la pipeline.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
     
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 337deec076a25183a4dd866362c7dc55a485834d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224493"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397250"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi in Azure
 
@@ -81,13 +81,13 @@ Le chiavi di crittografia dei dati, crittografate con le chiavi di crittografia 
 
 I servizi cloud Microsoft vengono usati in tutti e tre i modelli cloud: IaaS, PaaS e SaaS. Di seguito sono riportati alcuni esempi di come si integrano in ciascun modello:
 
-- Servizi software, denominati SaaS (Software as a Service), in cui l'applicazione è fornita dal cloud, come ad esempio Office 365.
+- Servizi software, detti software come server o SaaS, che hanno applicazioni fornite dal cloud, ad esempio Microsoft 365.
 - Servizi della piattaforma, con cui i clienti sfruttano il cloud nelle proprie applicazioni, che usano il cloud per elementi come le funzionalità di archiviazione, analisi e bus di servizio.
 - Servizi di infrastruttura, o IaaS (Infrastructure as a Service), in cui i clienti distribuiscono sistemi operativi e applicazioni ospitati nel cloud ed eventualmente sfruttano altri servizi cloud.
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Crittografia dei dati inattivi per i clienti SaaS
 
-Per i clienti SaaS (Software as a Service) in genere la crittografia dei dati inattivi è abilitata o disponibile in ogni servizio. Office 365 offre diverse opzioni con cui i clienti possono verificare o abilitare la crittografia dei dati inattivi. Per informazioni sui servizi di Office 365, vedere [Crittografia in Office 365](https://docs.microsoft.com/office365/securitycompliance/encryption).
+Per i clienti SaaS (Software as a Service) in genere la crittografia dei dati inattivi è abilitata o disponibile in ogni servizio. Microsoft 365 offre diverse opzioni per la verifica o l'abilitazione della crittografia dei clienti. Per informazioni sui servizi di Microsoft 365, vedere [crittografia in Microsoft 365](/microsoft-365/compliance/encryption).
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Crittografia dei dati inattivi per i clienti PaaS
 

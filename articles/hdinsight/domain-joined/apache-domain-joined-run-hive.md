@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 71c1306d1516d8af3fb16c0ba353ab8144de2562
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202585"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397828"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurare i criteri per Apache Hive in HDInsight con Enterprise Security Package
 
@@ -22,7 +22,7 @@ Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster HDInsight con Enterprise Security Package. Vedere [Configurare i cluster HDInsight con ESP](apache-domain-joined-configure.md).
-* Una workstation con Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone oppure Office 2010 Professional Plus.
+* Una workstation con Microsoft 365 app per Enterprise, Office 2016, Office 2013 Professional Plus, Excel 2013 autonomo o Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Connettersi all'interfaccia utente di amministrazione di Apache Ranger
 **Per connettersi all'interfaccia utente di amministrazione di Ranger**

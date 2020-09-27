@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: a2469768c2207210e17035a67d4b05fb0cc6bb6c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 28116a373b66aa5bfa6d3ebbf027c2db6d24ba5d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254177"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397131"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Configurare Visione artificiale contenitori Docker
 
@@ -33,10 +33,12 @@ Il contenitore include anche le seguenti impostazioni di configurazione specific
 
 |Necessario|Impostazione|Scopo|
 |--|--|--|
-|No|ReadEngineConfig:ResultExpirationPeriod|Periodo di scadenza del risultato in ore. L'impostazione predefinita è 48 ore. L'impostazione specifica quando il sistema deve cancellare i risultati del riconoscimento. Se, ad esempio `resultExpirationPeriod=1` , il sistema cancella il risultato del riconoscimento 1 ora dopo il processo. Se `resultExpirationPeriod=0` , il sistema cancella il risultato del riconoscimento dopo che il risultato è stato recuperato.|
-|No|Cache: Redis|Abilita l'archiviazione Redis per l'archiviazione dei risultati. È *necessaria* una cache se più contenitori di lettura sono posizionati dietro un servizio di bilanciamento del carico.|
-|No|Coda: RabbitMQ|Abilita RabbitMQ per l'invio di attività. Questa impostazione è utile quando più contenitori di lettura sono posizionati dietro un servizio di bilanciamento del carico.|
-|No|Archiviazione::D ocumentStore:: MongoDB|Abilita MongoDB per l'archiviazione dei risultati permanenti.|
+|No|ReadEngineConfig:ResultExpirationPeriod| solo contenitori v 2.0. Periodo di scadenza del risultato in ore. L'impostazione predefinita è 48 ore. L'impostazione specifica quando il sistema deve cancellare i risultati del riconoscimento. Se, ad esempio `resultExpirationPeriod=1` , il sistema cancella il risultato del riconoscimento 1 ora dopo il processo. Se `resultExpirationPeriod=0` , il sistema cancella il risultato del riconoscimento dopo che il risultato è stato recuperato.|
+|No|Cache: Redis| solo contenitori v 2.0. Abilita l'archiviazione Redis per l'archiviazione dei risultati. È *necessaria* una cache se più contenitori di lettura sono posizionati dietro un servizio di bilanciamento del carico.|
+|No|Coda: RabbitMQ|solo contenitori v 2.0. Abilita RabbitMQ per l'invio di attività. Questa impostazione è utile quando più contenitori di lettura sono posizionati dietro un servizio di bilanciamento del carico.|
+|No|Coda: Azure: QueueVisibilityTimeoutInMilliseconds | solo contenitori V3. x. Tempo di invisibilità di un messaggio quando un altro thread di lavoro lo elabora. |
+|No|Archiviazione::D ocumentStore:: MongoDB|solo contenitori v 2.0. Abilita MongoDB per l'archiviazione dei risultati permanenti. |
+|No|Archiviazione: ObjectStore: AzureBlob: ConnectionString| solo contenitori V3. x. Stringa di connessione dell'archiviazione BLOB di Azure. |
 
 ## <a name="apikey-configuration-setting"></a>Impostazione di configurazione ApiKey
 
@@ -118,6 +120,30 @@ Sostituire {_nome_argomento_} con i propri valori:
 Gli esempi di Docker seguenti sono per il contenitore di lettura.
 
 
+# <a name="version-31-preview"></a>[Versione 3,1-Preview](#tab/version-3-1)
+
+### <a name="basic-example"></a>Esempio di base
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
+
+### <a name="logging-example"></a>Esempio di registrazione 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
 # <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
 
 ### <a name="basic-example"></a>Esempio di base
@@ -141,13 +167,13 @@ ApiKey={API_KEY}
 Logging:Console:LogLevel:Default=Information
 ```
 
-# <a name="version-31-preview"></a>[Versione 3,1-Preview](#tab/version-3-1)
+# <a name="version-20-preview"></a>[Versione 2,0-Preview](#tab/version-2)
 
 ### <a name="basic-example"></a>Esempio di base
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -158,7 +184,7 @@ ApiKey={API_KEY}
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

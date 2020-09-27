@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 7dbb1b4a8b85350b8bf8a6df0c9035a19055444c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79409020"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397301"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Domande frequenti sul Catalogo dati di Azure
 Questo articolo fornisce le risposte alle domande frequenti relative al servizio Azure Data Catalog.
@@ -55,7 +55,7 @@ Per inviare le richieste di funzionalità e altri commenti, andare su [Data Cata
 
 ## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Perché è *già presente un catalogo* degli errori quando si tenta di creare un nuovo catalogo?
 
-Quando si acquista Office 365 E5 con Power BI Pro licenza, Microsoft crea automaticamente un catalogo predefinito nell'area della sottoscrizione. Questo catalogo usa lo SKU gratuito. La licenza utente di Office 365/Power BI viene gestita nella pagina di amministrazione di Office 365. 
+Quando si acquista Office 365 E5 con Power BI Pro licenza, Microsoft crea automaticamente un catalogo predefinito nell'area della sottoscrizione. Questo catalogo usa lo SKU gratuito. La licenza utente di Office 365/Power BI viene gestita nella pagina di amministrazione. 
 
 Tuttavia, questo tipo di catalogo dati non dispone di un' **opzione di amministratore** e non è visibile nel **portale di Azure**. Non è possibile eliminare questo tipo di catalogo dati. Analogamente, non è consentito rinominare il Catalogo dati e non è possibile spostarlo in un'altra area. 
 
@@ -75,7 +75,7 @@ Per registrare i dati in Data Catalog:
 Le proprietà specifiche variano in base all'origine dati, ma in genere il servizio di pubblicazione di Data Catalog estrae le informazioni seguenti:
 
 * Nome dell’asset
-* Tipo di risorsa
+* Tipo di asset
 * Descrizione dell’asset
 * Nomi di colonna/attributo
 * Tipi di dati di colonna/attributo

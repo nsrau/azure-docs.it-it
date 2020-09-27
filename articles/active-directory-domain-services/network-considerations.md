@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6e2b3badcda872db3ddb1d237b813615a1332ad0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749619"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396332"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Azure Active Directory Domain Services
 
@@ -108,13 +108,15 @@ Un [gruppo di sicurezza di rete (NSG)](../virtual-network/security-overview.md) 
 
 Le seguenti regole del gruppo di sicurezza di rete sono necessarie affinché il dominio gestito fornisca servizi di autenticazione e gestione. Non modificare o eliminare queste regole del gruppo di sicurezza di rete per la subnet della rete virtuale in cui è distribuito il dominio gestito.
 
-| Numero porta | Protocollo | Source (Sorgente)                             | Destination | Azione | Obbligatoria | Scopo |
+| Numero porta | Protocollo | Source (Sorgente)                             | Destination | Azione | Necessario | Scopo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | Sì      | Sincronizzazione con il tenant del Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Qualsiasi         | Allow  | Sì      | Gestione del dominio. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | Sì      | Gestione del dominio. |
 
 Viene creato un servizio di bilanciamento del carico Standard di Azure che richiede la definizione di queste regole. Questo gruppo di sicurezza di rete protegge Azure AD Domain Services ed è necessario affinché il dominio gestito funzioni correttamente. Non eliminare questo gruppo di sicurezza di rete. Il servizio di bilanciamento del carico non funziona correttamente senza di esso.
+
+Se necessario, è possibile [creare il gruppo di sicurezza di rete e le regole necessari usando Azure PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 > [!WARNING]
 > Non modificare manualmente le configurazioni e le risorse di rete. Quando si associa un gruppo di sicurezza di rete configurato in modo non configurato o una tabella di route definita dall'utente con la subnet in cui viene distribuito il dominio gestito, è possibile che si verifichino problemi di gestione e gestione del dominio da parte di Microsoft. Viene anche interrotta la sincronizzazione tra il tenant Azure AD e il dominio gestito.

@@ -8,13 +8,13 @@ ms.author: heidist
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.openlocfilehash: 6a5a3634f1d5ddc7af2af2e27c2b1d7c8ce9a2af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: c3aa813c671e9755b6ab65ba1e2967876bd170ca
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917993"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398341"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Come indicizzare i BLOB JSON usando un indicizzatore BLOB in Azure ricerca cognitiva
 
@@ -45,7 +45,7 @@ Per recuperare i dati nella procedura guidata **Importa dati** , sono necessari 
 
 Nella pagina Panoramica del servizio di ricerca è possibile [avviare la procedura guidata](search-import-data-portal.md) dalla barra dei comandi.
 
-   ![Comando Importa dati nel portale](./media/search-import-data-portal/import-data-cmd2.png "Avviare la procedura guidata Importa dati")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd2.png" alt-text="Comando Importa dati nel portale" border="false":::
 
 ### <a name="3---set-the-data-source"></a>3 - Impostare l'origine dati
 
@@ -63,7 +63,7 @@ Nella pagina **Nuova origine dati** l'origine deve essere **Archivio BLOB di Azu
    
 + In **Contenitore di archiviazione** occorre specificare l'account di archiviazione e il contenitore oppure una stringa di connessione che si risolve nel contenitore. È possibile ottenere le stringhe di connessione nella pagina del portale del servizio BLOB.
 
-   ![Definizione dell'origine dati BLOB](media/search-howto-index-json/import-wizard-json-data-source.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Definizione dell'origine dati BLOB" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-ignorare la pagina "arricchisci contenuto" della procedura guidata
 
@@ -81,7 +81,7 @@ Per ulteriori informazioni, vedere la descrizione degli [attributi degli indici]
 
 Dedicare qualche momento alla revisione delle selezioni. Con l'esecuzione della procedura guidata vengono create strutture dei dati fisiche e non è possibile eliminare questi campi senza eliminare e ricreare tutti gli oggetti.
 
-   ![Definizione di indice BLOB](media/search-howto-index-json/import-wizard-json-index.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Definizione di indice BLOB" border="false":::
 
 ### <a name="6---create-indexer"></a>6 - Creare l'indicizzatore
 
@@ -89,7 +89,7 @@ Nella sua specifica completa, la procedura guidata crea tre oggetti distinti nel
 
 Se non si ha familiarità con gli indicizzatori, un *indicizzatore* è una risorsa in Azure ricerca cognitiva che esegue la ricerca per indicizzazione di un'origine dati esterna per il contenuto ricercabile. L'output della procedura guidata **Importa dati** è un indicizzatore che esegue la ricerca per indicizzazione dell'origine dati JSON, estrae contenuto ricercabile e lo importa in un indice in ricerca cognitiva di Azure.
 
-   ![Definizione di indicizzatore BLOB](media/search-howto-index-json/import-wizard-json-indexer.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Definizione di indicizzatore BLOB" border="false":::
 
 Fare clic su **OK** per eseguire la procedura guidata e creare tutti gli oggetti. L'indicizzazione inizia immediatamente.
 
@@ -293,7 +293,7 @@ I BLOB JSON possono assumere più forme. Il parametro **parsingMode** nell'indic
 
 | parsingMode | Descrizione |
 |-------------|-------------|
-| `json`  | Indicizzare ogni BLOB come un singolo documento. Questa è l'impostazione predefinita. |
+| `json`  | Indicizzare ogni BLOB come un singolo documento. Questo è il valore predefinito. |
 | `jsonArray` | Scegliere questa modalità se i BLOB sono costituiti da matrici JSON ed è necessario che ogni elemento della matrice diventi un documento separato in Azure ricerca cognitiva. |
 |`jsonLines` | Scegliere questa modalità se i BLOB sono costituiti da più entità JSON, separate da una nuova riga, ed è necessario che ogni entità diventi un documento separato in Azure ricerca cognitiva. |
 

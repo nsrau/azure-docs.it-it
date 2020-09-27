@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 07e5ce5cb6fee11e3f55ce808da51ccad59b9ff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 037598212773ca75abbdd086fe0577e0660f2218
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801360"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398579"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Usare i flussi di lavoro per integrare l'applicazione Azure IoT Central con altri servizi cloud
 
@@ -22,12 +22,12 @@ ms.locfileid: "85801360"
 
 Il connettore Azure IoT Central V3 per Power automatizzate e app per la logica di Azure consente di creare regole più avanzate per automatizzare le operazioni in IoT Central:
 
-- Quando una regola viene attivata nell'app Azure IoT Central, può attivare un flusso di lavoro in Power Automate o App per la logica di Azure. Questi flussi di lavoro possono eseguire azioni in altri servizi cloud, ad esempio Office 365, o in un servizio di terze parti.
-- Un evento in un altro servizio cloud, ad esempio Office 365, può attivare un flusso di lavoro in Power Automate o App per la logica di Azure. Questi flussi di lavoro possono eseguire azioni o recuperare dati dall'applicazione IoT Central.
+- Quando una regola viene attivata nell'app Azure IoT Central, può attivare un flusso di lavoro in Power Automate o App per la logica di Azure. Questi flussi di lavoro possono eseguire azioni in altri servizi cloud, ad esempio Microsoft 365 o un servizio di terze parti.
+- Un evento in un altro servizio cloud, ad esempio Microsoft 365, può attivare un flusso di lavoro in Power automatici o app per la logica di Azure. Questi flussi di lavoro possono eseguire azioni o recuperare dati dall'applicazione IoT Central.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Per completare la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 Per configurare la soluzione è necessaria un'applicazione IoT Central versione 3. Per informazioni su come controllare la versione dell'applicazione, vedere [informazioni sull'applicazione](./howto-get-app-info.md). Per informazioni su come creare un'applicazione IoT Central, vedere [creare un'applicazione Azure IOT Central](./quick-deploy-iot-central.md).
 

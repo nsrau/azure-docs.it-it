@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 88069c6ac90fce7e33cac6ed3c30accb18ded8bf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480408"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396400"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Concetti e funzionalità della foresta di risorse per Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) offre un'esperienza di accesso per le applicazioni line-of-business legacy, locali. Gli utenti, i gruppi e gli hash delle password degli utenti locali e cloud vengono sincronizzati con il dominio gestito Azure AD DS. Questi hash delle password sincronizzati offrono agli utenti un singolo set di credenziali che possono usare per AD DS, Office 365 e Azure Active Directory locali.
+Azure Active Directory Domain Services (Azure AD DS) offre un'esperienza di accesso per le applicazioni line-of-business legacy, locali. Gli utenti, i gruppi e gli hash delle password degli utenti locali e cloud vengono sincronizzati con il dominio gestito Azure AD DS. Questi hash delle password sincronizzati forniscono agli utenti un singolo set di credenziali che possono usare per servizi di dominio Active Directory, Microsoft 365 e Azure Active Directory locali.
 
 Sebbene sia sicuro e offra vantaggi aggiuntivi per la sicurezza, alcune organizzazioni non possono sincronizzare gli hash delle password utente per Azure AD o Azure AD DS. Gli utenti di un'organizzazione potrebbero non conoscerne la password perché usano solo l'autenticazione mediante smart card. Queste limitazioni impediscono ad alcune organizzazioni di usare Azure AD DS per lo spostamento in Azure delle applicazioni classiche locali.
 

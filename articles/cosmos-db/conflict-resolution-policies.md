@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c3b1cf01cbaa8de8ec33bbf9c19ee991ae898d58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91054318d4b030d9b2cb9bb80424ade80aeeca85
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82182753"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395839"
 ---
-# <a name="conflict-types-and-resolution-policies"></a>Tipi di conflitto e criteri di risoluzione dei conflitti
+# <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Tipi di conflitti e criteri di risoluzione quando si usano più aree di scrittura
 
 I conflitti e i criteri di risoluzione dei conflitti sono applicabili se l'account Azure Cosmos DB è configurato con più aree di scrittura.
 

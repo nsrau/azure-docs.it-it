@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 50ca6eacc7e75a3ff391401e7ced0e3583f1a285
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357574"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397760"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -152,17 +152,17 @@ Vedere [quote e limiti per i servizi di riconoscimento vocale](speech-services-q
 
 **R**: Il caricamento di un elenco di parole consente di aggiungere le parole nel vocabolario ma non di insegnare al sistema come le parole stesse vengono generalmente usate. Se si specificano espressioni complete o parziali, ovvero frasi o espressioni di probabile uso da parte degli utenti, il modello linguistico può apprendere le nuove parole e come vengono usate. Il modello linguistico personalizzato è utile non solo per aggiungere nuove parole nel sistema ma anche per modificare la probabilità di parole note per l'applicazione. L'indicazione di espressioni complete favorisce l'apprendimento da parte del sistema.
 
-## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modello tenant (Riconoscimento vocale personalizzato con i dati di Office 365)
+## <a name="tenant-model-custom-speech-with-microsoft-365-data"></a>Modello tenant (Riconoscimento vocale personalizzato con dati Microsoft 365)
 
 **D: quali informazioni sono incluse nel modello tenant e come viene creata?**
 
-**R:** Un modello tenant viene compilato tramite messaggi di posta elettronica e documenti di [gruppo pubblici](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) che possono essere visualizzati da chiunque nell'organizzazione.
+**R:** Un modello tenant viene compilato tramite messaggi di posta elettronica e documenti di [gruppo pubblici](https://support.microsoft.com/office/learn-about-microsoft-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) che possono essere visualizzati da chiunque nell'organizzazione.
 
 **D: quali esperienze vocali sono migliorate con il modello tenant?**
 
 **R:** Quando il modello tenant è abilitato, creato e pubblicato, viene utilizzato per migliorare il riconoscimento per tutte le applicazioni aziendali compilate mediante il servizio di riconoscimento vocale. che passano anche un token di Azure AD utente che indica l'appartenenza all'azienda.
 
-Le esperienze di sintesi vocale integrate in Office 365, ad esempio la dettatura e la didascalia di PowerPoint, non vengono modificate quando si crea un modello tenant per le applicazioni di servizio vocale.
+Le esperienze di sintesi vocale compilate in Microsoft 365, ad esempio la dettatura e la didascalia di PowerPoint, non vengono modificate quando si crea un modello tenant per le applicazioni di servizio vocale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

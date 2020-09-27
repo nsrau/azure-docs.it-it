@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/25/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3f3c53d412105489a814f082bbc0fd209476ecf9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7f6be959bf09cbe20bb37dfa3d17d64467758bd6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971400"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397896"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indicizzatori in Ricerca cognitiva di Azure
 
@@ -60,7 +60,7 @@ In un'esecuzione iniziale, quando l'indice è vuoto, un indicizzatore verrà let
 
 Per ogni documento che inserisce, un indicizzatore implementa o coordina più passaggi, dal recupero dei documenti a un motore di ricerca finale per l'indicizzazione. Facoltativamente, un indicizzatore è anche strumentale per la guida dell'esecuzione e degli output delle competenze, supponendo che venga definito un valore di competenze.
 
-![Fasi dell'indicizzatore](./media/search-indexer-overview/indexer-stages.png "fasi dell'indicizzatore")
+:::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Fasi dell'indicizzatore" border="false":::
 
 ### <a name="stage-1-document-cracking"></a>Fase 1: cracking del documento
 

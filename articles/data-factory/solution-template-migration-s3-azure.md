@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e25299c2ce5d31da8f3caa5b02ab8def816b31ee
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414768"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398221"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrare i dati da Amazon S3 a Azure Data Lake Storage Gen2
 
@@ -109,23 +109,23 @@ Il modello contiene due parametri:
 
 3. Passare a **Esegui la migrazione dei dati cronologici da AWS S3 a Azure Data Lake storage Gen2** modello. Immettere le connessioni alla tabella di controllo esterno, AWS S3 come archivio dell'origine dati e Azure Data Lake Storage Gen2 come archivio di destinazione. Tenere presente che la tabella di controllo esterno e la stored procedure fanno riferimento alla stessa connessione.
 
-    ![Creare una nuova connessione](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
+    ![Screenshot che mostra i dati cronologici di migrazione da AWS S3 a Azure Data Lake Storage Gen2 modello.](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
 4. Selezionare **Usa questo modello**.
 
-    ![Usa questo modello](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
+    ![Screenshot che evidenzia il pulsante Usa questo modello.](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
     
 5. Vengono visualizzate le 2 pipeline e 3 set di impostazioni sono stati creati, come illustrato nell'esempio seguente:
 
-    ![Esaminare la pipeline](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
+    ![Screenshot che mostra le due pipeline e tre set di impostazioni creati usando il modello.](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
 6. Selezionare **Debug**, immettere i valori in **Parametri**, quindi selezionare **Fine**.
 
-    ![Fare clic su **Debug **](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
+    ![Screenshot che mostra dove selezionare debug e immettere i parametri prima di fare clic su fine.](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
 7. I risultati visualizzati sono simili all'esempio seguente:
 
-    ![Esaminare il risultato](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
+    ![Screenshot che mostra i risultati restituiti.](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
 
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Affinché il modello copi i file modificati solo da Amazon S3 a Azure Data Lake Storage Gen2
@@ -172,7 +172,7 @@ Il modello contiene due parametri:
 
 3. Passare a **copia dati Delta da AWS S3 a Azure Data Lake storage Gen2** modello. Immettere le connessioni alla tabella di controllo esterno, AWS S3 come archivio dell'origine dati e Azure Data Lake Storage Gen2 come archivio di destinazione. Tenere presente che la tabella di controllo esterno e la stored procedure fanno riferimento alla stessa connessione.
 
-    ![Creare una nuova connessione](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
+    ![Crea una nuova connessione](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
 
 4. Selezionare **Usa questo modello**.
 
@@ -192,7 +192,7 @@ Il modello contiene due parametri:
 
 8. È anche possibile controllare i risultati della tabella di controllo tramite una query *"Select * from s3_partition_delta_control_table"*. l'output sarà simile all'esempio seguente:
 
-    ![Esaminare il risultato](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
+    ![Screenshot che mostra i risultati della tabella dei controlli dopo l'esecuzione della query.](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
     
 ## <a name="next-steps"></a>Passaggi successivi
 

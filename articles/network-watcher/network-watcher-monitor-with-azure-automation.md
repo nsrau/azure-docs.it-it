@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: d833a4cf26ee8ab69d16cbd1d776ca49a2df4bc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 273e9f7ce65cdd15000b1cc4ac7c19cde5992992
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738216"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396774"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorare i gateway VPN con la risoluzione dei problemi di Network Watcher
 
@@ -42,7 +42,7 @@ Prima di iniziare questo scenario, sono necessari i prerequisiti seguenti:
 
 - Un account di automazione di Azure in Azure. Assicurarsi che l'account di automazione abbia i moduli più recenti e anche il modulo AzureRM.Network. Il modulo AzureRM.Network è disponibile nella raccolta di moduli, se è necessario aggiungerlo all'account di automazione.
 - Un set di credenziali configurato in Automazione di Azure. Per altre informazioni, vedere l'articolo relativo alla [sicurezza in Automazione di Azure](../automation/automation-security-overview.md).
-- Un server SMTP valido, che sia di Office 365, della posta elettronica in locale o altro, e credenziali definite in Automazione di Azure.
+- Un server SMTP valido (Microsoft 365, un indirizzo di posta elettronica locale o un altro) e le credenziali definite in automazione di Azure
 - Un gateway di rete virtuale configurato in Azure.
 - Un account di archiviazione esistente con un contenitore esistente in cui archiviare i log.
 
@@ -53,7 +53,7 @@ Prima di iniziare questo scenario, sono necessari i prerequisiti seguenti:
 
 Il primo passaggio per la configurazione dell'esempio consiste nel creare il runbook. Questo esempio usa un account RunAs. Per altre informazioni sugli account RunAs, vedere [Autenticare runbook con account RunAs di Azure](../automation/automation-create-runas-account.md).
 
-### <a name="step-1"></a>Step 1
+### <a name="step-1"></a>Passaggio 1
 
 Passare ad Automazione di Azure nel [portale di Azure](https://portal.azure.com) e fare clic su **Runbook**.
 
@@ -85,7 +85,7 @@ Usare il codice seguente e fare clic su **Salva**.
 
 ```powershell
 # Set these variables to the proper values for your environment
-$o365AutomationCredential = "<Office 365 account>"
+$automationCredential = "<work or school account>"
 $fromEmail = "<from email address>"
 $toEmail = "<to email address>"
 $smtpServer = "<smtp.office365.com>"
@@ -99,8 +99,8 @@ $storageAccountName = "<storage account name>"
 $storageAccountResourceGroup = "<resource group name>"
 $storageAccountContainer = "<container name>"
 
-# Get credentials for Office 365 account
-$cred = Get-AutomationPSCredential -Name $o365AutomationCredential
+# Get credentials for work or school account
+$cred = Get-AutomationPSCredential -Name $automationCredential
 
 # Get the connection "AzureRunAsConnection "
 $servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName
@@ -155,7 +155,7 @@ Dopo aver salvato il runbook, è necessario collegarlo a una pianificazione per 
 
 ![Passaggio 7][7]
 
-### <a name="step-1"></a>Step 1
+### <a name="step-1"></a>Passaggio 1
 
 Nel pannello **Pianificazione** fare clic su **Crea una nuova pianificazione**.
 

@@ -7,20 +7,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4de696e2538bf1fa4823aafe30f931b7852535a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5046e40ea15a27e80f4e92ebf36488dedeee1821
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82191737"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396009"
 ---
-# <a name="consistency-availability-and-performance-tradeoffs"></a>Compromessi tra coerenza, disponibilità e prestazioni
+# <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Latenza, disponibilità e compromessi delle prestazioni con diversi livelli di coerenza Azure Cosmos DB
 
 I database distribuiti che si basano sulla replica per la disponibilità elevata, la bassa latenza o entrambe devono attuare dei compromessi. Tali compromessi sono tra la coerenza di lettura e la disponibilità, latenza e velocità effettiva.
 
 Azure Cosmos DB affronta la coerenza dei dati offrendo uno spettro di scelte. Questo approccio include più opzioni rispetto ai due estremi della coerenza assoluta ed eventuale. È possibile scegliere tra cinque livelli ben definiti nello spettro di coerenza. Dal più forte al più debole, i livelli sono:
 
-- *Forte*
+- *Assoluta*
 - *Obsolescenza associata*
 - *Sessione*
 - *Prefisso coerente*
@@ -51,10 +51,10 @@ La latenza RTT esatta è una funzione della velocità della luce e la topologia 
 
 |**Livello di coerenza**|**Letture quorum**|**Scritture quorum**|
 |--|--|--|
-|**Forte**|Minoranza locale|Maggioranza globale|
-|**Decadimento ristretto**|Minoranza locale|Maggioranza locale|
+|**Assoluta**|Minoranza locale|Maggioranza globale|
+|**Obsolescenza associata**|Minoranza locale|Maggioranza locale|
 |**Sessione**|Replica singola (usando il token di sessione)|Maggioranza locale|
-|**Coerenza del prefisso**|Replica singola|Maggioranza locale|
+|**Prefisso coerente**|Replica singola|Maggioranza locale|
 |**Eventuali**|Replica singola|Maggioranza locale|
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Livelli di coerenza e durabilità dei dati

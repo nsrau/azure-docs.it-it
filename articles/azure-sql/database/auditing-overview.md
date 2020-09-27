@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: de41d9c1dc69726f5f7f031616462b2d1d330476
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a7edbbb50777cc2d91332260c9ebe72be042874b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333189"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396247"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Controllo per il database SQL di Azure e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -86,7 +86,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 2. Passare a **controllo** sotto l'intestazione sicurezza nel riquadro **database SQL** o **SQL Server** .
 3. Se si preferisce configurare un criterio di controllo del server, è possibile selezionare il collegamento **Visualizza impostazioni del server** nella pagina relativa al controllo del database. Si possono quindi visualizzare o modificare le impostazioni di controllo del server. I criteri di controllo del server si applicano a tutti i database esistenti e appena creati in questo server.
 
-    ![Riquadro di spostamento](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
+    ![Screenshot che mostra il collegamento Visualizza impostazioni server evidenziato nella pagina controllo database.](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
 
 4. Se si preferisce abilitare il controllo a livello di database, impostare **Controllo** su **ATTIVA**. Se il controllo del server è abilitato, il controllo configurato del database coesisterà con il controllo del server.
 
@@ -163,7 +163,7 @@ Se si sceglie di scrivere i log di controllo in un account di archiviazione di A
 
 - Usare il [portale di Azure](https://portal.azure.com).  Aprire il database corrispondente. Nella parte superiore della pagina **Controllo** del database fare clic su **Visualizza log di controllo**.
 
-    ![Riquadro di spostamento](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
+    ![Screenshot che mostra il pulsante Visualizza log di controllo evidenziato nella pagina controllo database.](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
 
     Verrà aperto **Record di controllo**, da cui sarà possibile visualizzare i log.
 
@@ -171,14 +171,14 @@ Se si sceglie di scrivere i log di controllo in un account di archiviazione di A
   - È possibile passare da un record di controllo all'altro creato dai *criteri di controllo del server * e dai *criteri di controllo del database* attivando o disattivando **Origine controllo**.
   - È possibile visualizzare solo i record di controllo correlati a SQL injection selezionando la casella di controllo **Visualizza solo i record di controllo per SQL injection**.
 
-       ![Riquadro di spostamento]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
+       ![Screenshot che mostra le opzioni per la visualizzazione dei record di controllo.]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
 - Usare la funzione di sistema **sys.fn_get_audit_file** (T-SQL) per tornare ai dati dei log di controllo in formato tabulare. Per altre informazioni su questa funzione, vedere [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Usare **Unisci file di controllo** in SQL Server Management Studio (a partire da SSMS 17):
     1. Dal menu SSMS selezionare **file**  >  **Apri**  >  **Unisci file di controllo**.
 
-        ![Riquadro di spostamento](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
+        ![Screenshot che mostra l'opzione di menu Unisci file di controllo.](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
     2. Verrà visualizzata la finestra di dialogo **Aggiunti file di controllo**. Selezionare una delle opzioni **Aggiungi** per scegliere se unire i file di controllo da un disco locale oppure importarli da Archiviazione di Azure. È necessario specificare i dettagli e la chiave dell'account di Archiviazione di Azure.
 
     3. Dopo aver aggiunto tutti i file da unire, fare clic su **OK** per completare l'operazione di unione.
@@ -218,7 +218,7 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 1. Aprire **i dettagli di archiviazione**. Nella casella **Chiave di accesso alle risorse di archiviazione** selezionare **Secondaria** e fare clic su **OK**. Fare quindi clic su **Salva** nella parte superiore della pagina di configurazione del controllo.
 
-    ![Riquadro di spostamento](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
+    ![Screenshot che illustra il processo di selezione di una chiave di accesso di archiviazione secondaria.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Passare alla pagina di configurazione dell'archiviazione e rigenerare la chiave di accesso primaria.
 
     ![Riquadro di spostamento](./media/auditing-overview/6_auditing_get_started_regenerate_key.png)
