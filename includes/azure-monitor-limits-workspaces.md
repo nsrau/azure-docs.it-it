@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 91adafedfc8f4e6b4948b0dcfe541e2754b47556
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a25f28b19e0f00830fd0290ff0296c317b9a5ed9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226177"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371729"
 ---
 **Conservazione e volume della raccolta dati** 
 
@@ -66,24 +66,34 @@ ms.locfileid: "88226177"
 
 **<a name="data-ingestion-volume-rate">Velocità del volume di inserimento dati</a>**
 
-Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Il limite per la velocità del volume ha lo scopo proteggere i clienti di Monitoraggio di Azure da picchi di inserimento improvvisi nell'ambiente multi-tenant. Alle aree di lavoro viene applicata una soglia per la velocità del volume di inserimento predefinita di 500 MB (dati compressi), che equivale a circa **6 GB/min** di dati non compressi, le cui dimensioni effettive possono variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Questa soglia si applica a tutti i dati inseriti inviati dalle risorse di Azure che usano [Impostazioni di diagnostica](../articles/azure-monitor/platform/diagnostic-settings.md), l'[API agente di raccolta dati](../articles/azure-monitor/platform/data-collector-api.md) o gli agenti.
+Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Il limite per la velocità del volume ha lo scopo di isolare i clienti di Monitoraggio di Azure da picchi di inserimento improvvisi nell'ambiente multi-tenant. Nelle aree di lavoro viene definita una soglia per la velocità del volume di inserimento predefinita di 500 MB (dati compressi), che equivale a circa **6 GB/min** di dati non compressi. Le dimensioni effettive possono variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Il limite della velocità del volume si applica a tutti i dati inseriti inviati dalle risorse di Azure che usano [Impostazioni di diagnostica](../articles/azure-monitor/platform/diagnostic-settings.md), l'[API agente di raccolta dati](../articles/azure-monitor/platform/data-collector-api.md) o gli agenti.
 
-Quando si inviano dati a un'area di lavoro a una velocità del volume superiore all'80% della soglia configurata nell'area di lavoro, viene inviato un evento alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Quando la velocità del volume è superiore alla soglia, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Se il volume di inserimento continua a superare la soglia o se si prevede di raggiungerlo presto, è possibile richiedere un aumento per l'area di lavoro aprendo una richiesta di supporto. 
+Quando si inviano dati a un'area di lavoro a una velocità del volume superiore all'80% della soglia configurata nell'area di lavoro, viene inviato un evento alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Quando la velocità del volume è superiore alla soglia, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Se il volume di inserimento continua a superare la soglia o se si prevede di raggiungerlo presto, è possibile richiedere un aumento aprendo una richiesta di supporto. 
 
-Per ricevere le notifiche relative agli eventi di questo tipo nell'area di lavoro, creare una [regola di avviso del log](../articles/azure-monitor/platform/alerts-log.md) usando la query seguente con la base della logica di avviso per un numero di risultati maggiore di zero, un periodo di valutazione di 5 minuti e una frequenza di 5 minuti.
+Per ricevere una notifiche quando il limite della velocità del volume di inserimento sta per essere raggiunto o è stato raggiunto nell'area di lavoro, creare una [regola di avviso del log](../articles/azure-monitor/platform/alerts-log.md) usando la query seguente con una logica di avviso basata su un numero di risultati maggiore di zero, un periodo di valutazione di 5 minuti e una frequenza di 5 minuti.
 
-La velocità del volume di inserimento ha raggiunto l'80% della soglia:
+La velocità del volume di inserimento ha raggiunto la soglia
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Error"
 ```
 
-La velocità del volume di inserimento ha raggiunto la soglia:
+La velocità del volume di inserimento ha raggiunto l'80% della soglia
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Warning"
+```
+
+La velocità del volume di inserimento ha raggiunto il 70% della soglia
+```Kusto
+Operation
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Info"
 ```
 
 >[!NOTE]

@@ -145,6 +145,8 @@
       href: ../../network-watcher/security-baseline.md
     - name: Baseline del Centro sicurezza
       href: ../../security-center/security-baseline.md
+    - name: Baseline del bus di servizio
+      href: ../../service-bus-messaging/security-baseline.md
     - name: Baseline di Service Fabric
       href: ../../service-fabric/security-baseline.md
     - name: Baseline di Analisi di flusso

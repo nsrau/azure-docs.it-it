@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ced838d05ef9d8ca9f6c724d88fabdad010ed727
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77666638"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403552"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo di inserimento dei dati di log in Monitoraggio di Azure
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Spesso sono state poste domande sul tempo necessario affinché i dati di log diventino disponibili dopo la raccolta. Questo articolo illustra i diversi fattori che influiscono su questa latenza.
@@ -51,7 +51,7 @@ Una volta disponibili nel punto di inserimento, i dati impiegano altri 2-5 minut
 ### <a name="management-solutions-collection"></a>Raccolta delle soluzioni di gestione
 Alcune soluzioni non raccolgono i dati da un agente e possono usare un metodo di raccolta che introduce una latenza aggiuntiva. Alcune soluzioni raccolgono dati a intervalli regolari senza tentare di eseguire la raccolta quasi in tempo reale. Ecco alcuni esempi specifici:
 
-- La soluzione Office 365 esegue il polling dei log attività usando l'API Office 365 Management Activity, che attualmente non fornisce garanzie di latenza quasi in tempo reale.
+- Microsoft 365 soluzione esegue il polling dei log attività usando l'API attività di gestione, che attualmente non fornisce garanzie di latenza quasi in tempo reale.
 - I dati delle soluzioni di Windows Analytics, ad esempio Conformità aggiornamenti, vengono raccolti dalla soluzione con frequenza giornaliera.
 
 Per determinare la frequenza di raccolta specifica, consultare la documentazione relativa a ciascuna soluzione.

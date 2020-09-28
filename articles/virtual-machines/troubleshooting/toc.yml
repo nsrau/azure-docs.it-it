@@ -115,6 +115,8 @@
           href: windows-stop-error-bad-system-config-info.md
         - name: Errore di arresto di Windows - Memoria esaurita
           href: troubleshoot-windows-stop-error.md
+        - name: Errore di arresto di Windows - Processo di sistema terminato
+          href: windows-stop-error-system-process-terminated.md
 - name: Impossibile connettersi alla macchina virtuale
   items:
     - name: RDP

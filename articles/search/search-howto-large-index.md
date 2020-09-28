@@ -7,13 +7,13 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: 80307c97464e61d7b7d338703de90d1199adc819
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: 081f073fa4933d67604173d2169a7abdc3ac7c3f
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927018"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403569"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Come indicizzare set di dati di grandi dimensioni in ricerca cognitiva di Azure
 
@@ -25,34 +25,37 @@ Le stesse tecniche si applicano anche ai processi con esecuzione prolungata. In 
 
 Le sezioni seguenti illustrano le tecniche per l'indicizzazione di grandi quantità di dati tramite l'API push e gli indicizzatori.
 
-## <a name="push-api"></a>API Push
+## <a name="use-the-push-api"></a>Usare l'API push
 
-Quando si esegue il push dei dati in un indice, esistono diverse considerazioni chiave che influiscano sulle velocità di indicizzazione per l'API push. Questi fattori sono descritti nella sezione seguente. 
+Quando si esegue il push dei dati in un indice usando l' [API REST di Add Documents](/rest/api/searchservice/addupdate-or-delete-documents) o il [metodo index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index), esistono diverse considerazioni chiave che incidono sulla velocità di indicizzazione. Questi fattori sono descritti nella sezione seguente e variano dall'impostazione della capacità del servizio alle ottimizzazioni del codice.
 
-Oltre alle informazioni contenute in questo articolo, è anche possibile sfruttare i vantaggi degli esempi di codice nell'esercitazione relativa all' [ottimizzazione delle velocità di indicizzazione](tutorial-optimize-indexing-push-api.md) per altre informazioni.
+Per altre informazioni ed esempi di codice che illustrano l'indicizzazione del modello push, vedere [esercitazione: ottimizzare le velocità di indicizzazione](tutorial-optimize-indexing-push-api.md).
 
-### <a name="service-tier-and-number-of-partitionsreplicas"></a>Livello di servizio e numero di partizioni/repliche
+### <a name="capacity-of-your-service"></a>Capacità del servizio
 
-L'aggiunta di partizioni o l'aumento del livello del servizio di ricerca aumenteranno le velocità di indicizzazione.
+Come primo passaggio, esaminare le caratteristiche e i [limiti](search-limits-quotas-capacity.md) del livello in cui è stato effettuato il provisioning del servizio. Uno dei principali fattori di differenziazione tra i piani tariffari è costituito dalle dimensioni e dalla velocità delle partizioni, che hanno un effetto diretto sulla velocità di indicizzazione. Se è stato effettuato il provisioning del servizio di ricerca a un livello insufficiente per il carico di lavoro, l'aggiornamento a un nuovo livello potrebbe essere la soluzione più semplice ed efficace per aumentare la velocità effettiva di indicizzazione.
 
-L'aggiunta di repliche aggiuntive può aumentare anche la velocità di indicizzazione, ma non è garantita. D'altra parte, le repliche aggiuntive aumenteranno il volume di query che il servizio di ricerca è in grado di gestire. Le repliche sono anche un componente chiave per ottenere un [contratto di contratto](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Quando si è soddisfatti del livello, il passaggio successivo potrebbe consistere nell'aumentare il numero di partizioni. L'allocazione delle partizioni può essere riimpostata verso il basso dopo l'esecuzione di un'indicizzazione iniziale per ridurre il costo complessivo dell'esecuzione del servizio.
 
-Prima di aggiungere partizioni o repliche o eseguire l'aggiornamento a un livello superiore, prendere in considerazione il costo monetario e il tempo di allocazione. L'aggiunta di partizioni può aumentare significativamente la velocità di indicizzazione, ma l'aggiunta o la rimozione può richiedere da 15 minuti a diverse ore. Per ulteriori informazioni, vedere la documentazione relativa alla [regolazione della capacità](search-capacity-planning.md).
+> [!NOTE]
+> L'aggiunta di repliche aggiuntive può aumentare anche la velocità di indicizzazione, ma non è garantita. D'altra parte, le repliche aggiuntive aumenteranno il volume di query che il servizio di ricerca è in grado di gestire. Le repliche sono anche un componente chiave per ottenere un [contratto di contratto](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+>
+> Prima di aggiungere partizioni o repliche o eseguire l'aggiornamento a un livello superiore, prendere in considerazione il costo monetario e il tempo di allocazione. L'aggiunta di partizioni può aumentare significativamente la velocità di indicizzazione, ma l'aggiunta o la rimozione può richiedere da 15 minuti a diverse ore. Per ulteriori informazioni, vedere la documentazione relativa alla [regolazione della capacità](search-capacity-planning.md).
+>
 
-### <a name="index-schema"></a>Schema dell'indice
+### <a name="review-index-schema"></a>Esaminare lo schema dell'indice
 
-Lo schema dell'indice svolge un ruolo importante nell'indicizzazione dei dati. L'aggiunta di campi e l'aggiunta di proprietà aggiuntive a tali campi, ad esempio *ricercabile*, con *facet*o *filtrabile*, consentono di ridurre le velocità di indicizzazione.
-
-In generale, è consigliabile aggiungere proprietà aggiuntive ai campi solo se si intende usarle.
+Lo schema dell'indice svolge un ruolo importante nell'indicizzazione dei dati. Maggiore è il numero di campi disponibili e il numero di proprietà impostate, ad esempio *ricercabile*, con *facet*o *filtrabile*, contribuisce a un aumento del tempo di indicizzazione. In generale, è consigliabile creare e specificare solo i campi effettivamente necessari in un indice di ricerca.
 
 > [!NOTE]
 > Per ridurre le dimensioni del documento, evitare di aggiungere dati non Queryable a un indice. Le immagini e altri dati binari non sono direttamente disponibili per la ricerca e non devono quindi essere archiviati nell'indice. Per integrare i dati non disponibili per query nei risultati della ricerca, occorre definire un campo non disponibile per la ricerca che archivia un riferimento URL alla risorsa.
 
-### <a name="batch-size"></a>Dimensioni batch
+### <a name="check-the-batch-size"></a>Controllare le dimensioni del batch
 
-Uno dei meccanismi più semplici per l'indicizzazione di set di dati di grandi dimensioni consiste nell'inviare più documenti o record in un'unica richiesta. Se le dimensioni dell'intero payload sono inferiori a 16 MB, una richiesta può gestire fino a 1000 documenti in un'operazione di caricamento in blocco. Questi limiti si applicano se si usa l' [API REST di Add Documents](/rest/api/searchservice/addupdate-or-delete-documents) o il [metodo index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) in .NET SDK. Per entrambe le API, è necessario creare il pacchetto di 1000 documenti nel corpo di ogni richiesta.
+Uno dei meccanismi più semplici per l'indicizzazione di set di dati di grandi dimensioni consiste nell'inviare più documenti o record in un'unica richiesta. Se le dimensioni dell'intero payload sono inferiori a 16 MB, una richiesta può gestire fino a 1000 documenti in un'operazione di caricamento in blocco. Questi limiti si applicano se si usa l' [API REST di Add Documents](/rest/api/searchservice/addupdate-or-delete-documents) o il [metodo index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) in .NET SDK. Per entrambe le API, è necessario creare il pacchetto di 1000 documenti nel corpo di ogni richiesta.
 
 L'utilizzo di batch per indicizzare i documenti consente di migliorare significativamente le prestazioni di indicizzazione. Determinare le dimensioni ottimali dei batch per i dati è fondamentale per ottimizzare la velocità di indicizzazione. I due fattori principali che influiscono sulle dimensioni ottimali dei batch sono i seguenti:
+
 + Schema dell'indice
 + Dimensioni dei dati
 
@@ -79,7 +82,7 @@ Quando si aumentano le richieste che raggiungono il servizio di ricerca, potrebb
 + **503 - Servizio non disponibile**. Questo errore indica che il sistema è in sovraccarico e al momento la richiesta non può essere elaborata.
 + **207 - Multi-Status**. Questo errore indica che alcuni documenti hanno avuto esito positivo, ma almeno uno ha avuto esito negativo.
 
-### <a name="retry-strategy"></a>Strategia di ripetizione dei tentativi 
+### <a name="retry-strategy"></a>Strategia di ripetizione dei tentativi
 
 Se si verifica un errore, le richieste dovranno essere ripetute usando una [strategia di ripetizione dei tentativi con backoff esponenziale](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
@@ -89,7 +92,7 @@ Se si verifica un errore, le richieste dovranno essere ripetute usando una [stra
 
 La velocità di trasferimento dei dati di rete può essere un fattore di limitazione durante l'indicizzazione dei dati. L'indicizzazione dei dati dall'interno dell'ambiente Azure è un modo semplice per velocizzare l'indicizzazione.
 
-## <a name="indexers"></a>Indicizzatori
+## <a name="use-indexers-pull-api"></a>Usare gli indicizzatori (API pull)
 
 Gli [indicizzatori](search-indexer-overview.md) vengono usati per eseguire la ricerca per indicizzazione delle origini dati di Azure supportate. Sebbene non siano appositamente destinati all'indicizzazione su larga scala, diverse funzionalità degli indicizzatori sono particolarmente utili in presenza di set di dati di grandi dimensioni:
 
@@ -100,7 +103,7 @@ Gli [indicizzatori](search-indexer-overview.md) vengono usati per eseguire la ri
 > [!NOTE]
 > Gli indicizzatori sono specifici dell'origine dati, pertanto l'uso di un approccio indicizzatore è possibile solo per le origini dati selezionate in Azure: [database SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [archiviazione BLOB](search-howto-indexing-azure-blob-storage.md), [archiviazione tabelle](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
 
-### <a name="batch-size"></a>Dimensioni batch
+### <a name="check-the-batchsize-argument-on-create-indexer"></a>Controllare l'argomento batchSize in create Indexer
 
 Come per l'API push, gli indicizzatori consentono di configurare il numero di elementi per batch. Per gli indicizzatori basati sull'[API REST di creazione indicizzatore](/rest/api/searchservice/Create-Indexer), è possibile impostare l'argomento `batchSize` per personalizzare questa impostazione in base alle caratteristiche dei dati. 
 
@@ -112,7 +115,7 @@ La pianificazione degli indicizzatori è un meccanismo importante per l'elaboraz
 
 Per impostazione predefinita, l'indicizzazione pianificata viene avviata a intervalli specifici, in cui un processo viene in genere completato prima di riprendere nell'intervallo pianificato successivo. Tuttavia, se l'elaborazione non viene completata entro l'intervallo, l'indicizzatore si arresta perché il tempo a disposizione è terminato. All'intervallo successivo l'elaborazione riprende da dove si è interrotta perché il sistema tiene traccia del punto in cui si è verificata l'interruzione. 
 
-In pratica per i caricamenti di indici che richiedono più giorni, è possibile inserire l'indicizzatore in una pianificazione di 24 ore. Quando l'indicizzazione riprende per il ciclo di 24 ore successivo, riparte dall'ultimo documento valido noto. In questo modo un indicizzatore può continuare a funzionare tramite un backlog del documento per più giorni fino a quando non vengono elaborati tutti i documenti non elaborati. Per altre informazioni su questo approccio, vedere [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Per altre informazioni sull'impostazione delle pianificazioni in generale, vedere [creare un'API REST dell'indicizzatore](/rest/api/searchservice/Create-Indexer) o vedere [come pianificare gli indicizzatori per ricerca cognitiva di Azure](search-howto-schedule-indexers.md).
+In pratica per i caricamenti di indici che richiedono più giorni, è possibile inserire l'indicizzatore in una pianificazione di 24 ore. Quando l'indicizzazione riprende per il ciclo di 24 ore successivo, riparte dall'ultimo documento valido noto. In questo modo un indicizzatore può continuare a funzionare tramite un backlog del documento per più giorni fino a quando non vengono elaborati tutti i documenti non elaborati. Per altre informazioni sull'impostazione delle pianificazioni in generale, vedere [creare un'API REST dell'indicizzatore](/rest/api/searchservice/Create-Indexer) o vedere [come pianificare gli indicizzatori per ricerca cognitiva di Azure](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 

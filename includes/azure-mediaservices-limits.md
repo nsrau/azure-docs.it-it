@@ -2,59 +2,59 @@
 author: rothja
 ms.service: media-services
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: e24c345bfee216dd240f0c283402ad43c8f45c29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: c315c071aeb36eea0bd1af84b1344cf2fef5f703
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85838873"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329661"
 ---
 >[!NOTE]
->Per le risorse che non sono fisse, aprire un ticket di supporto per richiedere un aumento delle quote. Non creare altri account di servizi multimediali di Azure in un tentativo di ottenere limiti più elevati.
+>Per le risorse non fisse aprire un ticket di supporto e richiedere l'aumento delle quote. Non creare altri account di Servizi multimediali di Azure per provare a ottenere limiti superiori.
 
 | Risorsa | Limite | 
 | --- | --- | 
-| Account di servizi multimediali di Azure in una singola sottoscrizione | 25 (fisso) |
-| Media reserved Unit per account di servizi multimediali |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
+| Account di Servizi multimediali di Azure in una singola sottoscrizione | 25 (fisso) |
+| Unità riservate di codifica per ogni account di Servizi multimediali |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
 | Job per ogni account di Servizi multimediali | 50.000<sup>2</sup> |
 | Attività concatenate per processo | 30 (fisso) |
-| Asset per account di servizi multimediali | 1\.000.000|
+| Asset per ogni account di Servizi multimediali | 1\.000.000|
 | Asset per attività | 50 |
 | Asset per processo | 100 |
 | Localizzatori univoci associati a un asset contemporaneamente | 5<sup>4</sup> |
-| Canali live per ogni account di servizi multimediali |5|
+| Canali live per ogni account di Servizi multimediali |5|
 | Programmi con stato arrestato per canale  |50|
 | Programmi con stato in esecuzione per canale  |3|
-| Endpoint di streaming interrotti o in esecuzione per ogni account di servizi multimediali|2|
+| Endpoint di streaming arrestati o in esecuzione per ogni account di Servizi multimediali|2|
 | Unità di streaming per endpoint di streaming  |10 |
-| Account di archiviazione | 1.000<sup>5</sup> (fisso) |
+| Account di archiviazione | 100<sup>5</sup> (fisse) |
 | Criteri | 1,000,000<sup>6</sup> |
-| Dimensione del file| In alcuni scenari è previsto un limite per le dimensioni massime del file supportate per l'elaborazione in servizi multimediali. <sup>7</sup> |
+| Dimensione del file| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali.<sup>7</sup> |
 
-<sup>1</sup> Se si modifica il tipo, ad esempio da S2 a S1, vengono reimpostati i limiti massimi di unità riservate.
+<sup>1</sup>Se si cambia il tipo, ad esempio si passa da S2 a S1, i limiti massimi per le unità riservate vengono reimpostati.
 
-<sup>2</sup> Questo numero include i processi in coda, terminati, attivi e annullati. Non include i processi eliminati. È possibile eliminare i vecchi processi usando **IJob. Delete** o la richiesta HTTP **Delete** .
+<sup>2</sup>Questo numero include i processi in coda, terminati, attivi e annullati. Non include invece i processi eliminati. È possibile eliminare i processi obsoleti usando **IJob.Delete** o la richiesta HTTP **DELETE**.
 
-A partire dal 1 ° aprile 2017, tutti i record di processo nell'account più vecchi di 90 giorni vengono eliminati automaticamente, insieme ai record attività associati. L'eliminazione automatica si verifica anche se il numero totale di record è inferiore alla quota massima. Per archiviare le informazioni relative a processi e attività, usare il codice descritto in [gestire gli asset con Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
+A partire dal 1° aprile 2017, tutti i record di processo presenti nell'account e più vecchi di 90 giorni vengono eliminati automaticamente, insieme ai record attività associati. L'eliminazione automatica viene eseguita anche se il numero totale di record è inferiore alla quota massima. Per archiviare le informazioni su processi e attività, usare il codice descritto in [Gestire gli asset con Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup> Quando si effettua una richiesta per elencare le entità processo, viene restituito un massimo di 1.000 processi per ogni richiesta. Per tenere traccia di tutti i processi inviati, usare le query Top o Skip come descritto in [Opzioni di query di sistema OData](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
+<sup>3</sup>Quando si effettua una richiesta per elencare le entità processo, vengono restituiti al massimo 1.000 processi per ogni richiesta. Per tenere traccia di tutti i processi inviati, usare le opzioni top o skip descritte nell'argomento [Opzioni delle query di sistema OData](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
-<sup>4</sup> I localizzatori non sono progettati per gestire il controllo di accesso per utente. Per concedere diritti di accesso diversi a singoli utenti, utilizzare soluzioni di Digital Rights Management (DRM). Per altre informazioni, vedere [proteggere i contenuti con servizi multimediali di Azure](../articles/media-services/previous/media-services-content-protection-overview.md).
+<sup>4</sup>I localizzatori non sono progettati per gestire il controllo di accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management). Per altre informazioni, vedere [Proteggere i contenuti con Servizi multimediali di Azure](../articles/media-services/previous/media-services-content-protection-overview.md).
 
-<sup>5</sup> Gli account di archiviazione devono provenire dalla stessa sottoscrizione di Azure.
+<sup>5</sup>Gli account di archiviazione devono appartenere alla stessa sottoscrizione di Azure.
 
-<sup>6</sup> È previsto un limite di 1 milione criteri per i diversi criteri di servizi multimediali. Un esempio è per i criteri Locator o ContentKeyAuthorizationPolicy. 
+<sup>6</sup>È previsto un limite di 1.000.000 di criteri per i diversi criteri di Servizi multimediali, ad esempio per i criteri Locator o per ContentKeyAuthorizationPolicy. 
 
 >[!NOTE]
-> Se si usano sempre gli stessi giorni e le stesse autorizzazioni di accesso, usare lo stesso ID criterio. Per informazioni e un esempio, vedere [gestire gli asset con l'SDK di servizi multimediali per .NET](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
+> Se si usano sempre gli stessi giorni e le stesse autorizzazioni di accesso, usare lo stesso ID criteri. Per informazioni e per un esempio, vedere [Gestire asset con Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
 
-<sup>7</sup> Le dimensioni massime supportate per un singolo BLOB sono attualmente fino a 5 TB nell'archivio BLOB di Azure. I limiti aggiuntivi si applicano a servizi multimediali in base alle dimensioni delle macchine virtuali usate dal servizio. Il limite delle dimensioni si applica ai file caricati e anche ai file generati come risultato dell'elaborazione di servizi multimediali (codifica o analisi). Se le dimensioni del file di origine sono maggiori di 260 GB, è probabile che il processo abbia esito negativo. 
+<sup>7</sup>Le dimensioni massime supportate per un BLOB singolo corrispondono a 5 TB in Archiviazione BLOB di Azure. Vengono applicati altri limiti in Servizi multimediali in base alle dimensioni delle macchine virtuali usate dal servizio. Il limite delle dimensioni si applica ai file caricati, nonché ai file generati come risultato dell'elaborazione di Servizi multimediali (codifica o analisi). Se le dimensioni del file di origine sono maggiori di 260 GB, è probabile che il processo abbia esito negativo. 
 
-La tabella seguente illustra i limiti di media reserved Unit S1, S2 e S3. Se il file di origine è superiore ai limiti definiti nella tabella, il processo di codifica non riesce. Se si codificano origini di risoluzione 4K di lunga durata, è necessario usare le unità riservate S3 media per ottenere le prestazioni necessarie. Se si dispone di contenuto 4K superiore al limite di 260 GB per le unità riservate S3 media, aprire un ticket di supporto.
+La tabella seguente mostra i limiti per le unità riservata di codifica S1, S2 e S3. Se le dimensioni del file di origine superano i limiti definiti nella tabella, il processo di codifica non riesce. Se si esegue la codifica di origini risoluzione 4K di lunga durata, è necessario usare unità riservate di codifica S3 per ottenere le prestazioni necessarie. Se le dimensioni dei contenuti 4K superano il limite di 260 GB per le unità riservate di codifica S3, aprire un ticket di supporto.
 
-|Media reserved Unit Type    |Dimensioni massime input (GB)|
+|Tipo di unità riservata di codifica    |Dimensioni massime di input (GB)|
 |---|---|
 |S1 |    26|
 |S2    | 60|

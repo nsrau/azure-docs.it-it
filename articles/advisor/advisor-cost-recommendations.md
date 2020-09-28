@@ -2,13 +2,13 @@
 title: Ridurre i costi del servizio con Azure Advisor
 description: Usare Azure Advisor per ottimizzare il costo delle distribuzioni di Azure.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 89bc72bcf3a19867341675f89cbc0a734d7996d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/27/2020
+ms.openlocfilehash: 7576ccb478a4f221ae7d7f68b14787f6f8bf7e88
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325845"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405225"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Ridurre i costi del servizio usando Azure Advisor
 
@@ -111,6 +111,7 @@ Advisor identifica le risorse in cui la riduzione dei criteri di cache della tab
 
 Per altre informazioni sui consigli di Advisor, vedere:
 * [Introduction to Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
+* [Punteggio di Advisor](azure-advisor-score.md)
 * [Introduzione ad Advisor](advisor-get-started.md)
 * [Raccomandazioni sulle prestazioni di Advisor](advisor-performance-recommendations.md)
 * [Raccomandazioni per la disponibilità elevata di Advisor](advisor-high-availability-recommendations.md)

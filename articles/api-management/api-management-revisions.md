@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: b099a6ea706482e25b2c37a87cf0a24f2fe475bb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a20a7966daff372cf5c0abc9b7b1dbbfd459838
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531594"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403239"
 ---
 # <a name="revisions-in-azure-api-management"></a>Revisioni in gestione API di Azure
 
@@ -38,7 +38,7 @@ Con le revisioni è possibile:
 
 `https://apis.contoso.com/customers;rev=3?customerId=123`
 
-Per impostazione predefinita, ogni revisione ha le stesse impostazioni di sicurezza della revisione corrente. È possibile modificare intenzionalmente i criteri per una revisione specifica se si desidera applicare una sicurezza diversa per ogni revisione. Ad esempio, potrebbe essere necessario aggiungere un [criterio di whitelist degli indirizzi IP](./api-management-access-restriction-policies.md#RestrictCallerIPs) per impedire ai chiamanti esterni di accedere a una revisione ancora in fase di sviluppo.
+Per impostazione predefinita, ogni revisione ha le stesse impostazioni di sicurezza della revisione corrente. È possibile modificare intenzionalmente i criteri per una revisione specifica se si desidera applicare una sicurezza diversa per ogni revisione. Ad esempio, potrebbe essere necessario aggiungere un [criterio di filtro IP](./api-management-access-restriction-policies.md#RestrictCallerIPs) per impedire ai chiamanti esterni di accedere a una revisione ancora in fase di sviluppo.
 
 Una revisione può essere portata offline, rendendola inaccessibile ai chiamanti anche se tentano di accedere alla revisione tramite il relativo URL. È possibile contrassegnare una revisione come offline usando il portale di Azure. Se si usa PowerShell, è possibile usare il `Set-AzApiManagementApiRevision` cmdlet e impostare l' `Path` argomento su `$null` .
 

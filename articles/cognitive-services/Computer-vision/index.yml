@@ -10,13 +10,13 @@ metadata:
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley
-  ms.date: 10/01/2019
-  ms.openlocfilehash: 45515fc865d989394c465a25b5474153f8370bd0
-  ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+  ms.date: 09/22/2020
+  ms.openlocfilehash: 3a11be023df31fc4f6babe44d869ae89862ae501
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90530217"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91277241"
 landingContent:
 - title: Informazioni su Visione artificiale
   linkLists:
@@ -86,11 +86,11 @@ landingContent:
       url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Uso di Go SDK
       url: quickstarts-sdk/client-library.md?pivots=programming-language-go
-- title: Usare i contenitori
+- title: Usare il contenitore Read
   linkLists:
   - linkListType: get-started
     links:
-    - text: Installare ed eseguire i contenitori
+    - text: Installare ed eseguire il contenitore
       url: computer-vision-how-to-install-containers.md
   - linkListType: how-to-guide
     links:
@@ -102,6 +102,26 @@ landingContent:
       url: deploy-computer-vision-on-container-instances.md
     - text: Usare con Kubernetes e Jenkins
       url: deploy-computer-vision-on-premises.md
+- title: Usare il contenitore Analisi spaziale
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Installare ed eseguire il contenitore
+      url: spatial-analysis-container.md
+    - text: Configurare le operazioni
+      url: spatial-analysis-operations.md
+  - linkListType: deploy
+    links:
+    - text: Distribuire un'app per il conteggio delle persone
+      url: spatial-analysis-web-app.md
+  - linkListType: concept
+    links:
+    - text: Posizionamento di zone e linee
+      url: spatial-analysis-zone-line-placement.md
+    - text: Posizionamento della fotocamera
+      url: spatial-analysis-camera-placement.md
+    - text: Registrazione e risoluzione dei problemi
+      url: spatial-analysis-logging.md
 - title: Rilevare visi nelle immagini
   linkLists:
   - linkListType: concept

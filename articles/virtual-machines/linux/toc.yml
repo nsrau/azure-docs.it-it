@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: 'Creare una VM: interfaccia della riga di comando di Azure'
       href: quick-create-cli.md
@@ -345,7 +345,7 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Automatizzazione dell'infrastruttura
       href: ../infrastructure-automation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza e criteri
           href: ../security-policy.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -362,6 +362,9 @@
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Stati e ciclo di vita
       href: ../states-lifecycle.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Chiamate PUT per operazioni di creazione o aggiornamento
+      href: ../put-calls-create-or-update.md
+      maintainContext: true
     - name: Monitoraggio
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Diagnostica di avvio
@@ -534,7 +537,7 @@
                 - name: Creare una VM da una versione di immagine
                   href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
             - name: Risolvere i problemi relativi alle immagini condivise
-              href: troubleshooting-shared-images.md
+              href: ../troubleshooting-shared-images.md
             - name: Uso delle chiavi gestite dal cliente
               displayName: 'SSE, CMK, encrypt'
               href: ../image-version-encryption.md
@@ -556,8 +559,8 @@
                   href: image-builder-permissions-powershell.md
             - name: Attività DevOps
               href: image-builder-devops-task.md
-            - name: Informazioni di riferimento sui modelli di Azure Resource Manager
-              displayName: 'ARM,Resource Manager'
+            - name: Informazioni di riferimento sui modelli di Image Builder
+              displayName: json
               href: image-builder-json.md
             - name: Creare immagini per le raccolte
               href: image-builder-gallery.md
@@ -617,6 +620,8 @@
               href: how-to-verify-encryption-status.md
             - name: Come configurare RAID LVM con la crittografia
               href: how-to-configure-lvm-raid-on-crypt.md
+            - name: Come ridimensionare volumi LVM crittografati
+              href: how-to-resize-encrypted-lvm.md
             - name: Risoluzione dei problemi di crittografia dei dischi
               href: disk-encryption-troubleshooting.md
             - name: Domande frequenti sulla crittografia del disco
@@ -849,7 +854,7 @@
         - name: Autoscale
           href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
         - name: Disponibilità elevata
-          href: manage-availability.md
+          href: ../manage-availability.md
         - name: Modificare il set di disponibilità
           href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Creare un gruppo di selezione host di prossimità
@@ -945,7 +950,7 @@
           href: /azure/architecture/topics/high-performance-computing/
         - name: IBM Db2 pureScale
           items:
-            - name: Architettura
+            - name: Architecture
               href: ibm-db2-purescale-azure.md
             - name: Distribuzione
               href: deploy-ibm-db2-purescale-azure.md

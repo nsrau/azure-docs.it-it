@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/03/2019
-ms.openlocfilehash: 01daf0af039a00f6a81b850b07cfcf6d901a7732
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 606d3c78e96491a92b2e09aa74801247369ba0ab
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284636"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403297"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifiche tramite posta elettronica per l'ottimizzazione automatica
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -187,7 +187,7 @@ Per completare la soluzione, come ultimo passaggio, creare un flusso di automazi
 
 - "**Automazione di Azure-crea processo**": usato per eseguire lo script di PowerShell per recuperare le raccomandazioni di ottimizzazione automatica all'interno del Runbook di automazione di Azure.
 - "**Automazione di Azure-ottenere l'output del processo**": usato per recuperare l'output dallo script di PowerShell eseguito.
-- "**Office 365 Outlook-invia un messaggio di posta elettronica**": usato per inviare messaggi di posta elettronica. I messaggi di posta elettronica vengono inviati usando l'account Office 365 dell'utente che ha creato il flusso.
+- "**Office 365 Outlook-invia un messaggio di posta elettronica**": usato per inviare messaggi di posta elettronica. I messaggi di posta elettronica vengono inviati usando l'account aziendale o dell'Istituto di istruzione del singolo utente che crea il flusso.
 
 Per altre informazioni sulle funzionalità di Microsoft Flow, vedere [Attività iniziali con Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 

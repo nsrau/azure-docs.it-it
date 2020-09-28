@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: f6d5cbfc8d781e96a4d348f31f4a5d175ebd5a3d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f76d28018fdf55314593dabc44ef1e9a1dab9494
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321888"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403127"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Come attivare azioni complesse con avvisi di Monitoraggio di Azure
 
@@ -108,7 +108,7 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
 
     ![Azioni Microsoft Teams](media/action-groups-logic-app/microsoft-teams-actions.png "Azioni Microsoft Teams")
 
-12. Configurare l'azione di Microsoft Teams. In **Progettazione app per la logica** viene chiesto di autenticarsi con l'account Office 365. Scegliere l'**ID team** e l'**ID canale** per l'invio del messaggio.
+12. Configurare l'azione di Microsoft Teams. La **finestra di progettazione di app** per la logica richiede di eseguire l'autenticazione con l'account aziendale o dell'Istituto di istruzione. Scegliere l'**ID team** e l'**ID canale** per l'invio del messaggio.
 
 13. Configurare il messaggio utilizzando una combinazione di testo statico e riferimenti a \<fields\> nel contenuto dinamico. Copiare e incollare il testo seguente nel campo **Messaggio**:
 

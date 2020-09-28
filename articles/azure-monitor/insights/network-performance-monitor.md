@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 34e81076c27086ad838cca23de0e150a3c1b076c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c5a442a3d3711b85c0bad30218cb1ffab92558d9
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798908"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403722"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -28,7 +28,7 @@ Monitoraggio prestazioni rete offre tre ampie funzionalità:
 
 * [Monitoraggio connettività servizio](network-performance-monitor-service-connectivity.md): è possibile monitorare la connettività dagli utenti ai servizi più importanti, determinare il tipo di infrastruttura nel percorso e i punti della rete in cui si verificano i colli di bottiglia. Consente di essere avvisati delle interruzioni di servizio prima degli utenti e fornisce la posizione esatta dei problemi lungo il percorso di rete. 
 
-    Questa funzionalità consente di eseguire test basati su HTTP, HTTPS, TCP e ICMP per monitorare la disponibilità e il tempo di risposta del servizio quasi in tempo reale o su base cronologica. È anche possibile monitorare il contributo della rete a una perdita di pacchetti e alla latenza. Con una mappa della topologia di rete, è possibile isolare i rallentamenti della rete. È possibile identificare le aree problematiche lungo il percorso di rete dal nodo al servizio, con dati di latenza per ogni hop. Grazie ai test predefiniti, è possibile monitorare la connettività di rete a Office 365 e a Dynamics CRM senza alcuna preconfigurazione. Questa funzionalità consente di monitorare la connettività di rete a qualsiasi endpoint idoneo per TCP, ad esempio siti Web, applicazioni SaaS e PaaS e database SQL.
+    Questa funzionalità consente di eseguire test basati su HTTP, HTTPS, TCP e ICMP per monitorare la disponibilità e il tempo di risposta del servizio quasi in tempo reale o su base cronologica. È anche possibile monitorare il contributo della rete a una perdita di pacchetti e alla latenza. Con una mappa della topologia di rete, è possibile isolare i rallentamenti della rete. È possibile identificare le aree problematiche lungo il percorso di rete dal nodo al servizio, con dati di latenza per ogni hop. Con i test predefiniti, è possibile monitorare la connettività di rete per Microsoft 365 e Dynamics CRM senza alcuna preconfigurazione. Questa funzionalità consente di monitorare la connettività di rete a qualsiasi endpoint idoneo per TCP, ad esempio siti Web, applicazioni SaaS e PaaS e database SQL.
 
 * [Monitoraggio di ExpressRoute](network-performance-monitor-expressroute.md): consente di monitorare la connettività end-to-end e le prestazioni tra succursali e Azure, tramite Azure ExpressRoute.  
 
@@ -82,7 +82,7 @@ Usare i processi di base per installare gli agenti in [connettere i computer Win
 
     Per monitorare un collegamento di rete, installare agenti in entrambi gli endpoint del collegamento. Se non si conosce la topologia della rete, installare gli agenti nei server con carichi di lavoro critici tra cui si desidera monitorare le prestazioni di rete. Ad esempio, se si desidera monitorare la connessione di rete tra un server Web e un server che esegue SQL, installare un agente in entrambi i server. Gli agenti monitorano la connettività di rete (collegamenti) tra host, non gli host stessi. 
 
-* **Monitoraggio connettività servizio:** installare un agente di Log Analytics in ogni nodo da cui si vuole monitorare la connettività di rete all'endpoint di servizio. Un esempio è dato dal caso in cui si desidera monitorare la connettività di rete a Office 365 da siti di uffici etichettati O1, O2 e O3. Installare l'agente di Log Analytics in almeno un nodo ciascuno in O1, O2 e O3. 
+* **Monitoraggio connettività servizio:** installare un agente di Log Analytics in ogni nodo da cui si vuole monitorare la connettività di rete all'endpoint di servizio. Un esempio è se si vuole monitorare la connettività di rete per Microsoft 365 dai siti di Office con etichetta O1, O2 e O3. Installare l'agente di Log Analytics in almeno un nodo ciascuno in O1, O2 e O3. 
 
 * **Monitoraggio di ExpressRoute**: installare almeno un agente di Log Analytics nella rete virtuale di Azure. Installare anche almeno un agente nella subnet locale, connessa attraverso il peering privato di ExpressRoute.  
 
@@ -128,7 +128,7 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
 
    ![Visualizzazione Monitoraggio prestazioni](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Monitoraggio connettività servizio**: la funzionalità fornisce test preconfigurati predefiniti per monitorare la connettività di rete a Office 365 e Dynamics 365 dagli agenti. Scegliere i servizi di Office 365 e Dynamics 365 che si desidera monitorare selezionando le relative caselle di controllo. Per scegliere gli agenti da cui eseguire il monitoraggio, selezionare **Aggiungi agenti**. Se non si desidera utilizzare questa funzionalità o si desidera configurarla in un secondo momento, non scegliere nulla e selezionare **Salva e continua**.
+   **Monitoraggio della connettività del servizio**: la funzionalità fornisce test preconfigurati predefiniti per monitorare la connettività di rete a Microsoft 365 e Dynamics 365 dagli agenti. Scegliere i servizi Microsoft 365 e Dynamics 365 che si desidera monitorare selezionando le caselle di controllo accanto a essi. Per scegliere gli agenti da cui eseguire il monitoraggio, selezionare **Aggiungi agenti**. Se non si desidera utilizzare questa funzionalità o si desidera configurarla in un secondo momento, non scegliere nulla e selezionare **Salva e continua**.
 
    ![Visualizzazione Monitoraggio connettività del servizio](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
@@ -286,7 +286,7 @@ Le notifiche vengono addebitate separatamente in base ai [prezzi per le notifich
 
 Le informazioni sui prezzi sono disponibili [online](network-performance-monitor-pricing-faq.md).
 
-## <a name="provide-feedback"></a>Fornire il feedback 
+## <a name="provide-feedback"></a>Inviare feedback 
 
 * **UserVoice**: è possibile pubblicare le proprie idee sulle funzionalità di Monitoraggio prestazioni rete che si ritiene possano essere migliorate. Visitare la [pagina UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 

@@ -11,16 +11,16 @@
         - name: Introduzione
           href: get-started.md
           displayName: 'get, started'
-        - name: 1 - Creare un'area di lavoro di Synapse
+        - name: 1 - Creare un'area di lavoro
           href: get-started-create-workspace.md
           displayName: 'get, started'
-        - name: 2 - Usare un pool SQL per l'analisi
+        - name: 2 - Usare pool SQL
           href: get-started-analyze-sql-pool.md
           displayName: 'get, started'
-        - name: 3 - Usare Spark per l'analisi
+        - name: 3 - Usare Spark
           href: get-started-analyze-spark.md
           displayName: 'get, started'
-        - name: 4 - Usare SQL su richiesta per l'analisi
+        - name: 4 - Usare SQL su richiesta
           href: get-started-analyze-sql-on-demand.md
           displayName: 'get, started'
         - name: 5 - Analizzare i dati in un account di archiviazione
@@ -84,6 +84,8 @@
   items:
     - name: Eseguire applicazioni Apache Spark
       href: ./spark/intellij-tool-synapse.md
+    - name: Eseguire applicazioni PySpark per pool Spark
+      href: ./spark/vscode-tool-synapse.md
     - name: Definizioni dei processi Spark
       href: ./spark/apache-spark-job-definitions.md
     - name: Power BI Desktop
@@ -210,6 +212,8 @@
               href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Linguaggio delle espressioni
               href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Differenze rispetto ad Azure Data Factory
+              href: ./data-integration/concepts-data-factory-differences.md
     - name: Spark
       items:
         - name: Panoramica
@@ -256,7 +260,7 @@
               href: sql/on-demand-workspace-overview.md
             - name: Pool SQL
               href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Architettura
+            - name: Architecture
               href: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Panoramica delle funzionalità
               href: sql/overview-features.md

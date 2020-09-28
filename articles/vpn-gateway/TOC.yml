@@ -138,8 +138,6 @@
               href: point-to-site-how-to-vpn-client-install-azure-cert.md
             - name: Creare e installare i file di configurazione dei client VPN
               href: point-to-site-vpn-client-configuration-azure-cert.md
-            - name: Gestione delle sessioni
-              href: p2s-session-management.md
         - name: Autenticazione RADIUS
           items:
             - name: Configurare una VPN P2S
@@ -170,6 +168,8 @@
               href: vpn-gateway-howto-openvpn-clients.md
             - name: Passare al protocollo OpenVPN o a IKEv2 da SSTP
               href: ikev2-openvpn-from-sstp.md
+        - name: Configurare la gestione delle sessioni VPN da punto a sito
+          href: p2s-session-management.md
         - name: Passaggio a un certificato del gateway CA pubblico per la connessione da punto a sito
           href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Configurare un tunnel di dispositivo VPN Always On

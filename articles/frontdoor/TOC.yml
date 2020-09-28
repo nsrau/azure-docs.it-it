@@ -9,6 +9,10 @@
   items:
     - name: Creare un servizio Frontdoor - Portale
       href: quickstart-create-front-door.md
+    - name: Creare un servizio Frontdoor - PowerShell
+      href: quickstart-create-front-door-powershell.md
+    - name: Creare un servizio Frontdoor - Interfaccia della riga di comando
+      href: quickstart-create-front-door-cli.md
     - name: Creare un servizio Frontdoor - Modello di Resource Manager
       href: quickstart-create-front-door-template.md
 - name: Esercitazioni

@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d86c6d8b67546aede86a3fc3c905f6feb40d92db
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045241"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403416"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Risoluzione dei problemi negli avvisi di monitoraggio di Azure
 
@@ -61,7 +61,7 @@ Se un avviso attivato è visibile nel portale di Azure ma non si è ricevuto il 
     Verificare anche:
 
    - le impostazioni della posta indesiderata del client di posta elettronica, ad esempio Outlook, Gmail
-      - i limiti del mittente/le impostazioni di posta indesiderata/le impostazioni della quarantena per il server di posta elettronica, ad esempio Exchange, Office 365, G-Suite
+      - impostazioni di quarantena/impostazioni della posta indesiderata per il server di posta elettronica (ad esempio Exchange, Microsoft 365, G-Suite)
       - impostazioni dell'appliance di sicurezza della posta elettronica, se presente (ad esempio Barracuda, Cisco).
 
 1. **Si è accidentalmente annullata la sottoscrizione al gruppo di azioni?**
@@ -203,7 +203,7 @@ Se un avviso attivato è visibile nel portale, ma la relativa regola di azione n
 
     Gli avvisi sull'integrità dei servizi (servizio di monitoraggio = "Integrità dei servizi") non sono interessati dalle regole di azione. 
 
-1. **È stata eseguita la regola di azione per l'avviso?** 
+1. **La regola di azione ha agito sull'avviso?** 
 
     Controllare se la regola di azione ha elaborato l'avviso facendo clic sull'avviso attivato nel portale, quindi esaminare la scheda della cronologia.
 

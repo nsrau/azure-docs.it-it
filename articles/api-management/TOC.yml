@@ -197,6 +197,8 @@
       items:
         - name: Impostare o modificare criteri
           href: set-edit-policies.md
+        - name: Criteri di debug
+          href: api-management-debug-policies.md
         - name: Espressioni di criteri
           href: api-management-policy-expressions.md
         - name: Caching personalizzato
@@ -221,6 +223,8 @@
           href: api-management-cross-domain-policies.md
         - name: Criteri di trasformazione
           href: api-management-transformation-policies.md
+        - name: Criteri di integrazione Dapr (Distributed Apps Runtime)
+          href: api-management-dapr-policies.md
     - name: Gestire l'ambiente di produzione
       items:
         - name: Esportare le API in Power Platform

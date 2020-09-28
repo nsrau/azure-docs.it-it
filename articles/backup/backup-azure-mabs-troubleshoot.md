@@ -4,12 +4,12 @@ description: Risolvere i problemi di installazione e registrazione del server di
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: d3b2ee87dda09fe1b5611d00ce567304aec33a6f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 09e5fe5da7e316257cbbdcb89074fe8a4bc692c0
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298372"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403008"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Risolvere i problemi del server di Backup di Azure
 
@@ -142,7 +142,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operazione | Dettagli errore | Soluzione alternativa |
 | --- | --- | --- |
-| Impostazione delle notifiche di posta elettronica tramite un account di Office 365 |ID errore: 2013| **Causa:**<br> Tentativo di usare l'account di Office 365 <br>**Azione consigliata:**<ol><li> Verificare prima di tutto che l'inoltro anonimo sia consentito in un connettore di ricezione per il server DPM in Exchange. Per altre informazioni su come configurare questa impostazione, vedere [Autorizzazione per l'inoltro anonimo su un connettore di ricezione](/exchange/mail-flow/connectors/allow-anonymous-relay).</li> <li> Se non è possibile usare un inoltro SMTP interno ed è necessario eseguire la configurazione con il server di Office 365, è possibile configurare IIS come inoltro. Configurare il server DPM in modo che [inoltri SMTP a O365 tramite IIS](/exchange/mail-flow/test-smtp-with-telnet).<br><br>  Assicurarsi di usare il formato user\@domain.com e *non* domain\user.<br><br><li>Impostare DPM in modo da usare il nome del server locale come server SMTP e la porta 587. Quindi impostarlo con l'indirizzo di posta elettronica dell'utente da cui dovrebbero provenire i messaggi.<li> Il nome utente e la password nella pagina di configurazione dell'SMTP per DPM devono corrispondere a un account di dominio nel dominio in cui è attivo DPM. </li><br> Quando si modifica l'indirizzo del server SMTP, apportare la modifica alle nuove impostazioni, chiudere la casella delle impostazioni e riaprirla per assicurarsi che rifletta il nuovo valore.  Se ci si limita ad apportare la modifica ed eseguire il test, è possibile che le nuove impostazioni non vengano applicate, pertanto questo tipo di verifica è la procedura consigliata.<br><br>In qualsiasi momento durante il processo è possibile cancellare queste impostazioni chiudendo la console DPM e modificando le chiavi del Registro di sistema seguenti: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Eliminare le chiavi SMTPPassword e SMTPUserName**. Sarà possibile aggiungerle di nuovo nell'interfaccia utente all'avvio successivo.
+| Impostazione delle notifiche di posta elettronica tramite un account aziendale o dell'Istituto di istruzione |ID errore: 2013| **Causa:**<br> Tentativo di usare un account aziendale o dell'Istituto di istruzione <br>**Azione consigliata:**<ol><li> Verificare prima di tutto che l'inoltro anonimo sia consentito in un connettore di ricezione per il server DPM in Exchange. Per altre informazioni su come configurare questa impostazione, vedere [Autorizzazione per l'inoltro anonimo su un connettore di ricezione](/exchange/mail-flow/connectors/allow-anonymous-relay).</li> <li> Se non è possibile usare un inoltro SMTP interno ed è necessario eseguire la configurazione con il server di Office 365, è possibile configurare IIS come inoltro. Configurare il server DPM in modo che [inoltri SMTP a Office 365 usando IIS](/exchange/mail-flow/test-smtp-with-telnet).<br><br>  Assicurarsi di usare il formato user\@domain.com e *non* domain\user.<br><br><li>Impostare DPM in modo da usare il nome del server locale come server SMTP e la porta 587. Quindi impostarlo con l'indirizzo di posta elettronica dell'utente da cui dovrebbero provenire i messaggi.<li> Il nome utente e la password nella pagina di configurazione dell'SMTP per DPM devono corrispondere a un account di dominio nel dominio in cui è attivo DPM. </li><br> Quando si modifica l'indirizzo del server SMTP, apportare la modifica alle nuove impostazioni, chiudere la casella delle impostazioni e riaprirla per assicurarsi che rifletta il nuovo valore.  Se ci si limita ad apportare la modifica ed eseguire il test, è possibile che le nuove impostazioni non vengano applicate, pertanto questo tipo di verifica è la procedura consigliata.<br><br>In qualsiasi momento durante il processo è possibile cancellare queste impostazioni chiudendo la console DPM e modificando le chiavi del Registro di sistema seguenti: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Eliminare le chiavi SMTPPassword e SMTPUserName**. Sarà possibile aggiungerle di nuovo nell'interfaccia utente all'avvio successivo.
 
 ## <a name="common-issues"></a>Problemi comuni
 

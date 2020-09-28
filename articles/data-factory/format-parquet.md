@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/27/2020
 ms.author: jingwang
-ms.openlocfilehash: f22380f65b91976e7696551ee0a65a5bf6dfd097
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 13a0966413519e56199cfce150d9dd7973d634ec
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334311"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404724"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato parquet in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -79,7 +79,7 @@ Nella sezione *** \* sink \* *** dell'attività di copia sono supportate le prop
 
 | Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **ParquetSink**. | Sì      |
+| type          | La proprietà Type del sink dell'attività di copia deve essere impostata su **ParquetSink**. | Sì      |
 | formatSettings | Gruppo di proprietà. Vedere la tabella **delle impostazioni di scrittura parquet** riportata di seguito. |    No      |
 | storeSettings | Gruppo di proprietà su come scrivere dati in un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di scrittura supportate in `storeSettings` . **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
 
@@ -127,7 +127,7 @@ source(allowSchemaDrift: true,
 
 ### <a name="sink-properties"></a>Proprietà sink
 
-La tabella seguente elenca le proprietà supportate da un'origine parquet. È possibile modificare queste proprietà nella scheda **Opzioni di origine** .
+La tabella seguente elenca le proprietà supportate da un sink parquet. È possibile modificare queste proprietà nella scheda **Impostazioni** .
 
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |

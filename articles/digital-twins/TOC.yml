@@ -1,4 +1,4 @@
-- name: Gemelli digitali di Azure
+- name: Documentazione di Gemelli digitali di Azure
   href: index.yml
 - name: Panoramica
   items:
@@ -7,6 +7,7 @@
     - name: Differenze rispetto alla versione precedente
       href: overview-differences.md
 - name: Avvio rapido
+  expanded: true
   items:
     - name: Esplorare uno scenario di esempio
       href: quickstart-adt-explorer.md
@@ -162,6 +163,8 @@
               href: 'https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1'
             - name: JavaScript SDK - informazioni di riferimento
               href: 'https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true'
+            - name: Java SDK - Maven
+              href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar'
     - name: Interfaccia della riga di comando di Gemelli digitali
       items:
         - name: Informazioni di riferimento sull'interfaccia della riga di comando di Gemelli digitali
@@ -222,31 +225,3 @@
           href: 'https://azure.microsoft.com/pricing/details/digital-twins'
         - name: Aree e disponibilità
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
-- name: Risorse correlate
-  items:
-    - name: Soluzioni
-      items:
-        - name: Acceleratori di soluzioni IoT
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: /azure/iot-central/core/overview-iot-central
-    - name: Servizi della piattaforma
-      items:
-        - name: Hub IoT
-          href: /azure/iot-hub
-        - name: Plug and Play IoT
-          href: /azure/iot-pnp
-        - name: Servizio Device Provisioning in hub IoT
-          href: /azure/iot-dps
-        - name: Mappe
-          href: /azure/azure-maps
-        - name: SDK per servizi
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Soluzioni Edge
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: IoT SDK per dispositivi
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks

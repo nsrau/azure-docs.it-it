@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: 255fa9e058fdbb3b7edb73e75fd53f4a2490bfca
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023857"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405174"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copiare e trasformare i dati in fiocco di neve usando Azure Data Factory
 
@@ -153,7 +153,7 @@ Per copiare dati da fiocco di neve, nella sezione **origine** dell'attività di 
 | query          | Specifica la query SQL per leggere i dati da fiocco di neve. Se i nomi dello schema, della tabella e delle colonne contengono lettere minuscole, indicare l'identificatore di oggetto nella query, ad `select * from "schema"."myTable"` esempio.<br>L'esecuzione di stored procedure non è supportata. | No       |
 | exportSettings | Impostazioni avanzate utilizzate per recuperare dati da fiocco di neve. È possibile configurare quelli supportati dal comando COPY into che Data Factory passerà quando si richiama l'istruzione. | No       |
 | ***In `exportSettings` :*** |  |  |
-| type | Tipo di comando Export impostato su **SnowflakeExportCopyCommand**. | Sì |
+| tipo | Tipo di comando Export impostato su **SnowflakeExportCopyCommand**. | Sì |
 | additionalCopyOptions | Opzioni di copia aggiuntive, fornite come dizionario di coppie chiave-valore. Esempi: MAX_FILE_SIZE, overwrite. Per altre informazioni, vedere [Opzioni di copia a fiocco di neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Opzioni del formato di file aggiuntive fornite al comando COPY come dizionario di coppie chiave-valore. Esempi: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Per altre informazioni, vedere [Opzioni del tipo di formato fiocco di neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
 
@@ -284,7 +284,7 @@ Per copiare dati in fiocco di neve, sono supportate le proprietà seguenti nella
 | preCopyScript     | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in fiocco di neve in ogni esecuzione. Usare questa proprietà per pulire i dati precaricati. | No                                            |
 | importSettings | Impostazioni avanzate utilizzate per scrivere dati in fiocco di neve. È possibile configurare quelli supportati dal comando COPY into che Data Factory passerà quando si richiama l'istruzione. | No |
 | ***In `importSettings` :*** |                                                              |  |
-| type | Tipo di comando Import impostato su **SnowflakeImportCopyCommand**. | Sì |
+| tipo | Tipo di comando Import impostato su **SnowflakeImportCopyCommand**. | Sì |
 | additionalCopyOptions | Opzioni di copia aggiuntive, fornite come dizionario di coppie chiave-valore. Esempi: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Per altre informazioni, vedere [Opzioni di copia a fiocco di neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Opzioni del formato di file aggiuntive fornite al comando COPY, fornite come dizionario di coppie chiave-valore. Esempi: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Per altre informazioni, vedere [Opzioni del tipo di formato fiocco di neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
 
@@ -357,7 +357,7 @@ Se l'archivio dati di origine e il formato soddisfano i criteri descritti in que
 
 #### <a name="staged-copy-to-snowflake"></a>Copia di gestione temporanea in fiocco di neve
 
-Quando l'archivio dati sink o il formato non è compatibile a livello nativo con il comando di copia a fiocco di neve, come indicato nella sezione precedente, abilitare la copia temporanea incorporata usando un'istanza di archiviazione BLOB di Azure provvisoria. La funzionalità copia di staging assicura inoltre una migliore velocità effettiva, Data Factory converte automaticamente i dati in modo da soddisfare i requisiti di formato dati di fiocco di neve. Richiama quindi il comando COPY per caricare i dati in fiocco di neve. Infine, pulisce i dati temporanei dall'archiviazione BLOB. Per informazioni dettagliate sulla copia di dati tramite gestione temporanea, vedere [copia](copy-activity-performance-features.md#staged-copy) di staging.
+Quando l'archivio dati di origine o il formato non è compatibile a livello nativo con il comando di copia a fiocco di neve, come indicato nella sezione precedente, abilitare la copia temporanea incorporata usando un'istanza di archiviazione BLOB di Azure provvisoria. La funzionalità copia di staging assicura inoltre una migliore velocità effettiva, Data Factory converte automaticamente i dati in modo da soddisfare i requisiti di formato dati di fiocco di neve. Richiama quindi il comando COPY per caricare i dati in fiocco di neve. Infine, pulisce i dati temporanei dall'archiviazione BLOB. Per informazioni dettagliate sulla copia di dati tramite gestione temporanea, vedere [copia](copy-activity-performance-features.md#staged-copy) di staging.
 
 Per usare questa funzionalità, creare un [servizio collegato di archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties) che fa riferimento all'account di archiviazione di Azure come staging provvisorio. Specificare quindi le `enableStaging` `stagingSettings` proprietà e nell'attività di copia.
 

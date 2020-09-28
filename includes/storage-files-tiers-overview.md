@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e75cb7d13fb74d32191ab7f076d73ad66976503d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 7d0286b63703c165dda6cd12bb625fc64272aac1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90606469"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377333"
 ---
 File di Azure offre quattro diversi livelli di archiviazione, ovvero Premium, Ottimizzato per le transazioni, Accesso frequente e Accesso sporadico, che consentono di adattare le condivisioni ai requisiti dello scenario in termini di prestazioni e prezzi:
 
@@ -26,4 +26,5 @@ Le condivisioni file premium sono disponibili solo in un modello di fatturazione
 
 Le condivisioni file ad accesso frequente e ad accesso sporadico sono disponibili in tutte le aree pubbliche di Azure e nelle aree di Azure per enti pubblici. Le condivisioni file ottimizzate per le transazioni sono disponibili in tutte le aree di Azure, incluse le aree di Azure Cina e Azure Germania.
 
-Per distribuire una condivisione file ad accesso frequente o ad accesso sporadico, vedere [Creare una condivisione file ad accesso frequente o ad accesso sporadico](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 
+> [!Important]  
+> È possibile spostare le condivisioni file tra livelli all'interno di tipi di account di archiviazione GPv2 (ottimizzato per le transazioni, ad accesso frequente e ad accesso sporadico). Gli spostamenti delle condivisioni tra livelli comportano transazioni: il passaggio da un livello ad accesso più frequente a uno ad accesso più sporadico comporta l'addebito per le transazioni di scrittura del livello più sporadico per ogni file della condivisione, mentre un passaggio da un livello più sporadico a uno più frequente comporterà l'addebito delle transazioni di lettura del livello ad accesso sporadico per ogni file della condivisione.

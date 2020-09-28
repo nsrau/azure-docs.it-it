@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 8347ca5a33790d0b35176be47a0fa4811a19e3f1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1ab366cddbabf7e6d574189892e779ab49f6fad8
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935467"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403382"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Suggerimenti per l'arricchimento di intelligenza artificiale in Azure ricerca cognitiva
 
@@ -110,12 +110,11 @@ Per l’indicizzazione basata sul portale (come descritto nella Guida introdutti
 ## <a name="tip-8-increase-indexing-throughput"></a>Suggerimento 8: aumentare la velocità effettiva di indicizzazione
 
 Per [indicizzazione parallela](search-howto-large-index.md), inserire i dati in più contenitori o più cartelle virtuali all'interno dello stesso contenitore. Creare quindi più coppie di origine dati e di indicizzatori. Tutti gli indicizzatori possono utilizzare lo stesso insieme di competenze e scrivere nello stesso indice di ricerca di destinazione, in modo che l'app per la ricerca non debba necessariamente essere a conoscenza di tale partizionamento.
-Per altre informazioni, vedere [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Vedere anche
+
 + [Guida introduttiva: creare una pipeline di arricchimento di intelligenza artificiale nel portale](cognitive-search-quickstart-blob.md)
 + [Esercitazione: informazioni sulle API REST per l'arricchimento di intelligenza artificiale](cognitive-search-tutorial-blob.md)
 + [Specificare le credenziali dell'origine dati](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
-+ [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Come eseguire la mappatura dei campi arricchiti a un indice](cognitive-search-output-field-mapping.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: faa61dc351bebd3d2a85ad229036e5b9fba9256e
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: c0494fe39f8ae64ba65db4e3cd728069aa4a5052
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514612"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403212"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedisci le voci DNS in sospeso ed evita l'acquisizione di sottodomini
 
@@ -86,7 +86,7 @@ Se i CNAME si trovano in altri servizi DNS e puntano a risorse di Azure, fornire
 Lo strumento supporta le risorse di Azure elencate nella tabella seguente. Lo strumento estrae o accetta come input tutti i CNAME del tenant.
 
 
-| Servizio                   | Type                                        | FQDNproperty                               | Esempio                         |
+| Servizio                   | Tipo                                        | FQDNproperty                               | Esempio                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Frontdoor di Azure          | microsoft.network/frontdoors                | Properties. cName                           | `abc.azurefd.net`               |
 | Archiviazione BLOB di Azure        | microsoft.storage/storageaccounts           | Properties. primari. blob           | `abc. blob.core.windows.net`    |
@@ -117,14 +117,7 @@ Se si è un amministratore globale del tenant dell'organizzazione, elevare il pr
 
 ### <a name="run-the-script"></a>Eseguire lo script
 
-Esistono due versioni dello script, entrambe hanno gli stessi parametri di input e producono un output simile:
-
-|Script  |Informazioni  |
-|---------|---------|
-|**Get-DanglingDnsRecordsPsCore.ps1**    |La modalità parallela è supportata solo in PowerShell 7 e versioni successive. in caso contrario, verrà eseguita la modalità seriale.|
-|**Get-DanglingDnsRecordsPsDesktop.ps1** |Supportato solo in PowerShell desktop/versione precedente a 6, perché questo script usa [Windows Workflow](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview).|
-
-Scopri di più e Scarica gli script di PowerShell da GitHub: https://aka.ms/DanglingDNSDomains .
+Altre informazioni sullo script di PowerShell, **Get-DanglingDnsRecords.ps1**e scaricarlo da GitHub: https://aka.ms/DanglingDNSDomains .
 
 ## <a name="remediate-dangling-dns-entries"></a>Correggere le voci DNS in sospeso 
 

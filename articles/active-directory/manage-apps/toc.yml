@@ -18,8 +18,10 @@
       href: add-application-portal-configure.md
     - name: Assegnare gli utenti a un'app
       href: add-application-portal-assign-users.md
-    - name: Configurare Single Sign-On
+    - name: Configurare l'accesso Single Sign-On basato su SAML
       href: add-application-portal-setup-sso.md
+    - name: Configurare l'accesso Single Sign-On basato su OIDC
+      href: add-application-portal-setup-oidc-sso.md
     - name: Eliminare un'app
       href: delete-application-portal.md
 - name: Esercitazioni

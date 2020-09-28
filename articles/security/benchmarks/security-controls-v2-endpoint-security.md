@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3eab0080f80b26fc7074d8a64885148c0568d8b1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 452b1a33520309ae696ab318c034f0186c993fdc
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280623"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402923"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Controllo di sicurezza V2: sicurezza degli endpoint
 
@@ -98,3 +98,4 @@ Seguire le raccomandazioni nel centro sicurezza di Azure: " &amp; app di calcolo
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
+- [Valutazione e raccomandazioni di Endpoint Protection nel centro sicurezza di Azure](../../security-center/security-center-endpoint-protection.md)

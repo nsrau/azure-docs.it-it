@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: 23523a3618ad31e34a81152e48d4ee0f606e5aac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ac1105f1fce2ac04abfa8a809161580104952917
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088531"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404902"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Problemi di avvio di BitLocker in una macchina virtuale di Azure
 
@@ -41,9 +41,9 @@ ms.locfileid: "87088531"
 
 Questo problema può verificarsi se la macchina virtuale non riesce a individuare il file della chiave di ripristino di BitLocker (BEK) per decrittografare il disco crittografato.
 
-## <a name="solution"></a>Solution
+## <a name="solution"></a>Soluzione
 
-Per risolvere questo problema, arrestare e deallocare la macchina virtuale e quindi riavviarla. Questa operazione forza la macchina virtuale a recuperare il file con estensione BEK da Azure Key Vault e quindi lo inserisce nel disco crittografato. 
+Per risolvere il problema, arrestare e deallocare la macchina virtuale e quindi avviarla. Questa operazione forza la macchina virtuale a recuperare il file con estensione BEK da Azure Key Vault e quindi lo inserisce nel disco crittografato. 
 
 Se questo metodo non risolve il problema, seguire questa procedura per ripristinare manualmente il file con estensione BEK:
 

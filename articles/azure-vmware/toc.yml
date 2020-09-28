@@ -20,8 +20,6 @@
       href: tutorial-nsx-t-network-segment.md
     - name: 7 - Eseguire il peering dal cloud locale al cloud privato
       href: tutorial-expressroute-global-reach-private-cloud.md
-    - name: 8 - Distribuire la macchina virtuale tramite la raccolta contenuto
-      href: tutorial-deploy-vm-content-library.md
 - name: Concetti
   items:
     - name: Cloud privati e cluster
@@ -36,6 +34,8 @@
       href: concepts-rbac.md
     - name: Aggiornamenti di cloud privati
       href: concepts-upgrades.md
+    - name: Monitorare e riparare cloud privati
+      href: concepts-monitor-repair-private-cloud.md
 - name: Guide pratiche
   items:
     - name: Abilitare la soluzione Azure VMware
@@ -48,6 +48,8 @@
       href: manage-dhcp.md
     - name: Ripristino di emergenza
       href: disaster-recovery.md
+    - name: Distribuire una macchina virtuale tramite la raccolta contenuto
+      href: deploy-vm-content-library.md
     - name: Integrazione nativa di Azure
       items:
         - name: Gestione API
@@ -68,10 +70,16 @@
           href: deploy-traffic-manager-to-balance-avs-workloads.md
         - name: NetApp Files
           href: net-app-files.md
+    - name: GitHub Enterprise Server
+      href: github-enterprise-server.md
     - name: Soluzioni VMware
       items:
         - name: Configurare operazioni vRealize
           href: vrealize-operations-for-avs.md
+    - name: Ecosistema di VMware
+      items:
+        - name: Soluzioni di backup per le macchine virtuali
+          href: ecosystem-back-up-vms.md
 - name: Informazioni di riferimento
   items: null
 - name: Risorse

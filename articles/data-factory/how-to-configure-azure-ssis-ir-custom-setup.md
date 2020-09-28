@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/15/2020
-ms.openlocfilehash: ff56ef55066fd0f56b5b8dc7507bfb63b8b8baa0
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.date: 09/28/2020
+ms.openlocfilehash: 4ef569864b27eff7f57aa2b0a922034fa28f587c
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090602"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405242"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalizzare l'installazione di Azure-SSIS Integration Runtime
 
@@ -154,6 +154,10 @@ Se si seleziona il tipo di **componente installa con licenza** per l'installazio
    * Se si seleziona il componente **Estrai del software di Theobald** , è possibile installare [Estrai è](https://theobald-software.com/en/xtract-is/) una suite di connettori per i sistemi SAP (ERP, s/4HANA, BW) del software Theobald sul Azure-SSIS IR. A tale scopo, trascinare & eliminare/caricare il file di licenza del prodotto acquistato in precedenza nella casella di input del **file di licenza** . La versione integrata corrente è **6.1.1.3**.
 
    * Se si seleziona il componente del **servizio di integrazione di AecorSoft** , è possibile installare la suite [Integration Services](https://www.aecorsoft.com/en/products/integrationservice) dei connettori per i sistemi SAP e Salesforce da AecorSoft nel Azure-SSIS IR. A tale scopo, immettere prima di tutto la chiave di licenza del prodotto acquistata in precedenza nella casella di testo **chiave di licenza** . La versione integrata corrente è **3.0.00**.
+
+   * Se si seleziona il componente del **pacchetto SSIS standard del CDATA** , è possibile installare la suite di [pacchetti SSIS standard](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard) dei componenti più diffusi da CDATA, ad esempio i connettori di Microsoft SharePoint, nel Azure-SSIS IR. A tale scopo, immettere prima di tutto la chiave di licenza del prodotto acquistata in precedenza nella casella di testo **chiave di licenza** . La versione integrata corrente è **19,7354**.
+
+   * Se si seleziona il componente del **pacchetto SSIS esteso del CDATA** , è possibile installare la suite di [pacchetti SSIS Extended](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended) di tutti i componenti da CDATA, ad esempio i connettori di Microsoft Dynamics 365 business Central e altri componenti nel **pacchetto standard SSIS**, nel Azure-SSIS IR. A tale scopo, immettere prima di tutto la chiave di licenza del prodotto acquistata in precedenza nella casella di testo **chiave di licenza** . La versione integrata corrente è **19,7354**. A causa delle dimensioni elevate, per evitare il timeout di installazione, assicurarsi che il Azure-SSIS IR disponga di almeno 4 core CPU per ogni nodo.
 
 Le impostazioni di aggiunta personalizzate Express verranno visualizzate nella pagina **Impostazioni avanzate** . Per rimuoverli, selezionare le caselle di controllo corrispondenti e quindi selezionare **Elimina**.
 

@@ -277,19 +277,19 @@
     - name: Pagamento
       items:
         - name: Pagamento
-          href: partner-center-portal/get-paid.md
+          href: /partner-center/marketplace-get-paid?context=/azure/marketplace/context/context
         - name: Configurare l'account proventi e i moduli fiscali
-          href: partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: 'Soglie, metodi e intervalli di pagamento'
-          href: partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: Panoramica del riepilogo proventi
-          href: partner-center-portal/payout-summary-overview.md
-        - name: Riepiloghi proventi
-          href: partner-center-portal/payout-summary.md
+          href: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
+        - name: Soglie e intervalli di pagamento
+          href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
+        - name: Estratti conto
+          href: /partner-center/payout-statement?context=/azure/marketplace/context/context
         - name: Dettagli dei criteri dei proventi
-          href: partner-center-portal/payout-policy-details.md
+          href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
         - name: Dettagli sulle imposte
-          href: partner-center-portal/tax-details-paid-transactions.md
+          href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
+        - name: Domande frequenti su Proventi
+          href: /partner-center/payout-faq?context=/azure/marketplace/context/context
     - name: Informazioni di riferimento sulle API CPP
       items:
         - name: Panoramica

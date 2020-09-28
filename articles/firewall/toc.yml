@@ -88,6 +88,8 @@
       href: firewall-diagnostics.md
     - name: Log di Monitoraggio di Azure
       href: log-analytics-samples.md
+    - name: Cartella di lavoro di Firewall di Azure
+      href: firewall-workbook.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

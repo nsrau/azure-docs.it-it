@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d0e75ab8a2e4d853fa2edc66174502dd3a7930e9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5e4244c0526dbac3bb8e9b2d3856eb01e1b2a2b7
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301670"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403495"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introduzione ad Azure Defender per i server
 
@@ -41,7 +41,7 @@ Le funzionalità di rilevamento e protezione delle minacce fornite con Azure Def
 
 - **Adaptive Application Controls (AAC)** : i controlli delle applicazioni adattivi sono una soluzione intelligente e automatizzata per la definizione di Consenti elenchi di applicazioni sicure per i computer.
 
-    Quando sono stati abilitati e configurati i controlli delle applicazioni adattivi, si otterranno avvisi di sicurezza se un'applicazione viene eseguita oltre a quelle definite come sicure. [Altre informazioni](security-center-adaptive-network-hardening.md)
+    Quando sono stati abilitati e configurati i controlli delle applicazioni adattivi, si otterranno avvisi di sicurezza se un'applicazione viene eseguita oltre a quelle definite come sicure. [Altre informazioni](security-center-adaptive-application.md)
 
 - **Adaptive Network hardening (Anh)** : l'applicazione di gruppi di sicurezza di rete (NSG) per filtrare il traffico da e verso le risorse, migliora il comportamento di sicurezza della rete. Tuttavia, è comunque possibile che si verifichino alcuni casi in cui il traffico effettivo che scorre attraverso NSG è un subset delle regole NSG definite. In questi casi, migliorare ulteriormente il comportamento di sicurezza può essere effettuato grazie alla protezione avanzata delle regole NSG, in base ai modelli di traffico effettivi.
 
@@ -58,7 +58,7 @@ Le funzionalità di rilevamento e protezione delle minacce fornite con Azure Def
 
 - Rilevamento di attacchi senza **file (solo Windows)** : gli attacchi senza file inseriscono payload dannosi nella memoria per evitare il rilevamento da parte di tecniche di analisi basate su disco. Il payload del pirata informatico viene quindi mantenuto nella memoria dei processi compromessi ed esegue un'ampia gamma di attività dannose.
 
-  Con il rilevamento degli attacchi senza file, tecnologie automatizzate di analisi forense della memoria identificano i toolkit, le tecniche e i comportamenti degli attacchi senza file. Questa soluzione analizza periodicamente il computer in fase di esecuzione ed estrae informazioni dettagliate direttamente dalla memoria dei processi. Informazioni dettagliate specifiche per Linux includono l'identificazione di: 
+  Con il rilevamento degli attacchi senza file, tecnologie automatizzate di analisi forense della memoria identificano i toolkit, le tecniche e i comportamenti degli attacchi senza file. Questa soluzione analizza periodicamente il computer in fase di esecuzione ed estrae informazioni dettagliate direttamente dalla memoria dei processi. Informazioni dettagliate specifiche includono l'identificazione di: 
 
   - Toolkit ben noti e software di data mining di crittografia 
 

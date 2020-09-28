@@ -40,6 +40,10 @@
           href: costs/understand-work-scopes.md
         - name: Opzioni di raggruppamento e filtro
           href: costs/group-filter.md
+        - name: Pianificare la gestione dei costi
+          href: understand/plan-manage-costs.md
+        - name: Evitare i costi imprevisti
+          href: understand/analyze-unexpected-charges.md
         - name: Gestire i costi con l'automazione
           href: costs/manage-automation.md
         - name: Gestione costi per i partner
@@ -114,6 +118,8 @@
           href: understand/mca-overview.md
         - name: Account di fatturazione del Contratto Microsoft Partner
           href: understand/mpa-overview.md
+        - name: Informazioni sul trasferimento di sottoscrizioni
+          href: understand/subscription-transfer.md
         - name: Trasferire sottoscrizioni tra partner (anteprima)
           href: manage/azure-plan-subscription-transfer-partners.md
 - name: Guide pratiche
@@ -124,7 +130,7 @@
           items:
             - name: Attività dell'amministratore di account
               href: manage/account-admin-tasks.md
-            - name: Modificare il profilo
+            - name: Modificare le informazioni di contatto per la fatturazione
               href: manage/change-azure-account-profile.md
             - name: Risolvere i problemi relativi al saldo scaduto
               href: manage/resolve-past-due-balance.md
@@ -246,8 +252,6 @@
               href: manage/upgrade-azure-subscription.md
     - name: Eseguire le principali attività di gestione dei costi
       items:
-        - name: Evitare i costi imprevisti
-          href: manage/getting-started.md
         - name: Calcolare i prezzi
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Usare l'analisi dei costi per attività comuni

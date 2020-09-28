@@ -16,6 +16,8 @@
       href: connectivity.md
     - name: Configurazione dell'archiviazione
       href: storage-configuration.md
+    - name: Indicazioni sul dimensionamento
+      href: sizing-guidance.md
 - name: Guide pratiche
   items:
     - name: Installare gli strumenti
@@ -47,7 +49,7 @@
         - name: Creare un controller dei dati (azdata)
           href: create-data-controller-using-azdata.md
         - name: Creare un controller dei dati con Kubernetes
-          href: create-data-controller-using-k8s-native-tools.md
+          href: create-data-controller-using-kubernetes-native-tools.md
     - name: Esperienze comuni nei servizi dati con abilitazione di Azure Arc
       items:
         - name: Monitorare con i dashboard (Azure Data Studio)
@@ -90,6 +92,8 @@
           href: create-postgresql-hyperscale-server-group.md
         - name: Creare un gruppo di server Postgres Hyperscale (Azure Data Studio)
           href: create-postgresql-hyperscale-server-group-azure-data-studio.md
+        - name: Creare un gruppo di server Postgres Hyperscale - Strumenti nativi di Kubernetes
+          href: create-postgresql-hyperscale-server-group-kubernetes-native-tools.md
         - name: Connessione
           href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
     - name: Concetti
@@ -148,6 +152,8 @@
           href: create-sql-managed-instance.md
         - name: Creare un'istanza gestita di SQL (Azure Data Studio)
           href: create-sql-managed-instance-azure-data-studio.md
+        - name: Creare con strumenti di Kubernetes
+          href: create-sql-managed-instance-using-kubernetes-native-tools.md
         - name: Connessione
           href: connect-managed-instance.md
     - name: Procedure

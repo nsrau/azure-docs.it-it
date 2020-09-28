@@ -81,12 +81,16 @@
       items:
         - name: Configurare un modello di dispositivo
           href: howto-set-up-template.md
+        - name: Come usare le proprietà
+          href: howto-use-properties.md
         - name: Preparare e connettere Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Preparare e connettere un dispositivo RuuviTag
           href: howto-connect-ruuvi.md
         - name: Preparare e connettere un componente Rigado Cascade 500
           href: howto-connect-rigado-cascade-500.md
+        - name: Connettere dispositivi con X.509
+          href: how-to-connect-devices-x509.md
         - name: Connettere altri cloud IoT
           href: howto-build-iotc-device-bridge.md
     - name: Rimanere connessi

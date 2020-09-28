@@ -31,6 +31,8 @@
       href: plan-monitoring-and-reporting.md
     - name: Log di controllo
       href: concept-audit-logs.md
+    - name: Log di nuovo accesso - anteprima
+      href: concept-all-sign-ins.md
     - name: Log di accesso
       href: concept-sign-ins.md
     - name: Report su utilizzo e informazioni dettagliate

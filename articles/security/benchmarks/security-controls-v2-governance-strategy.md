@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 255e5533dc19036624042a0b82116c4dc107d762
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 420ab87591e230592ec8f728c6acb155266b5912
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336225"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403527"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Controllo di sicurezza V2: governance e strategia
 
@@ -28,21 +28,21 @@ Assicurarsi di documentare e comunicare una strategia chiara per il monitoraggio
 
 Questa strategia deve includere indicazioni, criteri e standard documentati per gli elementi seguenti: 
 
--   Standard di classificazione dei dati in base ai rischi aziendali
+- Standard di classificazione dei dati in base ai rischi aziendali
 
--   Visibilità dell'organizzazione della sicurezza nei rischi e nell'inventario degli asset 
+- Visibilità dell'organizzazione della sicurezza nei rischi e nell'inventario degli asset 
 
--   Approvazione dell'organizzazione della sicurezza dei servizi di Azure per l'uso 
+- Approvazione dell'organizzazione della sicurezza dei servizi di Azure per l'uso 
 
--   Sicurezza degli asset attraverso il ciclo di vita
+- Sicurezza degli asset attraverso il ciclo di vita
 
--   Strategia di controllo degli accessi obbligatoria in base alla classificazione dei dati aziendali
+- Strategia di controllo degli accessi obbligatoria in base alla classificazione dei dati aziendali
 
--   Uso delle funzionalità di protezione dei dati native e di terze parti di Azure
+- Uso delle funzionalità di protezione dei dati native e di terze parti di Azure
 
--   Requisiti di crittografia dei dati per i casi d'uso in transito e a riposo
+- Requisiti di crittografia dei dati per i casi d'uso in transito e a riposo
 
--   Standard crittografici appropriati
+- Standard crittografici appropriati
 
 Per altre informazioni, vedere i riferimenti seguenti:
 - [Raccomandazione sull'architettura della sicurezza di Azure-archiviazione, dati e crittografia](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
@@ -51,9 +51,9 @@ Per altre informazioni, vedere i riferimenti seguenti:
 
 - [Framework di adozione cloud: procedure consigliate per la sicurezza e la crittografia dei dati di Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Benchmark di sicurezza di Azure-gestione delle risorse](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Benchmark di sicurezza di Azure-gestione delle risorse](security-controls-v2-asset-management.md)
 
-- [Benchmark di sicurezza di Azure-protezione dei dati](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Benchmark di sicurezza di Azure-protezione dei dati](security-controls-v2-data-protection.md)
 
 **Responsabilità**: Customer
 
@@ -93,7 +93,7 @@ Assicurarsi che la strategia di segmentazione venga implementata in modo coerent
 
 Misura e attenua continuamente i rischi per le singole risorse e per l'ambiente in cui sono ospitate. Assegnare priorità ad asset di valore elevato e ad aree di attacco altamente esposte, ad esempio applicazioni pubblicate, punti di ingresso e uscita di rete, endpoint utente e amministratore e così via.
 
-- [Benchmark di sicurezza di Azure-gestione di posture e vulnerabilità](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Benchmark di sicurezza di Azure-gestione di posture e vulnerabilità](security-controls-v2-posture-vulnerability-management.md)
 
 **Responsabilità**: Customer
 
@@ -131,23 +131,23 @@ Definire un approccio di sicurezza di rete di Azure come parte della strategia g
 
 Questa strategia deve includere indicazioni, criteri e standard documentati per gli elementi seguenti: 
 
--   Gestione centralizzata della rete e responsabilità della sicurezza
+- Gestione centralizzata della rete e responsabilità della sicurezza
 
--   Modello di segmentazione della rete virtuale allineato con la strategia di segmentazione aziendale
+- Modello di segmentazione della rete virtuale allineato con la strategia di segmentazione aziendale
 
--   Strategia di monitoraggio e aggiornamento in diversi scenari di minaccia e attacco
+- Strategia di monitoraggio e aggiornamento in diversi scenari di minaccia e attacco
 
--   Internet Edge e strategia di ingresso e uscita
+- Internet Edge e strategia di ingresso e uscita
 
--   Strategia di interconnettività locale e cloud ibrido
+- Strategia di interconnettività locale e cloud ibrido
 
--   Elementi di sicurezza di rete aggiornati, ad esempio diagrammi di rete, architettura di rete di riferimento
+- Elementi di sicurezza di rete aggiornati, ad esempio diagrammi di rete, architettura di rete di riferimento
 
 Per altre informazioni, vedere i riferimenti seguenti:
 
 - [Procedura consigliata per la sicurezza di Azure 11-architettura. Strategia di sicurezza unificata singola](https://aka.ms/AzSec11)
 
-- [Benchmark di sicurezza di Azure-sicurezza di rete](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Benchmark di sicurezza di Azure-sicurezza di rete](security-controls-v2-network-security.md)
 
 - [Panoramica della sicurezza di rete di Azure](../fundamentals/network-overview.md)
 
@@ -169,25 +169,25 @@ Definire un approccio di identità e accesso con privilegi di Azure come parte d
 
 Questa strategia deve includere indicazioni, criteri e standard documentati per gli elementi seguenti: 
 
--   Sistema di identità e autenticazione centralizzato e relativa interconnettività con altri sistemi di identità interni ed esterni
+- Sistema di identità e autenticazione centralizzato e relativa interconnettività con altri sistemi di identità interni ed esterni
 
--   Metodi di autenticazione avanzata in diversi casi d'uso e condizioni
+- Metodi di autenticazione avanzata in diversi casi d'uso e condizioni
 
--   Protezione di utenti con privilegi elevati
+- Protezione di utenti con privilegi elevati
 
--   Monitoraggio e gestione delle attività degli utenti anomalie  
+- Monitoraggio e gestione delle attività degli utenti anomalie  
 
--   Verifica dell'identità e dell'accesso dell'utente e processo di riconciliazione
+- Verifica dell'identità e dell'accesso dell'utente e processo di riconciliazione
 
 Per altre informazioni, vedere i riferimenti seguenti:
 
-- [Benchmark di sicurezza di Azure-gestione delle identità](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Benchmark di sicurezza di Azure-gestione delle identità](security-controls-v2-identity-management.md)
 
-- [Benchmark di sicurezza di Azure-accesso con privilegi](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Benchmark di sicurezza di Azure-accesso con privilegi](security-controls-v2-privileged-access.md)
 
 - [Procedura consigliata per la sicurezza di Azure 11-architettura. Strategia di sicurezza unificata singola](https://aka.ms/AzSec11)
 
-- [Informazioni generali sulla sicurezza della gestione delle identità di Azure](../fundamentals/identity-management-overview.md) 
+- [Informazioni generali sulla sicurezza della gestione delle identità di Azure](../fundamentals/identity-management-overview.md)
 
 **Responsabilità**: Customer
 
@@ -205,26 +205,26 @@ Definire una strategia di registrazione e risposta alle minacce per rilevare e c
 
 Questa strategia deve includere indicazioni, criteri e standard documentati per gli elementi seguenti: 
 
--   Il ruolo e le responsabilità dell'organizzazione per le operazioni di sicurezza (secops) 
+- Il ruolo e le responsabilità dell'organizzazione per le operazioni di sicurezza (secops) 
 
--   Un processo di risposta agli eventi imprevisti ben definito allineato a NIST o a un altro framework di settore 
+- Un processo di risposta agli eventi imprevisti ben definito allineato a NIST o a un altro framework di settore 
 
--   Acquisizione e conservazione dei log per supportare il rilevamento delle minacce, la risposta agli eventi imprevisti e le esigenze di conformità
+- Acquisizione e conservazione dei log per supportare il rilevamento delle minacce, la risposta agli eventi imprevisti e le esigenze di conformità
 
--   Visibilità centralizzata delle informazioni sulla correlazione e sulle minacce, uso di SIEM, funzionalità native di Azure e altre origini 
+- Visibilità centralizzata delle informazioni sulla correlazione e sulle minacce, uso di SIEM, funzionalità native di Azure e altre origini 
 
--   Piano di comunicazione e notifica con i clienti, i fornitori e le parti pubbliche di interesse
+- Piano di comunicazione e notifica con i clienti, i fornitori e le parti pubbliche di interesse
 
--   Uso di piattaforme di terze parti e native di Azure per la gestione degli eventi imprevisti, ad esempio registrazione e rilevamento delle minacce, analisi forense e correzione e eliminazione degli attacchi
+- Uso di piattaforme di terze parti e native di Azure per la gestione degli eventi imprevisti, ad esempio registrazione e rilevamento delle minacce, analisi forense e correzione e eliminazione degli attacchi
 
--   Processi per la gestione degli eventi imprevisti e delle attività post-evento, ad esempio le lezioni apprese e la conservazione delle prove
+- Processi per la gestione degli eventi imprevisti e delle attività post-evento, ad esempio le lezioni apprese e la conservazione delle prove
 
 Per altre informazioni, vedere i riferimenti seguenti:
-- [Benchmark di sicurezza di Azure: registrazione e rilevamento delle minacce](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Benchmark di sicurezza di Azure: registrazione e rilevamento delle minacce](security-controls-v2-logging-threat-detection.md)
 
-- [Benchmark di sicurezza di Azure-risposta agli eventi imprevisti](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Benchmark di sicurezza di Azure-risposta agli eventi imprevisti](security-controls-v2-incident-response.md)
 
-- [Procedura consigliata per la sicurezza di Azure 4-processo. Aggiornare i processi di risposta agli eventi imprevisti per il cloud](https://aka.ms/AzSec11)
+- [Procedura consigliata per la sicurezza di Azure 4-processo. Aggiornare i processi di risposta agli eventi imprevisti per il cloud](https://aka.ms/AzSec4)
 
 - [Guida alla decisione sul Framework di adozione di Azure, la registrazione e la creazione di report](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
@@ -246,14 +246,14 @@ Definire una strategia di backup e ripristino di Azure per l'organizzazione.
 
 Questa strategia deve includere indicazioni, criteri e standard documentati per gli elementi seguenti: 
 
--   Obiettivo del tempo di ripristino (RTO) e definizioni di obiettivi del punto di ripristino (RPO) in base agli obiettivi di resilienza aziendale
+- Obiettivo del tempo di ripristino (RTO) e definizioni di obiettivi del punto di ripristino (RPO) in base agli obiettivi di resilienza aziendale
 
--   Progettazione della ridondanza nella configurazione delle applicazioni e dell'infrastruttura
+- Progettazione della ridondanza nella configurazione delle applicazioni e dell'infrastruttura
 
--   Protezione del backup tramite il controllo di accesso e la crittografia dei dati
+- Protezione del backup tramite il controllo di accesso e la crittografia dei dati
 
 Per altre informazioni, vedere i riferimenti seguenti:
-- [Benchmark di sicurezza di Azure: backup e ripristino](/azure/security/benchmarks/security-benchmark-v2-backup-recovery)
+- [Benchmark di sicurezza di Azure: backup e ripristino](security-controls-v2-backup-recovery.md)
 
 - [Framework Azure well-Architecture: backup e ripristino di emergenza per le applicazioni Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
 

@@ -21,6 +21,8 @@
           href: create-sql-api-dotnet.md
         - name: App Java
           href: create-sql-api-java.md
+        - name: App Spring Data
+          href: create-sql-api-spring-data.md
         - name: App Node.js
           href: create-sql-api-nodejs.md
         - name: App Python
@@ -73,6 +75,8 @@
       href: sql-api-dotnet-v3sdk-samples.md
     - name: Esempi di Java SDK v4
       href: sql-api-java-sdk-samples.md
+    - name: Esempi di Spring Data v3
+      href: sql-api-spring-data-sdk-samples.md
     - name: Esempi di Node. js
       href: sql-api-nodejs-samples.md
     - name: Esempi per Python
@@ -573,7 +577,7 @@
           href: optimize-dev-test.md
         - name: Ottimizzare il costo con la capacità riservata
           href: cosmos-db-reserved-capacity.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Panoramica della sicurezza
           href: database-security.md
@@ -1074,7 +1078,7 @@
               href: troubleshoot-not-found.md
             - name: Risolvere il problema relativo a elementi non autorizzati
               href: troubleshoot-unauthorized.md
-            - name: Disponibilità di SDK in ambienti composti da più aree
+            - name: Problemi di disponibilità in ambienti composti da più aree
               href: troubleshoot-sdk-availability.md
         - name: .NET
           items:
@@ -1118,6 +1122,8 @@
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Eseguire query con Azure Synapse Spark
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Eseguire query con Synapse SQL serverless
+          href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Usare Power BI con Collegamento a Synapse
           href: synapse-link-power-bi.md
     - name: Analisi predefinita con Apache Spark
@@ -1144,7 +1150,7 @@
           href: how-to-write-javascript-query-api.md
         - name: 'Usare stored procedure, trigger e funzioni definite dall''utente'
           href: how-to-use-stored-procedures-triggers-udfs.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Configurare il firewall IP
           href: how-to-configure-firewall.md

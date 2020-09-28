@@ -2,11 +2,14 @@
   href: index.yml
   items:
     - name: Panoramica
+      expanded: true
       items:
         - name: Confrontare soluzioni per Identità esterne
           href: compare-with-b2c.md
         - name: Informazioni sull'accesso utente guest B2B
           href: what-is-b2b.md
+        - name: Informazioni su Azure AD B2C
+          href: 'https://docs.microsoft.com/azure/active-directory-b2c/overview'
     - name: Avvi rapidi
       items:
         - name: Aggiungere utenti guest nel portale
@@ -15,15 +18,15 @@
           href: b2b-quickstart-invite-powershell.md
     - name: Esercitazioni
       items:
-        - name: Invitare in blocco tramite PowerShell
+        - name: Invitare in blocco gli utenti guest tramite PowerShell
           href: bulk-invite-powershell.md
-        - name: Invitare in blocco tramite il portale
+        - name: Invitare in blocco gli utenti guest tramite il portale
           href: tutorial-bulk-invite.md
-        - name: Applicare l'autenticazione a più fattori
+        - name: Imporre l'autenticazione a più fattori per gli utenti guest
           href: b2b-tutorial-require-mfa.md
     - name: Esempi
       items:
-        - name: Esempi per l'iscrizione self-service
+        - name: Esempi per l'iscrizione self-service degli utenti guest
           href: code-samples-self-service-sign-up.md
         - name: Esempi di Azure PowerShell e di codice
           href: code-samples.md
@@ -63,9 +66,9 @@
     - name: Guide pratiche
       expanded: true
       items:
-        - name: Configurare la condivisione esterna
+        - name: Configurare le impostazioni di collaborazione esterna
           href: delegate-invitations.md
-        - name: Invitare utenti B2B
+        - name: Invitare gli utenti guest
           items:
             - name: Aggiunta di utenti B2B da parte di amministratori
               href: add-users-administrator.md
@@ -91,7 +94,7 @@
               href: direct-federation-adfs.md
         - name: Autenticazione con passcode monouso
           href: one-time-passcode.md
-        - name: Iscrizione self-service (anteprima)
+        - name: Iscrizione self-service per gli utenti guest (anteprima)
           items:
             - name: Aggiungere un flusso utente di iscrizione self-service
               href: self-service-sign-up-user-flow.md
@@ -103,7 +106,7 @@
               href: self-service-sign-up-add-api-connector.md
             - name: Aggiungere un sistema di approvazione personalizzato
               href: self-service-sign-up-add-approvals.md
-        - name: Gestire gli account guest
+        - name: Gestire gli account utente guest
           items:
             - name: Aggiungere un utente B2B a un ruolo
               href: add-guest-to-role.md
@@ -113,7 +116,7 @@
               href: user-properties.md
             - name: B2B per app integrate con Azure AD
               href: configure-saas-apps.md
-        - name: Gestire l'accesso in un'organizzazione ibrida
+        - name: Gestire l'accesso guest in un'organizzazione ibrida
           items:
             - name: Concedere l'accesso alle app cloud agli utenti locali
               href: hybrid-on-premises-to-cloud.md

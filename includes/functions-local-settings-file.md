@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: 47e1c509e8b7b60e889e1202b49b1a145c68162c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: aae89e1c6f8db2fb657ac2a43c4bce0396ab3ddd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929492"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377432"
 ---
 ## <a name="local-settings-file"></a>File di impostazioni locali
 
@@ -40,7 +40,7 @@ Queste impostazioni sono supportate quando si eseguono progetti in locale:
 
 | Impostazione      | Descrizione                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Quando questa impostazione è impostata su `true`, tutti i valori vengono crittografati con una chiave del computer locale. Usato con i comandi `func settings`. Il valore predefinito è `false`. |
+| **`IsEncrypted`** | Quando questa impostazione è impostata su `true`, tutti i valori vengono crittografati con una chiave del computer locale. Usato con i comandi `func settings`. Il valore predefinito è `false`. Potrebbe essere necessario crittografare il file local.settings.json nel computer locale quando contiene segreti, ad esempio le stringhe di connessione al servizio. L'host decrittografa automaticamente le impostazioni durante l'esecuzione. Usare il comando `func settings decrypt` prima di provare a leggere le impostazioni crittografate in locale. |
 | **`Values`** | Matrice di impostazioni dell'applicazione e stringhe di connessioni usate durante l'esecuzione di un progetto in locale. Queste coppie chiave-valore (stringa-stringa) corrispondono alle impostazioni dell'applicazione nell'app per le funzioni in Azure, ad esempio [`AzureWebJobsStorage`]. Molti trigger e associazioni includono una proprietà che fa riferimento a un'impostazione di app per la stringa di connessione, ad esempio `Connection` per il [trigger di archiviazione BLOB](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#configuration). Per queste proprietà è necessaria un'impostazione dell'applicazione definita nella matrice `Values`. Vedere la tabella successiva per un elenco di impostazioni usate di frequente. <br/>I valori devono essere stringhe e non oggetti o matrici JSON. I nomi delle impostazioni non possono includere i due punti (`:`) o una doppia sottolineatura (`__`). I caratteri di sottolineatura doppia sono riservati dal runtime e i due punti sono riservati per supportare l'[inserimento delle dipendenze](../articles/azure-functions/functions-dotnet-dependency-injection.md#working-with-options-and-settings). |
 | **`Host`** | Le impostazioni in questa sezione consentono di personalizzare il processo host di Funzioni durante l'esecuzione dei progetti in locale. Queste impostazioni sono distinte da quelle del file host.json, che vengono applicate anche quando si eseguono progetti in Azure. |
 | **`LocalHttpPort`** | Consente di impostare la porta predefinita usata durante l'esecuzione nell'host locale di Funzioni, ovvero `func host start` e `func run`. L'opzione `--port` della riga di comando ha la precedenza su questa impostazione. |

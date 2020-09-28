@@ -2,13 +2,13 @@
 title: Migliorare l'affidabilità dell'applicazione con Advisor
 description: USA Azure Advisor per garantire e migliorare l'affidabilità nelle tue distribuzioni di Azure cruciali per l'azienda.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 3e556f8bc672705e6c83daced2c82a884e3ddf46
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/27/2020
+ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264593"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405191"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Migliorare l'affidabilità dell'applicazione usando Azure Advisor
 
@@ -109,6 +109,12 @@ A partire dal 1 ° luglio 2020, non sarà possibile creare nuovi cluster Spark u
 ## <a name="enable-virtual-machine-replication"></a>Abilitare la replica delle macchine virtuali
 Le macchine virtuali in cui non è abilitata la replica in un'altra area non sono resilienti per le interruzioni di regione. La replica delle macchine virtuali riduce eventuali conseguenze aziendali negative durante le interruzioni dell'area di Azure. Advisor rileva le VM in cui la replica non è abilitata e consiglia di abilitarla. Quando si Abilita la replica, se si verifica un'interruzione, è possibile visualizzare rapidamente le macchine virtuali in un'area di Azure remota. [Altre informazioni sulla replica delle macchine virtuali.](../site-recovery/azure-to-azure-quickstart.md)
 
+## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>Eseguire l'aggiornamento alla versione più recente dell'agente di Azure Connected Machine
+L' [agente del computer connesso di Azure](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) viene aggiornato regolarmente con correzioni di bug, miglioramenti della stabilità e nuove funzionalità. Sono state identificate risorse che non funzionano con la versione più recente di Machine Agent e questa raccomandazione di Advisor suggerisce di aggiornare l'agente alla versione più recente per la migliore esperienza di Azure Arc.
+
+## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Non eseguire l'override del nome host per garantire l'integrità del sito Web
+Advisor consiglia di evitare di eseguire l'override del nome host quando si configura il gateway applicazione. Avere un dominio diverso sul front-end del gateway applicazione rispetto a quello usato per accedere al back-end può causare l'interruzione dei cookie o degli URL di reindirizzamento. Si noti che questo potrebbe non essere il caso in tutte le situazioni e che alcune categorie di backend (come le API REST) in generale sono meno sensibili a questo. Verificare che il back-end sia in grado di gestire questo problema o aggiornare la configurazione del gateway applicazione in modo che non sia necessario sovrascrivere il nome host nel back-end. Quando usato con il servizio app, associare un nome di dominio personalizzato all'app Web ed evitare di usare il *nome host. azurewebsites.NET verso il back-end.* [Altre informazioni sul dominio personalizzato](https://aka.ms/appgw-advisor-usecustomdomain).
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Come accedere ai consigli sulla disponibilità elevata in Advisor
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e quindi aprire [Advisor](https://aka.ms/azureadvisordashboard).
@@ -120,6 +126,7 @@ Le macchine virtuali in cui non è abilitata la replica in un'altra area non son
 Per altre informazioni sui consigli di Advisor, vedere:
 * [Introduction to Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
 * [Introduzione ad Advisor](advisor-get-started.md)
+* [Punteggio di Advisor](azure-advisor-score.md)
 * [Raccomandazioni sui costi di Advisor](advisor-cost-recommendations.md)
 * [Raccomandazioni sulle prestazioni di Advisor](advisor-performance-recommendations.md)
 * [Raccomandazioni sulla sicurezza di Advisor](advisor-security-recommendations.md)

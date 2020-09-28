@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dd8dcbe136558e997ca16a2d9754cbf1c4e7620b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b7b6a7202392e083aaaa5cdc8adcf0c81cfb0e0d
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326104"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403705"
 ---
 # <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
 
@@ -19,8 +19,8 @@ ms.locfileid: "87326104"
 
 Con Monitoraggio connettività servizio è possibile eseguire le funzioni seguenti: 
 
-- Monitorare la connettività di rete alle applicazioni e ai servizi di rete da più succursali o località. Le applicazioni e i servizi di rete includono Office 365, Dynamics CRM, applicazioni line-of-business interne e database SQL.
-- Usare test predefiniti per monitorare la connettività di rete agli endpoint di Office365 e Dynamics365. 
+- Monitorare la connettività di rete alle applicazioni e ai servizi di rete da più succursali o località. Le applicazioni e i servizi di rete includono Microsoft 365, Dynamics CRM, applicazioni line-of-business interne e database SQL.
+- Usare i test predefiniti per monitorare la connettività di rete agli endpoint Microsoft 365 e Dynamics 365. 
 - Determinare il tempo di risposta, la latenza di rete e la perdita di pacchetti riscontrati durante la connessione all'endpoint.
 - Determinare se le prestazioni dell'applicazione non soddisfacenti sono dovute alla rete o a qualche problema da parte del provider dell'applicazione.
 - Identificare le aree sensibili della rete che potrebbero essere la causa di prestazioni dell'applicazione non soddisfacenti, visualizzando la latenza generata da ogni hop in una mappa della topologia.

@@ -13,7 +13,7 @@
       items:
         - name: Rilevare i visi in un'immagine
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp.md
             - name: cURL
               href: QuickStarts/curl.md
@@ -35,7 +35,7 @@
   items:
     - name: Uso dell'SDK client
       items:
-        - name: 'C#'
+        - name: C#
           href: Tutorials/FaceAPIinCSharpTutorial.md
 - name: Concetti
   items:
@@ -47,9 +47,7 @@
   items:
     - name: Rilevare visi
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: Identificare visi
-      href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-    - name: Aggiungere visi
+    - name: Aggiungere visi a un gruppo
       href: Face-API-How-to-Topics/how-to-add-faces.md
     - name: Usare l'attributo HeadPose
       href: Face-API-How-to-Topics/how-to-use-headpose.md

@@ -70,10 +70,14 @@
           href: cache-how-to-premium-clustering.md
         - name: Rendere persistente la cache con la persistenza dei dati Redis
           href: cache-how-to-premium-persistence.md
+        - name: Aggiungere altre repliche
+          href: cache-how-to-multi-replicas.md
         - name: Proteggere la cache con una rete virtuale
           href: cache-how-to-premium-vnet.md
         - name: Connettersi privatamente a una cache
           href: cache-private-link.md
+        - name: Abilitare la ridondanza della zona
+          href: cache-how-to-zone-redundancy.md
         - name: Configurare la replica geografica
           href: cache-how-to-geo-replication.md
         - name: Risparmiare con la capacità riservata

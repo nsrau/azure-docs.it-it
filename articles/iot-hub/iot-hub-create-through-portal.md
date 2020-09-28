@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 8f7555129f5f514d1954ac56cf87872a85ca91d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c7414728ab65258f73f80ee7fb303c7e6b961052
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326733"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404959"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creare un hub IoT usando il portale di Azure
 
@@ -78,7 +78,7 @@ Route è la prima scheda nel riquadro Routing messaggi. Per aggiungere una nuova
 
 ![Screenshot che illustra l'aggiunta di una nuova route](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
-Assegnare un nome all'hub. Il nome deve essere univoco all'interno dell'elenco di route per tale hub. 
+Assegnare un nome alla route. Il nome della route deve essere univoco all'interno dell'elenco di route per tale hub. 
 
 Per **Endpoint**, è possibile selezionare un endpoint dall'elenco a discesa o aggiungerne uno nuovo. In questo esempio sono già disponibili un account di archiviazione e un contenitore. Per aggiungerli come endpoint, fare clic su **+Aggiungi** accanto all'elenco a discesa Endpoint e selezionare **Archivio BLOB**. La schermata seguente mostra dove vengono specificati l'account di archiviazione e il contenitore.
 

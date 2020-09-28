@@ -17,6 +17,9 @@
     - name: Assegnare un criterio - Azure PowerShell
       displayName: 'assign, compliance'
       href: ./assign-policy-powershell.md
+    - name: Assegnare un criterio - JavaScript
+      displayName: 'assign, compliance'
+      href: ./assign-policy-javascript.md
     - name: Assegnare un criterio - Python
       displayName: 'assign, compliance'
       href: ./assign-policy-python.md
@@ -112,10 +115,10 @@
       href: ./concepts/policy-as-code.md
     - name: Integrazione di Kubernetes
       items:
-        - name: Criteri di Azure per Kubernetes (anteprima)
+        - name: Criteri di Azure per Kubernetes
           displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
           href: ./concepts/policy-for-kubernetes.md
-        - name: Proteggere i pod con Criteri di Azure (anteprima)
+        - name: Proteggere i pod con Criteri di Azure
           displayName: 'aks, psp, rego, opa'
           href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Controllare le VM con la configurazione guest

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 27926c687871180da78930be8e0968febcd77869
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: c8d68a17b3b991b88e02cf056dcb46da2debfa71
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396315"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403195"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>App Web che chiama le API Web: Configurazione del codice
 
@@ -181,7 +181,7 @@ Come per le API Web, è possibile scegliere diverse implementazioni della cache 
 
 Nell'immagine seguente vengono illustrate le diverse possibilità di *Microsoft. Identity. Web* e il relativo effetto sul file *Startup.cs* :
 
-:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.png" alt-text="Quando si crea un'API Web, è possibile scegliere di chiamare un'API downstream e implementazioni della cache di token.":::
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagramma di blocco che mostra le opzioni di configurazione del servizio nel punto di avvio C S per chiamare un'API Web e specificare un'implementazione della cache dei token":::
 
 > [!NOTE]
 > Per comprendere gli esempi di codice, è necessario conoscere le [Nozioni fondamentali su ASP.NET Core](/aspnet/core/fundamentals), in particolare l'[inserimento delle dipendenze](/aspnet/core/fundamentals/dependency-injection) e le [opzioni](/aspnet/core/fundamentals/configuration/options).
