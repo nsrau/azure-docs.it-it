@@ -118,6 +118,8 @@
           href: ./security-controls-policy.md
         - name: Protezione delle risorse dell'indicizzatore
           href: search-indexer-securing-resources.md
+        - name: Baseline di sicurezza
+          href: security-baseline.md
 - name: Guide pratiche
   items:
     - name: Creare indici e costrutti
