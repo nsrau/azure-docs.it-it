@@ -77,7 +77,7 @@ Nel caso di uno scenario multi-tenant, lo sviluppatore dell'applicazione usa uno
 
 ## <a name="1-index-per-tenant"></a>1. indice per tenant
 
-:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="Un'immagine del modello "indice per tenant"" border="false":::
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="Un'immagine del modello indice per tenant" border="false":::
 
 In un modello di indice per tenant, più tenant occupano un singolo servizio ricerca cognitiva di Azure in cui ogni tenant dispone di un proprio indice.
 
@@ -95,7 +95,7 @@ Se il numero totale di indici diventa troppo grande per un singolo servizio, è 
 
 ## <a name="2-service-per-tenant"></a>2. servizio per tenant
 
-:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Un'immagine del modello "servizio per tenant"" border="false":::
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Un'immagine del modello servizio per tenant" border="false":::
 
 In un'architettura "servizio per tenant" ogni tenant dispone di un proprio servizio di ricerca.
 
