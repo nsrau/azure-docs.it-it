@@ -88,7 +88,7 @@ A questo punto è necessario che l'app di esempio ADT Explorer sia in esecuzione
 
 Per verificare la connessione, è possibile fare clic sul pulsante *Esegui query* per eseguire la query predefinita che Visualizza tutti i gemelli e le relazioni nel grafico nella casella *Esplora grafico* .
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Pulsante "Run Query" evidenziato nella parte superiore del riquadro" lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Pulsante Run Query evidenziato nella parte superiore del riquadro" lightbox="media/how-to-move-regions/run-query.png":::
 
 È possibile lasciare la finestra di esplorazione di ADT in esecuzione, perché verrà usata di nuovo più avanti in questo articolo per caricare nuovamente questi elementi nella nuova istanza nell'area di destinazione.
 
@@ -182,7 +182,7 @@ Per verificare che tutto sia stato caricato correttamente, fare clic sul pulsant
 
 Il grafo dovrebbe essere visualizzato con tutti i gemelli e le relazioni visualizzate nella casella *Esplora grafico* . È anche possibile visualizzare i modelli elencati nella casella *vista modello* .
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Visualizzazione di ADT Explorer che mostra 2 modelli evidenziati nella casella "visualizzazione modello" e un grafico evidenziato nella casella "Esplora grafico"" lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Visualizzazione di ADT Explorer che mostra 2 modelli evidenziati nella casella visualizzazione modello e un grafico evidenziato nella casella Esplora grafico" lightbox="media/how-to-move-regions/post-upload.png":::
 
 In questo modo viene confermato che i modelli, i dispositivi gemelli e i grafici sono stati caricati nuovamente nella nuova istanza nell'area di destinazione.
 
