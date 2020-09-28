@@ -1,19 +1,19 @@
 ---
 title: Endpoint a livello di area per il database a grafo di Azure Cosmos DB
 description: Informazioni su come connettersi all'endpoint del database a grafo più vicino per l'applicazione
-author: luisbosquez
-ms.author: lbosq
+author: jasonwhowell
+ms.author: jasonh
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f9d46c2f5cce397c2aa6ebbcd38d7fbb5786412
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3dd7df738f49b14a16be8a9741fb2c82ed3bf97c
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997252"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409010"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Endpoint a livello di area per l'account del database a grafo di Azure Cosmos DB
 Il database a grafo di Azure Cosmos DB è [distribuito a livello globale](distribute-data-globally.md), pertanto le applicazioni possono usare più endpoint di lettura. Le applicazioni che necessitano dell'accesso in scrittura in più posizioni devono abilitare la funzionalità [multimaster](how-to-multi-master.md).

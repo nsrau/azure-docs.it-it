@@ -1,5 +1,5 @@
 ---
-title: Transazioni distribuite in database cloud
+title: Transazioni distribuite in database cloud (anteprima)
 description: Panoramica delle transazioni di database elastico con il database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 5c94234644fcefb70a40ba0b2c21e6e205be0e65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60f6863bbe051338308c30e22c6969d84670dc64
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829415"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409732"
 ---
-# <a name="distributed-transactions-across-cloud-databases"></a>Transazioni distribuite in database cloud
+# <a name="distributed-transactions-across-cloud-databases-preview"></a>Transazioni distribuite in database cloud (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Le transazioni di database elastico per il database SQL di Azure consentono di eseguire transazioni che si estendono su più database nel database SQL. Le transazioni di database elastico per il database SQL sono disponibili per le applicazioni .NET che usano ADO .NET e si integrano con la nota esperienza di programmazione usando le classi [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Per ottenere la libreria, vedere [Microsoft .NET Framework 4.6.1 (programma di installazione Web)](https://www.microsoft.com/download/details.aspx?id=49981).
+Le transazioni di database elastico per il database SQL di Azure consentono di eseguire transazioni che si estendono su più database nel database SQL. Le transazioni di database elastico per il database SQL sono disponibili per le applicazioni .NET che usano ADO.NET e si integrano con la nota esperienza di programmazione usando le classi [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Per ottenere la libreria, vedere [Microsoft .NET Framework 4.6.1 (programma di installazione Web)](https://www.microsoft.com/download/details.aspx?id=49981).
 
 In locale, questo scenario richiede in genere l'esecuzione di Microsoft Distributed Transaction Coordinator (MSDTC). Poiché MSDTC non è disponibile per l'applicazione Platform-as-a-Service in Azure, la possibilità di coordinare le transazioni distribuite è stata ora integrata direttamente nel database SQL. Le applicazioni possono connettersi a qualsiasi database nel database SQL per avviare le transazioni distribuite e uno dei database coordina in modo trasparente la transazione distribuita, come illustrato nella figura seguente.
 

@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: bac673f5c8c8d6a4e2b368938a0c08c893518022
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: b4d2b277eea85fb8a5c9eb733e5bfd64d66f392c
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171270"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91407827"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Versione corrente](connector-oracle.md)
@@ -58,7 +59,7 @@ In particolare, questo connettore Oracle supporta:
 
 Il runtime di integrazione fornisce un driver Oracle incorporato. Non è pertanto necessario installare manualmente un driver quando si copiano dati da e in Oracle.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -218,10 +219,10 @@ Per copiare dati da Oracle, impostare il tipo di origine nell'attività di copia
 |:--- |:--- |:--- |
 | type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su `OracleSource` . | Sì |
 | oracleReaderQuery | Usare la query SQL personalizzata per leggere i dati. Un esempio è `"SELECT * FROM MyTable"`.<br>Quando si Abilita il caricamento partizionato, è necessario associare tutti i parametri di partizione predefiniti corrispondenti nella query. Per esempi, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
-| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare dati da Oracle. <br>I valori consentiti sono: **None** (impostazione predefinita), **PhysicalPartitionsOfTable** e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None` ), il grado di parallelismo per caricare simultaneamente i dati da un database Oracle è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. | No |
+| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare dati da Oracle. <br>I valori consentiti sono: **None** (impostazione predefinita), **PhysicalPartitionsOfTable**e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None` ), il grado di parallelismo per caricare simultaneamente i dati da un database Oracle è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. | No |
 | partitionSettings | Specifica il gruppo di impostazioni per il partizionamento dei dati. <br>Applicare quando l'opzione partition non è `None` . | No |
 | partitionNames | Elenco di partizioni fisiche che devono essere copiate. <br>Si applica quando l'opzione di partizione è `PhysicalPartitionsOfTable`. Se si usa una query per recuperare i dati di origine, associare `?AdfTabularPartitionName` nella clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
-| partitionColumnName | Specifica il nome della colonna di origine **nel tipo Integer** che verrà usata dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, la chiave primaria della tabella viene rilevata automaticamente e utilizzata come colonna della partizione. <br>Si applica quando l'opzione di partizione è `DynamicRange`. Se si utilizza una query per recuperare i dati di origine, associare `?AdfRangePartitionColumnName` la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
+| partitionColumnName | Specifica il nome della colonna di origine **nel tipo Integer** che verrà usata dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, la chiave primaria della tabella viene rilevata automaticamente e utilizzata come colonna della partizione. <br>Si applica quando l'opzione di partizione è `DynamicRange`. Se si utilizza una query per recuperare i dati di origine, associare  `?AdfRangePartitionColumnName` la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
 | partitionUpperBound | Valore massimo della colonna di partizione da cui copiare i dati. <br>Si applica quando l'opzione di partizione è `DynamicRange`. Se si usa una query per recuperare i dati di origine, associare `?AdfRangePartitionUpbound` nella clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
 | partitionLowerBound | Valore minimo della colonna di partizione da cui copiare i dati. <br>Si applica quando l'opzione di partizione è `DynamicRange`. Se si usa una query per recuperare i dati di origine, associare `?AdfRangePartitionLowbound` nella clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
 
@@ -316,6 +317,9 @@ Si consiglia di abilitare la copia parallela con il partizionamento dei dati, sp
 | Caricare una grande quantità di dati tramite una query personalizzata con partizioni fisiche. | **Opzione partition**: partizioni fisiche della tabella.<br>**Query**: `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**Nome partizione**: specificare i nomi di partizione da cui copiare i dati. Se non specificato, Data Factory rileva automaticamente le partizioni fisiche nella tabella specificata nel set di dati Oracle.<br><br>Durante l'esecuzione, Data Factory sostituisce `?AdfTabularPartitionName` con il nome effettivo della partizione e invia a Oracle. |
 | Caricare una grande quantità di dati tramite una query personalizzata, senza partizioni fisiche, mentre con una colonna integer per il partizionamento dei dati. | **Opzioni di partizione**: Partizione a intervalli dinamici.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Colonna di partizione**: Specificare la colonna usata per partizionare i dati. È possibile partizionare la colonna con il tipo di dati Integer.<br>Limite **superiore** della partizione e **limite inferiore della partizione**: specificare se si desidera filtrare in base alla colonna di partizione per recuperare i dati solo tra l'intervallo inferiore e quello superiore.<br><br>Durante l'esecuzione, Data Factory sostituisce `?AdfRangePartitionColumnName` , `?AdfRangePartitionUpbound` e `?AdfRangePartitionLowbound` con il nome della colonna e gli intervalli di valori effettivi per ogni partizione e invia a Oracle. <br>Se ad esempio la colonna di partizione "ID" è impostata con il limite inferiore 1 e il limite superiore come 80, con la copia parallela impostata su 4, Data Factory recupera i dati di 4 partizioni. Gli ID sono rispettivamente compresi tra [1, 20], [21, 40], [41, 60] e [61, 80]. |
 
+> [!TIP]
+> Quando si copiano dati da una tabella non partizionata, è possibile usare l'opzione di partizione "intervallo dinamico" per eseguire la partizione in base a una colonna di tipo Integer. Se i dati di origine non hanno tale tipo di colonna, è possibile sfruttare [ORA_HASH]( https://docs.oracle.com/database/121/SQLRF/functions136.htm) funzione nella query di origine per generare una colonna e utilizzarla come colonna di partizione.
+
 **Esempio: query con partizione fisica**
 
 ```json
@@ -371,7 +375,7 @@ Quando si copiano dati da e in Oracle, vengono applicati i mapping seguenti. Per
 | timestamp |Datetime |
 | TIMESTAMP WITH LOCAL TIME ZONE |string |
 | TIMESTAMP WITH TIME ZONE |string |
-| UNSIGNED INTEGER |Number |
+| UNSIGNED INTEGER |Numero |
 | VARCHAR2 |string |
 | XML |string |
 

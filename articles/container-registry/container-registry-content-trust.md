@@ -1,14 +1,14 @@
 ---
 title: Gestione immagini firmate
-description: Informazioni su come abilitare l'attendibilità dei contenuti per il Registro Azure Container ed eseguire il push e il pull di immagini firmate. Il trust del contenuto è una funzionalità del livello di servizio Premium.
+description: Informazioni su come abilitare l'attendibilità dei contenuti per il Registro Azure Container ed eseguire il push e il pull di immagini firmate. Il trust del contenuto implementa l'attendibilità del contenuto Docker ed è una funzionalità del livello di servizio Premium.
 ms.topic: article
-ms.date: 09/06/2019
-ms.openlocfilehash: 36d2a8ddef184804facdace2d517d7e2fdf1b24c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/18/2020
+ms.openlocfilehash: cfe337a0f46e37ed616664e8e0645e319bcfb519
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253480"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409165"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Attendibilità dei contenuti in Registro Azure Container
 
@@ -71,8 +71,10 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 Solo gli utenti o i sistemi a cui è stata concessa l'autorizzazione possono eseguire il push di immagini attendibili nel registro. Per concedere l'autorizzazione per il push di immagini attendibili a un utente (o a un sistema che usa un'entità servizio), concedere alle relative identità di Azure Active Directory il ruolo `AcrImageSigner`. Questo ruolo è in aggiunta al ruolo `AcrPush` (o equivalente) richiesto per il push delle immagini nel registro. Per informazioni dettagliate, vedere [Ruoli e autorizzazioni di Registro Azure Container](container-registry-roles.md).
 
-> [!NOTE]
-> Non è possibile concedere l'autorizzazione per il push di un'immagine attendibile all'[account amministratore](container-registry-authentication.md#admin-account) di un registro contenitori di Azure.
+> [!IMPORTANT]
+> Non è possibile concedere l'autorizzazione push per l'immagine attendibile agli account amministrativi seguenti: 
+> * l' [account amministratore](container-registry-authentication.md#admin-account) di un registro contenitori di Azure
+> * un account utente in Azure Active Directory con il [ruolo di amministratore di sistema classico](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 I dettagli per la concessione del ruolo `AcrImageSigner` nel portale di Azure e nell'interfaccia della riga di comando di Azure sono illustrati di seguito.
 
@@ -80,9 +82,9 @@ I dettagli per la concessione del ruolo `AcrImageSigner` nel portale di Azure e 
 
 Passare al registro nel portale di Azure e quindi selezionare **Controllo di accesso (IAM)**  > **Aggiungi assegnazione di ruolo**. In **Aggiungi assegnazione di ruolo** selezionare `AcrImageSigner` in **Ruolo**, quindi in **Seleziona** selezionare uno o più utenti o entità servizio e quindi fare clic su **Salva**.
 
-In questo esempio sono state assegnate due entità al ruolo `AcrImageSigner`: un'entità servizio denominata "service-principal" e un utente denominato "Azure User".
+In questo esempio, a due entità è stato assegnato il `AcrImageSigner` ruolo: un'entità servizio denominata "Service-Principal" e un utente denominato "Azure User".
 
-![Abilitazione dell'attendibilità dei contenuti per un registro nel portale di Azure][content-trust-02-portal]
+![Concedere le autorizzazioni per la firma di immagini ACR nell'portale di Azure][content-trust-02-portal]
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -92,17 +94,16 @@ Per concedere le autorizzazioni di firma a un utente con l'interfaccia della rig
 az role assignment create --scope <registry ID> --role AcrImageSigner --assignee <user name>
 ```
 
-Per concedere, ad esempio, il ruolo a se stessi, è possibile eseguire i comandi seguenti in una sessione dell'interfaccia della riga di comando di Azure autenticata. Modificare il valore di `REGISTRY` in base al nome di Registro Azure Container.
+Ad esempio, per concedere a un utente non amministratore il ruolo, è possibile eseguire i comandi seguenti in una sessione dell'interfaccia della riga di comando di Azure autenticata. Modificare il valore di `REGISTRY` in base al nome di Registro Azure Container.
 
 ```bash
 # Grant signing permissions to authenticated Azure CLI user
 REGISTRY=myregistry
-USER=$(az account show --query user.name --output tsv)
 REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
 ```
 
 ```azurecli
-az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee $USER
+az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee azureuser@contoso.com
 ```
 
 È anche possibile concedere a un'[entità servizio](container-registry-auth-service-principal.md) i diritti per eseguire il push di immagini attendibili nel registro. L'uso di un'entità servizio è utile per i sistemi di compilazione e altri sistemi automatici che devono eseguire il push di immagini attendibili nel registro. Il formato è simile a quello per la concessione di un'autorizzazione utente, ma è necessario specificare un ID di entità servizio per il valore `--assignee`.
@@ -118,10 +119,11 @@ Il valore di `<service principal ID>` può corrispondere a **appId** o **objectI
 
 ## <a name="push-a-trusted-image"></a>Eseguire il push di un'immagine attendibile
 
-Per eseguire il push di un tag di un'immagine attendibile nel registro contenitori, abilitare l'attendibilità dei contenuti ed eseguire il push dell'immagine con `docker push`. La prima volta che si esegue il push di un tag firmato, viene chiesto di creare una passphrase sia per una chiave di firma radice che per una chiave di firma del repository. Entrambe le chiavi di firma, del repository e radice, vengono generate e archiviate in locale nel computer.
+Per eseguire il push di un tag di un'immagine attendibile nel registro contenitori, abilitare l'attendibilità dei contenuti ed eseguire il push dell'immagine con `docker push`. Al termine della prima esecuzione del push con un tag firmato, viene richiesto di creare una passphrase sia per la chiave di firma radice che per la chiave di firma del repository. Entrambe le chiavi di firma, del repository e radice, vengono generate e archiviate in locale nel computer.
 
 ```console
 $ docker push myregistry.azurecr.io/myimage:v1
+[...]
 The push refers to repository [myregistry.azurecr.io/myimage]
 ee83fc5847cb: Pushed
 v1: digest: sha256:aca41a608e5eb015f1ec6755f490f3be26b48010b178e78c00eac21ffbe246f1 size: 524
@@ -156,16 +158,19 @@ Status: Downloaded newer image for myregistry.azurecr.io/myimage@sha256:0800d17e
 Tagging myregistry.azurecr.io/myimage@sha256:0800d17e37fb4f8194495b1a188f121e5b54efb52b5d93dc9e0ed97fce49564b as myregistry.azurecr.io/myimage:signed
 ```
 
-Se un client per cui è abilitata l'attendibilità dei contenuti cerca di eseguire il pull di un tag non firmato, l'operazione ha esito negativo:
+Se un client con attendibilità del contenuto abilitato tenta di eseguire il pull di un tag senza segno, l'operazione ha esito negativo e restituisce un errore simile al seguente:
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:unsigned
-No valid trust data for unsigned
+Error: remote trust data does not exist
 ```
 
 ### <a name="behind-the-scenes"></a>Dietro le quinte
 
 Quando si esegue `docker pull`, il client Docker usa la stessa libreria dell'[interfaccia della riga di comando Notary][docker-notary-cli] per richiedere il mapping del digest da tag a SHA-256 per il tag di cui si esegue il pull. Dopo aver verificato le firme nei dati attendibili, il client comunica al motore Docker di eseguire un "pull in base al digest". Durante il pull, il motore usa il checksum SHA-256 come indirizzo dei contenuti per richiedere e convalidare il manifesto dell'immagine da Registro Azure Container.
+
+> [!NOTE]
+> Azure Container Registry non supporta ufficialmente l'interfaccia della riga di comando notarile, ma è compatibile con l'API del notary server, inclusa con Docker desktop. È attualmente consigliata la versione del notare **0.6.0** .
 
 ## <a name="key-management"></a>Gestione delle chiavi
 
@@ -196,7 +201,7 @@ Per disabilitare l'attendibilità dei contenuti per il registro, passare al regi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sull'attendibilità del contenuto, vedere [Attendibilità dei contenuti in Docker][docker-content-trust]. Sebbene in questo articolo siano stati illustrati diversi punti importanti, l'attendibilità dei contenuti è un argomento vasto e viene descritta in modo più dettagliato nella documentazione di Docker.
+* Vedere [attendibilità del contenuto in Docker][docker-content-trust] per altre informazioni sull'attendibilità del contenuto, inclusi i comandi di [trust Docker](https://docs.docker.com/engine/reference/commandline/trust/) e le [delega di attendibilità](https://docs.docker.com/engine/security/trust/trust_delegation/). Sebbene in questo articolo siano stati illustrati diversi punti importanti, l'attendibilità dei contenuti è un argomento vasto e viene descritta in modo più dettagliato nella documentazione di Docker.
 
 * Per un esempio relativo all'uso dell'attendibilità dei contenuti quando si compila e si esegue il push di un'immagine Docker, vedere la documentazione di [Azure Pipelines](/azure/devops/pipelines/build/content-trust).
 

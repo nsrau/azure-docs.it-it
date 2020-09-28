@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: f8411176e0979bdb894983bcf866abd0e1109e21
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 999be38e413288d2eb2f6342874e692972f300ad
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291668"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409715"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Richieste di aumento della quota per Azure HDInsight
 
 Le quote core CPU contribuiscono a garantire che l'uso delle risorse venga distribuito equamente tra tutti i clienti di una determinata area di Azure. Tuttavia, in alcuni casi, i requisiti aziendali potrebbero richiedere più risorse cluster rispetto a quelle consentite dalla quota corrente. In tali casi, è possibile richiedere un aumento della quota core di CPU per poter distribuire i cluster, che soddisfano i requisiti di elaborazione dei dati.
 
-Quando si raggiunge un limite di quota, non è possibile distribuire nuovi cluster o aumentare le istanze dei cluster esistenti aggiungendo più nodi di lavoro. L'unico limite di quota è la quota di core di CPU esistente a livello di area per ogni sottoscrizione. Ad esempio, la sottoscrizione potrebbe avere un limite core di 30 CPU nell'area Stati Uniti orientali, con altri 30 core CPU consentiti negli Stati Uniti orientali 2.
+Quando si raggiunge un limite di quota, non è possibile distribuire nuovi cluster o aumentare le istanze dei cluster esistenti aggiungendo più nodi di lavoro. L'unico limite di quota è la quota di core di CPU esistente a livello di area per ogni sottoscrizione. Ad esempio, la sottoscrizione potrebbe avere un limite di 30 core CPU nell'area Stati Uniti orientali, con altri 30 core CPU consentiti negli Stati Uniti orientali.
 
 ## <a name="gather-required-information"></a>Raccogliere le informazioni necessarie
 

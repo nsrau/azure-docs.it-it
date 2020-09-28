@@ -1,18 +1,18 @@
 ---
 title: Risolvere gli errori comuni nell'API di Azure Cosmos DB per il database Mongo
 description: Questo documento illustra i modi per risolvere i problemi comuni riscontrati nell'API di Azure Cosmos DB per MongoDB.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
-ms.author: lbosq
-ms.openlocfilehash: f75374fc88923a0f131d513bebf0ffe1feeca359
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: jasonh
+ms.openlocfilehash: 27a9c7eb48c4a0148401c0d146a50a5197593806
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076770"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409630"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Risolvere i problemi comuni nell'API Azure Cosmos DB per MongoDB
 
@@ -21,14 +21,14 @@ L'articolo seguente descrive gli errori comuni e le soluzioni per i database che
 >[!Note]
 > Azure Cosmos DB non ospita il motore MongoDB. Fornisce un'implementazione della [versione del protocollo wire](mongodb-feature-support-36.md) di MongoDB 3,6 e del supporto legacy per il [protocollo wire versione 3,2](mongodb-feature-support.md), quindi alcuni di questi errori sono disponibili solo nell'API Azure Cosmos DB per MongoDB. 
 
-## <a name="common-errors-and-solutions"></a>Errori e soluzioni comuni
+## <a name="common-errors-and-solutions"></a>Errori comuni e soluzioni
 
 | Errore               | Codice  | Descrizione  | Soluzione  |
 |---------------------|-------|--------------|-----------|
-| ExceededTimeLimit   | 50 | La richiesta ha superato il timeout di 60 secondi di esecuzione. | Questo errore può essere dovuto a numerose cause. Una delle cause è quando la capacità di unità richiesta allocata corrente non è sufficiente per completare la richiesta. Questo problema può essere risolto aumentando le unità richiesta di tale raccolta o database. In altri casi, questo errore può essere risolto suddividendo una richiesta di grandi dimensioni in quelle più piccole. |
-| TooManyRequests     | 16500 | Il numero totale di unità richiesta utilizzate è maggiore del livello di unità richiesta di cui è stato effettuato il provisioning per la raccolta ed è stata applicata la limitazione. | Provare a ridimensionare la velocità effettiva assegnata a un contenitore o a un set di contenitori dalla portale di Azure oppure è possibile ripetere l'operazione. |
+| ExceededTimeLimit   | 50 | L'esecuzione della richiesta ha superato il timeout di 60 secondi. | Questo errore può essere dovuto a numerose cause. Una delle cause è che la capacità attualmente allocata per le unità richiesta non è sufficiente per completare la richiesta. Questo problema può essere risolto aumentando le unità richiesta di tale raccolta o database. In altri casi, questo errore può essere risolto suddividendo una richiesta di grandi dimensioni in quelle più piccole. |
+| TooManyRequests     | 16500 | Il numero totale di unità richiesta utilizzate è maggiore del livello di unità richiesta di cui è stato effettuato il provisioning per la raccolta ed è stata applicata la limitazione. | Valutare la possibilità di dimensionare la velocità effettiva assegnata a un contenitore o a un set di contenitori dal portale di Azure oppure riprovare. |
 | ExceededMemoryLimit | 16501 | In quanto servizio multi-tenant, l'operazione ha superato il limite di allocazione di memoria del client. | Ridurre l'ambito dell'operazione tramite criteri di query più restrittivi oppure contattare il supporto tecnico dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Esempio: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
-| Il percorso di indice corrispondente all'elemento Order by specificato è escluso/la query Order by non dispone di un indice composto corrispondente da cui può essere servito. | 2 | La query richiede un ordinamento in un campo non indicizzato. | Creare un indice o un indice composto corrispondente per la query di ordinamento da tentare. |
+| Il percorso dell'indice corrispondente all'elemento Ordina per specificato è escluso/La query Ordina per non dispone di un indice composto corrispondente da cui può essere servita. | 2 | La query richiede un ordinamento in un campo non indicizzato. | Creare un indice o un indice composto corrispondente per la query di ordinamento da tentare. |
 | Problemi con la versione protocollo di collegamento di MongoDB | - | Le versioni precedenti dei driver MongoDB non sono in grado di rilevare il nome dell'account Azure Cosmos nelle stringhe di connessione. | Aggiungere *appname = @**AccountName** @ * alla fine della stringa di connessione dell'API Cosmos DB per MongoDB, dove ***AccountName*** è il nome dell'account Cosmos DB. |
 
 ## <a name="next-steps"></a>Passaggi successivi

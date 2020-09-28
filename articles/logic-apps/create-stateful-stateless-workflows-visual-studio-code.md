@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: 1f67d7228da8529699a26539f20efd55f9a20c27
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.date: 09/26/2020
+ms.openlocfilehash: 1595051c851d1c21242bcbb5368baa28a1da740d
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370981"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409851"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creare flussi di lavoro con stato o senza stato in Visual Studio Code con l'estensione app per la logica di Azure (anteprima)
 
@@ -55,7 +55,7 @@ L'estensione app per la logica di Azure (anteprima) offre numerose funzionalità
 
 * È possibile creare app per la logica senza stato che vengono eseguite solo in memoria, in modo che vengano completate più rapidamente, rispondono più velocemente, abbiano una velocità effettiva più elevata e costi inferiori per l'esecuzione perché le cronologie di esecuzione e i dati tra le azioni non vengono mantenuti nella risorsa Facoltativamente, è possibile abilitare la cronologia di esecuzione per semplificare il debug. Per altre informazioni, vedere [app](#stateful-stateless)per la logica con stato e senza stato.
 
-* Testare le app per la logica in locale nell'ambiente di sviluppo Visual Studio Code.
+* Eseguire ed eseguire il debug delle app per la logica in locale nell'ambiente di sviluppo Visual Studio Code.
 
 * Pubblicare e distribuire le app per la logica da Visual Studio Code direttamente in diversi ambienti host, ad esempio [app Azure servizio](../app-service/environment/intro.md) e [contenitori Docker](/dotnet/core/docker/introduction).
 
@@ -94,6 +94,24 @@ Per ulteriori informazioni sui modelli di determinazione prezzi applicabili a qu
 * [Dettagli prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/windows/)
 * [Dettagli prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/)
 
+<a name="unsupported"></a>
+
+## <a name="unavailable-or-unsupported-capabilities"></a>Funzionalità non disponibili o non supportate
+
+Per questa anteprima pubblica, queste funzionalità non sono disponibili o non sono supportate:
+
+* La creazione della nuova risorsa app per la **logica (anteprima)** non è attualmente disponibile in MacOS.
+
+* Non tutte le aree di Azure sono ancora supportate. Per le aree attualmente disponibili, controllare l' [elenco delle aree](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
+
+* Per avviare il flusso di lavoro, usare la [richiesta, http, Hub eventi o il trigger del bus di servizio](../connectors/apis-list.md). Attualmente, i [connettori aziendali](../connectors/apis-list.md#enterprise-connectors), i [trigger del gateway dati locale](../connectors/apis-list.md#on-premises-connectors), i trigger basati su webhook, il trigger finestra scorrevole, i [connettori personalizzati](../connectors/apis-list.md#custom-apis-and-connectors), gli account di integrazione, i relativi elementi e [i relativi connettori](../connectors/apis-list.md#integration-account-connectors) non sono supportati in questa versione di anteprima. La funzionalità "chiama una funzione di Azure" non è disponibile. per ora, usare l' *azione* http per chiamare l'URL della richiesta per la funzione di Azure.
+
+  I flussi di lavoro di app per la logica senza stato possono usare solo azioni per [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), non per trigger. Ad eccezione dei trigger specificati in precedenza, i flussi di lavoro con stato possono usare sia trigger che azioni per i connettori gestiti.
+
+* È possibile distribuire il nuovo tipo di risorsa app per la **logica (anteprima)** solo a un [piano di hosting del servizio app o Premium in Azure](#publish-azure) o a un [contenitore Docker](#deploy-docker)e non agli [ambienti del servizio di integrazione (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). I piani di hosting a **consumo** non sono supportati né disponibili per la distribuzione di questo tipo di risorsa.
+
+* Nel portale di Azure non è possibile creare nuove app per la logica con il nuovo tipo di risorsa app per la **logica (anteprima)** . È possibile creare queste app per la logica solo in Visual Studio Code. Tuttavia, dopo aver distribuito app per la logica con questo tipo di risorsa da Visual Studio Code ad Azure, è possibile [aggiungere nuovi flussi di lavoro a tali app](#add-workflows)per la logica.
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="access-and-connectivity"></a>Accesso e connettività
@@ -105,6 +123,17 @@ Per ulteriori informazioni sui modelli di determinazione prezzi applicabili a qu
 * Per compilare la stessa app per la logica di esempio in questo articolo, è necessario un account di posta elettronica di Office 365 Outlook che usa un account Microsoft aziendale o dell'Istituto di istruzione per accedere.
 
   Se si sceglie di usare un [connettore di posta elettronica diverso supportato da app per la logica di Azure](/connectors/), ad esempio Outlook.com o [gmail](../connectors/connectors-google-data-security-privacy-policy.md), è comunque possibile seguire l'esempio e la procedura complessiva generale è la stessa, ma l'interfaccia utente e le opzioni potrebbero variare in qualche modo. Se ad esempio si usa il connettore Outlook.com, usare il account Microsoft personale per accedere.
+
+### <a name="storage-requirements"></a>Requisiti di archiviazione
+
+1. Scaricare e installare l' [emulatore di archiviazione di Azure 5,10](https://go.microsoft.com/fwlink/p/?linkid=717179).
+
+1. Per eseguire l'emulatore, è necessario disporre di un'installazione locale del database SQL, ad esempio la [versione gratuita SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). Per altre informazioni, vedere [usare l'emulatore di archiviazione di Azure per sviluppo e test](../storage/common/storage-use-emulator.md).
+
+   > [!IMPORTANT]
+   > Prima di aprire la finestra di progettazione dell'app per la logica per creare il flusso di lavoro dell'app per la logica, assicurarsi di avviare l'emulatore. In caso contrario, viene ricevuto un messaggio che `Workflow design time could not be started` .
+   >
+   > ![Screenshot che mostra l'emulatore di archiviazione di Azure in esecuzione.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
 ### <a name="tools"></a>Strumenti
 
@@ -121,7 +150,7 @@ Per ulteriori informazioni sui modelli di determinazione prezzi applicabili a qu
     >
     > Se si vuole usare l'azione di [ **codice inline** ](../logic-apps/logic-apps-add-run-inline-code.md) per l'esecuzione del codice JavaScript, è necessario usare il runtime di funzioni di Azure versione 3x perché l'azione non supporta la versione 2x. Inoltre, questa azione attualmente non è supportata nei sistemi operativi Linux.
 
-  * [Estensione app per la logica di Azure (anteprima) per Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). Questa estensione di anteprima pubblica fornisce la possibilità di creare app per la logica con stato e senza stato e di testarle localmente in Visual Studio Code.
+  * [Estensione app per la logica di Azure (anteprima) per Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). Questa estensione di anteprima pubblica fornisce la possibilità di creare app per la logica con stato e senza stato ed eseguirle localmente in Visual Studio Code.
 
     Attualmente, è possibile installare contemporaneamente l'estensione originale app per la **logica di Azure** e la nuova estensione app per la logica di **Azure (anteprima)** in Visual Studio Code. Selezionando l'icona di Azure sulla barra degli strumenti Visual Studio Code è possibile visualizzare tutte le app per la logica distribuite in Azure, ma ogni tipo di risorsa viene visualizzato nelle rispettive sezioni di estensione, app per la **logica** e app per la **logica di Azure (anteprima)**.
 
@@ -153,19 +182,6 @@ Per ulteriori informazioni sui modelli di determinazione prezzi applicabili a qu
 * Per testare l'app per la logica di esempio creata in questo articolo, è necessario uno strumento che può inviare chiamate al trigger di richiesta, che è il primo passaggio nell'app per la logica di esempio. Se non si dispone di uno strumento di questo tipo, è possibile scaricare, installare e usare il [post](https://www.postman.com/downloads/).
 
 * Per semplificare la registrazione di diagnostica e la funzionalità di traccia, è possibile aggiungere e usare una risorsa [Application Insights](../azure-monitor/app/app-insights-overview.md) . È possibile creare questa risorsa durante la distribuzione dell'app per la logica o nel portale di Azure dopo la distribuzione dell'app per la logica.
-
-### <a name="storage-requirements"></a>Requisiti di archiviazione
-
-Attualmente, la creazione della nuova risorsa app per la **logica (anteprima)** non è disponibile in MacOS. Tuttavia, per Windows o altri sistemi operativi, ad esempio Linux, impostare questo requisito di archiviazione.
-
-1. Scaricare e installare l' [emulatore di archiviazione di Azure 5,10](https://go.microsoft.com/fwlink/p/?linkid=717179).
-
-1. Per eseguire l'emulatore, è necessario disporre di un'installazione locale del database SQL, ad esempio la [versione gratuita SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). Per altre informazioni, vedere [usare l'emulatore di archiviazione di Azure per sviluppo e test](../storage/common/storage-use-emulator.md).
-
-   > [!IMPORTANT]
-   > Prima di aprire la finestra di progettazione dell'app per la logica per creare il flusso di lavoro dell'app per la logica, assicurarsi di avviare l'emulatore. In caso contrario, viene ricevuto un messaggio che `Workflow design time could not be started` .
-   >
-   > ![Screenshot che mostra l'emulatore di archiviazione di Azure in esecuzione.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
 <a name="set-up"></a>
 
@@ -211,7 +227,9 @@ Attualmente, la creazione della nuova risorsa app per la **logica (anteprima)** 
 
    ![Screenshot che mostra il riquadro di Azure e il collegamento selezionato per l'accesso ad Azure.](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   Dopo aver eseguito l'accesso, il riquadro Azure Mostra le sottoscrizioni nell'account Azure. Se le sottoscrizioni previste non vengono visualizzate o se si desidera che il riquadro visualizzi solo sottoscrizioni specifiche, attenersi alla seguente procedura:
+   Dopo aver eseguito l'accesso, il riquadro Azure Mostra le sottoscrizioni nell'account Azure. Se si dispone dell'estensione app per la logica rilasciata pubblicamente, è possibile trovare tutte le risorse originali per le app per la logica create usando l'estensione originale nella sezione app per la **logica** dell'estensione rilasciata, non la sezione app per la logica dell'estensione di anteprima **(anteprima** ).
+   
+   Se le sottoscrizioni previste non vengono visualizzate o se si desidera che il riquadro visualizzi solo sottoscrizioni specifiche, attenersi alla seguente procedura:
 
    1. Nell'elenco sottoscrizioni spostare il puntatore accanto alla prima sottoscrizione fino a quando non viene visualizzato il pulsante **Seleziona sottoscrizioni** (icona filtro). Selezionare l'icona del filtro.
 
@@ -228,19 +246,6 @@ Attualmente, la creazione della nuova risorsa app per la **logica (anteprima)** 
 Prima di poter creare l'app per la logica, creare un progetto locale in modo da poter gestire e distribuire l'app per la logica da Visual Studio Code. Il progetto sottostante è simile a un progetto di funzioni di Azure, noto anche come progetto di app per le funzioni. Tuttavia, questi tipi di progetto sono separati l'uno dall'altro, quindi i flussi di lavoro e le funzioni dell'app per la logica non possono esistere nello stesso progetto.
 
 1. Nel computer creare una cartella locale *vuota* da usare per il progetto che verrà creato in un secondo momento in Visual Studio Code.
-
-   Se è installato .NET Core SDK 5,0, creare una **global.jssu** un file che fa riferimento a qualsiasi versione di runtime di .NET Core versione 3. x successiva a 3.1.201, ad esempio:
-
-   ```json
-   {
-      "sdk": {
-         "version": "3.1.8",
-         "rollForward": "disable"
-      }
-   }
-   ```
-
-   Successivamente, dopo aver creato il progetto, ma prima di provare ad aprire il **workflow.js** nel file nella finestra di progettazione dell'app per la logica, è necessario aggiungere questo **global.jssul** file al percorso radice del progetto.
 
 1. In Visual Studio Code chiudere tutte le cartelle aperte.
 
@@ -266,18 +271,30 @@ Prima di poter creare l'app per la logica, creare un progetto locale in modo da 
 
    ![Screenshot che mostra l'elenco con l'opzione "Apri nella finestra corrente" selezionata.](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-location.png)
 
-   Visual Studio Code ricarica, apre il riquadro di esplorazione e Mostra il progetto, che ora include i file di progetto generati automaticamente. Ad esempio, il progetto include una cartella che mostra il nome del flusso di lavoro dell'app per la logica. All'interno di questa cartella, il `workflow.json` file contiene la definizione JSON sottostante del flusso di lavoro dell'app per la logica.
+   Visual Studio Code ricarica, apre il riquadro di esplorazione e Mostra il progetto, che ora include i file di progetto generati automaticamente. Ad esempio, il progetto include una cartella che mostra il nome del flusso di lavoro dell'app per la logica. All'interno di questa cartella, il **workflow.jsnel** file contiene la definizione JSON sottostante del flusso di lavoro dell'app per la logica.
 
    ![Screenshot che mostra la finestra di esplorazione con la cartella del progetto, la cartella del flusso di lavoro e il file "workflow.json".](./media/create-stateful-stateless-workflows-visual-studio-code/local-project-created.png)
-
-1. Se è stato installato .NET Core SDK 5,0 ed è stato creato un **global.jsin** un file che fa riferimento a un Runtime .NET Core versione 3. x successiva a 3.1.201, è necessario aggiungere il **global.jsnel** file al percorso radice del progetto dall'interno Visual Studio Code.
-
-   > [!NOTE]
-   > Assicurarsi di completare questo passaggio prima di provare ad aprire il **workflow.jssu** file, che contiene la definizione JSON sottostante del flusso di lavoro, nella finestra di progettazione dell'app per la logica. In caso contrario, la finestra di progettazione non verrà aperta.
 
 <a name="open-workflow-definition-designer"></a>
 
 ## <a name="open-the-workflow-definition-file-in-logic-app-designer"></a>Aprire il file di definizione del flusso di lavoro in progettazione app per la logica
+
+1. Controllare le versioni installate nel computer eseguendo il comando seguente:
+
+   `..\Users\{yourUserName}\dotnet --list-sdks`
+
+   Se si dispone di .NET Core SDK 5. x, questa versione potrebbe impedire l'apertura della definizione del flusso di lavoro sottostante dell'app per la logica nella finestra di progettazione. Anziché disinstallare questa versione, nel percorso radice del progetto creare un **global.jssu** un file che faccia riferimento alla versione 3. x del runtime di .NET Core che è successiva a 3.1.201, ad esempio:
+
+   ```json
+   {
+      "sdk": {
+         "version": "3.1.8",
+         "rollForward": "disable"
+      }
+   }
+   ```
+
+   Assicurarsi di expliclitly aggiungere il **global.jsnel** file al progetto nel percorso radice dall'interno Visual Studio Code. In caso contrario, la finestra di progettazione non verrà aperta.
 
 1. Se Visual Studio Code è in esecuzione in Windows o Linux, assicurarsi che l'emulatore di archiviazione di Azure sia in esecuzione. Per ulteriori informazioni, esaminare i [prerequisiti](#prerequisites).
 
@@ -436,11 +453,13 @@ Il flusso di lavoro dell'app per la logica in questo esempio usa questo trigger 
 
 1. Nella finestra di progettazione selezionare **Salva**.
 
-Eseguire quindi il debug e il test del flusso di lavoro localmente in Visual Studio Code.
+Successivamente, eseguire ed eseguire il debug del flusso di lavoro localmente in Visual Studio Code.
 
 <a name="debug-test-locally"></a>
 
-## <a name="debug-and-test-your-logic-app"></a>Eseguire il debug e il test dell'app per la logica
+## <a name="run-and-debug-locally"></a>Eseguire ed eseguire il debug in locale
+
+Per testare l'app per la logica, seguire questa procedura per avviare una sessione di debug e trovare l'URL per l'endpoint creato dal trigger di richiesta. Questo URL è necessario per poter inviare una richiesta a tale endpoint in un secondo momento.
 
 1. Per semplificare il debug di un flusso di lavoro di un'app per la logica senza stato, è possibile [abilitare la cronologia di esecuzione per tale flusso di lavoro](#run-history).
 
@@ -957,22 +976,6 @@ Sebbene molti [limiti esistenti per le app per la logica di Azure](../logic-apps
   * Il limite di caratteri di codice aumenta da 1.024 caratteri a 100.000 caratteri.
 
   * Il limite di tempo per l'esecuzione del codice aumenta da cinque secondi a 15 secondi.
-
-<a name="unsupported"></a>
-
-## <a name="unavailable-or-unsupported-capabilities"></a>Funzionalità non disponibili o non supportate
-
-Per questa anteprima pubblica, queste funzionalità non sono disponibili o non sono supportate:
-
-* La creazione della nuova risorsa app per la **logica (anteprima)** non è attualmente disponibile in MacOS.
-
-* Per avviare il flusso di lavoro, usare la [richiesta, http, Hub eventi o il trigger del bus di servizio](../connectors/apis-list.md). Attualmente, i [connettori aziendali](../connectors/apis-list.md#enterprise-connectors), i [trigger del gateway dati locale](../connectors/apis-list.md#on-premises-connectors), i trigger basati su webhook, il trigger finestra scorrevole, i [connettori personalizzati](../connectors/apis-list.md#custom-apis-and-connectors), gli account di integrazione, i relativi elementi e [i relativi connettori](../connectors/apis-list.md#integration-account-connectors) non sono supportati in questa versione di anteprima. La funzionalità "chiama una funzione di Azure" non è disponibile. per ora, usare l' *azione* http per chiamare l'URL della richiesta per la funzione di Azure.
-
-  I flussi di lavoro di app per la logica senza stato possono usare solo azioni per [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), non per trigger. Ad eccezione dei trigger specificati in precedenza, i flussi di lavoro con stato possono usare sia trigger che azioni per i connettori gestiti.
-
-* È possibile distribuire il nuovo tipo di risorsa app per la **logica (anteprima)** solo a un [piano di hosting del servizio app o Premium in Azure](#publish-azure) o a un [contenitore Docker](#deploy-docker)e non agli [ambienti del servizio di integrazione (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). I piani di hosting a **consumo** non sono supportati né disponibili per la distribuzione di questo tipo di risorsa.
-
-* Nel portale di Azure non è possibile creare nuove app per la logica con il nuovo tipo di risorsa app per la **logica (anteprima)** . È possibile creare queste app per la logica solo in Visual Studio Code. Tuttavia, dopo aver distribuito app per la logica con questo tipo di risorsa da Visual Studio Code ad Azure, è possibile [aggiungere nuovi flussi di lavoro a tali app](#add-workflows)per la logica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

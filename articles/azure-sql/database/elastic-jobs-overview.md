@@ -11,14 +11,14 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 62202946193c111921c97dc95a7ec7955a63804f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2aa2c0c8cbd8b826444dc5420685aaa9731cddab
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85251170"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409587"
 ---
-# <a name="create-configure-and-manage-elastic-jobs"></a>Creare, configurare e gestire processi elastici
+# <a name="create-configure-and-manage-elastic-jobs-preview"></a>Creare, configurare e gestire processi elastici (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In questo articolo si apprenderà come creare, configurare e gestire processi elastici.

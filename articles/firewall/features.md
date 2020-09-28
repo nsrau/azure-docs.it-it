@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: eb7cf1899b24ed225941f0a02040206504e6486b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16e128fd61c8b0aeae017e5298ae1d8aed6e97e9
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095552"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408508"
 ---
 # <a name="azure-firewall-features"></a>Funzionalità di Firewall di Azure
 
@@ -22,9 +22,9 @@ Il [firewall di Azure](overview.md) è un servizio di sicurezza di rete gestito 
 
 Il firewall di Azure include le funzionalità seguenti:
 
-- [Disponibilità elevata predefinita](#built-in-high-availability)
+- [Disponibilità elevata incorporata](#built-in-high-availability)
 - [Zone di disponibilità](#availability-zones)
-- [Scalabilità del cloud senza restrizioni](#unrestricted-cloud-scalability)
+- [Scalabilità illimitata del cloud](#unrestricted-cloud-scalability)
 - [Regole di filtro del nome di dominio completo dell'applicazione](#application-fqdn-filtering-rules)
 - [Regole di filtro per il traffico di rete](#network-traffic-filtering-rules)
 - [Tag FQDN](#fqdn-tags)
@@ -62,7 +62,7 @@ Per altre informazioni sulle zone di disponibilità, vedere [Aree e zone di disp
 
 ## <a name="application-fqdn-filtering-rules"></a>Regole di filtro del nome di dominio completo dell'applicazione
 
-È possibile limitare il traffico HTTP/S in uscita o il traffico SQL di Azure (anteprima) a un elenco specifico di nomi di dominio completo (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione TLS.
+È possibile limitare il traffico HTTP/S in uscita o il traffico SQL di Azure a un elenco specificato di nomi di dominio completi (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione TLS.
 
 ## <a name="network-traffic-filtering-rules"></a>Regole di filtro per il traffico di rete
 

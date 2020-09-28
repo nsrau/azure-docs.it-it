@@ -1,18 +1,18 @@
 ---
 title: Comandi di estensione MongoDB per gestire i dati nell'API Azure Cosmos DB per MongoDB
 description: Questo articolo descrive come usare i comandi di estensione MongoDB per gestire i dati archiviati nell'API Azure Cosmos DB per MongoDB.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.author: lbosq
+ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: 4b069dea3f07477fcbca21e08166cdfad8cad2cf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a40be5212fb1335482ec5011d24c8eaf5f3d9a00
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326729"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409681"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usare i comandi di estensione MongoDB per gestire i dati archiviati nell'API Azure Cosmos DB per MongoDB 
 
@@ -213,8 +213,8 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 | **Campo** | **Tipo** | **Obbligatorio** | **Descrizione** |
 |---------|---------|---------|---------|
-| `customAction` | `string` | Necessario | Nome del comando personalizzato. Deve essere "CreateCollection".|
-| `collection` | `string` | Necessario | Nome della raccolta. Non sono consentiti spazi o caratteri speciali.|
+| `customAction` | `string` | Obbligatoria | Nome del comando personalizzato. Deve essere "CreateCollection".|
+| `collection` | `string` | Obbligatoria | Nome della raccolta. Non sono consentiti spazi o caratteri speciali.|
 | `offerThroughput` | `int` | Facoltativo | Velocità effettiva con provisioning da impostare nel database. Se questo parametro non viene specificato, il valore predefinito sarà minimo 400 ur/sec. * Per specificare una velocità effettiva superiore a 10.000 UR/s, il `shardKey` parametro è obbligatorio.|
 | `shardKey` | `string` | Obbligatorio per le raccolte con velocità effettiva elevata | Percorso della chiave di partizione per la raccolta partizionata. Questo parametro è obbligatorio se si impostano più di 10.000 UR/sec in `offerThroughput` .  Se specificato, tutti i documenti inseriti richiedono questa chiave e un valore. |
 | `autoScaleSettings` | `Object` | Obbligatorio per la [modalità di scalabilità](provision-throughput-autoscale.md) automatica | Questo oggetto contiene le impostazioni associate alla modalità di capacità di scalabilità automatica. È possibile impostare il `maxThroughput` valore, che descrive la quantità più elevata di unità richiesta che la raccolta verrà aumentata in modo dinamico. |
