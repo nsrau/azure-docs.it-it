@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: data-factory
 author: memildin
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: memildin
 ms.custom: include file
-ms.openlocfilehash: 0b6864c3304b86e80549297fc073a2e387000d64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55390a3eb2a074729b4a0868416a95e208325b76
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80272829"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401007"
 ---
 ```json
 {
@@ -67,10 +67,10 @@ ms.locfileid: "80272829"
 |**EndTimeUtc**|Datetime|Ora dell'ultimo evento o attività inclusa nell'avviso.  Il campo deve essere una stringa conforme al formato ISO8601, incluse le informazioni del fuso orario UTC.|
 |**Entità**|IEnumerable (IEntity)|Elenco di entità correlate all'avviso. Questo elenco può avere una combinazione di entità di tipi diversi. Il tipo di entità può essere uno qualsiasi dei tipi definiti nella sezione Entities. È anche possibile inviare entità non incluse nell'elenco seguente, ma non è garantito che vengano elaborate (la convalida dell'avviso non avrà esito negativo con i nuovi tipi di entità).|
 |**ExtendedProperties**|Dictionary (String, String)|I provider potrebbero (facoltativamente) includere qui i campi personalizzati.|
-|**Finalità**|Enumerazione|Finalità correlate alla catena di uccisione alla base dell'avviso. Per un elenco dei valori supportati e spiegazioni degli Intent della catena di uccisione del Centro sicurezza di Azure, vedere [Intentions](../articles/security-center/alerts-reference.md#intentions).<br/>Questo campo può avere più valori (separati da virgola).|
+|**Intent**|Enumerazione|Finalità correlate alla catena di uccisione alla base dell'avviso. Per un elenco dei valori supportati e spiegazioni degli Intent della catena di uccisione del Centro sicurezza di Azure, vedere [Intentions](../articles/security-center/alerts-reference.md#intentions).<br/>Questo campo può avere più valori (separati da virgola).|
 |**Evento imprevisto**|Bool|Questo campo determina se l'avviso è un evento imprevisto, ovvero un raggruppamento composto di diversi avvisi, o un singolo avviso. Il valore predefinito per il campo è' false ' (ovvero è un singolo avviso).|
 |**ProcessingEndTime**|Datetime|Il momento in cui l'avviso è stato accessibile all'utente finale nel prodotto originale che contiene l'avviso.|
-|**ProductName**|string|Nome del prodotto che ha pubblicato questo avviso (Centro sicurezza di Azure, Azure ATP, Microsoft Defender ATP, O365 ATP, MCAS e così via).|
+|**ProductName**|string|Nome del prodotto che ha pubblicato questo avviso (Centro sicurezza di Azure, Azure ATP, Microsoft Defender ATP, MCAS e così via).|
 |**Correzione**|Elenco<String>|Elementi di azione manuali da eseguire per correggere l'avviso.|
 |**ResourceIdentifiers**|List (identificatori di risorsa)|Identificatori di risorsa per questo avviso che possono essere usati per indirizzare l'avviso al gruppo di esposizione del prodotto appropriato (tenant, area di lavoro, sottoscrizione e così via). Possono essere presenti più identificatori di tipo diverso per ogni avviso.|
 |**Gravità**|Enumerazione|Gravità dell'avviso come riportato dal provider. Valori possibili: Informational, low, medium e High.|
