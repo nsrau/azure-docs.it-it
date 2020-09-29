@@ -3,12 +3,12 @@ title: Supporto per la migrazione di VMware in Azure Migrate
 description: Informazioni sul supporto per la migrazione di macchine virtuali VMware in Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f7fd5b15d9671ed160166d16c1aceda818faa8e0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f41223e9dfa336fdbf64fcfdc56798511f3a5b21
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318144"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442278"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione a VMware
 
@@ -39,8 +39,8 @@ La tabella riepiloga i requisiti di hypervisor VMware.
 
 **VMware** | **Dettagli**
 --- | ---
-**server VMware vCenter** | Versione 5,5, 6,0, 6,5 o 6,7.
-**VMware vSphere Host ESXI** | Versione 5,5, 6,0, 6,5 o 6,7.
+**server VMware vCenter** | Versione 5,5, 6,0, 6,5, 6,7, 7,0.
+**VMware vSphere Host ESXI** | Versione 5,5, 6,0, 6,5, 6,7, 7,0.
 **autorizzazioni server vCenter** | La migrazione senza agenti usa l' [appliance di migrazione](migrate-appliance.md). Il dispositivo richiede queste autorizzazioni in server vCenter:<br/><br/> - **Archivio dati. browse**: consente l'esplorazione dei file di log della macchina virtuale per risolvere i problemi di creazione ed eliminazione di snapshot.<br/><br/> - **Datastore. filemanagement**: consente operazioni di lettura/scrittura/eliminazione/ridenominazione nel browser dell'archivio dati per risolvere i problemi di creazione ed eliminazione di snapshot.<br/><br/> - **VirtualMachine.Config. Rilevamento modifiche**: consente di abilitare o disabilitare il rilevamento delle modifiche dei dischi delle macchine virtuali per eseguire il pull dei blocchi di dati modificati tra gli snapshot.<br/><br/> - **VirtualMachine.Config. DiskLease**: consente operazioni di lease del disco per una macchina virtuale, per leggere il disco usando il VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **Virtualmachine. provisioning. DiskAccess**: (in particolare per vSphere 6,0 e versioni successive) consentire l'apertura di un disco in una macchina virtuale per l'accesso in lettura casuale al disco usando VDDK.<br/><br/> - **Virtualmachine. provisioning. DiskRandomRead**: consente di aprire un disco in una macchina virtuale per leggere il disco usando VDDK.<br/><br/> - **Virtualmachine. provisioning. DiskRandomAccess**: consente di aprire un disco in una macchina virtuale per leggere il disco usando VDDK.<br/><br/> - **Virtualmachine. provisioning. GetVmFiles**: consente operazioni di lettura nei file associati a una VM, per scaricare i log e risolvere eventuali errori.<br/><br/> - **Virtualmachine. state. \* **: consente la creazione e la gestione di snapshot VM per la replica.<br/><br/> - **Virtualmachine. Interact. spento**: consente di spegnere la macchina virtuale durante la migrazione ad Azure.
 
 
@@ -53,7 +53,7 @@ La tabella riepiloga i requisiti di migrazione senza agenti per le macchine virt
 --- | ---
 **Sistemi operativi supportati** | È possibile eseguire la migrazione dei sistemi operativi [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](../virtual-machines/linux/endorsed-distros.md) supportati da Azure.
 **Macchine virtuali Windows in Azure** | Potrebbe essere necessario [apportare alcune modifiche](prepare-for-migration.md#verify-required-changes-before-migrating) alle macchine virtuali prima della migrazione. 
-**VM Linux in Azure** | Alcune macchine virtuali potrebbero richiedere alcune modifiche per la corretta esecuzione in Azure.<br/><br/> Per Linux, Azure Migrate apporta automaticamente le modifiche per questi sistemi operativi:<br/> -Red Hat Enterprise Linux 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x<br/> -Cent OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -SUSE Linux Enterprise Server 15 SP1 <br/>-Ubuntu 19,04, 19,10, 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> Per gli altri sistemi operativi apportare manualmente le [modifiche necessarie](prepare-for-migration.md#verify-required-changes-before-migrating) .
+**VM Linux in Azure** | Alcune macchine virtuali potrebbero richiedere alcune modifiche per la corretta esecuzione in Azure.<br/><br/> Per Linux, Azure Migrate apporta automaticamente le modifiche per questi sistemi operativi:<br/> -Red Hat Enterprise Linux 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x<br/> -Cent OS 7,7, 7,6, 7,5, 7,4, 6. x</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -SUSE Linux Enterprise Server 15 SP1 <br/>-Ubuntu 19,04, 19,10, 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> Per gli altri sistemi operativi apportare manualmente le [modifiche necessarie](prepare-for-migration.md#verify-required-changes-before-migrating) .
 **Avvio di Linux** | Se/boot si trova in una partizione dedicata, deve risiedere nel disco del sistema operativo e non essere distribuito tra più dischi.<br/> Se/boot fa parte della partizione radice (/), la partizione '/' deve trovarsi nel disco del sistema operativo e non si estende su altri dischi.
 **Avvio UEFI** | Supportata. Verrà eseguita la migrazione delle VM basate su UEFI alle macchine virtuali di Azure di seconda generazione. 
 **Dimensioni disco** | disco del sistema operativo da 2 TB (avvio BIOS); disco del sistema operativo da 4 TB (avvio UEFI); 8 TB per i dischi dati.

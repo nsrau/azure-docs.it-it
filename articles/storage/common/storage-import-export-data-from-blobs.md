@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 75d8b63328f71df2f8de22a95c106c5cc18dc28f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275210"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441866"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 
@@ -119,7 +119,7 @@ Quando il dashboard segnala che il processo è completo, i dischi vengono spedit
 1. Dopo aver ricevuto le unità con i dati esportati, è necessario ottenere le chiavi BitLocker per sbloccare le unità. Passare al processo di esportazione nel portale di Azure. Fare clic sulla scheda **Importazione/Esportazione**.
 2. Selezionare e fare clic sul processo di esportazione nell'elenco. Passare a **crittografia** e copiare le chiavi.
 
-   ![Visualizzare le chiavi BitLocker per il processo di esportazione](./media/storage-import-export-data-from-blobs/export-from-blob7.png)
+   ![Visualizzare le chiavi BitLocker per il processo di esportazione](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
 3. Usare le chiavi BitLocker per sbloccare i dischi.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326036"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441511"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrare System Center Operations Manager con la funzionalità mappa Monitoraggio di Azure per le macchine virtuali
 
@@ -73,11 +73,11 @@ Per configurare l'integrazione della mappa Monitoraggio di Azure per le macchine
 
 6. Facoltativo: selezionare il pool di risorse tutti i server di gestione per comunicare con Log Analytics, quindi fare clic su **Aggiungi area di lavoro**.
 
-    ![Pool di risorse di configurazione di Operations Manager](media/service-map-scom/scom-config-pool.png)
+    ![Screenshot della schermata pool di server in aggiungere Microsoft Operations Management Suite area di lavoro con il pool di risorse di tutti i server di gestione selezionato.](media/service-map-scom/scom-config-pool.png)
 
     Per configurare e registrare l'area di lavoro Log Analytics potrebbero essere necessari alcuni minuti. Dopo la configurazione, Operations Manager avvia la prima sincronizzazione della mappa.
 
-    ![Pool di risorse di configurazione di Operations Manager](media/service-map-scom/scom-config-success.png)
+    ![Screenshot della schermata di completamento in Aggiungi Microsoft Operations Management Suite area di lavoro per confermare che l'area di lavoro è stata aggiunta.](media/service-map-scom/scom-config-success.png)
 
 ## <a name="monitor-integration"></a>Monitorare l'integrazione
 
@@ -98,11 +98,11 @@ La cartella Mapping dei servizi ha quattro nodi:
 
 * **Viste dipendenza gruppo di computer**: elenca tutti i gruppi di computer sincronizzati dalla funzionalità mappa. È possibile fare clic su un gruppo per visualizzarne il diagramma applicazioni distribuite.
 
-    ![Diagramma applicazioni distribuite di Operations Manager](media/service-map-scom/scom-group-dad.png)
+    ![Screenshot di Mapping dei servizi che mostra un diagramma con le immagini per ogni gruppo di computer e le linee che indicano le dipendenze tra di essi.](media/service-map-scom/scom-group-dad.png)
 
 * **Viste dipendenze server**: elenca tutti i server sincronizzati dalla funzionalità mappa. È possibile fare clic su un server per visualizzarne il diagramma applicazioni distribuite.
 
-    ![Diagramma applicazioni distribuite di Operations Manager](media/service-map-scom/scom-dad.png)
+    ![Screenshot di Mapping dei servizi che mostra un diagramma con le immagini per ogni server e le linee che indicano le dipendenze tra di essi.](media/service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Modificare o eliminare l'area di lavoro
 
@@ -126,7 +126,7 @@ Una regola, *Microsoft.SystemCenter. ServiceMapImport. Rule*, recupera periodica
 * **TimeoutSeconds**: specifica l'intervallo di tempo prima del timeout della richiesta.
 * **TimeWindowMinutes**: specifica l'intervallo di tempo per l'esecuzione di query sui dati. Il valore predefinito è 60 minuti, ovvero l'intervallo massimo consentito.
 
-## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
+## <a name="known-issues-and-limitations"></a>Limitazioni e problemi noti
 
 La progettazione attuale presenta i problemi e le limitazioni seguenti:
 

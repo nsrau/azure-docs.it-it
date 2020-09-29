@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: b48fc6ad448b829bb399c151d3f1507c804ad471
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: b26f892d622c66f7746f7938a709650070cad5d5
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605113"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442505"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Espressioni per la trasformazione dei dati nel flusso di dati per mapping
 
@@ -637,6 +637,10 @@ ___
 Eleva un numero alla potenza di un altro.  
 * ``power(10, 2) -> 100``  
 ___
+### <code>random</code>
+<code><b>random(<i>&lt;value1&gt;</i> : integral) => long</b></code><br/><br/>
+Restituisce un numero casuale dato un valore di inizializzazione facoltativo all'interno di una partizione. Il valore di inizializzazione deve essere un valore fisso e viene usato insieme a partitionId per produrre valori casuali * ``random(1) == 1 -> false``
+___
 ### <code>reduce</code>
 <code><b>reduce(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : binaryfunction, <i>&lt;value4&gt;</i> : unaryfunction) => any</b></code><br/><br/>
 Accumula gli elementi in una matrice. Per reduce si prevede un riferimento a un accumulatore e un elemento nella prima funzione di espressione come #acc e #item e si prevede che il valore risultante sia #result da utilizzare nella seconda funzione di espressione.  
@@ -741,6 +745,11 @@ ___
 <code><b>sinh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcola un valore del seno iperbolico.  
 * ``sinh(0) -> 0.0``  
+___
+### <code>size</code>
+<code><b>size(<i>&lt;value1&gt;</i> : any) => integer</b></code><br/><br/>
+Trova le dimensioni di una matrice o di un tipo di mappa * ``size(['element1', 'element2']) -> 2``
+* ``size([1,2,3]) -> 3``
 ___
 ### <code>slice</code>
 <code><b>slice(<i>&lt;array to slice&gt;</i> : array, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of items&gt;</i> : integral]) => array</b></code><br/><br/>

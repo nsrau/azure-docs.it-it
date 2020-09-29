@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 29187ef99ce6628359819739ab5e4b34213eeb8a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526885"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441627"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -57,7 +57,7 @@ Per configurare le impostazioni di blocco degli account, completare le impostazi
 
 ## <a name="block-and-unblock-users"></a>Bloccare e sbloccare utenti
 
-Se il dispositivo di un utente è stato smarrito o rubato, è possibile bloccare i tentativi di autenticazione per l'account associato. Eventuali tentativi di autenticazione per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati.
+Se il dispositivo di un utente è stato smarrito o rubato, è possibile bloccare i tentativi di Multi-Factor Authentication di Azure per l'account associato. Eventuali tentativi di Azure Multi-Factor Authentication per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati.
 
 ### <a name="block-a-user"></a>Bloccare un utente
 
@@ -85,7 +85,7 @@ La funzionalità di avviso di illecito consente agli utenti di segnalare tentati
 
 Sono disponibili le seguenti opzioni di configurazione degli avvisi di frode:
 
-* **Blocca automaticamente gli utenti che segnalano illeciti**: se un utente segnala un illecito, il relativo account viene bloccato per 90 giorni o finché un amministratore non sblocca il proprio account. Un amministratore può verificare gli accessi usando il report sugli accessi ed eseguire le azioni necessarie per prevenire illeciti nel futuro. Un amministratore può quindi [sbloccare](#unblock-a-user) l'account dell'utente.
+* **Blocca automaticamente gli utenti che segnalano illeciti**: se un utente segnala una frode, i tentativi di autenticazione a più fattori di Azure per l'account utente vengono bloccati per 90 giorni o finché un amministratore non sblocca il proprio account. Un amministratore può verificare gli accessi usando il report sugli accessi ed eseguire le azioni necessarie per prevenire illeciti nel futuro. Un amministratore può quindi [sbloccare](#unblock-a-user) l'account dell'utente.
 * **Codice per segnalare illeciti durante il messaggio introduttivo iniziale**: quando gli utenti ricevono una telefonata per eseguire l'autenticazione a più fattori, normalmente preme **#** per confermare l'accesso. Per segnalare un illecito, l'utente immette un codice prima di premere **#** . Il codice predefinito è **0**, ma è possibile personalizzarlo.
 
    > [!NOTE]

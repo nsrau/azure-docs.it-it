@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fd500b80f0c564fc0f4c7e311483790a83a4101a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c1e9e3d63e8a4f7fe461e2d33603da91d3d9bec6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923739"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441774"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -113,11 +113,9 @@ L'impostazione per i giorni di conservazione non è ancora supportata, ma è pos
 
 ### <a name="lifecycle-management-policies"></a>Criteri di gestione del ciclo di vita
 
-- I criteri di gestione del ciclo di vita non sono ancora supportati negli account di archiviazione BlockBlobStorage di livello Premium. 
+- I criteri di gestione del ciclo di vita sono supportati solo per gli account per utilizzo generico V2. Non sono ancora supportati negli account di archiviazione Premium BlockBlobStorage.
+- Non è possibile spostare i dati dal livello Premium ai livelli inferiori.
 
-- Non è possibile spostare i dati dal livello Premium ai livelli inferiori. 
-
-- L'azione **Elimina BLOB** non è attualmente supportata. 
 
 ### <a name="hdinsight-support"></a>Supporto di HDInsight
 

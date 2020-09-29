@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: 339b66310d75e228bc6107635ac39b8d27d774c1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5c05db4d6e0c98935fc13325b5656f8023c6228e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119114"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443352"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastici (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -1059,7 +1059,7 @@ Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin
 
 Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sezione Autorizzazioni di questo documento. Solo i membri del ruolo sysadmin possono usare questa stored procedure per modificare gli attributi dei processi di proprietà di altri utenti.
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>Esempio
 
 Nell'esempio seguente vengono aggiunti tutti i database nei server di Londra e New York al gruppo Servers Maintaining Customer Information. È necessario connettersi al database dei processi specificato al momento della creazione dell'agente processo, in questo caso ElasticJobs.
 
@@ -1128,7 +1128,7 @@ Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin
 
 Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sezione Autorizzazioni di questo documento. Solo i membri del ruolo sysadmin possono usare questa stored procedure per modificare gli attributi dei processi di proprietà di altri utenti.
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>Esempio
 
 Nell'esempio seguente viene rimosso il server di Londra dal gruppo Servers Maintaining Customer Information. È necessario connettersi al database dei processi specificato al momento della creazione dell'agente processo, in questo caso ElasticJobs.
 
@@ -1187,7 +1187,7 @@ Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin
 
 Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sezione Autorizzazioni di questo documento. Solo i membri del ruolo sysadmin possono usare questa stored procedure per modificare gli attributi dei processi di proprietà di altri utenti.
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>Esempio
 
 Nell'esempio seguente vengono aggiunti tutti i database nei server di Londra e New York al gruppo Servers Maintaining Customer Information. È necessario connettersi al database dei processi specificato al momento della creazione dell'agente processo, in questo caso ElasticJobs.
 

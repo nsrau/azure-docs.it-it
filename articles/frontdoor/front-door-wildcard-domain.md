@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: duau
-ms.openlocfilehash: 349c00b312ba7c3f18bab04fb059199732b4f1b3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: edeaaf97c818831aa1eda5823ea491110f784549
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398750"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442363"
 ---
 # <a name="wildcard-domains"></a>Domini con caratteri jolly
 
@@ -72,7 +72,7 @@ Se non si vuole eseguire un criterio WAF per un sottodominio, è possibile crear
 Quando si configura una regola di routing, è possibile selezionare un dominio con caratteri jolly come host front-end. È anche possibile avere un comportamento di route diverso per i domini e i sottodomini con caratteri jolly. Come descritto nel modo in cui il front-end di [Azure esegue la corrispondenza delle route](front-door-route-matching.md), la corrispondenza più specifica per il dominio tra regole di routing diverse viene scelta in fase di esecuzione.
 
 > [!IMPORTANT]
-> È necessario disporre di modelli di percorso corrispondenti nelle regole di routing oppure i client visualizzeranno errori. Ad esempio, sono presenti due regole di routing come Route 1 ( `*.foo.com/*` con mapping al pool back-end a) e Route 2 ( `bar.foo.com/somePath/*` con mapping al pool back-end B). Viene quindi ricevuta una richiesta per `bar.foo.com/anotherPath/*` . Il front-end di Azure seleziona la Route 2 in base a una corrispondenza di dominio più specifica, ma non trova alcun modello di percorso corrispondente tra le route.
+> È necessario disporre di modelli di percorso corrispondenti nelle regole di routing oppure i client visualizzeranno errori. Ad esempio, sono presenti due regole di routing come Route 1 ( `*.foo.com/*` con mapping al pool back-end a) e Route 2 ( `/bar.foo.com/somePath/*` con mapping al pool back-end B). Viene quindi ricevuta una richiesta per `bar.foo.com/anotherPath/*` . Il front-end di Azure seleziona la Route 2 in base a una corrispondenza di dominio più specifica, ma non trova alcun modello di percorso corrispondente tra le route.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

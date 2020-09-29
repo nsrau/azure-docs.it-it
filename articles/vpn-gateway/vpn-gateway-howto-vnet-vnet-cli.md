@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8ffad738a8f10816f26760fa34c5ce686fac5bad
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 428c24236aad9a57a9d52eb0a6ff3a7aeb9fe541
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401147"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442158"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurare una connessione gateway VPN tra reti virtuali usando l'interfaccia della riga di comando di Azure
 
@@ -23,7 +23,7 @@ Questo articolo descrive come connettere reti virtuali tramite il tipo di connes
 La procedura illustrata in questo articolo si applica al modello di distribuzione Resource Manager e usano l'interfaccia della riga di comando di Azure. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfaccia della riga di comando di Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -70,7 +70,7 @@ Per questo esercizio è possibile combinare le configurazioni oppure sceglierne 
 
 * [Reti virtuali che si trovano nella stessa sottoscrizione:](#samesub) I passaggi per questa configurazione usano TestVNet1 e TestVNet4.
 
-  ![Diagramma V2V](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+  ![Diagramma che illustra i passaggi V NET-to-V NET per le reti V che risiedono nella stessa sottoscrizione.](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
 * [Reti virtuali che si trovano in sottoscrizioni diverse:](#difsub) I passaggi per questa configurazione usano TestVNet1 e TestVNet5.
 

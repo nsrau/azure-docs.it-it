@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894815"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441471"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Domande frequenti sulla raccolta dati, gli agenti e le aree di lavoro
 
@@ -166,7 +166,7 @@ Se si rimuove l'estensione Microsoft Monitoring, il Centro sicurezza non potrà 
 
 1. Se per la sottoscrizione è abilitata la funzionalità Azure Defender, aprire i criteri di sicurezza per la sottoscrizione e selezionare **Azure Defender off**.
 
-   ![Piano tariffario][1]
+    :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Abilitare o disabilitare Azure Defender":::
 
 1. Disattivare quindi il provisioning automatico selezionando **Disattivato** nella pagina **Criteri di sicurezza - Raccolta dati**.
    ![Raccolta di dati][2]
@@ -200,7 +200,7 @@ Installare manualmente l'estensione agente Log Analytics in modo che il Centro s
 
 È possibile connettere l'agente a qualsiasi area di lavoro personalizzata esistente o all'area di lavoro creata dal Centro sicurezza. Se per un'area di lavoro personalizzata non è abilitata la soluzione "Security" o "SecurityCenterFree", sarà necessario applicare una soluzione. A tale scopo, selezionare l'area di lavoro personalizzata o la sottoscrizione e applicare un piano tariffario tramite la pagina **Criteri di sicurezza - Piano tariffario**.
 
-   ![Piano tariffario][1]
+:::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Abilitare o disabilitare Azure Defender":::
 
 Il Centro sicurezza abiliterà la corretta soluzione nell'area di lavoro in base al piano tariffario selezionato.
 
@@ -271,7 +271,6 @@ L'agente e usa una quantità nominale delle risorse di sistema e dovrebbe avere 
 
 
 <!--Image references-->
-[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/use-another-workspace.png

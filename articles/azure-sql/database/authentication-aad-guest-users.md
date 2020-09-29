@@ -4,17 +4,17 @@ description: Come creare Azure AD utenti guest e impostarli come Azure AD ammini
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
-ms.topic: conceptual
+ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
-ms.openlocfilehash: 2c8aa39b6819e135181e2d153825e89686359538
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: aa74489a962708a1d3d5e6835f684e5cb8fc548b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053763"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444350"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Creare utenti guest di Azure AD e impostarli come amministratore di Azure AD
 
@@ -139,6 +139,6 @@ Questa funzionalità verrà abilitata per SQL Istanza gestita prima della dispon
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurare e gestire l'autenticazione Azure AD con SQL di Azure](authentication-aad-configure.md)
+- [Configurare e gestire l'autenticazione di Azure AD con Azure SQL](authentication-aad-configure.md)
 - [Uso dell'autenticazione a più fattori Azure Active Directory](authentication-mfa-ssms-overview.md)
 - [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)

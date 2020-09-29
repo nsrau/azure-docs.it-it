@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 1cd03814e1590abebb74db490a2692d492a9207d
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 02ec24677519902c299babb72e089f75dcf8b34b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064945"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443033"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuire un servizio di divisione e unione per spostare i dati tra database partizionati
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -182,7 +182,7 @@ I file di script inclusi sono i seguenti:
 1. *SetupSampleSplitMergeEnvironment.ps1* : consente di impostare un livello di dati di test per divisione e unione (per una descrizione dettagliata, vedere la tabella sottostante).
 2. *ExecuteSampleSplitMerge.ps1* : consente di eseguire le operazioni di test sul livello di dati di test (per una descrizione dettagliata, vedere la tabella sottostante).
 3. *GetMappings.ps1*: script di esempio di primo livello che visualizza lo stato corrente dei mapping di partizione.
-4. *ShardManagement. psm1* -script helper che include l'API ShardManagement
+4. *ShardManagement. psm1*  -script helper che include l'API ShardManagement
 5. *SqlDatabaseHelpers. psm1* -script helper per la creazione e la gestione di database nel database SQL
 
    <table style="width:100%">

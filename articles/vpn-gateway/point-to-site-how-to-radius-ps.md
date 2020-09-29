@@ -1,18 +1,18 @@
 ---
 title: "Connettere un computer a una rete virtuale da punto a sito con l'autenticazione RADIUS: PowerShell | Azure"
-description: Connettere i client Windows e Mac OS X in modo sicuro a una rete virtuale usando la connessione da punto a sito e RADIUS.
+description: Connettere i client Windows e OS X in modo sicuro a una rete virtuale usando l'autenticazione P2S e RADIUS.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2a93f612f5aeb5c2d3a4b83d580b9548f45e4c05
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c8d7ae3cd40f118399e5ff60fa0738b07249c5ef
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329160"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442406"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione RADIUS: PowerShell
 
@@ -28,7 +28,7 @@ Una connessione VPN P2S viene avviata dai dispositivi Windows e Mac. I client ch
 
 Questo articolo illustra come eseguire una configurazione P2S con l'autenticazione usando il server RADIUS. Per eseguire l'autenticazione usando i certificati generati e l'autenticazione del certificato nativo del gateway VPN, vedere [configurare una connessione da punto a sito a una VNet usando l'autenticazione del certificato nativo del gateway VPN](vpn-gateway-howto-point-to-site-rm-ps.md) o [creare un tenant di Azure Active Directory per le connessioni del protocollo P2S OpenVPN](openvpn-azure-ad-tenant.md) per l'autenticazione Azure Active Directory.
 
-![Diagramma di connessione - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
+![Diagramma che mostra la configurazione di P2S con autenticazione tramite un server RADIUS.](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
 Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico. P2S crea la connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol), OpenVPN o IKEv2.
 
@@ -65,7 +65,7 @@ Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscriz
 
 ### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example-values"></a><a name="example"></a>Valori di esempio
 

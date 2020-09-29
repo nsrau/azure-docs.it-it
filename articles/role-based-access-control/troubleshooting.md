@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e504a3ed2d9193bdc85fc08b3ea91c4f4f2c160c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f96e48d0c7b14178185f751b8c708e75ab3f322
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329505"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441836"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
 
@@ -63,7 +63,7 @@ $ras.Count
 
     Esistono due modi per risolvere l'errore. Il primo consiste nell'assegnare il ruolo [Readers di directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) all'entità servizio in modo che possa leggere i dati nella directory.
 
-    Il secondo modo per risolvere l'errore consiste nel creare l'assegnazione di ruolo utilizzando il `--assignee-object-id` parametro anziché `--assignee` . Con, l'interfaccia della riga di comando di Azure ignorerà `--assignee-object-id` la ricerca Azure ad. Sarà necessario ottenere l'ID oggetto dell'utente, del gruppo o dell'applicazione a cui si desidera assegnare il ruolo. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia](role-assignments-cli.md#new-service-principal)della riga di comando di Azure.
+    Il secondo modo per risolvere l'errore consiste nel creare l'assegnazione di ruolo utilizzando il `--assignee-object-id` parametro anziché `--assignee` . Con, l'interfaccia della riga di comando di Azure ignorerà `--assignee-object-id` la ricerca Azure ad. Sarà necessario ottenere l'ID oggetto dell'utente, del gruppo o dell'applicazione a cui si desidera assegnare il ruolo. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope)della riga di comando di Azure.
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -150,7 +150,7 @@ Analogamente, se si elenca questa assegnazione di ruolo usando l'interfaccia del
 }
 ```
 
-Non è un problema lasciare queste assegnazioni di ruolo in cui l'entità di sicurezza è stata eliminata. Se lo si desidera, è possibile rimuovere queste assegnazioni di ruolo utilizzando passaggi simili ad altre assegnazioni di ruolo. Per informazioni su come rimuovere le assegnazioni di ruolo, vedere [portale di Azure](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)o l'interfaccia della riga di comando di [Azure](role-assignments-cli.md#remove-a-role-assignment)
+Non è un problema lasciare queste assegnazioni di ruolo in cui l'entità di sicurezza è stata eliminata. Se lo si desidera, è possibile rimuovere queste assegnazioni di ruolo utilizzando passaggi simili ad altre assegnazioni di ruolo. Per informazioni su come rimuovere le assegnazioni di ruolo, vedere [portale di Azure](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)o l'interfaccia della riga di comando di [Azure](role-assignments-cli.md#remove-role-assignment)
 
 In PowerShell, se si tenta di rimuovere le assegnazioni di ruolo utilizzando l'ID oggetto e il nome della definizione di ruolo e più di un'assegnazione di ruolo corrisponde ai parametri, verrà visualizzato il messaggio di errore: "le informazioni fornite non sono mappate a un'assegnazione di ruolo". L'output seguente mostra un esempio del messaggio di errore:
 
