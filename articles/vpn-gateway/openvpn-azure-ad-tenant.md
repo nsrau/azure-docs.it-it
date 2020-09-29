@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 74df878baa6ed4e2ba902a73a7830c0b075c58ce
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1905db8f28bde41dadbe619894cb76830efca992
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981526"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445833"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creare un tenant Azure Active Directory per le connessioni del protocollo OpenVPN da punto a sito
 
@@ -47,7 +47,7 @@ Usare la procedura descritta in [questo articolo](../active-directory/fundamenta
 
 1. Individuare l'ID directory della directory da usare per l'autenticazione. Questo è elencato nella sezione Proprietà della pagina Active Directory.
 
-    ![ID directory](./media/openvpn-create-azure-ad-tenant/directory-id.png)
+    ![Screenshot che mostra la pagina "directory Properties" con "ID directory" evidenziato.](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
 2. Copiare l'ID directory.
 
@@ -89,7 +89,7 @@ Usare la procedura descritta in [questo articolo](../active-directory/fundamenta
 
 7. Nel Azure AD, in **applicazioni aziendali**, viene visualizzata la rete **VPN di Azure** elencata.
 
-    ![VPN di Azure](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
+    ![Screenshot che mostra la pagina "tutte le applicazioni".](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
     
 8. Se non è già presente un ambiente da punto a sito in funzione, seguire le istruzioni per crearne uno. Vedere [creare una VPN da punto a sito](vpn-gateway-howto-point-to-site-resource-manager-portal.md) per creare e configurare un gateway VPN da punto a sito. 
 

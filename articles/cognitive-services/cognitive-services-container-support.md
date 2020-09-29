@@ -1,28 +1,31 @@
 ---
-title: Contenitori dei servizi cognitivi di Azure
+title: Usare i contenitori di servizi cognitivi di Azure in locale
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come usare i contenitori Docker per facilitare la gestione dei dati con Servizi cognitivi.
+description: Informazioni su come usare i contenitori Docker per usare servizi cognitivi locali.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bda6fae31e3f5ef63d2c917937d80b2c1ea4fc48
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: locale, Docker, container, Kubernetes
+ms.openlocfilehash: 48bfad4b101556dfcc4e57cf684341bda8063202
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906999"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461207"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contenitori dei servizi cognitivi di Azure
 
 > [!WARNING]
 > L'11 giugno 2020 Microsoft ha annunciato che non venderà la tecnologia di riconoscimento facciale ai dipartimenti di polizia degli Stati Uniti fino a quando non verranno adottate norme rigorose, che tengano conto dei diritti umani. Di conseguenza, i clienti non possono usare le funzionalità di riconoscimento facciale o le funzionalità incluse in Servizi di Azure, ad esempio Viso o Video Indexer, se il cliente è un dipartimento di polizia degli Stati Uniti o consente l'uso di tali servizi a tale dipartimento.
 
-Il supporto dei contenitori nei servizi cognitivi di Azure consente agli sviluppatori di usare le stesse API avanzate disponibili in Azure e offre la flessibilità necessaria per distribuire e ospitare i servizi inclusi nei [contenitori Docker](https://www.docker.com/what-container). Il supporto dei contenitori è attualmente disponibile per un sottoinsieme di servizi cognitivi di Azure, incluse le parti di:
+Servizi cognitivi di Azure offre diversi [contenitori Docker](https://www.docker.com/what-container) che consentono di usare le stesse API disponibili in Azure, in locale. L'uso di questi contenitori ti offre la flessibilità necessaria per avvicinare i servizi cognitivi ai tuoi dati, in modo da garantire conformità, sicurezza o altri motivi operativi. 
+
+Il supporto dei contenitori è attualmente disponibile per un sottoinsieme di servizi cognitivi di Azure, incluse le parti di:
 
 > [!div class="checklist"]
 > * [Rilevamento anomalie][ad-containers]
@@ -42,9 +45,9 @@ Le risorse di servizi cognitivi sono disponibili in [Microsoft Azure](https://az
 ## <a name="features-and-benefits"></a>Funzionalità e vantaggi
 
 - **Infrastruttura non modificabile**: abilitare i team DevOps per sfruttare un set coerente e affidabile di parametri di sistema noti, pur essendo in grado di adattarsi alle modifiche. I contenitori offrono la flessibilità necessaria per passare all'interno di un ecosistema prevedibile ed evitare deviazioni della configurazione.
-- **Controllo dei dati**: consente ai clienti di scegliere il punto in cui questi servizi cognitivi elaborano i dati. Questo aspetto è fondamentale per i clienti che non possono inviare dati al cloud, ma che richiedono l'accesso alla tecnologia offerta da Servizi cognitivi. È supportata la coerenza in ambienti ibridi, tra i dati e le funzionalità di gestione, identità e sicurezza.
-- **Controllo sugli aggiornamenti dei modelli**: ai clienti viene offerta la flessibilità necessaria per il controllo delle versioni e l'aggiornamento dei modelli distribuiti nelle soluzioni.
-- **Architettura**portabile: consente la creazione di un'architettura di applicazione portabile che può essere distribuita in Azure, in locale e nei dispositivi perimetrali. I contenitori possono essere distribuiti direttamente nel [servizio Azure Kubernetes](../aks/index.yml), in [Istanze di Azure Container](../container-instances/index.yml) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](/azure-stack/operator). Per altre informazioni, vedere [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy) (Distribuire Kubernetes in Azure Stack).
+- **Controllo dei dati**: scegliere la posizione in cui i dati vengono elaborati dai servizi cognitivi. Questo può essere essenziale se non è possibile inviare dati al cloud, ma è necessario accedere a API Servizi cognitivi. È supportata la coerenza in ambienti ibridi, tra i dati e le funzionalità di gestione, identità e sicurezza.
+- **Controllo sugli aggiornamenti del modello**: flessibilità nel controllo delle versioni e aggiornamento dei modelli distribuiti nelle soluzioni.
+- **Architettura**portabile: consente la creazione di un'architettura di applicazione portatile che può essere distribuita in Azure, in locale e perimetrale. I contenitori possono essere distribuiti direttamente nel [servizio Azure Kubernetes](../aks/index.yml), in [Istanze di Azure Container](../container-instances/index.yml) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](/azure-stack/operator). Per altre informazioni, vedere [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy) (Distribuire Kubernetes in Azure Stack).
 - **Velocità effettiva elevata/bassa latenza**: offrire ai clienti la possibilità di scalare i requisiti di velocità effettiva elevata e bassa latenza, abilitando i servizi cognitivi a funzionare fisicamente vicino alla logica e ai dati dell'applicazione. I contenitori non raggiungono il limite di transazioni al secondo e possono offrire scalabilità sia orizzontale che verticale per gestire la domanda, se si forniscono le risorse hardware necessarie.
 - **Scalabilità**: con la popolarità sempre crescente di contenitori e software di orchestrazione dei contenitori, ad esempio Kubernetes; la scalabilità è all'avanguardia dei progressi tecnologici. Basandosi su una base cluster scalabile, lo sviluppo di applicazioni soddisfa la disponibilità elevata.
 
@@ -52,7 +55,7 @@ Le risorse di servizi cognitivi sono disponibili in [Microsoft Azure](https://az
 
 I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenitori Docker, ognuno dei quali contiene un subset di funzionalità dei servizi disponibili in Servizi cognitivi di Azure:
 
-| Servizio | Piano tariffario supportato | Contenitore | Descrizione |
+| Service | Piano tariffario supportato | Contenitore | Descrizione |
 |--|--|--|--|
 | [Rilevamento anomalie][ad-containers] | F0, S0 | **Rilevamento anomalie** ([immagine](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico.<br>[Richiedere l'accesso][request-access] |
 | [Visione artificiale][cv-containers] | F0, S1 | **Lettura** | Estre testo stampato dalle immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster e biglietti da visita. Il contenitore di lettura rileva anche il *testo scritto a mano* nelle immagini e fornisce il supporto per PDF/TIFF/più pagine.<br/><br/>**Importante:** Il contenitore di lettura attualmente funziona solo con l'inglese. |
@@ -79,7 +82,7 @@ Inoltre, alcuni contenitori sono supportati in Servizi cognitivi [**All-in-One c
 * Visione artificiale
 * Viso
 * LUIS
-* Analisi del testo
+* Text Analytics
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilità dei contenitori in Servizi cognitivi di Azure
 

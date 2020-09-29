@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: d0d0465e2e60945649958911c508e06aee877ac9
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: addccf337f82b1695c76ae975c4a33f44ba50f8a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378866"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448134"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Aggiungere Key Vault all'applicazione Web usando Servizi connessi di Visual Studio
 
@@ -189,6 +189,9 @@ Influiscono sul file di progetto .NET References e `packages.config` (riferiment
 | .NET; NuGet | Azure. Identity |
 | .NET; NuGet | Azure. Security. Key Vault. Keys |
 | .NET; NuGet | Azure. Security. Vault. Secrets |
+
+> [!IMPORTANT] 
+> Per impostazione predefinita, viene installato Azure. Identity 1.1.1, che non supporta le credenziali di Visual Studio. È possibile aggiornare manualmente il riferimento al pacchetto alla 1.2 + usare le credenziali di Visual Studio.
 
 ### <a name="added-files-for-aspnet-framework"></a>Aggiunta di file per ASP.NET Framework
 

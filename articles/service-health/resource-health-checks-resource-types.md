@@ -3,12 +3,12 @@ title: Tipi di risorse supportati tramite Integrità risorse di Azure|Microsoft 
 description: Tipi di risorse supportati tramite Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9aedc115a29f11d4d54715d51bb6231ea1ea9e03
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: e299e45f08b9e39af02208a0e74734475528b3ae
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660656"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447056"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipi di risorse e controlli di integrità in Integrità risorse di Azure
 Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite Integrità risorse suddivisi per tipi di risorse.
@@ -207,7 +207,7 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |Controlli eseguiti|
 |---|
-|<ul><li>La risorsa capacità è operativa?</li><li>Tutti i carichi di lavoro sono operativi?</li></ul>|
+|<ul><li>La risorsa capacità è operativa?</li><li>Tutti i carichi di lavoro sono operativi?</li></ul>
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Controlli eseguiti|

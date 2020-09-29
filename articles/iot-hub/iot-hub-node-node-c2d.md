@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 2956c06614d6c374df6b073567bf7de688ee67c7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e398138f12c38e5235a0004679d9574dbde607db
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315984"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446879"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (Node.js)
 
@@ -77,11 +77,20 @@ In questa sezione si modificherà l'app di dispositivo simulato creata in [Invia
     });
     ```
 
-    In questo esempio il dispositivo richiama la funzione **complete** per notificare all'hub IoT Hub che ha elaborato il messaggio. La chiamata a **complete** non è necessaria se si usa il trasporto MQTT e può essere omessa. È obbligatoria per HTTPS e AMQP.
+In questo esempio, il dispositivo richiama la funzione **complete** per inviare una notifica all'hub delle cose che ha elaborato il messaggio e che può essere rimosso in modo sicuro dalla coda del dispositivo. La chiamata a **complete** non è necessaria se si usa il trasporto MQTT e può essere omessa. È obbligatorio per AMQP e HTTPS.
+
+Con AMQP e HTTPS, ma non con MQTT, il dispositivo può anche:
+
+* Abbandonare un messaggio, con la conseguente conservazione del messaggio nella coda del dispositivo da parte dell'hub Internet per un uso futuro.
+* Rifiutare un messaggio che rimuove definitivamente il messaggio dalla coda del dispositivo.
+
+Se si verifica un problema che impedisce al dispositivo di completare, abbandonare o rifiutare il messaggio, l'hub di Internet delle cose, dopo un periodo di timeout fisso, Accoda il messaggio per il recapito. Per questo motivo, la logica di elaborazione del messaggio nell'app per dispositivo deve essere *idempotente*, in modo che la ricezione dello stesso messaggio più volte produca lo stesso risultato.
+
+Per informazioni più dettagliate sull'elaborazione dei messaggi da cloud a dispositivo da parte dell'hub, inclusi i dettagli del ciclo di vita dei messaggi da cloud a dispositivo, vedere [inviare messaggi da cloud a dispositivo da un hub](iot-hub-devguide-messages-c2d.md)Internet.
   
-   > [!NOTE]
-   > Se si usa HTTPS invece di MQTT o AMQP per il trasporto, l'istanza di **DeviceClient** controlla raramente i messaggi provenienti dall'hub IoT (meno di 25 minuti). Per altre informazioni sulle differenze tra il supporto di MQTT, AMQP e HTTPS e sulla limitazione delle richieste dell'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT](iot-hub-devguide-messaging.md).
-   >
+> [!NOTE]
+> Se si usa HTTPS invece di MQTT o AMQP come trasporto, l'istanza di **DeviceClient** controlla raramente i messaggi provenienti dall'hub degli stessi (almeno ogni 25 minuti). Per ulteriori informazioni sulle differenze tra il supporto di MQTT, AMQP e HTTPS, vedere [indicazioni sulle comunicazioni da cloud a dispositivo](iot-hub-devguide-c2d-guidance.md) e [scegliere un protocollo di comunicazione](iot-hub-devguide-protocols.md).
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoT
 

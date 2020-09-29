@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 80e6ffb79aae5ffc0fe1fd8c9d73d97cc3bdde1e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 93fdf2884ca6593cfdb4fb2878ba0dd21246266d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938168"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446359"
 ---
 # <a name="how-to-configure-metrics-and-fine-tune-detecting-configuration"></a>Procedura: configurare le metriche e ottimizzare la configurazione del rilevamento
 
@@ -45,7 +45,7 @@ Questa configurazione verrà applicata a tutte le serie in questa metrica, ad ec
 
 Sono presenti parametri aggiuntivi, ad esempio **Direction**, e un' **anomalia valida** che può essere usata per ottimizzare ulteriormente la configurazione. È possibile combinare anche metodi di rilevamento diversi. 
 
-:::image type="content" source="../media/configuration-combination.png" alt-text="Combinazione di configurazione" lightbox="../media/configuration-combination.png":::
+:::image type="content" source="../media/configuration-combination.png" alt-text="Selezionare una metrica" lightbox="../media/configuration-combination.png":::
 
 ### <a name="tune-the-configuration-for-a-specific-series-or-group"></a>Ottimizzare la configurazione per una serie o un gruppo specifico
 
@@ -53,7 +53,7 @@ Fare clic su **configurazione avanzata** sotto le opzioni di configurazione a li
 
 Questa configurazione verrà applicata al gruppo di serie o a serie specifiche anziché alla configurazione a livello di metrica. Dopo aver impostato le condizioni per questo gruppo, salvarlo.
 
-:::image type="content" source="../media/advanced-configuration.png" alt-text="Configurazione avanzata" lightbox="../media/advanced-configuration.png":::
+:::image type="content" source="../media/advanced-configuration.png" alt-text="Selezionare una metrica" lightbox="../media/advanced-configuration.png":::
 
 ### <a name="anomaly-detection-methods"></a>Metodi di Rilevamento delle anomalie
 
@@ -68,11 +68,11 @@ In modalità rilevamento intelligente, i parametri della versione di riservatezz
 
 La sensibilità può influenzare la larghezza dell'intervallo di valori previsto di ogni punto. Quando è aumentato, l'intervallo di valori previsto sarà più rigido e verranno segnalate altre anomalie:
 
-:::image type="content" source="../media/metrics/smart-detection-high-sensitivity.png" alt-text="Rilevamento intelligente con sensibilità elevata":::
+:::image type="content" source="../media/metrics/smart-detection-high-sensitivity.png" alt-text="Selezionare una metrica":::
 
 Quando la sensibilità è disattivata, l'intervallo di valori previsto sarà più ampio e verrà segnalato un minor numero di anomalie:
 
-:::image type="content" source="../media/metrics/smart-detection-low-sensitivity.png" alt-text="Rilevamento intelligente con sensibilità bassa":::
+:::image type="content" source="../media/metrics/smart-detection-low-sensitivity.png" alt-text="Selezionare una metrica":::
 
 **Modifica soglia** 
 
@@ -85,23 +85,23 @@ Usare la procedura seguente per usare questa modalità:
 
 1. Selezionare **modifica soglia** come metodo di rilevamento anomalie quando si impostano le configurazioni di rilevamento anomalie per le metriche o le serie temporali.
     
-    :::image type="content" source="../media/metrics/change-threshold.png" alt-text="modifica soglia":::
+    :::image type="content" source="../media/metrics/change-threshold.png" alt-text="Selezionare una metrica":::
 
 2. Selezionare non **compreso nell'intervallo** o **nel parametro di intervallo in** base allo scenario.
 
     Se si desidera rilevare le fluttuazioni, selezionare **fuori dall'intervallo**. Con le impostazioni seguenti, ad esempio, tutti i punti dati che cambiano oltre il 10% rispetto a quello precedente verranno rilevati come outlier.
-    :::image type="content" source="../media/metrics/out-of-the-range.png" alt-text="parametro non compreso nell'intervallo":::
+    :::image type="content" source="../media/metrics/out-of-the-range.png" alt-text="Selezionare una metrica":::
 
     Se si desidera rilevare le linee piane nei dati, selezionare **nell'intervallo**. Con le impostazioni seguenti, ad esempio, qualsiasi punto dati modificato entro il 0,01% rispetto a quello precedente verrà rilevato come outlier. Poiché la soglia è così piccola (0,01%), rileva le linee piane nei dati come outlier.
 
-    :::image type="content" source="../media/metrics/in-the-range.png" alt-text="Parametro in intervallo":::
+    :::image type="content" source="../media/metrics/in-the-range.png" alt-text="Selezionare una metrica":::
 
 3. Impostare la percentuale di modifica che verrà conteggiata come anomalia e i punti dati acquisiti in precedenza verranno utilizzati per il confronto. Questo confronto è sempre compreso tra il punto dati corrente e un singolo punto dati N punti precedenti.
     
     **Direction** è valido solo se si usa la modalità **out-of-range** :
     
-    * **Up configura il** rilevamento per rilevare solo le anomalie quando (punto dati corrente)-(punto dati di confronto) > **+** soglia%.
-    * **Down** configura il rilevamento per rilevare solo le anomalie quando (punto dati corrente)-(confronto del punto dati) < **-** soglia%.
+    * **Up configura il** rilevamento per rilevare solo le anomalie quando (punto dati corrente)-(punto dati di confronto) > **+** percentuale di soglia.
+    * **Down** configura il rilevamento in modo da rilevare solo le anomalie quando (punto dati corrente)-(punto dati di confronto) < **-** percentuale di soglia.
  
 **Soglia rigida**
 
@@ -117,7 +117,7 @@ In alcuni casi, gli eventi e le occorrenze previsti (ad esempio festività) poss
 
 Fare clic sul pulsante **Configura evento preimpostato** accanto all'elenco a discesa metriche in ogni pagina Dettagli metrica.
  
-:::image type="content" source="../media/metrics/preset-event-button.png" alt-text="pulsante evento preimpostato":::
+:::image type="content" source="../media/metrics/preset-event-button.png" alt-text="Selezionare una metrica":::
 
 Nella finestra che viene visualizzata configurare le opzioni in base all'utilizzo. Assicurarsi che **Abilita evento festività** sia selezionato per usare la configurazione. 
 
@@ -161,7 +161,7 @@ X: non disponibile.
 
 L'evento Cycle viene usato per ridurre le anomalie se seguono un modello ciclico, ma segnala un'anomalia se più punti dati non seguono il modello. La **modalità Strict** viene utilizzata per abilitare la segnalazione anomalie Se anche un punto dati non segue il modello. 
 
-:::image type="content" source="../media/metrics/preset-events.png" alt-text="Configurazione evento preimpostato":::
+:::image type="content" source="../media/metrics/preset-events.png" alt-text="Selezionare una metrica":::
 
 ## <a name="view-recent-incidents"></a>Visualizza gli eventi imprevisti recenti
 

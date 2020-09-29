@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 7459d674cde123bc45544322347bc4c1fe89e820
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1fb05b52bbe3e8f544b17537ef9070e5b2b0b77b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009614"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460170"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Illustra inoltre la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -30,7 +30,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
 
 È possibile visualizzare e configurare le impostazioni seguenti tramite il **menu Risorse**.
 
-* [Panoramica](#overview)
+* [Overview](#overview)
 * [Log attività](#activity-log)
 * [Controllo di accesso (IAM)](#access-control-iam)
 * [Tag](#tags)
@@ -39,7 +39,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Chiavi di accesso](#access-keys)
     * [Impostazioni avanzate](#advanced-settings)
     * [Redis Cache Advisor](#azure-cache-for-redis-advisor)
-    * [Ridimensionamento](#scale)
+    * [Scalabilità](#scale)
     * [Dimensioni del cluster](#cluster-size)
     * [Salvataggio permanente dei dati](#redis-data-persistence)
     * [Pianificare gli aggiornamenti](#schedule-updates)
@@ -51,9 +51,9 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Script di automazione](#automation-script)
 * Amministrazione
     * [Importa dati](#importexport)
-    * [Esportazione dei dati](#importexport)
+    * [Esporta dati](#importexport)
     * [Reboot](#reboot)
-* [Monitoring](#monitoring)
+* [Monitoraggio](#monitoring)
     * [Metriche Redis](#redis-metrics)
     * [Regole di avviso](#alert-rules)
     * [Diagnostica](#diagnostics)
@@ -91,7 +91,7 @@ La sezione **Impostazioni** consente di accedere alle impostazioni seguenti per 
 * [Chiavi di accesso](#access-keys)
 * [Impostazioni avanzate](#advanced-settings)
 * [Redis Cache Advisor](#azure-cache-for-redis-advisor)
-* [Ridimensionamento](#scale)
+* [Scalabilità](#scale)
 * [Dimensioni del cluster](#cluster-size)
 * [Salvataggio permanente dei dati](#redis-data-persistence)
 * [Pianificare gli aggiornamenti](#schedule-updates)
@@ -141,9 +141,9 @@ Le impostazioni **Criterio maxmemory**, **maxmemory-reserved** e **maxfragmentat
 
 Per altre informazioni sui criteri `maxmemory`, vedere [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies) (Criteri di rimozione).
 
-L'impostazione **MaxMemory-reserved** consente di configurare la quantità di memoria, in MB, riservata per le operazioni non cache, ad esempio la replica durante il failover. L’impostazione di questo valore consente di avere un'esperienza più coerente del server Redis quando il carico varia. Questo valore deve essere più alto per i carichi di lavoro ad intensa attività di scrittura. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
+L'impostazione **MaxMemory-reserved** consente di configurare la quantità di memoria, in MB per ogni istanza di un cluster, riservata per le operazioni non cache, ad esempio la replica durante il failover. L’impostazione di questo valore consente di avere un'esperienza più coerente del server Redis quando il carico varia. Questo valore deve essere più alto per i carichi di lavoro ad intensa attività di scrittura. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
 
-L'impostazione **maxfragmentationmemory-reserved** consente di configurare la quantità di memoria in MB riservata per la frammentazione della memoria. L'impostazione di questo valore consente un'esperienza server Redis più coerente quando la cache è piena o prossima al riempimento e il rapporto di frammentazione è elevato. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
+L'impostazione **maxfragmentationmemory-reserved** consente di configurare la quantità di memoria, in MB per ogni istanza di un cluster, riservata per la frammentazione della memoria. L'impostazione di questo valore consente un'esperienza server Redis più coerente quando la cache è piena o prossima al riempimento e il rapporto di frammentazione è elevato. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
 
 Un aspetto da considerare nella scelta di un nuovo valore di prenotazione di memoria (**maxmemory-reserved** o **maxfragmentationmemory-reserved**) è come questa modifica può influire su una cache che è già in esecuzione con grandi quantità di dati. Se ad esempio si dispone di una cache di 53 GB con 49 GB di dati, modificare il valore di prenotazione a 8 GB, abbasserà la quantità massima di memoria disponibile per il sistema a 45 GB. Se il valore corrente `used_memory` oppure il valore `used_memory_rss` sono maggiori del nuovo limite di 45 GB sarà necessario rimuovere i dati fino a quando `used_memory` e `used_memory_rss` non saranno inferiori a 45 GB. La rimozione può aumentare il carico del server e la frammentazione della memoria. Per altre informazioni sulle metriche della cache come `used_memory` e `used_memory_rss` vedere [Available metrics and reporting intervals](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) (Metriche disponibili e intervalli di report).
 
@@ -188,7 +188,7 @@ Ogni piano tariffario presenta diversi limiti di connessioni client, memoria e l
 | Uso della larghezza di banda di rete |[Prestazioni della cache - Larghezza di banda disponibile](cache-planning-faq.md#azure-cache-for-redis-performance) |
 | Client connessi |[Configurazione predefinita del server Redis - maxclients](#maxclients) |
 | Carico del server |[Grafici di utilizzo - Carico server Redis](cache-how-to-monitor.md#usage-charts) |
-| Utilizzo della memoria |[Prestazioni della cache - Dimensioni](cache-planning-faq.md#azure-cache-for-redis-performance) |
+| Utilizzo memoria |[Prestazioni della cache - Dimensioni](cache-planning-faq.md#azure-cache-for-redis-performance) |
 
 Per aggiornare la cache, fare clic su **Aggiorna ora** per modificare il piano tariffario e [ridimensionare](#scale) la cache. Per ulteriori informazioni sulla scelta di un piano tariffario, vedere [scelta del livello corretto](cache-overview.md#choosing-the-right-tier)
 
@@ -278,7 +278,7 @@ Fare clic su **Proprietà** per visualizzare informazioni sulla cache, tra cui e
 
 ![Proprietà di Cache Redis di Azure](./media/cache-configure/redis-cache-properties.png)
 
-### <a name="locks"></a>Blocchi
+### <a name="locks"></a>Locks
 La sezione **blocchi** consente di bloccare una sottoscrizione, un gruppo di risorse o una risorsa per impedire ad altri utenti dell'organizzazione di eliminare o modificare accidentalmente le risorse critiche. Per altre informazioni, vedere [bloccare le risorse con Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="automation-script"></a>Script di automazione
@@ -291,7 +291,7 @@ Le impostazioni della sezione **Amministrazione** consentono di eseguire le atti
 ![Amministrazione](./media/cache-configure/redis-cache-administration.png)
 
 * [Importa dati](#importexport)
-* [Esportazione dei dati](#importexport)
+* [Esporta dati](#importexport)
 * [Reboot](#reboot)
 
 

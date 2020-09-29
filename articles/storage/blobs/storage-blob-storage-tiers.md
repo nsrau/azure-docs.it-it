@@ -3,34 +3,34 @@ title: Livelli di accesso ad accesso frequente, ad accesso sporadico e archivio 
 description: Informazioni sui livelli di accesso ad accesso frequente, ad accesso sporadico e archivio per archiviazione BLOB di Azure. Esaminare gli account di archiviazione che supportano la suddivisione in livelli. Confrontare le opzioni di archiviazione BLOB in blocchi.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/27/2020
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 569e785cd8fc3ec4bbf9960cef63258e83496847
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226183"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460731"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio
 
-Archiviazione di Azure offre diversi livelli di accesso che consentono di archiviare i dati degli oggetti BLOB nel modo più conveniente. I livelli di accesso disponibili includono:
+Archiviazione di Azure offre diversi livelli di accesso che consentono di archiviare i dati degli oggetti BLOB nel modo più conveniente. I livelli di accesso disponibili sono i seguenti:
 
 - **Hot** Ottimizzato per l'archiviazione dei dati a cui si accede di frequente.
 - **Raffreddamento** ottimizzato per l'archiviazione dei dati a cui si accede raramente e che vengono archiviati per almeno 30 giorni.
 - **Archivio** : ottimizzato per l'archiviazione di dati a cui si accede raramente e che vengono archiviati per almeno 180 giorni con requisiti di latenza flessibili (nell'ordine di ore).
 
-Le considerazioni seguenti si applicano ai diversi livelli di accesso:
+Le considerazioni seguenti sono applicabili ai diversi livelli di accesso:
 
-- Solo i livelli di accesso frequente e ad accesso sporadico possono essere impostati a livello di account. Il livello di accesso all'archivio non è disponibile a livello di account.
-- I livelli ad accesso frequente, ad accesso sporadico e archivio possono essere impostati a livello di BLOB durante il caricamento o dopo il caricamento.
-- I dati nel livello ad accesso sporadico possono tollerare una disponibilità leggermente inferiore, ma richiedono comunque una durabilità elevata, una latenza di recupero e caratteristiche di velocità effettiva simili ai dati sensibili. Per i dati interessanti, un contratto di servizio con disponibilità leggermente inferiore e costi di accesso più elevati rispetto ai dati sensibili sono compromessi accettabili per ridurre i costi di archiviazione.
-- Archiviazione archivia i dati non in linea e offre i costi di archiviazione più bassi, ma anche i costi di accesso e reidratazione dei dati più elevati.
+- Solo i livelli di accesso sporadico e frequente possono essere impostati a livello di account. Il livello di accesso archivio non è disponibile a livello di account.
+- I livelli di accesso frequente, sporadico e archivio possono essere impostati a livello di BLOB durante o dopo il caricamento.
+- I dati nel livello di accesso sporadico possono tollerare una disponibilità leggermente inferiore, ma richiedono comunque durabilità elevata, latenza di recupero e caratteristiche di velocità effettiva simili ai dati ad accesso frequente. Per i dati ad accesso sporadico, un contratto di servizio con disponibilità leggermente inferiore e costi di accesso più elevati rispetto ai dati ad accesso frequente rappresentano compromessi accettabili per ridurre i costi di archiviazione.
+- La funzionalità Spazio di archiviazione consente di archiviare i dati offline e offre i costi di archiviazione più bassi, ma anche i costi di accesso e riattivazione dei dati più elevati.
 
-La quantità di dati archiviati nel cloud è in crescita esponenziale. Per gestire i costi in base alle esigenze di archiviazione crescenti, può essere utile organizzare i dati in base ad attributi quali la frequenza di accesso e il periodo di conservazione pianificato, in modo da ottimizzare i costi. I dati archiviati nel cloud possono essere diversi in base alla modalità di generazione, elaborazione e accesso per tutta la sua durata. Alcuni dati presentano accessi attivi e modifiche continue nel corso della rispettiva durata. Alcuni dati presentano un accesso frequente nelle fasi iniziali e l'accesso si riduce drasticamente con il passare del tempo. Alcuni dati rimangono inattivi nel cloud ed è possibile accedervi raramente dopo che sono stati archiviati.
+La quantità di dati archiviati nel cloud è in crescita esponenziale. Per gestire i costi in base alle esigenze di archiviazione crescenti, può essere utile organizzare i dati in base ad attributi quali la frequenza di accesso e il periodo di conservazione pianificato, in modo da ottimizzare i costi. I dati archiviati nel cloud possono essere diversi in base alle modalità di generazione, elaborazione e accesso per tutta la loro durata. Alcuni dati presentano accessi attivi e modifiche continue nel corso della rispettiva durata. Alcuni dati presentano un accesso frequente nelle fasi iniziali e l'accesso si riduce drasticamente con il passare del tempo. Alcuni dati rimangono inattivi nel cloud e dopo l'archiviazione l'accesso a tali dati viene eseguito raramente o mai.
 
 Ognuno di questi scenari di accesso ai dati trae vantaggio da un livello di accesso diverso, ottimizzato per un particolare modello di accesso. Con i livelli di accesso ad accesso frequente, sporadico e archivio, l'archiviazione BLOB di Azure risponde a questa esigenza di livelli di accesso differenziati con modelli di prezzi distinti.
 
@@ -44,14 +44,14 @@ Gli account di archiviazione BLOB e GPv2 espongono l'attributo **livello di acce
 
 ## <a name="hot-access-tier"></a>Livello di accesso frequente
 
-Il livello di accesso frequente presenta costi di archiviazione più elevati rispetto ai livelli di accesso sporadico e archivio, ma i costi di accesso più bassi. Gli scenari di utilizzo di esempio per il livello di accesso a caldo includono:
+Il livello di accesso frequente presenta costi di archiviazione più elevati rispetto ai livelli di accesso sporadico e archiviazione, ma i costi di accesso più bassi. Ecco alcuni scenari di esempio per il livello di accesso frequente:
 
-- Dati usati in modo attivo o a cui è previsto l'accesso (lettura e scrittura) di frequente.
-- Dati gestiti temporaneamente per l'elaborazione e l'eventuale migrazione al livello di accesso sporadico.
+- Dati in uso o a cui si prevede di accedere spesso (in lettura e scrittura).
+- Dati di cui è stata predisposta l'elaborazione e la migrazione finale al livello di accesso sporadico.
 
 ## <a name="cool-access-tier"></a>Livello di accesso sporadico
 
-Il livello di accesso sporadico presenta costi di archiviazione più bassi e costi di accesso più elevati rispetto all'archiviazione a caldo. Questo livello è destinato ai dati che rimangono nel livello ad accesso sporadico per almeno 30 giorni. Gli scenari di utilizzo di esempio per il livello ad accesso sporadico includono:
+Il livello di accesso sporadico presenta costi di archiviazione più bassi e costi di accesso più alti rispetto all'archiviazione ad accesso frequente. Questo livello è destinato ai dati che rimangono nel livello ad accesso sporadico per almeno 30 giorni. Ecco alcuni scenari di esempio per il livello di accesso sporadico:
 
 - Set di dati di backup e ripristino di emergenza a breve termine.
 - Contenuto multimediale meno recente ormai visualizzato non spesso, ma che deve essere immediatamente disponibile quando vi si accede.
@@ -248,6 +248,10 @@ No. Solo i livelli di accesso frequente e ad accesso sporadico possono essere im
 **In quali aree sono disponibili i livelli di accesso ad accesso frequente, ad accesso sporadico e archivio?**
 
 I livelli di accesso frequente e sporadico con la suddivisione in livelli a livello di BLOB sono disponibili in tutte le aree. Lo spazio di archiviazione sarà inizialmente disponibile solo in alcune aree. Per un elenco completo, vedere [Prodotti di Azure disponibili in base all'area](https://azure.microsoft.com/regions/services/).
+
+**Quali opzioni di ridondanza sono supportate per i livelli di accesso frequente, ad accesso sporadico e archivio?**
+
+I livelli ad accesso frequente e sporadico supportano tutte le opzioni di ridondanza. Il livello archivio supporta solo con ridondanza locale, GRS e RA-GRS. ZRS, GZRS e RA-GZRS non sono supportati per il livello archivio.
 
 **I BLOB nel livello ad accesso sporadico si comportano in modo diverso rispetto a quelli del livello di accesso frequente?**
 

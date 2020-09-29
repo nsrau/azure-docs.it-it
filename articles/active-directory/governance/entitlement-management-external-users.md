@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72ed8fede56385248415caf0438b190d5c191bbc
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 9ff683c7c3214be6ae60b5d00d4cd1c2becc32e2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460865"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447086"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Governare l'accesso per gli utenti esterni in Azure AD gestione dei diritti
 
@@ -83,7 +83,7 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 
 - Consentire ai guest di invitare altri guest nella propria directory significa che gli inviti Guest possono verificarsi al di fuori della gestione dei diritti. Si consiglia di impostare i **Guest come invitati** a **No** per consentire solo gli inviti regolati correttamente.
 - Se si usa l'elenco Consenti B2B, è necessario assicurarsi che tutti i domini con cui si vuole collaborare con la gestione dei diritti siano aggiunti all'elenco. In alternativa, se si usa l'elenco di negazione B2B, è necessario assicurarsi che tutti i domini con cui si vuole collaborare non vengano aggiunti all'elenco.
-- Se si creano criteri di gestione dei diritti per **tutti gli utenti** (tutte le organizzazioni connesse e tutti i nuovi utenti esterni), tutte le impostazioni di Consenti o nega elenco B2B avranno la precedenza. Quindi, assicurarsi di includere i domini che si intende includere in questo criterio nell'elenco Consenti se ne viene usato uno ed escluderli dall'elenco di negazione se si usa un elenco di accesso negato.
+- Se si crea un criterio di gestione dei diritti per **tutti gli utenti** (tutte le organizzazioni connesse e i nuovi utenti esterni) e un utente non appartiene a un'organizzazione connessa nella directory, verrà creata automaticamente un'organizzazione connessa quando richiede il pacchetto. Tutte le impostazioni dell'elenco Consenti o Impedisci B2B disponibili avranno la precedenza. Quindi, assicurarsi di includere i domini che si intende includere in questo criterio nell'elenco Consenti se ne viene usato uno ed escluderli dall'elenco di negazione se si usa un elenco di accesso negato.
 - Se si vuole creare un criterio di gestione dei diritti che includa **tutti gli utenti** (tutte le organizzazioni connesse e tutti i nuovi utenti esterni), è necessario prima di tutto abilitare la posta elettronica per la password una sola volta per la directory. Per ulteriori informazioni, vedere la pagina relativa all' [autenticazione del codice di posta elettronica monouso (anteprima)](../external-identities/one-time-passcode.md#opting-in-to-the-preview).
 - Per altre informazioni su Azure AD impostazioni di collaborazione esterna B2B, vedere [abilitare la collaborazione esterna B2B e gestire gli utenti che possono invitare i guest](../external-identities/delegate-invitations.md).
 

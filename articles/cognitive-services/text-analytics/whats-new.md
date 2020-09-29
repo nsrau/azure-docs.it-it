@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 09/29/2020
 ms.author: aahi
-ms.openlocfilehash: 436d64583184ca2cd59b4ddf33056922c746fb34
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 12f3ce506d8b4588dc9c670e49cabd3bc7767566
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271172"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460272"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -34,7 +34,7 @@ Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sem
     * v 3.0-Anteprima. 1
     
 > [!div class="nextstepaction"]
-> [Altre informazioni su API Analisi del testo v 3.1-Preview. 2](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Languages)
+> [Altre informazioni su API Analisi del testo v 3.1-Preview. 2](quickstarts/text-analytics-sdk.md)
 
 ### <a name="text-analytics-for-health-container-updates"></a>Analisi del testo per gli aggiornamenti del contenitore di integrità
 
@@ -166,7 +166,7 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
 * Riconoscimento dei seguenti tipi di entità generali (solo in inglese):
     * PersonType
     * Prodotto
-    * Evento
+    * Event
     * Entità geopolitica (GPE) come sottotipo in location
     * Competenza
 
@@ -175,7 +175,7 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
     * Organization
     * Age come sottotipo sotto Quantity
     * Data come sottotipo sotto DateTime
-    * E-mail 
+    * Email 
     * Numero di telefono (solo Stati Uniti)
     * URL
     * Indirizzo IP

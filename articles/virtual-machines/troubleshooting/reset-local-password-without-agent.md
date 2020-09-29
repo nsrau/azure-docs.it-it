@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: cb2f08c4788c90f8bdb2af9c6ef95fd1ac43b994
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42d994a9cdd0e2718d8c2288b6cc0b9618202b41
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028669"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447433"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Reimpostare una password di Windows locale per una VM di Azure offline
 È possibile reimpostare la password di Windows locale di una VM in Azure tramite il [portale di Azure o Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a condizione che l'agente guest di Azure sia installato. Questo è il metodo principale per reimpostare una password per una VM di Azure. In mancanza di risposta da parte dell'agente guest di Azure, o in caso di errore di installazione dopo il caricamento di un'immagine personalizzata, è possibile reimpostare la password di Windows manualmente. Questo articolo illustra come reimpostare la password di un account locale collegando il disco virtuale del sistema operativo di origine a un'altra VM. I passaggi descritti in questo articolo non si applicano ai controller di dominio Windows. 
@@ -67,21 +67,21 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
      
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
-     ![Creare scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
+     ![Creare scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-1.png)
 
-5. Creare `FixAzureVM.cmd` in `\Windows\System32` con i contenuti seguenti, sostituendo `<username>` e `<newpassword>` con i propri valori:
+5. Creare `FixAzureVM.cmd` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` con i contenuti seguenti, sostituendo `<username>` e `<newpassword>` con i propri valori:
    
     ```
-    net user <username> <newpassword> /add
+    net user <username> <newpassword> /add /Y
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![Creare FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd.png)
+    ![Creare FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-1.png)
    
     Quando si definisce la nuova password, è necessario soddisfare i requisiti di complessità delle password configurate per la VM.
 
@@ -93,7 +93,7 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
 
 9. Dalla sessione remota per la nuova VM, rimuovere i file seguenti per pulire l'ambiente:
     
-    * Da %windir%\System32
+    * Da%windir%\System32\GroupPolicy\Machine\Scripts\Startup
       * rimuovere FixAzureVM.cmd
     * Da %windir%\System32\GroupPolicy\Machine\Scripts
       * rimuovere scripts.ini
@@ -113,31 +113,31 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
    
    * Selezionare la VM nel portale di Azure, quindi fare clic su *Elimina*:
      
-     ![Eliminare la VM esistente](./media/reset-local-password-without-agent/delete-vm-classic.png)
+     ![Elimina macchina virtuale classica esistente](./media/reset-local-password-without-agent/delete-vm-classic.png)
 
 2. Collegare il disco del sistema operativo della VM di origine alla VM per la risoluzione dei problemi. La VM per la risoluzione dei problemi deve essere nella stessa area del disco del sistema operativo della VM di origine (ad esempio `West US`):
    
    1. Selezionare la VM per la risoluzione dei problemi nel portale di Azure. Fare clic su *Dischi* | *Collega esistente*:
      
-      ![Collegare un disco esistente](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
+      ![Connetti disco esistente-classico](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
      
    2. Selezionare *File VHD*, quindi scegliere l'account di archiviazione contenente la VM di origine:
      
-      ![Selezionare l'account di archiviazione](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
+      ![Selezione dell'account di archiviazione-versione classica](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
      
    3. Selezionare la casella contrassegnata *Mostra account di archiviazione della versione classica*, quindi selezionare il contenitore di origine. Il contenitore di origine è in genere *vhd*:
      
-      ![Selezionare il contenitore di archiviazione](./media/reset-local-password-without-agent/disks-select-container-classic.png)
+      ![Selezionare il contenitore di archiviazione-versione classica](./media/reset-local-password-without-agent/disks-select-container-classic.png)
 
-      ![Selezionare il contenitore di archiviazione](./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png)
+      ![Selezionare il contenitore di archiviazione-VHD-classico](./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png)
      
    4. Selezionare il disco rigido virtuale del sistema operativo da collegare. Fare clic su *Seleziona* per completare il processo:
      
-      ![Selezionare il disco virtuale di origine](./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png)
+      ![Selezionare il disco virtuale di origine-classico](./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png)
 
    5. Fare clic su OK per collegare il disco
 
-      ![Collegare un disco esistente](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
+      ![Connetti disco esistente-finestra di dialogo OK-classico](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
 
 3. Connettersi alla VM per la risoluzione dei problemi tramite Desktop remoto e assicurarsi che il disco del sistema operativo della VM di origine sia visibile:
 
@@ -163,7 +163,7 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
      Version=1
      ```
      
-     ![Creare gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
+     ![Creazione di gpt.ini-versione classica](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
 
 5. Creare `scripts.ini` in `\Windows\System32\GroupPolicy\Machines\Scripts\`. Accertarsi che vengano visualizzate le cartelle nascoste. Se necessario, creare le cartelle `Machine` o `Scripts`.
    
@@ -171,21 +171,21 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
 
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
-     ![Creare scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
+     ![Creazione di scripts.ini-versione classica](./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png)
 
-6. Creare `FixAzureVM.cmd` in `\Windows\System32` con i contenuti seguenti, sostituendo `<username>` e `<newpassword>` con i propri valori:
+6. Creare `FixAzureVM.cmd` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` con i contenuti seguenti, sostituendo `<username>` e `<newpassword>` con i propri valori:
    
     ```
-    net user <username> <newpassword> /add
+    net user <username> <newpassword> /add /Y
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![Creare FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-classic.png)
+    ![Creazione di FixAzureVM. cmd-versione classica](./media/reset-local-password-without-agent/create-fixazure-cmd-classic-1.png)
    
     Quando si definisce la nuova password, è necessario soddisfare i requisiti di complessità delle password configurate per la VM.
 
@@ -195,17 +195,17 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
    
    2. Selezionare il disco dati collegato nel passaggio 2, fare clic su **Scollega**, quindi su **OK**.
 
-     ![Scollegare il disco](./media/reset-local-password-without-agent/data-disks-classic.png)
+     ![Scollegare il disco-risoluzione dei problemi di VM-classico](./media/reset-local-password-without-agent/data-disks-classic.png)
      
-     ![Scollegare il disco](./media/reset-local-password-without-agent/detach-disk-classic.png)
+     ![Scollegare il disco-risoluzione dei problemi della macchina virtuale-finestra di dialogo OK-classico](./media/reset-local-password-without-agent/detach-disk-classic.png)
 
 8. Creare una VM dal disco del sistema operativo della VM di origine:
    
-     ![Creare una VM dal modello](./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png)
+     ![Creare una macchina virtuale dal modello classico](./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png)
 
-     ![Creare una VM dal modello](./media/reset-local-password-without-agent/choose-subscription-classic.png)
+     ![Creare una macchina virtuale da un modello: scegliere sottoscrizione-classica](./media/reset-local-password-without-agent/choose-subscription-classic.png)
 
-     ![Creare una VM dal modello](./media/reset-local-password-without-agent/create-vm-classic.png)
+     ![Creare una macchina virtuale da un modello: creare una VM-classica](./media/reset-local-password-without-agent/create-vm-classic.png)
 
 ## <a name="complete-the-create-virtual-machine-experience"></a>Completare l'esperienza di creazione di una macchina virtuale
 
@@ -213,7 +213,7 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
 
 2. Dalla sessione remota per la nuova VM, rimuovere i file seguenti per pulire l'ambiente:
     
-    * Da `%windir%\System32`
+    * Da `%windir%\System32\GroupPolicy\Machine\Scripts\Startup\`
       * rimuovere `FixAzureVM.cmd`
     * Da `%windir%\System32\GroupPolicy\Machine\Scripts`
       * rimuovere `scripts.ini`

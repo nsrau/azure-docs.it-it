@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/17/2020
+ms.date: 09/25/2020
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2f6ade3a01022bf3bcc4d6b522e45ae98fe29b33
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c5866ddfee049499a4179505e0c1a206b1c68945
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258418"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447300"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Durata del token configurabile nella piattaforma di identità Microsoft (anteprima)
 
@@ -50,7 +50,7 @@ I token SAML vengono utilizzati da numerose applicazioni SAAS basate sul Web e v
 
 Il valore di NotOnOrAfter può essere modificato utilizzando il `AccessTokenLifetime` parametro in un oggetto `TokenLifetimePolicy` . Verrà impostato sulla durata configurata nel criterio, se presente, più un fattore di sfasamento di clock di cinque minuti.
 
-Si noti che il NotOnOrAfter di conferma dell'oggetto specificato nell' `<SubjectConfirmationData>` elemento non è influenzato dalla configurazione della durata del token. 
+Il NotOnOrAfter di conferma dell'oggetto specificato nell' `<SubjectConfirmationData>` elemento non è influenzato dalla configurazione della durata del token. 
 
 ### <a name="refresh-tokens"></a>Token di aggiornamento
 
@@ -103,7 +103,7 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 | Tempo inattività massimo token di aggiornamento (rilasciata a client riservati) |Token di aggiornamento (rilasciati a client riservati) |90 giorni |
 | Validità massima token di aggiornamento (rilasciata a client riservati) |Token di aggiornamento (rilasciati a client riservati) |Fino a revoca |
 
-* <sup>1</sup> gli utenti federati con informazioni di revoca insufficienti includono tutti gli utenti che non dispongono dell'attributo "LastPasswordChangeTimestamp" sincronizzato. Questi utenti hanno una validità massima breve perché AAD non è in grado di verificare in quale momento revocare i token che sono collegati a una credenziale precedente (ad esempio una password che è stata modificata) e devono eseguire più spesso nuove verifiche per garantire che l'utente e i token associati siano ancora attivi. Per migliorare questa esperienza, gli amministratori tenant devono assicurarsi che stiano sincronizzando l'attributo "LastPasswordChangeTimestamp" (può essere impostato sull'oggetto utente usando PowerShell o AADSync).
+* <sup>1</sup> gli utenti federati con informazioni di revoca insufficienti includono tutti gli utenti che non dispongono dell'attributo "LastPasswordChangeTimestamp" sincronizzato. A questi utenti viene assegnata questa durata massima breve, perché Azure Active Directory non è in grado di verificare quando revocare i token legati a una credenziale precedente, ad esempio una password modificata, ed è necessario ricontrollarli più spesso per assicurarsi che l'utente e i token associati siano ancora in esecuzione. Per migliorare questa esperienza, gli amministratori tenant devono assicurarsi che stiano sincronizzando l'attributo "LastPasswordChangeTimestamp" (può essere impostato sull'oggetto utente usando PowerShell o AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Definizione della priorità e valutazione dei criteri
 È possibile creare e quindi assegnare criteri per la durata dei token a un'applicazione specifica, all'organizzazione e alle entità servizio. A un'applicazione specifica si possono applicare più criteri. Di seguito sono riportate le regole su cui si basano i criteri per la durata dei token validi:
@@ -382,170 +382,37 @@ In questo esempio vengono creati alcuni criteri per apprendere il funzionamento 
 
 ## <a name="cmdlet-reference"></a>Informazioni di riferimento sui cmdlet
 
+Questi sono i cmdlet disponibili nel [modulo Azure Active Directory PowerShell per l'anteprima Graph](/powershell/module/azuread/?view=azureadps-2.0-preview#service-principals&preserve-view=true&preserve-view=true).
+
 ### <a name="manage-policies"></a>Gestire i criteri
 
 È possibile usare i cmdlet riportati di seguito per gestire i criteri.
 
-#### <a name="new-azureadpolicy"></a>New-AzureADPolicy
-
-Crea nuovi criteri.
-
-```powershell
-New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
-```
-
-| Parametri | Descrizione | Esempio |
-| --- | --- | --- |
-| <code>&#8209;Definition</code> |Matrice del codice JSON in formato stringa contenente tutte le regole dei criteri. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;DisplayName</code> |Stringa relativa al nome dei criteri. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;IsOrganizationDefault</code> |Se true, imposta i criteri come predefiniti dell'organizzazione. Se false, non esegue alcuna operazione. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code> |Tipo di criteri. Per la durata dei token usare sempre "TokenLifetimePolicy". | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Facoltativo] |Imposta un ID alternativo per i criteri. |`-AlternativeIdentifier "myAltId"` |
-
-</br></br>
-
-#### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
-Ottiene tutti i criteri di Azure AD o i criteri specificati.
-
-```powershell
-Get-AzureADPolicy
-```
-
-| Parametri | Descrizione | Esempio |
-| --- | --- | --- |
-| <code>&#8209;Id</code>[Facoltativo] |**ObjectID (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
-Ottiene tutte le app e le entità servizio collegate a criteri specifici.
-
-```powershell
-Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
-```
-
-| Parametri | Descrizione | Esempio |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
-Aggiorna i criteri esistenti.
-
-```powershell
-Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
-```
-
-| Parametri | Descrizione | Esempio |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
-| <code>&#8209;DisplayName</code> |Stringa relativa al nome dei criteri. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code>[Facoltativo] |Matrice del codice JSON in formato stringa contenente tutte le regole dei criteri. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code>[Facoltativo] |Se true, imposta i criteri come predefiniti dell'organizzazione. Se false, non esegue alcuna operazione. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code>[Facoltativo] |Tipo di criteri. Per la durata dei token usare sempre "TokenLifetimePolicy". |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Facoltativo] |Imposta un ID alternativo per i criteri. |`-AlternativeIdentifier "myAltId"` |
-
-</br></br>
-
-#### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
-Elimina i criteri specificati.
-
-```powershell
- Remove-AzureADPolicy -Id <ObjectId of Policy>
-```
-
-| Parametri | Descrizione | Esempio |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** del criterio desiderato. | `-Id <ObjectId of Policy>` |
-
-</br></br>
+| Cmdlet | Descrizione | 
+| --- | --- |
+| [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Crea nuovi criteri. |
+| [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Ottiene tutti i criteri di Azure AD o i criteri specificati. |
+| [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) | Ottiene tutte le app e le entità servizio collegate a criteri specifici. |
+| [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Aggiorna i criteri esistenti. |
+| [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Elimina i criteri specificati. |
 
 ### <a name="application-policies"></a>Criteri dell'applicazione
 È possibile usare i cmdlet riportati di seguito per i criteri dell'applicazione.</br></br>
 
-#### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
-Collega i criteri specificati a un'applicazione.
-
-```powershell
-Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
-```
-
-| Parametri | Descrizione | Esempio |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectId** dei criteri. | `-RefObjectId <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
-Ottiene i criteri assegnati a un'applicazione.
-
-```powershell
-Get-AzureADApplicationPolicy -Id <ObjectId of Application>
-```
-
-| Parametri | Descrizione | Esempio |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
-
-</br></br>
-
-#### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
-Rimuove i criteri da un'applicazione.
-
-```powershell
-Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
-```
-
-| Parametri | Descrizione | Esempio |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectId** dei criteri. | `-PolicyId <ObjectId of Policy>` |
-
-</br></br>
+| Cmdlet | Descrizione | 
+| --- | --- |
+| [Add-AzureADApplicationPolicy](/powershell/module/azuread/add-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Collega i criteri specificati a un'applicazione. |
+| [Get-AzureADApplicationPolicy](/powershell/module/azuread/get-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Ottiene i criteri assegnati a un'applicazione. |
+| [Remove-AzureADApplicationPolicy](/powershell/module/azuread/remove-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Rimuove i criteri da un'applicazione. |
 
 ### <a name="service-principal-policies"></a>Criteri dell'entità servizio
 È possibile usare i cmdlet riportati di seguito per i criteri dell'entità servizio.
 
-#### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
-Collega i criteri specificati a un'entità servizio.
-
-```powershell
-Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
-```
-
-| Parametri | Descrizione | Esempio |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectId** dei criteri. | `-RefObjectId <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
-Ottiene i criteri collegati all'entità servizio specificata.
-
-```powershell
-Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
-```
-
-| Parametri | Descrizione | Esempio |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
-
-</br></br>
-
-#### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
-Rimuove i criteri dall'entità servizio specificata.
-
-```powershell
-Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
-```
-
-| Parametri | Descrizione | Esempio |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectId** dei criteri. | `-PolicyId <ObjectId of Policy>` |
+| Cmdlet | Descrizione | 
+| --- | --- |
+| [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Collega i criteri specificati a un'entità servizio. |
+| [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Ottiene i criteri collegati all'entità servizio specificata.|
+| [Remove-AzureADServicePrincipalPolicy](/powershell/module/azuread/remove-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Rimuove i criteri dall'entità servizio specificata.|
 
 ## <a name="license-requirements"></a>Requisiti relativi alle licenze
 

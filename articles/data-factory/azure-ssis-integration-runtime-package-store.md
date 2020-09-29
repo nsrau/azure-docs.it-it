@@ -11,17 +11,17 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 09/06/2020
-ms.openlocfilehash: 84a7a205e52ba37eb6fcb3b624e0f71a9b9bbc10
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.date: 09/29/2020
+ms.openlocfilehash: 158adb6b35b488c310bd2912d4076b86579383a4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505489"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446403"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Gestire i pacchetti con Azure-SSIS Integration Runtime archivio pacchetti
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Per sollevare & spostare i carichi di lavoro della SQL Server Integration Services locale (SSIS) nel cloud, è possibile effettuare il provisioning di Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF). Per altre informazioni, vedere effettuare il [provisioning di un Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure). Azure-SSIS IR supporta:
 
@@ -148,7 +148,7 @@ for %f in (*.dtsx) do dtutil.exe /FILE %f /ENCRYPT FILE;Z:\%f;2;YourEncryptionPa
 
 Per eseguire i comandi precedenti in un file batch, sostituire `%f` con `%%f` .
 
-Per distribuire più pacchetti da archivi di pacchetti SSIS legacy oltre a file system in File di Azure e cambiare il livello di protezione allo stesso tempo, è possibile usare gli stessi comandi, ma sostituire `YourLocalDrive:\...\YourPackageFolder` con una cartella locale usata dagli archivi pacchetti SSIS legacy: `YourLocalDrive:\Program Files\Microsoft SQL Server\YourSQLServerDefaultCompatibilityLevel\DTS\Packages\YourPackageFolder` . Ad esempio, se l'archivio pacchetti SSIS legacy è associato a SQL Server 2016, passare a `YourLocalDrive:\Program Files\Microsoft SQL Server\130\DTS\Packages\YourPackageFolder` .  È possibile trovare il valore per `YourSQLServerDefaultCompatibilityLevel` da un [elenco di livelli di compatibilità predefiniti SQL Server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#arguments).
+Per distribuire più pacchetti da archivi di pacchetti SSIS legacy oltre a file system in File di Azure e cambiare il livello di protezione allo stesso tempo, è possibile usare gli stessi comandi, ma sostituire `YourLocalDrive:\...\YourPackageFolder` con una cartella locale usata dagli archivi pacchetti SSIS legacy: `YourLocalDrive:\Program Files\Microsoft SQL Server\YourSQLServerDefaultCompatibilityLevel\DTS\Packages\YourPackageFolder` . Ad esempio, se l'archivio pacchetti SSIS legacy è associato a SQL Server 2016, passare a `YourLocalDrive:\Program Files\Microsoft SQL Server\130\DTS\Packages\YourPackageFolder` .  È possibile trovare il valore per `YourSQLServerDefaultCompatibilityLevel` da un [elenco di livelli di compatibilità predefiniti di SQL Server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#arguments).
 
 Se sono stati configurati Azure-SSIS IR archiviazioni di pacchetti nella parte superiore di File di Azure, i pacchetti distribuiti verranno visualizzati quando ci si connette al Azure-SSIS IR in SSMS 2019 o versioni successive.
 

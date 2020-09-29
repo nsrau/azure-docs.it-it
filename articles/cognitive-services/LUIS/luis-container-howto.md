@@ -1,27 +1,29 @@
 ---
-title: Contenitori Docker-LUIS
+title: Installare ed eseguire contenitori Docker per LUIS
 titleSuffix: Azure Cognitive Services
-description: Il contenitore LUIS carica un'app sottoposta a training o pubblicata in un contenitore Docker e fornisce l'accesso alle stime di query dagli endpoint dell'API del contenitore.
+description: Usare il contenitore LUIS per caricare l'app sottoposta a training o pubblicata e ottenere l'accesso alle stime locali.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bec96f45de69ab2698f3f0cf26f08222e4595ea5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: locale, Docker, contenitore
+ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889513"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460986"
 ---
-# <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
+# <a name="install-and-run-docker-containers-for-luis"></a>Installare ed eseguire contenitori Docker per LUIS
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
+I contenitori consentono di usare LUIS nel proprio ambiente. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati. In questo articolo si apprenderà come scaricare, installare ed eseguire un contenitore LUIS.
 
 Il contenitore Language Understanding (LUIS) carica il modello di Language Understanding sottoposto a training o pubblicato. Come [app Luis](https://www.luis.ai), il contenitore Docker fornisce l'accesso alle stime delle query dagli endpoint API del contenitore. È possibile raccogliere i log di query dal contenitore e caricarli nuovamente nell'app Language Understanding per migliorare l'accuratezza della stima dell'app.
 
@@ -35,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per eseguire il contenitore LUIS, tenere presente i prerequisiti seguenti:
 
-|Necessario|Scopo|
+|Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.|
@@ -375,7 +377,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](lui
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire contenitori Language Understanding (LUIS). In sintesi:
 

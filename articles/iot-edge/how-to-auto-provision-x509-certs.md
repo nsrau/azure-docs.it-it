@@ -9,12 +9,12 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dbd4a80c0f480e51ce7ec248c3b5d3dc523e9d74
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 13c15eeb98b13d0fe9a5b7797ec942209d403cc6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530744"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447739"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando certificati X. 509
 
@@ -83,7 +83,7 @@ Quando si crea una registrazione nel servizio Device Provisioning, si ha la poss
 Per ulteriori informazioni sulle registrazioni nel servizio Device provisioning, vedere [come gestire le registrazioni dei dispositivi](../iot-dps/how-to-manage-enrollments.md).
 
    > [!TIP]
-   > Nell'interfaccia della riga di comando di Azure è possibile creare un gruppo di registrazione o di [registrazione](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) e usare il flag di **Abilitazione Edge** per specificare che un [dispositivo o un](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) gruppo di dispositivi è un dispositivo IOT Edge.
+   > Nell'interfaccia della riga di comando di Azure è possibile creare un gruppo di registrazione o di [registrazione](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) e usare il flag di **Abilitazione Edge** per specificare che un [dispositivo o un](/cli/azure/ext/azure-iot/iot/dps/enrollment) gruppo di dispositivi è un dispositivo IOT Edge.
 
 1. Nella [portale di Azure](https://portal.azure.com)passare all'istanza del servizio Device provisioning in hub Internet.
 

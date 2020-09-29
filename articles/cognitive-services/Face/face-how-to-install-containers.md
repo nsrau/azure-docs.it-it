@@ -1,29 +1,30 @@
 ---
-title: Installare ed eseguire contenitori-viso
+title: Installare ed eseguire contenitori Docker per il API Viso
 titleSuffix: Azure Cognitive Services
-description: Questo articolo illustra come scaricare, installare ed eseguire i contenitori per i volti in questa esercitazione della procedura dettagliata.
+description: Usare il contenitore Docker per il API Viso per rilevare e identificare i visi umani nelle immagini.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 766af570c959ff2c49256058dfbfffdd1021295f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+keywords: locale, Docker, contenitore, identificazione
+ms.openlocfilehash: 0f6807f771510f85c5a20cfb2a160cfe1e8726a3
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548464"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461513"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Installare ed eseguire i contenitori viso (anteprima)
 
 > [!IMPORTANT]
 > È stato raggiunto il limite per gli utenti del contenitore Viso. Attualmente non vengono accettate nuove applicazioni per il contenitore Viso.
 
-Il volto dei servizi cognitivi di Azure fornisce un contenitore Linux standardizzato per Docker che rileva i visi umani nelle immagini. Consente inoltre di identificare gli attributi, che includono i punti di interesse del viso, ad esempio nasi e occhi, sesso, età e altre funzionalità facciali stimate dal computer. Oltre al rilevamento, il volto può verificare se due facce nella stessa immagine o immagini diverse sono uguali usando un punteggio di confidenza. La faccia può inoltre confrontare i visi con un database per verificare se esiste già una faccia simile o identica. Consente anche di organizzare visi simili in gruppi usando tratti visivi condivisi.
+Servizi cognitivi di Azure API Viso fornisce un contenitore Docker Linux che rileva e analizza i visi umani nelle immagini. Consente inoltre di identificare gli attributi, che includono i punti di interesse del viso, ad esempio nasi e occhi, sesso, età e altre funzionalità facciali stimate dal computer. Oltre al rilevamento, il volto può verificare se due facce nella stessa immagine o immagini diverse sono uguali usando un punteggio di confidenza. La faccia può inoltre confrontare i visi con un database per verificare se esiste già una faccia simile o identica. Consente anche di organizzare visi simili in gruppi usando tratti visivi condivisi.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 
@@ -141,7 +142,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./f
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione di contenitori di servizi viso. In sintesi:
 

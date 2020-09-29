@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: b48b02d20ed3d0b731f04d2c6568274bc0262e2e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fd9299d49f42eb021d64ae25447fd13e7378ff3f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933359"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447859"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -55,7 +55,7 @@ Nei risultati tutti gli elementi di telemetria condividono l'elemento `operation
 
 Quando `GET /api/stock/value` viene effettuata la chiamata a un servizio esterno, è necessario conoscerne l'identità per poter impostare il campo in modo `dependency.target` appropriato. Quando il servizio esterno non supporta il monitoraggio, `target` è impostato sul nome host del servizio (ad esempio, `stock-prices-api.com`). Tuttavia, se il servizio viene identificato restituendo un'intestazione HTTP predefinita, `target` contiene l'identità del servizio che consente Application Insights di compilare una traccia distribuita eseguendo una query sui dati di telemetria di tale servizio.
 
-## <a name="correlation-headers"></a>Intestazioni di correlazione
+## <a name="correlation-headers-using-w3c-tracecontext"></a>Intestazioni di correlazione con W3C TraceContext
 
 Application Insights viene eseguita la transizione a [W3C Trace-context](https://w3c.github.io/trace-context/), che definisce:
 
@@ -70,6 +70,18 @@ Il [protocollo http di correlazione, denominato anche Request-ID](https://github
 - `Correlation-Context`: Contiene la raccolta di coppie nome-valore delle proprietà della traccia distribuita.
 
 Application Insights definisce anche l' [estensione](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) per il protocollo http di correlazione. Usa le coppie nome-valore `Request-Context` per propagare la raccolta di proprietà usate dal chiamante o dal destinatario della chiamata. L'SDK Application Insights usa questa intestazione per impostare i `dependency.target` `request.source` campi e.
+
+I modelli di dati del [contesto di traccia W3C](https://w3c.github.io/trace-context/) e Application Insights vengono mappati nel modo seguente:
+
+| Application Insights                   | TraceContext per W3C                                      |
+|------------------------------------    |-------------------------------------------------    |
+| `Request`, `PageView`                  | `SpanKind` Server se sincrono; `SpanKind` consumer se asincrono                    |
+| `Dependency`                           | `SpanKind` client è sincrono; `SpanKind` Producer se asincrono                   |
+| `Id` di `Request` e `Dependency`     | `SpanId`                                            |
+| `Operation_Id`                         | `TraceId`                                           |
+| `Operation_ParentId`                   | `SpanId` della span padre di questo intervallo. Se si tratta di un intervallo radice, questo campo deve essere vuoto.     |
+
+Per altre informazioni, vedere [Application Insights modello di dati di telemetria](../../azure-monitor/app/data-model.md).
 
 ### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET classiche
  
@@ -204,25 +216,11 @@ Questa funzionalità è in `Microsoft.ApplicationInsights.JavaScript` . È disab
   </script>
   ```
 
-## <a name="opentracing-and-application-insights"></a>OpenTracing e Application Insights
-
-La [specifica del modello di dati OpenTracing](https://opentracing.io/) e i modelli di dati di Application Insights eseguono il mapping nel modo seguente:
-
-| Application Insights                   | OpenTracing                                        |
-|------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `Span` con `span.kind = server`                    |
-| `Dependency`                           | `Span` con `span.kind = client`                    |
-| `Id` di `Request` e `Dependency`     | `SpanId`                                            |
-| `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `Reference` di tipo `ChildOf` (l'intervallo padre)     |
-
-Per altre informazioni, vedere [Application Insights modello di dati di telemetria](../../azure-monitor/app/data-model.md).
-
-Per le definizioni dei concetti di OpenTracing, vedere la [specifica](https://github.com/opentracing/specification/blob/master/specification.md) OpenTracing e le [convenzioni semantiche](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
-
 ## <a name="telemetry-correlation-in-opencensus-python"></a>Correlazione di dati di telemetria in OpenCensus Python
 
-OpenCensus Python segue le `OpenTracing` specifiche del modello di dati descritte in precedenza. Supporta inoltre il [contesto di traccia W3C](https://w3c.github.io/trace-context/) senza richiedere alcuna configurazione.
+OpenCensus Python supporta [W3C Trace-context](https://w3c.github.io/trace-context/) senza richiedere una configurazione aggiuntiva.
+
+Come riferimento, il modello di dati OpenCensus è disponibile [qui](https://github.com/census-instrumentation/opencensus-specs/tree/master/trace).
 
 ### <a name="incoming-request-correlation"></a>Correlazione delle richieste in ingresso
 

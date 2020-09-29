@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e4739c0c550988e1639e89a647815e5dd86b17b7
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003697"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461343"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Come configurare la replica geografica per cache di Azure per Redis
 
@@ -145,8 +145,8 @@ Sì, la replica geografica delle cache in reti virtuali è supportata con avvert
 - La replica geografica tra le cache nella stessa rete virtuale è supportata.
 - È supportata anche la replica geografica tra le cache in reti virtuali diversi.
   - Se le reti virtuali si trovano nella stessa area, è possibile connetterle usando il [peering VNET](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) o una [connessione da VNET a VNET del gateway VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - Se le reti virtuali si trovano in aree geografiche diverse, la replica geografica che usa il peering VNET non è supportata a causa di un vincolo con i bilanciamenti del carico interno di base. Per altre informazioni sui vincoli di peering di VNET, vedere [rete virtuale-peering-requisiti e vincoli](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). La soluzione consigliata consiste nell'usare una connessione VNET-VNET del gateway VPN.
-
+  - Se le reti virtuali si trovano in aree geografiche diverse, la replica geografica con il peering VNET è supportata, ma una macchina virtuale client in VNET 1 (area 1) non sarà in grado di accedere alla cache in VNET 2 (area 2) tramite il nome DNS a causa di un vincolo con i bilanciamenti del carico interno di base. Per altre informazioni sui vincoli di peering di VNET, vedere [rete virtuale-peering-requisiti e vincoli](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). La soluzione consigliata consiste nell'usare una connessione VNET-VNET del gateway VPN.
+  
 Usando [questo modello di Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/), è possibile distribuire rapidamente due cache con replica geografica in una VNET connessa con una connessione VNET-VNET del gateway VPN.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Che cos'è la pianificazione della replica per la replica geografica Redis?

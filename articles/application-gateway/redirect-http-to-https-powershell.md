@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: 7c65f143552aa14f9e309b68f484f9c0695e8dbd
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: c4d1d16d07aaf92a0bc3cc365ac094893fc41c79
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596061"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446521"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite Azure PowerShell
 
@@ -319,7 +319,7 @@ Update-AzVmss `
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Si può usare [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) per ottenere l'indirizzo IP pubblico del gateway applicazione. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio, usare http://52.170.203.149
+Si può usare [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) per ottenere l'indirizzo IP pubblico del gateway applicazione. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio: http://52.170.203.149
 
 ```powershell
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -333,11 +333,4 @@ Per accettare l'avviso di sicurezza se è stato usato un certificato autofirmato
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le procedure per:
-
-> [!div class="checklist"]
-> * Creare un certificato autofirmato
-> * Configurare una rete
-> * Creare un gateway applicazione con il certificato
-> * Aggiungere un listener e una regola di reindirizzamento
-> * Creare un set di scalabilità di macchine virtuali con il pool back-end predefinito
+- [Riscrivere le intestazioni HTTP e l'URL con il gateway applicazione](rewrite-http-headers-url.md)

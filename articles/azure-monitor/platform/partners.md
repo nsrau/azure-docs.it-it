@@ -4,12 +4,12 @@ description: Informazioni sui partner del monitoraggio di Azure e sulle modalit�
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 80b60e9f93720d0e06c1df1576834c5f462e7358
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449440"
+ms.locfileid: "91460093"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -211,6 +211,17 @@ Eseguire il push di tutte le metriche in monitoraggio di Azure e usarle quando n
 ![Logo di QRadar](./media/partners/qradar.png)
 
 Microsoft Azure DSM e Microsoft Azure Event Hub Protocol sono scaricabili dal [sito Web del supporto IBM](https://www.ibm.com/support). Per altre informazioni sull'integrazione con Azure, vedere la [documentazione di QRadar](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+
+
+## <a name="rsa"></a>RSA
+
+![Logo RSA](./media/partners/rsa.png)
+
+La piattaforma RSA NetWitness è una piattaforma di rilevamento e risposta leader per le minacce che riunisce SIEM e soluzioni di rilevamento e risposta estese. Le soluzioni offrono funzionalità non superate di visibilità, analisi e risposta automatica. Queste funzionalità combinate aiutano i team addetti alla sicurezza a lavorare in modo più efficiente ed efficace, fino a livellare le proprie competenze di ricerca di minacce e a consentire loro di analizzare e rispondere più rapidamente alle minacce, nell'intera infrastruttura dell'organizzazione, sia nel cloud, in locale o virtuale. 
+
+L'integrazione della piattaforma RSA NetWitness con monitoraggio di Azure offre funzionalità rapide per inserire i dati e i log degli eventi da monitoraggio di Azure in modo nativo nella piattaforma RSA NetWitness tramite un'interfaccia utente intuitiva e funzionalità di analisi nativa affidabili. Ottieni una visibilità rapida di attività, diagnostica, Active Directory eventi e altri dati di hub eventi e visualizza questi dati insieme ad altre informazioni di sicurezza aziendali in una soluzione completa di rilevamento e risposta alle minacce.
+
+[Altre informazioni.](https://community.rsa.com/docs/DOC-101239)
 
 
 ## <a name="sciencelogic"></a>ScienceLogic

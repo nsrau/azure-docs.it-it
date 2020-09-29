@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 089cf07854f1f29eda7028db614edb1028e5d66a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 54a81ac36fb0b99f6931b372543dc3e4bca6a12c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311564"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447906"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Gestione automatici di Azure per le macchine virtuali
 
@@ -46,6 +46,7 @@ Infine, l'esperienza è incredibilmente semplice.
 - Le macchine virtuali devono trovarsi in un'area supportata
 - L'utente deve disporre delle autorizzazioni corrette
 - Le macchine virtuali non devono essere collegate a un'area di lavoro di log Analytics in una sottoscrizione diversa
+- Il servizio di gestione delle sottoscrizioni sandbox al momento non è supportato
 
 È necessario avere il ruolo **collaboratore** per abilitare la gestione tramite un account di gestione autogestito esistente. Se si Abilita automanage con un nuovo account automanage, sono necessarie le autorizzazioni seguenti: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
 
@@ -111,7 +112,7 @@ Nel portale di Azure esperienza, quando si Abilita la funzionalità di gestione 
 
 Nella portale di Azure passare alla pagina Gestione automatica **-procedure consigliate per macchine virtuali di Azure** in cui sono elencate tutte le macchine virtuali gestite automaticamente. Qui viene visualizzato lo stato complessivo di ogni macchina virtuale.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Elenco delle macchine virtuali configurate.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Onboarding intelligente dei servizi.":::
 
 Per ogni macchina virtuale elencata vengono visualizzati i dettagli seguenti: nome, profilo di configurazione, preferenza di configurazione, stato, account, sottoscrizione e gruppo di risorse.
 
@@ -129,7 +130,7 @@ Se lo **stato** viene visualizzato come *non riuscito*, è possibile risolvere i
 
 Per eseguire questa operazione nella portale di Azure, passare alla pagina **gestione automatica-procedure consigliate per macchine virtuali di Azure** in cui sono elencate tutte le macchine virtuali gestite automaticamente. Selezionare la casella di controllo accanto alla macchina virtuale che si vuole disabilitare da gestione automatica, quindi fare clic sul pulsante **Disabilita automanage** .
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Disabilitazione di Gestione automatica in una macchina virtuale.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Onboarding intelligente dei servizi.":::
 
 Leggere attentamente i messaggi nella finestra popup visualizzata prima di fare clic su **Disabilita**.
 

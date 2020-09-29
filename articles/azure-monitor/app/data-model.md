@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 69ed934e97d2726995a7a5cd122fadbd4a791942
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fd5848eb44ecd32612943662b5a4fd0a5091cd9d
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320528"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461292"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modello di dati di Application Insights Telemetry
 
@@ -46,7 +46,7 @@ Il modello di dati di Application Insights Telemetry definisce una modalità di 
 
 Il modello di dati di Application Insights rappresenta un modo semplice e pratico, ma potente, per modellare i dati di telemetria dell'applicazione. Microsoft si impegna a mantenere il modello semplice ed essenziale in modo da supportare gli scenari essenziali e da consentire l'estensione dello schema per un uso avanzato.
 
-Per segnalare problemi e suggerimenti relativi al modello di dati e allo schema, usare il repository di GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/issues).
+[Per segnalare problemi relativi al modello di dati o allo schema e suggerimenti, usare il repository GitHub](https://github.com/microsoft/ApplicationInsights-dotnet/issues/new/choose).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

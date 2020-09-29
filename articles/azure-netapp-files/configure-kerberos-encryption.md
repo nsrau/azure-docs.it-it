@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 9/29/2020
 ms.author: b-juche
-ms.openlocfilehash: 05d173b715a8bc060e2f4d9cdcc7e3aef5630109
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535479"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461479"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurare la crittografia Kerberos NFSv 4.1 per Azure NetApp Files
 
@@ -135,7 +135,7 @@ In questa sezione viene descritto il singolo effetto sulle prestazioni lato clie
 
 ### <a name="expected-performance-impact"></a>Conseguenze sulle prestazioni previste 
 
-Ci sono due aree di interesse: caricamento leggero e limite superiore. Gli elenchi seguenti descrivono l'impostazione di sicurezza relativa all'effetto sulle prestazioni in base alle impostazioni di sicurezza e allo scenario. Tutti i confronti vengono eseguiti in base al `sec=sys` parametro di sicurezza.
+Ci sono due aree di interesse: caricamento leggero e limite superiore. Gli elenchi seguenti descrivono l'impostazione di sicurezza relativa all'effetto sulle prestazioni in base alle impostazioni di sicurezza e allo scenario. Tutti i confronti vengono eseguiti in base al `sec=sys` parametro di sicurezza. Il test è stato eseguito su un singolo volume, usando un singolo client. 
 
 Conseguenze sulle prestazioni di krb5:
 

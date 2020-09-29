@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: 1e2eb1c2b6ecb98c60b117d004a97cd4e5f07a55
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d1705456c316a29aede537e67dee74b6231ff22b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182168"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460578"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestione delle notifiche di manutenzione pianificata
 
@@ -80,7 +80,7 @@ Per altre informazioni sulla disponibilità elevata, vedere [disponibilità per 
 
 **D: Come si ricevono le notifiche relative alla manutenzione pianificata?**
 
-**R:** Un ciclo di manutenzione pianificata viene avviato impostando una programmazione su una o più aree di Azure. Subito dopo, viene inviata una notifica tramite posta elettronica agli amministratori della sottoscrizione (un messaggio di posta elettronica per sottoscrizione). Si possono configurare altri canali e destinatari per questa notifica usando gli avvisi del log attività. Se si distribuisce una macchina virtuale in un'area in cui la manutenzione pianificata è già programmata, non si riceverà la notifica, ma sarà necessario controllare lo stato della manutenzione della VM.
+**R:** Un ciclo di manutenzione pianificata viene avviato impostando una programmazione su una o più aree di Azure. Subito dopo, viene inviata una notifica tramite posta elettronica agli amministratori del servizio (un messaggio di posta elettronica per sottoscrizione). Si possono configurare altri canali e destinatari per questa notifica usando gli avvisi del log attività. Se si distribuisce una macchina virtuale in un'area in cui la manutenzione pianificata è già programmata, non si riceverà la notifica, ma sarà necessario controllare lo stato della manutenzione della VM.
 
 **D: non viene visualizzata alcuna indicazione di manutenzione pianificata nel portale, in PowerShell o nell'interfaccia della riga di comando. Cosa c'è che non va?**
 

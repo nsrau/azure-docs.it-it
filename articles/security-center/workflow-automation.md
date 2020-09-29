@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: f3a1dc716e4db51d9d8b488bd98fc254f8dad842
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3b87f25f9424e8afebe601d2ff15330881d2173b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322156"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447710"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Creare risposte automatiche agli avvisi e alle raccomandazioni con l'automazione dei flussi di lavoro
 
@@ -53,7 +53,7 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
     1. Trigger che avvierà questo flusso di lavoro automatico. Ad esempio, potrebbe essere necessario che l'app per la logica venga eseguita quando viene generato un avviso di sicurezza che contiene "SQL".
     1. App per la logica che verrà eseguita quando vengono soddisfatte le condizioni del trigger. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Riquadro Aggiungi automazione flussi di lavoro":::
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Elenco di automazione del flusso di lavoro":::
 
 1. Nella sezione azioni fare clic su **Crea nuovo** per avviare il processo di creazione dell'app per la logica.
 

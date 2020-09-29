@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4ba90724f75635ea9fd5f72f75de6a46d7b6d288
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979411"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446998"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Risolvere i problemi di Azure AD gestione dei diritti
 
@@ -146,7 +146,7 @@ Se si verifica un errore dopo l'attivazione di una richiesta di rielaborazione d
     | P1 | Utenti e gruppi specifici nella directory o in organizzazioni connesse specifiche |
     | P2 | Tutti i membri della directory (esclusi i guest) |
     | P3 | Tutti gli utenti della directory (inclusi i guest) o organizzazioni connesse specifiche |
-    | P4 | Tutte le organizzazioni connesse o tutti gli utenti (tutte le organizzazioni connesse e tutti i nuovi utenti esterni) |
+    | P4 | Tutte le organizzazioni connesse configurate o tutti gli utenti (tutte le organizzazioni connesse e tutti i nuovi utenti esterni) |
     
     Se un criterio è in una categoria con priorità più elevata, le categorie con priorità più bassa verranno ignorate. Per un esempio di come vengono visualizzati più criteri con la stessa priorità per il richiedente, vedere [selezionare un criterio](entitlement-management-request-access.md#select-a-policy).
 

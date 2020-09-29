@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 2ce2b7dab3e9eb4c9635ce4abc2933fd954844d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326004"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448185"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log
 
@@ -219,7 +219,7 @@ Per ottenere un token di firma di accesso condiviso in un modello di Resource Ma
 1. Creare le sezioni appropriate come descritto in precedenza
 1. Fare clic sul pulsante "Genera firma di accesso condiviso".
 
-![image](./media/diagnostics-linux/make_sas.png)
+![Screenshot che mostra la pagina della firma di accesso condiviso con genera le s.](./media/diagnostics-linux/make_sas.png)
 
 Copiare la firma di accesso condiviso generata nel campo storageAccountSasToken; rimuovere il punto interrogativo ("?") principale.
 
@@ -777,7 +777,7 @@ Nella configurazione `resourceId` deve corrispondere al valore della macchina vi
 
 Usare il portale di Azure per visualizzare i dati sulle prestazioni o impostare gli avvisi:
 
-![image](./media/diagnostics-linux/graph_metrics.png)
+![Screenshot mostra la portale di Azure con lo spazio su disco utilizzato sulla metrica selezionata e il grafico risultante.](./media/diagnostics-linux/graph_metrics.png)
 
 I dati `performanceCounters` sono sempre archiviati in una tabella di archiviazione di Azure. Le API di Archiviazione di Azure sono disponibili per più linguaggi e piattaforme.
 
@@ -786,7 +786,7 @@ I dati inviati ai sink JsonBlob sono archiviati nei BLOB nell'account di archivi
 È anche possibile usare questi strumenti dell'interfaccia utente per accedere ai dati nell'archiviazione di Azure:
 
 * Esplora server di Visual Studio.
-* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Esplora archivi Azure").
+* [Screenshot mostra i contenitori e le tabelle in Azure Storage Explorer.](https://azurestorageexplorer.codeplex.com/ "Esplora archivi Azure").
 
 Questo snapshot di una sessione di Microsoft Azure Storage Explorer mostra le tabelle di archiviazione di Azure e i contenitori generati da un'estensione LAD 3.0 correttamente configurata su una macchina virtuale di test. L'immagine non corrisponde esattamente alla [configurazione LAD 3.0 di esempio](#an-example-lad-30-configuration).
 

@@ -1,22 +1,23 @@
 ---
-title: Installare ed eseguire contenitori-Analisi del testo
+title: Installare ed eseguire contenitori Docker per il API Analisi del testo
 titleSuffix: Azure Cognitive Services
-description: Come scaricare, installare ed eseguire i contenitori per Analisi del testo in questa esercitazione dettagliata.
+description: Usare i contenitori Docker per il API Analisi del testo per eseguire l'elaborazione del linguaggio naturale, ad esempio l'analisi dei sentimenti, in locale.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: 27881d6271fbedfb5763b293d5145e2f87cd1c13
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+keywords: locale, Docker, contenitore, analisi dei sentimenti, elaborazione del linguaggio naturale
+ms.openlocfilehash: 42b22c94f8f2eed0514906422fe9f1d5e7cd12e2
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91309311"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461496"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
@@ -41,7 +42,7 @@ Per eseguire uno dei contenitori di Analisi del testo, è necessario disporre de
 
 Per usare i contenitori di Analisi del testo, è necessario soddisfare i prerequisiti seguenti:
 
-|Necessario|Scopo|
+|Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 

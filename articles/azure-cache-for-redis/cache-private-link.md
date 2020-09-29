@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 932d138a4b594aa51b73c365cc3e753f49f886f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1bf204cb1eddb86daee604f791601bbf44884d50
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328983"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460068"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache di Azure per Redis con collegamento privato di Azure (anteprima pubblica)
 Questo articolo illustra come creare una rete virtuale e una cache di Azure per l'istanza di redis con un endpoint privato usando il portale di Azure. Si apprenderà anche come aggiungere un endpoint privato a una cache di Azure esistente per l'istanza di Redis.
@@ -24,14 +24,14 @@ L'endpoint privato di Azure è un'interfaccia di rete che si connette privatamen
 > [!NOTE]
 > Questa funzionalità è attualmente disponibile in anteprima pubblica per aree limitate. Se non si ha la possibilità di creare un endpoint privato, [contattare](mailto:azurecache@microsoft.com)Microsoft. Per usare gli endpoint privati, è necessario creare la cache di Azure per l'istanza di redis dopo il 28 luglio 2020.
 >
-> Aree con accesso in anteprima pubblica attualmente: Stati Uniti centro-occidentali, Stati Uniti centro-settentrionali, Stati Uniti occidentali, Stati Uniti orientali 2, Norvegia orientale, Europa settentrionale, Asia orientale, Giappone orientale e India centrale.
+> Aree con accesso in anteprima pubblica attualmente: Stati Uniti centro-occidentali, Stati Uniti centro-settentrionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Norvegia orientale, Norvegia occidentale, Europa settentrionale, Europa occidentale, Asia orientale, Giappone orientale, Svizzera settentrionale, India centrale, Emirati Arabi Uniti centrali, Corea centrale, Regno Unito meridionale, Sudafrica settentrionale, Francia meridionale, Francia centrale, Canada centrale, Germania settentrionale, Australia centrale e Brasile meridionale.
 >
 
 ## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Creare un endpoint privato con una nuova cache di Azure per l'istanza di redis 
 
 In questa sezione verrà creata una nuova cache di Azure per l'istanza di redis con un endpoint privato.
 
-### <a name="create-a-virtual-network"></a>Creare una rete virtuale 
+### <a name="create-a-virtual-network"></a>Crea rete virtuale 
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**.
 
@@ -71,7 +71,7 @@ Per creare un'istanza della cache, attenersi alla seguente procedura.
    
 1. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selezionare cache di Azure per Redis.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selezionare Crea una risorsa.":::
    
 1. Nella pagina **Nuova cache Redis** configurare le impostazioni per la nuova cache.
    
@@ -89,7 +89,7 @@ Per creare un'istanza della cache, attenersi alla seguente procedura.
 
 1. Fare clic sul pulsante **Aggiungi** per creare l'endpoint privato.
 
-    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="In rete aggiungere un endpoint privato.":::
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="Selezionare Crea una risorsa.":::
 
 1. Nella pagina **Crea un endpoint privato** configurare le impostazioni per l'endpoint privato con la rete virtuale e la subnet create nell'ultima sezione e selezionare **OK**. 
 
@@ -115,7 +115,7 @@ La creazione della cache richiede un po' di tempo. È possibile monitorare lo st
 
 In questa sezione si aggiungerà un endpoint privato a una cache di Azure esistente per l'istanza di Redis. 
 
-### <a name="create-a-virtual-network"></a>Creare una rete virtuale 
+### <a name="create-a-virtual-network"></a>Crea rete virtuale 
 Per creare una rete virtuale, attenersi alla seguente procedura.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**.
@@ -153,7 +153,7 @@ Per creare un endpoint privato, attenersi alla seguente procedura.
 
 1. Nella portale di Azure cercare **cache di Azure per Redis** e premere INVIO o selezionarla dai suggerimenti per la ricerca.
 
-    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Cercare cache di Azure per Redis.":::
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Selezionare Crea una risorsa.":::
 
 2. Selezionare l'istanza della cache a cui si vuole aggiungere un endpoint privato.
 
@@ -161,7 +161,7 @@ Per creare un endpoint privato, attenersi alla seguente procedura.
 
 4. Fare clic sul pulsante **endpoint privato** per creare l'endpoint privato.
 
-    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Aggiungi endpoint privato.":::
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Selezionare Crea una risorsa.":::
 
 5. Nella **pagina Crea un endpoint privato**configurare le impostazioni per l'endpoint privato.
 

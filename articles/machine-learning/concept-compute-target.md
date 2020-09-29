@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f75853a66c43c69ec191f28951f8f6ffc4353f93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b166e46c8ebb640e15c005e2ddae3161e141f10
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330163"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446783"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -82,25 +82,39 @@ Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle seri
 
 | **Serie di macchine virtuali supportate**  | **Restrizioni** |
 |------------|------------|
-| D | nessuno |
-| Dv2 | nessuno |  
-| Dv3 | nessuno|
-| DSv2 | nessuno | 
-| DSv3 | nessuno|
-| FSv2 | nessuno | 
+| D | Nessuno |
+| Dv2 | Nessuno |  
+| Dv3 | Nessuno|
+| DSv2 | Nessuno | 
+| DSv3 | Nessuno|
+| FSv2 | Nessuno | 
 | HBv2 | Richiede approvazione |  
 | Servizio di elaborazione host | Richiede approvazione |  
 | M | Richiede approvazione |
-| NC | nessuno |    
+| NC | Nessuno |    
 | NCsv2 | Richiede approvazione |
 | NCsv3 | Richiede approvazione |  
 | NDs | Richiede approvazione |
 | NDv2 | Richiede approvazione |
-| NV | nessuno |
+| NV | Nessuno |
 | NVv3 | Richiede approvazione | 
 
 
 Mentre Azure Machine Learning supporta queste serie di macchine virtuali, potrebbero non essere disponibili in tutte le aree di Azure. È possibile verificare con le serie di VM disponibili qui: [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+
+### <a name="compute-isolation"></a>Isolamento del calcolo
+
+Azure Machine Learning calcolo offre dimensioni di macchine virtuali isolate a un tipo di hardware specifico e dedicate a un singolo cliente. Le dimensioni delle macchine virtuali isolate sono ideali per i carichi di lavoro che richiedono un elevato livello di isolamento rispetto ai carichi di lavoro di altri clienti per motivi che includono requisiti di conformità e normativi. L'utilizzo di dimensioni con piano Isolato garantisce che la macchina virtuale sia l'unica in esecuzione nella specifica istanza del server.
+
+Le offerte di macchine virtuali con piano Isolato correnti includono:
+* Standard_M128ms
+* Standard_F72s_v2
+* Standard_NC24s_v3
+* Standard_NC24rs_v3*
+
+*Con supporto di RDMA
+
+Vedere qui per altre informazioni sull' [isolamento nel cloud pubblico di Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
 
 ## <a name="unmanaged-compute"></a>Calcolo non gestito
 

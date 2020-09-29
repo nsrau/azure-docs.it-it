@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ac0b3c151b379096ffb60e049d18b8f6219b1445
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91359682"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446698"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteggere l'accesso ai dati in Azure Machine Learning
 
@@ -67,7 +67,7 @@ Servizi di archiviazione basati su cloud supportati in Azure che possono essere 
 
 ## <a name="datasets"></a>Set di dati
 
-Azure Machine Learning set di dati sono riferimenti che puntano ai dati nel servizio di archiviazione. Non si tratta di copie della dataBy per la creazione di un set di dati Azure Machine Learning, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. 
+Azure Machine Learning set di dati non sono copie dei dati. Creando un set di dati, si crea un riferimento ai dati nel relativo servizio di archiviazione, insieme a una copia dei relativi metadati. 
 
 Poiché i set di dati vengono valutati in modo differito e i dati rimangono nella posizione esistente,
 

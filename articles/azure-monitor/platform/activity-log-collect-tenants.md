@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cd0a510480673c48f23b25f48ead5d75e2d05c84
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321871"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447638"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Raccogliere i log attività di Azure in monitoraggio di Azure tra Azure Active Directory tenant (legacy)
 
@@ -102,7 +102,7 @@ L'app per la logica include gli elementi seguenti:
 - Un'[azione di composizione](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) (Compose) per convertire la stringa JSON in un oggetto.
 - Un [log Analytics Send Data Connector](/connectors/azureloganalyticsdatacollector/) per inserire i dati nell'area di lavoro log Analytics.
 
-   ![immagine dell'aggiunta del trigger dell'hub eventi nelle app per la logica](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
+   ![Screenshot della finestra di progettazione di app per la logica che illustra i passaggi per raccogliere i log attività dall'hub eventi e scriverli nell'area di lavoro Log Analytics.](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="logic-app-requirements"></a>Requisiti dell'app per la logica
 Prima di creare l'app per la logica, verificare di disporre delle informazioni seguenti relative ai passaggi precedenti:
@@ -133,7 +133,7 @@ Per ottenere la stringa di connessione e il nome dell'hub eventi, seguire i pass
    | Log Analytics  | Selezionare se si vuole registrare lo stato di ogni esecuzione dell'app per la logica in un'area di lavoro Log Analytics.  |
 
     
-3. Selezionare **Crea**. Quando viene visualizzata la notifica **Distribuzione riuscita**, fare clic su **Vai alla risorsa** per aprire l'app per la logica.
+3. Selezionare **Create** (Crea). Quando viene visualizzata la notifica **Distribuzione riuscita**, fare clic su **Vai alla risorsa** per aprire l'app per la logica.
 
 4. In **Modelli** scegliere **App per la logica vuota**. 
 
@@ -145,9 +145,9 @@ In Progettazione app per la logica vengono ora mostrati i connettori disponibili
 
 1. Nella casella di ricerca di Progettazione app per la logica digitare*hub eventi* come filtro. Selezionare il trigger **Event Hubs - When events are available in Event Hub** (Hub eventi - Quando sono disponibili eventi nell'hub eventi).
 
-   ![immagine dell'aggiunta del trigger dell'hub eventi nelle app per la logica](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
+   ![Screenshot della finestra di progettazione di app per la logica con il trigger "hub eventi-quando gli eventi sono disponibili nel servizio Hub eventi" selezionato per il servizio Hub eventi.](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
 
-2. Quando viene richiesto di immettere le credenziali, connettersi allo spazio dei nomi dell'hub eventi. Immettere un nome per la connessione e quindi la stringa di connessione copiata.  Selezionare **Crea**.
+2. Quando viene richiesto di immettere le credenziali, connettersi allo spazio dei nomi dell'hub eventi. Immettere un nome per la connessione e quindi la stringa di connessione copiata.  Selezionare **Create** (Crea).
 
    ![immagine dell'aggiunta della connessione dell'hub eventi nelle app per la logica](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-connection.png)
 
@@ -315,14 +315,14 @@ Quando il flusso di lavoro è completato, è possibile eseguire test nella fines
 
 In Progettazione app per la logica fare clic su **Esegui** per testare l'app per la logica. Per ogni passaggio nell'app per la logica viene visualizzata un'icona di stato, con un segno di spunta bianco in un cerchio verde che indica l'esito positivo.
 
-   ![Test dell'app per la logica](media/collect-activity-logs-subscriptions/test-logic-app.png)
+   ![Screenshot della finestra di progettazione dell'app per la logica dopo l'esecuzione di un test. Ogni passaggio dell'app per la logica ha un segno di spunta che indica l'esito positivo.](media/collect-activity-logs-subscriptions/test-logic-app.png)
 
 Per informazioni dettagliate su ogni passaggio, fare clic sul nome del passaggio per espanderlo. Fare clic su **Mostra input non elaborati** e **Mostra output non elaborati** per visualizzare altre informazioni sui dati ricevuti e inviati a ogni passaggio.
 
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Passaggio 5: Visualizzare il log attività di Azure in Log Analytics
 Il passaggio finale consiste per controllare l'area di lavoro Log Analytics per assicurarsi che i dati vengano raccolti come previsto.
 
-1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **log Analytics**.
+1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 2. Nell'elenco di aree di lavoro di Log Analytics selezionare l'area di lavoro.
 3.  Fare clic sul riquadro **Ricerca log** e nel riquadro Ricerca log digitare `AzureActivity_CL` nel campo della query e quindi premere INVIO o fare clic sul pulsante della ricerca a destra del campo della query. Se il log personalizzato non è stato denominato *AzureActivity*, digitare il nome scelto e aggiungere `_CL`.
 
@@ -333,7 +333,7 @@ Il passaggio finale consiste per controllare l'area di lavoro Log Analytics per 
 > I log attività vengono scritti in una tabella personalizzata e non vengono mostrati nella [soluzione per i log attività](./activity-log.md).
 
 
-![Test dell'app per la logica](media/collect-activity-logs-subscriptions/log-analytics-results.png)
+![Screenshot della ricerca di AzureActivity_CL nel riquadro Ricerca log che mostra una tabella di risultati con un risultato espanso per visualizzare i dettagli dell'attività.](media/collect-activity-logs-subscriptions/log-analytics-results.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

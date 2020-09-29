@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 6d6431aa26637e4b956d5c334a2862f689f845bf
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319321"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448152"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connetti Configuration Manager a monitoraggio di Azure
 È possibile connettere l'ambiente Microsoft endpoint Configuration Manager a monitoraggio di Azure per sincronizzare i dati della raccolta dispositivi e fare riferimento a tali raccolte in monitoraggio di Azure e automazione di Azure.  
@@ -47,7 +47,7 @@ Nella procedura seguente si concede il ruolo *Collaboratore* nell'area di lavoro
 > È necessario specificare le autorizzazioni nell'area di lavoro Log Analytics per Configuration Manager. In caso contrario, viene visualizzato un messaggio di errore quando si usa la procedura guidata di configurazione in Configuration Manager.
 >
 
-1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **log Analytics**.
+1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 
 2. Nell'elenco di aree di lavoro di Log Analytics selezionare l'area di lavoro da modificare.
 
@@ -135,7 +135,7 @@ Dopo aver completato la configurazione iniziale per importare le raccolte di dis
 4. Selezionare **Gruppi di computer** e quindi **SCCM**.  
 5. Selezionare **Importa appartenenze alla raccolta di Configuration Manager** e fare clic su **Salva**.  
    
-    ![Gruppi di computer - Scheda SCCM](./media/collect-sccm/sccm-computer-groups01.png)
+    ![Screenshot delle impostazioni avanzate dei gruppi di computer per C C M che contengono l'opzione per l'importazione Configuration Manager le appartenenze alla raccolta.](./media/collect-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Visualizzare i dati da Configuration Manager
 
@@ -143,7 +143,7 @@ Dopo aver aggiunto una connessione Log Analytics a Configuration Manager e aver 
 
 Una volta importate le raccolte, è possibile vedere quanti computer con appartenenze delle raccolte sono stati rilevati. È anche possibile visualizzare il numero di raccolte importate.
 
-![Gruppi di computer - Scheda SCCM](./media/collect-sccm/sccm-computer-groups02.png)
+![Screenshot delle impostazioni avanzate dei gruppi di computer per C C M che mostra l'opzione per l'importazione Configuration Manager le appartenenze alla raccolta selezionate.](./media/collect-sccm/sccm-computer-groups02.png)
 
 Quando si fa clic su uno di essi, viene visualizzato l'editor di query di log con tutti i gruppi importati o tutti i computer appartenenti a ogni gruppo. Con la [Ricerca log](../log-query/log-query-overview.md)è possibile eseguire un'analisi approfondita dei dati di appartenenza della raccolta.
 

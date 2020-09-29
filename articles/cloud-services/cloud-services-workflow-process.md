@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c427982854e1d328b5d1553aa86866ad298eea1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71162156"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461317"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Flusso di lavoro dell'architettura di macchine virtuali di Windows Azure classico 
 Questo articolo fornisce una panoramica dei processi del flusso di lavoro che si verificano quando si distribuisce o si aggiorna una risorsa di Azure, ad esempio una macchina virtuale. 
@@ -29,11 +29,11 @@ Questo articolo fornisce una panoramica dei processi del flusso di lavoro che si
 
 Il diagramma seguente illustra l'architettura delle risorse di Azure.
 
-![Flusso di lavoro di Azure](./media/cloud-services-workflow-process/workflow.jpg)
+:::image type="content" source="./media/cloud-services-workflow-process/workflow.jpg" alt-text="<Alt l'immagine del flusso di lavoro di Azure>":::
 
 ## <a name="workflow-basics"></a>Nozioni fondamentali sui flussi di lavoro
    
-**Oggetto**. RDFE/FFE è il percorso di comunicazione tra l'utente e l'infrastruttura. RDFE (RedDog Front End) è l'API esposta pubblicamente che rappresenta il front-end per l'portale di gestione e il API Gestione dei servizi, ad esempio Visual Studio, Azure MMC e così via.  Tutte le richieste dall'utente passano attraverso RDFE. FFE (Fabric front-end) è il livello che converte le richieste da RDFE in comandi di infrastruttura. Tutte le richieste da RDFE passano attraverso il FFE per raggiungere i controller di infrastruttura.
+**A**. RDFE/FFE è il percorso di comunicazione tra l'utente e l'infrastruttura. RDFE (RedDog Front End) è l'API esposta pubblicamente che rappresenta il front-end per l'portale di gestione e il API Gestione dei servizi, ad esempio Visual Studio, Azure MMC e così via.  Tutte le richieste dall'utente passano attraverso RDFE. FFE (Fabric front-end) è il livello che converte le richieste da RDFE in comandi di infrastruttura. Tutte le richieste da RDFE passano attraverso il FFE per raggiungere i controller di infrastruttura.
 
 **B**. Il controller di infrastruttura è responsabile della gestione e del monitoraggio di tutte le risorse nel data center. Comunica con gli agenti host dell'infrastruttura nel sistema operativo dell'infrastruttura che invia informazioni quali la versione del sistema operativo guest, il pacchetto del servizio, la configurazione del servizio e lo stato del servizio.
 
@@ -69,11 +69,9 @@ Il diagramma seguente illustra l'architettura delle risorse di Azure.
 
 **I**. WaWorkerHost è il processo host standard per i ruoli di lavoro normali. Questo processo host ospita tutte le dll e il codice del punto di ingresso del ruolo, ad esempio OnStart ed Run.
 
-**J**. WaWebHost è il processo host standard per i ruoli Web se sono configurati per l'uso di HWC (Hostable Web Core) compatibili con SDK 1,2. I ruoli possono abilitare la modalità HWC rimuovendo l'elemento dalla definizione del servizio (. csdef). In questa modalità tutte le dll e il codice del servizio vengono eseguiti dal processo WaWebHost. IIS (w3wp) non viene utilizzato e non è stato configurato alcun AppPools in Gestione IIS perché IIS è ospitato all'interno WaWebHost.exe.
+**J**. WaIISHost è il processo host per il codice del punto di ingresso del ruolo per i ruoli Web che usano la versione completa di IIS. Questo processo carica la prima DLL trovata che usa la classe **RoleEntryPoint** ed esegue il codice da questa classe (OnStart, Run, OnStop). In questo processo vengono generati tutti gli eventi **RoleEnvironment** , ad esempio StatusCheck e Changed, creati nella classe RoleEntryPoint.
 
-**K**. WaIISHost è il processo host per il codice del punto di ingresso del ruolo per i ruoli Web che usano la versione completa di IIS. Questo processo carica la prima DLL trovata che usa la classe **RoleEntryPoint** ed esegue il codice da questa classe (OnStart, Run, OnStop). In questo processo vengono generati tutti gli eventi **RoleEnvironment** , ad esempio StatusCheck e Changed, creati nella classe RoleEntryPoint.
-
-**L**. W3WP è il processo di lavoro IIS standard utilizzato se il ruolo è configurato per l'utilizzo di IIS completo. Viene eseguito il AppPool configurato da IISConfigurator. In questo processo vengono generati tutti gli eventi RoleEnvironment, ad esempio StatusCheck e Changed. Si noti che gli eventi RoleEnvironment vengono attivati in entrambe le posizioni (WaIISHost e w3wp.exe) se si sottoscrivono eventi in entrambi i processi.
+**K**. W3WP è il processo di lavoro IIS standard utilizzato se il ruolo è configurato per l'utilizzo di IIS completo. Viene eseguito il AppPool configurato da IISConfigurator. In questo processo vengono generati tutti gli eventi RoleEnvironment, ad esempio StatusCheck e Changed. Si noti che gli eventi RoleEnvironment vengono attivati in entrambe le posizioni (WaIISHost e w3wp.exe) se si sottoscrivono eventi in entrambi i processi.
 
 ## <a name="workflow-processes"></a>Processi del flusso di lavoro
 
@@ -87,8 +85,7 @@ Il diagramma seguente illustra l'architettura delle risorse di Azure.
 8. Per i ruoli Web IIS completi, WaHostBootstrapper indica a IISConfigurator di configurare IIS AppPool e indirizza il sito a `E:\Sitesroot\<index>` , dove `<index>` è un indice in base 0 nel numero di `<Sites>` elementi definiti per il servizio.
 9. WaHostBootstrapper avvierà il processo host a seconda del tipo di ruolo:
     1. **Ruolo di lavoro**: WaWorkerHost.exe avviata. WaHostBootstrapper esegue il metodo OnStart (). Una volta restituito, WaHostBootstrapper inizia a eseguire il metodo Run () e quindi contrassegna simultaneamente il ruolo come pronto e lo inserisce nella rotazione del servizio di bilanciamento del carico (se InputEndpoints sono definiti). WaHostBootsrapper entra quindi in un ciclo di controllo dello stato del ruolo.
-    1. **Ruolo Web HWC SDK 1,2**: WaWebHost avviato. WaHostBootstrapper esegue il metodo OnStart (). Una volta restituito, WaHostBootstrapper inizia a eseguire il metodo Run () e quindi contrassegna simultaneamente il ruolo come pronto e lo inserisce nella rotazione del servizio di bilanciamento del carico. WaWebHost emette una richiesta di riscaldamento (GET/do. rd_runtime_init). Tutte le richieste Web vengono inviate a WaWebHost.exe. WaHostBootsrapper entra quindi in un ciclo di controllo dello stato del ruolo.
-    1. **Ruolo Web IIS completo**: aIISHost è stato avviato. WaHostBootstrapper esegue il metodo OnStart (). Una volta restituito, inizia a eseguire il metodo Run () e quindi contrassegna simultaneamente il ruolo come pronto e lo inserisce nella rotazione del servizio di bilanciamento del carico. WaHostBootsrapper entra quindi in un ciclo di controllo dello stato del ruolo.
+    2. **Ruolo Web IIS completo**: aIISHost è stato avviato. WaHostBootstrapper esegue il metodo OnStart (). Una volta restituito, inizia a eseguire il metodo Run () e quindi contrassegna simultaneamente il ruolo come pronto e lo inserisce nella rotazione del servizio di bilanciamento del carico. WaHostBootsrapper entra quindi in un ciclo di controllo dello stato del ruolo.
 10. Le richieste Web in ingresso a un ruolo Web IIS completo attivano IIS per avviare il processo W3WP e gestire la richiesta, allo stesso modo in un ambiente IIS locale.
 
 ## <a name="log-file-locations"></a>Percorsi file di log
@@ -103,10 +100,6 @@ Questo log contiene gli aggiornamenti di stato e le notifiche heartbeat e viene 
 **WaHostBootstrapper**
 
 `C:\Resources\Directory\<deploymentID>.<role>.DiagnosticStore\WaHostBootstrapper.log`
- 
-**WaWebHost**
-
-`C:\Resources\Directory\<guid>.<role>\WaWebHost.log`
  
 **WaIISHost**
 
@@ -123,7 +116,3 @@ Questo log contiene gli aggiornamenti di stato e le notifiche heartbeat e viene 
 **Log eventi di Windows**
 
 `D:\Windows\System32\Winevt\Logs`
- 
-
-
-

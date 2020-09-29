@@ -4,15 +4,15 @@ description: Vedere come monitorare la distribuzione di Sincronizzazione file di
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/05/2019
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9db8a0397c836e8cbc45404d9c4f149255fc76fa
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 1ef24522f688c5ae1176630a2f370cd7ee7c3cd7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271057"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448003"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorare Sincronizzazione file di Azure
 
@@ -35,8 +35,10 @@ Usare [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/ove
 Le metriche per Sincronizzazione file di Azure sono abilitate per impostazione predefinita e vengono inviate al Monitoraggio di Azure ogni 15 minuti.
 
 **Come visualizzare Sincronizzazione file di Azure metriche in monitoraggio di Azure**
-- Passare al **servizio di sincronizzazione archiviazione** nel **portale di Azure** e fare clic su **metriche**.
-- Fare clic sull'elenco a discesa **metrica** e selezionare la metrica che si desidera visualizzare.
+1. Passare al **servizio di sincronizzazione archiviazione** nel **portale di Azure** e fare clic su **metriche**.
+2. Fare clic sull'elenco a discesa **metrica** e selezionare la metrica che si desidera visualizzare.
+
+![Screenshot delle metriche di Sincronizzazione file di Azure](media/storage-sync-files-troubleshoot/file-sync-metrics.png)
 
 Le metriche seguenti per la Sincronizzazione file di Azure sono disponibili in Monitoraggio di Azure:
 
@@ -58,15 +60,15 @@ Gli avvisi notificano in modo proattivo quando vengono riscontrate importanti co
 
 **Come creare avvisi per Sincronizzazione file di Azure**
 
-- Passare al **servizio di sincronizzazione archiviazione** nell' **portale di Azure**. 
-- Fare clic su **avvisi** nella sezione monitoraggio e quindi fare clic su **+ nuova regola di avviso**.
-- Fare clic su **Seleziona condizione** e fornire le informazioni seguenti per l'avviso: 
+1. Passare al **servizio di sincronizzazione archiviazione** nell' **portale di Azure**. 
+2. Fare clic su **avvisi** nella sezione monitoraggio e quindi fare clic su **+ nuova regola di avviso**.
+3. Fare clic su **Seleziona condizione** e fornire le informazioni seguenti per l'avviso: 
     - **Metrica**
     - **Nome dimensione**
-    - **Logica di avviso**
-- Fare clic su **Seleziona gruppo di azioni** e aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-- Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
-- Fare clic su **Crea regola di avviso** per creare l'avviso.  
+    - **Logica avvisi**
+4. Fare clic su **Seleziona gruppo di azioni** e aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+5. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
+6. Fare clic su **Crea regola di avviso** per creare l'avviso.  
 
 Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e la metrica appropriata da usare per l'avviso:
 
@@ -96,6 +98,8 @@ Per visualizzare l'integrità della distribuzione Sincronizzazione file di Azure
 
 Per visualizzare l' **integrità del server registrato** nel portale, passare alla sezione **Server registrati** del servizio di **sincronizzazione archiviazione**.
 
+![Screenshot dello stato dei server registrati](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
+
 - Se lo stato del **server registrato** è **online**, il server comunica correttamente con il servizio.
 - Se lo stato del **server registrato** è **offline**, il processo di monitoraggio della sincronizzazione archiviazione (AzureStorageSyncMonitor.exe) non è in esecuzione o il server non è in grado di accedere al servizio sincronizzazione file di Azure. Per informazioni aggiuntive, vedere la [documentazione relativa alla risoluzione dei problemi](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) .
 
@@ -103,7 +107,9 @@ Per visualizzare l' **integrità del server registrato** nel portale, passare al
 
 Per visualizzare l'integrità di un **endpoint server** nel portale, passare alla sezione **gruppi di sincronizzazione** del servizio di **sincronizzazione archiviazione** e selezionare un **gruppo di sincronizzazione**.
 
-- L' **attività di sincronizzazione** e **integrità degli endpoint server** nel portale si basa sugli eventi di sincronizzazione registrati nel registro eventi di telemetria sul server (ID 9102 e 9302). Se una sessione di sincronizzazione ha esito negativo a causa di un errore temporaneo, ad esempio l'errore è stato annullato, la sincronizzazione verrà comunque visualizzata come integra nel portale finché la sessione di sincronizzazione corrente sta procedendo (i file vengono applicati). L'ID evento 9302 è l'evento dello stato di avanzamento della sincronizzazione e l'ID evento 9102 viene registrato al termine di una sessione di sincronizzazione.  Per ulteriori informazioni, vedere [Sync Health](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) and [Sync Progress](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Se nel portale viene visualizzato un errore perché la sincronizzazione non sta procedendo, vedere la documentazione relativa alla [risoluzione dei problemi](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) per informazioni aggiuntive.
+![Screenshot dello stato dell'endpoint server](media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png)
+
+- L' **attività di sincronizzazione** e **integrità degli endpoint server** nel portale si basa sugli eventi di sincronizzazione registrati nel registro eventi di telemetria sul server (ID 9102 e 9302). Se una sessione di sincronizzazione ha esito negativo a causa di un errore temporaneo, ad esempio l'errore è stato annullato, l'endpoint server sarà comunque visualizzato come **integro** nel portale, purché la sessione di sincronizzazione corrente stia procedendo (i file vengono applicati). L'ID evento 9302 è l'evento dello stato di avanzamento della sincronizzazione e l'ID evento 9102 viene registrato al termine di una sessione di sincronizzazione.  Per ulteriori informazioni, vedere [Sync Health](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) and [Sync Progress](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Se l'integrità dell'endpoint server Visualizza un **errore** o **Nessuna attività**, vedere la documentazione relativa alla [risoluzione dei problemi](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) per informazioni aggiuntive.
 - Il numero di **file non sincronizzati** nel portale è basato sull'ID evento 9121 registrato nel registro eventi di telemetria sul server. Questo evento viene registrato per ogni errore per elemento al termine della sessione di sincronizzazione. Per risolvere gli errori per elemento, vedere [ricerca per categorie verificare se sono presenti file o cartelle specifici che non sono sincronizzati](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 - Per visualizzare l' **efficienza** di suddivisione in livelli nel cloud nel portale, passare alle **proprietà dell'endpoint server** e passare alla sezione suddivisione in **livelli nel cloud** . I dati forniti per l'efficienza di suddivisione in livelli nel cloud si basano sull'ID evento 9071 registrato nel registro eventi di telemetria sul server. Per altre informazioni, vedere [Suddivisione in livelli cloud](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering).
 - Per visualizzare **i file senza** suddivisione in livelli e **richiamare gli errori** nel portale, passare alle **proprietà dell'endpoint server** e passare alla sezione suddivisione in **livelli nel cloud** . La suddivisione in **livelli dei file non** è basata sull'id evento 9003 registrato nel registro eventi di telemetria sul server e gli **errori di richiamo** si basano sull'ID evento 9006. Per esaminare i file che non riescono a eseguire il livello o richiamare, vedere [come risolvere i problemi dei file che non riescono a livello](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) e [come risolvere i problemi dei file che non vengono richiamati](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
@@ -142,7 +148,7 @@ Integrità sincronizzazione
 
 - Al termine della sessione di sincronizzazione, viene registrato l'ID evento 9121 per ogni singolo elemento. Utilizzare questo evento per determinare il numero di file che non riescono a eseguire la sincronizzazione con questo errore (**PersistentCount** e **TransientCount**). Per esaminare gli errori persistenti degli elementi, vedere [ricerca per categorie verificare se sono presenti file o cartelle specifici che non sono sincronizzati](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
-- L'ID evento 9302 viene registrato ogni 5-10 minuti se è presente una sessione di sincronizzazione attiva. Utilizzare questo evento per determinare se la sessione di sincronizzazione corrente sta procedendo (**AppliedItemCount > 0**). Se la sincronizzazione non è in corso, la sessione di sincronizzazione dovrebbe avere esito negativo e verrà registrato un ID evento 9102 con l'errore. Per ulteriori informazioni, vedere la [documentazione sullo stato di avanzamento della sincronizzazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- L'ID evento 9302 viene registrato ogni 5-10 minuti se è presente una sessione di sincronizzazione attiva. Utilizzare questo evento per determinare il numero di elementi da sincronizzare (**TotalItemCount**), il numero di elementi sincronizzati fino a questo punto (**AppliedItemCount**) e il numero di elementi che non sono stati sincronizzati a causa di un errore per elemento (**PerItemErrorCount**). Se la sincronizzazione non sta procedendo (**AppliedItemCount = 0**), la sessione di sincronizzazione avrà esito negativo e verrà registrato un ID evento 9102 con l'errore. Per ulteriori informazioni, vedere la [documentazione sullo stato di avanzamento della sincronizzazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 Stato server registrato
 
@@ -248,6 +254,7 @@ In questa sezione vengono forniti alcuni avvisi di esempio per Sincronizzazione 
      - Tipo di aggregazione: **massimo**  
      - Valore soglia (in byte): **1** 
      - Valutato in base a: granularità di aggregazione = **1 ora** | Frequenza di valutazione = **ogni 30 minuti** 
+        - Si noti che le metriche vengono inviate a monitoraggio di Azure ogni 15-20 minuti. Non impostare la **frequenza di valutazione** su un valore inferiore a 30 minuti (genererà avvisi falsi).
      - Fare clic su **fine.** 
 8. Fare clic su **Seleziona gruppo di azioni** per aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
 9. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.

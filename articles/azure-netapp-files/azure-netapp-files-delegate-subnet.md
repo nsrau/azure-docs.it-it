@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: da7aa0889940c560df705e3c47f5ccb1960aee2c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: bed1375631c017d23ed53b6102c424533237099e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361025"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447563"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegare una subnet ad Azure NetApp Files 
 
@@ -33,7 +33,8 @@ ms.locfileid: "91361025"
    In un VNet è possibile avere una sola subnet delegata. Un account NetApp può distribuire volumi in più reti virtuali, ognuno dei quali ha una propria subnet delegata.  
 * Non è possibile designare un gruppo di sicurezza di rete o un endpoint di servizio nella subnet delegata. In questo modo, la delegazione della subnet ha esito negativo.
 * L'accesso a un volume da una rete virtuale con peering globale non è attualmente supportato.
-* La creazione di [route personalizzate definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) in subnet VM con prefisso di indirizzo (destinazione) a una subnet delegata a Azure NetApp files non è supportata. Questa operazione influirà sulla connettività della macchina virtuale. Azure NetApp Files crea una route di sistema alla subnet delegata. Se necessario per la risoluzione dei problemi, la route viene visualizzata in **route valide** nella tabella di route.
+* Le [route definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) (UDR) e i gruppi di sicurezza di rete (gruppi) non sono supportati nelle subnet delegate per Azure NetApp files. È tuttavia è possibile applicare route definite dall'utente e gruppi di sicurezza di rete ad altre subnet, anche all'interno della stessa rete virtuale della subnet delegata ad Azure NetApp Files.  
+   Azure NetApp Files crea una route di sistema alla subnet delegata. Se necessario per la risoluzione dei problemi, la route viene visualizzata in **route valide** nella tabella di route.
 
 ## <a name="steps"></a>Passaggi
 

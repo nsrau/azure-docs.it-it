@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: ryanwi
-ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 5d1aa4ff87b272911e4e39076f337ea249b962d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: hirsin, jesakowi, jmprieur, marsma
+ms.custom: aaddev, fasttrack-edit, contperfq1
+ms.openlocfilehash: 2ac23e16dd294f6a17fbc891eb87889760724f36
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256603"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461258"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
 
@@ -199,7 +199,7 @@ https://graph.microsoft.com/mail.send
 | `client_id` | Obbligatoria | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza[Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `redirect_uri` | Obbligatoria |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
 | `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-|`scope`        | Necessario        | Definisce il set di autorizzazioni richieste dall'applicazione. Può trattarsi di ambiti statici (using [`/.default`](#the-default-scope) ) o dinamici.  Possono essere inclusi gli ambiti OIDC ( `openid` , `profile` , `email` ). Se sono necessarie le autorizzazioni dell'applicazione, è necessario usare `/.default` per richiedere l'elenco di autorizzazioni configurate in modo statico.  |
+|`scope`        | Obbligatoria        | Definisce il set di autorizzazioni richieste dall'applicazione. Può trattarsi di ambiti statici (using [`/.default`](#the-default-scope) ) o dinamici.  Possono essere inclusi gli ambiti OIDC ( `openid` , `profile` , `email` ). Se sono necessarie le autorizzazioni dell'applicazione, è necessario usare `/.default` per richiedere l'elenco di autorizzazioni configurate in modo statico.  |
 
 
 A questo punto, Azure AD richiede che solo un amministratore tenant possa accedere per completare la richiesta. All'amministratore viene chiesto di approvare tutte le autorizzazioni richieste nel `scope` parametro.  Se è stato usato un valore statico ( `/.default` ), funzionerà come l'endpoint di consenso dell'amministratore della versione 1.0 e richiederà il consenso per tutti gli ambiti presenti nelle autorizzazioni necessarie per l'app.

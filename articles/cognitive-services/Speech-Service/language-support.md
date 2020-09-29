@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: b50f6c4b2ed86b950e68cf8c55b63af687ff9ead
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e0d6694d44fdac9958acdf70be067348fadde57f
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298050"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461241"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -41,13 +41,11 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-AE` | Arabo (Emirati Arabi Uniti)     | Modello linguistico                                    |
 | `ar-BH` | Arabo (Bahrein), standard moderno | Modello linguistico                                    |
 | `ar-EG` | Arabo (Egitto)                    | Modello linguistico                                    |
-| `ar-IL` | Arabo (Israele)                   | No                                                |
 | `ar-IQ` | Arabo (Iraq)                     | Modello linguistico                                    |
 | `ar-JO` | Arabo (Giordania)                   | Modello linguistico                                    |
 | `ar-KW` | Arabo (Kuwait)                   | Modello linguistico                                    |
 | `ar-LB` | Arabo (Libano)                  | Modello linguistico                                    |
 | `ar-OM` | Arabo (Oman)                     | Modello linguistico                                    |
-| `ar-PS` | Arabo (stato della Palestina)       | No                                                |
 | `ar-QA` | Arabo (Qatar)                    | Modello linguistico                                    |
 | `ar-SA` | Arabo (Arabia Saudita)             | Modello linguistico                                    |
 | `ar-SY` | Arabo (Siria)                    | Modello linguistico                                    |
@@ -182,7 +180,7 @@ Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.m
 | `it-IT`<sup>Nuovo</sup> | Italiano (Italia) | Male | `it-IT-DiegoNeural` | Generale |
 | `ja-JP` | Giapponese (Giappone) | Female | `ja-JP-NanamiNeural` | Generale |
 | `ja-JP`<sup>Nuovo</sup> | Giapponese (Giappone) | Male | `ja-JP-KeitaNeural` | Generale |
-| `ko-KR` | Coreano (Corea del Sud) | Female | `ko-KR-SunHiNeural` | Generale |
+| `ko-KR` | Coreano (Corea) | Female | `ko-KR-SunHiNeural` | Generale |
 | `ko-KR`<sup>Nuovo</sup> | Coreano (Corea) | Male | `ko-KR-InJoonNeural` | Generale |
 | `ms-MY`<sup>Nuovo</sup> | Malese (Malaysia) | Female | `ms-MY-YasminNeural` | Generale |
 | `nb-NO` | Norvegese, Bokmål (Norvegia) | Female | `nb-NO-IselinNeural` | Generale |
@@ -273,7 +271,7 @@ Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni loca
 | `ja-JP` | Giapponese (Giappone) | Female | `ja-JP-Ayumi` |
 | `ja-JP` | Giapponese (Giappone) | Female | `ja-JP-HarukaRUS` |
 | `ja-JP` | Giapponese (Giappone) | Male | `ja-JP-Ichiro` |
-| `ko-KR` | Coreano (Corea del Sud) | Female | `ko-KR-HeamiRUS` |
+| `ko-KR` | Coreano (Corea) | Female | `ko-KR-HeamiRUS` |
 | `ms-MY` | Malese (Malaysia) | Male | `ms-MY-Rizwan` |
 | `nb-NO` | Norvegese, Bokmål (Norvegia) | Female | `nb-NO-HuldaRUS` |
 | `nl-NL` | Olandese (Paesi Bassi) | Female | `nl-NL-HannaRUS` |

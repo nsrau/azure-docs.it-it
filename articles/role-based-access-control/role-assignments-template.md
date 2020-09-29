@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 939d78fb75dc69af91cbc920fadce69945a24e39
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392455"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447735"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Aggiungere assegnazioni di ruolo di Azure tramite modelli di Azure Resource Manager
 
@@ -365,7 +365,7 @@ Per rimuovere l'accesso a una risorsa di Azure in Controllo degli accessi in bas
 
 - [Azure portal](role-assignments-portal.md#remove-a-role-assignment)
 - [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [Interfaccia della riga di comando di Azure](role-assignments-cli.md#remove-a-role-assignment)
+- [Interfaccia della riga di comando di Azure](role-assignments-cli.md#remove-role-assignment)
 - [REST API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -3,12 +3,12 @@ title: Configurare un'appliance Azure Migrate per Hyper-V
 description: Informazioni su come configurare un appliance Azure Migrate per la valutazione e la migrazione di macchine virtuali Hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: c53f82268bd1a5d94659a8b749a14fd026f91ce1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 8841f934ba21fda6cc36b856ea773ed0f53cfe32
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087151"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448084"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurare un'appliance per le VM Hyper-V
 
@@ -58,7 +58,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 1. Nel computer in cui è stato scaricato il file aprire una finestra di comando con privilegi di amministratore.
 2. Eseguire il comando seguente per generare il codice hash per il disco rigido virtuale
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
+    - Esempio di utilizzo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
 
 
@@ -130,7 +130,7 @@ Se i dischi rigidi virtuali sono in esecuzione in SMB, è necessario abilitare l
 1. Nell'appliance VM eseguire questo comando. HyperVHost1/HyperVHost2 sono nomi host di esempio.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. In alternativa, eseguire questa operazione nell'editor Criteri di gruppo locali dell'appliance:

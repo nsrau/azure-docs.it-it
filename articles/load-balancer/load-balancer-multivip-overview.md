@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: b24514ed477d1acd31dbc4ef0daa3aa89b8739f9
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530829"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448108"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Più front-end per Azure Load Balancer
 
@@ -64,8 +64,8 @@ Si definiscono due regole:
 
 | Regola | Mapping frontend | Al pool back-end |
 | --- | --- | --- |
-| 1 |![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
-| 2 |![Indirizzo VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
+| 1 |![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
+| 2 |![Indirizzo VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
 
 Il mapping completo in Azure Load Balancer sarà ora il seguente:
 
@@ -143,8 +143,8 @@ Si definiscono due regole:
 
 | Regola | Front-end | Mapping al pool back-end |
 | --- | --- | --- |
-| 1 |![regola](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 e VM2) |
-| 2 |![regola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 e VM2) |
+| 1 |![regola verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 e VM2) |
+| 2 |![regola viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end viola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 e VM2) |
 
 La tabella seguente illustra il mapping completo nel servizio di bilanciamento del carico:
 

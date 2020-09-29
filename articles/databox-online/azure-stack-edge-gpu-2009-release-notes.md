@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 9d3aafad457f5c72a8c45f4f98f8f03eb8d978d7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c43f7ba52ed0f6018ee32583011bb92786708119
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324264"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460476"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Note sulla versione di Azure Stack Edge Pro con disponibilità generale GPU
 
@@ -21,7 +21,7 @@ Le note sulla versione seguenti identificano i problemi critici aperti e i probl
 
 Le note sulla versione vengono aggiornate continuamente e i problemi che richiedono una soluzione alternativa vengono aggiunti man mano che vengono individuati. Prima di distribuire il dispositivo Azure Stack Edge Pro, esaminare attentamente le informazioni contenute nelle note sulla versione.
 
-Questo articolo si applica alla versione **Pro 2009 di Azure stack Edge** , che esegue il mapping al numero di versione del software **2.1.1358.2075**.
+Questo articolo si applica alla versione **Pro 2009 di Azure stack Edge** , che esegue il mapping al numero di versione del software **2.1.1364.2110**.
 
 ## <a name="whats-new"></a>Novità
 
@@ -35,7 +35,7 @@ Nella versione di Azure Stack Edge 2009 sono disponibili le nuove funzionalità 
 
 La tabella seguente fornisce un riepilogo dei problemi noti relativi al dispositivo Azure Stack Edge Pro.
 
-| No. | Funzionalità | Problema | Soluzione alternativa/commenti |
+| No. | Feature | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 |**1.**|Funzionalità di anteprima |Per questa versione GA, le funzionalità seguenti: Azure Resource Manager locali, VM, Kubernetes, Azure Arc Enabled Kubernetes, servizio multiprocesso (MP) per GPU-sono tutte disponibili in anteprima per il dispositivo Pro Azure Stack Edge.  |Queste funzionalità saranno disponibili a livello generale in una versione successiva. |
 | **2.** |Azure Stack Edge Pro e Azure SQL | Per la creazione del database SQL è necessario l'accesso amministratore.   |Eseguire i passaggi seguenti anziché i passaggi 1-2 in [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database) . <ul><li>Nell'interfaccia utente locale del dispositivo abilitare l'interfaccia di calcolo. Selezionare **calcolo > porta # > Abilita per calcolo > applica.**</li><li>Scarica `sqlcmd` dal computer client da https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Connettersi all'indirizzo IP dell'interfaccia di calcolo (la porta abilitata), aggiungendo ", 1401" alla fine dell'indirizzo.</li><li>Il comando finale sarà simile al seguente: sqlcmd-S {Interface IP}, 1401-U SA-P "Strong! Passw0rd ".</li>Al termine di questa operazione, i passaggi 3-4 dalla documentazione corrente devono essere identici. </li></ul> |

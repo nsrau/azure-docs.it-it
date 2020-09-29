@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 43b6f5d4367cfc641183a17fda89cf1381c22a6c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8f92501bdb8261a67d3dc2b8aefbe1fb1498ef1e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258607"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445893"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -161,12 +161,12 @@ Per scaricare il pacchetto dell'applicazione, passare alla [pagina della version
 |TaskApprovalPolicy   |Enumerazione <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti di Windows Update nei nodi del cluster di Service Fabric.<br><br>Di seguito sono elencati i valori consentiti: <br>*No,:* gli aggiornamenti di Windows vengono installati un nodo alla volta. <br> *UpgradeDomainWise*: gli aggiornamenti di Windows sono installati un dominio di aggiornamento alla volta. Al massimo, tutti i nodi appartenenti a un dominio di aggiornamento possono andare per un aggiornamento di Windows.<br><br> Per decidere quale criterio è più adatto per il cluster, vedere la sezione [domande frequenti](#frequently-asked-questions) .
 |LogsDiskQuotaInMB   |long  <br> (Valore predefinito: *1024*)               | Dimensioni massime dei log di patch Orchestration app in MB, che possono essere rese disponibili localmente nei nodi.
 | WUQuery               | string<br>(Impostazione predefinita: *disinstallato = 0*)                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search).
-| InstallWindowsOSOnlyUpdates | *Booleano* <br> (impostazione predefinita: false)                 | Usare questo flag per controllare quali aggiornamenti devono essere scaricati e installati. Sono consentiti i valori seguenti: <br>true: installa solo gli aggiornamenti del sistema operativo Windows.<br>false: installa tutti gli aggiornamenti disponibili nel computer.          |
+| InstallWindowsOSOnlyUpdates | *Boolean* <br> (impostazione predefinita: false)                 | Usare questo flag per controllare quali aggiornamenti devono essere scaricati e installati. Sono consentiti i valori seguenti: <br>true: installa solo gli aggiornamenti del sistema operativo Windows.<br>false: installa tutti gli aggiornamenti disponibili nel computer.          |
 | WUOperationTimeOutInMinutes | Int <br>(Valore predefinito: *90*)                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca, download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
 | WURescheduleCount     | Int <br> (Valore predefinito: *5*)                  | Il numero massimo di volte in cui il servizio Ripianifica l'aggiornamento di Windows se un'operazione ha esito negativo in modo permanente.          |
 | WURescheduleTimeInMinutes | Int <br>(Valore predefinito: *30*) | Intervallo in base al quale il servizio Ripianifica gli aggiornamenti di Windows in caso di errore permanente. |
 | WUFrequency           | Stringa con valori delimitati da virgole (valore predefinito: *settimanale, mercoledì, 7:00:00*)     | Frequenza di installazione degli aggiornamenti di Windows. Il formato e i valori possibili sono: <br>-Monthly, GG, HH: MM: SS (esempio: *mensile, 5, 12:22:32*). I valori consentiti per il campo _GG_ (giorno) sono numeri compresi tra 1 e 28 e _l'ultimo_. <br>-Weekly, Day, HH: MM: SS (esempio: *Weekly, Tuesday, 12:22:32*)  <br>-Daily, HH: MM: SS (ad esempio: *Daily, 12:22:32*)  <br>-Settimana, giorno, HH: MM: SS (esempio: *2, venerdì, 21:00:00* indica 9:00 PM UTC il venerdì della seconda settimana di ogni mese) <br>- *None* indica che non è necessario eseguire gli aggiornamenti di Windows.  <br><br> Gli orari sono in formato UTC.|
-| AcceptWindowsUpdateEula | Booleano <br>(Valore predefinito: *true*) | Impostando questo flag, l'applicazione accetta il contratto di licenza dell'utente finale per Windows Update per conto del proprietario della macchina.              |
+| AcceptWindowsUpdateEula | Boolean <br>(Valore predefinito: *true*) | Impostando questo flag, l'applicazione accetta il contratto di licenza dell'utente finale per Windows Update per conto del proprietario della macchina.              |
 
 > [!TIP]
 > Se si desidera che gli aggiornamenti di Windows vengano eseguiti immediatamente, impostare `WUFrequency` in relazione al tempo di distribuzione dell'applicazione. Ad esempio, si supponga di disporre di un cluster di test a cinque nodi e si prevede di distribuire l'app all'incirca alle 17:00:00 UTC. Se si presuppone che l'aggiornamento o la distribuzione dell'applicazione riprenda al massimo 30 minuti, impostare WUFrequency come *giornaliero, 17:30:00*.
@@ -296,9 +296,9 @@ Per comprendere il modo in cui gli aggiornamenti vengono eseguiti in un nodo, pr
 
    In POA Versions 1.4.0 e versioni successive è possibile trovare lo stato dell'aggiornamento visualizzando gli eventi di integrità in NodeAgentService con WUOperationStatus- \<NodeName> Property. Le sezioni evidenziate nelle immagini seguenti mostrano lo stato degli aggiornamenti di Windows nei nodi *poanode_0* e *poanode_2*:
 
-   [![Immagine dello stato dell'operazione Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+   [![Screenshot mostra la finestra della console di Windows Update stato dell'operazione con poanode_0 evidenziato.](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
-   [![Immagine dello stato dell'operazione Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+   [![Screenshot mostra la finestra della console di Windows Update stato dell'operazione con poanode_1 evidenziato.](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
    È anche possibile ottenere i dettagli usando PowerShell. A tale scopo, connettersi al cluster e recuperare lo stato dell'attività di ripristino usando [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
    
@@ -328,7 +328,7 @@ Per comprendere il modo in cui gli aggiornamenti vengono eseguiti in un nodo, pr
 
 1. In POA Versions 1.4.0 e versioni successive, quando viene completato un tentativo di aggiornamento del nodo, viene pubblicato un evento con la proprietà "WUOperationStatus-[nodename]" su NodeAgentService per ricevere una notifica quando viene avviato il tentativo successivo di scaricare e installare gli aggiornamenti di Windows. Viene visualizzato nell'immagine seguente:
 
-     [![Immagine dello stato dell'operazione Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+     [![Screenshot mostra la finestra della console di Windows Update stato dell'operazione con NodeAgentService.](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
 
 ### <a name="diagnostics-logs"></a>Log di diagnostica
 

@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9bd597bbff54687af1ba8536dddd6f0d8dfc621e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0583852f0be590eb1c6a4b53047f94b3ea0fbaa4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531492"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447815"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge con un TPM in Linux
 
@@ -147,7 +147,7 @@ Recuperare le informazioni di provisioning dalla macchina virtuale e usarle per 
 Quando si crea una registrazione nel servizio Device Provisioning, si ha la possibilità di dichiarare un valore di **Stato dispositivo gemello iniziale**. Nel dispositivo gemello è possibile impostare tag per raggruppare i dispositivi in base a una qualsiasi metrica necessaria nella propria soluzione, come l'area, l'ambiente, la località o il tipo di dispositivo. Questi tag vengono usati per creare [distribuzioni automatiche](how-to-deploy-at-scale.md).
 
 > [!TIP]
-> Nell'interfaccia della riga di comando di Azure è possibile creare una [registrazione](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) e usare il flag **abilitato per Edge** per specificare che un dispositivo è un dispositivo IOT Edge.
+> Nell'interfaccia della riga di comando di Azure è possibile creare una [registrazione](/cli/azure/ext/azure-iot/iot/dps/enrollment) e usare il flag **abilitato per Edge** per specificare che un dispositivo è un dispositivo IOT Edge.
 
 1. Nella [portale di Azure](https://portal.azure.com)passare all'istanza del servizio Device provisioning in hub Internet.
 

@@ -11,25 +11,30 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/27/2020
+ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 15289727c3ee4d498fa50058ef98f0ae5b3d1b12
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e526b8e2e4f31187bb958ec37c2ffa4d30f0265b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277802"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461156"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Uso dell'autenticazione a più fattori Azure Active Directory
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Il database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics supportano le connessioni da [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) usando *Azure Active Directory universale con autenticazione a* più fattori. Questo articolo descrive le differenze tra le varie opzioni di autenticazione e anche le limitazioni associate all'uso dell'autenticazione universale in Azure Active Directory (Azure AD) per Azure SQL.
 
-**Scaricare la versione più recente di SSMS**: nel computer client scaricare la versione più recente di SSMS da [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+**Scaricare la versione più recente di SSMS**: nel computer client scaricare la versione più recente di SSMS da [Scaricare SQL Server Management Studio (SSMS)](https://aka.ms/ssms). 
+
+> [!Note]
+> Nel 2021 dicembre, le versioni di SSMS precedenti alla 18,6 non saranno più autenticate tramite Azure Active Directory con autenticazione a più fattori. Per continuare a usare l'autenticazione Azure Active Directory con l'autenticazione a più fattori, installare o aggiornare a SSMS 18,6 o versione successiva.
 
 Per tutte le funzionalità descritte in questo articolo, usare almeno la versione 17.2 di luglio 2017. La finestra di dialogo di connessione più recente dovrebbe avere un aspetto simile al seguente:
 
-  ![Screenshot della finestra di dialogo Connetti al server in SQL Server Management Studio, che mostra le impostazioni per il tipo di server, il nome del server e l'autenticazione.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
+  ![Screenshot della finestra di dialogo Connetti al server in SQL Server Management Studio, che mostra le impostazioni per il tipo di server, il nome del server e l'autenticazione.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)
+  
+    
 
 ## <a name="authentication-options"></a>Opzioni di autenticazione
 

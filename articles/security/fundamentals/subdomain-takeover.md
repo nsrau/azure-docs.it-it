@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2020
+ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: c0494fe39f8ae64ba65db4e3cd728069aa4a5052
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403212"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447366"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedisci le voci DNS in sospeso ed evita l'acquisizione di sottodomini
 
@@ -86,7 +86,7 @@ Se i CNAME si trovano in altri servizi DNS e puntano a risorse di Azure, fornire
 Lo strumento supporta le risorse di Azure elencate nella tabella seguente. Lo strumento estrae o accetta come input tutti i CNAME del tenant.
 
 
-| Servizio                   | Tipo                                        | FQDNproperty                               | Esempio                         |
+| Service                   | Tipo                                        | FQDNproperty                               | Esempio                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Frontdoor di Azure          | microsoft.network/frontdoors                | Properties. cName                           | `abc.azurefd.net`               |
 | Archiviazione BLOB di Azure        | microsoft.storage/storageaccounts           | Properties. primari. blob           | `abc. blob.core.windows.net`    |
@@ -107,11 +107,13 @@ Eseguire la query come utente che ha:
 - almeno l'accesso a livello di lettore alle sottoscrizioni di Azure
 - accesso in lettura al grafico delle risorse di Azure
 
-Se si è un amministratore globale del tenant dell'organizzazione, elevare il proprio account per accedere a tutte le sottoscrizioni dell'organizzazione usando le linee guida disponibili in [elevare l'accesso per gestire tutti i gruppi di gestione e le sottoscrizioni di Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+Se si è un amministratore globale del tenant dell'organizzazione, elevare il proprio account per accedere a tutte le sottoscrizioni dell'organizzazione usando le linee guida disponibili in [elevare l'accesso per gestire tutti i gruppi di gestione e le sottoscrizioni di Azure](../../role-based-access-control/elevate-access-global-admin.md).
 
 
 > [!TIP]
-> Azure Resource Graph presenta limiti di limitazione e paging da considerare se si dispone di un ambiente di Azure di grandi dimensioni. [Altre](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) informazioni sull'uso di set di dati di risorse di Azure di grandi dimensioni. 
+> Azure Resource Graph presenta limiti di limitazione e paging da considerare se si dispone di un ambiente di Azure di grandi dimensioni. 
+> 
+> [Altre informazioni sull'uso di set di dati di risorse di Azure di grandi dimensioni](../../governance/resource-graph/concepts/work-with-data.md).
 > 
 > Lo strumento usa la suddivisione in batch delle sottoscrizioni per evitare queste limitazioni.
 
@@ -145,7 +147,7 @@ Alcuni servizi di Azure offrono funzionalità per semplificare la creazione di m
 
 ### <a name="use-azure-dns-alias-records"></a>Usare i record di alias DNS di Azure
 
-I [record alias](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) di DNS di Azure possono impedire i riferimenti a penzoloni associando il ciclo di vita di un record DNS a una risorsa di Azure. Si consideri, ad esempio, un record DNS che è qualificato come record alias per puntare a un indirizzo IP pubblico o a un profilo di Gestione traffico. Se si eliminano le risorse sottostanti, il record dell'alias DNS diventa un set di record vuoto. Non fa più riferimento alla risorsa eliminata. È importante notare che ci sono limiti per gli elementi che è possibile proteggere con i record degli alias. Attualmente, l'elenco è limitato a:
+I [record alias](../../dns/dns-alias.md#scenarios) di DNS di Azure possono impedire i riferimenti a penzoloni associando il ciclo di vita di un record DNS a una risorsa di Azure. Si consideri, ad esempio, un record DNS che è qualificato come record alias per puntare a un indirizzo IP pubblico o a un profilo di Gestione traffico. Se si eliminano le risorse sottostanti, il record dell'alias DNS diventa un set di record vuoto. Non fa più riferimento alla risorsa eliminata. È importante notare che ci sono limiti per gli elementi che è possibile proteggere con i record degli alias. Attualmente, l'elenco è limitato a:
 
 - Frontdoor di Azure
 - Profili di Gestione traffico
@@ -154,7 +156,7 @@ I [record alias](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) di DN
 
 Nonostante le offerte di servizio limitate attualmente, è consigliabile usare i record alias per difendersi da un'acquisizione di sottodominio laddove possibile.
 
-[Altre](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) informazioni sulle funzionalità dei record alias di DNS di Azure.
+[Altre informazioni sulle funzionalità dei record alias di DNS di Azure](../../dns/dns-alias.md#capabilities).
 
 
 
@@ -164,7 +166,7 @@ Quando si creano voci DNS per il servizio app Azure, creare un asuid. sottodomin
 
 Questi record non impediscono a un utente di creare il servizio app Azure con lo stesso nome presente nella voce CNAME. Senza la possibilità di dimostrare la proprietà del nome di dominio, gli attori minacciati non possono ricevere traffico o controllare il contenuto.
 
-[Altre](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain) informazioni su come eseguire il mapping di un nome DNS personalizzato esistente al servizio app Azure.
+[Altre informazioni su come eseguire il mapping di un nome DNS personalizzato esistente al servizio app Azure](../../app-service/app-service-web-tutorial-custom-domain.md).
 
 
 
@@ -178,13 +180,13 @@ Spesso gli sviluppatori e i team operativi eseguono processi di pulizia per evit
 
     - Inserire "Rimuovi voce DNS" nell'elenco dei controlli necessari durante la rimozione delle autorizzazioni per un servizio.
 
-    - Inserire i [blocchi Delete](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) per tutte le risorse che dispongono di una voce DNS personalizzata. Un blocco di eliminazione funge da indicatore per cui il mapping deve essere rimosso prima che venga effettuato il deprovisioning della risorsa. Misure come questa possono funzionare solo se vengono combinate con i programmi di formazione interni.
+    - Inserire i [blocchi Delete](../../azure-resource-manager/management/lock-resources.md) per tutte le risorse che dispongono di una voce DNS personalizzata. Un blocco di eliminazione funge da indicatore per cui il mapping deve essere rimosso prima che venga effettuato il deprovisioning della risorsa. Misure come questa possono funzionare solo se vengono combinate con i programmi di formazione interni.
 
 - **Creare procedure per l'individuazione:**
 
     - Esaminare regolarmente i record DNS per assicurarsi che i sottodomini siano tutti mappati alle risorse di Azure:
 
-        - Exist: esegue una query sulle zone DNS per le risorse che puntano a sottodomini di Azure, ad esempio *. azurewebsites.net o *. cloudapp.azure.com (vedere [questo elenco di riferimenti](azure-domains.md)).
+        - Exist: esegue una query sulle zone DNS per le risorse che puntano a sottodomini di Azure, ad esempio *. azurewebsites.net o *. cloudapp.azure.com (vedere l' [elenco di riferimento dei domini di Azure](azure-domains.md)).
         - Si è proprietari: confermare che si è proprietari di tutte le risorse a cui sono destinati i sottodomini DNS.
 
     - Mantenere un catalogo di servizi per gli endpoint del nome di dominio completo (FQDN) di Azure e i proprietari dell'applicazione. Per compilare il catalogo di servizi, eseguire lo script di query di Azure Resource Graph seguente. Questo script proietta le informazioni sull'endpoint FQDN delle risorse a cui si ha accesso e le restituisce in un file CSV. Se si ha accesso a tutte le sottoscrizioni per il tenant, lo script prende in considerazione tutte le sottoscrizioni, come illustrato nello script di esempio seguente. Per limitare i risultati a un set specifico di sottoscrizioni, modificare lo script come illustrato.
@@ -200,8 +202,8 @@ Spesso gli sviluppatori e i team operativi eseguono processi di pulizia per evit
 
 Per altre informazioni sui servizi correlati e sulle funzionalità di Azure che è possibile usare per la difesa dall'acquisizione dei sottodomini, vedere le pagine seguenti.
 
-- [DNS di Azure supporta l'uso di record alias per i domini personalizzati](https://docs.microsoft.com/azure/dns/dns-alias#prevent-dangling-dns-records)
+- [Impedisci record DNS in sospeso con DNS di Azure](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Usare l'ID di verifica del dominio quando si aggiungono domini personalizzati nel servizio app Azure](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
+- [Usare un ID di verifica del dominio quando si aggiungono domini personalizzati nel servizio app Azure](../../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)
 
-- [Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
+- [Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure PowerShell](../../governance/resource-graph/first-query-powershell.md)

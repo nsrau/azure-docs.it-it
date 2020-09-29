@@ -9,12 +9,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1eb9a302c4da027d7fe00056e7d5ac0ba7fc1dd9
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 4c44ad91b4fb8581a67ea67e09faca4a9d96df91
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531458"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447760"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando l'attestazione della chiave simmetrica
 
@@ -73,7 +73,7 @@ Quando si crea una registrazione nel servizio Device Provisioning, si ha la poss
    1. Selezionare **true** per dichiarare che la registrazione è per un dispositivo IOT Edge. Per la registrazione di un gruppo, tutti i dispositivi devono essere IoT Edge dispositivi o nessuno di essi può essere.
 
    > [!TIP]
-   > Nell'interfaccia della riga di comando di Azure è possibile creare un gruppo di registrazione o di [registrazione](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) e usare il flag di **Abilitazione Edge** per specificare che un [dispositivo o un](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) gruppo di dispositivi è un dispositivo IOT Edge.
+   > Nell'interfaccia della riga di comando di Azure è possibile creare un gruppo di registrazione o di [registrazione](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) e usare il flag di **Abilitazione Edge** per specificare che un [dispositivo o un](/cli/azure/ext/azure-iot/iot/dps/enrollment) gruppo di dispositivi è un dispositivo IOT Edge.
 
    1. Accettare il valore predefinito dal criterio di allocazione del servizio Device provisioning per la **modalità di assegnazione dei dispositivi agli hub** o scegliere un valore diverso specifico per questa registrazione.
 

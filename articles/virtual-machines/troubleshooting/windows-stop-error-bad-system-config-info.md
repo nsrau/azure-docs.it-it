@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 071b5786127af31a2ad3266c128dbfb7cacad656
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942122"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447319"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Errore di arresto di Windows-informazioni di configurazione del sistema 0x00000074 non valide
 
@@ -61,10 +61,10 @@ Il codice di arresto **BAD_SYSTEM_CONFIG_INFO** si verifica se l'hive del regist
 1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
 1. Verificare il danneggiamento di hive.
 1. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
-1. Copiare la `\windows\system32\config` cartella e salvarla in una partizione del disco integra o in un'altra posizione sicura. Eseguire il backup di questa cartella come precauzione poiché si modificheranno i file del registro di sistema critici.
+1. Copiare la `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` cartella e salvarla in una partizione del disco integra o in un'altra posizione sicura. Eseguire il backup di questa cartella come precauzione poiché si modificheranno i file del registro di sistema critici. 
 
 > [!NOTE]
-> Eseguire una copia della `\windows\system32\config` cartella come backup nel caso in cui sia necessario eseguire il rollback delle modifiche apportate al registro di sistema.
+> Eseguire una copia della `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` cartella come backup nel caso in cui sia necessario eseguire il rollback delle modifiche apportate al registro di sistema.
 
 ### <a name="check-for-hive-corruption"></a>Verificare il danneggiamento di hive
 
@@ -72,7 +72,7 @@ Le istruzioni seguenti consentono di determinare se la causa è dovuta a un dann
 
 1. Nella macchina virtuale di ripristino aprire l'applicazione **Editor del registro di sistema** . Digitare "REGEDIT" nella barra di ricerca di Windows per trovarlo.
 1. Nell'editor del registro di sistema selezionare **HKEY_LOCAL_MACHINE** per evidenziarlo, quindi selezionare **file > Carica hive...**  dal menu.
-1. Individuare `\windows\system32\config\SYSTEM` e selezionare **Apri**.
+1. Individuare `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM` e selezionare **Apri**.
 1. Quando viene richiesto di immettere un nome, immettere **BROKENSYSTEM**.
 
    1. Se non è possibile aprire l'hive o se è vuoto, l'hive è danneggiato. Se l'hive è danneggiato, [aprire un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
