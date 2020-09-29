@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 8c89fcf22f669c97f2b17acce57c293eabcf96de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3179324dd71ebf3bb44cb68f0fd84486bb88e2ce
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009697"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441041"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Risolvere i problemi di attivazione della macchina virtuale Windows di Azure
 
@@ -43,7 +43,7 @@ Quando si cerca di attivare una VM Windows di Azure, si riceve un messaggio di e
 
 In genere si verificano problemi di attivazione della macchina virtuale di Azure se la macchina virtuale Windows non viene configurata usando la chiave di configurazione del client del server di gestione delle chiavi appropriata, oppure se la macchina virtuale Windows ha un problema di connettività al server di gestione delle chiavi di Azure (kms.core.windows.net, porta 1688). 
 
-## <a name="solution"></a>Solution
+## <a name="solution"></a>Soluzione
 
 >[!NOTE]
 >Se si usa una VPN da sito a sito e il tunneling forzato, vedere [usare le route personalizzate di Azure per abilitare l'attivazione del servizio di gestione delle chiavi con il tunneling forzato](../../vpn-gateway/vpn-gateway-about-forced-tunneling.md). 
@@ -61,7 +61,7 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. Se **slmgr.vbs /dlv** indica il canale RETAIL, usare i comandi seguenti per impostare la [chiave di configurazione del client del Servizio di gestione delle chiavi](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj612867(v=ws.11)?f=255&MSPPError=-2147217396) per la versione di Windows Server in uso e forzare un nuovo tentativo di attivazione: 
+2. Se **slmgr.vbs /dlv** indica il canale RETAIL, usare i comandi seguenti per impostare la [chiave di configurazione del client del Servizio di gestione delle chiavi](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys) per la versione di Windows Server in uso e forzare un nuovo tentativo di attivazione: 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>

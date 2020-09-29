@@ -6,13 +6,13 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 07a38e106b765fd28a8c3c1115e5fe84744ade62
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: devx-track-csharp, contperfq1
+ms.openlocfilehash: eb148801011b2d1c8c1f975edb870ba594b085a7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91303090"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440692"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Installare e usare l'emulatore di Azure Cosmos per lo sviluppo e il test locali
 
@@ -80,13 +80,13 @@ Per impostazione predefinita, Azure Cosmos Emulator è installato in `C:\Program
 
 Quando l'emulatore è stato avviato, verrà visualizzata un'icona nell'area di notifica della barra delle applicazioni di Windows. Apre automaticamente Esplora dati di Azure Cosmos nel browser in corrispondenza di questo `https://localhost:8081/_explorer/index.html` URL URL.
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Notifica della barra delle applicazioni dell'emulatore locale di Azure Cosmos DB":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Selezionare il pulsante Start o premere il tasto Windows, iniziare a digitare Azure Cosmos Emulator e selezionare l'emulatore nell'elenco di applicazioni":::
 
 È anche possibile avviare e arrestare l'emulatore dalla riga di comando o dai comandi di PowerShell. Per ulteriori informazioni, vedere l'articolo di [riferimento dello strumento da riga di comando](emulator-command-line-parameters.md) .
 
 Per impostazione predefinita, l'emulatore di Azure Cosmos viene eseguito sul computer locale ("localhost") in ascolto sulla porta 8081. L'indirizzo viene visualizzato come `https://localhost:8081/_explorer/index.html`. Se si chiude la finestra di esplorazione e si vuole riaprirla in un secondo momento, è possibile aprire l'URL nel browser o avviarlo dall'emulatore di Azure Cosmos nell'icona della barra di Windows, come illustrato di seguito.
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Utilità di avvio di Esplora dati dell'emulatore locale Azure Cosmos":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Selezionare il pulsante Start o premere il tasto Windows, iniziare a digitare Azure Cosmos Emulator e selezionare l'emulatore nell'elenco di applicazioni":::
 
 ## <a name="use-the-emulator-on-docker-for-windows"></a><a id="run-on-windows-docker"></a>Usare l'emulatore in Docker per Windows
 
@@ -289,7 +289,7 @@ Se si usa Mac, seguire questa procedura:
 
 1. Aprire il menu di scelta rapida per quell'elemento specifico, scegliere *Get Item*(Ottieni elemento) e nell'opzione *Trust* > *When using this certificate* (Attendibilità > Quando si usa questo certificato) selezionare *Always Trust* (Considera sempre attendibile). 
 
-   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Aprire il menu di scelta rapida per quell'elemento specifico, scegliere Get Item (Ottieni elemento) e nell'opzione Trust - When using this certificate (Attendibilità - Quando si usa questo certificato) selezionare Always Trust (Considera sempre attendibile)":::
+   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Selezionare il pulsante Start o premere il tasto Windows, iniziare a digitare Azure Cosmos Emulator e selezionare l'emulatore nell'elenco di applicazioni":::
   
 ### <a name="option-2-disable-the-ssl-validation-in-the-application"></a><a id="disable-ssl-validation"></a>Opzione 2: disabilitare la convalida SSL nell'applicazione
 

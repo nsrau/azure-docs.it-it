@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9ad0ad7b1ff2f0b706595daf8b8c93f480f0e00b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 68d2ed0d6702a42f44e502f2f7d3a91c0221ff6a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421714"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440944"
 ---
 # <a name="about-point-to-site-vpn"></a>Informazioni sulla VPN da punto a sito
 
@@ -68,7 +68,7 @@ Il server RADIUS può essere distribuito in locale o nella VNet di Azure. Durant
 
 Un server RADIUS può anche integrarsi con altri sistemi di identità esterni, offrendo così molte opzioni di autenticazione per le VPN da punto a sito, incluse le opzioni a più fattori.
 
-![da punto a sito](./media/point-to-site-about/p2s.png "Da punto a sito")
+![Diagramma che mostra una VPN da punto a sito con un sito locale.](./media/point-to-site-about/p2s.png)
 
 ## <a name="what-are-the-client-configuration-requirements"></a>Requisiti di configurazione per i client
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 641ff13ec440bb8267e546c54b684ab4453f91a7
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 6807f3d4ef0596b4dbb51f6bc8c0348901e78d0e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052937"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439939"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Connettività SSL/TLS nel database di Azure per MySQL
 
@@ -61,6 +61,17 @@ Se ad esempio si imposta il valore della versione minima dell'impostazione TLS s
 > Quando si applica una versione minima di TLS, non sarà più possibile disabilitare l'imposizione minima della versione.
 
 Per informazioni su come impostare l'impostazione TLS per il database di Azure per MySQL, vedere [How to configure TLS setting](howto-tls-configurations.md).
+
+## <a name="cipher-support-by-azure-database-for-mysql-single-server"></a>Supporto crittografico da database di Azure per server singolo MySQL
+
+Come parte della comunicazione SSL/TLS, i pacchetti di crittografia sono convalidati e supportano solo i pacchetti di crittografia che possono comunicare con il database server. La convalida del pacchetto di crittografia viene controllata nel [livello gateway](concepts-connectivity-architecture.md#connectivity-architecture) e non in modo esplicito nel nodo stesso. Se i pacchetti di crittografia non corrispondono a uno dei gruppi elencati di seguito, le connessioni client in ingresso verranno rifiutate.
+
+### <a name="cipher-suite-supported"></a>Pacchetto di crittografia supportato
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="next-steps"></a>Passaggi successivi
 

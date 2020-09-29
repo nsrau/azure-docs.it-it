@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/28/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909336"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439835"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
 
@@ -32,7 +32,7 @@ I messaggi di posta elettronica di invito sono strumenti fondamentali per entrar
 
 Per sfruttare al meglio le potenzialità del messaggio di posta elettronica, di seguito ne vengono descritti alcuni elementi.
 
-### <a name="subject"></a>Oggetto
+### <a name="subject"></a>Subject
 
 L'oggetto del messaggio di posta elettronica segue questo modello:
 
@@ -75,7 +75,21 @@ La sezione successiva del messaggio di posta elettronica contiene informazioni s
 Il piè di pagina contiene altre informazioni sull'invito inviato. È sempre disponibile un'opzione che consente all'invito di bloccare gli inviti futuri. Se l'organizzazione ha [impostato un'informativa sulla privacy](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), viene visualizzato il collegamento all'istruzione.  In caso contrario, una nota indica che l'organizzazione non ha impostato un'informativa sulla privacy.
 
 ![Immagine della sezione del piè di pagina nel messaggio di posta elettronica](media/invitation-email-elements/footer-section.png)
- 
+
+### <a name="blocking-an-organization-unsubscribing"></a>Blocco di un'organizzazione (annullamento della sottoscrizione)
+
+Nell'invito di un'organizzazione, il piè di pagina contiene un'opzione per **bloccare gli inviti futuri**. Un utente Guest può selezionare questo collegamento per bloccare gli inviti futuri dell'organizzazione. Questa azione aggiunge anche l'organizzazione all'elenco degli utenti non sottoscritti all'indirizzo [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage) .
+
+### <a name="viewing-organizations-youve-blocked"></a>Visualizzazione delle organizzazioni bloccate
+
+Un utente Guest può seguire questa procedura per visualizzare o esportare le organizzazioni bloccate:
+
+1. Passare a [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+2. Immettere il messaggio di posta elettronica e seguire la procedura di accesso per l'autenticazione della password una sola volta.
+3. Visualizzare le organizzazioni bloccate o esportare i nomi usando copia e incolla.
+   > [!NOTE]
+   > Se si vuole consentire a un'organizzazione che si è bloccato di invitare nuovamente, è possibile scegliere l'organizzazione e selezionare **Avanti**.
+
 ## <a name="how-the-language-is-determined"></a>Come viene determinata la lingua
 
 La lingua presentata all'utente guest nel messaggio di posta elettronica di invito è determinata dalle impostazioni seguenti. Queste impostazioni sono elencate in base all'ordine di precedenza. Se un'impostazione non è configurata, viene usata l'impostazione successiva per determinare la lingua.

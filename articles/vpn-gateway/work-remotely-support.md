@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: a70f7ccd1c3ca078bab0ff473283b505c0ded316
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 028250e25f4d67628c08970e25b4621e78526b6a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441562"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440825"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Lavorare in remoto con il gateway VPN di Azure da punto a sito
 
@@ -30,13 +30,13 @@ Una connessione gateway VPN da punto a sito (P2S) consente di creare una conness
 
 Nella tabella seguente sono illustrati i sistemi operativi client e le opzioni di autenticazione disponibili. Potrebbe essere utile selezionare il metodo di autenticazione in base al sistema operativo client già in uso. Ad esempio, selezionare OpenVPN con autenticazione basata su certificati se si dispone di una combinazione di sistemi operativi client che devono connettersi. Si noti anche che la VPN da punto a sito è supportata solo nei gateway VPN basati su route.
 
-![da punto a sito](./media/working-remotely-support/ostable.png "OS")
+![Screenshot che mostra i sistemi operativi client e le opzioni di autenticazione disponibili.](./media/working-remotely-support/ostable.png "OS")
 
 ## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>Scenario 1: gli utenti devono accedere solo alle risorse in Azure
 
 In questo scenario, gli utenti remoti devono solo accedere alle risorse in Azure.
 
-![da punto a sito](./media/working-remotely-support/scenario1.png "Scenario 1")
+![Diagramma che mostra uno scenario da punto a sito per gli utenti che devono accedere solo alle risorse in Azure.](./media/working-remotely-support/scenario1.png "Scenario 1")
 
 A livello generale, sono necessari i passaggi seguenti per consentire agli utenti di connettersi alle risorse di Azure in modo sicuro:
 
@@ -55,7 +55,7 @@ A livello generale, sono necessari i passaggi seguenti per consentire agli utent
 
 In questo scenario, gli utenti remoti devono accedere alle risorse che si trovano in Azure e nei data center locali.
 
-![da punto a sito](./media/working-remotely-support/scenario2.png "Scenario 2")
+![Diagramma che mostra uno scenario da punto a sito per gli utenti che devono accedere alle risorse in Azure.](./media/working-remotely-support/scenario2.png "Scenario 2")
 
 A livello generale, sono necessari i passaggi seguenti per consentire agli utenti di connettersi alle risorse di Azure in modo sicuro:
 

@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c111752dcca03781dfb2a11fb100dafc4bad90f7
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003832"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400955"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -54,7 +54,7 @@ Seguire questa procedura per creare un insieme di credenziali di Servizi di ripr
 
 1. Dopo avere specificato i valori, selezionare **Rivedi e crea**.
 
-    ![Creare l'insieme di credenziali di Servizi di ripristino](./media/backup-create-rs-vault/review-and-create.png)
+    ![Screenshot del pulsante Rivedi e crea nel processo di creazione di un insieme di credenziali di Servizi di ripristino.](./media/backup-create-rs-vault/review-and-create.png)
 
 1. Quando si è pronti per creare l'insieme di credenziali di Servizi di ripristino, selezionare **Crea**.
 

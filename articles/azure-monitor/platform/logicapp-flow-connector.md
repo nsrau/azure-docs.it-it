@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 2ef7095d186902425adb5065c470325be1283023
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: d06501abe69ce9b06656cfa8949c42bb53a03983
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475737"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439242"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Connettore dei log di monitoraggio di Azure per app per la logica e automazione dell'alimentazione
 [App](../../logic-apps/index.yml) per la logica di Azure e [Power automatizzate](https://flow.microsoft.com) consentono di creare flussi di lavoro automatizzati usando centinaia di azioni per un'ampia gamma di servizi. Il connettore log di monitoraggio di Azure consente di creare flussi di lavoro che recuperano dati da un'area di lavoro Log Analytics o da un'applicazione Application Insights in monitoraggio di Azure. Questo articolo descrive le azioni incluse nel connettore e fornisce una procedura dettagliata per creare un flusso di lavoro usando questi dati.
@@ -68,7 +68,7 @@ Fare clic su **+ nuovo passaggio** per aggiungere un'azione che viene eseguita d
 
 Fare clic su **Azure Log Analytics - Run query and visualize results** (Eseguire una query e visualizzare i risultati).
 
-![Esegui query e visualizza risultati azione](media/logicapp-flow-connector/select-query-action-visualize.png)
+![Screenshot di una nuova azione aggiunta a un passaggio nella finestra di progettazione dell'app per la logica. Log di monitoraggio di Azure è evidenziato in scegliere un'azione.](media/logicapp-flow-connector/select-query-action-visualize.png)
 
 
 ### <a name="add-azure-monitor-logs-action"></a>Azione Aggiungi log di monitoraggio di Azure
@@ -87,7 +87,7 @@ Event
 
 Selezionare *imposta in query* per l' **intervallo di tempo** e la **tabella HTML** per il **tipo di grafico**.
    
-![Esegui query e visualizza risultati azione](media/logicapp-flow-connector/run-query-visualize-action.png)
+![Screenshot delle impostazioni per la nuova azione log di monitoraggio di Azure denominata Esegui query e visualizza risultati.](media/logicapp-flow-connector/run-query-visualize-action.png)
 
 Il messaggio verrà inviato dall'account associato alla connessione corrente. È possibile specificare un altro account facendo clic su **Modifica connessione**.
 

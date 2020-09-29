@@ -6,12 +6,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: e12532107ed554385ccf38531bb95b7b70298934
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333886"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439523"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configurare un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente usando il portale di Azure
 
@@ -38,7 +38,7 @@ In questa sezione verrà creato un set di scalabilità di macchine virtuali nel 
 
 1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa**  >  **calcolo**  >  **set di scalabilità di macchine virtuali** o cercare set di **scalabilità di macchine virtuali** nella ricerca nel Marketplace.
 
-2. Selezionare **Crea**.
+2. Selezionare **Create** (Crea).
 
 3. In **creare un set di scalabilità di macchine virtuali**immettere o selezionare queste informazioni nella scheda **nozioni di base** :
 
@@ -52,17 +52,17 @@ In questa sezione verrà creato un set di scalabilità di macchine virtuali nel 
     | Region                         | Seleziona **Stati Uniti orientali 2**                                                                                    |
     | Zona di disponibilità              | Selezionare **Nessuno**                                                                                       |
     | **Dettagli istanza**           |                                                                                                       |
-    | Immagine                          | Selezionare **Ubuntu Server 18,04 LTS**                                                                    |
+    | Image                          | Selezionare **Ubuntu Server 18,04 LTS**                                                                    |
     | Istanza Spot di Azure            | Selezionare **No**                                                                                         |
     | Dimensione                           | Lascia il valore predefinito                                                                                      |
     | **Account amministratore**      |                                                                                                       |
     | Tipo di autenticazione            | Seleziona **password**                                                                                   |
-    | Username                       | Immettere il nome utente dell'amministratore        |
+    | Nome utente                       | Immettere il nome utente dell'amministratore        |
     | Password                       | Immettere la password amministratore    |
     | Conferma password               | Immettere nuovamente la password amministratore |
 
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Creare un set di scalabilità di macchine virtuali." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Screenshot mostra la scheda creare i concetti di base del set di scalabilità di macchine virtuali." border="true":::
 
 4. Selezionare la scheda **Rete**.
 
@@ -79,7 +79,7 @@ In questa sezione verrà creato un set di scalabilità di macchine virtuali nel 
     | Selezionare un servizio di bilanciamento del carico            | Selezionare **myLoadBalancer** o il servizio di bilanciamento del carico esistente |
     | Selezionare un pool back-end             | Selezionare **myBackendPool** o il pool back-end esistente.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Creare un set di scalabilità di macchine virtuali." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Screenshot mostra la scheda creare i concetti di base del set di scalabilità di macchine virtuali." border="true":::
 
 6. Selezionare la scheda **gestione** .
 

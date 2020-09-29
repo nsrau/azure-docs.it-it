@@ -1,19 +1,19 @@
 ---
 title: includere file
-description: includere file
+description: Includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/25/2020
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: db377a933507f9a25b377ba52ebd956416a1dfd2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328215"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441183"
 ---
 Per il momento, i dischi Ultra presentano limitazioni aggiuntive, come indicato di seguito:
 
@@ -35,7 +35,9 @@ La tabella seguente descrive le aree in cui sono disponibili i dischi Ultra, olt
 |US Gov Arizona     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
 |US Gov Virginia     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
 |Stati Uniti occidentali     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)        |
+|Australia centrale    |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
 |Australia orientale     |Tre zone di disponibilità         |
+|Asia sud-orientale    |Tre zone di disponibilità        |
 |Canada centrale *     |Tre zone di disponibilità          |
 |Stati Uniti centrali     |Tre zone di disponibilità          |
 |Stati Uniti orientali     |Tre zone di disponibilità          |

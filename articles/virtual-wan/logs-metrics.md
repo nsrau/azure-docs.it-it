@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: f0ff647581447ad4436daf6c8b1d2ecbf817f7f8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 78165e9c14d4a83dbc20cbccd2f31dc8ac4c79ed
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983630"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440860"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Metriche e log WAN virtuali di Azure
 
@@ -66,7 +66,7 @@ La procedura seguente consente di individuare e visualizzare le metriche:
 
 4. Nella pagina **metrica** è possibile visualizzare le metriche a cui si è interessati.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="pagina metrica":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Screenshot mostra un riquadro V P N da sito a sito con visualizzazione in monitoraggio di Azure selezionato.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Log di diagnostica
 
@@ -93,15 +93,15 @@ La procedura seguente consente di individuare e visualizzare la diagnostica:
 
 1. Nel portale passare alla risorsa WAN virtuale. Nella sezione **Panoramica** della pagina WAN virtuale del portale selezionare **Essentials** per espandere la visualizzazione e ottenere informazioni sul gruppo di risorse. Copiare le informazioni sul gruppo di risorse.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="pagina metrica":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Screenshot mostra un riquadro V P N da sito a sito con visualizzazione in monitoraggio di Azure selezionato.":::
 
 2. Nella sezione monitoraggio passare al gruppo di risorse. Selezionare **impostazioni di diagnostica**, quindi immettere le informazioni sulle risorse. Si tratta delle informazioni sulle risorse copiate nel passaggio 2 dalla sezione [visualizzare le metriche del gateway](#metrics-steps) , più indietro in questo articolo.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="pagina metrica":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Screenshot mostra un riquadro V P N da sito a sito con visualizzazione in monitoraggio di Azure selezionato.":::
 
 3. Nella pagina risultati selezionare **+ Aggiungi impostazione di diagnostica**, quindi selezionare un'opzione. È possibile scegliere di inviare a Log Analytics, trasmettere a un hub eventi o semplicemente archiviarli in un account di archiviazione.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="pagina metrica":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Screenshot mostra un riquadro V P N da sito a sito con visualizzazione in monitoraggio di Azure selezionato.":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Log Analytics query di esempio
 

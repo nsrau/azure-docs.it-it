@@ -4,16 +4,16 @@ description: Informazioni sui dischi ultra per le macchine virtuali di Azure
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 681804eadc1f710eb5fbf6980fabca4beaaf5439
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e57317dce64b58e5c92684152d840955a30df660
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328217"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441179"
 ---
 # <a name="using-azure-ultra-disks"></a>Uso di Azure ultra Disks
 
@@ -155,7 +155,7 @@ In questa sezione viene illustrata la distribuzione di una macchina virtuale dot
 - Modificare i valori delle **dimensioni del disco personalizzato (GIB)**, **IOPS del disco**e la **velocità effettiva del disco** in uno di loro scelta.
 - Selezionare **OK** in entrambi i pannelli.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot del pannello selezionare una dimensione del disco, disco Ultra selezionato per tipo di archiviazione, altri valori evidenziati.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot del pannello Crea nuovo disco, modifica dimensioni evidenziate.":::
 
 - Continuare con la distribuzione della macchina virtuale, sarà uguale a quella di qualsiasi altra macchina virtuale.
 
@@ -250,7 +250,7 @@ In alternativa, se la macchina virtuale esistente si trova in un'area geografica
 - Modificare il **tipo di account** in **ultra disk**.
 - Modificare i valori delle **dimensioni del disco personalizzato (GIB)**, **IOPS del disco**e la **velocità effettiva del disco** in uno di loro scelta.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot del pannello selezionare una dimensione del disco, disco Ultra selezionato per tipo di archiviazione, altri valori evidenziati.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot del pannello Crea nuovo disco, modifica dimensioni evidenziate.":::
 
 - Selezionare **OK** , quindi selezionare **Crea**.
 - Dopo che si è tornati al pannello del disco, selezionare **Salva**.
@@ -409,4 +409,5 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere [usare i dischi di Azure ultra in Azure Kubernetes Service (anteprima)](../aks/use-ultra-disks.md).
+- [Usare Azure ultra disks nel servizio Azure Kubernetes (anteprima)](../aks/use-ultra-disks.md).
+- [Eseguire la migrazione del disco di log a un disco Ultra](../azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk.md).

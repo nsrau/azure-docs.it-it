@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: 9127df2805a7eef5b119a64fd8d8ccdab52f22f8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883238"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439098"
 ---
 # <a name="train-pytorch-model"></a>Train Pytorch Model
 
@@ -49,7 +49,7 @@ Questo articolo descrive come usare il modulo **Train Pytorch Model** in Azure M
 
 8.  Per **pazienza**, specificare il numero di epoche da arrestare prima di eseguire il training se la perdita di convalida non diminuisce consecutivamente. per impostazione predefinita 3.
 
-9.  Inviare la pipeline. Se il set di dati ha dimensioni maggiori, l'operazione potrebbe richiedere alcuni minuti.
+9.  Inviare la pipeline. Se il set di dati ha dimensioni maggiori, è consigliabile un po' di tempo e le risorse di calcolo GPU sono consigliate.
 
 ## <a name="results"></a>Risultati
 

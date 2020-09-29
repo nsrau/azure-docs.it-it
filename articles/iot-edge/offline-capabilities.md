@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e929463c33603c650bec2e9a49a13dde6965e39f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: bf8b8554aa2ea1d6d06f58f726ca65f77499ec5f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926655"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440041"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Informazioni sulle funzionalità per periodi offline prolungati per i dispositivi IoT Edge, i moduli e i dispositivi figlio
 
@@ -68,7 +68,7 @@ Nelle sezioni seguenti vengono forniti esempi di come dichiarare la relazione pa
 
 #### <a name="option-2-use-the-az-command-line-tool"></a>Opzione 2: Usare lo strumento da riga di comando `az`
 
-Usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) con l'[estensione IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 o più recente), è possibile gestire le relazioni padre-figlio con i sottocomandi [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest). L'esempio seguente usa una query per assegnare tutti i dispositivi non IoT Edge nell'hub come dispositivi figlio di un dispositivo IoT Edge.
+Usando l'[interfaccia della riga di comando di Azure](/cli/azure/) con l'[estensione IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 o più recente), è possibile gestire le relazioni padre-figlio con i sottocomandi [device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity). L'esempio seguente usa una query per assegnare tutti i dispositivi non IoT Edge nell'hub come dispositivi figlio di un dispositivo IoT Edge.
 
 ```azurecli
 # Set IoT Edge parent device
