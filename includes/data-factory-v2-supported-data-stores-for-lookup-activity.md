@@ -1,19 +1,19 @@
 ---
-title: includere file
+title: File di inclusione
 description: connettori supportati per l'attività di ricerca
 services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 12/13/2019
+ms.date: 09/24/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 35997f57b0a66b4f7853ea117519273fd7b6f726
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3678045eae269429909f7ba0e007e13d2b02bc6
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84436206"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91422060"
 ---
 | Category | Archivio dati |
 |:--- |:--- |
@@ -25,6 +25,7 @@ ms.locfileid: "84436206"
 | &nbsp; |[Database di Azure per MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |
 | &nbsp; |[Database di Azure per MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Database di Azure per PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
+| &nbsp; |[Lake Delta Azure Databricks](../articles/data-factory/connector-azure-databricks-delta-lake.md) |
 | &nbsp; |[File di Azure](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Database SQL di Azure](../articles/data-factory/connector-azure-sql-database.md) |
 | &nbsp; |[Istanza gestita di database SQL di Azure](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
