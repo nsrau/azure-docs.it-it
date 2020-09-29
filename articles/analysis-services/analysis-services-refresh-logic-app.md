@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: 7412a28b53f3b17fb888e3877ecbe50a19c4a3d3
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: fd5c4043d417a99c7ffa57534fd7808f1710190a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552238"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448578"
 ---
 # <a name="refresh-with-logic-apps"></a>Eseguire l'aggiornamento con App per la logica
 
@@ -53,9 +53,9 @@ Questo passaggio verrà popolato con l'URL HTTP POST dopo il salvataggio dell'ap
 
 2. Aggiungere un nuovo passaggio e cercare **http**.  
 
-   ![Aggiungi attività HTTP](./media/analysis-services-async-refresh-logic-app/9.png)
+   ![Screenshot della sezione "scegliere un'azione" con il riquadro "HTTP" selezionato.](./media/analysis-services-async-refresh-logic-app/9.png)
 
-   ![Aggiungi attività HTTP](./media/analysis-services-async-refresh-logic-app/10.png)
+   ![Screenshot della finestra "HTTP" con il riquadro "HTTP-HTTP" selezionato.](./media/analysis-services-async-refresh-logic-app/10.png)
 
 3. Selezionare **http** per aggiungere l'azione.
 
@@ -67,7 +67,7 @@ Configurare l'attività HTTP come indicato di seguito:
 |---------|---------|
 |**Metodo**     |POST         |
 |**URI**     | https://*l'area Server*/Servers/*AAS nome server*/models/*il nome del database*/refreshes <br /> <br /> Ad esempio: https: \/ /westus.asazure.Windows.NET/Servers/MyServer/Models/AdventureWorks/refreshes|
-|**Intestazioni**     |   Content-Type, Application/JSON <br /> <br />  ![Intestazioni](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**Intestazioni**     |   Content-Type, Application/JSON <br /> <br />  ![Headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Corpo**     |   Per altre informazioni sulla forma del corpo della richiesta, vedere [aggiornamento asincrono con l'API REST-post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**autenticazione**     |Autenticazione OAuth Active Directory         |
 |**Tenant**     |Compilare il Azure Active Directory TenantId         |
@@ -98,15 +98,15 @@ Se non si prevede di usare uno strumento di orchestrazione, ad esempio Data Fact
 
 Utilizzando l'esempio precedente, eliminare la prima attività e sostituirla con un'attività di **pianificazione** .
 
-![Attività pianifica](./media/analysis-services-async-refresh-logic-app/12.png)
+![Screenshot che mostra la pagina "app per la logica" con il riquadro "Schedule" selezionato.](./media/analysis-services-async-refresh-logic-app/12.png)
 
-![Attività pianifica](./media/analysis-services-async-refresh-logic-app/13.png)
+![Screenshot che mostra la pagina "trigger".](./media/analysis-services-async-refresh-logic-app/13.png)
 
 In questo esempio verrà usata la **ricorrenza**.
 
 Una volta aggiunta l'attività, configurare l'intervallo e la frequenza, quindi aggiungere un nuovo parametro e scegliere **in queste ore**.
 
-![Attività pianifica](./media/analysis-services-async-refresh-logic-app/16.png)
+![Screenshot che mostra la sezione "ricorrenza" con il parametro "at these hours" selezionato.](./media/analysis-services-async-refresh-logic-app/16.png)
 
 Selezionare le ore desiderate.
 

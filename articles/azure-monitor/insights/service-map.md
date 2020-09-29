@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f7268f698dcc26dbe99b517c9dd4584be67c3a82
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825362"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448454"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 
@@ -169,7 +169,7 @@ Alcuni processi svolgono ruoli particolari nei computer: server Web, server appl
 
 Le connessioni a processi e computer non riuscite sono visualizzate nelle mappe di Mapping dei servizi con una linea rossa tratteggiata, che indica se un sistema client non riesce a raggiungere un processo o una porta. Vengono visualizzate le connessioni non riuscite di qualsiasi sistema con un agente di Mapping dei servizi distribuito, a condizione che il sistema corrisponda a quello che esegue la connessione non riuscita. Mapping dei servizi esegue il calcolo di questo processo osservando i socket TCP che non riescono a stabilire una connessione. Questo errore potrebbe essere causato da un firewall, da un errore di configurazione del client o server oppure da un servizio remoto non disponibile.
 
-![Connessioni non riuscite](media/service-map/failed-connections.png)
+![Screenshot di una parte di un Mapping dei servizi evidenziando una linea rossa tratteggiata che indica una connessione non riuscita tra il processo backup.pl e la porta 4475.](media/service-map/failed-connections.png)
 
 Le informazioni sulle connessioni non riuscite facilitano la risoluzione dei problemi, la convalida della migrazione, l'analisi di sicurezza e la comprensione dell'intera architettura. A volte le connessioni non riuscite non offrono informazioni utili, spesso tuttavia indicano direttamente un problema, ad esempio un ambiente di failover che diventa improvvisamente non raggiungibile oppure due livelli applicazione che non comunicano dopo una migrazione cloud.
 
@@ -193,7 +193,7 @@ I gruppi di porte di server sono costituiti da caselle che rappresentano le port
 
 Facendo clic sui puntini di sospensione (...) in alto a destra di un server, verrà visualizzato il menu a comparsa per quel server.
 
-![Connessioni non riuscite](media/service-map/context-menu.png)
+![Screenshot che mostra il menu di scelta rapida aperto per un server in Mapping dei servizi. Nel menu sono disponibili le opzioni Carica mappa server e Mostra collegamenti automatici.](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Caricare la mappa del server
 
@@ -258,7 +258,7 @@ L'integrazione del rilevamento delle modifiche in Mapping dei servizi è automat
 
 Il riquadro di **rilevamento modifiche del computer** elenca tutte le modifiche a partire dalla più recente e un collegamento per eseguire una ricerca nel log per ulteriori dettagli.
 
-![Riquadro di rilevamento modifiche del computer](media/service-map/change-tracking.png)
+![Screenshot del riquadro Rilevamento modifiche del computer Mapping dei servizi.](media/service-map/change-tracking.png)
 
 L'immagine seguente è una vista dettagliata di un evento ConfigurationChange che potrebbe essere visualizzata dopo aver selezionato **Mostra in Ricerca log**.
 
@@ -300,7 +300,7 @@ L'integrazione di Mapping dei servizi con Gestione aggiornamenti è automatica q
 
 Il pannello relativo agli **aggiornamenti del computer** mostra i dati provenienti dalla soluzione di gestione degli aggiornamenti relativi al server selezionato. Il riquadro elenca un riepilogo degli aggiornamenti mancanti per il server durante l'intervallo di tempo selezionato.
 
-![Riquadro di rilevamento modifiche del computer](media/service-map/machine-updates.png)
+![Screenshot del riquadro aggiornamenti del computer in Mapping dei servizi.](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
 
@@ -571,7 +571,7 @@ Potrebbe essere utile per l'utente installare prima [la versione più recente de
 
 La tabella seguente elenca i codici e le risoluzioni consigliate.
 
-| Codice | Descrizione | Risoluzione |
+| Codice | Descrizione | Soluzione |
 |:--|:--|:--|
 | 0x17 | Il programma di installazione della libreria richiede un aggiornamento di Windows che non è stato installato. | Cercare nel log del programma di installazione della libreria più recente.<br><br>Se un riferimento a `Windows8.1-KB2999226-x64.msu` è seguito da una riga `Error 0x80240017: Failed to execute MSU package,` , non si dispone dei prerequisiti per l'installazione di KB2999226. Seguire le istruzioni riportate nella sezione relativa ai prerequisiti nell'articolo [Universal C Runtime in Windows](https://support.microsoft.com/kb/2999226). Potrebbe essere necessario eseguire Windows Update e riavviare più volte per installare i prerequisiti.<br><br>Eseguire nuovamente il programma di installazione di Microsoft Dependency Agent. |
 

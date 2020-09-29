@@ -1,6 +1,6 @@
 ---
-title: Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure | Microsoft Docs
-description: Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
+title: Monitoraggio dell'integrità dei file nel centro sicurezza di Azure | Microsoft Docs
+description: Informazioni su come configurare il monitoraggio dell'integrità dei file nel centro sicurezza di Azure usando questa procedura dettagliata.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6390180052cb21bb0d2230a066b9f10d4eb99ca1
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: da0eeafc9d92bf08a2475d7676f1da8a4fa30da5
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447333"
+ms.locfileid: "91461409"
 ---
-# <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
-Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
+# <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel centro sicurezza di Azure
+Informazioni su come configurare il monitoraggio dell'integrità dei file nel centro sicurezza di Azure usando questa procedura dettagliata.
 
 
 ## <a name="availability"></a>Disponibilità
@@ -31,7 +31,7 @@ Questa procedura dettagliata fornisce informazioni su come configurare il monito
 |Stato versione:|Disponibile a livello generale|
 |Prezzi|Richiede [Azure Defender per i server](defender-for-servers-introduction.md)|
 |Ruoli e autorizzazioni necessari:|Il **proprietario dell'area di lavoro** può abilitare/disabilitare FIM (per altre informazioni, vedere [ruoli di Azure per log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>Il **lettore** può visualizzare i risultati.|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Gov per la Cina, altri gov|
+|Cloud:|![Sì ](./media/icons/yes-icon.png) cloud commerciali<br>![Sì ](./media/icons/yes-icon.png) US gov<br>![Nessun ](./media/icons/no-icon.png) gov per la Cina, altro gov<br>Supportato solo nelle aree in cui è disponibile la soluzione di rilevamento modifiche di automazione di Azure.<br>Vedere [aree supportate per l'area di lavoro log Analytics collegata](../automation/how-to/region-mappings.md).<br>[Altre informazioni sul rilevamento delle modifiche](../automation/change-tracking.md) |
 |||
 
 
@@ -39,9 +39,9 @@ Questa procedura dettagliata fornisce informazioni su come configurare il monito
 
 
 ## <a name="what-is-fim-in-security-center"></a>Cos'è il monitoraggio dell'integrità dei file nel Centro sicurezza?
-Il monitoraggio dell'integrità dei file, detto anche monitoraggio delle modifiche, esamina i file e i registri del sistema operativo, il software delle applicazioni e altri elementi alla ricerca di modifiche che potrebbero indicare un attacco. Viene usato un metodo di confronto per determinare se lo stato corrente del file è diverso rispetto all'ultima analisi. È possibile sfruttare questo confronto per determinare se sono state apportate modifiche sospette o valide ai file.
+Il monitoraggio dell'integrità dei file (FIM), noto anche come monitoraggio delle modifiche, esamina i file e i registri del sistema operativo, il software applicativo e altri per le modifiche che potrebbero indicare un attacco. Viene usato un metodo di confronto per determinare se lo stato corrente del file è diverso rispetto all'ultima analisi. È possibile sfruttare questo confronto per determinare se sono state apportate modifiche sospette o valide ai file.
 
-Il monitoraggio dell'integrità dei file del Centro sicurezza convalida l'integrità dei file Windows, del registro di sistema Windows e dei file Linux. Selezionare i file che si desidera monitorare, abilitando il monitoraggio dell'integrità dei file. Il Centro sicurezza monitora i file nei quali è abilitato il monitoraggio alla ricerca di attività come:
+Il monitoraggio dell'integrità dei file del Centro sicurezza convalida l'integrità dei file di Windows, del registro di sistema di Windows e dei file Linux. Selezionare i file che si desidera monitorare, abilitando il monitoraggio dell'integrità dei file. Il Centro sicurezza monitora i file nei quali è abilitato il monitoraggio alla ricerca di attività come:
 
 - Rimozione e creazione di file e registri di sistema
 - Modifiche nei file (modifiche nelle dimensioni dei file, elenchi di controllo degli accessi e hash del contenuto)
@@ -95,45 +95,43 @@ Il Centro sicurezza fornisce l'elenco seguente di elementi consigliati da monito
 |||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile|
 
 
-## <a name="using-file-integrity-monitoring"></a>Uso del monitoraggio dell'integrità dei file
+## <a name="enable-file-integrity-monitoring"></a>Abilita il monitoraggio dell'integrità dei file 
 
-1. Aprire il dashboard di **Azure Defender** .
+1. Dall'area **protezione avanzata** del dashboard di **Azure Defender** selezionare **monitoraggio dell'integrità dei file**.
 
-1. Dall'area **protezione avanzata** selezionare monitoraggio dell' **integrità dei file**.
+   :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Avvio di FIM" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Avvio di FIM" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
+    Verrà visualizzata la pagina configurazione **Monitoraggio integrità file** .
+
+    Per ogni area di lavoro sono disponibili le informazioni seguenti:
+
+    - Numero totale di modifiche che sono state effettuate nell'ultima settimana (potrebbe essere visualizzato un trattino "-" se il monitoraggio dell'integrità dei file non è abilitato nell'area di lavoro)
+    - Numero totale di computer e macchine virtuali che creano report nell'area di lavoro
+    - Posizione geografica dell'area di lavoro
+    - Sottoscrizione di Azure in cui si trova l'area di lavoro
+
+1. Usare questa pagina per:
+
+    - Accedere e visualizzare lo stato e le impostazioni di ogni area di lavoro
+
+    - ![Icona del piano ][4] di aggiornamento aggiornare l'area di lavoro per usare Azure Defender. Questa icona indica che l'area di lavoro o la sottoscrizione non è protetta da Azure Defender. Per usare le funzionalità FIM, la sottoscrizione deve essere protetta da Azure Defender. [Altre informazioni](security-center-pricing.md)
+
+    - ![Icona Abilita][3] Abilitare FIM in tutti i computer nell'area di lavoro e configurare le opzioni FIM. Questa icona indica che FIM non è abilitato per l'area di lavoro. usare questo pulsante per:
+
+        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Avvio di FIM":::
 
 
-    Si apre **Monitoraggio dell'integrità dei file**.
-    ![Dashboard Centro sicurezza][2]
+    > [!TIP]
+    > Se non è disponibile alcun pulsante Abilita o aggiorna e lo spazio è vuoto, significa che FIM è già abilitato nell'area di lavoro.
 
-Per ogni area di lavoro sono disponibili le informazioni seguenti:
 
-- Numero totale di modifiche che sono state effettuate nell'ultima settimana (potrebbe essere visualizzato un trattino "-" se il monitoraggio dell'integrità dei file non è abilitato nell'area di lavoro)
-- Numero totale di computer e macchine virtuali che creano report nell'area di lavoro
-- Posizione geografica dell'area di lavoro
-- Sottoscrizione di Azure in cui si trova l'area di lavoro
+1. Selezionare **Abilita**. Vengono visualizzati i dettagli dell'area di lavoro, incluso il numero di computer Windows e Linux nell'area di lavoro.
 
-Per un'area di lavoro potrebbero essere visualizzati anche i pulsanti seguenti:
-
-- ![Icona Abilita][3] Indica che il monitoraggio dell'integrità dei file non è abilitato per l'area di lavoro. Selezionando l'area di lavoro è possibile abilitare il monitoraggio dell'integrità dei file in tutti i computer dell'area di lavoro.
-- ![Icona del piano di aggiornamento][4] Indica che l'area di lavoro o la sottoscrizione non è protetta da Azure Defender. Per usare la funzionalità FIM, è necessario che la sottoscrizione sia protetta da Azure Defender.  Selezionando l'area di lavoro è possibile eseguire l'aggiornamento.
-- L'assenza di pulsanti indica che il monitoraggio dell'integrità dei file è già abilitato nell'area di lavoro.
-
-In **monitoraggio dell'integrità dei file**è possibile selezionare un'area di lavoro per abilitare FIM per l'area di lavoro, visualizzare il dashboard di monitoraggio dell'integrità dei file per l'area di lavoro o [aggiornare](security-center-pricing.md) l'area di lavoro per l'uso di Azure Defender.
-
-## <a name="enable-fim"></a>Abilitare il monitoraggio dell'integrità dei file
-Per abilitare il monitoraggio dell'integrità dei file in un'area di lavoro:
-
-1. In **Monitoraggio dell'integrità dei file** selezionare un'area di lavoro con il pulsante **Abilita**.
-
-1. Viene aperto **Abilita il monitoraggio dell'integrità dei file**, che visualizza il numero di computer Windows e Linux nell'area di lavoro.
-
-   ![Abilita il monitoraggio dell'integrità dei file][5]
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Avvio di FIM":::
 
    Sono elencate anche le impostazioni consigliate per Windows e Linux.  Espandere **File Windows**, **Registro di sistema** e **File Linux** per visualizzare l'elenco completo di elementi consigliati.
 
-1. Deselezionare eventuali entità consigliate a cui non si desidera applicare il monitoraggio dell'integrità dei file.
+1. Deselezionare le caselle di controllo per tutte le entità consigliate che non si desidera vengano monitorate da FIM.
 
 1. Selezionare **Applica il monitoraggio dell'integrità dei file** per abilitare il monitoraggio dell'integrità dei file.
 
@@ -141,10 +139,12 @@ Per abilitare il monitoraggio dell'integrità dei file in un'area di lavoro:
 > È possibile modificare le impostazioni in qualsiasi momento. Per altre informazioni, vedere [Modificare le entità monitorate](#edit-monitored-entities) di seguito.
 
 
-## <a name="view-the-fim-dashboard"></a>Visualizzare il dashboard Monitoraggio dell'integrità dei file
-Viene visualizzato il dashboard **Monitoraggio dell'integrità dei file** per le aree di lavoro in cui è abilitata la funzionalità. Il dashboard viene aperto dopo che il monitoraggio dell'integrità dei file è stato abilitato in un'area di lavoro o quando nella finestra **Monitoraggio dell'integrità dei file** viene selezionata un'area di lavoro in cui è già abilitata la funzionalità.
 
-![Dashboard Monitoraggio dell'integrità dei file][6]
+## <a name="audit-monitored-workspaces"></a>Controllare le aree di lavoro monitorate 
+
+Viene visualizzato il dashboard **Monitoraggio dell'integrità dei file** per le aree di lavoro in cui è abilitata la funzionalità. Il dashboard FIM viene aperto dopo l'abilitazione di FIM in un'area di lavoro o quando si seleziona un'area di lavoro nella finestra **Monitoraggio integrità file** in cui è già abilitato FIM.
+
+:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="Avvio di FIM":::
 
 Il dashboard FIM per un'area di lavoro Visualizza i dettagli seguenti:
 
@@ -153,11 +153,11 @@ Il dashboard FIM per un'area di lavoro Visualizza i dettagli seguenti:
 - Suddivisione per tipo di modifica (file, registro di sistema)
 - Suddivisione per categoria di modifica (modifica, aggiunta, rimozione)
 
-Selezionando Filtro nella parte superiore del dashboard è possibile applicare il periodo di tempo per cui si desidera visualizzare le modifiche.
+Selezionare **filtro** nella parte superiore del dashboard per modificare il periodo di tempo per cui vengono visualizzate le modifiche.
 
-![Filtro del periodo di tempo][7]
+:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Avvio di FIM":::
 
-La scheda **Computer** (mostrata sopra) elenca tutti i computer che creano report per questa area di lavoro. Per ogni computer, il dashboard elenca:
+Nella scheda **Server** sono elencati i computer che inviano report a questa area di lavoro. Per ogni computer, il dashboard elenca:
 
 - Il numero totale di modifiche che sono state effettuate durante il periodo di tempo selezionato
 - Una suddivisione delle modifiche totali come modifiche al file o al registro di sistema
@@ -181,7 +181,7 @@ La scheda **Modifiche** (mostrata sotto) elenca tutte le modifiche per l'area di
 
 ## <a name="edit-monitored-entities"></a>Modificare le entità monitorate
 
-1. Tornare al **dashboard Monitoraggio dell'integrità dei file** e selezionare **Impostazioni**.
+1. Tornare al **dashboard di monitoraggio dell'integrità dei file** e selezionare **Impostazioni**.
 
    ![Impostazioni][11]
 
@@ -213,12 +213,12 @@ In **Modifica Registro di sistema di Windows per Rilevamento modifiche** è poss
 4. Nella pagina **Aggiungi** digitare le informazioni richieste e selezionare **Salva**.
 
 ## <a name="disable-monitored-entities"></a>Disabilitare le entità monitorate
-1. Tornare al dashboard **Monitoraggio dell'integrità dei file**.
+1. Tornare al dashboard di **monitoraggio dell'integrità dei file** .
 2. Selezionare un'area di lavoro in cui la funzionalità è attualmente abilitata. Un'area di lavoro è abilitata per il monitoraggio dell'integrità dei file se manca il pulsante Abilita o Piano di aggiornamento.
 
    ![Selezionare un'area di lavoro in cui la funzionalità è abilitata][16]
 
-3. In Monitoraggio dell'integrità dei file selezionare **Impostazioni**.
+3. In Monitoraggio integrità file selezionare **Impostazioni**.
 
    ![Selezionare Impostazioni][17]
 
@@ -243,9 +243,9 @@ Usare i caratteri jolly per semplificare le attività di rilevamento nelle direc
 ## <a name="disable-fim"></a>Disabilitare il monitoraggio dell'integrità dei file
 È possibile disabilitare il monitoraggio dell'integrità dei file. Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. La disabilitazione rimuove la soluzione Rilevamento modifiche dall'area di lavoro selezionata.
 
-1. Per disabilitare il monitoraggio dell'integrità dei file, tornare al dashboard **Monitoraggio dell'integrità dei file**.
+1. Per disabilitare FIM, tornare al dashboard di **monitoraggio dell'integrità dei file** .
 2. Selezionare un'area di lavoro.
-3. In **Monitoraggio dell'integrità dei file** selezionare **Disabilita**.
+3. In **Monitoraggio integrità file**selezionare **Disabilita**.
 
    ![Disabilitare il monitoraggio dell'integrità dei file][20]
 
@@ -260,11 +260,9 @@ In questo articolo si è appreso come usare il monitoraggio dell'integrità dei 
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png
-[2]: ./media/security-center-file-integrity-monitoring/file-integrity-monitoring.png
 [3]: ./media/security-center-file-integrity-monitoring/enable.png
 [4]: ./media/security-center-file-integrity-monitoring/upgrade-plan.png
 [5]: ./media/security-center-file-integrity-monitoring/enable-fim.png
-[6]: ./media/security-center-file-integrity-monitoring/fim-dashboard.png
 [7]: ./media/security-center-file-integrity-monitoring/filter.png
 [8]: ./media/security-center-file-integrity-monitoring/log-search.png
 [9]: ./media/security-center-file-integrity-monitoring/changes-tab.png

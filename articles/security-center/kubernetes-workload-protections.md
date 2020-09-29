@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 138b3b35633b432193a1972421f05d0a8e52b90a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8a387adde6c74b8eb1ff950c5e6b5183e43d1f4f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301361"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448663"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteggere i carichi di lavoro Kubernetes
 
@@ -58,7 +58,7 @@ Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili qu
 
     1. Da uno dei controlli di sicurezza **, selezionare la**raccomandazione per visualizzare le risorse in cui è possibile installare il componente aggiuntivo e selezionare Correggi. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Pagina dei dettagli delle raccomandazioni per * * il componente aggiuntivo criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Raccomandazione * * il componente aggiuntivo criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster * *":::
 
 1. Circa 30 minuti dopo che l'installazione del componente aggiuntivo è stata completata, il Centro sicurezza Mostra lo stato di integrità dei cluster per le seguenti raccomandazioni, ciascuna nel controllo di sicurezza pertinente, come illustrato:
 
@@ -99,7 +99,7 @@ Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili qu
 
     1. Aprire la pagina dei dettagli delle raccomandazioni e selezionare **Nega**:
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opzione Deny per il parametro di criteri di Azure":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Raccomandazione * * il componente aggiuntivo criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster * *":::
 
         Verrà aperto il riquadro in cui è stato impostato l'ambito. 
 
@@ -113,7 +113,7 @@ Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili qu
 
 1. Quando si visualizza una raccomandazione dal set di protezione del carico di lavoro, verrà visualizzato il numero di Pod interessati ("componenti Kubernetes") elencati insieme al cluster. Per un elenco di Pod specifici, selezionare il cluster e quindi fare clic su **azione**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Visualizzazione dei Pod interessati per una raccomandazione K8s"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Raccomandazione * * il componente aggiuntivo criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster * *"::: 
 
 1. Per testare l'applicazione, usare le due distribuzioni di Kubernetes seguenti:
 

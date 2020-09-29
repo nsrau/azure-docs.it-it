@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 677cf60ff3e614fd1486445786154fbf026b7cd9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/28/2020
+ms.openlocfilehash: 9f5f4b2b069ebc65430fba4bc31a9891ed61fedf
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898694"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450106"
 ---
 # <a name="convert-to-image-directory"></a>Convert to Image Directory
 
@@ -22,9 +22,10 @@ Questo articolo descrive come usare il modulo Convert to Image directory per con
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Come usare Convert to Image directory  
 
-1.  Aggiungere il modulo **Convert to Image directory** all'esperimento. È possibile trovare questo modulo nella categoria ' Visione artificiale/immagine trasformazione dati ' nell'elenco dei moduli. 
+1.  Aggiungere il modulo **Convert to Image directory** nell'area di disegno. È possibile trovare questo modulo nella categoria ' Visione artificiale/immagine trasformazione dati ' nell'elenco dei moduli. 
 
-2.  [Registrare un set di dati dell'immagine](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) e connetterlo alla porta di input del modulo. Assicurarsi che sia presente un'immagine nel set di dati di input. 
+2.  L'input del modulo **Convert to Image directory** deve essere un set di dati di file. [Registrare un set di dati dell'immagine](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) e connetterlo alla porta di input del modulo. Assicurarsi che sia presente un'immagine nel set di dati di input. Attualmente la finestra di progettazione non supporta il set di dati di visualizzazione immagine.
+ 
     Sono supportati i formati di set di dati seguenti:
 
     - File compresso in queste estensioni:'. zip ','. tar ','. gz ','. bz2'.
@@ -35,20 +36,24 @@ Questo articolo descrive come usare il modulo Convert to Image directory per con
     
 
     > [!NOTE]
-    > Se usa il set di dati dell'immagine nell'apprendimento supervisionato, l'etichetta è obbligatoria.
-    > Per l'attività di classificazione delle immagini, l'etichetta può essere generata come immagine ' Category ' nell'output del modulo se il set di dati dell'immagine è organizzato nel formato torchvision ImageFolder. In caso contrario, solo le immagini vengono salvate senza etichetta. Di seguito è riportato un esempio di come è possibile organizzare il set di dati dell'immagine per ottenere l'etichetta, usare la categoria Image come nome della sottocartella. Per ulteriori informazioni, fare riferimento ai set di dati [torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) .
+    > - Se si usa il set di dati dell'immagine nell'apprendimento supervisionato, è necessario specificare l'etichetta del set di dati di training.
+    > - Per l'attività di classificazione delle immagini, l'etichetta può essere generata come immagine ' Category ' nell'output del modulo se il set di dati dell'immagine è organizzato nel formato torchvision ImageFolder. In caso contrario, solo le immagini vengono salvate senza etichetta. Di seguito è riportato un esempio di come è possibile organizzare il set di dati dell'immagine per ottenere l'etichetta, usare la categoria Image come nome della sottocartella. 
+    > - Non è necessario caricare lo stesso numero di immagini in ogni cartella di categoria.
+    > - Sono supportate le immagini con queste estensioni (in lettere minuscole):'. jpg ','. jpeg ','. png ','. ppm ','. bmp ','. PGM ','. TIF ','. TIFF ','. webp '. È anche possibile avere più tipi di immagini in una cartella.    
+    > - Per ulteriori informazioni, fare riferimento ai set di dati [torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) .
     >
     > ```
-    > root/dog/xxx.png
-    > root/dog/xxy.png
-    > root/dog/xxz.png
+    > Your_image_folder_name/Category_1/xxx.png
+    > Your_image_folder_name/Category_1/xxy.jpg
+    > Your_image_folder_name/Category_1/xxz.jpeg
     >
-    > root/cat/123.png
-    > root/cat/nsdf3.png
-    > root/cat/asd932_.png
+    > Your_image_folder_name/Category_2/123.png
+    > Your_image_folder_name/Category_2/nsdf3.png
+    > Your_image_folder_name/Category_2/asd932_.png
     > ```
-
-3.  Inviare la pipeline.
+    > - Se usa il set di dati dell'immagine per il punteggio, il set di dati del file di input di questo modulo deve contenere immagini non classificate.
+    
+3.  Inviare la pipeline. Questo modulo può essere eseguito su GPU o CPU.
 
 ## <a name="results"></a>Risultati
 

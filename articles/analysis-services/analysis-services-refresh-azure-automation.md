@@ -6,12 +6,12 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 31dc1973af42a1785a2a65cb1887f479e44af162
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553904"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448600"
 ---
 # <a name="refresh-with-azure-automation"></a>Eseguire l'aggiornamento con Automazione di Azure
 
@@ -54,15 +54,15 @@ L'entità servizio creata deve avere le autorizzazioni di amministratore del ser
 
 1. Nell'account di automazione creare una risorsa **credenziali** che verrà usata per archiviare in modo sicuro l'entità servizio.
 
-    ![Creare credenziali](./media/analysis-services-refresh-azure-automation/6.png)
+    ![Screenshot che mostra la pagina "credenziali" con l'azione "Aggiungi credenziale" selezionata.](./media/analysis-services-refresh-azure-automation/6.png)
 
 2. Immettere i dettagli per la credenziale. In **nome utente**immettere l'ID applicazione dell'entità servizio (AppID) e quindi in **password**immettere il segreto dell'entità servizio.
 
     ![Creare credenziali](./media/analysis-services-refresh-azure-automation/7.png)
 
-3. Importare il Runbook di automazione
+3. Importare il Runbook di automazione.
 
-    ![Importare Runbook](./media/analysis-services-refresh-azure-automation/8.png)
+    ![Screenshot che mostra la pagina "manuali operativi" con l'azione "importa un Runbook" selezionata.](./media/analysis-services-refresh-azure-automation/8.png)
 
 4. Individuare il file di [Refresh-Model.ps1](#sample-powershell-runbook) , specificare un **nome** e una **Descrizione**, quindi fare clic su **Crea**.
 
@@ -80,7 +80,7 @@ L'entità servizio creata deve avere le autorizzazioni di amministratore del ser
 
 6. Testare il Runbook facendo clic su **Avvia**.
 
-    ![Avviare il Runbook](./media/analysis-services-refresh-azure-automation/11.png)
+    ![Screenshot che mostra la pagina "Overview" con l'azione "Start" selezionata.](./media/analysis-services-refresh-azure-automation/11.png)
 
 7. Compilare i parametri **DatabaseName**, **ANALYSISSERVER**e **REFRESHTYPE** e quindi fare clic su **OK**. Il parametro **WEBHOOKDATA** non è obbligatorio quando il Runbook viene eseguito manualmente.
 

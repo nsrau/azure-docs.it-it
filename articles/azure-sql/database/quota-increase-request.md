@@ -4,24 +4,24 @@ description: Questa pagina descrive come creare una richiesta di supporto per au
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.topic: conceptual
+ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 06/04/2020
-ms.openlocfilehash: 4557d2ecdb49cd50396986f0ea30277f50ecf9f7
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cfcdd143a26d36ed3c4646122fce7c19c41976d0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987286"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448842"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Aumento della quota della richiesta per database SQL di Azure e SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Questo articolo illustra come richiedere un aumento della quota per il database SQL di Azure e Azure SQL Istanza gestita. Viene inoltre illustrato come abilitare l'accesso alla sottoscrizione a un'area.
 
-## <a name="create-a-new-support-request"></a><a id="newquota"></a>Crea una nuova richiesta di supporto
+## <a name="create-a-new-support-request"></a><a id="newquota"></a> Crea una nuova richiesta di supporto
 
 Usare la procedura seguente per creare una nuova richiesta di supporto dal portale di Azure per il database SQL.
 
@@ -56,7 +56,7 @@ Usare la procedura seguente per creare una nuova richiesta di supporto dal porta
 
 Se si fa clic su **invio dettagli** , viene visualizzata la finestra **Dettagli quota** che consente di aggiungere ulteriori informazioni. Le sezioni seguenti descrivono le diverse opzioni per il **database SQL** e i tipi di quota **istanza gestita di database SQL** .
 
-## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a>Tipi di quota del database SQL
+## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a> Tipi di quota del database SQL
 
 Le sezioni seguenti descrivono le opzioni di aumento della quota per i tipi di quota del **database SQL** :
 
@@ -93,7 +93,7 @@ Seguire i passaggi seguenti per richiedere un aumento del numero di server per s
 
 Per altre informazioni, vedere [limiti delle risorse del database SQL e governance delle risorse](resource-limits-logical-server.md).
 
-### <a name="enable-subscription-access-to-a-region"></a><a id="region"></a>Abilitare l'accesso alla sottoscrizione a un'area
+### <a name="enable-subscription-access-to-a-region"></a><a id="region"></a> Abilitare l'accesso alla sottoscrizione a un'area
 
 Alcuni tipi di offerte non sono disponibili in ogni area. È possibile che venga visualizzato un errore simile al seguente:
 
@@ -107,9 +107,9 @@ Se la sottoscrizione deve accedere a una determinata area, selezionare l'opzione
 
 1. Immettere il **modello di acquisto**e i dettagli di **utilizzo previsti** .
 
-   ![Accesso all'area richiesta](./media/quota-increase-request/quota-details-whitelisting.png)
+   ![Accesso all'area richiesta](./media/quota-increase-request/quota-request.png)
 
-### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a>Abilitare l'accesso alla serie M in un'area
+### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a> Abilitare l'accesso alla serie M in un'area
 
 Per abilitare l'hardware della serie M per una sottoscrizione e un'area, è necessario aprire una richiesta di supporto.
 
@@ -118,9 +118,9 @@ Per abilitare l'hardware della serie M per una sottoscrizione e un'area, è nece
 1. Nell'elenco **selezionare un percorso** selezionare l'area di Azure da usare. La quota è per sottoscrizione in ogni area.
 
 
-   ![Accesso all'area richiesta](./media/quota-increase-request/quota-m-series.png)
+   ![Richiedere l'accesso all'area della serie M](./media/quota-increase-request/quota-m-series.png)
 
-## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a>Tipo di quota SQL Istanza gestita
+## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> Tipo di quota SQL Istanza gestita
 
 Per il tipo di quota **SQL istanza gestita** , attenersi alla procedura seguente:
 

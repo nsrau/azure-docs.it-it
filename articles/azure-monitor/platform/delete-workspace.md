@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: ba079e76ea806bb12bff16eb636d0fa21b0e152b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461732"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448523"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminare e ripristinare l'area di lavoro di Azure Log Analytics
 
@@ -86,11 +86,11 @@ Quando si elimina un'area di lavoro di Log Analytics accidentalmente o intenzion
 2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Aree di lavoro di Log Analytics**. Viene visualizzato l'elenco delle aree di lavoro presenti nell'ambito selezionato.
 3. Fare clic su **Ripristina** nel menu in alto a sinistra per aprire una pagina con le aree di lavoro in stato di eliminazione temporanea che è possibile ripristinare.
 
-   ![Recuperare l'area di lavoro](media/delete-workspace/recover-menu.png)
+   ![Screenshot della schermata aree di lavoro Log Analytics in portale di Azure con ripristino evidenziato nella barra dei menu.](media/delete-workspace/recover-menu.png)
 
 4. Selezionare l'area di lavoro e fare clic su **Ripristina** per ripristinare l'area di lavoro.
 
-   ![Recuperare l'area di lavoro](media/delete-workspace/recover-workspace.png)
+   ![Screenshot della finestra di dialogo Ripristina aree di lavoro eliminate Log Analytics in portale di Azure con un'area di lavoro evidenziata e il pulsante Ripristina selezionato.](media/delete-workspace/recover-workspace.png)
 
 
 ### <a name="powershell"></a>PowerShell

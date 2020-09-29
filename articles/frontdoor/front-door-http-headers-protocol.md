@@ -9,29 +9,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 6864a854215d899043607b3d01cffbd343ee7751
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e72443e33d1b6f097f61f4c027b5f547b43ee2a9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399515"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449219"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Supporto del protocollo per le intestazioni HTTP nella porta anteriore di Azure
 Questo articolo illustra il protocollo supportato da front-end con parti del percorso di chiamata (vedere l'immagine). Le sezioni seguenti forniscono altre informazioni sulle intestazioni HTTP supportate dalla porta anteriore.
 
-![Protocollo intestazioni HTTP front door di Azure][1]
+:::image type="content" source="./media/front-door-http-headers-protocol/front-door-protocol-summary.png" alt-text="Protocollo intestazioni HTTP front door di Azure":::
 
 >[!IMPORTANT]
 >La porta anteriore non certifica le intestazioni HTTP che non sono documentate qui.
 
 ## <a name="client-to-front-door"></a>Da client a Frontdoor
-La porta anteriore accetta la maggior parte delle intestazioni dalla richiesta in ingresso senza modificarle. Alcune intestazioni riservate vengono rimosse dalla richiesta in ingresso, se inviate, incluse le intestazioni con il prefisso X-FD-*.
+La porta anteriore accetta la maggior parte delle intestazioni per la richiesta in ingresso senza modificarle. Alcune intestazioni riservate vengono rimosse dalla richiesta in ingresso, se inviate, incluse le intestazioni con il prefisso X-FD-*.
 
 ## <a name="front-door-to-backend"></a>Da Frontdoor a back-end
 
-La porta anteriore include le intestazioni di una richiesta in ingresso, a meno che non vengano rimosse a causa di restrizioni. La porta anteriore aggiunge anche le intestazioni seguenti:
+La porta anteriore include le intestazioni per una richiesta in ingresso, a meno che non vengano rimosse a causa di restrizioni. La porta anteriore aggiunge anche le intestazioni seguenti:
 
 | Intestazione  | Esempio e descrizione |
 | ------------- | ------------- |
@@ -52,12 +52,9 @@ Tutte le intestazioni inviate alla porta anteriore dal back-end vengono passate 
 
 | Intestazione  | Esempio |
 | ------------- | ------------- |
-| X-Azure-Ref |  *X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Si tratta di una stringa di riferimento univoca che identifica una richiesta servita da Frontdoor. Questo è fondamentale per la risoluzione dei problemi perché viene usato per la ricerca nei log di accesso.|
+| X-Azure-Ref |  *X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Si tratta di una stringa di riferimento univoca che identifica una richiesta servita da sportello anteriore, che è fondamentale per la risoluzione dei problemi, perché viene usata per la ricerca nei log di accesso.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare una frontdoor](quickstart-create-front-door.md)
+- [Creare una porta anteriore](quickstart-create-front-door.md)
 - [Funzionamento della porta anteriore](front-door-routing-architecture.md)
-
-<!--Image references-->
-[1]: ./media/front-door-http-headers-protocol/front-door-protocol-summary.png

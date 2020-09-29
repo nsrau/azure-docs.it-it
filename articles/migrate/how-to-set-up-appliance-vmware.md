@@ -3,12 +3,12 @@ title: Configurare un'appliance Azure Migrate per VMware
 description: Informazioni su come configurare un appliance Azure Migrate per la valutazione e la migrazione di macchine virtuali VMware.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: c9a9f1567f984fc5770b47d3998610cb69643360
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9a4e652180b236262ea57ae49d35410ebfbdc927
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923619"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448652"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurare un'appliance per le macchine virtuali VMware
 
@@ -32,23 +32,23 @@ Per configurare l'appliance usando un modello OVA è necessario:
 - Creare l'appliance e verificare che riesca a connettersi allo strumento Valutazione server di Azure Migrate.
 - Configurare il dispositivo per la prima volta e registrarlo con il progetto Azure Migrate usando la chiave del progetto Azure Migrate.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Genera la chiave del progetto Azure Migrate
+### <a name="generate-the-azure-migrate-project-key"></a>Generare la chiave del progetto Azure Migrate
 
 1. In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** selezionare **Individua**.
 2. In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con VMware vSphere Hypervisor**.
-3. In **1: generare Azure migrate chiave del progetto**, specificare un nome per il dispositivo Azure migrate che verrà configurato per l'individuazione delle macchine virtuali VMware. il nome deve essere alfanumerico con un massimo di 14 caratteri.
-1. Fare clic su **Genera chiave** per avviare la creazione delle risorse di Azure necessarie. Non chiudere la pagina Discover machines durante la creazione delle risorse.
-1. Una volta completata la creazione delle risorse di Azure, viene generata una **chiave del progetto Azure migrate** .
-1. Copiare la chiave perché sarà necessaria per completare la registrazione dell'appliance durante la relativa configurazione.
+3. In **1: Generare la chiave del progetto Azure Migrate** specificare un nome per l'appliance Azure Migrate che verrà configurata per l'individuazione delle macchine virtuali VMware. Il nome deve essere costituito da un massimo di 14 caratteri alfanumerici.
+1. Fare clic su **Genera chiave** per avviare la creazione delle risorse di Azure necessarie. Non chiudere la pagina Individua macchine virtuali durante la creazione delle risorse.
+1. Al termine della creazione delle risorse di Azure, viene generata una **Chiave progetto Azure Migrate**.
+1. Copiare la chiave perché sarà necessaria per completare la registrazione dell'appliance durante la configurazione.
 
 ### <a name="download-the-ova-template"></a>Scaricare il modello OVA
-In **2: scaricare Azure migrate Appliance**, selezionare il. File OVA e fare clic su **download**. 
+In **2: Scaricare l'appliance di Azure Migrate** selezionare il file OVA e fare clic su **Scarica**. 
 
 
-   ![Selezioni per le macchine virtuali di individuazione](./media/tutorial-assess-vmware/servers-discover.png)
+   ![Selezioni per Individua macchine virtuali](./media/tutorial-assess-vmware/servers-discover.png)
 
 
-   ![Selezioni per genera chiave](./media/tutorial-assess-vmware/generate-key-vmware.png)
+   ![Selezioni per Genera chiave](./media/tutorial-assess-vmware/generate-key-vmware.png)
 
 ### <a name="verify-security"></a>Verificare la sicurezza
 
@@ -57,7 +57,7 @@ Prima di distribuire il file OVA, verificarne la sicurezza.
 1. Nel computer in cui è stato scaricato il file aprire una finestra di comando con privilegi di amministratore.
 2. Eseguire il comando seguente per generare l'hash per OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Esempio di utilizzo: ```C:\>C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
 3. Per la versione più recente del dispositivo, l'hash generato deve corrispondere a queste [Impostazioni](./tutorial-assess-vmware.md#verify-security).
 
 
@@ -95,49 +95,49 @@ Configurare l'appliance per la prima volta.
 3. Aprire un browser in un computer in grado di connettersi alla VM, quindi aprire l'URL dell'app Web dell'appliance: **https://*nome o indirizzo IP dell'appliance*: 44368**.
 
    In alternativa, è possibile aprire l'app dal desktop dell'appliance selezionando il relativo collegamento.
-1. Accettare le **condizioni di licenza**e leggere le informazioni di terze parti.
+1. Accettare le **condizioni di licenza** e leggere le informazioni di terze parti.
 1. Nell'app Web selezionare **Set up prerequisites** (Configura i prerequisiti) ed eseguire le operazioni seguenti:
    - **Connectivity** (Connettività): l'app verifica che la macchina virtuale abbia accesso a Internet. Se la VM usa un proxy:
-     - Fare clic su **Configura proxy** per specificare l'indirizzo del proxy, nel formato http://ProxyIPAddress o nella http://ProxyFQDN) porta di attesa.
+     - Fare clic su **Set up proxy** (Configura proxy) per specificare l'indirizzo proxy (nel formato http://ProxyIPAddress o http://ProxyFQDN) e la porta di ascolto.
      - Se il proxy richiede l'autenticazione, specificare le credenziali.
      - È supportato solo il proxy HTTP.
-     - Se sono stati aggiunti dettagli del proxy o è stato disabilitato il proxy e/o l'autenticazione, fare clic su **Salva** per attivare nuovamente il controllo della connettività.
+     - Se sono stati aggiunti dettagli del proxy o sono stati disabilitati il proxy e/o l'autenticazione, fare clic su **Save** (Salva) per attivare di nuovo il controllo della connettività.
    - **Time sync** (Sincronizzazione ora): Per il corretto funzionamento dell'individuazione delle macchine virtuali, l'ora dell'appliance deve essere sincronizzata con l'ora Internet.
-   - **Install updates** (Installa aggiornamenti): l'appliance verifica che siano installati gli aggiornamenti più recenti. Al termine della verifica, è possibile fare clic su **Visualizza servizi Appliance** per visualizzare lo stato e le versioni dei componenti in esecuzione nel dispositivo.
-   - **Install VDDK** (Installa VDDK): l'appliance verifica che VMware vSphere Virtual Disk Development Kit (VDDK) sia installato. Se non è installato, scaricare VDDK 6,7 da VMware ed estrarre il contenuto del file zip scaricato nella posizione specificata nell'appliance, come indicato nelle istruzioni di **installazione**.
+   - **Install updates** (Installa aggiornamenti): l'appliance verifica che siano installati gli aggiornamenti più recenti. Al termine della verifica, è possibile fare clic su **View appliance services** (Visualizza servizi appliance) per visualizzare lo stato e le versioni dei componenti in esecuzione nel dispositivo.
+   - **Install VDDK** (Installa VDDK): l'appliance verifica che VMware vSphere Virtual Disk Development Kit (VDDK) sia installato. Se non è già installato, scaricare VDDK 6.7 da VMware ed estrarre il contenuto dello ZIP scaricato nel percorso specificato nell'appliance, come indicato nelle **istruzioni di installazione**.
 
      Migrazione server di Azure Migrate usa VDDK per replicare le macchine virtuali durante la migrazione ad Azure. 
 1. Se lo si desidera, è possibile **rieseguire i prerequisiti** in qualsiasi momento durante la configurazione dell'appliance per verificare se l'appliance soddisfa tutti i prerequisiti.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrare l'appliance con Azure Migrate
 
-1. Incollare la **chiave di progetto Azure migrate** copiata dal portale. Se non si dispone della chiave, passare a **Server Assessment> individua> Gestisci appliance esistenti**, selezionare il nome dell'appliance fornito al momento della generazione della chiave e copiare la chiave corrispondente.
-1. Fare clic su **Accedi**. Verrà aperto un prompt di accesso di Azure in una nuova scheda del browser. Se non viene visualizzato, assicurarsi di aver disattivato il blocco popup nel browser.
+1. Incollare la **chiave del progetto Azure Migrate** copiata dal portale. Se non si dispone della chiave, passare a **Valutazione server > Individua > Gestisci appliance esistenti**, selezionare il nome dell'appliance fornito al momento della generazione della chiave e copiare la chiave corrispondente.
+1. Fare clic su **Accedi**. Verrà aperto un prompt di accesso di Azure in una nuova scheda del browser. Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
 1. Nella nuova scheda accedere con nome utente e la password di Azure.
    
    L'accesso con un PIN non è supportato.
 3. Dopo aver eseguito l'accesso, tornare all'app Web. 
-4. Se l'account utente di Azure usato per la registrazione dispone delle [autorizzazioni](tutorial-prepare-vmware.md#prepare-azure) corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
-1. Dopo aver registrato correttamente il dispositivo, è possibile visualizzare i dettagli di registrazione facendo clic su **Visualizza dettagli**.
+4. Se l'account utente di Azure usato per la registrazione ha le [autorizzazioni](tutorial-prepare-vmware.md#prepare-azure) corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
+1. Al termine della registrazione dell'appliance è possibile visualizzare i dettagli della registrazione facendo clic su **Visualizza dettagli**.
 
 
 ## <a name="start-continuous-discovery"></a>Avviare l'individuazione continua
 
 L'appliance deve connettersi al server vCenter per individuare la configurazione e i dati sulle prestazioni delle macchine virtuali.
 
-1. In **passaggio 1: fornire le credenziali server vCenter**fare clic su **Aggiungi credenziali** per specificare un nome descrittivo per le credenziali, aggiungere **nome utente** e **password** per l'account server vCenter che l'appliance userà per individuare le macchine virtuali nell'istanza di server vCenter.
+1. In **Passaggio 1: Specificare le credenziali del server vCenter**, fare clic su **Aggiungi credenziali** per specificare un nome descrittivo per le credenziali, aggiungere **Nome utente** e **Password** per l'account del server vCenter che verrà usato dall'appliance per individuare le macchine virtuali nell'istanza del server vCenter.
     - È necessario aver configurato un account con le autorizzazioni necessarie nell'[esercitazione precedente](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
     - Per definire l'ambito dell'individuazione di oggetti VMware specifici (server vCenter data center, cluster, una cartella di cluster, host, una cartella di host o singole VM), rivedere le istruzioni riportate in [questo articolo](set-discovery-scope.md) per limitare l'account usato da Azure Migrate.
-1. In **passaggio 2:** specificare i dettagli della server vCenter fare clic su **Aggiungi origine individuazione** per selezionare il nome descrittivo per le credenziali dall'elenco a discesa, quindi specificare l' **indirizzo IP o** il nome di dominio completo dell'istanza di server vCenter. È possibile lasciare la **porta** predefinita (443) o specificare una porta personalizzata su cui server vCenter è in ascolto e fare clic su **Salva**.
-1. Quando si fa clic su Salva, il dispositivo tenterà di convalidare la connessione al server vCenter con le credenziali specificate e indicherà lo **stato di convalida** nella tabella rispetto al server vCenter indirizzo IP/FQDN.
-1. È possibile **rivalidare** la connettività a server vCenter in qualsiasi momento prima di avviare l'individuazione.
-1. In **passaggio 3: fornire le credenziali della macchina virtuale per individuare le applicazioni installate e per eseguire il mapping delle dipendenze senza agenti**, fare clic su **Aggiungi credenziali**e specificare il sistema operativo per il quale vengono fornite le credenziali, il nome descrittivo per le credenziali e il nome **utente** e la **password**. Quindi fare clic su **Salva**.
+1. In **Passaggio 2: Specificare i dettagli del server vCenter**, fare clic su **Aggiungi origine di individuazione** per selezionare il nome descrittivo per le credenziali nell'elenco a discesa, specificare **Indirizzo IP/FQDN** dell'istanza del server vCenter. È possibile lasciare l'impostazione predefinita per **Porta** (443) o specificare una porta personalizzata sulla quale sarà in ascolto il server vCenter e fare clic su **Salva**.
+1. Quando si fa clic su Salva, l'appliance tenterà di convalidare la connessione al server vCenter con le credenziali specificate e visualizzerà lo **Stato di convalida** nella tabella per ogni indirizzo IP/FQDN di server vCenter.
+1. È possibile **riconvalidare** la connettività al server vCenter in qualsiasi momento prima di avviare l'individuazione.
+1. In **Passaggio 3: Specificare le credenziali della macchina virtuale per individuare le applicazioni installate e per eseguire il mapping delle dipendenze senza agente**, fare clic su **Aggiungi credenziali** e specificare il sistema operativo per il quale vengono fornite le credenziali, il nome descrittivo per le credenziali e **Nome utente** e **Password**. Fare quindi clic su **Salva**.
 
     - Facoltativamente, è possibile aggiungere qui le credenziali se è stato creato un account da usare per la [funzionalità di individuazione delle applicazioni](how-to-discover-applications.md) o la [funzionalità di analisi delle dipendenze senza agente](how-to-create-group-machine-dependencies-agentless.md).
-    - Se non si vuole usare queste funzionalità, è possibile fare clic sul dispositivo di scorrimento per ignorare il passaggio. È possibile invertire lo scopo in qualsiasi momento in un secondo momento.
-    - Esaminare le credenziali necessarie per l' [individuazione dell'applicazione](migrate-support-matrix-vmware.md#application-discovery-requirements)o per l' [analisi delle dipendenze senza agenti](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
+    - Se non si vogliono usare queste funzionalità, è possibile fare clic sul dispositivo di scorrimento per ignorare il passaggio. È possibile cambiare idea in qualsiasi momento in un secondo momento.
+    - Esaminare le credenziali necessarie per l'[individuazione delle applicazioni](migrate-support-matrix-vmware.md#application-discovery-requirements) o per l'[analisi delle dipendenze senza agente](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
-5. Fare clic su **Avvia individuazione per avviare**l'individuazione delle macchine virtuali. Dopo che l'individuazione è stata avviata correttamente, è possibile controllare lo stato di individuazione in base al server vCenter indirizzo IP/FQDN nella tabella.
+5. Fare clic su **Avvia individuazione** per iniziare l'individuazione delle macchine virtuali. Dopo l'avvio dell'individuazione, è possibile controllare lo stato dell'individuazione per ogni indirizzo IP/FQDN del server vCenter nella tabella.
 
 L'individuazione funziona come segue:
 - Sono necessari circa 15 minuti prima che i metadati delle VM individuate vengano visualizzati nel portale.

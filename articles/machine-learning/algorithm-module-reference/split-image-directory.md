@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 49c2d2c24cc8acd8468f660189212a8ae71a1d6e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/26/2020
+ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268928"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448675"
 ---
 # <a name="split-image-directory"></a>Split Image Directory
 
@@ -28,26 +28,26 @@ Questo modulo è particolarmente utile quando è necessario separare i dati dell
 
 2. Connetterlo al modulo di cui l'output è image directory.
 
-3. **Frazione di input di immagini nel primo output** per specificare la percentuale di dati da inserire nella suddivisione a sinistra, per impostazione predefinita 0,9.
+3. **Frazione di input di immagini nel primo output** per specificare la percentuale di dati da inserire nella suddivisione a sinistra, per impostazione predefinita 0,9. Se il risultato della frazione non è Integer, il modulo usa il numero intero più piccolo vicino.
 
 
 ## <a name="technical-notes"></a>Note tecniche
 
 ### <a name="expected-inputs"></a>Input previsti
 
-| Nome                  | Type           | Descrizione              |
+| Nome                  | Tipo           | Descrizione              |
 | --------------------- | -------------- | ------------------------ |
 | Directory dell'immagine di input | ImageDirectory | Directory immagine da dividere |
 
 ### <a name="module-parameters"></a>Parametri del modulo
 
-| Nome                                   | Type  | Range | Facoltativo | Descrizione                            | Predefinito |
+| Nome                                   | Tipo  | Range | Facoltativo | Descrizione                            | Predefinito |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
-| Frazione di immagini nel primo output | Float | 0-1   | Necessario | Frazione di immagini nel primo output | 0.9     |
+| Frazione di immagini nel primo output | Float | 0-1   | Obbligatoria | Frazione di immagini nel primo output | 0.9     |
 
 ### <a name="outputs"></a>Output
 
-| Nome                    | Type           | Descrizione                              |
+| Nome                    | Tipo           | Descrizione                              |
 | ----------------------- | -------------- | ---------------------------------------- |
 | Immagine di output directory1 | ImageDirectory | Directory immagini che contiene le immagini selezionate |
 | Immagine di output directory2 | ImageDirectory | Directory immagini che contiene tutte le altre immagini |

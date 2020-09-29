@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 66767d4329a0a757de99308e1f586b56b327a515
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4beba141fec7a819df52e4c3a669312a4ad76998
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399923"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449295"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Back-end e pool back-end in Azure front door
-Questo articolo descrive i concetti relativi a come eseguire il mapping della distribuzione di app con Azure front door. Vengono inoltre illustrati i diversi termini della configurazione front-end intorno ai backend dell'app.
+Questo articolo descrive i concetti relativi a come eseguire il mapping della distribuzione di applicazioni Web con Azure front door. Vengono inoltre illustrati i diversi termini usati nella configurazione della porta anteriore intorno ai backend dell'applicazione.
 
 ## <a name="backends"></a>Back-end
-Un back-end è uguale all'istanza di distribuzione di un'app in un'area. La porta anteriore supporta i backend sia di Azure che non di Azure, quindi l'area non è limitata solo alle aree di Azure. Può anche trattarsi di un Data Center locale o di un'istanza di app in un altro cloud.
+Un back-end fa riferimento a una distribuzione di applicazioni Web in un'area. La porta anteriore supporta le risorse di Azure e non di Azure nel pool back-end. L'applicazione può trovarsi nel Data Center locale o in un altro provider di servizi cloud.
 
-I backend front door fanno riferimento al nome host o all'indirizzo IP pubblico dell'app, che può gestire le richieste dei client. I backend non devono essere confusi con il livello di database, il livello di archiviazione e così via. I back-end devono essere visualizzati come endpoint pubblico del back-end dell'app. Quando si aggiunge un back-end in un pool back-end della porta anteriore, è necessario aggiungere anche quanto segue:
+I backend front door fanno riferimento al nome host o all'indirizzo IP pubblico dell'applicazione che fornisce le richieste del client. I backend non devono essere confusi con il livello di database, il livello di archiviazione e così via. I back-end devono essere visualizzati come endpoint pubblico per il back-end dell'applicazione. Quando si aggiunge un back-end a un pool back-end della porta anteriore, è necessario aggiungere anche quanto segue:
 
 - **Tipo di host back-end**. Tipo di risorsa che si desidera aggiungere. Lo sportello anteriore supporta l'individuazione automatica dei backend dell'app dal servizio app, dal servizio cloud o dall'archiviazione. Se si vuole una risorsa diversa in Azure o anche in un back-end non di Azure, selezionare **host personalizzato**.
 
@@ -41,13 +41,13 @@ I backend front door fanno riferimento al nome host o all'indirizzo IP pubblico 
 
 ### <a name="backend-host-header"></a><a name = "hostheader"></a>Intestazione host backend
 
-Le richieste inviate dalla porta anteriore a un back-end includono un campo di intestazione host usato dal back-end per recuperare la risorsa di destinazione. Il valore per questo campo in genere deriva dall'URI del back-end e contiene l'host e la porta.
+Le richieste inviate dalla porta anteriore a un back-end includono un campo di intestazione host usato dal back-end per recuperare la risorsa di destinazione. Il valore di questo campo deriva in genere dall'URI back-end con l'intestazione e la porta host.
 
 Ad esempio, una richiesta effettuata per `www.contoso.com` avrà l'intestazione host www.contoso.com. Se si usa portale di Azure per configurare il back-end, il valore predefinito per questo campo è il nome host del back-end. Se il back-end è contoso-westus.azurewebsites.net, nella portale di Azure il valore popolato automaticamente per l'intestazione dell'host back-end sarà contoso-westus.azurewebsites.net. Tuttavia, se si usano Azure Resource Manager modelli o un altro metodo senza impostare in modo esplicito questo campo, lo sportello anteriore invierà il nome host in ingresso come valore per l'intestazione host. Se la richiesta è stata effettuata per \. contoso.com www e il back-end è contoso-westus.azurewebsites.NET che include un campo di intestazione vuoto, la porta anteriore imposta l'intestazione host come www \. contoso.com.
 
 La maggior parte dei back-end dell'app (app Web di Azure, archiviazione BLOB e servizi cloud) richiede che l'intestazione host corrisponda al dominio del back-end. Tuttavia, l'host front-end che viene indirizzato al back-end utilizzerà un nome host diverso, ad esempio www.contoso.net.
 
-Se il back-end richiede che l'intestazione host corrisponda al nome host back-end, assicurarsi che l'intestazione host backend includa il back-end del nome host.
+Se il back-end richiede che l'intestazione host corrisponda al nome host back-end, assicurarsi che l'intestazione host backend includa il nome host del back-end.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>Configurazione dell'intestazione host back-end per il back-end
 

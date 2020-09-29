@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 9612c61945a41b30fb5d4768e1eb0909a07911d3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: d125427a3b2e519e909aad9e6f9cf08a963d2d46
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229396"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461530"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usare Azure Pipelines per compilare e distribuire soluzioni HPC
 
@@ -43,7 +43,7 @@ La struttura della codebase usata in questo esempio è simile alla seguente:
 
 * Una cartella **arm-templates**, che contiene diversi modelli di Azure Resource Manager. I modelli sono descritti in questo articolo.
 * Una cartella **client-application**, che è una copia dell'esempio sull'[elaborazione di file di .NET con Azure Batch tramite ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial). Questa cartella non è necessaria per questo articolo.
-* Una cartella **hpc-application**, che è la versione di Windows a 64 bit di [ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+* Una cartella **HPC-Application** , che è la versione di Windows a 64 bit di [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip).
 * Una cartella **pipelines**, che contiene un file YAML che illustra il processo di compilazione. Questo aspetto viene trattato nell'articolo.
 
 Questa sezione presuppone che l'utente abbia familiarità con il controllo della versione e la progettazione di modelli di Resource Manager. Se non si ha familiarità con questi concetti, vedere le pagine seguenti per altre informazioni.

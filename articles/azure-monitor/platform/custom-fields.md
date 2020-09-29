@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 496dab24f636c97e1c7b27b871e1fded9216277d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974707"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448568"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Creare campi personalizzati in un'area di lavoro Log Analytics in monitoraggio di Azure (anteprima)
 
@@ -101,7 +101,7 @@ Evidenziare il nome del servizio nella proprietà **RenderedDescription** e usar
 
 Si noti che il nome del servizio viene identificato in modo corretto per alcuni record ma non per altri.   I **risultati della ricerca** mostrano che parte del nome di **Scheda delle prestazioni WMI** non è stato selezionato.  Il **Riepilogo** Mostra un **programma di installazione dei moduli** identificato al posto del programma di installazione dei moduli di **Windows**.  
 
-![Search Results](media/custom-fields/search-results-01.png)
+![Screenshot che mostra parti del nome del servizio evidenziate nel riquadro dei risultati della ricerca e un nome di servizio errato evidenziato nel riepilogo.](media/custom-fields/search-results-01.png)
 
 Iniziare dal record della **scheda delle prestazioni WMI** .  Fare clic sulla relativa icona di modifica e quindi su **Modify this highlight**.  
 
@@ -113,7 +113,7 @@ Espandere l'evidenziazione per includere la parola **WMI** e quindi eseguire di 
 
 Ora le voci relative a **Scheda delle prestazioni WMI** risultano corrette e Log Analytics ha anche usato tali informazioni per correggere i record relativi a **Programma di installazione dei moduli di Windows**.
 
-![Search Results](media/custom-fields/search-results-02.png)
+![Screenshot che mostra il nome completo del servizio evidenziato nel riquadro dei risultati della ricerca e i nomi di servizio corretti evidenziati nel riepilogo.](media/custom-fields/search-results-02.png)
 
 È ora possibile eseguire una query per verificare che **Service_CF** venga creato, ma non è ancora stato aggiunto ad alcun record. Questo perché il campo personalizzato non funziona con i record esistenti, quindi è necessario attendere che vengano raccolti nuovi record.
 

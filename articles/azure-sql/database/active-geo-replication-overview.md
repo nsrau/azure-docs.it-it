@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 3526510e4cbd77ffe1f468512e1128dcebe9b1da
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330843"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445058"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creazione e uso della replica geografica attiva-database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,7 +118,7 @@ Per assicurarsi che l'applicazione possa accedere immediatamente al nuovo databa
 
 ## <a name="configuring-secondary-database"></a>Configurazione del database secondario
 
-I database primari e secondari devono avere lo stesso livello di servizio. Si consiglia inoltre di creare il database secondario con le stesse dimensioni di calcolo (DTU o VCore) del database primario. Se il database primario sta riscontrando un carico di lavoro di scrittura elevato, è possibile che una replica secondaria con una dimensione di calcolo inferiore non sia in grado di tenersi al passo con essa. Ciò causerà un ritardo di rollforward nel database secondario e la potenziale indisponibilità del database secondario. Per attenuare questi rischi, la replica geografica attiva limiterà la velocità del log delle transazioni primaria, se necessario, per consentire l'aggiornamento dei relativi database secondari.
+I database primari e secondari devono avere lo stesso livello di servizio. È inoltre consigliabile creare il database secondario con le stesse dimensioni di calcolo e ridondanza di archiviazione dei backup (DTU o VCore) del database primario. Se il database primario sta riscontrando un carico di lavoro di scrittura elevato, è possibile che una replica secondaria con una dimensione di calcolo inferiore non sia in grado di tenersi al passo con essa. Ciò causerà un ritardo di rollforward nel database secondario e la potenziale indisponibilità del database secondario. Per attenuare questi rischi, la replica geografica attiva limiterà la velocità del log delle transazioni primaria, se necessario, per consentire l'aggiornamento dei relativi database secondari.
 
 Un'altra conseguenza di una configurazione secondaria sbilanciata è che, dopo il failover, le prestazioni dell'applicazione potrebbero risentirne a causa di una capacità di calcolo insufficiente del nuovo database primario. In tal caso, sarà necessario aumentare l'obiettivo di servizio del database al livello necessario, che può richiedere molto tempo e risorse di calcolo, e richiederà un failover a [disponibilità elevata](high-availability-sla.md) alla fine del processo di scalabilità verticale.
 
@@ -126,8 +126,13 @@ Se si decide di creare il database secondario con una dimensione di calcolo infe
 
 La limitazione della frequenza dei log delle transazioni nel database primario a causa di una riduzione delle dimensioni di calcolo in una replica secondaria viene segnalata utilizzando il tipo di attesa HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visibile nelle viste di database [sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) .
 
+Per impostazione predefinita, la ridondanza dell'archiviazione di backup del database secondario è uguale a quella del database primario. È possibile scegliere di configurare il database secondario con una ridondanza di archiviazione di backup diversa. I backup vengono sempre eseguiti nel database primario. Se il database secondario è configurato con una ridondanza di archiviazione di backup diversa, dopo il failover quando il database secondario viene promosso al database primario, i backup verranno fatturati in base alla ridondanza di archiviazione selezionata sul nuovo database primario (secondario precedente). 
+
 > [!NOTE]
 > La velocità del log delle transazioni nel database primario può essere limitata per motivi non correlati a dimensioni di calcolo inferiori in un database secondario. Questo tipo di limitazione può verificarsi anche se il database secondario ha una dimensione di calcolo uguale o superiore a quella del database primario. Per informazioni dettagliate, inclusi i tipi di attesa per diversi tipi di limitazione della frequenza dei log, vedere [gestione della frequenza dei log delle transazioni](resource-limits-logical-server.md#transaction-log-rate-governance).
+
+> [!NOTE]
+> La ridondanza dell'archiviazione di backup configurabile del database SQL di Azure è attualmente disponibile in anteprima pubblica solo nell'area di Azure Asia sudorientale. Nell'anteprima, se il database di origine viene creato con ridondanza del backup con ridondanza locale o con ridondanza della zona, la creazione di un database secondario in un'area di Azure diversa non sarà supportata. 
 
 Per altre informazioni sulle dimensioni di calcolo del database SQL, vedere [Quali sono i livelli di servizio del database SQL di Azure?](purchasing-models.md).
 
