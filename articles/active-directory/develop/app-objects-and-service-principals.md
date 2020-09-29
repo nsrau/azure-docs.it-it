@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 0b6a6eac04711b564d602408a57b92f833fb5d5d
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: db25e0a9ebe01a45c594fe214efcdd3551cf6c14
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782436"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449355"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Oggetti applicazione e oggetti entità servizio in Azure Active Directory
 
@@ -49,7 +49,7 @@ Per accedere alle risorse protette da un tenant di Azure AD, l'entità che richi
 
 Un'entità servizio è la rappresentazione locale o l'istanza dell'applicazione di un oggetto applicazione globale in un singolo tenant o directory. Un'entità servizio è un'istanza concreta creata dall'oggetto applicazione ed eredita determinate proprietà dall'oggetto applicazione.  Viene creata un'entità servizio in ogni tenant in cui viene usata l'applicazione e fa riferimento all'oggetto app univoco globale.  L'oggetto entità servizio definisce le operazioni che l'app può effettivamente eseguire nel tenant specifico, chi può accedere all'app e le risorse a cui l'app può accedere.
 
-Quando a un'applicazione viene concesso di accedere alle risorse in un tenant (al momento della registrazione o del [consenso](developer-glossary.md#consent)), viene creato un oggetto entità servizio. È anche possibile creare un oggetto entità servizio in un tenant usando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), l'interfaccia della riga di comando di Azure, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), il [portale di Azure][AZURE-Portal]e altri strumenti.  Quando si usa il portale, un'entità servizio viene creata automaticamente quando si registra un'applicazione.
+Quando a un'applicazione viene concesso di accedere alle risorse in un tenant (al momento della registrazione o del [consenso](developer-glossary.md#consent)), viene creato un oggetto entità servizio. È anche possibile creare un oggetto entità servizio in un tenant usando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), l'interfaccia della riga di comando di [Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), il [portale di Azure][AZURE-Portal]e altri strumenti.  Quando si usa il portale, un'entità servizio viene creata automaticamente quando si registra un'applicazione.
 
 Il pannello **applicazioni aziendali** nel portale viene usato per elencare e gestire le entità servizio in un tenant. È possibile visualizzare le autorizzazioni dell'entità servizio, le autorizzazioni concesse dall'utente, gli utenti che hanno eseguito tale consenso, le informazioni di accesso e altro ancora.
 

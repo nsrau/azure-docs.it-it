@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 8f482c4fe6817c75079ceb98e981c846c395ad13
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: aa09b1ec1e3f73547d211fab0907c9e3388c008b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396026"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445331"
 ---
 # <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>Che cosa sono i livelli di coerenza in Azure Cosmos DB?
 
@@ -43,9 +43,7 @@ La semantica dei cinque livelli di coerenza è descritta qui:
 
   Il grafico seguente illustra la coerenza assoluta con le note musicali. Dopo che i dati sono stati scritti nell'area "Stati Uniti occidentali 2", quando si leggono i dati da altre aree, si ottiene il valore più recente:
 
-  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="video":::
-
-- Decadimento **delimitato**: le letture sono garantite per rispettare la garanzia di prefisso coerente. È possibile che le letture ritardino alla base delle Scritture al massimo da *"K"* versioni (ovvero "aggiornamenti") di un elemento o dall'intervallo di tempo *"T"* , a seconda del valore raggiunto per primo. In altre parole, quando si sceglie il decadimento ristretto, il "obsolescenza" può essere configurato in due modi:
+  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="La coerenza come spettro" può essere configurato in due modi:
 
 - Numero di versioni (*K*) dell'elemento
 - Intervallo di tempo (*T*) in base al quale le letture potrebbero ritardare le Scritture
@@ -61,9 +59,7 @@ All'interno della finestra di obsolescenza, il decadimento associato fornisce le
 
   Il decadimento ristretto viene spesso scelto da applicazioni distribuite a livello globale che prevedono latenze di scrittura ridotte, ma che richiedono la garanzia totale degli ordini globali Il decadimento ristretto è ideale per le applicazioni che includono la collaborazione e la condivisione di gruppi, il titolo di borsa, la pubblicazione-sottoscrizione/Accodamento e così via. Il grafico seguente illustra la coerenza con decadimento ristretto con le note musicali. Dopo che i dati sono stati scritti nell'area "Stati Uniti occidentali 2", le aree "Stati Uniti orientali 2" e "Australia orientale" leggono il valore scritto in base al tempo massimo di ritardo configurato o al numero massimo di operazioni:
 
-  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="video":::
-
-- **Sessione**: all'interno di una singola sessione client le letture sono garantite per rispettare il prefisso coerente, le letture monotone, le Scritture monotone, la lettura delle Scritture e le garanzie Write-follows. Si presuppone una singola sessione "writer" o si condivide il token di sessione per più writer.
+  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="La coerenza come spettro" o si condivide il token di sessione per più writer.
 
 I client al di fuori della sessione che esegue le Scritture vedranno le garanzie seguenti:
 
@@ -74,7 +70,7 @@ I client al di fuori della sessione che esegue le Scritture vedranno le garanzie
 
   La coerenza di sessione è il livello di coerenza più diffuso per l'area singola e per le applicazioni distribuite a livello globale. Fornisce latenze di scrittura, disponibilità e velocità effettiva di lettura paragonabili a quelle della coerenza finale, ma fornisce anche le garanzie di coerenza in base alle esigenze delle applicazioni scritte per funzionare nel contesto di un utente. Il grafico seguente illustra la coerenza della sessione con le note musicali. "West US 2 Writer" e "West US 2 Reader" usano la stessa sessione (Session A) in modo che entrambi leggano gli stessi dati nello stesso momento. Mentre l'area "Australia orientale" utilizza "sessione B", riceve i dati in un secondo momento, ma nello stesso ordine delle Scritture.
 
-  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="video":::
+  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="La coerenza come spettro":::
 
 - **Prefisso coerente**: gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza gap. Il livello di coerenza del prefisso coerente garantisce che le letture non visualizzino mai le Scritture non ordinate.
 
@@ -89,12 +85,12 @@ Di seguito sono riportate le garanzie di coerenza per il prefisso coerente:
 
 Il grafico seguente illustra la coerenza del prefisso di coerenza con le note musicali. In tutte le aree, le letture non visualizzano mai le Scritture non in ordine:
 
-  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="video":::
+  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="La coerenza come spettro":::
 
 - **Eventuale**: non esiste alcuna garanzia di ordinamento per le letture. In assenza di ulteriori operazioni di scrittura, le repliche alla fine convergeranno.  
 La coerenza finale è la forma di coerenza più debole, perché un client può leggere i valori più vecchi di quelli precedentemente letti. La coerenza finale è ideale in cui l'applicazione non richiede alcuna garanzia di ordinamento. Gli esempi includono il numero di Retweet, mi piace o commenti non thread. Il grafico seguente illustra la coerenza finale con le note musicali.
 
-  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="video":::
+  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="La coerenza come spettro":::
 
 ## <a name="additional-reading"></a>Altre letture
 

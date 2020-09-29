@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 972f9b1ac96ca180aa6eaeead7cde51b60ec0e93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ce65d6f1806965a55a91117725d2232d4d6460bd
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278490"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449627"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creazione di un volume a doppio protocollo (NFSv3 e SMB) per Azure NetApp Files
 
@@ -38,6 +38,8 @@ Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1
 * Assicurarsi di soddisfare i [requisiti per le connessioni Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Creare una zona di ricerca inversa nel server DNS, quindi aggiungere un record del puntatore (PTR) del computer host AD nella zona di ricerca inversa. In caso contrario, la creazione del volume con doppio protocollo avrà esito negativo.
 * Verificare che il client NFS sia aggiornato ed esegua gli aggiornamenti più recenti per il sistema operativo.
+* Verificare che il server LDAP di Active Directory (AD) sia attivo e in esecuzione nell'Active Directory. Questa operazione viene eseguita installando e configurando il ruolo [Active Directory Lightweight Directory Services (ad LDS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) nel computer ad.
+* Assicurarsi che un'autorità di certificazione (CA) venga creata nell'annuncio utilizzando il ruolo [Servizi certificati Active Directory (ad CS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) per generare ed esportare il certificato della CA radice autofirmato.   
 
 ## <a name="create-a-dual-protocol-volume"></a>Creare un volume con doppio protocollo
 
@@ -136,6 +138,11 @@ Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1
 
 ![Editor attributi Active Directory](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
+È necessario impostare gli attributi seguenti per gli utenti LDAP e i gruppi LDAP: 
+* Attributi obbligatori per gli utenti LDAP:   
+    `uid`: Alice, `uidNumber` : 139, `gidNumber` : 555, `objectClass` : posixAccount
+* Attributi obbligatori per i gruppi LDAP:   
+    `objectClass`: "posixGroup", `gidNumber` : 555
 
 ## <a name="configure-the-nfs-client"></a>Configurare il client NFS 
 

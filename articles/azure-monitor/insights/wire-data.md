@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325152"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445767"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Soluzione Wire Data 2.0 (anteprima) in monitoraggio di Azure
 
@@ -54,7 +54,7 @@ La visualizzazione di metadati, tuttavia, non è necessariamente utile per una r
 
 Wire Data ottiene i dati da Microsoft Dependency Agent. Il Dependency Agent dipende dall'agente Log Analytics per le connessioni a monitoraggio di Azure. quindi nel server con Dependency Agent deve essere installato e configurato Log Analytics. La tabella seguente descrive le origini connesse supportate dalla soluzione Wire Data.
 
-| **Origine connessa** | **Supportato** | **Descrizione** |
+| **Origine connessa** | **Supporto** | **Descrizione** |
 | --- | --- | --- |
 | Agenti di Windows | Sì | Wire Data analizza e raccoglie i dati da computer agente Windows. <br><br> Oltre all' [agente log Analytics per Windows](../platform/agent-windows.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere i [sistemi operativi supportati](vminsights-enable-overview.md#supported-operating-systems) . |
 | Agenti Linux | Sì | Wire Data analizza e raccoglie i dati da computer agente Linux.<br><br> Oltre all' [agente log Analytics per Linux](../learn/quick-collect-linux-computer.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere i [sistemi operativi supportati](vminsights-enable-overview.md#supported-operating-systems) . |
@@ -156,7 +156,7 @@ Le sezioni seguenti elencano i sistemi operativi supportati per Dependency Agent
 
 ### <a name="dependency-agent-downloads"></a>Download di Dependency Agent
 
-| File | Sistema operativo | Versione | SHA-256 |
+| File | OS | Versione | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
@@ -183,7 +183,7 @@ Dependency Agent viene installato nei computer che eseguono Windows con InstallD
 Usare la procedura seguente per installare Dependency Agent in ogni computer che esegue Windows:
 
 1. Installare l'agente di Log Analytics seguendo la procedura descritta in [Raccogliere dati dai computer Windows ospitati nell'ambiente](../platform/agent-windows.md).
-2. Scaricare Windows Dependency Agent usando il collegamento nella sezione precedente e quindi eseguirlo con il comando seguente:`InstallDependencyAgent-Windows.exe`
+2. Scaricare Windows Dependency Agent usando il collegamento nella sezione precedente e quindi eseguirlo con il comando seguente: `InstallDependencyAgent-Windows.exe`
 3. Seguire la procedura guidata per installare l'agente.
 4. Se Dependency Agent non si avvia, controllare i log per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows, la directory di log è %Programfiles%\Microsoft Dependency Agent\logs.
 
@@ -193,7 +193,7 @@ Usare le opzioni della tabella seguente per eseguire l'installazione dalla riga 
 
 InstallDependencyAgent-Windows.exe /?
 
-| **Flag** | **Descrizione** |
+| **Bandiera** | **Descrizione** |
 | --- | --- |
 | <code>/?</code> | Ottenere un elenco delle opzioni della riga di comando. |
 | <code>/S</code> | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
@@ -218,7 +218,7 @@ Per visualizzare un elenco dei flag di installazione, eseguire il programma di i
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Flag** | **Descrizione** |
+| **Bandiera** | **Descrizione** |
 | --- | --- |
 | <code>-help</code> | Ottenere un elenco delle opzioni della riga di comando. |
 | <code>-s</code> | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
@@ -364,15 +364,15 @@ Nella pagina **Panoramica** dell'area di lavoro Log Analytics nel portale di Azu
 
 È possibile usare il pannello **Agenti che acquisiscono il traffico di rete** per determinare la quantità di larghezza di banda utilizzata dai computer. Questo pannello consente di trovare facilmente il computer _più comunicativo_ nel proprio ambiente. Tali computer potrebbero essere sovraccaricati, presentare un funzionamento anomalo o usare una quantità di risorse di rete superiore alla norma.
 
-![Esempio di ricerca log](./media/wire-data/log-search-example01.png)
+![Screenshot del pannello degli agenti di acquisizione del traffico di rete nel dashboard Wire Data 2.0 che mostra la larghezza di banda di rete utilizzata da ogni computer.](./media/wire-data/log-search-example01.png)
 
 Analogamente, è possibile usare il pannello **Subnet locali** per determinare la quantità di traffico di rete sulle subnet. Gli utenti spesso definiscono le subnet per aree critiche per le applicazioni. Questo pannello offre un quadro di tali aree.
 
-![Esempio di ricerca log](./media/wire-data/log-search-example02.png)
+![Screenshot del pannello subnet locali nel dashboard Wire Data 2.0 che mostra la larghezza di banda di rete usata da ogni LocalSubnet.](./media/wire-data/log-search-example02.png)
 
 Il pannello **Protocolli a livello dell'applicazione** è utile perché è opportuno sapere quali protocolli vengono usati. Se ad esempio si prevede che SSH non venga usato nel proprio ambiente di rete, visualizzando le informazioni disponibili nel pannello è possibile ottenere rapidamente conferma o smentita di tale previsione.
 
-![Esempio di ricerca log](./media/wire-data/log-search-example03.png)
+![Screenshot del pannello protocolli a livello di applicazione nel dashboard Wire Data 2.0 che mostra la larghezza di banda di rete usata da ogni protocollo.](./media/wire-data/log-search-example03.png)
 
 È anche utile sapere se il traffico dei protocolli aumenta o diminuisce nel tempo. L'aumento della quantità di dati trasmessa da un'applicazione, ad esempio, può essere un aspetto di cui è consigliabile essere a conoscenza o che si potrebbe trovare degno di nota.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 80e87d6fdab6ecf15c241581f8c19d36b30d7e30
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327107"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449417"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Soluzione di gestione Connettore di Application Insights (deprecata)
 
@@ -83,9 +83,9 @@ Le sezioni seguenti descrivono come usare i pannelli visualizzati nel dashboard 
 
 Fare clic sul riquadro **Application Insights** per aprire il dashboard **Application Insights** e visualizzare i pannelli seguenti.
 
-![Dashboard Application Insights](./media/app-insights-connector/app-insights-dash01.png)
+![Screenshot del Dashboard Application Insights che mostra i pannelli per le applicazioni, il volume di dati e la disponibilità.](./media/app-insights-connector/app-insights-dash01.png)
 
-![Dashboard Application Insights](./media/app-insights-connector/app-insights-dash02.png)
+![Screenshot del Dashboard Application Insights che mostra i pannelli per richieste, errori ed eccezioni del server.](./media/app-insights-connector/app-insights-dash02.png)
 
 Il dashboard include i pannelli mostrati nella tabella. Ogni panello elenca fino a 10 elementi corrispondenti ai criteri del pannello per lo scope e l'intervallo di tempo specificati. È possibile eseguire una ricerca log per ottenere tutti i record facendo clic su **Vedi tutto** nella parte inferiore del pannello o facendo clic sull'intestazione del pannello.
 
@@ -187,7 +187,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 | Continent | Continente in cui ha origine la richiesta |
 | Paese | Paese/area geografica in cui ha avuto origine la richiesta |
 | Province | Provincia, stato o impostazioni locali in cui ha origine la richiesta |
-| Città | Città o paese in cui ha origine la richiesta |
+| City | Città o paese in cui ha origine la richiesta |
 | isSynthetic | Indica se la richiesta è stata creata da un utente o dal metodo automatizzato. True = metodo automatico o false = utente generato |
 | SamplingRate | Percentuale di telemetria generata dall'SDK inviato al portale. L'intervallo è 0,0-100,0. |
 | SampledCount | 100/(SamplingRate). Ad esempio, 4 =&gt; 25% |
@@ -225,7 +225,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="exception-specific-fields"></a>Campi specifici di eccezione
 
-| Type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Eccezione |
 | ExceptionType | Tipo di eccezione |

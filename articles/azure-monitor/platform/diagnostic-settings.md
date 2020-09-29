@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: c0fdf256409608c2eb3c6490dc25342d9d324832
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614039"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449324"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Le [metriche della piattaforma](data-platform-metrics.md) vengono raccolte per impostazione predefinita e vengono in genere archiviate nel database di metriche di monitoraggio di Azure. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per inviare le metriche della piattaforma e i log della piattaforma a destinazioni diverse.
@@ -73,15 +73,15 @@ Prima di creare le impostazioni di diagnostica, è necessario creare tutte le de
 
    - Per una singola risorsa, fare clic su **impostazioni di diagnostica** in **monitoraggio** nel menu della risorsa.
 
-        ![Impostazioni di diagnostica](media/diagnostic-settings/menu-resource.png)
+        ![Screenshot della sezione monitoraggio di un menu delle risorse in portale di Azure con le impostazioni di diagnostica evidenziate.](media/diagnostic-settings/menu-resource.png)
 
    - Per una o più risorse, fare clic su **impostazioni di diagnostica** in **Impostazioni** nel menu monitoraggio di Azure e quindi fare clic sulla risorsa.
 
-      ![Impostazioni di diagnostica](media/diagnostic-settings/menu-monitor.png)
+        ![Screenshot della sezione impostazioni nel menu monitoraggio di Azure con impostazioni di diagnostica evidenziate.](media/diagnostic-settings/menu-monitor.png)
 
    - Per il log attività, fare clic su **log attività** nel menu **monitoraggio di Azure** e quindi su **impostazioni di diagnostica**. Assicurarsi di disabilitare qualsiasi configurazione legacy per il log attività. Per informazioni dettagliate, vedere [disabilitare le impostazioni esistenti](./activity-log.md#legacy-collection-methods) .
 
-        ![Impostazioni di diagnostica](media/diagnostic-settings/menu-activity-log.png)
+        ![Screenshot del menu monitoraggio di Azure con il log attività selezionato e le impostazioni di diagnostica evidenziate nella barra dei menu monitoraggio-attività log.](media/diagnostic-settings/menu-activity-log.png)
 
 2. Se non esiste un'impostazione sulla risorsa selezionata, viene chiesto di creare un'impostazione. Fare clic su **Aggiungi impostazione di diagnostica**.
 

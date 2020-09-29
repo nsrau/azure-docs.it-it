@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ae8c633bdfca72d6e383715cac9b1bcdddd9d17
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480454"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449780"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Creare report interattivi con cartelle di lavoro in Monitoraggio di Azure per le macchine virtuali
 
@@ -26,7 +26,7 @@ Le cartelle di lavoro sono utili per scenari come:
 
 Nella tabella seguente sono riepilogate le cartelle di lavoro che Monitoraggio di Azure per le macchine virtuali include per iniziare.
 
-| Cartella di lavoro | Descrizione | Scope |
+| Cartella di lavoro | Descrizione | Ambito |
 |----------|-------------|-------|
 | Prestazioni | Fornisce una versione personalizzabile della visualizzazione Top N list e Charts in una singola cartella di lavoro che utilizza tutti i contatori delle prestazioni Log Analytics abilitati.| Su larga scala |
 | Contatori delle prestazioni | Visualizzazione del grafico Top N in un'ampia gamma di contatori delle prestazioni. | Su larga scala |
@@ -66,7 +66,7 @@ Una cartella di lavoro è composta di sezioni costituite da grafici, tabelle, te
 
 Le cartelle di lavoro presentano due modalità: **modalità di modifica** e **modalità di lettura**. Quando una nuova cartella di lavoro viene avviata per la prima volta, viene aperta in **modalità di modifica**. Mostra tutto il contenuto della cartella di lavoro, inclusi tutti i passaggi e i parametri altrimenti nascosti. La **modalità di lettura** presenta una visualizzazione semplificata sotto forma di report. La modalità di lettura consente di astrarre la complessità della creazione di un report, mantenendo al tempo stesso la meccanica sottostante solo pochi clic quando necessario per la modifica.
 
-![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
+![Screenshot della sezione cartella di lavoro macchine virtuali in monitoraggio di Azure che mostra una nuova cartella di lavoro in modalità di modifica con i controlli di modifica evidenziati.](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
 1. Al termine della modifica di una sezione, fare clic su **modifica eseguita** nell'angolo inferiore sinistro della sezione.
 
@@ -102,7 +102,7 @@ Per includere dati da altre aree di lavoro Log Analytics o da un'app Application
 
 In ogni sezione sono disponibili impostazioni avanzate, accessibili tramite l' ![ icona Impostazioni cartelle di lavoro di modifica dei controlli che si ](media/vminsights-workbooks/006-settings.png) trova a destra del pulsante **Aggiungi parametri** .
 
-![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/007-settings-expanded.png)
+![Screenshot della finestra di dialogo Impostazioni avanzate nella sezione cartella di lavoro macchine virtuali di monitoraggio di Azure. Viene evidenziata l'icona che apre la finestra di dialogo.](media/vminsights-workbooks/007-settings-expanded.png)
 
 |         |          |
 | ---------------- |:-----|
@@ -118,11 +118,11 @@ Una delle cartelle di lavoro predefinite, ovvero il **traffico TCP**, fornisce i
 
 La prima sezione della cartella di lavoro è basata sui dati della query di log. La seconda sezione è basata anche sui dati della query di log, ma la selezione di una riga nella prima tabella aggiornerà in modo interattivo il contenuto dei grafici:
 
-![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
+![Screenshot della sezione macchine virtuali in monitoraggio di Azure che mostra il traffico TCP della cartella di lavoro predefinita.](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
 
 Il comportamento è possibile tramite l'utilizzo di **quando si seleziona un elemento, l'esportazione** delle impostazioni avanzate di un parametro, abilitate nella query di log della tabella.
 
-![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/009-settings-export.png)
+![Screenshot della finestra di dialogo Impostazioni avanzate per una cartella di lavoro di macchine virtuali con l'opzione "quando è selezionato un elemento, esporta un parametro" selezionata.](media/vminsights-workbooks/009-settings-export.png)
 
 La seconda query di log utilizza quindi i valori esportati quando viene selezionata una riga per creare un set di valori che vengono quindi utilizzati dall'intestazione e dai grafici della sezione. Se non è selezionata alcuna riga, l'intestazione e i grafici della sezione vengono nascosti. 
 
@@ -141,7 +141,7 @@ Le sezioni di metriche consentono l'accesso completo ai dati delle metriche di M
 
 Di seguito è riportato un esempio di dati della macchina virtuale di cui è stato eseguito il pull in una cartella di lavoro per fornire una visualizzazione griglia delle prestazioni della CPU:
 
-![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/010-metrics-grid.png)
+![Screenshot della sezione metrica di una cartella di lavoro di una macchina virtuale in monitoraggio di Azure. Le prestazioni della CPU per ogni macchina virtuale sono visualizzate graficamente.](media/vminsights-workbooks/010-metrics-grid.png)
 
 ## <a name="adding-parameter-sections"></a>Aggiunta di sezioni di parametri
 
@@ -155,7 +155,7 @@ Sono disponibili quattro tipi diversi di parametri, attualmente supportati:
 
 |                  |      |
 | ---------------- |:-----|
-| **Testo**    | Consente all'utente di modificare una casella di testo ed è possibile specificare facoltativamente una query per inserire il valore predefinito. |
+| **Text**    | Consente all'utente di modificare una casella di testo ed è possibile specificare facoltativamente una query per inserire il valore predefinito. |
 | **Elenco a discesa** | Consente all'utente di scegliere un set di valori. |
 | **Selezione dell'intervallo di tempo**| Consente all'utente di scegliere tra un set predefinito di valori di intervallo di tempo o di scegliere un intervallo di tempo personalizzato.|
 | **Selezione risorse** | Consente all'utente di scegliere tra le risorse selezionate per la cartella di lavoro.|
@@ -180,11 +180,11 @@ Se la colonna è di tipo stringa, una stringa Null o vuota è considerata falsa 
 
 Esaminiamo i parametri presenti nel report Panoramica connessioni. Fare clic sul simbolo di modifica accanto a **direzione**.
 
-![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/011-workbook-using-dropdown.png)
+![Screenshot della sezione per l'aggiunta e la modifica dei parametri del report in monitoraggio di Azure. L'icona di modifica per il parametro Direction è selezionata.](media/vminsights-workbooks/011-workbook-using-dropdown.png)
 
 Verrà avviata la voce di menu **modifica parametro** .
 
-![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+![Screenshot della finestra di dialogo Modifica parametro. Il nome del parametro è Direction, il tipo di parametro è drop down e Get data from JSON è selezionato.](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
 JSON consente di generare una tabella arbitraria popolata con contenuto. Ad esempio, il codice JSON seguente genera due valori nell'elenco a discesa:
 

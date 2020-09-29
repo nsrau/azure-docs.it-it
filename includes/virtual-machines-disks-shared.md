@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cafde6ed66e5b636be60533abafcd6f221fe33a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6f819d9b6ba4d74612da304aafea0118f9094bde
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502513"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451492"
 ---
 Azure Shared disks è una nuova funzionalità di Azure Managed disks che consente di aggiungere contemporaneamente un disco gestito a più macchine virtuali (VM). Collegando un disco gestito a più macchine virtuali è possibile distribuire nuove applicazioni in cluster o eseguire la migrazione di quelle esistenti in Azure.
 
@@ -57,7 +57,7 @@ I dischi condivisi di Azure sono supportati in:
 - [SUSE SLE per SAP e SUSE SLE HA 15 SP1 e versioni successive](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
 - [Ubuntu 18,04 e versioni successive](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
 - [RHEL Developer Preview in qualsiasi versione RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
-- [Oracle Enterprise Linux] (https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
+- [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 I cluster Linux possono sfruttare gli strumenti di gestione cluster, ad esempio [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker si basa su [Corosync](http://corosync.github.io/corosync/), abilitando le comunicazioni del cluster per le applicazioni distribuite in ambienti a disponibilità elevata. Alcuni file system in cluster comuni includono [ocfs2](https://oss.oracle.com/projects/ocfs2/) e [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Per l'accesso arbitrali al disco è possibile usare modelli di clustering basati su SCSI Persistent Reservation (SCSI PR) e/o STONITH Block Device (SBD). Quando si usa la richiesta pull SCSI, è possibile modificare prenotazioni e registrazioni usando utilità quali [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) e [sg_persist](https://linux.die.net/man/8/sg_persist).
 
@@ -91,7 +91,7 @@ Il flusso è il seguente:
 
 I dischi Ultra offrono un'ulteriore limitazione, per un totale di due limitazioni. Per questo motivo, il flusso di prenotazione di dischi Ultra può operare come descritto nella sezione precedente oppure può imporre una limitazione e distribuire le prestazioni in modo più granulare.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Immagine di una tabella che rappresenta l'accesso ReadOnly o lettura/scrittura per il titolare della prenotazione, registrato e altro.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Immagine di una tabella che rappresenta l'accesso &quot;ReadOnly&quot; o &quot;lettura/scrittura&quot; per il titolare della prenotazione, registrato e altro.":::
 
 ## <a name="performance-throttles"></a>Limitazioni delle prestazioni
 
@@ -131,19 +131,19 @@ Gli esempi seguenti illustrano alcuni scenari che mostrano come funziona la limi
 
 Di seguito è riportato un esempio di un cluster WSFC a 2 nodi che usa volumi condivisi del cluster. Con questa configurazione, entrambe le macchine virtuali hanno accesso in scrittura simultaneo al disco, il che comporta la `ReadWrite` suddivisione della limitazione tra le due macchine virtuali e la `ReadOnly` limitazione non in uso.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Esempio di disco Ultra a due nodi che usa volumi condivisi del cluster":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Immagine di una tabella che rappresenta l'accesso &quot;ReadOnly&quot; o &quot;lettura/scrittura&quot; per il titolare della prenotazione, registrato e altro.":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Cluster a due nodi senza volumi condivisi del cluster
 
 Di seguito è riportato un esempio di un cluster WSFC a 2 nodi che non usa volumi condivisi del cluster. Con questa configurazione, solo una macchina virtuale ha accesso in scrittura al disco. Ciò comporta la `ReadWrite` limitazione dell'utilizzo esclusivo della macchina virtuale primaria e della `ReadOnly` limitazione utilizzata solo dal database secondario.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Esempio di disco Ultra a due nodi che non usa volumi condivisi del cluster":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Immagine di una tabella che rappresenta l'accesso &quot;ReadOnly&quot; o &quot;lettura/scrittura&quot; per il titolare della prenotazione, registrato e altro.":::
 
 ##### <a name="four-node-linux-cluster"></a>Cluster Linux a quattro nodi
 
 Di seguito è riportato un esempio di cluster Linux a 4 nodi con una sola macchina virtuale con accesso in scrittura e tre macchine virtuali con accesso in lettura con scalabilità orizzontale. Con questa configurazione, solo una macchina virtuale ha accesso in scrittura al disco. Ciò comporta la `ReadWrite` limitazione dell'uso esclusivo della macchina virtuale primaria e della limitazione delle `ReadOnly` richieste da parte delle VM secondarie.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Esempio di limitazione di disco Ultra a quattro nodi":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Immagine di una tabella che rappresenta l'accesso &quot;ReadOnly&quot; o &quot;lettura/scrittura&quot; per il titolare della prenotazione, registrato e altro.":::
 
 #### <a name="ultra-pricing"></a>Prezzi ultra
 

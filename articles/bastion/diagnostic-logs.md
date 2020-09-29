@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 82f92a6dc33173918102015c8cedea1755d77805
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e76fffd17ee565d4103ca8a7bf1523bbd16209d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744205"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445388"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Abilitare e usare i log delle risorse Bastion
 
@@ -22,13 +22,13 @@ Poiché gli utenti si connettono ai carichi di lavoro con Azure Bastion, Bastion
 
 1. Nella [portale di Azure](https://portal.azure.com)passare alla risorsa di Azure Bastion e selezionare impostazioni di **diagnostica** dalla pagina del Bastion di Azure.
 
-   ![impostazioni di diagnostica](./media/diagnostic-logs/1diagnostics-settings.png)
+   ![Screenshot che mostra la pagina "impostazioni di diagnostica".](./media/diagnostic-logs/1diagnostics-settings.png)
 2. Selezionare **impostazioni di diagnostica**, quindi selezionare **+ Aggiungi** impostazioni di diagnostica per aggiungere una destinazione per i log.
 
-   ![Aggiungi impostazione di diagnostica](./media/diagnostic-logs/2add-diagnostic-setting.png)
+   ![Screenshot che mostra la pagina "impostazioni di diagnostica" con il pulsante "Aggiungi impostazione di diagnostica" selezionato.](./media/diagnostic-logs/2add-diagnostic-setting.png)
 3. Nella pagina **impostazioni di diagnostica** selezionare il tipo di account di archiviazione da usare per l'archiviazione dei log di diagnostica.
 
-   ![Selezionare il percorso di archiviazione](./media/diagnostic-logs/3add-storage-account.png)
+   ![Screenshot della pagina "impostazioni di diagnostica" con la sezione per selezionare un percorso di archiviazione evidenziato.](./media/diagnostic-logs/3add-storage-account.png)
 4. Una volta completate le impostazioni, l'aspetto sarà simile a questo esempio:
 
    ![impostazioni di esempio](./media/diagnostic-logs/4example-settings.png)

@@ -6,13 +6,13 @@ ms.topic: how-to
 ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
-ms.custom: devx-track-python, devx-track-java
-ms.openlocfilehash: 8f2714c7c49aa5e02747ce726da29a98485b5fbd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-python, devx-track-java, contperfq1
+ms.openlocfilehash: 068b316eaa92a1e781df0b9945133a26fa0b88a2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988225"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445275"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Esportare i certificati dell'emulatore Azure Cosmos DB per l'uso con app Java, Python e Node.js
 
@@ -36,31 +36,31 @@ Questo articolo illustra come esportare i certificati TLS/SSL da usare in lingua
 
 1. Fare clic su **Details** (Dettagli) quindi su **OK**.
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png" alt-text="Passaggio 2 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
 1. Fare clic su **Copy to File...** (Copia in file).
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png" alt-text="Passaggio 3 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
 1. Fare clic su **Avanti**.
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png" alt-text="Passaggio 4 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
 1. Fare clic su **No, do not export private key** (No, non esportare la chiave privata) e quindi su **Next** (Avanti).
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png" alt-text="Passaggio 5 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
 1. Fare clic su **Base-64 encoded X.509 (.CER)** (Codificato in base 64 X.509 (.CER)) e quindi su **Next** (Avanti).
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png" alt-text="Passaggio 6 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
 1. Assegnare un nome al certificato. In questo caso, **documentdbemulatorcert**, quindi fare clic su **Next** (Avanti).
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png" alt-text="Passaggio 7 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
 1. Fare clic su **Fine**.
 
-    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png" alt-text="Passaggio 8 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
+    :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
 ## <a name="use-the-certificate-with-java-apps"></a>Usare il certificato con le app java
 
@@ -98,7 +98,7 @@ Quando ci si connette all'emulatore da Node.js SDK, la verifica TLS è disabilit
 
 È possibile forzare la rigenerazione dei certificati dell'emulatore selezionando **Reimposta i dati** dal Azure Cosmos DB emulatore in esecuzione nel vassoio di Windows. Si noti che questa azione eliminerà anche tutti i dati archiviati localmente dall'emulatore.
 
-:::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png" alt-text="Reimpostazione dei dati nell'emulatore locale di Azure Cosmos DB":::
+:::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
 Se il certificato è stato installato nell'archivio certificati Java o è stato usato altrove, è necessario importarli nuovamente usando i certificati correnti. L'applicazione non è in grado di connettersi all'emulatore locale fino a quando non si aggiornano i certificati.
 

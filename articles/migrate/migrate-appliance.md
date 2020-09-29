@@ -3,12 +3,12 @@ title: Appliance Azure Migrate
 description: Fornisce un riepilogo del supporto per Azure Migrate Appliance.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: e2bd3f2fa40bbf31713393f18a04624d70cbd244
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084771"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450044"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -47,12 +47,12 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 **Distribuzione supportata** | Distribuire come macchina virtuale di VMware usando il modello OVA.<br/><br/> Distribuire come macchina virtuale VMware o computer fisico con uno script di installazione di PowerShell.
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
 **Limiti dell'individuazione** | Un'appliance può individuare fino a 10.000 macchine virtuali VMware in un server vCenter.<br/> Un'appliance può connettersi a un solo server vCenter.
-**Modello OVA** | Scaricare dal portale o da [qui](https://go.microsoft.com/fwlink/?linkid=2140333)<br/><br/> Le dimensioni del download sono di 11,6 GB.<br/><br/> Il modello di appliance scaricato include una licenza di valutazione di Windows Server 2016 valida per 180 giorni. Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
+**Modello OVA** | Scaricare dal portale o da [qui](https://go.microsoft.com/fwlink/?linkid=2140333)<br/><br/> Le dimensioni del download sono di 11,9 GB.<br/><br/> Il modello di appliance scaricato include una licenza di valutazione di Windows Server 2016 valida per 180 giorni. Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
 **Script di PowerShell** | Vedere questo [articolo](./deploy-appliance-script.md#set-up-the-appliance-for-vmware).<br/><br/> 
 **Software/hardware** |  L'appliance deve essere eseguita in un computer con Windows Server 2016, con una RAM di 32 GB, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un commutatore virtuale esterno.<br/> L'appliance richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in una macchina virtuale VMware, è necessario disporre di risorse sufficienti nel server vCenter per allocare una macchina virtuale che soddisfa i requisiti.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware.
 **Requisiti di VMware** | Se si distribuisce l'appliance come macchina virtuale VMware, questa deve essere distribuita in un host ESXi che esegue la versione 5.5 o successiva.<br/><br/> Server vCenter che esegue la versione 5.5, 6.0, 6.5 o 6.7.
 **VDDK (migrazione senza agente)** | Se si distribuisce l'appliance come macchina virtuale VMware e si esegue una migrazione senza agente, è necessario installare VMware vSphere VDDK nella macchina virtuale dell'appliance.
-**Valore hash - OVA** | [Verificare](tutorial-assess-vmware.md#verify-security) i valori hash del modello OVA.
+**Valore hash - OVA** | [Verificare](tutorial-discover-vmware.md#verify-security) i valori hash del modello OVA.
 **Valore hash - Script di PowerShell** | [Verificare](deploy-appliance-script.md#verify-file-security) i valori hash dello script di PowerShell.
 
 
@@ -67,11 +67,11 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 **Distribuzione supportata** | Distribuire come macchina virtuale Hyper-V usando un modello di disco rigido virtuale.<br/><br/> Distribuire come macchina virtuale Hyper-V o computer fisico con uno script di installazione di PowerShell.
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
 **Limiti dell'individuazione** | Un'appliance consente di individuare fino a 5000 macchine virtuali Hyper-V.<br/> Un'appliance può connettersi al massimo con 300 host Hyper-V.
-**Modello di disco rigido virtuale** | Cartella compressa con include il disco rigido virtuale. Scaricare dal portale o da [qui](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> Le dimensioni del download sono di 10,4 GB.<br/><br/> Il modello di appliance scaricato include una licenza di valutazione di Windows Server 2016 valida per 180 giorni. Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
+**Modello di disco rigido virtuale** | Cartella compressa con include il disco rigido virtuale. Scaricare dal portale o da [qui](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> Le dimensioni del download sono di 8,91 GB.<br/><br/> Il modello di appliance scaricato include una licenza di valutazione di Windows Server 2016 valida per 180 giorni. Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
 **Script di PowerShell** | Vedere questo [articolo](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
-**Software/hardware***   |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance come macchina virtuale Hyper-V, è necessario disporre di risorse sufficienti nell'host Hyper-V per allocare una RAM da 16 GB, 8 vCPU, circa 80 GB di spazio di archiviazione e un commutatore esterno per la macchina virtuale dell'appliance.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware. 
+**Software/hardware***   |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance come macchina virtuale Hyper-V, è necessario disporre di risorse sufficienti nell'host Hyper-V per allocare i requisiti hardware.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware. 
 **Requisiti di Hyper-V** | Se si distribuisce l'appliance con il modello di disco rigido virtuale, la macchina virtuale dell'appliance messa a disposizione da Azure Migrate è la macchina virtuale Hyper-V versione 5.0.<br/><br/> L'host Hyper-V deve eseguire Windows Server 2012 R2 o una versione successiva. 
-**Valore hash - Disco rigido virtuale** | Valori hash del modello VHD.
+**Valore hash - Disco rigido virtuale** | [Verifica](tutorial-discover-hyper-v.md#verify-security) Valori hash del modello VHD.
 **Valore hash - Script di PowerShell** | [Verificare](deploy-appliance-script.md#verify-file-security) i valori hash dello script di PowerShell.
 
 
@@ -84,9 +84,9 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 **Distribuzione supportata** | Distribuire come computer fisico dedicato o macchina virtuale con uno script di installazione di PowerShell. Lo script può essere scaricato dal portale.
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
 **Limiti dell'individuazione** | Un'appliance può individuare fino a 1000 di server fisici.
-**Script di PowerShell** | Scaricare lo script (AzureMigrateInstaller.ps1) in una cartella compressa dal portale o da [qui](https://go.microsoft.com/fwlink/?linkid=2140334). [Altre informazioni](tutorial-discover-physical.md)<br/><br/> Le dimensioni del download sono pari a 85 MB.
-**Software/hardware** |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware.<br/> L'esecuzione dell'appliance in un computer con Windows Server 2019 non è supportata.
-**Valore hash** | [Verificare](deploy-appliance-script.md#verify-file-security) i valori hash dello script di PowerShell.
+**Script di PowerShell** | Scaricare lo script (AzureMigrateInstaller.ps1) in una cartella compressa dal portale o da [qui](https://go.microsoft.com/fwlink/?linkid=2140334). [Altre informazioni](tutorial-discover-physical.md)<br/><br/> Le dimensioni del download sono pari a 85,8 MB.
+**Software/hardware** |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware.<br/>_Attualmente la distribuzione del dispositivo è supportata solo in Windows Server 2016._
+**Valore hash** | [Verificare](tutorial-discover-physical.md#verify-security) i valori hash dello script di PowerShell.
 
 ## <a name="url-access"></a>accesso con URL
 
@@ -217,9 +217,9 @@ Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchi
 
 **Dati** | **Percorso del registro** | **Chiave**
 --- | --- | ---
-Nome dell'applicazione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
+Nome applicazione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 Versione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
-Provider  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Editore
+Provider  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
 
 #### <a name="windows-vm-features-data"></a>Dati delle funzionalità della VM Windows
 
@@ -227,7 +227,7 @@ Ecco i dati sulle funzionalità che l'appliance raccoglie da ogni macchina virtu
 
 **Dati**  | **Cmdlet di PowerShell** | **Proprietà**
 --- | --- | ---
-NOME  | Get-WindowsFeature  | NOME
+Nome  | Get-WindowsFeature  | Nome
 Feature Type | Get-WindowsFeature  | FeatureType
 Parent  | Get-WindowsFeature  | Parent
 
@@ -237,7 +237,7 @@ Ecco i metadati di SQL Server raccolti dall'appliance dalle macchine virtuali ch
 
 **Dati**  | **Percorso del registro**  | **Chiave**
 --- | --- | ---
-NOME  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL server\istanza Names\SQL  | installedInstance
+Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL server\istanza Names\SQL  | installedInstance
 Edizione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Edizione 
 Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | SP
 Versione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Versione 
@@ -248,7 +248,7 @@ Ecco i dati del sistema operativo che l'appliance raccoglie ogni macchina virtua
 
 Data  | classe WMI  | Proprietà della classe WMI
 --- | --- | ---
-NOME  | Win32_operatingsystem  | Sottotitolo
+Nome  | Win32_operatingsystem  | Sottotitolo
 Versione  | Win32_operatingsystem  | Versione
 Architecture  | Win32_operatingsystem  | OSArchitecture
 
@@ -258,7 +258,7 @@ Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchi
 
 Data  | Comando
 --- | --- 
-NOME | rpm, dpkg-query, snap
+Nome | rpm, dpkg-query, snap
 Versione | rpm, dpkg-query, snap
 Provider | rpm, dpkg-query, snap
 
@@ -268,7 +268,7 @@ Ecco i dati del sistema operativo che l'appliance raccoglie ogni macchina virtua
 
 **Dati**  | **Comando** 
 --- | --- | ---
-NOME <br/> version | Raccolto da uno o più dei seguenti file:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Nome <br/> version | Raccolto da uno o più dei seguenti file:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Architecture | uname
 
 

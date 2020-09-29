@@ -6,13 +6,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
+ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: 6d0a778dee31d93244479c08c7bb7b6f37cf49cb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ed5c7eee1e8261c65decba4748e1d9c6a4d7212b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319355"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91459813"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Risolvere i problemi di Analisi di flusso di Azure usando i log delle risorse
 
@@ -116,7 +117,7 @@ Nome | Descrizione
 ------- | -------
 Source (Sorgente) | Nome dell'input o dell'output del processo in cui si è verificato l'errore.
 Message | Messaggio associato all'errore.
-Type | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
+Tipo | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
 Data | Dati utili per individuare con precisione l'origine dell'errore. Sono soggetti a troncamento in base alle dimensioni.
 
 In base al valore **operationName**, lo schema degli errori nei dati è il seguente:
@@ -137,7 +138,7 @@ Nome | Descrizione
 -------- | --------
 Errore | (facoltativo) Informazioni sugli errori. In genere, quando disponibili, si tratta di informazioni sulle eccezioni.
 Message| Messaggio del log.
-Type | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
+Tipo | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 ID correlazione | GUID che identifica in modo univoco l'esecuzione del processo. Tutte le voci del log di esecuzione dal momento dell'avvio del processo fino a quando il processo viene interrotto hanno lo stesso valore **ID correlazione**.
 
 ## <a name="next-steps"></a>Passaggi successivi

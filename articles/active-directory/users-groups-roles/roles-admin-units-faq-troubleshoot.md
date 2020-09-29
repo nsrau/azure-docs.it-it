@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22992f66d45b9bdb76383301cccff645c98a74d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7f9af8ee3bf87cfd5d2e74adfce618c7cf8c7e63
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264780"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450335"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Azure AD unità amministrative: risoluzione dei problemi e domande frequenti
 
@@ -67,9 +67,9 @@ Per evitare un'elevazione dei privilegi, un amministratore con ambito di unità 
 
 **D: le unità amministrative sono supportate in PowerShell e in API Graph?**
 
-**R:** Sì. Il supporto per le unità amministrative è disponibile nella [documentazione dei cmdlet di PowerShell](/powershell/module/Azuread/?view=azureadps-2.0-preview&preserve-view=true) e negli script di [esempio](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview&preserve-view=true).
+**R:** Sì. Il supporto per le unità amministrative è disponibile nella [documentazione dei cmdlet di PowerShell](/powershell/module/Azuread/?view=azureadps-2.0&preserve-view=true) e negli script di [esempio](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true).
 
-Trovare il supporto per il [tipo di risorsa entità administrativeunit](/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true) in Microsoft Graph.
+Trovare il supporto per il [tipo di risorsa entità administrativeunit](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true) in Microsoft Graph.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ffd967797a4e586387a0385169672220727f78a7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886759"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445721"
 ---
 # <a name="deploy-azure-sql-edge"></a>Distribuire SQL Edge di Azure 
 
-Azure SQL Edge è un motore di database relazionale ottimizzato per le distribuzioni di Azure IoT Edge e Internet. Fornisce funzionalità per la creazione di un livello di elaborazione e archiviazione dei dati a prestazioni elevate per le applicazioni e le soluzioni IoT. Questo argomento di avvio rapido illustra come iniziare a creare un modulo SQL Edge di Azure mediante Azure IoT Edge usando il portale di Azure.
+SQL Edge di Azure è un motore di database relazionale ottimizzato per distribuzioni IoT e Azure IoT Edge. Fornisce funzionalità per la creazione di un livello di elaborazione e archiviazione dei dati a prestazioni elevate per le applicazioni e le soluzioni IoT. Questo argomento di avvio rapido illustra come iniziare a creare un modulo SQL Edge di Azure mediante Azure IoT Edge usando il portale di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -62,7 +62,6 @@ Azure Marketplace è un marketplace online di servizi e applicazioni dove è pos
 
    |**Parametro**  |**Descrizione**|
    |---------|---------|
-   | Nome | Nome per il modulo. |
    | MSSQL_SA_PASSWORD  | Modificare il valore predefinito per specificare una password complessa per l'account amministratore di SQL Edge. |
    | MSSQL_LCID   | Modificare il valore predefinito per impostare l'ID lingua desiderato da usare per SQL Edge. Ad esempio, 1036 corrisponde al francese. |
    | MSSQL_COLLATION | Modificare il valore predefinito per impostare le regole di confronto predefinite per SQL Edge. Questa impostazione sostituisce il mapping predefinito dell'ID lingua (LCID) per le regole di confronto. |
@@ -110,7 +109,7 @@ Azure Marketplace è un marketplace online di servizi e applicazioni dove è pos
    
 8. Nel riquadro **aggiorna IOT Edge modulo** fare clic su **Aggiorna**.
 9. Nella pagina **imposta moduli nel dispositivo** fare clic su **avanti: Route >** se è necessario definire le route per la distribuzione. In caso contrario, fare clic su **Verifica + crea**. Per ulteriori informazioni sulla configurazione delle route, vedere [deploy Modules and establish routes in IOT Edge](../iot-edge/module-composition.md).
-11. Nel riquadro **aggiorna IOT Edge modulo** fare clic su **Crea**.
+11. Nella pagina **imposta moduli nel dispositivo** fare clic su **Crea**.
 
 ## <a name="connect-to-azure-sql-edge"></a>Connettersi a SQL Edge di Azure
 

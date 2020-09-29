@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: 4f4b914fe5851df0928df9ccc41ca3b20c5d3469
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d428382493e15d2e0571f4cb4b6f090cf9056fe4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955956"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449304"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtri nelle viste di monitoraggio di Azure
 Un **filtro** in una [vista di monitoraggio di Azure](view-designer.md) consente agli utenti di filtrare i dati nella vista in base al valore di una proprietà specifica senza modificare la vista stessa.  È ad esempio possibile consentire agli utenti della vista di filtrare solo i dati di un computer o un set di computer specifico.  È possibile creare più filtri in una singola vista per consentire agli utenti di filtrare in base a più proprietà.  Questo articolo descrive come usare un filtro e aggiungerne uno a una vista personalizzata.
@@ -19,12 +19,12 @@ Un **filtro** in una [vista di monitoraggio di Azure](view-designer.md) consente
 ## <a name="using-a-filter"></a>Uso di un filtro
 Fare clic sull'intervallo di tempo della data nella parte superiore di una visualizzazione per aprire l'elenco a discesa in cui è possibile modificare l'intervallo di tempo per la visualizzazione.
 
-![Esempio di filtro](media/view-designer-filters/filters-example-time.png)
+![Screenshot del menu a discesa intervallo di tempo per una visualizzazione in monitoraggio di Azure, che mostra il pulsante di opzione per gli ultimi 7 giorni selezionati.](media/view-designer-filters/filters-example-time.png)
 
 Fare clic su **+** per aggiungere un filtro utilizzando filtri personalizzati definiti per la visualizzazione. Selezionare un valore per il filtro dall'elenco a discesa. Continuare ad aggiungere filtri facendo clic sul pulsante **+** . 
 
 
-![Esempio di filtro](media/view-designer-filters/filters-example-custom.png)
+![Screenshot della finestra di dialogo per l'aggiunta di un filtro personalizzato in monitoraggio di Azure. È in corso la selezione della proprietà computer nel menu a discesa Seleziona proprietà.](media/view-designer-filters/filters-example-custom.png)
 
 Se si rimuovono tutti i valori per un filtro, il filtro non verrà più applicato.
 
@@ -43,7 +43,7 @@ La tabella seguente descrive le impostazioni per un filtro.
 | Esegui query per valori | Query da eseguire per popolare l'elenco a discesa relativo al filtro per l'utente.  Questa query deve usare [riepiloga](/azure/kusto/query/summarizeoperator) o [Distinct](/azure/kusto/query/distinctoperator) per fornire valori univoci per un determinato campo e deve corrispondere al **nome del campo**.  È possibile usare l'opzione [sort](/azure/kusto/query/sortoperator) per ordinare i valori visualizzati dall'utente. |
 | Tag | Nome del campo usato nelle query che supportano il filtro e visualizzato dall'utente. |
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 La tabella seguente include alcuni esempi di filtri comuni.  
 

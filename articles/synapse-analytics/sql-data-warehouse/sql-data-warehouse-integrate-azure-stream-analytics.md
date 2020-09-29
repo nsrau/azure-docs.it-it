@@ -2,27 +2,27 @@
 title: Usare analisi di flusso di Azure
 description: Suggerimenti per l'uso di analisi di flusso di Azure con le data warehouse in sinapsi di Azure per lo sviluppo di soluzioni in tempo reale.
 services: synapse-analytics
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 2/5/2020
-ms.author: martinle
+ms.date: 9/25/2020
+ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 90e339ba8454dfdfc3f724ea12932a3e8e5912c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60fb258fe2c6063b9b9a3ced0f4ba5f71ffd9d7c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213347"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449534"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Usare Analisi di flusso di Azure con Azure Synapse Analytics
 
 Analisi di flusso di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Per informazioni di base, vedere [Introduzione ad Analisi di flusso di Azure](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). È possibile apprendere come creare una soluzione end-to-end con Analisi di flusso seguendo l’esercitazione [Introduzione all’uso di Analisi di flusso di Azure](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
-In questo articolo si apprenderà come usare il data warehouse come sink di output per i processi di analisi di flusso di Azure.
+In questo articolo si apprenderà come usare il data warehouse come sink di output per l'inserimento di dati con velocità effettiva elevata con i processi di analisi di flusso di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,19 +32,19 @@ In questo articolo si apprenderà come usare il data warehouse come sink di outp
     2. Configurare e avviare l'applicazione di generazione di eventi
     3. Eseguire il provisioning di un processo di Analisi dei flussi
     4. Specificare la query e l'input del processo
-* Data warehouse del pool SQL di Azure sinapsi: per creare una nuova data warehouse, seguire i passaggi nella [Guida introduttiva per creare un nuovo data warehouse](create-data-warehouse-portal.md).
+* Pool SQL di sinapsi di Azure per il data warehouse: per creare una nuova data warehouse, seguire i passaggi della [Guida introduttiva per creare un nuovo data warehouse](create-data-warehouse-portal.md).
 
 ## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>Specificare l'output del flusso in modo che punti al data warehouse
 
-### <a name="step-1"></a>Step 1
+### <a name="step-1"></a>Passaggio 1
 
 Dal portale di Azure passare al processo di analisi di flusso e fare clic su **output** nel menu **topologia processo** .
 
 ### <a name="step-2"></a>Passaggio 2
 
-Fare clic sul pulsante **Aggiungi** e scegliere **database SQL** dal menu a discesa.
+Fare clic sul pulsante **Aggiungi** e scegliere **Azure sinapsi Analytics** dal menu a discesa.
 
-![Scegliere il database SQL](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
+![Scegliere Azure sinapsi Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output.png)
 
 ### <a name="step-3"></a>Passaggio 3
 
@@ -52,15 +52,15 @@ Immettere i valori seguenti:
 
 * *Alias di output*: immettere un nome descrittivo per l'output del processo.
 * *Sottoscrizione*:
-  * Se il data warehouse si trova nella stessa sottoscrizione del processo di analisi di flusso, fare clic su ***selezionare il database SQL dalle sottoscrizioni***.
-  * Se il database si trova in una sottoscrizione diversa, fare clic su specificare manualmente le impostazioni del database SQL.
+  * Se il data warehouse si trova nella stessa sottoscrizione del processo di analisi di flusso, fare clic su ***selezionare Azure sinapsi Analytics dalle sottoscrizioni***.
+  * Se il data warehouse si trova in una sottoscrizione diversa, fare clic su specificare le impostazioni di Azure sinapsi Analytics manualmente.
 * *Database*: selezionare il database di destinazione dall'elenco a discesa.
 * *Nome utente*: digitare il nome utente di un account con autorizzazioni di scrittura nel database.
 * *Password*: fornire la password per l'account utente specificato.
 * *Tabella*: specificare il nome della tabella di destinazione nel database.
 * fare clic sul pulsante **Salva** .
 
-![Modulo database SQL completato](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
+![Modulo di analisi sinapsi di Azure completato](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output-db-settings.png)
 
 ### <a name="step-4"></a>Passaggio 4
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b55d8bcc2f2042dc36c6875750893a345deb552
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468607"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450421"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Che cos'è un token di aggiornamento primario?
 
@@ -199,6 +199,9 @@ I diagrammi seguenti illustrano i dettagli sottostanti relativi a rilascio, rinn
 | D | Il plug-in CloudAP crea il cookie del token di aggiornamento primario, effettua l'accesso con la chiave della sessione associata al TPM e invia di nuovo il cookie all'host client nativo. Poiché il cookie è firmato dalla chiave della sessione, non può essere manomesso. |
 | E | L'host client nativo restituisce il cookie del token di aggiornamento primario al browser, che lo include come parte dell'intestazione della richiesta denominata x-ms-RefreshTokenCredential e richiede i token ad Azure AD. |
 | F | Azure AD convalida la firma della chiave della sessione nel cookie del token di aggiornamento primario, convalida l'oggetto nonce, verifica che il dispositivo sia valido nel tenant e rilascia un token ID per la pagina Web e un cookie di sessione crittografato per il browser. |
+
+> [!NOTE]
+> Il flusso SSO del browser descritto nei passaggi precedenti non si applica alle sessioni in modalità private, ad esempio InPrivate in Microsoft Edge, o in incognito in Google Chrome (quando si usa l'estensione degli account Microsoft).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

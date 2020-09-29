@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: 3227585b62583d0a05f8dbc0444ee5bb4a27df77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 32ad92b333eda8cd429303177dba160f0b58af54
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320511"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445542"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Utilizzare la funzionalità di mapping di Monitoraggio di Azure per le macchine virtuali per comprendere i componenti dell'applicazione
 In Monitoraggio di Azure per le macchine virtuali, è possibile visualizzare i componenti dell'applicazione individuati in macchine virtuali Windows e Linux in esecuzione in Azure o nell'ambiente in uso. È possibile osservare le macchine virtuali in due modi. Visualizzare una mappa direttamente da una macchina virtuale o visualizzare una mappa da monitoraggio di Azure per visualizzare i componenti tra gruppi di macchine virtuali. Questo articolo consente di comprendere questi due metodi di visualizzazione e come usare la funzionalità mappa. 
@@ -95,7 +95,7 @@ La mappa Visualizza le dipendenze della VM scoprendo i gruppi di processi e i pr
 
 Per impostazione predefinita, la mappa visualizza gli ultimi 30 minuti. Se si desidera visualizzare le dipendenze in passato, è possibile eseguire una query per gli intervalli di tempo cronologici fino a un'ora. Per eseguire la query, usare il selettore **TimeRange** nell'angolo in alto a sinistra. È possibile eseguire una query, ad esempio, durante un evento imprevisto o visualizzare lo stato prima di una modifica.  
 
-![Panoramica di mappe direttamente da macchina virtuale](./media/vminsights-maps/map-direct-vm-01.png)
+![Screenshot della scheda mappa nella sezione monitoraggio di Insights di portale di Azure che mostra un diagramma delle dipendenze tra macchine virtuali.](./media/vminsights-maps/map-direct-vm-01.png)
 
 ## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Visualizzare una mappa da un set di scalabilità di macchine virtuali
 
@@ -111,7 +111,7 @@ Per caricare una mappa per un'istanza specifica, selezionare innanzitutto tale i
 
 Per impostazione predefinita, la mappa visualizza gli ultimi 30 minuti. Se si desidera visualizzare le dipendenze in passato, è possibile eseguire una query per gli intervalli di tempo cronologici fino a un'ora. Per eseguire la query, usare il selettore **TimeRange** . È possibile eseguire una query, ad esempio, durante un evento imprevisto o visualizzare lo stato prima di una modifica.
 
-![Panoramica di mappe direttamente da macchina virtuale](./media/vminsights-maps/map-direct-vmss-01.png)
+![Screenshot della scheda mappa nella sezione monitoraggio di Insights di portale di Azure che mostra un diagramma delle dipendenze tra i set di scalabilità di macchine virtuali.](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
 >È anche possibile accedere a una mappa per un'istanza specifica dalla visualizzazione **istanze** per il set di scalabilità di macchine virtuali. Nella sezione **Impostazioni** passare a **istanze**  >  **Insights**.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: 928a68cff5dc8043e69c25be3dcfa3510a7d3a2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e8dcb188dc5aad59738e3eab4169bf9dbd3679ec
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267302"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449348"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Posizioni dei partner e degli hub virtuali della rete WAN virtuale di Azure
 
@@ -58,7 +58,7 @@ Questi partner dispongono di offerte di **applicazioni gestite** ora disponibili
 |Partner|Guida alla configurazione/procedura/distribuzione|
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Guida alla distribuzione di Barracuda CloudGen WAN](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
-|[Cisco Cloud Service Router (CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| [Guida alla distribuzione di Cisco Cloud Service Router (CSR) VWAN]()
+|[Cisco Cloud Service Router (CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Per distribuire la rete WAN Cisco Services (CSR) nell'hub virtuale, inviare un messaggio di posta elettronica a vwan_public_preview@cisco.com |
 
 I partner seguenti sono disponibili per l'inclusione di appliance virtuale di rete nell'hub virtuale nel prossimo futuro: Citrix, versa Networks e VeloCloud.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 67ab15a6b890bc5f28cd18fca8a35adbc7437778
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a1d5c70913f7e2a56eaf04be333a931c1adbc3d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280981"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450057"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi in Azure Machine Learning
 
@@ -209,6 +209,9 @@ Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasf
     ```
 
     Se non si include la barra iniziale '/', sarà necessario anteporre la directory di lavoro ad esempio alla `/mnt/batch/.../tmp/dataset` destinazione di calcolo per indicare dove si desidera montare il set di dati.
+
+### <a name="mount-dataset"></a>Montare il set di dati
+* **Inizializzazione del set di dati non riuscita: si è verificato un timeout durante l'attesa del punto di montaggio**: è stata aggiunta la logica di ripetizione dei tentativi per `azureml-sdk >=1.12.0` attenuare il problema. Se ci si trova nelle versioni precedenti di azureml-SDK, eseguire l'aggiornamento alla versione più recente. Se si è già in `azureml-sdk>=1.12.0` uso, ricreare l'ambiente in modo da disporre della patch più recente con la correzione.
 
 ### <a name="data-labeling-projects"></a>Progetti di etichettatura dei dati
 

@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 9593a6c4fa45d9810aabb2bbb3123428930c5891
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401572"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449213"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Individuazione della corrispondenza tra le richieste e una regola di routing in Frontdoor
+# <a name="how-requests-are-matched-to-a-routing-rule"></a>Modalità di corrispondenza delle richieste con una regola di routing
 
-Dopo aver stabilito una connessione ed eseguito un handshake TLS, quando una richiesta si trova in un ambiente di sportello anteriore, una delle prime cose che la porta principale è quella di determinare da tutte le configurazioni, quale regola di routing specifica in modo che corrisponda alla richiesta e quindi a eseguire l'azione definita. Il documento seguente illustra in che modo Frontdoor determina la configurazione di routing da usare durante l'elaborazione di una richiesta HTTP.
+Dopo aver stabilito una connessione e completato un handshake TLS, quando una richiesta si trova in un ambiente di sportello anteriore, una delle prime cose che la porta anteriore è determinare quale regola di routing particolare deve corrispondere alla richiesta e quindi eseguire l'azione definita nella configurazione. Il documento seguente illustra in che modo Frontdoor determina la configurazione di routing da usare durante l'elaborazione di una richiesta HTTP.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Struttura di una configurazione di routing di Frontdoor
 Una configurazione di una regola di routing di Frontdoor è costituita da due parti principali: un "lato sinistro" e un "lato destro". Viene verificata la corrispondenza della richiesta in ingresso con il lato sinistro della route, mentre il lato destro definisce la modalità di elaborazione della richiesta.
@@ -41,7 +41,7 @@ La decisione su come elaborare la richiesta dipende dal fatto che la memorizzazi
 Questa sezione descrive la modalità di individuazione della corrispondenza per una determinata regola di routing in Frontdoor. Il concetto di base è che viene sempre verificata **prima la corrispondenza più specifica** esaminando solo il "lato sinistro".  Viene prima verificata la corrispondenza in base al protocollo HTTP, quindi in base all'host front-end e infine in base al percorso.
 
 ### <a name="frontend-host-matching"></a>Corrispondenza di host front-end
-Per la corrispondenza degli host front-end, viene usata la logica seguente:
+Quando si abbinano host front-end, viene usata la logica definita di seguito:
 
 1. Cercare eventuali routing con una corrispondenza esatta per l'host.
 2. Se nessun host front-end corrisponde in modo esatto, rifiutare la richiesta e inviare un errore 400 - Richiesta non valida.
@@ -50,7 +50,7 @@ Per spiegare ulteriormente questo processo, esaminiamo una configurazione di ese
 
 | Regola di routing | Host front-end | Path |
 |-------|--------------------|-------|
-| Una | foo.contoso.com | /\* |
+| A | foo.contoso.com | /\* |
 | B | foo.contoso.com | /users/\* |
 | C | www \. Fabrikam.com, foo.Adventure-Works.com  | /\*, /images/\* |
 
@@ -80,7 +80,7 @@ Per chiarire ulteriormente il processo, esaminiamo un altro set di esempi:
 
 | Regola di routing | Host front-end    | Path     |
 |-------|---------|----------|
-| Una     | www\.contoso.com | /        |
+| A     | www\.contoso.com | /        |
 | B     | www\.contoso.com | /\*      |
 | C     | www\.contoso.com | /ab      |
 | D     | www\.contoso.com | /abc     |
@@ -93,7 +93,7 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 
 | Richiesta in ingresso    | Route corrispondente |
 |---------------------|---------------|
-| \.contoso.com/www            | Una             |
+| \.contoso.com/www            | A             |
 | \.contoso.com/a www           | B             |
 | \.contoso.com/AB www          | C             |
 | \.contoso.com/ABC www         | D             |
@@ -114,13 +114,13 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 >
 > | Route | Host             | Path    |
 > |-------|------------------|---------|
-> | Una     | profile.contoso.com | /api/\* |
+> | A     | profile.contoso.com | /api/\* |
 >
 > Tabella corrispondente:
 >
 > | Richiesta in ingresso       | Route corrispondente |
 > |------------------------|---------------|
-> | profile.domain.com/other | Nessuno. Errore 400 - Richiesta non valida |
+> | profile.domain.com/other | No. Errore 400 - Richiesta non valida |
 
 ### <a name="routing-decision"></a>Decisione di routing
 Dopo aver individuato la corrispondenza con una singola regola di routing di Frontdoor, è necessario scegliere la modalità di elaborazione della richiesta. Se per la regola di routing corrispondente Frontdoor dispone di una risposta memorizzata nella cache, questa viene restituita al client. In caso contrario, l'elemento successivo che viene valutato è se è stata configurata o meno la [riscrittura URL (percorso di inoltro personalizzato)](front-door-url-rewrite.md) per la regola di routing corrispondente. Se non è definito un percorso di inoltro personalizzato, la richiesta viene inoltrata così com'è al back-end appropriato nel pool back-end configurato. In caso contrario, il percorso della richiesta viene aggiornato in base al [percorso di inoltro personalizzato](front-door-url-rewrite.md) definito e quindi inoltrata al back-end.

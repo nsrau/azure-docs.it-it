@@ -1,23 +1,25 @@
 ---
-title: Installare i contenitori di sintesi vocale-servizio vocale
+title: Installare ed eseguire contenitori Docker per le API del servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Installare ed eseguire i contenitori di riconoscimento vocale. Riconoscimento vocale trascrive in tempo reale flussi audio in testo da usare o visualizzare in applicazioni, dispositivi o strumenti. Sintesi vocale converte il testo di input in una voce sintetizzata simile a quella di un essere umano.
+description: Usare i contenitori Docker per il servizio riconoscimento vocale per eseguire il riconoscimento vocale, la trascrizione, la generazione e altro ancora in locale.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: be4b7f6a0f8afae9188b1f969956424041e77d9e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: cog-serv-seo-aug-2020
+keywords: locale, Docker, contenitore
+ms.openlocfilehash: 45edd1b13d4fe6f78eb127e7aad8feb611bce1d1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371678"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460051"
 ---
-# <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi vocali 
+# <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installare ed eseguire contenitori Docker per le API del servizio riconoscimento vocale 
 
 I contenitori consentono di eseguire alcune delle API del servizio Voce nell'ambiente in uso. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati. In questo articolo si apprenderà come scaricare, installare ed eseguire un contenitore del servizio Voce.
 
@@ -52,7 +54,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 I prerequisiti seguenti prima di usare i contenitori di sintesi vocale:
 
-| Necessario | Scopo |
+| Obbligatoria | Scopo |
 |--|--|
 | Motore Docker | È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br> |
 | Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base. |
@@ -482,7 +484,7 @@ ApiKey={API_KEY}
 
 Questo comando: 
 
-* Esegue un contenitore di rilevamento del linguaggio vocale dall'immagine del contenitore. Attualmente non verrà addebitato alcun costo per l'esecuzione di questa immagine. 
+* Esegue un contenitore di rilevamento del linguaggio vocale dall'immagine del contenitore. Attualmente non verrà addebitato alcun costo per l'esecuzione di questa immagine.
 * Alloca 1 core CPU e 1 gigabyte (GB) di memoria.
 * Espone la porta TCP 5003 e alloca uno pseudo-TTY per il contenitore.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.

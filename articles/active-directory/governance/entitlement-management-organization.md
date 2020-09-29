@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50c5c02327aa9f48a605607de901258827b14896
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783944"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449864"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Aggiungere un'organizzazione connessa in Azure AD gestione dei diritti
 
@@ -66,6 +66,8 @@ Per aggiungere una directory o un dominio di Azure AD esterno come organizzazion
 
     ![Riquadro di base "Aggiungi organizzazione connessa"](./media/entitlement-management-organization/organization-basics.png)
 
+1. Lo stato verrà impostato automaticamente su **configurato** quando si crea una nuova organizzazione connessa. Per altre informazioni sulle proprietà di stato, vedere [proprietà dello stato delle organizzazioni connesse](#state-properties-of-connected-organizations)
+
 1. Selezionare la scheda **Directory + dominio** , quindi selezionare **Aggiungi directory + dominio**.
 
     Viene visualizzato il riquadro **Seleziona Directory + domini** .
@@ -109,7 +111,7 @@ Se l'organizzazione connessa passa a un dominio diverso, il nome dell'organizzaz
 
 1. Nel riquadro sinistro selezionare **organizzazioni connesse**e quindi selezionare l'organizzazione connessa per aprirla.
 
-1. Nel riquadro Panoramica dell'organizzazione connessa selezionare **modifica** per modificare il nome dell'organizzazione o la descrizione.  
+1. Nel riquadro Panoramica dell'organizzazione connessa selezionare **modifica** per modificare il nome, la descrizione o lo stato dell'organizzazione.  
 
 1. Nel riquadro **Directory + dominio** selezionare **Aggiorna directory + dominio** per passare a una directory o a un dominio diverso.
 
@@ -135,6 +137,23 @@ Se non si ha più una relazione con una directory o un dominio di Azure AD ester
 ## <a name="managing-a-connected-organization-programmatically"></a>Gestione di un'organizzazione connessa a livello di codice
 
 È anche possibile creare, elencare, aggiornare ed eliminare le organizzazioni connesse usando Microsoft Graph. Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per gestire gli oggetti [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) e impostare gli sponsor.
+
+## <a name="state-properties-of-connected-organizations"></a>Proprietà di stato delle organizzazioni connesse
+
+Esistono due tipi diversi di proprietà di stato per le organizzazioni connesse in Azure AD gestione dei diritti attualmente, configurato e proposto: 
+
+- Un'organizzazione connessa configurata è un'organizzazione connessa completamente funzionante che consente agli utenti all'interno dell'organizzazione di accedere ai pacchetti di accesso. Quando un amministratore crea una nuova organizzazione connessa nel portale di Azure, sarà nello stato **configurato** per impostazione predefinita, dopo che l'amministratore ha creato e vuole usare questa organizzazione connessa. Inoltre, quando un'organizzazione connessa viene creata a livello di codice tramite l'API, lo stato predefinito deve essere **configurato** a meno che non sia impostato su un altro stato in modo esplicito. 
+
+    Le organizzazioni connesse configurate verranno visualizzate nei selezionatori per le organizzazioni connesse e saranno nell'ambito di tutti i criteri destinati a "tutte" le organizzazioni connesse.
+
+- Un'organizzazione connessa proposta è un'organizzazione connessa che è stata creata automaticamente, ma non ha avuto un amministratore per creare o approvare l'organizzazione. Quando un utente si iscrive a un pacchetto di accesso all'esterno di un'organizzazione connessa configurata, tutte le organizzazioni connesse create automaticamente si troveranno nello stato **proposto** poiché nessun amministratore nel tenant ha configurato la relazione. 
+    
+    Le organizzazioni connesse proposte non vengono visualizzate nei selezionatori per le organizzazioni connesse configurate e non rientrano nell'ambito dell'impostazione "tutte le organizzazioni connesse configurate" per tutti i criteri. 
+
+Solo gli utenti di organizzazioni connesse configurate possono richiedere pacchetti di accesso disponibili per gli utenti di tutte le organizzazioni configurate. Gli utenti delle organizzazioni connesse proposte hanno un'esperienza come se non fosse presente alcuna organizzazione connessa per quel dominio e non avranno accesso al pacchetto di accesso finché lo stato non verrà modificato da un amministratore.
+
+> [!NOTE]
+> Come parte dell'implementazione di questa nuova funzionalità, tutte le organizzazioni connesse create prima del 09/09/20 sono state considerate **configurate**. Se si dispone di un pacchetto di accesso che consente agli utenti di qualsiasi organizzazione di iscriversi, è necessario rivedere l'elenco delle organizzazioni connesse create prima di tale data per assicurarsi che nessuna venga categorizzata correttamente come **configurata**.  Un amministratore può aggiornare la proprietà **state** come appropriato. Per istruzioni, vedere [aggiornare un'organizzazione connessa](#update-a-connected-organization).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

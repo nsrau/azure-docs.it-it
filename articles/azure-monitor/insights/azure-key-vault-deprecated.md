@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 286d8d8c202a4fc59a18501eff16a569e2d09047
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f6d8929c8fd59836ff297f226851890892c10acc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318046"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445128"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Soluzione Azure Key Vault Analytics in monitoraggio di Azure
 
@@ -42,10 +42,10 @@ Usare le istruzioni seguenti per installare e configurare la soluzione Insieme d
 1. Nel portale di Azure passare alla risorsa Key Vault da monitorare
 2. Selezionare *impostazioni di diagnostica* per aprire la pagina seguente
 
-   ![Immagine del riquadro Insieme di credenziali delle chiavi di Azure](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![Screenshot della pagina delle impostazioni di diagnostica per la risorsa Key Vault ContosoKVSCUS. l'opzione per attivare la diagnostica è evidenziata.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Fare clic su *Attiva diagnostica* per aprire la pagina seguente
 
-   ![Immagine del riquadro Insieme di credenziali delle chiavi di Azure](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![Screenshot della pagina per la configurazione delle impostazioni di diagnostica. Sono selezionate le opzioni per Invia a Log Analytics, AuditEvent log e AllMetrics.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Assegnare un nome all'impostazione di diagnostica.
 5. Selezionare la casella di controllo *Send to Log Analytics* (Invia a Log Analytics)
 6. Selezionare un'area di lavoro Log Analytics esistente o creare una
@@ -77,7 +77,7 @@ La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sull
 ## <a name="use-azure-key-vault"></a>Usare l'Insieme di credenziali delle chiavi di Azure
 Dopo aver [installato la soluzione](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), visualizzare i dati Key Vault facendo clic sul riquadro **analisi insieme di credenziali delle chiavi** dalla pagina **Panoramica** di monitoraggio di Azure. Aprire questa pagina dal menu **Monitoraggio di Azure** facendo clic su **Altro** sotto la sezione **Informazioni dettagliate**. 
 
-![Immagine del riquadro Insieme di credenziali delle chiavi di Azure](media/azure-key-vault/log-analytics-keyvault-tile.png)
+![Screenshot del riquadro Analisi insieme di credenziali delle chiavi nella pagina Panoramica di monitoraggio di Azure che mostra un grafico del volume delle operazioni di Key Vault nel tempo.](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
 Dopo aver fatto clic sul riquadro **analisi insieme di credenziali delle chiavi** , è possibile visualizzare i riepiloghi dei log e quindi analizzare i dettagli per le categorie seguenti:
 
@@ -86,9 +86,9 @@ Dopo aver fatto clic sul riquadro **analisi insieme di credenziali delle chiavi*
 * Latenza operativa media per operazione
 * Qualità del servizio per operazioni con numero delle operazioni che richiedono più di 1000 ms ed elenco di operazioni che richiedono più di 1000 ms
 
-![Immagine del dashboard dell'Insieme di credenziali delle chiavi di Azure](media/azure-key-vault/log-analytics-keyvault01.png)
+![Screenshot del dashboard Azure Key Vault che mostra i riquadri con dati grafici per tutte le operazioni, operazioni non riuscite e latenza operativa media.](media/azure-key-vault/log-analytics-keyvault01.png)
 
-![Immagine del dashboard dell'Insieme di credenziali delle chiavi di Azure](media/azure-key-vault/log-analytics-keyvault02.png)
+![Screenshot del dashboard Azure Key Vault che mostra i riquadri con i dati relativi alla latenza operativa media, alla qualità del servizio e alle ricerche consigliate.](media/azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Per visualizzare i dettagli per un'operazione
 1. Nella pagina **Overview** fare clic sul riquadro **analisi insieme di credenziali delle chiavi** .

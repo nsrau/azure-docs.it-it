@@ -12,18 +12,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: c4c19850cda158afdb888188d3f99b7d93195aa5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 83d3bb78ef27af377b0a8c5edf75f658a0ca93e7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334855"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450230"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Conservazione a lungo termine: database SQL di Azure e Istanza gestita SQL di Azure
 
-Molte applicazioni hanno scopi normativi, di conformità o altri scopi aziendali che richiedono di conservare i backup dei database oltre i 7-35 giorni forniti dal database SQL di Azure e da Azure SQL Istanza gestita [backup automatici](automated-backups-overview.md). Grazie alla funzionalità di conservazione a lungo termine, è possibile archiviare il database SQL specificato e i backup completi di SQL Istanza gestita nell'archiviazione BLOB di Azure con archiviazione con ridondanza geografica e accesso in lettura per un massimo di 10 anni. È quindi possibile ripristinare qualsiasi backup come nuovo database.
-
-Inoltre, SQL Istanza gestita introduce una [ridondanza di archiviazione dei backup configurabile](automated-backups-overview.md#backup-storage-redundancy) che offre la flessibilità di scegliere tra i [BLOB di archiviazione](../../storage/common/storage-redundancy.md)con ridondanza locale (con ridondanza locale), con ridondanza della zona (ZRS) o con ridondanza geografica (RA-GRS). Questa opzione è attualmente disponibile solo durante il processo di creazione dell'istanza gestita e non può essere modificata una volta eseguito il provisioning della risorsa.
+Molte applicazioni hanno scopi normativi, di conformità o altri scopi aziendali che richiedono di conservare i backup dei database oltre i 7-35 giorni forniti dal database SQL di Azure e da Azure SQL Istanza gestita [backup automatici](automated-backups-overview.md). Grazie alla funzionalità di conservazione a lungo termine, è possibile archiviare il database SQL specificato e i backup completi di SQL Istanza gestita nell'archiviazione BLOB di Azure con [ridondanza configurata](automated-backups-overview.md#backup-storage-redundancy) per un massimo di 10 anni. È quindi possibile ripristinare qualsiasi backup come nuovo database.
 
 La conservazione a lungo termine può essere abilitata per il database SQL di Azure ed è in anteprima pubblica limitata per Istanza gestita SQL di Azure. Questo articolo fornisce una panoramica concettuale della conservazione a lungo termine. Per configurare la conservazione a lungo termine, vedere [configurare il database SQL di Azure LTR](long-term-backup-retention-configure.md) e [configurare Azure SQL istanza gestita LTR](../managed-instance/long-term-backup-retention-configure.md). 
 

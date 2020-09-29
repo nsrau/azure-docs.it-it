@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: b310f195477f4cba83ef30c6fb5ea2fd24c4df9a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897383"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460034"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Come eseguire Jupyter Notebook nell'area di lavoro
 
@@ -80,15 +80,20 @@ Per accedere al terminale:
 1. Selezionare una destinazione di **calcolo** o crearne una nuova e attendere che sia in esecuzione.
 1. Selezionare l'icona **Open terminal** (Apri terminale).
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Aprire il terminale":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Create new file":::
 
 1. Se l'icona non viene visualizzata, selezionare il **...** a destra della destinazione di calcolo e quindi selezionare **Apri terminale**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Open terminal"::: (Apri terminale)
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Create new file"::: (Apri terminale)
 
 
 Vedere altre informazioni su come [clonare i repository GIT nel file system dell'area di lavoro](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
 
+### <a name="copy-and-paste-in-terminal"></a>Copiare e incollare nel terminale
+
+> * Windows: `Ctrl-Insert` per copiare e usare `Ctrl-Shift-v` o `Shift-Insert` per incollare.
+> * Mac OS: `Cmd-c` per copiare e `Cmd-v` per incollare.
+> * FireFox o Internet Explorer potrebbero non supportare correttamente le autorizzazioni per gli appunti.
 
 ### <a name="share-notebooks-and-other-files"></a>Condividere notebook e altri file
 
@@ -121,7 +126,7 @@ Nel corso della creazione di un notebook, in genere si finisce con le celle usat
 1. Eseguire tutte le celle del notebook.
 1. Selezionare la cella che contiene il codice che si desidera venga eseguito dal nuovo notebook. Ad esempio, il codice che invia un esperimento o forse il codice che registra un modello.
 1. Selezionare l'icona **gather** visualizzata sulla barra degli strumenti della cella.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Screenshot: selezionare l'icona di raccolta":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Create new file":::
 1. Immettere il nome del nuovo notebook "raccolto".  
 
 Il nuovo notebook contiene solo celle di codice, con tutte le celle necessarie per produrre gli stessi risultati della cella selezionata per la raccolta.
@@ -132,7 +137,7 @@ Azure Machine Learning crea un file del checkpoint quando si crea un file *ipyn
 
 Nella barra degli strumenti del notebook selezionare il menu e quindi **file &gt; Salva e Checkpoint** per salvare manualmente il notebook. verrà aggiunto un file del checkpoint associato al notebook.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Screenshot dello strumento Salva nella barra degli strumenti del notebook":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Create new file":::
 
 Ogni notebook viene salvato in automatico ogni 30 secondi.Salvataggio automatico aggiorna solo il file *ipynb*iniziale   , non il file del checkpoint.
  

@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: bc01c283fd4e2b6e3494c18c1908152aecee2c5f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4ff4d5a810eb79fb11e66591cd0b695062b1c9f6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489113"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450181"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorare le distribuzioni IoT Edge
 
@@ -63,12 +63,11 @@ Per visualizzare i dettagli di una distribuzione e monitorare i dispositivi che 
 
    ![Visualizzare le metriche per una distribuzione](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
 
-
 Per apportare modifiche alla distribuzione, vedere [Modificare una distribuzione](how-to-deploy-at-scale.md#modify-a-deployment).
 
 ## <a name="monitor-a-deployment-with-azure-cli"></a>Monitorare una distribuzione con l'interfaccia della riga di comando di Azure
 
-Usare il comando [az IoT Edge deployment show](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show) per visualizzare i dettagli di una singola distribuzione:
+Usare il comando [az IoT Edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) per visualizzare i dettagli di una singola distribuzione:
 
 ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
@@ -86,7 +85,7 @@ Ispezionare la distribuzione nella finestra di comando. La proprietà **metrics
 * **reportedSuccessfulCount** - Metrica del dispositivo che specifica il numero di dispositivi IoT Edge presenti nella distribuzione che segnalano l'esito positivo dal runtime client IoT Edge.
 * **reportedFailedCount** - Metrica del dispositivo che specifica il numero di dispositivi IoT Edge presenti nella distribuzione che segnalano l'esito negativo dal runtime client IoT Edge.
 
-È possibile visualizzare un elenco di oggetti o ID dispositivo per ognuna delle metriche tramite il comando [az IoT Edge deployment show-metric](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show-metric):
+È possibile visualizzare un elenco di oggetti o ID dispositivo per ognuna delle metriche tramite il comando [az IoT Edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric):
 
 ```cli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]

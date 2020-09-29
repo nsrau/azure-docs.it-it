@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 6f5051dd7dedcc49320557f17148bcdc9bf539ab
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: a1e77b5f669d1b492f2d71063a6c77bec1178696
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399753"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449280"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoraggio di metriche e log in front-end di Azure
 
 Con l'uso di Azure front door è possibile monitorare le risorse nei modi seguenti:
 
-- **Metrics** (Metriche). Il front-end di Azure dispone attualmente di sette metriche per visualizzare i contatori delle prestazioni.
+- **Metrics** (Metriche). Il front-end di Azure dispone attualmente di otto metriche per visualizzare i contatori delle prestazioni.
 - **Log**. I log attività e di diagnostica consentono di salvare o utilizzare le prestazioni, l'accesso e altri dati da una risorsa a scopo di monitoraggio.
 
 ### <a name="metrics"></a>Metriche
@@ -38,7 +38,7 @@ Le metriche sono una funzionalità per alcune risorse di Azure che consentono di
 | BackendRequestCount | Conteggio delle richieste del back-end | Conteggio | HttpStatus</br>HttpStatusGroup</br>Back-end | Numero di richieste inviate da Frontdoor ai back-end. |
 | BackendRequestLatency | Latenza della richiesta del back-end | Millisecondi | Back-end | Tempo calcolato dal momento dell'invio della richiesta al back-end da parte di Frontdoor al momento della ricezione da parte di Frontdoor dell'ultimo byte della risposta inviata dal back-end. |
 | BackendHealthPercentage | Percentuale di integrità del back-end | Percentuale | Back-end</br>BackendPool | Percentuale di probe di integrità con esito positivo da Frontdoor ai back-end. |
-| WebApplicationFirewallRequestCount | Conteggio delle richieste web application firewall | Conteggio | PolicyName</br>RuleName</br>Azione | Numero di richieste client elaborate dalla sicurezza del livello dell'applicazione di Frontdoor. |
+| WebApplicationFirewallRequestCount | Conteggio delle richieste web application firewall | Conteggio | PolicyName</br>RuleName</br>Operazione | Numero di richieste client elaborate dalla sicurezza del livello dell'applicazione di Frontdoor. |
 
 ## <a name="activity-logs"></a><a name="activity-log"></a>Log attività
 
@@ -52,7 +52,7 @@ Accedere ai log attività nel front-end o a tutti i log delle risorse di Azure i
 1. Selezionare l'istanza della porta anteriore.
 2. Selezionare **Log attività**.
 
-    ![Log attività](./media/front-door-diagnostics/activity-log.png)
+    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Log attività":::
 
 3. Scegliere un ambito di filtro e quindi fare clic su **applica**.
 
@@ -61,7 +61,7 @@ I log di diagnostica forniscono informazioni dettagliate sulle operazioni e sugl
 
 I log attività forniscono informazioni approfondite sulle operazioni eseguite sulle risorse di Azure. I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite dalla risorsa. Per altre informazioni, vedere [log di diagnostica di monitoraggio di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-![Log di diagnostica](./media/front-door-diagnostics/diagnostic-log.png)
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Log attività":::
 
 Per configurare i log di diagnostica per la porta anteriore:
 
@@ -99,11 +99,10 @@ La porta anteriore fornisce attualmente log di diagnostica (in batch ogni ora). 
 
 | Scenari | Numero di voci di log | POP | BackendHostname | SentToOriginShield | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Regola di routing senza caching abilitato | 1 | Codice POP perimetrale | Back-end in cui la richiesta è stata trasmessa | Falso | CONFIG_NOCACHE |
-| Regola di routing con memorizzazione nella cache abilitata. Riscontro nella cache al POP perimetrale | 1 | Codice POP perimetrale | Empty | Falso | COLPITO |
+| Regola di routing senza caching abilitato | 1 | Codice POP perimetrale | Back-end in cui la richiesta è stata trasmessa | False | CONFIG_NOCACHE |
+| Regola di routing con memorizzazione nella cache abilitata. Riscontro nella cache al POP perimetrale | 1 | Codice POP perimetrale | Empty | False | COLPITO |
 | Regola di routing con memorizzazione nella cache abilitata. Mancato riscontro nella cache al POP perimetrale, ma riscontro nella cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. nome host POP della cache padre</br>2. vuoto | 1. true</br>2. false | 1. MISS</br>2. PARTIAL_HIT |
 | Regola di routing con memorizzazione nella cache abilitata. Mancato riscontro nella cache dei bordi e della cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. nome host POP della cache padre</br>2. back-end che consente di popolare la cache | 1. true</br>2. false | 1. MISS</br>2. MISS |
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

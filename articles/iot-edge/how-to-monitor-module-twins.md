@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c24cef2cf9e4c54d16ebc75eb1a56273d8826355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bf2e3f07d9e5576f62ef9badd9c8a46ac92fad0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221138"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450156"
 ---
 # <a name="monitor-module-twins"></a>Monitorare i moduli gemelli
 
 I moduli gemelli nell'hub Azure Internet consentono di monitorare la connettività e l'integrità delle distribuzioni IoT Edge. I moduli gemelli archiviano informazioni utili nell'hub Internet sulle prestazioni dei moduli in esecuzione. L' [agente IOT Edge](iot-edge-runtime.md#iot-edge-agent) e i moduli di runtime dell' [Hub IOT Edge](iot-edge-runtime.md#iot-edge-hub) gestiscono ciascuno i moduli gemelli `$edgeAgent` e `$edgeHub` , rispettivamente:
 
-* `$edgeAgent`contiene i dati sull'integrità e sulla connettività relativi ai moduli di runtime dell'agente IoT Edge e IoT Edge e ai moduli personalizzati. L'agente di IoT Edge è responsabile della distribuzione dei moduli, del monitoraggio e della segnalazione dello stato di connessione all'hub Azure.
-* `$edgeHub`contiene i dati sulle comunicazioni tra l'hub IoT Edge in esecuzione su un dispositivo e l'hub Azure. Ciò include l'elaborazione dei messaggi in arrivo dai dispositivi downstream. IoT Edge Hub è responsabile dell'elaborazione delle comunicazioni tra l'hub Azure e i dispositivi e i moduli IoT Edge.
+* `$edgeAgent` contiene i dati sull'integrità e sulla connettività relativi ai moduli di runtime dell'agente IoT Edge e IoT Edge e ai moduli personalizzati. L'agente di IoT Edge è responsabile della distribuzione dei moduli, del monitoraggio e della segnalazione dello stato di connessione all'hub Azure.
+* `$edgeHub` contiene i dati sulle comunicazioni tra l'hub IoT Edge in esecuzione su un dispositivo e l'hub Azure. Ciò include l'elaborazione dei messaggi in arrivo dai dispositivi downstream. IoT Edge Hub è responsabile dell'elaborazione delle comunicazioni tra l'hub Azure e i dispositivi e i moduli IoT Edge.
 
 I dati sono organizzati in metadati, tag, insieme ai set di proprietà desiderati e segnalati nelle strutture JSON dei moduli gemelli. Le proprietà desiderate specificate nell'deployment.jsnel file vengono copiate nei moduli gemelli. L'agente IoT Edge e l'hub IoT Edge aggiornano ogni proprietà segnalata per i moduli.
 
@@ -213,7 +213,7 @@ Se si apportano modifiche, selezionare **Aggiorna modulo gemello** sopra il codi
 
 Per verificare se IoT Edge è in esecuzione, usare il comando [AZ all hub Invoke-Module-Method](how-to-edgeagent-direct-method.md#ping) per eseguire il ping dell'agente IOT Edge.
 
-La struttura [AZ l'hub Module-Twin](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) fornisce i comandi seguenti:
+La struttura [AZ l'hub Module-Twin](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) fornisce i comandi seguenti:
 
 * **AZ all hub Module-Twin Show** -Mostra la definizione di un modulo gemello.
 * **AZ all hub Module-gemelle Update** -aggiorna la definizione di un modulo gemello.

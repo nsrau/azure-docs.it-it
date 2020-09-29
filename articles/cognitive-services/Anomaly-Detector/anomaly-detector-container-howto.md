@@ -1,33 +1,38 @@
 ---
-title: Come installare ed eseguire i contenitori per l'uso dell'API del rilevatore di anomalie
+title: Installare ed eseguire contenitori Docker per l'API del rilevatore di anomalie
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come installare e usare il contenitore per l'uso degli algoritmi avanzati dell'API del rilevatore di anomalie.
+description: Usare gli algoritmi dell'API del rilevatore di anomalie per individuare le anomalie nei dati, in locale usando un contenitore docker.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: cog-serv-seo-aug-2020
+keywords: on-premises, Docker, container, streaming, algoritmi
+ms.openlocfilehash: ff4d15b33cb261e71ea883c0245afe5781005e38
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903550"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460001"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Installare ed eseguire contenitori di Rilevamento anomalie 
+# <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Installare ed eseguire contenitori Docker per l'API del rilevatore di anomalie 
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
-Rilevamento anomalie presenta le funzionalità del contenitore seguenti:
+I contenitori consentono di usare l'API del rilevatore di anomalie nel proprio ambiente. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati. In questo articolo si apprenderà come scaricare, installare ed eseguire un contenitore di rilevatori di anomalie.
 
-| Funzione | Funzionalità |
-|--|--|
-| Rilevamento anomalie | <li> Rileva le anomalie che si verificano in tempo reale. <li> Rileva le anomalie nel set di dati come batch. <li> Rileva i punti di modifica di tendenza nel set di dati come batch.<li> Deduce l'intervallo normale dei dati previsto. <li> Supporta la regolazione della sensibilità del rilevamento anomalie per adattarsi meglio ai dati. |
+Il rilevatore di anomalie offre un singolo contenitore Docker per l'uso dell'API in locale. Usare il contenitore per:
+* Usare gli algoritmi del rilevatore di anomalie sui dati
+* Monitora i dati di streaming e rileva le anomalie che si verificano in tempo reale.
+* Rilevare le anomalie nel set di dati come batch. 
+* Rilevare i punti di modifica tendenza nel set di dati come batch.
+* Modificare la sensibilità dell'algoritmo di rilevamento delle anomalie per adattarlo meglio ai dati.
 
-Per informazioni dettagliate sulle API, vedere:
+Per informazioni dettagliate sull'API, vedere:
 * [Altre informazioni sul servizio API del rilevatore di anomalie](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
@@ -36,7 +41,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare i contenitori dei rilevatori di anomalie, è necessario soddisfare i prerequisiti seguenti:
 
-|Necessario|Scopo|
+|Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.|
@@ -174,7 +179,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](ano
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati illustrati i concetti e il flusso di lavoro per il download, l'installazione e l'esecuzione di contenitori di rilevamento anomalie. In sintesi:
 

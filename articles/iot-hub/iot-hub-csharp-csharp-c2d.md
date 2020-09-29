@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: cf108e0e7036894e045028ec3fce8c2af6b9ce4f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ff6153abb3e930e3268ed7768e4ab44c9b5824cc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008336"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449571"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Inviare messaggi dal cloud al dispositivo con Hub IoT (.NET)
 
@@ -91,13 +91,20 @@ In questa sezione si modifica l'app per dispositivi creata in [Send telemetry fr
 
 Il metodo `ReceiveAsync` restituisce in modo asincrono il messaggio ricevuto nel momento in cui viene ricevuto dal dispositivo. Restituisce *Null* dopo un periodo di timeout specificabile. In questo esempio viene usato il valore predefinito di un minuto. Quando l'app riceve un valore *Null*, deve rimanere in attesa di nuovi messaggi. Questo requisito è il motivo per la riga `if (receivedMessage == null) continue`.
 
-La chiamata a `CompleteAsync()` notifica all'hub IoT che il messaggio è stato elaborato correttamente. Il messaggio può essere rimosso dalla coda del dispositivo in modo sicuro. Se si è verificato un evento che ha impedito all'app per dispositivo di completare l'elaborazione del messaggio, l'hub IoT lo recapita nuovamente. La logica di elaborazione del messaggio nell'app per dispositivo deve essere *idempotente*, in modo che la ricezione dello stesso messaggio più volte produca lo stesso risultato.
+La chiamata a `CompleteAsync()` notifica all'hub delle cose che il messaggio è stato elaborato correttamente e che il messaggio può essere rimosso in modo sicuro dalla coda del dispositivo. Il dispositivo deve chiamare questo metodo quando l'elaborazione viene completata correttamente indipendentemente dal protocollo usato.
 
-Un'applicazione può anche abbandonare temporaneamente un messaggio e, di conseguenza, l'hub IoT mantiene il messaggio nella coda per un uso futuro. In alternativa, l'applicazione può rifiutare un messaggio, rimuovendolo così definitivamente dalla coda. Per altre informazioni sul ciclo di vita dei messaggi da cloud a dispositivo, vedere [Messaggistica da dispositivo a cloud e da cloud a dispositivo con l'hub IoT](iot-hub-devguide-messaging.md).
+Con AMQP e HTTPS, ma non con MQTT, il dispositivo può anche:
 
-   > [!NOTE]
-   > Quando si usa HTTPS invece di MQTT o AMQP come trasporto, il metodo `ReceiveAsync` verrà restituito immediatamente. Il modello supportato per i messaggi da cloud a dispositivo con HTTPS è rappresentato da dispositivi collegati in modo intermittente che controllano raramente la presenza di messaggi (meno di ogni 25 minuti). La generazione di altre ricezioni HTTPS comporta la limitazione delle richieste da parte dell'hub IoT. Per altre informazioni sulle differenze tra il supporto di MQTT, AMQP e HTTPS e sulla limitazione delle richieste dell'hub IoT, vedere [Messaggistica da dispositivo a cloud e da cloud a dispositivo con l'hub IoT](iot-hub-devguide-messaging.md).
-   >
+* Abbandonare un messaggio, con la conseguente conservazione del messaggio nella coda del dispositivo da parte dell'hub Internet per un uso futuro.
+* Rifiutare un messaggio che rimuove definitivamente il messaggio dalla coda del dispositivo.
+
+Se si verifica un problema che impedisce al dispositivo di completare, abbandonare o rifiutare il messaggio, l'hub di Internet delle cose, dopo un periodo di timeout fisso, Accoda il messaggio per il recapito. Per questo motivo, la logica di elaborazione del messaggio nell'app per dispositivo deve essere *idempotente*, in modo che la ricezione dello stesso messaggio più volte produca lo stesso risultato.
+
+Per informazioni più dettagliate sull'elaborazione dei messaggi da cloud a dispositivo da parte dell'hub, inclusi i dettagli del ciclo di vita dei messaggi da cloud a dispositivo, vedere [inviare messaggi da cloud a dispositivo da un hub](iot-hub-devguide-messages-c2d.md)Internet.
+
+> [!NOTE]
+> Quando si usa HTTPS invece di MQTT o AMQP come trasporto, il metodo `ReceiveAsync` verrà restituito immediatamente. Il modello supportato per i messaggi da cloud a dispositivo con HTTPS è costituito da dispositivi connessi in modo intermittente che controllano raramente la presenza di messaggi (almeno ogni 25 minuti). La generazione di altre ricezioni HTTPS comporta la limitazione delle richieste da parte dell'hub IoT. Per ulteriori informazioni sulle differenze tra il supporto di MQTT, AMQP e HTTPS, vedere [indicazioni sulle comunicazioni da cloud a dispositivo](iot-hub-devguide-c2d-guidance.md) e [scegliere un protocollo di comunicazione](iot-hub-devguide-protocols.md).
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoT
 
@@ -164,7 +171,7 @@ In questa sezione si crea un'app console .NET che invia messaggi da cloud a disp
 
 1. Premere **F5**. Si avviano entrambe le applicazioni. Selezionare la finestra **SendCloudToDevice** e premere **invio**. Verrà visualizzato il messaggio ricevuto dall'app per dispositivi.
 
-   ![Ricezione di un messaggio da parte dell'app](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
+   ![Messaggio di ricezione dell'app per dispositivi](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
 ## <a name="receive-delivery-feedback"></a>Ricevere feedback di recapito
 
@@ -211,7 +218,7 @@ In questa sezione si modifica l'app **SendCloudToDevice** per richiedere feedbac
 
 1. Premere **F5**per eseguire le app. Dovrebbero essere visualizzate entrambe le applicazioni. Selezionare la finestra **SendCloudToDevice** e premere **invio**. Verrà visualizzata la ricezione del messaggio da parte dell'app per dispositivi e, dopo alcuni secondi, la ricezione del messaggio di feedback da parte dell'applicazione **SendCloudToDevice**.
 
-   ![Ricezione di un messaggio da parte dell'app](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
+   ![App per dispositivi che riceve messaggi e app di servizio che ricevono commenti](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come suggerito in [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).

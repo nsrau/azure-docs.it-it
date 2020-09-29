@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 160137ca2d14e0012a524ee0818b7fb269fa7984
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b7b70e8a408c22be0331bfd0dcbe01830b072ab8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980167"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449982"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificare le impostazioni della richiesta per un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -125,8 +125,8 @@ Se si desidera consentire agli utenti non inclusi nella directory di richiedere 
     |  |  |
     | --- | --- |
     | **Organizzazioni connesse specifiche** | Scegliere questa opzione se si desidera effettuare una selezione da un elenco di organizzazioni che l'amministratore ha aggiunto in precedenza. Tutti gli utenti delle organizzazioni selezionate possono richiedere questo pacchetto di accesso. |
-    | **Tutte le organizzazioni connesse** | Scegliere questa opzione se tutti gli utenti di tutte le organizzazioni connesse possono richiedere questo pacchetto di accesso. |
-    | **Tutti gli utenti (tutte le organizzazioni connesse e tutti i nuovi utenti esterni)** | Scegliere questa opzione se tutti gli utenti di tutte le organizzazioni connesse possono richiedere questo pacchetto di accesso e se le impostazioni dell'elenco Consenti o nega B2B hanno la precedenza su qualsiasi nuovo utente esterno. |
+    | **Tutte le organizzazioni connesse configurate** | Scegliere questa opzione se tutti gli utenti di tutte le organizzazioni connesse configurate possono richiedere questo pacchetto di accesso. Solo gli utenti di organizzazioni connesse configurate possono richiedere pacchetti di accesso visualizzati agli utenti di tutte le organizzazioni configurate. |
+    | **Tutti gli utenti (tutte le organizzazioni connesse e tutti i nuovi utenti esterni)** | Scegliere questa opzione se un utente su Internet deve essere in grado di richiedere questo pacchetto di accesso.  Se non appartengono a un'organizzazione connessa nella directory, un'organizzazione connessa verrà creata automaticamente quando richiede il pacchetto. Lo stato dell'organizzazione connessa creata automaticamente sarà **proposto** . Per ulteriori informazioni sullo stato proposto, vedere [proprietà di stato delle organizzazioni connesse](entitlement-management-organization.md#state-properties-of-connected-organizations). |
 
     Un'organizzazione connessa è una directory o un dominio di Azure AD esterno a cui è associata una relazione.
 

@@ -3,12 +3,12 @@ title: Replicare le macchine virtuali di Azure Stack in Azure tramite Azure Site
 description: Informazioni su come configurare il ripristino di emergenza in Azure per macchine virtuali di Azure Stack con il servizio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 5bc78dc5b01bb4790190268b303cb894de2b6f71
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333716"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448979"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicare le macchine virtuali di Azure Stack in Azure
 
@@ -314,26 +314,7 @@ Eseguire quindi un failover come indicato di seguito:
 
 ### <a name="fail-back-to-azure-stack"></a>Eseguire il failback in Azure Stack
 
-Quando il sito primario è operativo, è possibile eseguire il failback da Azure ad Azure Stack. A tale scopo, è necessario scaricare il disco rigido virtuale della macchina virtuale di Azure e caricarlo in Azure Stack.
-
-1. Arrestare la macchina virtuale di Azure in modo che il disco rigido virtuale possa essere scaricato.
-2. Per avviare il download del disco rigido virtuale, installare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-3. Passare alla macchina virtuale nel portale di Azure (tramite il relativo nome).
-4. In **Dischi** fare clic sul nome del disco e raccogliere le impostazioni.
-
-    - L'URI del disco rigido virtuale usato nel test: `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd`, ad esempio, può essere suddiviso per ottenere i parametri di input seguenti che consentono di scaricare il disco rigido virtuale.
-        - Account di archiviazione: 502055westcentralus
-        - Contenitore: wahv9b8d2ceb284fb59287
-        - Nome disco rigido virtuale: copied-3676553984.vhd
-
-5. A questo punto, usare Azure Storage Explorer per scaricare il disco rigido virtuale.
-6. Caricare il disco rigido virtuale in Azure Stack tramite [questi passaggi](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
-7. Nella macchina virtuale esistente o in una nuova collegare i dischi rigidi virtuali caricati.
-8. Verificare che il disco del sistema operativo sia corretto e avviare la macchina virtuale.
-
-
-A questo punto il failback è stato completato.
-
+Quando il sito primario è operativo, è possibile eseguire il failback da Azure ad Azure Stack. A tale scopo, seguire i passaggi elencati [qui](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
 ## <a name="conclusion"></a>Conclusioni
 

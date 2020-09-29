@@ -10,23 +10,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 558d1c098f07f8e09a6a68a065cac9b7b38cfbf3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 42697a57d39f4a34eee4866b67e2cde947db1ff5
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399651"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449259"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtro geografico in un dominio per lo sportello anteriore di Azure
 
-Per impostazione predefinita, il servizio Frontdoor di Azure risponde alle richieste degli utenti indipendentemente dalla posizione dell'utente che effettua la richiesta. In alcuni casi, tuttavia, si può avere l'esigenza di limitare l'accesso alle applicazioni Web in base al paese/area geografica. Il servizio Web application firewall (WAF) del servizio Frontdoor consente di definire criteri mediante regole di accesso personalizzate per un percorso specifico nell'endpoint per consentire o bloccare l'accesso da specifici paesi/aree geografiche. 
+Per impostazione predefinita, il front-end di Azure risponderà a tutte le richieste degli utenti, indipendentemente dalla località da cui provengono. In alcuni scenari può essere opportuno limitare l'accesso all'applicazione Web da parte di paesi o aree geografiche. Il servizio Web Application Firewall (WAF) nella porta anteriore consente di definire un criterio usando regole di accesso personalizzate per un percorso specifico nell'endpoint per consentire o bloccare l'accesso da paesi o aree geografiche specifiche. 
 
-I criteri WAF includono in genere un set di regole personalizzate. Una regola è costituita da condizioni di corrispondenza, un'azione e una priorità. Nella condizione di corrispondenza si definisce una variabile di corrispondenza, un operatore e un valore di corrispondenza.  Per la regola di filtro geografico, la variabile di corrispondenza è REMOTE_ADDR, l'operatore è GeoMatch e il valore è il codice di due lettere del paese o dell'area geografica di interesse. È possibile combinare una condizione GeoMatch e una condizione di corrispondenza stringa REQUEST_URI per creare una regola di filtro geografico basato sul percorso.
+Un criterio WAF contiene un set di regole personalizzate. La regola è costituita da condizioni di corrispondenza, un'azione e una priorità. In una condizione di corrispondenza è possibile definire una variabile di corrispondenza, un operatore e un valore di corrispondenza. Per una regola di filtro geografico, è REMOTE_ADDR una variabile di corrispondenza, l'operatore è geomatch e il valore è un codice di due lettere paese/area di interesse. Per creare una regola di filtro geografico basato sul percorso, è possibile combinare una condizione geomatch e una condizione di corrispondenza della stringa REQUEST_URI.
 
-È possibile configurare criteri di filtro geografico per il proprio Frontdoor usando [Azure PowerShell](front-door-tutorial-geo-filtering.md) oppure il nostro [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+È possibile configurare un criterio di filtro geografico per la porta anteriore usando [Azure PowerShell](front-door-tutorial-geo-filtering.md) o usando un [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
 ## <a name="countryregion-code-reference"></a>Informazioni di riferimento sui codici paese/area geografica
 
@@ -212,5 +212,5 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sulla [sicurezza del livello dell'applicazione con Frontdoor](front-door-application-security.md).
 - Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).
+- Informazioni a caldo per [configurare un criterio WAF di filtro geografico](front-door-tutorial-geo-filtering.md).

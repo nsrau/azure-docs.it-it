@@ -9,21 +9,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: c96dac55df2cdc15b7d3699e947c851a9fe69b02
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4cbeea8ad20d41daff3d4ad086a36df5e988991f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399634"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449239"
 ---
 # <a name="health-probes"></a>Probe di integrità
 
-Per determinare l'integrità e la vicinanza di ogni back-end da un ambiente front-end specifico, ogni ambiente di sportello anteriore invia periodicamente una richiesta HTTP/HTTPS sintetica a ognuno dei back-end configurati. Frontdoor usa quindi le risposte ricevute da questi probe per determinare i "migliori" back-end a cui indirizzare le richieste client reali. 
+Per determinare l'integrità e la vicinanza di ogni back-end per un ambiente front-end specifico, ogni ambiente di sportello anteriore invia periodicamente una richiesta HTTP/HTTPS sintetica a ognuno dei back-end configurati. La porta anteriore usa quindi queste risposte dal probe per determinare le risorse di back-end "migliori" per instradare le richieste del client. 
 
 > [!WARNING]
-> Poiché la porta anteriore presenta molti ambienti perimetrali a livello globale, le richieste di probe di integrità per i backend possono essere molto alte da 25 richieste al minuto fino a 1200 richieste al minuto, a seconda della frequenza di probe di integrità configurata. Con la frequenza Probe predefinita di 30 secondi, il volume probe sul back-end deve essere di circa 200 richieste al minuto.
+> Poiché la porta anteriore ha molti ambienti perimetrali a livello globale, il volume del probe di integrità per i backend può essere molto elevato da 25 richieste al minuto fino a 1200 richieste al minuto, a seconda della frequenza di probe di integrità configurata. Con la frequenza Probe predefinita di 30 secondi, il volume probe sul back-end deve essere di circa 200 richieste al minuto.
 
 ## <a name="supported-protocols"></a>Protocolli supportati
 
@@ -43,8 +43,8 @@ Front door supporta i seguenti metodi HTTP per l'invio dei probe di integrità:
 
 | Risposte  | Descrizione | 
 | ------------- | ------------- |
-| Determinazione dell'integrità  |  Il codice di stato 200 OK indica che il back-end è integro. Tutti gli altri codici vengono considerati errori. Se per qualsiasi motivo, compreso un errore di rete, non viene ricevuta una risposta HTTP valida per un probe, il probe viene conteggiato come errore.|
-| Misurazione della latenza  | La latenza è il tempo misurato dal momento immediatamente prima dell'invio della richiesta del probe al momento in cui viene ricevuto l'ultimo byte della risposta. Viene usata una nuova connessione TCP per ogni richiesta, in modo tale che questa misurazione non venga influenzata dai back-end con connessioni esistenti a caldo.  |
+| Determinazione dell'integrità  |  Il codice di stato 200 OK indica che il back-end è integro. Tutti gli altri codici vengono considerati errori. Se per qualsiasi motivo (incluso l'errore di rete) non viene ricevuta una risposta HTTP valida per un probe, il probe viene considerato come un errore.|
+| Misurazione della latenza  | La latenza è il tempo misurato dal momento immediatamente prima dell'invio della richiesta del probe al momento in cui viene ricevuto l'ultimo byte della risposta. Viene usata una nuova connessione TCP per ogni richiesta, quindi questa misurazione non è distorta per i backend con le connessioni calde esistenti.  |
 
 ## <a name="how-front-door-determines-backend-health"></a>Come Frontdoor determina l'integrità dei back-end
 
@@ -59,7 +59,7 @@ Il front-end di Azure usa lo stesso processo in tre passaggi riportato di seguit
 
     * _x_ viene configurato modificando la proprietà SuccessfulSamplesRequired nelle impostazioni di bilanciamento del carico.
 
-3. Oltre al set di back-end integri nel pool di back-end, Frontdoor misura inoltre e mantiene la latenza (tempo di round trip) per ogni back-end.
+3. Per i set di back-end integri nel pool back-end, la porta anteriore misura e mantiene la latenza (tempo di round trip) per ogni back-end.
 
 
 ## <a name="complete-health-probe-failure"></a>Errore di completamento del probe di integrità

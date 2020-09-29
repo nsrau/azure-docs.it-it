@@ -9,18 +9,55 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: d89a5c951f2923f9e107dd2dabec7773f292fa02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8df50096cc123003299b86da88f9230c95854775
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91290518"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450083"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) .
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+## <a name="2020-09-28"></a>2020-09-28
+
+### <a name="azure-machine-learning-sdk-for-python-v1150"></a>SDK di Azure Machine Learning per Python v 1.15.0
++ **Correzioni di bug e miglioramenti**
+  + **azureml-contrib-interpret**
+    + LIME Explainer è stato spostato da azureml-contrib-Interpret to interpret-community Package and Image Explainer rimosso da azureml-contrib-Interpret Package
+    + Dashboard di visualizzazione rimosso da azureml-contrib-interpretare il pacchetto, spiegazione client spostata in azureml-interpretare il pacchetto e deprecato in azureml-contrib-interpretare il pacchetto e i notebook aggiornati per riflettere l'API migliorata
+    + correzione delle descrizioni dei pacchetti pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
+  + **azureml-contrib-notebook**
+    + Aggiungere la dipendenza nbcovert a < 6 in modo che Papermill 1. x continui a funzionare.
+  + **azureml-core**
+    + Aggiunta di parametri al costruttore TensorflowConfiguration e MpiConfiguration per consentire un'inizializzazione più semplificata degli attributi della classe senza richiedere all'utente di impostare ogni singolo attributo. Aggiunta di una classe PyTorchConfiguration per la configurazione dei processi PyTorch distribuiti in ScriptRunConfig.
+    + Aggiungere la versione di Azure-Mgmt-Resource per correggere l'errore di autenticazione.
+    + Supporto Triton senza distribuzione del codice
+    + le directory degli output specificate in Run. start_logging () verranno ora rilevate quando si usa l'esecuzione in scenari interattivi. I file rilevati saranno visibili in ML Studio al momento della chiamata di run. complete ()
+    + È ora possibile specificare la codifica dei file durante la creazione del set di dati con `Dataset.Tabular.from_delimited_files` e `Dataset.Tabular.from_json_lines_files` passando l' `encoding` argomento. Le codifiche supportate sono ' UTF8',' iso88591',' Latin1',' ASCII ', UTF16',' UTF32',' utf8bom ' è windows1252'.
+    + Correzione di bug quando l'oggetto Environment non viene passato al costruttore ScriptRunConfig.
+    + Aggiornamento di run. Cancel () per consentire l'annullamento di un'esecuzione locale da un altro computer.
+  + **azureml-dataprep**
+    +  Correzione dei problemi di timeout di montaggio del set di dati.
+  + **azureml-explain-Model**
+    + correzione delle descrizioni dei pacchetti pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
+  + **azureml-interpreta**
+    + Dashboard di visualizzazione rimosso da azureml-contrib-interpretare il pacchetto, spiegazione client spostata in azureml-interpretare il pacchetto e deprecato in azureml-contrib-interpretare il pacchetto e i notebook aggiornati per riflettere l'API migliorata
+    + azureml-interpreta il pacchetto aggiornato per dipendere dalla 0.15.0 di interpretazione della community
+    + correzione delle descrizioni dei pacchetti pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
+  + **azureml-pipeline-core**
+    +  Correzione del problema di sospensione della pipeline con `OutputFileDatasetConfig` quando `register_on_complete` viene chiamato con il `name` parametro impostato su un nome di set di dati preesistente.
+  + **azureml-pipeline-steps**
+    + Rimossi notebook databricks obsoleti.
+  + **azureml-tensorboard**
+    + correzione delle descrizioni dei pacchetti pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
+  + **azureml-train-automl-runtime**
+    + Dashboard di visualizzazione rimosso da azureml-contrib-interpretare il pacchetto, spiegazione client spostata in azureml-interpretare il pacchetto e deprecato in azureml-contrib-interpretare il pacchetto e i notebook aggiornati per riflettere l'API migliorata
+  + **azureml-widgets**
+    + Dashboard di visualizzazione rimosso da azureml-contrib-interpretare il pacchetto, spiegazione client spostata in azureml-interpretare il pacchetto e deprecato in azureml-contrib-interpretare il pacchetto e i notebook aggiornati per riflettere l'API migliorata
 
 ## <a name="2020-09-21"></a>2020-09-21
 
@@ -597,7 +634,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Migliorare la gestione degli ambienti Python con restrizioni di scrittura quando si assicurano le dipendenze .NET necessarie per il recapito
     + Correzione della creazione del flusso di dati nel file con record vuoti iniziali.
     + Aggiunta delle opzioni di gestione degli errori per `to_partition_iterator` simili a `to_pandas_dataframe` .
-  + **azureml-interpret**
+  + **azureml-interpreta**
     + Limiti di lunghezza del percorso di spiegazione ridotti per ridurre la probabilità di superamento del limite di Windows
     + Bugfix per le spiegazioni sparse create con il Explainer MIME usando un modello di surrogato lineare.
   + **azureml-opendatasets**
@@ -663,7 +700,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + Documentazione migliorata per il `grant_workspace_msi` parametro per `Datastore.register_azure_blob_store` .
     + Correzione del bug con `datastore.upload` per supportare l' `src_dir` argomento che termina con `/` o `\` .
     + È stato aggiunto un messaggio di errore eseguibile quando si tenta di caricare in un archivio dati di archiviazione BLOB di Azure che non dispone di una chiave di accesso o di un token SAS.
-  + **azureml-interpret**
+  + **azureml-interpreta**
     + Aggiunto il limite superiore alle dimensioni del file per i dati di visualizzazione nelle spiegazioni caricate.
   + **azureml-train-automl-client**
     + Verifica in modo esplicito label_column_name & parametri di weight_column_name per AutoMLConfig di tipo stringa.
@@ -1076,7 +1113,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + È stata aggiunta la possibilità di registrare l'archivio dati del database SQL di Azure usando l'autenticazione con nome utente e password
     + Correzione per il caricamento di RunConfigurations da percorsi relativi.
     + Quando `keep_columns` si chiama o `drop_columns` che determina l'eliminazione di una colonna della serie temporale, le funzionalità corrispondenti verranno eliminate anche per il set di dati.
-  + **azureml-interpret**
+  + **azureml-interpreta**
     + versione aggiornata di interpreta-community per 0.2.0
   + **azureml-pipeline-steps**
     + Valori supportati documentati per i `runconfig_pipeline_params` passaggi della pipeline di Azure Machine Learning.

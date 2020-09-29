@@ -9,36 +9,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 8f4a6283f762d9792f50651b9caee17795df6d55
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: eb5b4ab8a23a374aec54d65dd5390ab3fec3e905
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398938"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445491"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Riscrittura di URL (percorso di trasferimento personalizzato)
-Il front-end di Azure supporta la riscrittura URL consentendo di configurare un **percorso di invio personalizzato** facoltativo da usare quando si costruisce la richiesta da trasmettere al back-end. Per impostazione predefinita, se non viene specificato alcun percorso di trasferimento personalizzato, Frontdoor copia il percorso dell'URL in ingresso nell'URL usato nella richiesta inoltrata. L'intestazione Host usata nella richiesta inoltrata viene configurata per il back-end selezionato. Vedere [Intestazione Host di back-end](front-door-backend-pool.md#hostheader) per informazioni su cosa può fare l'intestazione e come configurarla.
+Il front-end di Azure supporta la riscrittura dell'URL configurando un **percorso di invio personalizzato** facoltativo da usare quando si costruisce la richiesta da trasmettere al back-end. Per impostazione predefinita, se non viene fornito un percorso di inoltri personalizzato, la porta anteriore copia il percorso dell'URL in ingresso nell'URL usato nella richiesta da inviare. L'intestazione Host usata nella richiesta inoltrata viene configurata per il back-end selezionato. Vedere [Intestazione Host di back-end](front-door-backend-pool.md#hostheader) per informazioni su cosa può fare l'intestazione e come configurarla.
 
-La parte più significativa della riscrittura URL che usa il percorso di inoltro personalizzato è costituita dalla copia di qualsiasi parte del percorso in ingresso corrispondente a un percorso con caratteri jolly nel percorso di trasferimento (questi segmenti di percorso sono i segmenti **verdi** indicati nell'esempio che segue):
+La parte potente della riscrittura dell'URL è che il percorso di invio personalizzato copierà qualsiasi parte del percorso in ingresso che corrisponde a un percorso con caratteri jolly al percorso avanti. questi segmenti di percorso sono i segmenti **verdi** nell'esempio seguente:
 </br>
-![Riscrittura URL in Frontdoor di Azure][1]
+
+:::image type="content" source="./media/front-door-url-rewrite/front-door-url-rewrite-example.jpg" alt-text="Riscrittura URL in Frontdoor di Azure":::
 
 ## <a name="url-rewrite-example"></a>Esempio di riscrittura URL
-Prendere in considerazione una regola di gestione con i seguenti host front-end e i percorsi configurati:
+Si consideri una regola di routing con la seguente combinazione di host e percorsi front-end configurati:
 
 | Hosts      | Percorsi       |
 |------------|-------------|
-| www\.contoso.com | /\*         |
+| www\.contoso.com | /\*   |
 |            | /foo        |
 |            | /foo/\*     |
 |            | /foo/bar/\* |
 
-La prima colonna della tabella sottostante mostra esempi di richieste in arrivo e la seconda colonna mostra quale sarebbe il percorso "più specifico" che corrisponde alla route "Percorso".  La terza colonna e quelle successive nella prima riga della tabella riportano esempi di **Percorsi di trasferimento personalizzati** configurati, con le righe restanti che rappresentano esempi di come risulterebbe il percorso di richiesta trasferito se corrispondesse alla richiesta in tale riga.
+La prima colonna della tabella sottostante mostra esempi di richieste in arrivo e la seconda colonna mostra quale sarebbe il percorso "più specifico" che corrisponde alla route "Percorso".  La terza e la colonna risultante della tabella sono esempi di percorsi di **inoltri personalizzati**configurati.
 
 Per esempio, nella seconda riga, si legge che per le richieste in arrivo `www.contoso.com/sub`, se il percorso di inoltro personalizzato fosse `/`, allora il percorso di trasferimento sarebbe `/sub`. Se il percorso di trasferimento personalizzato fosse `/fwd/`, il percorso inoltrato sarebbe `/fwd/sub`. E così via, per le colonne rimanenti. Le parti **evidenziate** dei percorsi seguenti rappresentano le parti incluse nella corrispondenza dei caratteri jolly.
-
 
 | Richiesta in ingresso       | Percorso di corrispondenza più specifico | /          | /fwd/          | /foo/          | /foo/bar/          |
 |------------------------|--------------------------|------------|----------------|----------------|--------------------|
@@ -49,18 +49,12 @@ Per esempio, nella seconda riga, si legge che per le richieste in arrivo `www.co
 | \.contoso.com/foo/www        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/bar/          |
 | \.**barra** contoso.com/foo/www | /foo/\*                  | /**bar**   | /fwd/**bar**   | **barra** /foo/   | /foo/bar/**bar**   |
 
-
 ## <a name="optional-settings"></a>Impostazioni facoltative
 Per le impostazioni delle regole di gestione specificate, è inoltre possibile specificare impostazioni facoltative aggiuntive:
 
-* **Configurazione di cache**: se disabilitata o non specificata, le richieste che corrispondono a questa regola di gestione non proveranno a usare il contenuto memorizzato nella cache, recuperandolo in alternativa sempre dal back-end. Altre informazioni, vedere [Memorizzazione nella cache con Frontdoor](front-door-caching.md).
-
-
+* **Configurazione della cache** : se disabilitato o non specificato, le richieste che corrispondono a questa regola di routing non tenterà di usare il contenuto memorizzato nella cache, ma recupereranno sempre dal back-end. Altre informazioni, vedere [Memorizzazione nella cache con Frontdoor](front-door-caching.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).
 - Informazioni sul [funzionamento di Frontdoor](front-door-routing-architecture.md).
-
-<!--Image references-->
-[1]: ./media/front-door-url-rewrite/front-door-url-rewrite-example.jpg

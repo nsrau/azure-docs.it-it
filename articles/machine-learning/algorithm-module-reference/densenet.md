@@ -8,19 +8,24 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 69c18c24ae9a8eb4c1fd54c1f8530e126a40b004
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: d64933f7b2c8ebc8597b93cbd16b34158f936f96
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898525"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450089"
 ---
 # <a name="densenet"></a>DenseNet
 
 Questo articolo descrive come usare il modulo **DenseNet** in Azure Machine Learning Designer per creare un modello di classificazione delle immagini usando l'algoritmo DenseNet.  
 
-Questo algoritmo di classificazione è un metodo di apprendimento supervisionato e richiede un set di dati con etichetta. Per altre istruzioni su come ottenere una directory di immagini con etichetta, vedere il modulo [Convert to Image directory](convert-to-image-directory.md) . Per eseguire il training del modello, è possibile fornire il modello e la directory di immagini con etichetta come input per il [training del modello Pytorch](train-pytorch-model.md). Il modello con Training può quindi essere usato per stimare i valori per i nuovi esempi di input usando il [modello di immagine del Punteggio](score-image-model.md).
+Questo algoritmo di classificazione è un metodo di apprendimento supervisionato e richiede una directory di immagini con etichetta. 
+
+> [!NOTE]
+> Questo modulo non supporta il set di dati con etichetta generato dall' *etichettatura dei dati* in studio, ma supporta solo la directory di immagini con etichetta generata dal modulo [Convert to Image directory](convert-to-image-directory.md) . 
+
+Per eseguire il training del modello, è possibile fornire il modello e la directory di immagini con etichetta come input per il [training del modello Pytorch](train-pytorch-model.md). Il modello con Training può quindi essere usato per stimare i valori per i nuovi esempi di input usando il [modello di immagine del Punteggio](score-image-model.md).
 
 ### <a name="more-about-densenet"></a>Altre informazioni su DenseNet
 

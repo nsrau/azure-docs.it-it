@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: ad1476847874f7cea53c6e9c0c3d9f142c949dac
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6835c5e1ecbf0fc99a14754d17bb6e6380eda6c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987710"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445343"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiare e incollare in una macchina virtuale: Azure Bastion
 
@@ -35,13 +35,13 @@ Dopo aver eseguito la connessione alla macchina virtuale usando il [portale di A
 1. Copiare il testo o il contenuto dal dispositivo locale negli Appunti locali.
 1. Durante la sessione remota, avviare la tavolozza degli strumenti di accesso degli Appunti Bastion selezionando le due frecce. Le frecce si trovano nel centro a sinistra della sessione.
 
-   ![tavolozza degli strumenti](./media/bastion-vm-manage/left.png)
+   ![Screenshot che mostra le frecce di avvio per la tavolozza degli strumenti evidenziata sul lato sinistro della finestra.](./media/bastion-vm-manage/left.png)
 
    ![Screenshot Mostra gli Appunti per il testo copiato in Bastion.](./media/bastion-vm-manage/clipboard.png)
 1. Il testo copiato viene in genere visualizzato automaticamente nella tavolozza copia Bastion. Se il testo non è presente, incollare il testo nell'area di testo della tavolozza.
 1. Una volta che il testo è nell'area di testo, è possibile incollarlo nella sessione remota.
 
-   ![incollare](./media/bastion-vm-manage/local.png)
+   ![Screenshot che mostra il pulsante copia/incolla evidenziato e una stringa di testo di esempio copiata nella sessione remota.](./media/bastion-vm-manage/local.png)
 
 ## <a name="copy-from-a-remote-session"></a><a name="from"></a>Copia da una sessione remota
 

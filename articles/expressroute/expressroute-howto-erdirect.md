@@ -1,22 +1,22 @@
 ---
 title: 'Azure ExpressRoute: configurare ExpressRoute Direct'
-description: Informazioni su come usare Azure PowerShell per configurare Azure ExpressRoute Direct per connettersi direttamente alla rete globale Microsoft in località di peering in tutto il mondo.
+description: Informazioni su come usare Azure PowerShell per configurare Azure ExpressRoute Direct per connettersi direttamente alla rete globale di Microsoft.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: c4ce764f50f85ef9979d5a14235759c16228f6b7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 1748db76aa2d1f65ea21046bcff2fff43ca732b0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396030"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450202"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Come configurare ExpressRoute Direct
 
-ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete globale di Microsoft in località peer distribuite in modo strategico in tutto il mondo. Per altre informazioni, vedere [Informazioni su ExpressRoute Direct](expressroute-erdirect-about.md).
+ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete globale di Microsoft attraverso le località di peering distribuite in modo strategico in tutto il mondo. Per altre informazioni, vedere [Informazioni su ExpressRoute Direct](expressroute-erdirect-about.md).
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Creare la risorsa
 
@@ -155,10 +155,20 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    Circuits                   : []
    ```
 
-## <a name="change-admin-state-of-links"></a><a name="state"></a>Modificare lo stato di amministratore di collegamenti
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Genera la lettera di autorizzazione (LOA)
 
-  Utilizzare questo processo per condurre un test di livello 1, verificando che ogni Cross Connection sia correttamente trasferito a ciascun router per le porte primaria e secondaria.
-1. Ottenere i dettagli di ExpressRoute Direct.
+Fare riferimento alla risorsa ExpressRoute Direct creata di recente, immettere un nome cliente per scrivere la LOA in e (facoltativamente) definire un percorso file per archiviare il documento. Se non viene fatto riferimento a un percorso di file, il documento verrà scaricato nella directory corrente.
+
+  ```powershell 
+   New-AzExpressRoutePortLOA -ExpressRoutePort $ERDirect -CustomerName TestCustomerName -Destination "C:\Users\SampleUser\Downloads" 
+   ```
+ **Output di esempio**
+
+   ```powershell
+   Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
+
+  This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
+1. Get ExpressRoute Direct details.
 
    ```powershell
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
@@ -227,13 +237,13 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
 
 ## <a name="create-a-circuit"></a><a name="circuit"></a>Creare un circuito
 
-Per impostazione predefinita, è possibile creare dieci circuiti nella sottoscrizione in cui si trova la risorsa di ExpressRoute Direct. Il limite può essere aumentato contattando il supporto tecnico. Si è responsabili del monitoraggio della larghezza di banda con provisioning e di quella utilizzata. La larghezza di banda con provisioning è la somma della larghezza di banda di tutti i circuiti della risorsa ExpressRoute Direct e la larghezza di banda utilizzata è l'utilizzo fisico delle interfacce fisiche sottostanti.
+Per impostazione predefinita, è possibile creare dieci circuiti nella sottoscrizione in cui si trova la risorsa di ExpressRoute Direct. Questo limite può essere aumentato dal supporto tecnico. Si è responsabili del monitoraggio della larghezza di banda con provisioning e di quella utilizzata. La larghezza di banda con provisioning è la somma della larghezza di banda di tutti i circuiti della risorsa ExpressRoute Direct e la larghezza di banda utilizzata è l'utilizzo fisico delle interfacce fisiche sottostanti.
 
-Esistono altre larghezze di banda del circuito che è possibile utilizzare in ExpressRoute Direct solo per supportare gli scenari descritti in precedenza. Sono: 40 Gbps e 100 Gbps.
+Sono disponibili altre larghezze di banda del circuito che possono essere usate in ExpressRoute Direct per supportare solo gli scenari descritti in precedenza. Queste larghezze di banda sono 40 Gbps e 100 Gbps.
 
 **SkuTier** può essere locale, standard o Premium.
 
-**SkuFamily** deve essere MeteredData solo se illimitato non è supportato in ExpressRoute Direct.
+**SkuFamily** può essere MeteredData. Illimitata non è supportata in ExpressRoute Direct.
 
 Creare un circuito nella risorsa di ExpressRoute Direct.
 

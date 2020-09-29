@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: dccd953d2a31b306994c06ae644959e18332f5da
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090177"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450404"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Soluzione Monitoraggio VMware (deprecata) in monitoraggio di Azure
 
@@ -50,14 +50,14 @@ Creare una VM del sistema operativo Linux per ricevere tutti i dati di Syslog da
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
 1. Controllare vSphere Console per verificare che Syslog sia configurato correttamente. Verificare che nell'host ESXI sia configurata la porta **1514**.
 1. Scaricare e installare l'agente di Log Analytics per Linux sul server Linux. Per altre informazioni, vedere la [documentazione relativa all'agente di Log Analytics per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-1. Dopo l'installazione dell'agente di Log Analytics per Linux, passare alla directory /etc/opt/microsoft/omsagent/sysconf/omsagent.d e copiare il file vmware_esxi.conf nella directory /etc/opt/microsoft/omsagent/conf/omsagent.d, quindi modificare il proprietario o il gruppo e le autorizzazioni del file. Esempio:
+1. Dopo l'installazione dell'agente di Log Analytics per Linux, passare alla directory /etc/opt/microsoft/omsagent/sysconf/omsagent.d e copiare il file vmware_esxi.conf nella directory /etc/opt/microsoft/omsagent/conf/omsagent.d, quindi modificare il proprietario o il gruppo e le autorizzazioni del file. Ad esempio:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 1. Riavviare l'agente di Log Analytics per Linux eseguendo `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-1. Verificare la connettività tra il server Linux e l'host ESXi usando il `nc` comando nell'host ESXi. Esempio:
+1. Verificare la connettività tra il server Linux e l'host ESXi usando il `nc` comando nell'host ESXi. Ad esempio:
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
@@ -133,16 +133,16 @@ Un singolo host ESXi genera più log, in base ai loro processi. La soluzione di 
 
 Quando si fa clic su un nome host ESXi, vengono visualizzate informazioni da tale host ESXi. Se si desidera restringere i risultati con il tipo di evento, aggiungere `“ProcessName_s=EVENT TYPE”` nella query di ricerca. È possibile selezionare **ProcessName** nel filtro di ricerca. In questo modo vengono ristrette le informazioni.
 
-![drill](./media/vmware/eventhostdrilldown.png)
+![Screenshot dei pannelli host ESXi per numero di eventi e suddivisione per tipo di evento nella visualizzazione Dashboard Monitoraggio VMware.](./media/vmware/eventhostdrilldown.png)
 
 #### <a name="find-high-vm-activities"></a>Individuazione di elevate attività delle VM
 È possibile creare ed eliminare una macchina virtuale su qualsiasi host ESXi. È utile per gli amministratori identificare il numero di VM create da un host ESXi. A sua volta, questo aiuta a comprendere la pianificazione delle prestazioni e della capacità. Quando si gestisce un ambiente, è indispensabile tenere traccia degli eventi di attività delle VM.
 
-![drill](./media/vmware/vmactivities1.png)
+![Screenshot del pannello attività macchina virtuale nel dashboard Monitoraggio VMware, che mostra un grafico della creazione e dell'eliminazione di VM da parte dell'host ESXi.](./media/vmware/vmactivities1.png)
 
 Se si desidera visualizzare dati aggiuntivi sulla creazione di VM dell'host ESXi, fare clic sul nome di un host ESXi.
 
-![drill](./media/vmware/createvm.png)
+![Screenshot di un riquadro del dashboard Monitoraggio VMware che mostra una tabella con una riga di dati per ogni macchina virtuale creata da un host ESXi.](./media/vmware/createvm.png)
 
 #### <a name="common-log-queries"></a>Query log comuni
 La soluzione include altre query utili che aiutano a gestire gli host ESXi, ad esempio elevate quantità di spazio di archiviazione, latenza di archiviazione ed errori di percorso.
@@ -190,7 +190,7 @@ Possono esserci diversi motivi:
 
     a. Verificare che l'agente di Log Analytics sia in esecuzione usando `ps -ef | grep oms`. Se non è in esecuzione, avviare il processo eseguendo il comando `sudo /opt/microsoft/omsagent/bin/service_control start`
 
-     b. Aprire il file `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` .
+     b. Aprire il file `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
      c. Verificare che l'impostazione di gruppo e utente sia valida e appropriata, come nella stringa seguente: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 

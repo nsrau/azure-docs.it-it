@@ -9,39 +9,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: b36852e27f6aa3a909dd645c19a12c55e082b761
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 948cf3c65dfdc912f2f807dfac34076985f1bc89
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399328"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449194"
 ---
 # <a name="routing-architecture-overview"></a>Panoramica dell'architettura di routing
 
-Il front-end di Azure quando riceve le richieste client quindi le risponde (se la memorizzazione nella cache è abilitata) o le inoltra al back-end dell'applicazione appropriato (come proxy inverso).
-
-</br>Esistono opportunità di ottimizzare il traffico durante il routing a Frontdoor di Azure così come durante il routing verso i back-end.
+Quando il front-end di Azure riceve le richieste client, effettuerà una delle due operazioni seguenti. È possibile rispondervi se si Abilita la memorizzazione nella cache o la si invia al back-end dell'applicazione appropriato come proxy inverso.
 
 ## <a name="selecting-the-front-door-environment-for-traffic-routing-anycast"></a><a name = "anycast"></a>Selezionare l'ambiente di Frontdoor per il routing del traffico (Anycast)
 
-Il routing al Frontdoor di Azure si basa su ambienti [Anycast](https://en.wikipedia.org/wiki/Anycast) per il traffico DNS (Domain Name System) e HTTP (Hypertext Transfer Protocol), pertanto il traffico utente passerà all'ambiente più vicino in termini di topologia di rete (minor numero hop). Questa architettura offre in genere i migliori tempi di round trip per gli utenti finali (massimizzare i vantaggi della suddivisione TCP). Frontdoor organizza gli ambienti in primari e in "anelli" di fallback.  L'anello esterno dispone di ambienti più vicini agli utenti, offrendo latenze più basse.  L'anello interno dispone di ambienti in grado di gestire il failover per l'ambiente di anello esterno nel caso di problemi. L'anello esterno è la destinazione preferita per l'intero traffico. Tuttavia, l'anello interno è necessario per gestire l'overflow del traffico dall'anello esterno. In termini di indirizzi IP virtuali, ogni host front-end, o dominio gestito da Frontdoor è assegnato a un indirizzo IP virtuale primario, annunciato dagli ambienti dell'anello interno ed esterno, nonché a un indirizzo IP virtuale di fallback, annunciato solo dagli ambienti dell'anello interno. 
+Il traffico indirizzato agli ambienti front-end di Azure usa [anycast](https://en.wikipedia.org/wiki/Anycast) per il traffico DNS (Domain Name System) e HTTP (Hypertext Transfer Protocol), che consente alle richieste degli utenti di raggiungere l'ambiente più vicino nel minor numero di hop di rete. Questa architettura offre tempi di round trip migliori per gli utenti finali, ottimizzando i vantaggi di Split TCP. Frontdoor organizza gli ambienti in primari e in "anelli" di fallback. L'anello esterno dispone di ambienti più vicini agli utenti, offrendo latenze più basse.  Il ring interno dispone di ambienti in grado di gestire il failover per l'ambiente anello esterno in caso di problemi. L'anello esterno è la destinazione preferita per tutto il traffico e l'anello interno è gestire l'overflow del traffico dall'anello esterno. A ogni host front-end o dominio servito dalla porta anteriore viene assegnato un indirizzo VIP primario (indirizzi IP virtuali), che viene annunciato dagli ambienti nell'anello interno ed esterno. Un indirizzo VIP di fallback viene annunciato solo da ambienti nell'anello interno. 
 
-</br>Questa strategia globale garantisce che le richieste da parte degli utenti finali raggiungano sempre l'ambiente Frontdoor più vicino e che, qualora l'ambiente di ingresso principale preferito non sia integro, il traffico venga spostato automaticamente all'ambiente più vicino.
+Questa architettura garantisce che le richieste degli utenti finali raggiungano sempre l'ambiente di sportello anteriore più vicino. Anche se l'ambiente front-end preferito non è integro, tutto il traffico passa automaticamente al prossimo ambiente più vicino.
 
 ## <a name="connecting-to-front-door-environment-split-tcp"></a><a name = "splittcp"></a>Connessione all'ambiente Frontdoor (Split TCP)
 
-[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) è una tecnica che serve a ridurre latenza e problemi TCP tramite la suddivisione di una connessione che comporterebbe un tempo di round trip elevato in parti più piccole.  Inserendo degli ambienti Frontdoor più vicino agli utenti finali e terminando le connessioni TCP in ambiente Frontdoor, una connessione TCP all’applicazione di back-end con un tempo di round trip (RTT) ampio è suddivisa in due connessioni TCP. La connessione breve tra l'utente finale e l'ambiente di sportello anteriore indica che la connessione viene stabilita in tre brevi round trip anziché tre round trip lunghi, risparmiando latenza.  La lunga connessione tra l’ambiente Frontdoor e il back-end può essere prestabilita e riutilizzata in più chiamate per l'utente finale, risparmiando nuovamente il tempo di connessione TCP.  L'effetto viene moltiplicato per stabilire una connessione SSL/TLS (Transport Layer Security) poiché sono presenti più round trip per la proteggere la connessione.
+[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) è una tecnica che serve a ridurre latenza e problemi TCP tramite la suddivisione di una connessione che comporterebbe un tempo di round trip elevato in parti più piccole. Con gli ambienti front-end più vicini agli utenti finali, le connessioni TCP terminano all'interno dell'ambiente di sportello anteriore. Una connessione TCP con un tempo di round trip di grandi dimensioni (RTT) al back-end dell'applicazione viene suddivisa in due connessioni separate. La "connessione breve" tra l'utente finale e l'ambiente di sportello anteriore indica che la connessione viene stabilita in tre round trip brevi invece che in tre round trip lunghi, il che comporta il salvataggio della latenza. La "connessione lunga" tra l'ambiente della porta anteriore e il back-end può essere prestabilita e quindi riutilizzata in altre richieste degli utenti finali per risparmiare tempo di connettività. L'effetto di Split TCP viene moltiplicato quando si stabilisce una connessione SSL/TLS (Transport Layer Security) perché sono presenti più round trip per proteggere una connessione.
 
 ## <a name="processing-request-to-match-a-routing-rule"></a>Elaborazione della richiesta per la corrispondenza di una regola di gestione
-Dopo aver stabilito una connessione ed eseguito un handshake TLS, quando una richiesta si trova in un ambiente di sportello anteriore, la corrispondenza di una regola di routing è il primo passaggio. Questa corrispondenza consiste nel determinare tra tutte le configurazioni in Frontdoor, quali regole di gestione specifiche corrispondano alla richiesta. Per altre informazioni, vedere come Frontdoor effettua la [corrispondenza delle route](front-door-route-matching.md).
+Dopo aver stabilito una connessione e completato un handshake TLS, il primo passaggio dopo una richiesta viene rilasciata in un ambiente front-end in modo che corrisponda alla regola di routing. La corrispondenza è determinata dalle configurazioni sulla porta anteriore a cui è determinata la regola di routing a cui associare la richiesta. Per altre informazioni, vedere come Frontdoor effettua la [corrispondenza delle route](front-door-route-matching.md).
 
 ## <a name="identifying-available-backends-in-the-backend-pool-for-the-routing-rule"></a>Identificazione di back-end disponibili nel pool di back-end per la regola di gestione
-Una volta che Frontdoor acquisisce una corrispondenza per una regola di gestione basata su richiesta in ingresso e in assenza di memorizzazione nella cache, il passaggio successivo è estrarre lo stato di integrità del probe per il pool di back-end associato alla route corrispondente. Per altre informazioni, vedere come Frontdoor monitora l'integrità del back-end usando [Probe di integrità](front-door-health-probes.md).
+Quando la porta anteriore corrisponde a una regola di routing per una richiesta in ingresso, il passaggio successivo consiste nell'ottenere lo stato del probe di integrità per il pool back-end associato alla regola di routing se non è presente alcuna memorizzazione nella cache. Per altre informazioni, vedere come Frontdoor monitora l'integrità del back-end usando [Probe di integrità](front-door-health-probes.md).
 
 ## <a name="forwarding-the-request-to-your-application-backend"></a>Inoltrare la richiesta al back-end dell'applicazione
-Infine, supponendo che non vi sia nessuna memorizzazione nella cache configurata, la richiesta dell’utente viene inoltrata al back-end "migliore" basandosi sulla configurazione del [Metodo di routing di Frontdoor](front-door-routing-methods.md).
+Infine, supponendo che la memorizzazione nella cache non sia configurata, la richiesta dell'utente viene trasmessa al back-end "migliore" in base alla configurazione del [metodo di routing](front-door-routing-methods.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

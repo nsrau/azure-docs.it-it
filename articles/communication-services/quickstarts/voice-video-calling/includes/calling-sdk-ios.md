@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 31f7e348a805c86964a8856fb81b83831c611de5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7ca15baffd3fac4a1f3635ac7377bac620673446
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376336"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451517"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,7 +41,7 @@ Aggiungere la libreria client Chiamate di Servizi di comunicazione di Azure e le
 5. Aprire la scheda **Build Settings** (Impostazioni di compilazione) dell'editor di impostazioni del progetto e scorrere fino alla sezione **Search Paths** (Percorsi di ricerca). Aggiungere una nuova voce **Framework Search Paths** per la directory contenente **AzureCommunicationCalling.framework**.
     1. Aggiungere un'altra voce nei percorsi di ricerca di framework che punta alla cartella contenente le dipendenze.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot che illustra l'aggiornamento dei percorsi di ricerca di framework all'interno di XCode.":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot che mostra la finestra per la creazione di un nuovo progetto in Xcode.":::
 
 ### <a name="request-access-to-the-microphone"></a>Richiedere l'accesso al microfono
 
@@ -113,7 +113,7 @@ Passa l'oggetto CommunicationUserCredential creato in precedenza a ACSCallClient
 callClient = ACSCallClient()
 callClient?.createCallAgent(userCredential!,
     withCompletionHandler: { (callAgent, error) in
-        if error != nil {
+        if error == nil {
             print("Create agent succeeded")
             self.callAgent = callAgent
         } else {
@@ -186,7 +186,7 @@ La notifica push Mobile è la notifica popup che si ottiene nel dispositivo mobi
 - Passaggio 2: Xcode-> firma & funzionalità-> aggiungere funzionalità-> "modalità in background"
 - Passaggio 3: "modalità in background"-> selezionare "Voice over IP" e "Remote Notifications"
 
-:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Screenshot che illustra come aggiungere funzionalità in Xcode." lightbox="../media/ios/xcode-push-notification.png":::
+:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Screenshot che mostra la finestra per la creazione di un nuovo progetto in Xcode." lightbox="../media/ios/xcode-push-notification.png":::
 
 #### <a name="register-for-push-notifications"></a>Registrarsi per le notifiche push
 

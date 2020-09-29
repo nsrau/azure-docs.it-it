@@ -4,15 +4,15 @@ description: Informazioni sull'uso di Azure Defender per registri contenitori pe
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 04a7b7f40e1591a919668e940a883dde9a6f4689
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1ff28b13d9adc120f8ee40bcd0119bf9b6883d6a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302010"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449121"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usare Azure Defender per registri contenitori per analizzare le vulnerabilità delle immagini
 
@@ -150,7 +150,7 @@ Per creare una regola:
 1. Per visualizzare, eseguire l'override o eliminare una regola: 
     1. Selezionare **Disabilita regola**.
     1. Dall'elenco ambito, le sottoscrizioni con regole attive vengono visualizzate come **regole applicate**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modificare o eliminare una regola esistente":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Creare una regola di disabilitazione per i risultati di VA nel registro di sistema":::
     1. Per visualizzare o eliminare la regola, selezionare il menu con i puntini di sospensione ("...").
 
 
