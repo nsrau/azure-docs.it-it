@@ -1,18 +1,18 @@
 ---
-title: Abilitare il componente aggiuntivo Controller in ingresso per un nuovo cluster del servizio Azure Kubernetes con una nuova istanza del gateway applicazione di Azure
-description: Informazioni su come usare l'interfaccia della riga di comando di Azure per abilitare il componente aggiuntivo Controller in ingresso per il nuovo cluster del servizio Azure Kubernetes con una nuova istanza del gateway applicazione.
+title: 'Esercitazione: Abilitare il componente aggiuntivo Controller in ingresso per un nuovo cluster del servizio Azure Kubernetes con una nuova istanza del gateway applicazione di Azure'
+description: Questa esercitazione illustra come usare l'interfaccia della riga di comando di Azure per abilitare il componente aggiuntivo Controller in ingresso per il nuovo cluster del servizio Azure Kubernetes con una nuova istanza del gateway applicazione.
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 620fe5851f9dbde01b2206595fa79b61f62deb66
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: ab917fe476a40eb8ea559bc08e52d4bbf16a8436
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595921"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285588"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Esercitazione: Abilitare il componente aggiuntivo Controller in ingresso (anteprima) per un nuovo cluster del servizio Azure Kubernetes con una nuova istanza del gateway applicazione
 
@@ -30,11 +30,12 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Distribuire un'applicazione di esempio usando Controller in ingresso del gateway applicazione per il traffico in ingresso nel cluster del servizio Azure Kubernetes.
 > * Verificare che l'applicazione sia raggiungibile tramite il gateway applicazione.
 
+## <a name="prerequisites"></a>Prerequisiti
+
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure 2.0.4 o versione successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -134,7 +135,7 @@ az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Informazioni sulla disabilitazione del componente aggiuntivo Controller in ingresso del gateway applicazione](./ingress-controller-disable-addon.md)
-* [Informazioni sulle annotazioni supportate con Controller in ingresso del gateway applicazione](./ingress-controller-annotations.md)
-* [Risolvere problemi relativi a Controller in ingresso del gateway applicazione](./ingress-controller-troubleshoot.md)
+
+> [!div class="nextstepaction"]
+> [Informazioni sulla disabilitazione del componente aggiuntivo Controller in ingresso del gateway applicazione](./ingress-controller-disable-addon.md)
 

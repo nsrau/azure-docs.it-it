@@ -46,7 +46,7 @@
         - name: Effettuare il provisioning per la multi-tenancy
           href: how-to-provision-multitenant.md
         - name: Usare criteri di allocazione personalizzati
-          href: how-to-use-custom-allocation-policies.md
+          href: tutorial-custom-allocation-policies.md
 - name: Esempi
   items:
     - name: Esempio di attestazione del dispositivo TPM simulato
@@ -109,6 +109,8 @@
   items:
     - name: Connettere MXChip IoT DevKit all'hub IoT
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: Effettuare il provisioning di dispositivi con criteri di allocazione personalizzati
+      href: how-to-use-custom-allocation-policies.md
     - name: Gestire il servizio Device Provisioning
       items:
         - name: Gestire le registrazioni - Portale

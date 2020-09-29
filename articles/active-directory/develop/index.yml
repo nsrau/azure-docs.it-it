@@ -3,18 +3,18 @@ title: Documentazione di Microsoft Identity Platform
 summary: Microsoft Identity Platform include un servizio di autenticazione, librerie open source e strumenti di gestione delle applicazioni. Informazioni su come creare soluzioni di autenticazione moderne basate su standard con avvii rapidi, esercitazioni ed esempi di codice. È possibile creare applicazioni a cui utenti e clienti possono accedere usando le identità Microsoft o gli account di social networking e autorizzare l'accesso ad API o ad API Microsoft come Microsoft Graph.
 metadata:
   ms.topic: landing-page
-  ms.date: 08/11/2020
+  ms.date: 09/26/2020
   author: mmacy
   ms.author: marsma
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: c0f87da61b0fa2d4aed57eeef7ee9829a17d0f80
-  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+  ms.openlocfilehash: d80d722594e717319bda473e2cb86551acc8d9f0
+  ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/25/2020
-  ms.locfileid: "91258371"
+  ms.lasthandoff: 09/28/2020
+  ms.locfileid: "91403144"
 landingContent:
 - title: Microsoft Identity Platform
   linkLists:
@@ -64,8 +64,8 @@ landingContent:
       url: quickstart-v2-aspnet-webapp.md
     - text: ASP.NET Core
       url: quickstart-v2-aspnet-core-webapp.md
-    - text: Python
-      url: quickstart-v2-python-webapp.md
+    - text: Server Blazor
+      url: tutorial-blazor-server.md
 - title: App per dispositivi mobili/native
   linkLists:
   - linkListType: get-started
@@ -120,6 +120,8 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: 'Esercitazione: Blazor Server'
+      url: tutorial-blazor-server.md
     - text: "Avvio rapido: Proteggere un'API Web ASP.NET Core"
       url: quickstart-v2-aspnet-core-web-api.md
     - text: Informazioni di riferimento per l'API Python per MSAL
@@ -136,5 +138,3 @@ landingContent:
       url: msal-android-handling-exceptions.md
     - text: Attributi dell'estensione dello schema della directory nelle attestazioni
       url: active-directory-schema-extensions.md
-    - text: Codice di autorizzazione MSAL.js 2.0 + PKCE e CORS
-      url: quickstart-v2-javascript-auth-code.md

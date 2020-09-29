@@ -6,14 +6,38 @@ metadata:
   ms.topic: landing-page
   author: erikadoyle
   ms.author: edoyle
-  ms.date: 12/04/2019
-  ms.openlocfilehash: a2651387a425439d09ad68b0e763ff0c6c3f7f27
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 07/31/2020
+  ms.openlocfilehash: 9bce6570cef2703bf1ad63d92c55bb3794927a8b
+  ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75452216"
+  ms.lasthandoff: 09/28/2020
+  ms.locfileid: "91408702"
 landingContent:
+- title: Provare i cluster gestiti di Service Fabric (anteprima)
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Che cosa sono i cluster gestiti di Service Fabric (anteprima)
+      url: overview-managed-cluster.md
+    - text: Distribuire un cluster gestito (anteprima)
+      url: quickstart-managed-cluster-template.md
+  - linkListType: tutorial
+    links:
+    - text: Creare un cluster gestito (anteprima)
+      url: tutorial-managed-cluster-deploy.md
+    - text: Aumentare il numero di istanze di un tipo di nodo del cluster gestito (anteprima)
+      url: tutorial-managed-cluster-scale.md
+    - text: Aggiungere e rimuovere tipi di nodo del cluster gestito (anteprima)
+      url: tutorial-managed-cluster-add-remove-node-type.md
+    - text: Distribuire un'app in un cluster gestito (anteprima)
+      url: tutorial-managed-cluster-deploy-app.md
+    - text: Aggiungere un'estensione del set di scalabilità di macchine virtuali a un tipo di nodo del cluster gestito (anteprima)
+      url: how-to-managed-cluster-vmss-extension.md
+  - linkListType: whats-new
+    links:
+    - text: Domande frequenti sui cluster gestiti di Service Fabric
+      url: faq-managed-cluster.md
 - title: Informazioni su Service Fabric
   linkLists:
   - linkListType: overview

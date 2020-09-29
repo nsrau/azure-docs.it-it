@@ -1,32 +1,36 @@
 ---
-title: 'Esercitazione: Elenco di controllo per la rete'
-description: Prerequisiti e dettagli relativi ai requisiti per la connettività e le porte di rete
+title: 'Esercitazione: Elenco di controllo di pianificazione della rete'
+description: Informazioni sui prerequisiti della rete e dettagli relativi ai requisiti per la connettività e le porte di rete per la soluzione Azure VMware.
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: aba5d7767e420b3ade6238621487884e44fbb6e2
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/21/2020
+ms.openlocfilehash: c9a3c18d69cb81ed2810c0516820a9ef348402f1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750420"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254398"
 ---
-# <a name="networking-checklist-for-azure-vmware-solution"></a>Elenco di controllo per la rete per la soluzione Azure VMware 
+# <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Elenco di controllo di pianificazione della rete per la soluzione Azure VMware 
 
-La soluzione Azure VMware offre un ambiente di cloud privato VMware, accessibile per utenti e applicazioni da risorse o ambienti locali e basati su Azure. La connettività viene fornita tramite servizi di rete, ad esempio le connessioni ExpressRoute e VPN di Azure, e richiede alcuni intervalli di indirizzi di rete e porte del firewall specifici per l'abilitazione dei servizi. Questo articolo fornisce le informazioni necessarie per configurare correttamente la rete per l'uso con la soluzione Azure VMware.
+La soluzione Azure VMware offre un ambiente di cloud privato VMware, accessibile per utenti e applicazioni da risorse o ambienti locali e basati su Azure. La connettività viene fornita tramite servizi di rete, ad esempio le connessioni VPN e Azure ExpressRoute, e richiede alcuni intervalli di indirizzi di rete e porte del firewall specifici per l'abilitazione dei servizi. Questo articolo fornisce le informazioni necessarie per configurare correttamente la rete per l'uso con la soluzione Azure VMware.
 
-Questa esercitazione descrive quanto segue:
+In questa esercitazione si vedrà:
 
 > [!div class="checklist"]
-> * Requisiti di rete e connettività
-> * DHCP nella soluzione Azure VMware
+> * Considerazioni sulla rete virtuale e sul circuito ExpressRoute
+> * Requisiti di routing e subnet
+> * Porte di rete necessarie per comunicare con i servizi
+> * Considerazioni su DHCP e DNS nella soluzione Azure VMware
 
-## <a name="virtual--network-and-expressroute-circuit--considerations"></a>Considerazioni sulla rete virtuale e sul circuito ExpressRoute
-Quando si crea una connessione da una rete virtuale nella sottoscrizione, il circuito ExpressRoute viene stabilito tramite peering e usa una chiave di autorizzazione e un ID peering che si richiede nel portale di Azure. Il peering è una connessione privata, uno-a-uno tra il cloud privato e la rete virtuale.
+
+
+## <a name="virtual-network-and-expressroute-circuit-considerations"></a>Considerazioni sulla rete virtuale e sul circuito ExpressRoute
+Quando si crea una connessione di rete virtuale nella sottoscrizione, il circuito ExpressRoute viene stabilito tramite peering e usa una chiave di autorizzazione e un ID peering che si richiede nel portale di Azure. Il peering è una connessione privata, uno-a-uno tra il cloud privato e la rete virtuale.
 
 > [!NOTE] 
 > Il circuito ExpressRoute non fa parte di una distribuzione di cloud privato. Il circuito ExpressRoute locale esula dall'ambito di questo documento. Se è necessaria la connettività locale al cloud privato, è possibile usare uno dei circuiti ExpressRoute esistenti o acquistarne uno nel portale di Azure.
 
-Quando si distribuisce un cloud privato, si ricevono gli indirizzi IP per vCenter e NSX-T Manager. Per accedere a tali interfacce di gestione, è necessario creare risorse aggiuntive in una rete virtuale nella sottoscrizione. È possibile trovare le procedure per la creazione di tali risorse e la definizione del peering privato di ExpressRoute nelle esercitazioni.
+Quando si distribuisce un cloud privato, si ricevono gli indirizzi IP per vCenter e NSX-T Manager. Per accedere a tali interfacce di gestione, è necessario creare risorse aggiuntive nella rete virtuale della sottoscrizione. Nelle esercitazioni sono disponibili le procedure per creare le risorse e stabilire il [peering privato ExpressRoute](tutorial-expressroute-global-reach-private-cloud.md).
 
 La rete logica del cloud privato include NSX-T con il provisioning effettuato. Vengono forniti un gateway di livello 0 e uno di livello 1 con il provisioning effettuato. È possibile creare un segmento e collegarlo al gateway di livello 1 esistente o a uno nuovo definito. I componenti della rete logica NSX-T forniscono connettività da destra a sinistra tra carichi di lavoro e connettività dall'alto in basso a Internet e ai servizi di Azure.
 
@@ -39,15 +43,15 @@ Esempio di blocco di indirizzi di rete `/22` CIDR: `10.10.0.0/22`
 
 Le subnet:
 
-| Utilizzo di rete             | Subnet | Esempio        |
-| ------------------------- | ------ | -------------- |
-| Gestione del cloud privato  | `/24`  | `10.10.0.0/24` |
-| Rete vMotion           | `/24`  | `10.10.1.0/24` |
-| Carichi di lavoro della VM              | `/24`  | `10.10.2.0/24` |
-| Peering ExpressRoute      | `/24`  | `10.10.3.8/30` |
+| Utilizzo di rete             | Subnet | Esempio          |
+| ------------------------- | ------ | ---------------- |
+| Gestione del cloud privato  | `/26`  | `10.10.0.0/26`   |
+| Rete vMotion           | `/25`  | `10.10.1.128/25` |
+| Carichi di lavoro della VM              | `/24`  | `10.10.2.0/24`   |
+| Peering ExpressRoute      | `/29`  | `10.10.3.8/29`   |
 
 
-### <a name="network-ports-required-to-communicate-with-the-service"></a>Porte di rete necessarie per comunicare con il servizio
+## <a name="required-network-ports"></a>Porte di rete necessarie
 
 | Source (Sorgente) | Destination | Protocollo | Porta | Descrizione  | 
 | ------ | ----------- | :------: | :---:| ------------ | 
@@ -67,20 +71,17 @@ Le subnet:
 | Rete vCenter locale | Rete di gestione del cloud privato | TCP | 8000 |  vMotion di macchine virtuali da vCenter locale al cloud privato vCenter   |     
 
 ## <a name="dhcp-and-dns-resolution-considerations"></a>Considerazioni su DHCP e sulla risoluzione DNS
-Le applicazioni e i carichi di lavoro in esecuzione in un ambiente cloud privato richiedono la risoluzione dei nomi e i servizi DHCP per la ricerca e l'assegnazione di indirizzi IP. Per fornire questi servizi, è necessaria un'infrastruttura DHCP e DNS corretta. È possibile configurare una macchina virtuale per fornire questi servizi nell'ambiente cloud privato.  
+Le applicazioni e i carichi di lavoro in esecuzione in un ambiente cloud privato richiedono la risoluzione dei nomi e i servizi DHCP per la ricerca e le assegnazioni di indirizzi IP. Per fornire questi servizi, è necessaria un'infrastruttura DHCP e DNS corretta. È possibile configurare una macchina virtuale per fornire questi servizi nell'ambiente cloud privato.  
 
-È consigliabile usare il servizio DHCP incorporato in NSX o usare un server DHCP locale nel cloud privato invece di instradare la trasmissione del traffico DHCP tramite la rete WAN all'ambiente locale.
+Usare il servizio DHCP predefinito in NSX o usare un server DHCP locale nel cloud privato invece di instradare la trasmissione del traffico DHCP tramite la rete WAN all'ambiente locale.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono stati trattati gli argomenti seguenti:
+Questa esercitazione ha illustrato le considerazioni e i requisiti per la distribuzione di un cloud privato della soluzione Azure VMware. 
 
-> [!div class="checklist"]
-> * Requisiti di rete e connettività
-> * DHCP nella soluzione Azure VMware
 
 Una volta completata la configurazione corretta della rete, continuare con l'esercitazione successiva per creare il cloud privato della soluzione Azure VMware.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Creare un cloud privato della soluzione Azure VMware](tutorial-create-private-cloud.md)
+> [Creare un cloud privato della soluzione Azure VMware](tutorial-create-private-cloud.md)

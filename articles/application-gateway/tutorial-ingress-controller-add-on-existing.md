@@ -1,18 +1,18 @@
 ---
-title: Abilitare il componente aggiuntivo Controller in ingresso per un cluster esistente del servizio Azure Kubernetes con il gateway applicazione di Azure esistente
+title: 'Esercitazione: Abilitare il componente aggiuntivo Controller in ingresso per un cluster esistente del servizio Azure Kubernetes con il gateway applicazione di Azure esistente'
 description: Questa esercitazione consente di abilitare il componente aggiuntivo Controller in ingresso per il cluster del servizio Azure Kubernetes esistente con un gateway applicazione esistente
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 35d9396ac1f4569002b95549a8752745537621cf
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: d0ce58c5bb6de4712117959f10b48ae3449f0b97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595955"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285656"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Esercitazione: Abilitare il componente aggiuntivo Controller in ingresso del gateway applicazione per un cluster del servizio Azure Kubernetes esistente con un gateway applicazione esistente tramite l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -28,6 +28,8 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Eseguire il peering della rete virtuale del gateway applicazione con la rete virtuale del cluster del servizio Azure Kubernetes
 > * Distribuire un'applicazione di esempio usando Controller in ingresso del gateway applicazione per il traffico in ingresso nel cluster del servizio Azure Kubernetes
 > * Verificare che l'applicazione sia raggiungibile tramite il gateway applicazione
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -151,7 +153,6 @@ az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Altre informazioni sulla disabilitazione del componente aggiuntivo Controller in ingresso del gateway applicazione](./ingress-controller-disable-addon.md)
-* [Altre informazioni sulle annotazioni supportate con Controller in ingresso del gateway applicazione](./ingress-controller-annotations.md)
-* [Risolvere problemi relativi a Controller in ingresso del gateway applicazione](./ingress-controller-troubleshoot.md)
 
+> [!div class="nextstepaction"]
+> [Altre informazioni sulla disabilitazione del componente aggiuntivo Controller in ingresso del gateway applicazione](./ingress-controller-disable-addon.md)

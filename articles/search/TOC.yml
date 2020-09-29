@@ -162,8 +162,6 @@
       items:
         - name: Usare gli indicizzatori
           items:
-            - name: Configurare gli indicizzatori
-              href: search-indexer-overview.md
             - name: Monitorare gli indicizzatori
               href: search-howto-monitor-indexers.md
             - name: Pianificare gli indicizzatori
@@ -188,8 +186,12 @@
               href: search-blob-ai-integration.md
             - name: Configurare un indicizzatore BLOB
               href: search-howto-indexing-azure-blob-storage.md
+            - name: Indicizzare i BLOB modificati ed eliminati
+              href: search-howto-index-changed-deleted-blobs.md
             - name: Indicizzare BLOB uno-a-molti
               href: search-howto-index-one-to-many-blobs.md
+            - name: Indicizzare il testo normale
+              href: search-howto-index-plaintext-blobs.md
             - name: Indicizzare i BLOB CSV
               href: search-howto-index-csv-blobs.md
             - name: Indicizzare i BLOB JSON
