@@ -292,7 +292,7 @@
               href: log-query/query-optimization.md
             - name: Analizzare i dati di testo
               href: log-query/parse-text.md
-        - name: Aree di lavoro
+        - name: Aree di lavoro e cluster
           items:
             - name: Progettare la distribuzione di un'area di lavoro
               href: platform/design-logs-deployment.md
@@ -312,6 +312,8 @@
               href: platform/service-providers.md
             - name: Gestire l'accesso
               href: platform/manage-access.md
+            - name: Cluster Hub eventi Dedicato
+              href: log-query/logs-dedicated-clusters.md
     - name: Esplora metriche
       items:
         - name: Introduzione a Esplora metriche
