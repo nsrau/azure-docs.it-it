@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 03e9f99301444032d867bc1c2f854c807380844e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: devx-track-js
+ms.openlocfilehash: e24a2a19eb39e2c6c7612631ad98f95cb4c5b9ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797735"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250165"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Esercitazione: Pubblicare un sito Gatsby in App Web statiche di Azure (anteprima)
 
@@ -102,7 +102,7 @@ I passaggi seguenti illustrano come creare una nuova app del sito statica e dist
 
 1. In _SKU_ selezionare **Gratuito**.
 
-   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Dettagli inseriti":::
+   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Creare una risorsa di App Web statiche (anteprima) nel portale":::
 
 1. Fare clic sul pulsante **Accedi con GitHub**.
 
@@ -112,7 +112,7 @@ I passaggi seguenti illustrano come creare una nuova app del sito statica e dist
 
 1. In _Ramo_ selezionare **master**.
 
-   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Informazioni su GitHub inserite":::
+   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Creare una risorsa di App Web statiche (anteprima) nel portale":::
 
 ### <a name="build"></a>Compilare
 
@@ -126,7 +126,7 @@ Successivamente, verranno aggiunte le impostazioni di configurazione usate dal p
 
    Non è necessario specificare alcun valore per _Percorso API_ perché al momento non viene distribuita alcuna API.
 
-   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Impostazioni di compilazione":::
+   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Creare una risorsa di App Web statiche (anteprima) nel portale":::
 
 ### <a name="review-and-create"></a>Rivedi e crea
 
@@ -138,7 +138,7 @@ Successivamente, verranno aggiunte le impostazioni di configurazione usate dal p
 
 1. Nella schermata della risorsa fare clic sul collegamento _URL_ per aprire l'applicazione distribuita. Potrebbe essere necessario attendere un paio di minuti il completamento dell'azione di GitHub Actions.
 
-   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Applicazione distribuita":::
+   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Creare una risorsa di App Web statiche (anteprima) nel portale":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

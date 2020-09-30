@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, devx-track-javascript
-ms.openlocfilehash: 4613e22193de8dc374d1a9e1a293c317fb9c1b9b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: 7a136c03db6e27763a22d92d2c335f23c616856e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311544"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256807"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Esercitazione: Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a pagina singola JavaScript usando il flusso del codice di autenticazione
 
@@ -619,23 +619,23 @@ La creazione dell'applicazione è stata completata ed è ora possibile avviare i
 
 Dopo che il browser ha caricato il file *index.html*, fare clic su **Accedi**. Verrà chiesto di accedere con l'endpoint Microsoft Identity Platform:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Web browser che visualizza la finestra di dialogo di accesso":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Diagramma che mostra il flusso del codice di autorizzazione in un'applicazione a pagina singola":::
 
 ### <a name="provide-consent-for-application-access"></a>Specificare il consenso per l'accesso all'applicazione
 
 La prima volta che si accede all'applicazione, viene chiesto di concedere l'accesso al proprio profilo e viene eseguito l'accesso:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Finestra di dialogo di contenuto visualizzata nel Web browser":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diagramma che mostra il flusso del codice di autorizzazione in un'applicazione a pagina singola":::
 
 Se si acconsente alle autorizzazioni richieste, nelle applicazioni Web viene visualizzato il nome utente, a indicare che l'accesso è riuscito:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Risultati di un accesso riuscito nel Web browser":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Diagramma che mostra il flusso del codice di autorizzazione in un'applicazione a pagina singola":::
 
 ### <a name="call-the-graph-api"></a>Chiamare l'API Graph
 
 Dopo aver eseguito l'accesso, selezionare **See Profile** (Vedi profilo) per visualizzare le informazioni del profilo utente restituite in una risposta dalla chiamata all'API Microsoft Graph:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Informazioni del profilo di Microsoft Graph visualizzate nel browser":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Diagramma che mostra il flusso del codice di autorizzazione in un'applicazione a pagina singola":::
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Altre informazioni sugli ambiti e sulle autorizzazioni delegate
 
