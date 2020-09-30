@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 6422874f57b490773f70b6fb27d5b65c654ded07
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 11a0ddc5c7b297d0700e6fd07d60f8efe0e55a8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212750"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285333"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 
@@ -52,7 +52,7 @@ Azure Maps Web SDK consente di personalizzare le mappe interattive con contenuto
 
 Usare Android SDK di Mappe di Azure per creare applicazioni per dispositivi mobili che usano le mappe.
 
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Esempi di mappa in un dispositivo mobile":::
+:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Mappa di esempio della modifica della popolazione creata con Azure Maps Web SDK":::
 
 ## <a name="services-in-azure-maps"></a>Servizi di Mappe di Azure
 
@@ -78,7 +78,7 @@ Per altre informazioni sul servizio, vedere la [documentazione del servizio di m
 
 Il [servizio di rendering v2](https://docs.microsoft.com/rest/api/maps/renderv2), ora disponibile in anteprima, introduce una nuova versione dell'[API Recupero tessera mappa v2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). L'API Recupero tessera mappa v2 consente ora ai clienti di richiedere tessere stradali di Mappe di Azure, tessere meteorologiche o tessere mappa create tramite la risorsa Creator di Mappe di Azure. È consigliabile usare la nuova API Recupera tessere mappa v2.  
 
-:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Esempio di mappa del servizio di rendering v2":::
+:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Mappa di esempio della modifica della popolazione creata con Azure Maps Web SDK":::
 
 Per informazioni dettagliate, vedere la [documentazione del servizio di rendering v2](https://docs.microsoft.com/rest/api/maps/renderv2).
 
@@ -88,7 +88,7 @@ Per altre informazioni sul servizio di rendering v1 disponibile a livello genera
 
 È possibile usare i servizi di pianificazione percorso per calcolare gli orari di arrivo stimati per ogni percorso richiesto. Le API di pianificazione percorso considerano i fattori, ad esempio le informazioni sul traffico in tempo reale e i dati sul traffico cronologici, come le velocità su strada tipiche per il giorno della settimana e l'ora del giorno richiesti. Le API restituiscono i percorsi più brevi o più veloci disponibili per più destinazioni alla volta in sequenza o in ordine ottimizzato, in base al tempo o alla distanza. Il servizio consente agli sviluppatori di calcolare le indicazioni stradali per diverse modalità di trasporto, ad esempio in auto, autocarro, bicicletta, a piedi o con un veicolo elettrico. Il servizio tiene anche in considerazione parametri di input, ad esempio l'ora di partenza, le limitazioni di peso o il trasporto di materiale pericoloso.
 
-:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Esempio di una mappa dal servizio di pianificazione percorso":::
+:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Mappa di esempio della modifica della popolazione creata con Azure Maps Web SDK":::
 
 Il servizio di pianificazione percorso offre funzionalità avanzate, ad esempio:
 
@@ -102,7 +102,7 @@ Per informazioni dettagliate sulle funzionalità di pianificazione dei percorsi,
 
 Il servizio di ricerca consente agli sviluppatori di offrire funzionalità per la ricerca di indirizzi, località, punti di interesse, elenchi di aziende per nome o categoria e altre informazioni geografiche. Include la funzionalità di [codifica geografica inversa](https://en.wikipedia.org/wiki/Reverse_geocoding), ovvero può convertire le coordinate di latitudine e longitudine in indirizzi e incroci stradali.
 
-:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Esempio di una ricerca su una mappa":::
+:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Mappa di esempio della modifica della popolazione creata con Azure Maps Web SDK":::
 
 Il servizio di ricerca offre anche funzionalità avanzate come:
 
@@ -204,7 +204,7 @@ Mappe di Azure offre inoltre un pratico [controllo mappa JavaScript](https://doc
 
 L'oggetto visivo Mappe di Azure per Power BI offre un set completo di visualizzazioni dei dati spaziali su una mappa. Si stima che oltre l'80% dei dati aziendali abbia un contesto di posizione. L'oggetto visivo Mappe di Azure offre una soluzione senza codice per acquisire informazioni approfondite sulla relazione di questo contesto di posizione con i dati aziendali e sugli effetti che produce.
 
-:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI Desktop con l'oggetto visivo Mappe di Azure per la visualizzazione di dati aziendali":::
+:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Mappa di esempio della modifica della popolazione creata con Azure Maps Web SDK":::
 
 Per altre informazioni, vedere la documentazione introduttiva sull'[oggetto visivo Mappe di Azure di Power BI](power-bi-visual-getting-started.md).
 
@@ -231,10 +231,8 @@ Verificare che la località dell'indirizzo IP corrente sia in uno dei paesi/aree
 
 Provare un'app di esempio che presenta Mappe di Azure:
 
-> [!div class="nextstepaction"]
-> [Avvio rapido: Creare un'app Web](quick-demo-map-app.md)
+[Avvio rapido: Creare un'app Web](quick-demo-map-app.md)
 
 Rimanere aggiornati su Mappe di Azure:
 
-> [!div class="nextstepaction"]
-> [Blog di Mappe di Azure](https://azure.microsoft.com/blog/topics/azure-maps/)
+[Blog di Mappe di Azure](https://azure.microsoft.com/blog/topics/azure-maps/)

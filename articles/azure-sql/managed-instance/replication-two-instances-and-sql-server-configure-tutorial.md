@@ -8,14 +8,14 @@ ms.custom: sqldbrb=1
 ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: d89bc33b0ddd0793a3c55dbd64bef9678bd723e7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9d6592ccfb3ba5236a660d689d8b5d2cd1600c48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920144"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283191"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Esercitazione: Configurare la replica transazionale tra Istanza gestita di SQL di Azure e SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ec1d02cefcdb443a74fab52496cd9428a852139f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0a2c1b39f5688b4fc544e5456666ccb8b4801517
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169968"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281050"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Avvio rapido: Impostare e recuperare un certificato da Azure Key Vault con il portale di Azure
 
@@ -45,7 +45,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 Prendere nota delle due proprietà elencate di seguito:
 
 * **Vault Name**: in questo esempio corrisponde a **Example-Vault**. Questo nome verrà usato per altri passaggi.
-* **Vault URI** (URI dell'insieme di credenziali): in questo esempio corrisponde a https://example-vault.vault.azure.net/. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
+* **Vault URI** (URI dell'insieme di credenziali): in questo esempio corrisponde a `https://example-vault.vault.azure.net/`. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
 
 A questo punto, l'account Azure è l'unico autorizzato a eseguire operazioni su questo nuovo insieme di credenziali.
 
