@@ -3,20 +3,18 @@ title: Intent ed entità-LUIS
 titleSuffix: Azure Cognitive Services
 description: Una singola finalità rappresenta un'attività o un'azione che l'utente desidera eseguire. È un obiettivo espresso in un'espressione dell'utente. Definire un set di finalità che corrisponde alle azioni che gli utenti desiderano eseguire nell'applicazione.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: f2e4f91dbc03853d6f1a5240f693ea8ff510e8c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101077"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536104"
 ---
 # <a name="intents-in-your-luis-app"></a>Intent nell'app LUIS
 
@@ -27,7 +25,7 @@ Definire un set di finalità che corrisponde alle azioni che gli utenti desidera
 Finalità dell'app di viaggi   |   Espressioni di esempio   |
 ------|------|
  BookFlight (PrenotaVolo)     |   "Prenotami un volo per Rio la settimana prossima" <br/> "Fammi volare a Rio il 24" <br/> "Ho bisogno di un biglietto aereo per Rio de Janeiro per domenica prossima"    |
- Saluti     |   "Ciao" <br/>"Hello" <br/>"Buongiorno"  |
+ Greeting (Messaggio introduttivo)     |   "Ciao" <br/>"Hello" <br/>"Buongiorno"  |
  Meteo | "Com'è il tempo a Boston?" <br/> "Mostrami le previsioni per il weekend" |
  Nessuno         | "Dammi una ricetta di biscotti"<br>"Ha vinto la Roma?" |
 
@@ -55,7 +53,7 @@ Lo scopo rappresenta l'azione che l'applicazione deve eseguire per l'utente e si
 
 |Finalità   | Entità | Espressione di esempio   |
 |------------------|------------------------------|------------------------------|
-| Meteo | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Qual è il meteo `Seattle` `tomorrow`? |
+| Meteo | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Qual è il meteo `Seattle` `tomorrow` ? |
 | Meteo | { "type": "date_range", "entity": "this weekend" } | Mostrami le previsioni per `this weekend` |
 ||||
 

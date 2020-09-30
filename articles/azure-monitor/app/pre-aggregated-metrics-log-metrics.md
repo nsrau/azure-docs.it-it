@@ -6,20 +6,20 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9aba1e5b469e04c6c6d047f78cd202a073e5a769
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516941"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539130"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Metriche basate su log e metriche preaggregate in Azure Application Insights
 
-Questo articolo illustra la differenza tra le metriche "tradizionali" Application Insights basate sui log e le metriche pre-aggregate attualmente disponibili in anteprima pubblica. Entrambi i tipi di metriche sono disponibili per gli utenti di Application Insights e ognuna offre vantaggi unici per il monitoraggio dell'integrità dell'applicazione, la diagnostica e l'analisi. Gli sviluppatori che si occupano della strumentazione di applicazioni possono scegliere il tipo di metrica più adatto per ogni scenario specifico, a seconda delle dimensioni dell'applicazione, del volume previsto di dati di telemetria e dei requisiti aziendali per la precisione delle metriche e la generazione di avvisi.
+Questo articolo illustra la differenza tra le metriche "tradizionali" Application Insights basate sui log e le metriche pre-aggregate. Entrambi i tipi di metriche sono disponibili per gli utenti di Application Insights e ognuna offre vantaggi unici per il monitoraggio dell'integrità dell'applicazione, la diagnostica e l'analisi. Gli sviluppatori che si occupano della strumentazione di applicazioni possono scegliere il tipo di metrica più adatto per ogni scenario specifico, a seconda delle dimensioni dell'applicazione, del volume previsto di dati di telemetria e dei requisiti aziendali per la precisione delle metriche e la generazione di avvisi.
 
 ## <a name="log-based-metrics"></a>Metriche basate su log
 
-Fino a poco tempo fa, il modello di dati di telemetria per il monitoraggio dell'applicazione in Application Insights era basato esclusivamente su un numero ridotto di tipi di eventi predefiniti, ad esempio richieste, eccezioni, chiamate di dipendenza, visualizzazioni di pagina e così via. Gli sviluppatori possono usare l'SDK per emettere manualmente questi eventi (scrivendo codice che richiama in modo esplicito l'SDK) oppure possono basarsi sulla raccolta automatica di eventi dalla strumentazione automatica. In entrambi i casi, il back-end di Application Insights archivia tutti gli eventi raccolti sotto forma di log e i pannelli di Application Insights nel portale di Azure fungono da strumento di analisi e diagnostica per la visualizzazione dei dati basati su eventi dai log.
+In passato, il modello di dati di telemetria per il monitoraggio delle applicazioni in Application Insights era basato esclusivamente su un numero ridotto di tipi di eventi predefiniti, ad esempio richieste, eccezioni, chiamate di dipendenza, visualizzazioni di pagina e così via. Gli sviluppatori possono usare l'SDK per emettere manualmente questi eventi (scrivendo codice che richiama in modo esplicito l'SDK) oppure possono basarsi sulla raccolta automatica di eventi dalla strumentazione automatica. In entrambi i casi, il back-end di Application Insights archivia tutti gli eventi raccolti sotto forma di log e i pannelli di Application Insights nel portale di Azure fungono da strumento di analisi e diagnostica per la visualizzazione dei dati basati su eventi dai log.
 
 L'uso di log per mantenere un set completo di eventi può offrire eccezionali vantaggi in termini di analisi e diagnostica. Ad esempio, è possibile ottenere un conteggio esatto delle richieste a un URL specifico con il numero di utenti distinti che hanno effettuato queste chiamate. In alternativa, è possibile ottenere tracce di diagnostica dettagliate, incluse le eccezioni e le chiamate di dipendenza per qualsiasi sessione utente. La disponibilità di questo tipo di informazioni può migliorare significativamente la visibilità riguardo all'integrità e all'utilizzo dell'applicazione, riducendo il tempo necessario per diagnosticare problemi relativi a un'app.
 
@@ -35,7 +35,7 @@ Oltre alle metriche basate su log, alla fine del 2018, il team Application Insig
 > [!IMPORTANT]
 > Le metriche basate su log e quelle preaggregate coesistono in Azure Application Insights. Per distinguere i due elementi, nella Application Insights UX le metriche pre-aggregate sono ora denominate "metriche standard (anteprima)", mentre le metriche tradizionali dagli eventi sono state rinominate "metriche basate su log".
 
-Gli SDK più recenti ([Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK o versioni successive per .NET) preaggregano le metriche durante la raccolta prima dell'avvio di tecniche di riduzione dei volumi di dati di telemetria. Ciò significa che l'accuratezza delle nuove metriche non è influenzata dal campionamento e dal filtro quando si usa la versione più recente di Application Insights SDK.
+Gli SDK più recenti ([Application Insights 2,7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK o versioni successive per .NET) metriche di pre-aggregazione durante la raccolta. Questo vale per le  [metriche standard inviate per impostazione predefinita](../platform/metrics-supported.md#microsoftinsightscomponents) , pertanto l'accuratezza non è influenzata dal campionamento o dal filtro. Si applica anche alle metriche personalizzate inviate tramite [Getmetric](./api-custom-events-metrics.md#getmetric) , con conseguente minore inserimento di dati e costi ridotti.
 
 Per gli SDK che non implementano la pre-aggregazione (ovvero le versioni precedenti di Application Insights SDK o per la strumentazione del browser), il Application Insights back-end compila ancora le nuove metriche aggregando gli eventi ricevuti dall'endpoint della raccolta di eventi Application Insights. Ciò significa che anche se non è possibile trarre vantaggio dal volume ridotto dei dati trasmessi in rete, è comunque possibile usare le metriche pre-aggregate e provare a migliorare le prestazioni e il supporto degli avvisi dimensionali quasi in tempo reale con SDK che non preaggregano le metriche durante la raccolta.
 

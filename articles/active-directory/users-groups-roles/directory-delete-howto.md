@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97a8f372a90d3add99390220d89214c6ad205db6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: bf8eeb2d1f19ca0848ae5c608ba9f0d8e9526e05
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056303"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541255"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminare un tenant in Azure Active Directory
 
@@ -123,19 +123,19 @@ Deleted | Dati eliminati | Gli utenti non possono accedere al prodotto con iscri
 
 2. Selezionare **Licenze**, quindi selezionare **Self-service sign-up products** (Prodotti con iscrizione self-service). È possibile visualizzare tutti i prodotti con iscrizione self-service separatamente dalle sottoscrizioni basate su postazione. Scegliere il prodotto da eliminare definitivamente. Di seguito è riportato un esempio in Microsoft Power BI:
 
-    ![il nome utente non è corretto o non è stato trovato](./media/directory-delete-howto/licenses-page.png)
+    ![Screenshot che mostra la pagina "licenze-self-service per l'iscrizione ai prodotti".](./media/directory-delete-howto/licenses-page.png)
 
 3. Selezionare **Elimina** per eliminare il prodotto e accettare le condizioni che spiegano che i dati verranno eliminati immediatamente e irrevocabilmente. Questa azione di eliminazione rimuove tutti gli utenti e rimuove l'accesso dell'organizzazione al prodotto. Fare clic su Sì per procedere con l'eliminazione.  
 
-    ![il nome utente non è corretto o non è stato trovato](./media/directory-delete-howto/delete-product.png)
+    ![Screenshot che mostra la pagina "licenze-self-service per l'iscrizione dei prodotti" con la finestra "Elimina il prodotto di iscrizione self-service" aperta.](./media/directory-delete-howto/delete-product.png)
 
 4. Quando si seleziona **Sì**, viene avviata l'eliminazione del prodotto self-service. Verrà visualizzata una notifica che indica che l'eliminazione è in corso.  
 
-    ![il nome utente non è corretto o non è stato trovato](./media/directory-delete-howto/progress-message.png)
+    ![Screenshot che mostra la pagina "licenze-self-service per l'iscrizione dei prodotti" con la notifica "eliminazione in corso" visualizzata.](./media/directory-delete-howto/progress-message.png)
 
 5. A questo punto, lo stato del prodotto con iscrizione self-service è passato a **Eliminato**. Quando si aggiorna la pagina, il prodotto non sarà più presente nella pagina **Self-service sign-up products** (Prodotti con iscrizione self-service).  
 
-    ![il nome utente non è corretto o non è stato trovato](./media/directory-delete-howto/product-deleted.png)
+    ![Screenshot che mostra la pagina "licenze-self-service per l'iscrizione dei prodotti" con il riquadro "prodotto di iscrizione self-service eliminato" sul lato destro.](./media/directory-delete-howto/product-deleted.png)
 
 6. Dopo aver eliminato tutti i prodotti, è possibile effettuare nuovamente l'accesso all'interfaccia di amministrazione di Azure AD: non dovrebbe essere richiesto alcun intervento da parte dell'utente e non dovrebbero essere presenti prodotti che bloccano l'eliminazione dell'organizzazione. Sarà quindi possibile procedere alla corretta eliminazione dell'organizzazione di Azure AD.
 

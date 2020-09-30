@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
-ms.openlocfilehash: 1eaf7413b01bceacbcbf3640bfe654fdad026672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e10cd91eadd338217845b1504e8e9160bccfc98
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700669"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537192"
 ---
 # <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Creare o modificare un peering di Exchange con il server di route in portale di Azure
 
@@ -74,7 +74,7 @@ I provider di Internet Exchange possono creare una richiesta di peering di Excha
 1.  In **connessione peering diretto**compilare i dettagli della sessione BGP seguenti:
 
     > [!div class="mx-imgBorder"]
-    > ![Configurare il server di route di peering diretto](./media/setup-exchange-conf-tab-direct-route.png)
+    > ![Screenshot mostra il riquadro connessione diretta peering con i dettagli aggiunti.](./media/setup-exchange-conf-tab-direct-route.png)
 
 
      * Funzionalità di peering selezionare la posizione fisica appropriata per il peering
@@ -99,19 +99,19 @@ I provider di Internet Exchange possono creare una richiesta di peering di Excha
 1. Selezionare **registrato ASN** nella sezione Impostazioni.
 
     > [!div class="mx-imgBorder"]
-    > ![Configurare il server di route di peering diretto](./media/setup-exchange-registered-asn.png)
+    > ![Screenshot mostra il riquadro del peering con la voce di menu registrato A NS denominata.](./media/setup-exchange-registered-asn.png)
 
 1. Selezionare **Aggiungi ASN registrato** per creare un nuovo ASN del cliente nella sottoscrizione di Exchange.
 
     > [!div class="mx-imgBorder"]
-    > ![Configurare il server di route di peering diretto](./media/setup-exchange-register-new-asn.png)
+    > ![Screenshot mostra il riquadro Registra un A S N con le caselle di testo nome e A S N.](./media/setup-exchange-register-new-asn.png)
 
 1. In registra un ASN selezionare un nome, popolare il valore ASN del cliente e fare clic su Salva.
 
 1. In ASN registrato, a ogni ASN verrà assegnata una chiave di prefisso associata. Come provider di Exchange, sarà necessario fornire la chiave di prefisso al cliente per poter registrare il servizio di peering nella sottoscrizione.
 
     > [!div class="mx-imgBorder"]
-    > ![Configurare il server di route di peering diretto](./media/setup-exchange-register-asn-prefixkey.png)
+    > ![Screenshot che mostra il riquadro NS registrato con chiavi di prefisso.](./media/setup-exchange-register-asn-prefixkey.png)
 
 
 

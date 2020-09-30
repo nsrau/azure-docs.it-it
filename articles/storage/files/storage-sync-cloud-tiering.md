@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9df06a9d81ef3c9fbe3380bab88325a586981db9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5ca65a428af02eaf5ae6ac461006c720da4461bd
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329313"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538181"
 ---
 # <a name="cloud-tiering-overview"></a>Panoramica della suddivisione in livelli nel cloud
 La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui si accede di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono archiviati a livelli in File di Azure in base alle impostazioni dei criteri. Quando un file è archiviato a livelli, il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) sostituisce il file in locale con un puntatore, o punto di analisi. Il punto di analisi rappresenta un URL del file in File di Azure. Un file archiviato a livelli include sia l'attributo "offline" sia l'attributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS impostato in NTFS, in modo che le applicazioni di terze parti possano identificare in modo sicuro questo tipo di file.
@@ -40,7 +40,7 @@ La suddivisione in livelli cloud non dipende dalla funzionalità NTFS per il ril
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Qual è la dimensione minima del file per un file a livello?
 
-Per le versioni dell'agente 12 e successive, le dimensioni minime del file per un file a livello sono basate sulle dimensioni del cluster file system. Le dimensioni minime dei file idonee per la suddivisione in livelli nel cloud vengono calcolate in base alla dimensione del cluster e a un minimo di 8 KB. La tabella seguente illustra le dimensioni minime dei file che possono essere suddivise a livelli, in base alle dimensioni del cluster di volumi:
+Per gli agenti versione 9 e successive, le dimensioni minime del file per un file a livello sono basate sulle dimensioni del cluster file system. Le dimensioni minime dei file idonee per la suddivisione in livelli nel cloud vengono calcolate in base alla dimensione del cluster e a un minimo di 8 KB. La tabella seguente illustra le dimensioni minime dei file che possono essere suddivise a livelli, in base alle dimensioni del cluster di volumi:
 
 |Dimensioni cluster del volume (byte) |I file di questa dimensione o di dimensioni maggiori possono essere a livelli  |
 |----------------------------|---------|
@@ -50,7 +50,7 @@ Per le versioni dell'agente 12 e successive, le dimensioni minime del file per u
 |32 KB (32768)               | 64 KB   |
 |64 KB (65536) e superiori    | 128 KB  |
 
-Con Windows Server 2019 e Sincronizzazione file di Azure Agent versione 12 e successive, sono supportate anche le dimensioni del cluster fino a 2 MB e la suddivisione in livelli delle dimensioni del cluster più grandi funziona allo stesso modo. Le versioni precedenti del sistema operativo o dell'agente supportano dimensioni del cluster fino a 64 KB ma, oltre a questo, la suddivisione in livelli nel cloud non funziona.
+Con Windows Server 2019 e Sincronizzazione file di Azure Agent versione 12 (versione futura dell'agente), sono supportate anche le dimensioni del cluster fino a 2 MB e la suddivisione in livelli delle dimensioni del cluster più grandi funziona allo stesso modo. Le versioni precedenti del sistema operativo o dell'agente supportano dimensioni del cluster fino a 64 KB ma, oltre a questo, la suddivisione in livelli nel cloud non funziona.
 
 Tutti i file System usati da Windows, organizzano il disco rigido in base alle dimensioni del cluster, note anche come dimensioni dell'unità di allocazione. Dimensioni del cluster rappresenta la quantità minima di spazio su disco che può essere usata per contenere un file. Quando le dimensioni dei file non vengono riportate a un multiplo pari delle dimensioni del cluster, è necessario usare spazio aggiuntivo per contenere il file fino al multiplo successivo delle dimensioni del cluster.
 
@@ -63,7 +63,7 @@ Sincronizzazione file di Azure è supportato nei volumi NTFS con Windows Server 
 |32 TB-64 TB   | 16 KB         |
 |64 TB-128 TB  | 32 KB         |
 |128TB-256 TB | 64 KB         |
-|> 256 TB       | Non supportate |
+|> 256 TB       | Non supportato |
 
 Al momento della creazione del volume, è possibile che il volume sia stato formattato manualmente con dimensioni del cluster diverse. Se il volume deriva da una versione precedente di Windows, le dimensioni predefinite del cluster possono essere diverse. [Questo articolo contiene informazioni più dettagliate sulle dimensioni predefinite del cluster.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Anche se si sceglie una dimensione del cluster inferiore a 4 KB, viene applicato un limite di 8 KB come dimensione del file più piccola che può essere suddivisa a livelli. (Anche se le dimensioni del cluster tecnicamente 2x equivalgono a meno di 8 KB).
 

@@ -3,20 +3,18 @@ title: Crea una nuova app-LUIS
 titleSuffix: Azure Cognitive Services
 description: Creare e gestire le applicazioni nella pagina Web di Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
-ms.author: diberry
-ms.openlocfilehash: 304e76a2bf8bae3e6ee2120b892ef97d89c3decc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: fcc803e87b2efd3e94b90eb17258ab3bb156359f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144398"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541434"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creare una nuova app LUIS nel portale LUIS
 Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel portale LUIS o tramite le [API](developer-reference-resource.md) di creazione di LUIS.
@@ -45,7 +43,7 @@ Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel 
 
 ## <a name="create-new-app-in-luis"></a>Creare la nuova appa in LUIS
 
-1. Nella pagina **app personali** selezionare la **sottoscrizione**e la **creazione di risorse** e quindi **Crea**. 
+1. Nella pagina **app personali** selezionare la **sottoscrizione**e la  **creazione di risorse** e quindi **Crea**. 
 
 > [!div class="mx-imgBorder"]
 > ![Elenco di app di Language Understanding](./media/create-app-in-portal.png)
@@ -69,7 +67,7 @@ Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel 
 La barra degli strumenti del contesto fornisce altre azioni:
 
 * Rinominare l'applicazione
-* Importa da file usando `.lu` o`.json`
+* Importa da file usando `.lu` o `.json`
 * Esporta app come `.lu` (per [LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)), `.json` o `.zip` (per il [contenitore Luis](luis-container-howto.md))
 * Importare i log degli endpoint del contenitore per esaminare le espressioni dell'endpoint
 * Esportare i log degli endpoint, come `.csv` per l'analisi offline

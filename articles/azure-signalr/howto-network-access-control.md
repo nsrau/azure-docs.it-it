@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 78b9859adbcf61ae3a9fc0d72a63d5973f90a487
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72532029b2d9258dba7dea82bb5c5fc8b2673300
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84302163"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536223"
 ---
 # <a name="configure-network-access-control"></a>Configurare il controllo di accesso alla rete
 
@@ -48,7 +48,7 @@ In questo scenario è possibile configurare la regola di rete pubblica in modo d
 1. Per modificare l'azione predefinita, impostare il pulsante **Consenti/Nega** .
 
     > [!TIP]
-    > L'azione predefinita è l'azione che viene eseguita quando non esiste alcuna regola ACL corrispondente. Se, ad esempio, l'azione predefinita è **Deny**, i tipi di richiesta non inclusi in modo esplicito di seguito verranno negati.
+    > L'azione predefinita è l'azione che viene eseguita quando non esiste alcuna regola ACL corrispondente. Se, ad esempio, l'azione predefinita è **Deny**, i tipi di richiesta non approvati in modo esplicito di seguito verranno negati.
 
 1. Per modificare la regola di rete pubblica, selezionare tipi di richieste consentiti in **rete pubblica**.
 

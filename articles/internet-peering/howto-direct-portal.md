@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
-ms.openlocfilehash: e49462612b58163c2ac51b78584761d0d8b8bd06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a89ce873c53e94036aa4f8ac2c2870365924187
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700566"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537209"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Creare o modificare un peering di Direct con il portale di Azure
 
@@ -37,7 +37,7 @@ I provider di servizi internet o Internet Exchange possono creare una nuova rich
 1. Nella scheda **Generale** della pagina **Create a Peering** (Crea peering) compilare le caselle come illustrato nell'immagine seguente:
 
 
-    ![Registrare il Servizio di peering](./media/setup-basics-tab.png)
+    ![Screenshot mostra la scheda Crea una pagina di peering di base con il collegamento Crea nuovo chiamato.](./media/setup-basics-tab.png)
 
 2. Selezionare la sottoscrizione di Azure.
 
@@ -59,7 +59,7 @@ I provider di servizi internet o Internet Exchange possono creare una nuova rich
 
 
 
-    ![Registrare il Servizio di peering](./media/setup-direct-basics-filled-tab.png)
+    ![Screenshot mostra la scheda Crea una pagina di peering di base con tutti i valori immessi.](./media/setup-direct-basics-filled-tab.png)
 
 
 #### <a name="configure-connections-and-submit"></a>Configurare le connessioni e inviare

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090383"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542377"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Ricevere e confermare messaggi AS2 B2B usando app per la logica di Azure e Enterprise Integration Pack
 
@@ -111,7 +111,7 @@ Per notificare al partner commerciale che è stato ricevuto il messaggio, è pos
 
    Viene ora visualizzata la forma condizione, inclusi i percorsi per verificare se la condizione è soddisfatta o meno.
 
-   ![Forma condizione con percorsi decisionali](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
+   ![Screenshot mostra la forma condizione con percorsi vuoti.](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
 
 1. A questo punto, specificare la condizione da valutare. Nella casella **scegliere un valore** immettere l'espressione seguente:
 
@@ -119,7 +119,7 @@ Per notificare al partner commerciale che è stato ricevuto il messaggio, è pos
 
    Nella casella centrale verificare che l'operazione di confronto sia impostata su `is equal to` . Nella casella sul lato destro immettere il valore `Expected` . Per ottenere l'espressione da risolvere come questo token, passare dalla finestra di progettazione alla visualizzazione del codice e viceversa.
 
-   ![Forma condizione con percorsi decisionali](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
+   ![Screenshot mostra la forma condizione con una condizione aggiunta.](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
 1. Specificare ora le risposte per restituire se l'azione **AS2 Decode** ha esito positivo o negativo.
 

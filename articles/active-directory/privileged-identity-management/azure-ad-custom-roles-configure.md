@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a8cab82511a495ed2eef444b05dc534c0f1891
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8745482ed551108044bbe5e2b2f191ad46d7a441
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422046"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538448"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurare ruoli personalizzati di Azure AD in Privileged Identity Management
 
@@ -44,7 +44,7 @@ Per aprire le impostazioni per un ruolo di Azure AD seguire questa procedura.
 1. Selezionare **Impostazione** per aprire la pagina **Impostazioni**. Selezionare il ruolo per le impostazioni da configurare.
 1. Selezionare **Modifica** per aprire la pagina **Impostazioni dei ruoli**.
 
-    ![Aprire il ruolo personalizzato di Azure AD per modificare le impostazioni](./media/azure-ad-custom-roles-configure/edit-settings.png)
+    ![Screenshot che mostra la pagina "Dettagli impostazione ruolo" con l'azione "modifica" selezionata.](./media/azure-ad-custom-roles-configure/edit-settings.png)
 
 ## <a name="role-settings"></a>Impostazioni dei ruoli
 

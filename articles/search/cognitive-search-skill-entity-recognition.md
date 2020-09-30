@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: fd35f297e88c37aec39938b0bfd60288e591a62c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ddfca965ea32ca726df39f894ba45f9580225d9d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936079"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542462"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competenza cognitiva Riconoscimento delle entità
 
@@ -187,7 +187,7 @@ I parametri fanno distinzione tra maiuscole e minuscole e sono tutti facoltativi
 }
 ```
 
-Si noti che gli offset restituiti per le entità nell'output di questa competenza vengono restituiti direttamente dalla [API analisi del testo](../cognitive-services/text-analytics/overview.md), il che significa che se li si usa per eseguire l'indicizzazione nella stringa originale, è necessario usare la classe [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) in .NET per estrarre il contenuto corretto.  [Altre informazioni sono disponibili qui.](../cognitive-services/text-analytics/concepts/text-offsets.md)
+Si noti che gli offset restituiti per le entità nell'output di questa competenza vengono restituiti direttamente dalla [API analisi del testo](../cognitive-services/text-analytics/overview.md), il che significa che se li si usa per eseguire l'indicizzazione nella stringa originale, è necessario usare la classe [StringInfo](/dotnet/api/system.globalization.stringinfo) in .NET per estrarre il contenuto corretto.  [Altre informazioni sono disponibili qui.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
 ## <a name="error-cases"></a>Casi di errore
 Se il codice della lingua per il documento non è supportato, viene restituito un errore e non vengono estratte entità.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 018c3fb08c7fa0ad35fa567bffbeae48b6fbbce9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bae4cb72201bbc1653db5bb549d67531bda71d50
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928837"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537719"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipi di query e composizione in ricerca cognitiva di Azure
 
@@ -92,7 +92,7 @@ La tabella seguente elenca le API e i metodi basati su strumenti per inviare que
 |-------------|-------------|
 | [Esplora ricerche (portale)](search-explorer.md) | Fornisce opzioni e una barra di ricerca per selezioni indice e versione API. I risultati vengono restituiti come documenti JSON. Consigliato per l'esplorazione, il test e la convalida. <br/>[Altre informazioni.](search-get-started-portal.md#query-index) | 
 | [Postazione o altri strumenti REST](search-get-started-postman.md) | Gli strumenti di test Web sono un'ottima scelta per formulare le chiamate REST. L'API REST supporta tutte le operazioni possibili in Azure ricerca cognitiva. Questo articolo illustra come configurare un'intestazione e un corpo di richiesta HTTP per l'invio di richieste ad Azure ricerca cognitiva.  |
-| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client che può essere usato per eseguire query su un indice ricerca cognitiva di Azure.  <br/>[Altre informazioni.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient) | Client che può essere usato per eseguire query su un indice ricerca cognitiva di Azure.  <br/>[Altre informazioni.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Cerca documenti (API REST)](/rest/api/searchservice/search-documents) | Metodi GET o POST su un indice, usando i parametri di query per un input aggiuntivo.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Scegliere un parser: semplice | completo
@@ -119,7 +119,7 @@ queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=Ho
 
 Azure ricerca cognitiva supporta un'ampia gamma di tipi di query. 
 
-| Tipo di query | Utilizzo | Altre informazioni ed esempi |
+| Tipo di query | Uso | Altre informazioni ed esempi |
 |------------|--------|-------------------------------|
 | Ricerca di testo in formato libero | Parametro di ricerca ed entrambi i parser| La ricerca full-text scansiona uno o più termini in tutti i campi *ricercabili* dell'indice e funziona come un motore di ricerca, ad esempio Google o Bing. L'esempio nella sezione introduttiva è di ricerca full-text.<br/><br/>La ricerca full-text viene sottoposta ad analisi lessicale usando l'analizzatore Lucene standard (per impostazione predefinita) per ridurre il maiuscolo di tutti i termini, rimuovere parole non significative come "The". È possibile eseguire l'override dell'impostazione predefinita con gli [analizzatori non in lingua inglese](index-add-language-analyzers.md#language-analyzer-list) o con [analizzatori indipendenti dal linguaggio specializzati](index-add-custom-analyzers.md#AnalyzerTable) che modificano l'analisi lessicale. Ad esempio [parola chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) gestisce l'intero contenuto di un campo come un token singolo. Ciò è utile per i dati come i codici postali, gli ID e alcuni nomi di prodotto. | 
 | Ricerca filtrata | [Espressione di filtro OData](query-odata-filter-orderby-syntax.md) ed entrambi i parser | Le query filtro valutano un'espressione booleana su tutti i campi *filtrabili* in un indice. Contrariamente alla ricerca, una query filtro corrisponde al contenuto esatto di un campo, inclusa la distinzione tra maiuscole e minuscole nei campi della stringa. Un'altra differenza è che le query filtro vengono espresse nella sintassi di OData. <br/>[Esempio di espressione filtro](search-query-simple-examples.md#example-3-filter-queries) |

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 596f06d6dc3ad33f2794dfe0e3ed7822a4820adb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 62210105ba4ba84cff4b246c5b7cf8cc794fb5e7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399016"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534948"
 ---
 # <a name="register-peering-service-by-using-the-azure-portal"></a>Registrare il servizio di peering usando il portale di Azure
 
@@ -72,14 +72,14 @@ Da un browser passare alla portale di Azure e accedere con l'account Azure.
 1. Selezionare **Create new prefix** (Crea nuovo prefisso) nella parte inferiore della sezione **Prefissi**. Verranno visualizzate delle caselle di testo. Immettere il nome della risorsa prefisso e i prefissi associati al provider di servizi.
 
 1. Selezionare **Prefix Key** (Chiave prefisso) e aggiungere la chiave di prefisso fornita dal provider (ISP o IXP). Questa chiave consente a Microsoft di convalidare il prefisso e il provider che ha allocato il prefisso IP.
-   > ![Scheda Configurazione per la registrazione del servizio di peering](./media/peering-service-portal/peering-serviceconfiguration.png)
+   > ![Screenshot mostra la scheda configurazione della pagina creare una connessione al servizio di peering in cui è possibile immettere la chiave del prefisso.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Selezionare il pulsante **Rivedi e crea** nell'angolo inferiore sinistro della pagina. Viene visualizzata la pagina **Rivedi e crea** e Azure convalida la configurazione.
     
 
 1. Quando viene visualizzato il messaggio **Convalida superata**, come illustrato di seguito, selezionare **Crea**.
 
-   > ![Scheda Configurazione per la registrazione del servizio di peering](./media/peering-service-portal/peering-service-prefix.png)
+   > ![Screenshot mostra la scheda verifica + crea della pagina creare una connessione al servizio di peering.](./media/peering-service-portal/peering-service-prefix.png)
 
 
 1. Dopo la registrazione di una connessione al servizio di peering, viene eseguita un'ulteriore convalida sui prefissi inclusi. È possibile esaminare lo stato della convalida nella sezione **Prefissi** del nome della risorsa. Se la convalida non riesce, viene visualizzato un messaggio simile a uno dei messaggi di errore seguenti:

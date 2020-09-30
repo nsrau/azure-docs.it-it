@@ -3,23 +3,21 @@ title: Entità precompilata ordinale V2-LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinite della versione 2 ordinale in Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 5e852313db75e598da647ea0f985e2ee18af16de
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3fd80389dfa54cb8386c13e0e05a1e71ac4bd956
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270493"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541935"
 ---
 # <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Entità precompilata ordinale V2 per un'app LUIS
-Il numero ordinale V2 espande il `next`numero [ordinale](luis-reference-prebuilt-ordinal.md) per fornire riferimenti `last`relativi, ad esempio, e `previous`. Non vengono estratti utilizzando l'entità predefinita ordinale.
+Il numero ordinale V2 espande il numero [ordinale](luis-reference-prebuilt-ordinal.md) per fornire riferimenti relativi, ad esempio `next` , `last` e `previous` . Non vengono estratti utilizzando l'entità predefinita ordinale.
 
 ## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>Risoluzione per l'entità predefinita ordinale V2
 
@@ -29,7 +27,7 @@ Per la query vengono restituiti gli oggetti entità seguenti:
 
 #### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
-Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
+Il codice JSON seguente è con il `verbose` parametro impostato su `false` :
 
 ```json
 "entities": {
@@ -44,7 +42,7 @@ Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 
 #### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
 
-Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
+Il codice JSON seguente è con il `verbose` parametro impostato su `true` :
 
 ```json
 "entities": {

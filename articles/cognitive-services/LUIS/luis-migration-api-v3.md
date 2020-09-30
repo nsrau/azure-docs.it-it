@@ -5,13 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.author: diberry
-ms.openlocfilehash: 3e4567eea02b3b7db9514f4e03c7f7f36496449b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a5760db2d6e453d631680d6154e6d9a03ce55cd6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91309431"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541340"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifiche all'endpoint di stima per V3
 
@@ -57,7 +56,7 @@ Se si usa bot Framework, Controllo ortografico Bing V7 o si vuole eseguire la mi
 Se non si conosce alcuna applicazione client o integrazione (bot Framework e Controllo ortografico Bing V7), si è interessati alla migrazione della creazione di app LUIS e dell'endpoint di stima allo stesso tempo, iniziare a usare l'endpoint di stima V3. L'endpoint di stima v2 sarà ancora disponibile ed è una corretta strategia di fallback.
 
 
-## <a name="not-supported"></a>Non supportate
+## <a name="not-supported"></a>Non supportato
 
 ### <a name="bing-spell-check"></a>Controllo ortografico Bing
 

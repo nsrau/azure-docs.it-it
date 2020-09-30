@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0393544f5744c6aaf428ca4b4c27922a0c287
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f239122f7178dbc244c8dc23f3f7e7647f7330da
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987843"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539079"
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
 La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile configurare i backup in modo che vengano conservati per un periodo di tempo indefinito. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione.
@@ -70,13 +70,13 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
 
 3. Nella pagina **Configurazione backup** fare clic su **Archiviazione non configurata** per configurare un account di archiviazione.
 
-    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Screenshot della sezione archiviazione di backup con l'impostazione di archiviazione non configurata selezionata.":::
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Screenshot di un banner con un messaggio per aggiornare il piano di servizio app per accedere alla funzionalità di backup e ripristino.":::
 
 4. Scegliere la destinazione del backup selezionando un **Account di archiviazione** e un **Contenitore**. L'account di archiviazione deve appartenere alla stessa sottoscrizione dell'app da sottoporre a backup. Se si vuole, è possibile creare un nuovo account di archiviazione o un nuovo contenitore nelle rispettive pagine. Al termine, fare clic su **Seleziona**.
 
 5. Nella pagina **configurazione backup** rimane aperta, è possibile configurare **backup database**, quindi selezionare i database da includere nei backup (database SQL o MySQL), quindi fare clic su **OK**.
 
-    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Screenshot della sezione backup database che mostra la selezione Includi in backup.":::
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Screenshot di un banner con un messaggio per aggiornare il piano di servizio app per accedere alla funzionalità di backup e ripristino.":::
 
     > [!NOTE]
     > Per visualizzare un database nell'elenco, è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** della pagina **Impostazioni applicazione** per l'app. 
@@ -141,7 +141,7 @@ Eseguire i backup secondo la procedura consueta, ovvero [manualmente](#create-a-
 > [!NOTE]
 > È possibile ripristinare i backup parziali del sito nello stesso modo in cui si [ripristina un backup regolare](web-sites-restore.md). Il processo di ripristino esegue le operazioni corrette.
 > 
-> Dopo il ripristino di un backup completo, tutti i contenuti del sito vengono sostituiti dai contenuti del backup. Se un file è presente nel sito ma non nel backup, verrà eliminato. Quando viene ripristinato un backup parziale, tuttavia, eventuali contenuti presenti in una delle directory disattivate o in un file disattivato verranno lasciati invariati.
+> Dopo il ripristino di un backup completo, tutti i contenuti del sito vengono sostituiti dai contenuti del backup. Se un file è presente nel sito ma non nel backup, verrà eliminato. Tuttavia, quando viene ripristinato un backup parziale, il contenuto che si trova in una delle directory con restrizioni o in qualsiasi file con restrizioni rimane inesistente.
 > 
 
 

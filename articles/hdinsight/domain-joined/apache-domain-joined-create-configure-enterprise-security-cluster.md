@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: acd51fc54e0655af6bfc6c05d2e99be2f26f942b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c0e35b94b4322d9273e5793c85792eb2bbd34d05
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080160"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536070"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Creare e configurare cluster di Enterprise Security Package in Azure HDInsight
 
@@ -43,10 +43,10 @@ In questa sezione si userà un modello di distribuzione di avvio rapido di Azure
 1. Accedere alla sottoscrizione di Azure.
 1. Nella pagina **creare una macchina virtuale di Azure con una nuova foresta di Active Directory** specificare le informazioni seguenti:
 
-    |Proprietà | valore |
+    |Proprietà | Valore |
     |---|---|
-    |Subscription|Selezionare la sottoscrizione in cui si desidera distribuire le risorse.|
-    |Resource group|Selezionare **Crea nuovo**e immettere il nome`OnPremADVRG`|
+    |Sottoscrizione|Selezionare la sottoscrizione in cui si desidera distribuire le risorse.|
+    |Resource group|Selezionare **Crea nuovo**e immettere il nome `OnPremADVRG`|
     |Location|Selezionare una località.|
     |Nome utente amministratore|`HDIFabrikamAdmin`|
     |Password amministratore|Immettere una password.|
@@ -82,7 +82,7 @@ In questa sezione verranno creati gli utenti che avranno accesso al cluster HDIn
 
         ![Creare un nuovo utente Active Directory](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png)
 
-    1. Nella pagina **nuovo oggetto-utente** immettere nome `HDIUser` e nome **First name** di **accesso utente**. Gli altri campi vengono popolati automaticamente. Selezionare quindi **Avanti**.
+    1. Nella pagina **nuovo oggetto-utente** immettere nome `HDIUser` e nome **First name** di **accesso utente**. Gli altri campi vengono popolati automaticamente. Fare quindi clic su **Avanti**.
 
         ![Creare il primo oggetto utente amministratore](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
 
@@ -122,7 +122,7 @@ Gli utenti verranno sincronizzati con Azure AD.
 1. Selezionare **Crea una risorsa** e digitare `directory` . Selezionare **Azure Active Directory**  >  **Crea**.
 1. In **nome organizzazione**immettere `HDIFabrikam` .
 1. In **nome di dominio iniziale**immettere `HDIFabrikamoutlook` .
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
     ![Creare una directory di Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png)
 
@@ -140,7 +140,7 @@ Gli utenti verranno sincronizzati con Azure AD.
 1. Dalla nuova **Azure Active Directory**in **Gestisci**Selezionare **gruppi**.
 1. Selezionare **+ nuovo gruppo**.
 1. Nella casella di testo **nome gruppo** , immettere `AAD DC Administrators` .
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="configure-your-azure-ad-tenant"></a>Configurare il tenant di Azure AD
 
@@ -158,7 +158,7 @@ Creare un Active Directory amministratore tenant.
 
     |Proprietà |Descrizione |
     |---|---|
-    |Nome utente|Immettere `fabrikamazureadmin` nella casella di testo. Dall'elenco a discesa nome dominio selezionare`hdifabrikam.com`|
+    |Nome utente|Immettere `fabrikamazureadmin` nella casella di testo. Dall'elenco a discesa nome dominio selezionare `hdifabrikam.com`|
     |Nome| Immettere `fabrikamazureadmin`.|
 
     **Password**
@@ -176,7 +176,7 @@ Creare un Active Directory amministratore tenant.
 
     ![Finestra di dialogo Azure AD Role](./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-role-member.png)
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 1. Quindi, fare in modo che il nuovo utente effettui l'accesso alla portale di Azure in cui verrà richiesto di modificare la password. È necessario eseguire questa operazione prima di configurare Microsoft Azure Active Directory Connect.
 
@@ -190,13 +190,13 @@ Creare un Active Directory amministratore tenant.
 
 1. Selezionare **Usa impostazioni rapide**.
 
-1. Nella pagina **Connetti a Azure ad** immettere il nome utente e la password dell'amministratore globale per Azure ad. Usare il nome utente `fabrikamazureadmin@hdifabrikam.com` creato al momento della configurazione del tenant di Active Directory. Selezionare quindi **Avanti**.
+1. Nella pagina **Connetti a Azure ad** immettere il nome utente e la password dell'amministratore globale per Azure ad. Usare il nome utente `fabrikamazureadmin@hdifabrikam.com` creato al momento della configurazione del tenant di Active Directory. Fare quindi clic su **Avanti**.
 
-    ![Pagina "Connetti a Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
+    ![Pagina "Connetti ad Azure A D".](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
-1. Nella pagina **Connetti a Active Directory Domain Services** immettere il nome utente e la password per un account amministratore dell'organizzazione. Usare il nome utente `HDIFabrikam\HDIFabrikamAdmin` e la password creati in precedenza. Selezionare quindi **Avanti**.
+1. Nella pagina **Connetti a Active Directory Domain Services** immettere il nome utente e la password per un account amministratore dell'organizzazione. Usare il nome utente `HDIFabrikam\HDIFabrikamAdmin` e la password creati in precedenza. Fare quindi clic su **Avanti**.
 
-   ![Pagina "Connetti a Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
+   ![Pagina "Connetti a una D D".](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. Nella pagina **configurazione dell'accesso Azure ad** fare clic su **Avanti**.
    ![Pagina di configurazione dell'accesso Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
@@ -221,7 +221,7 @@ Creare un'identità gestita assegnata dall'utente che è possibile usare per con
 1. Selezionare la propria sottoscrizione.
 1. In **gruppo di risorse**selezionare **Crea nuovo** e immettere `HDIFabrikam-CentralUS` .
 1. In **località**selezionare **Stati Uniti centrali**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ![Creare una nuova identità gestita assegnata dall'utente](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0082.png)
 
@@ -333,7 +333,7 @@ Verificare che il certificato sia installato nell'archivio **personale** del com
     ![Pagina esportazione chiave privata dell'esportazione guidata certificati](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
 
 1. Nella pagina **formato file di esportazione** lasciare le impostazioni predefinite e quindi fare clic su **Avanti**.
-1. Nella pagina **password** Digitare una password per la chiave privata. Per **crittografia**selezionare **TripleDES-SHA1**. Selezionare quindi **Avanti**.
+1. Nella pagina **password** Digitare una password per la chiave privata. Per **crittografia**selezionare **TripleDES-SHA1**. Fare quindi clic su **Avanti**.
 1. Nella pagina **file da esportare** Digitare il percorso e il nome del file di certificato esportato, quindi fare clic su **Avanti**. Il nome del file deve avere un'estensione pfx. Questo file viene configurato nel portale di Azure per stabilire una connessione sicura.
 1. Abilitare LDAPs per un dominio gestito Azure AD DS.
     1. Dal portale di Azure selezionare il dominio `HDIFabrikam.com` .
@@ -349,14 +349,14 @@ Verificare che il certificato sia installato nell'archivio **personale** del com
     1. In **Impostazioni**selezionare **regole di sicurezza in ingresso**  >  **Aggiungi**.
     1. Nella pagina **Aggiungi regola di sicurezza in ingresso** immettere le proprietà seguenti e selezionare **Aggiungi**:
 
-        | Proprietà | valore |
+        | Proprietà | Valore |
         |---|---|
         | Source (Sorgente) | Qualsiasi |
         | Intervalli di porte di origine | * |
         | Destination | Qualsiasi |
         | Intervallo di porte di destinazione | 636 |
         | Protocollo | Qualsiasi |
-        | Azione | Allow |
+        | Azione | Consenti |
         | Priorità | \<Desired number> |
         | Nome | Port_LDAP_636 |
 
@@ -407,7 +407,7 @@ Per questo passaggio sono necessari i prerequisiti seguenti:
 
             ![Selezionare il gruppo di accesso al cluster HDIUserGroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0129.jpg)
 
-    1. Completare gli altri passaggi della configurazione del cluster e verificare i dettagli sul **Riepilogo del cluster**. Selezionare **Crea**.
+    1. Completare gli altri passaggi della configurazione del cluster e verificare i dettagli sul **Riepilogo del cluster**. Selezionare **Create** (Crea).
 
 1. Accedere all'interfaccia utente di Ambari per il cluster appena creato in `https://CLUSTERNAME.azurehdinsight.net` . Usare il nome utente amministratore `hdiadmin@hdifabrikam.com` e la relativa password.
 

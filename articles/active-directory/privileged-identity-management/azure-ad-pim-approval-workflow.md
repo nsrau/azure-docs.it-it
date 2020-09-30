@@ -16,12 +16,12 @@ ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24471ff5a085be905f9316f1af3c95c3a7912bf1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7e0f74f98adcc8a4e8aabc96f7f35c9c55ae277f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421536"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536359"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Approva o rifiuta le richieste per i ruoli di Azure AD in Privileged Identity Management
 
@@ -58,7 +58,7 @@ In qualità di responsabile approvazione delegata, si riceverà una notifica di 
 
 1. Trovare e selezionare la richiesta che si desidera approvare. Viene visualizzata una pagina approva o nega.
 
-    ![Approva le richieste-approva o nega riquadro con i dettagli e la casella di giustificazione](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
+    ![Screenshot che mostra la pagina "approva richieste-ruoli Azure AD".](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
 1. Immettere la giustificazione aziendale nella casella **giustificazione** .
 

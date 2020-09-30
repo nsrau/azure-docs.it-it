@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 654b10a283c4dcf5a1a1866ec51799aad45a8893
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898900"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536767"
 ---
 # <a name="apply-math-operation"></a>Applicare operazioni matematiche
 
@@ -22,11 +22,11 @@ Questo articolo descrive un modulo di Azure Machine Learning Designer.
 
 Usare l'operazione Apply Math per creare calcoli applicati a colonne numeriche nel set di dati di input. 
 
-Le operazioni matematiche supportate includono funzioni aritmetiche comuni come la moltiplicazione e la divisione, le funzioni trigonometriche, un'ampia gamma di funzioni di arrotondamento e funzioni speciali usate in data science come le funzioni gamma e Error.  
+Le operazioni matematiche includono funzioni aritmetiche, funzioni trigonometriche, funzioni di arrotondamento e funzioni speciali utilizzate in data science come le funzioni gamma e Error.  
 
 Dopo aver definito un'operazione ed eseguito la pipeline, i valori vengono aggiunti al set di dati. A seconda di come viene configurato il modulo, è possibile:
 
-+ Aggiungere i risultati al set di dati. Questa operazione è particolarmente utile quando si verifica il risultato dell'operazione.
++ Aggiungere i risultati al set di dati (utile per verificare il risultato dell'operazione).
 + Sostituire i valori delle colonne con i nuovi valori calcolati.
 + Genera una nuova colonna per i risultati e non Visualizza i dati originali. 
 
@@ -42,7 +42,7 @@ Cercare l'operazione necessaria in queste categorie:
   
 -   [Operazioni](#arithmetic-operations)  
   
-     La categoria **operazioni** include le funzioni matematiche di base: addizione, sottrazione, moltiplicazione e divisione. È possibile utilizzare colonne o costanti. Ad esempio, è possibile aggiungere il valore nella colonna A al valore nella colonna B. In alternativa, è possibile sottrarre una costante, ad esempio una media calcolata in precedenza, da ogni valore nella colonna A.  
+     La categoria **operazioni** include funzioni matematiche di base: addizione, sottrazione, moltiplicazione e divisione. È possibile utilizzare colonne o costanti. Ad esempio, è possibile aggiungere il valore nella colonna A al valore nella colonna B. In alternativa, è possibile sottrarre una costante, ad esempio una media calcolata in precedenza, da ogni valore nella colonna A.  
   
 -   [Rounding](#rounding-operations)  
   
@@ -55,7 +55,7 @@ Cercare l'operazione necessaria in queste categorie:
 -   [Funzioni trigonometriche](#trigonometric-functions)  
   
      La categoria **trigonometrica** include tutte le funzioni trigonometriche standard. È possibile, ad esempio, convertire i radianti in gradi o funzioni di calcolo come la tangente in radianti o gradi.
-     Queste funzioni sono unaria, ovvero accettano una singola colonna di valori come input, applicano la funzione trigonometrica e restituiscono come risultato una colonna di valori.  È pertanto necessario assicurarsi che la colonna di input sia il tipo appropriato e che contenga il tipo corretto di valori per l'operazione specificata.   
+     Queste funzioni sono unaria, ovvero accettano una singola colonna di valori come input, applicano la funzione trigonometrica e restituiscono come risultato una colonna di valori. Verificare che la colonna di input sia il tipo appropriato e che contenga il tipo di valori corretti per l'operazione specificata.   
 
 ## <a name="how-to-configure-apply-math-operation"></a>Come configurare l'operazione Apply Math  
 
@@ -74,7 +74,7 @@ Ogni istanza di questo modulo può eseguire un solo tipo di operazione alla volt
     - Qualsiasi colonna scelta deve essere un tipo di dati numerico. 
     - L'intervallo di dati deve essere valido per l'operazione matematica selezionata. In caso contrario, può verificarsi un errore o un risultato NaN (non un numero). Ad esempio, ln (-1,0) è un'operazione non valida e restituisce un valore di `NaN` .
   
-1.  Fare clic su **categoria** per selezionare il **tipo** di operazione matematica da eseguire.
+1.  Selezionare **Category (categoria** ) per selezionare il **tipo** di operazione matematica da eseguire.
     
 1. Scegliere un'operazione specifica dall'elenco nella categoria.
   
@@ -95,7 +95,7 @@ Se si generano i risultati utilizzando le opzioni **Append** o **ResultOnly** , 
 -   **Equals (Col2_Col1)**, che indica che è stato eseguito il test di col2 in col1.  
 -   **Uguale a (Col2_ $10)**, che indica che è stata confrontata la colonna 2 con la costante 10.  
 
-Anche se si usa l'opzione **InPlace** , i dati di origine non vengono eliminati o modificati. la colonna nel set di dati originale è ancora disponibile nella finestra di progettazione. Per visualizzare i dati originali, è possibile connettere il modulo [Aggiungi colonne](add-columns.md) e aggiungerlo all'output di **Apply Math Operation**.  
+Anche se si usa l'opzione sul posto, i dati **di** origine non vengono eliminati o modificati; la colonna nel set di dati originale è ancora disponibile nella finestra di progettazione. Per visualizzare i dati originali, è possibile connettere il modulo [Aggiungi colonne](add-columns.md) e aggiungerlo all'output di **Apply Math Operation**.  
     
 ## <a name="basic-math-operations"></a>Operazioni matematiche di base 
 
@@ -113,7 +113,7 @@ Restituisce una tangente inversa a quattro quadranti.
 
 Consente di selezionare le colonne che contengono le coordinate del punto. Per il secondo argomento, che corrisponde alla coordinata x, è anche possibile specificare una costante.  
 
-Corrisponde alla funzione ATAN2 in Matlab.  
+Corrisponde alla funzione ATAN2 in MATLAB.  
 
 ### <a name="conj"></a>Conj
 
@@ -124,15 +124,15 @@ Restituisce il coniugato per i valori nella colonna selezionata.
 Calcola la radice del cubo per i valori nella colonna selezionata.  
 
 ### <a name="doublefactorial"></a>DoubleFactorial  
- Calcola il fattoriale doppio per i valori nella colonna selezionata. Il doppio fattoriale è un'estensione della funzione fattoriale normale e viene indicato come x!!.  
+ Calcola il fattoriale doppio per i valori nella colonna selezionata. Il doppio fattoriale è un'estensione della funzione fattoriale normale e viene indicato come `x!!`.  
 
 ### <a name="eps"></a>Eps
 
-Restituisce la dimensione del gap tra il valore corrente e il successivo numero a precisione doppia più alto. Corrisponde alla funzione EPS in Matlab.  
+Restituisce la dimensione del gap tra il valore corrente e il successivo numero a precisione doppia più alto. Corrisponde alla funzione EPS in MATLAB.  
   
 ### <a name="exp"></a>Exp
 
-Restituisce e elevato alla potenza del valore nella colonna selezionata. Corrisponde alla funzione EXP di Excel.  
+Restituisce e elevato alla potenza del valore nella colonna selezionata. Questa funzione corrisponde alla funzione EXP di Excel.  
 
 ### <a name="exp2"></a>Exp2
 
@@ -170,7 +170,7 @@ Restituisce il logaritmo dei valori nella colonna selezionata secondo la base sp
 
 ### <a name="log10"></a>Log10
 
-Restituisce i valori logaritmo in base 10 per la colonna selezionata.  
+Restituisce i valori in base 10 logaritmi per la colonna selezionata.  
 
 ### <a name="log2"></a>Log2
 
@@ -360,7 +360,7 @@ La funzione di errore (denominata anche funzione di errore di Gauss) è una funz
 
 Restituisce il valore della funzione di errore complementare.  
 
-Erfc è definito come 1 – ERF (x).  
+`Erfc` viene definito come 1 – ERF (x).  
 
 ### <a name="erfscaled"></a>ErfScaled
 
@@ -370,7 +370,7 @@ La versione in scala della funzione di errore consente di evitare l'underflow ar
 
 ### <a name="erfinverse"></a>ErfInverse
 
-Restituisce il valore della funzione inversa di erf.  
+Restituisce il valore della funzione inversa `erf` .  
 
 ### <a name="exponentialintegralein"></a>ExponentialIntegralEin
 

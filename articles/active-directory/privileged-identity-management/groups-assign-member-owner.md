@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06e61bb966313265f7e3772dbbf6017a03a42386
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 48c4473cfafce1215219251c47bce1d5730645fc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869651"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534421"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Assegnare idoneità per un gruppo di accesso con privilegi (anteprima) in Privileged Identity Management
 
@@ -48,7 +48,7 @@ Attenersi alla seguente procedura per rendere un utente idoneo a essere un membr
 
 1. Selezionare i membri o i proprietari che si desidera rendere idonei per il gruppo di accesso con privilegi.
 
-    ![Riquadro Selezionare un membro o un gruppo](./media/groups-assign-member-owner/add-assignments.png)
+    ![Screenshot che mostra la pagina "Aggiungi assegnazioni" con il riquadro "selezionare un membro o un gruppo" aperto e il pulsante "Seleziona" evidenziato.](./media/groups-assign-member-owner/add-assignments.png)
 
 1. Selezionare **Avanti** per impostare la durata dell'appartenenza o della proprietà.
 

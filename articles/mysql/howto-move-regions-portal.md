@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: 8c9751a303afc947fd682558236751c69f107dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0333c5cabec597261938765298b622bf2fe79a4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567573"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542513"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Spostare un database di Azure per il server MySQL in un'altra area usando il portale di Azure
 
@@ -38,11 +38,11 @@ Per creare un server di replica di lettura tra aree nell'area di destinazione us
 1. Selezionare **Replica** nel menu in **IMPOSTAZIONI**.
 1. Selezionare **Aggiungi replica**.
 1. Immettere un nome per il server di replica.
-1. Selezionare la posizione per il server di replica. La posizione predefinita è la stessa di quella del server master. Verificare di aver selezionato il percorso di destinazione in cui si vuole distribuire la replica.
+1. Selezionare la posizione per il server di replica. Il percorso predefinito è identico a quello del server di origine. Verificare di aver selezionato il percorso di destinazione in cui si vuole distribuire la replica.
 1. Selezionare **OK** per confermare la creazione della replica. Durante la creazione della replica, i dati vengono copiati dal server di origine alla replica. L'ora di creazione può durare alcuni minuti o più, in proporzione alle dimensioni del server di origine.
 
 >[!NOTE]
-> Quando si crea una replica, non eredita gli endpoint di servizio VNet del server master. Queste regole devono essere configurate in modo indipendente per la replica.
+> Quando si crea una replica, non eredita gli endpoint di servizio VNet del server di origine. Queste regole devono essere configurate in modo indipendente per la replica.
 
 ## <a name="move"></a>Sposta
 

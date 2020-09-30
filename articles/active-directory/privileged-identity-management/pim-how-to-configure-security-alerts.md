@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98af7725e1929637228c6cadd7ee2dc856bd4e8b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 706770db4309d1a909bc1161ab9d6657b6c5310a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331301"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533549"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurare gli avvisi di sicurezza per i ruoli di Azure AD in Privileged Identity Management
 
@@ -38,7 +38,7 @@ Eseguire la procedura descritta in questo articolo per esaminare gli avvisi di s
 
 # <a name="new-version"></a>[Nuova versione](#tab/new)
 
-![Ruoli di Azure AD-riquadro avvisi che elenca gli avvisi e la gravità](./media/pim-how-to-configure-security-alerts/view-alerts.png)
+![Screenshot che mostra la pagina "avvisi" con un elenco di avvisi e la relativa gravità.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## <a name="security-alerts"></a>Avvisi di sicurezza
 

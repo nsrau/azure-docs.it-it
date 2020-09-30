@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 50c95dc9d045711cb6968b98957d255b4ca73d2c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 148310419ad4f760219003514dbc078b7c675be6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932764"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538788"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Panoramica dell'importazione dati-Azure ricerca cognitiva
 
@@ -35,7 +35,7 @@ Questo approccio è più flessibile rispetto al modello pull, perché si possono
 Per caricare uno o più documenti in un indice, è possibile usare le API seguenti:
 
 + [Aggiungere, aggiornare o eliminare documenti (API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Classe indexAction](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) o [classe indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
++ [Classe indexAction](/dotnet/api/microsoft.azure.search.models.indexaction) o [classe indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch) 
 
 Non sono attualmente supportati strumenti per il push dei dati tramite il portale.
 

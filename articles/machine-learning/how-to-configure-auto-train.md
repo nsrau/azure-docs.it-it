@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/10/2020
+ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: f3194198447f024154c369d519d6ff55ee8ee699
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 895bdfde80dfe10bef4b6aad12236db60e2c427b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296688"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533146"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 
@@ -117,7 +117,7 @@ Successivamente, determinare dove verrà eseguito il training del modello. Un es
 
     Vedere [questo notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) per un esempio remoto con Azure Machine Learning calcolo gestito. 
 
-* Un **cluster Azure Databricks** nella sottoscrizione di Azure. Per altri dettagli, vedere l'articolo [relativo alla configurazione Azure Databricks cluster per](how-to-configure-environment.md#azure-databricks)Machine Learning automatico. Visitare il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) per esempi di notebook con Azure Databricks.
+* Un **cluster Azure Databricks** nella sottoscrizione di Azure. Per altri dettagli, vedere l'articolo [relativo alla configurazione Azure Databricks cluster per](how-to-configure-environment.md#aml-databricks)Machine Learning automatico. Visitare il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) per esempi di notebook con Azure Databricks.
 
 <a name='configure-experiment'></a>
 

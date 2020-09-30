@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: da0eeafc9d92bf08a2475d7676f1da8a4fa30da5
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: b64ff51836f8d291acf57b1cd9ca100c4f87ebed
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461409"
+ms.locfileid: "91541170"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel centro sicurezza di Azure
 Informazioni su come configurare il monitoraggio dell'integrità dei file nel centro sicurezza di Azure usando questa procedura dettagliata.
@@ -116,7 +116,7 @@ Il Centro sicurezza fornisce l'elenco seguente di elementi consigliati da monito
 
     - ![Icona del piano ][4] di aggiornamento aggiornare l'area di lavoro per usare Azure Defender. Questa icona indica che l'area di lavoro o la sottoscrizione non è protetta da Azure Defender. Per usare le funzionalità FIM, la sottoscrizione deve essere protetta da Azure Defender. [Altre informazioni](security-center-pricing.md)
 
-    - ![Icona Abilita][3] Abilitare FIM in tutti i computer nell'area di lavoro e configurare le opzioni FIM. Questa icona indica che FIM non è abilitato per l'area di lavoro. usare questo pulsante per:
+    - ![Icona Abilita][3] Abilitare FIM in tutti i computer nell'area di lavoro e configurare le opzioni FIM. Questa icona indica che FIM non è abilitato per l'area di lavoro.
 
         :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Avvio di FIM":::
 

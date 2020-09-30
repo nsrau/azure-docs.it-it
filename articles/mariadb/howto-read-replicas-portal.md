@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: fc435194975c0b043e74a47632d6e38f12d04c2a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 41e99d11199ae0f2a411b6e2c0b93ea8efcebca2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121198"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542530"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Come creare e gestire le repliche di lettura nel database di Azure per MariaDB usando il portale di Azure
 
@@ -19,15 +19,15 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un [database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) che verrà usato come server master.
+- Un [database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) che verrà usato come server di origine.
 
 > [!IMPORTANT]
-> La funzionalità di lettura della replica è disponibile solo per i server di database di Azure per MariaDB nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server master sia incluso in uno di questi piani tariffari.
+> La funzionalità di lettura della replica è disponibile solo per i server di database di Azure per MariaDB nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server di origine si trovi in uno di questi piani tariffari.
 
 ## <a name="create-a-read-replica"></a>Creare una replica in lettura
 
 > [!IMPORTANT]
-> Quando viene creata una replica per un master senza repliche esistenti, il master verrà prima riavviato per prepararsi alla replica. Tenere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di scarso traffico.
+> Quando si crea una replica per un'origine senza repliche, l'origine viene innanzitutto riavviata per prepararsi per la replica. Tenere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di scarso traffico.
 
 È possibile creare un server di replica in lettura seguendo questa procedura:
 
@@ -45,14 +45,14 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 
     ![Database di Azure per MariaDB-nome replica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Selezionare la posizione per il server di replica. La posizione predefinita è la stessa di quella del server master.
+6. Selezionare la posizione per il server di replica. Il percorso predefinito è identico a quello del server di origine.
 
     ![Database di Azure per MariaDB-percorso della replica](./media/howto-read-replica-portal/replica-location.png)
 
 7. Selezionare **OK** per confermare la creazione della replica.
 
 > [!NOTE]
-> Le repliche in lettura vengono create con la stessa configurazione server del master. La configurazione del server di replica può essere modificata dopo la creazione. È consigliabile mantenere nella configurazione del server di replica valori maggiori o uguali a quelli del master affinché la replica possa restare al passo con il master.
+> Le repliche in lettura vengono create con la stessa configurazione server del master. La configurazione del server di replica può essere modificata dopo la creazione. È consigliabile mantenere la configurazione del server di replica con valori uguali o superiori a quelli dell'origine per assicurarsi che la replica sia in grado di rimanere al passo con il database master.
 
 Dopo che è stato creato, il server di replica può essere visualizzato nel pannello **Replica**.
 
@@ -61,11 +61,11 @@ Dopo che è stato creato, il server di replica può essere visualizzato nel pann
 ## <a name="stop-replication-to-a-replica-server"></a>Arrestare la replica in un server di replica
 
 > [!IMPORTANT]
-> L'arresto della replica in un server è irreversibile. Dopo che la replica tra un master e una replica è stata arrestata, non è possibile annullare l'operazione. Il server di replica diventa quindi un server autonomo che supporta sia la lettura che la scrittura. Questo server non può essere di nuovo impostato come replica.
+> L'arresto della replica in un server è irreversibile. Una volta interrotta la replica tra un'origine e una replica, non è possibile annullarla. Il server di replica diventa quindi un server autonomo che supporta sia la lettura che la scrittura. Questo server non può essere di nuovo impostato come replica.
 
-Per arrestare la replica tra un server master e uno di replica dal portale di Azure, seguire questa procedura:
+Per arrestare la replica tra un server di origine e un server di replica dal portale di Azure, attenersi alla procedura seguente:
 
-1. Nella portale di Azure selezionare il database master di Azure per il server MariaDB. 
+1. Nella portale di Azure selezionare il database di Azure di origine per il server MariaDB. 
 
 2. Selezionare **Replica** nel menu in **IMPOSTAZIONI**.
 
@@ -85,7 +85,7 @@ Per arrestare la replica tra un server master e uno di replica dal portale di Az
 
 Per eliminare un server di replica in lettura dal portale di Azure, seguire questa procedura:
 
-1. Nella portale di Azure selezionare il database master di Azure per il server MariaDB.
+1. Nella portale di Azure selezionare il database di Azure di origine per il server MariaDB.
 
 2. Selezionare **Replica** nel menu in **IMPOSTAZIONI**.
 
@@ -101,20 +101,20 @@ Per eliminare un server di replica in lettura dal portale di Azure, seguire ques
 
    ![Database di Azure per MariaDB-Elimina conferma replica](./media/howto-read-replica-portal/delete-replica-confirm.png)
 
-## <a name="delete-a-master-server"></a>Eliminare un server master
+## <a name="delete-a-source-server"></a>Eliminare un server di origine
 
 > [!IMPORTANT]
-> Eliminando un server master si arresta la replica in tutti i server di replica, oltre a eliminare il server master stesso. I server di replica diventano server autonomi che supportano sia la lettura che la scrittura.
+> Eliminando un server di origine si arresta la replica in tutti i server di replica, oltre a eliminare il server di origine stesso. I server di replica diventano server autonomi che supportano sia la lettura che la scrittura.
 
-Per eliminare un server master dal portale di Azure, seguire questa procedura:
+Per eliminare un server di origine dalla portale di Azure, attenersi alla procedura seguente:
 
-1. Nella portale di Azure selezionare il database master di Azure per il server MariaDB.
+1. Nella portale di Azure selezionare il database di Azure di origine per il server MariaDB.
 
 2. In **Panoramica** selezionare **Elimina**.
 
    ![Database di Azure per MariaDB-Elimina Master](./media/howto-read-replica-portal/delete-master-overview.png)
 
-3. Digitare il nome del server master e fare clic su **Elimina** per confermarne l'eliminazione.  
+3. Digitare il nome del server di origine e fare clic su **Elimina** per confermare l'eliminazione del server di origine.  
 
    ![Database di Azure per MariaDB-Elimina Master](./media/howto-read-replica-portal/delete-master-confirm.png)
 

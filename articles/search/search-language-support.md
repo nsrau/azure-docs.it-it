@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: c7d574bf172a792c59e4b00ea9ad0366ad1f17ad
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a121751e71bffdb76341f6a7dc2a01a22240019b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922855"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534469"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Come creare un indice per più lingue in Azure ricerca cognitiva
 
@@ -67,4 +67,4 @@ Se la lingua dell'agente che esegue una query è nota, è possibile definire per
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli sviluppatori .NET possono configurare gli analizzatori della lingua usando [Azure ricerca cognitiva .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) e la proprietà [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) .
+Gli sviluppatori .NET possono configurare gli analizzatori della lingua usando [Azure ricerca cognitiva .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) e la proprietà [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer) .

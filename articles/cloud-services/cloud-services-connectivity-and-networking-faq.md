@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a27161ca9a218b1f7c0e3fb51c9935438d9778e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77019401"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533418"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di connettività e rete per Servizi cloud di Azure: domande frequenti
 
@@ -99,7 +99,7 @@ Poiché questo binding dell'intestazione host viene applicato tramite il file cs
 
 ## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>Come assicurarsi che l'indirizzo IP pubblico di un servizio cloud non cambi mai?
 
-Per assicurarsi che l'indirizzo IP pubblico del servizio cloud (noto anche come indirizzo VIP) non cambi mai in modo da poter essere abitualmente inserito nell'elenco elementi consentiti da alcuni client specifici, è consigliabile disporre di un indirizzo IP riservato ad esso associato. In caso contrario, l'indirizzo IP virtuale fornito da Azure viene deallocato dalla sottoscrizione se si elimina la distribuzione. Per una corretta operazione di scambio dell'indirizzo VIP, sono necessari singoli indirizzi IP riservati per gli slot di staging e di produzione. Senza di essi, l'operazione di scambio ha esito negativo. Per riservare un indirizzo IP e associarlo al servizio cloud, vedere questi articoli:
+Per assicurarsi che l'indirizzo IP pubblico del servizio cloud (noto anche come indirizzo VIP) non cambi mai in modo che possa essere approvato abitualmente da pochi client specifici, è consigliabile disporre di un IP riservato associato. In caso contrario, l'indirizzo IP virtuale fornito da Azure viene deallocato dalla sottoscrizione se si elimina la distribuzione. Per una corretta operazione di scambio dell'indirizzo VIP, sono necessari singoli indirizzi IP riservati per gli slot di staging e di produzione. Senza di essi, l'operazione di scambio ha esito negativo. Per riservare un indirizzo IP e associarlo al servizio cloud, vedere questi articoli:
 
 - [Riservare l'indirizzo IP di un servizio cloud esistente](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Associare un indirizzo IP riservato a un servizio cloud usando un file cscfg](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)

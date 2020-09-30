@@ -1,14 +1,14 @@
 ---
 title: Determinare le cause di non conformità
 description: Quando una risorsa non è conforme, i motivi possibili sono molti. Informazioni sulle possibili cause di non conformità.
-ms.date: 07/06/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 102a1a6a9573c73b4c1158a3c412be233e1a12b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: df1eefec782835838add0beb8939bf4ff1a8a194
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334175"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541272"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
@@ -36,11 +36,11 @@ Per visualizzare i dettagli di conformità, attenersi alla procedura seguente:
 
 1. Nella scheda **Conformità risorsa** della pagina **Conformità dei criteri** fare clic con il pulsante destro del mouse o selezionare i puntini di sospensione di una risorsa il cui **stato di conformità** sia _Non conforme_. Quindi selezionare **Visualizzare i dettagli sulla conformità**.
 
-   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Screenshot del collegamento Visualizza dettagli conformità nella scheda conformità risorse." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Screenshot del collegamento &quot;Visualizza dettagli conformità&quot; nella scheda conformità risorse." border="false":::
 
 1. Il riquadro **Dettagli conformità** visualizza le informazioni della valutazione più recente della risorsa rispetto all'assegnazione dei criteri corrente. In questo esempio il valore del campo **Microsoft.Sql/servers/version** è _12.0_ mentre la definizione del criterio prevedeva _14.0_. Se la risorsa non è conforme per più motivi, in questo riquadro vengono elencati tutti i motivi.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Screenshot del riquadro dettagli conformità e motivi per la mancata conformità il valore corrente è dodici e il valore di destinazione è quattordici." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Screenshot del collegamento &quot;Visualizza dettagli conformità&quot; nella scheda conformità risorse." border="false":::
 
    Per una definizione dei criteri **auditIfNotExists** o **deployIfNotExists**, i dettagli includono la proprietà **details.type** e tutte le proprietà facoltative. Per un elenco, vedere [Proprietà di AuditIfNotExists](../concepts/effects.md#auditifnotexists-properties) e [Proprietà di DeployIfNotExists](../concepts/effects.md#deployifnotexists-properties). **Ultima risorsa valutata** collega a una risorsa correlata della sezione dei **dettagli** della definizione.
 
@@ -69,7 +69,7 @@ Per visualizzare i dettagli di conformità, attenersi alla procedura seguente:
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Screenshot del riquadro dei dettagli di conformità per ifNotExists, incluso il conteggio delle risorse valutato." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Screenshot del collegamento &quot;Visualizza dettagli conformità&quot; nella scheda conformità risorse." border="false":::
 
 > [!NOTE]
 > Per proteggere i dati, quando il valore di una proprietà è _segreto_, il valore corrente visualizza gli asterischi.
@@ -104,17 +104,17 @@ Nella matrice seguente viene eseguito il mapping di ogni possibile _motivo_ rela
 |Il valore corrente non deve corrispondere al valore di destinazione senza distinzione tra maiuscole/minuscole. |notMatchInsensitively o **not** matchInsensitively |
 |Non esistono risorse correlate corrispondenti ai dettagli dell'effetto nella definizione dei criteri. |Non esiste una risorsa del tipo definito in **then.details.type** e relativa alla risorsa definita nella parte **if** della regola dei criteri. |
 
+## <a name="component-details-for-resource-provider-modes"></a>Dettagli del componente per le modalità del provider di risorse
+
+Per le assegnazioni con una [modalità provider di risorse](../concepts/definition-structure.md#resource-manager-modes), selezionare la risorsa _non conforme_ per aprire una visualizzazione più approfondita. Nella scheda **conformità componenti** sono presenti informazioni aggiuntive specifiche per la modalità del provider di risorse nel criterio assegnato che mostra il **componente** e l' **ID componente** _non conformi_ .
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot del collegamento &quot;Visualizza dettagli conformità&quot; nella scheda conformità risorse." border="false":::
+
 ## <a name="compliance-details-for-guest-configuration"></a>Dettagli di conformità per la configurazione guest
 
 Per i criteri _auditIfNotExists_ nella categoria _configurazione Guest_ , è possibile che vengano valutate più impostazioni all'interno della macchina virtuale e che sia necessario visualizzare i dettagli per ogni impostazione. Ad esempio, se si esegue il controllo di un elenco di criteri password e solo per uno di essi lo stato è _Non conforme_, è necessario stabilire quali criteri password specifici non sono conformi e il motivo della non conformità.
 
 Inoltre, potrebbe non essere possibile accedere direttamente alla macchina virtuale, ma è necessario segnalare il motivo per cui la macchina virtuale non è _conforme_.
-
-## <a name="compliance-details-for-resource-provider-modes"></a>Dettagli di conformità per le modalità del provider di risorse
-
-Per le assegnazioni con una [modalità provider di risorse](../concepts/definition-structure.md#resource-manager-modes), selezionare la risorsa _non conforme_ per aprire una visualizzazione più approfondita. Nella scheda **conformità componenti** sono presenti informazioni aggiuntive specifiche per la modalità del provider di risorse nel criterio assegnato che mostra il **componente** e l' **ID componente** _non conformi_ .
-
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot della scheda conformità componenti e dei dettagli di conformità per un'assegnazione in modalità provider di risorse." border="false":::
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -122,11 +122,11 @@ Per iniziare, seguire la stessa procedura descritta nella sezione precedente per
 
 Nella visualizzazione riquadro dettagli conformità selezionare il collegamento **ultima risorsa valutata**.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Screenshot della visualizzazione dei dettagli di conformità della definizione auditIfNotExists." border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Screenshot del collegamento &quot;Visualizza dettagli conformità&quot; nella scheda conformità risorse." border="false":::
 
 Nella pagina **Assegnazione guest** vengono visualizzati tutti i dettagli di conformità disponibili. Ogni riga della vista rappresenta una valutazione eseguita all'interno del computer. Nella colonna **Motivo** viene visualizzata una frase che descrive il motivo per cui l'assegnazione guest è _Non conforme_. Se ad esempio si controllano i criteri password, nella colonna **Motivo** verrà visualizzato il testo che include il valore corrente per ogni impostazione.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Screenshot dei dettagli di conformità dell'assegnazione Guest." border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Screenshot del collegamento &quot;Visualizza dettagli conformità&quot; nella scheda conformità risorse." border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -205,11 +205,11 @@ La nuova **anteprima pubblica** include gli ultimi 14 giorni di cronologia delle
 
 1. Selezionare la scheda **Cronologia modifiche (anteprima)** nella pagina **Conformità risorsa**. Verrà visualizzato un elenco delle eventuali modifiche rilevate.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Screenshot della scheda cronologia modifiche e rilevati orari di modifica nella pagina conformità risorse." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Screenshot del collegamento &quot;Visualizza dettagli conformità&quot; nella scheda conformità risorse." border="false":::
 
 1. Selezionare una delle modifiche rilevate. Verrà visualizzato il _diff visivo_ per la risorsa nella pagina **Cronologia modifiche**.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Screenshot delle differenze visive della cronologia delle modifiche dello stato before e After delle proprietà nella pagina della cronologia delle modifiche." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Screenshot del collegamento &quot;Visualizza dettagli conformità&quot; nella scheda conformità risorse." border="false":::
 
 Il _diff visivo_ facilita l'identificazione delle modifiche di una risorsa. Le modifiche rilevate potrebbero non essere correlate allo stato di conformità corrente della risorsa.
 

@@ -1,14 +1,14 @@
 ---
 title: Informazioni su criteri di Azure per Kubernetes
 description: Informazioni su come il servizio Criteri di Azure usa Rego e Open Policy Agent per gestire i cluster che eseguono Kubernetes in Azure o in locale.
-ms.date: 09/22/2020
+ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb4345426eddb8b0b5250980eb46cf0509a22cff
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 67c6af4842ea1f404468497930b08c36ecd1abb9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369995"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540252"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Informazioni su Criteri di Azure per i cluster Kubernetes
 
@@ -56,7 +56,7 @@ Le limitazioni generali seguenti si applicano al componente aggiuntivo di criter
 - Numero massimo di record non conformi per ogni sottoscrizione: **1 milione**
 - Le installazioni di Gatekeeper all'esterno del componente aggiuntivo criteri di Azure non sono supportate. Disinstallare i componenti installati da un'installazione precedente di gatekeeper prima di abilitare il componente aggiuntivo criteri di Azure.
 - I [motivi della mancata conformità](../how-to/determine-non-compliance.md#compliance-reasons) non sono disponibili per la `Microsoft.Kubernetes.Data` 
-   [modalità del provider di risorse](./definition-structure.md#resource-provider-modes)
+   [modalità del provider di risorse](./definition-structure.md#resource-provider-modes). Usare [i dettagli del componente](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
 
 Le limitazioni seguenti si applicano solo al componente aggiuntivo criteri di Azure per AKS:
 
@@ -379,7 +379,7 @@ Come parte delle proprietà _details.constraintTemplate_ e _details.constraint_ 
 
 ## <a name="assign-a-built-in-policy-definition"></a>Assegnare una definizione di criteri predefinita
 
-Per assegnare una definizione di criteri al cluster Kubernetes, è necessario farsi assegnare le operazioni di assegnazione dei criteri di controllo degli accessi in base al ruolo appropriate. I ruoli predefiniti e il **proprietario** dei **criteri delle risorse** di Azure hanno queste operazioni. Per altre informazioni, vedere [Autorizzazioni del controllo degli accessi in base al ruolo in Criteri di Azure](../overview.md#rbac-permissions-in-azure-policy).
+Per assegnare una definizione di criteri al cluster Kubernetes, è necessario disporre delle operazioni di assegnazione dei criteri appropriate per il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). I ruoli predefiniti e il **proprietario** dei **criteri delle risorse** di Azure hanno queste operazioni. Per altre informazioni, vedere [autorizzazioni RBAC di Azure in criteri di Azure](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 Trovare le definizioni dei criteri predefinite per la gestione del cluster eseguendo questa procedura nel portale di Azure:
 
@@ -430,7 +430,7 @@ In un cluster Kubernetes, se uno spazio dei nomi ha una delle etichette seguenti
 > [!NOTE]
 > Anche se un amministratore del cluster può avere l'autorizzazione per creare e aggiornare i modelli di vincolo e le risorse vincolo installati dal componente aggiuntivo Criteri di Azure, questi scenari non sono supportati in quanto gli aggiornamenti manuali vengono sovrascritti. Gatekeeper continua a valutare i criteri che esistevano prima dell'installazione del componente aggiuntivo e dell'assegnazione delle definizioni dei criteri di Criteri di Azure.
 
-Ogni 15 minuti il componente aggiuntivo richiede un'analisi completa del cluster. Dopo aver raccolto tramite Gatekeeper i dettagli dell'analisi completa e di eventuali valutazioni in tempo reale delle modifiche apportate al cluster, il componente aggiuntivo restituisce i risultati a Criteri di Azure in modo che vengano inclusi nei [dettagli di conformità](../how-to/get-compliance-data.md) come qualsiasi assegnazione di Criteri di Azure. Durante il ciclo di controllo vengono restituiti solo i risultati delle assegnazioni di criteri attive. I risultati del controllo possono anche essere considerati come [violazioni](https://github.com/open-policy-agent/gatekeeper#audit) elencate nel campo di stato del vincolo non riuscito. Per informazioni dettagliate sulle risorse _non conformi_ , vedere [Dettagli di conformità per le modalità del provider di risorse](../how-to/determine-non-compliance.md#compliance-details-for-resource-provider-modes).
+Ogni 15 minuti il componente aggiuntivo richiede un'analisi completa del cluster. Dopo aver raccolto tramite Gatekeeper i dettagli dell'analisi completa e di eventuali valutazioni in tempo reale delle modifiche apportate al cluster, il componente aggiuntivo restituisce i risultati a Criteri di Azure in modo che vengano inclusi nei [dettagli di conformità](../how-to/get-compliance-data.md) come qualsiasi assegnazione di Criteri di Azure. Durante il ciclo di controllo vengono restituiti solo i risultati delle assegnazioni di criteri attive. I risultati del controllo possono anche essere considerati come [violazioni](https://github.com/open-policy-agent/gatekeeper#audit) elencate nel campo di stato del vincolo non riuscito. Per informazioni dettagliate sulle risorse _non conformi_ , vedere [Dettagli dei componenti per le modalità del provider di risorse](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
 
 > [!NOTE]
 > Ogni report di conformità in Criteri di Azure per i cluster Kubernetes include tutte le violazioni verificatesi negli ultimi 45 minuti. Il timestamp indica il momento in cui si è verificata una violazione.

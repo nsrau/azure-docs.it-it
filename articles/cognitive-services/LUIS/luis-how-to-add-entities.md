@@ -2,20 +2,18 @@
 title: Aggiungere entità-LUIS
 description: Creare entità per estrarre i dati chiave da espressioni utente nelle app Language Understanding (LUIS). I dati di entità estratti vengono usati dall'applicazione client per rispettasse le richieste dei clienti.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 61e53e6110e545d253dae81e94f8738ee17c4141
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344476"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540966"
 ---
 # <a name="add-entities-to-extract-data"></a>Aggiungere entità per estrarre i dati
 
@@ -72,7 +70,7 @@ Questo processo funziona per entità, elenco ed entità di espressioni regolari 
 1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Nella sezione **Build** selezionare **entità** nel pannello a sinistra e quindi selezionare **+ Crea**.
-1. Nella finestra di dialogo **Crea un tipo di entità** immettere il nome dell'entità e selezionare **computer appreso**, quindi selezionare. Per aggiungere sottoentità, selezionare **Aggiungi struttura**. Selezionare **Crea**.
+1. Nella finestra di dialogo **Crea un tipo di entità** immettere il nome dell'entità e selezionare **computer appreso**, quindi selezionare. Per aggiungere sottoentità, selezionare **Aggiungi struttura**. Selezionare **Create** (Crea).
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot della creazione di un'entità Machine Learned.](media/add-entities/machine-learned-entity-with-structure.png)
@@ -118,7 +116,7 @@ Nell'elenco seguente vengono illustrati il nome canonico e i sinonimi.
 
 |Nome elemento elenco colori|Colori-sinonimi|
 |--|--|
-|Rosso|Crimson, Blood, Apple, Fire-Engine|
+|Red|Crimson, Blood, Apple, Fire-Engine|
 |Blu|Sky, cobalto|
 |Green|Kelly, limone|
 
@@ -179,14 +177,14 @@ In questa procedura aggiungere i `origin` `destination` ruoli e a un'entità geo
 1. Per etichettare con il ruolo, selezionare l'etichetta dell'entità (linea continua sotto testo) nell'espressione di esempio, quindi selezionare **Visualizza nel riquadro entità** nell'elenco a discesa.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot della selezione della visualizzazione nella tavolozza delle entità](media/add-entities/view-in-entity-pane.png)
+    > ![Screenshot mostra la voce di menu Visualizza nel riquadro entità selezionata.](media/add-entities/view-in-entity-pane.png)
 
     La tavolozza entità si apre a destra.
 
 1. Selezionare l'entità, quindi passare alla parte inferiore della tavolozza e selezionare il ruolo.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot della selezione della visualizzazione nella tavolozza delle entità](media/add-entities/select-role-in-entity-palette.png)
+    > ![Screenshot mostra la posizione in cui selezionare il ruolo.](media/add-entities/select-role-in-entity-palette.png)
 
 <a name="add-pattern-any-entities"></a>
 <a name="add-a-patternany-entity"></a>

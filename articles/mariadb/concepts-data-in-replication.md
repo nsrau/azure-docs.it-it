@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 1fbcc1fb27d5e6df4641f79c0d634580f74000b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66e280f20109967f029a14e368fdb0aeea269aad
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532061"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536614"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Eseguire la replica dei dati in Database di Azure per MariaDB
 
@@ -26,20 +26,20 @@ Gli scenari principali da considerare quando si usa la funzione di replica dei d
 ## <a name="limitations-and-considerations"></a>Limitazioni e considerazioni
 
 ### <a name="data-not-replicated"></a>Dati non replicati
-Il [*database di sistema mysql*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) sul server master non viene replicato. Le modifiche agli account e alle autorizzazioni sul server master non vengono replicate. Se si crea un account sul server master e questo deve accedere al server di replica, creare manualmente lo stesso account sul lato del server di replica. Per informazioni sulle tabelle contenute nel database di sistema, vedere la [documentazione di MariaDB](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
+Il [*database di sistema MySQL*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) nel server di origine non viene replicato. Le modifiche apportate agli account e alle autorizzazioni nel server di origine non vengono replicate. Se si crea un account nel server di origine e questo account deve accedere al server di replica, creare manualmente lo stesso account sul lato server di replica. Per informazioni sulle tabelle contenute nel database di sistema, vedere la [documentazione di MariaDB](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
 
 ### <a name="requirements"></a>Requisiti
-- Nel server master deve essere installata almeno la versione 10.2 di MariaDB.
-- Le versioni del server master e del server di replica devono essere identiche. Ad esempio, in entrambi i server deve essere installata la versione 10.2 di MariaDB.
+- La versione del server di origine deve essere almeno la versione 10,2 di MariaDB.
+- Le versioni del server di origine e di replica devono essere uguali. Ad esempio, in entrambi i server deve essere installata la versione 10.2 di MariaDB.
 - Ogni tabella deve avere una chiave primaria.
-- Il server master deve usare il motore InnoDB.
-- L'utente deve disporre delle autorizzazioni necessarie per configurare la registrazione binaria e creare nuovi utenti sul server master.
-- Se nel server master è abilitato SSL, verificare che il certificato della CA SSL fornito per il dominio sia stato incluso nel `mariadb.az_replication_change_master` stored procedure. Fare riferimento agli [esempi](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) seguenti e al `master_ssl_ca` parametro.
-- Verificare che l'indirizzo IP del server master sia stato aggiunto alle regole firewall del server di replica di Database di Azure per MariaDB. Aggiornare le regole firewall usando il [portale di Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
-- Verificare che il computer che ospita il server master consenta sia il traffico in ingresso che in uscita sulla porta 3306.
-- Verificare che il server master disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o che disponga di un nome di dominio completo (FQDN).
+- Il server di origine deve usare il motore InnoDB.
+- L'utente deve disporre delle autorizzazioni per configurare la registrazione binaria e creare nuovi utenti nel server di origine.
+- Se nel server di origine è abilitato SSL, verificare che il certificato della CA SSL fornito per il dominio sia stato incluso nel `mariadb.az_replication_change_master` stored procedure. Fare riferimento agli [esempi](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) seguenti e al `master_ssl_ca` parametro.
+- Verificare che l'indirizzo IP del server di origine sia stato aggiunto al database di Azure per le regole del firewall del server di replica di MariaDB. Aggiornare le regole firewall usando il [portale di Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
+- Verificare che il computer che ospita il server di origine consenta il traffico in ingresso e in uscita sulla porta 3306.
+- Verificare che il server di origine disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o che disponga di un nome di dominio completo (FQDN).
 
-### <a name="other"></a>Altri
+### <a name="other"></a>Altro
 - La replica dei dati in ingresso è supportata solo nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria.
 
 ## <a name="next-steps"></a>Passaggi successivi
