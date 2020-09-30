@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 7dac5976904263de40c7bc240bdb7deac1ec3df6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 428ed96c3223e644b0c78712723231a5fabbdc77
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509201"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578581"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Iniziare a usare Azure Data Lake Storage Gen1 tramite il portale di Azure
 
@@ -50,7 +50,7 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
      * **Usare chiavi gestite da Data Lake Storage Gen1**, se si vuole che Data Lake Storage Gen1 gestisca le chiavi di crittografia.
      * **Usare chiavi incluse nell'insieme di credenziali delle chiavi personale**. È possibile selezionare un'istanza di Azure Key Vault esistente oppure crearne una nuova. Per usare le chiavi di un'istanza di Key Vault, è necessario assegnare all'account Data Lake Storage Gen1 le autorizzazioni per accedere ad Azure Key Vault. Per istruzioni, vedere [Assegnare le autorizzazioni per Azure Key Vault](#assign-permissions-to-azure-key-vault).
 
-        ![Crittografia Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Crittografia Data Lake Storage Gen1")
+        ![Screenshot del pannello nuovo Data Lake Storage generazione 1 e del pannello impostazioni di crittografia.](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Crittografia Data Lake Storage Gen1")
 
         Fare clic su **OK** nel pannello **Impostazioni crittografia**.
 
@@ -64,10 +64,10 @@ Se sono state usate le chiavi di un'istanza di Azure Key Vault per configurare l
 
 1. Se sono state usate le chiavi di Azure Key Vault, nella parte superiore del pannello dell'account Data Lake Storage Gen1 viene visualizzato un avviso. Fare clic sull'avviso per aprire **Crittografia**.
 
-    ![Crittografia Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Crittografia Data Lake Storage Gen1")
+    ![Screenshot del pannello dell'account Data Lake Storage Gen1 che mostra l'avviso "configurazione dell'insieme di credenziali delle chiavi necessaria. Fare clic qui per configurare.](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Crittografia Data Lake Storage Gen1")
 2. Il pannello mostra due opzioni per configurare l'accesso.
 
-    ![Crittografia Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Crittografia Data Lake Storage Gen1")
+    ![Screenshot del pannello di crittografia.](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Crittografia Data Lake Storage Gen1")
 
    * Nella prima opzione fare clic su **Concedi autorizzazioni** per configurare l'accesso. La prima opzione è abilitata solo quando l'utente che ha creato l'account Data Lake Storage Gen1 è anche un amministratore di Azure Key Vault.
    * L'altra opzione consiste nell'eseguire il cmdlet di PowerShell visualizzato nel pannello. È necessario essere il proprietario dell'insieme di credenziali delle chiavi di Azure o poter concedere le autorizzazioni per l'insieme di credenziali delle chiavi di Azure. Dopo avere eseguito il cmdlet, tornare al pannello e fare clic su **Abilita** per configurare l'accesso.
@@ -87,23 +87,23 @@ Se sono state usate le chiavi di un'istanza di Azure Key Vault per configurare l
 1. Aprire l'account Data Lake Storage Gen1 creato. Nel riquadro sinistro fare clic su **tutte le risorse**e quindi nel pannello **tutte le risorse** fare clic sul nome dell'account in cui si desidera creare le cartelle. Se è stato aggiunto l'account alla schermata iniziale, fare clic sul riquadro dell’account.
 2. Nel pannello dell'account Data Lake Storage Gen1 fare clic su **Esplora dati**.
 
-    ![Creare cartelle in un account Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Creare cartelle in un account Data Lake Storage Gen1")
+    ![Screenshot del pannello dell'account Data Lake Storage generazione 1 con l'opzione Esplora dati denominata.](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Creare cartelle in un account Data Lake Storage Gen1")
 3. Nel pannello Esplora dati fare clic su **Nuova cartella**, immettere un nome per la nuova cartella e quindi fare clic su **OK**.
 
-    ![Creare cartelle in un account Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Creare cartelle in un account Data Lake Storage Gen1")
+    ![Screenshot del pannello Esplora dati con l'opzione nuova cartella e la casella di testo Crea nuova cartella denominata out.](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Creare cartelle in un account Data Lake Storage Gen1")
 
     La cartella appena creata verrà elencata nel pannello **Esplora dati**. È possibile creare cartelle nidificate per qualsiasi livello.
 
     ![Creazione di cartelle in un account Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Creazione di cartelle in un account Data Lake")
 
-## <a name="upload-data"></a><a name="uploaddata"></a>Caricare dati
+## <a name="upload-data"></a><a name="uploaddata"></a>Caricare i dati
 
 È possibile caricare i dati in un account Data Lake Storage Gen1 direttamente al livello radice o in una cartella creata nell'account.
 
 1. Nel pannello **Esplora dati** fare clic su **Carica**.
 2. Nel pannello **Carica file** passare ai file da caricare e quindi fare clic su **Aggiungi file selezionati**. È anche possibile selezionare più di un file da caricare.
 
-    ![Caricare dati](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Caricare dati")
+    ![Caricare i dati](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Caricare i dati")
 
 Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 

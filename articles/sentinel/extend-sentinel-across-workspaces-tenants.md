@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: b899069a03b39d068f2b4059cf26d3baf1f3beae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 502b93b4459fba4da04207d9186f8c7ce6b298c2
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905421"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578479"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estendere Azure Sentinel tra più aree di lavoro e tenant
 
@@ -27,23 +27,23 @@ ms.locfileid: "90905421"
 
 Azure Sentinel si basa su un'area di lavoro Log Analytics. Si noterà che il primo passaggio del caricamento di Azure Sentinel consiste nel selezionare l'area di lavoro Log Analytics che si desidera utilizzare a tale scopo.
 
-Quando si usa un'unica area di lavoro, è possibile sfruttare tutti i vantaggi offerti dall'esperienza Sentinel di Azure. Anche in questo caso, è possibile che sia necessario disporre di più aree di lavoro. La tabella seguente elenca alcune di queste situazioni e, quando possibile, suggerisce come il requisito può essere soddisfatto con un'unica area di lavoro:
+Usando un'unica area di lavoro è possibile sfruttare tutti i vantaggi offerti dall'esperienza di Azure Sentinel. Anche in questo caso, è possibile che sia necessario disporre di più aree di lavoro. La tabella seguente elenca alcune di queste situazioni e, quando possibile, suggerisce come il requisito può essere soddisfatto con un'unica area di lavoro:
 
-| Requisito | Descrizione | Modalità di riduzione del numero di aree di lavoro |
+| Requisito | Descrizione | Modi per ridurre il numero di aree di lavoro |
 |-------------|-------------|--------------------------------|
 | Sovranità e conformità alle normative | Un'area di lavoro è associata a un'area specifica. Se i dati devono essere conservati in diverse aree [geografiche di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) per soddisfare i requisiti normativi, devono essere suddivisi in aree di lavoro separate. |  |
 | Proprietà dei dati | I limiti della proprietà dei dati, ad esempio da filiali o società affiliate, sono meglio delineati con aree di lavoro separate. |  |
-| Più tenant di Azure | Azure Sentinel supporta la raccolta di dati da Microsoft e risorse SaaS di Azure solo all'interno del proprio Azure Active Directory (Azure AD) limite del tenant. Ogni tenant Azure AD richiede pertanto un'area di lavoro separata. |  |
-| Controllo di accesso ai dati granulari | Un'organizzazione potrebbe avere la necessità di consentire a gruppi diversi, all'interno o all'esterno dell'organizzazione, di accedere ad alcuni dei dati raccolti da Sentinel di Azure. Ad esempio:<br><ul><li>Accesso dei proprietari delle risorse ai dati relativi alle risorse</li><li>SOC regionale o sussidiario "accesso ai dati relativi alle parti dell'organizzazione</li></ul> | USA [controllo](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) degli accessi in base al ruolo o [RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
+| Più tenant di Azure | Azure Sentinel supporta la raccolta di dati da Microsoft e risorse SaaS di Azure solo all'interno del proprio Azure Active Directory (Azure AD) limite del tenant. Ogni tenant di Azure AD richiede pertanto un'area di lavoro separata. |  |
+| Controllo granulare dell'accesso ai dati | Un'organizzazione potrebbe avere la necessità di consentire a gruppi diversi, all'interno o all'esterno dell'organizzazione, di accedere ad alcuni dei dati raccolti da Sentinel di Azure. Ad esempio:<br><ul><li>Accesso dei proprietari delle risorse ai dati relativi alle risorse</li><li>SOC regionale o sussidiario "accesso ai dati relativi alle parti dell'organizzazione</li></ul> | USA [controllo](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) degli accessi in base al ruolo o [RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
 | Impostazioni di conservazione granulari | In passato, le aree di lavoro erano l'unico modo per impostare periodi di conservazione diversi per tipi di dati diversi. Questa operazione non è più necessaria in molti casi, grazie all'introduzione delle impostazioni di conservazione a livello di tabella. | Usare [le impostazioni di conservazione a livello di tabella](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) o automatizzare l' [eliminazione dei dati](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
-| Suddivisione fatturazione | Inserendo le aree di lavoro in sottoscrizioni separate, è possibile fatturarle a diverse parti. | Segnalazione di utilizzo e addebito incrociato |
-| Architettura legacy | L'uso di più aree di lavoro può derivare da una progettazione cronologica che prende in considerazione le limitazioni o le procedure consigliate che non contengono più il vero. Potrebbe anche trattarsi di una scelta di progettazione arbitraria che può essere modificata per supportare meglio Azure Sentinel.<br><br>Ecco alcuni esempi:<br><ul><li>Uso di un'area di lavoro predefinita per sottoscrizione quando si distribuisce il Centro sicurezza di Azure</li><li>La necessità di impostazioni di conservazione o controllo degli accessi granulari, le soluzioni per le quali sono relativamente nuove</li></ul> | Riprogettare le aree di lavoro |
+| Suddivisione della fatturazione | Inserendo le aree di lavoro in sottoscrizioni separate, è possibile fatturarle a diverse parti. | Report di utilizzo e addebito incrociato |
+| Architettura legacy | L'uso di più aree di lavoro può derivare da una progettazione cronologica che prende in considerazione le limitazioni o le procedure consigliate che non contengono più il vero. Si potrebbe trattare anche di una scelta di progettazione arbitraria che può essere modificata per supportare meglio Azure Sentinel.<br><br>Ecco alcuni esempi:<br><ul><li>Uso di un'area di lavoro predefinita per sottoscrizione quando si distribuisce il Centro sicurezza di Azure</li><li>La necessità di impostazioni di conservazione o controllo degli accessi granulari, le soluzioni per le quali sono relativamente nuove</li></ul> | Riprogettare le aree di lavoro |
 
 ### <a name="managed-security-service-provider-mssp"></a>Provider di servizi di sicurezza gestito (MSSP)
 
 Un caso d'uso specifico che impone più aree di lavoro è un servizio MSSP di Azure Sentinel. In questo caso, molti se non tutti i requisiti precedenti si applicano, la procedura consigliata consiste nel creare più aree di lavoro tra i tenant. MSSP può usare [Azure Lighthouse](../lighthouse/overview.md) per estendere le funzionalità di Azure Sentinel tra più tenant.
 
-## <a name="azure-sentinel-multiple-workspace-architecture"></a>Architettura di più aree di lavoro di Azure Sentinel
+## <a name="azure-sentinel-multiple-workspace-architecture"></a>Architettura con più aree di lavoro di Azure Sentinel
 
 In base ai requisiti indicati in precedenza, esistono casi in cui più aree di lavoro di Sentinel di Azure, potenzialmente nei tenant Azure Active Directory (Azure AD), devono essere monitorate e gestite a livello centralizzato da un singolo SOC.
 
@@ -63,7 +63,7 @@ Questo modello offre vantaggi significativi rispetto a un modello completamente 
 
 - Meno problemi relativi alla proprietà dei dati, alla privacy dei dati e alla conformità alle normative.
 
-- Latenza di rete minima e addebiti.
+- Latenza di rete e addebiti minimi.
 
 - Onboarding semplificato e offboarding di nuovi clienti o filiali.
 
@@ -131,7 +131,7 @@ Vedere anche [distribuzione e gestione di Azure Sentinel come codice](https://te
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Gestione delle aree di lavoro tra tenant con Azure Lighthouse
 
-Come indicato in precedenza, in molti scenari le diverse aree di lavoro di Azure Sentinel possono trovarsi in tenant di Azure AD diversi. È possibile usare [Azure Lighthouse](../lighthouse/overview.md) per estendere tutte le attività tra aree di lavoro tra i limiti dei tenant, consentendo agli utenti nel tenant di gestione di lavorare su aree di lavoro di Sentinel di Azure in tutti i tenant. Una volta caricato Azure [Lighthouse, usare](../lighthouse/how-to/onboard-customer.md)il [selettore directory + sottoscrizioni](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-from-other-tenants) nella portale di Azure per selezionare tutte le sottoscrizioni contenenti le aree di lavoro che si vuole gestire, per assicurarsi che siano tutte disponibili nei diversi selettori di area di lavoro nel portale.
+Come indicato in precedenza, in molti scenari le diverse aree di lavoro di Azure Sentinel possono trovarsi in tenant di Azure AD diversi. È possibile usare [Azure Lighthouse](../lighthouse/overview.md) per estendere tutte le attività tra aree di lavoro tra i limiti dei tenant, consentendo agli utenti nel tenant di gestione di lavorare su aree di lavoro di Sentinel di Azure in tutti i tenant. Una volta caricato Azure [Lighthouse, usare](../lighthouse/how-to/onboard-customer.md)il [selettore directory + sottoscrizioni](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-in-managed-tenants) nella portale di Azure per selezionare tutte le sottoscrizioni contenenti le aree di lavoro che si vuole gestire, per assicurarsi che siano tutte disponibili nei diversi selettori di area di lavoro nel portale.
 
 Quando si usa Azure Lighthouse, è consigliabile creare un gruppo per ogni ruolo di Azure Sentinel e delegare le autorizzazioni da ogni tenant a tali gruppi.
 

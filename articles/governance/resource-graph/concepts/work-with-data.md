@@ -1,15 +1,15 @@
 ---
 title: Usare set di dati di grandi dimensioni
 description: Informazioni su come ottenere i record, formattarli, restituirli in pagine e ignorarli in set di dati di grandi dimensioni durante l'uso di Azure Resource Graph.
-ms.date: 08/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3073986e424c641d884e1c2427d3d519658d37
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ee552908696aa652931bf3555391adcfec0fc6d3
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005939"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578496"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilizzo di set di dati della risorsa di Azure di grandi dimensioni
 
@@ -48,7 +48,7 @@ Ha la priorità il controllo _più restrittivo_. Ad esempio, se la query usa l'o
 Un'altra opzione per l'elaborazione di set di dati di grandi dimensioni è il controllo **Skip**. Questo controllo consente alla query di saltare o ignorare il numero definito di record prima di restituire i risultati. **Skip** è utile per le query che ordinano i risultati in un modo significativo allo scopo di ottenere i record situati in una posizione centrale del set di risultati. Se i risultati desiderati sono alla fine del set di dati restituito, è più efficiente usare una configurazione di ordinamento diversa e recuperare i risultati dall'inizio del set di dati.
 
 > [!NOTE]
-> Quando si usa **Skip**, è consigliabile ordinare i risultati in base ad almeno una colonna con `asc` o `desc`. Senza ordinamento, i risultati restituiti sono casuali e non ripetibili.
+> Quando si usa **Skip**, è consigliabile ordinare i risultati in base ad almeno una colonna con `asc` o `desc`. Senza ordinamento, i risultati restituiti sono casuali e non ripetibili. Se `limit` `take` nella query si utilizzano o, **Skip** viene ignorato.
 
 Gli esempi seguenti mostrano come ignorare i primi _10_ record restituiti da una query facendo iniziare il set di risultati restituito dall'undicesimo record:
 
