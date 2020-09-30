@@ -1,26 +1,26 @@
 ---
 title: Come gestire le cose Plug and Play i dispositivi gemelli digitali
-description: Come gestire i dispositivi Plug and Play anteprima usando le API gemelle digitali
+description: Come gestire gli Internet delle cose Plug and Play dispositivo usando le API gemelle digitali
 author: prashmo
 ms.author: prashmo
 ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f86bf17c34d88fa48df4933e979a590fbc89820b
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: bfbfc6e5e4a0f5721d620c2936e5ea0aa685f8ad
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352237"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577595"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Gestisci le cose Plug and Play i dispositivi gemelli digitali
 
 Internet delle cose Plug and Play supporta **Get Digital Twin** e aggiorna le operazioni del dispositivo **digitale gemello** per gestire i gemelli digitali. È possibile usare le [API REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) o uno degli SDK del [servizio](libraries-sdks.md).
 
-Al momento della stesura di questo documento, la versione dell'API di dispositivi gemelli digitale per l'anteprima pubblica è `2020-05-31-preview` .
+Al momento della stesura di questo documento, la versione dell'API del dispositivo gemello digitale è `2020-09-30` .
 
-## <a name="update-a-digital-twin"></a>Aggiornare un dispositivo gemello digitale
+## <a name="update-a-digital-twin"></a>Aggiornare un gemello digitale
 
 Un dispositivo Plug and Play implementa un modello descritto da [Digital gemells Definition Language V2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl). Gli sviluppatori di soluzioni possono usare l'API di aggiornamento dei dispositivi **digitali gemelli** per aggiornare lo stato del componente e le proprietà del dispositivo gemello digitale.
 
@@ -72,7 +72,7 @@ Ad esempio, è possibile aggiornare la `targetTemperature` proprietà come indic
 ]
 ```
 
-Con l'aggiornamento precedente viene impostato il valore desiderato di una proprietà nel livello radice o componente corrispondente `$metadata` , come illustrato nel frammento di codice seguente. L'hub Internet Aggiorna la versione desiderata della proprietà:
+Con l'aggiornamento precedente viene impostato il valore desiderato di una proprietà nel livello del componente corrispondente `$metadata` , come illustrato nel frammento di codice seguente. L'hub Internet Aggiorna la versione desiderata della proprietà:
 
 ```json
 "thermostat1": {
@@ -130,7 +130,7 @@ Nell'esempio di patch JSON seguente viene illustrato come aggiungere, sostituire
 
 Un'operazione di aggiunta o sostituzione consente di impostare il valore desiderato di una proprietà. Il dispositivo può sincronizzare lo stato e segnalare un aggiornamento del valore insieme a un `ack` codice, una versione e una descrizione.
 
-La rimozione di una proprietà cancella il valore desiderato della proprietà, se impostata. Il dispositivo può quindi interrompere la segnalazione di questa proprietà e viene rimossa dal livello radice o dal componente. Se questa proprietà è l'ultima nel componente, anche il componente verrà rimosso.
+La rimozione di una proprietà cancella il valore desiderato della proprietà, se impostata. Il dispositivo può quindi interrompere la segnalazione di questa proprietà e viene rimossa dal componente. Se questa proprietà è l'ultima nel componente, anche il componente verrà rimosso.
 
 Nell'esempio di patch JSON seguente viene illustrato come aggiungere, sostituire o rimuovere una proprietà in un componente:
 
@@ -195,4 +195,4 @@ Ora che sono state apprese informazioni sui dispositivi gemelli digitali, di seg
 
 - [Interagire con un dispositivo dalla soluzione](quickstart-service-node.md)
 - [API REST Digital Twin](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
-- [Esplora risorse di Azure](howto-use-iot-explorer.md)
+- [Azure IoT Explorer](howto-use-iot-explorer.md)

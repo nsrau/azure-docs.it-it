@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9752589c8863cc911369225d268035d9f61c0273
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 165f83e0f021d23c26333a294ffe992838bda6b0
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032028"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577714"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Usare i modelli Plug and Play in una soluzione Internet delle cose
 
@@ -26,7 +26,7 @@ Esistono due categorie generali di una soluzione Internet delle cose:
 
 Per usare un modello Plug and Play, una soluzione Internet delle cose:
 
-1. Identifica l'ID modello del modello implementato dalla Plug and Play dispositivo connesso alla soluzione.
+1. Identifica l'ID modello del modello implementato dalla Plug and Play di dispositivi, moduli o moduli IoT Edge connessi alla soluzione.
 
 1. Usa l'ID modello per recuperare la definizione del modello del dispositivo connesso da un repository di modelli o da un archivio personalizzato.
 
@@ -40,7 +40,10 @@ Una soluzione può ottenere l'ID del modello del Plug and Play dispositivo usand
 
 ### <a name="get-device-twin-api"></a>Ottenere l'API del dispositivo gemello
 
-La soluzione può usare l'API [get device Twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) per recuperare l'ID modello del dispositivo Plug and Play.
+La soluzione può usare l'API [get device Twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable&preserve-view=true) per recuperare l'ID modello del dispositivo Plug and Play.
+
+> [!TIP]
+> Per i moduli e i moduli IoT Edge, usare [ModuleClient. gettwin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?view=azure-java-stable&preserve-view=true).
 
 Nel frammento di risposta del dispositivo gemello seguente `modelId` contiene l'ID del modello di un dispositivo Plug and Play:
 

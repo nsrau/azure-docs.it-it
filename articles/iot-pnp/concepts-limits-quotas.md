@@ -1,26 +1,26 @@
 ---
-title: Limiti e quote Plug and Play anteprima | Microsoft Docs
-description: Comprendere i limiti, le quote e le limitazioni che si applicano quando si usa la Plug and Play di anteprima.
+title: Limiti e quote Plug and Play | Microsoft Docs
+description: Comprendere i limiti, le quote e le limitazioni che si applicano quando si usano le Plug and Play.
 author: prashmo
 ms.author: prashmo
 ms.date: 07/21/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5c4377120f61792b580225a22b9f5ff51b5e1b64
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d965d9cb8b87ce0b67f4fe0c07b660fdfd69cc07
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337399"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577986"
 ---
-# <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limiti, quote e limitazioni dell'anteprima Plug and Play
+# <a name="iot-plug-and-play-limits-quotas-and-throttles"></a>Limiti, quote e limitazioni Plug and Play
 
-In questo articolo vengono illustrati i limiti, le quote e le limitazioni specifici Plug and Play per l'anteprima pubblica. Sono disponibili [quote e limitazioni dell'hub](../iot-hub/iot-hub-devguide-quotas-throttling.md) delle cose esistenti che si applicano anche.
+Questo articolo illustra i limiti, le quote e la limitazione specifici Plug and Play. Sono disponibili [quote e limitazioni dell'hub](../iot-hub/iot-hub-devguide-quotas-throttling.md) delle cose esistenti che si applicano anche.
 
 ## <a name="iot-hub"></a>Hub IoT
 
-Per l'anteprima pubblica, i limiti e le quote seguenti si applicano a un hub Internet delle cose:
+I limiti e le quote seguenti si applicano a un hub Internet delle cose:
 
 | Limiti, restrizioni e limitazioni | valore | Note |
 |-----|-----|-----|

@@ -1,20 +1,20 @@
 ---
 title: Creare un'applicazione .NET Framework o Core di Azure Cosmos DB tramite l'API Gremlin
 description: Presenta un esempio di codice .NET Framework/Core che permette di connettersi ad Azure Cosmos DB ed eseguire query sul servizio
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
-ms.author: lbosq
+ms.author: jasonh
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f781018fc5fc832be92de34c3ef220517ad28d75
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 72b3f8a4e4a6da434ef20c8e505718ccd3e2deff
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020423"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578386"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Avvio rapido: Creare un'applicazione .NET Framework o Core usando l'account dell'API Gremlin di Azure Cosmos DB
 
@@ -110,7 +110,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
    **Endpoint Gremlin**: questo valore viene usato quando ci si connette all'account del grafo tramite la libreria Gremlin.Net.
 
-    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiare l'endpoint":::
+    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiare l'endpoint&quot;:::
 
    Per eseguire questo esempio, copiare il valore **Endpoint Gremlin** ed eliminare il numero di porta alla fine, in modo che l'URI diventi `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. Il valore dell'endpoint dovrebbe essere simile a `testgraphacct.gremlin.cosmosdb.azure.com`
 
@@ -119,11 +119,11 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 1. Dopo aver copiato l'URI e il valore PRIMARY KEY dell'account, salvarli in una nuova variabile di ambiente nel computer locale che esegue l'applicazione. Per impostare la variabile di ambiente, aprire una finestra del prompt dei comandi ed eseguire il comando seguente. Assicurarsi di sostituire i valori <URI_account_Azure_Cosmos> e <Valore_PRIMARY_KEY_account_Azure_Cosmos>.
 
    ```console
-   setx EndpointUrl "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
-   setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+   setx Host &quot;<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com&quot;
+   setx PrimaryKey &quot;<Your_Azure_Cosmos_account_PRIMARY_KEY>&quot;
    ```
 
-1. Aprire il file *Program.cs* e aggiornare le variabili "database" e "container" con i nomi del database e del contenitore (che è anche il nome del grafico) creati sopra.
+1. Aprire il file *Program.cs* e aggiornare le variabili &quot;database&quot; e &quot;container" con i nomi del database e del contenitore (che è anche il nome del grafico) creati sopra.
 
     `private static string database = "your-database-name";` `private static string container = "your-container-or-graph-name";`
 
@@ -147,7 +147,20 @@ Premere CTRL + F5 per eseguire l'applicazione. L'applicazione stamperà i comand
 
     È possibile ingrandire o ridurre il grafico, espanderne lo spazio di visualizzazione, aggiungere altri vertici e spostare i vertici nell'area di visualizzazione.
 
-    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Visualizzare il grafico in Esplora dati nel portale di Azure":::
+    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Copiare l'endpoint&quot;:::
+
+   Per eseguire questo esempio, copiare il valore **Endpoint Gremlin** ed eliminare il numero di porta alla fine, in modo che l'URI diventi `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. Il valore dell'endpoint dovrebbe essere simile a `testgraphacct.gremlin.cosmosdb.azure.com`
+
+1. Passare quindi alla scheda **Chiavi** e copiare il valore **PRIMARY KEY** dal portale di Azure. 
+
+1. Dopo aver copiato l'URI e il valore PRIMARY KEY dell'account, salvarli in una nuova variabile di ambiente nel computer locale che esegue l'applicazione. Per impostare la variabile di ambiente, aprire una finestra del prompt dei comandi ed eseguire il comando seguente. Assicurarsi di sostituire i valori <URI_account_Azure_Cosmos> e <Valore_PRIMARY_KEY_account_Azure_Cosmos>.
+
+   ```console
+   setx Host &quot;<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com&quot;
+   setx PrimaryKey &quot;<Your_Azure_Cosmos_account_PRIMARY_KEY>&quot;
+   ```
+
+1. Aprire il file *Program.cs* e aggiornare le variabili &quot;database&quot; e &quot;container":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

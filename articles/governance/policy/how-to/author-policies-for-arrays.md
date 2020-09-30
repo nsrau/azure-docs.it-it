@@ -1,14 +1,14 @@
 ---
 title: Creare i criteri per le proprietà della matrice nelle risorse
 description: Informazioni su come usare i parametri della matrice e le espressioni del linguaggio della matrice, valutare l'alias [*] e aggiungere elementi con le regole di definizione di Criteri di Azure.
-ms.date: 08/17/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 5b9392a943e264ae5eca989ee87eb9ff09b36972
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: c67982197c0161d99f29747d6fd11166cba86079
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048483"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576898"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creare i criteri per le proprietà della matrice nelle risorse di Azure
 
@@ -194,12 +194,24 @@ Di seguito sono riportati i risultati della combinazione della condizione, la re
 |`{<field>,"Equals":"127.0.0.1"}` |Nessuno |Corrispondenza totale |Un elemento della matrice restituisce true (127.0.0.1 == 127.0.0.1) e uno false (127.0.0.1 == 192.168.1.1), quindi la condizione **Equals** è _false_ e l'effetto non viene attivato. |
 |`{<field>,"Equals":"10.0.4.1"}` |Nessuno |Corrispondenza totale |Entrambi gli elementi della matrice restituiscono false (10.0.4.1 == 127.0.0.1 e 10.0.4.1 == 192.168.1.1), quindi la condizione **Equals** è _false_ e l'effetto non viene attivato. |
 
-## <a name="the-append-effect-and-arrays"></a>Effetto Append e matrici
+## <a name="modifying-arrays"></a>Modifica di matrici
 
-L'[effetto Append](../concepts/effects.md#append) si comporta in modo diverso a seconda che **details.field** sia o meno un alias **\[\*\]** .
+[Accodare](../concepts/effects.md#append) e [modificare](../concepts/effects.md#modify) le proprietà ALTER su una risorsa durante la creazione o l'aggiornamento. Quando si utilizzano le proprietà della matrice, il comportamento di questi effetti dipende dal fatto che l'operazione stia tentando di modificare  **\[\*\]** o meno l'alias:
 
-- Quando non è un alias **\[\*\]** , l'effetto Append sostituisce l'intera matrice con la proprietà **value**
-- Quando è un alias **\[\*\]** , l'effetto Append aggiunge la proprietà **value** alla matrice esistente o crea la nuova matrice
+> [!NOTE]
+> L'uso dell' `modify` effetto con gli alias è attualmente in **Anteprima**.
+
+|Alias |Effetto | Risultato |
+|-|-|-|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | Criteri di Azure accoda l'intera matrice specificata nei dettagli dell'effetto, se mancante. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify``add`operazione with | Criteri di Azure accoda l'intera matrice specificata nei dettagli dell'effetto, se mancante. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify``addOrReplace`operazione with | Criteri di Azure accoda l'intera matrice specificata nei dettagli effetti se mancante o sostituisce la matrice esistente. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `append` | Criteri di Azure Accoda il membro della matrice specificato nei dettagli dell'effetto. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify``add`operazione with | Criteri di Azure Accoda il membro della matrice specificato nei dettagli dell'effetto. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify``addOrReplace`operazione with | Criteri di Azure rimuove tutti i membri della matrice esistenti e accoda il membro della matrice specificato nei dettagli dell'effetto. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `append` | Criteri di Azure aggiunge un valore alla `action` proprietà di ogni membro della matrice. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify``add`operazione with | Criteri di Azure aggiunge un valore alla `action` proprietà di ogni membro della matrice. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify``addOrReplace`operazione with | Criteri di Azure aggiunge o sostituisce la `action` proprietà esistente di ogni membro della matrice. |
 
 Per altre informazioni, vedere gli [esempi di Append](../concepts/effects.md#append-examples).
 

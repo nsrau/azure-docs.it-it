@@ -1,15 +1,15 @@
 ---
 title: Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure.
 description: È disponibile una panoramica delle operazioni eseguibili con gli avvisi delle metriche e del relativo funzionamento in Monitoraggio di Azure.
-ms.date: 08/16/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595564"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578071"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -143,6 +143,7 @@ Questa funzionalità è attualmente supportata per le metriche della piattaforma
 | Pool di capacità dei file NetApp | **Sì** | **Sì** | **Sì** |
 | Volumi di file NetApp | **Sì** | **Sì** | **Sì** |
 | Key Vault | **Sì** | **Sì** | **Sì** |
+| Cache Redis di Azure | **Sì** | **Sì** | **Sì** |
 | Dispositivi perimetrali data box | **Sì** | **Sì** | **Sì** |
 
 <sup>1</sup> non supportato per le metriche di rete della macchina virtuale (rete totale, totale di rete, flussi in ingresso, flussi in uscita, velocità di creazione massima dei flussi in ingresso, velocità di creazione massima dei flussi in uscita).

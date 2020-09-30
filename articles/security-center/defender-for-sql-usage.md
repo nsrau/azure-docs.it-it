@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: ea0df1fb68697ceee55614510cc0295c73fec00e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6d19027cfd406f81d31696c5cd2c1a235574e400
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301653"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577850"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender per SQL Server nei computer 
 
@@ -48,7 +48,7 @@ Entrambi sono descritti di seguito.
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Passaggio 1. Eseguire il provisioning dell'agente di Log Analytics nell'host di SQL Server:
 
-- **SQL Server nella VM di Azure** : se il computer SQL è ospitato in una macchina virtuale di Azure, è possibile eseguire [il provisioning automatico dell'agente di log Analytics](security-center-enable-data-collection.md#workspace-configuration). In alternativa, è possibile seguire la procedura manuale per [aggiungere Azure stack computer](quickstart-onboard-machines.md#add-non-azure-computers).
+- **SQL Server nella VM di Azure** : se il computer SQL è ospitato in una macchina virtuale di Azure, è possibile eseguire [il provisioning automatico dell'agente di log Analytics](security-center-enable-data-collection.md#workspace-configuration). In alternativa, è possibile seguire la procedura manuale per l' [onboarding delle macchine virtuali Azure stack](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
 - **SQL Server in Azure Arc** : se la SQL Server è ospitata in una macchina di [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) , è possibile distribuire l'agente di log Analytics usando la raccomandazione "log Analytics Agent deve essere installato nei computer Azure Arc basati su Windows (anteprima)". In alternativa, è possibile seguire la procedura manuale nella [documentazione di Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
 
 - **SQL Server** locale: se la SQL Server è ospitata in un computer Windows locale senza Azure Arc, sono disponibili due opzioni per la connessione ad Azure:
@@ -97,7 +97,7 @@ Il dashboard della valutazione della vulnerabilità fornisce una panoramica dei 
 
     Viene visualizzata la visualizzazione dettagliata di questa raccomandazione.
 
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Visualizzazione dettagliata per la raccomandazione":::
+    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="I risultati della valutazione della vulnerabilità nei computer SQL Server devono essere corretti (anteprima)":::
 
 1. Per altri dettagli, eseguire il drill-down:
 

@@ -5,13 +5,15 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
-ms.custom: references_regions
-ms.openlocfilehash: a650c6d5aeea28e800b1a4ce9db325a52d60d5cc
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom:
+- references_regions
+- fasttrack-edit
+ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372222"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578037"
 ---
 # <a name="azure-functions-premium-plan"></a>Piano Premium di funzioni di Azure
 
@@ -43,7 +45,7 @@ Se attualmente non si verificano eventi ed esecuzioni nel piano a consumo, l'app
 Nel piano Premium è possibile fare in maniera che l'app sia sempre pronta per un numero specificato di istanze.  Il numero massimo di istanze sempre pronte è 20.  Quando gli eventi iniziano ad attivare l'app, vengono indirizzati alle istanze sempre pronte.  Quando la funzione diventa attiva, le istanze aggiuntive verranno scaldate come buffer.  Questo buffer impedisce l'avvio a freddo per le nuove istanze richieste durante la scalabilità.  Queste istanze memorizzate nel buffer sono denominate [istanze pre-surriscaldate](#pre-warmed-instances).  Con la combinazione delle istanze sempre pronte e di un buffer già riscaldato, l'app può eliminare efficacemente l'avvio a freddo.
 
 > [!NOTE]
-> Ogni piano Premium avrà sempre almeno un'istanza attiva e fatturata.
+> Ogni piano Premium avrà sempre almeno un'istanza attiva (fatturata).
 
 È possibile configurare il numero di istanze sempre pronte nel portale di Azure selezionando il **app per le funzioni**, passando alla scheda **funzionalità della piattaforma** e selezionando le opzioni di **scale out** . Nella finestra di modifica dell'app per le funzioni, le istanze sempre pronte sono specifiche dell'app.
 
@@ -59,9 +61,9 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Le istanze pre-riscaldate sono il numero di istanze scaldate come buffer durante gli eventi di scalabilità e attivazione.  Le istanze pre-surriscaldate continuano a essere memorizzate nel buffer fino a quando non viene raggiunto il limite massimo di scalabilità orizzontale.  Il numero predefinito di istanze pre-riscaldate è 1 e per la maggior parte degli scenari deve rimanere come 1.  Se un'app ha un tempo di riscaldamento prolungato (ad esempio un'immagine del contenitore personalizzata), è possibile aumentare questo buffer.  Un'istanza pre-riscaldata diventerà attiva solo dopo che tutte le istanze attive saranno state sufficientemente utilizzate.
 
-Si consideri questo esempio del modo in cui le istanze sempre pronte e quelle pre-surriscaldate interagiscono.  Per un'app per le funzioni Premium sono state configurate cinque istanze sempre pronte e il valore predefinito di un'istanza con riscaldamento.  Quando l'app è inattiva e non viene attivato alcun evento, l'app viene sottoposta a provisioning e in esecuzione in cinque istanze.  
+Si consideri questo esempio del modo in cui le istanze sempre pronte e quelle pre-surriscaldate interagiscono.  Per un'app per le funzioni Premium sono configurate cinque istanze sempre pronte e l'impostazione predefinita di un'istanza pre-riscaldata.  Quando l'app è inattiva e non viene attivato alcun evento, l'app viene sottoposta a provisioning e in esecuzione in cinque istanze.  A questo punto, non verrà addebitata un'istanza pre-riscaldata perché non vengono usate le istanze sempre pronte e non è ancora allocata un'istanza pre-riscaldata.
 
-Non appena viene introdotto il primo trigger, le cinque istanze sempre pronte diventano attive e viene allocata un'istanza aggiuntiva pre-riscaldata.  L'app viene ora eseguita con sei istanze di cui è stato effettuato il provisioning: le cinque istanze always ready attive e il sesto buffer preriscaldato e inattivo.  Se la frequenza delle esecuzioni continua ad aumentare, verranno utilizzate le cinque istanze attive.  Quando la piattaforma decide di scalare oltre cinque istanze, verrà ridimensionata nell'istanza pre-riscaldata.  In tal caso, saranno presenti sei istanze attive e verrà eseguito immediatamente il provisioning di una settima istanza e verrà riempito il buffer pre-riscaldato.  Questa sequenza di ridimensionamento e pre-riscaldamento continuerà fino a raggiungere il numero massimo di istanze per l'app.  Nessuna istanza verrà pre-riscaldata o attivata oltre il valore massimo.
+Non appena viene introdotto il primo trigger, le cinque istanze sempre pronte diventano attive e viene allocata un'istanza pre-riscaldata.  L'app viene ora eseguita con sei istanze di cui è stato effettuato il provisioning: le cinque istanze always ready attive e il sesto buffer preriscaldato e inattivo.  Se la frequenza delle esecuzioni continua ad aumentare, verranno utilizzate le cinque istanze attive.  Quando la piattaforma decide di scalare oltre cinque istanze, verrà ridimensionata nell'istanza pre-riscaldata.  In tal caso, saranno presenti sei istanze attive e verrà eseguito immediatamente il provisioning di una settima istanza e verrà riempito il buffer pre-riscaldato.  Questa sequenza di ridimensionamento e pre-riscaldamento continuerà fino a raggiungere il numero massimo di istanze per l'app.  Nessuna istanza verrà pre-riscaldata o attivata oltre il valore massimo.
 
 È possibile modificare il numero di istanze pre-surriscaldate per un'app usando l'interfaccia della riga di comando di Azure.
 
@@ -95,7 +97,7 @@ Per una singola esecuzione, le funzioni di Azure in un piano a consumo sono limi
 
 Quando si crea il piano, sono disponibili due impostazioni relative alle dimensioni del piano, ovvero il numero minimo di istanze (o le dimensioni del piano) e il limite massimo di picchi.
 
-Se l'app richiede istanze che superano le istanze sempre pronte, può continuare a eseguire la scalabilità orizzontale finché il numero di istanze raggiunge il limite massimo di picchi.  Vengono addebitati i costi per le istanze oltre le dimensioni del piano solo quando sono in esecuzione e affittate all'utente.  Per il ridimensionamento dell'app in base al limite massimo definito, si farà il possibile.
+Se l'app richiede istanze che superano le istanze sempre pronte, può continuare a eseguire la scalabilità orizzontale finché il numero di istanze raggiunge il limite massimo di picchi.  Vengono addebitati i costi per le istanze oltre le dimensioni del piano solo quando sono in esecuzione e allocate all'utente, in base al secondo.  Per il ridimensionamento dell'app in base al limite massimo definito, si farà il possibile.
 
 È possibile configurare le dimensioni del piano e i valori massimi nel portale di Azure selezionando le opzioni **scale out** nel piano o in un'app per le funzioni distribuita in tale piano (in **funzionalità della piattaforma**).
 
@@ -120,7 +122,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 ### <a name="available-instance-skus"></a>SKU di istanze disponibili
 
-Quando si crea o si ridimensiona il piano, è possibile scegliere tra tre dimensioni delle istanze.  Ti verrà addebitato il numero totale di core e memoria utilizzati al secondo.  L'app può essere ridimensionata automaticamente a più istanze in base alle esigenze.  
+Quando si crea o si ridimensiona il piano, è possibile scegliere tra tre dimensioni delle istanze.  Verrà addebitato il numero totale di core e di memoria di cui viene effettuato il provisioning, al secondo che ogni istanza viene allocata all'utente.  L'app può essere ridimensionata automaticamente a più istanze in base alle esigenze.  
 
 |SKU|Core|Memoria|Archiviazione|
 |--|--|--|--|
@@ -139,7 +141,7 @@ Di seguito sono riportati i valori di scalabilità orizzontale massimi attualmen
 
 Vedere la disponibilità completa a livello di area delle funzioni qui: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
-|Region| Windows | Linux |
+|Area| Windows | Linux |
 |--| -- | -- |
 |Australia centrale| 100 | Non disponibile |
 |Australia centrale 2| 100 | Non disponibile |

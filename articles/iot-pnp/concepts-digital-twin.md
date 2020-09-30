@@ -1,18 +1,18 @@
 ---
 title: Informazioni sui dispositivi gemelli Plug and Play digitali
-description: Informazioni sul modo in cui l'Plug and Play anteprima usa i dispositivi gemelli digitali
+description: Informazioni sul modo in cui l'Plug and Play usa i gemelli digitali
 author: prashmo
 ms.author: prashmo
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1908abfb3d0ea20c69a68344d54076c6760e9e63
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352274"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578054"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Informazioni sui dispositivi gemelli Plug and Play digitali
 
@@ -34,7 +34,7 @@ Le API gemelle digitali operano su costrutti di alto livello nel linguaggio DTDL
 
 In un dispositivo gemello, lo stato di una proprietà scrivibile viene suddiviso nelle sezioni desiderate e segnalate. Tutte le proprietà di sola lettura sono disponibili all'interno della sezione segnalata.
 
-In un dispositivo gemello digitale è presente una visualizzazione unificata dello stato corrente e desiderato della proprietà. Lo stato di sincronizzazione per una determinata proprietà viene archiviato nella sezione corrispondente a livello radice o componente `$metadata` .
+In un dispositivo gemello digitale è presente una visualizzazione unificata dello stato corrente e desiderato della proprietà. Lo stato di sincronizzazione per una determinata proprietà viene archiviato nella sezione componente predefinito corrispondente `$metadata` .
 
 ### <a name="digital-twin-json-format"></a>Formato JSON digitale gemello
 
@@ -48,12 +48,12 @@ Quando viene rappresentato come oggetto JSON, un dispositivo gemello digitale in
 | `$metadata.{propertyName}.desiredValue` | [Solo per le proprietà scrivibili] Valore desiderato della proprietà specificata. |
 | `$metadata.{propertyName}.desiredVersion` | [Solo per le proprietà scrivibili] Versione del valore desiderato gestito dall'hub Internet|
 | `$metadata.{propertyName}.ackVersion` | [Obbligatorio, solo per le proprietà scrivibili] La versione riconosciuta dal dispositivo che implementa il gemello digitale, deve essere maggiore o uguale alla versione desiderata |
-| `$metadata.{propertyName}.ackCode` | [Obbligatorio, solo per le proprietà scrivibili] `ack`Codice restituito dall'app per dispositivi che implementa il dispositivo gemello digitale |
-| `$metadata.{propertyName}.ackDescription` | [Facoltativo, solo per le proprietà scrivibili] `ack`Descrizione restituita dall'app per dispositivo che implementa il gemello digitale |
+| `$metadata.{propertyName}.ackCode` | [Obbligatorio, solo per le proprietà scrivibili] `ack` Codice restituito dall'app per dispositivi che implementa il dispositivo gemello digitale |
+| `$metadata.{propertyName}.ackDescription` | [Facoltativo, solo per le proprietà scrivibili] `ack` Descrizione restituita dall'app per dispositivo che implementa il gemello digitale |
 | `$metadata.{propertyName}.lastUpdateTime` | L'hub Internet gestisce il timestamp dell'ultimo aggiornamento della proprietà da parte del dispositivo. I timestamp sono in formato UTC e codificati nel formato ISO8601 aaaa-MM-GGThh: MM: SS. mmmZ |
-| `{componentName}` | Oggetto JSON che contiene i valori e i metadati della proprietà del componente, in modo analogo a un oggetto radice. |
+| `{componentName}` | Oggetto JSON che contiene i valori e i metadati della proprietà del componente. |
 | `{componentName}.{propertyName}` | Valore della proprietà del componente in JSON |
-| `{componentName}.$metadata` | Informazioni sui metadati per il componente, in modo analogo al livello radice`$metadata` |
+| `{componentName}.$metadata` | Informazioni sui metadati per il componente. |
 
 #### <a name="device-twin-sample"></a>Esempio di dispositivo gemello
 
@@ -171,7 +171,7 @@ I frammenti di codice seguenti mostrano la rappresentazione JSON side-by-side de
 
 #### <a name="writable-property"></a>Proprietà scrivibile
 
-Supponiamo che il dispositivo disponga anche della seguente proprietà scrivibile a livello di radice:
+Si immagini che il dispositivo abbia anche la seguente proprietà scrivibile nel componente predefinito:
 
 ```json
 {
@@ -228,7 +228,7 @@ Supponiamo che il dispositivo disponga anche della seguente proprietà scrivibil
    :::column-end:::
 :::row-end:::
 
-In questo esempio, `3.0` è il valore corrente della `fanSpeed` proprietà indicata dal dispositivo. `2.0`valore desiderato impostato dalla soluzione. Il valore desiderato e lo stato di sincronizzazione di una proprietà a livello di radice vengono impostati all'interno del livello radice `$metadata` per un gemello digitale. Quando il dispositivo torna online, può applicare questo aggiornamento e restituire il valore aggiornato.
+In questo esempio, `3.0` è il valore corrente della `fanSpeed` proprietà indicata dal dispositivo. `2.0` valore desiderato impostato dalla soluzione. Il valore desiderato e lo stato di sincronizzazione di una proprietà a livello di radice vengono impostati all'interno del livello radice `$metadata` per un gemello digitale. Quando il dispositivo torna online, può applicare questo aggiornamento e restituire il valore aggiornato.
 
 ### <a name="components"></a>Componenti
 
@@ -240,8 +240,8 @@ In un dispositivo gemello, un componente viene identificato dal `{ "__t": "c"}` 
 
 In questo esempio `thermostat1` è un componente con due proprietà:
 
-- `maxTempSinceLastReboot`è una proprietà di sola lettura.
-- `targetTemperature`è una proprietà scrivibile che è stata sincronizzata correttamente dal dispositivo. Il valore desiderato e lo stato di sincronizzazione di queste proprietà si trovano nell'oggetto del componente `$metadata` .
+- `maxTempSinceLastReboot` è una proprietà di sola lettura.
+- `targetTemperature` è una proprietà scrivibile che è stata sincronizzata correttamente dal dispositivo. Il valore desiderato e lo stato di sincronizzazione di queste proprietà si trovano nell'oggetto del componente `$metadata` .
 
 I frammenti di codice seguenti mostrano la rappresentazione in formato JSON affiancato del `thermostat1` componente:
 
@@ -374,6 +374,9 @@ content-encoding:utf-8
 ]
 ```
 
+> [!NOTE]
+> I messaggi di notifica delle modifiche gemelle vengono raddoppiati quando sono attivati nella notifica di modifica di dispositivi e dispositivi gemelli digitali.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ora che sono state apprese informazioni sui dispositivi gemelli digitali, di seguito sono riportate alcune risorse aggiuntive:
@@ -381,4 +384,4 @@ Ora che sono state apprese informazioni sui dispositivi gemelli digitali, di seg
 - [Come usare le API per i dispositivi gemelli Plug and Play digitali](howto-manage-digital-twin.md)
 - [Interagire con un dispositivo dalla soluzione](quickstart-service-node.md)
 - [API REST Digital Twin](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
-- [Esplora risorse di Azure](howto-use-iot-explorer.md)
+- [Azure IoT Explorer](howto-use-iot-explorer.md)

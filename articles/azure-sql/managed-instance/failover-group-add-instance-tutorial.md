@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 598bb30d21a17b2c39f69a845690c3c754ec2145
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 034940a0990fc97118e62caab051a5a9e2ffd3e7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325250"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578564"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Esercitazione: aggiungere Istanza gestita SQL a un gruppo di failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -55,6 +55,8 @@ Per completare l'esercitazione, verificare che siano disponibili gli elementi se
 ## <a name="create-a-resource-group-and-primary-managed-instance"></a>Creare un gruppo di risorse e un'istanza gestita primaria
 
 In questo passaggio si creeranno il gruppo di risorse e l'istanza gestita primaria per il gruppo di failover usando il portale di Azure o PowerShell. 
+
+Distribuire entrambe le istanze gestite in [aree abbinate](../../best-practices-availability-paired-regions.md) per motivi di prestazioni. Le istanze gestite che si trovano in aree geografiche abbinate offrono prestazioni molto migliori rispetto alle aree non abbinate. 
 
 
 # <a name="portal"></a>[Portale](#tab/azure-portal) 
@@ -740,6 +742,8 @@ Affinché due istanze gestite partecipino a un gruppo di failover, è necessario
 
 Questo articolo illustra la procedura per creare i due gateway VPN e connetterli, ma è possibile passare alla creazione del gruppo di failover se è stato configurato ExpressRoute. 
 
+> [!NOTE]
+> Lo SKU del gateway influiscono sulle prestazioni della velocità effettiva. Questa esercitazione distribuisce un gateway con lo SKU di base ( `HwGw1` ). Distribuire uno SKU superiore, ad esempio: `VpnGw3` , per ottenere una velocità effettiva più elevata. Per tutte le opzioni disponibili, vedere [SKU del gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark)
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 

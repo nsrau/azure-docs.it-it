@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bdb6bf166e84bb9134bbd14454899bcefbf0a887
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 6aa4273933190ccfe495bcaf243ee15a5ce823fb
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949899"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577646"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Come certificare i dispositivi Plug and Play
 
@@ -42,18 +42,18 @@ Per soddisfare i requisiti di certificazione, il dispositivo deve:
 - Implementare i dati di telemetria, le proprietà o i comandi dopo la convenzione Plug and Play.
 - Descrivere le interazioni del dispositivo con un modello [DTDL V2](https://aka.ms/dtdl) .
 - Pubblicare il modello e tutte le interfacce necessarie nel repository del [modello pubblico di Azure](https://devicemodels.azureiotsolutions.com/) .
-- Inviare l'ID modello durante la [registrazione DPS](concepts-developer-guide.md#dps-payload) nel payload di provisioning di DPS.
-- Annunciare l'ID modello durante la [connessione MQTT](concepts-developer-guide.md#model-id-announcement).
+- Inviare l'ID modello durante la [registrazione DPS](concepts-developer-guide-device-csharp.md#dps-payload) nel payload di provisioning di DPS.
+- Annunciare l'ID modello durante la [connessione MQTT](concepts-developer-guide-device-csharp.md#model-id-announcement).
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Eseguire test con l'interfaccia della riga di comando dell'estensione Azure
 
-L' [estensione dell'interfaccia](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest) della riga di comando di Azure è in grado di verificare che l'implementazione del dispositivo corrisponda al modello prima di inviare il dispositivo per la certificazione tramite il portale per i dispositivi Azure Certified
+L' [estensione dell'interfaccia](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest&preserve-view=true) della riga di comando di Azure è in grado di verificare che l'implementazione del dispositivo corrisponda al modello prima di inviare il dispositivo per la certificazione tramite il portale per i dispositivi Azure Certified
 
 La procedura seguente illustra come preparare ed eseguire i test di certificazione usando l'interfaccia della riga di comando:
 
 ### <a name="install-the-azure-iot-extension-for-the-azure-cli"></a>Installare l'estensione Azure per l'interfaccia della riga di comando di Azure
 
-Vedere le istruzioni di installazione per configurare l' [interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) della riga di comando di Azure nell'ambiente in uso.
+Vedere le istruzioni di installazione per configurare l' [interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) della riga di comando di Azure nell'ambiente in uso.
 
 Per installare l'estensione Azure, eseguire il comando seguente:
 
@@ -61,7 +61,7 @@ Per installare l'estensione Azure, eseguire il comando seguente:
 az extension add --name azure-iot
 ```
 
-Per altre informazioni, vedere l' [interfaccia della riga di comando di Azure per Azure](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot?view=azure-cli-latest).
+Per altre informazioni, vedere l' [interfaccia della riga di comando di Azure per Azure](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot?view=azure-cli-latest&preserve-view=true).
 
 ### <a name="create-a-new-product-test"></a>Crea nuovo test del prodotto
 
@@ -75,7 +75,7 @@ az iot product test create --badge-type Pnp --at SymmetricKey --device-type Fini
 ```
 
 > [!NOTE]
-> Quando si usa l'interfaccia della riga di comando, è necessario [accedere](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) alla sottoscrizione.
+> Quando si usa l'interfaccia della riga di comando, è necessario [accedere](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true) alla sottoscrizione.
 
 L'output JSON del comando contiene `primaryKey` , `registrationId` e `scopeID` da usare quando si connette il dispositivo.
 
@@ -166,9 +166,6 @@ Esempio di output dell'esecuzione di test
 
 I passaggi seguenti illustrano come usare il [portale per dispositivi Azure Certified](https://aka.ms/acdp) per l'onboarding, registrare i dettagli del prodotto, inviare una guida introduttiva ed eseguire i test di certificazione.
 
-> [!NOTE]
-> Al momento della stesura di questo documento, il portale non supporta la pubblicazione nel [Catalogo dei dispositivi Azure per](https://aka.ms/devicecatalog)l'it.
-
 ### <a name="onboarding"></a>Onboarding
 
 Per usare il [portale di certificazione](https://aka.ms/acdp), è necessario usare un Azure Active Directory dal tenant aziendale o dell'Istituto di istruzione.
@@ -203,6 +200,14 @@ Il passaggio Connetti e test verifica che il dispositivo soddisfi i requisiti di
 1. Connetti e individua le interfacce. Il dispositivo deve connettersi al servizio Azure Azure per la certificazione tramite DPS. Scegliere il metodo di autenticazione (certificato X. 509, chiavi simmetriche o Trusted Platform Module) per usare e aggiornare l'applicazione del dispositivo con le informazioni DPS.
 1. Esaminare le interfacce. Esaminare l'interfaccia e verificare che ognuno disponga di input di payload che abbiano senso per i test.
 1. Eseguire il test. Il sistema testa ogni modello di dispositivo per verificare che i dati di telemetria, le proprietà e i comandi descritti nel modello seguano le convenzioni Plug and Play. Al termine del test, selezionare il collegamento **Visualizza log** per visualizzare i dati di telemetria dal dispositivo e i dati non elaborati inviati alle proprietà del dispositivo gemello dell'hub Internet.
+
+### <a name="submit-and-publish"></a>Inviare e pubblicare
+
+La fase finale obbligatoria consiste nell'inviare il progetto per la revisione. Questo passaggio invia una notifica a un membro del team di Azure Certified per verificare la completezza del progetto, inclusi i dettagli sul dispositivo e sul marketing, e la Guida introduttiva. Un membro del team può contattare l'utente all'indirizzo di posta elettronica della società fornito in precedenza con domande o modificare richieste prima dell'approvazione.
+
+Se il dispositivo richiede ulteriore convalida manuale come parte della certificazione, si riceverà una notifica al momento.
+
+Quando un dispositivo è certificato, è possibile scegliere di pubblicare i dettagli del prodotto nel catalogo dei dispositivi certificati di Azure usando la funzionalità **pubblica nel catalogo** nella pagina di riepilogo del prodotto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

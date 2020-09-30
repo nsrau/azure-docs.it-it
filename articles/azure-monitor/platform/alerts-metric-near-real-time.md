@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 8/20/2020
+ms.date: 9/30/2020
 ms.subservice: alerts
-ms.openlocfilehash: 8a608e43ef41abfb7002811df5629eb789c3ae22
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 96f0cda9bdf6a17adb4d8d50b63ef5588e52f700
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595581"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578105"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure
 
@@ -37,7 +37,9 @@ Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure sup
 |Microsoft.Automation/automationAccounts | Sì| No | [Account di Automazione](./metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft. AVS/privateClouds | No | No | |
 |Microsoft.Batch/batchAccounts | Sì | No | [Account Batch](./metrics-supported.md#microsoftbatchbatchaccounts) |
-|Microsoft.Cache/Redis | Sì | No | [Cache di Azure per Redis](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.Cache/Redis | Sì | Sì | [Cache Redis di Azure](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Servizi cloud classici](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
+|Microsoft.ClassicCompute/virtualMachines | No | No | [Macchine virtuali classiche](./metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | Sì | No | [Account di archiviazione (versione classica)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
 |Microsoft.ClassicStorage/storageAccounts/blobServices | Sì | No | |
 |Microsoft.ClassicStorage/storageAccounts/fileServices | Sì | No | |
@@ -55,7 +57,7 @@ Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure sup
 |Microsoft.DataShare/accounts | Sì | No | |
 |Microsoft.DBforMariaDB/servers | No | No | [DB per MariaDB](./metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | No | No |[Database per MySQL](./metrics-supported.md#microsoftdbformysqlservers)|
-|Microsoft. DBforPostgreSQL/flexibleServers | Sì | No | |
+|Microsoft.DBforPostgreSQL/flexibleServers | Sì | No | |
 |Microsoft.DBforPostgreSQL/servers | No | No | [Database per PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | No | No | [DB per PostgreSQL V2](./metrics-supported.md#microsoftdbforpostgresqlserversv2)|
 |Microsoft. DBforPostgreSQL/singleservers | No | No | [DB per PostgreSQL (server singoli)](./metrics-supported.md#microsoftdbforpostgresqlsingleservers)|

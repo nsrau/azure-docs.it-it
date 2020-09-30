@@ -12,19 +12,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 42326247117c0710c93b45c896bb6e7cb3a8120f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: ab057e1328efbff294faa1d68f2a27c5a1f03ade
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91444389"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577510"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurare un gruppo di failover per il database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Questo argomento illustra come configurare un gruppo di [failover automatico](auto-failover-group-overview.md) per il database SQL di Azure e azure SQL istanza gestita.
 
-## <a name="single-database-in-azure-sql-database"></a>Database singolo nel database SQL di Azure
+## <a name="single-database"></a>Database singolo
 
 Creare il gruppo di failover e aggiungervi un singolo database usando il portale di Azure o PowerShell.
 
@@ -192,7 +192,7 @@ Ripristinare il gruppo di failover nel server primario:
 > [!IMPORTANT]
 > Se è necessario eliminare il database secondario, rimuoverlo dal gruppo di failover prima di eliminarlo. L'eliminazione di un database secondario prima che venga rimossa dal gruppo di failover può causare un comportamento imprevedibile.
 
-## <a name="elastic-pools-in-azure-sql-database"></a>Pool elastici nel database SQL di Azure
+## <a name="elastic-pool"></a>Pool elastico
 
 Creare il gruppo di failover e aggiungervi un pool elastico usando il portale di Azure o PowerShell.  
 
@@ -346,7 +346,9 @@ Eseguire il failover sul server secondario:
 
 Creare un gruppo di failover tra due istanze gestite in Azure SQL Istanza gestita usando il portale di Azure o PowerShell.
 
-Sarà necessario configurare [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o creare un gateway per la rete virtuale di ogni istanza gestita SQL, connettere i due gateway e quindi creare il gruppo di failover.
+Sarà necessario configurare [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o creare un gateway per la rete virtuale di ogni istanza gestita SQL, connettere i due gateway e quindi creare il gruppo di failover. 
+
+Distribuire entrambe le istanze gestite in [aree abbinate](../../best-practices-availability-paired-regions.md) per motivi di prestazioni. Le istanze gestite che si trovano in aree geografiche abbinate offrono prestazioni molto migliori rispetto alle aree non abbinate. 
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -360,6 +362,9 @@ Considerare i prerequisiti seguenti:
 ### <a name="create-primary-virtual-network-gateway"></a>Creare un gateway di rete virtuale primario
 
 Se [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)non è stato configurato, è possibile creare il gateway di rete virtuale primario con il portale di Azure o PowerShell.
+
+> [!NOTE]
+> Lo SKU del gateway influiscono sulle prestazioni della velocità effettiva. Questo articolo distribuisce un gateway con lo SKU di base ( `HwGw1` ). Distribuire uno SKU superiore, ad esempio: `VpnGw3` , per ottenere una velocità effettiva più elevata. Per tutte le opzioni disponibili, vedere [SKU del gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark) 
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -675,7 +680,7 @@ L'endpoint del listener è nel formato `fog-name.database.windows.net` e è visi
 
 ![Stringa di connessione del gruppo di failover](./media/auto-failover-group-configure/find-failover-group-connection-string.png)
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 - La rimozione di un gruppo di failover per un database singolo o in pool non interrompe la replica e non elimina il database replicato. È necessario arrestare manualmente la replica geografica ed eliminare il database dal server secondario se si desidera aggiungere di nuovo un database singolo o in pool a un gruppo di failover dopo che è stato rimosso. In caso contrario, potrebbe verificarsi un errore simile a `The operation cannot be performed due to multiple errors` quando si tenta di aggiungere il database al gruppo di failover.
 
