@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/25/2020
-ms.openlocfilehash: bfcaf9d4b1d03457f2e4cddd2e0eaf9d9d58eee2
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: f77d197c30d00083b280a97079fe03146fcfeb82
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869185"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061802"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Esercitazione: Configurare ed eseguire il provider di Azure Key Vault per il driver CSI dell'archivio di segreti in Kubernetes
 
@@ -70,7 +70,7 @@ Completare le sezioni "Creare un gruppo di risorse", "Creare un cluster del serv
     ```azurecli
     kubectl version
     ```
-1. Assicurarsi che la versione di Kubernetes sia 1.16.0 o successiva. Il comando seguente aggiorna sia il cluster Kubernetes che il pool di nodi. L'esecuzione del comando potrebbe richiedere un paio di minuti. In questo esempio il gruppo di risorse è *contosoResourceGroup* e il cluster Kubernetes è *contosoAKSCluster*.
+1. Assicurarsi che la versione di Kubernetes sia 1.16.0 o successiva. Per i cluster Windows assicurarsi che la versione di Kubernetes sia 1.18.0 o successiva. Il comando seguente aggiorna sia il cluster Kubernetes che il pool di nodi. L'esecuzione del comando potrebbe richiedere un paio di minuti. In questo esempio il gruppo di risorse è *contosoResourceGroup* e il cluster Kubernetes è *contosoAKSCluster*.
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
@@ -110,18 +110,20 @@ Per creare un'istanza di Key Vault e impostare i segreti, seguire le istruzioni 
 
 ## <a name="create-your-own-secretproviderclass-object"></a>Creare un oggetto SecretProviderClass personale
 
-Per creare un oggetto SecretProviderClass personalizzato con parametri specifici del provider per il driver CSI dell'archivio segreti, [usare questo modello](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/test/bats/tests/azure_v1alpha1_secretproviderclass.yaml). Questo oggetto fornirà all'identità l'accesso all'istanza di Key Vault.
+Per creare un oggetto SecretProviderClass personalizzato con parametri specifici del provider per il driver CSI dell'archivio segreti, [usare questo modello](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass_service_principal.yaml). Questo oggetto fornirà all'identità l'accesso all'istanza di Key Vault.
 
 Nel file YAML SecretProviderClass di esempio compilare i parametri mancanti. I parametri seguenti sono obbligatori:
 
-* **userAssignedIdentityID**: l'ID client dell'entità servizio
+* **userAssignedIdentityID**: # [OBBLIGATORIO] se si usa un'entità servizio, usare l'ID client per specificare l'identità gestita assegnata dall'utente da usare. Se si usa un'identità assegnata dall'utente come identità gestita della macchina virtuale, specificare l'ID client dell'identità. Se il valore è vuoto, per impostazione predefinita viene usata l'identità assegnata dal sistema nella macchina virtuale 
 * **keyvaultName**: il nome dell'istanza di Key Vault
 * **objects**: il contenitore per tutto il contenuto dei segreti da montare
     * **objectName**: il nome del contenuto dei segreti
     * **objectType**: il tipo di oggetto (segreto, chiave, certificato)
-* **resourceGroup**: il nome del gruppo di risorse
-* **subscriptionId:** l'ID sottoscrizione dell'istanza di Key Vault
+* **resourceGroup**: il nome del gruppo di risorse # [OBBLIGATORIO per versioni inferiori alla 0.0.4] il gruppo di risorse del KeyVault
+* **subscriptionId:** l'ID sottoscrizione del Key Vault # [OBBLIGATORIO per versioni inferiori alla 0.0.4] l'ID sottoscrizione del KeyVault
 * **tenantID**: l'ID tenant, ID directory, dell'istanza di Key Vault
+
+La documentazione relativa a tutti i campi obbligatori è disponibile qui: [Collegamento](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 Il modello aggiornato è mostrato nel codice seguente. Scaricarlo come file YAML e compilare i campi obbligatori. In questo esempio l'istanza di Key Vault è **contosoKeyVault5**. Contiene due segreti, **secret1** e **secret2**.
 
@@ -210,6 +212,11 @@ Se si usano le identità gestite, assegnare ruoli specifici al cluster del servi
 1. Per creare, elencare o leggere un'identità gestita assegnata dall'utente, è necessario assegnare al cluster del servizio Azure Kubernetes il ruolo [Operatore di identità gestite](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator). Assicurarsi che il valore di **$clientId** corrisponda a quello di clientId del cluster Kubernetes. Per l'ambito, si troverà nel servizio della sottoscrizione di Azure, in particolare nel gruppo di risorse del nodo che è stato creato al momento della creazione del cluster del servizio Azure Kubernetes. Questo ambito garantisce che solo le risorse all'interno di tale gruppo siano interessate dai ruoli assegnati di seguito. 
 
     ```azurecli
+    RESOURCE_GROUP=contosoResourceGroup
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+    
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
@@ -304,6 +311,8 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
+          nodePublishSecretRef:
+              name: secrets-store-creds 
 ```
 
 Eseguire il comando seguente per distribuire il pod:

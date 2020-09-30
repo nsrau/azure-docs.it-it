@@ -5,39 +5,32 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 09/25/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ea8ed75bf91850abb95ebe983923989375c0fcf5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bed8475e5d6c7bf26003672b6cf9ce51a82384ad
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76759850"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376638"
 ---
 Per creare un account di archiviazione per utilizzo generico v2 nel portale di Azure, eseguire questa procedura:
 
 1. Nel menu del portale di Azure selezionare **Tutti i servizi**. Nell'elenco delle risorse digitare **Account di archiviazione**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Account di archiviazione**.
-2. Nella finestra **Account di archiviazione** visualizzata scegliere **Aggiungi**.
-3. Selezionare la sottoscrizione in cui creare l'account di archiviazione.
-4. Nel campo **Gruppo di risorse** selezionare **Crea nuovo**. Immettere un nome per il nuovo gruppo di risorse, come illustrato nell'immagine seguente.
+1. Nella finestra **Account di archiviazione** visualizzata scegliere **Aggiungi**.
+1. Nella scheda **Informazioni di base** selezionare la sottoscrizione in cui creare l'account di archiviazione.
+1. Nel campo **Gruppo di risorse** selezionare il gruppo di risorse desiderato o crearne uno nuovo.  Per altre informazioni sui gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
+1. Immettere quindi un nome per l'account di archiviazione. Il nome scelto deve essere univoco in Azure. Deve avere inoltre una lunghezza compresa tra 3 e 24 caratteri e contenere solo numeri e lettere minuscole.
+1. Selezionare la località per l'account di archiviazione o usare la località predefinita.
+1. Selezionare un livello di prestazioni. Il livello predefinito è *Standard*.
+1. Impostare il campo **Tipologia account** su *Archiviazione V2 (utilizzo generico v2)* .
+1. Specificare la modalità di replica dell'account di archiviazione. L'opzione di replica predefinita è *Archiviazione con ridondanza geografica e accesso in lettura*. Per altre informazioni sulle opzioni di replica disponibili, vedere [Ridondanza di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md).
+1. Specificare il livello di accesso per i BLOB nell'account di archiviazione. Il livello predefinito è *Accesso frequente*. Per altre informazioni sui livelli di accesso per i BLOB, vedere [Livelli di accesso frequente, sporadico e archivio per i BLOB](../articles/storage/blobs/storage-blob-storage-tiers.md).
+1. Per usare Azure Data Lake Storage, scegliere la scheda **Avanzate** e quindi impostare **Spazio dei nomi gerarchico** su **Abilitato**. Per altre informazioni, vedere [Introduzione ad Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md).
+1. Selezionare **Rivedi e crea** per esaminare le impostazioni dell'account di archiviazione e creare l'account.
+1. Selezionare **Crea**.
 
-    ![Screenshot che mostra come creare un gruppo di risorse nel portale](./media/storage-create-account-portal-include/create-resource-group-for-storage.png)
+La figura seguente mostra le impostazioni nella scheda **Informazioni di base** per un nuovo account di archiviazione:
 
-5. Immettere quindi un nome per l'account di archiviazione. Il nome scelto deve essere univoco in Azure. Deve avere inoltre una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.
-6. Selezionare la località per l'account di archiviazione o usare la località predefinita.
-7. Mantenere i valori predefiniti per questi campi:
-
-   |Campo  |valore  |
-   |---------|---------|
-   |Modello di distribuzione     |Gestione risorse         |
-   |Prestazioni     |Standard         |
-   |Tipo di account     |Archiviazione v2 (utilizzo generico V2)         |
-   |Replica     |Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).         |
-   |Livello di accesso     |Accesso frequente         |
-
-8. Se si prevede di usare [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), scegliere la scheda **Avanzate** e quindi impostare **Spazio dei nomi gerarchico** su **Abilitato**.
-9. Selezionare **Rivedi e crea** per esaminare le impostazioni dell'account di archiviazione e creare l'account.
-10. Selezionare **Create** (Crea).
-
-Per altre informazioni sui tipi di account di archiviazione e su altre impostazioni dell'account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview). Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 
+:::image type="content" source="media/storage-create-account-portal-include/account-create-portal.png" alt-text="Screenshot che illustra come creare un account di archiviazione nel portale di Azure":::

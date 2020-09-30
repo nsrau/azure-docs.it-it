@@ -3,12 +3,12 @@ title: Riproduzione di registrazioni di più giorni - Azure
 description: In questa esercitazione si apprenderà come usare le API di Servizi multimediali di Azure per riprodurre una registrazione continua di video di più giorni.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 19a42c61ef250fecce4503d3aed70b36d71ee3cf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: e01c8603869f17ef2d68a39861f11818a4cea975
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649092"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530574"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Esercitazione: Riproduzione di registrazioni di più giorni  
 
@@ -72,11 +72,11 @@ Quindi, in Visual Studio Code aprire src/ams-asset-player. Questa cartella conti
 
 In Visual Studio Code è possibile fare clic sull'icona Esegui a sinistra (o CTRL+MAIUSC+D) per visualizzare le applicazioni disponibili per l'esecuzione:
 
-![Esegui](./media/playback-multi-day-recordings-tutorial/run.png)
+![Screenshot che mostra un menu in Visual Studio Code con l'elemento di esecuzione selezionato.](./media/playback-multi-day-recordings-tutorial/run.png)
  
 Selezionare l'applicazione AMS Asset Player dalla casella di riepilogo a discesa, come illustrato di seguito, e premere F5 per avviare il debug.
 
-![Debug](./media/playback-multi-day-recordings-tutorial/debug.png)
+![Screenshot che mostra un menu in Visual Studio Code con l'applicazione AMS Asset Player selezionata.](./media/playback-multi-day-recordings-tutorial/debug.png)
 
 L'applicazione di esempio compilerà e avvierà l'app browser predefinita e aprirà la pagina di AMS Asset Player.
 

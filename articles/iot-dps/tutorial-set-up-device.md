@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4a017f4b71a91f580a5281468a3f2bcbf7ba31b1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84687108"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531526"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Esercitazione: Configurare un dispositivo per il provisioning usando il servizio Device Provisioning in hub IoT di Azure
 
-Nell'esercitazione precedente è stato descritto come configurare il servizio Device Provisioning in hub IoT di Azure per effettuare automaticamente il provisioning dei dispositivi per l'hub IoT. Questa esercitazione mostra come configurare il dispositivo durante il processo produttivo, consentendone il provisioning automatico con lhub IoT. Il provisioning del dispositivo viene effettuato in base al rispettivo [meccanismo di attestazione](concepts-device.md#attestation-mechanism), al primo avvio e alla prima connessione al servizio di provisioning. Questa esercitazione illustra le attività seguenti:
+Nell'esercitazione precedente è stato descritto come configurare il servizio Device Provisioning in hub IoT di Azure per effettuare automaticamente il provisioning dei dispositivi per l'hub IoT. Questa esercitazione mostra come configurare il dispositivo durante il processo produttivo, consentendone il provisioning automatico con lhub IoT. Il provisioning del dispositivo viene effettuato in base al rispettivo [meccanismo di attestazione](concepts-service.md#attestation-mechanism), al primo avvio e alla prima connessione al servizio di provisioning. Questa esercitazione illustra le attività seguenti:
 
 > [!div class="checklist"]
 > * Creare un SDK client del servizio Device Provisioning specifico per la piattaforma
@@ -29,7 +29,7 @@ In questa esercitazione si presuppone che siano già stati creati l'istanza del 
 
 Questa esercitazione usa il [repository per gli SDK e le librerie di Azure IoT per C](https://github.com/Azure/azure-iot-sdk-c), che include l'SDK client per il servizio Device Provisioning per C. L'SDK offre attualmente il supporto per TPM e X.509 per dispositivi in esecuzione su implementazioni Windows o Ubuntu. Questa esercitazione è basata sull'uso di un client di sviluppo Windows e ciò presuppone anche competenze di base di Visual Studio. 
 
-Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md) prima di continuare. 
+Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica sul [provisioning](about-iot-dps.md#provisioning-process) prima di continuare. 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -38,7 +38,7 @@ Se non si ha familiarità con il processo di provisioning automatico, vedere [Co
 
 I prerequisiti seguenti si riferiscono a un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione dell'SDK.
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con il carico di lavoro ['Sviluppo di applicazioni desktop con C++'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con il carico di lavoro ['Sviluppo di applicazioni desktop con C++'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
 
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
@@ -100,9 +100,9 @@ A seconda del fatto che l'SDK sia stato compilato per usare l'attestazione per u
 
 - Per un dispositivo X.509, è necessario ottenere i certificati rilasciati ai dispositivi. Il servizio di provisioning espone due tipi di voci di registrazione che controllano l'accesso per i dispositivi che usano il meccanismo di attestazione X.509. I certificati necessari dipendono dai tipi di registrazione che verranno usati.
 
-    - Registrazioni individuali: registrazione per un singolo dispositivo specifico. Questo tipo di voce di registrazione richiede [certificati dell'entità finale, "foglia"](concepts-security.md#end-entity-leaf-certificate).
+    - Registrazioni individuali: registrazione per un singolo dispositivo specifico. Questo tipo di voce di registrazione richiede [certificati dell'entità finale, "foglia"](concepts-x509-attestation.md#end-entity-leaf-certificate).
     
-    - Gruppi di registrazioni: questo tipo di voce di registrazione richiede certificati intermedi o radice. Per altre informazioni, vedere [Controllo dell'accesso dei dispositivi al servizio di provisioning con certificati X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    - Gruppi di registrazioni: questo tipo di voce di registrazione richiede certificati intermedi o radice. Per altre informazioni, vedere [Controllo dell'accesso dei dispositivi al servizio di provisioning con certificati X.509](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Dispositivi simulati
 

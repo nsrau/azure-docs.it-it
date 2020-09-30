@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 0a228f6d8b4f72acd3783f27bf192fe6bd13f988
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f738daab7ddcf0403f546e7c9ffeaeccb66bc6b7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75392128"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355645"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Creare un'istanza del servizio Azure SignalR
 
@@ -20,7 +20,7 @@ L'applicazione si connette a un'istanza del servizio SignalR in Azure.
 
 1. Selezionare il pulsante Nuovo nell'angolo superiore sinistro del portale di Azure. Nella nuova schermata digitare *Servizio SignalR* nella casella di ricerca e premere Invio.
 
-    ![Cercare il servizio SignalR](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-new.png)
+    ![Screenshot che illustra i risultati della ricerca del servizio SignalR nel portale di Azure.](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-new.png)
 
 1. Selezionare **Servizio SignalR** dai risultati della ricerca, quindi selezionare **Crea**.
 
@@ -36,7 +36,7 @@ L'applicazione si connette a un'istanza del servizio SignalR in Azure.
     | **Unità: conteggio** |  Non applicabile | Numero di unità specifica il numero di connessioni che può accettare l'istanza del servizio SignalR. È configurabili solo nel livello Standard. |
     | **Modalità di servizio** |  Senza server | Per l'uso con Funzioni di Azure o l'API REST. |
 
-    ![Creare il servizio SignalR](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
+    ![Screenshot della scheda Informazioni di base di SignalR con valori.](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 
 1. Selezionare **Crea** per iniziare la distribuzione dell'istanza del servizio SignalR.
 

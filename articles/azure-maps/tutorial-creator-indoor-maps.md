@@ -1,21 +1,21 @@
 ---
-title: Usare Creator per creare piante di interni
-description: Usare Creator di Mappe di Azure per creare piante di interni.
+title: 'Esercitazione: Usare Creator per creare piante di interni'
+description: Esercitazione sull'uso di Creator di Mappe di Azure per creare piante di interni
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/29/2020
-ms.topic: conceptual
+ms.date: 09/22/2020
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
-ms.translationtype: MT
+ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469916"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371423"
 ---
-# <a name="use-creator-to-create-indoor-maps"></a>Usare Creator per creare piante di interni
+# <a name="tutorial-use-creator-to-create-indoor-maps"></a>Esercitazione: Usare Creator per creare piante di interni
 
 Questa esercitazione mostra come creare piante di interni. Questa esercitazione descrive come usare l'API per:
 
@@ -35,12 +35,12 @@ Per creare piante di interni è necessario:
 1. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione
 3. [Creare una risorsa Creator](how-to-manage-creator.md)
-4. Scaricare il [pacchetto di disegno di esempio](https://github.com/Azure-Samples/am-creator-indoor-data-examples)
+4. Scaricare il [pacchetto di disegno di esempio](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip)
 
 Questa esercitazione usa l'applicazione [Postman](https://www.postman.com/), tuttavia è possibile scegliere un ambiente di sviluppo API diverso.
 
 >[!IMPORTANT]
-> Gli URL dell'API in questo documento possono essere modificati in base alla posizione della risorsa dell'autore. Per altri dettagli, vedere [accesso ai servizi Creator](how-to-manage-creator.md#access-to-creator-services).
+> Potrebbe essere necessario modificare gli URL dell'API riportati in questo documento con il percorso della risorsa Creator. Per altre informazioni, vedere [Accesso ai servizi Creator](how-to-manage-creator.md#access-to-creator-services).
 
 ## <a name="upload-a-drawing-package"></a>Caricare un pacchetto di disegno
 
@@ -64,7 +64,7 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
 
 5. Fare clic sul pulsante blu **Send** (Invia) e attendere l'elaborazione della richiesta. Al completamento della richiesta, passare alla scheda di risposta **Headers** (Intestazioni). Copiare il valore della chiave **Location** (Posizione), ovvero lo `status URL`.
 
-6. Per controllare lo stato della chiamata API, creare una richiesta HTTP **GET** sullo `status URL`. È necessario accodare la chiave di sottoscrizione primaria all'URL per l'autenticazione. La richiesta **Get** dovrebbe essere simile all'URL seguente:
+6. Per controllare lo stato della chiamata API, creare una richiesta HTTP **GET** sullo `status URL`. È necessario accodare la chiave di sottoscrizione primaria all'URL per l'autenticazione. La richiesta **GET** deve essere simile all'URL seguente:
 
     ```http
     https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -111,13 +111,13 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
     ```
 
     >[!IMPORTANT]
-    > Gli URL dell'API in questo documento possono essere modificati in base alla posizione della risorsa dell'autore. Per altri dettagli, vedere [accesso ai servizi Creator](how-to-manage-creator.md#access-to-creator-services).
+    > Potrebbe essere necessario modificare gli URL dell'API riportati in questo documento con il percorso della risorsa Creator. Per altre informazioni, vedere [Accesso ai servizi Creator](how-to-manage-creator.md#access-to-creator-services).
 
-3. Fare clic su **Send** (Invia) e attendere l'elaborazione della richiesta. Al completamento della richiesta, passare alla scheda della risposta **Headers** (Intestazioni) e cercare la chiave **Location** (Posizione). Copiare il valore della chiave **Location** (Posizione), che è lo `status URL` per la richiesta di conversione. Che verrà usato nel passaggio successivo.
+3. Fare clic su **Send** (Invia) e attendere l'elaborazione della richiesta. Al completamento della richiesta, passare alla scheda della risposta **Headers** (Intestazioni) e cercare la chiave **Location** (Posizione). Copiare il valore della chiave **Location** (Posizione), che è lo `status URL` per la richiesta di conversione. Questo valore verrà usato nel passaggio successivo.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copiare il valore della chiave location":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copiare il valore della chiave Location":::
 
-4. Selezionare il metodo HTTP **GET** nella scheda del generatore. Accodare la chiave di sottoscrizione primaria di Mappe di Azure allo `status URL`. Eseguire una richiesta **Get** in `status URL` copiata nel passaggio 3. L' `status URL` aspetto dell'URL è simile al seguente:
+4. Selezionare il metodo HTTP **GET** nella scheda del generatore. Accodare la chiave di sottoscrizione primaria di Mappe di Azure allo `status URL`. Inviare una richiesta **GET** allo `status URL` copiato al passaggio 3. Lo `status URL` è simile all'URL seguente:
 
     ```http
     https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -404,43 +404,11 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
 
 L'[API Feature Get States](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) consente di recuperare lo stato di una funzionalità usando la relativa funzionalità `ID`. È anche possibile eliminare i set di stati e le relative risorse usando l'[API Feature State Delete](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
 
+Per informazioni sui diversi servizi Creator di Mappe di Azure descritti in questo articolo, vedere [Piante di interni di Creator](creator-indoor-maps.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le procedure per:
-
-> [!div class="checklist"]
-> * Caricare il pacchetto di disegno della pianta di interni
-> * Convertire il pacchetto di disegno in dati della pianta
-> * Creare un set di dati dai dati della pianta
-> * Creare un set di tessere a partire dai dati nel set di dati
-> * Eseguire una query sul servizio WFS Mappe di Azure per ottenere informazioni sulle funzionalità della pianta
-> * Creare un set di stati delle funzionalità usando le funzionalità della pianta e i dati nel set di dati
-> * Aggiornare il set di stati della funzionalità
-
-A questo punto si hanno le competenze necessarie per passare alle guide successive:
+Per informazioni su come usare il modulo Piante di interni, vedere
 
 > [!div class="nextstepaction"]
-> [Usare il modulo di piante di interni](how-to-use-indoor-module.md)
-
-> [!div class="nextstepaction"]
-> [Implementare stili dinamici per le piante di interni](indoor-map-dynamic-styling.md)
-
-Informazioni sui diversi servizi di Mappe di Azure descritti in questo articolo:
-
-> [!div class="nextstepaction"]
-> [Data Upload](creator-indoor-maps.md#upload-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Conversione dati](creator-indoor-maps.md#convert-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Set di dati](creator-indoor-maps.md#datasets)
-
-> [!div class="nextstepaction"]
-> [Set di tessere](creator-indoor-maps.md#tilesets)
-
-> [!div class="nextstepaction"]
-> [Set di stati della funzionalità](creator-indoor-maps.md#feature-statesets)
-
-> [!div class="nextstepaction"]
-> [Servizio WFS](creator-indoor-maps.md#web-feature-service-api)
+> [Usare il modulo Piante di interni](how-to-use-indoor-module.md)

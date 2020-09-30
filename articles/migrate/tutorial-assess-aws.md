@@ -1,27 +1,26 @@
 ---
-title: Valutare le macchine virtuali Hyper-V per la migrazione a macchine virtuali di Azure con Valutazione server in Azure Migrate
-description: Informazioni su come valutare le macchine virtuali Hyper-V per la migrazione a macchine virtuali di Azure con Valutazione server.
+title: Valutare le istanze di AWS per la migrazione ad Azure con Valutazione server di Azure Migrate
+description: Descrive come valutare le istanze di AWS per la migrazione ad Azure usando Valutazione server di Azure Migrate.
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: be5099aa515a2331cb05fa8bf6ea76c7544ec1df
+ms.openlocfilehash: 14928c8a3249cca172ad088f290b54a22a125ae7
 ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089235"
+ms.locfileid: "90108337"
 ---
-# <a name="tutorial-assess-hyper-v-vms-for-migration-to-azure"></a>Esercitazione: Valutare la migrazione di macchine virtuali Hyper-V ad Azure
+# <a name="tutorial-assess-aws-instances-for-migration-to-azure"></a>Esercitazione: Valutare le istanze di AWS per la migrazione ad Azure
 
 Il percorso di migrazione ad Azure prevede la valutazione dei carichi di lavoro locali per misurare l'idoneità del cloud, identificare i rischi e stimare costi e complessità.
 
-Questo articolo illustra come valutare macchine virtuali Hyper-V individuate per la migrazione ad Azure con lo strumento Azure Migrate: Valutazione server.
-
+Questo articolo descrive come valutare le istanze di Amazon Web Services (AWS) per la migrazione ad Azure con lo strumento Azure Migrate: Valutazione server.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
-- Eseguire una valutazione.
-- Analizzare una valutazione.
+- Eseguire una valutazione in base alle informazioni relative a metadati e configurazioni delle macchine virtuali.
+- Eseguire una valutazione in base ai dati sulle prestazioni.
 
 > [!NOTE]
 > Le esercitazioni illustrano il percorso più rapido per provare uno scenario e, laddove possibile, prevedono l'uso delle opzioni predefinite. 
@@ -31,10 +30,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Prima di seguire questa esercitazione per valutare le macchine virtuali per la migrazione alle macchine virtuali di Azure, assicurarsi di aver individuato le macchine virtuali che si intende valutare:
-    - Per individuare le macchine virtuali usando l'appliance di Azure Migrate, [seguire questa esercitazione](tutorial-discover-hyper-v.md). 
-    - Per individuare le macchine virtuali usando un file CSV importato, [seguire questa esercitazione](tutorial-discover-import.md).
-
+- Prima di seguire la procedura descritta in questa esercitazione, completare la prima esercitazione di questa serie per [individuare l'inventario locale](tutorial-discover-aws.md). 
+- Assicurarsi che nelle istanze di AWS non sia in esecuzione Windows Server 2003 o SUSE Linux. La valutazione non è supportata per queste macchine virtuali.
 
 
 ## <a name="decide-which-assessment-to-run"></a>Decidere la valutazione da eseguire
@@ -47,29 +44,27 @@ Decidere se si vuole eseguire una valutazione usando criteri di dimensionamento 
 **Come in locale** | Eseguire la valutazione in base ai dati/metadati di configurazione delle macchine virtuali.  | Le dimensioni consigliate per le macchine virtuali di Azure sono basate sulle dimensioni delle macchine virtuali locali.<br/><br> Il tipo di disco di Azure consigliato è basato sull'opzione selezionata nella valutazione per l'impostazione del tipo di archiviazione.
 **Basata sulle prestazioni** | Eseguire la valutazione in base ai dati dinamici relativi alle prestazioni. | Le dimensioni consigliate per le macchine virtuali di Azure sono basate sui dati di utilizzo della CPU e della memoria.<br/><br/> Il tipo di disco consigliato è basato sulle operazioni di I/O al secondo e sulla velocità effettiva dei dischi locali.
 
-
 ## <a name="run-an-assessment"></a>Eseguire una valutazione
 
 Eseguire una valutazione nel modo seguente:
 
 1. Nella pagina **Server** selezionare **Server Windows e Linux** e fare clic su **Valutare ed eseguire la migrazione dei server**.
 
-   ![Posizione del pulsante Valutare ed eseguire la migrazione dei server](./media/tutorial-assess-vmware-azure-vm/assess.png)
+   ![Posizione del pulsante Valutare ed eseguire la migrazione dei server](./media/tutorial-assess-aws/assess.png)
 
 2. In **Azure Migrate: Valutazione server fare clic su **Valuta**.
 
-    ![Posizione del pulsante Valuta](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
+    ![Posizione del pulsante Valuta](./media/tutorial-assess-aws/assess-servers.png)
 
 3. In **Valuta server** > **Tipo di valutazione** selezionare **Macchina virtuale di Azure**.
 4. In **Origine individuazione**:
 
     - Se le macchine virtuali sono state individuate usando l'appliance, selezionare **Macchine virtuali individuate dall'appliance di Azure Migrate**.
     - Se le macchine virtuali sono state individuate usando un file CSV importato, selezionare **Macchine virtuali importate**. 
-    
 5. Specificare un nome per la valutazione. 
 6. Fare clic su **Visualizza tutto** per rivedere le proprietà di valutazione.
 
-    ![Posizione del pulsante Visualizza tutto per esaminare le proprietà della valutazione](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
+    ![Posizione del pulsante Visualizza tutto per esaminare le proprietà della valutazione](./media/tutorial-assess-aws/assessment-name.png)
 
 7. In **Proprietà valutazione** > **Proprietà destinazione**:
     - In **Località di destinazione** specificare l'area di Azure in cui eseguire la migrazione.
@@ -89,7 +84,7 @@ Eseguire una valutazione nel modo seguente:
     - In **Serie macchina virtuale** specificare la serie di macchine virtuali di Azure che si vuole prendere in considerazione.
         - Se si usa la valutazione basata sulle prestazioni, il valore viene suggerito da Azure Migrate.
         - Perfezionare le impostazioni in base alle esigenze. Se, ad esempio, non si ha un ambiente di produzione in cui sono richieste le macchine virtuali della serie A in Azure, si può escludere la serie A dall'elenco delle serie.
-    - In **Fattore di comfort** indicare il buffer da usare durante la valutazione. Questa opzione tiene conto di aspetti quali l'utilizzo stagionale, una cronologia ridotta delle prestazioni e il probabile aumento dell'utilizzo futuro. Se ad esempio si usa un fattore di comfort di due: **Componente** | **Utilizzo effettivo** | **Aggiungere fattore di comfort (2.0)** Core | 2 | 4 Memoria | 8 GB | 16 GB     
+    - In **Fattore di comfort** indicare il buffer da usare durante la valutazione. Questa opzione tiene conto di aspetti quali l'utilizzo stagionale, una cronologia ridotta delle prestazioni e il probabile aumento dell'utilizzo futuro. Se ad esempio si usa un fattore di comfort di due: **Dettagli** | **Utilizzo** | **Aggiungere fattore di comfort (2.0)** Operazioni di I/O al secondo in lettura | 100 | 200 Operazioni di I/O al secondo in scrittura | 100 | 200 Velocità effettiva in lettura | 100 Mbps | 200 Mbps Velocità effettiva in scrittura | 100 Mbps | 200 Mbps
    
 9. In **Prezzi**:
     - In **Offerta** specificare l'[offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) sottoscritta. Valutazione server stima il costo di tale offerta.
@@ -105,7 +100,7 @@ Eseguire una valutazione nel modo seguente:
 
 10. Se sono state apportate modifiche, fare clic su **Salva**.
 
-    ![Proprietà valutazione](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
+    ![Proprietà valutazione](./media/tutorial-assess-aws/assessment-properties.png)
 
 11. In **Valuta server** fare clic su **Avanti**.
 12. In **Selezionare le macchine virtuali da valutare** selezionare **Crea nuovo** e specificare un nome per il gruppo. 
@@ -129,7 +124,7 @@ Per visualizzare una valutazione:
 1. In **Server** > **Azure Migrate: Valutazione server**, fare clic sul numero accanto a **Valutazioni**.
 2. In **Valutazioni** selezionare una valutazione per aprirla. A titolo di esempio (stime e costi sono solo esemplificativi): 
 
-    ![Riepilogo della valutazione](./media/tutorial-assess-vmware-azure-vm/assessment-summary.png)
+    ![Riepilogo della valutazione](./media/tutorial-assess-aws/assessment-summary.png)
 
 3. Esaminare il riepilogo della valutazione. È anche possibile modificare le proprietà della valutazione o ricalcolare la valutazione.
  
@@ -162,12 +157,13 @@ Il riepilogo della valutazione mostra i costi di calcolo e archiviazione stimati
 
 Valutazione server assegna una classificazione di attendibilità alle valutazioni basate sulle prestazioni. La classificazione è compresa tra una stella (più bassa) e cinque stelle (più alta).
 
-![Classificazione di attendibilità](./media/tutorial-assess-vmware-azure-vm/confidence-rating.png)
+![Classificazione di attendibilità](./media/tutorial-assess-aws/confidence-rating.png)
 
 La classificazione di attendibilità è utile per stimare l'affidabilità delle raccomandazioni sulle dimensioni nella valutazione. La classificazione è basata sulla disponibilità dei punti dati necessari per calcolare la valutazione.
 
 > [!NOTE]
 > Le classificazioni di attendibilità non vengono assegnate se si crea una valutazione basata su un file CSV.
+
 
 Le classificazioni di attendibilità sono elencate di seguito.
 

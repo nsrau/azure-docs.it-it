@@ -1,6 +1,6 @@
 ---
 title: Esercitazione - Creare un'istanza di IoT Edge per l'analisi video in Azure IoT Central (macchina virtuale Linux)
-description: Questa esercitazione mostra come creare un'istanza di IoT Edge per l'analisi video da usare con il modello di applicazione Analisi video - rilevamento movimento e oggetti.
+description: Questa esercitazione mostra come creare in una macchina virtuale Linux un'istanza di IoT Edge per l'analisi video da usare con il modello di applicazione Analisi video - rilevamento movimento e oggetti.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 69e5b757036a2d68fa779e3fc232cc42a034e33c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 0b39ec9c8cb70adac1474b2647ac1c9591b9d5cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038016"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526392"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Esercitazione: Creare un'istanza di IoT Edge per l'analisi video (macchina virtuale Linux)
 

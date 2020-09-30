@@ -1,20 +1,20 @@
 ---
-title: 'Esercitazione: Eseguire la migrazione di servizi Web da Google Maps | Mappe di Microsoft Azure'
-description: Come eseguire la migrazione di servizi Web da Google Maps a Mappe di Microsoft Azure.
+title: Eseguire la migrazione di servizi Web da Google Maps | Mappe di Microsoft Azure
+description: Come eseguire la migrazione di servizi Web da Google Maps a Mappe di Microsoft Azure
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
-ms.topic: tutorial
+ms.date: 08/19/2020
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 8cc16e611002748dad2716a1c8dc914f297da9f1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 57d71d517cb953a2a2c84b7e003fd08541416539
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090551"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319572"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Eseguire la migrazione di un servizio Web da Google Maps
 
@@ -293,9 +293,8 @@ Ad esempio, ora verrà aggiunto alla mappa un indicatore rosso di medie dimensio
 &markers=color:red|size:mid|45,-110
 ```
 
-<center>
 
-![Marcatore di Google Maps](media/migrate-google-maps-web-services/google-maps-marker.png)</center>
+![Marcatore di Google Maps](media/migrate-google-maps-web-services/google-maps-marker.png)
 
 **Dopo: Mappe di Azure**
 
@@ -335,9 +334,8 @@ Ora verrà aggiunta un'icona predefinita rossa (`FF0000`) con l'etichetta "Space
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-<center>
 
-![Marcatore di Mappe di Azure](media/migrate-google-maps-web-services/azure-maps-marker.png)</center>
+![Marcatore di Mappe di Azure](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 Aggiungere tre segnaposto con i valori di etichetta "1", "2" e "3":
 
@@ -345,9 +343,9 @@ Aggiungere tre segnaposto con i valori di etichetta "1", "2" e "3":
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
 
-<center>
 
-![Più indicatori in Mappe di Azure](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)</center>
+
+![Più indicatori in Mappe di Azure](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
 ### <a name="path-url-parameter-format-comparison"></a>Confronto tra il formato dei parametri URL per i percorsi
 
@@ -376,9 +374,7 @@ Aggiungere alla mappa l'opacità della linea rossa e lo spessore in pixel tra le
 &path=color:0xFF000088|weight:4|45,-110|50,-100
 ```
 
-<center>
-
-![Polilinea di Google Maps](media/migrate-google-maps-web-services/google-maps-polyline.png)</center>
+![Polilinea di Google Maps](media/migrate-google-maps-web-services/google-maps-polyline.png)
 
 **Dopo: Mappe di Azure**
 
@@ -405,9 +401,7 @@ Aggiungere alla mappa l'opacità della linea rossa e lo spessore in pixel tra le
 &path=lcFF0000|la.5|lw4||-110 45|-100 50
 ```
 
-<center>
-
-![Polilinea di Mappe di Azure](media/migrate-google-maps-web-services/azure-maps-polyline.png)</center>
+![Polilinea di Mappe di Azure](media/migrate-google-maps-web-services/azure-maps-polyline.png)
 
 ## <a name="calculate-a-distance-matrix"></a>Calcolare una matrice di distanze
 
@@ -482,22 +476,5 @@ Di seguito sono riportate alcune risorse e documentazione aggiuntive per i servi
 - [Cercare un indirizzo](how-to-search-for-address.md)
 - [Procedure consigliate per la pianificazione percorso](how-to-use-best-practices-for-routing.md)
 - [Documentazione di riferimento per l'API del servizio REST di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/)
-
-## <a name="next-steps"></a>Passaggi successivi
-
-Altre informazioni sui servizi REST di Mappe di Azure.
-
-> [!div class="nextstepaction"]
-> [Procedure consigliate per l'uso del servizio di ricerca](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Procedure consigliate per l'uso del servizio di pianificazione percorso](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Come usare il modulo dei servizi (Web SDK)](how-to-use-best-practices-for-routing.md)
-
-> [!div class="nextstepaction"]
-> [Documentazione di riferimento per l'API del servizio REST di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/)
-
-> [!div class="nextstepaction"]
-> [Esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+- [Esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+- [Come usare il modulo dei servizi (Web SDK)](how-to-use-best-practices-for-routing.md)

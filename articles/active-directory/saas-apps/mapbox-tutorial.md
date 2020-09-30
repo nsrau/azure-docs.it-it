@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: faedec24bc4b962044d55a47345739592e276b61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4111752d949b7ed2b0ea14734e5d795564718611
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554771"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661914"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mapbox"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Mapbox
 
@@ -41,6 +41,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Mapbox supporta l'accesso SSO avviato da **IDP**
 * Dopo aver configurato Mapbox, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
 
 ## <a name="adding-mapbox-from-the-gallery"></a>Aggiunta di Mapbox dalla raccolta
 
@@ -136,15 +139,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic sulla scheda **Impostazioni**.
 
-    ![Configurazione di Mapbox](./media/mapbox-tutorial/configure1.png)
+    ![Scheda Settings di Mapbox](./media/mapbox-tutorial/configure1.png)
 
 1. Fare clic sulla scheda **Security** (Sicurezza) nel riquadro di spostamento sinistro.
 
-    ![Configurazione di Mapbox](./media/mapbox-tutorial/configure2.png)
+    ![Scheda Security di Mapbox](./media/mapbox-tutorial/configure2.png)
 
 1. Fare clic su **Edit single sign-on** (Modifica accesso Single Sign-On).
 
-    ![Configurazione di Mapbox](./media/mapbox-tutorial/configure3.png)
+    ![Opzione Edit single sign-on di Mapbox](./media/mapbox-tutorial/configure3.png)
 
 1. Scorrere verso il basso fino a **Step 3: Setup SAML single sign-on for Mapbox** (Passaggio 3: Configurare l'accesso Single Sign-On per Mapbox) e seguire questa procedura:
 
