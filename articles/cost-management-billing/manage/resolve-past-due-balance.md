@@ -9,18 +9,18 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 8c792ae1b6ac43ead15fd4f27d2468c517153354
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3c42db58017dc3a692c227f6eb454cf7b597e77b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684814"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297585"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Risolvere problemi relativi a un saldo dovuto non pagato per la sottoscrizione di Azure
 
 Questo articolo si applica ai clienti che si sono iscritti ad Azure online con una carta di credito e hanno un account di fatturazione del programma di Microsoft Online Services. Vedere [Verificare il tipo di account in uso](#check-the-type-of-your-account). Se si ha un account di fatturazione del Contratto del cliente Microsoft, vedere come [pagare la fattura per Microsoft Azure](../understand/pay-bill.md).
 
-Se il pagamento non viene ricevuto o non può essere elaborato, si riceverà un messaggio di posta elettronica e nel portale di Azure verrà visualizzato un avviso che indica che la sottoscrizione è scaduta. Se il metodo di pagamento predefinito è la carta di credito, l'[amministratore account](billing-subscription-transfer.md#whoisaa) può saldare gli addebiti in sospeso nel portale di Azure. Se il metodo di pagamento è tramite fattura (assegno/bonifico), inviare il pagamento alla località indicata nella parte inferiore della fattura.
+Se il pagamento non viene ricevuto o non può essere elaborato, si riceverà un messaggio di posta elettronica e nel portale di Azure verrà visualizzato un avviso che indica che la sottoscrizione è scaduta. Se il metodo di pagamento predefinito è la carta di credito, l'[amministratore account](../understand/subscription-transfer.md#whoisaa) può saldare gli addebiti in sospeso nel portale di Azure. Se il metodo di pagamento è tramite fattura (assegno/bonifico), inviare il pagamento alla località indicata nella parte inferiore della fattura.
 
 > [!IMPORTANT]
 > * Se si hanno più sottoscrizioni scadute, associate alla stessa carta di credito, è necessario pagare l'intero saldo scoperto in una sola volta.

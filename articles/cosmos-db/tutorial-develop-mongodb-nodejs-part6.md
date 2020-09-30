@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: a5d697465f811f468fb0047284126deae0c455dd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3116038939a07084f13db22819726dcbb2622a10
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424308"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292423"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Aggiungere funzioni CRUD all'app
 
@@ -88,11 +88,9 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
 6. Tornare ora al browser Internet e aprire la scheda Network (Rete) degli strumenti di sviluppo premendo F12 per la maggior parte dei computer. Passare a `http://localhost:3000` per controllare le chiamate eseguite in rete.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Scheda Networking (Rete) in Chrome che mostra l'attività della rete":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="routes.js e hero.service.js in Visual Studio Code" e il testo "Hello", quindi fare clic su **Save** (Salva). La scheda Networking (Rete) indica che è stata inviata una richiesta POST per un nuovo elemento hero. 
 
-7. Aggiungere un nuovo elemento hero facendo clic sul pulsante **Add New Hero** (Aggiungi nuovo elemento hero). Immettere l'ID "999", il nome "Fred" e il testo "Hello", quindi fare clic su **Save** (Salva). La scheda Networking (Rete) indica che è stata inviata una richiesta POST per un nuovo elemento hero. 
-
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Scheda Networking (Rete) in Chrome che mostra l'attività della rete per le funzioni Get e Post":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="routes.js e hero.service.js in Visual Studio Code":::
 
     Tornare ora indietro e aggiungere le funzioni Put e Delete all'app.
 
@@ -177,11 +175,9 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
     È ora possibile selezionare l'ID nella scheda Network (Rete) per visualizzare il payload. Il payload mostra che il testo ora è impostato su "Bye".
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="App Heroes e scheda Networking (Rete) indicante il payload"::: 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="routes.js e hero.service.js in Visual Studio Code" (Elimina) per l'elemento hero denominato "Fred".
 
-    È anche possibile eliminare uno degli elementi hero nell'interfaccia utente e verificare il tempo necessario per completare l'operazione di eliminazione. Per provare, fare clic sul pulsante "Delete" (Elimina) per l'elemento hero denominato "Fred".
-
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="App Heroes e scheda Networking (Rete) indicante il tempo necessario per il completamento delle funzioni"::: 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="routes.js e hero.service.js in Visual Studio Code"::: 
 
     Se si aggiorna la pagina, la scheda Network (Rete) indica il tempo necessario per ottenere gli elementi hero. Anche se i tempi sono rapidi, molto dipende dalla posizione geografica dei dati e dalla possibilità di eseguirne la replica geografica in un'area vicina agli utenti. Altre informazioni sulla replica geografica saranno disponibili nella prossima esercitazione, che verrà presto rilasciata.
 
