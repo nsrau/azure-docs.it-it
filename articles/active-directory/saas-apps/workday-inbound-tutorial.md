@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 87085d4a4911801933993720ae0ab23aeb19956d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974366"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541289"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -129,7 +129,7 @@ In questo passaggio si creerà un gruppo di sicurezza del sistema di integrazion
 1. Immettere "create security group" nella casella di ricerca e quindi fare clic su **Create Security Group**(Crea gruppo di sicurezza).
 
    > [!div class="mx-imgBorder"]
-   > ![Creare un gruppo di sicurezza](./media/workday-inbound-tutorial/wd_isu_03.png "Create Security Group")
+   > ![Screenshot che mostra "Crea gruppo di sicurezza" immesso nella casella di ricerca e "Crea gruppo di sicurezza-attività" visualizzato nei risultati della ricerca.](./media/workday-inbound-tutorial/wd_isu_03.png)
 2. Completare l'attività **Creare un gruppo di sicurezza**. 
 
    * Esistono due tipi di gruppi di sicurezza in Workday:
@@ -154,7 +154,7 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
 
 1. Immettere **Domain Security Configuration** (Configurazione della sicurezza del dominio) nella casella di ricerca e quindi fare clic sul collegamento **Domain Security Configuration Policies** (Criteri di configurazione della sicurezza del dominio).  
    >[!div class="mx-imgBorder"]
-   >![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_06.png "Domain Security Policies")  
+   >![Screenshot che mostra "configurazione della sicurezza del dominio" nella casella di ricerca con "Configurazione sicurezza dominio-report" visualizzato nei risultati.](./media/workday-inbound-tutorial/wd_isu_06.png "Domain Security Policies")  
 2. Nella casella di testo **Domain** (Dominio) cercare i domini seguenti e aggiungerli al filtro uno alla volta.  
    * *External Account Provisioning* (Provisioning account esterno)
    * *Worker Data: Ruoli di lavoro*
@@ -166,10 +166,10 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
    * *Account Workday*
    
      >[!div class="mx-imgBorder"]
-     >![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_07.png "Domain Security Policies")  
+     >![Screenshot che mostra il report di configurazione della sicurezza del dominio con l'account esterno nella casella di testo "dominio".](./media/workday-inbound-tutorial/wd_isu_07.png "Domain Security Policies")  
 
      >[!div class="mx-imgBorder"]
-     >![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_08.png "Domain Security Policies") 
+     >![Screenshot che mostra il report di configurazione della sicurezza del dominio con un elenco di domini selezionati.](./media/workday-inbound-tutorial/wd_isu_08.png "Domain Security Policies") 
 
      Fare clic su **OK**.
 
@@ -179,7 +179,7 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
 
 4. Nella pagina **Edit Domain Security Policy Permissions (Modifica autorizzazioni criteri di sicurezza di dominio)** scorrere fino alla sezione **Integration Permissions** (Autorizzazioni di integrazione). Fare clic sul segno "+" per aggiungere il gruppo del sistema di integrazione all'elenco dei gruppi di sicurezza con autorizzazioni di integrazione **Get** e **Put**.
    >[!div class="mx-imgBorder"]
-   >![Modificare l'autorizzazione](./media/workday-inbound-tutorial/wd_isu_10.png "Edit Permissions")  
+   >![Screenshot che mostra la sezione "Integration autorizzazioni" evidenziata.](./media/workday-inbound-tutorial/wd_isu_10.png "Edit Permissions")  
 
 5. Fare clic sul segno "+" per aggiungere il gruppo del sistema di integrazione all'elenco dei gruppi di sicurezza con autorizzazioni di integrazione **Get** e **Put**.
 
@@ -210,12 +210,12 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
 1. Immettere **Business Process Policy** (Criteri di processi aziendali) nella casella di ricerca e quindi fare clic sul collegamento **Edit Business Process Security Policy** (Modifica criteri di sicurezza dei processi aziendali).  
 
    >[!div class="mx-imgBorder"]
-   >![Criteri di sicurezza del processo aziendale](./media/workday-inbound-tutorial/wd_isu_12.png "Criteri di sicurezza del processo aziendale")  
+   >![Screenshot che mostra i criteri del processo di business nella casella di ricerca e selezionare "modifica criteri di sicurezza del processo di business".](./media/workday-inbound-tutorial/wd_isu_12.png "Criteri di sicurezza del processo aziendale")  
 
 2. Nella casella di testo **Tipo di processo aziendale**, cercare *Contatto* e selezionare il processo aziendale **Modifica contatto di lavoro**, quindi fare clic su **OK**.
 
    >[!div class="mx-imgBorder"]
-   >![Criteri di sicurezza del processo aziendale](./media/workday-inbound-tutorial/wd_isu_13.png "Criteri di sicurezza del processo aziendale")  
+   >![Screenshot che mostra la pagina "modifica criteri di sicurezza del processo di business" e "Modifica contatto di lavoro" selezionata nel menu "tipo di processo di business".](./media/workday-inbound-tutorial/wd_isu_13.png "Criteri di sicurezza del processo aziendale")  
 
 3. Nella pagina **Modifica criteri di sicurezza dei processi aziendali** scorrere fino alla sezione **Cambia informazioni di contatto di lavoro (servizio Web)** .
     
@@ -415,7 +415,7 @@ In questo passaggio viene stabilita la connettività con Workday e Active Direct
    * Fare clic sul pulsante **Test connessione**. Se il test della connessione ha esito positivo, fare clic sul pulsante **Salva** nella parte superiore. In caso contrario, verificare che le credenziali di Workday e Active Directory configurate nel programma di installazione dell'agente siano valide.
 
      >[!div class="mx-imgBorder"]
-     >![Azure portal](./media/workday-inbound-tutorial/wd_1.png)
+     >![Screenshot che mostra la pagina "provisioning" con le credenziali immesse.](./media/workday-inbound-tutorial/wd_1.png)
 
    * Dopo che le credenziali vengono salvate correttamente, la sezione **Mapping** mostrerà il mapping predefinito **Synchronize Workday Workers to On Premises** (Sincronizza ruoli di lavoro Workday in Active Directory locale)
 
@@ -480,7 +480,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 
 1. Per salvare i mapping, fare clic su **Save**, Salva, nella parte superiore della sezione Attribute-Mapping, Mapping attributi.
    >[!div class="mx-imgBorder"]
-   >![Azure portal](./media/workday-inbound-tutorial/wd_2.png)
+   >![Screenshot che mostra la pagina "mapping degli attributi" con l'azione "Salva" selezionata.](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>Di seguito sono riportati alcuni esempi di mapping degli attributi tra Workday e Active Directory, con alcune espressioni comuni
 
@@ -942,11 +942,11 @@ Quando si fa clic su uno dei record relativi a log di controllo, verrà visualiz
 
   Cercare un record HTTP POST corrispondente al timestamp dell'operazione di esportazione con *Event ID = 2*. Questo record contiene i valori di attributo inviati dal servizio di provisioning all'agente di provisioning.
 
-  [![Aggiungere SCIM](media/workday-inbound-tutorial/wd_event_viewer_05.png)](media/workday-inbound-tutorial/wd_event_viewer_05.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_05.png" alt-text="Screenshot che mostra il record &quot;HTTP POST&quot; nel log &quot;provisioning Agent&quot;." lightbox="media/workday-inbound-tutorial/wd_event_viewer_05.png":::
 
   Immediatamente dopo l'evento precedente, deve essere presente un altro evento che acquisisce la risposta dell'operazione di creazione account AD. Questo evento restituisce il nuovo objectGuid creato in AD e lo imposta come attributo TargetAnchor nel servizio di provisioning.
 
-  [![Aggiungere SCIM](media/workday-inbound-tutorial/wd_event_viewer_06.png)](media/workday-inbound-tutorial/wd_event_viewer_06.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_06.png" alt-text="Screenshot che mostra il record &quot;HTTP POST&quot; nel log &quot;provisioning Agent&quot;." lightbox="media/workday-inbound-tutorial/wd_event_viewer_06.png":::
 
 ### <a name="understanding-logs-for-manager-update-operations"></a>Riconoscimento di log per operazioni di aggiornamento manager
 
@@ -1040,14 +1040,14 @@ A tale scopo, è necessario usare [Workday Studio](https://community.workday.com
 
 5. Selezionare **External** (Esterno) e quindi selezionare il file Human_Resources WSDL scaricato al passaggio 2.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio1.png)
+    ![Screenshot che mostra il file "Human_Resources" aperto in giorni lavorativi Studio.](./media/workday-inbound-tutorial/wdstudio1.png)
 
 6. Impostare il campo **Location** (Percorso) su `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, ma sostituendo "IMPL-CC" con il tipo di istanza effettivo e "TENANT" con il vero nome del tenant.
 
 7. Impostare **Operation** (Operazione) su **Get_Workers**
 
 8.    Fare clic sul piccolo collegamento **configure** (configura) sotto i riquadri relativi a richiesta e risposta per impostare le credenziali di Workday. Selezionare **Authentication** (Autenticazione) e quindi immettere nome utente e password per l'account di sistema di integrazione di Workday. Assicurarsi di formattare il nome utente come name\@tenant, lasciando l'opzione **Oggetto UsernameToken WS-Security** selezionata.
-   ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
+   ![Screenshot che mostra la scheda "sicurezza" con "username" e "password" immessa e "WS-Security username token" selezionato.](./media/workday-inbound-tutorial/wdstudio2.png)
 
 9. Selezionare **OK**.
 
@@ -1086,7 +1086,7 @@ A tale scopo, è necessario usare [Workday Studio](https://community.workday.com
 
 13. Sulla barra dei comandi di Workday Studio selezionare **File > Open File** (File > Apri file) e aprire il file XML salvato. Questa azione permetterà l'apertura del file nell'editor XML di Workday Studio.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio3.png)
+    ![Screenshot di un file X M L aperto nell'editor "giorni lavorativi Studio X M L".](./media/workday-inbound-tutorial/wdstudio3.png)
 
 14. Nell'albero di file, spostarsi attraverso **/env: Envelope > env: Body > wd:Get_Workers_Response > wd:Response_Data > wd: Worker** per ritrovare i dati dell'utente.
 
@@ -1112,7 +1112,7 @@ A tale scopo, è necessario usare [Workday Studio](https://community.workday.com
 
 5. Selezionare **Modifica elenco attributi per Workday**.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio_aad1.png)
+    ![Screenshot che mostra la pagina "giorni lavorativi in Azure A D provisioning del provisioning" con l'azione "modifica elenco attributi per la giornata lavorativa" evidenziata.](./media/workday-inbound-tutorial/wdstudio_aad1.png)
 
 6. Scorrere fino alla fine dell'elenco di attributi, dove si trovano i campi di input.
 

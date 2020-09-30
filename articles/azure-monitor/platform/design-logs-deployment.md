@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: a4186909db3d784938ada4baaaf08aba02b31d30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317124"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534200"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di Monitoraggio di Azure
 
@@ -26,6 +26,8 @@ Un'area di lavoro Log Analytics offre:
 * Una posizione geografica per l'archiviazione dei dati.
 * Isolamento dei dati tramite la concessione di diritti di accesso a utenti diversi dopo una delle strategie di progettazione consigliate.
 * Ambito per la configurazione di impostazioni quali il piano [tariffario](./manage-cost-storage.md#changing-pricing-tier), la [conservazione](./manage-cost-storage.md#change-the-data-retention-period)e la [capsulatura dei dati](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
+
+Le aree di lavoro sono ospitate in un cluster fisico. Per impostazione predefinita, il sistema sta creando e gestendo questi cluster. I clienti che inseriscono più di 4 TB al giorno dovranno creare i propri cluster dedicati per le aree di lavoro, consentendo un controllo migliore e una velocità di inserimento superiore.
 
 Questo articolo fornisce una panoramica dettagliata delle considerazioni relative alla progettazione e alla migrazione, alla panoramica del controllo di accesso e alla comprensione delle implementazioni di progettazione consigliate per l'organizzazione IT.
 
@@ -125,37 +127,16 @@ La *modalità di controllo di accesso* è un'impostazione in ogni area di lavoro
 
 Per informazioni su come modificare la modalità di controllo di accesso nel portale, con PowerShell o usando un modello di Gestione risorse, vedere [configurare la modalità di controllo di accesso](manage-access.md#configure-access-control-mode).
 
-## <a name="ingestion-volume-rate-limit"></a>Limite di velocità del volume di inserimento
+## <a name="scale-and-ingestion-volume-rate-limit"></a>Limite di velocità del volume di inserimenti e scalabilità
 
-Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Il limite di velocità del volume prevede l'isolamento dei clienti di monitoraggio di Azure da picchi di inserimento improvvisi nell'ambiente multi-tenant. Una soglia di frequenza del volume di inserimento predefinita di 500 MB (compresso) viene definita nelle aree di lavoro, che viene convertita in circa **6 GB/min** non compressi, le cui dimensioni effettive possono variare tra i tipi di dati, a seconda della lunghezza del log e del rapporto di compressione. Il limite di velocità del volume si applica a tutti i dati inseriti se inviati dalle risorse di Azure usando [le impostazioni di diagnostica](diagnostic-settings.md), l' [API dell'agente di raccolta dati](data-collector-api.md) o gli agenti.
+Monitoraggio di Azure è un servizio dati a scalabilità elevata che serve a migliaia di clienti che inviano petabyte di dati ogni mese a un ritmo sempre crescente. Le aree di lavoro non sono limitate nello spazio di archiviazione e possono aumentare fino a petabyte di dati. Non è necessario suddividere le aree di lavoro a causa della scalabilità.
 
-Quando si inviano dati a un'area di lavoro a una velocità del volume superiore all'80% della soglia configurata nell'area di lavoro, viene inviato un evento alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Quando la velocità del volume è superiore alla soglia, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Se la velocità del volume di inserimento continua a superare la soglia o se si prevede di raggiungerla presto, è possibile richiedere di aumentarla aprendo una richiesta di supporto. 
+Per proteggere e isolare i clienti di monitoraggio di Azure e la relativa infrastruttura di back-end, esiste un limite di velocità di inserimento predefinito progettato per la protezione da picchi e situazioni di Flood. Il valore predefinito del limite di velocità è di circa **6 GB al minuto** ed è progettato per consentire l'inserimento normale. Per altri dettagli sulla misurazione del limite del volume di inserimento, vedere [limiti del servizio di monitoraggio di Azure](../service-limits.md#data-ingestion-volume-rate).
 
-Per ricevere una notifica sull'avvicinamento o il raggiungimento del limite di velocità del volume di inserimento nell'area di lavoro, creare una [regola di avviso del log](alerts-log.md) usando la query seguente con la base della logica di avviso per il numero di risultati maggiore di zero, periodo di valutazione di 5 minuti e frequenza di 5 minuti.
+I clienti che inseriscono meno di 4 TB al giorno non soddisfano questi limiti. I clienti che inseriscono volumi più elevati o che presentano picchi come parte delle normali operazioni dovranno considerare il passaggio a [cluster dedicati](../log-query/logs-dedicated-clusters.md) in cui è possibile generare il limite di velocità di inserimento.
 
-Velocità del volume di inserimento superata la soglia
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Error"
-```
+Quando viene attivato il limite di velocità di inserimento o si arriva al 80% della soglia, viene aggiunto un evento alla tabella *Operation* nell'area di lavoro. È consigliabile monitorarlo e creare un avviso. Per altre informazioni, vedere [velocità del volume](../service-limits.md#data-ingestion-volume-rate)di inserimento dati.
 
-Frequenza del volume di inserimento superata il 80% della soglia
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Warning"
-```
-
-Frequenza del volume di inserimento superata il 70% della soglia
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Info"
-```
 
 ## <a name="recommendations"></a>Consigli
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ade326b7dda19478398de4ec3ab2be8996d98535
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 7f0e994cd41fc55824cf347a51ccfed25589a310
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923212"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539538"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Eseguire l'aggiornamento ad Azure search .NET SDK versione 5
 
@@ -35,7 +35,7 @@ La versione 5 di Azure Search .NET SDK contiene alcune modifiche rispetto alle v
 La versione 5 di Azure Search .NET SDK ha come destinazione la versione più recente disponibile a livello generale dell'API REST di Ricerca di Azure, in particolare la versione 2017-11-11. Questo rende possibile usare le nuove funzionalità di Ricerca di Azure da un'applicazione .NET, incluse le seguenti:
 
 * [Sinonimi](search-synonyms.md).
-* Ora è possibile accedere a livello di programmazione agli avvisi nella cronologia di esecuzione dell'indicizzatore (per altre informazioni, vedere la proprietà `Warning` di `IndexerExecutionResult` nelle [informazioni di riferimento su .NET](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet)).
+* Ora è possibile accedere a livello di programmazione agli avvisi nella cronologia di esecuzione dell'indicizzatore (per altre informazioni, vedere la proprietà `Warning` di `IndexerExecutionResult` nelle [informazioni di riferimento su .NET](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult)).
 * Supporto per .NET Core 2.
 * La nuova struttura del pacchetto supporta l'uso solo delle parti dell'SDK necessarie (per altre informazioni, vedere [Modifiche di rilievo nella versione 5](#ListOfChanges)).
 
@@ -97,7 +97,7 @@ Se esegue l'aggiornamento dalla versione 4.0-preview alla versione 5, tenere pre
 
 Se l'applicazione dipende in modo sostanziale da queste funzionalità, non sarà possibile completare l'aggiornamento alla versione 5 di Azure Search .NET SDK. È possibile continuare a usare la versione 4.0-preview. Tenere presente, tuttavia, che **non è consigliabile usare SDK in anteprima nelle applicazioni di produzione**. Le funzionalità di anteprima sono destinate esclusivamente alla valutazione e sono soggette a modifiche.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 Per altri dettagli sull'uso di .NET SDK Ricerca di Azure, vedere le [Procedure .NET](search-howto-dotnet-sdk.md).
 
 I commenti degli utenti sull'SDK saranno molto apprezzati. Se si verificano problemi, è possibile richiedere assistenza per [stack overflow](https://stackoverflow.com/questions/tagged/azure-search). Se si trova un bug, è possibile registrare il problema nel [repository di GitHub su Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Verificare di avere anteposto al titolo del problema il prefisso "[Ricerca di Azure]".

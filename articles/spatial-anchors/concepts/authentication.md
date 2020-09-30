@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e4d25637498bec223e294eecf2be6dc88fa2aa0d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1726f3a1ddc62cbb76a65f1d284793e57ea2f2a8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997167"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538246"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticazione e autorizzazione per Ancoraggi nello spazio di Azure
 
@@ -22,7 +22,7 @@ Questa sezione descrive sia i diversi modi in cui è possibile eseguire l'autent
 
 ## <a name="overview"></a>Panoramica
 
-![Panoramica sull'autenticazione per Ancoraggi nello spazio di Azure](./media/spatial-anchors-authentication-overview.png)
+![Diagramma che mostra una panoramica dell'autenticazione per gli ancoraggi spaziali di Azure.](./media/spatial-anchors-authentication-overview.png)
 
 Per accedere a uno specifico account di Ancoraggi nello spazio di Azure, i client devono prima ottenere un token di accesso dal servizio token di sicurezza (STS) di Realtà mista di Azure. I token rilasciati dal servizio STS Live sono validi per 24 ore e contengono informazioni su cui si basano i servizi di Ancoraggi nello spazio per prendere decisioni sulle autorizzazioni relative all'account e garantire che solo le entità autorizzate possano accedere a tale account.
 
@@ -39,7 +39,7 @@ Le chiavi dell'account consentono di iniziare a usare il servizio Ancoraggi spaz
 
 Il modo più semplice per iniziare è usare le chiavi dell'account per accedere all'account di Ancoraggi nello spazio di Azure. Le chiavi dell'account sono disponibili nel portale di Azure. Accedere all'account e selezionare la scheda "Chiavi".
 
-![Panoramica sull'autenticazione per Ancoraggi nello spazio di Azure](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Screenshot che mostra la pagina "chiavi" con il pulsante "copia" per la "chiave primaria" evidenziata.](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
 Le chiavi disponibili sono due e per l'accesso all'account di Ancoraggi nello spazio sono valide entrambe, l'una contemporaneamente all'altra. È consigliabile aggiornare regolarmente la chiave usata per accedere all'account. La disponibilità di due chiavi valide separate consente di eseguire gli aggiornamenti delle chiavi senza incorrere in tempi di inattività, perché la chiave primaria e quella secondaria possono essere aggiornate l'una alternativamente all'altra.
 
@@ -175,7 +175,7 @@ Il token di accesso di Azure AD viene recuperato tramite la [libreria MSAL](../.
         1.  Nel portale di Azure selezionare **Azure Active Directory** e quindi **Registrazioni app**
         2.  Selezionare **Registrazione nuova applicazione**
         3.  Immettere il nome dell'applicazione, impostare il tipo di applicazione su **App Web/API** e immettere l'URL di autenticazione per il servizio. Quindi fare clic su **Crea**.
-        4.  In tale applicazione, fare clic su **Impostazioni**, quindi selezionare la scheda **certificati e segreti** . creare un nuovo segreto client, selezionare una durata e fare clic su **Aggiungi**. Assicurarsi di salvare il valore del segreto, perché sarà necessario includerlo nel codice del servizio Web.
+        4.  In tale applicazione, fare clic su **Impostazioni**, quindi selezionare la scheda **certificati e segreti** . Creare un nuovo segreto client, selezionare una durata e fare clic su **Aggiungi**. Assicurarsi di salvare il valore del segreto, perché sarà necessario includerlo nel codice del servizio Web.
     2.  Concedere all'applicazione e/o agli utenti l'accesso alla risorsa:
         1.  Accedere alla risorsa di Ancoraggi nello spazio nel portale di Azure
         2.  Passare alla scheda **Controllo di accesso (IAM)**

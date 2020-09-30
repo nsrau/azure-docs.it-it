@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: d5ef8d6a9b0c0039b500ce9d0238609e8a8edc93
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908009"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542289"
 ---
 # <a name="execute-r-script-module"></a>Modulo Execute R script
 
 Questo articolo descrive come usare il modulo Execute R script per eseguire il codice R nella pipeline di Azure Machine Learning Designer.
 
-Con R è possibile eseguire attività che attualmente non supportano i moduli esistenti, ad esempio: 
+Con R è possibile eseguire attività che non sono supportate dai moduli esistenti, ad esempio: 
 - Creare trasformazioni dati personalizzate
 - Usare metriche personalizzate per valutare le stime
 - Compilare modelli usando algoritmi che non sono implementati come moduli autonomi nella finestra di progettazione
@@ -137,7 +137,7 @@ Per [accedere ai set di impostazioni registrati](https://docs.microsoft.com/azur
 
 ## <a name="how-to-configure-execute-r-script"></a>Come configurare Execute R script
 
-Il modulo Execute R script contiene codice di esempio che è possibile usare come punto di partenza. Per configurare il modulo Execute R script, fornire un set di input e codice da eseguire.
+Il modulo Execute R script contiene il codice di esempio come punto di partenza.
 
 ![Diagramma degli input per un modulo R](media/module/execute-r-script.png)
 
@@ -194,9 +194,12 @@ I set di dati archiviati nella finestra di progettazione vengono convertiti auto
     > [!NOTE]
     > Il codice R esistente potrebbe richiedere modifiche minime per l'esecuzione in una pipeline di progettazione. Ad esempio, i dati di input forniti in formato CSV devono essere convertiti in modo esplicito in un set di dati prima di poterli usare nel codice. I tipi di dati e di colonna usati nel linguaggio R variano anche in qualche modo dai tipi di dati e di colonna usati nella finestra di progettazione.
 
-    Se lo script è maggiore di 16KB, usare la porta del **bundle di script** per evitare errori come *CommandLine supera il limite di 16597 caratteri*. 
+    Se lo script è superiore a 16 KB, usare la porta **bundle script** per evitare errori come *CommandLine supera il limite di 16597 caratteri*. 
     
-    Aggregare lo script e altre risorse personalizzate in un file zip e caricare il file zip come **set di dati di file** in studio. È quindi possibile trascinare il modulo set di dati dall'elenco set di dati *personali* nel riquadro modulo sinistro della pagina Creazione e modifica della finestra di progettazione. Connettere il modulo DataSet alla porta del **bundle di script** del modulo **Execute R script** .
+    1. Aggregare lo script e altre risorse personalizzate in un file zip.
+    1. Caricare il file zip come **set di dati di file** in studio. 
+    1. Trascinare il modulo set di dati dall'elenco My Datasets (set di dati *personali* ) nel riquadro del modulo a sinistra nella pagina Authoring della finestra di progettazione. 
+    1. Connettere il modulo DataSet alla porta del **bundle di script** del modulo **Execute R script** .
     
     Di seguito è riportato il codice di esempio per l'utilizzo dello script nel bundle di script:
 
@@ -219,7 +222,7 @@ I set di dati archiviati nella finestra di progettazione vengono convertiti auto
 
 ## <a name="results"></a>Risultati
 
-I moduli Execute R script possono restituire più output, ma devono essere specificati come frame di dati R. I frame di dati vengono convertiti automaticamente in set di dati nella finestra di progettazione per la compatibilità con altri moduli.
+I moduli Execute R script possono restituire più output, ma devono essere specificati come frame di dati R. La finestra di progettazione converte automaticamente i frame di dati in set di dati per la compatibilità con altri moduli.
 
 I messaggi e gli errori standard di R vengono restituiti al log del modulo.
 
@@ -236,7 +239,7 @@ Il modulo Execute R script supporta i file di script R arbitrari come input. Per
 
 1. Per caricare un file con estensione zip che contiene codice R nell'area di lavoro, passare alla pagina **set** di risorse. Selezionare **Crea set di dati**, quindi selezionare **da file locale** e l'opzione tipo di set di dati **file** .  
 
-1. Verificare che il file compresso sia disponibile nell'elenco **set di impostazioni personali** sotto la categoria **set** di elementi nell'albero del modulo sinistro.
+1. Verificare che il file compresso venga visualizzato nei **set di impostazioni** della categoria **set** di elementi nell'albero del modulo sinistro.
 
 1.  Connettere il set di dati alla porta di input del **bundle di script** .
 

@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f4003f8cd78a20e2ed40c6d874d50ffcd49b704e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302259"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541714"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Apprendimento per rinforzo con Azure Machine Learning (anteprima)
 
@@ -215,7 +215,7 @@ else:
 
 In questa sezione si apprenderà come usare il [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) per inviare un processo di training ad Azure Machine Learning.
 
-Azure Machine Learning usa le classi di stima per incapsulare le informazioni di configurazione di esecuzione. Ciò consente di specificare facilmente come configurare un'esecuzione di script. Per altre informazioni sul modello di stima di Azure Machine Learning, vedere [come eseguire il training dei modelli usando gli oggetti di stima](how-to-train-ml-models.md).
+Azure Machine Learning usa le classi di stima per incapsulare le informazioni di configurazione di esecuzione. Ciò consente di specificare facilmente come configurare un'esecuzione di script. 
 
 ### <a name="define-a-worker-configuration"></a>Definire una configurazione ruolo di lavoro condiviso
 

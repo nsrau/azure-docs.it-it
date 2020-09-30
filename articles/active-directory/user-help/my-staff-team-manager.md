@@ -13,12 +13,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: d692302df1f5c03a7dce60858b31e0ca66de4c80
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 56ee7df52abf97c920dfe2fa4ba5d1d858975f7d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744544"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537091"
 ---
 # <a name="delegate-user-management-with-my-staff-preview"></a>Delegare la gestione degli utenti con My Staff (anteprima)
 
@@ -104,7 +104,7 @@ Se l'accesso con un numero di telefono come nome utente (accesso tramite SMS) è
 
 1. Al termine, fare clic su **OK**.
 
-    ![Rimuovere un numero di telefono di un membro del personale in My Staff](media/my-staff-team-manager/enableforms2.png)
+    ![Screenshot che mostra il "abilitare il numero di telefono per l'accesso?" finestra con il pulsante "OK" selezionato.](media/my-staff-team-manager/enableforms2.png)
 
 ### <a name="remove-a-phone-number"></a>Rimuovere un numero di telefono
 

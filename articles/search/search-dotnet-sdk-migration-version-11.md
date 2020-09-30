@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5c943de87cbf53d4971e5cbf58768221bf2cf248
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: f6953f145621e11506a009fa59d67a5f40508a13
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462259"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539572"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Eseguire l'aggiornamento ad Azure ricerca cognitiva .NET SDK versione 11
 
@@ -39,7 +39,7 @@ La versione 11 consolida più pacchetti e librerie in uno. Dopo la migrazione, s
 
 + [Azure.Search.Docpacchetto uments](https://www.nuget.org/packages/Azure.Search.Documents/)
 
-+ [Informazioni di riferimento sulle API per la libreria client](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
++ [Informazioni di riferimento sulle API per la libreria client](/dotnet/api/overview/azure/search.documents-readme)
 
 ## <a name="client-differences"></a>Differenze tra client
 
@@ -81,7 +81,7 @@ Oltre alle differenze dei client (annotate in precedenza e quindi omesse qui), p
 | [StandardTokenizer](/dotnet/api/microsoft.azure.search.models.standardtokenizer) | [LuceneStandardTokenizer](/dotnet/api/azure.search.documents.indexes.models.lucenestandardtokenizer) (anche `StandardTokenizerV2` a `LuceneStandardTokenizerV2` ) |
 | [TokenInfo](/dotnet/api/microsoft.azure.search.models.tokeninfo) | [AnalyzedTokenInfo](/dotnet/api/azure.search.documents.indexes.models.analyzedtokeninfo) |
 | [Tokenizer](/dotnet/api/microsoft.azure.search.models.tokenizer) | [LexicalTokenizer](/dotnet/api/azure.search.documents.indexes.models.lexicaltokenizer) (anche `TokenizerName` a `LexicalTokenizerName` ) |
-| [SynonymMap. Format](/dotnet/api/microsoft.azure.search.models.synonymmap.format) | Nessuno. Rimuovere i riferimenti a `Format` . |
+| [SynonymMap. Format](/dotnet/api/microsoft.azure.search.models.synonymmap.format) | No. Rimuovere i riferimenti a `Format` . |
 
 Le definizioni dei campi sono semplificate: [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield), [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield), [ComplexField](/dotnet/api/azure.search.documents.indexes.models.complexfield) sono nuove API per la creazione di definizioni di campo.
 
@@ -196,4 +196,4 @@ In termini di aggiornamenti della versione del servizio, in cui le modifiche al 
 
 + [Azure.Search.Docpacchetto uments](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [Esempi in GitHub](https://github.com/azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.0.0/sdk/search/Azure.Search.Documents/samples)
-+ [ Informazioni di riferimento sull'APIAzure.Search.Document](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
++ [ Informazioni di riferimento sull'APIAzure.Search.Document](/dotnet/api/overview/azure/search.documents-readme)

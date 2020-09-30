@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d83c4ffe4e60ef2896e16b97e1ec34d71a022b9b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279009"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540711"
 ---
-# <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP
+# <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Distribuzione del sistema DBMS Oracle per macchine virtuali di Azure per carichi di lavoro SAP
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -389,12 +389,12 @@ La configurazione delle prestazioni è la seguente:
 
 | Componente | Disco | Memorizzazione nella cache | Pool di archiviazione |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA | Disco Premium o ultra | nessuno | Può essere usato per Premium  |
-| \oracle\<SID>\origlogaB | Disco Premium o ultra | nessuno | Può essere usato per Premium |
-| \oracle\<SID>\mirrlogAB | Disco Premium o ultra | nessuno | Può essere usato per Premium |
-| \oracle\<SID>\mirrlogBA | Disco Premium o ultra | nessuno | Può essere usato per Premium |
+| \oracle\<SID>\origlogaA | Disco Premium o ultra | Nessuno | Può essere usato per Premium  |
+| \oracle\<SID>\origlogaB | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
+| \oracle\<SID>\mirrlogAB | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
+| \oracle\<SID>\mirrlogBA | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
 | \oracle\<SID>\sapdata1...n | Disco Premium o ultra | Sola lettura | Consigliato per Premium  |
-| \oracle\SID\sapdata(n+1)* | Disco Premium o ultra | nessuno | Può essere usato per Premium |
+| \oracle\SID\sapdata(n+1)* | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
 | \oracle\<SID>\oraarch* | Disco Premium o ultra | nessuno | Non necessario |
 | Oracle Home, `saptrace` ,... | Disco del sistema operativo (Premium) | Non necessario |
 
@@ -482,12 +482,12 @@ Configurazione delle prestazioni:
 
 | Componente | Disco | Memorizzazione nella cache | Rimozione * |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA | Disco Premium o ultra | nessuno | Può essere usato per Premium  |
-| /oracle/\<SID>/origlogaB | Disco Premium o ultra | nessuno | Può essere usato per Premium |
-| /oracle/\<SID>/mirrlogAB | Disco Premium o ultra | nessuno | Può essere usato per Premium |
-| /oracle/\<SID>/mirrlogBA | Disco Premium o ultra | nessuno | Può essere usato per Premium |
+| /oracle/\<SID>/origlogaA | Disco Premium o ultra | Nessuno | Può essere usato per Premium  |
+| /oracle/\<SID>/origlogaB | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
+| /oracle/\<SID>/mirrlogAB | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
+| /oracle/\<SID>/mirrlogBA | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
 | /oracle/\<SID>/sapdata1...n | Disco Premium o ultra | Sola lettura | Consigliato per Premium  |
-| /oracle/\<SID>/sapdata(n+1)* | Disco Premium o ultra | nessuno | Può essere usato per Premium |
+| /oracle/\<SID>/sapdata(n+1)* | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
 | /oracle/\<SID>/oraarch* | Disco Premium o ultra | nessuno | Non necessario |
 | Oracle Home, `saptrace` ,... | Disco del sistema operativo (Premium) | Non necessario |
 

@@ -3,14 +3,14 @@ title: Configurare un Lab per insegnare data science con i notebook Python e Jup
 description: Informazioni su come configurare un Lab per insegnare data science uso di Python e Jupyter notebook.
 author: emaher
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 09/29/2020
 ms.author: enewman
-ms.openlocfilehash: 25fd090f76c0aa11617b34503ea18d1b45a0e1ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bbf4c9d4bc83b48b8ecc62946fa9bffa8af50bc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445016"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533521"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurare un Lab per insegnare data science con i notebook Python e Jupyter
 Questo articolo illustra come configurare una macchina virtuale (VM) modello in Lab Services con gli strumenti necessari per insegnare agli studenti come usare i [notebook di Jupyter](http://jupyter-notebook.readthedocs.io/)e come gli studenti possono connettersi ai propri notebook nelle macchine virtuali (VM).
@@ -20,7 +20,7 @@ Jupyter Notebooks è un progetto open source che consente di combinare facilment
 ## <a name="set-up-the-lab"></a>Configurare il Lab
 
 ### <a name="lab-configuration"></a>Configurazione del lab
-Per configurare questo Lab, è necessario accedere a una sottoscrizione di Azure e a un account Lab. Discutere con l'amministratore dell'organizzazione per verificare se è possibile ottenere l'accesso a una sottoscrizione di Azure esistente. Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/).
+Per configurare questo Lab, è necessario accedere a una sottoscrizione di Azure e a un account Lab. Discutere con l'amministratore dell'organizzazione per verificare se è possibile ottenere l'accesso a una sottoscrizione di Azure esistente. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 Quando si dispone di una sottoscrizione di Azure, creare un nuovo account Lab in Azure Lab Services seguendo le istruzioni riportate nell'esercitazione: [configurare un account Lab](tutorial-setup-lab-account.md). È anche possibile usare un account lab esistente.
 
@@ -112,7 +112,7 @@ Il provisioning dell'immagine **Data Science Virtual Machine-Ubuntu** è già st
 4. Quando si hanno queste informazioni, aprire l'app client X2Go e creare una nuova sessione. 
 5.  Immettere i valori seguenti nel riquadro **Preferenze sessione** :
     - **Nome sessione**: può essere quello che si vuole, ma è consigliabile usare il nome della macchina virtuale Lab.
-     - **Host**:`ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`
+     - **Host**: `ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`
      - **Account di accesso**: Student
      - **Porta SSH**: 12345
      - **Tipo di sessione**: Xfce

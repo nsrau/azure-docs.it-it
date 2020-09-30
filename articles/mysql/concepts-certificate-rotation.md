@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: d9faa9dcd664f5dc8b7b0b633eedd19431a4b826
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 437fe4636fd5b93656758c9fa55f2b18d64a4b6b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322207"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540694"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Informazioni sulle modifiche apportate alla modifica della CA radice per database di Azure per MySQL
 
@@ -120,7 +120,7 @@ Per i server creati dopo il 26 ottobre 2020 (10/26/2020), è possibile usare il 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. con quale frequenza Microsoft aggiorna i certificati o quali sono i criteri di scadenza?
 Questi certificati usati da database di Azure per MySQL sono forniti da autorità di certificazione (CA) attendibili. Il supporto di questi certificati nel database di Azure per MySQL è quindi associato al supporto di questi certificati da parte dell'autorità di certificazione. Tuttavia, come in questo caso, in questi certificati predefiniti possono essere presenti bug non previsti, che devono essere corretti al più presto.
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11. Se si usano le repliche di lettura, è necessario eseguire questo aggiornamento solo sul server master o sulle repliche di lettura?
+### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11. Se si usano le repliche di lettura, è necessario eseguire questo aggiornamento solo sul server di origine o sulle repliche di lettura?
 Poiché questo aggiornamento è una modifica sul lato client, se il client utilizzato per leggere i dati dal server di replica, sarà necessario applicare anche le modifiche per questi client.
 
 ### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Se si usa la replica dati, è necessario eseguire qualsiasi azione?
@@ -138,7 +138,7 @@ Se si usa la [replica dei dati](concepts-data-in-replication.md) per connettersi
 
     Se viene visualizzato il certificato fornito per il CA_file, SSL_Cert e SSL_Key, sarà necessario aggiornare il file aggiungendo il [nuovo certificato](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
 
-*   Se la replica dei dati è tra due database di Azure per MySQL, sarà necessario reimpostare la replica eseguendo **Call MySQL. az_replication_change_master** e fornire il nuovo certificato radice duale come ultimo parametro [master_ssl_ca](howto-data-in-replication.md#link-master-and-replica-servers-to-start-data-in-replication)
+*   Se la replica dei dati è tra due database di Azure per MySQL, sarà necessario reimpostare la replica eseguendo **Call MySQL. az_replication_change_master** e fornire il nuovo certificato radice duale come ultimo parametro [master_ssl_ca](howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication)
 
 ### <a name="13-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>13. esiste una query sul lato server per verificare se è in uso SSL?
 Per verificare se si sta usando la connessione SSL per la connessione al server, fare riferimento alla [verifica SSL](howto-configure-ssl.md#step-4-verify-the-ssl-connection).

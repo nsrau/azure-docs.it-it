@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56f5072c90a699270a92af317976c8f56bd3e2cb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616697"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536529"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Distribuire SAP IDES EHP7 SP3 per SAP ERP 6.0 in Azure
 Questo articolo descrive come distribuire un sistema SAP IDES in esecuzione con SQL Server e il sistema operativo Windows in Azure tramite SAP Cloud Appliance Library (SAP CAL) 3.0. Gli screenshot illustrano il processo in dettaglio. Per distribuire una soluzione diversa, seguire la stessa procedura.
@@ -54,11 +54,11 @@ Dopo l'accesso a SAP CAL, la prima pagina visualizzata è di solito la pagina **
 
     b. **Microsoft Azure** corrisponde al nuovo modello di distribuzione Resource Manager.
 
-    ![Account SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
+    ![Screenshot Mostra gli account P CAL con Microsoft Azure chiamato.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
     Per distribuire il modello Resource Manager, selezionare **Microsoft Azure**.
 
-    ![Account SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
+    ![Screenshot Mostra gli account P CAL.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
 1. Immettere l'**ID sottoscrizione** di Azure, reperibile nel Portale di Azure. 
 

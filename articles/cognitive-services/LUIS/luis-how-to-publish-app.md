@@ -3,20 +3,18 @@ title: Pubblica app-LUIS
 titleSuffix: Azure Cognitive Services
 description: Dopo aver compilato ed eseguito il test dell'app LUIS attiva, renderla disponibile per l'applicazione client effettuandone la pubblicazione sull'endpoint.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: e9c8b607b1dc3f7f67ee1fdad353d15023318947
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b72f1fd64cca0fa77ebc486670a512c5228e1146
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340692"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541476"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Pubblicare l'app attiva di cui si è eseguito il training in un endpoint di staging o di produzione
 
@@ -37,7 +35,7 @@ Quando si completa la compilazione, il training e il test dell'app LUIS attiva, 
 
 Quando viene visualizzata la finestra popup, selezionare lo slot corretto:
 
-* Staging
+* Gestione temporanea
 * Produzione
 
 Con entrambi gli slot di pubblicazione è possibile disporre di due diverse versioni dell'app disponibili negli endpoint pubblicati o nella stessa versione in due endpoint diversi.

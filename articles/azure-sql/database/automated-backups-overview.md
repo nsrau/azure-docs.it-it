@@ -7,16 +7,16 @@ ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: references_regions
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma, stevestein, danil
 ms.date: 09/25/2020
-ms.openlocfilehash: b28c175656b0951980f861198c93ccd794605839
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 93370050b503875d670283b720088b0871377c09
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91444317"
+ms.locfileid: "91535084"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -415,6 +415,9 @@ Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01
 
 Per informazioni dettagliate [, vedere Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
 
+> [!NOTE]
+> Per utilizzare il parametro-BackupStorageRedundancy con il ripristino del database, la copia del database o la creazione di operazioni secondarie, utilizzare Azure PowerShell versione AZ. SQL 2.11.0. 
+
 
 #### <a name="sql-managed-instance"></a>[Istanza gestita di SQL](#tab/managed-instance)
 
@@ -425,6 +428,8 @@ New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Loc
 ```
 
 Per altri dettagli, vedere [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance).
+
+---
 
 ## <a name="use-azure-policy-to-enforce-backup-storage-redundancy"></a>Usare i criteri di Azure per applicare la ridondanza dell'archiviazione di backup
 
@@ -440,11 +445,13 @@ Vengono aggiunti i nuovi criteri predefiniti seguenti, che possono essere assegn
 
 Un elenco completo delle definizioni dei criteri predefinite per il database SQL e Istanza gestita è disponibile [qui](https://docs.microsoft.com/azure/azure-sql/database/policy-reference).
 
-Per applicare i requisiti di residenza dei dati a livello organizzativo, questi criteri possono essere assegnati a una sottoscrizione. Una volta assegnate a livello di sottoscrizione, gli utenti nella sottoscrizione specificata non saranno in grado di creare un database o un'istanza gestita con archiviazione di backup con ridondanza geografica tramite portale di Azure o Azure PowerShell. Si noti che i criteri di Azure non vengono applicati durante la creazione di un database tramite T-SQL. 
+Per applicare i requisiti di residenza dei dati a livello organizzativo, questi criteri possono essere assegnati a una sottoscrizione. Una volta assegnate a livello di sottoscrizione, gli utenti nella sottoscrizione specificata non saranno in grado di creare un database o un'istanza gestita con archiviazione di backup con ridondanza geografica tramite portale di Azure o Azure PowerShell. 
+
+> [!IMPORTANT]
+> I criteri di Azure non vengono applicati durante la creazione di un database tramite T-SQL. Per applicare la residenza dei dati durante la creazione di un database con T-SQL, [usare ' local ' o ' zone ' come input per BACKUP_STORAGE_REDUNDANCY il parametro nell'istruzione create database](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
 
 Informazioni su come assegnare criteri usando il [portale di Azure](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) o [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell)
 
----
 
 ## <a name="next-steps"></a>Passaggi successivi
 

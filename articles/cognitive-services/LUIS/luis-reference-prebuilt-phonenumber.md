@@ -3,20 +3,18 @@ title: Numero di telefono entità predefinite-LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita numero di telefono in Language Understanding, ovvero LUIS.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 4e2c8e27c6d4195252c6a5b423fa98b2a4247182
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 598ecaddbab3b70297a460521c7ec3386b390a8d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270462"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535390"
 ---
 # <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entità predefinita del numero di telefono per un'app LUIS
 L'entità`phonenumber` consente di estrarre una serie di numeri di telefono che includono il codice nazionale. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio all'applicazione. L'entità `phonenumber` è supportata solo nelle impostazioni cultura `en-us`.
@@ -32,7 +30,7 @@ Per la query vengono restituiti gli oggetti entità seguenti:
 
 #### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
-Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
+Il codice JSON seguente è con il `verbose` parametro impostato su `false` :
 
 ```json
 "entities": {
@@ -42,7 +40,7 @@ Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
-Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
+Il codice JSON seguente è con il `verbose` parametro impostato su `true` :
 
 ```json
 "entities": {

@@ -3,18 +3,18 @@ title: Configurare l'ambiente per l'operatore Blueprint
 description: Informazioni su come configurare l'ambiente Azure per l'uso con il ruolo predefinito operatore di Azure.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: ef911553b4985a6497fb397a1ae405387c6539fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ae881ac6d0714401f8c80e880b4d288f594b7cf3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051458"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535782"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurare l'ambiente per un operatore di Blueprint
 
 La gestione delle definizioni dei progetti e delle assegnazioni di progetto può essere assegnata a team diversi. È comune che un progettista o un team di governance sia responsabile della gestione del ciclo di vita delle definizioni del progetto, mentre un team operativo è responsabile della gestione delle assegnazioni di tali definizioni di progetto controllate centralmente.
 
-Il controllo degli accessi in base al ruolo incorporato nell' **operatore Blueprint** è stato progettato in modo specifico per l'uso in questo tipo di scenario. Il ruolo consente ai team dei tipi di operazioni di gestire l'assegnazione delle definizioni del progetto dell'organizzazione, ma non di modificarle. Questa operazione richiede una configurazione nell'ambiente Azure e in questo articolo vengono illustrati i passaggi necessari.
+Il ruolo predefinito **operatore progetto** è stato progettato in modo specifico per l'uso in questo tipo di scenario. Il ruolo consente ai team dei tipi di operazioni di gestire l'assegnazione delle definizioni del progetto dell'organizzazione, ma non di modificarle. Questa operazione richiede una configurazione nell'ambiente Azure e in questo articolo vengono illustrati i passaggi necessari.
 
 ## <a name="grant-permission-to-the-blueprint-operator"></a>Concedere l'autorizzazione all'operatore Blueprint
 

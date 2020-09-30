@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: ee23b2bc58f8c1f15a7e51b05dee954c1e584293
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5b96ac9cf43782764e88039d736ba61454d65911
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489623"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539198"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -203,7 +203,7 @@ Ogni unità di scala aggiuntiva di Gestione API richiede altri due indirizzi IP.
 
 ## <a name="control-plane-ip-addresses"></a><a name="control-plane-ips"> </a> Indirizzi IP del piano di controllo
 
-Gli indirizzi IP sono divisi per **ambiente di Azure**. Quando si abilitano le richieste in ingresso, l'indirizzo IP contrassegnato con **globale** deve essere inserito nell'elenco elementi consentiti insieme all'indirizzo IP specifico dell'**area**.
+Gli indirizzi IP sono divisi per **ambiente di Azure**. Quando si consente le richieste in ingresso, l'indirizzo IP contrassegnato con **globale** deve essere consentito insieme all'indirizzo IP specifico dell' **area** .
 
 | **Ambiente di Azure**|   **Area**|  **Indirizzo IP**|
 |-----------------|-------------------------|---------------|
@@ -251,11 +251,11 @@ Gli indirizzi IP sono divisi per **ambiente di Azure**. Quando si abilitano le r
 | Azure Public| Germania settentrionale| 51.116.0.0|
 | Azure Public| Norvegia orientale| 51.120.2.185|
 | Azure Public| Norvegia occidentale| 51.120.130.134|
-| Azure Cina 21Vianet| Cina settentrionale (globale)| 139.217.51.16|
-| Azure Cina 21Vianet| Cina orientale (globale)| 139.217.171.176|
-| Azure Cina 21Vianet| Cina settentrionale| 40.125.137.220|
-| Azure Cina 21Vianet| Cina orientale| 40.126.120.30|
-| Azure Cina 21Vianet| Cina settentrionale 2| 40.73.41.178|
+| 21Vianet per Azure Cina| Cina settentrionale (globale)| 139.217.51.16|
+| 21Vianet per Azure Cina| Cina orientale (globale)| 139.217.171.176|
+| 21Vianet per Azure Cina| Cina settentrionale| 40.125.137.220|
+| 21Vianet per Azure Cina| Cina orientale| 40.126.120.30|
+| 21Vianet per Azure Cina| Cina settentrionale 2| 40.73.41.178|
 | 21Vianet per Azure Cina| Cina orientale 2| 40.73.104.4|
 | Azure Government| US Gov Virginia (globale)| 52.127.42.160|
 | Azure Government| Governo degli Stati Uniti - Texas (globale)| 52.127.34.192|

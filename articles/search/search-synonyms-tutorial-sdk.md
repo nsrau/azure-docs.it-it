@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 51d6920d9ab52b907f2cb51e29d85f82dc74d45b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 842d43c82875a1a8e5e45ba14f47ceb6eac26727
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250233"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538807"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Esempio: aggiungere sinonimi per ricerca cognitiva di Azure in C #
 
@@ -23,8 +23,8 @@ I sinonimi espandono una query tramite la corrispondenza con termini considerati
 In ricerca cognitiva di Azure, i sinonimi vengono definiti in una *mappa di sinonimi*tramite *regole di mapping* che associano termini equivalenti. In questo esempio vengono illustrati i passaggi essenziali per l'aggiunta e l'utilizzo di sinonimi con un indice esistente. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare una mappa di sinonimi usando la classe  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
-> * Impostare la proprietà [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) nei campi che devono supportare l'espansione delle query tramite sinonimi.
+> * Creare una mappa di sinonimi usando la classe  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap) . 
+> * Impostare la proprietà [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps) nei campi che devono supportare l'espansione delle query tramite sinonimi.
 
 È possibile eseguire una query su un campo abilitato per sinonimi come in genere. Non è necessaria alcuna sintassi di query aggiuntiva per accedere ai sinonimi.
 

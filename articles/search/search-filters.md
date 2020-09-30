@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d1e120073e5bf4306c89628fc4e2e9c9f7ed2cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002420"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534795"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtri in ricerca cognitiva di Azure 
 
@@ -138,7 +138,7 @@ Leggere gli articoli seguenti per indicazioni complete sui casi d'uso specifici:
 
 Nell'API REST *, il filtro è attivo* per impostazione predefinita per i campi semplici. I campi filtrabili causano un aumento delle dimensioni dell'indice. Assicurarsi di impostare `"filterable": false` per i campi che non si prevede di usare in un filtro. Per altre informazioni sulle impostazioni delle definizioni di campo, vedere l'articolo relativo all'operazione [Create Index](/rest/api/searchservice/create-index).
 
-In .NET SDK la proprietà filterable è *disattivata* per impostazione predefinita. È possibile rendere un campo filtrabile impostando la [proprietà di filtro](/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) dell'oggetto [campo](/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) corrispondente su `true` . È anche possibile eseguire questa operazione in modo dichiarativo usando l' [attributo di filtro](/dotnet/api/microsoft.azure.search.isfilterableattribute). Nell'esempio seguente l'attributo viene impostato sulla `BaseRate` proprietà di una classe di modello che esegue il mapping alla definizione dell'indice.
+In .NET SDK la proprietà filterable è *disattivata* per impostazione predefinita. È possibile rendere un campo filtrabile impostando la [proprietà di filtro](/dotnet/api/microsoft.azure.search.models.field.isfilterable) dell'oggetto [campo](/dotnet/api/microsoft.azure.search.models.field) corrispondente su `true` . È anche possibile eseguire questa operazione in modo dichiarativo usando l' [attributo di filtro](/dotnet/api/microsoft.azure.search.isfilterableattribute). Nell'esempio seguente l'attributo viene impostato sulla `BaseRate` proprietà di una classe di modello che esegue il mapping alla definizione dell'indice.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]

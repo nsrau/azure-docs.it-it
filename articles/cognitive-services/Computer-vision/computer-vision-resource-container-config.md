@@ -1,7 +1,7 @@
 ---
-title: Configurare i contenitori - Visione artificiale
+title: Configurare i contenitori OCR di lettura-Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Questo articolo illustra come configurare le impostazioni obbligatorie e facoltative per i contenitori di riconoscimento del testo in Visione artificiale.
+description: Questo articolo illustra come configurare le impostazioni obbligatorie e facoltative per i contenitori OCR di lettura in Visione artificiale.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 28116a373b66aa5bfa6d3ebbf027c2db6d24ba5d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 00c96333e612c7f92d7c53630eaa006b060986ad
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397131"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536240"
 ---
-# <a name="configure-computer-vision-docker-containers"></a>Configurare Visione artificiale contenitori Docker
+# <a name="configure-read-ocr-docker-containers"></a>Configurare i contenitori Docker di lettura OCR
 
-Configurare l'ambiente di runtime del contenitore Visione artificiale usando gli `docker run` argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
+È possibile configurare l'ambiente di runtime del contenitore OCR di Visione artificiale Read usando gli `docker run` argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 
@@ -31,7 +31,7 @@ Configurare l'ambiente di runtime del contenitore Visione artificiale usando gli
 
 Il contenitore include anche le seguenti impostazioni di configurazione specifiche del contenitore:
 
-|Necessario|Impostazione|Scopo|
+|Obbligatoria|Impostazione|Scopo|
 |--|--|--|
 |No|ReadEngineConfig:ResultExpirationPeriod| solo contenitori v 2.0. Periodo di scadenza del risultato in ore. L'impostazione predefinita è 48 ore. L'impostazione specifica quando il sistema deve cancellare i risultati del riconoscimento. Se, ad esempio `resultExpirationPeriod=1` , il sistema cancella il risultato del riconoscimento 1 ora dopo il processo. Se `resultExpirationPeriod=0` , il sistema cancella il risultato del riconoscimento dopo che il risultato è stato recuperato.|
 |No|Cache: Redis| solo contenitori v 2.0. Abilita l'archiviazione Redis per l'archiviazione dei risultati. È *necessaria* una cache se più contenitori di lettura sono posizionati dietro un servizio di bilanciamento del carico.|
@@ -62,7 +62,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 Ricordarsi di aggiungere il `vision/v1.0` routing all'URI dell'endpoint, come illustrato nella tabella seguente. 
 
-|Necessario| Nome | Tipo di dati | Descrizione |
+|Obbligatoria| Nome | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
 |Sì| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 

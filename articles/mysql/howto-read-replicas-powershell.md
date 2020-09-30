@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 8/24/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c85af0f4078010fa5b6a1d116b3bfda942c0490c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e9c8ce7519c6e2c84ef47fc78897c4b67b89e56a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816933"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541017"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Come creare e gestire le repliche di lettura nel database di Azure per MySQL usando PowerShell
 
@@ -38,12 +38,12 @@ Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure us
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> La funzionalità relativa alle repliche in lettura è disponibile solo per i server di Database di Azure per MySQL nei piani tariffari Utilizzo generico o Con ottimizzazione per la memoria. Verificare che il server master sia incluso in uno di questi piani tariffari.
+> La funzionalità relativa alle repliche in lettura è disponibile solo per i server di Database di Azure per MySQL nei piani tariffari Utilizzo generico o Con ottimizzazione per la memoria. Verificare che il server di origine si trovi in uno di questi piani tariffari.
 
 ### <a name="create-a-read-replica"></a>Creare una replica in lettura
 
 > [!IMPORTANT]
-> Quando viene creata una replica per un master senza repliche esistenti, il master verrà prima riavviato per prepararsi alla replica. Tenere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di scarso traffico.
+> Quando si crea una replica per un'origine senza repliche, l'origine viene innanzitutto riavviata per prepararsi per la replica. Tenere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di scarso traffico.
 
 È possibile creare un server di replica in lettura usando il comando seguente:
 
@@ -68,14 +68,14 @@ Get-AzMySqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 
 Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo [Concetti relativi alle repliche in lettura](concepts-read-replicas.md).
 
-Per impostazione predefinita, le repliche di lettura vengono create con la stessa configurazione del server del database master, a meno che non sia stato specificato il parametro **SKU** .
+Per impostazione predefinita, le repliche di lettura vengono create con la stessa configurazione del server dell'origine, a meno che non sia specificato il parametro **SKU** .
 
 > [!NOTE]
-> È consigliabile mantenere nella configurazione del server di replica valori maggiori o uguali a quelli del master affinché la replica possa restare al passo con il master.
+> È consigliabile mantenere la configurazione del server di replica con valori uguali o superiori a quelli dell'origine per assicurarsi che la replica sia in grado di rimanere al passo con il database master.
 
-### <a name="list-replicas-for-a-master-server"></a>Elencare le repliche di un server master
+### <a name="list-replicas-for-a-source-server"></a>Elencare le repliche per un server di origine
 
-Per visualizzare tutte le repliche per un determinato server master, eseguire il comando seguente:
+Per visualizzare tutte le repliche per un determinato server di origine, eseguire il comando seguente:
 
 ```azurepowershell-interactive
 Get-AzMySqlReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -86,7 +86,7 @@ Il comando `Get-AzMySqlReplica` richiede i parametri seguenti:
 | Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
-| ServerName | mydemoserver | Nome o ID del server master. |
+| ServerName | mydemoserver | Nome o ID del server di origine. |
 
 ### <a name="delete-a-replica-server"></a>Eliminare un server di replica
 
@@ -96,12 +96,12 @@ L'eliminazione di un server di replica di lettura può essere eseguita eseguendo
 Remove-AzMySqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-### <a name="delete-a-master-server"></a>Eliminare un server master
+### <a name="delete-a-source-server"></a>Eliminare un server di origine
 
 > [!IMPORTANT]
-> Eliminando un server master si arresta la replica in tutti i server di replica, oltre a eliminare il server master stesso. I server di replica diventano server autonomi che supportano sia la lettura che la scrittura.
+> Eliminando un server di origine si arresta la replica in tutti i server di replica, oltre a eliminare il server di origine stesso. I server di replica diventano server autonomi che supportano sia la lettura che la scrittura.
 
-Per eliminare un server master, è possibile eseguire il `Remove-AzMySqlServer` cmdlet.
+Per eliminare un server di origine, è possibile eseguire il `Remove-AzMySqlServer` cmdlet.
 
 ```azurepowershell-interactive
 Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup

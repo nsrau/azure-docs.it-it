@@ -3,20 +3,18 @@ title: Entità precompilata geography V2-LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita geographyV2 in Language Understanding, ovvero LUIS.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: diberry
-ms.openlocfilehash: b2b2b0781abce59628660b669f43110bf91b15e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ad6fd62178ec8e987e1e3b6e05cc961bbe15e377
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273501"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541961"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entità predefinita geographyV2 per un'app LUIS
 L'entità predefinita geographyV2 rileva le località. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti geographyV2 per le finalità dell'applicazione. L'entità geographyV2 è supportata solo nelle [impostazioni cultura](luis-reference-prebuilt-entities.md) inglese.
@@ -41,7 +39,7 @@ Per la query vengono restituiti gli oggetti entità seguenti:
 
 #### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
-Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
+Il codice JSON seguente è con il `verbose` parametro impostato su `false` :
 
 ```json
 "entities": {
@@ -74,7 +72,7 @@ Nel codice JSON precedente `poi` è un'abbreviazione per il **punto di interesse
 
 #### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
 
-Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
+Il codice JSON seguente è con il `verbose` parametro impostato su `true` :
 
 ```json
 "entities": {

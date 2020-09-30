@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: c49e92cda89cfc1d72a0550c2a53430f3e6f2844
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 351503db52e4c62414cd5dcbae1f750032a37eb7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050329"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542275"
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
 Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure.
@@ -49,15 +49,15 @@ Risposte alle domande comuni, modelli e procedure consigliate per Gestione API d
 Quando una funzionalità è in anteprima, significa che si stanno raccogliendo attivamente commenti e suggerimenti dagli utenti sulla funzionalità. Una funzionalità in anteprima è completa dal punto di vista funzionale, ma è possibile che venga apportata una modifica di rilievo in risposta ai commenti e suggerimenti dei clienti. È consigliabile non far dipendere l'ambiente di produzione da una funzionalità in anteprima.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Come si protegge la connessione tra il gateway di Gestione API e i servizi back-end?
-Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestione API e i servizi back-end. è possibile:
+Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestione API e i servizi back-end. È possibile:
 
 * Usare l'autenticazione HTTP di base. Per altre informazioni, vedere [Importare e pubblicare la prima API](import-and-publish.md).
 * Usare l'autenticazione reciproca TLS come descritto in [come proteggere i servizi back-end usando l'autenticazione con certificati client in gestione API di Azure](api-management-howto-mutual-certificates.md).
-* Usare gli elenchi di IP consentiti nel servizio back-end. In tutti i livelli di gestione API, ad eccezione del livello di consumo, l'indirizzo IP del gateway rimane costante, con alcune avvertenze descritte nell' [articolo della documentazione IP](api-management-howto-ip-addresses.md).
+* Usare il filtro IP nel servizio back-end. In tutti i livelli di gestione API, ad eccezione del livello di consumo, l'indirizzo IP del gateway rimane costante, con alcune avvertenze descritte nell' [articolo della documentazione IP](api-management-howto-ip-addresses.md).
 * Connettere l'istanza di Gestione API a una rete virtuale di Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Come si copia l'istanza del servizio Gestione API in una nuova istanza?
-Esistono diverse opzioni per copiare un'istanza di Gestione API in una nuova istanza. è possibile:
+Esistono diverse opzioni per copiare un'istanza di Gestione API in una nuova istanza. È possibile:
 
 * Usare la funzione di backup e ripristino di Gestione API. Per altre informazioni, vedere [Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure](api-management-howto-disaster-recovery-backup-restore.md).
 * Creare una propria funzionalità di backup e ripristino usando l'[API REST di Gestione API](/rest/api/apimanagement/). Usare l'API REST per salvare e ripristinare le entità dall'istanza del servizio desiderata.
@@ -88,7 +88,7 @@ Ora il nuovo collaboratore aggiunto può usare i [cmdlet](/powershell/azure/) di
 Se il criterio che si vuole aggiungere è in grigio o ombreggiato nell'editor dei criteri, assicurarsi che l'ambito del criterio sia corretto. Ogni istruzione di criterio è progettata per essere usata in ambiti e sezioni dei criteri specifici. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, vedere la sezione sull'utilizzo in [API Management policies](./api-management-policies.md) (Criteri di Gestione API).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Come si configurano più ambienti in una sola API?
-Per configurare più ambienti, ad esempio un ambiente di test e un ambiente di produzione, in una sola API, esistono due opzioni. è possibile:
+Per configurare più ambienti, ad esempio un ambiente di test e un ambiente di produzione, in una sola API, esistono due opzioni. È possibile:
 
 * Ospitare API diverse nello stesso tenant.
 * Ospitare le stesse API in tenant diversi.

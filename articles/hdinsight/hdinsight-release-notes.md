@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/27/2020
-ms.openlocfilehash: f6527a0c5712d68756310b699d214013e89f38e1
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: feb186fbe216305039fcc0a23a10419c44fd0483
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449584"
+ms.locfileid: "91535611"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Note sulla versione di Azure HDInsight
 
@@ -28,8 +28,8 @@ Azure HDInsight è uno dei servizi più diffusi fra i clienti enterprise per ana
 Questa versione è valida sia per HDInsight 3,6 che per HDInsight 4,0. La versione di HDInsight è resa disponibile per tutte le aree in diversi giorni. La data di release riportata indica la data di rilascio di release della prima area. Se non vengono visualizzate le modifiche riportate di seguito, attendere che la versione risieda nella propria area in diversi giorni.
 
 ## <a name="new-features"></a>Nuove funzionalità
-### <a name="llap-cluster-auto-scale-general-available"></a>Scalabilità automatica cluster LLAP disponibile a livello generale
-La scalabilità automatica per il tipo di cluster LLAP è ora disponibile a livello generale (GA). Tutti i cluster LLAP creati dopo il 27 agosto 2020 avranno il supporto per la scalabilità automatica.
+### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>La scalabilità automatica per la query interattiva con HDInsight 4,0 è ora disponibile a livello generale
+La scalabilità automatica per il tipo di cluster Interactive query è ora disponibile a livello generale (GA) per HDInsight 4,0. Tutti i cluster Interactive query 4,0 creati dopo il 27 agosto 2020 avranno il supporto per la scalabilità automatica.
 
 ### <a name="hbase-cluster-supports-premium-adls-gen2"></a>Il cluster HBase supporta ADLS Gen2 Premium
 HDInsight supporta ora ADLS Gen2 Premium come account di archiviazione primario per i cluster HDInsight HBase 3,6 e 4,0. Insieme alle [Scritture accelerate](./hbase/apache-hbase-accelerated-writes.md), è possibile ottenere prestazioni migliori per i cluster HBase.

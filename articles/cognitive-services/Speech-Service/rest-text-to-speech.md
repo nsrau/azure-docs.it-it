@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 6fafb668ecc2ae36dbe5a6bbc3d1e1d501545b50
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056806"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534982"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST di sintesi vocale
 
@@ -32,6 +32,9 @@ L'API REST Sintesi vocale supporta voci neurali e standard, ognuna delle quali s
 Prima di usare questa API, comprendere quanto segue:
 
 * L'API REST di sintesi vocale richiede un'intestazione dell'autorizzazione. Ciò significa che è necessario completare uno scambio di token per accedere al servizio. Per altre informazioni, vedere [Autenticazione](#authentication).
+
+> [!TIP]
+> Vedere la [documentazione](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) di Azure per enti pubblici per gli endpoint di Fairfax (Government cloud).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -69,7 +72,7 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 
 | Intestazione | Descrizione | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
-| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Richiesto |
+| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
 
 ### <a name="request-body"></a>Corpo della richiesta
 
@@ -169,10 +172,10 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 
 | Intestazione | Descrizione | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
-| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Richiesto |
-| `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Richiesto |
-| `X-Microsoft-OutputFormat` | Specifica il formato di output audio. Per un elenco completo dei valori accettati, vedere [output audio](#audio-outputs). | Richiesto |
-| `User-Agent` | Nome dell'applicazione. Il valore specificato deve essere inferiore a 255 caratteri. | Richiesto |
+| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatoria |
+| `Content-Type` | Specifica il tipo di contenuto per il testo specificato. Valore accettato: `application/ssml+xml`. | Obbligatoria |
+| `X-Microsoft-OutputFormat` | Specifica il formato di output audio. Per un elenco completo dei valori accettati, vedere [output audio](#audio-outputs). | Obbligatoria |
+| `User-Agent` | Nome dell'applicazione. Il valore specificato deve essere inferiore a 255 caratteri. | Obbligatoria |
 
 ### <a name="audio-outputs"></a>Output audio
 
@@ -233,7 +236,7 @@ Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 | 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
 | 401 | Non autorizzata | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
 | 413 | Entità della richiesta troppo grande | La lunghezza dell'input SSML è maggiore di 1024 caratteri. |
-| 415 | Tipo di supporto non supportato | È possibile che sia `Content-Type` stato specificato un errore. `Content-Type`deve essere impostato su `application/ssml+xml` . |
+| 415 | Tipo di supporto non supportato | È possibile che sia `Content-Type` stato specificato un errore. `Content-Type` deve essere impostato su `application/ssml+xml` . |
 | 429 | Troppe richieste | È stata superata la quota o la frequenza di richieste consentite per la sottoscrizione. |
 | 502 | Gateway non valido    | Problema di rete o lato server. Può anche indicare intestazioni non valide. |
 

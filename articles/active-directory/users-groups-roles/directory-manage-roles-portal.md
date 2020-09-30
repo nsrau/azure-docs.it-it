@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fea05ada52ba4281acb3451769446d7f0bad790d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e548e99cc60d67b477fd087b993764bf7f223592
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448699"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541187"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visualizzare e assegnare i ruoli di amministratore in Azure Active Directory
 
@@ -55,7 +55,7 @@ Se l'utente è un amministratore globale o un amministratore di ruoli con privil
 
 Quando si visualizzano i membri di un ruolo, selezionare **Descrizione** per visualizzare l'elenco completo delle autorizzazioni concesse in base all'assegnazione del ruolo. La pagina include collegamenti alla documentazione pertinente, che contiene indicazioni utili per la gestione dei ruoli della directory.
 
-![elenco di autorizzazioni per un ruolo di amministratore](./media/directory-manage-roles-portal/role-description.png)
+![Screenshot che mostra la pagina "Global Administrator-Description".](./media/directory-manage-roles-portal/role-description.png)
 
 ## <a name="download-role-assignments"></a>Scaricare le assegnazioni di ruolo
 
@@ -71,7 +71,7 @@ Per scaricare tutte le assegnazioni per un ruolo specifico, nella pagina **ruoli
 
 1. Selezionare un ruolo per visualizzare le relative assegnazioni.
 
-    ![elenco di autorizzazioni per un ruolo di amministratore](./media/directory-manage-roles-portal/member-list.png)
+    ![Screenshot che mostra la pagina "amministratori utente-assegnazioni" con l'azione "Gestisci in PIM" selezionata.](./media/directory-manage-roles-portal/member-list.png)
 
 1. Selezionare **Aggiungi assegnazioni** e selezionare i ruoli che si desidera assegnare. È possibile selezionare la **gestione nel servizio PIM** per funzionalità di gestione aggiuntive. Se viene visualizzato un valore diverso dall'immagine seguente, leggere la nota in [visualizzare le assegnazioni per i ruoli con privilegi](#view-assignments-for-privileged-roles) per verificare se si è in PIM.
 

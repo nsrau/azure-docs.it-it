@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedd6d019005a4c55bbabf6070c6d864da90f40a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4ab3ae459d5719e965be668c529eacf0ab86d19b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055487"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541136"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo Azure AD in Privileged Identity Management
 
@@ -196,7 +196,7 @@ Se si desidera delegare l'approvazione richiesta per attivare un ruolo, atteners
 
 1. Impostare l'opzione **Richiedi approvazione** su **Abilitato**. Il riquadro viene espanso con le opzioni per selezionare i responsabili dell'approvazione.
 
-    ![Ruoli Azure AD-impostazioni-Richiedi approvazione](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Screenshot che mostra l'opzione "Richiedi approvazione" con l'opzione "Abilita" selezionata.](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Se non vengono specificati responsabili approvazione, l'amministratore del ruolo con privilegi diventa il responsabile approvazione predefinito ed è quindi necessario per approvare tutte le richieste di attivazione per questo ruolo.
 

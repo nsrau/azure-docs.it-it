@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1df576e3316a529ec38c4a53960ff817d129ffd8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 260125b5e7aa4537c6e204d93263b65be042793a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002249"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540745"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Personalizzare le proprietà Remote Desktop Protocol per un pool di host di desktop virtuali Windows (classico)
 
@@ -34,7 +34,7 @@ Per impostazione predefinita, i file RDP pubblicati contengono le proprietà seg
 
 |Proprietà di RDP | Desktop | RemoteApps |
 |---|---| --- |
-| Modalità multimonitor | Abilitato | N/D |
+| Modalità multimonitor | Attivato | N/D |
 | Reindirizzamento unità abilitati | Unità, appunti, stampanti, porte COM, dispositivi USB e smart card| Unità, appunti e stampanti |
 | Modalità audio remoto | Riproduci localmente | Riproduci localmente |
 
@@ -49,7 +49,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot del cmdlet di PowerShell Get-RDSRemoteApp con Name e FriendlyName evidenziato.](../media/singlecustomrdpproperty.png)
+> ![Uno screenshot del cmdlet di PowerShell Get-RDSRemoteApp con Name e FriendlyName evidenziato per modificare una proprietà R D P personalizzata.](../media/singlecustomrdpproperty.png)
 
 ## <a name="add-or-edit-multiple-custom-rdp-properties"></a>Aggiungere o modificare più proprietà RDP personalizzate
 
@@ -61,7 +61,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot del cmdlet di PowerShell Get-RDSRemoteApp con Name e FriendlyName evidenziato.](../media/multiplecustomrdpproperty.png)
+> ![Uno screenshot del cmdlet di PowerShell set-RDSRemoteApp con Name e FriendlyName evidenziato per modificare una proprietà R D P personalizzata.](../media/multiplecustomrdpproperty.png)
 
 ## <a name="reset-all-custom-rdp-properties"></a>Reimposta tutte le proprietà RDP personalizzate
 

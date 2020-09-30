@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: d9a4f7aa270aa4ed2b02e61da984e14379a241a9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 106600b608586175cbab1098cf0eb7ac6fad94fa
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289923"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540303"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnosticare e risolvere i problemi relativi a un ambiente Gen2 Azure Time Series Insights
 
@@ -81,11 +81,11 @@ Questo problema si verifica quando la chiave specificata durante la creazione de
 
 Per aggiornare l'ambiente di Time Series Insights Gen2 con la nuova chiave, aprire la risorsa Hub nel portale di Azure e copiare la nuova chiave. Passare alla risorsa TSI e fare clic su origini eventi. 
 
-   [![Chiave di aggiornamento.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+   [![Screenshot mostra la voce di menu della risorsa T i con origini eventi denominata.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
 Selezionare le origini eventi per cui è stato interrotto l'inserimento, incollare la nuova chiave e fare clic su Salva.
 
-   [![Chiave di aggiornamento.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
+   [![Screenshot mostra la risorsa T S I con la chiave del criterio Hub I o T immessa.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
 ## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problema: il nome della proprietà timestamp dell'origine evento non funziona
 
@@ -129,7 +129,7 @@ Questo problema può verificarsi se nell'ambiente non è definita una gerarchia 
 
 Questo problema può verificarsi se non si usa la versione più recente del connettore Power BI in Power BI Desktop.
 
-[![Nelle istanze con non padre verrà visualizzato un avviso.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
+[![Screenshot che mostra la finestra di dialogo non è possibile connettersi.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
 
 * Controllare la versione del Power BI Desktop e verificare che sia in uso la versione 2020 di luglio. In caso contrario, aggiornare la Power BI Desktop ed eseguire di nuovo il connettore. 
 

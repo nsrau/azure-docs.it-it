@@ -3,20 +3,18 @@ title: Conversione dati-LUIS
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come modificare le espressioni prima delle stime in Language Understanding (LUIS)
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: b2455df87c8eae1a48cb6c8b1381dad85d304bf4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b305be693f59b65a62570f656a0132f4f03cf099
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82099241"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541799"
 ---
 # <a name="convert-data-format-of-utterances"></a>Convertire il formato dati delle espressioni
 LUIS fornisce le seguenti conversioni di un enunciato utente prima della stima "

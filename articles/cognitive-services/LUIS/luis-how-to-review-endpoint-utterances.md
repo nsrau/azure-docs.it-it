@@ -3,20 +3,18 @@ title: Esaminare le espressioni utente-LUIS
 titleSuffix: Azure Cognitive Services
 description: Esaminare le espressioni acquisite da Active Learning per selezionare le entità Intent e Mark per le espressioni Read-World; accettare le modifiche, eseguire il training e pubblicare.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/07/2020
-ms.author: diberry
-ms.openlocfilehash: 58674bf38ec1efb970fa8e79f7d970ecefb36712
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 9777e4f9b2205d2f6cdf6158b035e2a18403d69f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055614"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541459"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Come migliorare l'app LUIS esaminando gli enunciati degli endpoint
 
@@ -34,7 +32,7 @@ Usare il portale LUIS per costruire la query dell'endpoint corretta.
 1. Per la risorsa di stima assegnata, selezionare **modifica parametri query**.
 
     > [!div class="mx-imgBorder"]
-    > ![Usare LUIS Portal per salvare i log, operazione necessaria per l'apprendimento attivo.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+    > ![Screenshot che mostra il collegamento modifica parametri query.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
 1. Impostare **Salva log** , quindi Salva, quindi **fare**clic su fine.
 

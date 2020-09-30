@@ -3,20 +3,18 @@ title: Chiave precompilata entità-LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita keyphrase in Language Understanding, ovvero LUIS.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 53be1b13f1e2744e143a4be0777e3a8e3135460e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 02a48c8d106795b970d573bb71f52ba92e0a90ac
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270519"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541986"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>Entità predefinita keyPhrase per un'app LUIS
 L'entità phrase estrae una serie di frasi chiave da un enunciato. Non è necessario aggiungere espressioni di esempio che contengono la frase chiave per l'applicazione. L'entità chiave è supportata in [molte impostazioni cultura](luis-language-support.md#languages-supported) come parte delle funzionalità di [analisi del testo](../text-analytics/overview.md) .
@@ -29,7 +27,7 @@ Per la query vengono restituiti gli oggetti entità seguenti:
 
 #### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
-Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
+Il codice JSON seguente è con il `verbose` parametro impostato su `false` :
 
 ```json
 "entities": {
@@ -40,7 +38,7 @@ Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
-Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
+Il codice JSON seguente è con il `verbose` parametro impostato su `true` :
 
 ```json
 "entities": {
