@@ -10,12 +10,12 @@ ms.custom: devx-track-csharp
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 8307cfee90fdf65d119bbc1e55eabb0533a4a6ad
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 974f147492877f481616b43d67146a03814ada16
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926432"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376758"
 ---
 > [!NOTE]
 > Speech SDK per Unity supporta Windows Desktop (x86 e x64) o la piattaforma UWP (Universal Windows Platform) (x86, x64, ARM/ARM64), Android (x86, ARM32/64) e iOS (simulatore x64, ARM32 e ARM64).
@@ -25,7 +25,7 @@ ms.locfileid: "88926432"
 Prima di iniziare:
 
 > [!div class="checklist"]
-> * [Creare una risorsa Voce di Azure](../../../../get-started.md)
+> * [Creare una risorsa Voce di Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=unity&pivots=programming-language-csharp)
 > * Assicurarsi di avere accesso a un microfono per l'acquisizione audio
 

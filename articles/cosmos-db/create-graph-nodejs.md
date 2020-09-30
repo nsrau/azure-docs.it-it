@@ -1,20 +1,20 @@
 ---
 title: Creare un'applicazione Node.js Azure Cosmos DB tramite l'API Gremlin
 description: Presenta un esempio di codice Node.js che permette di connettersi ad Azure Cosmos DB ed eseguire query sul servizio
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
-ms.author: lbosq
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f1e619468ecbcd533c8cda725cb316d1e2a0e256
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.author: jasonh
+ms.custom: devx-track-js
+ms.openlocfilehash: c44f7218734af4bc3144137356b85e8845208f6f
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420431"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409375"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Avvio rapido: Creare un'applicazione Node.js usando l'account dell'API Gremlin di Azure Cosmos DB
 
@@ -161,7 +161,7 @@ Questa app console usa il driver open source [Gremlin Node.js](https://www.npmjs
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Pannello delle chiavi del portale di Azure":::
+   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Panoramica del portale di Azure":::
 
 4. Immettere il nome del database e il nome del grafo (contenitore) per il valore di config.database e config.collection. 
 

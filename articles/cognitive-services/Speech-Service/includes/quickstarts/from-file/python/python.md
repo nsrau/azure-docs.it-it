@@ -4,19 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/20/2020
 ms.author: trbye
-ms.openlocfilehash: 2e6be94a7fc83c6da8bf7a46fde6ea0f5ef7c764
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9365b4bbf6e6fb37156b6e9f24b923591945ea52
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400566"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377134"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
-> * [Creare una risorsa Voce di Azure](../../../../get-started.md)
+> * [Creare una risorsa Voce di Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Creare un'applicazione LUIS e ottenere una chiave dell'endpoint](../../../../quickstarts/create-luis.md)
 > * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 

@@ -4,19 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: ee6b6c29c89c39c72144371af8268760da843170
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 59e862fe04e7bf715e6e44c783f2cf9c0ecbc7c3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375691"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376464"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare:
 
 > [!div class="checklist"]
-> * [Creare una risorsa Voce di Azure](../../../../get-started.md)
+> * [Creare una risorsa Voce di Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md)
 > * Creare un bot connesso al [canale Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Assicurarsi di avere accesso a un microfono per l'acquisizione audio

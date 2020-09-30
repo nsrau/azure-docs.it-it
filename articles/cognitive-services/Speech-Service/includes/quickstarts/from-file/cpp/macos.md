@@ -4,19 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: fb0174f831d99d3088171448c7b23163eb1d9fc8
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 1dfe1e24b61326a8b131efd81f79f3d86f10711c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226539"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377482"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
-> * [Creare una risorsa Voce di Azure](../../../../get-started.md)
+> * [Creare una risorsa Voce di Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=macos&pivots=programming-language-cpp)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]

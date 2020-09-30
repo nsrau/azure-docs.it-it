@@ -7,19 +7,19 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe
-ms.openlocfilehash: 1999100be3dd65518db7b5496ad5aaa1a407ee9e
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 74aa4d62490778ba13a085d62264b7791112504e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226498"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376497"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
-> * [Creare una risorsa Voce di Azure](../../../../get-started.md)
+> * [Creare una risorsa Voce di Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 ## <a name="add-sample-code"></a>Aggiungere il codice di esempio

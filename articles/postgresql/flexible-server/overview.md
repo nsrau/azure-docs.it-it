@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/22/2020
-ms.openlocfilehash: 71cf11673756dcefb828ad1fad0412a791b43efd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 268eedf6f9d64d52539e20006322b6b1dd9964e8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944436"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439976"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Server flessibile di Database di Azure per PostgreSQL
 
@@ -49,15 +49,14 @@ Durante gli eventi di failover pianificati o non pianificati, se il server diven
 1. Viene eseguito il provisioning di una nuova VM Linux di calcolo.
 2. Viene eseguito il mapping della risorsa di archiviazione con i file di dati alla nuova macchina virtuale
 3. Il motore di database PostgreSQL viene portato online sulla nuova macchina virtuale.
-4. Il servizio Gateway garantisce un failover trasparente che non richiede modifiche sul lato applicazione.
 
 L'immagine seguente mostra la transizione per le macchine virtuali e gli errori di archiviazione.
 
- :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine-storage-failure.png" alt-text="Server flessibili: errori di archiviazione e di macchine virtuali":::
+ :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="Server flessibili: errori di archiviazione e di macchine virtuali":::
 
 Se è configurata la disponibilità elevata con ridondanza della zona, il servizio effettua il provisioning e gestisce un server hot standby nella zona di disponibilità all'interno della stessa area di Azure. Le modifiche dei dati nel server di origine vengono replicate in modo sincrono nel server di standby per garantire una perdita di dati pari a zero. Con la disponibilità elevata con ridondanza della zona, dopo l'attivazione dell'evento di failover pianificato o non pianificato, il server di standby viene portato online immediatamente ed è disponibile per l'elaborazione delle transazioni in ingresso. Ciò consente la resilienza del servizio dall'errore della zona di disponibilità all'interno di un'area di Azure che supporta più zone di disponibilità, come illustrato nell'immagine seguente.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Disponibilità elevata di ridondanza della zona":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Server flessibili: errori di archiviazione e di macchine virtuali":::
 
  Per ulteriori informazioni, vedere il [documento relativo alla disponibilità elevata](./concepts-high-availability.md).
 

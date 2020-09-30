@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: trbye
-ms.openlocfilehash: 629fc5e3bc41377fe852a1648680d77b22395d02
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e1d2493474736ebbcdb54aeb697716e1dc7d6ee6
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81400901"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377566"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -17,7 +17,7 @@ Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
 > * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
-> * [Creare una risorsa Voce di Azure](../../../../get-started.md)
+> * [Creare una risorsa Voce di Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Caricare un file di origine in un BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="open-your-project-in-visual-studio"></a>Aprire il progetto in Visual Studio

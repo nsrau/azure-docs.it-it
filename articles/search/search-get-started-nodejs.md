@@ -8,14 +8,14 @@ ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2c97a770dc10168284bebbc038d8c48145c2a385
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: ab3142426b12f86b9f8afa84ce0ea05fc1939eec
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917891"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400605"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Node.js con le API REST
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Le chiamate al servizio richiedono un URL endpoint e una chiave di accesso per o
 
     Ottenere anche la chiave di query. È consigliabile inviare richieste di query con accesso di sola lettura.
 
-![Ottenere il nome del servizio e le chiavi amministratore e di query](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Ottenere il nome del servizio e le chiavi amministratore e di query" border="false":::
 
 Nell'intestazione di ogni richiesta inviata al servizio è necessario specificare una chiave API (api-key). La presenza di una chiave valida stabilisce una relazione di trust, in base a singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -473,7 +473,7 @@ Verrà visualizzata una serie di messaggi che descrivono le azioni eseguite dal 
 
 Aprire la finestra **Panoramica** del servizio di ricerca nel portale di Azure. Selezionare la scheda **Indici**. Verrà visualizzata una schermata simile alla seguente:
 
-![Screenshot del portale di Azure, panoramica del servizio di ricerca, scheda Indici](media/search-get-started-nodejs/create-index-no-data.png)
+:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Ottenere il nome del servizio e le chiavi amministratore e di query" border="false":::
 
 Nel passaggio successivo verranno aggiunti dati all'indice. 
 

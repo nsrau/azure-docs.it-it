@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 07/01/2020
-ms.openlocfilehash: 6adbd83ddfbdb82d1054d4e74dd9492d08583ede
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: b69feec7249c80fc63d803a14f360614bcf880fa
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292538"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399823"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Avvio rapido: Creare un'app demo nel portale di Azure (Ricerca cognitiva di Azure)
 
@@ -35,7 +35,7 @@ Per eseguire le procedure descritte è necessario:
 
   Questo argomento di avvio rapido usa i dati e l'indice predefiniti dell'esempio per il mercato immobiliare perché contiene immagini di anteprima (la procedura guidata supporta l'aggiunta di immagini alla pagina dei risultati). Per creare l'indice usato in questo esercizio, eseguire la procedura guidata **Importa dati**, scegliendo l'origine dati *realestate-us-sample*.
 
-  ![pagina origine dati per i dati di esempio](media/search-create-app-portal/import-data-realestate.png)
+  :::image type="content" source="media/search-create-app-portal/import-data-realestate.png" alt-text="pagina origine dati per i dati di esempio" border="false":::
 
 Quando l'indice è pronto per l'uso, procedere al passaggio successivo.
 
@@ -61,7 +61,7 @@ La procedura guidata fornisce un layout di base per i risultati della ricerca co
 
 1. In Descrizione scegliere un campo che fornisca dettagli che potrebbero aiutare gli utenti a decidere se fare clic su quel particolare documento.
 
-   ![configurare i risultati per i dati di esempio](media/search-create-app-portal/configure-results.png)
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="pagina origine dati per i dati di esempio" border="false":::
 
 ## <a name="add-a-sidebar"></a>Aggiungere una barra laterale
 
@@ -83,7 +83,7 @@ I suggerimenti sono abilitati per definizioni di campo specifiche. La procedura 
 
 Lo screenshot seguente mostra le opzioni della procedura guidata, affiancate a una pagina con rendering nell'app. È possibile visualizzare il modo in cui vengono usate le selezioni dei campi e il modo in cui viene usato "Mostra nome campo" per includere o escludere l'etichettatura all'interno del suggerimento.
 
-![Configurazione di un suggerimento di query](media/search-create-app-portal/suggestions.png)
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="pagina origine dati per i dati di esempio":::
 
 ## <a name="create-download-and-execute"></a>Creare, scaricare ed eseguire
 
@@ -95,7 +95,7 @@ Lo screenshot seguente mostra le opzioni della procedura guidata, affiancate a u
 
 L'indice sottostante è costituito da dati fittizi generati che sono stati duplicati tra i documenti e le descrizioni talvolta non corrispondono all'immagine. Quando si crea un'app in base ai propri indici, è possibile aspettarsi un'esperienza più coerente.
 
-![Eseguire l'app](media/search-create-app-portal/run-app.png)
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="pagina origine dati per i dati di esempio":::
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

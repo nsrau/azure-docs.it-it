@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/10/2020
-ms.openlocfilehash: a4e686fe7adcc7e990a26484bc5850de977e862a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: 3ecef629e38e2823bea101af47899f9b7d6845f0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924589"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399840"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Esercitazione: Creare e distribuire una competenza personalizzata con Azure Machine Learning 
 
@@ -82,16 +82,15 @@ La sezione 4 del notebook contiene quattro celle che aggiornano il set di compet
 
 Nel portale passare a Set di competenze e selezionare il collegamento Definizione del set di competenze (JSON). Il portale visualizzerà il codice JSON del set di competenze creato nelle prime celle del notebook. A destra della visualizzazione è disponibile un menu a discesa in cui è possibile selezionare il modello di definizione delle competenze. Selezionare il modello Azure Machine Learning (AML). Specificare il nome dell'area di lavoro di Azure Machine Learning e l'endpoint del modello distribuito nel cluster di inferenza. Il modello verrà aggiornato con l'URI e la chiave dell'endpoint.
 
-> [!div class="mx-imgBorder"]
-> ![Modello di definizione del set di competenze](media/cognitive-search-aml-skill/portal-aml-skillset-definition.png)
+> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Modello di definizione del set di competenze&quot;:::
 
 Copiare il modello di set di competenze dalla finestra e incollarlo nella definizione di set di competenze a sinistra. Modificare il modello per fornire i valori mancanti per:
 
 * Nome
 * Descrizione
 * Context
-* "name" e "source" di "inputs"
-* "name" e "targetName" di "outputs"
+* &quot;name&quot; e &quot;source&quot; di &quot;inputs&quot;
+* &quot;name&quot; e &quot;targetName&quot; di &quot;outputs"
 
 Salvare il set di competenze.
 

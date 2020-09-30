@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: bd7f1ff20189b971ba32e5c4b40b380fc22611b2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bd0abadb624bced7f603fcbd112f7c422e88fc0c
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686854"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371848"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Risolvere i problemi delle visualizzazioni dei costi aziendali
 
@@ -41,7 +41,7 @@ Se viene visualizzato un messaggio di errore del tipo **Questa risorsa non è di
 
 ![Screenshot con il messaggio indicante che la risorsa non è disponibile.](./media/enterprise-mgmt-grp-troubleshoot-cost-view/asset-not-found.png)
 
-Chiedere l'accesso all'amministratore del gruppo di gestione o della sottoscrizione di Azure. Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+Chiedere l'accesso all'amministratore del gruppo di gestione o della sottoscrizione di Azure. Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

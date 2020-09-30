@@ -7,13 +7,13 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.openlocfilehash: e714c58827ebb4ee7e50696db27644fa65a73af1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290311"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397267"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Esercitazione: Creare un analizzatore personalizzato per i numeri di telefono
 
@@ -59,7 +59,7 @@ Per ogni richiesta è necessario:
 
 1. Sostituire `<YOUR-ADMIN-API-KEY>` con la chiave primaria o secondaria del servizio di ricerca.
 
-  ![Intestazione e URL della richiesta Postman](media/search-get-started-postman/postman-url.png "Intestazione e URL della richiesta Postman")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Intestazione e URL della richiesta Postman" border="false":::
 
 Se non si ha familiarità con Postman, vedere [Esplorare le API REST di Ricerca cognitiva di Azure con Postman](search-get-started-postman.md).
 
@@ -239,11 +239,11 @@ Gli analizzatori sono costituiti da tre componenti:
 
 Nel diagramma seguente si può vedere come questi tre componenti interagiscono tra loro per suddividere in token una frase:
 
-  ![Diagramma del processo dell'analizzatore per suddividere in token una frase](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Intestazione e URL della richiesta Postman":::
 
 Questi token vengono quindi archiviati in un indice invertito, che consente ricerche full-text rapide.  Un indice invertito abilita la ricerca full-text eseguendo il mapping di tutti i termini univoci estratti durante l'analisi lessicale ai documenti che li contengono. Il diagramma seguente ne illustra un esempio:
 
-  ![Esempio di indice invertito](media/tutorial-create-custom-analyzer/inverted-index-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Intestazione e URL della richiesta Postman":::
 
 L'intero processo di ricerca consiste nel cercare i termini archiviati nell'indice invertito. Quando un utente esegue una query:
 
@@ -251,7 +251,7 @@ L'intero processo di ricerca consiste nel cercare i termini archiviati nell'indi
 1. Viene quindi eseguita la scansione dell'indice invertito alla ricerca di documenti contenenti termini corrispondenti.
 1. Infine, i documenti recuperati vengono classificati in base all'[algoritmo di somiglianza](index-ranking-similarity.md).
 
-  ![Diagramma del processo dell'analizzatore per la classificazione della somiglianza](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Intestazione e URL della richiesta Postman":::
 
 Se i termini della query non corrispondono a quelli nell'indice invertito, non vengono restituiti risultati. Per altre informazioni sul funzionamento delle query, vedere questo articolo sulla [ricerca full-text](search-lucene-query-architecture.md).
 

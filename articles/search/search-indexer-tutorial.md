@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c8647e28701316ecd7305e206918c53281deb6b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e04c7da40719f77ca478f2ce577688af773f523d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004256"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399228"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Esercitazione: Indicizzare i dati di Azure SQL con .NET SDK
 
@@ -57,7 +57,7 @@ Se è presente una risorsa di database SQL di Azure esistente, è possibile aggi
 
 1. Trovare o creare un **database SQL**. È possibile usare le impostazioni predefinite e il piano tariffario del livello più basso. Uno dei vantaggi della creazione di un server consiste nella possibilità di specificare un nome utente e una password dell'amministratore, necessari per la creazione e il caricamento di tabelle in un passaggio successivo.
 
-   ![Pagina Nuovo database](./media/search-indexer-tutorial/indexer-new-sqldb.png "Pagina Nuovo database")
+   :::image type="content" source="media/search-indexer-tutorial/indexer-new-sqldb.png" alt-text="Pagina Nuovo database" border="false":::
 
 1. Fare clic su **Rivedi e crea** per distribuire il nuovo server e il nuovo database. Attendere il completamento della distribuzione di server e database.
 
@@ -69,7 +69,7 @@ Se è presente una risorsa di database SQL di Azure esistente, è possibile aggi
 
 1. Selezionare il file e fare clic su **Apri**. Lo script dovrebbe essere simile allo screenshot seguente:
 
-   ![Script SQL](./media/search-indexer-tutorial/sql-script.png "Script SQL")
+   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Pagina Nuovo database" border="false":::
 
 1. Fare clic su **Esegui** per eseguire la query. Nel riquadro Risultati dovrebbe essere visualizzato un messaggio di esito positivo della query, per 3 righe.
 
@@ -99,7 +99,7 @@ Le chiamate API richiedono l'URL del servizio e una chiave di accesso. Con entra
 
 1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-   ![Ottenere un endpoint HTTP e una chiave di accesso](media/search-get-started-postman/get-url-key.png "Ottenere un endpoint HTTP e una chiave di accesso")
+   :::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Pagina Nuovo database" border="false":::
 
 ## <a name="2---set-up-your-environment"></a>2 - Configurare l'ambiente
 
@@ -201,7 +201,7 @@ Un oggetto indicizzatore non dipende dalla piattaforma, ovvero la configurazione
 
 Premere F5 per compilare ed eseguire la soluzione. Il programma viene eseguito in modalità di debug. Una finestra della console indica lo stato di ogni operazione.
 
-   ![Output della console](./media/search-indexer-tutorial/console-output.png "Output console")
+   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Pagina Nuovo database" border="false":::
 
 Il codice viene eseguito localmente in Visual Studio, connettendosi al servizio di ricerca in Azure, che a sua volta si connette al database SQL di Azure e recupera il set di dati. Un numero così elevato di operazione comporta molti punti di errore potenziali. Se si verifica un errore, verificare prima di tutto le condizioni seguenti:
 
@@ -217,7 +217,7 @@ Usare il portale di Azure per verificare la creazione dell'oggetto e quindi usar
 
 1. [Accedere al di portale di Azure](https://portal.azure.com/) e nella pagina **Panoramica** del servizio di ricerca aprire ogni elenco a turno per verificare che l'oggetto sia stato creato. Gli **indici**, gli **indicizzatori** e le **origini dati** avranno rispettivamente "hotels", "azure-sql-indexer" e "azure-sql".
 
-   ![Riquadri dell'indicizzatore e dell'origine dati](./media/search-indexer-tutorial/tiles-portal.png)
+   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Pagina Nuovo database" border="false":::
 
 1. Selezionare l'indice hotels. Nella pagina hotels **Esplora ricerche** è la prima scheda. 
 
@@ -225,7 +225,7 @@ Usare il portale di Azure per verificare la creazione dell'oggetto e quindi usar
 
    Le tre voci nell'indice vengono restituite come documenti JSON. Esplora ricerche restituisce documenti in JSON, per consentire di visualizzare l'intera struttura.
 
-   ![Eseguire una query su un indice](./media/search-indexer-tutorial/portal-search.png "Eseguire una query su un indice")
+   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Pagina Nuovo database" border="false":::
    
 1. Immettere quindi una stringa di ricerca: `search=river&$count=true`. 
 

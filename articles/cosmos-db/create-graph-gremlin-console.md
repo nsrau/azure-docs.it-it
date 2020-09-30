@@ -1,18 +1,18 @@
 ---
 title: "Eseguire query con l'API Gremlin di Azure Cosmos DB usando la console TinkerPop Gremlin: Esercitazione"
 description: Guida introduttiva ad Azure Cosmos DB per creare vertici, archi e query usando l'API Gremlin di Azure Cosmos DB.
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
-ms.author: lbosq
-ms.openlocfilehash: e1ce632a04269704b498a69e1a0dd4fe72e00c87
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.author: jasonh
+ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543776"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409392"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Avvio rapido: Creare, eseguire query e attraversare un database a grafo di Azure Cosmos DB usando la console Gremlin
 
@@ -65,11 +65,11 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 
    Per il valore Hosts copiare il valore **URI Gremlin** dalla pagina **Panoramica**:
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Visualizzare e copiare il valore dell'URI Gremlin nella pagina Panoramica del portale di Azure":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Azure Cosmos DB dalla console Apache Gremlin":::
 
    Per ottenere il valore della password, copiare il valore **Chiave primaria** dalla pagina **Chiavi**:
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Visualizzare e copiare la chiave primaria nella pagina Chiavi del portale di Azure":::
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Azure Cosmos DB dalla console Apache Gremlin":::
 
    Il file remote-secure.yaml dovrebbe essere simile al seguente:
 

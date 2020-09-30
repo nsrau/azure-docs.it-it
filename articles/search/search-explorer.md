@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 8f004ff8118829ebf2d245a136cf22cdde23accc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: adcd07ad370ad9f1301caa41c494a33958743dd8
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929789"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398409"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Avvio rapido: Usare Esplora ricerche per eseguire query nel portale
 
@@ -37,11 +37,11 @@ Per eseguire le procedure descritte è necessario:
 
 1. Aprire Esplora ricerche dalla barra dei comandi:
 
-   ![Comando Esplora ricerche nel portale](./media/search-explorer/search-explorer-cmd2.png "Comando Esplora ricerche nel portale")
+   :::image type="content" source="media/search-explorer/search-explorer-cmd2.png" alt-text="Comando Esplora ricerche nel portale" border="false":::
 
     In alternativa, usare la scheda **Esplora ricerche** incorporata in un indice aperto:
 
-   ![Scheda Esplora ricerche](./media/search-explorer/search-explorer-tab.png "Scheda Esplora ricerche")
+   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Comando Esplora ricerche nel portale" border="false":::
 
 ## <a name="unspecified-query"></a>Query non specificata
 
@@ -55,7 +55,7 @@ La sintassi equivalente per una ricerca vuota è `*` o `search=*`.
 
    **Risultati**
    
-   ![Esempio di query vuota](./media/search-explorer/search-explorer-example-empty.png "Esempio di query vuota o non qualificata")
+   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Comando Esplora ricerche nel portale" border="false":::
 
 ## <a name="free-text-search"></a>Ricerca con testo libero
 
@@ -71,7 +71,7 @@ Si noti che quando si specificano i criteri di ricerca, ad esempio i termini o l
 
    È possibile usare CTRL-F per cercare nei risultati determinati termini a cui si è interessati.
 
-   ![Esempio di query con testo libero](./media/search-explorer/search-explorer-example-freetext.png "Esempio di query con testo libero")
+   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Comando Esplora ricerche nel portale" border="false":::
 
 ## <a name="count-of-matching-documents"></a>Numero di documenti corrispondenti 
 
@@ -83,7 +83,7 @@ Aggiungere **$count=true** per ottenere il numero di corrispondenze trovate in u
 
    **Risultati**
 
-   ![Esempio per il numero di documenti](./media/search-explorer/search-explorer-example-count.png "Numero di documenti corrispondenti in un indice")
+   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Comando Esplora ricerche nel portale" border="false":::
 
 ## <a name="limit-fields-in-search-results"></a>Limitare i campi nei risultati della ricerca
 
@@ -95,7 +95,7 @@ Aggiungere [ **$select**](search-query-odata-select.md) per limitare i risultati
 
    **Risultati**
 
-   ![Esempio di limitazione dei campi](./media/search-explorer/search-explorer-example-selectfield.png "Limitare i campi nei risultati della ricerca")
+   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Comando Esplora ricerche nel portale" border="false":::
 
 ## <a name="return-next-batch-of-results"></a>Restituire il batch di risultati successivo
 
@@ -107,7 +107,7 @@ Ricerca cognitiva di Azure restituisce le prime 50 corrispondenze in base ai cri
 
    **Risultati**
 
-   ![Risultati della ricerca batch](./media/search-explorer/search-explorer-example-topskip.png "Restituire il batch di risultati della ricerca successivo")
+   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Comando Esplora ricerche nel portale" border="false":::
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Espressioni di filtro (maggiore di, minore di, uguale a)
 
@@ -119,7 +119,7 @@ Usare il parametro [ **$filter**](search-query-odata-filter.md) per specificare 
    
    **Risultati**
 
-   ![Espressione filtro](./media/search-explorer/search-explorer-example-filter.png "Filtrare per criterio")
+   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Comando Esplora ricerche nel portale" border="false":::
 
 ## <a name="order-by-expressions"></a>Espressioni order-by
 
@@ -131,7 +131,7 @@ Aggiungere [ **$orderby**](search-query-odata-orderby.md) per ordinare i risulta
    
    **Risultati**
 
-   ![Espressione OrderBy](./media/search-explorer/search-explorer-example-ordery.png "Modificare l'ordinamento")
+   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Comando Esplora ricerche nel portale" border="false":::
 
 Le espressioni **$filter** e **$orderby** sono entrambe strutture OData. Per altre informazioni, vedere l'articolo relativo alla [sintassi OData per i filtri](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 

@@ -8,12 +8,12 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: 564acd6d6072a4308141942666cc0ebcc0ad0136
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 13b344d3f13993dc7b6acf7bfe9a0ccdea0c866b
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433518"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371355"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gestione dei ruoli Enterprise di Azure
 
@@ -114,12 +114,12 @@ La tabella seguente illustra la relazione tra i ruoli di amministratore del Cont
 |Proprietario dell'account OPPURE Amministratore del reparto|✘ Disabilitato |none|Nessun prezzo|
 |nessuno|Non applicabile |Proprietario|Prezzi al dettaglio|
 
-Si impostano il ruolo di amministratore dell'organizzazione e i criteri di visualizzazione degli addebiti nell'Enterprise Portal. Il ruolo di Azure può essere aggiornato nel portale di Azure. Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+Si impostano il ruolo di amministratore dell'organizzazione e i criteri di visualizzazione degli addebiti nell'Enterprise Portal. Il ruolo di Azure può essere aggiornato nel portale di Azure. Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Gestire l'accesso alle informazioni di fatturazione per Azure](manage-billing-access.md)
-- [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md)

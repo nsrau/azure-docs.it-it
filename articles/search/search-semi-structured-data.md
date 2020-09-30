@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: 8a615dc02b78993a18a86def9d8f496ba0bba922
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: f501b9f4215b9eeb48aa8bc80d492d55cf940404
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929704"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397386"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Esercitazione: Indicizzare i BLOB JSON da Archiviazione di Azure con le API REST
 
@@ -54,7 +54,7 @@ Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risors
 
 1. Cercare *account di archiviazione* e selezionare l'offerta Account di archiviazione di Microsoft.
 
-   ![Creare un account di archiviazione](media/cognitive-search-tutorial-blob/storage-account.png "Creare l'account di archiviazione")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Creare un account di archiviazione" border="false":::
 
 1. Nella scheda Informazioni di base gli elementi seguenti sono obbligatori. Accettare le impostazioni predefinite per tutti gli altri elementi.
 
@@ -76,11 +76,11 @@ Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risors
 
 1. Dopo aver creato il contenitore, aprirlo e selezionare **Carica** nella barra dei comandi.
 
-   ![Opzione Carica nella barra dei comandi](media/search-semi-structured-data/upload-command-bar.png "Opzione Carica nella barra dei comandi")
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Creare un account di archiviazione" border="false":::
 
 1. Passare alla cartella contenente i file di esempio. Selezionare tutti i file e quindi fare clic su **Carica**.
 
-   ![Caricare file](media/search-semi-structured-data/clinicalupload.png "Caricare file")
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Creare un account di archiviazione" border="false":::
 
 Dopo aver completato il caricamento, i file dovrebbero essere visualizzati nella rispettiva sottocartella all'interno del contenitore dei dati.
 
@@ -98,7 +98,7 @@ Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni 
 
 1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-![Ottenere un endpoint HTTP e una chiave di accesso](media/search-get-started-postman/get-url-key.png "Ottenere un endpoint HTTP e una chiave di accesso")
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Creare un account di archiviazione" border="false":::
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -110,7 +110,7 @@ I metodi di richiesta usati in questa esercitazione sono **POST** e **GET**. Ver
 
 In Headers (Intestazioni) impostare "Content-type" su `application/json` e `api-key` sulla chiave API di amministrazione del servizio Ricerca cognitiva di Azure. Dopo aver impostato le intestazioni, è possibile usarle per ogni richiesta in questo esercizio.
 
-  ![Intestazione e URL della richiesta Postman](media/search-get-started-postman/postman-url.png "Intestazione e URL della richiesta Postman")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Creare un account di archiviazione" border="false":::
 
 Gli URI devono specificare una versione API e ogni chiamata deve restituire un messaggio di creazione riuscita con codice **201**. La versione API disponibile a livello generale per l'uso delle matrici JSON è `2020-06-30`.
 
@@ -315,11 +315,11 @@ Un indicizzatore si connette all'origine dati, importa i dati nell'indice di ric
 
 1. Aggiungere il parametro di query `$select` per limitare i risultati a un minor numero di campi: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  Per questa query, anche se viene trovata la corrispondenza per 100 documenti, per impostazione predefinita Ricerca cognitiva di Azure ne restituisce solo 50 nei risultati.
 
-   ![Query con parametri](media/search-semi-structured-data/lastquery.png "Query con parametri")
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Creare un account di archiviazione" border="false":::
 
 1. Un esempio di query più complessa può essere `$filter=MinimumAge ge 30 and MaximumAge lt 75`, che restituisce solo i risultati in cui il parametro MinimumAge è maggiore o uguale a 30 e il parametro MaximumAge è minore di 75. Sostituire l'espressione `$select` con l'espressione `$filter`.
 
-   ![Ricerca su dati semistrutturati](media/search-semi-structured-data/metadatashort.png)
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Creare un account di archiviazione" border="false":::
 
 È anche possibile usare gli operatori logici (and, or e not) e gli operatori di confronto (eq, ne, gt, lt, ge e le). Per i confronti tra stringhe viene fatta distinzione tra maiuscole e minuscole. Per altre informazioni ed esempi, vedere [Creare una query semplice](search-query-simple-examples.md).
 

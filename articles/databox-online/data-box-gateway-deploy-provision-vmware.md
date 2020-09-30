@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 6488871067416b2cee533561bae47874413d9012
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4818755e48a4d497d70920a62a9505346176ed73
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892117"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371287"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in VMware
 
@@ -194,7 +194,7 @@ Eseguire i passaggi seguenti per avviare il dispositivo virtuale a cui connetter
 
    ![Immettere la password del dispositivo virtuale](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. I passaggi da 5 a 7 devono essere eseguiti solo in caso di avvio in un ambiente non DHCP. In presenza di un ambiente DHCP, ignorare questi passaggi e andare al passaggio 8. Se il dispositivo è stato avviato in un ambiente non DHCP, viene visualizzato un messaggio: **Usare il cmdlet Set-HcsIPAddress per configurare la rete**. 
+6. I passaggi da 6 a 8 si applicano solo all'avvio in un ambiente non DHCP. In presenza di un ambiente DHCP, ignorare questi passaggi e andare al passaggio 9. Se il dispositivo è stato avviato in un ambiente non DHCP, viene visualizzato un messaggio: **Usare il cmdlet Set-HcsIPAddress per configurare la rete**. 
    
 7. Per configurare la rete, al prompt dei comandi usare il comando `Get-HcsIpAddress` per elencare le interfacce di rete abilitate nel dispositivo virtuale. Se il dispositivo dispone di una singola interfaccia di rete abilitata, il nome predefinito assegnato a questa interfaccia è `Ethernet`.
 
