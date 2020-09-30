@@ -4,12 +4,12 @@ description: Risposte ad alcune domande e scenari più comuni per la rete con fu
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: 52e0a6f9261d89ecd7c660be118162a898988526
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385909"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538059"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Domande frequenti sulla rete in funzioni di Azure
 
@@ -27,7 +27,7 @@ La distribuzione di una funzione in un ambiente del servizio app è attualmente 
     * In restrizioni IP, è anche possibile configurare gli [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md), che limitano la funzione a accettare solo il traffico in ingresso da una determinata rete virtuale.
 * Rimozione di tutti i trigger HTTP. Per alcune applicazioni, è sufficiente evitare semplicemente i trigger HTTP e usare qualsiasi altra origine evento per attivare la funzione.
 
-Tenere presente che l'editor di portale di Azure richiede l'accesso diretto alla funzione in esecuzione. Tutte le modifiche al codice tramite il portale di Azure richiedono che il dispositivo usato per esplorare il portale abbia la relativa lista di indirizzi IP consentita. Tuttavia, è comunque possibile usare qualsiasi elemento nella scheda funzionalità della piattaforma con restrizioni di rete.
+Tenere presente che l'editor di portale di Azure richiede l'accesso diretto alla funzione in esecuzione. Tutte le modifiche al codice tramite il portale di Azure richiedono il dispositivo usato per esplorare il portale e aggiungere l'indirizzo IP all'elenco approvato. Tuttavia, è comunque possibile usare qualsiasi elemento nella scheda funzionalità della piattaforma con restrizioni di rete.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Ricerca per categorie limitare l'app per le funzioni a una rete virtuale?
 

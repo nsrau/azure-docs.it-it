@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: 37f79d717b7ea0e26717e7b51f9e66b908b96521
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 79aebf7ed80fea370ff7a5d5cc40911da4144414
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640965"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537702"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Eseguire manualmente una funzione non attivata da HTTP
 
@@ -43,11 +43,11 @@ Utilizzare questo percorso di richiesta in Postman insieme alla chiave master de
 
 1. Nella sezione **modifica chiave** copiare il valore della chiave negli Appunti e quindi fare clic su **OK**.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Copiare la chiave master negli Appunti." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Individuare la chiave master da copiare." border="true":::
 
 1. Dopo aver copiato la chiave di *_master* , selezionare **codice + test**, quindi selezionare **log**. Verranno visualizzati i messaggi dalla funzione registrati in questa posizione quando si esegue manualmente la funzione da Postman.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Visualizzare i log per visualizzare i risultati del test della chiave master." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Individuare la chiave master da copiare." border="true":::
 
 > [!CAUTION]  
 > Date le autorizzazioni elevate concesse dalla chiave master nell'app per le funzioni, è consigliabile non condividere questa chiave con terze parti o distribuirla in un'applicazione. La chiave deve essere inviata solo a un endpoint HTTPS.
@@ -62,22 +62,22 @@ Aprire Postman e seguire questa procedura:
 1. Digitare **x-Functions-Key** come prima chiave e incollare la chiave master (dagli Appunti) come valore.
 1. Digitare **Content-Type** come seconda chiave e digitare **Application/JSON** come valore.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Impostazioni delle intestazioni del post." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Individuare la chiave master da copiare." border="true":::
 
 1. Selezionare la scheda **Corpo**.
 1. Digitare **{"input": "test"}** come corpo della richiesta.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Impostazioni del corpo del post." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Individuare la chiave master da copiare." border="true":::
 
 1. Selezionare **Send** (Invia).
         
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Invia una richiesta con postazione." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Individuare la chiave master da copiare." border="true":::
 
     Postman indica quindi uno stato **202-Accettato**.
 
 1. Quindi, ritornare alla funzione nel portale di Azure. Esaminare i log per visualizzare i messaggi provenienti dalla chiamata manuale alla funzione.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Visualizzare i log per visualizzare i risultati del test della chiave master." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Individuare la chiave master da copiare." border="true":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

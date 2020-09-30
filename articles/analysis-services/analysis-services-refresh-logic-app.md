@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: fd5c4043d417a99c7ffa57534fd7808f1710190a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: c4908373035b1a3148cd77db513f4e6bd23a50d7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448578"
+ms.locfileid: "91540728"
 ---
 # <a name="refresh-with-logic-apps"></a>Eseguire l'aggiornamento con App per la logica
 
@@ -27,7 +27,7 @@ Tutte le chiamate devono essere autenticate con un token di Azure Active Directo
 ## <a name="design-the-logic-app"></a>Progettare l'app per la logica
 
 > [!IMPORTANT]
-> Gli esempi seguenti presuppongono che il firewall Azure Analysis Services sia disabilitato. Se il firewall è abilitato, l'indirizzo IP pubblico dell'initiator della richiesta deve essere inserito nell'elenco elementi consentiti nel firewall Azure Analysis Services. Per altre informazioni sugli intervalli IP delle app per la logica di Azure per area, vedere [limiti e informazioni di configurazione per app per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#configuration).
+> Gli esempi seguenti presuppongono che il firewall Azure Analysis Services sia disabilitato. Se il firewall è abilitato, l'indirizzo IP pubblico dell'initiator della richiesta deve essere aggiunto all'elenco approvato nel firewall Azure Analysis Services. Per altre informazioni sugli intervalli IP delle app per la logica di Azure per area, vedere [limiti e informazioni di configurazione per app per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -63,7 +63,7 @@ Questo passaggio verrà popolato con l'URL HTTP POST dopo il salvataggio dell'ap
 
 Configurare l'attività HTTP come indicato di seguito:
 
-|Proprietà  |valore  |
+|Proprietà  |Valore  |
 |---------|---------|
 |**Metodo**     |POST         |
 |**URI**     | https://*l'area Server*/Servers/*AAS nome server*/models/*il nome del database*/refreshes <br /> <br /> Ad esempio: https: \/ /westus.asazure.Windows.NET/Servers/MyServer/Models/AdventureWorks/refreshes|

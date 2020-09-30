@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6c6bd3ab87013aba04f43c95b3a986a64f2bc394
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 8b18da5e41e235b560918ad26117a0162078862c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231470"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540983"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Criteri di base di sicurezza di Azure per il benchmark di sicurezza di Azure
 
@@ -76,7 +76,7 @@ I criteri di Azure usano il termine _proprietario_ al posto della _responsabilit
 
 **Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare l'accesso ai criteri di Azure.
 
-* [Autorizzazioni RBAC di Azure in criteri di Azure](../overview.md#rbac-permissions-in-azure-policy)
+* [Autorizzazioni RBAC di Azure in criteri di Azure](../overview.md#azure-rbac-permissions-in-azure-policy)
 
 * [Come configurare RBAC di Azure](../../../role-based-access-control/role-assignments-portal.md)
 

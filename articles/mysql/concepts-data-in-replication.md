@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
-ms.openlocfilehash: a9d6c1b2438f20a06062842b96b147e094760238
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9212142ff6f43a84b141b0781fbe9828eebcbd40
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031218"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537158"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Eseguire la replica dei dati in Database di Azure per MySQL
 
@@ -28,25 +28,25 @@ Per gli scenari di migrazione, usare il [servizio migrazione del database di Azu
 ## <a name="limitations-and-considerations"></a>Limitazioni e considerazioni
 
 ### <a name="data-not-replicated"></a>Dati non replicati
-Il [*database di sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) sul server master non viene replicato. Le modifiche agli account e alle autorizzazioni sul server master non vengono replicate. Se si crea un account sul server master e questo deve accedere al server di replica, creare manualmente lo stesso account sul lato del server di replica. Per informazioni sulle tabelle contenute nel database di sistema, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
+Il [*database di sistema MySQL*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) nel server di origine non viene replicato. Non vengono replicate le modifiche apportate agli account e alle autorizzazioni nel server di origine. Se si crea un account nel server di origine e questo account deve accedere al server di replica, creare manualmente lo stesso account sul lato server di replica. Per informazioni sulle tabelle contenute nel database di sistema, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
 ### <a name="filtering"></a>Filtro
-Per ignorare le tabelle di replica dal server master (ospitato in locale, in macchine virtuali o in un servizio di database ospitato da altri provider di servizi cloud), il `replicate_wild_ignore_table` parametro è supportato. Facoltativamente, aggiornare questo parametro nel server di replica ospitato in Azure usando il [portale di Azure](howto-server-parameters.md) o l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md).
+Per ignorare le tabelle di replica del server di origine (ospitate in locale, in macchine virtuali o in un servizio di database ospitato da altri provider di servizi cloud), il `replicate_wild_ignore_table` parametro è supportato. Facoltativamente, aggiornare questo parametro nel server di replica ospitato in Azure usando il [portale di Azure](howto-server-parameters.md) o l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md).
 
 Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table).
 
 ### <a name="requirements"></a>Requisiti
-- Nel server master deve essere installata almeno la versione 5.6 di MySQL. 
-- Le versioni del server master e del server di replica devono essere identiche. Ad esempio, in entrambi deve essere installato MySQL versione 5.6 o MySQL versione 5.7.
+- La versione del server di origine deve essere almeno la versione 5,6 di MySQL. 
+- Le versioni del server di origine e di replica devono essere uguali. Ad esempio, in entrambi deve essere installato MySQL versione 5.6 o MySQL versione 5.7.
 - Ogni tabella deve avere una chiave primaria.
-- Il server master deve usare il motore InnoDB di MySQL.
-- L'utente deve disporre delle autorizzazioni necessarie per configurare la registrazione binaria e creare nuovi utenti sul server master.
-- Se nel server master è abilitato SSL, verificare che il certificato della CA SSL fornito per il dominio sia stato incluso nel `mysql.az_replication_change_master` stored procedure. Fare riferimento agli [esempi](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) seguenti e al `master_ssl_ca` parametro.
-- Verificare che l'indirizzo IP del server master sia stato aggiunto alle regole firewall del server di replica di Database di Azure per MySQL. Aggiornare le regole firewall usando il [portale di Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
-- Verificare che il computer che ospita il server master consenta sia il traffico in ingresso che in uscita sulla porta 3306.
-- Verificare che il server master disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o che disponga di un nome di dominio completo (FQDN).
+- Il server di origine deve usare il motore InnoDB di MySQL.
+- L'utente deve disporre delle autorizzazioni per configurare la registrazione binaria e creare nuovi utenti nel server di origine.
+- Se nel server di origine è abilitato SSL, verificare che il certificato della CA SSL fornito per il dominio sia stato incluso nel `mysql.az_replication_change_master` stored procedure. Fare riferimento agli [esempi](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) seguenti e al `master_ssl_ca` parametro.
+- Verificare che l'indirizzo IP del server di origine sia stato aggiunto alle regole del firewall del server di replica di database di Azure per MySQL. Aggiornare le regole firewall usando il [portale di Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
+- Verificare che il computer che ospita il server di origine consenta il traffico in ingresso e in uscita sulla porta 3306.
+- Verificare che il server di origine disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o che disponga di un nome di dominio completo (FQDN).
 
-### <a name="other"></a>Altri
+### <a name="other"></a>Altro
 - La replica dei dati in ingresso è supportata solo nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria.
 - Gli identificatori di transazione globale (GTID) non sono supportati.
 

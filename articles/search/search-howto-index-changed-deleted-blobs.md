@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 210a4a352f5130bc67d70f47bdf6305c5a992282
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 2e73039418233c97fc20242ed7af7df14c5b47ee
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403780"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534778"
 ---
 # <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Come configurare il rilevamento delle modifiche e dell'eliminazione per i BLOB in Azure ricerca cognitiva indicizzazione
 
@@ -100,7 +100,11 @@ Dopo l'elaborazione di un BLOB eliminato da parte di un indicizzatore e la rimoz
 
 Se si vuole reindicizzare il documento, modificare per il `"softDeleteMarkerValue" : "false"` BLOB e rieseguire l'indicizzatore.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="help-us-make-azure-cognitive-search-better"></a>Aiutaci a migliorare Azure ricerca cognitiva
+
+Per richieste di funzionalità o idee su miglioramenti da apportare, fornire i suggerimenti su [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Per informazioni sull'uso della funzionalità esistente, pubblicare la domanda in [stack overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
+
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Indicizzatori in Ricerca cognitiva di Azure](search-indexer-overview.md)
 * [Come configurare un indicizzatore BLOB](search-howto-indexing-azure-blob-storage.md)

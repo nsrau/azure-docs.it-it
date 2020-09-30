@@ -3,21 +3,18 @@ title: Creare avvisi di Integrità risorse usando il portale di Azure
 description: Creare un avviso usando portale di Azure che inviano una notifica quando le risorse di Azure diventano non disponibili.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 127aad1691f7bb6b6c64332eefde734a809ab75f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091573"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540677"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configurare avvisi di integrità risorse tramite il portale di Azure
 
 Questo articolo illustra come configurare gli avvisi del log attività per le notifiche di integrità delle risorse usando il portale di Azure.
 
 Integrità risorse di Azure comunica lo stato di integrità attuale e cronologico delle risorse di Azure. Integrità risorse di Azure invia una notifica quasi in tempo reale quando tali risorse subiscono una modifica al loro stato di integrità. Creare avvisi di Integrità risorse di Azure a livello di codice consente agli utenti di creare e personalizzare gli avvisi in blocco.
-
-> [!NOTE]
-> Gli avvisi Integrità risorse attualmente sono in anteprima.
 
 Le notifiche di integrità delle risorse vengono archiviate nel [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md) , dato il notevole volume di informazioni archiviate nel log attività, è disponibile un'interfaccia utente separata per semplificare la visualizzazione e la configurazione degli avvisi per le notifiche di integrità delle risorse.
 È possibile ricevere un avviso quando la risorsa di Azure invia notifiche sull'integrità delle risorse alla sottoscrizione di Azure. È possibile configurare l'avviso in base a:

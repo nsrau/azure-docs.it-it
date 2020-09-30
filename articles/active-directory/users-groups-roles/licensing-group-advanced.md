@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937c5dbf3417e5914a0b4285c3bb114d7499e0fb
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c7cc4065297c35164f1e37b187c6280b3d3546ee
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799061"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538841"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory
 
@@ -112,7 +112,7 @@ Ecco un esempio di come potrebbe presentarsi questo processo:
 
 3. Passare al pannello [**Azure Active Directory > Licenze > Tutti i prodotti**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) e selezionare *Office 365 Enterprise E5*, quindi selezionare **Gruppi con licenza** per visualizzare un elenco di tutti i gruppi con quel prodotto.
 
-4. Fare clic sul gruppo che si desidera esaminare, in questo caso *O365 E5 - Exchange only* (O365 E5 - solo Exchange). Verrà visualizzata la scheda **licenze** . facendo clic sulla licenza E5 verrà aperto un pannello in cui sono elencati tutti i servizi abilitati.
+4. Fare clic sul gruppo che si desidera esaminare, in questo caso *O365 E5 - Exchange only* (O365 E5 - solo Exchange). Verrà visualizzata la scheda **licenze** . Facendo clic sulla licenza E5 si aprirà un pannello che elenca tutti i servizi abilitati.
    > [!NOTE]
    > Il servizio *Microsoft Stream* è stato aggiunto e abilitato automaticamente al gruppo, che già dispone del servizio *Exchange Online*:
 
@@ -157,7 +157,7 @@ Ecco un esempio di come potrebbe presentarsi questo processo:
 
 Di seguito è riportato un esempio di modifiche recenti alle licenze di gruppo con i dettagli:
 
-![Schermata delle modifiche alle licenze di gruppo](./media/licensing-group-advanced/audit-group-license-change.png)
+![Screenshot che mostra la pagina "log di controllo" con un elemento elenco selezionato e il riquadro "log di controllo dettagli attività" aperto.](./media/licensing-group-advanced/audit-group-license-change.png)
 
 ### <a name="find-out-when-group-changes-started-and-finished-processing"></a>Sapere quando è iniziata e terminata l'elaborazione delle modifiche al gruppo
 

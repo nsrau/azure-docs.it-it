@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: ee788125a5710e5a8b9861c28c4af8e6d83d5d80
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 651e0635f0b556cd47adfccdbac59ef587570128
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924538"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535730"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algoritmo di classificazione in Azure ricerca cognitiva
 
@@ -63,7 +63,7 @@ La proprietà di **somiglianza** è utile durante questo periodo di tempo, quand
 
 | Proprietà | Descrizione |
 |----------|-------------|
-| somiglianza | Facoltativa. I valori validi includono *"#Microsoft. Azure. search. ClassicSimilarity"* o *"#Microsoft. Azure. search. BM25Similarity"*. <br/> Richiede `api-version=2019-05-06-Preview` o versione successiva in un servizio di ricerca creato prima del 15 luglio 2020. |
+| somiglianza | facoltativo. I valori validi includono *"#Microsoft. Azure. search. ClassicSimilarity"* o *"#Microsoft. Azure. search. BM25Similarity"*. <br/> Richiede `api-version=2019-05-06-Preview` o versione successiva in un servizio di ricerca creato prima del 15 luglio 2020. |
 
 Per i nuovi servizi creati dopo il 15 luglio 2020, BM25 viene usato automaticamente ed è l'unico algoritmo di somiglianza. Se si tenta di impostare la **somiglianza** `ClassicSimilarity` su in un nuovo servizio, verrà restituito un errore 400 poiché tale algoritmo non è supportato in un nuovo servizio.
 
@@ -105,7 +105,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 ## <a name="see-also"></a>Vedere anche  
 
-+ [Informazioni di riferimento sull'API REST](/rest/api/searchservice/)   
-+ [Aggiungere profili di Punteggio all'indice](index-add-scoring-profiles.md)    
-+ [Create index API](/rest/api/searchservice/create-index)   
-+ [.NET SDK di Ricerca cognitiva di Azure](/dotnet/api/overview/azure/search?view=azure-dotnet)
++ [Informazioni di riferimento sull'API REST](/rest/api/searchservice/)
++ [Aggiungere profili di Punteggio all'indice](index-add-scoring-profiles.md)
++ [Create index API](/rest/api/searchservice/create-index)
++ [.NET SDK di Ricerca cognitiva di Azure](/dotnet/api/overview/azure/search)

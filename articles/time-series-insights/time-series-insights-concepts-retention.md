@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 005725acf7270ff87ac9418f27941bdb205ae986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4f236679d0662df852581a6a8408ed6bc0d4e3fe
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059424"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535690"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Informazioni sulla conservazione dei dati in Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Questo è un articolo di Gen1.
 
 Questo articolo descrive due impostazioni primarie che influiscano sulla conservazione dei dati nell'ambiente Azure Time Series Insights.
 
@@ -37,7 +40,8 @@ Inoltre, l'ambiente di Azure Time Series Insights dispone di un **limite di arch
 
 > [!NOTE]
 > Per impostazione predefinita, quando si crea un nuovo ambiente l'assorbimento è configurato per **eliminare i dati meno recenti**. Questa impostazione può essere attivata o disattivata in base alle esigenze dopo l'ora di creazione usando il portale di Azure nella pagina **Configura** dell'ambiente Azure Time Series Insights.
-> * Per informazioni su come configurare i criteri di conservazione, vedere [Configuring Retention in Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
+>
+> - Per informazioni su come configurare i criteri di conservazione, vedere [Configuring Retention in Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 Entrambi i criteri di conservazione dei dati sono descritti in dettaglio più avanti.
 
@@ -69,8 +73,8 @@ Ogni volta che la velocità in ingresso giornaliera di questo ambiente supera 0,
 - Consente di evitare la perdita di dati, ma può creare un'opportunità per la perdita dei dati più recenti se il traffico in ingresso viene sospeso oltre il periodo di conservazione dell'origine evento.
 - Tuttavia, una volta raggiunta la capacità massima di un ambiente, l'ambiente sospende l'ingresso dei dati fino a quando non si verificano le azioni aggiuntive seguenti:
 
-   - È possibile aumentare la capacità massima dell'ambiente per aggiungere altre unità di scala, come descritto in [come ridimensionare l'ambiente Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
-   - Viene raggiunto il periodo di conservazione dei dati e i dati vengono eliminati, portando l'ambiente al di sotto della capacità massima.
+  - È possibile aumentare la capacità massima dell'ambiente per aggiungere altre unità di scala, come descritto in [come ridimensionare l'ambiente Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+  - Viene raggiunto il periodo di conservazione dei dati e i dati vengono eliminati, portando l'ambiente al di sotto della capacità massima.
 
 ### <a name="example-three"></a>Esempio tre
 

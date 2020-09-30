@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: e7ca86d0146f05d5171d5eae18aac81d75122bcc
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: bf87a61633706cb5db384e8a8ab957fa6a3f37f1
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258546"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533724"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parametri del server nel database di Azure per MySQL
 
@@ -214,7 +214,7 @@ Se viene visualizzato un errore simile a "dimensioni di riga troppo grandi (> 81
 Questo parametro può essere impostato a livello di sessione usando `init_connect` . Per impostare **innodb_strict_mode** a livello di sessione, fare riferimento a [parametro impostazione non elencato](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
 
 > [!NOTE]
-> Se si dispone di un server di replica di lettura, l'impostazione di **innodb_strict_mode** su off a livello di sessione in un server master comporterà l'interruzione della replica. Se sono state lette repliche, è consigliabile mantenere il parametro impostato su disattivato.
+> Se si dispone di un server di replica in lettura, impostando **innodb_strict_mode** su disattivato a livello di sessione in un server di origine si interrompe la replica. Se sono state lette repliche, è consigliabile mantenere il parametro impostato su disattivato.
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 

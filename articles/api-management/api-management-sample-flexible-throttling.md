@@ -15,27 +15,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 7ef1c09b12d3c7e365f090391aa3fa8afa03749b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214002"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537345"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitazione avanzata delle richieste con Gestione API di Azure
 La possibilità di limitare le richieste in ingresso è uno dei ruoli fondamentali di Gestione API di Azure. Tramite il controllo della frequenza delle richieste o del totale delle richieste o dei dati trasferiti, Gestione API consente ai provider di API di proteggere le API da abusi e di aggiungere valore a diversi livelli di prodotto API.
 
+## <a name="rate-limits-and-quotas"></a>Limiti e quote di velocità
+I limiti di frequenza e le quote vengono usati per scopi diversi.
+
+### <a name="rate-limits"></a>Limiti di velocità
+I limiti di velocità vengono in genere usati per la protezione da picchi di volume brevi ed intensi. Se, ad esempio, si sa che il servizio back-end presenta un collo di bottiglia nel database con un volume di chiamate elevato, è possibile impostare un `rate-limit-by-key` criterio in modo da non consentire un volume di chiamate elevato utilizzando questa impostazione.
+
+### <a name="quotas"></a>Quote
+Le quote vengono in genere usate per controllare le frequenze delle chiamate in un periodo di tempo più lungo. Ad esempio, possono impostare il numero totale di chiamate che un determinato sottoscrittore può effettuare entro un determinato mese. Per monetizzare l'API, le quote possono anche essere impostate in modo diverso per le sottoscrizioni basate su livelli. Una sottoscrizione di livello Basic, ad esempio, potrebbe essere in grado di effettuare non più di 10.000 chiamate al mese, ma un livello Premium può arrivare fino a 100 milioni chiamate al mese.
+
+In gestione API di Azure, i limiti di velocità vengono in genere propagati più velocemente tra i nodi per proteggersi dai picchi. Al contrario, le informazioni sulle quote di utilizzo vengono usate in un periodo di tempo più lungo e pertanto la relativa implementazione è diversa.
+
+> [!CAUTION]
+> A causa della natura distribuita dell'architettura di limitazione, la limitazione della frequenza non è mai completamente precisa. La differenza tra la configurazione e il numero reale di richieste consentite varia in base al volume e alla frequenza della richiesta, alla latenza del back-end e ad altri fattori.
+
 ## <a name="product-based-throttling"></a>Limitazione basata sul prodotto
 Finora le funzionalità di limitazione della frequenza avevano come ambito una sottoscrizione specifica a un prodotto, definita nel portale di Azure. Tali funzionalità sono utili per consentire al provider di API di applicare limiti agli sviluppatori che si sono registrati per l'uso dell'API, ma non consente di limitare ad esempio i singoli utenti finali dell'API. Il singolo utente dell'applicazione dello sviluppatore può usare l'intera quota e quindi impedire ad altri clienti dello sviluppatore di usare l'applicazione. Inoltre, alcuni clienti possono generare un numero elevato di richieste, limitando l'accesso agli utenti occasionali.
 
-## <a name="custom-key-based-throttling"></a>Limitazione basata su chiave personalizzata
+## <a name="custom-key-based-throttling"></a>Limitazione basata su chiavi personalizzate
 
 > [!NOTE]
 > I `rate-limit-by-key` `quota-by-key` criteri e non sono disponibili quando si usa il livello di consumo di gestione API di Azure. 
 
 I nuovi criteri [rate-limit-by-key](./api-management-access-restriction-policies.md#LimitCallRateByKey) e [quota-by-key](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) offrono una soluzione più flessibile per il controllo del traffico. Questi nuovi criteri consentono di definire le espressioni per l'identificazione delle chiavi che vengono usate per tenere traccia dell'utilizzo del traffico. Il modo più semplice per spiegarne il funzionamento è illustrare un esempio. 
 
-## <a name="ip-address-throttling"></a>Limitazione dell'indirizzo IP
+## <a name="ip-address-throttling"></a>Limitazione indirizzi IP
 I seguenti criteri limitano l'indirizzo IP di un singolo client a 10 chiamate al minuto, con un totale di 1.000.000 chiamate e 10.000 KB di larghezza di banda al mese. 
 
 ```xml
@@ -76,7 +90,7 @@ Quando la chiave per la limitazione viene definita mediante un' [espressione di 
 
 In questo modo l'applicazione client dello sviluppatore è in grado di scegliere la modalità di creazione della chiave di limitazione della frequenza. Gli sviluppatori di client possono creare i propri livelli di frequenza allocando set di chiavi agli utenti e ruotando l'utilizzo delle chiavi.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Gestione API di Azure offre funzionalità di limitazione della frequenza e della quota per proteggere e aggiungere valore al proprio servizio API. I nuovi criteri di limitazione con regole personalizzate di definizione dell'ambito consentono di controllare con granularità maggiore tali criteri per consentire ai clienti di creare applicazioni migliori. Gli esempi in questo articolo illustrano l'uso di questi nuovi criteri tramite la produzione di chiavi per la limitazione della frequenza con gli indirizzi IP del client, l'identità dell'utente e valori generati dal client. È tuttavia possibile usare molte altre parti del messaggio, ad esempio l'agente utente, frammenti del percorso dell'URL e la dimensione del messaggio.
 
 ## <a name="next-steps"></a>Passaggi successivi

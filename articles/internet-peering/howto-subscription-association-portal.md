@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
-ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710848"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540269"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associare l'ASN peer alla sottoscrizione di Azure con il portale
 
@@ -70,12 +70,12 @@ In qualità di provider di servizi Internet o provider di Internet Exchange, è 
 1. Fare quindi clic su **Rivedi e crea** e osservare che il portale esegue una convalida di base delle informazioni immesse. L'operazione viene visualizzata su una barra multifunzione nella parte superiore, con l'indicazione *Esecuzione della convalida finale*.
 
     > [!div class="mx-imgBorder"]
-    > ![Scheda per la revisione dell'oggetto PeerAsn](./media/peerasn-review-tab-validation.png)
+    > ![Screenshot mostra la scheda associa un peer A S N nozioni di base.](./media/peerasn-review-tab-validation.png)
 
 1. Una volta che il messaggio sulla barra multifunzione indica *Convalida superata*, verificare le informazioni e inviare la richiesta facendo clic su **Crea**. Se la convalida non viene superata, fare clic su **Indietro** e ripetere i passaggi precedenti per modificare la richiesta e verificare che i valori immessi non contengano errori.
 
     > [!div class="mx-imgBorder"]
-    > ![Scheda per la revisione dell'oggetto PeerAsn](./media/peerasn-review-tab.png)
+    > ![Screenshot mostra la scheda associa un peer A S N nozioni di base con convalida superata.](./media/peerasn-review-tab.png)
 
 1. Dopo avere inviato la richiesta, attendere il completamento della distribuzione. Se la distribuzione ha esito negativo, contattare il team [Peer Microsoft](mailto:peering@microsoft.com). In caso di esito positivo, la distribuzione verrà visualizzata come illustrato di seguito.
 

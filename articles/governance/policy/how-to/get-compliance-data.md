@@ -3,12 +3,12 @@ title: Ottenere i dati di conformità ai criteri
 description: Le valutazioni e gli effetti di Criteri di Azure determinano la conformità. Informazioni su come ottenere informazioni dettagliate sulle risorse di Azure.
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 83bf00710346193a89b59c6a72a0e4840dd5abfb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5a308a23e84587eba69951081674d3525f083441
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91291021"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537951"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -22,7 +22,7 @@ Esistono diversi modi per accedere alle informazioni sulla conformità generate 
 Prima di esaminare i metodi disponibili per creare report sulla conformità, è opportuno comprendere quando vengono aggiornate le informazioni sulla conformità e la frequenza e gli eventi che attivano un ciclo di valutazione.
 
 > [!WARNING]
-> Se lo stato di conformità viene segnalato come **Non registrato**, verificare che il provider di risorse **Microsoft.PolicyInsights** sia registrato e che l'utente abbia le autorizzazioni di controllo degli accessi in base al ruolo appropriate, come descritto in [Controllo degli accessi in base al ruolo in Criteri di Azure](../overview.md#rbac-permissions-in-azure-policy).
+> Se lo stato di conformità viene segnalato come **non registrato**, verificare che il provider di risorse **Microsoft. PolicyInsights** sia registrato e che l'utente disponga delle autorizzazioni appropriate per il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), come descritto nelle [autorizzazioni RBAC di Azure in criteri di Azure](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 ## <a name="evaluation-triggers"></a>Trigger di valutazione
 
@@ -148,7 +148,7 @@ Ad esempio, si supponga di avere un gruppo di risorse, ContosoRG, con alcuni acc
 
 In questo esempio, è necessario essere ben consapevoli dei rischi di sicurezza. Ora che è stata creata un'assegnazione di criteri, questa viene valutata per tutti gli account di archiviazione inclusi e non esenti nel gruppo di risorse ContosoRG. Controlla i tre account di archiviazione non conformi, modificandone di conseguenza lo stato impostandolo su **Non conforme**.
 
-:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagramma della conformità dell'account di archiviazione nel gruppo di risorse contoso R G." border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse contoso R G." border="false":::
    Diagramma che mostra le immagini per cinque account di archiviazione nel gruppo di risorse contoso R G. Gli account di archiviazione uno e tre ora hanno segni di spunta verdi sotto di essi, mentre gli account di archiviazione due, quattro e cinque ora hanno segni di avviso rossi sotto di essi.
 :::image-end:::
 
@@ -164,7 +164,7 @@ Criteri di Azure usa i campi **tipo** e **nome** nella definizione per determina
 La percentuale di conformità viene determinata dividendo le risorse **conformi** ed **esenti** dalle _risorse totali_. _Il totale delle risorse_ è definito come la somma delle risorse **conformi**, **non conformi**, **esentate**e in **conflitto** . I numeri di conformità generali sono la somma delle risorse distinte **conformi** o **esentate** divise per la somma di tutte le risorse distinte. Nell'immagine seguente sono presenti 20 risorse distinte applicabili, di cui una sola **Non conforme**.
 La conformità complessiva delle risorse è pari al 95% (19 su 20).
 
-:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Screenshot dei dettagli di conformità dei criteri dalla pagina conformità." border="false":::
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse contoso R G." border="false":::
 
 > [!NOTE]
 > La conformità alle normative in criteri di Azure è una funzionalità in anteprima. Le proprietà di conformità da SDK e pagine del portale sono diverse per le iniziative abilitate. Per ulteriori informazioni, vedere [conformità normativa](../concepts/regulatory-compliance.md)
@@ -173,11 +173,11 @@ La conformità complessiva delle risorse è pari al 95% (19 su 20).
 
 Il portale di Azure illustra un'esperienza grafica di visualizzazione e comprensione dello stato di conformità nell'ambiente in uso. Nella pagina **Criteri** l'opzione **Panoramica** fornisce i dettagli per gli ambiti disponibili sulla conformità dei criteri e delle iniziative. Oltre allo stato di conformità e al conteggio per assegnazione, contiene un grafico che mostra la conformità negli ultimi sette giorni. La pagina **Conformità** contiene buona parte di queste stesse informazioni (eccetto il grafico), ma fornisce altre opzioni di ordinamento e applicazione di filtri.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Screenshot della pagina conformità, opzioni di filtro e dettagli." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse contoso R G." border="false":::
 
 Dal momento che un criterio o un'iniziativa può essere assegnata a diversi ambiti, la tabella include l'ambito di ogni assegnazione e il tipo di definizione assegnato. È anche indicato il numero di risorse non conformi e di criteri non conformi per ogni assegnazione. La selezione di un criterio o di un'iniziativa nella tabella consente di esaminare in modo più approfondito la conformità per quella particolare assegnazione.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Screenshot della pagina dei dettagli di conformità, compresi i conteggi e i dettagli conformi alle risorse." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse contoso R G." border="false":::
 
 L'elenco delle risorse nella scheda **Conformità risorsa** mostra lo stato di valutazione delle risorse esistenti per l'assegnazione corrente. Il valore predefinito della scheda è **Non conforme**, ma è possibile applicare un filtro.
 Gli eventi (Append, Audit, Deny, Deploy) attivati dalla richiesta di creazione di una risorsa sono visualizzati nella scheda **Eventi**.
@@ -185,15 +185,15 @@ Gli eventi (Append, Audit, Deny, Deploy) attivati dalla richiesta di creazione d
 > [!NOTE]
 > Per i criteri del motore del servizio Azure Kubernetes, la risorsa mostrata è il gruppo di risorse.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Screenshot della scheda eventi nella pagina Dettagli conformità." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse contoso R G." border="false":::
 
 Per le risorse della [Modalità del provider di risorse](../concepts/definition-structure.md#resource-provider-modes), nella scheda **Conformità risorse** selezionare la risorsa o fare clic con il pulsante destro del mouse sulla riga e selezionare **Visualizza dettagli conformità** per aprire i dettagli di conformità dei componenti. Questa pagina include anche le schede per visualizzare i criteri assegnati a questa risorsa, eventi, eventi del componente e cronologia delle modifiche.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot della scheda conformità componenti e dei dettagli di conformità per un'assegnazione in modalità provider di risorse." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse contoso R G." border="false":::
 
 Tornare alla pagina di conformità delle risorse e fare clic con il pulsante destro del mouse sulla riga dell'evento per cui si vogliono raccogliere maggiori dettagli, quindi selezionare **Mostra log attività**. La pagina del log attività viene aperta e pre-filtrata con la ricerca contenente i dettagli per l'assegnazione e gli eventi. Il log attività offre un contesto aggiuntivo e altre informazioni su tali eventi.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Screenshot del log attività per le attività e le valutazioni di criteri di Azure." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse contoso R G." border="false":::
 
 ### <a name="understand-non-compliance"></a>Comprendere la mancata conformità
 
@@ -649,7 +649,7 @@ Trent Baker
 
 Se si dispone di un' [area di lavoro log Analytics](../../../azure-monitor/log-query/log-query-overview.md) con `AzureActivity` dalla [soluzione analisi log attività](../../../azure-monitor/platform/activity-log.md) collegata alla sottoscrizione, è anche possibile visualizzare i risultati di non conformità dalla valutazione delle risorse nuove e aggiornate usando semplici query kusto e la `AzureActivity` tabella. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Screenshot dei log di monitoraggio di Azure che illustrano le azioni dei criteri di Azure nella tabella AzureActivity." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse contoso R G." border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

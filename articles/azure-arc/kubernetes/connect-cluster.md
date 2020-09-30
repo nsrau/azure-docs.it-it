@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Connettere un cluster Kubernetes abilitato per Azure Arc con Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, contenitori
 ms.custom: references_regions
-ms.openlocfilehash: eb3921d3ab2090b6bac54c9b68e9def3949ed4b5
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 8f1d95db9c30e78e1ca697d5d7e5638988bc9965
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723742"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540626"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Connettere un cluster Kubernetes abilitato per Azure Arc (anteprima)
 
@@ -30,7 +30,7 @@ Verificare che siano disponibili i requisiti seguenti:
 * È necessario un file kubeconfig per accedere al cluster e al ruolo di amministratore del cluster nel cluster per la distribuzione degli agenti Kubernetes abilitati per Arc.
 * L'utente o l'entità servizio usata con i comandi `az login` e `az connectedk8s connect` deve avere le autorizzazioni 'Read' (Lettura) e 'Write' (Scrittura) per il tipo di risorsa 'Microsoft.Kubernetes/connectedclusters'. Il ruolo "cluster Kubernetes-caricamento di Azure Arc" dispone di queste autorizzazioni e può essere usato per assegnazioni di ruolo all'utente o all'entità servizio.
 * Helm 3 è necessario per l'onboarding del cluster usando l'estensione connectedk8s. Per soddisfare questo requisito, [installare la versione più recente di Helm 3](https://helm.sh/docs/intro/install) .
-* L'interfaccia della riga di comando di Azure versione 2.3 + è necessaria per l'installazione delle estensioni dell'interfaccia della riga di comando Kubernetes [Installare l'interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure o eseguire l'aggiornamento alla versione più recente per assicurarsi che l'interfaccia della riga di comando di Azure versione 2.3
+* L'interfaccia della riga di comando di Azure versione 2.3 + è necessaria per l'installazione delle estensioni dell'interfaccia della riga di comando Kubernetes [Installare l'interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) della riga di comando di Azure o eseguire l'aggiornamento alla versione più recente per assicurarsi che l'interfaccia della riga di comando di Azure versione 2.3
 * Installare le estensioni dell'interfaccia della riga di comando di Arc Enabled Kubernetes:
   
   Installare l'estensione `connectedk8s`, che consente di connettere i cluster Kubernetes ad Azure:
@@ -179,27 +179,16 @@ Se il cluster si trova dietro un server proxy in uscita, l'interfaccia della rig
 
 1. Controllare la versione dell' `connectedk8s` estensione installata nel computer eseguendo questo comando:
 
-    ```bash
+    ```console
     az -v
     ```
 
     `connectedk8s`Per configurare gli agenti con il proxy in uscita, è necessaria la versione dell'estensione >= 0.2.3. Se è presente la versione < 0.2.3 nel computer, seguire i [passaggi di aggiornamento](#before-you-begin) per ottenere la versione più recente dell'estensione nel computer.
 
-2. Impostare le variabili di ambiente necessarie per l'interfaccia della riga di comando di Azure:
+2. Eseguire il comando Connect con i parametri proxy specificati:
 
-    ```bash
-    export HTTP_PROXY=<proxy-server-ip-address>:<port>
-    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
-    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
-    ```
-
-3. Eseguire il comando Connect con i parametri proxy specificati:
-
-    ```bash
-    az connectedk8s connect -n <cluster-name> -g <resource-group> \
-    --proxy-https https://<proxy-server-ip-address>:<port> \
-    --proxy-http http://<proxy-server-ip-address>:<port> \
-    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```console
+    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR>
     ```
 
 > [!NOTE]

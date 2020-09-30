@@ -3,20 +3,18 @@ title: Gestisci versioni-LUIS
 titleSuffix: Azure Cognitive Services
 description: Le versioni consentono di compilare e pubblicare modelli diversi. Una procedura consigliata consiste nel clonare il modello attualmente attivo in una versione diversa dell'app prima di apportare modifiche al modello.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 3aa7958ea4edf6cf3e3c1b170e2351f49f719983
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 3cf4ce5dc7061065ea501ae1c00cd5b9e5404770
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782841"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540864"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Usare le versioni per eseguire modifiche e test senza conseguenze per le app di staging o produzione
 
@@ -24,9 +22,9 @@ Le versioni consentono di compilare e pubblicare modelli diversi. Una procedura 
 
 La versione attiva è la versione che si sta modificando nella sezione **Build** del portale Luis con Intent, entità, funzionalità e modelli. Quando si usano le API di creazione, non è necessario impostare la versione attiva perché le chiamate all'API REST specifiche della versione includono la versione nella route.
 
-Per usare le versioni, aprire l'app selezionando il relativo nome nella pagina **Mie app**, quindi selezionare **Gestisci** nella barra superiore e successivamente **Versioni** nella sezione di navigazione a sinistra.
+Per usare le versioni, aprire l'app selezionando il relativo nome nella pagina **app** e quindi selezionare **Gestisci** nella barra superiore, quindi selezionare **versioni** nel percorso di spostamento a sinistra.
 
-L'elenco delle versioni indica quali versioni sono pubblicate, dove sono pubblicate e quale versione è attualmente attiva.
+L'elenco delle versioni mostra le versioni pubblicate, dove vengono pubblicate e la versione attualmente attiva.
 
 ## <a name="clone-a-version"></a>Clonare una versione
 

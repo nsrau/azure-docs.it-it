@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: b8707b6fb006a45d63f1b2b426530a7e25f5b497
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e2838b759a611cb55b9fd3fadf834c84eb74210d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512925"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533639"
 ---
 # <a name="register-for-azure-netapp-files"></a>Effettuare la registrazione per Azure NetApp Files
 
@@ -50,13 +50,13 @@ Per usare il servizio, è necessario registrare il provider di risorse di Azure 
 
       ![Icona di Azure Cloud Shell](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
 
-2. Se si hanno più sottoscrizioni per l'account Azure, selezionare quella inserita nell'elenco di elementi consentiti per Azure NetApp Files:
+2. Se si dispone di più sottoscrizioni per l'account Azure, selezionare quella che è stata approvata per Azure NetApp Files:
     
     ```azurepowershell
     az account set --subscription <subscriptionId>
     ```
 
-3. Nella console di Azure Cloud Shell, immettere il comando seguente per verificare che la sottoscrizione sia stata inserita nell'elenco elementi consentiti:
+3. Nella console di Azure Cloud Shell, immettere il comando seguente per verificare che la sottoscrizione sia stata approvata:
     
     ```azurepowershell
     az feature list | grep NetApp

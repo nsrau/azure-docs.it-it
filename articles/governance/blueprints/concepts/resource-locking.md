@@ -3,12 +3,12 @@ title: Informazioni sul blocco delle risorse
 description: Informazioni sulle opzioni di blocco nei progetti di Azure per proteggere le risorse quando si assegna un progetto.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d400abce5d428c01b43cdda38a5c6f0df2d4db8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 30d5528b4613dc04d1e825d10e11b7eeadc57698
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651937"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534863"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -24,16 +24,16 @@ Le modalità di blocco, tuttavia, non possono essere modificate all'esterno dei 
 
 Le risorse create da elementi in un'assegnazione di progetto hanno quattro stati: **non bloccato**, di **sola lettura**, **non è possibile modificare/eliminare**o **eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
 
-|Mode|Tipo di risorsa artefatto|State|Descrizione|
+|Modalità|Tipo di risorsa artefatto|State|Descrizione|
 |-|-|-|-|
 |Non bloccare|*|Non bloccato|Le risorse non sono protette dai progetti di Azure. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
-|Sola lettura|Gruppo di risorse|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
+|Sola lettura|Resource group|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
 |Sola lettura|Diverso da gruppo di risorse|Sola lettura|La risorsa non può essere modificata in alcun modo. Non sono state apportate modifiche e non possono essere eliminate.|
 |Non eliminare|*|Impossibile eliminare|Le risorse possono essere modificate, ma non possono essere eliminate. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
 
 ## <a name="overriding-locking-states"></a>Sostituzione degli stati di blocco
 
-È in genere possibile che a un utente con [controllo degli accessi in base al ruolo](../../../role-based-access-control/overview.md) (RBAC) appropriato per la sottoscrizione, ad esempio il ruolo "Proprietario", sia consentito di modificare o eliminare qualsiasi risorsa. Questo accesso non avviene quando i progetti di Azure applicano il blocco come parte di un'assegnazione distribuita. Se l'assegnazione è stata impostata con l'opzione **Sola lettura ** o **Non eliminare**, nemmeno il proprietario della sottoscrizione può eseguire l'azione bloccata sulla risorsa protetta.
+È in genere possibile che un utente con il [controllo degli accessi in base al ruolo di Azure (RBAC)](../../../role-based-access-control/overview.md) appropriato per la sottoscrizione, ad esempio il ruolo "proprietario", sia autorizzato a modificare o eliminare qualsiasi risorsa. Questo accesso non avviene quando i progetti di Azure applicano il blocco come parte di un'assegnazione distribuita. Se l'assegnazione è stata impostata con l'opzione **Sola lettura ** o **Non eliminare**, nemmeno il proprietario della sottoscrizione può eseguire l'azione bloccata sulla risorsa protetta.
 
 Questa misura di sicurezza salvaguarda la coerenza del progetto definito e l'ambiente che è stato progettato per creare a partire da eliminazioni accidentali o programmatiche.
 
@@ -101,13 +101,13 @@ Quando l'assegnazione viene rimossa, i blocchi creati dai progetti di Azure veng
 
 ## <a name="how-blueprint-locks-work"></a>Funzionamento dei blocchi progetto
 
-In virtù del controllo degli accessi in base al ruolo, alle risorse artefatto viene applicata un'azione di [negazione assegnazioni](../../../role-based-access-control/deny-assignments.md) durante l'assegnazione di un progetto se per l'assegnazione è stata selezionata l'opzione **Sola lettura** o **Non eliminare**. L'azione di negazione viene aggiunta dall'identità gestita dell'assegnazione del progetto e può essere rimossa dalle risorse artefatto solo dalla stessa identità gestita. Questa misura di sicurezza impone il meccanismo di blocco e impedisce la rimozione del blocco del progetto al di fuori dei progetti di Azure.
+Un'azione di negazione delle [assegnazioni](../../../role-based-access-control/deny-assignments.md) del controllo degli accessi in base al ruolo di Azure viene applicata alle risorse artefatto durante l'assegnazione di un progetto se l'assegnazione ha selezionato l'opzione di sola **lettura** o non **eliminare** . L'azione di negazione viene aggiunta dall'identità gestita dell'assegnazione del progetto e può essere rimossa dalle risorse artefatto solo dalla stessa identità gestita. Questa misura di sicurezza impone il meccanismo di blocco e impedisce la rimozione del blocco del progetto al di fuori dei progetti di Azure.
 
 :::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Screenshot della pagina controllo di accesso (I A M) e della scheda nega assegnazioni per un gruppo di risorse." border="false":::
 
 Le [proprietà di assegnazione Deny](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) di ogni modalità sono le seguenti:
 
-|Mode |Autorizzazioni. azioni |Permissions. notacts |Entità [i]. Tipo |ExcludePrincipals [i]. ID | DoNotApplyToChildScopes |
+|Modalità |Autorizzazioni. azioni |Permissions. notacts |Entità [i]. Tipo |ExcludePrincipals [i]. ID | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
 |Sola lettura |**\*** |**\*/read** |SystemDefined (Everyone) |assegnazione di progetto e definito dall'utente in **excludedPrincipals** |Gruppo di risorse- _true_; Risorsa- _false_ |
 |Non eliminare |**\*/Delete** | |SystemDefined (Everyone) |assegnazione di progetto e definito dall'utente in **excludedPrincipals** |Gruppo di risorse- _true_; Risorsa- _false_ |
@@ -161,7 +161,7 @@ In alcuni scenari di progettazione o di sicurezza, potrebbe essere necessario es
 
 ## <a name="exclude-an-action-from-a-deny-assignment"></a>Escludere un'azione da un'assegnazione di negazione
 
-Analogamente all' [esclusione di un'entità](#exclude-a-principal-from-a-deny-assignment) in un' [assegnazione Deny](../../../role-based-access-control/deny-assignments.md) in un'assegnazione di progetto, è possibile escludere [operazioni RBAC](../../../role-based-access-control/resource-provider-operations.md)specifiche. All'interno del blocco **Properties. Locks** , nella stessa posizione in cui si trova **excludedPrincipals** , è possibile aggiungere un **excludedActions** :
+Analogamente all' [esclusione di un'entità](#exclude-a-principal-from-a-deny-assignment) in un' [assegnazione Deny](../../../role-based-access-control/deny-assignments.md) in un'assegnazione di progetto, è possibile escludere operazioni specifiche del [provider di risorse di Azure](../../../role-based-access-control/resource-provider-operations.md). All'interno del blocco **Properties. Locks** , nella stessa posizione in cui si trova **excludedPrincipals** , è possibile aggiungere un **excludedActions** :
 
 ```json
 "locks": {
@@ -177,7 +177,7 @@ Analogamente all' [esclusione di un'entità](#exclude-a-principal-from-a-deny-as
 },
 ```
 
-Mentre **excludedPrincipals** deve essere esplicito, le voci **excludedActions** possono usare `*` per la corrispondenza con caratteri jolly delle operazioni RBAC.
+Mentre **excludedPrincipals** deve essere esplicito, le voci **excludedActions** possono usare `*` per la corrispondenza con caratteri jolly delle operazioni del provider di risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

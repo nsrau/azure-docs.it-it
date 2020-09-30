@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88255e60593403951db5b984bb9c69b1060a93c2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73889337"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540575"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Usare Time Series Insights per visualizzare i dati di telemetria inviati dall'acceleratore della soluzione Simulazione dispositivi
 
@@ -21,7 +21,7 @@ L'acceleratore della soluzione Simulazione dispositivi consente di generare dati
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per seguire la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Per seguire la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 I passaggi descritti in questa guida presuppongono di aver distribuito l'acceleratore della soluzione Simulazione dispositivi alla sottoscrizione di Azure. Se non è stato distribuito l'acceleratore della soluzione, seguire i passaggi nella guida introduttiva [Distribuire ed eseguire una soluzione di simulazione dei dispositivi basata sul cloud](quickstart-device-simulation-deploy.md).
 
@@ -63,7 +63,7 @@ I passaggi seguenti usano l'interfaccia della riga di comando di Azure in Azure 
 
 1. Per creare l'ambiente Time Series Insights nello stesso gruppo di risorse dell'acceleratore di soluzioni, usare i valori nella tabella seguente:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome ambiente | Nella screenshot seguente viene usato il nome **Contoso-TSI**. Quando si completa questo passaggio, scegliere il proprio nome univoco. |
     | Subscription | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
@@ -72,7 +72,7 @@ I passaggi seguenti usano l'interfaccia della riga di comando di Azure in Azure 
     | Sku |**S1** |
     | Capacità | **1** |
 
-    ![Creare Azure Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights-create.png)
+    ![Creare l'ambiente Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights-create.png)
 
     > [!NOTE]
     > Aggiungere l'ambiente Time Series Insights allo stesso gruppo di risorse dell'acceleratore di soluzioni significa che verrà eliminato quando si elimina l'acceleratore di soluzioni.
@@ -95,7 +95,7 @@ Creare una nuova origine evento per la connessione all'hub IoT. Usare il gruppo 
 
 1. Per configurare l'hub IoT come nuova origine evento, usare i valori nella tabella seguente:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome Origine evento | Nella screenshot seguente viene usato il nome **contoso-iot-hub**. Quando si completa questo passaggio, usare il proprio nome univoco. |
     | Source (Sorgente) | **Hub IoT** |
@@ -137,7 +137,7 @@ Lo strumento di esplorazione di Azure Time Series Insights è un'app Web che si 
 
 1. Nel riquadro delle condizioni a sinistra selezionare **temperature** sotto **Misura** e **iothub-connection-device-id** come valore per **Dividi per**:
 
-    ![Query dello strumento di esplorazione di Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
+    ![Screenshot che mostra il pannello "termini" Time Series Insights, con i valori "Measure" e "Split by" evidenziati.](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
 
 1. Fare clic con il pulsante destro del mouse sul grafico e selezionare **Esplora eventi**:
 

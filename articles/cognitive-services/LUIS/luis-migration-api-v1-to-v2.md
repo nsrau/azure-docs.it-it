@@ -3,20 +3,18 @@ title: Migrazione delle API da v1 a v2
 titleSuffix: Azure Cognitive Services
 description: L'endpoint della versione 1 e le API per la creazione Language Understanding sono deprecate. Usare questa guida per comprendere come eseguire la migrazione alla versione 2 delle API dell'endpoint e di creazione.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.author: diberry
-ms.openlocfilehash: c5880aac01e0611565afb825a61b682197baf5d6
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: e1e9ac4ceef843712cc2e39f26ff0aca5341e201
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344748"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541323"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guida alla migrazione delle API da v1 a v2 per le app LUIS
 L' [endpoint](https://aka.ms/v1-endpoint-api-docs) della versione 1 e le API di [creazione](https://aka.ms/v1-authoring-api-docs) sono deprecate. Usare questa guida per comprendere come eseguire la migrazione alle API per la [creazione](https://go.microsoft.com/fwlink/?linkid=2092087) e l' [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) della versione 2.
@@ -28,7 +26,7 @@ LUIS offre nuove [regioni](https://aka.ms/LUIS-regions) per le API LUIS. LUIS fo
 L'API di creazione non è più basata sulla route **prog** ma sulla route **api**.
 
 
-| version | Route |
+| version | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps|
 |2|/luis/**api**/v2.0/apps|
@@ -107,7 +105,7 @@ v2 endpoint success response:
 ## <a name="key-management-no-longer-in-api"></a>Gestione chiavi non più nell'API
 Le API chiavi endpoint di sottoscrizione sono deprecate e viene restituito l'errore 410 GONE.
 
-| version | Route |
+| version | route |
 |--|--|
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
@@ -117,7 +115,7 @@ Le [chiavi endpoint](luis-how-to-azure-subscription.md) di Azure vengono generat
 ## <a name="new-versioning-route"></a>Nuova route controllo versioni
 Il modello v2 è ora contenuto in una [versione](luis-how-to-manage-versions.md). Il nome di una versione è dato da 10 caratteri nella route. La versione predefinita è "0.1".
 
-| version | Route |
+| version | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities|
 |2|/luis/**api**/v2.0/apps/{appId}/**versions**/{versionId}/entities|
@@ -136,7 +134,7 @@ Diverse API restituiscono metadati LUIS presentano nuovi nomi.
 ## <a name="sample-renamed-to-suggest"></a>"Sample" rinominata in "suggest"
 LUIS suggerisce espressioni da [espressioni endpoint](luis-how-to-review-endpoint-utterances.md) esistenti che potrebbero migliorare il modello. Nella versione precedente il nome era **sample**. Nella nuova versione il nome è **suggest**. Si tratta della **[revisione delle espressioni endpoint](luis-how-to-review-endpoint-utterances.md)** nel sito Web LUIS.
 
-| version | Route |
+| version | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities/{entityId}/**sample**|
 |1|/luis/v1.0/**prog**/apps/{appId}/intents/{intentId}/**sample**|

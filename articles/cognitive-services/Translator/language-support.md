@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e8feb4f2012d323d954ba000323824bc157bcf87
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300222"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534062"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Supporto della lingua e dell'area per la traduzione testuale e vocale
 
@@ -71,7 +71,6 @@ Translator supporta le seguenti lingue per la traduzione da testo a testo.
 |Giapponese|  `ja`    |
 |Kannada|`kn`|
 |Kazako|`kk`|
-|Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Klingon (plqaD)|   `tlh-Piqd`  |
 |Coreano |`ko`   |
@@ -102,6 +101,7 @@ Translator supporta le seguenti lingue per la traduzione da testo a testo.
 |Slovacco|    `sk`    |
 |Sloveno| `sl`    |
 |Spagnolo|   `es`    |
+|Swahili|   `sw`    |
 |Svedese|   `sv`    |
 |Tahitiano|  `ty`    |
 |Tamil| `ta`    |
@@ -152,7 +152,6 @@ Translator rileva le seguenti lingue per la conversione e la traslitterazione.
 |Irlandese | `ga`|
 |Italiano|   `it`    |
 |Giapponese|  `ja`    |
-|Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Coreano |`ko`   |
 |Curdo (centrale)  |`ku-Arab`  |
@@ -173,6 +172,7 @@ Translator rileva le seguenti lingue per la conversione e la traslitterazione.
 |Slovacco|    `sk`    |
 |Sloveno| `sl`    |
 |Spagnolo|   `es`    |
+|Swahili|   `sw`    |
 |Svedese|   `sv`    |
 |Tahitiano|  `ty`    |
 |Thai|  `th`    |
@@ -246,7 +246,6 @@ Vedere la documentazione di riferimento per le operazioni di [ricerca dizionario
 | Indonesiano      | `id`          |
 | Italiano      | `it`          |
 | Giapponese      | `ja`          |
-| Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Coreano      | `ko`          |
 | Lettone      | `lv`          |
@@ -263,6 +262,7 @@ Vedere la documentazione di riferimento per le operazioni di [ricerca dizionario
 | Slovacco     | `sk`          |
 | Sloveno      | `sl`          |
 | Spagnolo      | `es`          |
+| Swahili      | `sw`          |
 | Svedese      | `sv`          |
 | Tamil      | `ta`          |
 | Thai      | `th`          |
@@ -314,7 +314,6 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Italiano      | `it`          |
 | Giapponese      | `ja`          |
 |Kannada|`kn`|
-| Kiswahili|    `sw`    |
 | Coreano      | `ko`          |
 | Lettone      | `lv`          |
 | Lituano      | `lt`          |
@@ -335,6 +334,7 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Slovacco     | `sk`          |
 | Sloveno      | `sl`          |
 | Spagnolo      | `es`          |
+| Swahili|  `sw`    |
 | Svedese      | `sv`          |
 |Tahitiano|  `ty`    |
 | Thai      | `th`          |

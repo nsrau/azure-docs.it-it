@@ -3,12 +3,12 @@ title: Come proteggere la gerarchia di risorse - Governance di Azure
 description: Informazioni su come proteggere la gerarchia di risorse con le impostazioni di gerarchia che includono l'impostazione del gruppo di gestione predefinito.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469780"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533980"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Come proteggere la gerarchia di risorse
 
@@ -16,9 +16,9 @@ Le risorse, i gruppi di risorse, le sottoscrizioni, i gruppi di gestione e il te
 
 I gruppi di gestione dispongono ora di impostazioni di gerarchia che consentono all'amministratore tenant di controllare questi comportamenti. Questo articolo illustra tutte le impostazioni di gerarchia disponibili e spiega come impostarle.
 
-## <a name="rbac-permissions-for-hierarchy-settings"></a>Autorizzazioni di Controllo degli accessi in base al ruolo per le impostazioni di gerarchia
+## <a name="azure-rbac-permissions-for-hierarchy-settings"></a>Autorizzazioni RBAC di Azure per le impostazioni della gerarchia
 
-Per configurare una delle impostazioni di gerarchia è necessarie eseguire le due operazioni di Controllo degli accessi in base al ruolo seguenti sul gruppo di gestione radice:
+Per configurare le impostazioni della gerarchia, è necessario che nel gruppo di gestione radice siano presenti due operazioni del provider di risorse seguenti:
 
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
@@ -27,7 +27,7 @@ Queste operazioni consentono a un solo utente di leggere e aggiornare le imposta
 
 ## <a name="setting---default-management-group"></a>Impostazione - Gruppo di gestione predefinito
 
-Per impostazione predefinita, viene aggiunta una nuova sottoscrizione in un tenant come membro del gruppo di gestione radice. Se le assegnazioni di criteri, il controllo degli accessi in base al ruolo e altri costrutti di governance vengono assegnati al gruppo di gestione radice, avranno immediatamente effetto sulle nuove sottoscrizioni. Per questo motivo, molte organizzazioni non applicano questi costrutti al gruppo di gestione radice, anche se si tratta della posizione desiderata per assegnarli. In altri casi, per le nuove sottoscrizioni è necessario un set di controlli più restrittivo, che non deve tuttavia essere assegnato a tutte le sottoscrizioni. Questa impostazione supporta entrambi i casi d'uso.
+Per impostazione predefinita, viene aggiunta una nuova sottoscrizione in un tenant come membro del gruppo di gestione radice. Se le assegnazioni di criteri, il controllo degli accessi in base al ruolo di Azure e altri costrutti di governance vengono assegnati al gruppo di gestione radice, avranno immediatamente effetto sulle nuove sottoscrizioni. Per questo motivo, molte organizzazioni non applicano questi costrutti al gruppo di gestione radice, anche se si tratta della posizione desiderata per assegnarli. In altri casi, per le nuove sottoscrizioni è necessario un set di controlli più restrittivo, che non deve tuttavia essere assegnato a tutte le sottoscrizioni. Questa impostazione supporta entrambi i casi d'uso.
 
 Consentendo di definire il gruppo di gestione predefinito per le nuove sottoscrizioni, è possibile applicare costrutti di governance a livello di organizzazione al gruppo di gestione radice e un gruppo di gestione separato con assegnazioni di criteri o assegnazioni di ruolo di Azure più adatte a una nuova sottoscrizione.
 

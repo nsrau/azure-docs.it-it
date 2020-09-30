@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b297ee3d03d61b654e2b7fffa17141a1fd5268f3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 93c97055c6e31050dbc545445ec144ba37abc865
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971176"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539895"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Assegnare un ruolo a un gruppo utilizzando Privileged Identity Management
 
@@ -35,7 +35,7 @@ Questo articolo descrive come assegnare un ruolo di Azure Active Directory (Azur
 
 1. Selezionare un ruolo e quindi selezionare un gruppo. Vengono visualizzati solo i gruppi idonei per l'assegnazione di ruolo (gruppi assegnabili al ruolo), non tutti i gruppi.
 
-    ![selezionare l'utente a cui verrà assegnato il ruolo](./media/roles-groups-pim-eligible/select-member.png)
+    ![Screenshot che mostra la pagina "Aggiungi assegnazioni" con le sezioni "Seleziona ruolo" e "Seleziona membro/i" evidenziato.](./media/roles-groups-pim-eligible/select-member.png)
 
 1. Selezionare l'impostazione di appartenenza desiderata. Per i ruoli che richiedono l'attivazione, scegliere **idoneo**. Per impostazione predefinita, l'utente è idoneo in modo permanente, ma è anche possibile impostare un'ora di inizio e di fine per l'idoneità dell'utente. Al termine, fare clic su Save (Salva) e aggiungere per completare l'assegnazione di ruolo.
 
