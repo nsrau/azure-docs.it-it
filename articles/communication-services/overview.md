@@ -8,18 +8,25 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a006ece278e4ec750040bde5bd4b7a6144c9e720
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1c79ffb02df4a64b2c506ef0863d9bb2da06db53
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946309"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303370"
 ---
 # <a name="what-is-azure-communication-services"></a>Che cos'è l'offerta Servizi di comunicazione di Azure?
 
 [!INCLUDE [Public Preview Notice](./includes/public-preview-include.md)]
 
 Servizi di comunicazione di Azure consente di aggiungere in modo semplice funzionalità di comunicazione vocale, video e telefonia tramite IP in tempo reale alle applicazioni. Le librerie client di Servizi di comunicazione consentono anche di aggiungere funzionalità di chat e SMS alle soluzioni di comunicazione.
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/49oshhgY6UQ]
+
+<br>
+<br>
 
 È possibile usare Servizi di comunicazione per la comunicazione vocale, video, di testo e dati in diversi scenari:
 

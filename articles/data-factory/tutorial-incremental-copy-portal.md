@@ -1,6 +1,6 @@
 ---
 title: Eseguire la copia incrementale di una tabella con il portale di Azure
-description: In questa esercitazione si crea una pipeline di Azure Data Factory che copia i dati in modo incrementale da un database SQL di Azure a un archivio BLOB di Azure.
+description: In questa esercitazione viene creata una data factory di Azure con una pipeline che carica dati delta da una tabella di Database SQL di Azure in Archiviazione BLOB di Azure.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 10253b435461d62a4176164ea2a929843283f414
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6567651f76ff19a8105158b243de7582256e0375
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082659"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320915"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Caricare i dati in modo incrementale da Database SQL di Azure ad Archiviazione BLOB di Azure con il portale di Azure
 

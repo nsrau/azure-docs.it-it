@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9de803789b7ec11a971cf9a79a5c4665ac372cb4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f9d9fa461291b2fe72e9d69928163bb54e9e1be0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928140"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303812"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Esempio: Come analizzare video in tempo reale
 
@@ -221,5 +221,4 @@ In questa guida è stato appreso come eseguire l'analisi near real time di video
 È gradito ricevere commenti e suggerimenti nel [repository GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) o, per commenti più approfonditi sulle API, nel  [sito UserVoice](https://cognitive.uservoice.com/).
 
 ## <a name="related-topics"></a>Argomenti correlati
-- [Come identificare visi nelle immagini](HowtoIdentifyFacesinImage.md)
 - [Come rilevare visi nelle immagini](HowtoDetectFacesinImage.md)

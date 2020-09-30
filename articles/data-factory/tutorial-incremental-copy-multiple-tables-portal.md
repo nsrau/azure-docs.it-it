@@ -1,6 +1,6 @@
 ---
 title: Eseguire la copia incrementale di più tabelle con il portale di Azure
-description: In questa esercitazione viene creata una pipeline di Azure Data Factory che copia dati delta in modo incrementale da più tabelle di un database di SQL Server a un database di Database SQL di Azure.
+description: In questa esercitazione viene creata una data factory di Azure con una pipeline che carica dati delta da più tabelle di un database di SQL Server in un database di Database SQL di Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: c215c2cb256ab37bcb096c018aefb3a410ab1e4f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 83c29740bd535d9508e5458a66fc8592500ceaf3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251149"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320971"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Caricare dati in modo incrementale da più tabelle di SQL Server in un database di Database SQL di Azure con il portale di Azure
 

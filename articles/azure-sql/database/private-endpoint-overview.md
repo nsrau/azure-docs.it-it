@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b0908aee6253a3be486f71c245ea1eee2ff8b9bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442599"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319470"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Collegamento privato di Azure per database SQL di Azure e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -23,28 +23,6 @@ Il servizio Collegamento privato consente di connettersi a diversi servizi PaaS 
 
 > [!IMPORTANT]
 > Questo articolo si applica sia al database SQL di Azure sia aD Azure Synapse Analytics (in precedenza SQL Data Warehouse). Per semplicità, il termine 'database' fa riferimento a entrambi i database nel database SQL di Azure e in Azure Synapse Analytics. Analogamente, tutti i riferimenti a 'server' indicano il [server SQL logico](logical-servers.md) che ospita il database SQL di Azure e Azure Synapse Analytics. Questo articolo *non* si applica a **Istanza gestita di SQL di Azure**.
-
-## <a name="data-exfiltration-prevention"></a>Impedire l'esfiltrazione dei dati
-
-L'esfiltrazione di dati nel database SQL di Azure si verifica quando un utente autorizzato, ad esempio un amministratore di database, è in grado di estrarre i dati da un sistema e spostarli in un'altra posizione o in un altro sistema all'esterno dell'organizzazione. Ad esempio, l'utente sposta i dati in un account di archiviazione di proprietà di terze parti.
-
-Si consideri uno scenario in cui un utente esegue SQL Server Management Studio (SSMS) all'interno di una macchina virtuale di Azure che si connette a un database nel database SQL. Questo database si trova nel data center dell'area Stati Uniti occidentali. L'esempio seguente illustra come limitare l'accesso con gli endpoint pubblici nel database SQL tramite i controlli di accesso alla rete.
-
-1. Disabilitare tutto il traffico dei servizi di Azure verso il database SQL tramite l'endpoint pubblico disattivando l'opzione **Consenti ai servizi di Azure di accedere al server**. Verificare che non siano consentiti indirizzi IP nelle regole del firewall a livello di server e database. Per altre informazioni, vedere [Controllo di accesso alla rete del database SQL di Azure e Azure Synapse Analytics](network-access-controls-overview.md).
-1. Consentire solo il traffico al database del database SQL tramite l'indirizzo IP privato della macchina virtuale. Per altre informazioni, vedere gli articoli sull'[endpoint servizio](vnet-service-endpoint-rule-overview.md) e le [regole del firewall della rete virtuale](firewall-configure.md).
-1. Nella macchina virtuale di Azure limitare l'ambito della connessione in uscita usando i [gruppi di sicurezza di rete (NSG)](../../virtual-network/manage-network-security-group.md) e i tag del servizio come indicato di seguito.
-    - Specificare una regola NSG per consentire il traffico per il tag di servizio = SQL.WestUs, che accetta solo le connessioni al database SQL negli Stati Uniti occidentali
-    - Specificare una regola NSG (con una **priorità più alta**) per negare il traffico per il tag di servizio = SQL, che rifiuta le connessioni al database SQL in tutte le aree
-
-Al termine di questa configurazione, la macchina virtuale di Azure può connettersi solo a un database nel database SQL nell'area Stati Uniti occidentali. Tuttavia, la connettività non è limitata a un database singolo nel database SQL. La macchina virtuale può comunque connettersi a qualsiasi database nell'area Stati Uniti occidentali, inclusi i database che non fanno parte della sottoscrizione. Sebbene l'ambito di esfiltrazione dei dati nello scenario precedente sia stato ridotto a un'area specifica, non è stato eliminato completamente.
-
-Con Collegamento privato i clienti possono ora configurare controlli di accesso alla rete come gruppi di sicurezza di rete per limitare l'accesso all'endpoint privato. Viene quindi eseguito il mapping delle singole risorse PaaS di Azure a endpoint privati specifici. Un utente interno malintenzionato può accedere solo alla risorsa PaaS mappata, ad esempio un database nel database SQL, e a nessun'altra risorsa. 
-
-## <a name="on-premises-connectivity-over-private-peering"></a>Connettività locale tramite peering privato
-
-Quando gli utenti si connettono all'endpoint pubblico da computer locali, il loro indirizzo IP deve essere aggiunto al firewall basato su IP mediante una[ regola del firewall a livello di server](firewall-create-server-level-portal-quickstart.md). Questo modello è adatto per consentire l'accesso ai singoli computer per i carichi di lavoro di sviluppo o test, ma è difficile da gestire in un ambiente di produzione.
-
-Con Collegamento privato, gli utenti possono abilitare l'accesso cross-premise all'endpoint privato tramite [ExpressRoute](../../expressroute/expressroute-introduction.md), il peering privato o il tunneling VPN. Possono quindi disabilitare tutti gli accessi tramite l'endpoint pubblico e non usare il firewall basato su IP per accettare gli indirizzi IP.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Come configurare Collegamento privato per il database SQL di Azure 
 
@@ -71,6 +49,12 @@ Dopo che l'amministratore di rete ha creato l'endpoint privato, l'amministratore
 
 1. Dopo l'approvazione o il rifiuto, l'elenco indicherà lo stato appropriato insieme al testo della risposta.
 ![Screenshot di tutte le connessioni di endpoint privato dopo l'approvazione][5]
+
+## <a name="on-premises-connectivity-over-private-peering"></a>Connettività locale tramite peering privato
+
+Quando gli utenti si connettono all'endpoint pubblico da computer locali, il loro indirizzo IP deve essere aggiunto al firewall basato su IP mediante una[ regola del firewall a livello di server](firewall-create-server-level-portal-quickstart.md). Questo modello è adatto per consentire l'accesso ai singoli computer per i carichi di lavoro di sviluppo o test, ma è difficile da gestire in un ambiente di produzione.
+
+Con Collegamento privato, gli utenti possono abilitare l'accesso cross-premise all'endpoint privato tramite [ExpressRoute](../../expressroute/expressroute-introduction.md), il peering privato o il tunneling VPN. Possono quindi disabilitare tutti gli accessi tramite l'endpoint pubblico e non usare il firewall basato su IP per accettare gli indirizzi IP.
 
 ## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Casi d'uso di Collegamento privato per il database SQL di Azure 
 
@@ -154,6 +138,22 @@ Seguire questa procedura per usare [SSMS per connettersi al database SQL](connec
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
+
+## <a name="data-exfiltration-prevention"></a>Impedire l'esfiltrazione dei dati
+
+L'esfiltrazione di dati nel database SQL di Azure si verifica quando un utente autorizzato, ad esempio un amministratore di database, è in grado di estrarre i dati da un sistema e spostarli in un'altra posizione o in un altro sistema all'esterno dell'organizzazione. Ad esempio, l'utente sposta i dati in un account di archiviazione di proprietà di terze parti.
+
+Si consideri uno scenario in cui un utente esegue SQL Server Management Studio (SSMS) all'interno di una macchina virtuale di Azure che si connette a un database nel database SQL. Questo database si trova nel data center dell'area Stati Uniti occidentali. L'esempio seguente illustra come limitare l'accesso con gli endpoint pubblici nel database SQL tramite i controlli di accesso alla rete.
+
+1. Disabilitare tutto il traffico dei servizi di Azure verso il database SQL tramite l'endpoint pubblico disattivando l'opzione **Consenti ai servizi di Azure di accedere al server**. Verificare che non siano consentiti indirizzi IP nelle regole del firewall a livello di server e database. Per altre informazioni, vedere [Controllo di accesso alla rete del database SQL di Azure e Azure Synapse Analytics](network-access-controls-overview.md).
+1. Consentire solo il traffico al database del database SQL tramite l'indirizzo IP privato della macchina virtuale. Per altre informazioni, vedere gli articoli sull'[endpoint servizio](vnet-service-endpoint-rule-overview.md) e le [regole del firewall della rete virtuale](firewall-configure.md).
+1. Nella macchina virtuale di Azure limitare l'ambito della connessione in uscita usando i [gruppi di sicurezza di rete (NSG)](../../virtual-network/manage-network-security-group.md) e i tag del servizio come indicato di seguito.
+    - Specificare una regola NSG per consentire il traffico per il tag di servizio = SQL.WestUs, che accetta solo le connessioni al database SQL negli Stati Uniti occidentali
+    - Specificare una regola NSG (con una **priorità più alta**) per negare il traffico per il tag di servizio = SQL, che rifiuta le connessioni al database SQL in tutte le aree
+
+Al termine di questa configurazione, la macchina virtuale di Azure può connettersi solo a un database nel database SQL nell'area Stati Uniti occidentali. Tuttavia, la connettività non è limitata a un database singolo nel database SQL. La macchina virtuale può comunque connettersi a qualsiasi database nell'area Stati Uniti occidentali, inclusi i database che non fanno parte della sottoscrizione. Sebbene l'ambito di esfiltrazione dei dati nello scenario precedente sia stato ridotto a un'area specifica, non è stato eliminato completamente.
+
+Con Collegamento privato i clienti possono ora configurare controlli di accesso alla rete come gruppi di sicurezza di rete per limitare l'accesso all'endpoint privato. Viene quindi eseguito il mapping delle singole risorse PaaS di Azure a endpoint privati specifici. Un utente interno malintenzionato può accedere solo alla risorsa PaaS mappata, ad esempio un database nel database SQL, e a nessun'altra risorsa. 
 
 ## <a name="limitations"></a>Limitazioni 
 Le connessioni all'endpoint privato supportano solo **Proxy** come [criterio di connessione](connectivity-architecture.md#connection-policy)

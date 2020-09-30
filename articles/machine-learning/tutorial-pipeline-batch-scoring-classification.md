@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: b6b4be2eb2cd490d525046541f68a45d87a8e638
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f02638acdc60bba710280dcbeba0717173ed8b83
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906679"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320507"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Esercitazione: Creare una pipeline di Azure Machine Learning per l'assegnazione di punteggi batch
 
@@ -388,7 +388,7 @@ Per eseguire la pipeline dall'endpoint REST, è necessaria un'intestazione di au
 
 L'autenticazione basata su entità servizio implica la creazione di una *registrazione dell'app* in *Azure Active Directory*. Generare prima di tutto un segreto client, quindi concedere al ruolo dell'entità servizio l'*accesso* all'area di lavoro di Machine Learning. Usare la classe [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) per gestire il flusso di autenticazione. 
 
-[`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) e `ServicePrincipalAuthentication` ereditano da `AbstractAuthentication`. In entrambi i casi, usare la funzione [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#&preserve-view=trueget-authentication-header--) nello stesso modo per recuperare l'intestazione:
+[`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) e `ServicePrincipalAuthentication` ereditano da `AbstractAuthentication`. In entrambi i casi, usare la funzione [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-authentication-header--) nello stesso modo per recuperare l'intestazione:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

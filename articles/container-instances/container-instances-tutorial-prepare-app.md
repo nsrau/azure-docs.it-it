@@ -3,13 +3,13 @@ title: "Esercitazione: Preparare un'immagine del contenitore per la distribuzion
 description: Esercitazione di Istanze di Azure Container - Parte 1 di 3 - Preparare un'app in un'immagine del contenitore per la distribuzione in Istanze di Azure Container
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.custom: seodec18, mvc, devx-track-javascript
-ms.openlocfilehash: 3a73d68f99c7e2ec4c71e408abbdbc7eec7ee95d
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: seodec18, mvc, devx-track-js
+ms.openlocfilehash: 1eca34fb5da50b15f15322a3b534556bcd3bda09
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407167"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303115"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Esercitazione: Creare un'immagine del contenitore per la distribuzione in Istanze di Azure Container
 

@@ -6,14 +6,14 @@ ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
-ms.openlocfilehash: 6540b35925a92ebd6a8bcced427b5457785603db
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 7df244ee024b0d67ba678e296b882fbb08c3e16b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056908"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317719"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
  

@@ -3,17 +3,17 @@ title: Fatture per la registrazione ad Azure Enterprise
 description: Questo articolo illustra come gestire la fattura della registrazione EA di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 09/18/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: ca7aaea1e0bac1c00a373c8847623606d629e800
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442514"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316138"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fatture per la registrazione ad Azure Enterprise
 
@@ -162,20 +162,6 @@ Per informazioni su prezzi pubblici di base, unità di misura, domande frequenti
 ### <a name="enterprise-agreement-units-of-measure"></a>Unità di misura del Contratto Enterprise
 
 Le unità di misura per i contratti Enterprise sono spesso diverse da quelle di altri programmi Microsoft, ad esempio il Contratto di Sottoscrizione Microsoft Online. Questa differenza indica che, per diversi servizi, l'unità di misura viene aggregata per offrire prezzi normalizzati. L'unità di misura nella visualizzazione Usage Summary (Riepilogo utilizzo) di Azure Enterprise Portal è sempre la misura Enterprise. Un elenco completo delle unità di misura e conversioni correnti per ogni servizio è disponibile nel file di Excel [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx).
-
-### <a name="rounding-rules"></a>Regole di arrotondamento
-
-Azure Enterprise Portal applica la logica di arrotondamento gaussiano o del banchiere dello standard IEEE. Questa logica arrotonda i numeri alla cifra pari più vicina per i valori non interi. La logica di arrotondamento per eccesso più comune arrotonda sempre le cifre non intere alla successiva cifra più alta. Questo metodo di Azure Enterprise Portal effettivamente fornisce una somma totale più precisa per il gruppo rispetto alla logica standard di Excel.
-
-Ovvero, quando la prima cifra eliminata è il 5 e non sono presenti cifre che seguono oppure le cifre che seguono sono zeri, viene eseguito l'arrotondamento alla cifra pari più vicina. Ad esempio, 2,315 e 2,325 arrotondati al centesimo più vicino diventano 2,32.
-
-Come riferimento, la tabella seguente mostra le formule di Excel che è possibile usare per modellare le regole di Azure Enterprise Portal per l'arrotondamento e la conversione:
-
-| Scenario | Formula della logica del banchiere |
-| --- | --- |
-| Arrotondamento dell'utilizzo | =MROUND({_origine_}, 0,0002) |
-| Arrotondamento dei prezzi (due decimali) | =MROUND({_origine_}, 0,02) |
-| Arrotondamento dei prezzi (zero decimali) | =MROUND({_origine_}, 2) |
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversione tra il report relativo ai dettagli dell'utilizzo e la pagina di riepilogo dell'utilizzo
 

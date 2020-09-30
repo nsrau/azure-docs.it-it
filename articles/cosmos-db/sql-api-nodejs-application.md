@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9554fa63d13c5da465653064d69d7950d91f0300
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 005473fa02dda2e5466ffbc5a32499006c41292c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421876"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322700"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Esercitazione: Compilare un'app Web Node.js con l’SDK JavaScript per gestire un account API SQL in Azure Cosmos DB 
 
@@ -439,7 +439,7 @@ Dopo aver creato l'applicazione, è possibile eseguirla localmente utilizzando i
 
 1. Per testare l'applicazione nel computer locale, eseguire `npm start` nel terminale per avviare l'applicazione e quindi aggiornare la pagina `http://localhost:3000` nel browser. La pagina dovrebbe ora avere un aspetto simile a quello dello screenshot seguente:
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Screenshot dell'applicazione MyTodo List in una finestra del browser":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Informazioni su Node.js - screenshot dell'applicazione Hello World in una finestra del browser":::
 
     > [!TIP]
     > Se viene visualizzato un errore relativo al rientro nel file layout.jade o nel file index.jade, assicurarsi che le prime due righe in entrambi i file siano giustificate a sinistra, senza spazi. Se sono presenti spazi davanti alle prime due righe, rimuoverli, salvare entrambi i file e quindi aggiornare la finestra del browser. 
@@ -448,7 +448,7 @@ Dopo aver creato l'applicazione, è possibile eseguirla localmente utilizzando i
 
 3. La pagina verrà aggiornata e verrà visualizzato il nuovo elemento creato nell'elenco ToDo.
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Screenshot dell'applicazione con un nuovo elemento nell'elenco ToDo":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Informazioni su Node.js - screenshot dell'applicazione Hello World in una finestra del browser":::
 
 4. Per completare un'attività, selezionare la casella di controllo nella colonna Complete e quindi selezionare **Aggiorna attività**. Il documento già creato verrà aggiornato e rimosso dalla visualizzazione.
 

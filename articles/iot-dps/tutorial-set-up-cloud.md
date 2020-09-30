@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 925d1178ad630699cfd3d9e48677c0f029fc75af
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f45c3def84c548ba12221efa59e9ebbd4699df71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74976724"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316070"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Esercitazione: Configurare risorse cloud per il provisioning dei dispositivi con il servizio Device Provisioning in hub IoT
 
@@ -27,7 +27,7 @@ Questa esercitazione illustra come configurare il cloud per il provisioning auto
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
+## <a name="prerequisites"></a>Prerequisiti
 
 Accedere al [portale di Azure](https://portal.azure.com/).
 
