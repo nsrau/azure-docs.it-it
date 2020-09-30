@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 71c1bea58f17b457f417a5b050640d04d44019d5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0bbfdc2463795770b52f5008fc633fe9e95244a0
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551058"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Esercitazione: Integrazione di Azure Active Directory con FreshDesk
 
@@ -55,7 +55,7 @@ Per configurare l'integrazione di FreshDesk in Azure AD, è necessario aggiunger
 1. Nella sezione **Aggiungi dalla raccolta** digitare **FreshDesk** nella casella di ricerca.
 1. Selezionare **FreshDesk** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-freshdesk"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per FreshDesk
+## <a name="configure-and-test-azure-ad-sso-for-freshdesk"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per FreshDesk
 
 Configurare e testare l'accesso SSO di Azure AD con FreshDesk usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in FreshDesk.
 
@@ -81,9 +81,11 @@ Per configurare e testare l'accesso SSO di Azure AD con FreshDesk, completare le
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello `https://<tenant-name>.freshdesk.com` o qualsiasi altro valore suggerito da FreshDesk.
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare l'URL usando il modello `https://<tenant-name>.freshdesk.com` o qualsiasi altro valore suggerito da FreshDesk.
-
+     
+    c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<tenant-name>.freshdesk.com/login/saml`
+    
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, Aggiornarli con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 1. L'applicazione FreshDesk prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. **Identificatore univoco dell'utente** è mappato con **user.userprincipalname** ma FreshDesk si aspetta che questa attestazione sia mappata con **user.mail**, quindi è necessario modificare il mapping degli attributi facendo clic sull'icona Modifica e cambiando il mapping degli attributi.
 
@@ -101,11 +103,11 @@ Per configurare e testare l'accesso SSO di Azure AD con FreshDesk, completare le
 
     b. Identificatore Azure AD
 
-    c. URL di disconnessione
+    c. URL di chiusura sessione
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 

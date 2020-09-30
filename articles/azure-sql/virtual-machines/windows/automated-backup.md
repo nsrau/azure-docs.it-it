@@ -13,21 +13,21 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0aa6a9114635ddc7935f7923a1552ad1583625ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7cc28aef76158f039f1174fc76d0ed29e8f67aea
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299105"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565140"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Backup automatico v2 per macchine virtuali di Azure (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](automated-backup-sql-2014.md)
-> * [SQL Server 2016/2017](automated-backup.md)
+> * [SQL Server 2016 +](automated-backup.md)
 
-Backup automatico v2 configura automaticamente il [backup gestito in Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) per tutti i database nuovi ed esistenti in una macchina virtuale di Azure con SQL Server 2016/2017 Standard, Enterprise o Developer in esecuzione. In questo modo è possibile configurare i backup periodici del database che utilizzano l'archiviazione BLOB di Azure durevole. Backup automatico v2 dipende dall'[estensione dell'agente di infrastruttura distribuita come servizio (IaaS) SQL Server](sql-server-iaas-agent-extension-automate-management.md).
+Backup automatico v2 configura automaticamente il [backup gestito per Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) per tutti i database esistenti e nuovi in una macchina virtuale di Azure che esegue SQL Server 2016 o versioni successive, standard, Enterprise o Developer Edition. In questo modo è possibile configurare i backup periodici del database che utilizzano l'archiviazione BLOB di Azure durevole. Backup automatico v2 dipende dall'[estensione dell'agente di infrastruttura distribuita come servizio (IaaS) SQL Server](sql-server-iaas-agent-extension-automate-management.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -42,17 +42,14 @@ Per usare il backup automatico v2, esaminare i seguenti prerequisiti:
 
 - SQL Server 2016 o versione successiva: Developer, Standard o Enterprise
 
-> [!IMPORTANT]
-> Backup automatico v2 funziona con SQL Server 2016 o versione successiva. Se si usa SQL Server 2014, è possibile utilizzare Backup automatico v1 per eseguire il backup dei database. Per altre informazioni, vedere [Backup automatico per SQL Server 2014 in Macchine virtuali di Azure](automated-backup-sql-2014.md).
+> [!NOTE]
+> Per SQL Server 2014, vedere [backup automatico per SQL Server 2014](automated-backup-sql-2014.md).
 
 **Configurazione del database**:
 
-- I database di destinazione devono usare il modello di recupero con registrazione completa. Per altre informazioni sull'impatto del modello di recupero con registrazione completa sui backup, vedere [Backup con il modello di recupero con registrazione completa](https://technet.microsoft.com/library/ms190217.aspx).
-- I database di sistema non devono necessariamente usare il modello di recupero con registrazione completa. Se tuttavia è necessario effettuare il backup del log per Model o MSDB, deve essere usato il modello di recupero con registrazione completa.
-- I database di destinazione devono trovarsi nell'istanza predefinita di SQL Server o in un'istanza denominata [correttamente installata](frequently-asked-questions-faq.md#administration). 
-
-> [!NOTE]
-> Il backup automatico si basa sull'**estensione SQL Server IaaS Agent**. Per impostazione predefinita, le attuali immagini della raccolta di macchine virtuali di SQL aggiungono questa estensione. Per altre informazioni, vedere [Estensione Agente IaaS di SQL Server](sql-server-iaas-agent-extension-automate-management.md).
+- I database _utente_ di destinazione devono usare il modello di recupero con la versione completa. I database di sistema non devono necessariamente usare il modello di recupero con registrazione completa. Se tuttavia è necessario effettuare il backup del log per Model o MSDB, deve essere usato il modello di recupero con registrazione completa. Per altre informazioni sull'impatto del modello di recupero con registrazione completa sui backup, vedere [Backup con il modello di recupero con registrazione completa](https://technet.microsoft.com/library/ms190217.aspx). 
+- La macchina virtuale SQL Server è stata registrata con il provider di risorse VM SQL in [modalità di gestione completa](sql-vm-resource-provider-register.md#upgrade-to-full). 
+-  Il backup automatico si basa sull' [estensione dell'agente IaaS completa SQL Server](sql-server-iaas-agent-extension-automate-management.md). Di conseguenza, il backup automatico è supportato solo nei database di destinazione dell'istanza predefinita o in una singola istanza denominata. Se non è presente alcuna istanza predefinita e più istanze denominate, l'estensione SQL IaaS ha esito negativo e il backup automatico non funzionerà. 
 
 ## <a name="settings"></a>Impostazioni
 Nella seguente tabella sono descritte le opzioni che possono essere configurate per il backup automatico v2. I passaggi di configurazione effettivi variano a seconda che venga usato il portale di Azure o i comandi di Windows PowerShell di Azure.

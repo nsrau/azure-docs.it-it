@@ -2,26 +2,21 @@
 title: Risolvere i problemi di delega vincolata Kerberos-proxy app
 description: Risolvere i problemi di configurazione della delega vincolata Kerberos per Application Proxy
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
-ms.reviewer: asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d086d816be17699989aafda144493d80837188b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: asteen, japere
+ms.openlocfilehash: 3ca3df010426347846b29734426edfad4536516b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760440"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568719"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Risolvere i problemi di configurazione della delega vincolata Kerberos per Application Proxy
 
@@ -165,7 +160,7 @@ Se il problema persiste, contattare il supporto tecnico Microsoft creando un tic
 
 ## <a name="other-scenarios"></a>Altri scenari
 
-- Il proxy dell'applicazione Azure richiede un ticket Kerberos prima dell'invio della richiesta a un'applicazione. Alcune applicazioni di terze parti non sono simili a questo metodo di autenticazione. preferendo l'approccio più tradizionale delle negoziazioni. La prima richiesta è anonima, consentendo all'applicazione di rispondere con i tipi di autenticazione supportati tramite un codice 401.
+- Il proxy dell'applicazione Azure richiede un ticket Kerberos prima dell'invio della richiesta a un'applicazione. Alcune applicazioni di terze parti non sono simili a questo metodo di autenticazione. preferendo l'approccio più tradizionale delle negoziazioni. La prima richiesta è anonima, consentendo all'applicazione di rispondere con i tipi di autenticazione supportati tramite un codice 401. Questo tipo di negoziazione Kerberos può essere abilitato mediante i passaggi descritti in questo documento: [delega vincolata Kerberos per Single Sign-on](application-proxy-configure-single-sign-on-with-kcd.md).
 - L'autenticazione multihop viene generalmente usata negli scenari con applicazioni a livelli, con un back-end e un front-end che richiedono l'autenticazione, ad esempio SQL Server Reporting Services. Per configurare lo scenario a più hop, vedere l'articolo del supporto per la [delega vincolata Kerberos può richiedere la transizione del protocollo negli scenari con più hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Passaggi successivi

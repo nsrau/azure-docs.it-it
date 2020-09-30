@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 81e02bdc483c4b68901d7e81b29f3a7f423480d9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 48009246dd491ca3f4080cf85036c66605a73272
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537601"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706993"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adobe-creative-cloud"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Adobe Creative Cloud
 
@@ -102,7 +102,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | Email | user.mail |
 
     > [!NOTE]
-    > Gli utenti devono disporre di una licenza di Office 365 ExO valida per il valore di attestazione della posta elettronica da inserire nella risposta SAML.
+    > Affinché il valore di attestazione della posta elettronica venga inserito nella risposta SAML, gli utenti devono avere una licenza di Microsoft 365 ExO valida.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei dati di federazione** e quindi selezionare **Scarica** per scaricare il file dei metadati XML e salvarlo nel computer.
 

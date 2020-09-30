@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 25f3b1e6a01ba190dffaa8c43534a5e23b7d9b23
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d7938f24e408e72a84003c19e5c294d31f6b65b5
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299120"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565123"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup automatico per macchine virtuali SQL Server 2014 (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,27 +34,24 @@ Backup automatico Configura automaticamente il [backup gestito in Microsoft Azur
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare il backup automatico, tenere in considerazione i seguenti prerequisiti:
 
+
 **Sistema operativo**:
 
-- Windows Server 2012
-- Windows Server 2012 R2
-- Windows Server 2016
+- Windows Server 2012 e versioni successive 
 
 **Versione/edizione di SQL Server**:
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
 
-> [!IMPORTANT]
-> Il backup automatico funziona con SQL Server 2014. Se si usa SQL Server 2016/2017, è possibile usare il backup automatico versione 2 per eseguire il backup dei database. Per altre informazioni, vedere [Backup automatico versione 2 per macchine virtuali SQL Server 2016 di Azure](automated-backup.md).
+> [!NOTE]
+> Per SQL 2016 e versioni successive, vedere [backup automatico per SQL Server 2016](automated-backup.md).
 
 **Configurazione del database**:
 
-- I database di destinazione devono usare il modello di recupero con registrazione completa. Per altre informazioni sull'impatto del modello di recupero con registrazione completa sui backup, vedere [Backup con il modello di recupero con registrazione completa](https://technet.microsoft.com/library/ms190217.aspx).
-- I database di destinazione devono trovarsi nell'istanza predefinita di SQL Server. L'estensione dell'agente IaaS SQL Server non supporta le istanze denominate.
-
-> [!NOTE]
-> Il backup automatico si basa sull'estensione dell'agente IaaS di SQL Server. Per impostazione predefinita, le attuali immagini della raccolta di macchine virtuali di SQL aggiungono questa estensione. Per altre informazioni, vedere [Estensione Agente IaaS di SQL Server](sql-server-iaas-agent-extension-automate-management.md).
+- I database _utente_ di destinazione devono usare il modello di recupero con la versione completa. I database di sistema non devono necessariamente usare il modello di recupero con registrazione completa. Se tuttavia è necessario effettuare il backup del log per Model o MSDB, deve essere usato il modello di recupero con registrazione completa. Per altre informazioni sull'impatto del modello di recupero con registrazione completa sui backup, vedere [Backup con il modello di recupero con registrazione completa](https://technet.microsoft.com/library/ms190217.aspx). 
+- La macchina virtuale SQL Server è stata registrata con il provider di risorse VM SQL in [modalità di gestione completa](sql-vm-resource-provider-register.md#upgrade-to-full). 
+-  Il backup automatico si basa sull' [estensione dell'agente IaaS completa SQL Server](sql-server-iaas-agent-extension-automate-management.md). Di conseguenza, il backup automatico è supportato solo nei database di destinazione dell'istanza predefinita o in una singola istanza denominata. Se non è presente alcuna istanza predefinita e più istanze denominate, l'estensione SQL IaaS ha esito negativo e il backup automatico non funzionerà. 
 
 ## <a name="settings"></a>Impostazioni
 
@@ -113,7 +110,7 @@ $resourcegroupname = "resourcegroupname"
 (Get-AzVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions
 ```
 
-Se l'estensione Agente IaaS di SQL Server è installata, verrà visualizzata come "SqlIaaSAgent" o "SQLIaaSExtension". La proprietà **ProvisioningState** per l'estensione deve inoltre mostrare lo stato "Succeeded" (Riuscito).
+Se l'estensione Agente IaaS di SQL Server è installata, verrà visualizzata come "SqlIaaSAgent" o "SQLIaaSExtension". La proprietà **ProvisioningState** per l'estensione deve inoltre mostrare lo stato "Succeeded".
 
 Nel caso in cui l'estensione non sia installata o non ne sia stato eseguito il provisioning, è possibile installarla con il comando seguente. Oltre al nome della macchina virtuale e al gruppo di risorse, è necessario anche specificare l'area ( **$region**) in cui si trova la macchina virtuale. Specificare il tipo di licenza per la macchina virtuale di SQL Server, scegliendo tra il tipo con pagamento in base al consumo e il tipo Bring Your Own License tramite il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/). Per altre informazioni sulle licenze, vedere [Modello di licenza](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
@@ -282,4 +279,4 @@ Backup automatico configura backup gestito in Macchine virtuali di Azure. Pertan
 
 Per informazioni sulle altre attività di automazione disponibili, vedere [Estensione Agente IaaS di SQL Server](sql-server-iaas-agent-extension-automate-management.md).
 
-Per altre informazioni sull'esecuzione di SQL Server nelle VM di Azure, vedere [Panoramica di SQL Server nelle macchine virtuali di Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).
+Per altre informazioni sull'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [Panoramica di SQL Server nelle macchine virtuali di Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).

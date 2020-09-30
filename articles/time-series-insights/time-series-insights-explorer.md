@@ -10,16 +10,19 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1bcf8ec2395dbc94154072c1c4d839bf45125a3e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487301"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568646"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights Esplora Gen1
+
+> [!CAUTION]
+> Questo è un articolo di Gen1.
 
 Questo articolo descrive le funzionalità e le opzioni per l' [app web](https://insights.timeseries.azure.com/)Azure Time Series Insights Gen1 Explorer. Esplora Azure Time Series Insights illustra le potenti funzionalità di visualizzazione dei dati fornite dal servizio ed è possibile accedervi all'interno dell'ambiente.
 
@@ -108,11 +111,11 @@ Entro pochi minuti dalla connessione dell'origine evento all'ambiente di Azure T
 
 1. Usare **mappa termica** per individuare in modo rapido la serie di dati univoca o anomala in una determinata query. È possibile visualizzare come mappa termica solo un termine di ricerca.
 
-    [![Creazione di grafici mappa termica in Esplora Time Series Insights ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    Creazione di [grafici mappa termica in esplora Time Series Insights](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)] (media/Time-Series-Insights-Explorer/tsi-ga-example-heatmap-charting.png # Lightbox)
 
 1. Quando si esplorano gli eventi selezionando o facendo clic con il pulsante destro del mouse, viene reso disponibile il pannello **eventi** . Qui è possibile esaminare tutti gli eventi non elaborati ed esportare gli eventi come file JSON o CSV. Azure Time Series Insights archivia tutti i dati non elaborati.
 
-    [![Eventi](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
+    [![Events](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
 
 1. Selezionare la scheda **statistiche** dopo aver esplorato gli eventi per esporre i modelli e le statistiche di colonna.
 

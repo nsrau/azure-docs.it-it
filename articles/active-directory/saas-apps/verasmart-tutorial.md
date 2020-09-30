@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 1aa52c81b7abbfb355ef06f6ae93a5dd4c985042
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f5b5f115ab2fb7036287c976a94b9e123bf6ed42
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88532399"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982793"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-verasmart"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con VeraSMART
 
@@ -131,7 +131,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Passare a **Administration** -> **Security** -> **Authentication Configuration** (Amministrazione > Sicurezza > Configurazione dell'autenticazione).
 
-    ![Configurazione](./media/verasmart-tutorial/configuration.png)
+    ![Screenshot che mostra VeraSMART con le opzioni Administration, Security e Authentication Configuration selezionate.](./media/verasmart-tutorial/configuration.png)
 
 1. Nella pagina successiva seguire questa procedura:
 

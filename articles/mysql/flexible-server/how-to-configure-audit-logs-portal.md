@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 9/21/2020
-ms.openlocfilehash: b8fe32a079358fda48c6f5ee0c7eec9894a543a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 9/29/2020
+ms.openlocfilehash: cadd384bc7d3222cbc5d1179271f7b4624c9224a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295907"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565867"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurare e accedere ai log di controllo per database di Azure per MySQL-server flessibile usando il portale di Azure
 
@@ -35,40 +35,37 @@ Abilitare e configurare la registrazione di controllo.
 1. Selezionare il server flessibile.
 
 1. Nella sezione **Impostazioni** della barra laterale selezionare **parametri server**.
-    <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/server-parameters.png" alt-text="Server parameters":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/server-parameters.png" alt-text="Parametri del server":::
 
 1. Aggiornare il parametro **audit_log_enabled** a on.
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-enabled.png" alt-text="Enable audit logs":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-enabled.png" alt-text="Parametri del server":::
 
 1. Consente di selezionare i [tipi di evento](concepts-audit-logs.md#configure-audit-logging) da registrare aggiornando il parametro **audit_log_events** .
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-events.png" alt-text="Audit log events":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-events.png" alt-text="Parametri del server":::
 
-1. Aggiungere gli utenti MySQL da escludere dalla registrazione aggiornando il parametro **audit_log_exclude_users** . Specificare gli utenti fornendo il nome utente MySQL.
-    <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png" alt-text="Audit log exclude users":::-->
+1. Aggiungere eventuali utenti MySQL da includere o escludere dalla registrazione aggiornando i parametri **audit_log_exclude_users** e **audit_log_include_users** . Specificare gli utenti fornendo il nome utente MySQL.
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-exclude-users.png" alt-text="Parametri del server":::
 
 1. Dopo avere modificato i parametri, è possibile fare clic su **Salva**. In alternativa è possibile **annullare** le modifiche.
-    <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/save-parameters.png" alt-text="Save":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/save-parameters.png" alt-text="Parametri del server":::
 
 ## <a name="set-up-diagnostics"></a>Configurare la diagnostica
-
-> [!NOTE]
-> L'integrazione con le impostazioni di diagnostica di monitoraggio di Azure per accedere ai log è in corso di distribuzione e la funzionalità completa sarà presto disponibile.
 
 I log di controllo sono integrati con le impostazioni di diagnostica di monitoraggio di Azure per consentire l'invio tramite pipe dei log a log di monitoraggio di Azure, Hub eventi o archiviazione di Azure.
 
 1. Nella sezione **monitoraggio** della barra laterale selezionare impostazioni di **diagnostica**.
 
-1. Fare clic su "+ Aggiungi impostazione di diagnostica"  <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png" alt-text="Add diagnostic setting":::-->
+1. Fare clic su "+ Aggiungi impostazione di diagnostica"  :::image type="content" source="./media/how-to-configure-audit-logs-portal/add-diagnostic-setting.png" alt-text="Parametri del server":::
 
 1. Specificare un nome per l'impostazione di diagnostica.
 
 1. Specificare quali destinazioni inviare i log di controllo (account di archiviazione, Hub eventi e/o area di lavoro Log Analytics).
 
 1. Selezionare **MySqlAuditLogs** come tipo di log.
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png" alt-text="Configure diagnostic setting"::: -->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/configure-diagnostic-setting.png" alt-text="Parametri del server":::
 
 1. Una volta configurati i sink di dati a cui inviare i log di controllo, è possibile fare clic su **Salva**.
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png" alt-text="Save diagnostic setting":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/save-diagnostic-setting.png" alt-text="Parametri del server":::
 
 1. Per accedere ai log di controllo, esplorarli nei sink di dati configurati. Potrebbero essere necessari fino a 10 minuti per la visualizzazione dei log.
 

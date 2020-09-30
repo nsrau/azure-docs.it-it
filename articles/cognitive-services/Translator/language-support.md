@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: e8feb4f2012d323d954ba000323824bc157bcf87
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91534062"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568098"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Supporto della lingua e dell'area per la traduzione testuale e vocale
 
@@ -38,6 +38,7 @@ Translator supporta le seguenti lingue per la traduzione da testo a testo.
 |:-----|:-----:|
 |Afrikaans| `af`|
 |Arabo|    `ar`    |
+|Assamese|  `as`    |
 |Bengalese|    `bn`    |
 |Bosniaco (latino)|   `bs`    |
 |Bulgaro| `bg`    |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/30/2020
 ms.author: alexeyo
-ms.openlocfilehash: 554dd0967979bc2457c3a9c8371152e09535381f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690137"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567163"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quote e limiti di servizi vocali
 
@@ -23,7 +23,7 @@ Questo articolo contiene un riferimento rapido e la **Descrizione dettagliata** 
 
 ## <a name="quotas-and-limits-quick-reference"></a>Riferimento rapido a quote e limiti
 Passa a [quote e limiti di sintesi vocale](#text-to-speech-quotas-and-limits-per-speech-resource)
-### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Quote e limiti di riconoscimento vocale per ogni risorsa vocale
+### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Quote e limiti della conversione della voce in testo scritto per ogni risorsa vocale
 Nella tabella seguente i parametri senza riga "regolabile" **non** sono regolabili per tutti i piani tariffari.
 
 | Quota | Gratuito (F0)<sup>1</sup> | Standard (S0) |
@@ -36,6 +36,7 @@ Nella tabella seguente i parametri senza riga "regolabile" **non** sono regolabi
 | **Dimensioni massime del BLOB di input per la trascrizione batch** | N/D | 2,5 GB |
 | **Dimensioni massime del contenitore BLOB per la trascrizione batch** | N/D | 5 GB |
 | **Numero massimo di BLOB per contenitore per la trascrizione batch** | N/D | 10000 |
+| **Numero massimo di file per ogni richiesta di trascrizione per la trascrizione batch (quando si usano più URL di contenuto come input)** | N/D | 1000  |
 | **Numero massimo di processi in esecuzione simultanea per la trascrizione batch** | N/D | 2000  |
 
 <sup>1</sup> per il piano tariffario **gratuito (F0)** , vedere anche le indennità mensile nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

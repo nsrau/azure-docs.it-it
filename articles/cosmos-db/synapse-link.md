@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 89282b0cc07f210e7bbf80503c9dbef5f97b13a2
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 0e02f0bf1bb9646a644a40279a8bae930de34c0b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397335"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567996"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Che cos'è Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)?
 
@@ -56,7 +56,7 @@ Con Collegamento ad Azure Synapse, si ottiene una soluzione per l'analisi operat
 L'archivio analitico di Azure Cosmos DB segue un modello di determinazione dei prezzi a consumo, in base all'archiviazione dei dati e al numero di operazioni di lettura/scrittura e di query di analisi eseguite. Non è necessario effettuare il provisioning di una velocità effettiva, come è attualmente richiesto per i carichi di lavoro transazionali. L'accesso ai dati con motori di calcolo estremamente elastici da Azure Synapse Analytics aumenta in modo significativo l'efficienza dei costi complessivi associati alla gestione delle risorse di archiviazione e di calcolo.
 
 
-### <a name="analytics-for-locally-available-globally-distributed-multi-master-data"></a>Analisi per dati multimaster disponibili localmente e distribuiti a livello globale
+### <a name="analytics-for-locally-available-globally-distributed-multi-region-writes"></a>Analisi per le Scritture disponibili localmente, distribuite a livello globale e in più aree
 
 È possibile eseguire efficacemente query analitiche sulla copia locale dei dati più vicina in Azure Cosmos DB. Azure Cosmos DB include la funzionalità all'avanguardia per l'esecuzione dei carichi di lavoro analitici distribuiti a livello globale oltre che dei carichi di lavoro transazionali in modalità attiva/attiva.
 

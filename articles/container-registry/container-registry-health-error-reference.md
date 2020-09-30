@@ -1,14 +1,14 @@
 ---
-title: Riferimento di errore per i controlli di integrità
+title: Riferimento di errore per i controlli di integrità del registro di sistema
 description: Codici di errore e possibili soluzioni per i problemi rilevati mediante l'esecuzione del comando AZ ACR check-Health Diagnostic in Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82978315"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565599"
 ---
 # <a name="health-check-error-reference"></a>Riferimento errore controllo integrità
 
@@ -90,7 +90,7 @@ Questo errore indica che il server di accesso del registro di sistema non ha ris
 
 Questo errore indica che il client non è riuscito a stabilire una connessione sicura al registro contenitori. Questo errore si verifica in genere se si esegue o si usa un server proxy.
 
-*Possibili soluzioni*: altre informazioni sull'uso di un proxy sono [disponibili qui](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
+*Possibili soluzioni*: altre informazioni sull'uso di un proxy sono [disponibili qui](/cli/azure/use-cli-effectively).
 
 ## <a name="login_server_error"></a>LOGIN_SERVER_ERROR
 

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 3b618513965298889fb656750419dedd79729f7f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e006dd690e9c008afada8a490da6c3238bc0791
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536471"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565412"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configurare il ripristino di emergenza tra aree per gli account di integrazione in app per la logica di Azure
 
@@ -98,15 +98,15 @@ Per abilitare il ripristino di emergenza per i messaggi in ingresso, selezionare
 
 3. Inserire un nome di connessione, selezionare l'*account di integrazione dell'area primaria* dall'elenco e scegliere **Crea**.   
 
-   ![Nome dell'account di integrazione dell'area primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
+   ![Screenshot che mostra dove immettere un nome di connessione e selezionare l'account di integrazione dell'area primaria. ](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
 
 4. L'impostazione **DateTime per avviare la sincronizzazione dei numeri di controllo** è facoltativa. Il campo **Frequenza** può essere impostato su **Giorno**, **Ora**, **Minuto** o **Secondo** con un intervallo.   
 
-   ![DateTime e Frequenza](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![Screenshot che mostra l'impostazione DateTime per avviare la sincronizzazione dei numeri di controllo.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
 5. Selezionare **Nuovo passaggio** > **Aggiungi un'azione**.
 
-   ![Nuovo passaggio, Aggiungi un'azione](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![Screenshot che mostra il pulsante nuovo passaggio e l'opzione Aggiungi un'azione.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
 6. Cercare in **X12** e selezionare **X12 - Aggiungi o aggiorna numeri di controllo**.   
 
@@ -114,11 +114,11 @@ Per abilitare il ripristino di emergenza per i messaggi in ingresso, selezionare
 
 7. Per connettere un'azione a un account di integrazione dell'area secondaria, selezionare **Modifica connessione**  >  **Aggiungi nuova connessione** per un elenco degli account di integrazione disponibili. Inserire un nome di connessione, selezionare l'*account di integrazione dell'area secondaria* dall'elenco e scegliere **Crea**. 
 
-   ![Nome dell'account di integrazione dell'area secondaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![Screenshot che mostra dove aggiungere un nome dell'account di integrazione dell'area secondaria.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
 8. Passare agli input non elaborati facendo clic sull'icona nell'angolo in alto a destra.
 
-   ![Passare agli input non elaborati](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
+   ![Screenshot che mostra l'icona da selezionare per passare a RAW.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
 
 9. Selezionare Corpo nell'utilità di selezione del contenuto dinamico e salvare l'app per la logica.
 
@@ -140,7 +140,7 @@ La continuità aziendale per i documenti EDI EDIFACT si basa sui numeri di contr
 
 Per abilitare il ripristino di emergenza per i messaggi in ingresso, selezionare le impostazioni per la verifica dei duplicati nelle impostazioni di ricezione dell'accordo EDIFACT.
 
-![Selezionare le impostazioni per la verifica dei duplicati](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
+![Screenshot che mostra le impostazioni di verifica duplicate nelle impostazioni di ricezione dell'accordo EDIFACT.](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
 1. Creare un'[app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) nell'area secondaria.    
 
@@ -157,27 +157,27 @@ Per abilitare il ripristino di emergenza per i messaggi in ingresso, selezionare
 
 4. L'impostazione **DateTime per avviare la sincronizzazione dei numeri di controllo** è facoltativa. Il campo **Frequenza** può essere impostato su **Giorno**, **Ora**, **Minuto** o **Secondo** con un intervallo.    
 
-   ![DateTime e Frequenza](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![Screenshot che mostra le impostazioni DateTime e Frequency.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
 6. Selezionare **Nuovo passaggio** > **Aggiungi un'azione**.    
 
-   ![Nuovo passaggio, Aggiungi un'azione](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![Screenshot che mostra la posizione in cui selezionare Aggiungi un'azione.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
 7. Cercare in **EDIFACT** e selezionare **EDIFACT - Aggiungi o aggiorna numeri di controllo**.   
 
-   ![Aggiungi o aggiorna numeri di controllo](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Screenshot che mostra dove aggiungere o aggiornare i numeri di controllo.](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. Per connettere un'azione a un account di integrazione dell'area secondaria, selezionare **Modifica connessione**  >  **Aggiungi nuova connessione** per un elenco degli account di integrazione disponibili. Inserire un nome di connessione, selezionare l'*account di integrazione dell'area secondaria* dall'elenco e scegliere **Crea**.
 
-   ![Nome dell'account di integrazione dell'area secondaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![Creare un nome dell'account di integrazione dell'area secondaria.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
 9. Passare agli input non elaborati facendo clic sull'icona nell'angolo in alto a destra.
 
-   ![Passare agli input non elaborati](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
+   ![Screenshot che evidenzia l'icona da selezionare quando si desidera passare a input non elaborati.](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
 
 10. Selezionare Corpo nell'utilità di selezione del contenuto dinamico e salvare l'app per la logica.   
 
-   ![Campi per il contenuto dinamico](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
+   ![Screenshot che mostra la selezione di contenuto dinamica da cui è possibile selezionare il corpo.](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
 
    In base all'intervallo di tempo, il trigger esegue il sondaggio della tabella dei numeri di controllo ricevuti dell'area primaria ed esegue il pull dei nuovi record.
    L'azione aggiorna i record per l'account di integrazione dell'area secondaria. 
@@ -205,7 +205,7 @@ La continuità aziendale per i documenti che usano il protocollo AS2 si basai su
    
 3. Inserire un nome di connessione, selezionare l'*account di integrazione dell'area primaria* dall'elenco e scegliere **Crea**.
 
-   ![Nome dell'account di integrazione dell'area primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
+   ![Screenshot che mostra dove immettere un nome di connessione quando viene creato un valore MIC.](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
 4. L'impostazione **DateTime per avviare la sincronizzazione del valore MIC** è facoltativa. Il campo **Frequenza** può essere impostato su **Giorno**, **Ora**, **Minuto** o **Secondo** con un intervallo.   
 

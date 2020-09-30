@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: bf041163c6b2759b3d38e48ee98a0d528ec601db
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0161c1599402fff25337549819f94b833142ba06
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606903"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567860"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 
@@ -102,11 +102,11 @@ Se alle 9:30 si aumenta la velocità effettiva di cui è stato effettuato il pro
 
 * In un mese di 720 ore, se per 300 ore la velocità effettiva di cui è stato effettuato il provisioning è stata pari a 120 K UR/sec e per le restanti 420 ore è stata pari a 155 K UR/sec, la fattura mensile indicherà: 300 x 9,60 dollari/ora + 420 x 12,40 dollari/ora =  2.880 dollari + 5.208 dollari = 8.088 dollari/mese. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Esempio di fattura con velocità effettiva condivisa":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Esempio di fattura con velocità effettiva dedicata":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Esempi di fatturazione con replica geografica e multimaster  
+## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Esempi di fatturazione con la replica geografica e le Scritture in più aree  
 
-Nell'account di database di Azure Cosmos è possibile aggiungere o rimuovere in qualsiasi momento aree di Azure dislocate in qualsiasi parte del mondo. La velocità effettiva configurata per i vari database e contenitori di Azure Cosmos viene riservata in ogni area di Azure associata all'account di database di Azure Cosmos DB. Se la somma della velocità effettiva di cui è stato effettuato il provisioning (UR/sec) configurata in tutti i database e in tutti i contenitori all'interno dell'account del database di Azure Cosmos account (con provisioning all'ora) è T e il numero di aree di Azure associate all'account di database è N, la velocità effettiva di cui è stato effettuato il provisioning totale per un'ora specifica, (a) per un account di database di Azure Cosmos configurato con un'area di scrittura singola è uguale a T x N UR/sec e (b) per un account di database di Azure Cosmos configurato con tutte le aree in grado di elaborare operazioni di scrittura è uguale a T x (N + 1) UR/sec, rispettivamente. La velocità effettiva di cui è stato effettuato il provisioning (area di scrittura singola) costa 0,008 dollari/ora per 100 UR/sec e la velocità effettiva di cui è stato effettuato il provisioning con più aree scrivibili (configurazione multimaster) costa 0,016 dollari/ora per 100 UR/sec (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)). Indipendentemente dal numero di aree di scrittura, Azure Cosmos DB consente la lettura dei dati da qualsiasi area.
+Nell'account di database di Azure Cosmos è possibile aggiungere o rimuovere in qualsiasi momento aree di Azure dislocate in qualsiasi parte del mondo. La velocità effettiva configurata per i vari database e contenitori di Azure Cosmos viene riservata in ogni area di Azure associata all'account di database di Azure Cosmos DB. Se la somma della velocità effettiva di cui è stato effettuato il provisioning (UR/sec) configurata in tutti i database e in tutti i contenitori all'interno dell'account del database di Azure Cosmos account (con provisioning all'ora) è T e il numero di aree di Azure associate all'account di database è N, la velocità effettiva di cui è stato effettuato il provisioning totale per un'ora specifica, (a) per un account di database di Azure Cosmos configurato con un'area di scrittura singola è uguale a T x N UR/sec e (b) per un account di database di Azure Cosmos configurato con tutte le aree in grado di elaborare operazioni di scrittura è uguale a T x (N + 1) UR/sec, rispettivamente. La velocità effettiva con provisioning (area di scrittura singola) costa $0.008/hour per 100 ur/sec e la velocità effettiva con provisioning con più aree scrivibili (configurazione per scritture in più aree) costa $0.016/all'ora per 100 ur/sec (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)). Indipendentemente dal numero di aree di scrittura, Azure Cosmos DB consente la lettura dei dati da qualsiasi area.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Esempio di fatturazione: account di Azure Cosmos multiarea, operazioni di scrittura in un'area singola
 
@@ -136,9 +136,9 @@ Si supponga di creare un contenitore Azure Cosmos negli Stati Uniti occidentali.
 
 *Si supponga anche che vengano trasmessi 100 GB di dati in uscita ogni mese dal contenitore negli Stati Uniti occidentali verso gli Stati Uniti orientali, l'Europa settentrionale e l'Asia orientale. Viene fatturato il traffico in uscita in base alle tariffe per il trasferimento di dati.*
 
-### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Esempio di fatturazione: Account Azure Cosmos con velocità effettiva multimaster a livello di database, inclusa la modalità di velocità effettiva dedicata per alcuni contenitori
+### <a name="billing-example-azure-cosmos-account-with-multi-region-writes-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Esempio di fatturazione: account Azure Cosmos con scritture in più aree, velocità effettiva a livello di database, inclusa la modalità velocità effettiva dedicata per alcuni contenitori
 
-Si consideri l'esempio seguente, un account di Azure Cosmos multiarea in cui tutte le aree sono scrivibili (configurazione multimaster). Per semplicità, si suppone che le dimensioni delle risorse di archiviazione rimangano costanti e non cambino. Nel corso del mese, la velocità effettiva di cui è stato effettuato il provisioning è variata nel modo seguente (presupponendo 30 giorni o 720 ore): 
+Si consideri l'esempio seguente, in cui è presente un account Azure Cosmos a più aree in cui tutte le aree sono scrivibili (configurazione di più aree di scrittura). Per semplicità, si suppone che le dimensioni delle risorse di archiviazione rimangano costanti e non cambino. Nel corso del mese, la velocità effettiva di cui è stato effettuato il provisioning è variata nel modo seguente (presupponendo 30 giorni o 720 ore): 
 
 [0-100 ore]:  
 
@@ -192,7 +192,7 @@ Si consideri l'esempio seguente, un account di Azure Cosmos multiarea in cui tut
 
 Le modifiche della velocità effettiva totale durante le 720 ore del mese sono illustrate nella figura seguente: 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Esempio reale":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Esempio di fattura con velocità effettiva dedicata":::
 
 La fattura mensile totale (presupponendo 30 giorni/720 ore al mese) verrà calcolata come segue:
 
@@ -215,7 +215,7 @@ La fattura mensile totale (presupponendo 30 giorni/720 ore al mese) verrà calco
 || |**Costo mensile totale**  | |**$38.688**   |
 
 ## <a name="billing-examples-with-free-tier-accounts"></a>Esempi di fatturazione con account livello gratuito
-Azure Cosmos DB livello gratuito offre i primi 400 UR/sec e 5 GB di spazio di archiviazione nell'account gratuiti, applicati a livello di account. Eventuali UR/sec superiori a 400 RU/sec e spazio di archiviazione superiore a 5 GB saranno fatturati in base ai normali prezzi, come illustrato nella relativa pagina. Nella fattura non verrà riportato alcun addebito o alcuna voce per le 400 UR/sec e per i 5 GB, ma solo le UR/sec e lo spazio di archiviazione che superano quelli forniti gratuitamente. Le 400 UR/sec si applicano a qualsiasi tipo di velocità effettiva con provisioning di UR/sec, scalabilità automatica e multimaster.  
+Azure Cosmos DB livello gratuito offre i primi 400 UR/sec e 5 GB di spazio di archiviazione nell'account gratuiti, applicati a livello di account. Eventuali UR/sec superiori a 400 RU/sec e spazio di archiviazione superiore a 5 GB saranno fatturati in base ai normali prezzi, come illustrato nella relativa pagina. Nella fattura non verrà riportato alcun addebito o alcuna voce per le 400 UR/sec e per i 5 GB, ma solo le UR/sec e lo spazio di archiviazione che superano quelli forniti gratuitamente. 400 ur/s si applica a qualsiasi tipo di unità elaborate con provisioning, scalabilità automatica e scrittura in più aree.  
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Esempio di fatturazione - Contenitore o database con velocità effettiva di provisioning
 - Si supponga di creare un database o un contenitore in un account di livello gratuito con 400 UR/sec e 5 GB di spazio di archiviazione.
@@ -231,16 +231,16 @@ Azure Cosmos DB livello gratuito offre i primi 400 UR/sec e 5 GB di spazio di ar
 - Qualsiasi risorsa di archiviazione oltre i primi 5 GB verrà fatturata in base alle normali tariffe di archiviazione. 
 
 ### <a name="billing-example---multi-region-single-write-region-account"></a>Esempio di fatturazione - Account con più aree o una singola area di scrittura
-- Si supponga di creare un database o un contenitore in un account di livello gratuito con 1200 UR/sec e 10 GB di spazio di archiviazione. L'account viene replicato in 3 aree ed è presente un account con un solo master (area a scrittura singola).
+- Si supponga di creare un database o un contenitore in un account di livello gratuito con 1200 UR/sec e 10 GB di spazio di archiviazione. L'account viene replicato in 3 aree ed è presente un unico account Write-Region.
 - In totale, senza il livello gratuito, verranno addebitati 3 * 1200 UR/sec = 3600 UR/sec e 3 * 10 GB = 30 GB di spazio di archiviazione.
 - Con lo sconto del livello gratuito, dopo la rimozione di 400 UR/sec e di 5 GB di spazio di archiviazione, verrà addebitato un valore effettivo di 3200 UR/sec (32 unità) di velocità effettiva con provisioning in corrispondenza dell'area di scrittura singola e di 25 GB di spazio di archiviazione.
 - Il costo mensile per UR/sec sarà: 32 unità * $0,008 * 24 ore * 31 giorni = $190,46. Il costo mensile per l'archiviazione sarà: 25 GB * 0,25 / GB = $6,25. Il costo totale sarebbe $190,46 + $6,25 = $196,71.
 - Nota: se il prezzo unitario per UR/sec o lo spazio di archiviazione è diverso nelle varie aree, il livello gratuito di 400 UR/sec e 5 GB rifletterà le tariffe dell'area in cui è stato creato l'account.
 
-### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Esempio di fatturazione - Account con più aree, multimaster (aree di scrittura multiple)
+### <a name="billing-example---multi-region-account-with-multiple-write-regions"></a>Esempio di fatturazione: multiarea, account con più aree di scrittura
 
-Questo esempio riflette [i prezzi multimaster](https://azure.microsoft.com/pricing/details/cosmos-db/) per gli account creati dopo il 1° dicembre 2019. 
-- Si supponga di creare un database o un contenitore in un account di livello gratuito con 1200 UR/sec e 10 GB di spazio di archiviazione. L'account viene replicato in 3 aree ed è presente un account multimaster (area a scrittura singola). 
+Questo esempio riflette [i prezzi per le Scritture](https://azure.microsoft.com/pricing/details/cosmos-db/) in più aree per gli account creati dopo il 1 ° dicembre 2019. 
+- Si supponga di creare un database o un contenitore in un account di livello gratuito con 1200 UR/sec e 10 GB di spazio di archiviazione. L'account viene replicato in 3 aree ed è presente un account per più aree di scrittura. 
 - In totale, senza il livello gratuito, verranno addebitati 3 * 1200 UR/sec = 3600 UR/sec e 3 * 10 GB = 30 GB di spazio di archiviazione.
 - Con lo sconto del livello gratuito, dopo la rimozione di 400 UR/sec e di 5 GB di spazio di archiviazione, verrà addebitato un valore effettivo di 3200 UR/sec (32 unità) di velocità effettiva con provisioning in corrispondenza dell'area di scrittura multipla e di 25 GB di spazio di archiviazione.
 - Il costo mensile per UR/sec sarà: 32 unità * $0,016 * 24 ore * 31 giorni = $380,93. Il costo mensile per l'archiviazione sarà: 25 GB * 0,25 / GB = $6,25. Il costo totale sarebbe $380,93 + $6,25 = $387,18.

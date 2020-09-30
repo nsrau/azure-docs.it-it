@@ -1,19 +1,19 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 11901e0b68fed9a6a83287d50896bf2afc51fa37
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9aa8857ab10423f460874870a3663929e8e5a5c5
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279562"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566950"
 ---
 L'abilitazione dei dischi condivisi è disponibile solo per un subset di tipi di disco. Attualmente solo dischi e SSD Premium possono abilitare i dischi condivisi. Ogni disco gestito con dischi condivisi abilitati è soggetto alle limitazioni seguenti, organizzati in base al tipo di disco:
 
@@ -30,7 +30,6 @@ I dischi Ultra condivisi sono disponibili in tutte le aree che supportano i disc
 
 ### <a name="premium-ssds"></a>SSD Premium
 
-- Attualmente supportato solo in [un subset di aree](#regional-availability).
 - Attualmente limitato al supporto Azure Resource Manager o SDK. 
 - Può essere abilitato solo sui dischi dati, non sui dischi del sistema operativo.
 - La memorizzazione nella cache dell'host **ReadOnly** non è disponibile per le unità SSD Premium con `maxShares>1` .
@@ -42,24 +41,4 @@ I dischi Ultra condivisi sono disponibili in tutte le aree che supportano i disc
 
 #### <a name="regional-availability"></a>Disponibilità a livello di area
 
-Le unità SSD Premium condivise sono supportate solo nelle aree geografiche seguenti:
-
-- Stati Uniti orientali
-- Stati Uniti orientali 2
-- Stati Uniti occidentali
-- Stati Uniti occidentali 2
-- Stati Uniti centro-occidentali
-- Stati Uniti centro-meridionali
-- Stati Uniti centro-settentrionali
-- Stati Uniti centrali
-- Europa occidentale
-- Europa settentrionale
-- Corea centrale
-- Canada centrale
-- Canada orientale
-- Giappone orientale
-- Giappone occidentale
-- Asia sud-orientale
-- Asia orientale
-- US Gov Virginia
-- US Gov Arizona
+Le unità SSD Premium condivise sono disponibili in tutte le aree in cui sono disponibili i dischi gestiti.

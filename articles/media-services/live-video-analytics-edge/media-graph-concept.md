@@ -3,12 +3,12 @@ title: Concetto di grafico multimediale-Azure
 description: Un grafico multimediale consente di definire la posizione in cui devono essere acquisiti i supporti, la modalità di elaborazione e la posizione in cui devono essere recapitati i risultati. Questo articolo fornisce una descrizione dettagliata del concetto di grafico multimediale.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 1e280d6fe8303a85bee41adf83ac54e7c96df304
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 7def82160547b759c7ab4c40c681052747261920
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567937"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567079"
 ---
 # <a name="media-graph"></a>Grafico multimediale
 
@@ -41,7 +41,7 @@ I valori per i parametri nella topologia vengono specificati quando si creano is
 Nel diagramma di stato seguente viene illustrato il ciclo di vita delle topologie Graph e delle istanze Graph.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Ciclo di vita delle istanze Graph e Graph":::
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Grafo multimediale":::
 
 Si inizia con [la creazione di una topologia Graph](direct-methods.md#graphtopologyset). Quindi, per ogni feed video attivo che si desidera elaborare con questa topologia, si [Crea un'istanza di Graph](direct-methods.md#graphinstanceset). 
 
@@ -70,7 +70,7 @@ Analisi video in tempo reale su IoT Edge supporta i tipi di nodi seguenti all'in
 
 #### <a name="rtsp-source"></a>Origine RTSP 
 
-Un nodo di origine RTSP consente di inserire supporti da un [RTSP] ( https://tools.ietf.org/html/rfc2326 Server. Le telecamere di sorveglianza e basate su IP trasmettono i dati in un protocollo denominato RTSP (Real-Time-Streaming-Protocol), che è diverso rispetto ad altri tipi di dispositivi, ad esempio telefoni e videocamere. Questo protocollo viene usato per stabilire e controllare le sessioni multimediali tra un server (la fotocamera) e un client. Il nodo di origine RTSP in un grafico multimediale funge da client ed è in grado di stabilire una sessione con un server RTSP. Molti dispositivi come la maggior parte delle [fotocamere IP](https://en.wikipedia.org/wiki/IP_camera) hanno un server RTSP incorporato. [ONVIF](https://www.onvif.org/) impone a RTSP di essere supportato nella definizione dei [profili G, S & i](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) dispositivi conformi. Il nodo di origine RTSP richiede di specificare un URL RTSP, insieme alle credenziali per abilitare una connessione autenticata.
+Un nodo di origine RTSP consente di inserire supporti da un [RTSP](https://tools.ietf.org/html/rfc2326 server). Le telecamere di sorveglianza e basate su IP trasmettono i dati in un protocollo denominato RTSP (Real-Time-Streaming-Protocol), che è diverso rispetto ad altri tipi di dispositivi, ad esempio telefoni e videocamere. Questo protocollo viene usato per stabilire e controllare le sessioni multimediali tra un server (la fotocamera) e un client. Il nodo di origine RTSP in un grafico multimediale funge da client ed è in grado di stabilire una sessione con un server RTSP. Molti dispositivi come la maggior parte delle [fotocamere IP](https://en.wikipedia.org/wiki/IP_camera) hanno un server RTSP incorporato. [ONVIF](https://www.onvif.org/) impone a RTSP di essere supportato nella definizione dei [profili G, S & i](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) dispositivi conformi. Il nodo di origine RTSP richiede di specificare un URL RTSP, insieme alle credenziali per abilitare una connessione autenticata.
 
 #### <a name="iot-hub-message-source"></a>Origine messaggio dell'hub Internet 
 

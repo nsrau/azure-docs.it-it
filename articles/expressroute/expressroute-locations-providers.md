@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: fe16dbf756016150c86b4d0131b8750b46bacfaa
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 66b11a10e59ca0525c7836553a08a515ab4dc602
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448709"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568251"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -118,7 +118,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Mumbai2** | Airtel | 2 | India occidentale | 10 G | Airtel, Sify, Vodafone Idea |
 | **Monaco** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/munich/) | 1 | n/d | 10 G | DE-CIX |
 | **New York** | [Equinix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | 1 | n/d | 10 G, 100 G | CenturyLink Cloud Connect, Colt, Coresite, DE-CIX, Equinix, intercloud, Megaport, Packet, Zayo |
-| **Newport(Wales)** | [Dati di nuova generazione](https://www.nextgenerationdata.co.uk) | 1 | Regno Unito occidentale | n/d | British Telecom, Colt, Level 3 Communications, Next Generation Data |
+| **Newport(Wales)** | [Dati di nuova generazione](https://www.nextgenerationdata.co.uk) | 1 | Regno Unito occidentale | n/d | British Telecom, Colt, JISC, livello 3 Communications, dati di nuova generazione |
 | **Osaka** | [Equinix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 2 | Giappone occidentale | 10 G, 100 G | A TOKYO, Colt, Equinix, Internet Initiative Giappone Inc.-IIJ, Megaport, NTT Communications, NTT SmartConnect, Softbank |
 | **Oslo** | [DigiPlex Ulven](https://www.digiplex.com/locations/oslo-datacentre) | 1 | Norvegia orientale | 10 G, 100 G | Global Connect, Megaport, Telenor, Telia Carrier |
 | **Parigi** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | Francia centrale | 10 G, 100 G | British Telecom, CenturyLink Cloud Connect, puledre, Equinix, intercloud, Interxion, Orange, Telia Carrier, Zayo |

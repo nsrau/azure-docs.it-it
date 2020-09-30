@@ -8,12 +8,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 25ec74f3638ce857e4472d73a51e45f24c4df5ec
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 07bfaabf051a016ca9617245ba8628ef6c7e80c0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997728"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566619"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usare identità gestite assegnate dal sistema per accedere ai dati di Azure Cosmos DB
 
@@ -35,7 +35,7 @@ In questo passaggio si assegnerà un'identità gestita assegnata dal sistema all
 
 1. Nella scheda **identità** **, attivare lo** **stato** di identità del sistema e selezionare **Salva**. Il riquadro **Identity** avrà un aspetto simile al seguente:  
 
-   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Screenshot che mostra lo stato di identità del sistema impostato su on.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Screenshot che illustra le funzionalità della piattaforma e le opzioni di identità per l'app per le funzioni.":::
 
 ## <a name="grant-access-to-your-azure-cosmos-account"></a>Concedi l'accesso all'account Azure Cosmos
 
@@ -47,7 +47,7 @@ In questo passaggio si assegna un ruolo all'identità gestita assegnata dal sist
 |[Ruolo Lettore dell'account Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Può leggere i dati degli account Azure Cosmos DB. Consente il recupero delle chiavi di lettura. |
 
 > [!IMPORTANT]
-> Il supporto per il controllo degli accessi in base al ruolo in Azure Cosmos DB si applica solo alle operazioni del piano di controllo. Le operazioni del piano dati sono protette tramite chiavi master o token di risorsa. Per altre informazioni, vedere l'articolo [proteggere l'accesso ai dati](secure-access-to-data.md) .
+> Il supporto per il controllo degli accessi in base al ruolo in Azure Cosmos DB si applica solo alle operazioni del piano di controllo. Le operazioni del piano dati sono protette tramite chiavi primarie o token di risorsa. Per altre informazioni, vedere l'articolo [proteggere l'accesso ai dati](secure-access-to-data.md) .
 
 > [!TIP] 
 > Quando si assegnano i ruoli, assegnare solo l'accesso necessario. Se il servizio richiede solo la lettura dei dati, assegnare il ruolo di **lettore Account Cosmos DB** all'identità gestita. Per ulteriori informazioni sull'importanza dell'accesso con privilegi minimi, vedere l'articolo sull' [esposizione inferiore di account con privilegi](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) .
@@ -58,19 +58,19 @@ In questo scenario, l'app per le funzioni leggerà la temperatura dell'acquario,
 
 1. Accedere al portale di Azure e passare all'account di Azure Cosmos DB. Aprire il riquadro **controllo di accesso (IAM)** e quindi la scheda **assegnazioni di ruolo** :
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Screenshot che mostra il riquadro di controllo di accesso e la scheda assegnazioni di ruolo.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Screenshot che illustra le funzionalità della piattaforma e le opzioni di identità per l'app per le funzioni.":::
 
 1. Selezionare **Aggiungi** > **Aggiungi assegnazione di ruolo**.
 
 1. Si apre il pannello **Aggiungi assegnazione ruolo** a destra:
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Screenshot che illustra il riquadro Aggiungi assegnazione ruolo.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Screenshot che illustra le funzionalità della piattaforma e le opzioni di identità per l'app per le funzioni.":::
 
    * **Ruolo**: selezionare **collaboratore account DocumentDB**
    * **Assegnare l'accesso a**: nella sottosezione **Seleziona identità gestita assegnata dal sistema** Selezionare **app per le funzioni**.
    * **Select**: il riquadro verrà popolato con tutte le app per le funzioni nella sottoscrizione che hanno un' **identità del sistema gestito**. In questo caso, selezionare l'app per le funzioni **FishTankTemperatureService** : 
 
-      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot che illustra il riquadro Aggiungi assegnazione ruolo popolato con esempi.":::
+      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot che illustra le funzionalità della piattaforma e le opzioni di identità per l'app per le funzioni.":::
 
 1. Dopo aver selezionato l'app per le funzioni, selezionare **Salva**.
 

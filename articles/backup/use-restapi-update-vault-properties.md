@@ -4,12 +4,12 @@ description: Questo articolo illustra come aggiornare la configurazione dell'ins
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 8890cb541e38f8bc8b680fbcfeb821f29723e8c0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007112"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567826"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aggiornare le configurazioni dell'insieme di credenziali di servizi di ripristino di Azure usando l'API
 
@@ -30,13 +30,13 @@ Per impostazione predefinita, lo stato di eliminazione temporanea verrà abilita
 Per recuperare lo stato corrente dell'eliminazione temporanea per un insieme di credenziali, usare l'operazione *Get* seguente.
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 L'URI get ha `{subscriptionId}` `{vaultName}` parametri,, `{vaultresourceGroupName}` . In questo esempio `{vaultName}` è "testVault" e `{vaultresourceGroupName}` è "testVaultRG". Poiché tutti i parametri obbligatori sono specificati nell'URI, non è necessario un corpo della richiesta separato.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="responses"></a>Risposte
@@ -65,16 +65,16 @@ Una volta inviata la richiesta ' GET ', viene restituita una risposta 200 (esito
 
 ### <a name="update-soft-delete-state-using-rest-api"></a>Aggiornare lo stato di eliminazione temporanea con l'API REST
 
-Per aggiornare lo stato di eliminazione temporanea dell'insieme di credenziali di servizi di ripristino tramite l'API REST, usare l'operazione *patch* seguente
+Per aggiornare lo stato di eliminazione temporanea dell'insieme di credenziali di servizi di ripristino tramite l'API REST, usare l'operazione *put* seguente
 
 ```http
-PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
-L'URI della patch `{subscriptionId}` presenta `{vaultName}` parametri,, `{vaultresourceGroupName}` . In questo esempio `{vaultName}` è "testVault" e `{vaultresourceGroupName}` è "testVaultRG". Se si sostituisce l'URI con i valori precedenti, l'URI sarà simile al seguente.
+L'URI put presenta `{subscriptionId}` `{vaultName}` parametri,, `{vaultresourceGroupName}` . In questo esempio `{vaultName}` è "testVault" e `{vaultresourceGroupName}` è "testVaultRG". Se si sostituisce l'URI con i valori precedenti, l'URI sarà simile al seguente.
 
 ```http
-PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="create-the-request-body"></a>Creare il corpo della richiesta
@@ -83,10 +83,10 @@ Per creare un corpo della richiesta vengono usate le seguenti definizioni comuni
 
 Per altri dettagli, vedere [la documentazione dell'API REST](/rest/api/backup/backupresourcevaultconfigs/update#request-body) .
 
-|Name  |Obbligatorio  |Tipo  |Descrizione  |
+|Nome  |Obbligatoria  |Tipo  |Descrizione  |
 |---------|---------|---------|---------|
-|eTag     |         |   String      |  eTag facoltativo       |
-|posizione     |  true       |String         |   Posizione risorsa      |
+|eTag     |         |   string      |  eTag facoltativo       |
+|posizione     |  true       |string         |   Posizione risorsa      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Proprietà dell'insieme di credenziali       |
 |tags     |         | Oggetto        |     Tag delle risorse    |
 

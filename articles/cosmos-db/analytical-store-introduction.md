@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 75ad602eb6b9a0ce52b2b4c4115f351668327c43
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253192"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567146"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Che cos'è l'archivio analitico di Azure Cosmos DB (anteprima)?
 
@@ -52,7 +52,7 @@ L'archivio analitico, che è un archivio colonne, è più adatto per tali query 
 
 Nell'immagine seguente viene illustrato l'archivio righe transazionale rispetto all'archivio colonne analitico in Azure Cosmos DB:
 
-:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Archivio righe transazionale rispetto all'archivio colonne analitico in Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Tabella operativa di esempio" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Prestazioni separate per carichi di lavoro analitici
 
@@ -91,7 +91,7 @@ I vincoli seguenti sono applicabili ai dati operativi in Azure Cosmos DB quando 
 
 ##### <a name="schema-representation"></a>Rappresentazione dello schema
 
-Nell'archivio analitico sono disponibili due modalità di rappresentazione dello schema. Queste modalità presentano compromessi tra la semplicità di una rappresentazione a colonne, la gestione degli schemi polimorfici e la semplicità di utilizzo delle query:
+Nell'archivio analitico esistono due modalità di rappresentazione dello schema. Queste modalità presentano compromessi tra la semplicità di una rappresentazione a colonne, la gestione degli schemi polimorfici e la semplicità d'uso delle query:
 
 * Rappresentazione dello schema ben definita
 * Rappresentazione dello schema con fedeltà completa
@@ -155,7 +155,7 @@ Di seguito è riportato un mapping di tutti i tipi di dati delle proprietà e de
 |Null   | ". null"   | Null|
 |string|    ". stringa" | "ABC"|
 |Timestamp |    ". timestamp" |  Timestamp (0,0)|
-|Datetime   |". date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
+|DataOra   |". date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
 |ObjectId   |". objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|
 |Documento   |". Object" |    {"a": "a"}|
 
@@ -171,7 +171,7 @@ Se si ha un account Azure Cosmos DB distribuito a livello globale, un archivio a
 
 ### <a name="security"></a>Sicurezza
 
-L'autenticazione con l'archivio analitico è identica a quella dell'archivio transazionale per un determinato database. Per l'autenticazione è possibile usare chiavi master o di sola lettura. È possibile sfruttare il servizio collegato in Synapse Studio per evitare di incollare le chiavi di Azure Cosmos DB nei notebook di Spark. L'accesso a questo servizio collegato è disponibili per chiunque abbia accesso all'area di lavoro.
+L'autenticazione con l'archivio analitico è identica a quella dell'archivio transazionale per un determinato database. Per l'autenticazione è possibile usare chiavi primarie o di sola lettura. È possibile sfruttare il servizio collegato in Synapse Studio per evitare di incollare le chiavi di Azure Cosmos DB nei notebook di Spark. L'accesso a questo servizio collegato è disponibili per chiunque abbia accesso all'area di lavoro.
 
 ### <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Supporto di più runtime di Azure Synapse Analytics
 

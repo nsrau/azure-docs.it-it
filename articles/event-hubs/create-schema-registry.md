@@ -4,18 +4,19 @@ description: Questo articolo illustra come creare un registro dello schema in un
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 691279ea4fbadf5a905de4bab0304a1ad526146d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b977ed8d6b4444daa1e125c61a8d38b2a6512e44
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91344740"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566364"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Creare un registro dello schema di hub eventi di Azure (anteprima)
 Questo articolo illustra come creare un gruppo di schemi con gli schemi in un registro dello schema ospitato da Hub eventi di Azure. Per una panoramica della funzionalità registro dello schema di hub eventi di Azure, vedere [registro dello schema di Azure in hub eventi](schema-registry-overview.md).
 
 > [!NOTE]
-> - La funzionalità **registro dello schema** è attualmente **in anteprima** ed è disponibile solo nei livelli **standard** e **dedicato** , non nel livello **Basic** .
+> - La funzionalità **registro dello schema** è attualmente in **Anteprima**e non è consigliata per i carichi di lavoro di produzione.
+> - La funzionalità è disponibile solo nei livelli **standard** e **dedicato** , non nel livello **Basic** .
 > - Questa versione di anteprima è attualmente disponibile solo nell'area **Stati Uniti centro-occidentali** . 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -33,10 +34,10 @@ Questo articolo illustra come creare un gruppo di schemi con gli schemi in un re
     1. Selezionare quindi **Crea** per creare il gruppo di schemi. 
 1. Consente di selezionare il nome del **gruppo di schemi** nell'elenco dei gruppi di schemi.
 
-    :::image type="content" source="./media/create-schema-registry/select-schema-group.png" alt-text="Selezionare il gruppo di schemi nell'elenco":::    
+    :::image type="content" source="./media/create-schema-registry/select-schema-group.png" alt-text="Pagina Registro schema":::    
 1. Viene visualizzata la pagina del **gruppo di schemi** per il gruppo.
 
-    :::image type="content" source="./media/create-schema-registry/schema-group-page.png" alt-text="Pagina gruppo di schemi":::
+    :::image type="content" source="./media/create-schema-registry/schema-group-page.png" alt-text="Pagina Registro schema":::
     
 
 ## <a name="add-a-schema-to-the-schema-group"></a>Aggiungere uno schema al gruppo di schemi
@@ -67,27 +68,27 @@ In questa sezione si aggiunge uno schema al gruppo di schemi utilizzando il port
     1. Selezionare **Crea**. 
 1. Consente di selezionare lo **schema** dall'elenco degli schemi. 
 
-    :::image type="content" source="./media/create-schema-registry/select-schema.png" alt-text="Selezionare lo schema":::
+    :::image type="content" source="./media/create-schema-registry/select-schema.png" alt-text="Pagina Registro schema":::
 1. Viene visualizzata la pagina **Panoramica schema** per lo schema. 
 
-    :::image type="content" source="./media/create-schema-registry/schema-overview-page.png" alt-text="Pagina Panoramica schema":::    
+    :::image type="content" source="./media/create-schema-registry/schema-overview-page.png" alt-text="Pagina Registro schema":::    
 1. Se sono presenti più versioni di uno schema, queste verranno visualizzate nell'elenco a discesa **versioni** . Selezionare una versione per passare allo schema della versione. 
 
 ## <a name="create-a-new-version-of-schema"></a>Creare una nuova versione dello schema
 
 1. Aggiornare lo schema nella casella di testo e selezionare **convalida**. Nell'esempio seguente `id` è stato aggiunto un nuovo campo allo schema. 
 
-    :::image type="content" source="./media/create-schema-registry/update-schema.png" alt-text="Aggiorna schema":::    
+    :::image type="content" source="./media/create-schema-registry/update-schema.png" alt-text="Pagina Registro schema":::    
     
 1. Verificare lo stato di convalida e le modifiche e selezionare **Salva**. 
 
-    :::image type="content" source="./media/create-schema-registry/compare-save-schema.png" alt-text="Verifica stato convalida, modifiche e Salva":::     
+    :::image type="content" source="./media/create-schema-registry/compare-save-schema.png" alt-text="Pagina Registro schema":::     
 1. Si noterà che `2` è selezionato per la **versione** nella pagina **Panoramica schema** . 
 
-    :::image type="content" source="./media/create-schema-registry/new-version.png" alt-text="Nuova versione dello schema":::    
+    :::image type="content" source="./media/create-schema-registry/new-version.png" alt-text="Pagina Registro schema":::    
 1. Selezionare `1` per visualizzare la versione 1 dello schema. 
 
-    :::image type="content" source="./media/create-schema-registry/select-version.png" alt-text="Seleziona versione":::    
+    :::image type="content" source="./media/create-schema-registry/select-version.png" alt-text="Pagina Registro schema":::    
 
 
 ## <a name="next-steps"></a>Passaggi successivi

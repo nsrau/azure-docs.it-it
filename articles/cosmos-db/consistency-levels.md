@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: aa09b1ec1e3f73547d211fab0907c9e3388c008b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 27c1a896d25a0db00ff5f263d949f6657a658e3d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445331"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567203"
 ---
 # <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>Che cosa sono i livelli di coerenza in Azure Cosmos DB?
 
@@ -52,10 +52,10 @@ L'obsolescenza associata offre un ordine globale totale esterno alla "finestra d
 
 All'interno della finestra di obsolescenza, il decadimento associato fornisce le garanzie di coerenza seguenti:
 
-- Coerenza per i client nella stessa area per un account master singolo = Strong
-- Coerenza per i client in aree diverse per un account master singolo = prefisso coerente
-- Coerenza dei client che scrivono in una singola area per un account multimaster = prefisso coerente
-- Coerenza dei client che scrivono in aree diverse per un account multimaster = eventuale
+- Coerenza per i client nella stessa area per un account con un'area di scrittura singola = Strong
+- Coerenza per i client in aree diverse per un account con un'area di scrittura singola = prefisso coerente
+- Coerenza dei client che scrivono in una singola area per un account con più aree di scrittura = prefisso coerente
+- Coerenza dei client che scrivono in aree diverse per un account con più aree di scrittura = eventuale
 
   Il decadimento ristretto viene spesso scelto da applicazioni distribuite a livello globale che prevedono latenze di scrittura ridotte, ma che richiedono la garanzia totale degli ordini globali Il decadimento ristretto è ideale per le applicazioni che includono la collaborazione e la condivisione di gruppi, il titolo di borsa, la pubblicazione-sottoscrizione/Accodamento e così via. Il grafico seguente illustra la coerenza con decadimento ristretto con le note musicali. Dopo che i dati sono stati scritti nell'area "Stati Uniti occidentali 2", le aree "Stati Uniti orientali 2" e "Australia orientale" leggono il valore scritto in base al tempo massimo di ritardo configurato o al numero massimo di operazioni:
 
@@ -63,10 +63,10 @@ All'interno della finestra di obsolescenza, il decadimento associato fornisce le
 
 I client al di fuori della sessione che esegue le Scritture vedranno le garanzie seguenti:
 
-- Coerenza per i client nella stessa area per un account master singolo = prefisso coerente
-- Coerenza per i client in aree diverse per un account master singolo = prefisso coerente
-- Coerenza dei client che scrivono in una singola area per un account multimaster = prefisso coerente
-- Coerenza per la scrittura dei client in più aree per un account multi-master = eventuale
+- Coerenza per i client nella stessa area per un account con un'area di scrittura singola = prefisso coerente
+- Coerenza per i client in aree diverse per un account con un'area di scrittura singola = prefisso coerente
+- Coerenza dei client che scrivono in una singola area per un account con più aree di scrittura = prefisso coerente
+- Coerenza per la scrittura dei client in più aree per un account con più aree di scrittura = eventuale
 
   La coerenza di sessione è il livello di coerenza più diffuso per l'area singola e per le applicazioni distribuite a livello globale. Fornisce latenze di scrittura, disponibilità e velocità effettiva di lettura paragonabili a quelle della coerenza finale, ma fornisce anche le garanzie di coerenza in base alle esigenze delle applicazioni scritte per funzionare nel contesto di un utente. Il grafico seguente illustra la coerenza della sessione con le note musicali. "West US 2 Writer" e "West US 2 Reader" usano la stessa sessione (Session A) in modo che entrambi leggano gli stessi dati nello stesso momento. Mentre l'area "Australia orientale" utilizza "sessione B", riceve i dati in un secondo momento, ma nello stesso ordine delle Scritture.
 
@@ -78,10 +78,10 @@ Se le Scritture sono state eseguite nell'ordine `A, B, C` , un client può veder
 
 Di seguito sono riportate le garanzie di coerenza per il prefisso coerente:
 
-- Coerenza per i client nella stessa area per un account master singolo = prefisso coerente
-- Coerenza per i client in aree diverse per un account master singolo = prefisso coerente
-- Coerenza dei client che scrivono in una singola area per un account multimaster = prefisso coerente
-- Coerenza per la scrittura dei client in più aree per un account multi-master = eventuale
+- Coerenza per i client nella stessa area per un account con un'area di scrittura singola = prefisso coerente
+- Coerenza per i client in aree diverse per un account con un'area di scrittura singola = prefisso coerente
+- Coerenza per la scrittura dei client in una singola area per un account con più aree di scrittura = prefisso coerente
+- Coerenza per la scrittura dei client in più aree per un account con più aree di scrittura = eventuale
 
 Il grafico seguente illustra la coerenza del prefisso di coerenza con le note musicali. In tutte le aree, le letture non visualizzano mai le Scritture non in ordine:
 

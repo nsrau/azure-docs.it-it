@@ -3,12 +3,12 @@ title: Autenticare un'applicazione per accedere alle risorse di hub eventi di Az
 description: Questo articolo fornisce informazioni sull'autenticazione di un'applicazione con Azure Active Directory per accedere alle risorse di hub eventi di Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 2b4456f63ce6d50ab1187f65deb1ee3280487580
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1c8503aa8db7350275648d9f5eda69e9e352c859
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531524"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566330"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticare un'applicazione con Azure Active Directory per accedere alle risorse di hub eventi
 Microsoft Azure offre la gestione integrata del controllo di accesso per le risorse e le applicazioni basata su Azure Active Directory (Azure AD). Un vantaggio fondamentale dell'uso di Azure AD con hub eventi di Azure consiste nel fatto che non è più necessario archiviare le credenziali nel codice. È invece possibile richiedere un token di accesso OAuth 2,0 dalla piattaforma di identità Microsoft. Il nome della risorsa per richiedere un token è `https://eventhubs.azure.net/` (per i client Kafka la risorsa per la richiesta di un token è `https://<namespace>.servicebus.windows.net` ). Azure AD autentica l'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione ha esito positivo, Azure AD restituisce un token di accesso all'applicazione e l'applicazione può quindi usare il token di accesso per autorizzare la richiesta alle risorse di hub eventi di Azure.
@@ -24,6 +24,8 @@ Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso a
 - [Proprietario dei dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): usare questo ruolo per concedere l'accesso completo alle risorse di hub eventi.
 - [Mittente dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): usare questo ruolo per concedere l'accesso di trasmissione alle risorse di hub eventi.
 - [Ricevitore di dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): usare questo ruolo per concedere l'accesso alle risorse di hub eventi.   
+
+Per i ruoli predefiniti del registro dello schema, vedere [schema Registry Roles](schema-registry-overview.md#role-based-access-control).
 
 > [!IMPORTANT]
 > La versione di anteprima supporta l'aggiunta di privilegi di accesso ai dati di hub eventi al ruolo proprietario o collaboratore. Tuttavia, i privilegi di accesso ai dati per il proprietario e il ruolo Collaboratore non vengono più rispettati. Se si usa il ruolo proprietario o collaboratore, passare a usare il ruolo di proprietario dei dati di hub eventi di Azure.

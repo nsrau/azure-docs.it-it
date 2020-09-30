@@ -6,14 +6,14 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 1721c2a9ede949bb6183c60e65f540869bb95e43
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 706a16eaaab113aab879b828e851191b4d3954dc
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446146"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566160"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partner di connettività ExpressRoute e località di peering
 
@@ -121,7 +121,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Supportato |Supportato |Amsterdam, Amsterdam2, Copenaghen, Dublino, Francoforte, Londra, Marsiglia, Parigi, Zurigo |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Supportato |Supportato | Amsterdam, London2, Silicon Valley, Toronto, Washington DC |
 | **Jaguar Network** |Supportato |Supportato |Marsiglia|
-| **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Supportato |Supportato |Londra |
+| **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Supportato |Supportato |Londra, Newport (Galles) |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Supportato |Supportato |Seul |
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | Supportato |Supportato |Auckland, Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Supportato | Supportato | Amsterdam |

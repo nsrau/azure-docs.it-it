@@ -4,12 +4,12 @@ description: Ridimensionamento automatico in Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d9ba94d9990e494a8d3e68bbcd7c176bb30e6ce2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e89cf36e59ab26ec220d1125162a841fc10f0e47
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073478"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567265"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Panoramica del ridimensionamento automatico in Microsoft Azure
 Questo articolo descrive il ridimensionamento automatico di Microsoft Azure e come iniziare a usarlo.  
@@ -102,11 +102,14 @@ La scalabilità verticale è invece diversa, perché mantiene lo stesso numero d
 | Macchine virtuali: Classico |[Scaling Classic Virtual Machine Availability Sets (Ridimensionamento di set di disponibilità di macchine virtuale classiche)](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | Macchine virtuali: set di scalabilità Windows |[Ridimensionamento dei set di scalabilità di macchine virtuali in Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Macchine virtuali: set di scalabilità Linux |[Ridimensionamento dei set di scalabilità di macchine virtuali in Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Macchine virtuali: esempio di Windows |[Configurazione avanzata del ridimensionamento automatico con modelli di Resource Manager per set di scalabilità di macchine virtuali](autoscale-virtual-machine-scale-sets.md) |
+| Macchine virtuali: esempio di Windows |[Configurazione avanzata del ridimensionamento automatico con modelli di Resource Manager per set di scalabilità di macchine virtuali](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| Servizio app di Azure |[Aumentare le prestazioni di un'app nel Servizio app di Azure](../../app-service/manage-scale-up.md)|
 | Servizio Gestione API|[Ridimensionare automaticamente un'istanza di Gestione API di Azure](../../api-management/api-management-howto-autoscale.md)
 | Cluster di Esplora dati di Azure|[Gestire il ridimensionamento dei cluster di Esplora dati di Azure per rispondere al cambiamento della domanda](/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Servizio app di Azure |[Aumentare le prestazioni di un'app nel Servizio app di Azure](../../app-service/manage-scale-up.md)|
 | App per la logica |[Aggiunta di capacità all'ambiente del servizio di integrazione (ISE)](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
+| Spring Cloud |[Configurare la scalabilità automatica per le applicazioni di microservizi](../../spring-cloud/spring-cloud-tutorial-setup-autoscale.md)|
+| Bus di servizio |[Aggiornare automaticamente le unità di messaggistica di uno spazio dei nomi del bus di servizio di Azure](../../service-bus-messaging/automate-update-messaging-units.md)|
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul ridimensionamento automatico, usare le procedure dettagliate per il ridimensionamento automatico elencate in precedenza o vedere le risorse seguenti:
 

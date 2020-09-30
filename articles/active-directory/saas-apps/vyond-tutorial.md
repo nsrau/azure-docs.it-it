@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 01a40e48f606c2e9c92d38b453a058d3ad5ba058
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fe1f5f718ce54845dea2fc9da3ea2c9f4e18ce92
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531294"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659387"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vyond"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Vyond
 
@@ -35,9 +35,6 @@ Per iniziare, sono necessari gli elementi seguenti:
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Sottoscrizione di Vyond abilitata per l'accesso Single Sign-On (SSO).
 
-> [!NOTE]
-> Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
-
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
@@ -45,6 +42,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 * Vyond supporta l'accesso SSO avviato da **SP e IDP**
 
 * Dopo aver configurato Vyond, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
 
 ## <a name="adding-vyond-from-the-gallery"></a>Aggiunta di Vyond dalla raccolta
 
@@ -58,7 +58,7 @@ Per configurare l'integrazione di Vyond in Azure AD, è necessario aggiungere Vy
 1. Selezionare **Vyond** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-vyond"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Vyond
+## <a name="configure-and-test-azure-ad-sso-for-vyond"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Vyond
 
 Configurare e testare l'accesso SSO di Azure AD con Vyond usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Vyond.
 

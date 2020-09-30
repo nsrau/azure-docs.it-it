@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: a0918c6cebd50231a9664811bb467e04d2d2bfd9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891335"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568353"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Risoluzione degli errori relativi ai certificati
 
@@ -30,7 +30,6 @@ La tabella seguente illustra gli errori comuni relativi ai certificati e le info
 |---|---|
 | CertificateManagement_UntrustedCertificate | La catena di certificati del certificato con nome soggetto {0} è interruppe. Caricare il certificato della catena di firma prima di caricare il certificato.|
 | CertificateManagement_DeviceNotRegistered| Il dispositivo non è attivato. È possibile caricare un certificato di supporto solo dopo l'attivazione.|
-| CertificateManagement_EmptySAN | Il certificato con nome soggetto {0} non ha un nome alternativo del soggetto. Controllare le proprietà del certificato e importare un nuovo certificato.|
 | CertificateManagement_ExpiredCertificate | Il certificato con tipo {0} è scaduto o scade a breve. Controllare la scadenza del certificato e, se necessario, importare un nuovo certificato.|
 | CertificateManagement_FormatMismatch | Il formato del certificato non è supportato. Verificare il formato del certificato e, se necessario, importare un nuovo certificato.  Previsto {0} , trovato {1} . |
 | CertificateManagement_GenericError | Non è stato possibile eseguire l'operazione di gestione dei certificati. Ripetere l'operazione tra qualche minuto. Se il problema persiste, contattare il supporto tecnico Microsoft. |
@@ -42,7 +41,6 @@ La tabella seguente illustra gli errori comuni relativi ai certificati e le info
 | CertificateManagement_KeySizeNotSufficient | La dimensione della chiave del certificato con nome soggetto non {0} è sufficiente {1} . La dimensione minima della chiave è 4096.|
 | CertificateManagement_MissingClientOid | Il certificato con nome soggetto non {0} dispone dell'OID di autenticazione client. Controllare le proprietà del certificato e, se necessario, importare un nuovo certificato.|
 | CertificateManagement_MissingDigitalSignatureKeyUsage | Il certificato con nome soggetto {0} non ha una firma digitale nell'utilizzo della chiave. Controllare le proprietà del certificato e, se necessario, importare un nuovo certificato. |
-| CertificateManagement_MissingEntryInSAN | Il certificato con nome soggetto {0} non ha una voce di nome soggetto nel nome alternativo del soggetto. Controllare le proprietà del certificato e importare un nuovo certificato. |
 | CertificateManagement_MissingKeyCertSignKeyUsage | Il certificato con nome soggetto {0} non dispone dell'accesso alla chiave. Controllare le proprietà del certificato e, se necessario, importare un nuovo certificato.|
 | CertificateManagement_MissingKeyEnciphermentKeyUsage | Il certificato con nome soggetto {0} non ha la crittografia chiave nell'utilizzo della chiave. Controllare le proprietà del certificato e, se necessario, importare un nuovo certificato. |
 | CertificateManagement_MissingServerOid | Il certificato con nome soggetto non {0} dispone dell'OID di autenticazione server. Controllare le proprietà del certificato e, se necessario, importare un nuovo certificato.|
@@ -55,6 +53,10 @@ La tabella seguente illustra gli errori comuni relativi ai certificati e le info
 | CertificateManagement_SubjectNamesInvalid | Il certificato con nome soggetto {0} non ha il nome soggetto o i nomi alternativi del soggetto corretti per il {1} certificato. Controllare il certificato caricato e, se necessario, importare un nuovo certificato. Verificare anche che il nome DNS corrisponda ai nomi di San.|
 | CertificateManagement_UnreadableCertificate | Impossibile leggere il certificato con tipo {0} . Questo errore si verifica quando il certificato è illeggibile o è danneggiato. Importare un nuovo certificato.|
 | CertificateSubjectNotFound | Impossibile trovare il certificato con nome soggetto {0} . Importare un nuovo certificato.|
+| CertificateRotationGenericFailure | La rotazione di uno o più certificati non è riuscita. Riprovare tra qualche minuto. Se il problema persiste, contattare il supporto tecnico Microsoft.|
+| CertificateImportFailure | Il certificato con identificazione personale {0} non è stato importato nel nodo {1} . Se il problema persiste, contattare il supporto tecnico Microsoft. |
+| CertificateApplyFailure | Il certificato con identificazione personale {0} non è stato applicato al nodo {1} . Se il problema persiste, contattare il supporto tecnico Microsoft.|
+| NodeNotReachable | Non è stato possibile convalidare il certificato {0} . Verificare l'integrità del software e dell'hardware del sistema.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

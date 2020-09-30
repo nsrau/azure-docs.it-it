@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: de75ea1bc0a1cf63c74be3f7d9e486e1fe38db6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05b0ff7d4f56a61c5c91848044a30cb9bf1d0f46
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614564"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565310"
 ---
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>Domande frequenti sull'API Azure Cosmos DB per MongoDB
 
-L'API Azure Cosmos DB per MongoDB è un livello di compatibilità del protocollo wire che consente alle applicazioni di comunicare in modo semplice e trasparente con il motore di database nativo di Azure Cosmos usando gli SDK e i driver supportati dalla community esistenti per MongoDB. Gli sviluppatori possono ora usare toolchain e competenze di MongoDB esistenti per creare applicazioni che sfruttano i vantaggi offerti da Azure Cosmos DB. Gli sviluppatori traggono vantaggio dalle funzionalità esclusive di Azure Cosmos DB, tra cui la distribuzione globale con replica multimaster, l'indicizzazione automatica, la manutenzione dei backup, i contratti di servizio con supporto finanziario e così via.
+L'API Azure Cosmos DB per MongoDB è un livello di compatibilità del protocollo wire che consente alle applicazioni di comunicare in modo semplice e trasparente con il motore di database nativo di Azure Cosmos usando gli SDK e i driver supportati dalla community esistenti per MongoDB. Gli sviluppatori possono ora usare toolchain e competenze di MongoDB esistenti per creare applicazioni che sfruttano i vantaggi offerti da Azure Cosmos DB. Gli sviluppatori traggono vantaggio dalle funzionalità esclusive di Azure Cosmos DB, tra cui la distribuzione globale con replica di scrittura in più aree, l'indicizzazione automatica, la manutenzione dei backup, i contratti di servizio con supporto finanziario e così via.
 
 ## <a name="how-do-i-connect-to-my-database"></a>Come ci si connette al database?
 

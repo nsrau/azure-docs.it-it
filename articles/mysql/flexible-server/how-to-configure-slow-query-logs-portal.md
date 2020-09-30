@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: a73a2bc82c7f4e77808f751bb8ba24adcacd2e31
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: e2046673cda17c58153ceb12eee31edb83365092
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400384"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565723"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurare e accedere ai log di query lente per database di Azure per MySQL-server flessibile usando il portale di Azure
 
@@ -31,15 +31,16 @@ Configurare l'accesso al log di query lente MySQL.
 1. Selezionare il server flessibile.
 
 1. Nella sezione **Impostazioni** della barra laterale selezionare **parametri server**.
-   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot of Server logs options":::-->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/server-parameters.png" alt-text="Pagina parametri server.":::
 
 1. Aggiornare il parametro **slow_query_log** a **on**.
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="Pagina parametri server.":::
 
 1. Modificare gli altri parametri necessari (ad esempio `long_query_time`, `log_slow_admin_statements`). Per ulteriori parametri, vedere la documentazione relativa ai [log di query lente](./concepts-slow-query-logs.md#configure-slow-query-logging) .  
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="Pagina parametri server.":::
 
 1. Selezionare **Salva**. 
-
-   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot of slow query log parameters and save."::: -->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="Pagina parametri server.":::
 
 Dalla pagina **parametri server** è possibile tornare all'elenco dei log chiudendo la pagina.
 
@@ -49,17 +50,17 @@ I log di query lente sono integrati con le impostazioni di diagnostica di monito
 
 1. Nella sezione **monitoraggio** della barra laterale selezionare impostazioni di **diagnostica**  >  **Aggiungi impostazioni di diagnostica**.
 
-   <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings options":::-->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="Pagina parametri server.":::
 
 1. Specificare un nome per l'impostazione di diagnostica.
 
 1. Specificare quali destinazioni inviare i log di query lente (account di archiviazione, Hub eventi o area di lavoro Log Analytics).
 
 1. Selezionare **MySqlSlowLogs** come tipo di log.
-    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options":::-->
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="Pagina parametri server.":::
 
 1. Dopo aver configurato i sink di dati per inviare tramite pipe i log delle query lente a, selezionare **Salva**.
-    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::-->
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="Pagina parametri server.":::
 
 1. Per accedere ai log di query lente, esplorarli nei sink di dati configurati. Possono essere necessari fino a 10 minuti per la visualizzazione dei log.
 

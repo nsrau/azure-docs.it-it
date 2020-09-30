@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 280dda4d3864f2c659272ffb63d6ac2566524c45
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 64a95a14f6832e3f109335b5525b9a5dc1a9ec27
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549431"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662289"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askspoke"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con askSpoke
 
@@ -35,9 +35,6 @@ Per iniziare, sono necessari gli elementi seguenti:
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Sottoscrizione di askSpoke abilitata per l'accesso Single Sign-On (SSO).
 
-> [!NOTE]
-> Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
-
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
@@ -45,6 +42,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 * askSpoke supporta l'accesso SSO avviato da **SP e IDP**
 * askSpoke supporta il provisioning utenti **JIT**
 * Dopo aver configurato askSpoke, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
 
 ## <a name="adding-askspoke-from-the-gallery"></a>Aggiunta di askSpoke dalla raccolta
 
@@ -57,7 +57,7 @@ Per configurare l'integrazione di askSpoke in Azure AD, è necessario aggiungere
 1. Nella sezione **Aggiungi dalla raccolta** digitare **askSpoke** nella casella di ricerca.
 1. Selezionare **askSpoke** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-askspoke"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per askSpoke
+## <a name="configure-and-test-azure-ad-sso-for-askspoke"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per askSpoke
 
 Configurare e testare l'accesso SSO di Azure AD con askSpoke usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in askSpoke.
 
@@ -89,7 +89,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    Nella casella di testo **URL di accesso** digitare un URL: `https://askspoke.com/login`
+    Nella casella di testo **URL di accesso** digitare l'URL: `https://askspoke.com/login`
 
 1. L'applicazione askSpoke prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
@@ -146,15 +146,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic sulla scheda **Settings** (Impostazioni) dal riquadro di spostamento sinistro.
 
-    ![Configurazione di askSpoke](./media/askspoke-tutorial/configure1.png)
+    ![Scheda Settings di askSpoke](./media/askspoke-tutorial/configure1.png)
 
 1. Scorrere verso il basso fino a **SSO** (Accesso Single Sign-On) e fare clic su **Connect** (Connetti).
 
-    ![Configurazione di askSpoke](./media/askspoke-tutorial/configure2.png)
+    ![Opzione Connect di askSpoke](./media/askspoke-tutorial/configure2.png)
 
 1. Nella sezione **Enable SAML & SCIM** (Abilita SAML e SCIM) seguire questa procedura:
 
-    ![Configurazione di askSpoke](./media/askspoke-tutorial/configure3.png)
+    ![Sezione Enable SAML & SCIM di askSpoke](./media/askspoke-tutorial/configure3.png)
 
     1. Nella casella di testo **Sign-on URL** (URL di accesso) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
@@ -187,6 +187,3 @@ Quando si fa clic sul riquadro di askSpoke nel pannello di accesso, si dovrebbe 
 - [Provare askSpoke con Azure AD](https://aad.portal.azure.com/)
 
 - [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Come proteggere askSpoke con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

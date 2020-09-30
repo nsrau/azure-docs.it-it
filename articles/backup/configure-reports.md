@@ -3,12 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report di Backup di Azure usando Log Analytics e le cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 0ede2c8507032811eda26cfcb4d90f18578f3700
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d40da1ebd87ef7d7a43d0be9ae0d34911e854d0e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180287"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567435"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -23,6 +23,7 @@ Oggi Backup di Azure offre una soluzione per la creazione di report che usa i [l
 ## <a name="supported-scenarios"></a>Scenari supportati
 
 - I report di Backup sono supportati per Macchine virtuali di Azure, SQL in Macchine virtuali di Azure, SAP HANA in Macchine virtuali di Azure, l'agente di Servizi di ripristino di Microsoft Azure (MARS), il server di Backup di Microsoft Azure e System Center Data Protection Manager (DPM). Per il backup di condivisioni file di Azure, vengono visualizzati i dati per tutti i record creati il 1 ° giugno 2020.
+- Per il backup di condivisioni file di Azure, i dati nelle istanze protette non sono attualmente visualizzati nei report (il valore predefinito è zero per tutti gli elementi di backup).
 - Per i carichi di lavoro DPM, i report di Backup sono supportati per DPM versione 5.1.363.0 e successive e per l'agente MARS versione 2.0.9127.0 e successive.
 - Per i carichi di lavoro del server di Backup di Microsoft Azure, i report di Backup sono supportati per il server di Backup di Microsoft Azure versione 13.0.415.0 e successive e per l'agente MARS versione 2.0.9170.0 e successive.
 - I report di Backup possono essere visualizzati per tutti gli elementi di backup, gli insiemi di credenziali, le sottoscrizioni e le aree, purché i relativi dati vengano inviati a un'area di lavoro Log Analytics a cui l'utente può accedere. Per visualizzare i report relativi a un set di insiemi di credenziali, è sufficiente avere accesso in lettura all'area di lavoro Log Analytics a cui gli insiemi di credenziali inviano i dati. Non è necessario avere accesso ai singoli insiemi di credenziali.
@@ -82,7 +83,7 @@ Usare questa scheda per visualizzare le informazioni e le tendenze sull'archivia
 
    ![Scheda Elementi di backup](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-##### <a name="usage"></a>Utilizzo
+##### <a name="usage"></a>Uso
 
 Usare questa scheda per visualizzare i parametri di fatturazione principali per i backup. Le informazioni visualizzate in questa scheda sono a livello di entità di fatturazione (contenitore protetto). Se, ad esempio, viene eseguito il backup di un server DPM in Azure, è possibile visualizzare la tendenza delle istanze protette e dello spazio di archiviazione cloud utilizzato per il server DPM. Analogamente, se si usa SQL in Backup di Azure o SAP HANA in Backup di Azure, questa scheda fornisce informazioni relative all'utilizzo a livello della macchina virtuale che contiene questi database.
 

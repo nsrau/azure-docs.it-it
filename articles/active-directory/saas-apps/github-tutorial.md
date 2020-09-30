@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 7153a1279785cfe79d23b2b5ba843ec9f5cd4965
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 007f4d0c0e56051c369d8d06cdd40c9251647673
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550745"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985900"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con GitHub
 
@@ -194,7 +194,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in GitHub. G
 
 2. Fare clic su **People** (Persone).
 
-    ![People](./media/github-tutorial/people.png "Persone")
+    ![Screenshot che mostra il sito GitHub con l'opzione People selezionata.](./media/github-tutorial/people.png "Persone")
 
 3. Fare clic su **Invite member** (Invita membro).
 

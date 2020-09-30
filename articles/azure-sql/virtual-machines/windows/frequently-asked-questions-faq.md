@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: a5f4ff3dade381cf1a68ac5e9e820be153acf5ee
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483746"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566993"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Domande frequenti per SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,7 +56,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **Come è possibile generalizzare SQL Server nella macchina virtuale di Azure al fine di usarlo per distribuire nuove VM?**
 
-   È possibile distribuire una macchina virtuale di Windows Server (senza SQL Server installato) e usare il processo [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) per generalizzare SQL Server nella VM di Azure (Windows) con il supporto di installazione di SQL Server. I clienti che usano [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) possono ottenere il supporto di installazione dal [Centro per i contratti multilicenza](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non hanno Software Assurance possono usare il supporto di installazione di Azure Marketplace SQL Server immagine di macchina virtuale con l'edizione desiderata.
+   È possibile distribuire una macchina virtuale di Windows Server (senza SQL Server installato) e usare il processo [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep) per generalizzare SQL Server nella VM di Azure (Windows) con il supporto di installazione di SQL Server. I clienti che usano [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) possono ottenere il supporto di installazione dal [Centro per i contratti multilicenza](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non hanno Software Assurance possono usare il supporto di installazione di Azure Marketplace SQL Server immagine di macchina virtuale con l'edizione desiderata.
 
    In alternativa, è possibile usare una delle immagini SQL Server di Azure Marketplace per generalizzare SQL Server nella macchina virtuale di Azure. Si noti che è necessario eliminare la chiave del Registro di sistema seguente nell'immagine di origine prima di creare un'immagine personalizzata. In caso contrario, è possibile che si verifichi il blot della cartella di bootstrap di installazione di SQL Server e/o che l'estensione SQL IaaS sia in stato di errore.
 
@@ -179,13 +179,21 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
    
    Sì, se l'istanza denominata è l'unica istanza di SQL Server e se l'istanza predefinita originale è stata [disinstallata correttamente](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). Se non è presente un'istanza predefinita e sono presenti più istanze denominate in una singola macchina virtuale di SQL Server, l'installazione dell'estensione SQL Server IaaS Agent non verrà completata. 
 
-1. **Posso rimuovere completamente SQL Server da una macchina virtuale di SQL Server?**
+1. **È possibile rimuovere SQL Server e la fatturazione della licenza associata da una macchina virtuale SQL Server?**
 
-   Sì, ma continueranno a essere addebitati i costi per la VM di SQL Server, come descritto in [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure). Se SQL Server non è più necessario, è possibile distribuire una nuova macchina virtuale ed eseguire la migrazione di dati e applicazioni alla nuova macchina virtuale. Sarà quindi possibile rimuovere la macchina virtuale di SQL Server.
+   Sì, ma è necessario eseguire passaggi aggiuntivi per evitare che venga addebitata l'istanza di SQL Server, come descritto in [linee guida sui prezzi](pricing-guidance.md). Se si vuole rimuovere completamente l'istanza di SQL Server, è possibile eseguire la migrazione a un'altra macchina virtuale di Azure senza SQL Server pre-installato nella macchina virtuale ed eliminare la macchina virtuale di SQL Server corrente. Se si vuole che la macchina virtuale venga mantenuta ma si interrompa SQL Server fatturazione, attenersi alla procedura seguente: 
+
+   1. Eseguire il backup di tutti i dati, inclusi i database di sistema, se necessario. 
+   1. Disinstallare SQL Server completamente, inclusa l'estensione SQL IaaS (se presente).
+   1. Installare l'edizione gratuita di [SQL Express](https://www.microsoft.com/sql-server/sql-server-downloads).
+   1. Eseguire la registrazione con il provider di risorse VM SQL in [modalità Lightweight](sql-vm-resource-provider-register.md).
+   1. opzionale Disabilitare il servizio Express SQL Server disabilitando l'avvio del servizio. 
 
 1. **È possibile usare il portale di Azure per gestire più istanze nella stessa macchina virtuale?**
+
    No. La gestione del portale viene fornita dal provider di risorse VM SQL, che si basa sull'estensione SQL Server agente IaaS. Di conseguenza, le stesse limitazioni si applicano al provider di risorse come estensione. Il portale può gestire solo un'istanza predefinita o un'istanza denominata purché sia configurata correttamente. Per altre informazioni, vedere [SQL Server estensione dell'agente IaaS](sql-server-iaas-agent-extension-automate-management.md) 
-   
+
+
 ## <a name="updating-and-patching"></a>Aggiornamento e applicazione di patch
 
 1. **Ricerca per categorie modificare una versione o un'edizione diversa di SQL Server in una macchina virtuale di Azure?**

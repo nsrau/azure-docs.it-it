@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0ae29039702a6f73a33f73afc366532077aa4b71
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c248755c1f32d41b6926d4492dcc3d0eea2869b8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432842"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566874"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gestire le risorse di Azure Cosmos DB usando l'interfaccia della riga di comando di Azure
 
@@ -33,7 +33,7 @@ Le sezioni seguenti illustrano come gestire l'account Azure Cosmos:
 * [Attivare il failover manuale](#trigger-manual-failover)
 * [Elencare le chiavi dell'account](#list-account-keys)
 * [Elencare le chiavi dell'account di sola lettura](#list-read-only-account-keys)
-* [Elenca stringhe di connessione](#list-connection-strings)
+* [Elencare le stringhe di connessione](#list-connection-strings)
 * [Rigenera chiave dell'account](#regenerate-account-key)
 
 ### <a name="create-an-azure-cosmos-db-account"></a>Creare un account Azure Cosmos DB
@@ -87,10 +87,10 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName \
 
 ### <a name="enable-multiple-write-regions"></a>Abilita più aree di scrittura
 
-Abilitare la funzionalità multimaster per un account Cosmos
+Abilitare le Scritture in più aree per un account Cosmos
 
 ```azurecli-interactive
-# Update an Azure Cosmos account from single to multi-master
+# Update an Azure Cosmos account from single write region to multiple write regions
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 
@@ -148,7 +148,7 @@ az cosmosdb failover-priority-change --ids $accountId \
     --failover-policies 'East US 2=0' 'South Central US=1' 'West US 2=2'
 ```
 
-### <a name="list-all-account-keys"></a><a id="list-account-keys"></a>Elencare tutte le chiavi dell'account
+### <a name="list-all-account-keys"></a><a id="list-account-keys"></a> Elencare tutte le chiavi dell'account
 
 Ottenere tutte le chiavi per un account Cosmos.
 
@@ -489,5 +489,5 @@ az lock delete --ids $lockid
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere:
 
 - [Installare l'interfaccia da riga di comando di Azure](/cli/azure/install-azure-cli)
-- [Informazioni di riferimento sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/cosmosdb)
+- [Riferimenti per l'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/cosmosdb)
 - [Esempi dell'interfaccia della riga di comando di Azure Cosmos DB](cli-samples.md)

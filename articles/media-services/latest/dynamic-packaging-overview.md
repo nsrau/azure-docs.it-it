@@ -2,7 +2,7 @@
 title: Creazione dinamica dei pacchetti in Servizi multimediali di Azure versione 3
 titleSuffix: Azure Media Services
 description: Questo articolo offre una panoramica della creazione dinamica dei pacchetti in Servizi multimediali di Azure.
-author: IngridAtMicrosoft
+author: myoungerman
 manager: femila
 editor: ''
 services: media-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: dfa87921bc6a5a6c34b4dec33f4aae1907507730
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.author: v-myoung
+ms.openlocfilehash: 3607ecb7d1ef01b968b67c704e12136cc1888b69
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291620"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296230"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Creazione dinamica dei pacchetti in Servizi multimediali versione 3
 
@@ -27,7 +27,7 @@ ms.locfileid: "89291620"
 
 Servizi multimediali di Microsoft Azure può essere usato per codificare molti formati di file di origini multimediali. Tali formati vengono distribuiti tramite protocolli di streaming diversi, con o senza protezione del contenuto, per raggiungere tutti i dispositivi principali, ad esempio dispositivi iOS e Android. Tali client supportano protocolli diversi. iOS, ad esempio, richiede che i flussi vengano distribuiti nel formato HLS (HTTP Live Streaming), mentre i dispositivi Android supportano HLS e MPEG DASH.
 
-In Servizi multimediali un [endpoint di streaming](streaming-endpoint-concept.md) (origine) rappresenta un servizio di generazione e creazione di pacchetti dinamici (just-in-time) in grado di distribuire contenuti live e on demand direttamente a un'app di riproduzione client. Usa uno dei protocolli multimediali comuni di streaming indicati nella sezione seguente. La *creazione dinamica dei pacchetti* è una funzionalità fornita con tutti gli endpoint di streaming (Standard o Premium).
+In Servizi multimediali un [endpoint di streaming](streaming-endpoint-concept.md) (origine) rappresenta un servizio di generazione e creazione di pacchetti dinamici (just-in-time) in grado di distribuire contenuti live e on demand direttamente a un'app di riproduzione client. Usa uno dei protocolli multimediali comuni di streaming indicati nella sezione seguente. La *creazione dinamica dei pacchetti* è una funzionalità standard di tutti gli endpoint di streaming.
 
 > [!NOTE]
 > È possibile usare il [portale di Azure](https://portal.azure.com/) per gestire gli [eventi live](live-events-outputs-concept.md) v3, visualizzare gli [asset](assets-concept.md) v3 e ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione, ad esempio trasformazioni e processi, usare l'[API REST](/rest/api/media/), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) oppure uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
@@ -132,7 +132,7 @@ Per informazioni sullo streaming live in Servizi multimediali v3, vedere [Panora
 La creazione dinamica dei pacchetti supporta file video nel formato di file contenitore MP4 che contengono video codificati con [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC o AVC1) o [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 o hvc1).
 
 > [!NOTE]
-> Con la *creazione dinamica dei pacchetti* sono state testate risoluzioni fino a 4K e frequenze dei fotogrammi fino a 60 fotogrammi al secondo. Il [codificatore Premium](../previous/media-services-encode-asset.md#media-encoder-premium-workflow) supporta la codifica in H.265 tramite le API v2 legacy.
+> Con la *creazione dinamica dei pacchetti* sono state testate risoluzioni fino a 4K e frequenze dei fotogrammi fino a 60 fotogrammi al secondo.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codec audio supportati dalla creazione dinamica dei pacchetti
 

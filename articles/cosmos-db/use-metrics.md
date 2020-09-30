@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24f321e3c3c0fe8e85633edb505879874e8c772f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6de0a6632c53055dd3d3f428481dcc465b67ef6e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019233"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568013"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Dal riquadro **metriche** sono disponibili le metriche seguenti:
 
 * **Metrica di coerenza** : questa metrica indica il modo in cui è possibile la coerenza del modello di coerenza scelto. Per gli account in più aree, questa metrica Mostra anche la latenza di replica tra le aree selezionate.
 
-* **Metriche di sistema** : questa metrica indica il numero di richieste di metadati gestite dalla partizione master. Consente inoltre di identificare le richieste limitate.
+* **Metriche di sistema** : questa metrica indica il numero di richieste di metadati gestite dalla partizione primaria. Consente inoltre di identificare le richieste limitate.
 
 Le sezioni seguenti illustrano scenari comuni in cui è possibile usare Azure Cosmos DB metrica. 
 
@@ -51,13 +51,13 @@ Per iniziare, accedere al [portale di Azure](https://portal.azure.com) e passare
 
 Il codice di stato di errore più comune è 429 (limitazione della velocità/limitazione). Questo errore indica che le richieste ad Azure Cosmos DB sono maggiori rispetto alle UR di cui è stato effettuato provisioning. La soluzione più comune per questo problema consiste nell'[aumentare il numero di UR](./set-throughput.md) per la raccolta specificata.
 
-:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Numero di richieste al minuto":::
+:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Cosmos DB le metriche delle prestazioni in portale di Azure":::
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Determinare la distribuzione della velocità effettiva tra le partizioni
 
 Avere una buona cardinalità delle chiavi di partizione è essenziale per qualsiasi applicazione scalabile. Per determinare la distribuzione della velocità effettiva di un contenitore partizionato suddiviso per partizione, passare al **pannello Metriche** nel [portale di Azure](https://portal.azure.com). Nella scheda **Velocità effettiva** la scomposizione di archiviazione viene mostrata nel grafico **Numero massimo di unità richiesta al secondo utilizzate da ogni partizione fisica**. Il grafico seguente illustra un esempio di distribuzione non efficace dei dati come evidenziato dalla deviazione della partizione all'estrema sinistra.
 
-:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Singola partizione che vede un utilizzo intensivo":::
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Cosmos DB le metriche delle prestazioni in portale di Azure":::
 
 Una distribuzione non uniforme della velocità effettiva può generare partizioni *critiche*, che possono ridurre le richieste e potrebbero richiedere una nuova ripartizione. Per altre informazioni sul partizionamento in Azure Cosmos DB, vedere [Partizionamento e ridimensionamento in Azure Cosmos DB](./partition-data.md).
 
@@ -65,11 +65,11 @@ Una distribuzione non uniforme della velocità effettiva può generare partizion
 
 Avere una buona cardinalità della partizione è essenziale per qualsiasi applicazione scalabile. Per determinare la distribuzione dell'archiviazione di un contenitore partizionato suddiviso per partizione, passare al pannello Metriche nel [portale di Azure](https://portal.azure.com). Nella scheda Archiviazione la scomposizione dell'archiviazione viene mostrata nel grafico della risorsa di archiviazione dati + indice utilizzata dalle chiavi di partizione principali. Il grafico seguente illustra una distribuzione non efficace della risorsa di archiviazione dati come evidenziato dalla deviazione della partizione all'estrema sinistra.
 
-:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Esempio di distribuzione dei dati ridotta":::
+:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Cosmos DB le metriche delle prestazioni in portale di Azure":::
 
 È possibile capire quale chiave di partizione riduce la distribuzione facendo clic sulla partizione nel grafico.
 
-:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Chiave di partizione che riduce la distribuzione":::
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Cosmos DB le metriche delle prestazioni in portale di Azure":::
 
 Dopo aver identificato la chiave di partizione che riduce la distribuzione, è possibile che sia necessario ripartizionare il contenitore con una chiave di partizione più distribuita. Per altre informazioni sul partizionamento in Azure Cosmos DB, vedere [Partizionamento e ridimensionamento in Azure Cosmos DB](./partition-data.md).
 

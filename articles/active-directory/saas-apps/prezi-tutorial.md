@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 994d427fb91f04ea0d2002a2c95e12366f4c6420
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2f3e540174643f20c87396b8568f6e5b0a1ab16d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553566"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658928"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Esercitazione: Integrazione dell'accesso Single Sign-On di Azure Active Directory con Prezi
 
@@ -42,6 +42,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 * Prezi supporta l'accesso SSO avviato da SP e IDP.
 * Prezi supporta il provisioning utenti JIT.
 * Dopo aver configurato Prezi, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. Per altre informazioni, vedere [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
 
 ## <a name="add-prezi-from-the-gallery"></a>Aggiungere Prezi dalla raccolta
 

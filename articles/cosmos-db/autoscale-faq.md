@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708003"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567588"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Domande frequenti sulla velocità effettiva con provisioning a scalabilità automatica in Azure Cosmos DB
 
@@ -37,14 +37,14 @@ Usare [metriche di Monitoraggio di Azure](how-to-choose-offer.md#measure-and-mon
 Ogni ora viene addebitata la velocità effettiva più elevata `T` a cui il sistema è stato ridimensionato nel corso dell'ora. Se la risorsa non ha ricevuto richieste nel corso di tale ora o se non è stata ridimensionata oltre `0.1 * Tmax`, viene addebitato il minimo di `0.1 * Tmax`. Per informazioni dettagliate, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-does-autoscale-show-up-on-my-bill"></a>Come viene visualizzata la funzionalità di scalabilità automatica in fattura?
-Negli account con master singolo, la tariffa della scalabilità automatica per 100 UR/s è pari a 1,5 volte la tariffa della velocità effettiva con provisioning standard (manuale). Nella fattura è visualizzato il contatore della velocità effettiva con provisioning standard esistente. La quantità di questo contatore viene moltiplicata per 1,5. Se, ad esempio, il numero massimo di UR/s del sistema è stato ridimensionato a 6000 UR/s nel corso di un'ora, per tale ora vengono addebitate 60 * 1,5 = 90 unità del contatore.
+Negli account con singola area di scrittura, la velocità di scalabilità automatica per 100 ur/sec è pari a 1,5 x la velocità della velocità effettiva con provisioning standard (manuale). Nella fattura è visualizzato il contatore della velocità effettiva con provisioning standard esistente. La quantità di questo contatore viene moltiplicata per 1,5. Se, ad esempio, il numero massimo di UR/s del sistema è stato ridimensionato a 6000 UR/s nel corso di un'ora, per tale ora vengono addebitate 60 * 1,5 = 90 unità del contatore.
 
-Negli account multimaster, la tariffa della scalabilità automatica per 100 UR/s è uguale alla tariffa della velocità effettiva multimaster con provisioning standard (manuale). Nella fattura è visualizzato il contatore multimaster esistente. Poiché le tariffe sono le stesse, se si usa la scalabilità automatica viene visualizzata la stessa quantità rispetto alla velocità effettiva standard.
+Negli account con più aree di scrittura, la velocità di scalabilità automatica per 100 ur/sec corrisponde alla frequenza per la velocità effettiva del provisioning di più aree di scrittura standard (manuale). Nella fattura sarà visualizzato il contatore più aree di scrittura esistenti. Poiché le tariffe sono le stesse, se si usa la scalabilità automatica viene visualizzata la stessa quantità rispetto alla velocità effettiva standard.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>La scalabilità automatica funziona con la capacità riservata?
-Sì. Quando si acquista capacità riservata a master singolo, lo sconto relativo alla prenotazione per le risorse di scalabilità automatica viene applicato all'utilizzo del contatore con un rapporto di 1,5 volte rispetto al [ rapporto dell'area specifica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Sì. Quando si acquista la capacità riservata per gli account con più aree di scrittura, lo sconto per la prenotazione per le risorse di scalabilità automatica viene applicato all'utilizzo del contatore a un rapporto di 1,5 * il [rapporto dell'area specifica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
-La capacità riservata multimaster funziona allo stesso modo per la velocità effettiva con scalabilità automatica e per la velocità effettiva con provisioning standard (manuale). Vedere [Capacità riservata di Azure Cosmos DB](cosmos-db-reserved-capacity.md)
+La capacità riservata dell'area con più scritture funziona allo stesso tempo per la scalabilità automatica e la velocità effettiva con provisioning standard (manuale). Vedere [Capacità riservata di Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 
 ### <a name="does-autoscale-work-with-free-tier"></a>La scalabilità automatica funziona con il livello gratuito?
 Sì. Nel livello gratuito è possibile usare la velocità effettiva con scalabilità automatica in un contenitore. Il supporto per i database con velocità effettiva condivisa con scalabilità automatica con numero massimo di UR/s personalizzato non è ancora disponibile. Vedere come [funziona la fatturazione del livello gratuito con la scalabilità automatica](understand-your-bill.md#billing-examples-with-free-tier-accounts).
@@ -52,7 +52,7 @@ Sì. Nel livello gratuito è possibile usare la velocità effettiva con scalabil
 ### <a name="is-autoscale-supported-for-all-apis"></a>La scalabilità automatica è supportata per tutte le API?
 Sì, la scalabilità automatica è supportata per tutte le API: Core (SQL), Gremlin, Tabella, Cassandra e API per MongoDB.
 
-### <a name="is-autoscale-supported-for-multi-master-accounts"></a>La scalabilità automatica è supportata per gli account multimaster?
+### <a name="is-autoscale-supported-for-multi-region-write-accounts"></a>La funzionalità di scalabilità automatica è supportata per gli account di scrittura in più aree?
 Sì. Le UR/s massime sono disponibili in ogni area aggiunta all'account Azure Cosmos DB. 
 
 ### <a name="how-do-i-enable-autoscale-on-new-databases-or-containers"></a>Come si può abilitare la scalabilità automatica nei nuovi database o nei nuovi contenitori?

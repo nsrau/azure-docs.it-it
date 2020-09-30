@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python
-ms.openlocfilehash: 133c885f29ceff0b8c4764507a80df5ee24cf4a1
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: cc5bc5b2c9f78854909b965487f7b4299f3a1579
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361728"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567452"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuire un modello di Machine Learning in funzioni di Azure (anteprima)
 
@@ -181,7 +181,7 @@ Quando `show_output=True` viene visualizzato l'output del processo di compilazio
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
-    ```azurecli-interactiv
+    ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     Registrare la stringa di connessione da fornire all'app per le funzioni. Verrà usato in un secondo momento per richiedere `<triggerConnectionString>`

@@ -1,6 +1,6 @@
 ---
-title: Protocolli File di Azure disponibili
-description: Informazioni sui protocolli disponibili prima di creare una condivisione file di Azure.
+title: Protocolli File di Azure disponibili-NFS e SMB
+description: Informazioni sui protocolli disponibili prima di creare una condivisione file di Azure, tra cui Server Message Block (SMB) e NFS (Network File System).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8082e694c4282759c9c38560c14eb3659fcd55ec
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708139"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568472"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolli di condivisione file di Azure
 
@@ -21,22 +21,22 @@ File di Azure offre due protocolli per la connessione e il montaggio delle condi
 
 ## <a name="differences-at-a-glance"></a>Differenze a colpo d'occhio
 
-|Funzionalità  |NFS (anteprima)  |SMB  |
+|Feature  |NFS (anteprima)  |SMB  |
 |---------|---------|---------|
 |Protocolli di accesso     |NFS 4,1         |SMB 2,1, SMB 3,0         |
 |Sistema operativo supportato     |Kernel Linux versione 4.3 +         |Windows 2008 R2 +, versione kernel Linux 4.11 +         |
-|Livelli disponibili     |Archiviazione Premium         |Archiviazione Premium, archiviazione standard, accesso frequente, ad accesso sporadico         |
-|Replica     |LRS         |LRS, ZRS, GRS         |
+|[Livelli disponibili](storage-files-planning.md#storage-tiers)     |Archiviazione Premium         |Archiviazione Premium, ottimizzato per le transazioni, accesso frequente, ad accesso sporadico         |
+|[Ridondanza](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
 |Authentication     |Solo autenticazione basata su host        |Autenticazione basata sull'identità, autenticazione basata sull'utente         |
 |Autorizzazioni     |Autorizzazioni di tipo UNIX         |Autorizzazioni di tipo NTFS         |
 |Semantica del file System     |Conforme a POSIX         |Non conforme a POSIX         |
 |Maiuscole/minuscole     |Fa distinzione tra maiuscole e minuscole.         |Senza distinzione maiuscole/minuscole         |
-|Supporto per collegamenti reali     |Supportato         |Non supportate         |
-|Supporto di collegamenti simbolici     |Supportato         |Non supportate         |
-|Eliminazione o modifica di file aperti     |Supportato         |Non supportate         |
+|Supporto per collegamenti reali     |Supportato         |Non supportato         |
+|Supporto di collegamenti simbolici     |Supportato         |Non supportato         |
+|Eliminazione o modifica di file aperti     |Supportato         |Non supportato         |
 |Blocco     |Gestione blocco di rete consultivo per l'intervallo di byte         |Supportato         |
-|Elenco sicuro IP pubblico | Non supportate | Supportato|
-|Interoperabilità del protocollo| Non supportate | Filerest|
+|Elenco sicuro IP pubblico | Non supportato | Supportato|
+|Interoperabilità del protocollo| Non supportato | Filerest|
 
 ## <a name="nfs-shares-preview"></a>Condivisioni NFS (anteprima)
 

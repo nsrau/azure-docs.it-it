@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: d6039ac3bead535fd9c7de64a8e92a0d7a58f390
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2f7ef27ea5cc19c60e05fddfe4d00cd4ff234bc2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319237"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568047"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Collegamento ad Azure Synapse per Azure Cosmos DB: casi d'uso dell'analisi quasi in tempo reale
 
@@ -70,7 +70,7 @@ Di seguito sono riportate alcune indicazioni per l'integrazione dei dati in batc
 
 Oggi i retailer devono sviluppare soluzioni di e-commerce sicure e scalabili che soddisfino le esigenze dei clienti e del business. Queste soluzioni di e-commerce devono coinvolgere i clienti tramite offerte e prodotti personalizzati, elaborare le transazioni in modo rapido e sicuro e soddisfare i requisiti di evasione degli ordini e assistenza clienti. Azure Cosmos DB, insieme al recente servizio Collegamento a Synapse per Azure Cosmos DB, consente ai retailer di generare raccomandazioni personalizzate per i clienti in tempo reale. Queste soluzioni usano impostazioni di coerenza ottimizzabili e a bassa latenza per generare informazioni dettagliate immediate, come illustrato nell'architettura seguente:
 
-:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Collegamento ad Azure Synapse per Azure Cosmos DB nella personalizzazione in tempo reale" border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Collegamento a sinapsi di Azure per Azure Cosmos DB in analisi Supply Chain " border="false":::
 
 Caso d'uso di Collegamento a Synapse per Azure Cosmos DB:
 
@@ -82,7 +82,7 @@ Le innovazioni dell'IoT industriale hanno portato a una riduzione drastica dei t
 
 Di seguito è riportata un'architettura che sfrutta le funzionalità HTAP native del cloud di Collegamento ad Azure Synapse per Azure Cosmos DB nella manutenzione predittiva di IoT:
 
-:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Collegamento ad Azure Synapse per Azure Cosmos DB per la manutenzione predittiva di IoT" border="false" :::
+:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Collegamento a sinapsi di Azure per Azure Cosmos DB in analisi Supply Chain " border="false" :::
 
 Casi d'uso di Collegamento a Synapse per Azure Cosmos DB:
 
@@ -92,7 +92,7 @@ Casi d'uso di Collegamento a Synapse per Azure Cosmos DB:
 
 ## <a name="sample-scenario-htap-for-azure-cosmos-db"></a>Scenario di esempio: HTAP per Azure Cosmos DB
 
-Da circa dieci anni Azure Cosmos DB viene usato da migliaia di clienti per le applicazioni cruciali che richiedono scalabilità elastica, distribuzione globale preconfigurata e replica multimaster per operazioni di lettura e scrittura a bassa latenza e disponibilità elevata nei carichi di lavoro transazionali.
+Per quasi un decennio, Azure Cosmos DB è stato usato da migliaia di clienti per applicazioni mission-critical che richiedono scalabilità elastica, distribuzione globale chiavi in mano, replica di scrittura in più aree per la bassa latenza e disponibilità elevata di entrambe le letture & scritture nei carichi di lavoro transazionali.
  
 L'elenco seguente mostra una panoramica dei vari modelli di carico di lavoro supportati con dati operativi tramite Azure Cosmos DB:
 
@@ -104,17 +104,17 @@ L'elenco seguente mostra una panoramica dei vari modelli di carico di lavoro sup
 
 Con Collegamento ad Azure Synapse, oltre a supportare i carichi di lavoro tradizionali, Azure Cosmos DB esegue anche carichi di lavoro analitici in tempo reale su dati operativi cronologici. Questo risultato si ottiene senza requisiti di ETL e con l'isolamento delle prestazioni garantito dai carichi di lavoro transazionali.
 
-L'immagine seguente mostra i modelli di carico di lavoro con Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Modelli di carico di lavoro di Collegamento ad Azure Synapse per Azure Cosmos DB" border="false":::
+L'immagine seguente mostra i modelli di carico di lavoro con Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Collegamento a sinapsi di Azure per Azure Cosmos DB in analisi Supply Chain " border="false":::
 
 Si esaminerà l'esempio di un'azienda di e-commerce, CompanyXYZ, con operazioni globali in 20 paesi o aree geografiche per illustrare i vantaggi derivanti dalla scelta di Azure Cosmos DB come singolo database in tempo reale che soddisfa i requisiti transazionali e analitici di una piattaforma di gestione dell'inventario.
 
 * Il core business di CompanyXYZ dipende dal sistema di gestione dell'inventario, quindi la disponibilità e l'affidabilità sono requisiti imprescindibili. Vantaggi dell'uso di Azure Cosmos DB:
 
-  * Grazie alla stretta integrazione con l'infrastruttura di Azure e alla replica globale multimaster e trasparente, Azure Cosmos DB offre [disponibilità elevata al 99,999%](high-availability.md) leader di settore per le interruzioni del servizio locali.
+  * Grazie alla profonda integrazione con l'infrastruttura di Azure e alle Scritture in più aree trasparenti, la replica globale Azure Cosmos DB offre una [disponibilità elevata del 99,999%](high-availability.md) leader del settore per le interruzioni di regione.
 
 * I partner della supply chain di CompanyXYZ possono trovarsi in aree geografiche disparate, ma devono avere una singola visione dell'inventario di prodotti in tutto il mondo per supportare le operazioni locali. È anche necessario avere la possibilità di leggere in tempo reale gli aggiornamenti apportati da altri partner della supply chain, oltre alla possibilità di eseguire aggiornamenti a una velocità effettiva elevata senza preoccuparsi di entrare in conflitto con altri partner. Vantaggi dell'uso di Azure Cosmos DB:
 
-  * Grazie a un esclusivo protocollo di replica multimaster e a un archivio transazionale ottimizzato per la scrittura e privo di latch, Azure Cosmos DB garantisce latenze inferiori ai 10 ms per operazioni di lettura e di scrittura indicizzate al 99° percentile in tutto il mondo.
+  * Con il protocollo di replica in più aree univoco e l'archivio transazionale senza latch e con ottimizzazione per la scrittura, Azure Cosmos DB garantisce una latenza inferiore a 10 ms per le letture indicizzate e le Scritture al 99 ° percentile a livello globale.
 
   * Inserimento a velocità effettiva elevata dei feed di dati in batch e in streaming con [indicizzazione in tempo reale](index-policy.md) nell'archivio transazionale.
 

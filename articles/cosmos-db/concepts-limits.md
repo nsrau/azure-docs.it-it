@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 373463ff9024ec3b657df6d141ed830142b23f2e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: e4d2da56146a14b295e08a1093fe62a50f87ecfa
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400061"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567554"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -154,11 +154,11 @@ Azure Cosmos DB supporta [operazioni di query e CRUD](/rest/api/cosmos-db/) su r
 
 Non appena un'operazione come una query raggiunge il timeout di esecuzione o il limite della dimensione della risposta, restituisce al client una pagina di risultati e un token di continuazione per riprendere l'esecuzione. Non esiste un limite pratico per la durata di esecuzione di una singola query tra pagine/continuazioni.
 
-Cosmos DB usa HMAC per l'autorizzazione. È possibile usare una chiave master o un [token di risorsa](secure-access-to-data.md) per il controllo di accesso con granularità fine a risorse quali contenitori, chiavi di partizione o elementi. La tabella seguente elenca i limiti relativi ai token di autorizzazione in Cosmos DB.
+Cosmos DB usa HMAC per l'autorizzazione. È possibile usare una chiave primaria o un token di [risorsa](secure-access-to-data.md) per il controllo di accesso con granularità fine a risorse quali contenitori, chiavi di partizione o elementi. La tabella seguente elenca i limiti relativi ai token di autorizzazione in Cosmos DB.
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Tempo di scadenza massimo del token master | 15 min  |
+| Tempo di scadenza massimo token primario | 15 min  |
 | Tempo di scadenza minimo del token di risorsa | 10 min  |
 | Tempo di scadenza massimo del token di risorsa | 24 ore per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](create-support-request-quota-increase.md)|
 | Massimo sfasamento di orario per l'autorizzazione con token| 15 min |
@@ -171,7 +171,7 @@ Azure Cosmos DB gestisce i metadati di sistema per ogni account. Questi metadati
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-|Velocità massima di creazione della raccolta (minuto RER)| 5|
+|Velocità massima di creazione raccolta al minuto| 5|
 |Velocità massima di creazione database al minuto|   5|
 |Velocità massima di aggiornamento velocità effettiva con provisioning al minuto| 5|
 

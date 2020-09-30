@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/04/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: dcf67ce9c9e63fdbba8db565113cf3380e4142dd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3f8a0576ff9ea128aae0d63d4879fe66ed2bf549
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548670"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660637"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharevault"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ShareVault
 
@@ -43,6 +43,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 * ShareVault supporta il provisioning utenti **JIT**
 * Dopo aver configurato ShareVault, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
+> [!NOTE]
+> Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
+
 ## <a name="adding-sharevault-from-the-gallery"></a>Aggiunta di ShareVault dalla raccolta
 
 Per configurare l'integrazione di ShareVault in Azure AD, è necessario aggiungere ShareVault dalla raccolta all'elenco di app SaaS gestite.
@@ -54,7 +57,7 @@ Per configurare l'integrazione di ShareVault in Azure AD, è necessario aggiunge
 1. Nella sezione **Aggiungi dalla raccolta** digitare **ShareVault** nella casella di ricerca.
 1. Selezionare **ShareVault** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sharevault"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per ShareVault
+## <a name="configure-and-test-azure-ad-sso-for-sharevault"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per ShareVault
 
 Configurare e testare l'accesso SSO di Azure AD con ShareVault usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ShareVault.
 

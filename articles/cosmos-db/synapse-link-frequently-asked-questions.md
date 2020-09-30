@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: b2fc13158d197aaa2e870d1b772386628ee3f9bc
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 34bc8e3775c2334b0cdbb22c8cad8f8d1dd5c732
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398802"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568603"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Domande frequenti su Collegamento ad Azure Synapse per Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Nella versione di anteprima pubblica il collegamento sinapsi è supportato per l
 
 ### <a name="is-synapse-link-supported-for-multi-region-azure-cosmos-accounts"></a>Collegamento ad Azure Synapse è supportato per account Azure Cosmos in più aree?
 
-Sì, per gli account Azure Cosmos in più aree, anche i dati archiviati nell'archivio analitico vengono distribuiti globalmente. Sia nelle singole aree di scrittura (master singolo) che in più aree di scrittura (multimaster), le query analitiche eseguite da Azure Synapse Analytics possono essere gestite dall'area locale più vicina.
+Sì, per gli account Azure Cosmos in più aree, anche i dati archiviati nell'archivio analitico vengono distribuiti globalmente. Sia in aree di scrittura singole che in più aree di scrittura, le query analitiche eseguite da Azure Synapse Analytics possono essere gestite dall'area locale più vicina.
 
 Quando si pianifica la configurazione di un account Azure Cosmos in più aree con supporto dell'archivio analitico, è consigliabile aggiungere tutte le aree necessarie al momento della creazione.
 
@@ -120,7 +120,7 @@ L'[archivio analitico di Azure Cosmos DB](analytical-store-introduction.md) è d
 
 ### <a name="what-are-the-ways-to-authenticate-with-the-analytical-store"></a>Come si esegue l'autenticazione con l'archivio analitico?
 
-L'autenticazione con l'archivio analitico è identica a quella di un archivio transazionale. Per un database specifico, è possibile eseguire l'autenticazione con la chiave master o di sola lettura. È possibile sfruttare il servizio collegato in Synapse Studio per evitare di incollare le chiavi di Azure Cosmos DB nei notebook di Spark. L'accesso a questo servizio collegato è disponibile per chiunque abbia accesso all'area di lavoro.
+L'autenticazione con l'archivio analitico è identica a quella di un archivio transazionale. Per un database specifico, è possibile eseguire l'autenticazione con la chiave primaria o di sola lettura. È possibile sfruttare il servizio collegato in Synapse Studio per evitare di incollare le chiavi di Azure Cosmos DB nei notebook di Spark. L'accesso a questo servizio collegato è disponibile per chiunque abbia accesso all'area di lavoro.
 
 ## <a name="synapse-run-times"></a>Runtime di Synapse
 
@@ -150,7 +150,7 @@ Un contenitore Azure Cosmos DB abilitato con l'archivio analitico presenta l'ico
 
 Un contenitore dell'archivio transazione sarà rappresentato dall'icona seguente:
 
-:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Icona del contenitore Azure Cosmos DB abilitato con l'archivio transazionale":::
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Icona del contenitore Azure Cosmos DB abilitato con l'archivio analitico":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Come si passano le credenziali di Azure Cosmos DB da Synapse Studio?
 

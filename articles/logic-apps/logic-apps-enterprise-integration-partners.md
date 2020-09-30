@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e3805fae5bf6cc5ad8cf759d3ba75220c6ddbd8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792433"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565072"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Aggiungere partner commerciali agli account di integrazione per App per la logica di Azure
 
@@ -47,7 +47,7 @@ In un accordo è possibile specificare i dettagli per la gestione dei messaggi i
 
 1. Scegliere il riquadro **Partner**.
 
-   ![Scegliere il riquadro "Partner"](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
+   ![Screenshot che mostra il riquadro partner.](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
 
 1. In **Partner** scegliere **Aggiungi**. In **Aggiungi partner**specificare i dettagli del partner come descritto nella tabella seguente.
 
@@ -89,7 +89,7 @@ Scegliere il riquadro **Partner**.
    | **Partner Classification** | No | Tipo di organizzazione del partner |
    | **Codice Supply Chain** | No | Il codice della catena di fornitura del partner, ad esempio, "Information Technology" o "Electronic Components" |
    | **Nome contatto** | No | Nome del contatto del partner |
-   | **Posta elettronica** | No | Indirizzo di posta elettronica del partner |
+   | **Indirizzo di posta elettronica** | No | Indirizzo di posta elettronica del partner |
    | **Fax** | No | Numero di fax del partner |
    | **Telephone** | No | Il numero di telefono del partner |
    ||||
@@ -100,7 +100,7 @@ Scegliere il riquadro **Partner**.
 
 1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'account di integrazione. Scegliere il riquadro **Partner**.
 
-   ![Scegliere il riquadro "Partner"](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
+   ![Screenshot che mostra il riquadro partner selezionato quando si desidera eliminare un partner.](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
 
 1. In **Partner** selezionare il partner che si vuole eliminare. Scegliere **Elimina**.
 
