@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5c44f72021fa46352ae6ded8fe671ea4f1a4d60
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a94d1a4fa717bbee9974f7218e704ba06dad530d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797174"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531531"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Crea o aggiorna un gruppo dinamico in Azure Active Directory
 
@@ -40,7 +40,7 @@ Di seguito sono riportati alcuni esempi di regole o sintassi avanzate che si con
 > [!NOTE]
 > Il generatore di regole potrebbe non essere in grado di visualizzare alcune regole costruite nella casella di testo. Può essere visualizzato un messaggio quando il generatore di regole non è in grado di visualizzare la regola. Il generatore di regole non modifica in alcun modo la sintassi, la convalida o l'elaborazione delle regole di gruppo dinamiche supportate.
 
-![Aggiungere la regola di appartenenza per un gruppo dinamico](./media/groups-create-rule/update-dynamic-group-rule.png)
+![Screenshot che mostra la pagina "regole di appartenenza dinamica" con l'azione "Aggiungi espressione" nella scheda "Configura regole" selezionata.](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 Per esempi di sintassi, proprietà, operatori e valori supportati per una regola di appartenenza, vedere [regole di appartenenza dinamiche per i gruppi in Azure Active Directory](groups-dynamic-membership.md).
 
@@ -54,7 +54,7 @@ Per esempi di sintassi, proprietà, operatori e valori supportati per una regola
 
 1. Nella pagina **gruppo** immettere un nome e una descrizione per il nuovo gruppo. Selezionare un **tipo di appartenenza** per utenti o dispositivi e quindi selezionare **Aggiungi query dinamica**. Il generatore regole supporta fino a cinque espressioni. Per aggiungere più di cinque espressioni, è necessario utilizzare la casella di testo.
 
-   ![Aggiungere la regola di appartenenza per un gruppo dinamico](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Screenshot che mostra la pagina "tutti i gruppi" con l'azione "nuovo gruppo" selezionata.](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 1. Per visualizzare le proprietà dell'estensione personalizzata disponibili per la query di appartenenza:
    1. Selezionare **Ottieni proprietà estensione personalizzata**

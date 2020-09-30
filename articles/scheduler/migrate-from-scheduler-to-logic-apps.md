@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: dd61ac9751010d57cbf5b742a5081beb3ac560e9
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5d161b287f9706473c96d25684fa23a2c94b8c3e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826061"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532154"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Eseguire la migrazione da Utilità di pianificazione ad App per la logica di Azure
 
@@ -96,7 +96,7 @@ Ogni processo di Utilità di pianificazione è univoco. Non esiste quindi alcuno
 
    Ad esempio, è possibile includere un'azione HTTP che invia una richiesta a un URL oppure azioni che funzionano con code di archiviazione, code del bus di servizio o argomenti del bus di servizio:
 
-   ![Azione HTTP](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
+   ![Screenshot mostra un ritardo fino all'azione seguita da un'azione H T T P con un metodo POST.](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
 1. Al termine, salvare l'app per la logica.
 
@@ -155,7 +155,7 @@ In App per la logica, ogni processo unico viene eseguito come singola istanza di
 
    Ad esempio, è possibile includere un'azione HTTP che invia una richiesta a un URL oppure azioni che funzionano con code di archiviazione, code del bus di servizio o argomenti del bus di servizio:
 
-   ![Azione HTTP](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
+   ![Screenshot mostra un'azione H T T con un metodo POST.](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
 1. Al termine, salvare l'app per la logica.
 

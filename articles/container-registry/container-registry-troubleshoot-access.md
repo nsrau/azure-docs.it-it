@@ -3,12 +3,12 @@ title: Risolvere i problemi di rete con il registro di sistema
 description: Sintomi, cause e risoluzione dei problemi comuni durante l'accesso a un registro contenitori di Azure in una rete virtuale o dietro a un firewall
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 227eeeadb2aef4b4d3feb7923a198b129a6267d3
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 06c5b65537fd7d256010260bb3a93888721f643b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227467"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532449"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Risolvere i problemi di rete con il registro di sistema
 
@@ -32,7 +32,7 @@ Può includere uno o più degli elementi seguenti:
 * Un firewall o un proxy client impedisce l'accesso- [soluzione](#configure-client-firewall-access)
 * Le regole di accesso alla rete pubblica nel registro di sistema impediscono l'accesso- [soluzione](#configure-public-access-to-registry)
 * La configurazione della rete virtuale impedisce l'accesso- [soluzione](#configure-vnet-access)
-* Si tenta di integrare il Centro sicurezza di Azure con un registro con un endpoint privato o un endpoint servizio- [soluzione](#configure-image-scanning-solution)
+* Si tenta di integrare il Centro sicurezza di Azure o altri servizi di Azure con un registro con un endpoint privato, un endpoint del servizio o regole di accesso IP pubblico- [soluzione](#configure-service-access)
 
 ## <a name="further-diagnosis"></a>Ulteriore diagnosi 
 
@@ -96,17 +96,22 @@ Collegamenti correlati:
 * [Kubernetes: debug della risoluzione DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 * [Tag del servizio di rete virtuale](../virtual-network/service-tags-overview.md)
 
-### <a name="configure-image-scanning-solution"></a>Configurare la soluzione per l'analisi delle immagini
+### <a name="configure-service-access"></a>Configurare l'accesso al servizio
 
-Se il registro di sistema è configurato con un endpoint privato o un endpoint del servizio, attualmente non è possibile eseguire l'integrazione con il Centro sicurezza di Azure per l'analisi delle immagini. Facoltativamente, è possibile configurare altre soluzioni di analisi immagini disponibili in Azure Marketplace, tra cui:
+Attualmente, il Centro sicurezza di Azure non è in grado di eseguire l' [analisi delle vulnerabilità delle immagini](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) in un registro che limita l'accesso a endpoint privati, subnet selezionate o indirizzi IP. Inoltre, le risorse dei servizi seguenti non sono in grado di accedere a un registro contenitori con restrizioni di rete:
 
-* [Piattaforma di sicurezza nativa di Aqua cloud](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security)
-* [Twistlock Enterprise Edition](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock)
+* Azure DevOps Services 
+* Istanze di Azure Container
+* Attività di Registro Azure Container
+
+Se è necessario l'accesso o l'integrazione di questi servizi di Azure con il registro contenitori, rimuovere la restrizione di rete. Ad esempio, rimuovere gli endpoint privati del registro di sistema oppure rimuovere o modificare le regole di accesso pubbliche del registro di sistema.
 
 Collegamenti correlati:
 
 * [Analisi delle immagini del Container Registry di Azure per Centro sicurezza](../security-center/azure-container-registry-integration.md)
 * Invia [commenti e suggerimenti](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* [Configurare le regole di rete per IP pubblico](container-registry-access-selected-networks.md)
+* [Connettersi privatamente a un registro contenitori di Azure usando il collegamento privato di Azure](container-registry-private-link.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Risoluzione dei problemi avanzata
@@ -128,7 +133,7 @@ Se non si risolve il problema, vedere le opzioni seguenti.
   * [Risolvere i problemi di accesso al registro](container-registry-troubleshoot-login.md) 
   * [Risolvere i problemi relativi alle prestazioni del registro](container-registry-troubleshoot-performance.md)
 * Opzioni di [supporto della community](https://azure.microsoft.com/support/community/)
-* [Domane e risposte Microsoft](https://docs.microsoft.com/answers/products/)
+* [Domande e risposte Microsoft](https://docs.microsoft.com/answers/products/)
 * [Aprire un ticket di supporto](https://azure.microsoft.com/support/create-ticket/)
 
 

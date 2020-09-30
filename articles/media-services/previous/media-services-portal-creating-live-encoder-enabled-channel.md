@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: juliako
-ms.openlocfilehash: 52ce8a359f63004393e191d1d6a8f991fba1e9f6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.date: 09/29/2020
+ms.author: inhenkel
+ms.openlocfilehash: 826fda62f9c5c97d045f6dc31189b26255e72f33
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260799"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532704"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Eseguire lo streaming live con servizi multimediali per creare flussi a bitrate multipli con portale di Azure
 
@@ -39,6 +39,7 @@ Questa esercitazione illustra i passaggi per creare un **canale** che riceve un 
 Per altre informazioni concettuali sui canali correlati abilitati per la codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="common-live-streaming-scenario"></a>Scenario comune di streaming live
+
 Di seguito sono descritti i passaggi generali relativi alla creazione di applicazioni comuni di streaming live.
 
 > [!NOTE]
@@ -50,25 +51,25 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 1. Avviare e configurare un codificatore live locale che può restituire un flusso a bitrate singolo in uno dei protocolli seguenti: RTMP o Smooth Streaming. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Vedere anche questo Blog: [produzione di streaming live con OBS](https://link.medium.com/ttuwHpaJeT).
 
     Questa operazione può essere eseguita anche dopo la creazione del canale.
-1. Creare e avviare un canale. 
-1. Recuperare l'URL di inserimento del canale. 
+1. Creare e avviare un canale.
+1. Recuperare l'URL di inserimento del canale.
 
     L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
-1. Recuperare l'URL di anteprima del canale. 
+1. Recuperare l'URL di anteprima del canale.
 
     Usare questo URL per verificare che il canale riceva correttamente il flusso live.
-1. Creare un evento o un programma, l'operazione creerà anche un asset. 
-1. Pubblicare l'evento. L'operazione creerà un localizzatore OnDemand per l'asset associato.    
+1. Creare un evento o un programma, l'operazione creerà anche un asset.
+1. Pubblicare l'evento. L'operazione creerà un localizzatore OnDemand per l'asset associato.
 1. Avviare l'evento quando si è pronti ad avviare lo streaming e l'archiviazione.
 1. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
 1. Arrestare l'evento ogni volta che si vuole arrestare lo streaming e l'archiviazione dell'evento.
-1. Eliminare l'evento e, facoltativamente, l'asset.   
+1. Eliminare l'evento e, facoltativamente, l'asset.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione è necessario quanto segue.
 
-* Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. 
+* Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti.
   Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-portal-create-account.md).
 * Una webcam e un codificatore in grado di inviare un flusso live a velocità in bit singola.
@@ -95,26 +96,25 @@ Per completare l'esercitazione è necessario quanto segue.
         Per una descrizione dettagliata di ogni protocollo, vedere [Streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli](media-services-manage-live-encoder-enabled-channels.md).
 
         Non è possibile modificare l'opzione relativa al protocollo durante l'esecuzione del canale o dei relativi eventi o programmi associati. Se sono necessari protocolli diversi, è necessario creare canali separati per ciascun protocollo di streaming.  
-   2. È possibile applicare la restrizione IP all'inserimento. 
+   2. È possibile applicare la restrizione IP all'inserimento.
 
        È possibile definire gli indirizzi IP autorizzati a inserire video in questo canale. Gli indirizzi IP consentiti possono essere specificati come un singolo indirizzo IP, ad esempio '10.0.0.1', come un intervallo IP usando un indirizzo IP e una subnet mask CIDR, ad esempio '10.0.0.1/22' o come un intervallo IP usando un indirizzo IP e una subnet mask decimale puntata, ad esempio '10.0.0.1(255.255.252.0)'.
 
        Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.
 6. Nella scheda **Anteprima** applicare la restrizione IP sull'anteprima.
-7. Nella scheda **Codifica** specificare il set di impostazioni di codifica. 
+7. Nella scheda **Codifica** specificare il set di impostazioni di codifica.
 
-    Attualmente, l'unica impostazione predefinita di sistema che è possibile selezionare è **720p (valore predefinito)**. Per specificare un set di impostazioni personalizzato, aprire un ticket di supporto Microsoft. Quindi, immettere il nome del set di impostazioni creato automaticamente. 
+    Attualmente, l'unica impostazione predefinita di sistema che è possibile selezionare è **720p (valore predefinito)**. Per specificare un set di impostazioni personalizzato, aprire un ticket di supporto Microsoft. Quindi, immettere il nome del set di impostazioni creato automaticamente.
 
 > [!NOTE]
 > Attualmente, l'avvio del canale può richiedere più di 30 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
-> 
-> 
 
-Dopo aver creato il canale è possibile farvi clic e passare a **Impostazioni** , dove vengono visualizzate le configurazioni dei canali. 
+Dopo aver creato il canale è possibile farvi clic e passare a **Impostazioni** , dove vengono visualizzate le configurazioni dei canali.
 
 Per altre informazioni, vedere [Streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="get-ingest-urls"></a>Ottenere gli URL di inserimento
+
 Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da fornire al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.
 
 ![inserire URL](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
@@ -122,6 +122,7 @@ Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da for
 ## <a name="create-and-manage-events"></a>Creare e gestire eventi
 
 ### <a name="overview"></a>Panoramica
+
 Un canale è associato a programmi o eventi che consentono di controllare la pubblicazione e l'archiviazione di segmenti in un flusso live. Eventi e programmi sono gestiti dai canali. La relazione tra queste due entità è molto simile a quella che intercorre tra di essi nei media tradizionali, in cui un canale è costituito da un flusso costante di contenuti, mentre un programma ha come ambito una serie di eventi programmati sul canale.
 
 È possibile specificare il numero di ore per cui si vuole mantenere il contenuto registrato per l'evento impostando la durata dell' **Intervallo di archiviazione** . Il valore impostato può essere compreso tra 5 minuti e 25 ore. La lunghezza della finestra di archiviazione determina anche il limite di tempo per cui i client possono eseguire ricerche a ritroso nel tempo dalla posizione live corrente. Gli eventi possono essere eseguiti per l'intervallo di tempo specificato, ma il contenuto che supera la durata prevista viene scartato in modo continuo. Il valore della proprietà determina anche il tempo per cui i manifesti client possono crescere.
@@ -132,21 +133,22 @@ Un canale supporta fino a tre eventi in esecuzione simultanea, quindi consente d
 
 Non riutilizzare i programmi esistenti per nuovi eventi. Al contrario, creare e avviare un nuovo programma per ogni evento.
 
-Avviare un programma o un evento quando si è pronti ad avviare lo streaming e l'archiviazione. Arrestare l'evento ogni volta che si vuole arrestare lo streaming e l'archiviazione dell'evento. 
+Avviare un programma o un evento quando si è pronti ad avviare lo streaming e l'archiviazione. Arrestare l'evento ogni volta che si vuole arrestare lo streaming e l'archiviazione dell'evento.
 
-Per eliminare il contenuto archiviato, arrestare ed eliminare l'evento e quindi eliminare l'asset associato. Non è possibile eliminare un asset che sia usato da un evento. Per eliminarlo è prima necessario eliminare l'evento. 
+Per eliminare il contenuto archiviato, arrestare ed eliminare l'evento e quindi eliminare l'asset associato. Non è possibile eliminare un asset che sia usato da un evento. Per eliminarlo è prima necessario eliminare l'evento.
 
 Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado di riprodurre in streaming il contenuto archiviato sotto forma di video on demand, finché non si elimina l'asset.
 
 Se si desidera mantenere il contenuto archiviato ma non averlo disponibile per lo streaming, eliminare il localizzatore di streaming.
 
 ### <a name="createstartstop-events"></a>Creare, avviare o arrestare eventi
-Dopo l'avvio del flusso nel canale, è possibile iniziare l'evento di streaming creando un localizzatore di asset, programma e streaming. In questo modo il flusso viene archiviato e reso disponibile agli utenti tramite l'endpoint di streaming. 
+
+Dopo l'avvio del flusso nel canale, è possibile iniziare l'evento di streaming creando un localizzatore di asset, programma e streaming. In questo modo il flusso viene archiviato e reso disponibile agli utenti tramite l'endpoint di streaming.
 
 >[!NOTE]
->Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
 
-Per avviare l'evento è possibile procedere in due modi: 
+Per avviare l'evento è possibile procedere in due modi:
 
 1. Nella pagina **Canale** fare clic su **Evento live** per aggiungere un nuovo evento.
 
@@ -163,18 +165,20 @@ Per avviare l'evento è possibile procedere in due modi:
 
     L'evento è denominato **default** e l'intervallo di archiviazione è impostato su otto ore.
 
-Per guardare l'evento pubblicato è possibile usare la pagina **Evento live** . 
+Per guardare l'evento pubblicato è possibile usare la pagina **Evento live** .
 
-Facendo clic su **Sospendi trasmissione**vengono arrestati tutti gli eventi live. 
+Facendo clic su **Sospendi trasmissione**vengono arrestati tutti gli eventi live.
 
 ## <a name="watch-the-event"></a>Guardare l'evento
-Per guardare l'evento, fare clic su **Watch** (Guarda) nel portale di Azure o copiare l'URL di streaming e usare un lettore a propria scelta. 
+
+Per guardare l'evento, fare clic su **Watch** (Guarda) nel portale di Azure o copiare l'URL di streaming e usare un lettore a propria scelta.
 
 ![Data di creazione](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
 Quando viene arrestato, l'evento live converte automaticamente gli eventi in contenuto su richiesta.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
+
 Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui in precedenza è stato effettuato il provisioning, attenersi alla procedura seguente.
 
 * Interrompere il push del flusso dal codificatore.
@@ -182,20 +186,27 @@ Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui 
 * È possibile arrestare l'endpoint di streaming, a meno che non si voglia continuare a fornire l'archivio dell'evento live come flusso su richiesta. Se il canale è arrestato, non subirà modifiche.
 
 ## <a name="view-archived-content"></a>Visualizzare il contenuto archiviato
-Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado di riprodurre in streaming il contenuto archiviato sotto forma di video on demand, finché non si elimina l'asset. Un asset non può essere eliminato se è usato da un evento. Per farlo, eliminare prima l'evento. 
+
+Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado di riprodurre in streaming il contenuto archiviato sotto forma di video on demand, finché non si elimina l'asset.
+
+> [!WARNING]
+> Un asset **non deve** essere eliminato se è usato da un evento. per prima cosa è necessario eliminare l'evento.
 
 Per gestire gli asset, selezionare**Impostazione** e fare clic su **Asset**.
 
 ![Asset](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>Considerazioni
+
 * Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amshelp@microsoft.com.
 * Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia nello stato **In esecuzione**.
 
-## <a name="next-step"></a>Passaggio successivo
+## <a name="next-steps"></a>Passaggi successivi
+
 Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

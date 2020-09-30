@@ -11,23 +11,26 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 874978288a38ff56ce220dd13cb6f3dfec902b2d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934583"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532518"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
 In alternativa all' [SDK vocale](speech-sdk.md), il servizio riconoscimento vocale consente di convertire il riconoscimento vocale usando un'API REST. Ogni endpoint accessibile è associato a un'area. L'applicazione richiede una chiave di sottoscrizione per l'endpoint che si intende usare. L'API REST è molto limitata ed è consigliabile usarla solo nei casi in cui non è possibile usare l' [SDK di riconoscimento vocale](speech-sdk.md) .
 
-Prima di usare l'API REST di sintesi vocale, comprendere quanto segue:
+Prima di usare l'API REST di sintesi vocale, tenere presente quanto segue:
 
 * Le richieste che usano l'API REST e trasmettono direttamente l'audio possono contenere solo fino a 60 secondi di audio.
 * L'API REST per il riconoscimento vocale restituisce solo i risultati finali. I risultati parziali non sono disponibili.
 
 Se l'invio di audio più lungo è un requisito per l'applicazione, prendere in considerazione l'uso dell' [SDK di riconoscimento vocale](speech-sdk.md) o di un'API REST basata su file, come la [trascrizione batch](batch-transcription.md).
+
+> [!TIP]
+> Vedere la [documentazione](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) di Azure per enti pubblici per gli endpoint di Fairfax (Government cloud).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -52,7 +55,7 @@ Questi parametri possono essere inclusi nella stringa di query della richiesta R
 
 | Parametro | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Obbligatorio |
+| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Obbligatoria |
 | `format` | Specifica il formato del risultato. I valori accettati sono `simple` e `detailed`. I risultati semplici includono `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. Le risposte dettagliate includono quattro rappresentazioni diverse del testo visualizzato. L'impostazione predefinita è `simple`. | Facoltativo |
 | `profanity` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `masked` , che sostituisce la volgarità con `removed` gli asterischi,, che rimuove tutte le parolacce dal risultato, o `raw` , che include la volgarità nel risultato. L'impostazione predefinita è `masked`. | Facoltativo |
 | `cid` | Quando si usa il [portale di riconoscimento vocale personalizzato](how-to-custom-speech.md) per creare modelli personalizzati, è possibile usare modelli personalizzati tramite l' **ID endpoint** trovato nella pagina **distribuzione** . Usare l' **ID endpoint** come argomento per il `cid` parametro della stringa di query. | Facoltativo |
@@ -66,7 +69,7 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 | `Ocp-Apim-Subscription-Key` | La chiave di sottoscrizione al Servizio di riconoscimento vocale dell'utente. | È necessaria questa intestazione o `Authorization`. |
 | `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | È necessaria questa intestazione o `Ocp-Apim-Subscription-Key`. |
 | `Pronunciation-Assessment` | Specifica i parametri per visualizzare i punteggi di pronuncia nei risultati del riconoscimento, che valutano la qualità di pronuncia dell'input vocale, con indicatori di accuratezza, fluidità, completezza e così via. Questo parametro è un JSON con codifica Base64 contenente più parametri dettagliati. Per informazioni su come compilare questa intestazione, vedere [parametri di valutazione della pronuncia](#pronunciation-assessment-parameters) . | Facoltativo |
-| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obbligatorio |
+| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obbligatoria |
 | `Transfer-Encoding` | Specifica che vengono inviati i dati audio in blocchi, anziché un singolo file. Utilizzare questa intestazione solo se vi è stata la suddivisione in blocchi dei dati audio. | Facoltativo |
 | `Expect` | Se si usa il trasferimento in blocchi, inviare `Expect: 100-continue`. Il Servizio di riconoscimento vocale legge la richiesta iniziale e attende ulteriori dati.| Obbligatorio in caso di invio di dati audio in blocchi. |
 | `Accept` | Se specificato, deve essere `application/json`. Il servizio di riconoscimento vocale fornisce i risultati in formato JSON. Alcuni framework di richiesta forniscono un valore predefinito incompatibile. È consigliabile includere sempre `Accept` . | Facoltativo, ma consigliato. |
@@ -89,10 +92,10 @@ Questa tabella elenca i parametri obbligatori e facoltativi per la valutazione d
 
 | Parametro | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| ReferenceText | Testo su cui verrà valutata la pronuncia. | Obbligatorio |
+| ReferenceText | Testo su cui verrà valutata la pronuncia. | Obbligatoria |
 | GradingSystem | Sistema di punti per la taratura dei punteggi. I valori accettati sono `FivePoint` e `HundredMark`. L'impostazione predefinita è `FivePoint`. | Facoltativo |
 | Granularità | Granularità della valutazione. I valori accettati sono `Phoneme` , che mostra il punteggio sul livello full-text, Word e fonema, `Word` , che mostra il punteggio a livello di testo intero e di parola, `FullText` , che mostra il punteggio solo sul livello full-text. L'impostazione predefinita è `Phoneme`. | Facoltativo |
-| Dimension | Definisce i criteri di output. I valori accettati sono `Basic` , che mostra solo il Punteggio di accuratezza, `Comprehensive` Mostra i punteggi su più dimensioni (ad esempio, il Punteggio di fluidità e il Punteggio di completezza sul livello full-text, il tipo di errore a livello di parola). Controllare i [parametri di risposta](#response-parameters) per visualizzare le definizioni delle diverse dimensioni dei punteggi e dei tipi di errore di Word. L'impostazione predefinita è `Basic`. | Facoltativo |
+| Dimensione | Definisce i criteri di output. I valori accettati sono `Basic` , che mostra solo il Punteggio di accuratezza, `Comprehensive` Mostra i punteggi su più dimensioni (ad esempio, il Punteggio di fluidità e il Punteggio di completezza sul livello full-text, il tipo di errore a livello di parola). Controllare i [parametri di risposta](#response-parameters) per visualizzare le definizioni delle diverse dimensioni dei punteggi e dei tipi di errore di Word. L'impostazione predefinita è `Basic`. | Facoltativo |
 | EnableMiscue | Abilita il calcolo miscue. Con questa funzionalità abilitata, le parole pronunciate verranno confrontate con il testo di riferimento e verranno contrassegnate con omissione/inserimento in base al confronto. I valori accettati sono `False` e `True`. L'impostazione predefinita è `False`. | Facoltativo |
 | ScenarioId | GUID che indica un sistema di punti personalizzato. | Facoltativo |
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 71657d45ce9c4cc6fb103b61235a282b3005b924
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 30c60dbe74835cb67879f7e0cf9bf403dca17fd8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884927"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531089"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati di Database di Azure per MySQL con una chiave gestita dal cliente
 
@@ -80,7 +80,7 @@ Se si usa la crittografia dei dati con una chiave gestita dal cliente, ecco le r
 * Assicurarsi che Key Vault e Database di Azure per MySQL si trovino nella stessa area, per garantire un accesso più rapido per le operazioni di wrapping e annullamento del wrapping della chiave DEK.
 * Bloccare Azure KeyVault per limitarne l'accesso solo **all'endpoint privato e alle reti selezionate** e consentire solo ai servizi *Microsoft attendibili* di proteggere le risorse.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Servizio attendibile con Azure Key Vault":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagramma che mostra una panoramica dello scenario Bring Your Own Key":::
 
 Ecco le raccomandazioni per la configurazione di una chiave gestita dal cliente:
 
@@ -121,9 +121,9 @@ Per monitorare lo stato del database e abilitare gli avvisi per la perdita dell'
 
 Una volta eseguita la crittografia di Database di Azure per MySQL con una chiave gestita dal cliente archiviata in Key Vault, viene crittografata anche qualsiasi nuova copia creata del server. Questa nuova copia può essere creata tramite un'operazione di ripristino locale o geografico oppure tramite repliche in lettura. Tuttavia, la copia può essere modificata in modo da riflettere una nuova chiave gestita dal cliente per la crittografia. Quando la chiave gestita dal cliente cambia, i backup precedenti del server iniziano a usare la chiave più recente.
 
-Per evitare problemi con la configurazione della crittografia dei dati gestita dal cliente durante il ripristino o la creazione della replica in lettura, è importante seguire questa procedura nei server master e di replica o ripristinato:
+Per evitare problemi durante la configurazione della crittografia dei dati gestita dal cliente durante il ripristino o la creazione della replica, è importante attenersi alla procedura seguente nei server di origine e di ripristino/replica:
 
-* Avviare il processo di ripristino o di creazione della replica in lettura dall'istanza master di Database di Azure per MySQL.
+* Avviare il processo di creazione della replica di ripristino o di lettura dal database di Azure di origine per MySQL.
 * Mantenere il server appena creato (ripristinato/di replica) in uno stato inaccessibile, perché la relativa identità univoca non ha ancora ricevuto le autorizzazioni per Key Vault.
 * Nel server ripristinato o di replica ripetere la convalida della chiave gestita dal cliente nelle impostazioni di crittografia dei dati per assicurarsi che il server appena creato disponga di autorizzazioni di wrapping e annullamento del wrapping per la chiave archiviata in Key Vault.
 

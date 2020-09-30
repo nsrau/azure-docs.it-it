@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: f6a042dfee000dd6341368b46db32fe36060cc72
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 2f57d20df6adbb7c1a0c73958cc10035126e29b8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171582"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530987"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorare e ottimizzare Database di Azure per PostgreSQL - Server singolo
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per PostgreSQL offre varie opzioni di monitoraggio che consentono di ottenere informazioni dettagliate sul comportamento del server.
@@ -38,7 +38,7 @@ Per Database di Azure per PostgreSQL sono disponibili le metriche seguenti:
 |network_bytes_egress|Rete in uscita|Byte|Rete in uscita tra connessioni attive.|
 |network_bytes_ingress|Rete in ingresso|Byte|Rete in ingresso tra connessioni attive.|
 |backup_storage_used|Risorse di backup in uso|Byte|Quantità di risorse dell'archivio di backup usate. Questa metrica rappresenta la somma dello spazio di archiviazione utilizzato da tutti i backup completi del database, backup differenziali e backup del log mantenuti in base al periodo di conservazione dei backup impostato per il server. La frequenza dei backup è gestita dal servizio e illustrata nell' [articolo concetti](concepts-backup.md). Per l'archiviazione con ridondanza geografica, l'utilizzo dell'archiviazione di backup è due volte quello dell'archiviazione con ridondanza locale.|
-|pg_replica_log_delay_in_bytes|Max Lag Across Replicas (Ritardo massimo tra repliche)|Byte|Ritardo in byte tra il master e la replica più in ritardo. Questa metrica è disponibile solo nel server master.|
+|pg_replica_log_delay_in_bytes|Max Lag Across Replicas (Ritardo massimo tra repliche)|Byte|Ritardo in byte tra la replica primaria e quella più in ritardo. Questa metrica è disponibile solo sul server primario.|
 |pg_replica_log_delay_in_seconds|Replica Lag (Ritardo replica)|Secondi|Ora dall'ultima transazione riprodotta. Questa metrica è disponibile solo per i server di replica.|
 
 ## <a name="server-logs"></a>Log del server

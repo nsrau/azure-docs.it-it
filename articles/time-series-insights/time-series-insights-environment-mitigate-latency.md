@@ -10,16 +10,19 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9fa47c81aede9de5d083f16f9e1705f687ad39a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e89189b22b144d9e92ee8315bc6fd9aabe699eec
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046441"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531650"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Monitorare e attenuare la limitazione per ridurre la latenza in Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Questo è un articolo di Gen1.
 
 Quando la quantità di dati in ingresso è superiore alla configurazione dell'ambiente, in Azure Time Series Insights si può verificare una latenza o una limitazione.
 
@@ -74,17 +77,17 @@ Gli avvisi consentono di diagnosticare e attenuare i problemi di latenza che si 
 
 ## <a name="throttling-and-ingress-management"></a>Limitazione e gestione in ingresso
 
-* Se viene applicata la limitazione, viene registrato un valore per l'intervallo di *tempo dei messaggi ricevuti in ingresso* che informa dell'utente circa il numero di secondi alla base dell'ambiente Azure Time Series Insights dal momento effettivo in cui il messaggio raggiunge l'origine evento, escluso il tempo di indicizzazione di appx. 30-60 secondi.  
+- Se viene applicata la limitazione, viene registrato un valore per l'intervallo di *tempo dei messaggi ricevuti in ingresso* che informa dell'utente circa il numero di secondi alla base dell'ambiente Azure Time Series Insights dal momento effettivo in cui il messaggio raggiunge l'origine evento, escluso il tempo di indicizzazione di appx. 30-60 secondi.  
 
   Anche per *Ingress Received Message Count Lag* (Differenza numero messaggi ricevuti in ingresso) deve essere disponibile un valore, che consente di determinare di quanti messaggi si è in ritardo.  Il modo più semplice per mettersi in pari consiste nell'aumentare la capacità dell'ambiente fino a dimensioni che consentono di recuperare la differenza.  
 
   Se, ad esempio, l'ambiente S1 sta dimostrando un ritardo di 5 milioni messaggi, è possibile aumentare le dimensioni dell'ambiente a sei unità per circa un giorno per poter essere rilevati.  È possibile aumentare ulteriormente per recuperare più velocemente. Il periodo di recupero è una situazione comune durante il provisioning iniziale di un ambiente, in particolare quando lo si connette a un'origine eventi che già include eventi oppure quando si esegue un caricamento in blocco di molti dati cronologici.
 
-* Un'altra tecnica consiste nell'impostare un avviso **Ingress Stored Events** (Eventi archiviati in ingresso) per un valore maggiore o uguale a una soglia leggermente inferiore alla capacità totale dell'ambiente per un periodo di 2 ore.  Questo avviso consentirà di comprendere se si raggiunge costantemente la capacità e la probabilità di latenza è quindi elevata. 
+- Un'altra tecnica consiste nell'impostare un avviso **Ingress Stored Events** (Eventi archiviati in ingresso) per un valore maggiore o uguale a una soglia leggermente inferiore alla capacità totale dell'ambiente per un periodo di 2 ore.  Questo avviso consentirà di comprendere se si raggiunge costantemente la capacità e la probabilità di latenza è quindi elevata.
 
   Ad esempio, se è stato effettuato il provisioning di tre unità S1, con capacità in ingresso di 2100 eventi al minuto, è possibile impostare un avviso **Ingress Stored Events** (Eventi archiviati in ingresso) per un valore maggiore o uguale a 1900 eventi per 2 ore. Se si supera costantemente questa soglia attivando così l'avviso, è probabile che il provisioning sia insufficiente.  
 
-* Se si ritiene che sia stata applicata la limitazione, è possibile confrontare i **messaggi ricevuti in ingresso** con i messaggi uscita dell'origine evento.  Se il traffico in ingresso nell'hub eventi è superiore a quello **dei messaggi ricevuti in ingresso**, è probabile che l'Azure Time Series Insights venga limitata.
+- Se si ritiene che sia stata applicata la limitazione, è possibile confrontare i **messaggi ricevuti in ingresso** con i messaggi uscita dell'origine evento.  Se il traffico in ingresso nell'hub eventi è superiore a quello **dei messaggi ricevuti in ingresso**, è probabile che l'Azure Time Series Insights venga limitata.
 
 ## <a name="improving-performance"></a>Miglioramento delle prestazioni
 

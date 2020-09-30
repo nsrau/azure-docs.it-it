@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae4a7dc400b347a963e07a8c696e7581e2dcd703
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60d889b232857ae69372df8ebabbd0edd01a2f17
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507846"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529831"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze Large) in Azure
 
@@ -179,7 +179,7 @@ Questi punti di montaggio sono configurati in /etc/fstab, come illustrato nell'i
 
 L'output del comando df -h in un'unità di istanze Large di HANA di tipo S72m è analogo al seguente:
 
-![fstab di volumi montati in un'unità di istanze Large di HANA](./media/hana-installation/image2_df_output.PNG)
+![Screenshot mostra l'output del comando per l'unità di istanze large di HANA.](./media/hana-installation/image2_df_output.PNG)
 
 
 Il controller di archiviazione e i nodi nei timestamp dell'istanza di grandi dimensioni sono sincronizzati con i server NTP. Poiché si sincronizza SAP HANA nelle unità Azure (istanze Large) e le macchine virtuali di Azure in un server NTP, non dovrebbero verificarsi sfasamenti di orario significativi tra l'infrastruttura e le unità di calcolo nei timestamp di Azure o dell'istanza Large.

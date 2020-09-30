@@ -6,13 +6,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 12/12/2019
-ms.openlocfilehash: 12d98406b21ed9a3ea27f9aa4abc0db6f536468d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/23/2020
+ms.openlocfilehash: 8f1e0a6aecc9702552a3dd66acc8dc7eb5bf1d85
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251916"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529934"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID Broker (anteprima)
 
@@ -30,11 +30,13 @@ HIB fornisce l'infrastruttura di autenticazione che consente la transizione del 
 
 Il diagramma seguente illustra il flusso di autenticazione basato su OAuth moderno per tutti gli utenti, inclusi gli utenti federati, dopo l'abilitazione di ID Broker:
 
-![Flusso di autenticazione con ID Broker](./media/identity-broker/identity-broker-architecture.png)
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Flusso di autenticazione con ID Broker":::
 
 In questo diagramma, il client (ad esempio browser o app) deve prima acquisire il token OAuth e quindi presentare il token al gateway in una richiesta HTTP. Se è già stato effettuato l'accesso ad altri servizi di Azure, ad esempio la portale di Azure, è possibile accedere al cluster HDInsight con un'esperienza di Single Sign-On (SSO).
 
 Potrebbero essere presenti molte applicazioni legacy che supportano solo l'autenticazione di base, ad esempio nome utente e password. Per questi scenari, è comunque possibile usare l'autenticazione di base HTTP per connettersi ai gateway del cluster. In questa configurazione è necessario garantire la connettività di rete dai nodi del gateway all'endpoint federativo (endpoint ADFS) per garantire una linea di visibilità diretta dai nodi del gateway.
+
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Flusso di autenticazione con ID Broker":::
 
 Usare la tabella seguente per determinare la migliore opzione di autenticazione in base alle esigenze dell'organizzazione:
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: b77eaec0440aa4fcd22d7b35e7a205b0276164f2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: dffa8393dcfebf1cb73e3ab72890999cfa633b80
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935824"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532568"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Come pianificare gli indicizzatori in Azure ricerca cognitiva
 
@@ -110,10 +110,10 @@ Se il parametro **Schedule** viene omesso, l'indicizzatore verrà eseguito una s
 
 Il parametro **StartTime** può essere impostato su un'ora nel passato. In tal caso, la prima esecuzione viene pianificata come se l'indicizzatore venisse eseguito in modo continuativo dopo il **StartTime**specificato.
 
-La pianificazione viene definita utilizzando la classe [IndexingSchedule](/dotnet/api/microsoft.azure.search.models.indexingschedule?view=azure-dotnet) . Il costruttore **IndexingSchedule** richiede un parametro **Interval** specificato utilizzando un oggetto **TimeSpan** . Il valore di intervallo minimo consentito è 5 minuti e il massimo è 24 ore. Il secondo parametro **StartTime** , specificato come oggetto **DateTimeOffset** , è facoltativo.
+La pianificazione viene definita utilizzando la classe [IndexingSchedule](/dotnet/api/microsoft.azure.search.models.indexingschedule) . Il costruttore **IndexingSchedule** richiede un parametro **Interval** specificato utilizzando un oggetto **TimeSpan** . Il valore di intervallo minimo consentito è 5 minuti e il massimo è 24 ore. Il secondo parametro **StartTime** , specificato come oggetto **DateTimeOffset** , è facoltativo.
 
 .NET SDK consente di controllare le operazioni dell'indicizzatore usando la classe [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) e la relativa proprietà [Indexers](/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) , che implementa i metodi dell'interfaccia **IIndexersOperations** . 
 
 È possibile eseguire un indicizzatore su richiesta in qualsiasi momento usando uno dei metodi [Run](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [RunAsync](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync)o [RunWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) .
 
-Per ulteriori informazioni sulla creazione, l'aggiornamento e l'esecuzione degli indicizzatori, vedere [IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations?view=azure-dotnet).
+Per ulteriori informazioni sulla creazione, l'aggiornamento e l'esecuzione degli indicizzatori, vedere [IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations).

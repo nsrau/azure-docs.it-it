@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf57bea87fcb5e1d1f1bde4eada5a79d2fef52c8
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 555673d1496ac33642e04c09233ba554ee2cca95
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706320"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531242"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
 
@@ -38,12 +38,12 @@ Per proteggere le risorse cloud, configurare una regola attestazioni in modo che
 
 5. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare **Applicare la funzione di pass-through o di filtro a un'attestazione in ingresso** dall'elenco a discesa e fare clic su **Avanti**.
 
-   ![Aggiunta guidata regole attestazione di trasformazione](./media/howto-mfa-adfs/trustedip3.png)
+   ![Screenshot mostra la procedura guidata Aggiungi regola attestazione di trasformazione in cui è possibile selezionare un modello di regola attestazione.](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Assegnare un nome alla regola. 
 7. Selezionare **Riferimenti dei metodi di autenticazione** come Tipo di attestazione in ingresso.
 8. Selezionare **Pass-through di tutti i valori attestazione**.
-    ![Aggiunta guidata regole attestazione di trasformazione](./media/howto-mfa-adfs/configurewizard.png)
+    ![Screenshot mostra la procedura guidata Aggiungi regola attestazione di trasformazione in cui è possibile selezionare passa attraverso tutti i valori attestazione.](./media/howto-mfa-adfs/configurewizard.png)
 9. Fare clic su **Fine**. Chiudere la console di gestione di ADFS.
 
 ## <a name="trusted-ips-for-federated-users"></a>Indirizzi IP attendibili per utenti federati
@@ -63,7 +63,7 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
 4. In regole di trasformazione rilascio fare clic su **Aggiungi regola.** 
     ![ Aggiunta di una regola attestazioni](./media/howto-mfa-adfs/trustedip2.png)
 5. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare **Applicare la funzione di pass-through o di filtro a un'attestazione in ingresso** dall'elenco a discesa e fare clic su **Avanti**.
-   ![Aggiunta guidata regole attestazione di trasformazione](./media/howto-mfa-adfs/trustedip3.png)
+   ![Screenshot mostra la procedura guidata Aggiungi regola attestazione di trasformazione in cui è possibile selezionare pass-through o filtrare un'attestazione in ingresso.](./media/howto-mfa-adfs/trustedip3.png)
 6. Nella casella Nome regola attestazione assegnare un nome alla regola. Ad esempio: InternoReteAziend.
 7. Nell'elenco a discesa accanto a Tipo di attestazione in ingresso selezionare **All'interno della rete aziendale**.
    ![Aggiunta all'interno di un'attestazione di rete aziendale](./media/howto-mfa-adfs/trustedip4.png)

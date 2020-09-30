@@ -14,12 +14,12 @@ ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95b0b026b75b9b77c94451245ac4f18d487fc2e4
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: bb102c23d80095b8eb79fc25d1c1fd9d7f374fce
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783519"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529695"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>API Microsoft Graph per Privileged Identity Management (anteprima)
 
@@ -51,7 +51,7 @@ Se si usa Graph Explorer per testare le chiamate, è possibile specificare le au
 
 1. Fare clic su **Autorizzazioni di modifica**.
 
-    ![Graph Explorer - Autorizzazioni di modifica](./media/pim-apis/graph-explorer.png)
+    ![Screenshot che mostra la pagina "Graph Explorer" con l'azione "modifica autorizzazioni" selezionata.](./media/pim-apis/graph-explorer.png)
 
 1. Selezionare le caselle di controllo accanto alle autorizzazioni che si vogliono includere. `PrivilegedAccess.ReadWrite.AzureAD` non è ancora disponibile in Graph Explorer.
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265161"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531871"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
-Il peering di rete virtuale consente di connettere facilmente le reti nella [rete virtuale di Azure](virtual-networks-overview.md). Le reti virtuali vengono visualizzate come una a scopo di connettività. Il traffico tra macchine virtuali usa l'infrastruttura backbone di Microsoft. Come il traffico tra macchine virtuali nella stessa rete, il traffico viene instradato solo attraverso la rete *privata* di Microsoft.
+Il peering di rete virtuale consente di connettere facilmente due o più [reti virtuali](virtual-networks-overview.md) in Azure. Le reti virtuali vengono visualizzate come una a scopo di connettività. Il traffico tra le macchine virtuali nelle reti virtuali con peering usa l'infrastruttura backbone di Microsoft. Come il traffico tra macchine virtuali nella stessa rete, il traffico viene instradato solo attraverso la rete *privata* di Microsoft.
 
 Azure supporta i tipi di peering seguenti:
 

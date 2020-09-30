@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: bf5ebafa1b1ad9e2cfabcfc3d474392ecdbc98e6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dac1a09b7984cdc8deca22ced1e8018a761979e2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268282"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531616"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Aggiungere il completamento automatico e suggerimenti alle app client
 
@@ -56,8 +56,8 @@ Seguire questi collegamenti per le pagine di riferimento REST e .NET SDK:
 
 + [API REST suggerimenti](/rest/api/searchservice/suggestions) 
 + [API REST di completamento automatico](/rest/api/searchservice/autocomplete) 
-+ [Metodo SuggestWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
-+ [Metodo AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
++ [Metodo SuggestWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
++ [Metodo AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
 
 ## <a name="structure-a-response"></a>Struttura di una risposta
 
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Suggerisci funzione
 
-Se si usa C# e un'applicazione MVC, il file **HomeController.cs** nella directory Controllers è il punto in cui è possibile creare una classe per i risultati suggeriti. In .NET una funzione suggest è basata sul [Metodo DocumentsOperationsExtensions. suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet). Per altre informazioni su .NET SDK, vedere [come usare ricerca cognitiva di Azure da un'applicazione .NET](./search-howto-dotnet-sdk.md).
+Se si usa C# e un'applicazione MVC, il file **HomeController.cs** nella directory Controllers è il punto in cui è possibile creare una classe per i risultati suggeriti. In .NET una funzione suggest è basata sul [Metodo DocumentsOperationsExtensions. suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Per altre informazioni su .NET SDK, vedere [come usare ricerca cognitiva di Azure da un'applicazione .NET](./search-howto-dotnet-sdk.md).
 
 Il `InitSearch` metodo crea un client di indice http autenticato per il servizio ricerca cognitiva di Azure. Le proprietà della classe [SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters) determinano quali campi vengono ricercati e restituiti nei risultati, il numero di corrispondenze e se viene utilizzata la corrispondenza fuzzy. 
 
@@ -177,7 +177,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 }
 ```
 
-La funzione Suggest include due parametri che determinano se vengono restituiti i risultati evidenziati o se la corrispondenza fuzzy è utilizzata in completamento all'inserimento del termine di ricerca. Il metodo crea un [oggetto SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet) che viene quindi passato all'API Suggest. Il risultato viene quindi convertito in formato JSON in modo da essere visualizzato nel client.
+La funzione Suggest include due parametri che determinano se vengono restituiti i risultati evidenziati o se la corrispondenza fuzzy è utilizzata in completamento all'inserimento del termine di ricerca. Il metodo crea un [oggetto SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) che viene quindi passato all'API Suggest. Il risultato viene quindi convertito in formato JSON in modo da essere visualizzato nel client.
 
 ## <a name="autocomplete"></a>Completamento automatico
 
@@ -220,7 +220,7 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Funzione di completamento automatico
 
-Il completamento automatico è basato sul [Metodo DocumentsOperationsExtensions. AutoComplete](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet). Come per i suggerimenti, questo blocco di codice viene inserito nel file **HomeController.cs** .
+Il completamento automatico è basato sul [Metodo DocumentsOperationsExtensions. AutoComplete](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete). Come per i suggerimenti, questo blocco di codice viene inserito nel file **HomeController.cs** .
 
 ```csharp
 public ActionResult AutoComplete(string term)

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 1e2af29779c93175ccc4c7f6964862b79febd8e6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: d92dc562136ef20dac19e7ddfa4339c565793308
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527089"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531820"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Creare un'offerta Dynamics 365 Business Central
 
@@ -56,18 +56,18 @@ Selezionare l'opzione che si vuole usare per l'offerta.
 
 #### <a name="get-it-now-free"></a>Scarica ora (gratuito)
 
-Consente di presentare gratuitamente l'offerta ai clienti fornendo un URL valido (che inizia con *http* o *https*) dal quale accedere all'app.  Ad esempio: `https://contoso.com/my-app`.
+Elenca gratuitamente l'offerta ai clienti.
 
-#### <a name="free-trial-listing"></a>Free trial (listing) (Versione di valutazione gratuita - Presentazione)
+#### <a name="free-trial-listing"></a>Free trial (listing) (Versione di valutazione gratuita (presentazione))
 
-Elencare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita fornendo un URL valido (a partire da `http` o `https` ) dove è possibile ottenere una versione di valutazione.  Ad esempio: `https://contoso.com/trial/my-app`. Le versioni di valutazione gratuite delle offerte vengono create, gestite e configurate dal servizio e non sono associate a sottoscrizioni gestite da Microsoft.
+Elencare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita. Le versioni di valutazione gratuite delle offerte vengono create, gestite e configurate dal servizio e non sono associate a sottoscrizioni gestite da Microsoft.
 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento alla versione di valutazione possono essere usati solo per ottenere informazioni degli utenti tramite Azure Active Directory (Azure AD) per automatizzare la creazione di account nell'app. Gli account Microsoft non sono supportati per l'autenticazione con questo token.
 
 #### <a name="contact-me"></a>Contact me (Contattami)
 
-Consente di raccogliere informazioni di contatto del cliente tramite la connessione al sistema CRM (Customer Relationship Management). Al cliente verrà chiesta l'autorizzazione per condividerne le informazioni. Questi dettagli sul cliente, tra cui il nome dell'offerta, l'ID e l'origine del marketplace in cui ha trovato l'offerta, verranno inviate al sistema CRM configurato. Per altre informazioni sulla configurazione del sistema CRM, vedere [Lead clienti](#customer-leads).
+Consente di raccogliere informazioni di contatto del cliente tramite la connessione al sistema di gestione delle relazioni con i clienti (CRM, Customer Relationship Management). Al cliente verrà chiesta l'autorizzazione per condividere le informazioni. Questi dettagli sul cliente, tra cui il nome dell'offerta, l'ID e l'origine del marketplace in cui ha trovato l'offerta, verranno inviate al sistema CRM configurato. Per altre informazioni sulla configurazione del sistema CRM, vedere [Clienti potenziali](#customer-leads).
 
 ### <a name="test-drive"></a>Test drive
 
@@ -128,7 +128,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 5. Condizioni per l'utilizzo
 6. Informativa sulla privacy
 7. Nome offerta
-8. Riepilogo
+8. Summary
 9. Descrizione
 10. Screenshot/video
 

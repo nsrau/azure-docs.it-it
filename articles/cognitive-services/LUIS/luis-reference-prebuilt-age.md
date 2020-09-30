@@ -3,20 +3,18 @@ title: Entità precompilata Age-LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita età in Language Understanding, ovvero LUIS.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: diberry
-ms.openlocfilehash: 1607b80276a9c35bf0ac2f0a00bd2226e2c07f97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4e1a6b1b6fb99a2786de06e89960e8480a5e1338
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270786"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532925"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Entità predefinita age per un'app LUIS
 L'entità predefinita età acquisisce il valore dell'età sia numericamente che in termini di giorni, settimane, mesi e anni. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti l'età per le finalità dell'applicazione. L'entità età è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md).
@@ -30,7 +28,7 @@ Age è gestito dal repository GitHub del [testo dei riconoscitori](https://githu
 
 #### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
-Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
+Il codice JSON seguente è con il `verbose` parametro impostato su `false` :
 
 ```json
 "entities": {
@@ -43,7 +41,7 @@ Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
-Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
+Il codice JSON seguente è con il `verbose` parametro impostato su `true` :
 
 ```json
 "entities": {

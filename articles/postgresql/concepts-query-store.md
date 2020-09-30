@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 49eea969f987a72872cda58ae6a7c41e50a14c10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cda79e1b08e67e10d42acb5093230ce8450d67d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830282"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530919"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorare le prestazioni con Query Store
 
@@ -162,8 +162,8 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 |user_id    |oid    |pg_authid.oid  |OID dell'utente che ha eseguito l'istruzione|
 |db_id  |oid    |pg_database.oid    |OID del database in cui l'istruzione è stata eseguita|
 |query_id   |bigint     ||Codice hash interno, calcolato dall'albero di analisi dell'istruzione|
-|event_type |text       ||Tipo di evento atteso dal back-end|
-|event  |text       ||Nome dell'evento di attesa, se il back-end è attualmente in attesa|
+|event_type |testo       ||Tipo di evento atteso dal back-end|
+|event  |testo       ||Nome dell'evento di attesa, se il back-end è attualmente in attesa|
 |calls  |Integer        ||Numero dello stesso evento acquisito|
 
 
@@ -250,7 +250,7 @@ Le tabelle seguenti descrivono i campi per i due tipi di log. A seconda dell'end
 ## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
 - Se un server PostgreSQL ha il parametro default_transaction_read_only on, Query Store non può acquisire i dati.
 - La funzionalità Query Store può essere interrotta se si verificano query Unicode lunghe (> = 6000 byte).
-- Le [repliche di lettura](concepts-read-replicas.md) replicano query Store dati dal server master. Ciò significa che la Query Store di una replica di lettura non fornisce statistiche sulle query eseguite nella replica di lettura.
+- Le [repliche di lettura](concepts-read-replicas.md) replicano query Store dati dal server primario. Ciò significa che la Query Store di una replica di lettura non fornisce statistiche sulle query eseguite nella replica di lettura.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

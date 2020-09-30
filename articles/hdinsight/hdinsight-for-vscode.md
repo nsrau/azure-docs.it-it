@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: bb2fff699b31d8b3b311180c4b85e2bfd1da892c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876785"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530154"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usare gli strumenti di Spark & hive per Visual Studio Code
 
@@ -199,11 +199,11 @@ Utilizzando il comando interattivo PySpark per inviare le query, attenersi alla 
 
 4. Il prompt per installare il kernel PySpark viene visualizzato nell'angolo inferiore destro della finestra. È possibile fare clic sul pulsante **Installa** per procedere con l'installazione di PySpark. in alternativa, fare clic sul pulsante **Ignora** per ignorare questo passaggio.
 
-   ![installare il kernel pyspark](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
+   ![Screenshot mostra un'opzione che consente di ignorare l'installazione di PySpark.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
 5. Se è necessario installarlo in un secondo momento, è possibile **File**passare a  >  **Preference**  >  **Impostazioni**preferenza file, quindi deselezionare **HDInsight: Enable ignora Pyspark Installation** nelle impostazioni. 
     
-    ![installare il kernel pyspark](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
+    ![Screenshot mostra l'opzione per abilitare l'installazione di Skip Pyspark.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
 6. Se l'installazione ha avuto esito positivo nel passaggio 4, la finestra di messaggio "PySpark installato correttamente" viene visualizzata nell'angolo inferiore destro della finestra. Fare clic sul pulsante **ricarica** per ricaricare la finestra.
     ![installazione di pyspark completata](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
@@ -214,7 +214,7 @@ Utilizzando il comando interattivo PySpark per inviare le query, attenersi alla 
 
     ![Menu di scelta rapida PySpark Interactive (PySpark interattivo)](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-9. Selezionare il cluster, se non è stato specificato un cluster predefinito. Dopo alcuni istanti, i risultati di **Python Interactive** vengono visualizzati in una nuova scheda. fare clic su PySpark per passare il kernel a **PySpark**e il codice verrà eseguito correttamente. Gli strumenti consentono anche di inviare un blocco di codice anziché l'intero file di script tramite il menu di scelta rapida:
+9. Selezionare il cluster, se non è stato specificato un cluster predefinito. Dopo alcuni istanti, i risultati di **Python Interactive** vengono visualizzati in una nuova scheda. Fare clic su PySpark per passare dal kernel a **PySpark**e che il codice venga eseguito correttamente. Gli strumenti consentono anche di inviare un blocco di codice anziché l'intero file di script tramite il menu di scelta rapida:
 
    ![Finestra di Python interattivo per PySpark interattivo](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
@@ -331,7 +331,7 @@ Il metodo 2 Invia un file e si noti che la `.vscode` cartella viene aggiunta aut
 
     **Post/Batches** Corpo della richiesta
 
-    | name | description | type |
+    | name | description | tipo |
     | --- | --- | --- |
     | file | File contenente l'applicazione da eseguire | Percorso (obbligatorio) |
     | proxyUser | Utente da rappresentare quando si esegue il processo | string |
@@ -352,7 +352,7 @@ Il metodo 2 Invia un file e si noti che la `.vscode` cartella viene aggiunta aut
 
     Corpo della risposta l'oggetto batch creato.
 
-    | name | description | type |
+    | name | description | tipo |
     | --- | ---| --- |
     | ID | ID sessione | Int |
     | appId | ID applicazione della sessione | string |

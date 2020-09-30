@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 98ef2b416c809789307f946ed90fb3138d9a20c1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325373"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531191"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Linux 
 
@@ -36,7 +36,7 @@ Se nessuno dei passaggi descritti risulta adatto alle proprie esigenze, sono dis
 
 ## <a name="important-configuration-files"></a>File di configurazione importanti
 
- Categoria | Percorso file
+ Category | Percorso file
  ----- | -----
  syslog | `/etc/syslog-ng/syslog-ng.conf` o `/etc/rsyslog.conf` o `/etc/rsyslog.d/95-omsagent.conf`
  Output e agente generale di Performance, Nagios, Zabbix e Log Analytics | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`
@@ -150,7 +150,7 @@ Al di sotto del plug-in dell'output, rimuovere il carattere di commento `#` all'
 
 ### <a name="probable-causes"></a>Possibili cause
 * Il proxy specificato durante l'onboarding è errato
-* Gli endpoint di monitoraggio di Azure e del servizio di automazione di Azure non sono inclusi nell'elenco elementi consentiti nel Data Center 
+* Gli endpoint di monitoraggio di Azure e del servizio di automazione di Azure non sono inclusi nell'elenco approvato nel Data Center 
 
 ### <a name="resolution"></a>Soluzione
 1. Onboarding in monitoraggio di Azure con l'agente di Log Analytics per Linux usando il comando seguente con l'opzione `-v` abilitata. Consente l'output dettagliato dell'agente che si connette tramite il proxy a monitoraggio di Azure. 
@@ -211,7 +211,7 @@ I bug correlati alle prestazioni non si verificano continuamente e sono molto di
 - I dati dell'agente di Log Analytics per Linux sono sottoposti a backup
 
 ### <a name="resolution"></a>Soluzione
-1. Controllare se il caricamento di monitoraggio di Azure è stato completato controllando se il file seguente esiste:`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+1. Controllare se il caricamento di monitoraggio di Azure è stato completato controllando se il file seguente esiste: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Eseguire di nuovo l'onboarding usando le istruzioni della riga di comando `omsadmin.sh`
 3. Se si usa un proxy, vedere i passaggi di risoluzione del proxy indicati in precedenza.
 4. In alcuni casi, quando l'agente di Log Analytics per Linux non può comunicare con il servizio, i dati dell'agente vengono inseriti in una coda fino a raggiungere la dimensione intera del buffer, ovvero 50 MB. L'agente deve essere riavviato tramite il comando seguente: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
@@ -444,4 +444,3 @@ Seguire questa procedura per correggere il problema.
     ```
 
 3. Aggiornare i pacchetti eseguendo `sudo sh ./omsagent-*.universal.x64.sh --upgrade`.
-

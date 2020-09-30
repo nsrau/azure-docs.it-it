@@ -1,17 +1,15 @@
 ---
 title: Simulare gli errori nelle app Service Fabric di Azure
 description: Informazioni su come rafforzare i servizi di Service Fabric di Azure in caso di errori normali e anomali.
-author: anmolah
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.author: anmola
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c193ef00d56b2d2fc7ad806cc795dcbe360db548
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c714ae30c64ea073cbac521eac5e15a8d968b7ea
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022106"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531311"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simulare gli errori durante i carichi di lavoro del servizio
 Gli scenari di testabilità in Service Fabric di Azure consentono agli sviluppatori di non preoccuparsi della gestione dei singoli errori. Tuttavia, sono disponibili scenari in cui potrebbe essere necessaria un'interfoliazione esplicita del carico di lavoro client e degli errori. L'interfoliazione del carico di lavoro client e degli errori garantisce che il servizio stia effettivamente eseguendo un’azione quando si verifica un errore. Dato il livello di controllo fornito dalla testabilità, questi errori potrebbero verificarsi in momenti precisi dell'esecuzione del carico di lavoro. L’induzione degli errori in stati diversi nell'applicazione può consentire di individuare bug e migliorare la qualità.

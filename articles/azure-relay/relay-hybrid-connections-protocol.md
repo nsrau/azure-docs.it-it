@@ -3,12 +3,12 @@ title: Guida al protocollo per le connessioni ibride di inoltro di Azure | Micro
 description: Questo articolo descrive le interazioni lato client con l'inoltro di Connessioni ibride per la connessione dei client nei ruoli listener e mittente
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fec021d961a17102f8d979c61ee46af6b938f073
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272010"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531446"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocollo per le connessioni ibride di inoltro di Azure
 
@@ -55,7 +55,7 @@ Le informazioni codificate sono valide solo per un breve periodo, essenzialmente
 
 Oltre alle connessioni WebSocket, il listener può anche ricevere frame di richiesta HTTP da un mittente, se questa funzionalità è abilitata in modo esplicito per la connessione ibrida.
 
-I listener associati a Connessioni ibride con supporto HTTP DEVONO gestire l'azione `request`. Un listener che non gestisce l'azione `request` e che pertanto causa errori di timeout ripetuti durante la connessione PUÒ essere disattivato dal servizio in futuro.
+I listener associati a Connessioni ibride con supporto HTTP DEVONO gestire l'azione `request`. Un listener che non gestisce `request` e pertanto causa errori di timeout ripetuti durante la connessione potrebbe essere bloccato dal servizio in futuro.
 
 I metadati di intestazione del frame HTTP vengono convertiti in JSON per essere gestiti in modo più semplice dal framework del listener, anche perché le librerie di analisi dell'intestazione HTTP sono più rare rispetto ai parser JSON. I metadati HTTP rilevanti solo per la relazione tra il mittente e il gateway HTTP di inoltro, incluse le informazioni di autorizzazione, non vengono inoltrati. I corpi delle richieste HTTP vengono trasferiti in modo trasparente come frame WebSocket binari.
 
@@ -326,7 +326,7 @@ Il contenuto JSON per `request` è indicato di seguito:
 
 ##### <a name="responding-to-requests"></a>Risposta alle richieste
 
-Il ricevente DEVE rispondere. Se ripetuta, la mancata risposta alle richieste durante la connessione può comportare la disattivazione del listener.
+Il ricevente DEVE rispondere. Un errore ripetuto per rispondere alle richieste durante la manutenzione della connessione potrebbe causare il blocco del listener.
 
 Le risposte possono essere inviate in qualsiasi ordine, ma ogni richiesta deve ottenere una risposta entro 60 secondi o il recapito verrà segnalato come non riuscito. La scadenza di 60 secondi viene conteggiata fino a quando il frame `response` non è stato ricevuto dal servizio. Una risposta in corso con più frame binari non può restare inattiva per più di 60 secondi o viene terminata.
 

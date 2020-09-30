@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 76809a41400502ec48c2dd674f8976bb168ec9f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 40af9ac692a226b12f984db447db9635cba655e4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83735991"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530256"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Configurare un dispositivo mobile come metodo di verifica a due fattori
 
@@ -30,7 +30,7 @@ ms.locfileid: "83735991"
 
 2. Selezionare **Invia un codice tramite messaggio di testo** nell'area **Metodo** e quindi **Avanti**.
 
-    ![Pagina Verifica di sicurezza aggiuntiva, con Telefono per l'autenticazione e SMS](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
+    ![Screenshot che mostra la pagina "verifica aggiuntiva di sicurezza", con l'opzione "telefono per l'autenticazione" e "Invia un codice per SMS" selezionato.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
 
 3. Digitare il codice di verifica contenuto nell'SMS inviato da Microsoft nell'area **Passaggio 2: l'utente riceverà un SMS al telefono** e quindi selezionare **Verifica**.
 

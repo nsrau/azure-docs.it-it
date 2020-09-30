@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0630e4dfcfc01e5c20fa6fcc3a516dbea6f6f53b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046445"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530137"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnosticare e risolvere i problemi nell'ambiente Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Questo è un articolo di Gen1.
 
 Questo articolo descrive i problemi che possono verificarsi nell'ambiente Azure Time Series Insights. L'articolo descrive le possibili cause e le relative soluzioni.
 
@@ -66,8 +69,8 @@ Se ad esempio sono presenti 5 milioni eventi in un'origine evento quando ci si c
 
 In presenza di eventi meno recenti nell'origine eventi, è possibile scegliere tra due approcci:
 
-- Modificare i limiti di conservazione dell'origine eventi per rimuovere gli eventi obsoleti che non si vuole visualizzare in Azure Time Series Insights.
-- Eseguire il provisioning di un ambiente di dimensioni maggiori, in termini di numero di unità, per aumentare la velocità effettiva per gli eventi meno recenti. Nell'esempio precedente, se si aumenta lo stesso ambiente S1 a cinque unità per un giorno, l'ambiente dovrebbe rientrare in un giorno. Se la produzione di eventi a stato stazionario è pari a 1 milione o un numero inferiore di eventi al giorno, è possibile ridurre la capacità di un evento a un'unità dopo che Azure Time Series Insights è stata interrotta.
+* Modificare i limiti di conservazione dell'origine eventi per rimuovere gli eventi obsoleti che non si vuole visualizzare in Azure Time Series Insights.
+* Eseguire il provisioning di un ambiente di dimensioni maggiori, in termini di numero di unità, per aumentare la velocità effettiva per gli eventi meno recenti. Nell'esempio precedente, se si aumenta lo stesso ambiente S1 a cinque unità per un giorno, l'ambiente dovrebbe rientrare in un giorno. Se la produzione di eventi a stato stazionario è pari a 1 milione o un numero inferiore di eventi al giorno, è possibile ridurre la capacità di un evento a un'unità dopo che Azure Time Series Insights è stata interrotta.
 
 Il limite di limitazione applicato è basato sul tipo di SKU e sulla capacità dell'ambiente. Tutte le origini evento all'interno dell'ambiente condividono questa capacità. Se l'origine evento per l'hub Internet o l'hub eventi esegue il push dei dati oltre i limiti applicati, si verificheranno una limitazione e un ritardo.
 
@@ -128,12 +131,12 @@ L'intestazione della prima colonna deve essere il nome della proprietà timestam
 
 Non verranno visualizzati i valori seguenti:
 
-- *(ABC)*: indica che Azure Time Series Insights sta leggendo i valori dei dati come stringhe.
-- *Calendar Icon*: indica che Azure Time Series Insights sta leggendo i valori dei dati come valori DateTime.
-- *#*: Indica che Azure Time Series Insights sta leggendo i valori dei dati come numeri interi.
+* *(ABC)*: indica che Azure Time Series Insights sta leggendo i valori dei dati come stringhe.
+* *Calendar Icon*: indica che Azure Time Series Insights sta leggendo i valori dei dati come valori DateTime.
+* *#*: Indica che Azure Time Series Insights sta leggendo i valori dei dati come numeri interi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggere le informazioni su [come ridurre la latenza in Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
+* Leggere le informazioni su [come ridurre la latenza in Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- Informazioni [su come ridimensionare l'ambiente di Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+* Informazioni [su come ridimensionare l'ambiente di Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

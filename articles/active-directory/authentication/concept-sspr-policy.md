@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 990d8ef275982b6d70c51819e47b33f543345023
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052716"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531276"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Criteri password e limitazioni dell'account in Azure Active Directory
 
@@ -61,7 +61,7 @@ Sono definite le seguenti opzioni relative ai criteri password:
 
 ## <a name="administrator-reset-policy-differences"></a>Differenze dei criteri di reimpostazione degli amministratori
 
-Microsoft applica un criterio di reimpostazione della password di *due Gate* predefinito sicuro per qualsiasi ruolo di amministratore di Azure. Questo criterio può essere diverso da quello definito per gli utenti e questo criterio non può essere modificato. È necessario verificare sempre la funzionalità di reimpostazione della password come utente senza ruoli di amministratore di Azure assegnati.
+Per impostazione predefinita, gli account amministratore sono abilitati per la reimpostazione della password self-service e viene applicato un criterio di reimpostazione della password a *due Gate* predefinito sicuro. Questo criterio può essere diverso da quello definito per gli utenti e questo criterio non può essere modificato. È necessario verificare sempre la funzionalità di reimpostazione della password come utente senza ruoli di amministratore di Azure assegnati.
 
 Con il criterio a due gate, gli amministratori non hanno la possibilità di usare le domande di sicurezza.
 
@@ -93,6 +93,8 @@ Il criterio a due gate richiede tre tipi di dati di autenticazione, ad esempio u
 * Se sono trascorsi 30 giorni per una sottoscrizione di valutazione o
 * Un dominio personalizzato è stato configurato per il tenant di Azure AD, ad esempio *contoso.com*; o
 * Identità sincronizzate da Azure AD Connect nella directory locale
+
+È possibile disabilitare l'uso di SSPR per gli account Administrator usando il cmdlet di PowerShell [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) . Il `-SelfServePasswordResetEnabled $False` parametro Disabilita SSPR per gli amministratori.
 
 ### <a name="exceptions"></a>Eccezioni
 

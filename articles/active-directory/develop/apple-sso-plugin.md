@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e43ce318ca9e9b14ad059dd296799667653e0f95
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561347"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530698"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in Microsoft Enterprise SSO per i dispositivi Apple (anteprima)
 
@@ -93,7 +93,7 @@ Non è necessario aggiungere a questo elenco le applicazioni che usano MSAL o AS
 
 Per impostazione predefinita, il plug-in Microsoft Enterprise SSO fornisce SSO per le app autorizzate solo quando il plug-in SSO dispone già di credenziali condivise. Il plug-in Microsoft Enterprise SSO è in grado di acquisire credenziali condivise quando viene chiamato da un'altra applicazione basata su ADAL o MSAL durante l'acquisizione del token. La maggior parte delle app Microsoft usa il plug-in Microsoft Authenticator o SSO. Ciò significa che per impostazione predefinita SSO all'esterno dei flussi di app native è il lavoro migliore.  
 
-L'abilitazione `browser_sso_interaction_enabled` del flag Abilita le app non MSAL e Safari browser per eseguire il bootstrap iniziale e ottenere le credenziali condivise. Se il plug-in Microsoft Enterprise SSO non dispone ancora di credenziali condivise, tenterà di ottenerne una ogni volta che viene richiesto un accesso da un URL Azure AD all'interno del browser Safari, ASWebAuthenticationSession, SafariViewController o un'altra applicazione nativa inclusa nella whitelist.  
+L'abilitazione `browser_sso_interaction_enabled` del flag Abilita le app non MSAL e Safari browser per eseguire il bootstrap iniziale e ottenere le credenziali condivise. Se il plug-in Microsoft Enterprise SSO non dispone ancora di credenziali condivise, tenterà di ottenerne una ogni volta che viene richiesto un accesso da un URL Azure AD all'interno del browser Safari, ASWebAuthenticationSession, SafariViewController o un'altra applicazione nativa consentita.  
 
 - **Chiave**: `browser_sso_interaction_enabled`
 - **Tipo**: `Integer`

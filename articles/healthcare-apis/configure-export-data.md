@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/5/2020
 ms.author: matjazl
-ms.openlocfilehash: 7ed4e471764fbf8ecc9b82a7d614ae52b97360f1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e4adceea5c2cd2a36d7a867ca9b9d2ad7c33c155
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267259"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529984"
 ---
 # <a name="configure-export-setting-and-set-up-the-storage-account"></a>Configurare l'impostazione di esportazione e impostare l'account di archiviazione
 
@@ -40,11 +40,11 @@ Il passaggio successivo nell'esportazione consiste nell'assegnare l'autorizzazio
 
 Dopo aver creato un account di archiviazione, passare al pannello controllo di accesso (IAM) nell'account di archiviazione e selezionare Aggiungi assegnazioni di ruolo.
 
-![Abilita identità gestita](media/export-data/fhir-export-role-assignment.png)
+![Esporta assegnazione di ruolo](media/export-data/fhir-export-role-assignment.png)
 
 Qui viene quindi aggiunto un collaboratore dei dati BLOB di archiviazione del ruolo al nome del servizio.
 
-![Abilita identità gestita](media/export-data/fhir-export-role-add.png)
+![Aggiungi ruolo](media/export-data/fhir-export-role-add.png)
 
 A questo punto si è pronti per il passaggio successivo, in cui è possibile selezionare l'account di archiviazione nell'API di Azure per FHIR come account di archiviazione predefinito per $export.
 
@@ -52,7 +52,7 @@ A questo punto si è pronti per il passaggio successivo, in cui è possibile sel
 
 Il passaggio finale consiste nell'assegnare l'account di archiviazione di Azure che verrà usato dall'API di Azure per FHIR per esportare i dati in. A tale scopo, passare al pannello integrazione nel servizio API di Azure per FHIR in portale di Azure e selezionare l'account di archiviazione
 
-![Abilita identità gestita](media/export-data/fhir-export-storage.png)
+![FHIR Esporta archiviazione](media/export-data/fhir-export-storage.png)
 
 Al termine, è possibile esportare i dati usando $export comando.
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 631f5afbac4337cd0852f46ac4a336107f042397
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331642"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530562"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Connettersi e indicizzare il contenuto SQL di Azure usando un indicizzatore di Azure ricerca cognitiva
 
@@ -39,7 +39,7 @@ Un singolo indicizzatore può usare solo una tabella o una vista, ma è possibil
 È possibile impostare e configurare un indicizzatore SQL di Azure usando:
 
 * Importazione guidata dati nel [portale di Azure](https://portal.azure.com)
-* Azure ricerca cognitiva [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Azure ricerca cognitiva [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer)
 * [API REST](/rest/api/searchservice/indexer-operations) di Azure ricerca cognitiva
 
 In questo articolo si userà l'API REST per creare gli **indicizzatori** e le **origini dati**.
@@ -328,7 +328,7 @@ Quando si utilizza la tecnica dell’eliminazione temporanea, è possibile speci
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Sono supportate solo le istanze geografiche di tipo POINT con SRID 4326 (ossia l'impostazione predefinita) |
 | rowversion |N/D |Le colonne di versione di riga non possono essere archiviate nell'indice di ricerca, ma possono essere usate per il rilevamento modifiche |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/D |Non supportate |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/D |Non supportato |
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 L'indicizzatore SQL espone diverse impostazioni di configurazione:

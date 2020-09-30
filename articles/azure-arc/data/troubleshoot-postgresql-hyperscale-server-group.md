@@ -9,30 +9,55 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 9c0d3d9c74be8dabaec20ff5d4c7e7cfc74d8eef
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8d1c9027b6a9a7b295ce83e26281832beca1bc33
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939125"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531956"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Risoluzione dei problemi relativi ai gruppi di server di iperscala PostgreSQL
+Questo articolo descrive alcune tecniche che è possibile usare per risolvere i problemi del gruppo di server. Oltre a questo articolo, è consigliabile leggere come usare [Kibana](monitor-grafana-kibana.md) per Cerca i log o usare [Grafana](monitor-grafana-kibana.md) per visualizzare le metriche relative al gruppo di server. 
 
-I notebook possono documentare le procedure includendo il contenuto Markdown per descrivere le operazioni da eseguire/come eseguire questa operazione. Può inoltre fornire codice eseguibile per automatizzare una stored procedure.  Questo modello è utile per tutti gli elementi, dalle procedure operative standard alle guide per la risoluzione dei problemi.
+## <a name="getting-more-details-about-the-execution-of-an-azdata-command"></a>Ottenere altri dettagli sull'esecuzione di un comando azdata
+È possibile aggiungere il parametro **--debug** a qualsiasi comando azdata eseguito. Questa operazione consente di visualizzare nella console informazioni aggiuntive sull'esecuzione del comando. Dovrebbe risultare utile ottenere informazioni dettagliate per comprendere il comportamento di tale comando.
+È ad esempio possibile eseguire
+```console
+azdata arc postgres server create -n postgres01 -w 2 --debug
+```
+
+oppure
+```console
+azdata arc postgres server edit -n postgres01 --extension SomeExtensionName --debug
+```
+
+Inoltre, è possibile usare il parametro--help per qualsiasi comando azdata per visualizzare una guida, un elenco di parametri per un comando specifico. Esempio:
+```console
+azdata arc postgres server create --help
+```
+
+
+## <a name="collecting-logs-of-the-data-controller-and-your-server-groups"></a>Raccolta dei log del controller dati e dei gruppi di server
+Leggi l'articolo su [come ottenere i log per Azure Arc Enabled Data Services](troubleshooting-get-logs.md)
+
+
+
+## <a name="interactive-troubleshooting-with-jupyter-notebooks-in-azure-data-studio"></a>Risoluzione dei problemi interattivi con notebook di Jupyter in Azure Data Studio
+I notebook possono documentare le procedure includendo il contenuto Markdown per descrivere le operazioni da eseguire e come eseguirle. Possono anche fornire il codice eseguibile per automatizzare una procedura.  Questo modello è utile per tutti i problemi, dalle procedure operative standard alle guide per la risoluzione dei problemi.
 
 Ad esempio, è possibile risolvere i problemi relativi a un gruppo di server con iperscalabilità PostgreSQL che potrebbe avere problemi usando Azure Data Studio.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="install-tools"></a>Installare gli strumenti
+### <a name="install-tools"></a>Installare gli strumenti
 
 Installare Azure Data Studio `kubectl` e nel `azdata` computer client usato per eseguire il notebook in Azure Data Studio. A tale scopo, seguire le istruzioni disponibili in [installare gli strumenti client](install-client-tools.md)
 
-## <a name="update-the-path-environment-variable"></a>Aggiornare la variabile di ambiente PATH
+### <a name="update-the-path-environment-variable"></a>Aggiornare la variabile di ambiente PATH
 
 Assicurarsi che questi strumenti possano essere richiamati da qualsiasi punto del computer client. Ad esempio, in un computer client Windows aggiornare la variabile di ambiente di sistema PATH e aggiungere la cartella in cui è stato installato kubectl.
 
-## <a name="sign-in-with-azdata"></a>Accedi con `azdata`
+### <a name="sign-in-with-azdata"></a>Accedi con `azdata`
 
 Accedere al controller di dati Arc da questo computer client e prima di avviare Azure Data Studio. A tale scopo, eseguire un comando simile al seguente:
 
@@ -46,7 +71,7 @@ Sostituire `<IP address>` con l'indirizzo IP del cluster Kubernetes e `<port>` l
 azdata login --help
 ```
 
-## <a name="log-into-your-kubernetes-cluster-with-kubectl"></a>Accedere al cluster Kubernetes con kubectl
+### <a name="log-into-your-kubernetes-cluster-with-kubectl"></a>Accedere al cluster Kubernetes con kubectl
 
 A tale scopo, è possibile usare i comandi di esempio forniti in [questo](https://blog.christianposta.com/kubernetes/logging-into-a-kubernetes-cluster-with-kubectl/) post di Blog.
 Eseguire comandi come:
@@ -59,7 +84,7 @@ kubectl config set-context default/my_kubeuser/ArcDataControllerAdmin --user=Arc
 kubectl config use-context default/my_kubeuser/ArcDataControllerAdmin
 ```
 
-### <a name="the-troubleshooting-notebook"></a>Notebook per la risoluzione dei problemi
+#### <a name="the-troubleshooting-notebook"></a>Notebook per la risoluzione dei problemi
 
 Avviare Azure Data Studio e aprire il notebook per la risoluzione dei problemi. 
 
@@ -72,9 +97,9 @@ Implementare i passaggi descritti in  [033-Manage-Postgres-with-AzureDataStudio.
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio-aprire il notebook per la risoluzione dei problemi PostgreSQL":::
 
-**TSG100: il notebook di Azure Arc abilitato per la risoluzione dei problemi di iperscalabilità di PostgreSQL** viene aperto: :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio-usare il notebook per la risoluzione dei problemi PostgreSQL":::
+**TSG100: il notebook di Azure Arc abilitato per la risoluzione dei problemi di iperscalabilità di PostgreSQL** viene aperto: :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio-aprire il notebook per la risoluzione dei problemi PostgreSQL":::
 
-### <a name="run-the-scripts"></a>Esecuzione degli script
+#### <a name="run-the-scripts"></a>Esecuzione degli script
 Selezionare il pulsante "Esegui tutto" nella parte superiore per eseguire il notebook in una sola volta oppure è possibile eseguire tutte le celle del codice una alla volta.
 
 Visualizzare l'output dell'esecuzione delle celle di codice per eventuali problemi potenziali.

@@ -14,12 +14,12 @@ ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a5a20498ccd0a133c6e02d366af690acf2665e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe2f464791995b9168868f1661a3c303d46f7987
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742267"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530120"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Visualizzare la cronologia di controllo per i ruoli di Azure AD in Privileged Identity Management
 
@@ -32,7 +32,7 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente appartenente al ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Aprire **Azure ad Privileged Identity Management**. Se si dispone di un banner nella parte superiore della pagina Panoramica, seguire le istruzioni riportate nella scheda **nuova versione** di questo articolo. In caso contrario, seguire le istruzioni riportate nella scheda **versione precedente** .
 
-    [![Nuova versione dei ruoli Azure AD](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Selezionare la scheda per la versione")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+    [![Screenshot che mostra la pagina "ruoli Azure AD-cronologia di controllo dei ruoli della directory".](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Selezionare la scheda per la versione")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
 # <a name="new-version"></a>[Nuova versione](#tab/new)
 
@@ -92,7 +92,7 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
     | --- | --- |
     | Tempo | Quando si è verificata l'azione. |
     | Richiedente | Utente che ha richiesto l'attivazione o la modifica del ruolo. Se il valore è **Azure System**, controllare la cronologia di controllo di Azure per altre informazioni. |
-    | Action | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
+    | Operazione | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
     | Membro | Utente che sta attivando o assegnata a un ruolo. |
     | Ruolo | Ruolo assegnato o attivato dall'utente. |
     | Motivo | Testo immesso nel campo motivo durante l'attivazione. |
@@ -123,11 +123,11 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
     - Vedere la causa di un evento di controllo nella colonna **motivo dello stato** .
     - Vedere il responsabile approvazione nella colonna **Iniziato da (attore)** per l'evento "Aggiungi membro a richiesta di ruolo approvato".
 
-    [![Nuova versione dei ruoli Azure AD](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrare il log di controllo per il servizio PIM")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
+    [![Screenshot che mostra la pagina "log di controllo" con il menu "avviato da (attore)" aperto e "PIM" selezionato.](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrare il log di controllo per il servizio PIM")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
 
 1. Selezionare un evento del registro di controllo per visualizzare il numero del ticket nella scheda **attività** del riquadro **Dettagli** .
   
-    [![Nuova versione dei ruoli Azure AD](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Controllare il numero di ticket per l'evento di controllo")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
+    [![Screenshot che mostra la pagina "log di controllo" con il numero di ticket evidenziato nel riquadro "dettagli".](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Controllare il numero di ticket per l'evento di controllo")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
 
 1. È possibile visualizzare il richiedente (persona che attiva il ruolo) nella scheda **destinazioni** del riquadro **Dettagli** per un evento di controllo. Esistono due tipi di destinazione per i ruoli Azure AD:
 

@@ -4,12 +4,12 @@ description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMwar
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 4bb713b3d50fa92728baf7b1fff1e6e65c48ed92
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: fd0c0158106a24ba12fec42e41df69f246e7f3f5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368737"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530477"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -67,7 +67,7 @@ Microsoft e Red Hat condividono un team di supporto integrato con percorso condi
 
 VMware HCX Enterprise Edition (EE) è disponibile con la soluzione VMware di Azure come funzione/servizio in *Anteprima* . Mentre la soluzione VMware HCX EE per Azure VMware è in anteprima, si tratta di una funzione/servizio gratuita, soggetta a termini e condizioni del servizio in anteprima. Una volta che il servizio VMware HCX EE passa a GA, si riceverà un avviso di 30 giorni per il passaggio della fatturazione. È anche possibile disattivare o rifiutare esplicitamente il servizio.
 
-## <a name="compute-network-and-storage"></a>Calcolo, rete e archiviazione
+## <a name="compute-network-storage-and-backup"></a>Calcolo, rete, archiviazione e backup
 
 #### <a name="is-there-more-than-one-type-of-host-available"></a>Sono disponibili più tipi di host?
 
@@ -92,6 +92,14 @@ Ogni host ESXi è una soluzione VMware di Azure configurata con NIC da 4 25 Gbps
 #### <a name="is-data-stored-on-the-vsan-datastores-encrypted-at-rest"></a>I dati archiviati negli archivi dati rete VSAN sono crittografati?
 
 Sì, tutti i dati rete VSAN vengono crittografati per impostazione predefinita usando le chiavi archiviate in Azure Key Vault.
+
+#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendor-isv-backup-solutions"></a>Si documenta che CommVault, Veritas e Veeam hanno esteso le proprie soluzioni di backup per l'uso con la soluzione VMware di Azure. Quali sono le soluzioni di backup di fornitori di software indipendenti (ISV)?
+
+Per quanto sappiamo, qualsiasi soluzione di backup che usa VMware VADP con la modalità di trasporto HotAdd dovrebbe funzionare direttamente nella soluzione VMware di Azure.
+
+#### <a name="what-about-support-for-isv-backup-solutions"></a>Per quanto riguarda il supporto per le soluzioni di backup ISV?
+
+Poiché queste soluzioni di backup sono installate e gestite dai clienti, possono contattare il rispettivo ISV per il supporto. 
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Host, cluster e cloud privati
 

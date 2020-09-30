@@ -3,12 +3,12 @@ title: Come lavorare con i gruppi di gestione - Governance di Azure
 description: Informazioni su come visualizzare, gestire, aggiornare ed eliminare la gerarchia dei gruppi di gestione.
 ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 765a3853bbd3ee21bfc2a4aca5d5adb03f413e30
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 82eeb2520815ddac69d27ddccd58c842c3e33deb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658758"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531038"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione
 
@@ -41,7 +41,7 @@ I gruppi di gestione offrono gestione di livello aziendale su larga scala, indip
 
 1. All'apertura del menu, immettere il nuovo nome che si vuole visualizzare.
 
-   :::image type="content" source="./media/rename_context.png" alt-text="Screenshot della finestra Rinomina gruppo e opzioni per rinominare un gruppo di gestione." border="false":::
+   :::image type="content" source="./media/rename_context.png" alt-text="Screenshot della barra delle azioni e del pulsante ' Rinomina gruppo ' nella pagina del gruppo di gestione." border="false":::
 
 1. Selezionare **Salva**.
 
@@ -68,7 +68,7 @@ Per eliminare un gruppo di gestione è necessario che siano soddisfatti i requis
 1. Nel gruppo di gestione non esistono gruppi di gestione o sottoscrizioni figlio. Per spostare una sottoscrizione o un gruppo di gestione in un altro gruppo di gestione, vedere Spostamento di gruppi di gestione [e sottoscrizioni nella gerarchia](#moving-management-groups-and-subscriptions).
 
 1. Sono necessarie autorizzazioni di scrittura per il gruppo di gestione ("Proprietario" o "Collaboratore" o "Collaboratore del gruppo di gestione"). Per controllare le proprie autorizzazioni, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per ulteriori informazioni sui ruoli di Azure, vedere  
-   [Gestire accessi e autorizzazioni con il controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
+   [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
 
 ### <a name="delete-in-the-portal"></a>Eseguire l'eliminazione nel portale
 
@@ -82,14 +82,14 @@ Per eliminare un gruppo di gestione è necessario che siano soddisfatti i requis
 
 1. Selezionare **Elimina**
 
-   :::image type="content" source="./media/delete.png" alt-text="Screenshot della pagina del gruppo di gestione con il pulsante Elimina evidenziato." border="false":::
+   :::image type="content" source="./media/delete.png" alt-text="Screenshot della barra delle azioni e del pulsante ' Rinomina gruppo ' nella pagina del gruppo di gestione." border="false":::
 
    > [!TIP]
    > Se l'icona è disabilitata, posizionando il cursore del mouse sull'icona viene visualizzato il motivo.
 
 1. Si aprirà una finestra con la richiesta di confermare l'eliminazione del gruppo di gestione.
 
-   :::image type="content" source="./media/delete_confirm.png" alt-text="Screenshot della finestra di dialogo di conferma ' Elimina gruppo ' per l'eliminazione di un gruppo di gestione." border="false":::
+   :::image type="content" source="./media/delete_confirm.png" alt-text="Screenshot della barra delle azioni e del pulsante ' Rinomina gruppo ' nella pagina del gruppo di gestione." border="false":::
 
 1. Selezionare **Sì**.
 
@@ -123,7 +123,7 @@ az account management-group delete --name 'Contoso'
 
 1. Per visualizzare i dettagli del gruppo di gestione, selezionare il collegamento **(dettagli)** accanto al titolo del gruppo di gestione. Se questo collegamento non è disponibile, non si hanno le autorizzazioni per visualizzare il gruppo di gestione.
 
-   :::image type="content" source="./media/main.png" alt-text="Screenshot della pagina dei gruppi di gestione che mostra le sottoscrizioni e i gruppi di gestione figlio." border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Screenshot della barra delle azioni e del pulsante ' Rinomina gruppo ' nella pagina del gruppo di gestione." border="false":::
 
 ### <a name="view-in-powershell"></a>Visualizzare in PowerShell
 
@@ -213,7 +213,7 @@ Per eseguire l'azione di spostamento, è necessario avere:
 
 Se il ruolo Proprietario nella sottoscrizione viene ereditato dal gruppo di gestione corrente, le destinazioni di spostamento sono limitate. È possibile spostare la sottoscrizione solo in un altro gruppo di gestione in cui si ha il ruolo Proprietario. Non è possibile spostarla in un gruppo di gestione in cui si ha il ruolo Collaboratore perché si perderebbe la proprietà della sottoscrizione. Se il ruolo Proprietario per la sottoscrizione è stato assegnato direttamente (non ereditato dal gruppo di gestione), è possibile eseguire lo spostamento in qualsiasi gruppo di gestione in cui si ha il ruolo Collaboratore.
 
-Per controllare le proprie autorizzazioni nel portale di Azure, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per altre informazioni sui ruoli di Azure, vedere [gestire l'accesso e le autorizzazioni con RBAC](../../role-based-access-control/overview.md).
+Per controllare le proprie autorizzazioni nel portale di Azure, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per altre informazioni sui ruoli di Azure, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
 
 ## <a name="move-subscriptions"></a>Spostare sottoscrizioni 
 
@@ -229,7 +229,7 @@ Per controllare le proprie autorizzazioni nel portale di Azure, selezionare il g
 
 1. Selezionare nell'elenco la sottoscrizione con l'ID corretto.
 
-   :::image type="content" source="./media/add_context_sub.png" alt-text="Screenshot delle opzioni Aggiungi sottoscrizione per la selezione di una sottoscrizione esistente da aggiungere a un gruppo di gestione." border="false":::
+   :::image type="content" source="./media/add_context_sub.png" alt-text="Screenshot della barra delle azioni e del pulsante ' Rinomina gruppo ' nella pagina del gruppo di gestione." border="false":::
 
 1. Selezionare "Salva".
 
@@ -243,13 +243,13 @@ Per controllare le proprie autorizzazioni nel portale di Azure, selezionare il g
 
 1. Selezionare i puntini di sospensione in fondo alla riga della sottoscrizione che si vuole spostare.
 
-   :::image type="content" source="./media/move_small.png" alt-text="Screenshot del menu alternativo per una sottoscrizione per selezionare l'opzione Sposta." border="false":::
+   :::image type="content" source="./media/move_small.png" alt-text="Screenshot della barra delle azioni e del pulsante ' Rinomina gruppo ' nella pagina del gruppo di gestione." border="false":::
 
 1. Selezionare **Sposta**.
 
 1. Nel menu visualizzato selezionare il **Gruppo di gestione padre**.
 
-   :::image type="content" source="./media/move_small_context.png" alt-text="Screenshot della finestra Sposta e opzioni per lo spostamento di una sottoscrizione in un gruppo di gestione diverso." border="false":::
+   :::image type="content" source="./media/move_small_context.png" alt-text="Screenshot della barra delle azioni e del pulsante ' Rinomina gruppo ' nella pagina del gruppo di gestione." border="false":::
 
 1. Selezionare **Salva**.
 
@@ -298,7 +298,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
    - Selezionando la prima opzione verrà creato un nuovo gruppo di gestione.
    - Selezionando la seconda, verrà visualizzato un elenco a discesa di tutti i gruppi di gestione a cui è possibile spostare questo gruppo di gestione.  
 
-   :::image type="content" source="./media/add_context_MG.png" alt-text="Screenshot delle opzioni Aggiungi gruppo di gestione per la creazione di un nuovo gruppo di gestione." border="false":::
+   :::image type="content" source="./media/add_context_MG.png" alt-text="Screenshot della barra delle azioni e del pulsante ' Rinomina gruppo ' nella pagina del gruppo di gestione." border="false":::
 
 1. Selezionare **Salva**.
 
@@ -323,7 +323,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 I gruppi di gestione sono supportati all'interno del [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md). È possibile eseguire una query di tutti gli eventi che si verificano per un gruppo di gestione nella stessa posizione centrale delle altre risorse di Azure. È ad esempio possibile vedere tutte le modifiche delle assegnazioni di ruoli o di criteri apportate a uno specifico gruppo di gestione.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Screenshot dei log attività e delle operazioni correlate al gruppo di gestione selezionato." border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Screenshot della barra delle azioni e del pulsante ' Rinomina gruppo ' nella pagina del gruppo di gestione." border="false":::
 
 Quando si esegue una query sui gruppi di gestione all'esterno del portale di Azure, l'ambito di destinazione per tali gruppi sarà simile a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 

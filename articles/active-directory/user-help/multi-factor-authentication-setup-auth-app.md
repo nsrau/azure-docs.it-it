@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 953f74a18ae7874c8772cdc8179e5e5bdd1a86d2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 10b6b788077eccda522c9e8c6e631939ca1819fc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738643"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530341"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Configurare un'app di autenticazione come metodo di verifica a due fattori
 
@@ -33,7 +33,7 @@ ms.locfileid: "83738643"
 
 2. Selezionare **Ricevi notifiche per la verifica** nell'area **Indicare come verrà usata questa app per dispositivi mobili** e quindi **Configura**.
 
-    ![Pagina Verifica di sicurezza aggiuntiva, con opzione per app per dispositivi mobili e notifiche](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
+    ![Screenshot che mostra la pagina "verifica aggiuntiva di sicurezza", con l'opzione "app per dispositivi mobili" e "Ricevi notifiche per la verifica" selezionata.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
 
     Viene visualizzata la pagina **Configurare l'app per dispositivi mobili**.
 
@@ -48,7 +48,7 @@ ms.locfileid: "83738643"
 
 5. Tornare al computer e alla pagina **Verifica di sicurezza aggiuntiva**, verificare che venga visualizzato il messaggio che informa che la configurazione è stata completata e quindi selezionare **Avanti**.
 
-    ![Pagina Verifica di sicurezza aggiuntiva, con messaggio di operazione riuscita](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
+    ![Screenshot che mostra la pagina "verifica aggiuntiva di sicurezza" con l'app per dispositivi mobili configurata... messaggio di operazione completata evidenziato.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
 
     L'app di autenticazione invierà una notifica al dispositivo mobile come test.
 
