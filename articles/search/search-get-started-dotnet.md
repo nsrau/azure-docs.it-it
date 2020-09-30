@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ffcb2c741838b1292eaf0793cd625c99d252068c
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e1a52a15012e367dc902992f7f7b905fc6c6a5eb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462072"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541544"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Avvio rapido: Creare un indice di ricerca con la libreria client Azure.Search.Documents
 
-Usare la nuova [libreria client Azure.Search.Documents (versione 11)](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) per creare un'applicazione console .NET Core in C# che crea e carica un indice di ricerca ed esegue query su di esso.
+Usare la nuova [libreria client Azure.Search.Documents (versione 11)](/dotnet/api/overview/azure/search.documents-readme) per creare un'applicazione console .NET Core in C# che crea e carica un indice di ricerca ed esegue query su di esso.
 
 [Scaricare il codice sorgente](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) per iniziare con un progetto finito oppure seguire la procedura descritta in questo articolo per crearne uno.
 

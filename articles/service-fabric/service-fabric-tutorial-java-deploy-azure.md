@@ -1,17 +1,15 @@
 ---
 title: Distribuire un'app Java in un cluster di Service Fabric in Azure
 description: In questa esercitazione si apprenderà come distribuire un'applicazione Java di Service Fabric in un cluster di Azure Service Fabric.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: suhuruli
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 50ae4d34cd7b238403ee95bd36a97ac82392f3ba
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3e00e478e20fbd0bc4ff6ed17b330f0d16488be6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320732"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532059"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Java in un cluster di Service Fabric in Azure
 

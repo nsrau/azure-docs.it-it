@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: e51d0bfb79eab4db9bb571cc0f4ee70ada352d92
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895779"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447167"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Avvio rapido: Configurazione del Centro sicurezza di Azure
 
@@ -61,7 +61,7 @@ Ai fini delle guide di avvio rapido e delle esercitazioni sul Centro sicurezza, 
 
 1. Nella barra laterale del Centro sicurezza selezionare **Attività iniziali**.
 
-    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Scheda Aggiorna della pagina introduttiva"::: 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Dashboard di panoramica del Centro sicurezza"::: 
 
     La scheda **Aggiorna** contiene un elenco di sottoscrizioni e aree di lavoro idonee per l'onboarding.
 
@@ -82,7 +82,7 @@ Per abilitare il provisioning automatico dell'agente di Log Analytics:
 1. Nella pagina **Raccolta dati** impostare **Provisioning automatico** su **Sì**.
 1. Selezionare **Salva**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Abilitare il provisioning automatico dell'agente di Log Analytics":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Dashboard di panoramica del Centro sicurezza":::
 
 >[!TIP]
 > Se è necessario eseguire il provisioning di un'area di lavoro, l'installazione dell'agente potrebbe richiedere fino a 25 minuti.
@@ -109,7 +109,6 @@ Si vuole ottimizzare e risparmiare sulla spesa per il cloud?
 [2]: ./media/security-center-get-started/overview.png
 [4]: ./media/security-center-get-started/get-started.png
 [5]: ./media/security-center-get-started/pricing.png
-[6]: ./media/security-center-get-started/enable-automatic-provisioning.png
 [7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
 [9]: ./media/security-center-get-started/select-subscription.png
