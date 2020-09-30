@@ -3,18 +3,18 @@ title: 'Guida di avvio rapido: Archiviazione BLOB di Azure per JavaScript v10 ne
 description: Informazioni su come caricare, elencare ed eliminare i BLOB usando l'SDK JavaScript v10 in una pagina HTML.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.service: storage
 ms.author: mhopkins
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 3982e54d06f2e84c4e8e8703e70e9a26773c389a
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 134408704d54479fbbe0dfb5094f2920fa2e74be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429215"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336191"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 

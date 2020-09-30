@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come eseguire il backup di database S
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb6b9f4d58a94cc8a4b9f70b5ead7d319a0d51b5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f11e01c6af18cac956d58b9c692d7b57c8fe653a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007571"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324961"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Esercitazione: Eseguire il backup di database SAP HANA in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -50,7 +50,7 @@ az backup vault create --resource-group saphanaResourceGroup \
     --location westus2
 ```
 
-Per impostazione predefinita, l'insieme di credenziali di Servizi di ripristino è impostato per l'archiviazione con ridondanza geografica. Con l'archiviazione con ridondanza geografica ci si assicura che i dati di backup vengono replicati in un'area di Azure secondaria a centinaia di chilometri di distanza dall'area primaria. Se è necessario modificare l'impostazione di ridondanza dell'archiviazione, usare il cmdlet [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set).
+Per impostazione predefinita, l'insieme di credenziali di Servizi di ripristino è impostato per l'archiviazione con ridondanza geografica. Con l'archiviazione con ridondanza geografica ci si assicura che i dati di backup vengono replicati in un'area di Azure secondaria a centinaia di chilometri di distanza dall'area primaria. Se è necessario modificare l'impostazione di ridondanza dell'archiviazione, usare il cmdlet [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set).
 
 ```azurecli
 az backup vault backup-properties set \
@@ -59,7 +59,7 @@ az backup vault backup-properties set \
     --backup-storage-redundancy "LocallyRedundant/GeoRedundant"
 ```
 
-Per verificare che l'insieme di credenziali sia stato creato correttamente, usare il cmdlet [az backup vault list](/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-list). Verrà visualizzata la risposta seguente:
+Per verificare che l'insieme di credenziali sia stato creato correttamente, usare il cmdlet [az backup vault list](/cli/azure/backup/vault#az-backup-vault-list). Verrà visualizzata la risposta seguente:
 
 ```output
 Location   Name             ResourceGroup
@@ -71,7 +71,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 Per la corretta individuazione dell'istanza di SAP HANA, ovvero la macchina virtuale in cui è installato SAP HANA, da parte dei servizi di Azure, è necessario eseguire uno [script di registrazione preliminare](https://aka.ms/scriptforpermsonhana) nel computer SAP HANA. Prima di eseguire lo script, verificare che siano soddisfatti tutti i [prerequisiti](./tutorial-backup-sap-hana-db.md#prerequisites). Per altre informazioni sulle funzionalità deullo script, vedere la sezione [Funzionalità dello script di pre-registrazione](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
-Una volta eseguito lo script, l'istanza di SAP HANA può essere registrata con l'insieme di credenziali di Servizi di ripristino creato in precedenza. Per registrare l'istanza, usare il cmdlet [az backup container register](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register). *VMResourceId* è l'ID risorsa della macchina virtuale creata per installare SAP HANA.
+Una volta eseguito lo script, l'istanza di SAP HANA può essere registrata con l'insieme di credenziali di Servizi di ripristino creato in precedenza. Per registrare l'istanza, usare il cmdlet [az backup container register](/cli/azure/backup/container#az-backup-container-register). *VMResourceId* è l'ID risorsa della macchina virtuale creata per installare SAP HANA.
 
 ```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \
@@ -87,7 +87,7 @@ az backup container register --resource-group saphanaResourceGroup \
 
 La registrazione dell'istanza di SAP HANA attiva l'individuazione automatica tutti i database correnti al suo interno. Tuttavia, per individuare i nuovi database che possono essere aggiunti in futuro, vedere la sezione [Individuazione dei nuovi database aggiunti all'istanza di SAP HANA registrata](tutorial-sap-hana-manage-cli.md#protect-new-databases-added-to-an-sap-hana-instance).
 
-Per verificare se l'istanza di SAP HANA è stata registrata correttamente nell'insieme di credenziali, usare il cmdlet [az backup container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list). Verrà visualizzata la risposta seguente:
+Per verificare se l'istanza di SAP HANA è stata registrata correttamente nell'insieme di credenziali, usare il cmdlet [az backup container list](/cli/azure/backup/container#az-backup-container-list). Verrà visualizzata la risposta seguente:
 
 ```output
 Name                                                    Friendly Name    Resource Group        Type           Registration Status
@@ -100,7 +100,7 @@ VMAppContainer;Compute;saphanaResourceGroup;saphanaVM   saphanaVM        saphana
 
 ## <a name="enable-backup-on-sap-hana-database"></a>Abilitare il backup nel database SAP HANA
 
-Il cmdlet [az backup protectable-item list](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) elenca tutti i database individuati nell'istanza di SAP HANA registrata nel passaggio precedente.
+Il cmdlet [az backup protectable-item list](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) elenca tutti i database individuati nell'istanza di SAP HANA registrata nel passaggio precedente.
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \
@@ -121,7 +121,7 @@ saphanadatabase;hxe;hxe        SAPHanaDatabase          HXE           hxehost   
 
 Come si può notare dall'output precedente, il SID del sistema SAP HANA è HXE. In questa esercitazione verrà configurato il backup per il database *saphanadatabase;hxe;hxe* che risiede nel server *hxehost*.
 
-Per proteggere e configurare il backup in un database alla volta, si userà il cmdlet [az backup protection enable-for-azurewl](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-enable-for-azurewl). Specificare il nome del criterio da usare. Per creare un criterio con l'interfaccia della riga di comando, usare il cmdlet [az backup policy create](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create). Per questa esercitazione verrà usato il criterio *sapahanaPolicy*.
+Per proteggere e configurare il backup in un database alla volta, si userà il cmdlet [az backup protection enable-for-azurewl](/cli/azure/backup/protection#az-backup-protection-enable-for-azurewl). Specificare il nome del criterio da usare. Per creare un criterio con l'interfaccia della riga di comando, usare il cmdlet [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create). Per questa esercitazione verrà usato il criterio *sapahanaPolicy*.
 
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
@@ -133,7 +133,7 @@ az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
     --output table
 ```
 
-È possibile verificare se la configurazione di backup precedente è stata completata usando il cmdlet [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list). L'output verrà visualizzato come segue:
+È possibile verificare se la configurazione di backup precedente è stata completata usando il cmdlet [az backup job list](/cli/azure/backup/job#az-backup-job-list). L'output verrà visualizzato come segue:
 
 ```output
 Name                                  Operation         Status     Item Name   Start Time UTC
@@ -141,7 +141,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-Il cmdlet [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) elenca tutti i processi di backup (pianificati o su richiesta) che sono stati eseguiti o sono attualmente in esecuzione nel database protetto, oltre ad altre operazioni come la registrazione, la configurazione del backup e l'eliminazione dei dati di backup.
+Il cmdlet [az backup job list](/cli/azure/backup/job#az-backup-job-list) elenca tutti i processi di backup (pianificati o su richiesta) che sono stati eseguiti o sono attualmente in esecuzione nel database protetto, oltre ad altre operazioni come la registrazione, la configurazione del backup e l'eliminazione dei dati di backup.
 
 >[!NOTE]
 >Backup di Azure non si adatta automaticamente al cambiamento dell'ora legale per il backup di un database SAP HANA in esecuzione in una VM di Azure.
@@ -173,7 +173,7 @@ Name                                  ResourceGroup
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-La risposta fornirà il nome del processo. Questo nome di processo può essere usato per tenere traccia dello stato del processo usando il cmdlet [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
+La risposta fornirà il nome del processo. Questo nome di processo può essere usato per tenere traccia dello stato del processo usando il cmdlet [az backup job show](/cli/azure/backup/job#az-backup-job-show).
 
 >[!NOTE]
 >Oltre pianificare un backup completo o differenziale, è anche possibile attivare il backup manualmente. I backup del log vengono attivati e gestiti automaticamente da SAP HANA internamente.

@@ -12,12 +12,12 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: riconoscimento del parlante, biometria vocale
-ms.openlocfilehash: f22eb02e6812bef73133b1778484f9f4640245cd
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: cfb16d95c0de7fabb7e939e53903f0a611f749e9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89410542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362555"
 ---
 # <a name="get-started-with-speaker-recognition"></a>Introduzione a Riconoscimento del parlante
 
@@ -31,7 +31,7 @@ Per informazioni generali sui concetti di Riconoscimento del parlante, vedere l'
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che si abbia un account Azure e una sottoscrizione del servizio Voce. Se l'account e la sottoscrizione non sono disponibili, [provare il servizio Voce gratuitamente](get-started.md).
+Questo articolo presuppone che si abbia un account Azure e una sottoscrizione del servizio Voce. Se l'account e la sottoscrizione non sono disponibili, [provare il servizio Voce gratuitamente](overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
 > La funzionalità Riconoscimento del parlante è attualmente supportata *solo* nelle risorse Voce di Azure create nell'area `westus`.
@@ -283,7 +283,7 @@ public static async Task SpeakerIdentification(SpeechConfig config, List<VoicePr
 
     Console.WriteLine("Speak some text to identify who it is from your list of enrolled speakers.");
     var result = await speakerRecognizer.RecognizeOnceAsync(model);
-    Console.WriteLine($"The most similiar voice profile is {profileMapping[result.ProfileId]} with similiarity score {result.Score}");
+    Console.WriteLine($"The most similar voice profile is {profileMapping[result.ProfileId]} with similarity score {result.Score}");
 }
 ```
 

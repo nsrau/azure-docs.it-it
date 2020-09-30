@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: a95ec76c63a35c29b061c2fddff67a28e0f8f553
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ee64343a040f4ed3288f8c4addb64c1ef2437cc1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883658"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326185"
 ---
 # <a name="how-to-launch-your-spring-cloud-application-from-source-code"></a>Procedura - Avviare l'applicazione Spring Cloud dal codice sorgente
 
@@ -101,13 +101,13 @@ Per eseguire la distribuzione da un file JAR compilato nel computer locale, assi
 Per distribuire il fat-JAR in una distribuzione attiva
 
 ```azurecli
-az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR>
+az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR e.g. "target\hellospring-0.0.1-SNAPSHOT.jar">
 ```
 
 Per distribuire il fat-JAR in una distribuzione specifica
 
 ```azurecli
-az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-built-jar>
+az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-fat-JAR e.g. "target\hellospring-0.0.1-SNAPSHOT.jar">
 ```
 
 ### <a name="deploy-from-source-code"></a>Distribuire dal codice sorgente

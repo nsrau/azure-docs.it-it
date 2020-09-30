@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9cc00cfa9f44c69a5880d53c0b7ac623f60be16b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6021bb4fa5d30de423ab56bfb5fdea6af2665a4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944600"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334481"
 ---
 # <a name="calling-client-library-overview"></a>Panoramica della libreria client per le chiamate
 
@@ -55,8 +55,7 @@ L'elenco seguente presenta il set di funzionalità attualmente disponibili nelle
 |                   | Inserire una chiamata di gruppo con partecipanti PSTN                                                                           | ✔️   | ✔️            | ✔️
 |                   | Alzare di livello una chiamata uno-a-uno con un partecipante PSTN in una chiamata di gruppo                                                 | ✔️   | ✔️            | ✔️
 |                   | Disconnettersi da una chiamata di gruppo come partecipante PSTN                                                                    | ✔️   | ✔️            | ✔️   
-| Generale           | Partecipare a una chiamata di gruppo contenente fino a 350 partecipanti                                                       |  ✔️  | ✔️            | ✔️    
-|                   | Testare microfono, altoparlante e fotocamera con un servizio di test audio (disponibile chiamando 8:echo123)                   |  ✔️  | ✔️            | ✔️   
+| Generale           | Testare microfono, altoparlante e fotocamera con un servizio di test audio (disponibile chiamando 8:echo123)                   |  ✔️  | ✔️            | ✔️   
 
 ## <a name="calling-client-library-browser-support"></a>Supporto browser per la libreria client per le chiamate
 

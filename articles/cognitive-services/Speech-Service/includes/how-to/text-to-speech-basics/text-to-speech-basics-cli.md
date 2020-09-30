@@ -4,13 +4,24 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: bee28c946242ecf227287fb36b5b03aa6defb1c2
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: b68025c1b33a94f03e2d84693a7d6407a18abd88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88170140"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332469"
 ---
+Questo argomento di avvio rapido illustra i modelli di progettazione comuni per eseguire la sintesi vocale con Speech SDK. Si inizia con la configurazione di base e la sintesi e si passa ad esempi più avanzati per lo sviluppo di applicazioni personalizzate, tra cui:
+
+* Recupero di risposte come flussi in memoria
+* Personalizzazione della frequenza di campionamento e della velocità in bit dell'output
+* Invio di richieste di sintesi tramite SSML (Speech Synthesis Markup Language)
+* Uso di voci neurali
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Questo articolo presuppone che si abbia un account Azure e una sottoscrizione del servizio Voce. Se l'account e la sottoscrizione non sono disponibili, [provare il servizio Voce gratuitamente](../../../overview.md#try-the-speech-service-for-free).
+
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 
 ## <a name="synthesize-speech-to-a-speaker"></a>Sintetizzare la voce in un altoparlante

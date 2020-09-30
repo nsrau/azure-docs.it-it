@@ -2,14 +2,16 @@
 title: 'Esercitazione: Revisione delle espressioni di endpoint - LUIS'
 description: Questa esercitazione illustra come migliorare le previsioni per le app verificando o correggendo le espressioni ricevute tramite l'endpoint HTTPS LUIS di cui LUIS non è sicuro. Potrebbe essere necessario verificare l'entità o la finalità di alcune espressioni.
 services: cognitive-services
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/02/2020
-ms.openlocfilehash: 082e625efeeb4764aaa1ac5101eb2b0013348b19
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b8f8fa2cd3c9c22187bb95c55d9de2abb2e8caec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959034"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324638"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Esercitazione: Correggere le stime dubbie con la revisione delle espressioni di endpoint
 Questa esercitazione illustra come migliorare le stime delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTPS LUIS di cui LUIS non è sicuro. È consigliabile includere l'analisi delle espressioni dell'endpoint come fase regolare della manutenzione pianificata di LUIS.
@@ -82,7 +84,7 @@ Esaminare le espressioni dell'endpoint per assicurarsi che la finalità sia alli
 
 1. Nella sezione **Build** (Compila) del portale selezionare **Controlla le espressioni di endpoint** nel riquadro di spostamento sinistro. All'elenco viene applicato un filtro relativo alla finalità **ApplyForJob**.
 
-    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Screenshot del pulsante Controlla le espressioni di endpoint nel riquadro di spostamento sinistro.":::
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Passare dalla pagina Versions (Versioni) alla pagina Intents (Finalità).":::
 
     L'espressione `I'm looking for a job with Natural Language Processing` non ha la finalità corretta, _GetJobInformation_. È stata stimata in modo errato come _ApplyForJob_ a causa della somiglianza tra i nomi e i verbi dei processi nelle due finalità.
 

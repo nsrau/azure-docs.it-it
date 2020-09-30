@@ -1,14 +1,16 @@
 ---
 title: 'Esercitazione: Prevedere finalità - LUIS'
 description: In questa esercitazione viene creata un'app personalizzata che consente di prevedere l'intenzione dell'utente in base all'espressione (testo).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c4a564834166686e8280f1117269742b489fc62c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959860"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334753"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Esercitazione: Creare un'app LUIS per determinare le intenzioni dell'utente
 

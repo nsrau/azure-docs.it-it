@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 98eff02dacb5b44839937f826cd676fe16670cbb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 92990df3049f7fa1074d55fc34734e13d6673cd7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017482"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328820"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Eseguire il backup di una macchina virtuale in Azure con l'interfaccia della riga di comando
 
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Per impostazione predefinita, l'insieme di credenziali di Servizi di ripristino è impostato per l'archiviazione con ridondanza geografica. L'archiviazione con ridondanza geografica assicura che i dati di backup vengano replicati in un'area di Azure secondaria che si trova a centinaia di chilometri di distanza dall'area primaria. Se è necessario modificare l'impostazione della ridondanza dell'archiviazione, usare il cmdlet [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
+Per impostazione predefinita, l'insieme di credenziali di Servizi di ripristino è impostato per l'archiviazione con ridondanza geografica. L'archiviazione con ridondanza geografica assicura che i dati di backup vengano replicati in un'area di Azure secondaria che si trova a centinaia di chilometri di distanza dall'area primaria. Se è necessario modificare l'impostazione della ridondanza dell'archiviazione, usare il cmdlet [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set) cmdlet.
 
 ```azurecli
 az backup vault backup-properties set \
@@ -118,7 +118,7 @@ Quando nella colonna *Status* del processo di backup è riportato *Completed*, l
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
-Quando non è più necessaria, è possibile disabilitare la protezione per la VM, rimuovere i punti di ripristino e l'insieme di credenziali dei servizi di ripristino e quindi eliminare il gruppo di risorse e le risorse della VM associate. Se è stata usata una VM esistente, si può ignorare il comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) finale e mantenere così il gruppo di risorse e la VM.
+Quando non è più necessaria, è possibile disabilitare la protezione per la VM, rimuovere i punti di ripristino e l'insieme di credenziali dei servizi di ripristino e quindi eliminare il gruppo di risorse e le risorse della VM associate. Se è stata usata una VM esistente, si può ignorare il comando [az group delete](/cli/azure/group#az-group-delete) finale e mantenere così il gruppo di risorse e la VM.
 
 Se si vuole provare un'esercitazione di Backup che descrive come ripristinare i dati per la macchina virtuale, vedere [Passaggi successivi](#next-steps).
 

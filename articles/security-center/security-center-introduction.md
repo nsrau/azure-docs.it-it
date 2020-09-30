@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2019
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 53fdea6a52cc02ddc9aaf22574a6bac5f5b7bca6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944387"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323675"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -67,7 +67,7 @@ Conoscere e verificare che i carichi di lavoro siano protetti è fondamentale. P
 
 Centro sicurezza consente di **identificare sottoscrizioni shadow IT**. Esaminando le sottoscrizioni con l'etichetta **non coperto** nel dashboard, è possibile sapere immediatamente quando vengono create nuove sottoscrizioni e assicurarsi che siano coperte dalle policy e protette da Centro sicurezza di Azure.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Dashboard delle policy di Centro sicurezza":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Pagina di gestione dei criteri":::
 
 ### <a name="continuous-assessments"></a>Valutazioni continue
 
@@ -75,13 +75,13 @@ Centro sicurezza individua continuamente le nuove risorse distribuite tra i cari
 
 Per consentire agli utenti di comprendere l'importanza delle singole raccomandazioni ai fini del comportamento di sicurezza complessivo, Centro sicurezza raggruppa le raccomandazioni in controlli di sicurezza e aggiunge a ogni controllo un valore che indica il **punteggio di sicurezza**. Si tratta di una funzionalità essenziale per **classificare in ordine di priorità gli interventi di sicurezza**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Punteggio di sicurezza di Centro sicurezza":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Pagina di gestione dei criteri":::
 
 ### <a name="network-map"></a>Mappa di rete
 
 Uno degli strumenti più potenti offerti da Centro sicurezza per il monitoraggio continuo dello stato di sicurezza della rete è la **mappa di rete**. La mappa consente di visualizzare la topologia dei carichi di lavoro, pertanto è possibile controllare che ogni nodo sia configurato correttamente. È possibile visualizzare come sono connessi i nodi per bloccare le connessioni indesiderate che potrebbero potenzialmente agevolare l’attacco alla rete da parte di un utente malintenzionato.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mappa della rete di Centro sicurezza":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Pagina di gestione dei criteri":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Ottimizzare e migliorare la sicurezza mediante la configurazione di controlli consigliati
@@ -92,7 +92,7 @@ In questo modo, Centro sicurezza consente non solo di impostare policy di sicure
 
 Gli elementi consigliati aiutano a ridurre la superficie di attacco in ognuna delle risorse. La superficie include macchine virtuali di Azure, server non Azure e servizi PaaS di Azure come SQL, account di storage e altro, in cui ciascun tipo di risorsa viene valutato in modo diverso e dispone di standard propri.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Esempio di elemento consigliato di Centro sicurezza":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Pagina di gestione dei criteri":::
 
 ## <a name="protect-against-threats"></a>Protezione dalle minacce
 
@@ -100,7 +100,7 @@ La protezione dalle minacce di Centro sicurezza consente di rilevare ed evitare 
 
 La protezione dalle minacce di Centro sicurezza include un’analisi unificata della catena di attacco che genera automaticamente avvisi nell’ambiente per comprendere meglio la storia completa di una campagna di attacco, da dove è iniziata e che tipo di impatto ha avuto sulle risorse.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Avvisi di sicurezza":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Pagina di gestione dei criteri":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integrazione con Microsoft Defender Advanced Threat Protection
 

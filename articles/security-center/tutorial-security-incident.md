@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: c508591fe9909578dcc04b0922c0b76691898743
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 08e04749eae7158abb501f9a4d127cdd7a89a391
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901093"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336276"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Esercitazione: Rispondere agli eventi imprevisti per la sicurezza
 Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido usando funzionalità avanzate di analisi e intelligence delle minacce per segnalare attività dannose. È anche possibile integrare nel Centro sicurezza gli avvisi generati da altri servizi e prodotti per la sicurezza e creare avvisi personalizzati in base a indicatori o origini di intelligence dell'utente. Dopo che è stato generato un avviso, è necessaria un'azione rapida per l'analisi e la correzione. In questa esercitazione verranno illustrate le procedure per:
@@ -76,7 +76,7 @@ Il Centro sicurezza offre una vista centralizzata di tutti gli avvisi di sicurez
 
    ![Dettagli dell'avviso dall'evento imprevisto](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-   Il tipo di avviso può variare. Vedere [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) per altre informazioni sul tipo di avviso e le possibili procedure correttive. Per gli avvisi che possono essere ignorati, è possibile fare clic con il pulsante destro del mouse sull'avviso e scegliere **Ignora**:
+   Il tipo di avviso può variare. Vedere [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-alerts-type.md) per altre informazioni sul tipo di avviso e le possibili procedure correttive. Per gli avvisi che possono essere ignorati, è possibile fare clic con il pulsante destro del mouse sull'avviso e scegliere **Ignora**:
 
    ![Avviso](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 

@@ -12,12 +12,12 @@ author: David-Engel
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
-ms.openlocfilehash: 5248f43e2b0b1e347c6968678b7f05ba7efa9cf6
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b4a22c734d2afb90d5ea7bc1bda17d3f8fcf585a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299593"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327545"
 ---
 # <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Avvio rapido: Usare Golang per eseguire query su un database nel database SQL di Azure o nell'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -200,8 +200,10 @@ Ottenere le informazioni di connessione necessarie per connettersi al database. 
            return -1, err
        }
 
-       tsql := "INSERT INTO TestSchema.Employees (Name, Location) VALUES (@Name, @Location); "
-       tsql += select isNull(SCOPE_IDENTITY(), -1);"
+       tsql := `
+         INSERT INTO TestSchema.Employees (Name, Location) VALUES (@Name, @Location);
+         select isNull(SCOPE_IDENTITY(), -1);
+       `
 
        stmt, err := db.Prepare(tsql)
        if err != nil {
