@@ -1,7 +1,7 @@
 ---
-title: Installare ed eseguire contenitori Docker per l'API di lettura Visione artificiale
+title: Installare i contenitori Docker di lettura OCR da Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Usare il contenitore Docker per il Visione artificiale leggere l'API per rilevare ed estrarre il testo dalle immagini in locale.
+description: Usare i contenitori Docker di lettura OCR da Visione artificiale per estrarre il testo dalle immagini e da Douments, in locale.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,22 +11,23 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
-keywords: locale, Docker, contenitore
-ms.openlocfilehash: 17aa0050ed3e2a2f5a2cc83964d032caa4b8c098
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+keywords: locale, OCR, Docker, contenitore
+ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460442"
+ms.locfileid: "91536376"
 ---
-# <a name="install-and-run-docker-containers-for-the-read-api-preview"></a>Installare ed eseguire contenitori Docker per l'API di lettura (anteprima) 
+# <a name="install-read-ocr-docker-containers-preview"></a>Installare i contenitori Docker per l'OCR di lettura (anteprima) 
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
-I contenitori consentono di eseguire le API di Visione artificiale nell'ambiente in uso. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati. In questo articolo si apprenderà come scaricare, installare ed eseguire un contenitore Visione artificiale.
+I contenitori consentono di eseguire le API di Visione artificiale nell'ambiente in uso. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati. In questo articolo si apprenderà come scaricare, installare ed eseguire Visione artificiale contenitori.
 
-Il contenitore *Read* consente di rilevare ed estrarre il *testo stampato* da immagini di vari oggetti con diverse superfici e sfondi, ad esempio ricevute, poster e biglietti da visita. Il contenitore *Read* rileva inoltre il *testo scritto a mano* nelle immagini e fornisce il supporto per file PDF, TIFF e a più pagine. Per ulteriori informazioni, vedere la [documentazione relativa all'API di lettura](concept-recognizing-text.md#read-api).
+Il contenitore OCR *Read* consente di estrarre testo stampato e scritto a mano da immagini e documenti con supporto per formati di file JPEG, PNG, BMP, PDF e TIFF. Per ulteriori informazioni, vedere la [documentazione relativa all'API di lettura](concept-recognizing-text.md#read-api).
 
+## <a name="read-3x-containers"></a>Leggere i contenitori 3. x
 Sono disponibili due versioni dei contenitori 3. x disponibili in anteprima. Entrambe le versioni forniscono accuratezza e funzionalità aggiuntive rispetto al contenitore precedente.
 
 Il contenitore Read 3,0-Preview fornisce:

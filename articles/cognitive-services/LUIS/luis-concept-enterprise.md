@@ -3,20 +3,18 @@ title: Concetti Enterprise-LUIS
 titleSuffix: Azure Cognitive Services
 description: Comprendere i concetti di progettazione per le app LUIS di grandi dimensioni o per più app, incluse LUIS e QnA Maker.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: efef3faf3cc4ff04235254f0ff6538d92a831196
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d8c88883b839ff47ef57a17378f43918e9ecf7e2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221062"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536121"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Strategie aziendali per un'app LUIS
 Rivedere queste strategie di progettazione per l'app aziendale.
@@ -69,12 +67,12 @@ Informazioni su questa gerarchia di chiamate dall'[esercitazione dell'applicazio
 ### <a name="intent-limits-in-dispatch-model"></a>Limiti di finalità nel modello recapito
 Al massimo un'applicazione di recapito dispone di 500 origini di recapito, equivalenti a 500 finalità. 
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 * [SDK del Framework bot](https://github.com/Microsoft/botframework)
 * [Esercitazione sul modello di invio](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)
 * [INTERFACCIA della riga di comando dispatch](https://github.com/Microsoft/botbuilder-tools)
-* Esempio di bot modello di invio- [.NET](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [node. js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
+* Esempio di bot modello di invio- [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

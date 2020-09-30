@@ -3,15 +3,15 @@ title: Creare un pool di Azure Batch senza indirizzi IP pubblici
 description: Informazioni su come creare un pool senza indirizzi IP pubblici
 author: pkshultz
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 9b36c769c70792e47464c2704e1912dbb2d744dd
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 6c6207e7f52e49b88dc8dc99e0bd20a2c774339d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367938"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541901"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Creare un pool di Azure Batch senza indirizzi IP pubblici
 
@@ -24,7 +24,7 @@ Per impostazione predefinita, a tutti i nodi di calcolo in un pool di configuraz
 Per limitare l'accesso a questi nodi e ridurre l'individuabilità di questi nodi da Internet, è possibile effettuare il provisioning del pool senza indirizzi IP pubblici.
 
 > [!IMPORTANT]
-> Il supporto per i pool senza indirizzi IP pubblici in Azure Batch è attualmente in anteprima pubblica per tutte le aree, ad eccezione di Cina orientale, Cina orientale 2, Cina settentrionale e Cina settentrionale 2.
+> Il supporto per i pool senza indirizzi IP pubblici in Azure Batch è attualmente disponibile in anteprima pubblica per le aree geografiche seguenti: Francia centrale, Asia orientale, Stati Uniti centro-occidentali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Stati Uniti orientali, Europa settentrionale, Stati Uniti orientali 2, Stati Uniti centrali, Europa occidentale.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prerequisiti

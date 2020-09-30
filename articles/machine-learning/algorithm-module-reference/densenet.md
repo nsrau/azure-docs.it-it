@@ -1,7 +1,7 @@
 ---
 title: DenseNet
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare un modello di classificazione delle immagini usando l'algoritmo densenet.
+description: Informazioni su come creare un modello di classificazione delle immagini usando l'algoritmo DenseNet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: d64933f7b2c8ebc8597b93cbd16b34158f936f96
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 2351012738f4cf5697fb29891c9459e4cc86cd3a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450089"
+ms.locfileid: "91536631"
 ---
 # <a name="densenet"></a>DenseNet
 
@@ -29,19 +29,19 @@ Per eseguire il training del modello, è possibile fornire il modello e la direc
 
 ### <a name="more-about-densenet"></a>Altre informazioni su DenseNet
 
-Per ulteriori informazioni, fare riferimento alle [reti di convoluzione con connessione densa](https://arxiv.org/abs/1608.06993) .
+Per altre informazioni su DenseNet, vedere il documento di ricerca relativo alle [reti di convoluzione con connessione densa](https://arxiv.org/abs/1608.06993).
 
 ## <a name="how-to-configure-densenet"></a>Come configurare DenseNet
 
 1.  Aggiungere il modulo **DenseNet** alla pipeline nella finestra di progettazione.  
 
-2.  Per **nome modello**specificare il nome di una determinata struttura densenet ed è possibile scegliere tra densenet supportati:' densenet121',' densenet161',' densenet169',' densenet201'.
+2.  Per **nome modello**specificare il nome di una determinata struttura DenseNet ed è possibile scegliere tra DenseNet supportati:' densenet121',' densenet161',' densenet169',' densenet201'.
 
 3.  Per il **Training**preliminare, specificare se si desidera utilizzare un modello con training preliminare in imagent. Se questa opzione è selezionata, è possibile ottimizzare il modello in base al modello pre-sottoposto a training selezionato; Se deselezionata, è possibile eseguire il training da zero.
 
-4.  Per l' **efficienza della memoria**, specificare se utilizzare il checkpoint, che è molto più efficiente, ma più lento. Per altre informazioni, vedere https://arxiv.org/pdf/1707.06990.pdf.
+4.  Per l' **efficienza della memoria**, specificare se utilizzare il checkpoint, che è molto più efficiente, ma più lento. Per ulteriori informazioni, vedere il documento di ricerca relativo all' [implementazione efficiente della memoria di DenseNets](https://arxiv.org/pdf/1707.06990.pdf).
 
-5.  Connettere l'output del modulo **DenseNet** Module, Training and Validation image DataSet al [modello Train Pytorch](train-pytorch-model.md). 
+5.  Connettere l'output del modulo del set di dati del modulo **DenseNet** , del training e dell'immagine di convalida al [modello Train Pytorch](train-pytorch-model.md). 
 
 6. Inviare la pipeline.
 
@@ -56,7 +56,7 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 
 | Nome             | Range | Type    | Predefinito     | Descrizione                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
-| Nome modello       | Qualsiasi   | Modalità    | densenet201 | Nome di una determinata struttura densenet     |
+| Nome modello       | Qualsiasi   | Modalità    | densenet201 | Nome di una determinata struttura DenseNet     |
 | Training preliminare       | Qualsiasi   | Boolean | True        | Indica se utilizzare un modello pre-sottoposto a training in imagent |
 | Efficienza della memoria | Qualsiasi   | Boolean | Falso       | Indica se utilizzare il checkpoint, che è molto più efficiente della memoria ma più lento |
 
@@ -64,7 +64,7 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 
 | Nome            | Tipo                    | Descrizione                              |
 | --------------- | ----------------------- | ---------------------------------------- |
-| Untrained model | UntrainedModelDirectory | Modello densenet non sottoposto a training che può essere connesso al training del modello Pytorch. |
+| Untrained model | UntrainedModelDirectory | Modello DenseNet non sottoposto a training che può essere connesso al training del modello Pytorch. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

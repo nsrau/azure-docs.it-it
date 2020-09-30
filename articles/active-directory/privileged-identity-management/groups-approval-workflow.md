@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3fbb92c2e3623f5fd9571cd94ae521a41139dd6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0a3b6dad33ce678478a201dc8b7b612f4b8507c0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505861"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536988"
 ---
 # <a name="approve-activation-requests-for-privileged-access-group-members-and-owners-preview"></a>Approva le richieste di attivazione per i membri e i proprietari del gruppo di accesso con privilegi (anteprima)
 
@@ -46,7 +46,7 @@ In qualità di responsabile approvazione con delega si riceverà una notifica di
 
 1. Trovare e selezionare la richiesta che si desidera approvare e selezionare **approva**.
 
-    ![Approva le richieste-approva o nega riquadro con i dettagli e la casella di giustificazione](./media/groups-approval-workflow/groups-confirm-approval.png)
+    ![Screenshot che mostra la pagina "approva richieste" con i pulsanti "approva" e "conferma" evidenziati.](./media/groups-approval-workflow/groups-confirm-approval.png)
 
 1. Immettere la giustificazione aziendale nella casella **giustificazione** .
 

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 0fe191ac827c76afd497896611430f6efc6283aa
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c68e01e0eb7c926f47c99b16efa87d23a10b6711
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747233"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537034"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Configurare l'invio di SMS come metodo di verifica
 
@@ -52,7 +52,7 @@ A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usar
 
 4. Nella pagina **Telefono** digitare il numero di telefono del dispositivo mobile, scegliere **Invia un SMS** e quindi selezionare **Avanti**.
 
-    ![Aggiungere il numero di telefono e scegliere gli SMS](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
+    ![Screenshot che mostra la pagina "Phone" con il messaggio "text me a code" selezionato.](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
 
 5. Digitare il codice inviato tramite SMS al dispositivo mobile e quindi selezionare **Avanti**.
 

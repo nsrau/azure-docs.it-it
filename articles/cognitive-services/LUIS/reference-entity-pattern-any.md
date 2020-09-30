@@ -3,19 +3,17 @@ title: Modello. qualsiasi tipo di entità-LUIS
 titleSuffix: Azure Cognitive Services
 description: Pattern.any è un segnaposto di lunghezza variabile usato solo nell'espressione del modello del criterio per contrassegnare l'inizio e la fine dell'entità.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: 5164bf55ef8233cf34a470524da3bc852678d79a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec23be3709cebc534c059a21c52452abff683b18
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75979169"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542207"
 ---
 # <a name="patternany-entity"></a>Entità pattern.any
 
@@ -27,7 +25,7 @@ Le entità Pattern.any devono essere contrassegnate negli esempi di modello [Pat
 
 * La fine dell'entità può essere confusa con il testo rimanente dell'espressione.
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 
 Data un'applicazione client che esegue la ricerca di libri in base al titolo, l'entità pattern.any estrae il titolo completo. Un'espressione di criterio con pattern.any per questa ricerca è `Was {BookTitle} written by an American this year[?]`.
 
@@ -69,7 +67,7 @@ Con il nome del form incorporato da estrarre come modello. Any:
 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Si tratta del codice JSON `verbose=false` se è impostato nella stringa di query:
+Si tratta del codice JSON se `verbose=false` è impostato nella stringa di query:
 
 ```json
 "entities": {
@@ -79,7 +77,7 @@ Si tratta del codice JSON `verbose=false` se è impostato nella stringa di query
 }
 ```
 
-Si tratta del codice JSON `verbose=true` se è impostato nella stringa di query:
+Si tratta del codice JSON se `verbose=true` è impostato nella stringa di query:
 
 ```json
 "entities": {

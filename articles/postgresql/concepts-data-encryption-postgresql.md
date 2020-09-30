@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 1be04c0617dc4ed235cc3f3bc29aa58f4c2cb1d2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7361355a81de019af90e908f11c4d283b7f16cc9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902139"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542122"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati per server singolo di Database di Azure per PostgreSQL con una chiave gestita dal cliente
 
@@ -79,7 +79,7 @@ Se si usa la crittografia dei dati con una chiave gestita dal cliente, ecco le r
 * Assicurarsi che Key Vault e il server singolo di Database di Azure per PostgreSQL risiedano nella stessa area, per garantire un accesso più rapido per le operazioni wrapping e annullamento del wrapping della chiave DEK.
 * Bloccare Azure KeyVault per limitarne l'accesso solo **all'endpoint privato e alle reti selezionate** e consentire solo a servizi *Microsoft attendibili* di proteggere le risorse.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Servizio attendibile con Azure Key Vault":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagramma che mostra una panoramica di Bring Your Own Key":::
 
 Ecco le raccomandazioni per la configurazione di una chiave gestita dal cliente:
 
@@ -121,9 +121,9 @@ Per monitorare lo stato del database e abilitare gli avvisi per la perdita dell'
 
 Una volta crittografato il server singolo di Database di Azure per PostgreSQL con una chiave gestita dal cliente archiviata in Key Vault, viene crittografata anche qualsiasi nuova copia creata del server. Questa nuova copia può essere creata tramite un'operazione di ripristino locale o geografico oppure tramite repliche in lettura. Tuttavia, la copia può essere modificata in modo da riflettere una nuova chiave gestita dal cliente per la crittografia. Quando la chiave gestita dal cliente cambia, i backup precedenti del server iniziano a usare la chiave più recente.
 
-Per evitare problemi con la configurazione della crittografia dei dati gestita dal cliente durante il ripristino o la creazione della replica in lettura, è importante seguire questa procedura nei server master e di ripristino/replica:
+Per evitare problemi durante la configurazione della crittografia dei dati gestita dal cliente durante il ripristino o la creazione della replica, è importante attenersi alla procedura seguente nei server primario e ripristinato/di replica:
 
-* Avviare il processo di ripristino o di creazione della replica in lettura dal server singolo master di Database di Azure per PostgreSQL.
+* Avviare il processo di creazione della replica di ripristino o di lettura dal database primario di Azure per il server singolo PostgreSQL.
 * Mantenere il server appena creato (ripristinato/replica) in uno stato inaccessibile, perché la relativa identità univoca non ha ancora ricevuto le autorizzazioni per Key Vault.
 * Nel server ripristinato/replica ripetere la convalida della chiave gestita dal cliente nelle impostazioni di crittografia dei dati. In questo modo ci si assicura che il server appena creato riceva autorizzazioni di wrapping e annullamento del wrapping per la chiave archiviata in Key Vault.
 

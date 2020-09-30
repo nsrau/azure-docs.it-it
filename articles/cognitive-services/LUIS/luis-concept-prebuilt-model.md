@@ -3,20 +3,18 @@ title: Modelli predefiniti-LUIS
 titleSuffix: Azure Cognitive Services
 description: I modelli predefiniti includono domini, finalità, espressioni ed entità. È possibile avviare l'app con un dominio predefinito o aggiungere all'app un dominio pertinente in un secondo momento.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: e0b5b95a7524b60a7c3367035a15a7158fa7908a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 32755ea9dccd2a7d4a0e727c7a006491d5ea3521
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74280846"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535884"
 ---
 # <a name="prebuilt-models"></a>Modelli predefiniti
 
@@ -30,7 +28,7 @@ LUIS fornisce tre tipi di modelli predefiniti. Ogni modello può essere aggiunto
 |--|--|
 |[Dominio](luis-reference-prebuilt-domains.md)|Finalità, espressioni, entità|
 |Finalità|Finalità, espressioni|
-|[Entities](luis-reference-prebuilt-entities.md)|Solo entità| 
+|[Entità](luis-reference-prebuilt-entities.md)|Solo entità| 
 
 ## <a name="prebuilt-domains"></a>Domini predefiniti
 
@@ -44,7 +42,7 @@ I domini predefiniti sono stati sottoposti a training e possono essere aggiunti 
 
 ### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Modifica del comportamento delle finalità di dominio predefinito
 
-È possibile che un dominio predefinito contenga una finalità simile a un'altra di cui vuoi disporre nell'app LUIS, ma che vuoi operi in modo diverso. Il dominio predefinito, ad esempio, consente `MakeReservation` di effettuare una prenotazione del ristorante, ma si vuole che l'app usi tale scopo per effettuare prenotazioni di Alberghi. **Places** In tal caso, è possibile modificare il comportamento di tale finalità aggiungendo espressioni di esempio allo scopo di effettuare prenotazioni di Alberghi e quindi ripetere il training dell'app. 
+È possibile che un dominio predefinito contenga una finalità simile a un'altra di cui vuoi disporre nell'app LUIS, ma che vuoi operi in modo diverso. **Il dominio** predefinito, ad esempio, consente di `MakeReservation` effettuare una prenotazione del ristorante, ma si vuole che l'app usi tale scopo per effettuare prenotazioni di Alberghi. In tal caso, è possibile modificare il comportamento di tale finalità aggiungendo espressioni di esempio allo scopo di effettuare prenotazioni di Alberghi e quindi ripetere il training dell'app. 
 
 È possibile consultare l'elenco completo dei domini predefiniti nei [riferimenti dei domini predefiniti](./luis-reference-prebuilt-domains.md).
 

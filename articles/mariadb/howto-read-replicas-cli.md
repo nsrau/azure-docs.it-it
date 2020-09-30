@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e63fe76c5ab5fe77f0dcb7f4903ee77dff208fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f6b53efdf49538476821ddeaed9bbf4278af0728
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498906"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542411"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Come creare e gestire le repliche di lettura nel database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure e l'API REST
 
@@ -24,15 +24,15 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 ### <a name="prerequisites"></a>Prerequisiti
 
 - [Installare l'interfaccia della riga di comando Azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- Un [database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) che verrà usato come server master. 
+- Un [database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) che verrà usato come server di origine. 
 
 > [!IMPORTANT]
-> La funzionalità di lettura della replica è disponibile solo per i server di database di Azure per MariaDB nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server master sia incluso in uno di questi piani tariffari.
+> La funzionalità di lettura della replica è disponibile solo per i server di database di Azure per MariaDB nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server di origine si trovi in uno di questi piani tariffari.
 
 ### <a name="create-a-read-replica"></a>Creare una replica in lettura
 
 > [!IMPORTANT]
-> Quando viene creata una replica per un master senza repliche esistenti, il master verrà prima riavviato per prepararsi alla replica. Tenere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di scarso traffico.
+> Quando si crea una replica per un'origine senza repliche, l'origine viene innanzitutto riavviata per prepararsi per la replica. Tenere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di scarso traffico.
 
 È possibile creare un server di replica in lettura usando il comando seguente:
 
@@ -46,7 +46,7 @@ Il comando `az mariadb server replica create` richiede i parametri seguenti:
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
 | name | mydemoreplicaserver | Nome del nuovo server di replica creato. |
-| source-server | mydemoserver | Nome o ID del server master esistente in base al quale eseguire la replica. |
+| source-server | mydemoserver | Nome o ID del server di origine esistente da cui eseguire la replica. |
 
 Per creare una replica di lettura tra aree, usare il `--location` parametro. 
 
@@ -60,11 +60,11 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo [Concetti relativi alle repliche in lettura](concepts-read-replicas.md). 
 
 > [!NOTE]
-> Le repliche in lettura vengono create con la stessa configurazione server del master. La configurazione del server di replica può essere modificata dopo la creazione. È consigliabile mantenere nella configurazione del server di replica valori maggiori o uguali a quelli del master affinché la replica possa restare al passo con il master.
+> Le repliche in lettura vengono create con la stessa configurazione server del master. La configurazione del server di replica può essere modificata dopo la creazione. È consigliabile mantenere la configurazione del server di replica con valori uguali o superiori a quelli dell'origine per assicurarsi che la replica sia in grado di rimanere al passo con il database master.
 
-### <a name="list-replicas-for-a-master-server"></a>Elencare le repliche di un server master
+### <a name="list-replicas-for-a-source-server"></a>Elencare le repliche per un server di origine
 
-Per visualizzare tutte le repliche per un determinato server master, eseguire il comando seguente: 
+Per visualizzare tutte le repliche per un determinato server di origine, eseguire il comando seguente: 
 
 ```azurecli-interactive
 az mariadb server replica list --server-name mydemoserver --resource-group myresourcegroup
@@ -75,12 +75,12 @@ Il comando `az mariadb server replica list` richiede i parametri seguenti:
 | Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
-| server-name | mydemoserver | Nome o ID del server master. |
+| server-name | mydemoserver | Nome o ID del server di origine. |
 
 ### <a name="stop-replication-to-a-replica-server"></a>Arrestare la replica in un server di replica
 
 > [!IMPORTANT]
-> L'arresto della replica in un server è irreversibile. Dopo che la replica tra un master e una replica è stata arrestata, non è possibile annullare l'operazione. Il server di replica diventa quindi un server autonomo che supporta sia la lettura che la scrittura. Questo server non può essere di nuovo impostato come replica.
+> L'arresto della replica in un server è irreversibile. Una volta interrotta la replica tra un'origine e una replica, non è possibile annullarla. Il server di replica diventa quindi un server autonomo che supporta sia la lettura che la scrittura. Questo server non può essere di nuovo impostato come replica.
 
 È possibile interrompere la replica su un server di replica in lettura usando il comando seguente:
 
@@ -103,12 +103,12 @@ L'eliminazione di un server di replica di lettura può essere eseguita eseguendo
 az mariadb server delete --resource-group myresourcegroup --name mydemoreplicaserver
 ```
 
-### <a name="delete-a-master-server"></a>Eliminare un server master
+### <a name="delete-a-source-server"></a>Eliminare un server di origine
 
 > [!IMPORTANT]
-> Eliminando un server master si arresta la replica in tutti i server di replica, oltre a eliminare il server master stesso. I server di replica diventano server autonomi che supportano sia la lettura che la scrittura.
+> Eliminando un server di origine si arresta la replica in tutti i server di replica, oltre a eliminare il server di origine stesso. I server di replica diventano server autonomi che supportano sia la lettura che la scrittura.
 
-Per eliminare un server master, è possibile eseguire il comando **[AZ mariadb server delete](/cli/azure/mariadb/server)** .
+Per eliminare un server di origine, è possibile eseguire il comando **[AZ mariadb server delete](/cli/azure/mariadb/server)** .
 
 ```azurecli-interactive
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
@@ -137,25 +137,25 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo [Concetti relativi alle repliche in lettura](concepts-read-replicas.md). 
 
-Se il parametro non è stato impostato `azure.replication_support` su **replica** in un per utilizzo generico o in un server master con ottimizzazione per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
+Se il parametro non è stato impostato `azure.replication_support` su **replica** in un per utilizzo generico o in un server di origine con ottimizzazione per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
 
-Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
+Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo la creazione di una replica, è possibile modificare diverse impostazioni indipendentemente dal server di origine: generazione di calcolo, Vcore, archiviazione e periodo di conservazione di backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
 
 
 > [!IMPORTANT]
-> Prima che un'impostazione del server master venga aggiornata a un nuovo valore, aggiornare l'impostazione della replica a un valore uguale o maggiore. Questa azione consente alla replica di rimanere al passo con le modifiche apportate al database master.
+> Prima che un'impostazione del server di origine venga aggiornata a un nuovo valore, aggiornare l'impostazione della replica a un valore uguale o maggiore. Questa azione consente alla replica di rimanere al passo con le modifiche apportate al database master.
 
 ### <a name="list-replicas"></a>Elencare le repliche
-È possibile visualizzare l'elenco delle repliche di un server master usando l' [API dell'elenco di repliche](/rest/api/mariadb/replicas/listbyserver):
+È possibile visualizzare l'elenco delle repliche di un server di origine usando l' [API dell'elenco di repliche](/rest/api/mariadb/replicas/listbyserver):
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Arrestare la replica in un server di replica
-È possibile arrestare la replica tra un server master e una replica di lettura usando l' [API di aggiornamento](/rest/api/mariadb/servers/update).
+È possibile arrestare la replica tra un server di origine e una replica di lettura usando l' [API di aggiornamento](/rest/api/mariadb/servers/update).
 
-L'arresto della replica in un server master e una replica in lettura è irreversibile. La replica in lettura diventa un server autonomo che supporta sia la lettura che la scrittura. Il server autonomo non può essere di nuovo impostato come replica.
+Una volta terminata la replica in un server di origine e una replica di lettura, non è possibile annullarla. La replica in lettura diventa un server autonomo che supporta sia la lettura che la scrittura. Il server autonomo non può essere di nuovo impostato come replica.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{masterServerName}?api-version=2017-12-01
@@ -169,10 +169,10 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-### <a name="delete-a-master-or-replica-server"></a>Eliminare un server master o di replica
-Per eliminare un server master o di replica, usare l' [API Delete](/rest/api/mariadb/servers/delete):
+### <a name="delete-a-source-or-replica-server"></a>Eliminare un server di origine o di replica
+Per eliminare un server di origine o di replica, usare l' [API Delete](/rest/api/mariadb/servers/delete):
 
-Quando viene eliminato un server master, la replica viene arrestata per tutte le repliche in lettura. Le repliche in lettura diventano server autonomi che supportano sia la lettura che la scrittura.
+Quando si elimina un server di origine, la replica in tutte le repliche di lettura viene arrestata. Le repliche in lettura diventano server autonomi che supportano sia la lettura che la scrittura.
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}?api-version=2017-12-01

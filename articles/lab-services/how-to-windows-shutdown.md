@@ -2,13 +2,13 @@
 title: Guida al controllo del comportamento di arresto di Windows in Azure Lab Services | Microsoft Docs
 description: Viene descritta la procedura per arrestare automaticamente una macchina virtuale di Windows inattiva e rimuovere il comando di arresto di Windows.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 3c20bc2bb79faf53c4f3fbd113c18c5c6d923e59
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/29/2020
+ms.openlocfilehash: c6021131787dde4fe23ec4caad107bda2e20158a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334022"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541561"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guida al controllo del comportamento di arresto di Windows
 
@@ -31,50 +31,6 @@ Per evitare che si verifichino queste situazioni, in questa guida vengono descri
 
 > [!NOTE]
 > Una macchina virtuale può anche dedurre in modo imprevisto dalla quota quando lo studente avvia la macchina virtuale, ma non si connette mai con RDP.  Questa guida attualmente *non* risolve questo scenario.  Gli studenti devono invece ricordare di connettersi immediatamente alla macchina virtuale tramite RDP dopo l'avvio; in alternativa, è necessario arrestare la macchina virtuale.
-
-## <a name="automatic-rdp-disconnect-and-shutdown-for-idle-vm"></a>Disconnessione e arresto RDP automatici per la macchina virtuale inattiva
-
-Windows fornisce le impostazioni **criteri di gruppo locali** che è possibile usare per impostare un limite di tempo per disconnettere automaticamente una sessione RDP quando diventa inattiva.  Una sessione viene determinata come inattiva quando *non* è presente alcun input di mouse\keyboard.  Tutte le attività a esecuzione prolungata che non coinvolgono input mouse\keyboard comportano lo stato di inattività della macchina virtuale.  Questa operazione include l'esecuzione di una query estesa, lo streaming di video, la compilazione e così via.  A seconda delle esigenze della classe, è possibile scegliere di impostare il limite di tempo di inattività in modo che sia sufficientemente lungo da gestire questi tipi di attività.  Se necessario, ad esempio, è possibile impostare il limite di tempo di inattività su 1 o più ore.
-
-Di seguito è illustrata l'esperienza dello studente quando si configura il **limite della sessione inattiva** in combinazione con l'impostazione [**arresto automatico in caso di disconnessione**](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect) :
- 1. Lo studente si connette alla propria macchina virtuale Windows tramite RDP.
- 2. Quando lo studente lascia aperta la finestra RDP e la macchina virtuale è inattiva per il **limite di sessioni inattive** specificato (ad esempio 5 minuti), lo studente visualizzerà la finestra di dialogo seguente:
-
-    ![Finestra di dialogo Limite tempo di inattività scaduto](./media/how-to-windows-shutdown/idle-time-expired.png)
-
-1. Se lo *studente non fa clic su* **OK**, la sessione RDP verrà disconnessa automaticamente dopo 2 minuti.
-2. Dopo la disconnessione della sessione RDP, una volta raggiunto l'intervallo di tempo specificato per l'impostazione di **arresto automatico in caso di disconnessione** , la macchina virtuale viene arrestata automaticamente Azure Lab Services.
-
-### <a name="set-rdp-idle-session-time-limit-on-the-template-vm"></a>Impostare il limite di tempo della sessione inattiva RDP per la macchina virtuale modello
-
-Per impostare il limite di tempo di inattività della sessione RDP, è possibile connettersi alla macchina virtuale del modello ed eseguire lo script di PowerShell seguente.
-
-```powershell
-# The MaxIdleTime is in milliseconds; by default, this script sets MaxIdleTime to 15 minutes.
-$maxIdleTime = 15 * 60 * 1000
-
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name "MaxIdleTime" -Value $maxIdleTime -Force
-```
-In alternativa, è possibile scegliere di seguire questi passaggi manuali usando la macchina virtuale modello:
-
-1. Premere il tasto Windows, digitare **gpedit**, quindi selezionare **modifica criteri di gruppo (pannello di controllo)**.
-
-1. Passare a **Configurazione Computer > Modelli amministrativi > componenti Windows > Servizi Desktop remoto**> host sessione Desktop remoto limiti di tempo della sessione.  
-
-    ![Screenshot che mostra "Editor criteri di gruppo locali" con i limiti di tempo della sessione selezionati.](./media/how-to-windows-shutdown/group-policy-idle.png)
-   
-1. Fare clic con il pulsante destro del mouse su **Imposta limite di tempo per le sessioni attive ma inattive Servizi Desktop remoto**, quindi scegliere **modifica**.
-
-1. Immetti le impostazioni seguenti e quindi fai clic su **OK**:
-   1. Selezionare **Enabled**.
-   1. In **Opzioni**specificare il **limite della sessione inattiva**.
-
-    ![Limite sessione inattiva](./media/how-to-windows-shutdown/edit-idle-time-limit.png)
-
-1. Infine, per combinare questo comportamento con l'impostazione **Spegni automaticamente durante la disconnessione** , è necessario seguire la procedura descritta nell'articolo procedura: [abilitare l'arresto automatico delle macchine virtuali alla disconnessione](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect).
-
-> [!WARNING]
-> Dopo aver configurato questa impostazione usando PowerShell per modificare direttamente l'impostazione del registro di sistema o manualmente usando l'editor di Criteri di gruppo, è necessario riavviare la macchina virtuale per rendere effettive le impostazioni.  Inoltre, se si configura l'impostazione utilizzando il registro di sistema, l'editor di Criteri di gruppo non sempre viene aggiornato per riflettere le modifiche apportate all'impostazione del registro di sistema. Tuttavia, l'impostazione del registro di sistema diventa effettiva come previsto e la sessione RDP viene disconnessa quando è inattiva per il periodo di tempo specificato.
 
 ## <a name="remove-windows-shutdown-command-from-start-menu"></a>Rimuovere il comando Shutdown di Windows dal menu Start
 

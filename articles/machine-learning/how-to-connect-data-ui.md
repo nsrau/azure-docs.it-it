@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: feb79a2a077f819cce22925f23f5ed640d05e8d3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5ddfa2adbc9ec39949d7352903445407ff8e8881
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296672"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542156"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Connettersi ai dati con Azure Machine Learning Studio
 
@@ -170,6 +170,6 @@ Usare i set di impostazioni negli esperimenti di machine learning per il trainin
 
 * [Esempio dettagliato di formazione con TabularDatasets e Machine Learning automatizzato](tutorial-first-experiment-automated-ml.md).
 
-* Eseguire [il training di un modello](how-to-train-ml-models.md).
+* Eseguire [il training di un modello](how-to-set-up-training-targets.md).
 
 * Per altri esempi di training del set di dati, vedere i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).

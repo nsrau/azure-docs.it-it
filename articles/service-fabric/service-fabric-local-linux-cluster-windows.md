@@ -1,16 +1,14 @@
 ---
 title: Configurare un cluster Linux di Azure Service Fabric in Windows
 description: In questo articolo si descrive come configurare un cluster Linux di Azure Service Fabric in esecuzione su computer di sviluppo Windows. Ciò è particolarmente utile per lo sviluppo multipiattaforma.
-author: suhuruli
 ms.topic: conceptual
 ms.date: 11/20/2017
-ms.author: suhuruli
-ms.openlocfilehash: 91d055a480748ef012120aac4d329d474491e2c5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 83d494d777a4a1e1586707c8848056ca8fe9780a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258590"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537073"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configurazione di un cluster Linux di Service Fabric sul computer di sviluppo Windows
 
