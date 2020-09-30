@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 6045fa475b3bb112afee9ceacd8d6b136087feab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b94c782b5d7139fae7a01233bffd3b17cf43c7c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077168"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570404"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure
 
@@ -76,13 +76,13 @@ Quando si pianifica la configurazione del collegamento privato, è necessario pr
 
 * Un VNet può connettersi solo a un oggetto AMPLS. Ciò significa che l'oggetto AMPLS deve fornire l'accesso a tutte le risorse di monitoraggio di Azure a cui VNet deve avere accesso.
 * Una risorsa di monitoraggio di Azure (area di lavoro o componente Application Insights) può connettersi al massimo 5 AMPLSs.
-* Un oggetto AMPLS può connettersi al massimo da 20 risorse di monitoraggio di Azure.
+* Un oggetto AMPLS può connettersi alla maggior parte delle risorse di monitoraggio di Azure 50.
 * Un oggetto AMPLS può connettersi al massimo da 10 endpoint privati.
 
 Nella topologia seguente:
 * Ogni VNet si connette a un oggetto AMPLS, quindi non è in grado di connettersi ad altri AMPLSs.
 * AMPLS B si connette a 2 reti virtuali: utilizzando 2/10 delle possibili connessioni agli endpoint privati.
-* AMPLS A si connette a 2 aree di lavoro e 1 componente Application Insights: uso di 3/20 delle risorse di monitoraggio di Azure possibili.
+* AMPLS A si connette a 2 aree di lavoro e 1 componente Application Insights: uso di 3/50 delle risorse di monitoraggio di Azure possibili.
 * L'area di lavoro 2 si connette a AMPLS A e AMPLS B: utilizzando 2/5 delle connessioni AMPLS possibili.
 
 ![Diagramma dei limiti di AMPLS](./media/private-link-security/ampls-limits.png)
@@ -162,10 +162,23 @@ Innanzitutto, è possibile connettere questa risorsa Log Analytics a qualsiasi a
 
 In secondo luogo, è possibile controllare il modo in cui questa risorsa può essere raggiunta dall'esterno degli ambiti collegamento privato elencati in precedenza. Se si imposta **Consenti l'accesso alla rete pubblica per l’inserimento** su **No**, i computer esterni agli ambiti connessi non possono caricare dati in questa area di lavoro. Se si imposta **Consenti l'accesso alla rete pubblica per le query** su **No**, i computer esterni agli ambiti non possono accedere ai dati in questa area di lavoro. Questi dati includono l'accesso a cartelle di lavoro, dashboard, esperienze client basate su API di query, informazioni dettagliate nel portale di Azure e altro ancora. Le esperienze in esecuzione al di fuori dell'portale di Azure e la query Log Analytics dati devono essere in esecuzione anche all'interno di VNET collegati a privati.
 
-Questo tipo di limitazione dell'accesso si applica solo ai dati nell'area di lavoro. Le modifiche alla configurazione, inclusa l'attivazione o la disattivazione di queste impostazioni di accesso, vengono gestite da Azure Resource Manager. Limitare l'accesso a Resource Manager utilizzando i ruoli, le autorizzazioni, i controlli di rete e il controllo appropriati. Per altre informazioni, vedere [Ruoli, autorizzazioni e sicurezza di Monitoraggio di Azure](roles-permissions-security.md).
+La limitazione dell'accesso in questo modo non si applica al Azure Resource Manager e pertanto presenta le limitazioni seguenti:
+* Accesso ai dati: quando si bloccano le query dalle reti pubbliche si applicano alla maggior parte dei Log Analytics esperienze, alcune esperienze eseguono query sui dati tramite Azure Resource Manager e pertanto non saranno in grado di eseguire query sui dati, a meno che non vengano applicate anche le impostazioni di collegamento privato alla Gestione risorse (la funzionalità sarà presto disponibile). Sono incluse, ad esempio, le soluzioni di monitoraggio di Azure, le cartelle di lavoro e le informazioni dettagliate e il connettore LogicApp.
+* Gestione dell'area Azure Resource Manager di lavoro: le modifiche apportate alla configurazione e all'impostazione dell'area di lavoro (inclusa l'attivazione o la disattivazione delle impostazioni di accesso Limitare l'accesso alla gestione delle aree di lavoro utilizzando i ruoli, le autorizzazioni, i controlli di rete e il controllo appropriati. Per altre informazioni, vedere [Ruoli, autorizzazioni e sicurezza di Monitoraggio di Azure](roles-permissions-security.md).
 
 > [!NOTE]
 > I log e le metriche caricati in un'area di lavoro tramite [Impostazioni di diagnostica](diagnostic-settings.md) passano attraverso un canale Microsoft privato protetto e non sono controllati da queste impostazioni.
+
+### <a name="log-analytics-solution-packs-download"></a>Download di Log Analytics Solution Pack
+
+Per consentire all'agente di Log Analytics di scaricare i pacchetti di soluzioni, aggiungere i nomi di dominio completi appropriati all'elenco di indirizzi consentiti del firewall. 
+
+
+| Ambiente cloud | Risorsa agente | Porte | Direction |
+|:--|:--|:--|:--|
+|Azure Public     | scadvisorcontent.blob.core.windows.net         | 443 | In uscita
+|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  In uscita
+|21Vianet per Azure Cina      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | In uscita
 
 ## <a name="configure-application-insights"></a>Configura Application Insights
 
@@ -234,17 +247,6 @@ L'aggiunta di questi tag consente di eseguire azioni come l'esecuzione di query 
 ### <a name="application-insights-sdk-downloads-from-a-content-delivery-network"></a>Download di SDK di Application Insights da una rete per la distribuzione di contenuti
 
 Integrare il codice JavaScript nello script in modo che il browser non tenti di scaricare il codice da una rete CDN. Un esempio è disponibile in [GitHub](https://github.com/microsoft/ApplicationInsights-JS#npm-setup-ignore-if-using-snippet-setup)
-
-### <a name="log-analytics-solution-download"></a>Download di soluzioni di Log Analytics
-
-Per consentire all'agente di Log Analytics di scaricare i pacchetti di soluzioni, aggiungere i nomi di dominio completi appropriati all'elenco di indirizzi consentiti del firewall. 
-
-
-| Ambiente cloud | Risorsa agente | Porte | Direction |
-|:--|:--|:--|:--|
-|Azure Public     | scadvisorcontent.blob.core.windows.net         | 443 | In uscita
-|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  In uscita
-|21Vianet per Azure Cina      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | In uscita
 
 ### <a name="browser-dns-settings"></a>Impostazioni DNS del browser
 

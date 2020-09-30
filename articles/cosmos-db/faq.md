@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213092"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570358"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Domande frequenti sulle diverse API in Azure Cosmos DB
 
@@ -85,7 +85,7 @@ Le sottoscrizioni di prova di Azure Cosmos DB vengono visualizzate nel portale d
 
 Le condizioni seguenti si applicano alle sottoscrizioni di prova di Azure Cosmos DB:
 
-* L'accesso all'account può essere concesso agli account Microsoft personali. Evitare di usare account Active Directory (AAD) o account appartenenti a tenant di AAD aziendali perché potrebbero prevedere limitazioni per impedire la concessione di accessi.
+* L'accesso all'account può essere concesso agli account Microsoft personali. Evitare di usare account o account Azure Active Directory (Azure AD) appartenenti ai tenant Azure AD aziendali, è possibile che siano presenti limitazioni che potrebbero bloccare la concessione dell'accesso.
 * Un [contenitore con provisioning della velocità effettiva](./set-throughput.md#set-throughput-on-a-container) per ogni sottoscrizione per gli account SQL, API Gremlin e Tabella.
 * Fino a tre [raccolte con provisioning della velocità effettiva](./set-throughput.md#set-throughput-on-a-container) per ogni sottoscrizione per gli account MongoDB.
 * Un solo [database con provisioning della velocità effettiva](./set-throughput.md#set-throughput-on-a-database) per ogni sottoscrizione. I database con provisioning della velocità effettiva possono contenere un numero qualsiasi di contenitori.
@@ -102,9 +102,9 @@ Le condizioni seguenti si applicano alle sottoscrizioni di prova di Azure Cosmos
 
 Azure Cosmos DB è disponibile nel portale di Azure. Per prima cosa, iscriversi per ottenere una sottoscrizione di Azure. Dopo aver effettuato l'iscrizione, è possibile aggiungere un account Azure Cosmos DB alla sottoscrizione di Azure.
 
-### <a name="what-is-a-master-key"></a>Che cos'è una chiave master?
+### <a name="what-is-a-primary-key"></a>Che cos'è una chiave primaria?
 
-Una chiave master è un token di sicurezza per l'accesso a tutte le risorse di un account. Gli utenti con la chiave hanno accesso in lettura e scrittura a tutte le risorse nell'account del database. Distribuire le chiavi master con cautela. La chiave master primaria e la chiave master secondaria sono disponibili nel pannello **Chiavi** del [portale di Azure][azure-portal]. Per altre informazioni sulle chiavi, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso](manage-with-cli.md#list-account-keys).
+Una chiave primaria è un token di sicurezza per accedere a tutte le risorse per un account. Gli utenti con la chiave hanno accesso in lettura e scrittura a tutte le risorse nell'account del database. Prestare attenzione quando si distribuiscono le chiavi primarie. La chiave primaria primaria e la chiave primaria secondaria sono disponibili nel pannello **chiavi** del [portale di Azure][azure-portal]. Per altre informazioni sulle chiavi, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso](manage-with-cli.md#list-account-keys).
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>Su quali aree è possibile impostare PreferredLocations?
 

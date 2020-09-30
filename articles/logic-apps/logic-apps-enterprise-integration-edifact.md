@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: dfe48a1348929bbe8d4af6793d94d52514df9d74
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b0df55e59bd519a816c4022f2434edfcd4460780
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001537"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570761"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi EDIFACT per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -247,7 +247,7 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 
 2.  È anche possibile visualizzare i contratti nella panoramica dell'account di Integrazione. Nel menu dell'account di integrazione scegliere **Panoramica** e quindi selezionare il riquadro **Contratti**. 
 
-    ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![Screenshot che mostra il riquadro contratti.](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 

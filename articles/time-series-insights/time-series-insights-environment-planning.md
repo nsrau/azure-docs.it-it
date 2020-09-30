@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: ea243ffd125a527949c4a264177e78de04a22aae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 546c53334b7700ab73c22edb2d82b324bfad61a9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046398"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569447"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Pianificare l'ambiente Gen1 Azure Time Series Insights
+
+> [!CAUTION]
+> Questo è un articolo di Gen1.
 
 Questo articolo descrive come pianificare l'ambiente Gen1 Azure Time Series Insights in base alla velocità di ingresso prevista e ai requisiti di conservazione dei dati.
 
@@ -48,12 +51,12 @@ Per impostazione predefinita, Azure Time Series Insights mantiene i dati in base
 
 ## <a name="data-retention"></a>Conservazione dei dati
 
-È possibile modificare l'impostazione relativa al **tempo di conservazione dei dati** nell'ambiente Azure Time Series Insights. È possibile abilitare fino a 400 giorni di conservazione. 
+È possibile modificare l'impostazione relativa al **tempo di conservazione dei dati** nell'ambiente Azure Time Series Insights. È possibile abilitare fino a 400 giorni di conservazione.
 
 Azure Time Series Insights dispone di due modalità:
 
-* Una modalità ottimizza i dati più aggiornati. Impone un criterio per **eliminare i dati obsoleti** lasciando disponibili i dati recenti con l'istanza. Questa modalità è abilitata per impostazione predefinita. 
-* L'altro ottimizza i dati in modo che rimangano al di sotto dei limiti di conservazione configurati. **Sospendere** il traffico in ingresso impedisce che i nuovi dati vengano immessi quando viene selezionato perché il **limite di archiviazione ha superato il comportamento**.
+- Una modalità ottimizza i dati più aggiornati. Impone un criterio per **eliminare i dati obsoleti** lasciando disponibili i dati recenti con l'istanza. Questa modalità è abilitata per impostazione predefinita.
+- L'altro ottimizza i dati in modo che rimangano al di sotto dei limiti di conservazione configurati. **Sospendere** il traffico in ingresso impedisce che i nuovi dati vengano immessi quando viene selezionato perché il **limite di archiviazione ha superato il comportamento**.
 
 È possibile modificare la conservazione e passare tra le due modalità nella pagina di configurazione dell'ambiente nel portale di Azure.
 
@@ -83,7 +86,7 @@ La seconda area in cui concentrarsi per la pianificazione dell'ambiente Azure Ti
 
 È possibile aumentare la capacità di uno SKU S1 o S2 a 10 unità in un unico ambiente. Non è possibile eseguire la migrazione da un ambiente S1 a un S2. Non è possibile eseguire la migrazione da un ambiente S2 a un S1.
 
-Per la capacità in ingresso, determinare innanzitutto il traffico in ingresso totale richiesto su base mensile. Determinare quindi quali sono le esigenze al minuto. 
+Per la capacità in ingresso, determinare innanzitutto il traffico in ingresso totale richiesto su base mensile. Determinare quindi quali sono le esigenze al minuto.
 
 La limitazione e la latenza svolgono un ruolo nella capacità al minuto. Se si ha un picco nel traffico di dati in ingresso che dura meno di 24 ore, Azure Time Series Insights possibile "recuperare" in una velocità in ingresso di due volte le tariffe elencate nella tabella precedente.
 

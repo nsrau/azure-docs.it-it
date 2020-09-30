@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: ea8d4180a6e820e72f5ca0ce7e7acaf13348ae67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b1fdec12b99edc952d24b0b3cc21bad24ec7554
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262498"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569732"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticazione basata su certificato per un'identità Azure AD per accedere alle chiavi da un account Azure Cosmos DB
 
@@ -40,13 +40,13 @@ In questo passaggio si registrerà un'applicazione Web di esempio nell'account A
    * **Tipi di account supportati** : scegliere gli **account solo nella directory dell'organizzazione (directory predefinita)** per consentire alle risorse nella directory corrente di accedere a questa applicazione. 
    * **URL di reindirizzamento** : scegliere l'applicazione di tipo **Web** e specificare un URL in cui è ospitata l'applicazione, che può essere qualsiasi URL. Per questo esempio, è possibile specificare un URL di test, ad esempio, `https://sampleApp.com` anche se l'app non esiste.
 
-   :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="Registrazione di un'applicazione Web di esempio":::
+   :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="Registrazione nuova applicazione in Active Directory":::
 
 1. Selezionare **Register (registra** ) dopo aver compilato il modulo.
 
 1. Dopo aver registrato l'app, prendere nota dell'ID dell' **applicazione (client)** e dell' **ID oggetto**. questi dettagli vengono usati nei passaggi successivi. 
 
-   :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Ottenere gli ID dell'applicazione e dell'oggetto":::
+   :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Registrazione nuova applicazione in Active Directory":::
 
 ## <a name="install-the-azuread-module"></a>Installare il modulo AzureAD
 
@@ -63,7 +63,7 @@ In questo passaggio verrà installato il modulo Azure AD PowerShell. Questo modu
    Set-AzContext $context 
    ```
 
-1. Installare e importare il modulo [AzureAD](/powershell/module/azuread/?view=azureadps-2.0)
+1. Installare e importare il modulo [AzureAD](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true)
 
    ```powershell
    Install-Module AzureAD
@@ -99,7 +99,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 
 Il comando precedente restituisce un output simile allo screenshot seguente:
 
-:::image type="content" source="./media/certificate-based-authentication/certificate-based-credential-output.png" alt-text="Output per la creazione di credenziali basate su certificato":::
+:::image type="content" source="./media/certificate-based-authentication/certificate-based-credential-output.png" alt-text="Registrazione nuova applicazione in Active Directory":::
 
 ## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>Configurare l'account Azure Cosmos per l'uso della nuova identità
 
@@ -109,7 +109,7 @@ Il comando precedente restituisce un output simile allo screenshot seguente:
 
 1. Selezionare **Aggiungi** e **Aggiungi assegnazione ruolo**. Aggiungere il sampleApp creato nel passaggio precedente con il ruolo **collaboratore** , come illustrato nello screenshot seguente:
 
-   :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Configurare l'account Azure Cosmos per l'uso della nuova identità":::
+   :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Registrazione nuova applicazione in Active Directory":::
 
 1. Selezionare **Save (Salva** ) dopo aver compilato il modulo
 
@@ -148,9 +148,9 @@ In questo passaggio si eseguirà l'accesso ad Azure usando l'applicazione e il c
       -Type "Keys"
    ```
 
-Il comando precedente visualizzerà le chiavi master primarie e secondarie dell'account Azure Cosmos. È possibile visualizzare il log attività dell'account Azure Cosmos per verificare che la richiesta Get Keys abbia avuto esito positivo e che l'evento venga avviato dall'applicazione "sampleApp".
+Il comando precedente visualizzerà le chiavi primarie e secondarie dell'account Azure Cosmos. È possibile visualizzare il log attività dell'account Azure Cosmos per verificare che la richiesta Get Keys abbia avuto esito positivo e che l'evento venga avviato dall'applicazione "sampleApp".
 
-:::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Convalidare la chiamata Get Keys nel Azure AD":::
+:::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Registrazione nuova applicazione in Active Directory":::
 
 ## <a name="access-the-keys-from-a-c-application"></a>Accedere alle chiavi da un'applicazione C# 
 
@@ -236,9 +236,9 @@ namespace TodoListDaemonWithCert
 }
 ```
 
-Questo script restituisce le chiavi master primarie e secondarie, come illustrato nello screenshot seguente:
+Questo script restituisce le chiavi primarie e secondarie, come illustrato nello screenshot seguente:
 
-:::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="output dell'applicazione CSharp":::
+:::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="Registrazione nuova applicazione in Active Directory":::
 
 Analogamente alla sezione precedente, è possibile visualizzare il log attività dell'account Azure Cosmos per verificare che l'evento di richiesta Get Keys venga avviato dall'applicazione "sampleApp". 
 

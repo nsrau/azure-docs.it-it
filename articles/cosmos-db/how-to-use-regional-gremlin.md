@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3dd7df738f49b14a16be8a9741fb2c82ed3bf97c
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 5537b70f9852f5b5a17362c13e2c9b8e8e9fc43c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409010"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570615"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Endpoint a livello di area per l'account del database a grafo di Azure Cosmos DB
-Il database a grafo di Azure Cosmos DB è [distribuito a livello globale](distribute-data-globally.md), pertanto le applicazioni possono usare più endpoint di lettura. Le applicazioni che necessitano dell'accesso in scrittura in più posizioni devono abilitare la funzionalità [multimaster](how-to-multi-master.md).
+Il database a grafo di Azure Cosmos DB è [distribuito a livello globale](distribute-data-globally.md), pertanto le applicazioni possono usare più endpoint di lettura. Le applicazioni che richiedono l'accesso in scrittura in più posizioni devono abilitare la funzionalità di scrittura in più [aree](how-to-multi-master.md) .
 
 Motivi per cui scegliere più di un'area:
 1. **Scalabilità in lettura orizzontale**: man mano che il carico dell'applicazione aumenta, potrebbe essere prudente instradare il traffico di lettura verso aree di Azure diverse.

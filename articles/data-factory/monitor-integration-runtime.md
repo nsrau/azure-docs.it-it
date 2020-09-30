@@ -10,12 +10,12 @@ ms.date: 08/11/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: b8d3472eeedab72644456b4278d3b9f3625c5850
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4a0c2813a45fab497173d0101f87b30288e93884
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078205"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568899"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitoraggio di un runtime di integrazione in Azure Data Factory
 
@@ -49,7 +49,7 @@ Nella tabella seguente vengono fornite descrizioni per le proprietà restituite 
 -------- | ------------- | 
 | Nome | Nome del runtime di integrazione di Azure. |  
 | State | Stato del runtime di integrazione di Azure. | 
-| Posizione | Percorso del runtime di integrazione di Azure. Per altri dettagli sul percorso di un runtime di integrazione di Azure, vedere [Introduzione al runtime di integrazione](concepts-integration-runtime.md). |
+| Località | Percorso del runtime di integrazione di Azure. Per altri dettagli sul percorso di un runtime di integrazione di Azure, vedere [Introduzione al runtime di integrazione](concepts-integration-runtime.md). |
 | DataFactoryName | Nome della data factory a cui appartiene il runtime di integrazione di Azure. | 
 | ResourceGroupName | Nome del gruppo di risorse a cui appartiene la data factory.  |
 | Descrizione | Descrizione del runtime di integrazione di Azure.  |
@@ -105,7 +105,7 @@ La tabella seguente indica i possibili stati di un nodo di runtime di integrazio
 | Offline | Il nodo è offline. |
 | Aggiornamento | È in corso l'aggiornamento automatico del nodo. |
 | Limitato | La causa è un problema di connettività, ad esempio un problema della porta HTTP 8050, di connettività del bus di servizio o di sincronizzazione delle credenziali. |
-| Inattivo | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi. |
+| Inactive | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi. |
 
 Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi.
 
@@ -182,7 +182,7 @@ Nella tabella seguente vengono fornite le descrizioni delle proprietà restituit
 | OtherErrors                  | Errori interoperabili non specifici del nodo nel Azure-SSIS IR. |
 | LastOperation                | Il risultato dell'ultima operazione di avvio/arresto sul Azure-SSIS IR con errori di utilità pratica se non è riuscito. |
 | State                        | Stato complessivo (iniziale/iniziale/avviata/arrestata/arrestata) del Azure-SSIS IR. |
-| Posizione                     | Percorso della Azure-SSIS IR. |
+| Località                     | Percorso della Azure-SSIS IR. |
 | NodeSize                     | Dimensioni di ogni nodo nella Azure-SSIS IR. |
 | NodeCount                    | Il numero di nodi nell'Azure-SSIS IR. |
 | MaxParallelExecutionsPerNode | Numero massimo di esecuzioni parallele per nodo nel Azure-SSIS IR. |
@@ -193,7 +193,7 @@ Nella tabella seguente vengono fornite le descrizioni delle proprietà restituit
 | VNetId                       | ID della risorsa di rete virtuale per la Azure-SSIS IR da unire. |
 | Subnet                       | Nome della subnet per il Azure-SSIS IR da unire. |
 | ID                           | ID risorsa della Azure-SSIS IR. |
-| Type                         | Tipo IR (gestito/self-hosted) del Azure-SSIS IR. |
+| Tipo                         | Tipo IR (gestito/self-hosted) del Azure-SSIS IR. |
 | ResourceGroupName            | Nome del gruppo di risorse di Azure in cui sono stati creati i file ADF e Azure-SSIS IR. |
 | DataFactoryName              | Nome del file ADF. |
 | Nome                         | Nome del Azure-SSIS IR. |
@@ -258,13 +258,13 @@ Se si aggiunge il Azure-SSIS IR a una VNet, verrà visualizzato il riquadro **co
 
 Nel riquadro **diagnostica connettività** della pagina Monitoraggio Azure-SSIS IR è possibile selezionare il collegamento **Test connessione** per visualizzare una finestra, in cui è possibile controllare le connessioni tra l'Azure-SSIS IR e gli archivi di pacchetti/configurazione/dati rilevanti, nonché i servizi di gestione, tramite il nome di dominio completo (FQDN)/IP e la porta designata (vedere [test delle connessioni dal Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)).
 
-![Monitorare il riquadro Azure-SSIS IR-diagnosi](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Screenshot che mostra dove è possibile testare le connessioni tra il Azure-SSIS IR e gli archivi di pacchetti/configurazione/dati pertinenti.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>Riquadro indirizzi IP pubblici statici
 
 Se si usano indirizzi IP pubblici statici per Azure-SSIS IR, il riquadro **indirizzi IP pubblici statici** verrà visualizzato nella pagina di monitoraggio Azure-SSIS IR (vedere l' [introduzione di indirizzi IP pubblici statici per Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP)). In questo riquadro è possibile selezionare i collegamenti che definiscono il primo/secondo indirizzo IP pubblico statico per Azure-SSIS IR per visualizzare una finestra, in cui è possibile copiare l'ID risorsa ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` ) da una casella di testo. Nella finestra popup è possibile anche selezionare il collegamento **vedere il primo/secondo indirizzo IP pubblico statico** per gestire il primo/secondo indirizzo IP pubblico statico in portale di Azure.
 
-![Monitorare il riquadro Azure-SSIS IR-diagnosi](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Screenshot che mostra dove è possibile designare il primo/secondo indirizzo IP pubblico statico.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>Riquadro archivi pacchetti
 

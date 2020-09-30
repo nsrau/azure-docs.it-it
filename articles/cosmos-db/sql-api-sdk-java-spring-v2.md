@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d795624097877d20f98a6fd205fb7136cf38007
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 11278f558f94fe358be94c914ecfeae6cfd5461e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069125"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570745"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Spring data Azure Cosmos DB v2 per l'API Core (SQL): Note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ ms.locfileid: "90069125"
 > * [Data Gremlin della primavera con Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > Si desidera procedere velocemente?
-> 1. Installare il [runtime Java minimo supportato, JDK 8](/java/azure/jdk/?view=azure-java-stable), in modo da poter usare l'SDK.
+> 1. Installare il [runtime Java minimo supportato, JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true), in modo da poter usare l'SDK.
 > 2. Creare un'app Spring data Azure Cosmos DB usando lo [Starter](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). È semplice.
 > 3. Usare la guida per gli [sviluppatori di Spring Data Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb), che illustra le richieste di Azure Cosmos DB di base.
 >
@@ -170,7 +170,7 @@ ms.locfileid: "90069125"
 
 ### <a name="211-march-7-2019"></a>2.1.1 (7 marzo 2019)
 #### <a name="new-features"></a>Nuove funzionalità
-* Aggiorna la versione master a 2.1.1.
+* Aggiorna la versione principale a 2.1.1.
 
 ### <a name="206-march-7-2019"></a>2.0.6 (7 marzo 2019)
 #### <a name="new-features"></a>Nuove funzionalità

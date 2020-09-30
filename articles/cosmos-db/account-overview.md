@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: a68207b3e5390a26e8d62ee6b725b0768ea565a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7583e35cad03927d003de7a836de03af091b55eb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116078"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569698"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Usare l'account Azure Cosmos
 
@@ -21,7 +21,7 @@ Azure Cosmos DB è una piattaforma completamente gestita distribuita come serviz
 
 L'account Azure Cosmos è l'unità fondamentale della distribuzione globale e della disponibilità elevata. Per la distribuzione a livello globale dei dati e della velocità effettiva tra più aree di Azure, è possibile aggiungere e rimuovere aree di Azure all'account Azure Cosmos in qualsiasi momento. È possibile configurare l'account Azure Cosmos per una o più aree di scrittura. Per altre informazioni, vedere [Come aggiungere e rimuovere aree di Azure per l'account Azure Cosmos](how-to-manage-database-account.md). È possibile configurare il [livello di coerenza predefinito](consistency-levels.md) nell'account Azure Cosmos. Azure Cosmos DB offre contratti di servizio completi che includono velocità effettiva, latenza al 99° percentile, coerenza e disponibilità elevata. Per altre informazioni, vedere [Contratti di servizio per Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
-Per gestire in modo sicuro l'accesso a tutti i dati nell'account Azure Cosmos, è possibile usare le [chiavi master](secure-access-to-data.md) associate all'account. Per proteggere ulteriormente l'accesso ai dati, è possibile configurare un [endpoint del servizio VNET](vnet-service-endpoint.md) e [IP-Firewall](firewall-support.md) nell'account Azure Cosmos. 
+Per gestire in modo sicuro l'accesso a tutti i dati nell'account Azure Cosmos, è possibile usare le [chiavi primarie](secure-access-to-data.md) associate all'account. Per proteggere ulteriormente l'accesso ai dati, è possibile configurare un [endpoint del servizio VNET](vnet-service-endpoint.md) e [IP-Firewall](firewall-support.md) nell'account Azure Cosmos. 
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Elementi nell'account Azure Cosmos
 

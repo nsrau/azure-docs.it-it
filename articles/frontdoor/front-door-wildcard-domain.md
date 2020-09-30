@@ -8,18 +8,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: edeaaf97c818831aa1eda5823ea491110f784549
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 5194e088ce2bd35208a92c5295457e6c34cd2cc1
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442363"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570325"
 ---
 # <a name="wildcard-domains"></a>Domini con caratteri jolly
 
-Oltre ai domini e ai sottodomini Apex, è possibile eseguire il mapping di un nome di dominio con caratteri jolly all'elenco di host front-end o di domini personalizzati nel profilo di porta anteriore di Azure. La presenza di domini con caratteri jolly nella configurazione di Azure front door semplifica il comportamento del routing del traffico per più sottodomini per un'API, un'applicazione o un sito Web dalla stessa regola di routing. Non è necessario modificare la configurazione per aggiungere o specificare separatamente ogni sottodominio. È ad esempio possibile definire il routing per `customer1.contoso.com` , `customer2.contoso.com` e `customerN.contoso.com` usando la stessa regola di routing e l'aggiunta del dominio con caratteri jolly `*.contoso.com` .
+Oltre ai domini e ai sottodomini Apex, è anche possibile eseguire il mapping di un dominio con caratteri jolly agli host front-end o ai domini personalizzati per il profilo di sportello anteriore di Azure. La presenza di domini con caratteri jolly nella configurazione di Azure front door semplifica il comportamento del routing del traffico per più sottodomini per un'API, un'applicazione o un sito Web dalla stessa regola di routing. Non è necessario modificare la configurazione per aggiungere o specificare separatamente ogni sottodominio. È ad esempio possibile definire il routing per `customer1.contoso.com` , `customer2.contoso.com` e `customerN.contoso.com` usando la stessa regola di routing e l'aggiunta del dominio con caratteri jolly `*.contoso.com` .
 
 Gli scenari principali migliorati con il supporto per i domini con caratteri jolly includono:
 
@@ -31,7 +31,7 @@ Gli scenari principali migliorati con il supporto per i domini con caratteri jol
 
 ## <a name="adding-wildcard-domains"></a>Aggiunta di domini con caratteri jolly
 
-È possibile aggiungere un dominio con caratteri jolly nella sezione per gli host o i domini front-end. Analogamente ai sottodomini, Azure front door verifica che esista il mapping dei record CNAME per il dominio con caratteri jolly. Questo mapping DNS può essere un mapping di record CNAME diretto come eseguito il mapping `*.contoso.com` a `contoso.azurefd.net` . In alternativa, è possibile usare il mapping temporaneo afdverify. Ad esempio, `afdverify.contoso.com` mappato a `afdverify.contoso.azurefd.net` convalida la mappa dei record CNAME per il carattere jolly.
+È possibile aggiungere un dominio con caratteri jolly nella sezione per gli host o i domini front-end. Analogamente ai sottodomini, Azure front door convalida la presenza di un mapping di record CNAME per il dominio con caratteri jolly. Questo mapping DNS può essere un mapping di record CNAME diretto come eseguito il mapping `*.contoso.com` a `contoso.azurefd.net` . In alternativa, è possibile usare il mapping temporaneo afdverify. Ad esempio, `afdverify.contoso.com` mappato a `afdverify.contoso.azurefd.net` convalida la mappa dei record CNAME per il carattere jolly.
 
 > [!NOTE]
 > DNS di Azure supporta record con caratteri jolly.
@@ -47,7 +47,7 @@ Gli scenari principali migliorati con il supporto per i domini con caratteri jol
 - Se viene aggiunto un dominio con caratteri jolly a un profilo di porta anteriore di Azure:
   - Il dominio con caratteri jolly non può essere aggiunto a un altro profilo di porta anteriore di Azure.
   - Non è possibile aggiungere sottodomini di primo livello del dominio con caratteri jolly a un altro profilo di Azure front door o a un profilo di rete per la distribuzione di contenuti di Azure.
-- Se un sottodominio di un dominio con caratteri jolly viene aggiunto a un profilo della porta anteriore di Azure o a un profilo di rete per la distribuzione di contenuti di Azure, il dominio con caratteri jolly non può essere aggiunto ad altri profili di porte di Azure.
+- Se un sottodominio di un dominio con caratteri jolly è già stato aggiunto a un profilo di sportello anteriore di Azure o a un profilo di rete per la distribuzione di contenuti di Azure, il dominio con caratteri jolly non può essere usato per altri profili di porte di Azure
 - Se due profili (Azure front door o rete per la distribuzione di contenuti di Azure) hanno diversi sottodomini di un dominio radice, non è possibile aggiungere i domini con caratteri jolly a uno dei profili.
 
 ## <a name="certificate-binding"></a>Associazione certificato

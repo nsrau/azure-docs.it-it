@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 67eeb181f64f5924a90fd2c03e39e1be9887dd2e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397165"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570378"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster nel servizio Azure Kubernetes
 
@@ -49,11 +49,11 @@ Le regole di rete e le dipendenze degli indirizzi IP richieste sono le seguenti:
 
 | Endpoint di destinazione                                                             | Protocollo | Porta    | Uso  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. Questa operazione non è necessaria per i [cluster privati](private-clusters.md)|
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. Questa operazione non è necessaria per i [cluster privati](private-clusters.md) |
 | **`*:123`** o **`ntp.ubuntu.com:123`** (se si usano le regole di rete del firewall di Azure)  | UDP      | 123     | Obbligatorio per la sincronizzazione dell'ora NTP (Network Time Protocol) nei nodi Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Se si usano server DNS personalizzati, è necessario assicurarsi che siano accessibili dai nodi del cluster. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obbligatorio se i pod/distribuzioni in esecuzione che accedono al server API, tali Pod/distribuzioni utilizzeranno l'IP dell'API.  |
+| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obbligatorio se i pod/distribuzioni in esecuzione che accedono al server API, tali Pod/distribuzioni utilizzeranno l'IP dell'API. Questa operazione non è necessaria per i [cluster privati](private-clusters.md)  |
 
 ### <a name="azure-global-required-fqdn--application-rules"></a>Regole dell'applicazione/FQDN globale obbligatoria di Azure 
 

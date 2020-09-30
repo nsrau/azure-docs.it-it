@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 3c396d6d5b9da9a48e0d68a2d7d49561d6f688de
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 33c346fa2e4572799ad6341bd5115cdd6e3b9ec9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91344620"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569993"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis-preview"></a>Abilitare la ridondanza della zona per cache di Azure per Redis (anteprima)
 Questo articolo illustra come configurare un'istanza di cache di Azure con ridondanza della zona usando il portale di Azure.
@@ -38,21 +38,25 @@ Per creare una cache, seguire questa procedura:
 
     :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Selezionare cache di Azure per Redis.":::
    
-1. Nella pagina **Nuova cache Redis** configurare le impostazioni per la nuova cache.
+1. Nella pagina **nozioni di base** configurare le impostazioni per la nuova cache.
    
     | Impostazione      | Valore consigliato  | Descrizione |
     | ------------ |  ------- | -------------------------------------------------- |
+    | **Sottoscrizione** | Selezionare la propria sottoscrizione. | Sottoscrizione in cui creare la nuova istanza della cache di Azure per Redis. | 
+    | **Gruppo di risorse** | Selezionare un gruppo di risorse oppure selezionare **Crea nuovo** e immettere un nuovo nome per il gruppo di risorse. | Nome del gruppo di risorse in cui creare la cache e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
     | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<DNS name>.redis.cache.windows.net*. | 
-    | **Sottoscrizione** | Nell'elenco a discesa selezionare la sottoscrizione. | Sottoscrizione in cui creare la nuova istanza della cache di Azure per Redis. | 
-    | **Gruppo di risorse** | Nell'elenco a discesa selezionare un gruppo di risorse oppure scegliere **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse. | Nome del gruppo di risorse in cui creare la cache e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
-    | **Posizione** | Nell'elenco a discesa selezionare una località. | Selezionare un'[area](https://azure.microsoft.com/regions/) in prossimità di altri servizi che useranno la cache. |
-    | **Piano tariffario** | Elenco a discesa e selezionare una cache di [livello Premium](https://azure.microsoft.com/pricing/details/cache/) . |  Il piano tariffario determina le dimensioni, le prestazioni e le funzionalità disponibili per la cache. Per altre informazioni, vedere la [panoramica su Cache Redis di Azure](cache-overview.md). |
-    | **Numero di repliche** | Scorrere per scegliere il numero di repliche. | Il valore predefinito è 1. |
-    | **Zone di disponibilità** | Elenco a discesa e selezionare le zone da usare. | Le macchine virtuali per la cache verranno distribuite in modo più uniforme possibile nelle zone selezionate. Ad esempio, se la cache ha tre repliche e usa due zone, saranno presenti due macchine virtuali in ogni zona. |
+    | **Posizione** | Selezionare una località. | Selezionare un'[area](https://azure.microsoft.com/regions/) in prossimità di altri servizi che useranno la cache. |
+    | **Tipo di cache** | Selezionare una cache di [livello Premium](https://azure.microsoft.com/pricing/details/cache/) . |  Il piano tariffario determina le dimensioni, le prestazioni e le funzionalità disponibili per la cache. Per altre informazioni, vedere la [panoramica su Cache Redis di Azure](cache-overview.md). |
    
-1. Dopo aver selezionato una cache di livello Premium, verrà chiesto se abilitare o meno il clustering di Redis. Lascia il **clustering** come *disabilitato*. 
+1. Nella pagina **Avanzate** scegliere numero di **repliche**.
    
-    :::image type="content" source="media/cache-how-to-premium-clustering/redis-clustering-disabled.png" alt-text="Configurare il cluster Redis.":::
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Selezionare cache di Azure per Redis.":::
+
+1. Selezionare **zone di disponibilità**. 
+   
+    :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Selezionare cache di Azure per Redis.":::
+
+1. Lasciare le impostazioni predefinite per le altre opzioni. 
 
     > [!NOTE]
     > Il supporto per la ridondanza della zona funziona attualmente solo con le cache non in cluster e non con replica geografica. Inoltre, non supporta collegamenti privati, scalabilità, persistenza dei dati o importazione/esportazione.
@@ -60,10 +64,8 @@ Per creare una cache, seguire questa procedura:
 
 1. Fare clic su **Crea**. 
    
-    :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Creare cache di Azure per Redis.":::
-   
     La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione**, la cache è pronta per l'uso.
-
+   
     > [!NOTE]
     > Non è possibile modificare le zone di disponibilità dopo la creazione di una cache.
     >

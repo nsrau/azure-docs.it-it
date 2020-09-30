@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 3f882375197fa45cfbc74ff7a80ed33fd33f33a3
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 1f2e90f9391654d10332b9f1a21c56fd22e2307b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400299"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570805"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>In che modo Azure Cosmos DB fornisce disponibilità elevata? 
 
@@ -30,7 +30,7 @@ Se il tuo account Azure Cosmos è distribuito in *N* aree di Azure, saranno pres
 
 ## <a name="slas-for-availability"></a>Contratti di servizio per la disponibilità
 
-Come database distribuito a livello globale, Azure Cosmos DB offre contratti di contratto completi che includono velocità effettiva, latenza al 99 ° percentile, coerenza e disponibilità elevata. Nella tabella seguente vengono illustrate le garanzie per la disponibilità elevata fornite da Azure Cosmos DB per gli account con una o più aree. Per la disponibilità elevata, configurare sempre gli account Azure Cosmos in modo da avere più aree di scrittura, denominate anche multi-master.
+Come database distribuito a livello globale, Azure Cosmos DB offre contratti di contratto completi che includono velocità effettiva, latenza al 99 ° percentile, coerenza e disponibilità elevata. Nella tabella seguente vengono illustrate le garanzie per la disponibilità elevata fornite da Azure Cosmos DB per gli account con una o più aree. Per la disponibilità elevata, configurare sempre gli account Azure Cosmos in modo da avere più aree di scrittura.
 
 |Tipo di operazione  | Area singola |Più aree (scrittura in area singola)|Più aree (scrittura in più aree) |
 |---------|---------|---------|-------|
@@ -46,7 +46,7 @@ Per i rari casi di interruzione a livello di area, Azure Cosmos DB garantisce ch
 
 - Con Azure Cosmos DB, prima che un'operazione di scrittura venga riconosciuta al client, i dati vengono sottoposte a commit durevole da un quorum di repliche all'interno dell'area che accetta le operazioni di scrittura.
 
-- Gli account in più aree configurati con aree a più scritture/multi-master saranno a disponibilità elevata per scritture e letture. I failover a livello di area vengono visualizzati immediatamente e non richiedono modifiche dall'applicazione.
+- Gli account in più aree configurati con aree a scrittura multipla rimarranno a disponibilità elevata sia per le operazioni di scrittura che per le operazioni di lettura. I failover a livello di area vengono visualizzati immediatamente e non richiedono modifiche dall'applicazione.
 
 - È possibile che gli account in area singola perdano disponibilità in caso di interruzione a livello di area. È sempre consigliabile configurare almeno **due aree** (preferibilmente, almeno due aree di scrittura) con l'account Azure Cosmos per garantire la disponibilità elevata in qualsiasi momento.
 
@@ -93,8 +93,8 @@ Nella tabella seguente sono riepilogate le funzionalità di disponibilità eleva
 |Prezzo | Tariffa di fatturazione per area singola | Frequenza di fatturazione della zona di disponibilità in una singola area | Frequenza di fatturazione per più aree |
 |Errori zona-perdita di dati | Perdita di dati | Senza perdita di dati | Senza perdita di dati |
 |Errori zona-disponibilità | Perdita di disponibilità | Nessuna perdita di disponibilità | Nessuna perdita di disponibilità |
-|Latenza lettura | Area geografica | Area geografica | Basso |
-|Latenza di scrittura | Area geografica | Area geografica | Basso |
+|Latenza lettura | Area geografica | Area geografica | Bassa |
+|Latenza di scrittura | Area geografica | Area geografica | Bassa |
 |Interruzione a livello di area-perdita di dati | Perdita di dati |  Perdita di dati | Perdita di dati <br/><br/> Quando si usa la coerenza con obsolescenza associata con più aree di scrittura e più di un'area, la perdita di dati è limitata al decadimento delimitato configurato per l'account <br /><br />È possibile evitare la perdita di dati durante un'interruzione a livello di area configurando la coerenza assoluta con più aree. Questa opzione comprende compromessi che influiscono sulla disponibilità e sulle prestazioni. Può essere configurata solo per gli account configurati per le Scritture in una singola area. |
 |Interruzione a livello di area: disponibilità | Perdita di disponibilità | Perdita di disponibilità | Nessuna perdita di disponibilità |
 |Velocità effettiva | Velocità effettiva con provisioning X ur/s | Velocità effettiva con provisioning X ur/s | velocità effettiva con provisioning di 2X ur/s <br/><br/> Questa modalità di configurazione richiede due volte la quantità di velocità effettiva rispetto a una singola area con zone di disponibilità perché sono presenti due aree geografiche. |
@@ -125,7 +125,7 @@ az cosmosdb create \
 
 È possibile abilitare zone di disponibilità usando portale di Azure quando si crea un account Azure Cosmos. Quando si crea un account, assicurarsi di abilitare la **ridondanza geografica**, le **Scritture**in più aree e scegliere un'area in cui zone di disponibilità sono supportati:
 
-:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Abilitare zone di disponibilità usando portale di Azure"::: 
+:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Partizionamento fisico"::: 
 
 ## <a name="building-highly-available-applications"></a>Compilazione di applicazioni a disponibilità elevata
 

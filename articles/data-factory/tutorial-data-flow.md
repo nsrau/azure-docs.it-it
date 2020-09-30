@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 917a8d6edf04d8a160c3a6a5ac59949623dfee5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418678"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569875"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Trasformare i dati usando il mapping dei flussi di dati
 
@@ -80,10 +80,10 @@ In questo passaggio verrà creata una pipeline che contiene un'attività flusso 
     ![Attività flusso di dati](media/tutorial-data-flow/dataflow1.png)
 1. Nel riquadro **attività** espandere l'accordo di **spostamento e trasformazione** . Trascinare e rilasciare l'attività **flusso di dati** dal riquadro nell'area di disegno della pipeline.
 
-    ![Attività flusso di dati](media/tutorial-data-flow/activity1.png)
+    ![Screenshot che mostra l'area di disegno della pipeline in cui è possibile eliminare l'attività flusso di dati.](media/tutorial-data-flow/activity1.png)
 1. Nella finestra popup **aggiunta flusso di dati** selezionare **Crea nuovo flusso di dati** e quindi assegnare un nome al flusso di dati **TransformMovies**. Fare clic su Fine al termine.
 
-    ![Attività flusso di dati](media/tutorial-data-flow/activity2.png)
+    ![Screenshot che mostra dove assegnare un nome al flusso di dati quando si crea un nuovo flusso di dati.](media/tutorial-data-flow/activity2.png)
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Logica di trasformazione compilazione nell'area di disegno del flusso di dati
 
@@ -91,19 +91,19 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
 
 1. Nell'area di disegno del flusso di dati aggiungere un'origine facendo clic sulla casella **Aggiungi origine** .
 
-    ![Area di disegno del flusso di dati](media/tutorial-data-flow/dataflow2.png)
+    ![Screenshot che mostra la casella Aggiungi origine.](media/tutorial-data-flow/dataflow2.png)
 1. Assegnare un nome all'origine **MoviesDB**. Fare clic su **nuovo** per creare un nuovo set di dati di origine.
 
-    ![Area di disegno del flusso di dati](media/tutorial-data-flow/dataflow3.png)
+    ![Screenshot che mostra la posizione in cui si seleziona nuovo dopo aver denominato l'origine.](media/tutorial-data-flow/dataflow3.png)
 1. Scegliere **Azure Data Lake storage Gen2**. Fare clic su Continue.
 
-    ![Set di dati](media/tutorial-data-flow/dataset1.png)
+    ![Screenshot che mostra il riquadro Azure Data Lake Storage Gen2.](media/tutorial-data-flow/dataset1.png)
 1. Scegliere **DelimitedText**. Fare clic su Continue.
 
-    ![Set di dati](media/tutorial-data-flow/dataset2.png)
+    ![Screenshot che mostra il riquadro DelimitedText.](media/tutorial-data-flow/dataset2.png)
 1. Denominare il set di dati **MoviesDB**. Nell'elenco a discesa servizio collegato scegliere **nuovo**.
 
-    ![Set di dati](media/tutorial-data-flow/dataset3.png)
+    ![Screenshot che mostra l'elenco a discesa servizio collegato.](media/tutorial-data-flow/dataset3.png)
 1. Nella schermata di creazione del servizio collegato denominare il servizio collegato ADLS Gen2 **ADLSGen2** e specificare il metodo di autenticazione. Immettere quindi le credenziali di connessione. In questa esercitazione viene usata la chiave dell'account per connettersi all'account di archiviazione. È possibile fare clic su **Test connessione** per verificare che le credenziali siano state immesse correttamente. Al termine, fare clic su Crea.
 
     ![Servizio collegato](media/tutorial-data-flow/ls1.png)
@@ -112,13 +112,13 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
     ![Set di dati](media/tutorial-data-flow/dataset4.png)
 1. Se il cluster di debug è stato avviato, passare alla scheda **Anteprima dati** della trasformazione origine e fare clic su **Aggiorna** per ottenere uno snapshot dei dati. È possibile utilizzare l'anteprima dati per verificare che la trasformazione sia configurata correttamente.
 
-    ![Area di disegno del flusso di dati](media/tutorial-data-flow/dataflow4.png)
+    ![Screenshot che mostra dove è possibile visualizzare in anteprima i dati per verificare che la trasformazione sia configurata correttamente.](media/tutorial-data-flow/dataflow4.png)
 1. Accanto al nodo di origine nell'area di disegno del flusso di dati fare clic sull'icona a forma di segno più per aggiungere una nuova trasformazione. La prima trasformazione che si sta aggiungendo è un **filtro**.
 
     ![Area di disegno del flusso di dati](media/tutorial-data-flow/dataflow5.png)
 1. Assegnare un nome alla trasformazione filtro **FilterYears**. Fare clic sulla casella espressione accanto a applica **filtro** per aprire Generatore di espressioni. Qui si specificherà la condizione di filtro.
 
-    ![Filtra](media/tutorial-data-flow/filter1.png)
+    ![Screenshot che mostra la casella filtro su espressione.](media/tutorial-data-flow/filter1.png)
 1. Il generatore di espressioni del flusso di dati consente di compilare in modo interattivo espressioni da usare in diverse trasformazioni. Le espressioni possono includere funzioni predefinite, colonne dello schema di input e parametri definiti dall'utente. Per ulteriori informazioni su come compilare espressioni, vedere [Generatore di espressioni del flusso di dati](concepts-data-flow-expression-builder.md).
 
     In questa esercitazione si vogliono filtrare i film di genere Comedy che hanno avuto come risultato tra gli anni 1910 e 2000. Come Year è attualmente una stringa, è necessario convertirla in un Integer usando la ```toInteger()``` funzione. Utilizzare gli operatori maggiore di o uguale a (>=) e minore o uguale a (<=) per confrontare i valori letterali anno 1910 e 200-. Unire queste espressioni con l'operatore and (&&). L'espressione viene visualizzata come segue:
@@ -131,41 +131,41 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
 
     Se si dispone di un cluster di debug attivo, è possibile verificare la logica facendo clic su **Aggiorna** per visualizzare l'output delle espressioni rispetto agli input utilizzati. Esiste più di una risposta giusta su come eseguire questa logica usando il linguaggio delle espressioni del flusso di dati.
 
-    ![Filtra](media/tutorial-data-flow/filter2.png)
+    ![Filtro](media/tutorial-data-flow/filter2.png)
 
     Al termine dell'espressione, fare clic su **Salva e fine** .
 
 1. Recuperare un' **anteprima dei dati** per verificare che il filtro funzioni correttamente.
 
-    ![Filtra](media/tutorial-data-flow/filter3.png)
+    ![Screenshot che mostra l'anteprima dei dati recuperata.](media/tutorial-data-flow/filter3.png)
 1. La trasformazione successiva che verrà aggiunta è una trasformazione **aggregazione** nel **modificatore dello schema**.
 
-    ![Aggregate](media/tutorial-data-flow/agg1.png)
+    ![Screenshot che mostra il modificatore dello schema di aggregazione.](media/tutorial-data-flow/agg1.png)
 1. Assegnare un nome alla trasformazione aggregazione **AggregateComedyRatings**. Nella scheda **raggruppa** per selezionare **anno** dall'elenco a discesa per raggruppare le aggregazioni in base all'anno in cui si è rivelato il film.
 
-    ![Aggregate](media/tutorial-data-flow/agg2.png)
+    ![Screenshot che mostra l'opzione Year nella scheda Group by in impostazioni di aggregazione.](media/tutorial-data-flow/agg2.png)
 1. Passare alla scheda **aggregazioni** . Nella casella di testo a sinistra, denominare la colonna aggregata **AverageComedyRating**. Fare clic sulla casella espressione a destra per immettere l'espressione di aggregazione tramite Generatore di espressioni.
 
-    ![Aggregate](media/tutorial-data-flow/agg3.png)
+    ![Screenshot che mostra l'opzione Year nella scheda aggregazioni in impostazioni di aggregazione.](media/tutorial-data-flow/agg3.png)
 1. Per ottenere la media della **classificazione**di colonna, utilizzare la ```avg()``` funzione di aggregazione. Poiché **rating** è una stringa e ```avg()``` accetta un input numerico, è necessario convertire il valore in un numero tramite la ```toInteger()``` funzione. Questa espressione è simile a quanto segue:
 
     ```avg(toInteger(Rating))```
 
     Al termine, fare clic su **Salva e fine** .
 
-    ![Aggregate](media/tutorial-data-flow/agg4.png)
+    ![Screenshot che mostra l'espressione salvata.](media/tutorial-data-flow/agg4.png)
 1. Passare alla scheda **Anteprima dati** per visualizzare l'output della trasformazione. Si noti che sono presenti solo due colonne, **year** e **AverageComedyRating**.
 
     ![Aggregate](media/tutorial-data-flow/agg3.png)
 1. Successivamente, si desidera aggiungere una trasformazione **sink** in **destinazione**.
 
-    ![Sink](media/tutorial-data-flow/sink1.png)
+    ![Screenshot che mostra dove aggiungere una trasformazione di sink in destinazione.](media/tutorial-data-flow/sink1.png)
 1. Assegnare un nome al **sink**di sink. Fare clic su **nuovo** per creare il set di dati del sink.
 
-    ![Sink](media/tutorial-data-flow/sink2.png)
+    ![Screenshot che mostra dove è possibile assegnare un nome al sink e creare un nuovo set di dati sink.](media/tutorial-data-flow/sink2.png)
 1. Scegliere **Azure Data Lake storage Gen2**. Fare clic su Continue.
 
-    ![Set di dati](media/tutorial-data-flow/dataset1.png)
+    ![Screenshot che mostra il riquadro Azure Data Lake Storage Gen2 è possibile scegliere.](media/tutorial-data-flow/dataset1.png)
 1. Scegliere **DelimitedText**. Fare clic su Continue.
 
     ![Set di dati](media/tutorial-data-flow/dataset2.png)
@@ -181,13 +181,13 @@ A questo punto è stata completata la creazione del flusso di dati. Si è pronti
 
 1. Passare all'area di disegno della pipeline. Fare clic su **debug** per attivare un'esecuzione del debug.
 
-    ![Pipeline](media/tutorial-data-flow/pipeline1.png)
+    ![Screenshot che mostra l'area di disegno della pipeline con il debug evidenziato.](media/tutorial-data-flow/pipeline1.png)
 1. Il debug della pipeline delle attività del flusso di dati usa il cluster di debug attivo, ma occorre ancora almeno un minuto per l'inizializzazione. È possibile tenere traccia dello stato di avanzamento tramite la scheda **output** . Una volta completata l'esecuzione, fare clic sull'icona degli occhiali per aprire il riquadro monitoraggio.
 
     ![Pipeline](media/tutorial-data-flow/pipeline2.png)
 1. Nel riquadro monitoraggio è possibile visualizzare il numero di righe e il tempo impiegato in ogni passaggio della trasformazione.
 
-    ![Monitoraggio](media/tutorial-data-flow/pipeline3.png)
+    ![Screenshot che mostra il riquadro monitoraggio in cui è possibile visualizzare il numero di righe e il tempo trascorso in ogni passaggio di trasformazione.](media/tutorial-data-flow/pipeline3.png)
 1. Fare clic su una trasformazione per ottenere informazioni dettagliate sulle colonne e il partizionamento dei dati.
 
     ![Monitoraggio](media/tutorial-data-flow/pipeline4.png)

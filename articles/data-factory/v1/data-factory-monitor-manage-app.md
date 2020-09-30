@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846906"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570081"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione
 > [!div class="op_single_selector"]
@@ -124,7 +124,7 @@ Quando si seleziona un set di dati di output o si passa il mouse su un set di qu
 
 Nel riquadro destro passare alla scheda **Activity Windows** (Esplora finestra attività) per visualizzare altri dettagli.
 
-![Esplora finestre attività](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![Screenshot che illustra come accedere alla scheda Esplora finestre attività.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
 Vengono visualizzate anche le **variabili risolte** per ciascun tentativo di esecuzione di un'attività nella sezione **Tentativi**.
 
@@ -159,10 +159,10 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 
 <table>
 <tr>
-    <th align="left">Stato</th><th align="left">Substatus</th><th align="left">Descrizione</th>
+    <th align="left">Stato</th><th align="left">Stato secondario</th><th align="left">Descrizione</th>
 </tr>
 <tr>
-    <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è ancora il momento di eseguire la finestra attività.</td>
+    <td rowspan="8">Attesa</td><td>ScheduleTime</td><td>Non è ancora il momento di eseguire la finestra attività.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>Le dipendenze upstream non sono pronte.</td>
@@ -210,14 +210,14 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 <td>Operazione ignorata</td><td>-</td><td>La finestra attività non è stata elaborata.</td>
 </tr>
 <tr>
-<td>nessuno</td><td>-</td><td>Una finestra attività esistente che in precedenza aveva un altro stato e che ora è stata reimpostata.</td>
+<td>Nessuno</td><td>-</td><td>Una finestra attività esistente che in precedenza aveva un altro stato e che ora è stata reimpostata.</td>
 </tr>
 </table>
 
 
 Quando si fa clic su una finestra attività nell'elenco, i relativi dettagli vengono visualizzati nella finestra **Activity Windows Explorer** (Esplora finestre attività) o **Proprietà** a destra.
 
-![Esplora finestre attività](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![Screenshot che illustra come visualizzare i dettagli di una finestra attività.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### <a name="refresh-activity-windows"></a>Aggiornare le finestre attività
 I dettagli non vengono aggiornati automaticamente. L'elenco delle finestre attività deve essere aggiornato manualmente usando il pulsante di aggiornamento, (il secondo pulsante) sulla barra dei comandi.  

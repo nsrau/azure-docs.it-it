@@ -1,18 +1,18 @@
 ---
 title: Informazioni su come proteggere l'accesso ai dati in Azure Cosmos DB
-description: Informazioni sui concetti di controllo di accesso in Azure Cosmos DB, tra cui chiavi master, chiavi di sola lettura, utenti e autorizzazioni.
+description: Informazioni sui concetti relativi al controllo di accesso in Azure Cosmos DB, incluse chiavi primarie, chiavi di sola lettura, utenti e autorizzazioni.
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4714ec9773b98887de483b7353eea9f4416eec19
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0a5411a8fba8456deb59a5c9ede4e9314876dbdb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017754"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569582"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteggere l'accesso ai dati in Azure Cosmos DB
 
@@ -22,10 +22,10 @@ Azure Cosmos DB usa due tipi di chiavi per autenticare gli utenti e fornire acce
 
 |Tipo di chiave|Risorse|
 |---|---|
-|[Chiavi master](#master-keys) |Usate per risorse amministrative, ovvero account di database, database, utenti e autorizzazioni|
+|[Chiavi master](#primary-keys) |Usate per risorse amministrative, ovvero account di database, database, utenti e autorizzazioni|
 |[Token delle risorse](#resource-tokens)|Usati per le risorse dell'applicazione, ovvero contenitori, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente|
 
-<a id="master-keys"></a>
+<a id="primary-keys"></a>
 
 ## <a name="master-keys"></a>Chiavi master
 
@@ -38,15 +38,15 @@ Le chiavi master consentono di accedere a tutte le risorse amministrative per l'
 
 Ogni account è costituito da due chiavi master: una chiave primaria e una chiave secondaria. Lo scopo delle due chiavi è consentire la rigenerazione o la rotazione delle chiavi mantenendo l'accesso continuo ai dati e all'account.
 
-Oltre alle due chiavi master per l'account Cosmos DB, sono disponibili due chiavi di sola lettura. Queste chiavi consentono solo operazioni di lettura per l'account. Le chiavi di sola lettura non forniscono l'accesso in lettura alle risorse di autorizzazione.
+Oltre alle due chiavi primarie per l'account Cosmos DB, sono disponibili due chiavi di sola lettura. Queste chiavi consentono solo operazioni di lettura per l'account. Le chiavi di sola lettura non forniscono l'accesso in lettura alle risorse di autorizzazione.
 
-Le chiavi master primaria, secondaria, di sola lettura e di lettura/scrittura possono essere recuperate e rigenerate nel portale di Azure. Per istruzioni, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso](manage-with-cli.md#regenerate-account-key).
+È possibile recuperare e rigenerare le chiavi primarie, secondarie, di sola lettura e di lettura/scrittura usando il portale di Azure. Per istruzioni, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso](manage-with-cli.md#regenerate-account-key).
 
 :::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Controllo di accesso (IAM) nel portale di Azure: dimostrazione della sicurezza del database NoSQL":::
 
 ### <a name="key-rotation"></a>Rotazione delle chiavi<a id="key-rotation"></a>
 
-Il processo di rotazione della chiave master è semplice. 
+Il processo di rotazione della chiave primaria è semplice. 
 
 1. Passare alla portale di Azure per recuperare la chiave secondaria.
 2. Sostituire la chiave primaria con la chiave secondaria nell'applicazione. Assicurarsi che tutti i client Cosmos DB in tutte le distribuzioni vengano riavviati immediatamente e inizino a usare la chiave aggiornata.
@@ -54,11 +54,11 @@ Il processo di rotazione della chiave master è semplice.
 4. Verificare che la nuova chiave primaria funzioni su tutte le risorse. Il processo di rotazione delle chiavi può richiedere da meno di un minuto a ore, a seconda delle dimensioni dell'account Cosmos DB.
 5. Sostituire la chiave secondaria con la nuova chiave primaria.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Rotazione delle chiavi master nel portale di Azure: dimostrazione della sicurezza del database NoSQL" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Controllo di accesso (IAM) nel portale di Azure: dimostrazione della sicurezza del database NoSQL" border="false":::
 
-### <a name="code-sample-to-use-a-master-key"></a>Esempio di codice per l'uso di una chiave master
+### <a name="code-sample-to-use-a-primary-key"></a>Esempio di codice per l'uso di una chiave primaria
 
-Nell'esempio di codice seguente viene illustrato come usare un endpoint dell'account Cosmos DB e una chiave master per creare un'istanza di un DocumentClient e creare un database:
+Nell'esempio di codice seguente viene illustrato come usare un endpoint dell'account Cosmos DB e una chiave primaria per creare un'istanza di un DocumentClient e creare un database:
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -71,7 +71,7 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
 
-Nell'esempio di codice seguente viene illustrato come utilizzare l'endpoint dell'account Azure Cosmos DB e la chiave master per creare un'istanza di un `CosmosClient` oggetto:
+Nell'esempio di codice seguente viene illustrato come utilizzare l'endpoint dell'account Azure Cosmos DB e la chiave primaria per creare un'istanza di un `CosmosClient` oggetto:
 
 :::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
@@ -84,17 +84,17 @@ I token delle risorse consentono di accedere alle risorse dell'applicazione all'
 - Vengono ricreati quando si interviene su una risorsa di autorizzazione tramite chiamata POST, GET o PUT.
 - Usano un token di risorsa hash costruito specificamente per l'utente, la risorsa e l'autorizzazione.
 - Hanno un limite di tempo con un periodo di validità personalizzabile. L'intervallo di tempo valido predefinito è un'ora. La durata del token può essere tuttavia specificata in modo esplicito, fino a un massimo di cinque ore.
-- Rappresentano un'alternativa sicura alla divulgazione della chiave master.
+- Fornire un'alternativa sicura alla consegna della chiave primaria.
 - Consentono ai client di leggere, scrivere ed eliminare risorse nell'account Cosmos DB in base alle autorizzazioni concesse.
 
-È possibile usare un token delle risorse (creando utenti e autorizzazioni di Cosmos DB) quando si vuole fornire l'accesso alle risorse dell'account Cosmos DB a un client non attendibile con la chiave master.  
+È possibile usare un token di risorsa (creando Cosmos DB utenti e autorizzazioni) quando si vuole fornire l'accesso alle risorse nell'account Cosmos DB a un client che non può essere considerato attendibile con la chiave primaria.  
 
-I token delle risorse di Cosmos DB costituiscono un'alternativa sicura che consente ai client di leggere, scrivere ed eliminare risorse nell'account Cosmos DB sulla base delle autorizzazioni concesse e senza richiedere la chiave master o di sola lettura.
+Cosmos DB token di risorsa rappresentano un'alternativa sicura che consente ai client di leggere, scrivere ed eliminare risorse nell'account Cosmos DB in base alle autorizzazioni concesse e senza bisogno di una chiave primaria o di sola lettura.
 
 Di seguito è riportato un tipico schema progettuale in cui i token delle risorse possono essere richiesti, generati e forniti ai client:
 
 1. Un servizio di livello intermedio viene configurato per gestire un'applicazione per dispositivi mobili per condividere le foto dell'utente.
-2. Il servizio di livello intermedio ha la chiave master dell'account Cosmos DB.
+2. Il servizio di livello intermedio dispone della chiave primaria dell'account Cosmos DB.
 3. L'app per le foto viene installata nei dispositivi mobili dell'utente finale.
 4. All'accesso, l'app per le foto stabilisce l'identità dell'utente con il servizio di livello intermedio. Questo meccanismo per stabilire l'identità dipende completamente dall'applicazione.
 5. Una volta stabilita l'identità, il servizio di livello intermedio richiede le autorizzazioni in base all'identità.
@@ -102,7 +102,7 @@ Di seguito è riportato un tipico schema progettuale in cui i token delle risors
 7. L'app per il telefono può continuare a usare il token delle risorse per accedere direttamente alle risorse di Cosmos DB con le autorizzazioni definite dal token delle risorse e per l'intervallo consentito dal token delle risorse.
 8. Quando il token delle risorse scade, le richieste successive ricevono un'eccezione 401 Non autorizzato.  A questo punto, l'app per il telefono ristabilisce l'identità e richiede un nuovo token delle risorse.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Flusso di lavoro dei token delle risorse di Azure Cosmos DB" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Controllo di accesso (IAM) nel portale di Azure: dimostrazione della sicurezza del database NoSQL" border="false":::
 
 La generazione e la gestione dei token delle risorse vengono gestite dalle librerie client di Cosmos DB native. Se tuttavia si usa REST, è necessario creare le intestazioni di richiesta/autenticazione. Per altre informazioni sulla creazione di intestazioni di autenticazione per REST, vedere [controllo di accesso sulle risorse di Cosmos DB](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) o il codice sorgente per [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) o [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 

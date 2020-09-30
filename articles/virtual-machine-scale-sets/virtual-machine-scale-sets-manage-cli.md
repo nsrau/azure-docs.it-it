@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 02f868417ef9feea1771174e62152708c1257425
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d954f7cdda4cae65f822489828226e0364d0fc29
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502903"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570521"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gestione di un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. Si potrebbe anche voler creare script per automatizzare le attività di ciclo di vita. Questo articolo descrive alcuni comandi comuni dell'interfaccia della riga di comando di Azure che consentono di eseguire queste attività.
@@ -49,6 +49,20 @@ az vmss get-instance-view \
     --instance-id 0
 ```
 
+È anche possibile ottenere informazioni dettagliate su *instanceView* per tutte le istanze in una chiamata API, che consente di evitare la limitazione API per installazioni di grandi dimensioni. Specificare valori personalizzati per `--resource-group` , `--subscription` e `--name` .
+
+```azurecli
+az vmss list-instances \
+    --expand instanceView \
+    --select instanceView \
+    --resource-group <resourceGroupName> \
+    --subscription <subID> \
+    --name <vmssName>
+```
+
+```rest
+GET "https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSSName>/virtualMachines?api-version=2019-03-01&%24expand=instanceView"
+```
 
 ## <a name="list-connection-information-for-vms"></a>Visualizzare le informazioni di connessione per le macchine virtuali
 Per connettersi alle macchine virtuali in un set di scalabilità, viene usato il protocollo SSH o RDP per connettersi a un indirizzo IP pubblico assegnato e al numero di porta. Per impostazione predefinita, le regole Network Address Translation (NAT) vengono aggiunte al servizio Azure Load Balancer che inoltra il traffico della connessione remota alle singole macchine virtuali. Per visualizzare l'indirizzo e le porte per la connessione alle istanze di VM in un set di scalabilità, usare [az vmss list-instance-connection-info](/cli/azure/vmss). L'esempio seguente visualizza le informazioni di connessione per le istanze di VM presenti nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare valori personalizzati per questi nomi:

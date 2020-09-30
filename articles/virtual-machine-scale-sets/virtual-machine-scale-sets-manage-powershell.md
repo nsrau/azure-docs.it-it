@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 45bace9ac174b353bb4662a27e800c0de4eada4b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: eee4dd7fae872f6b3ddd01f60aba732edc170766
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072724"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570579"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gestire un set di scalabilità di macchine virtuali con Azure PowerShell
 
@@ -45,6 +45,15 @@ Per visualizzare altre informazioni su un'istanza di macchina virtuale specifica
 Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
+È anche possibile ottenere informazioni dettagliate su *instanceView* per tutte le istanze in una chiamata API, che consente di evitare la limitazione API per installazioni di grandi dimensioni.
+
+```powershell
+Get-AzVmssVM -InstanceView -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+```
+
+```rest
+GET "https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSSName>/virtualMachines?api-version=2019-03-01&%24expand=instanceView"
+```
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>Modificare la capacità di un set di scalabilità
 Con i comandi precedenti vengono visualizzate informazioni sul set di scalabilità e sulle istanze di VM. Per aumentare o diminuire il numero di istanze in un set di scalabilità è possibile modificare la capacità. Il set di scalabilità crea o rimuove automaticamente il numero necessario di VM, quindi configura le VM per la ricezione del traffico dell'applicazione.

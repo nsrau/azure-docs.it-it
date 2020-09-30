@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 7e315a7366793d355967f777cbc1dda0f9277087
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c86207af51ebd1a9442afe6fa609598ec917bf15
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955914"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570437"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuzione globale dei dati con Azure Cosmos DB - informazioni sul funzionamento
 
@@ -30,7 +30,7 @@ Quando un'app che usa Cosmos DB ridimensiona in modo elastico la velocità effet
 
 Come illustrato nell'immagine seguente, i dati all'interno di un contenitore vengono distribuiti lungo due dimensioni, all'interno di un'area e tra aree, in tutto il mondo:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="partizioni fisiche" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Topologia del sistema" border="false":::
 
 Una partizione fisica viene implementata da un gruppo di repliche, denominato *set di repliche*. Ogni computer ospita centinaia di repliche che corrispondono a diverse partizioni fisiche all'interno di un set fisso di processi, come illustrato nell'immagine precedente. Le repliche corrispondenti alle partizioni fisiche vengono posizionate in modo dinamico e con carico bilanciato nei computer all'interno di un cluster e nei data center all'interno di un'area.  
 
@@ -52,7 +52,7 @@ Una partizione fisica viene materializzata come un gruppo di repliche con bilanc
 
 Un gruppo di partizioni fisiche, una per ogni configurata con le aree del database Cosmos, è costituito per gestire lo stesso set di chiavi replicate in tutte le aree configurate. Questa primitiva di coordinamento più elevata è detta *set* di partizioni, ovvero una sovrapposizione dinamica distribuita geograficamente di partizioni fisiche che gestiscono un determinato set di chiavi. Mentre una determinata partizione fisica (un set di repliche) ha come ambito un cluster, un set di partizioni può estendersi a cluster, Data Center e aree geografiche, come illustrato nell'immagine seguente:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Set di partizioni" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Topologia del sistema" border="false":::
 
 È possibile considerare un set di partizioni come un "super set di repliche" geograficamente disperso, composto da più set di repliche che dispongono dello stesso numero di chiavi. Analogamente a un set di repliche, l'appartenenza a un set di partizioni è anche dinamica, ma varia in base alle operazioni implicite di gestione delle partizioni fisiche per aggiungere/rimuovere nuove partizioni da e verso un determinato set di partizioni (ad esempio, quando si aumenta la velocità effettiva in un contenitore, si aggiunge o rimuove un'area nel database Cosmos o quando si verificano errori). Poiché ogni partizione (di un set di partizioni) gestisce l'appartenenza al set di partizioni all'interno del proprio set di repliche, l'appartenenza è completamente decentralizzata e a disponibilità elevata. Durante la riconfigurazione di un set di partizioni, viene specificata anche la topologia della sovrapposizione tra le partizioni fisiche. La topologia viene selezionata in modo dinamico in base al livello di coerenza, alla distanza geografica e alla larghezza di banda di rete disponibile tra le partizioni fisiche di origine e di destinazione.  
 
@@ -62,7 +62,7 @@ Il servizio consente di configurare i database Cosmos con una singola area di sc
 
 La progettazione per la propagazione degli aggiornamenti, la risoluzione dei conflitti e il rilevamento della causalità sono ispirate al lavoro preliminare sugli [algoritmi epidemici](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) e il sistema [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf). Mentre i kernel delle idee rimasti forniscono un pratico riferimento per la comunicazione relativa alla progettazione di sistema di Cosmos DB, sono stati anche sottoposti a una significativa trasformazione una volta applicati al sistema di Cosmos DB. Questa operazione era necessaria perché i sistemi precedenti sono stati progettati né con la governance delle risorse né con la scalabilità a cui Cosmos DB necessario operare, né per fornire le funzionalità (ad esempio, la coerenza di obsolescenza ristretta) e i contratti di contratto rigorosi e completi che Cosmos DB offrono ai clienti.  
 
-È importante ricordare che un set di partizioni viene distribuito tra più aree e segue il protocollo di replica Cosmos DB (multimaster) per replicare i dati tra le partizioni fisiche che comprendono uno specifico set di partizioni. Ogni partizione fisica (di un set di partizioni) in genere accetta le scritture e gestisce le letture dei client locali di una determinata area. Le scritture accettate da una partizione fisica all'interno di un'area vengono memorizzate in modo duraturo e rese altamente disponibili all'interno della partizione fisica prima di essere confermate al client. Si tratta di operazioni di scrittura provvisorie e vengono propagate alle altre partizioni fisiche all'interno del set di partizioni usando un canale antientropia. I client possono richiedere operazioni di scrittura provvisori o sulle quali è stato eseguito il commit, passando un'intestazione di richiesta. La propagazione antientropia (inclusa la frequenza della propagazione) è dinamica e basata sulla topologia del set di partizioni, la prossimità dell'area delle partizioni fisiche e il livello di coerenza configurato. All'interno di un set di partizioni, Cosmos DB segue uno schema di commit primario con una partizione arbiter selezionata dinamicamente. La selezione arbiter è dinamica ed è parte integrante della riconfigurazione del set di partizioni basata sulla topologia della sovrimpressione. Le operazioni di scrittura (inclusi multi-row/in batch gli aggiornamenti) in cui è stato eseguito il commit sono garantite per essere ordinate. 
+Ricordare che un set di partizioni viene distribuito in più aree e segue il protocollo di replica di Cosmos DB (Scritture in più aree) per replicare i dati tra le partizioni fisiche che includono un set di partizioni specifico. Ogni partizione fisica (di un set di partizioni) in genere accetta le scritture e gestisce le letture dei client locali di una determinata area. Le scritture accettate da una partizione fisica all'interno di un'area vengono memorizzate in modo duraturo e rese altamente disponibili all'interno della partizione fisica prima di essere confermate al client. Si tratta di operazioni di scrittura provvisorie e vengono propagate alle altre partizioni fisiche all'interno del set di partizioni usando un canale antientropia. I client possono richiedere operazioni di scrittura provvisori o sulle quali è stato eseguito il commit, passando un'intestazione di richiesta. La propagazione antientropia (inclusa la frequenza della propagazione) è dinamica e basata sulla topologia del set di partizioni, la prossimità dell'area delle partizioni fisiche e il livello di coerenza configurato. All'interno di un set di partizioni, Cosmos DB segue uno schema di commit primario con una partizione arbiter selezionata dinamicamente. La selezione arbiter è dinamica ed è parte integrante della riconfigurazione del set di partizioni basata sulla topologia della sovrimpressione. Le operazioni di scrittura (inclusi multi-row/in batch gli aggiornamenti) in cui è stato eseguito il commit sono garantite per essere ordinate. 
 
 Vengono usati orologi con vettori codificati (contenenti l'ID dell'area e la logica dell'orologio corrispondente a ogni livello di consenso rispettivamente, al set di repliche e al set di partizioni) per il rilevamento della causalità e della versione vettori per identificare e risolvere conflitti di aggiornamento. La topologia e l'algoritmo di selezione peer sono progettati per garantire risorse di archiviazione predefinite e minime e un sovraccarico di rete minimo dei vettori della versione. L'algoritmo garantisce la rigida proprietà di convergenza.  
 

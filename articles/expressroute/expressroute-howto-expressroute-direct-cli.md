@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e8c305da074f3090ced0dfc16b4a3faa4c757699
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0bdf2c4dda3e272ae04681f886f6e4da31dcebd8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440224"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569840"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurare ExpressRoute Direct usando l'interfaccia della riga di comando di Azure
 
@@ -216,6 +216,8 @@ Immettere il nome della risorsa ExpressRoute, il nome del gruppo di risorse e il
 ```azurecli
 az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
 ```
+
+## <a name="change-adminstate-for-links"></a><a name="state"></a>Modificare AdminState per i collegamenti
 
 Usare questo processo per eseguire un test di livello 1. Assicurarsi che ogni Cross Connection sia correttamente trasferita a ciascun router per le porte primaria e secondaria.
 

@@ -1,6 +1,6 @@
 ---
-title: Eseguire il backup e il ripristino per i gruppi di server di scalabilità di database
-description: Eseguire il backup e il ripristino per i gruppi di server di scalabilità di database
+title: Backup e ripristino per Database di Azure per i gruppi di server PostgreSQL Hyperscale
+description: Backup e ripristino per Database di Azure per i gruppi di server PostgreSQL Hyperscale
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d300f3e02d2a1a83410d5b7d981298a4743fb223
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dde4db7f3eb476b7645e910504e48fea8bb6df0c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939786"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569714"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Backup e ripristino per i gruppi di server con iperscalabilità PostgreSQL abilitati per Azure Arc
 
@@ -52,7 +52,7 @@ Esaminare la sezione relativa all'archiviazione dell'output:
     }
 ...
 ```
-Se viene visualizzata una sezione "backups", significa che il gruppo di server è stato configurato per l'uso di una classe di archiviazione di backup ed è pronto per eseguire i backup e i ripristini. Se non viene visualizzata una sezione "backup", è necessario eliminare e ricreare il gruppo di server per configurare la classe di archiviazione di backup. A questo punto, non è ancora possibile configurare una classe di archiviazione di backup dopo la creazione del gruppo di server.
+Se viene visualizzato il nome di una classe di archiviazione indicata nella sezione "backup" dell'output del comando, significa che il gruppo di server è stato configurato per l'uso di una classe di archiviazione di backup ed è pronto per eseguire i backup e i ripristini. Se non viene visualizzata una sezione "backup", è necessario eliminare e ricreare il gruppo di server per configurare la classe di archiviazione di backup. A questo punto, non è ancora possibile configurare una classe di archiviazione di backup dopo la creazione del gruppo di server.
 
 >[!IMPORTANT]
 >Se il gruppo di server è già configurato per l'uso di una classe di archiviazione di backup, ignorare il passaggio successivo e passare direttamente al passaggio "Esegui backup manuale completo".
@@ -117,7 +117,7 @@ Al termine del backup, verranno restituiti l'ID, il nome e lo stato del backup. 
 > - Pianificare backup automatici
 > - Mostra lo stato di avanzamento di un backup mentre viene eseguito
 
-## <a name="list-backups"></a>Elencare i backup
+## <a name="list-backups"></a>Elenco dei backup
 
 Elencare i backup disponibili per il ripristino.
 
@@ -134,10 +134,12 @@ azdata arc postgres backup list --server-name postgres01
 
 Verrà restituito un output simile al seguente:
 ```console
-ID                                Name                      State
---------------------------------  ------------------------  -------
-d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done
+ID                                Name                      State    Timestamp
+--------------------------------  ------------------------  -------  ------------------------------
+d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done     2020-08-31 14:30:00:00+00:00
 ```
+
+Timestamp indica il punto nel tempo UTC in cui è stato effettuato il backup.
 
 ## <a name="restore-a-backup"></a>Ripristinare un backup
 

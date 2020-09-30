@@ -1,17 +1,17 @@
 ---
 title: Distribuire i dati a livello globale con Azure Cosmos DB
-description: Informazioni sulla replica geografica a livello globale, sul multimaster, sul failover e sul ripristino dei dati usando i database globali di Azure Cosmos DB, un servizio database multimodello distribuito a livello globale.
+description: Informazioni sulla replica geografica a livello globale, le Scritture in più aree, il failover e il ripristino dei dati usando i database globali da Azure Cosmos DB, un servizio di database multimodello distribuito a livello globale.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: abd18132c7489153566042b0b7e3557662864f30
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 29917b0911fbab36fbb30a587ee7cac223b993f2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399466"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570190"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribuire i dati a livello globale con Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Con Azure Cosmos DB è possibile aggiungere o rimuovere le aree associate all'ac
 
 ## <a name="key-benefits-of-global-distribution"></a>Vantaggi chiave della distribuzione globale
 
-**Crea app attive globali attive.** Con il nuovo protocollo di replica multimaster, ogni area supporta scritture e letture. La funzionalità multimaster consente inoltre di:
+**Crea app attive globali attive.** Con il nuovo protocollo di replica per scritture in più aree, ogni area supporta scritture e letture. La funzionalità di scrittura in più aree Abilita anche:
 
 - Scalabilità di lettura e scrittura elastica illimitata. 
 - Disponibilità in lettura e scrittura pari al 99,999% in tutto il mondo.
@@ -50,7 +50,7 @@ Usando le API multihosting di Azure Cosmos DB, l'applicazione è a conoscenza de
 Altre informazioni sulla distribuzione globale sono disponibili negli articoli seguenti:
 
 * [Distribuzione globale - Informazioni sul funzionamento](global-dist-under-the-hood.md)
-* [Come configurare la funzionalità multimaster nelle applicazioni](how-to-multi-master.md)
+* [Come configurare le Scritture in più aree nelle applicazioni](how-to-multi-master.md)
 * [Configurare i client per il multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Aggiungere o rimuovere aree dall'account Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Creare criteri personalizzati per la risoluzione dei conflitti per gli account API SQL](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 5b1062556f1f971690f835274be15c11b072eca9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 5e17c55f8321ba0ad9a9686ada41413d64879d6c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612063"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570894"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creare una cache HPC di Azure
 
@@ -132,11 +132,11 @@ nets/<cache_subnet_name>"``
 
   | Dimensioni cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sì         | No          | No          |
-  | 6144 GB    | sì         | sì         | No          |
+  | 3072 GB    | sì         | no          | no          |
+  | 6144 GB    | sì         | sì         | no          |
   | 12288 GB   | sì         | sì         | sì         |
-  | 24576 GB   | No          | sì         | sì         |
-  | 49152 GB   | No          | No          | sì         |
+  | 24576 GB   | no          | sì         | sì         |
+  | 49152 GB   | no          | no          | sì         |
 
   Per informazioni importanti su prezzi, velocità effettiva e come ridimensionare la cache in modo appropriato per il flusso di lavoro, vedere la sezione **impostare la capacità della cache** nella scheda istruzioni del portale.
 
@@ -188,6 +188,97 @@ Il messaggio include alcune informazioni utili, inclusi gli elementi seguenti:
 
 * Indirizzi di montaggio client: usare questi indirizzi IP quando si è pronti per connettere i client alla cache. Per altre informazioni, vedere [montare la cache HPC di Azure](hpc-cache-mount.md) .
 * Stato aggiornamento-quando viene rilasciato un aggiornamento software, il messaggio verrà modificato. È possibile [aggiornare manualmente il software della cache](hpc-cache-manage.md#upgrade-cache-software) in un momento specifico oppure verrà applicato automaticamente dopo alcuni giorni.
+
+## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+> [!CAUTION]
+> Il modulo di PowerShell AZ. HPCCache è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio. Non è consigliabile per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero avere funzionalità vincolate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="requirements"></a>Requisiti
+
+Se si sceglie di usare PowerShell in locale, per questo articolo è necessario installare il modulo Az PowerShell e connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Per altre informazioni sull'installazione del modulo Az PowerShell, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps). Se si sceglie di utilizzare Cloud Shell, vedere [Panoramica delle Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) per ulteriori informazioni.
+
+> [!IMPORTANT]
+> Mentre il modulo di PowerShell **AZ. HPCCache** è in anteprima, è necessario installarlo separatamente usando il `Install-Module` cmdlet. Quando questo modulo di PowerShell diventa disponibile a livello generale, sarà incluso nelle prossime versioni del modulo AZ PowerShell e sarà disponibile in modo nativo dall'interno Azure Cloud Shell.
+
+```azurepowershell-interactive
+Install-Module -Name Az.HPCCache
+```
+
+## <a name="create-the-cache-with-azure-powershell"></a>Creare la cache con Azure PowerShell
+
+> [!NOTE]
+> Azure PowerShell attualmente non supporta la creazione di una cache con chiavi di crittografia gestite dal cliente. Usare il portale di Azure.
+
+Usare il cmdlet [New-AzHpcCache](/powershell/module/az.hpccache/new-azhpccache) per creare una nuova cache HPC di Azure.
+
+Specificare questi valori:
+
+* Nome del gruppo di risorse della cache
+* Nome cache
+* Area di Azure
+* Subnet della cache, nel formato seguente:
+
+  `-SubnetUri "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
+nets/<cache_subnet_name>"`
+
+  La subnet della cache richiede almeno 64 indirizzi IP (/24) e non può ospitare altre risorse.
+
+* Capacità della cache. Due valori impostano la velocità effettiva massima della cache HPC di Azure:
+
+  * Dimensioni della cache (in GB)
+  * SKU delle macchine virtuali usate nell'infrastruttura di cache
+
+  [Get-AzHpcCacheSku](/powershell/module/az.hpccache/get-azhpccachesku) Mostra gli SKU disponibili e le opzioni di dimensione della cache valide per ciascuna di esse. Le opzioni delle dimensioni della cache variano da 3 TB a 48 TB, ma sono supportati solo alcuni valori.
+
+  Questo grafico mostra le dimensioni della cache e le combinazioni di SKU valide al momento della preparazione del documento (luglio 2020).
+
+  | Dimensioni cache | Standard_2G | Standard_4G | Standard_8G |
+  |------------|-------------|-------------|-------------|
+  | 3072 GB    | sì         | no          | no          |
+  | 6144 GB    | sì         | sì         | no          |
+  | 12.288 GB   | sì         | sì         | sì         |
+  | 24.576 GB   | no          | sì         | sì         |
+  | 49.152 GB   | no          | no          | sì         |
+
+  Per informazioni importanti su prezzi, velocità effettiva e come ridimensionare la cache in modo appropriato per il flusso di lavoro, vedere la sezione **impostare la capacità della cache** nella scheda istruzioni del portale.
+
+Esempio di creazione della cache:
+
+```azurepowershell-interactive
+$cacheParams = @{
+  ResourceGroupName = 'doc-demo-rg'
+  CacheName = 'my-cache-0619'
+  Location = 'eastus'
+  cacheSize = '3072'
+  SubnetUri = "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default"
+  Sku = 'Standard_2G'
+}
+New-AzHpcCache @cacheParams
+```
+
+La creazione della cache richiede diversi minuti. Al termine dell'operazione, il comando Create restituisce l'output seguente:
+
+```Output
+cacheSizeGb       : 3072
+health            : @{state=Healthy; statusDescription=The cache is in Running state}
+id                : /subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.StorageCache/caches/my-cache-0619
+location          : eastus
+mountAddresses    : {10.3.0.17, 10.3.0.18, 10.3.0.19}
+name              : my-cache-0619
+provisioningState : Succeeded
+resourceGroup     : doc-demo-rg
+sku               : @{name=Standard_2G}
+subnet            : /subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default
+tags              :
+type              : Microsoft.StorageCache/caches
+upgradeStatus     : @{currentFirmwareVersion=5.3.42; firmwareUpdateDeadline=1/1/0001 12:00:00 AM; firmwareUpdateStatus=unavailable; lastFirmwareUpdate=4/1/2020 10:19:54 AM; pendingFirmwareVersion=}
+```
+
+Il messaggio include alcune informazioni utili, inclusi gli elementi seguenti:
+
+* Indirizzi di montaggio client: usare questi indirizzi IP quando si è pronti per connettere i client alla cache. Per altre informazioni, vedere [montare la cache HPC di Azure](hpc-cache-mount.md) .
+* Stato aggiornamento-quando viene rilasciato un aggiornamento software, questo messaggio viene modificato. È possibile [aggiornare manualmente il software della cache](hpc-cache-manage.md#upgrade-cache-software) in un momento specifico o viene applicato automaticamente dopo alcuni giorni.
 
 ---
 

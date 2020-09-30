@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9e6e1388465542e9fb3ac69540c981a1fd70d4b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497761"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570118"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Come usare Azure Kubernetes con Azure Cosmos DB (anteprima)
 
-L'API etcd in Azure Cosmos DB consente di usare Azure Cosmos DB come archivio back-end per Azure Kubernetes. Azure Cosmos DB implementa il protocollo Wire etcd, che consente ai server API del nodo master di usare Azure Cosmos DB esattamente come per accedere a una etcd installata localmente. L'API etcd in Azure Cosmos DB attualmente è disponibile in anteprima. Quando si usa l'API etcd di Azure Cosmos come archivio di backup per Kubernetes, si ottengono i vantaggi seguenti: 
+L'API etcd in Azure Cosmos DB consente di usare Azure Cosmos DB come archivio back-end per Azure Kubernetes. Azure Cosmos DB implementa il protocollo di trasmissione ETCD, che consente ai server API del nodo primario di usare Azure Cosmos DB esattamente come si accede a un ETCD installato localmente. L'API etcd in Azure Cosmos DB attualmente è disponibile in anteprima. Quando si usa l'API etcd di Azure Cosmos come archivio di backup per Kubernetes, si ottengono i vantaggi seguenti: 
 
 * Non è necessario configurare e gestire etcd manualmente.
 * Disponibilità elevata di etcd, garantita da Cosmos (99,99% in una singola area, al 99,999% in più aree).
@@ -27,7 +27,7 @@ Per altre informazioni sull'API etcd in Azure Cosmos DB, vedere l'articolo [Pano
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). È possibile scaricare l'interfaccia della riga di comando di Azure specifica del sistema operativo in uso e installarla.
+1. Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). È possibile scaricare l'interfaccia della riga di comando di Azure specifica del sistema operativo in uso e installarla.
 
 1. Installare la [versione più recente](https://github.com/Azure/aks-engine/releases) di Azure Kubernetes Engine. Le istruzioni di installazione per diversi sistemi operativi sono disponibili nella pagina di [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine). Sono necessari solo i passaggi della sezione **installare il motore AKS** del documento collegato. Al termine del download, estrarre il file zip.
 

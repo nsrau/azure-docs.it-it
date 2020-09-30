@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 6485df342bbe0b2378a67b90e448b2bd98c5e283
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 310fee91ed98409e5a724d1be8de7bc9ccb5601b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400401"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570914"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup online e ripristino dei dati su richiesta in Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Con Azure Cosmos DB, non solo i dati ma anche i relativi backup sono altamente r
 
 * Azure Cosmos DB archivia questi backup nell'archiviazione BLOB di Azure, mentre i dati effettivi si trovano localmente all'interno Azure Cosmos DB.
 
-* Per garantire una bassa latenza, lo snapshot del backup viene archiviato in Archiviazione BLOB di Azure nella stessa area dell'area di scrittura corrente (o in **una** delle aree di scrittura, nel caso di una configurazione multimaster). Per garantire la resilienza in caso di emergenze a livello di area, ogni snapshot dei dati di backup nell'archivio BLOB di Azure viene a sua volta replicato in un'altra area tramite l'archiviazione con ridondanza geografica. L'area in cui viene replicato il backup dipende dall'area di origine e dalla coppia di aree associata all'area di origine. Per altre informazioni, vedere l'[elenco di coppie di aree di Azure con ridondanza geografica](../best-practices-availability-paired-regions.md). Non è possibile accedere direttamente a questo backup. Il team di Azure Cosmos DB ripristinerà il backup quando viene richiesto attraverso una richiesta di supporto.
+* Per garantire una bassa latenza, lo snapshot del backup viene archiviato nell'archivio BLOB di Azure nella stessa area dell'area di scrittura corrente o in **una** delle aree di scrittura, nel caso in cui si disponga di una configurazione di scrittura in più aree. Per garantire la resilienza in caso di emergenze a livello di area, ogni snapshot dei dati di backup nell'archivio BLOB di Azure viene a sua volta replicato in un'altra area tramite l'archiviazione con ridondanza geografica. L'area in cui viene replicato il backup dipende dall'area di origine e dalla coppia di aree associata all'area di origine. Per altre informazioni, vedere l'[elenco di coppie di aree di Azure con ridondanza geografica](../best-practices-availability-paired-regions.md). Non è possibile accedere direttamente a questo backup. Il team di Azure Cosmos DB ripristinerà il backup quando viene richiesto attraverso una richiesta di supporto.
 
    L'immagine seguente mostra come viene eseguito il backup di un contenitore di Azure Cosmos con tutte le tre partizioni fisiche primarie nell'area Stati Uniti occidentali in un account di Archiviazione BLOB di Azure remoto negli Stati Uniti occidentali e quindi replicato negli Stati Uniti orientali:
 
@@ -59,11 +59,11 @@ Per modificare le opzioni di backup predefinite per un account Azure Cosmos esis
 
    * **Copie dei dati conservati** . per impostazione predefinita, vengono offerte gratuitamente due copie di backup dei dati. Se sono necessarie più di due copie, è previsto un addebito aggiuntivo. Per conoscere il prezzo esatto per le copie aggiuntive, vedere la sezione Archiviazione utilizzata della [pagina Prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Configurare l'intervallo di backup e la conservazione per un account Azure Cosmos esistente" border="true":::
+   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Backup completi periodici di tutte le entità di Cosmos DB nell'archiviazione con ridondanza geografica di Azure" border="true":::
 
 Se si configurano le opzioni di backup durante la creazione dell'account, è possibile configurare i **criteri di backup**, che sono **periodici** o **continui**. Il criterio periodico consente di configurare l'intervallo di backup e la conservazione dei backup. Il criterio continuo è attualmente disponibile solo per l'iscrizione. Il team di Azure Cosmos DB valuterà il carico di lavoro e approverà la richiesta.
 
-:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Configurare criteri di backup periodici o continui per i nuovi account Azure Cosmos" border="true":::
+:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Backup completi periodici di tutte le entità di Cosmos DB nell'archiviazione con ridondanza geografica di Azure" border="true":::
 
 ## <a name="restore-data-from-an-online-backup"></a>Ripristinare i dati da un backup online
 

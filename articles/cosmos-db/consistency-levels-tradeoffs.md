@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 5046e40ea15a27e80f4e92ebf36488dedeee1821
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 3c82edd73921e11cd2f43a0d609624267af81575
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396009"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570077"
 ---
 # <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Latenza, disponibilità e compromessi delle prestazioni con diversi livelli di coerenza Azure Cosmos DB
 
@@ -76,9 +76,9 @@ La tabella seguente definisce la relazione tra il modello di coerenza e la durab
 
 *T* = intervallo di tempo *"t"* dall'ultimo aggiornamento.
 
-## <a name="strong-consistency-and-multi-master"></a>Coerenza assoluta e multimaster
+## <a name="strong-consistency-and-multiple-write-regions"></a>Coerenza assoluta e più aree di scrittura
 
-Gli account Cosmos configurati per il multimaster non possono essere configurati per la coerenza assoluta, perché non è possibile che un sistema distribuito fornisca un RPO di zero e un RTO pari a zero. Inoltre, non ci sono vantaggi della latenza di scrittura per l'uso della coerenza assoluta con il multimaster perché qualsiasi scrittura in qualsiasi area deve essere replicata e impegnata in tutte le aree configurate all'interno dell'account. In questo modo si ottiene la stessa latenza di scrittura di un singolo account master.
+Gli account Cosmos configurati con più aree di scrittura non possono essere configurati per coerenza assoluta, perché non è possibile che un sistema distribuito fornisca un RPO di zero e un RTO pari a zero. Inoltre, non ci sono vantaggi della latenza di scrittura sull'uso della coerenza assoluta con più aree di scrittura, perché la richiesta di scrittura in qualsiasi area deve essere replicata e impegnata in tutte le aree configurate all'interno dell'account. In questo modo si ottiene la stessa latenza di scrittura di un singolo account di area di scrittura.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

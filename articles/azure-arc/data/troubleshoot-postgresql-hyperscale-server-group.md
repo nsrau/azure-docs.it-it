@@ -9,15 +9,15 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8d1c9027b6a9a7b295ce83e26281832beca1bc33
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 8e91a611084d201e6609f7e203eaa08c81e19a00
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531956"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570004"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Risoluzione dei problemi relativi ai gruppi di server di iperscala PostgreSQL
-Questo articolo descrive alcune tecniche che è possibile usare per risolvere i problemi del gruppo di server. Oltre a questo articolo, è consigliabile leggere come usare [Kibana](monitor-grafana-kibana.md) per Cerca i log o usare [Grafana](monitor-grafana-kibana.md) per visualizzare le metriche relative al gruppo di server. 
+Questo articolo descrive alcune tecniche che è possibile usare per risolvere i problemi del gruppo di server. Oltre a questo articolo, è consigliabile leggere come usare [Kibana](monitor-grafana-kibana.md) per eseguire ricerche nei log o usare [Grafana](monitor-grafana-kibana.md) per visualizzare le metriche relative al gruppo di server. 
 
 ## <a name="getting-more-details-about-the-execution-of-an-azdata-command"></a>Ottenere altri dettagli sull'esecuzione di un comando azdata
 È possibile aggiungere il parametro **--debug** a qualsiasi comando azdata eseguito. Questa operazione consente di visualizzare nella console informazioni aggiuntive sull'esecuzione del comando. Dovrebbe risultare utile ottenere informazioni dettagliate per comprendere il comportamento di tale comando.
@@ -31,7 +31,7 @@ oppure
 azdata arc postgres server edit -n postgres01 --extension SomeExtensionName --debug
 ```
 
-Inoltre, è possibile usare il parametro--help per qualsiasi comando azdata per visualizzare una guida, un elenco di parametri per un comando specifico. Esempio:
+Inoltre, è possibile usare il parametro--help per qualsiasi comando azdata per visualizzare una guida, un elenco di parametri per un comando specifico. Ad esempio:
 ```console
 azdata arc postgres server create --help
 ```

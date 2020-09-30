@@ -16,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 00dfcad351348ed4ca4f08289e76e85a089c5d86
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: df3e2ae2737aa8bfedd0e8d7daa9d42771f1937b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91272260"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570346"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatizzare le attività di gestione in macchine virtuali di Azure usando l'estensione SQL Server IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -85,7 +85,7 @@ L'estensione IaaS SQL Server viene installata quando si registra la VM SQL Serve
     -Version "2.0" -Location "Central US";  
   ```
 
-> [!NOTE]
+> [!WARNING]
 > L'installazione dell'estensione riavvia il servizio SQL Server. 
 
 

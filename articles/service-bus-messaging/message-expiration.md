@@ -2,13 +2,13 @@
 title: Bus di servizio di Azure-scadenza messaggio
 description: Questo articolo illustra la scadenza e l'ora di vita dei messaggi del bus di servizio di Azure. Dopo tale scadenza, il messaggio non viene più recapitato.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 41711428711533a6ecac449f59d415e86474545b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 09/29/2020
+ms.openlocfilehash: 47f8bdb4440adfeb5197f90cdad5358a442ce6a7
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064724"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569914"
 ---
 # <a name="message-expiration-time-to-live"></a>Scadenza dei messaggi (durata)
 
@@ -29,7 +29,7 @@ Tutti i messaggi inviati a una coda o un argomento sono soggetti a una scadenza 
 > [!NOTE]
 > Il valore predefinito di [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) per un messaggio negoziato è [TimeSpan. max](/dotnet/api/system.timespan.maxvalue) se non diversamente specificato.
 >
-> Per le entità di messaggistica (code e argomenti), l'ora di scadenza predefinita è anche [TimeSpan. max](/dotnet/api/system.timespan.maxvalue) per i livelli standard e Premium del bus di servizio.  Per il livello Basic, l'ora di scadenza predefinita è 14 giorni.
+> Per le entità di messaggistica (code e argomenti), l'ora di scadenza predefinita è anche [TimeSpan. max](/dotnet/api/system.timespan.maxvalue) per i livelli standard e Premium del bus di servizio. Per il livello **Basic** , l'ora di scadenza predefinita (anche massima) è di **14 giorni**.
 
 Facoltativamente, i messaggi scaduti possono essere spostati in una [coda di messaggi non recapitabili](service-bus-dead-letter-queues.md) impostando la proprietà [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) oppure selezionando la casella corrispondente nel portale. Se l'opzione viene lasciata disabilitata, i messaggi scaduti vengono eliminati. I messaggi scaduti spostati nella coda di messaggi non recapitabili possono essere distinti dagli altri messaggi della coda di messaggi non recapitabili valutando la proprietà [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) che il broker archivia nella sezione delle proprietà utente. In questo caso, il valore è [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq).
 

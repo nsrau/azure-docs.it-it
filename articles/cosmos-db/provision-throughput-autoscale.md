@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791147"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570739"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Creare contenitori e database di Azure Cosmos con velocità effettiva a scalabilità automatica
 
@@ -77,7 +77,7 @@ Per informazioni dettagliate, vedere la [documentazione](how-to-choose-offer.md)
 | **Provisioning velocità effettiva (UR/sec)** | Con provisioning manuale. | Ridimensionamento automatico e istantaneo in base ai modelli di utilizzo del carico di lavoro. |
 | **Limitazione della frequenza delle richieste/operazioni (429)**  | Può verificarsi se il consumo supera la capacità sottoposta a provisioning. | Non si verifica se il consumo di UR/sec rientra nell'intervallo impostato per la velocità effettiva a scalabilità automatica.    |
 | **Pianificazione della capacità** |  È necessario eseguire la pianificazione della capacità ed effettuare il provisioning della velocità effettiva esatta necessaria. |    Il sistema provvede automaticamente alla pianificazione della capacità e alla gestione della capacità. |
-| **Prezzi** | Si paga per le UR/sec con provisioning manuale per ora, usando la [tariffa oraria delle UR/sec standard (manuale)](https://azure.microsoft.com/pricing/details/cosmos-db/). | Si paga ogni ora per i valori massimi di UR/sec raggiunti dal sistema entro l'ora. <br/><br/> Per gli account con singola area di scrittura, si paga per le UR/sec usate su base oraria, applicando la [tariffa oraria delle UR/sec di scalabilità automatica](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>Per gli account con più aree di scrittura, non sono previsti costi aggiuntivi per la scalabilità automatica. Si paga per la velocità effettiva usata su base oraria applicando la stessa [tariffa oraria delle UR/sec multimaster](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| **Prezzi** | Si paga per le UR/sec con provisioning manuale per ora, usando la [tariffa oraria delle UR/sec standard (manuale)](https://azure.microsoft.com/pricing/details/cosmos-db/). | Si paga ogni ora per i valori massimi di UR/sec raggiunti dal sistema entro l'ora. <br/><br/> Per gli account con singola area di scrittura, si paga per le UR/sec usate su base oraria, applicando la [tariffa oraria delle UR/sec di scalabilità automatica](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>Per gli account con più aree di scrittura, non sono previsti costi aggiuntivi per la scalabilità automatica. Paghi per la velocità effettiva usata su base oraria usando la stessa [frequenza di scrittura ur/sec per più aree](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | **Ideale per tipi di carico di lavoro** |  Carichi di lavoro prevedibili e stabili|   Carichi di lavoro imprevedibili e variabili  |
 
 ## <a name="next-steps"></a>Passaggi successivi

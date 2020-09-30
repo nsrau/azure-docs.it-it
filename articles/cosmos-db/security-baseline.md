@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 051f6e6ef15cc94e2b607c74e666bae9c91c1160
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 75344204e03920c96d0868ad584b8701813fabf0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401623"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569532"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Baseline della sicurezza di Azure per Cosmos DB
 
@@ -290,7 +290,7 @@ Azure Cosmos DB fornisce il controllo degli accessi in base al ruolo predefinito
 
 È anche possibile usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi. 
 
-Inoltre, alcune azioni in Azure Cosmos DB possono essere controllate con Azure Active Directory e chiavi master specifiche per l'account.  Usare l'impostazione dell'account ' disableKeyBasedMetadataWriteAccess ' per controllare l'accesso alla chiave.
+Inoltre, alcune azioni in Azure Cosmos DB possono essere controllate con Azure Active Directory e chiavi primarie specifiche per l'account.  Usare l'impostazione dell'account ' disableKeyBasedMetadataWriteAccess ' per controllare l'accesso alla chiave.
 
 Informazioni sul controllo degli accessi in base al ruolo in Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
@@ -298,9 +298,9 @@ Creare ruoli personalizzati usando azioni Azure Cosmos DB (spazio dei nomi Micro
 
 Creare un nuovo ruolo in Azure Active Directory: https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
-Come ottenere un ruolo della directory in Azure Active Directory con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Come ottenere un ruolo della directory in Azure Active Directory con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true
 
-Come ottenere i membri di un ruolo della directory in Azure Active Directory con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Come ottenere i membri di un ruolo della directory in Azure Active Directory con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true
 
 Limita l'accesso degli utenti alle operazioni sui dati: https://docs.microsoft.com/azure/cosmos-db/how-to-restrict-user-data
 
@@ -310,7 +310,7 @@ Limita l'accesso degli utenti alle operazioni sui dati: https://docs.microsoft.c
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: modificare le password predefinite, ove applicabile
 
-**Indicazioni**: il concetto di password predefinite o vuote non esiste in relazione a Azure AD o Azure Cosmos DB. Al contrario, Azure Cosmos DB usa due tipi di chiavi per autenticare gli utenti e fornire l'accesso ai dati e alle risorse; chiavi master e token di risorsa. Le chiavi possono essere rigenerate in qualsiasi momento.
+**Indicazioni**: il concetto di password predefinite o vuote non esiste in relazione a Azure AD o Azure Cosmos DB. Al contrario, Azure Cosmos DB usa due tipi di chiavi per autenticare gli utenti e fornire l'accesso ai dati e alle risorse; chiavi primarie e token di risorsa. Le chiavi possono essere rigenerate in qualsiasi momento.
 
 Informazioni sull'accesso sicuro ai dati in Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
 
@@ -640,7 +640,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 Come creare query con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Come visualizzare le sottoscrizioni di Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Come visualizzare le sottoscrizioni di Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true
 
 Informazioni sul controllo degli accessi in base al ruolo di Azure: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -792,7 +792,7 @@ Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource
 
 - I database Cosmos DB devono usare un endpoint servizio di rete virtuale
 
-Come visualizzare gli alias di Criteri di Azure disponibili: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Come visualizzare gli alias di Criteri di Azure disponibili: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true
 
 Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -834,7 +834,7 @@ Informazioni sugli effetti di Criteri di Azure: https://docs.microsoft.com/azure
 
 **Linee guida**: se si usano definizioni personalizzate di criteri di Azure per la Cosmos DB o le risorse correlate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-Documentazione Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devopshttps://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Documentazione Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=truehttps://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1003,7 +1003,7 @@ https://docs.microsoft.com/azure/cosmos-db/how-to-backup-and-restore
 
 Come ripristinare Azure Key Vault segreti:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

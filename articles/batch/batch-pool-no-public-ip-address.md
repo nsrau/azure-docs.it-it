@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 6c6207e7f52e49b88dc8dc99e0bd20a2c774339d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e6922abb48e19157e6905d9ceb71817cfbaff767
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541901"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570864"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Creare un pool di Azure Batch senza indirizzi IP pubblici
 
@@ -34,8 +34,11 @@ Per limitare l'accesso a questi nodi e ridurre l'individuabilità di questi nodi
 - **Una rete virtuale di Azure**. Se si sta creando il pool in una [rete virtuale](batch-virtual-network.md), attenersi ai requisiti e alle configurazioni seguenti. Per preparare una rete virtuale con una o più subnet, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o altri metodi.
   - La rete virtuale deve essere nella stessa sottoscrizione e area dell'account Batch usato per creare il pool.
   - La subnet specificata per il pool deve disporre di indirizzi IP non assegnati sufficienti per contenere il numero di macchine virtuali usate come destinazione per il pool; questo valore corrisponde alla somma delle proprietà `targetDedicatedNodes` e `targetLowPriorityNodes` del pool. Se la subnet non dispone di sufficienti indirizzi IP non assegnati, il pool alloca parzialmente i nodi di calcolo e si verifica un errore di ridimensionamento.
-  - È necessario disabilitare il servizio di collegamento privato e i criteri di rete dell'endpoint. Questa operazione può essere eseguita usando l'interfaccia della riga di comando di Azure: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
-  
+  - È necessario disabilitare il servizio di collegamento privato e i criteri di rete dell'endpoint. Questa operazione può essere eseguita usando l'interfaccia della riga di comando di Azure:
+    ```azurecli
+    az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies
+    ```
+
 > [!IMPORTANT]
 > Per ogni 100 di nodi dedicati o con priorità bassa, batch alloca un servizio di collegamento privato e un servizio di bilanciamento del carico. Queste risorse sono limitate in base alle [quote delle risorse](../azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione. Per i pool di grandi dimensioni, potrebbe essere necessario [richiedere un aumento della quota](batch-quota-limit.md#increase-a-quota) per una o più di queste risorse. Inoltre, non deve essere applicato alcun blocco di risorsa a qualsiasi risorsa creata da batch, perché ciò impedisce la pulizia delle risorse in seguito ad azioni avviate dall'utente, ad esempio l'eliminazione di un pool o il ridimensionamento a zero.
 

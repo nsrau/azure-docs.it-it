@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 371cfdc8bf2b09f703e1c7bd0153a433ff60ad16
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 4d1c68ba1e0b7db8afefa64abefc671d51e78bd4
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298964"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569514"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Sviluppare con le API di Servizi multimediali v3
 
@@ -41,7 +41,7 @@ Invece di creare un'entità servizio, è consigliabile usare identità gestite p
 
 ### <a name="azure-ad-service-principal"></a>Entità servizio di Azure AD
 
-Per creare un'app e un'entità servizio di Azure AD, l'app deve trovarsi nel proprio tenant. Dopo aver creato l'app, concedere al ruolo **Collaboratore** o **Proprietario** dell'app l'accesso all'account di Servizi multimediali.
+L'app Azure AD e l'entità servizio devono trovarsi nello stesso tenant. Dopo aver creato l'app, concedere al ruolo **Collaboratore** o **Proprietario** dell'app l'accesso all'account di Servizi multimediali.
 
 Se non si è certi di avere le autorizzazioni necessarie per creare un'app Azure AD, vedere [Autorizzazioni necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 

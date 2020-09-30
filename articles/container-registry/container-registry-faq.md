@@ -3,14 +3,14 @@ title: Domande frequenti
 description: Risposte alle domande frequenti sul servizio Registro Azure Container
 author: sajayantony
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 02facedda206a5621cabe62a07520303635dc3ff
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 499ef509fc9f8d9365d8db3f7058d12352db9bb2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245367"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570520"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su Registro Azure Container
 
@@ -261,8 +261,8 @@ La quarantena delle immagini è attualmente una funzionalità di anteprima di Re
 
 La configurazione di un registro contenitori di Azure per l'accesso pull anonimo (pubblico) è attualmente una funzionalità di anteprima. Se nel registro di sistema sono presenti [risorse della mappa dell'ambito (utente) o del token](https://aka.ms/acr/repo-permissions) , eliminarle prima di generare un ticket di supporto (le mappe dell'ambito del sistema possono essere ignorate). Per abilitare l'accesso pubblico, aprire un ticket di supporto all'indirizzo https://aka.ms/acr/support/create-ticket. Per informazioni dettagliate, vedere il [forum di commenti e suggerimenti su Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
-
-
+> [!NOTE]
+> È possibile accedere in modo anonimo solo alle API richieste per eseguire il pull di un'immagine nota. Nessun'altra API per operazioni come l'elenco di tag o l'elenco di repository è accessibile in modo anonimo.
 
 ## <a name="diagnostics-and-health-checks"></a>Controlli di diagnostica e integrità
 
@@ -443,7 +443,7 @@ Contattare l'amministratore di rete o controllare la configurazione e la connett
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Perché la richiesta pull o push ha esito negativo con errore di operazione non consentita?
 
 Di seguito sono riportati alcuni scenari in cui è possibile che le operazioni non siano consentite:
-* I registri classici non sono più supportati. Eseguire l'aggiornamento a un [livello di servizio](https://aka.ms/acr/skus) supportato usando [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) o il portale di Azure.
+* I registri classici non sono più supportati. Eseguire l'aggiornamento a un [livello di servizio](https://aka.ms/acr/skus) supportato usando [az acr update](/cli/azure/acr#az-acr-update) o il portale di Azure.
 * L'immagine o il repository possono essere bloccati in modo che non possano essere eliminati o aggiornati. È possibile usare il comando [az acr show repository](./container-registry-image-lock.md) per visualizzare gli attributi correnti.
 * Alcune operazioni non sono consentite se l'immagine è in quarantena. Altre informazioni sulla [quarantena](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Il registro potrebbe avere raggiunto il [limite di archiviazione](container-registry-skus.md#service-tier-features-and-limits).

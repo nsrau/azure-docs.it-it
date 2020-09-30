@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2ebe4fbf776ffb3b4568f996f20ba721b0cc5fca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c158bc176c329fb46d0acde64b043b1b3e669e18
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330515"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570675"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gestire i criteri di risoluzione dei conflitti in Azure Cosmos DB
 
@@ -513,9 +513,9 @@ while conflict:
 Apprendere i concetti di Azure Cosmos DB seguenti:
 
 - [Distribuzione globale - Informazioni sul funzionamento](global-dist-under-the-hood.md)
-- [Come configurare la funzionalità multimaster nelle applicazioni](how-to-multi-master.md)
+- [Come configurare le Scritture in più aree nelle applicazioni](how-to-multi-master.md)
 - [Configurare i client per il multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Aggiungere o rimuovere aree dall'account Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-- [Come configurare funzionalità multimaster nelle applicazioni](how-to-multi-master.md).
+- [Come configuremulti le Scritture nelle applicazioni](how-to-multi-master.md).
 - [Partizionamento e distribuzione dei dati](partition-data.md)
 - [Indicizzazione in Azure Cosmos DB](indexing-policies.md)

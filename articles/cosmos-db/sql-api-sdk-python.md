@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 03c8f5acfc10738401f61de099f946c33497d705
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585985"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569815"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Python SDK di Azure Cosmos DB per l'API SQL: note sulla versione e risorse
 
@@ -40,7 +40,7 @@ ms.locfileid: "88585985"
 | |  |
 |---|---|
 |**Download dell'SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentazione sull'API**|[Documentazione di riferimento delle API di Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**Documentazione sull'API**|[Documentazione di riferimento delle API di Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python&preserve-view=true)|
 |**Istruzioni per l'installazione dell'SDK**|[Istruzioni per l'installazione dell'SDK di Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Operazioni preliminari**|[Introduzione all'SDK di Python](create-sql-api-python.md)|
 |**Piattaforma attualmente supportata**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5.3 e versioni successive](https://www.python.org/downloads/)|
@@ -126,7 +126,7 @@ ms.locfileid: "88585985"
 
 * Il costruttore di `CosmosClient` è stato aggiornato:
 
-  * Il parametro `auth` è stato rinominato in `credential` e ora accetta direttamente un tipo di autenticazione. Questo significa che è possibile passare il valore della chiave master, un dizionario di token di risorsa o un elenco di autorizzazioni. Il formato del dizionario precedente è però ancora supportato.
+  * Il parametro `auth` è stato rinominato in `credential` e ora accetta direttamente un tipo di autenticazione. Ciò significa che è possibile passare il valore della chiave primaria, un dizionario di token di risorsa o un elenco di autorizzazioni. Il formato del dizionario precedente è però ancora supportato.
 
   * Il parametro `connection_policy` è stato convertito in parametro costituito solo da parole chiave e, anche se è ancora supportato, è ora possibile passare ognuno dei singoli attributi del criterio come argomento di parola chiave esplicito:
 
