@@ -598,12 +598,9 @@
         - name: Macchina virtuale di data science
           tocHref: /azure/machine-learning/data-science-virtual-machine
           topicHref: /azure/machine-learning/data-science-virtual-machine/
-    - name: Marketplace - Consumer
-      tocHref: /azure/marketplace-consumer/
+    - name: Marketplace commerciale
+      tocHref: /azure/marketplace
       topicHref: /azure/marketplace/
-    - name: Marketplace - Pubblicazione
-      tocHref: /azure/marketplace-publishing/
-      topicHref: /azure/marketplace/marketplace-publishers-guide
     - name: Servizi multimediali
       tocHref: /azure/media-services/
       topicHref: /azure/media-services/
@@ -761,7 +758,7 @@
     - name: Utilità di pianificazione
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: Security
+    - name: Sicurezza
       tocHref: /azure/security/
       topicHref: /azure/security/
       items:
