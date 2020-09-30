@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: 8ef3d7400b64617df8d81c7b84e680496776b5bd
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 4c289ecb1d8471a7b99f1d4c85a0163de4d0c593
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192151"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576218"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Trasmettere i dati dal BLOB del servizio di archiviazione di Azure a Data Lake Storage Gen1 usando Analisi di flusso di Azure
 Questo articolo illustra come usare Azure Data Lake Storage Gen1 come output per un processo di analisi di flusso di Azure. Questo articolo illustra uno scenario semplice in cui i dati vengono letti da un BLOB del servizio di archiviazione di Azure (input) e scritti in Data Lake Storage Gen1 (output).
@@ -42,11 +42,11 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
 
 1. Aprire la pagina per il processo di Analisi di flusso, nel riquadro sinistro fare clic sulla scheda **Input** e quindi fare clic su **Aggiungi**.
 
-    ![Aggiungere un input al processo](./media/data-lake-store-stream-analytics/create.input.1.png "Aggiungere un input al processo")
+    ![Screenshot del pannello del processo di analisi di flusso con l'opzione inputs e l'opzione Aggiungi flusso di input denominata.](./media/data-lake-store-stream-analytics/create.input.1.png "Aggiungere un input al processo")
 
 2. Nel pannello **Nuovo input** specificare i valori seguenti.
 
-    ![Aggiungere un input al processo](./media/data-lake-store-stream-analytics/create.input.2.png "Aggiungere un input al processo")
+    ![Screenshot del pannello archiviazione BLOB-nuovo input.](./media/data-lake-store-stream-analytics/create.input.2.png "Aggiungere un input al processo")
 
    * In **Alias dell'input** inserire un nome univoco per l'input del processo.
    * Per **Tipo di origine** selezionare **Flusso dati**.
@@ -65,18 +65,18 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
 
 1. Aprire la pagina per il processo di Analisi di flusso, fare clic sulla scheda **Output**, quindi su **Aggiungi** e selezionare **Data Lake Storage Gen1**.
 
-    ![Aggiungere un output al processo](./media/data-lake-store-stream-analytics/create.output.1.png "Aggiungere un output al processo")
+    ![Screenshot del pannello del processo di analisi di flusso con l'opzione Outputs, Add Option e Data Lake Storage opzione gen 1 denominata.](./media/data-lake-store-stream-analytics/create.output.1.png "Aggiungere un output al processo")
 
 2. Nel pannello **Nuovo output** specificare i valori seguenti.
 
-    ![Aggiungere un output al processo](./media/data-lake-store-stream-analytics/create.output.2.png "Aggiungere un output al processo")
+    ![Screenshot del pannello Data Lake Storage generazione 1-nuovo output con l'opzione autorizzazione chiamata.](./media/data-lake-store-stream-analytics/create.output.2.png "Aggiungere un output al processo")
 
     * In **Alias dell'output** inserire un nome univoco per l'output del processo. È un nome descrittivo usato nelle query per indirizzare l'output delle query all'account Data Lake Storage Gen1.
     * Verrà richiesto di autorizzare l'accesso all'account Data Lake Storage Gen1. Fare clic su **Autorizza**.
 
 3. Nel pannello **Nuovo output** continuare a specificare i valori seguenti.
 
-    ![Aggiungere un output al processo](./media/data-lake-store-stream-analytics/create.output.3.png "Aggiungere un output al processo")
+    ![Screenshot del pannello Data Lake Storage generazione 1-nuovo output.](./media/data-lake-store-stream-analytics/create.output.3.png "Aggiungere un output al processo")
 
    * Per **Nome account** selezionare l'account Data Lake Storage Gen1 già creato a cui si vuole inviare l'output del processo.
    * In **Schema prefisso percorso** immettere un percorso di file usato per scrivere i file nell'account Data Lake Storage Gen1 specificato.
@@ -112,5 +112,5 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
 
     Nel riquadro Esplora dati l'output viene scritto in un percorso di cartella come specificato nelle impostazioni di output di Data Lake Storage Gen1 (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Creare un cluster HDInsight per usare Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

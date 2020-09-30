@@ -3,25 +3,25 @@ title: Architettura Plug and Play Microsoft Docs
 description: In qualità di generatore di soluzioni, comprendere gli elementi chiave dell'architettura dei Plug and Play.
 author: ridomin
 ms.author: rmpablos
-ms.date: 07/06/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: f656de0bb2e5244e137ae21a6d7af88f3430b12c
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 32e67bd7f30fecee3449935a35235844a047957b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475686"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574323"
 ---
-# <a name="iot-plug-and-play-preview-architecture"></a>Architettura di Plug and Play IoT (anteprima)
+# <a name="iot-plug-and-play-architecture"></a>Architettura Plug and Play
 
-Il Plug and Play anteprima consente ai generatori di soluzioni di integrare Smart Device con le proprie soluzioni senza alcuna configurazione manuale. Il nucleo del Plug and Play Internet è un _modello_ di dispositivo che descrive le funzionalità di un dispositivo per un'applicazione con plug and Play Internet delle cose. Questo modello è strutturato come un set di interfacce che definiscono:
+Internet delle cose Plug and Play consente ai generatori di soluzioni di integrare Smart Device con le proprie soluzioni senza alcuna configurazione manuale. Il nucleo del Plug and Play Internet è un _modello_ di dispositivo che descrive le funzionalità di un dispositivo per un'applicazione con plug and Play Internet delle cose. Questo modello è strutturato come un set di interfacce che definiscono:
 
-- _Proprietà_ che rappresentano lo stato di sola lettura o scrivibile di un dispositivo o di un'altra entità. Ad esempio, un numero di serie del dispositivo può essere una proprietà di sola lettura e una temperatura di destinazione in un termostato può essere una proprietà scrivibile.
-- _Telemetria_ che rappresenta i dati emessi da un dispositivo, se i dati sono un flusso normale di letture di sensori, un errore occasionale o un messaggio informativo.
+- _Proprietà_ che rappresentano lo stato di sola lettura e di scrittura di un dispositivo o di un'altra entità. Ad esempio, il numero di serie del dispositivo può essere una proprietà di sola lettura, mentre la temperatura di destinazione di un termostato può essere una proprietà scrivibile.
+- _Dati di telemetria_ generati da un dispositivo, siano essi un normale flusso di letture di sensori, un errore occasionale o un messaggio informativo.
 - _Comandi_ che descrivono una funzione o un'operazione che può essere eseguita su un dispositivo. Ad esempio, un comando può riavviare un gateway o scattare una foto usando una fotocamera remota.
 
 Ogni modello e interfaccia ha un ID univoco.
@@ -43,9 +43,27 @@ Il repository del modello usa il controllo degli accessi in base al ruolo per co
 Un generatore di dispositivi implementa il codice per l'esecuzione su un sacco Smart Device usando uno degli [SDK per dispositivi Azure](./libraries-sdks.md). Gli SDK per dispositivi consentono al generatore di dispositivi di:
 
 - Connettersi in modo sicuro a un hub Internet.
-- Registrare il dispositivo con l'hub Internet e annunciare l'ID del modello che identifica la raccolta di interfacce implementate dal dispositivo.
-- Aggiornare le proprietà definite nelle interfacce DTDL implementate dal dispositivo. Queste proprietà vengono implementate usando i dispositivi gemelli digitali che gestiscono la sincronizzazione con l'hub Internet.
-- Aggiungere gestori di comandi per i comandi definiti nelle interfacce DTDL implementate dal dispositivo.
+- Registrare il dispositivo con l'hub Internet e annunciare l'ID del modello che identifica la raccolta di interfacce DTDL implementate dal dispositivo.
+- Sincronizzare le proprietà definite nelle interfacce DTDL tra il dispositivo e l'hub Internet.
+- Aggiungere gestori di comandi per i comandi definiti nelle interfacce DTDL.
+- Inviare dati di telemetria all'hub Internet.
+
+## <a name="iot-edge-gateway"></a>Gateway IoT Edge
+
+Un gateway IoT Edge funge da intermediario per connettere le cose Plug and Play i dispositivi che non possono connettersi direttamente a un hub Internet. Per altre informazioni, vedere [come è possibile usare un dispositivo IOT Edge come gateway](../iot-edge/iot-edge-as-gateway.md).
+
+## <a name="iot-edge-modules"></a>Moduli di IoT Edge
+
+Un _modulo IOT Edge_ consente di distribuire e gestire la logica di business sul perimetro. I moduli di Azure IoT Edge sono l'unità più piccola di calcolo gestita da IoT Edge e possono contenere i servizi di Azure, ad esempio Analisi di flusso di Azure, o il codice specifico per la soluzione.
+
+Il _IOT Edge Hub_ è uno dei moduli che costituiscono il runtime di Azure IOT Edge. Opera come un proxy locale per l'hub IoT esponendo gli stessi endpoint del protocollo dell'hub IoT. Questa coerenza implica che i client, siano essi dispositivi o moduli, possono connettersi al runtime di IoT Edge esattamente come si connetterebbero all'hub IoT.
+
+Gli SDK per dispositivi aiutano un generatore di moduli a:
+
+- Usare l'hub IoT Edge per connettersi in modo sicuro all'hub Internet delle cose.
+- Registrare il modulo con l'hub Internet e annunciare l'ID del modello che identifica la raccolta di interfacce DTDL implementate dal dispositivo.
+- Sincronizzare le proprietà definite nelle interfacce DTDL tra il dispositivo e l'hub Internet.
+- Aggiungere gestori di comandi per i comandi definiti nelle interfacce DTDL.
 - Inviare dati di telemetria all'hub Internet.
 
 ## <a name="iot-hub"></a>Hub IoT
@@ -80,4 +98,4 @@ Ora che si dispone di una panoramica dell'architettura di un Plug and Play soluz
 
 - [Repository del modello](./concepts-model-repository.md)
 - [Integrazione di modelli digitali gemelli](./concepts-model-discovery.md)
-- [Sviluppo per Plug and Play](./concepts-developer-guide.md)
+- [Sviluppo per Plug and Play](./concepts-developer-guide-device-csharp.md)

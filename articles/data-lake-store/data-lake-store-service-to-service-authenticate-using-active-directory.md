@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 03a32b37f5ca29c6a0dd6b810b4e097379c6c32e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9dc195f98310e63cbde06885effe86ea3c239249
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515143"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576099"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 usando Azure Active Directory
 > [!div class="op_single_selector"]
@@ -65,12 +65,12 @@ Quando si esegue l'accesso a livello di codice, è necessario l'ID dell'applicaz
     ![Aggiungere un gruppo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "Aggiungere un gruppo")
 6. Fare clic su **Selezionare le autorizzazioni**, selezionare le autorizzazioni e se si desidera assegnare le autorizzazioni come un ACL predefinito, ACL di accesso o entrambi. Fare clic su **OK**.
    
-    ![Assegnare autorizzazioni a un gruppo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Assegnare autorizzazioni a un gruppo")
+    ![Screenshot del pannello Aggiungi accesso personalizzato con l'opzione seleziona autorizzazioni richiamata e il pannello selezionare le autorizzazioni con l'opzione OK.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Assegnare autorizzazioni a un gruppo")
    
     Per altre informazioni sulle autorizzazioni in Data Lake Storage Gen1 e gli ACL predefiniti/di accesso, vedere [Controllo di accesso in Data Lake Storage Gen1](data-lake-store-access-control.md).
 7. Nel pannello **Aggiungi accesso personalizzato** fare clic su **OK**. I nuovi gruppi aggiunti, con le autorizzazioni associate, sono elencati nel pannello di **accesso** .
    
-    ![Assegnare autorizzazioni a un gruppo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Assegnare autorizzazioni a un gruppo")
+    ![Screenshot del pannello di accesso con il gruppo appena aggiunto denominato nella sezione accesso personalizzato.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Assegnare autorizzazioni a un gruppo")
 
 > [!NOTE]
 > Se si intende limitare l'applicazione Azure Active Directory a una cartella specifica, è necessario assegnare alla stessa applicazione l'autorizzazione **Execute** sulla radice per consentire l'accesso alla creazione di file tramite .NET SDK.
@@ -88,11 +88,11 @@ Quando si esegue l'accesso a livello di codice, è necessario l'ID dell'applicaz
 
 3. Nella parte superiore del pannello Registrazioni per l'app fare clic su **Endpoint**.
 
-    ![Endpoint del token OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Endpoint del token OAuth")
+    ![Screenshot di Active Directory con l'opzione Registrazioni app e l'opzione Endpoints denominata.](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Endpoint del token OAuth")
 
 4. Copiare l'endpoint di token OAuth 2.0 dall'elenco di endpoint.
 
-    ![Endpoint del token OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Endpoint del token OAuth")   
+    ![Screenshot del pannello degli endpoint con l'icona di copia dell'ENDPOINT o del TOKEN di autenticazione a 2 punti O chiamata.](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Endpoint del token OAuth")   
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stata creata un'applicazione Web Azure AD e sono state raccolte le informazioni necessarie nelle applicazioni client create tramite .NET SDK, Java, Python, API REST e così via. È ora possibile passare agli articoli seguenti che illustrano come usare l'applicazione nativa Azure AD per eseguire prima l'autenticazione con Data Lake Storage Gen1, quindi eseguire altre operazioni nell'archivio.

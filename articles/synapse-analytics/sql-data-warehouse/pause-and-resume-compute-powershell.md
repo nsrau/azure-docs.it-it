@@ -1,5 +1,5 @@
 ---
-title: Sospendere e riprendere le risorse di calcolo in un pool SQL di Synapse con Azure PowerShell
+title: 'Avvio rapido: Sospendere e riprendere le risorse di calcolo in un pool SQL di Synapse con Azure PowerShell'
 description: È possibile usare Azure PowerShell per sospendere e riprendere le risorse di calcolo del pool SQL di Synapse (data warehouse).
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 9adc994ef9ac3f43f593da010b35ada4a83e424e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 08ddb6077887043d798af9790a7b66f1b8ebb95c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078960"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570700"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>Guida introduttiva: Sospendere e riprendere le risorse di calcolo in un pool SQL di Synapse con Azure PowerShell
 

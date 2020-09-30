@@ -2,13 +2,13 @@
 title: Bus di servizio di Azure-sospendere le entità di messaggistica
 description: Questo articolo illustra come sospendere temporaneamente e riattivare le entità messaggio del bus di servizio di Azure (code, argomenti e sottoscrizioni).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 2dad0b774f271ed719ca09b1e749559d5e1868bd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 09/29/2020
+ms.openlocfilehash: f89e17e494cc777691b7f7ca47538cd29114d2dc
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078862"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575247"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Sospendere e riattivare le entità di messaggistica (disabilitazione)
 
@@ -18,28 +18,29 @@ La sospensione di un'entità viene in genere eseguita per motivi amministrativi 
 
 Una sospensione o una riattivazione può essere eseguita dall'utente o dal sistema. Il sistema sospende le entità solo per gravi motivi amministrativi, ad esempio per il raggiungimento del limite di spesa della sottoscrizione. Le entità disabilitate dal sistema non possono essere riattivate dall'utente, ma vengono ripristinate dopo che la causa della sospensione è stata risolta.
 
-Nel portale la sezione **Panoramica** per la rispettiva entità consente di modificare lo stato; lo stato corrente viene visualizzato sotto **stato** come collegamento ipertestuale.
-
-La schermata seguente Mostra gli stati disponibili a cui è possibile modificare l'entità selezionando il collegamento ipertestuale: 
-
-![Screenshot della funzionalità del bus di servizio in panoramica per modificare l'opzione relativa allo stato dell'entità.][1]
-
-Il portale consente solo la disabilitazione completa delle code. È anche possibile disabilitare separatamente le operazioni di invio e di ricezione usando le API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) per il bus di servizio in .NET Framework SDK oppure con un modello di Azure Resource Manager, tramite l'interfaccia della riga di comando di Azure o Azure PowerShell.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="suspension-states"></a>Stati di sospensione
-
+## <a name="queue-status"></a>Stato coda 
 Per una coda possono essere impostati gli stati seguenti.
 
 -   **Active**: la coda è attiva.
--   **Disabled**: la coda è sospesa.
+-   **Disabled**: la coda è sospesa. Equivale a impostare sia **SendDisabled** che **ReceiveDisabled**. 
 -   **SendDisabled**: la coda è parzialmente sospesa e la ricezione è consentita.
 -   **ReceiveDisabled**: la coda è parzialmente sospesa e l'invio è consentito.
 
-Per le sottoscrizioni e gli argomenti è possibile impostare solo **Active** e **Disabled**.
+### <a name="change-the-queue-status-in-the-azure-portal"></a>Modificare lo stato della coda nel portale di Azure: 
 
-L'enumerazione [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) definisce anche un set di stati di transizione che possono essere impostati solo dal sistema. L'esempio seguente mostra il comando di PowerShell per disabilitare una coda. Il comando di riattivazione è equivalente, con l'impostazione di `Status` su **Active**.
+1. Nella portale di Azure passare allo spazio dei nomi del bus di servizio. 
+1. Selezionare la coda per cui si desidera modificare lo stato. Le code vengono visualizzate nel riquadro inferiore al centro. 
+1. Nella pagina **coda del bus di servizio** , vedere lo stato corrente della coda come collegamento ipertestuale. Se la **Panoramica** non è selezionata nel menu a sinistra, selezionarla per visualizzare lo stato della coda. Selezionare lo stato corrente della coda per modificarlo. 
+
+    :::image type="content" source="./media/entity-suspend/select-state.png" alt-text="Selezionare lo stato della coda":::
+4. Selezionare il nuovo stato per la coda e selezionare **OK**. 
+
+    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Selezionare lo stato della coda":::
+    
+Il portale consente solo la disabilitazione completa delle code. È anche possibile disabilitare separatamente le operazioni di invio e di ricezione usando le API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) per il bus di servizio in .NET Framework SDK oppure con un modello di Azure Resource Manager, tramite l'interfaccia della riga di comando di Azure o Azure PowerShell.
+
+### <a name="change-the-queue-status-using-azure-powershell"></a>Modificare lo stato della coda usando Azure PowerShell
+L'esempio seguente mostra il comando di PowerShell per disabilitare una coda. Il comando di riattivazione è equivalente, con l'impostazione di `Status` su **Active**.
 
 ```powershell
 $q = Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
@@ -48,6 +49,30 @@ $q.Status = "Disabled"
 
 Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
+
+## <a name="topic-status"></a>Stato argomento
+La modifica dello stato dell'argomento nell'portale di Azure è simile alla modifica dello stato di una coda. Quando si seleziona lo stato corrente dell'argomento, viene visualizzata la pagina seguente che consente di modificare lo stato. 
+
+:::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Selezionare lo stato della coda":::
+
+Gli Stati che possono essere impostati per un argomento sono i seguenti:
+- **Attivo**: l'argomento è attivo.
+- **Disabled**: l'argomento è sospeso.
+- **SendDisabled**: lo stesso effetto di **disabled**.
+
+## <a name="subscription-status"></a>Stato della sottoscrizione
+La modifica dello stato della sottoscrizione nella portale di Azure è simile alla modifica dello stato di un argomento o di una coda. Quando si seleziona lo stato corrente della sottoscrizione, viene visualizzata la pagina seguente che consente di modificare lo stato. 
+
+:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Selezionare lo stato della coda":::
+
+Gli Stati che possono essere impostati per un argomento sono i seguenti:
+- **Attivo**: l'argomento è attivo.
+- **Disabled**: l'argomento è sospeso.
+- **ReceiveDisabled**: lo stesso effetto di **disabled**.
+
+## <a name="other-statuses"></a>Altri Stati
+L'enumerazione [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) definisce anche un set di stati di transizione che possono essere impostati solo dal sistema. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

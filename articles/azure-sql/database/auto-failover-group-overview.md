@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 469620456fecb7c0cb398988c4a4fc25da97f863
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 82a109dd5c2813861e21e11aa40774b6b868cfe3
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357710"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576201"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ I gruppi di failover automatico forniscono anche endpoint di listener di sola le
 
 Quando si usano i gruppi di failover automatico con i criteri di failover automatico, eventuali interruzioni che influiscano sui database in un server o in un'istanza gestita generano failover automatico. È possibile gestire il gruppo di failover automatico mediante:
 
-- [Azure portal](geo-distributed-application-configure-tutorial.md)
+- [Portale di Azure](geo-distributed-application-configure-tutorial.md)
 - [INTERFACCIA della riga di comando di Azure: gruppo di failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: gruppo di failover](scripts/add-database-to-failover-group-powershell.md)
 - [API REST: gruppo di failover](/rest/api/sql/failovergroups).
@@ -76,9 +76,9 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
   
 - **Seeding iniziale**
 
-  Quando si aggiungono database, pool elastici o istanze gestite a un gruppo di failover, prima dell'avvio della replica dei dati viene avviata una fase iniziale di seeding. La fase iniziale di seeding è l'operazione più estesa e costosa. Al termine del seeding iniziale, i dati vengono sincronizzati e vengono replicate solo le modifiche successive ai dati. Il tempo necessario per il completamento del valore di inizializzazione iniziale dipende dalle dimensioni dei dati, dal numero di database replicati e dalla velocità del collegamento tra le entità del gruppo di failover. In circostanze normali, la velocità di seeding tipica è 50-500 GB di un'ora per il database SQL e 18-35 GB per un'ora di SQL Istanza gestita. Il seeding viene eseguito per tutti i database in parallelo. È possibile utilizzare la velocità di seeding indicata, insieme al numero di database e alle dimensioni totali dei dati, per stimare il tempo necessario per la fase di seeding iniziale prima dell'avvio della replica dei dati.
+  Quando si aggiungono database, pool elastici o istanze gestite a un gruppo di failover, prima dell'avvio della replica dei dati viene avviata una fase iniziale di seeding. La fase iniziale di seeding è l'operazione più estesa e costosa. Al termine del seeding iniziale, i dati vengono sincronizzati e vengono replicate solo le modifiche successive ai dati. Il tempo necessario per il completamento del valore di inizializzazione iniziale dipende dalle dimensioni dei dati, dal numero di database replicati e dalla velocità del collegamento tra le entità del gruppo di failover. In circostanze normali, una possibile velocità di seeding è fino a 500 GB di un'ora per il database SQL e fino a 360 GB di un'ora per SQL Istanza gestita. Il seeding viene eseguito per tutti i database in parallelo.
 
-  Per Istanza gestita SQL, è necessario considerare la velocità del collegamento Express route tra le due istanze anche quando si stima il tempo della fase di seeding iniziale. Se la velocità del collegamento tra le due istanze è più lenta rispetto a quanto necessario, il tempo per il seeding è probabilmente interessato da un notevole interesse. È possibile usare la velocità di seeding indicata, il numero di database, le dimensioni totali dei dati e la velocità del collegamento per stimare il tempo necessario per la fase di seeding iniziale prima che la replica dei dati venga avviata. Ad esempio, per un singolo database da 100 GB, la fase iniziale del valore di inizializzazione richiederebbe da 2,8 a 5,5 ore se il collegamento è in grado di eseguire il push di 35 GB all'ora. Se il collegamento può trasferire 10 GB all'ora, il seeding di un database di 100 GB sarà di circa 10 ore. Se sono presenti più database da replicare, il seeding verrà eseguito in parallelo e, in combinazione con una velocità di collegamento lenta, la fase di seeding iniziale potrebbe richiedere molto più tempo, soprattutto se il seeding parallelo dei dati di tutti i database supera la larghezza di banda disponibile per i collegamenti. Se la larghezza di banda di rete tra due istanze è limitata e si aggiungono più istanze gestite a un gruppo di failover, è consigliabile aggiungere più istanze gestite al gruppo di failover in modo sequenziale, una alla volta.
+  Per Istanza gestita SQL, prendere in considerazione la velocità del collegamento Express route tra le due istanze quando si stima il tempo della fase iniziale del seeding. Se la velocità del collegamento tra le due istanze è più lenta rispetto a quanto necessario, il tempo per il seeding è probabilmente interessato da un notevole interesse. È possibile usare la velocità di seeding indicata, il numero di database, le dimensioni totali dei dati e la velocità del collegamento per stimare il tempo necessario per la fase di seeding iniziale prima che la replica dei dati venga avviata. Per un singolo database da 100 GB, ad esempio, la fase iniziale del valore di inizializzazione richiede circa 1,2 ore se il collegamento è in grado di eseguire il push di 84 GB all'ora e se non sono presenti altri database di cui viene eseguito il seeding. Se il collegamento può trasferire 10 GB all'ora, il seeding di un database di 100 GB sarà di circa 10 ore. Se sono presenti più database da replicare, il seeding verrà eseguito in parallelo e, in combinazione con una velocità di collegamento lenta, la fase di seeding iniziale potrebbe richiedere molto più tempo, soprattutto se il seeding parallelo dei dati di tutti i database supera la larghezza di banda disponibile per i collegamenti. Se la larghezza di banda di rete tra due istanze è limitata e si aggiungono più istanze gestite a un gruppo di failover, è consigliabile aggiungere più istanze gestite al gruppo di failover in modo sequenziale, una alla volta. Dato uno SKU del gateway di dimensioni appropriate tra le due istanze gestite e se la larghezza di banda della rete aziendale lo consente, è possibile ottenere velocità fino a 360 GB per un'ora.  
 
 - **Zona DNS**
 
@@ -232,6 +232,10 @@ Per garantire la connettività senza interruzioni al Istanza gestita SQL primari
 > La prima istanza gestita creata nella subnet determina la zona DNS per tutte le istanze successive nella stessa subnet. Ciò significa che due istanze della stessa subnet non possono appartenere a zone DNS diverse.
 
 Per ulteriori informazioni sulla creazione di Istanza gestita SQL secondari nella stessa zona DNS dell'istanza primaria, vedere [creare un'istanza gestita secondaria](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
+
+### <a name="using-geo-paired-regions"></a>Uso di aree con associazione geografica
+
+Distribuire entrambe le istanze gestite in [aree abbinate](../../best-practices-availability-paired-regions.md) per motivi di prestazioni. Le istanze gestite che si trovano in aree geografiche abbinate offrono prestazioni molto migliori rispetto alle aree non abbinate. 
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Abilitazione del traffico di replica tra due istanze
 

@@ -7,29 +7,31 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ef29be53e776c4c185ac8430b3340c53ca85d855
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8b5492a737b733f486455507a8a813b5d583d453
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88856048"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91573838"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Convenzioni di Plug and Play IoT
 
-I dispositivi Plug and Play anteprima dovrebbero seguire un set di convenzioni quando scambiano messaggi con un hub Internet. I dispositivi Plug and Play anteprima usano il protocollo MQTT per comunicare con l'hub Internet.
+I dispositivi Plug and Play devono seguire un set di convenzioni quando scambiano messaggi con un hub Internet. I dispositivi Plug and Play usano il protocollo MQTT per comunicare con l'hub Internet.
+
+I dispositivi possono includere [moduli](../iot-hub/iot-hub-devguide-module-twins.md)o essere implementati in un [Modulo IOT Edge](../iot-edge/about-iot-edge.md) ospitato dal runtime di IOT Edge.
 
 Si descrivono i dati di telemetria, le proprietà e i comandi implementati da un dispositivo Plug and Play dispositivo con un _modello_ [DTDL (Digital gemell Definition Language v2)](https://github.com/Azure/opendigitaltwins-dtdl) . Sono disponibili due tipi di modello a cui si fa riferimento in questo articolo:
 
-- **Nessun componente** , ovvero un modello senza componenti. Il modello dichiara i dati di telemetria, le proprietà e i comandi come proprietà di primo livello nella sezione Contents dell'interfaccia principale.
-- **Più componenti** : un modello composto da due o più interfacce. Interfaccia principale con i dati di telemetria, le proprietà e i comandi. Una o più interfacce dichiarate come componenti con dati di telemetria, proprietà e comandi aggiuntivi.
+- **Nessun componente** , ovvero un modello senza componenti. Il modello dichiara i dati di telemetria, le proprietà e i comandi come proprietà di primo livello nella sezione Contents dell'interfaccia principale. Nello strumento Azure Internet Explorer, questo modello viene visualizzato come un singolo _componente predefinito_.
+- **Più componenti** : un modello composto da due o più interfacce. Interfaccia principale, che viene visualizzata come _componente predefinito_, con i comandi di telemetria, le proprietà e. Una o più interfacce dichiarate come componenti con dati di telemetria, proprietà e comandi aggiuntivi.
 
 Per ulteriori informazioni, vedere la pagina relativa ai [componenti plug and Play nei modelli](concepts-components.md).
 
 ## <a name="identify-the-model"></a>Identificare il modello
 
-Per annunciare il modello implementato, un Plug and Play dispositivo include l'ID del modello nel pacchetto di connessione MQTT aggiungendo `model-id` al `USERNAME` campo.
+Per annunciare il modello implementato, un Plug and Play del dispositivo o del modulo include l'ID del modello nel pacchetto di connessione MQTT aggiungendo `model-id` al `USERNAME` campo.
 
-Per identificare il modello implementato da un dispositivo, un servizio può ottenere l'ID modello da:
+Per identificare il modello implementato da un dispositivo o un modulo, un servizio può ottenere l'ID modello da:
 
 - Il campo del dispositivo gemello `modelId` .
 - Il campo del gemello digitale `$metadata.$model` .
@@ -45,217 +47,296 @@ I dati di telemetria inviati da un dispositivo a più componenti devono `$.sub` 
 
 ### <a name="sample-no-component-read-only-property"></a>Esempio: nessuna proprietà di sola lettura del componente
 
-Un dispositivo può inviare qualsiasi JSON valido che segue le regole DTDL V2.
+Un dispositivo o un modulo può inviare qualsiasi JSON valido che segue le regole DTDL V2.
 
-:::row:::
-   :::column span="":::
-      **DTDL**
+DTDL:
 
-      ```json
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:example: Thermostat;1",
-      "@type": "Interface",
-      "contents": [
-        {
-          "@type": "Property",
-          "name": "temperature",
-          "schema": "double"
-        }
-      ]
-      ```
-   :::column-end:::
-   :::column span="":::
-      **Esempio di payload**
+```json
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:example: Thermostat;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "temperature",
+      "schema": "double"
+    }
+  ]
+}
+```
 
-      ```json
-      "reported" :
-      {
-        "temperature" : 21.3
-      }
-      ```
-   :::column-end:::
-:::row-end:::
+Payload della proprietà segnalato di esempio:
+
+```json
+"reported" :
+{
+  "temperature" : 21.3
+}
+```
 
 ### <a name="sample-multiple-components-read-only-property"></a>Proprietà di sola lettura di più componenti di esempio
 
-Il dispositivo deve aggiungere il `{"__t": "c"}` marcatore per indicare che l'elemento fa riferimento a un componente.
+Il dispositivo o il modulo deve aggiungere il `{"__t": "c"}` marcatore per indicare che l'elemento fa riferimento a un componente.
 
-:::row:::
-   :::column span="":::
-      **DTDL**
+DTDL:
 
-      ```json
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:com:example:TemperatureController;1",
-      "@type": "Interface",
-      "displayName": "Temperature Controller",
-      "contents": [
-        {
-          "@type" : "Component",
-          "schema": "dtmi:com:example:Thermostat;1",
-          "name": "thermostat1"
-        }
-      ]
+```json
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:TemperatureController;1",
+  "@type": "Interface",
+  "displayName": "Temperature Controller",
+  "contents": [
+    {
+      "@type" : "Component",
+      "schema": "dtmi:com:example:Thermostat;1",
+      "name": "thermostat1"
+    }
+  ]
+}
 
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:com:example:Thermostat;1",
-      "@type": "Interface",
-      "contents": [
-        {
-          "@type": "Property",
-          "name": "temperature",
-          "schema": "double"
-        }
-      ]
-      ```
-   :::column-end:::
-   :::column span="":::
-      **Proprietà segnalata**
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:Thermostat;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "temperature",
+      "schema": "double"
+    }
+  ]
+}
+```
 
-      ```json
-      "reported": {
-        "thermostat1": {
-          "__t": "c",
-          "temperature": 21.3
-        }
-      }
-      ```
-   :::column-end:::
-:::row-end:::
+Payload della proprietà segnalato di esempio:
+
+```json
+"reported": {
+  "thermostat1": {
+    "__t": "c",
+    "temperature": 21.3
+  }
+}
+```
 
 ## <a name="writable-properties"></a>Proprietà scrivibili
 
-Il dispositivo deve confermare la ricezione della proprietà inviando una proprietà segnalata. La proprietà segnalata deve includere:
+Il dispositivo o il modulo deve confermare la ricezione della proprietà inviando una proprietà segnalata. La proprietà segnalata deve includere:
 
 - `value` : valore effettivo della proprietà (in genere il valore ricevuto, ma il dispositivo può decidere di segnalare un valore diverso).
 - `ac` : codice di riconoscimento che usa un codice di stato HTTP.
-- `av` : versione di riconoscimento che fa riferimento all'oggetto `$version` della proprietà desiderata.
+- `av` : versione di riconoscimento che fa riferimento all'oggetto `$version` della proprietà desiderata. È possibile trovare questo valore nel payload JSON della proprietà desiderato.
 - `ad` -Descrizione facoltativa di riconoscimento.
+
+Quando un dispositivo viene avviato, deve richiedere il dispositivo gemello e verificare la presenza di eventuali aggiornamenti delle proprietà scrivibili. Se la versione di una proprietà scrivibile è aumentata mentre il dispositivo era offline, il dispositivo deve inviare una risposta di proprietà segnalata per confermare che l'aggiornamento è stato ricevuto.
+
+Quando un dispositivo viene avviato per la prima volta, può inviare un valore iniziale per una proprietà segnalata se non riceve una proprietà iniziale desiderata dall'hub. In questo caso, il dispositivo deve `av` essere impostato su `1` . Ad esempio:
+
+```json
+"reported": {
+  "targetTemperature": {
+    "value": 20.0,
+    "ac": 200,
+    "av": 1,
+    "ad": "initialize"
+  }
+}
+```
+
+Un dispositivo può usare la proprietà segnalata per fornire altre informazioni all'hub. Ad esempio, il dispositivo potrebbe rispondere con una serie di messaggi in corso, ad esempio:
+
+```json
+"reported": {
+  "targetTemperature": {
+    "value": 35.0,
+    "ac": 202,
+    "av": 3,
+    "ad": "In-progress - reporting current temperature"
+  }
+}
+```
+
+Quando il dispositivo raggiunge la temperatura di destinazione, invia il messaggio seguente:
+
+```json
+"reported": {
+  "targetTemperature": {
+    "value": 20.0,
+    "ac": 200,
+    "av": 3,
+    "ad": "Reached target temperature"
+  }
+}
+```
+
+Un dispositivo potrebbe segnalare un errore, ad esempio:
+
+```json
+"reported": {
+  "targetTemperature": {
+    "value": 120.0,
+    "ac": 500,
+    "av": 3,
+    "ad": "Target temperature out of range. Valid range is 10 to 99."
+  }
+}
+```
 
 ### <a name="sample-no-component-writable-property"></a>Esempio di proprietà non scrivibile di componenti
 
-Un dispositivo può inviare qualsiasi JSON valido che segue le regole DTDL V2:
+Quando un dispositivo riceve più proprietà segnalate in un singolo payload, può inviare le risposte alle proprietà segnalate tra più payload.
 
-:::row:::
-   :::column span="":::
-      **DTDL**
+Un dispositivo o un modulo può inviare qualsiasi JSON valido che segue le regole DTDL V2:
 
-      ```json
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:example: Thermostat;1",
-      "@type": "Interface",
-      "contents": [
-        {
-          "@type": "Property",
-          "name": "targetTemperature",
-          "schema": "double",
-          "writable": true
-        }
-      ]
-      ```
-   :::column-end:::
-   :::column span="":::
-      **Proprietà desiderata**
+DTDL:
 
-      ```json
-      "desired" :
-      {
-        "targetTemperature" : 21.3
-      },
-      "$version" : 3
-      ```
-   :::column-end:::
-   :::column span="":::
-      **Proprietà segnalata**
+```json
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:example: Thermostat;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "targetTemperature",
+      "schema": "double",
+      "writable": true
+    }
+  ]
+}
+```
 
-      ```json
-      "reported": {
-        "targetTemperature": {
-          "value": 21.3,
-          "ac": 200,
-          "av": 3,
-          "ad": "complete"
-       }
-     }
-      ```
-   :::column-end:::
-:::row-end:::
+Esempio di payload della proprietà desiderata:
+
+```json
+"desired" :
+{
+  "targetTemperature" : 21.3,
+  "targetHumidity" : 80
+},
+"$version" : 3
+```
+
+Primo payload della proprietà segnalato di esempio:
+
+```json
+"reported": {
+  "targetTemperature": {
+    "value": 21.3,
+    "ac": 200,
+    "av": 3,
+    "ad": "complete"
+  }
+}
+```
+
+Esempio di payload di proprietà segnalato secondo:
+
+```json
+"reported": {
+  "targetHumidity": {
+    "value": 80,
+    "ac": 200,
+    "av": 3,
+    "ad": "complete"
+  }
+}
+```
 
 ### <a name="sample-multiple-components-writable-property"></a>Proprietà di esempio di più componenti scrivibili
 
-Il dispositivo deve aggiungere il `{"__t": "c"}` marcatore per indicare che l'elemento fa riferimento a un componente.
+Il dispositivo o il modulo deve aggiungere il `{"__t": "c"}` marcatore per indicare che l'elemento fa riferimento a un componente.
 
-Il marcatore viene inviato solo per gli aggiornamenti a livello di componente, quindi i dispositivi non devono verificare la presenza di questo flag.
+Il marcatore viene inviato solo per gli aggiornamenti alle proprietà definite in un componente. Gli aggiornamenti alle proprietà definite nel componente predefinito non includono il marcatore, vedere la [proprietà di esempio nessuna componente scrivibile](#sample-no-component-writable-property)
 
-Il dispositivo deve confermare la ricezione della proprietà inviando una proprietà segnalata:
+Quando un dispositivo riceve più proprietà segnalate in un singolo payload, può inviare le risposte alle proprietà segnalate tra più payload.
 
-:::row:::
-   :::column span="":::
-      **DTDL**
+Il dispositivo o il modulo deve confermare di aver ricevuto le proprietà inviando le proprietà segnalate:
 
-      ```json
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:com:example:TemperatureController;1",
-      "@type": "Interface",
-      "displayName": "Temperature Controller",
-      "contents": [
-        {
-          "@type" : "Component",
-          "schema": "dtmi:com:example:Thermostat;1",
-          "name": "thermostat1"
-        }
-      ]
+DTDL:
 
-      "@context": "dtmi:dtdl:context;2",
-      "@id": "dtmi:com:example:Thermostat;1",
-      "@type": "Interface",
-      "contents": [
-        {
-          "@type": "Property",
-          "name": "targetTemperature",
-          "schema": "double",
-          "writable": true
-        }
-      ]
-      ```
-   :::column-end:::
-   :::column span="":::
-      **Proprietà desiderata**
+```json
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:TemperatureController;1",
+  "@type": "Interface",
+  "displayName": "Temperature Controller",
+  "contents": [
+    {
+      "@type" : "Component",
+      "schema": "dtmi:com:example:Thermostat;1",
+      "name": "thermostat1"
+    }
+  ]
+}
 
-      ```json
-      "desired": {
-        "thermostat1": {
-          "__t": "c",
-          "targetTemperature": 21.3
-        }
-      },
-      "$version" : 3
-      ```
-   :::column-end:::
-   :::column span="":::
-      **Proprietà segnalata**
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:Thermostat;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "targetTemperature",
+      "schema": "double",
+      "writable": true
+    }
+  ]
+}
+```
 
-      ```json
-      "reported": {
-        "thermostat1": {
-          "__t": "c",
-          "targetTemperature": {
-            "value": 23,
-            "ac": 200,
-            "av": 3,
-            "ad": "complete"
-          }
-        }
-      }
-      ```
-   :::column-end:::
-:::row-end:::
+Esempio di payload della proprietà desiderata:
+
+```json
+"desired": {
+  "thermostat1": {
+    "__t": "c",
+    "targetTemperature": 21.3,
+    "targetHumidity": 80
+  }
+},
+"$version" : 3
+```
+
+Primo payload della proprietà segnalato di esempio:
+
+```json
+"reported": {
+  "thermostat1": {
+    "__t": "c",
+    "targetTemperature": {
+      "value": 23,
+      "ac": 200,
+      "av": 3,
+      "ad": "complete"
+    }
+  }
+}
+```
+
+Esempio di payload di proprietà segnalato secondo:
+
+```json
+"reported": {
+  "thermostat1": {
+    "__t": "c",
+    "targetHumidity": {
+      "value": 80,
+      "ac": 200,
+      "av": 3,
+      "ad": "complete"
+    }
+  }
+}
+```
 
 ## <a name="commands"></a>Comandi
 
 Nessuna interfaccia di componente usa il nome del comando senza prefisso.
 
-In un dispositivo, più interfacce componente utilizzano i nomi di comando con il formato seguente: `componentName*commandName` .
+In un dispositivo o un modulo, più interfacce componente utilizzano i nomi di comando con il formato seguente: `componentName*commandName` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

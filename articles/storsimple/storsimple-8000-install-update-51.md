@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 1c9d4747b227c7ff83e4c43292badd65836edfef
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 5b9958f3dd497aa612a92947b8d968439ef9d0e4
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052172"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575963"
 ---
 # <a name="install-update-51-on-your-storsimple-device"></a>Installare l'aggiornamento 5,1 nel dispositivo StorSimple
 
@@ -60,15 +60,15 @@ Per aggiornare il dispositivo all' [aggiornamento 5,1](storsimple-update51-relea
 
 2. Passare a **Impostazioni dispositivo**  >  **aggiornamenti del dispositivo**.
 
-    ![Fare clic su Aggiornamenti del dispositivo](./media/storsimple-8000-install-update-51/update2.png)
+    ![Screenshot del pannello delle impostazioni con l'opzione aggiornamenti del dispositivo richiamata.](./media/storsimple-8000-install-update-51/update2.png)
 
 3. Se sono disponibili nuovi aggiornamenti, viene visualizzata una notifica. In alternativa, nel pannello **Aggiornamenti del dispositivo** fare clic su **Verifica la disponibilità di aggiornamenti**. Viene creato un processo per verificare la disponibilità di aggiornamenti. Al termine del processo si riceve una notifica.
 
-    ![Fare clic su Aggiornamenti del dispositivo](./media/storsimple-8000-install-update-51/update3.png)
+    ![Screenshot del pannello impostazioni con l'opzione aggiornamenti del dispositivo richiamata e il pannello aggiornamenti del dispositivo con i nuovi aggiornamenti regolari sono disponibili messaggi richiamati.](./media/storsimple-8000-install-update-51/update3.png)
 
 4. Si consiglia di leggere le note sulla versione prima di installare un aggiornamento nel dispositivo. Per applicare gli aggiornamenti, fare clic su **Installa aggiornamenti**. Nel pannello **Confermare gli aggiornamenti regolari** rivedere i prerequisiti da completare prima di applicare gli aggiornamenti. Selezionare la casella di controllo per indicare che si è pronti per aggiornare il dispositivo e quindi fare clic su **Installa**.
 
-    ![Fare clic su Aggiornamenti del dispositivo](./media/storsimple-8000-install-update-51/update4.png)
+    ![Screenshot del pannello aggiornamenti del dispositivo con l'opzione Installa aggiornamenti denominata e l'opzione conferma aggiornamenti regolari con l'opzione di installazione e l'opzione di installazione richiamati.](./media/storsimple-8000-install-update-51/update4.png)
 
 5. Viene avviato un set di controlli dei prerequisiti. I controlli includono quanto segue:
    
@@ -80,17 +80,17 @@ Per aggiornare il dispositivo all' [aggiornamento 5,1](storsimple-update51-relea
 
 7. Dopo aver completato tutte le verifiche preliminari, viene creato un processo di aggiornamento. Dopo la creazione di tale processo si riceve una notifica.
    
-    ![Creazione del processo di aggiornamento](./media/storsimple-8000-install-update-51/update6.png)
+    ![Screenshot della notifica che indica "avvio del processo di aggiornamento software".](./media/storsimple-8000-install-update-51/update6.png)
    
     A questo punto, l'aggiornamento viene applicato al dispositivo.
 
 9. Per completare l'aggiornamento possono essere necessarie alcune ore. Selezionare il processo di aggiornamento e fare clic su **Dettagli** per visualizzare i dettagli del processo in qualsiasi momento.
 
-    ![Creazione del processo di aggiornamento](./media/storsimple-8000-install-update-51/update8.png)
+    ![Screenshot del pannello aggiornamenti del dispositivo con l'opzione Scarica e installa aggiornamenti software in corso denominata e il pannello Installa aggiornamenti.](./media/storsimple-8000-install-update-51/update8.png)
 
      È anche possibile monitorare lo stato del processo di aggiornamento da **Impostazioni del dispositivo > Processi**. Nel pannello **Processi** è possibile visualizzare lo stato dell'aggiornamento.
 
-     ![Creazione del processo di aggiornamento](./media/storsimple-8000-install-update-51/update7.png)
+     ![Screenshot del pannello impostazioni con i processi denominati e il pannello processi che mostra lo stato di avanzamento dell'aggiornamento.](./media/storsimple-8000-install-update-51/update7.png)
 
 10. Al termine del processo, passare a **Impostazioni del dispositivo > Aggiornamenti del dispositivo**. La versione del software ora risulterà aggiornata.
 

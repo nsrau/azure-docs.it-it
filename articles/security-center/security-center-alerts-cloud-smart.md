@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: b60798ad1fab0ed66f3d4a39b2fd7faf79fd515e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1d452406b05a3ad6b2be2e31bce1063f20e6c622
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268066"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575946"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Correlazione tra Smart Alert cloud nel centro sicurezza di Azure (eventi imprevisti)
 
@@ -35,6 +35,9 @@ Il Centro sicurezza usa la matrice di attacco MITRE per associare gli avvisi all
 Poiché gli attacchi si verificano spesso in tenant diversi, il Centro sicurezza può combinare gli algoritmi di intelligenza artificiale per analizzare le sequenze di attacco segnalate in ogni sottoscrizione. Questa tecnica identifica le sequenze di attacco come modelli di avviso prevalenti, anziché essere associato a vicenda.
 
 Durante un'indagine di un evento imprevisto, gli analisti spesso necessitano di un contesto aggiuntivo per raggiungere un verdetto sulla natura della minaccia e su come mitigarlo. Ad esempio, anche quando viene rilevata un'anomalia di rete, senza comprendere quanto altro accade sulla rete o per quanto riguarda la risorsa di destinazione, è difficile capire quali azioni eseguire successivamente. Per semplificare, un evento imprevisto di sicurezza può includere elementi, eventi correlati e informazioni. Le informazioni aggiuntive disponibili per gli eventi imprevisti di sicurezza variano a seconda del tipo di minaccia rilevato e della configurazione dell'ambiente. 
+
+> [!TIP]
+> Per un elenco degli avvisi relativi agli eventi imprevisti della sicurezza che possono essere generati da Fusion Analytics, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-fusion).
 
 ![Screenshot del report rilevato evento imprevisto della sicurezza](./media/security-center-alerts-cloud-smart/security-incident.png)
 

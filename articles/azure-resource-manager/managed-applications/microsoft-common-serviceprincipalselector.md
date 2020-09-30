@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: tomfitz
-ms.openlocfilehash: 06fa5868cf0a907e268a347cfdfa2b5ee20908e3
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 73b242754bfae53b6df5abd9c2c8dee33b973dad
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91571465"
+ms.locfileid: "91575997"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Elemento Microsoft. Common. ServicePrincipalSelector dell'interfaccia utente
 
@@ -61,7 +61,7 @@ Quando si seleziona **Crea nuovo** o un identificatore dell'applicazione esisten
 }
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 - Le proprietà obbligatorie sono:
   - `name`
@@ -148,7 +148,7 @@ Quando non viene effettuata alcuna selezione dall'elenco a discesa, il `newOrExi
     "value": "<default guid>"
   },
   "objectId": {
-    "value": "<default guid>"
+    "value": ["<default guid>"]
   },
   "password": {
     "value": "<password>"
@@ -173,7 +173,7 @@ Quando si seleziona **Crea nuovo** o un identificatore applicazione esistente da
     "value": "<guid>"
   },
   "objectId": {
-    "value": "<guid>"
+    "value": ["<guid>"]
   },
   "password": {
     "value": "<password>"

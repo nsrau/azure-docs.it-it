@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053055"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575572"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Esercitazione: creare un ordine di esportazione per Azure Data Box (anteprima)
 
@@ -70,7 +70,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |---------|---------|
     |Tipo di trasferimento     | Selezionare **Esporta in Azure**.        |
     |Subscription     | Selezionare una sottoscrizione di tipo Contratto Enterprise, CSP o Azure Sponsorship per il servizio Data Box. <br> La sottoscrizione viene collegata all'account di fatturazione.       |
-    |Gruppo di risorse     |    Selezionare un gruppo di risorse esistente. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme.         |
+    |Resource group     |    Selezionare un gruppo di risorse esistente. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme.         |
     |Area di Azure di origine    |    Selezionare l'area di Azure in cui sono attualmente presenti i dati.         |
     |Paese di destinazione     |     Selezionare il paese in cui si vuole spedire il dispositivo.        |
 
@@ -82,7 +82,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 6. Specificare i **Dettagli dell'ordine di** **base** . Immettere o selezionare le informazioni seguenti e quindi selezionare **Avanti**.
 
-    |Impostazione  |Valore  |
+    |Impostazione  |valore  |
     |---------|---------|
     |Sottoscrizione     | La sottoscrizione viene popolata automaticamente in base alla selezione precedente.|
     |Resource group | Il gruppo di risorse selezionato in precedenza. |
@@ -159,34 +159,34 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 Se si seleziona **Usa file XML**, è possibile specificare contenitori e BLOB specifici (pagina e blocco) che si desidera esportare. È necessario seguire le specifiche della [tabella dei file XML di esempio](#sample-xml-file) per la formattazione del codice XML. La procedura seguente illustra come usare un file XML per esportare i dati:
 
 1. In **tipo di esportazione**selezionare **Usa file XML**. Si tratta del file XML che specifica i BLOB specifici e i file di Azure che si vuole esportare. Per aggiungere il file XML, selezionare **fare clic qui per selezionare un file XML**.
-     ![File XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
+     ![Screenshot dell'opzione Seleziona esportazione con l'opzione fare clic qui per selezionare un file X M.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
 
 2. Selezionare **+ contenitore** per creare un contenitore.
-    ![File XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
+    ![Screenshot della sezione dei contenitori.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
 
 3. Nella scheda **nuovo contenitore** visualizzata dal lato destro del portale di Azure aggiungere un nome per il contenitore. Il nome deve essere in lettere minuscole ed è possibile includere numeri e trattini '-'. Selezionare quindi il **livello di accesso pubblico** dalla casella di riepilogo a discesa. Si consiglia di scegliere **privato (accesso non anonimo)** per impedire ad altri utenti di accedere ai dati. Per altre informazioni sui livelli di accesso ai contenitori, vedere [autorizzazioni di accesso al contenitore](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-   ![File XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
+   ![Screenshot della scheda nuovo contenitore che mostra l'opzione privata (nessun accesso anonimo) selezionata.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
 4. Selezionare **Create** (Crea).
 
-   ![File XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
+   ![Screenshot della scheda nuovo contenitore con l'opzione Crea denominata.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
 
    Se il contenitore viene creato correttamente, verrà visualizzato il messaggio seguente:
 
-   ![File XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
+   ![Screenshot del messaggio che indica che il contenitore di archiviazione è stato creato correttamente.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
 
 5. Selezionare il contenitore creato e fare doppio clic su di esso.
 
-   ![File XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
+   ![Screenshot della sezione dei contenitori con il contenitore di test privato denominato.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
 
 6. Facendo doppio clic sul contenitore, viene visualizzata la visualizzazione delle proprietà del contenitore. A questo punto si vuole alleghi (o individuare) il file XML che contiene l'elenco di BLOB e/o file di Azure che si vuole esportare. Selezionare **Carica**.
 
-   ![File XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
+   ![Screenshot della finestra di dialogo Carica BLOB con l'opzione di caricamento denominata.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
 
 7. Il file XML è stato aggiunto al contenitore. Verranno esportati solo i BLOB e i file di Azure specificati in questo XML.
 
-   ![File XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
+   ![Screenshot dell'ordine guidato con l'opzione Next: Security denominata.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
 
 ## <a name="track-the-order"></a>Monitorare l'ordine
 

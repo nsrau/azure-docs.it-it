@@ -3,12 +3,12 @@ title: 'Esercitazione: Elenco di controllo di pianificazione della rete'
 description: Informazioni sui prerequisiti della rete e dettagli relativi ai requisiti per la connettività e le porte di rete per la soluzione Azure VMware.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: c9a3c18d69cb81ed2810c0516820a9ef348402f1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254398"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576678"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Elenco di controllo di pianificazione della rete per la soluzione Azure VMware 
 
@@ -21,8 +21,6 @@ In questa esercitazione si vedrà:
 > * Requisiti di routing e subnet
 > * Porte di rete necessarie per comunicare con i servizi
 > * Considerazioni su DHCP e DNS nella soluzione Azure VMware
-
-
 
 ## <a name="virtual-network-and-expressroute-circuit-considerations"></a>Considerazioni sulla rete virtuale e sul circuito ExpressRoute
 Quando si crea una connessione di rete virtuale nella sottoscrizione, il circuito ExpressRoute viene stabilito tramite peering e usa una chiave di autorizzazione e un ID peering che si richiede nel portale di Azure. Il peering è una connessione privata, uno-a-uno tra il cloud privato e la rete virtuale.

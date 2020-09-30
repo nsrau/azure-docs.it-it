@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 7b069d1bf16e8cbf4dfc245fbb3c66863cd0b994
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c4b3479e5728c32e66bc40f950bc948bf61dce42
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055573"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575164"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Usare la spedizione autogestita per Azure Data Box Disk nel portale di Azure
 
@@ -37,13 +37,13 @@ Quando si effettua l'ordine di Data Box Disk, è possibile scegliere l'opzione d
 
 1. Nell'ordine di Azure Data Box Disk selezionare **+ Aggiungi indirizzo di spedizione** in **Dettagli contatto**.
 
-   ![Spedizione autogestita](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
+   ![Screenshot dell'ordine guidato che mostra il passaggio dettagli contatto con l'opzione Aggiungi indirizzo di spedizione denominata.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
 2. Quando si sceglie il tipo di spedizione, selezionare l'opzione **Spedizione autogestita**. Questa opzione è disponibile solo se ci si trova in una delle aree supportate, come descritto nei prerequisiti.
 
 3. Dopo aver indicato l'indirizzo di spedizione, sarà necessario convalidarlo e completare l'ordine.
 
-   ![Spedizione autogestita](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Screenshot della finestra di dialogo Aggiungi indirizzo di spedizione con le opzioni Ship using e l'opzione Add Shipping Address denominata out.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Una volta che il dispositivo è stato preparato ed è stata ricevuta una notifica di posta elettronica, è possibile pianificare un pickup. Nell'ordine di Azure Data Box Disk passare a **Panoramica**, quindi selezionare **Pianifica ritiro**.
 
@@ -55,7 +55,7 @@ Quando si effettua l'ordine di Data Box Disk, è possibile scegliere l'opzione d
 
 6. Dopo aver pianificato il ritiro del dispositivo, sarà possibile visualizzare il codice di autorizzazione nel riquadro **Pianifica il ritiro per Azure**.
 
-   ![Visualizzazione del codice di autorizzazione](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
+   ![Screenshot della finestra di dialogo Seleziona pianificazione per Azure con il codice di autorizzazione per la casella di testo di prelievo denominata.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
    Prendere nota del **codice di autorizzazione**.
 
@@ -78,7 +78,7 @@ Quando si effettua l'ordine di Data Box Disk, è possibile scegliere l'opzione d
 
 9. Se è stato ricevuto un appuntamento per la consegna, l'ordine deve avere lo stato **Pronto per la ricezione presso il data center di Azure** nel portale di Azure.
 
-   ![Visualizzazione del codice di autorizzazione](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
+   ![Screenshot della finestra di dialogo Aggiungi indirizzo di spedizione con le opzioni in uscita e l'opzione Aggiungi indirizzo di spedizione richiamata.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 
 10. Dopo che il documento e il codice di autorizzazione sono stati verificati e il dispositivo è stato consegnato presso il data center, lo stato dell'ordine sarà **Ricevuto**.
 

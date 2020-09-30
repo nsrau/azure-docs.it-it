@@ -1,18 +1,18 @@
 ---
-title: Ottenere informazioni sulle conversioni
-description: Ottenere informazioni sulle conversioni
+title: Informazioni sulle conversioni
+description: Informazioni sulle conversioni
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 529bfb61b3af7040f3656c04071683841f5abe86
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 89ec0ad40822785457e988cf9e0f9bd6d00ed81f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870290"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576626"
 ---
-# <a name="get-information-about-conversions"></a>Ottenere informazioni sulle conversioni
+# <a name="get-information-about-conversions"></a>Informazioni sulle conversioni
 
 ## <a name="information-about-a-conversion-the-result-file"></a>Informazioni su una conversione: il file di risultati
 
@@ -65,6 +65,10 @@ Di seguito è riportato un esempio di file di *informazioni* prodotto dalla conv
         "numMeshUsagesInScene": 236,
         "maxNodeDepth": 3
     },
+    "materialOverrides": {
+        "numOverrides": 4,
+        "numOverriddenMaterials": 4
+    },
     "outputInfo": {
         "conversionToolVersion": "3b28d840de9916f9d628342f474d38c3ab949590",
         "conversionHash": "CCDB1F7A4C09F565"
@@ -114,6 +118,13 @@ In questa sezione vengono registrate le informazioni sul formato del file di ori
 * `sourceAssetFormat`: Descrizione del formato del file di origine.
 * `sourceAssetFormatVersion`: Versione del formato del file di origine.
 * `sourceAssetGenerator`: Nome dello strumento che ha generato il file di origine, se disponibile.
+
+### <a name="the-materialoverrides-section"></a>Sezione *materialOverrides*
+
+Questa sezione fornisce informazioni sull'override del [materiale](override-materials.md) quando è stato fornito un file di override del materiale al servizio di conversione.
+Contiene le informazioni seguenti:
+* `numOverrides`: Numero di voci di override lette dal file di override del materiale.
+* `numOverriddenMaterials`: Numero di materiali sottoposti a override.
 
 ### <a name="the-inputstatistics-section"></a>Sezione *inputStatistics*
 

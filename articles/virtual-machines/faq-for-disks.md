@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b8ee222b7d65fe9b6b9a605bf055e127aef58ff9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e375ce88b8e5bd96e19dc4f5da2143c3f9de53a9
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439297"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575861"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -396,13 +396,19 @@ No, sono supportate solo per i dischi gestiti SSD Premium.
 
 No, non è possibile usare i dischi gestiti SSD standard di qualsiasi dimensione con i dischi non gestiti o i BLOB di pagine.
 
-**Qual è la dimensioni massima supportata per i dischi gestiti e il sistema operativo?**
+**Quali sono le dimensioni massime del disco gestito supportate per il sistema operativo e i dischi dati nelle macchine virtuali Gen1?**
 
-Il tipo di partizione supportato da Azure per un disco del sistema operativo è il record di avvio principale (MBR) e la tabella di partizione GUID (GPT) per le macchine virtuali di generazione 1 e generazione 2. Il formato MBR supporta un disco con dimensioni massime pari a 2 TiB. Per le VM di generazione 1, sebbene sia possibile allocare fino a 4 TiB, è possibile usare solo fino a 2 TiB di questo spazio su disco per il sistema operativo. Per le macchine virtuali di seconda generazione, le dimensioni maggiori che è possibile allocare e usare per un disco del sistema operativo sono 4 TiB. Azure supporta fino a 32 TiB per i dischi dati gestiti.
+Il tipo di partizione supportato da Azure per i dischi del sistema operativo Gen1 è il record di avvio principale (MBR). Sebbene i dischi del sistema operativo Gen1 supportino solo MBR, i dischi dati supportano GPT. Sebbene sia possibile allocare fino a un disco del sistema operativo a 4 TiB, il tipo di partizione MBR può usare solo fino a 2 TiB di questo spazio su disco per il sistema operativo. Azure supporta fino a 32 TiB per i dischi dati gestiti.
+
+**Quali sono le dimensioni massime del disco gestito supportate per il sistema operativo e i dischi dati nelle macchine virtuali Gen2?**
+
+Il tipo di partizione supportato da Azure per i dischi del sistema operativo Gen2 è la tabella di partizione GUID (GPT). Le VM Gen2 supportano fino a un disco del sistema operativo da 4 TiB. Azure supporta fino a 32 TiB per i dischi dati gestiti.
+
 
 **Quali sono le dimensioni massime del disco non gestito supportate per il sistema operativo e i dischi dati?**
 
-Il tipo di partizione supportata da Azure per un disco del sistema operativo è MBR (Master Boot Record). Il formato MBR supporta un disco con dimensioni massime pari a 2 TiB. La dimensione massima supportata da Azure per un disco non gestito del sistema operativo è 4 TiB. Azure supporta fino a 4 TiB per i dischi non gestiti di dati.
+Il tipo di partizione supportato da Azure per un disco del sistema operativo che usa dischi non gestiti è il record di avvio principale (MBR).  Sebbene sia possibile allocare fino a un disco del sistema operativo a 4 TiB, il tipo di partizione MBR può usare solo fino a 2 TiB di questo spazio su disco per il sistema operativo. Azure supporta fino a 4 TiB per i dischi dati non gestiti.
+
 
 **Quali sono le dimensioni massime supportate per un BLOB di pagine?**
 
