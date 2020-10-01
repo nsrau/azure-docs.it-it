@@ -1,6 +1,6 @@
 ---
 title: Creare regole di analisi personalizzate per rilevare le minacce con Azure Sentinel | Microsoft Docs
-description: Usare questa esercitazione per imparare a creare regole di analisi personalizzate per rilevare le minacce alla sicurezza con Azure Sentinel.
+description: Usare questa esercitazione per imparare a creare regole di analisi personalizzate per rilevare le minacce alla sicurezza con Azure Sentinel. Sfruttare i vantaggi del raggruppamento di eventi e dei gruppi di avvisi e comprendere la DISABILITAzione automatica.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 0e5989490603e22745a8bc972b16ed016c894893
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 55853cc6a3dc27df4c63e0a28ab079813040e45d
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605910"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617180"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Esercitazione: creare regole di analisi personalizzate per rilevare le minacce
 
@@ -53,13 +53,15 @@ Questa esercitazione consente di rilevare le minacce con Azure Sentinel.
 
       Ecco una query di esempio che avvisa l'utente quando viene creato un numero anomalo di risorse nell'attività di Azure.
 
-      `AzureActivity
-     \| where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-     \| where ActivityStatus == "Succeeded"
-     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
+      ```kusto
+      AzureActivity
+      | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
+      | where ActivityStatus == "Succeeded"
+      | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+      ```
 
-      > [!NOTE]
-      > La lunghezza della query deve avere una lunghezza compresa tra 1 e 10.000 caratteri e non può contenere "Search \* " o "Union \* ".
+        > [!NOTE]
+        > La lunghezza della query deve avere una lunghezza compresa tra 1 e 10.000 caratteri e non può contenere "Search \* " o "Union \* ".
 
     1. Usare la sezione **entità map** per collegare i parametri dei risultati della query a entità riconosciute da Azure Sentinel. Queste entità costituiscono la base per un'ulteriore analisi, incluso il raggruppamento di avvisi in eventi imprevisti nella scheda **Impostazioni evento imprevisto** .
   
@@ -69,8 +71,12 @@ Questa esercitazione consente di rilevare le minacce con Azure Sentinel.
 
        1. Impostare i **dati di ricerca dagli ultimi** per determinare il periodo di tempo dei dati analizzati dalla query, ad esempio, può eseguire una query sugli ultimi 10 minuti di dati o le ultime 6 ore di dati.
 
-       > [!NOTE]
-       > Queste due impostazioni sono indipendenti l'una dall'altra, fino a un punto. È possibile eseguire una query a un breve intervallo che copre un periodo di tempo più lungo dell'intervallo (in effetti con query sovrapposte), ma non è possibile eseguire una query a un intervallo che supera il periodo di copertura. in caso contrario, si disporrà di gap nel code coverage complessivo delle query.
+          > [!NOTE]
+          > **Intervalli di query e periodo lookback**
+          > - Queste due impostazioni sono indipendenti l'una dall'altra, fino a un punto. È possibile eseguire una query a un breve intervallo che copre un periodo di tempo più lungo dell'intervallo (in effetti con query sovrapposte), ma non è possibile eseguire una query a un intervallo che supera il periodo di copertura. in caso contrario, si disporrà di gap nel code coverage complessivo delle query.
+          >
+          > **Ritardo di inserimento**
+          > - Per tenere conto della **latenza** che può verificarsi tra la generazione di un evento nell'origine e l'inserimento in Sentinel di Azure e per garantire la copertura completa senza duplicazione dei dati, Azure Sentinel esegue le regole di analisi pianificate in un **ritardo di cinque minuti** dall'orario pianificato.
 
     1. Usare la sezione **soglia avvisi** per definire una linea di base. Ad esempio, impostare **Genera avviso quando il numero di risultati della query** su **è maggiore di** e immettere il numero 1000 se si desidera che la regola generi un avviso solo se la query restituisce più di 1000 risultati ogni volta che viene eseguito. Si tratta di un campo obbligatorio, quindi se non si vuole impostare una baseline, ovvero se si vuole che l'avviso registri ogni evento, immettere 0 nel campo numerico.
     
@@ -134,6 +140,43 @@ Questa esercitazione consente di rilevare le minacce con Azure Sentinel.
 
 > [!NOTE]
 > Gli avvisi generati in Sentinel di Azure sono disponibili tramite [Microsoft Graph sicurezza](https://aka.ms/securitygraphdocs). Per ulteriori informazioni, vedere la [documentazione relativa agli avvisi di sicurezza Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs).
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+### <a name="a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Non è stato possibile eseguire una regola pianificata o viene visualizzato con la DISABILITAzione automatica aggiunta al nome
+
+Si tratta di un caso raro in cui non è possibile eseguire una regola di query pianificata, ma ciò può verificarsi. Azure Sentinel classifica gli errori in primo piano come temporanei o permanenti in base al tipo specifico di errore e alle circostanze che lo hanno generato.
+
+#### <a name="transient-failure"></a>Errore temporaneo
+
+Un errore temporaneo si verifica a causa di una circostanza che è temporanea e tornerà presto alla normalità, a quel punto l'esecuzione della regola avrà esito positivo. Di seguito sono riportati alcuni esempi di errori classificati da Azure Sentinel come temporanei:
+
+- Una query di regola richiede troppo tempo per l'esecuzione e il timeout.
+- Problemi di connettività tra origini dati e Log Analytics o tra Log Analytics e Sentinel di Azure.
+- Eventuali altri errori nuovi e sconosciuti sono considerati temporanei.
+
+In caso di errore temporaneo, Azure Sentinel continua a provare a eseguire nuovamente la regola dopo gli intervalli predeterminati e in continua crescita, fino a un punto. Successivamente, la regola verrà eseguita di nuovo solo al successivo orario pianificato. Una regola non verrà mai disabilitata automaticamente a causa di un errore temporaneo.
+
+#### <a name="permanent-failure---rule-auto-disabled"></a>Errore permanente: la regola è disabilitata automaticamente
+
+Si verifica un errore permanente a causa di una modifica nelle condizioni che consentono l'esecuzione della regola, che senza intervento umano non tornerà allo stato precedente. Di seguito sono riportati alcuni esempi di errori classificati come permanenti:
+
+- L'area di lavoro di destinazione (su cui è stata eseguita la query della regola) è stata eliminata.
+- La tabella di destinazione in cui è stata eseguita la query della regola è stata eliminata.
+- Azure Sentinel è stato rimosso dall'area di lavoro di destinazione.
+- Una funzione utilizzata dalla query della regola non è più valida. è stato modificato o rimosso.
+- Le autorizzazioni per una delle origini dati della query della regola sono state modificate.
+- Una delle origini dati della query della regola è stata eliminata o disconnessa.
+
+**Nel caso di un numero predeterminato di errori permanenti consecutivi, dello stesso tipo e della stessa regola,** Azure Sentinel smette di provare a eseguire la regola e, inoltre, esegue i passaggi seguenti:
+
+- Disabilita la regola.
+- Aggiunge le parole **"auto disabled"** all'inizio del nome della regola.
+- Aggiunge la causa dell'errore (e la disabilitazione) alla descrizione della regola.
+
+È possibile determinare facilmente la presenza di eventuali regole disabilitate automaticamente, ordinando l'elenco di regole in base al nome. Le regole disabilitate automaticamente si troveranno nella parte superiore dell'elenco.
+
+I responsabili SOC devono assicurarsi di controllare regolarmente l'elenco di regole per la presenza di regole disabilitate automaticamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

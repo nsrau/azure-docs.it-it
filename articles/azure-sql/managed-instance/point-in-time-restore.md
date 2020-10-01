@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 6c4a538a0dc5447f95152de87f9a19ed57f08359
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9b4d0fadf157ce1eef6821ccbc32f5725aea611f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325114"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616517"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Ripristinare un database in Azure SQL Istanza gestita a un momento precedente
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,7 +46,7 @@ La tabella seguente illustra gli scenari di ripristino temporizzato per SQL Ista
 
 |           |Ripristinare il database esistente nella stessa istanza di SQL Istanza gestita| Ripristinare il database esistente in un altro Istanza gestita SQL|Ripristinare il database eliminato nello stesso Istanza gestita SQL|Ripristinare il database eliminato in un altro Istanza gestita SQL|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure portal**| Sì|No |Sì|No|
+|**Portale di Azure**| Sì|No |Sì|No|
 |**Interfaccia della riga di comando di Azure**|Sì |Sì |No|No|
 |**PowerShell**| Sì|Sì |Sì|Sì|
 

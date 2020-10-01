@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 76181f089511a6645a51707f9a8537c1589d82bf
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: a4d8d7eaed40b876adecb82f339be4a4c434325f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484953"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616857"
 ---
 # <a name="data-access-strategies"></a>Strategie di accesso ai dati
 
@@ -38,10 +38,10 @@ In questo modo dovrebbe essere coperta la maggior parte degli scenari e, sebbene
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Strategie di accesso ai dati tramite Azure Data Factory
 
 * **[Collegamento privato](https://docs.microsoft.com/azure/private-link/private-link-overview)** : è possibile creare un Azure Integration Runtime all'interno di Azure Data Factory rete virtuale gestita e sfruttare gli endpoint privati per connettersi in modo sicuro agli archivi dati supportati. Il traffico tra la rete virtuale gestita e le origini dati attraversa la rete dorsale Microsoft e non è esposta alla rete pubblica.
-* **[Servizio attendibile](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** : Archiviazione di Azure (BLOB, ADLS Gen2) supporta la configurazione del firewall, che consente di selezionare servizi della piattaforma Azure attendibili per accedere in modo sicuro all'account di archiviazione. Servizi attendibili impone l'autenticazione Identità gestita, con cui si garantisce che nessun'altra data factory possa connettersi a questa risorsa di archiviazione, a meno che non sia autorizzata tramite la relativa identità gestita. Per informazioni più dettagliate, vedere **[questo blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Questa strategia, quindi, è estremamente sicura ed è consigliata. 
+* **[Servizio attendibile](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** : Archiviazione di Azure (BLOB, ADLS Gen2) supporta la configurazione del firewall, che consente di selezionare servizi della piattaforma Azure attendibili per accedere in modo sicuro all'account di archiviazione. Servizi attendibili impone l'autenticazione dell'identità gestita, che garantisce che nessun'altra data factory possa connettersi a questa risorsa di archiviazione, a meno che non sia stata approvata usando l'identità gestita. Per informazioni più dettagliate, vedere **[questo blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Questa strategia, quindi, è estremamente sicura ed è consigliata. 
 * **IP statico univoco**: è necessario configurare un runtime di integrazione self-hosted per ottenere un indirizzo IP statico per i connettori di Data Factory. Questo meccanismo offre la possibilità di bloccare l'accesso da qualsiasi altro indirizzo IP. 
 * **[Intervallo IP statico](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** : è possibile usare gli indirizzi IP di Azure Integration Runtime per aggiungerli come elenco di IP consentiti nella risorsa di archiviazione (ad esempio, S3, Salesforce e così via). Questa strategia non solo limita il numero di indirizzi IP che possono connettersi agli archivi dati, ma si basa anche sulle regole di autenticazione/autorizzazione.
-* **[Tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** : un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure, ad esempio Azure Data Factory. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Questa strategia è particolarmente utile quando si stabilisce l'accesso ai dati in archivi dati IaaS ospitati nella rete virtuale.
+* **[Tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** : un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure, ad esempio Azure Data Factory. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. È utile quando si filtra l'accesso ai dati negli archivi dati ospitati in IaaS nella rete virtuale.
 * **Consenti Servizi di Azure**: alcuni servizi offrono la possibilità di autorizzare tutti i servizi di Azure a connettersi (scegliendo questa opzione). 
 
 Per ulteriori informazioni sui meccanismi di sicurezza di rete supportati negli archivi dati in Azure Integration Runtime e Integration Runtime indipendenti, vedere sotto due tabelle.  

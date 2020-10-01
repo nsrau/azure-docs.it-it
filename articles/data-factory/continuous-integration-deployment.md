@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: e1b9aacf96249c3e102c6a3dbf87d8ac1ff20be6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 6b091406b15db036007ba6a11049ee63ffe99cf0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533316"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616896"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -461,7 +461,13 @@ Di seguito è riportato il modello di parametrizzazione predefinito corrente. Se
                 }
             }
         }
+    },
+    "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints": {
+        "properties": {
+            "*": "="
+        }
     }
+}
 ```
 
 ### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>Esempio: parametrizzazione di un ID cluster interattivo di Azure Databricks esistente
@@ -553,7 +559,7 @@ L'esempio seguente illustra come aggiungere un singolo valore al modello di para
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-            "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -636,6 +642,8 @@ Se si usa l'integrazione di Git con la data factory e si dispone di una pipeline
 -   **Script pre-distribuzione e post-distribuzione**. Prima del passaggio di distribuzione di Resource Manager in CI/CD, è necessario completare determinate attività, ad esempio l'arresto e il riavvio dei trigger e l'esecuzione della pulizia. È consigliabile usare gli script di PowerShell prima e dopo l'attività di distribuzione. Per altre informazioni, vedere [Aggiornamento di trigger attivi](#updating-active-triggers). Il team della data factory ha [fornito uno script](#script) da usare alla fine di questa pagina.
 
 -   **Runtime di integrazione e condivisione**. I runtime di integrazione non cambiano spesso e sono simili in tutte le fasi di CI/CD. Di conseguenza, Data Factory prevede che l'utente abbia lo stesso nome e lo stesso tipo di runtime di integrazione in tutte le fasi di CI/CD. Se si desidera condividere runtime di integrazione in tutte le fasi, è consigliabile usare una factory ternaria per contenere solo i runtime di integrazione condivisi. È possibile usare questa factory condivisa in tutti gli ambienti come tipo di runtime di integrazione collegato.
+
+-   **Distribuzione di endpoint privati gestiti**. Se un endpoint privato esiste già in una factory e si prova a distribuire un modello ARM contenente un endpoint privato con lo stesso nome ma con le proprietà modificate, la distribuzione avrà esito negativo. In altre parole, è possibile distribuire correttamente un endpoint privato purché abbia le stesse proprietà di quello già esistente nella Factory. Se una proprietà è diversa tra ambienti, è possibile eseguirne l'override parametrizzazione tale proprietà e specificando il rispettivo valore durante la distribuzione.
 
 -   **Insieme di credenziali delle chiavi**. Quando si usano servizi collegati le cui informazioni di connessione vengono archiviate in Azure Key Vault, è consigliabile conservare insiemi di credenziali delle chiavi separati per ambienti diversi. È anche possibile configurare i livelli di autorizzazione separati per ogni insieme di credenziali delle chiavi. Ad esempio, è possibile che non si voglia che i membri del team siano autorizzati ad accedere ai segreti di produzione. Se si segue questo approccio, è consigliabile mantenere gli stessi nomi dei segreti in tutte le fasi. Se si mantengono gli stessi nomi dei segreti, non è necessario parametrizzare ogni stringa di connessione negli ambienti CI/CD, perché l'unica cosa che cambia è il nome dell'insieme di credenziali delle chiavi, che è un parametro separato.
 

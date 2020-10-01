@@ -3,26 +3,45 @@ title: Configurare CI/CD con GitHub Actions
 description: Informazioni su come distribuire il codice nel servizio app di Azure da una pipeline CI/CD con GitHub Actions. Personalizzare le attività di compilazione ed eseguire distribuzioni complesse.
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: devx-track-python
-ms.openlocfilehash: 54e4ce409eb9f2a6bedd7861b3e268311f886b49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: devx-track-python, github-actions-azure
+ms.openlocfilehash: 2d28d8f1f09814822b29e9d45d4e75283c8955cc
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273246"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618744"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Eseguire la distribuzione nel servizio app usando GitHub Actions
 
-[GitHub Actions](https://help.github.com/en/articles/about-github-actions) offre la flessibilità necessaria per creare un flusso di lavoro automatizzato del ciclo di vita di sviluppo software. Con le azioni del servizio app di Azure per GitHub è possibile automatizzare il flusso di lavoro per la distribuzione nel [servizio app di Azure](overview.md) usando GitHub Actions.
+Inizia a usare le [azioni di GitHub](https://help.github.com/en/articles/about-github-actions) per automatizzare il flusso di lavoro e distribuirlo in [app Azure servizio](overview.md) da GitHub. 
 
-> [!IMPORTANT]
-> GitHub Actions è attualmente in versione beta. È prima di tutto necessario [iscriversi per partecipare all'anteprima](https://github.com/features/actions) usando l'account GitHub.
-> 
+## <a name="prerequisites"></a>Prerequisiti 
+
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Un account GitHub. Se non si ha un accesso, iscriversi [gratuitamente](https://github.com/join).  
+- Un'app di servizio app Azure funzionante. 
+    - .NET: [creare un'app web ASP.NET Core in Azure](quickstart-dotnetcore.md)
+    - ASP.NET: [creare un'app web ASP.NET Framework in Azure](quickstart-dotnet-framework.md)
+    - JavaScript: [creare un'app web Node.js nel servizio app Azure](quickstart-nodejs.md)  
+    - Java: [creare un'app Java nel servizio app Azure](quickstart-java.md)
+    - Python: [creare un'app Python nel servizio app Azure](quickstart-python.md)
+
+## <a name="workflow-file-overview"></a>Panoramica dei file di flusso di lavoro
+
+App Azure file del flusso di lavoro del servizio sono disponibili in tre sezioni:
 
 Un flusso di lavoro viene definito da un file YAML (con estensione yml) nel percorso `/.github/workflows/` del repository. Questa definizione contiene i vari passaggi e i parametri che costituiscono il flusso di lavoro.
+
+Il file è costituito da tre sezioni:
+
+|Sezione  |Attività  |
+|---------|---------|
+|**autenticazione** | 1. definire un'entità servizio o un profilo di pubblicazione. <br /> 2. creare un segreto GitHub. |
+|**Build** | 1. configurare l'ambiente. <br /> 2. compilare l'app Web. |
+|**Distribuzione** | 1. distribuire l'app Web. |
 
 ## <a name="use-the-deployment-center"></a>Usare il centro distribuzione
 
@@ -38,21 +57,29 @@ Un flusso di lavoro viene definito da un file YAML (con estensione yml) nel perc
 
 Verrà eseguito il commit del file del flusso di lavoro nel repository. Il flusso di lavoro per compilare e distribuire l'app viene avviato immediatamente.
 
-## <a name="add-the-workflow-manually"></a>Aggiungere manualmente il flusso di lavoro
+## <a name="set-up-a-work-manually"></a>Configurare manualmente un lavoro
 
-Per un flusso di lavoro del servizio app di Azure, il file è costituito da tre sezioni:
-
-|Sezione  |Attività  |
-|---------|---------|
-|**autenticazione** | 1. definire un'entità servizio. <br /> 2. creare un segreto GitHub. |
-|**Build** | 1. configurare l'ambiente. <br /> 2. compilare l'app Web. |
-|**Distribuzione** | 1. distribuire l'app Web. |
+È anche possibile distribuire un flusso di lavoro senza usare il centro distribuzione. A tale scopo, sarà necessario prima generare le credenziali di distribuzione. 
 
 ## <a name="generate-deployment-credentials"></a>Genera credenziali di distribuzione
 
-# <a name="user-level-credentials"></a>[Credenziali a livello di utente](#tab/userlevel)
+Il metodo consigliato per l'autenticazione con app Azure Services per le azioni di GitHub è con un profilo di pubblicazione. È anche possibile eseguire l'autenticazione con un'entità servizio, ma il processo richiede più passaggi. 
 
-È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) usando il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) nell'[interfaccia della riga di comando di Azure](/cli/azure/). È possibile eseguire questo comando usando [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova**.
+Salvare la credenziale del profilo di pubblicazione o l'entità servizio come [segreto GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) per l'autenticazione con Azure. Si accederà al segreto all'interno del flusso di lavoro. 
+
+# <a name="publish-profile"></a>[Profilo di pubblicazione](#tab/applevel)
+
+Un profilo di pubblicazione è una credenziale a livello di app. Configurare il profilo di pubblicazione come segreto GitHub. 
+
+1. Passare al servizio app nel portale di Azure. 
+
+1. Nella pagina **Panoramica** selezionare **Ottieni profilo di pubblicazione**.
+
+1. Salvare il file scaricato. Il contenuto del file verrà usato per creare un segreto GitHub.
+
+# <a name="service-principal"></a>[Entità servizio](#tab/userlevel)
+
+È possibile creare un' [entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il comando [AZ ad SP create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) nell'interfaccia della riga di comando di [Azure](/cli/azure/). Eseguire questo comando con [Azure cloud Shell](https://shell.azure.com/) nel portale di Azure o selezionando il pulsante **prova** .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -75,17 +102,26 @@ Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione, il nome
 > [!IMPORTANT]
 > È sempre consigliabile concedere l'accesso minimo. L'ambito nell'esempio precedente è limitato all'app del servizio app specifica e non all'intero gruppo di risorse.
 
-# <a name="app-level-credentials"></a>[Credenziali a livello di app](#tab/applevel)
-
-È possibile usare le credenziali a livello di app usando il profilo di pubblicazione per l'app. Passare alla pagina di gestione dell'app nel portale. Nella pagina **Panoramica** fare clic sull'opzione **Ottieni profilo di pubblicazione** .
-
-Il contenuto del file sarà necessario in un secondo momento.
-
 ---
 
 ## <a name="configure-the-github-secret"></a>Configurare il segreto di GitHub
 
-# <a name="user-level-credentials"></a>[Credenziali a livello di utente](#tab/userlevel)
+
+# <a name="publish-profile"></a>[Profilo di pubblicazione](#tab/applevel)
+
+In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto**.
+
+Per usare le [credenziali a livello di app](#generate-deployment-credentials), incollare il contenuto del file del profilo di pubblicazione scaricato nel campo del valore del segreto. Denominare il segreto `AZURE_WEBAPP_PUBLISH_PROFILE` .
+
+Quando si configura il flusso di lavoro di GitHub, si usa il `AZURE_WEBAPP_PUBLISH_PROFILE` nell'azione Distribuisci app Web di Azure. Ad esempio:
+    
+```yaml
+- uses: azure/webapps-deploy@v2
+  with:
+    publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+```
+
+# <a name="service-principal"></a>[Entità servizio](#tab/userlevel)
 
 In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto**.
 
@@ -99,20 +135,6 @@ Quando si configura il file del flusso di lavoro in un secondo momento, si usa i
     creds: ${{ secrets.AZURE_CREDENTIALS }}
 ```
 
-# <a name="app-level-credentials"></a>[Credenziali a livello di app](#tab/applevel)
-
-In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto**.
-
-Per usare le [credenziali a livello di app](#generate-deployment-credentials), incollare il contenuto del file del profilo di pubblicazione scaricato nel campo del valore del segreto. Assegnare al segreto il nome come `azureWebAppPublishProfile` .
-
-Quando si configura il file del flusso di lavoro in un secondo momento, si usa il segreto per l'input `publish-profile` dell'azione Distribuisci app Web di Azure. Ad esempio:
-    
-```yaml
-- uses: azure/webapps-deploy@v2
-  with:
-    publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-```
-
 ---
 
 ## <a name="set-up-the-environment"></a>Configurare l'ambiente
@@ -122,36 +144,29 @@ La configurazione dell'ambiente può essere eseguita con una delle azioni di ins
 |**Lingua**  |**Azione di installazione**  |
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
+|**ASP.NET**     | `actions/setup-dotnet` |
 |**Java**     | `actions/setup-java` |
 |**JavaScript** | `actions/setup-node` |
 |**Python**     | `actions/setup-python` |
 
-Gli esempi seguenti illustrano la parte del flusso di lavoro che configura l'ambiente per i vari linguaggi supportati:
-
-**JavaScript**
-
-```yaml
-    - name: Setup Node 10.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-```
-**Python**
-
-```yaml
-    - name: Setup Python 3.6
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.6
-```
+Negli esempi seguenti viene illustrato come configurare l'ambiente per le diverse lingue supportate:
 
 **.NET**
 
 ```yaml
-    - name: Setup Dotnet 2.2.300
+    - name: Setup Dotnet 3.3.x
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '2.2.300'
+        dotnet-version: '3.3.x'
+```
+
+**ASP.NET**
+
+```yaml
+    - name: Install Nuget
+      uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: ${{ env.NUGET_VERSION}}
 ```
 
 **Java**
@@ -160,70 +175,101 @@ Gli esempi seguenti illustrano la parte del flusso di lavoro che configura l'amb
     - name: Setup Java 1.8.x
       uses: actions/setup-java@v1
       with:
-        # If your pom.xml <maven.compiler.source> version is not in 1.8.x
-        # Please change the Java version to match the version in pom.xml <maven.compiler.source>
+        # If your pom.xml <maven.compiler.source> version is not in 1.8.x,
+        # change the Java version to match the version in pom.xml <maven.compiler.source>
         java-version: '1.8.x'
 ```
-
-## <a name="build-the-web-app"></a>Compilare l'app Web
-
-Questo dipende dal linguaggio. Per i linguaggi supportati dal servizio app di Azure, questa sezione rappresenta la procedura di compilazione standard per ogni linguaggio.
-
-Gli esempi seguenti illustrano la parte del flusso di lavoro che compila l'app Web, nei vari linguaggi supportati.
 
 **JavaScript**
 
 ```yaml
-    - name: 'Run npm'
-      shell: bash
-      run: |
-        # If your web app project is not located in your repository's root
-        # Please change your directory for npm in pushd
-        pushd .
-        npm install
-        npm run build --if-present
-        npm run test --if-present
-        popd
-```
+env:
+  NODE_VERSION: '14.x'                # set this to the node version to use
 
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+```
 **Python**
 
 ```yaml
-    - name: 'Run pip'
-      shell: bash
-      run: |
-        # If your web app project is not located in your repository's root
-        # Please change your directory for pip in pushd
-        pushd .
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt --target=".python_packages/lib/python3.6/site-packages"
-        popd
+    - name: Setup Python 3.x 
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.x
 ```
+
+## <a name="build-the-web-app"></a>Compilare l'app Web
+
+Il processo di compilazione di un'app Web e la distribuzione di app Azure servizio cambiano a seconda del linguaggio. 
+
+Negli esempi seguenti viene illustrata la parte del flusso di lavoro che compila l'app Web, in diverse lingue supportate.
+
+Per tutte le lingue, è possibile impostare la directory radice dell'app Web con `working-directory` . 
 
 **.NET**
 
+La variabile `AZURE_WEBAPP_PACKAGE_PATH` di ambiente imposta il percorso del progetto dell'app Web. 
+
 ```yaml
-    - name: 'Run dotnet build'
-      shell: bash
-      run: |
-        # If your web app project is not located in your repository's root
-        # Please consider using pushd to change your path
-        pushd .
-        dotnet build --configuration Release --output ./output
-        popd
+- name: dotnet build and publish
+  run: |
+    dotnet restore
+    dotnet build --configuration Release
+    dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+```
+**ASP.NET**
+
+È possibile ripristinare le dipendenze NuGet ed eseguire MSBuild con `run` . 
+
+```yaml
+- name: NuGet to restore dependencies as well as project-specific tools that are specified in the project file
+  run: nuget restore
+
+- name: Add msbuild to PATH
+  uses: microsoft/setup-msbuild@v1.0.0
+
+- name: Run msbuild
+  run: msbuild .\SampleWebApplication.sln
 ```
 
 **Java**
 
 ```yaml
-    - uses: actions/checkout@v1
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+- name: Build with Maven
+  run: mvn package --file pom.xml
 ```
+
+**JavaScript**
+
+Per Node.js, è possibile impostare `working-directory` o modificare per la directory NPM in `pushd` . 
+
+```yaml
+- name: npm install, build, and test
+  run: |
+    npm install
+    npm run build --if-present
+    npm run test --if-present
+  working-directory: my-app-folder # set to the folder with your app if it is not the root directory
+```
+
+**Python**
+
+```yaml
+- name: Install dependencies
+  run: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+```
+
+
 ## <a name="deploy-to-app-service"></a>Eseguire la distribuzione nel servizio app
 
 Per distribuire il codice in un'app del servizio app, usare l'azione `azure/webapps-deploy@v2`. Questa azione ha quattro parametri:
@@ -232,17 +278,377 @@ Per distribuire il codice in un'app del servizio app, usare l'azione `azure/weba
 |---------|---------|
 | **app-name** | (Obbligatorio) Nome dell'app del servizio app | 
 | **publish-profile** | (Facoltativo) Contenuto del file del profilo di pubblicazione con segreti Distribuzione Web |
-| **package** | (Facoltativo) Percorso del pacchetto o della cartella. *.zip, *.war, *.jar o una cartella per la distribuzione |
-| **slot-name** | (Facoltativo) Immettere uno slot esistente diverso dallo slot di produzione |
+| **package** | (Facoltativo) Percorso del pacchetto o della cartella. Il percorso può includere *. zip, *. War, *. jar o una cartella da distribuire |
+| **slot-name** | Opzionale Immettere uno slot esistente diverso dallo [slot](deploy-staging-slots.md) di produzione |
 
-# <a name="user-level-credentials"></a>[Credenziali a livello di utente](#tab/userlevel)
 
-Di seguito è riportato un flusso di lavoro di esempio per la distribuzione e la compilazione di un'app Node.js in Azure usando un'entità servizio di Azure. Si noti il modo in `creds` cui l'input fa riferimento al `AZURE_CREDENTIALS` segreto creato in precedenza.
+# <a name="publish-profile"></a>[Profilo di pubblicazione](#tab/applevel)
+
+### <a name="net-core"></a>.NET Core
+
+Consente di compilare e distribuire un'app .NET Core in Azure usando un profilo di pubblicazione di Azure. L' `publish-profile` input fa riferimento al `AZURE_WEBAPP_PUBLISH_PROFILE` segreto creato in precedenza.
 
 ```yaml
+name: .NET Core CI
+
+on: [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-app-name    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repo
+      - uses: actions/checkout@master
+      
+      # Setup .NET Core SDK
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }} 
+      
+      # Run dotnet build and publish
+      - name: dotnet build and publish
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
+          dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+          
+      # Deploy to Azure Web apps
+      - name: 'Run Azure webapp deploy action using publish profile credentials'
+        uses: azure/webapps-deploy@v2
+        with: 
+          app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
+```
+
+### <a name="aspnet"></a>ASP.NET
+
+Compilare e distribuire un'app MVC ASP.NET che usa NuGet e `publish-profile` per l'autenticazione. 
+
+
+```yaml
+name: Deploy ASP.NET MVC App deploy to Azure Web App
+
+on: [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-app    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  NUGET_VERSION: '5.3.x'           # set this to the dot net version to use
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+
+    - uses: actions/checkout@master  
+    
+    - name: Install Nuget
+      uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: ${{ env.NUGET_VERSION}}
+    - name: NuGet to restore dependencies as well as project-specific tools that are specified in the project file
+      run: nuget restore
+  
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.0
+
+    - name: Run MSBuild
+      run: msbuild .\SampleWebApplication.sln
+       
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
+        package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/SampleWebApplication/'
+```
+
+### <a name="java"></a>Java
+
+Consente di compilare e distribuire un'app Java Spring in Azure usando un profilo di pubblicazione di Azure. L' `publish-profile` input fa riferimento al `AZURE_WEBAPP_PUBLISH_PROFILE` segreto creato in precedenza.
+
+```yaml
+name: Java CI with Maven
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+      working-directory: my-app-path
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: my-app-name
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: my/target/*.jar
+```
+
+Per distribuire un `war` anziché un `jar` , modificare il `package` valore. 
+
+
+```yaml
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: my-app-name
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: my/target/*.war
+```
+
+### <a name="javascript"></a>JavaScript 
+
+Consente di compilare e distribuire un'app Node.js in Azure usando il profilo di pubblicazione dell'app. L' `publish-profile` input fa riferimento al `AZURE_WEBAPP_PUBLISH_PROFILE` segreto creato in precedenza.
+
+```yaml
+# File: .github/workflows/workflow.yml
+name: JavaScript CI
+
+on: [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-app-name   # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '14.x'                # set this to the node version to use
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    - name: npm install, build, and test
+      run: |
+        # Build and test the project, then
+        # deploy to Azure Web App.
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+      working-directory: my-app-path
+    - name: 'Deploy to Azure WebApp'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+```
+
+### <a name="python"></a>Python 
+
+Consente di compilare e distribuire un'app Python in Azure usando il profilo di pubblicazione dell'app. Si noti il modo in `publish-profile` cui l'input fa riferimento al `AZURE_WEBAPP_PUBLISH_PROFILE` segreto creato in precedenza.
+
+```yaml
+name: Python CI
+
+on:
+  [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-web-app # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Building web app
+      uses: azure/appservice-build@v2-beta
+    - name: Deploy web App using GH Action azure/webapps-deploy
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+```
+
+# <a name="service-principal"></a>[Entità servizio](#tab/userlevel)
+
+### <a name="net-core"></a>.NET Core 
+
+Creare e distribuire un'app .NET Core in Azure usando un'entità servizio di Azure. Si noti il modo in `creds` cui l'input fa riferimento al `AZURE_CREDENTIALS` segreto creato in precedenza.
+
+
+```yaml
+name: .NET Core
+
+on: [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-app    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repo
+      - uses: actions/checkout@master
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      
+      # Setup .NET Core SDK
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }} 
+      
+      # Run dotnet build and publish
+      - name: dotnet build and publish
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
+          dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+          
+      # Deploy to Azure Web apps
+      - name: 'Run Azure webapp deploy action using publish profile credentials'
+        uses: azure/webapps-deploy@v2
+        with: 
+          app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
+      
+      - name: logout
+        run: |
+          az logout
+```
+
+### <a name="aspnet"></a>ASP.NET
+
+Creare e distribuire un'app ASP.NET MVC in Azure usando un'entità servizio di Azure. Si noti il modo in `creds` cui l'input fa riferimento al `AZURE_CREDENTIALS` segreto creato in precedenza.
+
+```yaml
+name: Deploy ASP.NET MVC App deploy to Azure Web App
+
+on: [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-app    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  NUGET_VERSION: '5.3.x'           # set this to the dot net version to use
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+
+    # checkout the repo
+    - uses: actions/checkout@master  
+    
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Install Nuget
+      uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: ${{ env.NUGET_VERSION}}
+    - name: NuGet to restore dependencies as well as project-specific tools that are specified in the project file
+      run: nuget restore
+  
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.0
+
+    - name: Run MSBuild
+      run: msbuild .\SampleWebApplication.sln
+       
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+        package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/SampleWebApplication/'
+  
+    # Azure logout 
+    - name: logout
+      run: |
+        az logout
+```
+
+### <a name="java"></a>Java 
+
+Creare e distribuire un'app Java Spring in Azure usando un'entità servizio di Azure. Si noti il modo in `creds` cui l'input fa riferimento al `AZURE_CREDENTIALS` segreto creato in precedenza.
+
+```yaml
+name: Java CI with Maven
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+      working-directory: complete
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: my-app-name
+        package: my/target/*.jar
+
+    # Azure logout 
+    - name: logout
+      run: |
+        az logout
+```
+
+### <a name="javascript"></a>JavaScript 
+
+Creare e distribuire un'app Node.js in Azure usando un'entità servizio di Azure. Si noti il modo in `creds` cui l'input fa riferimento al `AZURE_CREDENTIALS` segreto creato in precedenza.
+
+```yaml
+name: JavaScript CI
+
 on: [push]
 
 name: Node.js
+
+env:
+  AZURE_WEBAPP_NAME: my-app   # set this to your application's name
+  NODE_VERSION: '14.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
@@ -256,21 +662,23 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
-    - name: Setup Node 10.x
+    - name: Setup Node ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
-        node-version: '10.x'
+        node-version: ${{ env.NODE_VERSION }}
     
     - name: 'npm install, build, and test'
       run: |
         npm install
         npm run build --if-present
         npm run test --if-present
+      working-directory:  my-app-path
                
     # deploy web app using Azure credentials
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'node-rn'
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
     # Azure logout 
     - name: logout
@@ -278,39 +686,48 @@ jobs:
         az logout
 ```
 
-# <a name="app-level-credentials"></a>[Credenziali a livello di app](#tab/applevel)
+### <a name="python"></a>Python 
 
-Di seguito è riportato il flusso di lavoro di esempio per compilare e distribuire un'app Node.js in Azure usando il profilo di pubblicazione dell'app. Si noti il modo in `publish-profile` cui l'input fa riferimento al `azureWebAppPublishProfile` segreto creato in precedenza.
+Creare e distribuire un'app Python in Azure usando un'entità servizio di Azure. Si noti il modo in `creds` cui l'input fa riferimento al `AZURE_CREDENTIALS` segreto creato in precedenza.
 
 ```yaml
-# File: .github/workflows/workflow.yml
+name: Python application
 
-on: push
+on:
+  [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-app # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-    # checkout the repo
-    - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
+    - uses: actions/checkout@v2
     
-    - name: Setup Node 10.x
-      uses: actions/setup-node@v1
+    - uses: azure/login@v1
       with:
-        node-version: '10.x'
-    - name: 'npm install, build, and test'
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+    - name: Install dependencies
       run: |
-        npm install
-        npm run build --if-present
-        npm run test --if-present
-       
-    - name: 'Run Azure webapp deploy action using publish profile credentials'
-          uses: azure/webapps-deploy@v2
-          with: 
-            app-name: node-rn
-            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Deploy web App using GH Action azure/webapps-deploy
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+    - name: logout
+      run: |
+        az logout
 ```
+
 
 ---
 

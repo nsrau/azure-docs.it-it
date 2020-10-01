@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: e6b12c2bac4a9732f868f6a6ac3491ef993f54c3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 61085a5d28fcd74bbf6a393ddc0731e36094a63f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976556"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617499"
 ---
 # <a name="limitations"></a>Limitazioni
 
@@ -28,10 +28,12 @@ Diverse funzionalità prevedono delle limitazioni in termini di dimensioni, cont
 
 ## <a name="geometry"></a>Geometria
 
-* Totale materiali consentiti in un asset: 65.535. Per ulteriori informazioni, vedere [deduplicazione materiali](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) .
-* Dimensione massima di una singola trama: 16.384 x 16.384. Le trame di origine più grandi verranno ridimensionate in base al processo di conversione.
+* **Animazione:** Le animazioni sono limitate all'animazione delle singole trasformazioni degli oggetti di gioco. Le animazioni scheletriche con animazioni di skinning o vertici non sono supportate. Le tracce di animazione dal file di asset di origine non vengono mantenute. Al contrario, le animazioni di trasformazione degli oggetti devono essere gestite dal codice client.
+* **Shader personalizzati:** La creazione di shader personalizzati non è supportata. È possibile utilizzare solo [materiali colori](../overview/features/color-materials.md) o [materiali di PBR](../overview/features/pbr-materials.md) predefiniti.
+* **Numero massimo di materiali distinti** in un asset: 65.535. Per ulteriori informazioni sulla riduzione del numero di materiali automatico, vedere il capitolo [deduplicazione materiali](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) .
+* **Dimensione massima di una singola trama**: 16.384 x 16.384. Le trame di origine di dimensioni maggiori verranno ridotte in base al processo di conversione.
 
-## <a name="overall-number-of-polygons"></a>Numero complessivo di poligoni
+### <a name="overall-number-of-polygons"></a>Numero complessivo di poligoni
 
 Il numero consentito di poligoni per tutti i modelli caricati dipende dalle dimensioni della macchina virtuale passate all'[API REST di gestione della sessione](../how-tos/session-rest-api.md#create-a-session):
 
@@ -40,7 +42,7 @@ Il numero consentito di poligoni per tutti i modelli caricati dipende dalle dime
 |standard| 20 milioni |
 |premium| nessun limite |
 
-Per informazioni più dettagliate su questa limitazione, vedere il capitolo [dimensioni server](../reference/vm-sizes.md) .
+Per informazioni dettagliate su questa limitazione, vedere il capitolo [dimensioni del server](../reference/vm-sizes.md) .
 
 ## <a name="platform-limitations"></a>Limitazioni della piattaforma
 
@@ -48,6 +50,6 @@ Per informazioni più dettagliate su questa limitazione, vedere il capitolo [dim
 
 * Win32/x64 è l'unica piattaforma Win32 supportata. Win32/x86 non è supportato.
 
-**Hololens 2**
+**HoloLens 2**
 
 * La funzionalità di [rendering dalla fotocamera PV](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) non è supportato.

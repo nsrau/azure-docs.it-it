@@ -6,17 +6,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 05/25/2020
-ms.openlocfilehash: 84df755d4a89b83a0842a74a619fad5275396dec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc1532fab23ec520722ea71d814496e786b91651
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711358"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617921"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fusi orari in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -241,7 +241,7 @@ L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gr
 | Ora solare Samoa | (UTC + 13.00) Samoa |
 | Ora solare isole line | (UTC + 14:00) Isola di Kiritimati |
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedi anche 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)

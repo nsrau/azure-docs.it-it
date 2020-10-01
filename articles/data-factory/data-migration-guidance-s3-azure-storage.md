@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 5de1ef97050f37bb44d87ebae1d95df365952ace
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 963a541835c5e45c5642f2d516da53fd165142b4
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984888"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616925"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Usare Azure Data Factory per eseguire la migrazione dei dati da un archivio dati Amazon S3 ad Archiviazione di Azure 
 
@@ -74,7 +74,7 @@ Eseguire la migrazione di dati mediante un collegamento privato:
 
 - In questa architettura, la migrazione dei dati viene eseguita mediante un collegamento peering privato tra AWS Direct Connect e Azure Express Route in modo che i dati non attraversino mai la rete Internet pubblica.  Richiede l'uso di VPC AWS e della rete virtuale di Azure. 
 - Per ottenere questa architettura è necessario installare il runtime di integrazione self-hosted di ADF su una macchina virtuale Windows nella rete virtuale di Azure.  È possibile aumentare manualmente le prestazioni delle macchine virtuali con runtime di integrazione self-hosted o aumentare le istanze in più macchine virtuali (fino a 4 nodi) per usare completamente la rete e le operazioni di I/O al secondo della larghezza di banda di archiviazione. 
-- Se è accettabile trasferire i dati tramite HTTPS, ma si vuole bloccare l'accesso di rete a un S3 di origine in un intervallo IP specifico, è possibile adottare una variante di questa architettura rimuovendo VPC AWS e sostituendo il collegamento privato con HTTPS.  Per poter disporre di un IP instradabile pubblicamente a scopo di inserimento nell'elenco elementi consentiti è necessario che il runtime di integrazione virtuale e self-hosted di Azure siano disponibili nella macchina virtuale Azure. 
+- Se è accettabile trasferire i dati tramite HTTPS, ma si vuole bloccare l'accesso di rete a un S3 di origine in un intervallo IP specifico, è possibile adottare una variante di questa architettura rimuovendo VPC AWS e sostituendo il collegamento privato con HTTPS.  È necessario che il runtime di integrazione virtuale e il runtime di integrazione self-hosted di Azure siano disponibili in una macchina virtuale di Azure, in modo da poter avere un indirizzo IP instradabile pubblicamente 
 - Con questa architettura è possibile ottenere sia la migrazione dei dati dello snapshot iniziale sia la migrazione dei dati differenziali. 
 
 ## <a name="implementation-best-practices"></a>Procedure consigliate dell'implementazione 

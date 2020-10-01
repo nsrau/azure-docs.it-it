@@ -10,16 +10,18 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 587a01f8b3d366f315813b70bb2ff83eeccd5be4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: abdc83019205fc39e1e85a53da7e49f8a7d4f11c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996458"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618727"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Fornire una chiave di crittografia per una richiesta all'archiviazione BLOB
 
 I client che effettuano richieste nell'archiviazione BLOB di Azure possono fornire una chiave di crittografia in base alle singole richieste. L'inclusione della chiave di crittografia nella richiesta offre un controllo granulare sulle impostazioni di crittografia per le operazioni di archiviazione BLOB. Le chiavi fornite dal cliente possono essere archiviate in Azure Key Vault o in un altro archivio chiavi.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="encrypting-read-and-write-operations"></a>Crittografia delle operazioni di lettura e scrittura
 

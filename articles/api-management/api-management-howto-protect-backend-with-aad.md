@@ -8,12 +8,13 @@ ms.service: api-management
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 285a99bd47fa94940187aa0a4406e773a254dcb4
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.custom: contperfq1
+ms.openlocfilehash: 9892c311651df39b882c3aa38596a905d22a42ec
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91612337"
+ms.locfileid: "91618778"
 ---
 # <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Proteggere il back-end di un'API Web in gestione API di Azure usando l'autorizzazione OAuth 2,0 con Azure AD 
 

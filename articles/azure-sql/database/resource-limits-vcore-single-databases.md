@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/21/2020
-ms.openlocfilehash: e67675d0d3fb5f96b35eba0085003b00595d8214
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1d9fc9f50ac21e2ea621e26ad2b1fe0f146116de
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325277"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618489"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limiti di risorse per i database singoli usando il modello di acquisto vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -550,8 +550,8 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Numero massimo di IOPS dati *|31.248|37.497|49.996|99.993|160.000|
 |Velocità massima log (MBps)|120|144|192|264|264|
-|Numero massimo di ruoli di lavoro simultanei (richieste)|2\.000|2400|3\.200|6.400|12.800|
-|Numero massimo di accessi simultanei|2\.000|2400|3\.200|6.400|12.800|
+|Numero massimo di ruoli di lavoro simultanei (richieste)|2.000|2400|3\.200|6.400|12.800|
+|Numero massimo di accessi simultanei|2.000|2400|3\.200|6.400|12.800|
 |Numero massimo di sessioni simultanee|30000|30000|30000|30000|30000|
 |Numero di repliche|4|4|4|4|4|
 |Zone di disponibilità multiple|No|No|No|No|No|

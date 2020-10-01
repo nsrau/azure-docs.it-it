@@ -2,18 +2,18 @@
 title: Come aggiornare monitoraggio di Azure per i contenitori per le metriche | Microsoft Docs
 description: Questo articolo descrive come aggiornare monitoraggio di Azure per i contenitori per abilitare la funzionalità metrica personalizzata che supporta l'esplorazione e l'invio di avvisi sulle metriche aggregate.
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 09/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d56a280bdef2058c28d596f6c259eb319d80b08e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6c420c91e20cc1cf9ab5e4f58bdd352ead3ba4d0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499960"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618146"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Come aggiornare Monitoraggio di Azure per contenitori per abilitare le metriche
 
-Il monitoraggio di Azure per i contenitori introduce il supporto per la raccolta di metriche dai nodi e dai cluster dei servizi Kubernetes di Azure (AKS) e li scrive nell'archivio delle metriche di monitoraggio di Azure. Questa modifica ha lo scopo di offrire una tempestività migliorata quando si presentano calcoli di aggregazione (AVG, Count, Max, min, Sum) nei grafici delle prestazioni, supporta l'aggiunta di grafici delle prestazioni in Dashboard portale di Azure e il supporto degli avvisi delle metriche.
+Il monitoraggio di Azure per i contenitori introduce il supporto per la raccolta di metriche dai nodi di Azure Kubernetes Services (AKS) e da Azure Arc abilitati per i cluster Kubernetes e i pod e la scrittura nell'archivio di metriche di monitoraggio di Azure. Questa modifica ha lo scopo di offrire una tempestività migliorata quando si presentano calcoli di aggregazione (AVG, Count, Max, min, Sum) nei grafici delle prestazioni, supporta l'aggiunta di grafici delle prestazioni in Dashboard portale di Azure e il supporto degli avvisi delle metriche.
 
 >[!NOTE]
 >Questa funzionalità non supporta attualmente i cluster OpenShift di Azure Red Hat.
@@ -27,9 +27,12 @@ Come parte di questa funzionalità sono abilitate le metriche seguenti:
 | Insights. container/Pod | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Come metrica *Pod* , includono quanto segue come Dimensions: controllerName, spazio dei nomi Kubernetes, nome, fase. |
 | Insights. contenitore/contenitori | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
-Per supportare queste nuove funzionalità, un nuovo agente in contenitori, versione **Microsoft/OMS: ciprod02212019**, è incluso nella versione. Le nuove distribuzioni di AKS includono automaticamente questa modifica di configurazione e le funzionalità. L'aggiornamento del cluster per supportare questa funzionalità può essere eseguito dalla portale di Azure, Azure PowerShell o con l'interfaccia della riga di comando di Azure. Con Azure PowerShell e l'interfaccia della riga di comando. È possibile abilitare questa operazione per cluster o per tutti i cluster nella sottoscrizione.
+Per supportare queste nuove funzionalità, è incluso un nuovo agente in contenitori nella versione **Microsoft/OMS: ciprod05262020** per AKS e Version **Microsoft/OMS: Ciprod09252020** for Azure Arc Enabled Kubernetes clusters. Le nuove distribuzioni di AKS includono automaticamente questa modifica di configurazione e le funzionalità. L'aggiornamento del cluster per supportare questa funzionalità può essere eseguito dalla portale di Azure, Azure PowerShell o con l'interfaccia della riga di comando di Azure. Con Azure PowerShell e l'interfaccia della riga di comando. È possibile abilitare questa operazione per cluster o per tutti i cluster nella sottoscrizione.
 
-Entrambi i processi assegnano il ruolo **server di pubblicazione metriche di monitoraggio** all'entità servizio del cluster o all'identità del servizio gestito assegnata dall'utente per il componente aggiuntivo di monitoraggio, in modo che i dati raccolti dall'agente possano essere pubblicati nella risorsa cluster. Il monitoraggio del server di pubblicazione ha l'autorizzazione solo per le metriche push alla risorsa, non può modificare alcuno stato, aggiornare la risorsa o leggere i dati. Per altre informazioni sul ruolo, vedere [monitoraggio delle metriche del ruolo di pubblicazione](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
+Entrambi i processi assegnano il ruolo **server di pubblicazione metriche di monitoraggio** all'entità servizio del cluster o all'identità del servizio gestito assegnata dall'utente per il componente aggiuntivo di monitoraggio, in modo che i dati raccolti dall'agente possano essere pubblicati nella risorsa cluster. Il monitoraggio del server di pubblicazione ha l'autorizzazione solo per le metriche push alla risorsa, non può modificare alcuno stato, aggiornare la risorsa o leggere i dati. Per altre informazioni sul ruolo, vedere [monitoraggio delle metriche del ruolo di pubblicazione](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher). Il requisito del ruolo server di pubblicazione metriche di monitoraggio non è applicabile ai cluster Kubernetes abilitati per Azure Arc.
+
+> [!IMPORTANT]
+> L'aggiornamento non è necessario per i cluster Kubernetes abilitati per Azure Arc perché avranno già la versione minima richiesta per l'agente.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,7 +40,7 @@ Prima di aggiornare il cluster, verificare quanto segue:
 
 * Le metriche personalizzate sono disponibili solo in un subset di aree di Azure. Un elenco di aree supportate è documentato [qui](../platform/metrics-custom-overview.md#supported-regions).
 
-* Si è un membro del ruolo **[proprietario](../../role-based-access-control/built-in-roles.md#owner)** sulla risorsa del cluster AKS per abilitare la raccolta delle metriche delle prestazioni personalizzate del nodo e del Pod.
+* Si è un membro del ruolo **[proprietario](../../role-based-access-control/built-in-roles.md#owner)** sulla risorsa del cluster AKS per abilitare la raccolta delle metriche delle prestazioni personalizzate del nodo e del Pod. Questo requisito non si applica ai cluster Kubernetes abilitati per Azure Arc.
 
 Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 

@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
-ms.openlocfilehash: 04f0fca06c2e50ef6d99d51c03e58b468a476e9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323108"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617639"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Determinare le dimensioni della subnet richieste & intervallo per Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ Il numero di istanze gestite che possono essere distribuite nella subnet di un V
 
 Quando si crea un'istanza gestita, Azure alloca un numero di macchine virtuali a seconda del livello selezionato durante il provisioning. Poiché queste macchine virtuali sono associate alla subnet, richiedono indirizzi IP. Per assicurare una disponibilità elevata durante le normali operazioni e la manutenzione del servizio, Azure può allocare ulteriori macchine virtuali. Di conseguenza, il numero di indirizzi IP necessari in una subnet è maggiore del numero di istanze gestite in tale subnet.
 
-Per impostazione predefinita, un'istanza gestita richiede almeno 32 indirizzi IP in una subnet. Di conseguenza, è possibile usare la subnet mask minima di/27 per definire gli intervalli di indirizzi IP della subnet. È consigliabile pianificare attentamente le dimensioni della subnet per le distribuzioni di istanze gestite. Gli input che devono essere presi in considerazione durante la pianificazione sono:
+Come da progettazione, un'istanza gestita necessita di un minimo di 32 indirizzi IP in una subnet. Di conseguenza, è possibile usare la subnet mask minima da /27 per definire gli intervalli IP della subnet. È consigliabile eseguire una pianificazione attenta delle dimensioni della subnet per le distribuzioni dell'istanza gestita. Gli input che devono essere presi in considerazione durante la pianificazione sono:
 
 - Numero di istanze gestite, inclusi i parametri di istanza seguenti:
   - livello di servizio

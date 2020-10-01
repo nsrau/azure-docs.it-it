@@ -1,5 +1,5 @@
 ---
-title: Creare una rete virtuale
+title: Crea rete virtuale
 titleSuffix: Azure SQL Managed Instance
 description: Questo articolo descrive come creare una rete virtuale configurata per supportare la distribuzione di Istanza gestita SQL di Azure.
 services: sql-database
@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 09/12/2019
-ms.openlocfilehash: 2688d6a3c339153c155a6ced8a555242a069769f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a23fc0b769727cab5a28d3d313a7791bcfa6eee
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323142"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617707"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-managed-instance"></a>Creare una rete virtuale per Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

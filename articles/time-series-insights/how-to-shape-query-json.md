@@ -7,16 +7,19 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1a7a88e0db38f399dc47c030f3b97f6b26f4da07
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: b5723433cca20c934d4cb5b129d77c1c6d65feef
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168236"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617112"
 ---
 # <a name="shape-json-to-maximize-query-performance-in-your-gen1-environment"></a>Formato JSON per ottimizzare le prestazioni delle query nell'ambiente Gen1
+
+> [!CAUTION]
+> Questo è un articolo di Gen1.
 
 Questo articolo fornisce indicazioni su come eseguire la modellazione di JSON per ottimizzare l'efficienza delle query Azure Time Series Insights.
 
@@ -184,7 +187,7 @@ Payload JSON di esempio:
 
 > - Le colonne **DeviceID** e **Series. TagId** vengono utilizzate come intestazioni di colonna per i vari dispositivi e tag in una flotta. L'uso di ogni attributo come rispettivo attributo limita la query a 594 (per gli ambienti S1) o 794 (per gli ambienti S2) il totale dei dispositivi con le altre sei colonne.
 > - Sono state evitate proprietà non necessarie per il motivo menzionato nel primo esempio.
-> - I dati di riferimento vengono usati per ridurre il numero di byte trasferiti in rete introducendo **DeviceID**, che viene usato per la coppia univoca di **MessageID** e **deviceLocation**. La serie di chiavi composite **. TagId** viene utilizzata per la coppia univoca di **tipo** e **unità**. La chiave composta consente di usare la coppia **DeviceID** e **Series. TagId** per fare riferimento a quattro valori: **MessageID, deviceLocation, Type** e **unit**. Questi dati vengono uniti in join con i dati di telemetria in fase di ingresso. Viene quindi archiviato in Azure Time Series Insights per l'esecuzione di query.
+> - I dati di riferimento vengono usati per ridurre il numero di byte trasferiti in rete introducendo **DeviceID**, che viene usato per la coppia univoca di **MessageID** e **deviceLocation**. La serie di chiavi composite **. TagId** viene utilizzata per la coppia univoca di **tipo** e **unità**. La chiave composta consente di usare la coppia  **DeviceID** e **Series. TagId** per fare riferimento a quattro valori: **MessageID, deviceLocation, Type** e **unit**. Questi dati vengono uniti in join con i dati di telemetria in fase di ingresso. Viene quindi archiviato in Azure Time Series Insights per l'esecuzione di query.
 > - Vengono utilizzati due livelli di annidamento, per il motivo citato nel primo esempio.
 
 ### <a name="for-both-scenarios"></a>Per entrambi gli scenari

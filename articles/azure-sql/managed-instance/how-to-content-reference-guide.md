@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 04/16/2019
-ms.openlocfilehash: 332b5198f046d0096e95e79e27cbc49408e6d136
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 208793d3ba8c3463abe892b368beb41d4b79f214
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325199"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617452"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Informazioni di riferimento sul contenuto del Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,7 +79,7 @@ In questo articolo è possibile trovare un riferimento al contenuto per diverse 
 
 - [Creare avvisi per l'istanza gestita](alerts-create.md)
 
-## <a name="operations"></a>Gestione operativa
+## <a name="operations"></a>Operazioni
 
 - [Failover manuale avviato dall'utente in SQL Istanza gestita](user-initiated-failover.md)
 
