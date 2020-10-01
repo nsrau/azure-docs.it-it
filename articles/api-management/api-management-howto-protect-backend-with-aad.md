@@ -1,27 +1,23 @@
 ---
-title: Proteggere un'API usando OAuth 2,0 con AAD e gestione API
+title: Proteggere il back-end dell'API in gestione API usando OAuth 2,0 e Azure AD
 titleSuffix: Azure API Management
-description: Informazioni su come proteggere il back-end di un'API Web con Azure Active Directory e Gestione API.
+description: Informazioni su come proteggere l'accesso al back-end di un'API Web in gestione API di Azure con l'autorizzazione utente OAuth 2,0 e Azure Active Directory
 services: api-management
-documentationcenter: ''
 author: miaojiang
-manager: dcscontentpm
-editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
-ms.date: 06/24/2020
+ms.date: 09/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 285a99bd47fa94940187aa0a4406e773a254dcb4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243410"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612337"
 ---
-# <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteggere un'API usando OAuth 2.0 con Azure Active Directory e Gestione API
+# <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Proteggere il back-end di un'API Web in gestione API di Azure usando l'autorizzazione OAuth 2,0 con Azure AD 
 
-Questa guida illustra come configurare l'istanza di Gestione API di Azure per proteggere un'API usando il protocollo OAuth 2.0 con Azure Active Directory (Azure AD). 
+Questa guida illustra come configurare l'istanza di [gestione API di Azure](api-management-key-concepts.md) per proteggere un'API usando il [protocollo OAuth 2,0 con Azure Active Directory (Azure ad)](../active-directory/develop/active-directory-v2-protocols.md). 
 
 > [!NOTE]
 > Questa funzionalità è disponibile nei livelli **Developer**, **Basic**, **standard**e **Premium** di gestione API.
@@ -46,9 +42,9 @@ Di seguito è riportata una rapida panoramica dei passaggi:
 
 ## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>Registrare un'applicazione in Azure AD per rappresentare l'API
 
-Per proteggere un'API con Azure AD, registrare prima un'applicazione in Azure AD che rappresenti l'API. 
+Per proteggere un'API con Azure AD, registrare prima un'applicazione in Azure AD che rappresenti l'API. La procedura seguente usa il portale di Azure per registrare l'applicazione. Per informazioni dettagliate sulla registrazione delle app, vedere [Guida introduttiva: configurare un'applicazione per esporre un'API Web](../active-directory/develop/quickstart-configure-app-expose-web-apis.md).
 
-1. Passare alla [portale di Azure](https://portal.azure.com) per registrare l'applicazione. Cercare e selezionare registrazioni per l' **app**.
+1. Passare alla [portale di Azure](https://portal.azure.com) per registrare l'applicazione. Cercare e selezionare **registrazioni app**.
 
 1. Selezionare **Nuova registrazione**. 
 
@@ -79,7 +75,7 @@ Per registrare un'altra applicazione in Azure AD per rappresentare la console pe
 
 1. Passare alla [portale di Azure](https://portal.azure.com) per registrare l'applicazione.
 
-1.  Cercare e selezionare registrazioni per l' **app**.
+1. Cercare e selezionare **registrazioni app**.
 
 1. Selezionare **Nuova registrazione**.
 
@@ -106,7 +102,7 @@ Quando viene creato il segreto, annotare il valore della chiave da usare in un p
 
 Ora che sono state registrate due applicazioni per rappresentare l'API e la console per sviluppatori, concedere le autorizzazioni per consentire all'app client di chiamare l'app back-end.  
 
-1. Passare alla [portale di Azure](https://portal.azure.com) per concedere le autorizzazioni all'applicazione client. Cercare e selezionare registrazioni per l' **app**.
+1. Passare alla [portale di Azure](https://portal.azure.com) per concedere le autorizzazioni all'applicazione client. Cercare e selezionare **registrazioni app**.
 
 1. Scegliere l'app client. Quindi nell'elenco di pagine per l'app selezionare autorizzazioni per le **API**.
 
@@ -168,7 +164,7 @@ Il passaggio successivo consiste nell'abilitare l'autorizzazione utente OAuth 2.
 
 1. Passare all'istanza di Gestione API e quindi ad **API**.
 
-1. Selezionare l'API da proteggere. Ad esempio, `Echo API`
+1. Selezionare l'API da proteggere. Ad esempio: `Echo API`.
 
 1. Passare a **Impostazioni**.
 

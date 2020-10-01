@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: e2f9430ae039cc54c3e6180eb8ea76791d17f67f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8eb163c95fb1426ebae8956d50f6d8f6aec6fd7f
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91285129"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612083"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Eseguire query di log in monitoraggio di Azure che si estendono su più aree di lavoro e app
 
@@ -143,5 +143,4 @@ applicationsScoping
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere [Analizzare i dati di log in Monitoraggio di Azure](log-query-overview.md) per una panoramica delle query di log e di come sono strutturati i dati di log di Monitoraggio di Azure.
-- Vedere [Query di log di Monitoraggio di Azure](query-language.md) per visualizzare tutte le risorse per le query di log di Monitoraggio di Azure.
 

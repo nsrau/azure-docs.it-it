@@ -10,13 +10,13 @@ ms.date: 03/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 17be7cb8e3330a9bd0391e0750f5e37ac64b0484
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f59e4238c983cdb336500a68c52730ae5346b1c7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971007"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612422"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinare quale modello della chiave di crittografia di archiviazione di Azure è in uso per l'account di archiviazione
 
@@ -33,7 +33,7 @@ Per altre informazioni sulle chiavi di crittografia, vedere [crittografia di arc
 
 Per determinare se un account di archiviazione USA chiavi gestite da Microsoft o chiavi gestite dal cliente per la crittografia, usare uno degli approcci seguenti.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per controllare il modello di crittografia per l'account di archiviazione usando il portale di Azure, seguire questa procedura:
 

@@ -4,14 +4,14 @@ description: Come connettere i client a un servizio cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 10f8e92138878381b5267742b8211df81e0c49d4
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e29d031bc3461c4adab87b1d784ef19c89c7c12d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232679"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613008"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montare la cache HPC di Azure
 
@@ -20,7 +20,7 @@ Dopo la creazione della cache, i client NFS possono accedervi con un semplice `m
 Il comando di montaggio è costituito da questi elementi:
 
 * Uno degli indirizzi di montaggio della cache (elencati nella pagina Panoramica della cache)
-* Percorso dello spazio dei nomi virtuale impostato al momento della creazione della destinazione di archiviazione
+* Un percorso dello spazio dei nomi virtuale impostato per la destinazione di archiviazione (elencato nella pagina spazio dei nomi della cache)
 * Percorso locale da usare nel client
 * Parametri di comando che ottimizzano la riuscita di questo tipo di montaggio NFS
 
@@ -40,8 +40,8 @@ Ad esempio, creare macchine virtuali client all'interno della stessa rete virtua
 
 Installare il software di utilità Linux appropriato per supportare il comando di montaggio NFS:
 
-* Per Red Hat Enterprise Linux o SuSE:`sudo yum install -y nfs-utils`
-* Per Ubuntu o Debian:`sudo apt-get install nfs-common`
+* Per Red Hat Enterprise Linux o SuSE: `sudo yum install -y nfs-utils`
+* Per Ubuntu o Debian: `sudo apt-get install nfs-common`
 
 ### <a name="create-a-local-path"></a>Creare un percorso locale
 
@@ -65,7 +65,7 @@ Seguire questa procedura per creare il comando di montaggio.
 
 1. Personalizzare il campo **percorso client** . Questo campo fornisce un comando di esempio che è possibile usare per creare un percorso locale nel client. Il client accede al contenuto dalla cache HPC di Azure in locale in questa directory.
 
-   Fare clic sul campo e modificare il comando in modo che contenga il nome della directory desiderata. Il nome viene visualizzato alla fine della stringa dopo`sudo mkdir -p`
+   Fare clic sul campo e modificare il comando in modo che contenga il nome della directory desiderata. Il nome viene visualizzato alla fine della stringa dopo `sudo mkdir -p`
 
    ![screenshot del campo percorso client con cursore posizionato alla fine](media/mount-edit-client.png)
 
@@ -81,7 +81,7 @@ Seguire questa procedura per creare il comando di montaggio.
 
    ![screenshot del campo percorsi dello spazio dei nomi con selettore aperto](media/mount-select-target.png)
 
-   È possibile visualizzare e modificare i percorsi dello spazio dei nomi virtuali nella pagina del portale destinazioni di archiviazione. Per informazioni, vedere [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md) .
+   È possibile visualizzare e modificare i percorsi dello spazio dei nomi virtuali nella pagina del portale **dello spazio dei nomi** . Leggere [configurare lo spazio dei nomi aggregato](add-namespace-paths.md) per vedere come.
 
    Per altre informazioni sulla funzionalità spazio dei nomi aggregato della cache HPC di Azure, vedere [pianificare lo spazio dei nomi aggregato](hpc-cache-namespace.md).
 
@@ -89,7 +89,7 @@ Seguire questa procedura per creare il comando di montaggio.
 
    Fare clic sul simbolo di copia sul lato destro del campo per copiarlo automaticamente negli Appunti.
 
-   ![screenshot del campo percorsi dello spazio dei nomi con selettore aperto](media/mount-command-copy.png)
+   ![screenshot del campo del comando di montaggio del prototipo che mostra il testo del passaggio del mouse per il pulsante "copia negli Appunti"](media/mount-command-copy.png)
 
 1. Usare il comando di montaggio copiato nel computer client per connetterlo alla cache HPC di Azure. È possibile eseguire il comando direttamente dalla riga di comando del client o includere il comando di montaggio in uno script o un modello di installazione client.
 
@@ -124,16 +124,16 @@ Per un montaggio client affidabile, passare le impostazioni e gli argomenti segu
 
 ### <a name="find-mount-command-components"></a>Trovare i componenti del comando di montaggio
 
-Se si desidera creare un comando di montaggio senza utilizzare la pagina **istruzioni di montaggio** , è possibile trovare gli indirizzi di montaggio nella pagina **Panoramica** della cache e i percorsi dello spazio dei nomi virtuali nella pagina **destinazione archiviazione** .
+Se si desidera creare un comando di montaggio senza utilizzare la pagina **istruzioni di montaggio** , è possibile trovare gli indirizzi di montaggio nella pagina **Panoramica** della cache e i percorsi dello spazio dei nomi virtuali nella pagina **spazio dei nomi** .
 
 ![screenshot della pagina Panoramica dell'istanza di cache HPC di Azure, con una casella di evidenziazione intorno all'elenco degli indirizzi di montaggio in basso a destra](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE]
 > Gli indirizzi di montaggio della cache corrispondono alle interfacce di rete all'interno della subnet della cache. In un gruppo di risorse queste schede di rete sono elencate con nomi che terminano con `-cluster-nic-` e un numero. Non modificare o eliminare queste interfacce oppure la cache non sarà più disponibile.
 
-I percorsi dello spazio dei nomi virtuali vengono visualizzati nella pagina dei dettagli di ogni destinazione di archiviazione. Fare clic su un nome di destinazione di archiviazione singolo per visualizzare i relativi dettagli, inclusi i percorsi dello spazio dei nomi aggregati associati.
+I percorsi dello spazio dei nomi virtuali vengono visualizzati nella pagina impostazioni **spazio dei nomi** della cache.
 
-![screenshot della pagina dei dettagli di una destinazione di archiviazione (intestazione "Aggiorna destinazione di archiviazione"). È presente una casella di evidenziazione intorno a una voce nella colonna Percorso spazio dei nomi virtuale della tabella](media/hpc-cache-view-namespace-paths.png)
+![screenshot delle impostazioni del portale > pagina dello spazio dei nomi con una casella di evidenziazione intorno alla prima colonna della tabella: "percorso dello spazio dei nomi"](media/view-namespace-paths.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,12 +3,12 @@ title: Acquisire eventi di streaming - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce una panoramica della funzionalità Acquisizione, che consente di acquisire gli eventi in streaming attraverso Hub eventi di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2302f31130b6179b187c17e2f44c5fa7cc50648b
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: 1b79db7a7f8d0fe03b21e005ef696d5fe55ac0a1
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667447"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613408"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Acquisire eventi tramite Hub eventi di Azure in Archiviazione BLOB di Azure o Azure Data Lake Storage
 Hub eventi di Azure consente di acquisire automaticamente i dati in streaming di Hub eventi in un account di [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) o [Azure Data Lake Storage Gen 1 o Gen 2](https://azure.microsoft.com/services/data-lake-store/) a scelta, con la possibilità di specificare un intervallo di tempo o di dimensioni. La configurazione di Acquisizione è rapida, non sono previsti costi amministrativi per l'esecuzione e viene ridimensionata automaticamente con le [unità elaborate](event-hubs-scalability.md#throughput-units) in Hub eventi. Acquisizione di Hub eventi è il modo più semplice per caricare i dati in streaming in Azure e consente di concentrarsi sull'elaborazione dei dati anziché sull'acquisizione.
@@ -18,6 +18,8 @@ Hub eventi di Azure consente di acquisire automaticamente i dati in streaming di
 
 Acquisizione di Hub eventi consente di elaborare pipeline in tempo reale e basate su batch nello stesso flusso. Ciò significa che è possibile compilare soluzioni che si adattano alle esigenze nel corso del tempo. Sia che si debbano compilare oggi sistemi basati su batch con lo sguardo rivolto alla futura elaborazione in tempo reale o che si voglia aggiungere un percorso a freddo efficiente a una soluzione in tempo reale esistente, Acquisizione di Hub eventi semplifica l'uso dei dati in streaming.
 
+> [!IMPORTANT]
+> L'account di archiviazione di destinazione (archiviazione di Azure o Azure Data Lake Storage) deve trovarsi nella stessa sottoscrizione dell'hub eventi. 
 
 ## <a name="how-event-hubs-capture-works"></a>Come funziona Acquisizione di Hub eventi
 

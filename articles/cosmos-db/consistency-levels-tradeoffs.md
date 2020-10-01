@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 3c82edd73921e11cd2f43a0d609624267af81575
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: b96902603deca4b7a184659e6274d65f02ac712d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570077"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613527"
 ---
 # <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Latenza, disponibilità e compromessi delle prestazioni con diversi livelli di coerenza Azure Cosmos DB
 
@@ -65,12 +65,12 @@ La tabella seguente definisce la relazione tra il modello di coerenza e la durab
 
 |**Aree geografiche**|**Modalità di replica**|**Livello di coerenza**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
-|1|Master singolo o multimaster|Qualsiasi livello di coerenza|< 240 minuti|<1 settimana|
-|>1|Master singolo|Sessione, Prefisso coerente, Finale|< 15 minuti|< 15 minuti|
-|>1|Master singolo|Decadimento ristretto|*K*  &  *T*|< 15 minuti|
-|>1|Master singolo|Assoluta|0|< 15 minuti|
-|>1|Multimaster|Sessione, Prefisso coerente, Finale|< 15 minuti|0|
-|>1|Multimaster|Decadimento ristretto|*K*  &  *T*|0|
+|1|Singole o più aree di scrittura|Qualsiasi livello di coerenza|< 240 minuti|<1 settimana|
+|>1|Singola area di scrittura|Sessione, Prefisso coerente, Finale|< 15 minuti|< 15 minuti|
+|>1|Singola area di scrittura|Decadimento ristretto|*K*  &  *T*|< 15 minuti|
+|>1|Singola area di scrittura|Assoluta|0|< 15 minuti|
+|>1|Più aree di scrittura|Sessione, Prefisso coerente, Finale|< 15 minuti|0|
+|>1|Più aree di scrittura|Decadimento ristretto|*K*  &  *T*|0|
 
 *K* = numero di versioni *"k"* , ovvero aggiornamenti, di un elemento.
 

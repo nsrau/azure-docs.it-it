@@ -3,17 +3,17 @@ title: Distribuzione di Service Fabric di Azure con PowerShell
 description: Informazioni sulla rimozione e la distribuzione di applicazioni in Azure Service Fabric e su come eseguire queste azioni in PowerShell.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a6f5411c30087e15d1164cd02d4e6eb66566388
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699839"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611453"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuire e rimuovere applicazioni con PowerShell
 
 > [!div class="op_single_selector"]
-> * [Gestione risorse](service-fabric-application-arm-resource.md)
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 > * [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
@@ -135,7 +135,7 @@ Ad esempio, ecco le statistiche della compressione per alcuni pacchetti, che mos
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-Una volta compresso, un pacchetto può essere caricato in uno o più cluster di Service Fabric in base alle necessità. Il meccanismo di distribuzione è lo stesso per i pacchetti compressi e non. I pacchetti compressi vengono archiviati nell'archivio immagini del cluster così come sono. Vengono quindi decompressi nel nodo prima che venga eseguita l'applicazione.
+Una volta compresso, un pacchetto può essere caricato in uno o più cluster di Service Fabric in base alle necessità. Il meccanismo di distribuzione è lo stesso per i pacchetti compressi e non compressi. I pacchetti compressi vengono archiviati nell'archivio immagini del cluster così come sono. Vengono quindi decompressi nel nodo prima che venga eseguita l'applicazione.
 
 
 L'esempio seguente carica il pacchetto nell'archivio di immagini, in una cartella denominata "MyApplicationV1":
@@ -347,7 +347,7 @@ Per informazioni agguntive sull'archivio di immagini e ImageStoreConnectionStrin
 ### <a name="deploy-large-application-package"></a>Distribuire un pacchetto dell'applicazione di grandi dimensioni
 
 Problema: [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) raggiunge il timeout per un pacchetto dell'applicazione di grandi dimensioni (nell'ordine di GB).
-Soluzione:
+Provare:
 - Specificare un timeout maggiore per il comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps), con il parametro `TimeoutSec`. Il timeout è di 30 minuti per impostazione predefinita.
 - Controllare la connessione di rete tra il computer di origine e il cluster. Se la connessione è lenta, provare a usare una macchina con una connessione di rete più veloce.
 Se il computer client si trova in un'area diversa dal cluster, si consiglia di usare un computer cliente in un'area più vicina o nella stessa area del cluster.
@@ -373,7 +373,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ### <a name="deploy-application-package-with-many-files"></a>Distribuire un pacchetto di applicazione con numerosi file
 
 Problema: Si verifica un timeout di [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) per un pacchetto di applicazione con molti file (nell'ordine di migliaia).
-Soluzione:
+Provare:
 - [Comprimere il pacchetto](service-fabric-package-apps.md#compress-a-package) prima di copiarlo nell'archivio immagini. La compressione riduce il numero dei file.
 - Specificare un timeout maggiore per il comando [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps), con il parametro `TimeoutSec`.
 - Specificare lo switch `Async` per [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). Il comando viene completato quando il cluster accetta il comando e la registrazione del tipo di applicazione continua in modo asincrono.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 53176114e8236ac8d8d38b1cf4c7472b0c18c08d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d5de8b8089f97696af8d05fd88989cbd1858193e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305597"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611351"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Esercitazione: configurare la sincronizzazione del destinatario Cofense per il provisioning utenti automatico
 
@@ -53,7 +53,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
     ![TNC sincronizzazione destinatario](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
-3. Copiare i valori dai campi **URL** e **token**.
+3. Copiare i valori dai campi **URL** e **token** .
 
     ![Sincronizzazione destinatario](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
 

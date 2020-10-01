@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 2e3cfd27d36558587ca35cc1c573999a48092b0d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e4a13fb22fd826f82252383587bc4a273c43099f
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297668"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613510"
 ---
 # <a name="blob-versioning"></a>Controllo delle versioni dei BLOB
 
@@ -79,11 +79,11 @@ La chiamata dell'operazione [Delete Blob](/rest/api/storageservices/delete-blob)
 
 Il diagramma seguente illustra l'effetto di un'operazione di eliminazione su un BLOB con versione:
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagramma che mostra l'eliminazione di un BLOB con versione.":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagramma che illustra come le operazioni di scrittura influiscono sui BLOB con versione.":::
 
 La scrittura di nuovi dati nel BLOB crea una nuova versione del BLOB. Le versioni esistenti non sono interessate, come illustrato nella figura seguente.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagramma che mostra la ricreazione del BLOB con versione dopo l'eliminazione.":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagramma che illustra come le operazioni di scrittura influiscono sui BLOB con versione.":::
 
 ### <a name="blob-types"></a>Tipi di BLOB
 
@@ -122,7 +122,7 @@ Se un BLOB è stato creato o modificato dopo che il controllo delle versioni è 
 
 Il diagramma seguente mostra in che modo la modifica di un BLOB dopo la disabilitazione del controllo delle versioni consente di creare un BLOB senza controllo delle versioni. Tutte le versioni esistenti associate al BLOB vengono mantenute.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagramma che mostra il BLOB di base modificato dopo la disabilitazione del controllo delle versioni.":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagramma che illustra come le operazioni di scrittura influiscono sui BLOB con versione.":::
 
 ## <a name="blob-versioning-and-soft-delete"></a>Controllo delle versioni dei BLOB e eliminazione temporanea
 
@@ -138,7 +138,7 @@ Per rimuovere una versione precedente di un BLOB, eliminarla in modo esplicito s
 
 Il diagramma seguente mostra cosa accade quando si elimina una versione BLOB o BLOB.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagramma che mostra l'eliminazione di una versione con l'eliminazione temporanea abilitata.":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagramma che illustra come le operazioni di scrittura influiscono sui BLOB con versione.":::
 
 Se per un account di archiviazione sono abilitate sia il controllo delle versioni che l'eliminazione temporanea, non viene creato alcuno snapshot con eliminazione temporanea quando viene modificata o eliminata una versione BLOB o BLOB.
 
@@ -150,7 +150,7 @@ Il ripristino di versioni con eliminazione temporanea con l'operazione di **annu
 
 Il diagramma seguente illustra come ripristinare le versioni BLOB eliminate temporaneamente con l'operazione di **annullamento dell'eliminazione del BLOB** e come ripristinare la versione corrente del BLOB con l'operazione di copia del **BLOB** .
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagramma che illustra come ripristinare le versioni eliminate temporaneamente.":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagramma che illustra come le operazioni di scrittura influiscono sui BLOB con versione.":::
 
 Una volta trascorso il periodo di memorizzazione dell'eliminazione temporanea, eventuali versioni di BLOB eliminate temporaneamente vengono eliminate definitivamente.
 
@@ -169,7 +169,7 @@ Quando si crea uno snapshot di un BLOB con versione, viene creata una nuova vers
 
 Il diagramma seguente mostra cosa accade quando si crea uno snapshot di un BLOB con versione. Nel diagramma le versioni e gli snapshot dei BLOB con ID versione 2 e 3 contengono dati identici.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagramma che Mostra gli snapshot di un BLOB con versione.":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagramma che illustra come le operazioni di scrittura influiscono sui BLOB con versione.":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Autorizzare le operazioni nelle versioni BLOB
 
@@ -198,7 +198,7 @@ La tabella seguente illustra l'autorizzazione necessaria per una firma di access
 
 | **Autorizzazione** | **Simbolo URI** | **Operazioni consentite** |
 |----------------|----------------|------------------------|
-| Delete         | x              | Eliminare una versione BLOB. |
+| Elimina         | x              | Eliminare una versione BLOB. |
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
@@ -269,7 +269,7 @@ La tabella seguente descrive il comportamento di fatturazione per un BLOB o una 
 
 Il diagramma seguente illustra il modo in cui gli oggetti vengono fatturati quando un BLOB con versione viene spostato in un livello diverso.
 
-:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagramma che illustra come vengono fatturati gli oggetti quando un BLOB con versione viene suddiviso in livelli in modo esplicito.":::
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagramma che illustra come le operazioni di scrittura influiscono sui BLOB con versione.":::
 
 L'impostazione esplicita del livello per un BLOB, una versione o uno snapshot non può essere annullata. Se si sposta un BLOB in un nuovo livello e quindi lo si sposta di nuovo al livello originale, viene addebitata la lunghezza totale del contenuto dell'oggetto anche se condivide blocchi con altri oggetti nel livello originale.
 

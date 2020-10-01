@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2018
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c88f3cdc880888162301ace5c896161f669d2ede
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9b25f2691646192faf4d4c133835b456038abd94
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269200"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611929"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>Visualizzare l'entità servizio di un'identità gestita nel portale di Azure
 
@@ -43,7 +43,7 @@ Questa procedura illustra come visualizzare l'entità servizio di una macchina v
 
 1. Fare clic su **Azure Active Directory** e quindi su **Applicazioni aziendali**.
 2. In **tipo di applicazione**scegliere **tutte le applicazioni** e quindi fare clic su **applica**.
-3. Nella casella filtro di ricerca, digitare il nome della macchina virtuale o dell'applicazione che ha abilitato l'identità gestita, o sceglierla in alternativa dall'elenco visualizzato.
+3. Nella casella filtro di ricerca digitare il nome della risorsa di Azure in cui è abilitata l'identità gestita oppure selezionarla nell'elenco visualizzato.
 
    ![Visualizzare le identità gestite dell'entità servizio nel portale](./media/how-to-view-managed-identity-service-principal-portal/view-managed-identity-service-principal-portal.png)
 

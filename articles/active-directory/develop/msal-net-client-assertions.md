@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/18/2019
+ms.date: 9/30/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: aeef0c4f139f9721449ba2c503f08fafa2c627d3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bb1ce0a8ba568dc651accdc5f8c84e9c2c980e73
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166315"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612813"
 ---
 # <a name="confidential-client-assertions"></a>Asserzioni client riservate
 
@@ -48,16 +48,16 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-Le attestazioni previste da Azure AD sono:
+Le [attestazioni previste da Azure ad](active-directory-certificate-credentials.md) sono:
 
-Tipo di attestazione | valore | Descrizione
+Tipo di attestazione | Valore | Descrizione
 ---------- | ---------- | ----------
-aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | L'attestazione "AUD" (audience) identifica i destinatari a cui è destinato il JWT (qui Azure AD) vedere [RFC 7519, sezione 4.1.3]
-exp | Gio giu 27 2019 15:04:17 GMT + 0200 (Romance Daylight Time) | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione. Vedere [RFC 7519, sezione 4.1.4]
-iss | ClientID | L'attestazione "ISS" (emittente) identifica l'entità che ha emesso il JWT. L'elaborazione di questa attestazione è specifica dell'applicazione. Il valore "ISS" è una stringa con distinzione tra maiuscole e minuscole contenente un valore StringOrURI. [RFC 7519, sezione 4.1.1]
-jti | (Guid) | L'attestazione "ITC" (ID JWT) fornisce un identificatore univoco per il JWT. Il valore dell'identificatore deve essere assegnato in modo da garantire che esista una probabilità trascurabile che lo stesso valore verrà assegnato accidentalmente a un oggetto dati diverso. Se l'applicazione usa più autorità emittenti, è necessario impedire conflitti tra i valori prodotti da autorità di certificazione diverse. L'attestazione "ITC" può essere usata per impedire la riproduzione del JWT. Il valore "ITC" è una stringa con distinzione tra maiuscole e minuscole. [RFC 7519, sezione 4.1.7]
-nbf | Gio giu 27 2019 14:54:17 GMT + 0200 (Romance Daylight Time) | L'attestazione "nbf" (not before) identifica l'ora prima della quale il token JWT non deve essere accettato per l'elaborazione. [RFC 7519, sezione 4.1.5]
-sub | ClientID | L'attestazione "Sub" (Subject) identifica l'oggetto del JWT. Le attestazioni in un JWT sono in genere istruzioni relative all'oggetto. È necessario che il valore dell'oggetto sia definito localmente come univoco nel contesto dell'emittente o sia univoco a livello globale. Vedere [RFC 7519, sezione 4.1.2]
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | L'attestazione "AUD" (audience) identifica i destinatari a cui è destinato il JWT (in questo Azure AD) vedere [RFC 7519, sezione 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  In questo caso, il destinatario è il server di accesso (login.microsoftonline.com).
+exp | 1601519414 | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione. Vedere la [specifica RFC 7519, sezione 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Questo consente di usare l'asserzione fino a quel momento, quindi mantenerla a breve-5-10 minuti dopo `nbf` al massimo.  Azure AD non applica restrizioni al `exp` momento attuale. 
+iss | ClientID | L'attestazione "ISS" (emittente) identifica l'entità che ha emesso il JWT, in questo caso l'applicazione client.  Usare l'ID applicazione GUID.
+jti | (Guid) | L'attestazione "ITC" (ID JWT) fornisce un identificatore univoco per il JWT. Il valore dell'identificatore deve essere assegnato in modo da garantire che esista una probabilità trascurabile che lo stesso valore verrà assegnato accidentalmente a un oggetto dati diverso. Se l'applicazione usa più autorità emittenti, è necessario impedire conflitti tra i valori prodotti da autorità di certificazione diverse. Il valore "ITC" è una stringa con distinzione tra maiuscole e minuscole. [RFC 7519, sezione 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+nbf | 1601519114 | L'attestazione "nbf" (not before) identifica l'ora prima della quale il token JWT non deve essere accettato per l'elaborazione. [RFC 7519, sezione 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  L'utilizzo dell'ora corrente è appropriato. 
+sub | ClientID | L'attestazione "Sub" (Subject) identifica l'oggetto di JWT, in questo caso anche l'applicazione. Utilizzare lo stesso valore di `iss` . 
 
 Di seguito è riportato un esempio di creazione di queste attestazioni:
 
@@ -181,7 +181,7 @@ Una volta eseguita l'asserzione client firmata, è possibile usarla con le API M
 
 ### <a name="withclientclaims"></a>WithClientClaims
 
-`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`per impostazione predefinita, produrrà un'asserzione firmata contenente le attestazioni previste da Azure AD più le attestazioni client aggiuntive che si desidera inviare. Ecco un frammento di codice per eseguire questa operazione.
+`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)` per impostazione predefinita, produrrà un'asserzione firmata contenente le attestazioni previste da Azure AD più le attestazioni client aggiuntive che si desidera inviare. Ecco un frammento di codice per eseguire questa operazione.
 
 ```csharp
 string ipAddress = "192.168.1.2";

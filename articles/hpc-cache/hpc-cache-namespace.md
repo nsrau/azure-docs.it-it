@@ -1,25 +1,25 @@
 ---
-title: Usare lo spazio dei nomi aggregato della cache HPC di Azure
+title: Informazioni sullo spazio dei nomi aggregato della cache HPC di Azure
 description: Come pianificare lo spazio dei nomi virtuale per la cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: c16d2f9e9c94603361d9a096f33d559105f2d28d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1c28f549cf93d77f6aef6bcde6a2225345a79cc9
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497030"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612949"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Pianificare lo spazio dei nomi aggregato
 
 La cache HPC di Azure consente ai client di accedere a un'ampia gamma di sistemi di archiviazione tramite uno spazio dei nomi virtuale che nasconde i dettagli del sistema di archiviazione back-end.
 
-Quando si aggiunge una destinazione di archiviazione, è necessario impostare il percorso del file per il client. I computer client montano questo percorso di file e possono eseguire richieste di lettura del file alla cache anziché montare direttamente il sistema di archiviazione.
+Dopo aver aggiunto una destinazione di archiviazione, è necessario configurare uno o più percorsi dello spazio dei nomi per la destinazione di archiviazione. I computer client montano questo percorso di file e possono eseguire richieste di lettura del file alla cache anziché montare direttamente il sistema di archiviazione.
 
-Poiché la cache HPC di Azure gestisce questa file system virtuale, è possibile modificare la destinazione di archiviazione senza modificare il percorso per il client. Ad esempio, è possibile sostituire un sistema di archiviazione hardware con archiviazione cloud senza che sia necessario riscrivere le procedure rivolte ai client.
+Poiché la cache HPC di Azure gestisce questa file system virtuale, è possibile modificare la destinazione di archiviazione senza modificare il percorso per il client. Ad esempio, è possibile sostituire un sistema di archiviazione hardware con archiviazione cloud senza dover riscrivere le procedure lato client.
 
 ## <a name="aggregated-namespace-example"></a>Esempio di spazio dei nomi aggregato
 
@@ -48,7 +48,7 @@ Per semplificare l'accesso tramite la cache, provare a creare destinazioni di ar
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
 | SourceCollection                        | /Source               |
 
-Una destinazione di archiviazione NFS può avere più percorsi dello spazio dei nomi virtuali, purché ognuno faccia riferimento a un percorso di esportazione univoco.
+Una destinazione di archiviazione NFS può avere più percorsi dello spazio dei nomi virtuali, purché ognuno faccia riferimento a un percorso di esportazione univoco. (Leggere i [percorsi dello spazio dei nomi NFS](add-namespace-paths.md#nfs-namespace-paths) per conoscere il numero massimo consigliato di percorsi dello spazio dei nomi per ogni destinazione di archiviazione NFS).
 
 Poiché i percorsi di origine NFS sono sottodirectory della stessa esportazione, sarà necessario definire più percorsi dello spazio dei nomi dalla stessa destinazione di archiviazione.
 
@@ -59,6 +59,13 @@ Poiché i percorsi di origine NFS sono sottodirectory della stessa esportazione,
 
 Un'applicazione client può montare la cache e accedere facilmente ai percorsi di file dello spazio dei nomi aggregati ``/source`` , ``/templates/sku798`` e ``/templates/sku980`` .
 
+Un approccio alternativo potrebbe consistere nel creare un percorso virtuale simile `/templates` a quello collegato alla directory padre, `acme2017` , e quindi fare in modo che i client accedano alle singole `sku798` `sku980` Directory e dopo il montaggio della cache. Tuttavia, non è possibile creare un percorso dello spazio dei nomi che è una sottodirectory di un altro percorso dello spazio dei nomi. Se quindi si crea un percorso alla `acme2017` Directory, non è possibile creare percorsi dello spazio dei nomi per accedere direttamente alle relative sottodirectory.
+
+La pagina delle impostazioni **dello spazio dei nomi** della cache HPC di Azure Mostra il file System per il client e consente di aggiungere o modificare i percorsi. Per informazioni dettagliate, vedere [configurare lo spazio dei nomi aggregato](add-namespace-paths.md) .
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver deciso come configurare la file system virtuale, [creare destinazioni di archiviazione](hpc-cache-add-storage.md) per eseguire il mapping dell'archiviazione back-end ai percorsi dei file virtuali per il client.
+Dopo aver deciso come configurare la file system virtuale, eseguire la procedura seguente per crearla:
+
+* [Creare destinazioni di archiviazione](hpc-cache-add-storage.md) per aggiungere i sistemi di archiviazione back-end alla cache HPC di Azure
+* [Aggiungere i percorsi dello spazio dei nomi](add-namespace-paths.md) per creare lo spazio dei nomi aggregato utilizzato dai computer client per accedere ai file

@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 8e8479179aa74f2fb2ead41dec28d247de9657c3
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b667254ece93c083de95728abe0ddecd5cfed197
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585101"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612371"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gestire le chiavi degli account di archiviazione con Key Vault e Azure PowerShell
 
@@ -26,7 +26,6 @@ Quando si usa la funzionalità di chiave dell'account di archiviazione gestita, 
 - I valori di chiave non vengono mai restituiti in risposta a un chiamante.
 - È necessario che solo Key Vault gestisca le chiavi dell'account di archiviazione. Non è possibile gestire autonomamente le chiavi e occorre evitare di interferire con i processi di Key Vault.
 - È necessario che solo un singolo oggetto di Key Vault gestisca le chiavi dell'account di archiviazione. È necessario non consentire la gestione delle chiavi da più oggetti.
-- È possibile richiedere a Key Vault di gestire l'account di archiviazione con un'entità utente ma non con un'entità servizio.
 - È necessario rigenerare le chiavi solo tramite Key Vault. Non rigenerare manualmente le chiavi dell'account di archiviazione.
 
 È consigliabile usare l'integrazione di Archiviazione di Azure con Azure Active Directory (Azure AD), il servizio Microsoft basato sul cloud per la gestione delle identità e dell'accesso. L'integrazione con Azure AD è disponibile per [BLOB e code di Azure](../../storage/common/storage-auth-aad.md) e offre l'accesso basato su token OAuth2 ad Archiviazione di Azure, analogamente ad Azure Key Vault.
@@ -75,7 +74,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### <a name="set-variables"></a>Impostare variabili
 
-Impostare prima di tutto le variabili che devono essere usate dai cmdlet di PowerShell nei passaggi seguenti. Assicurarsi di aggiornare i segnaposto <YourResourceGroupName>, <YourStorageAccountName> e <YourKeyVaultName> e di impostare $keyVaultSpAppId su `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`, come specificato in precedenza in [ID applicazione dell'entità servizio](#service-principal-application-id).
+Impostare prima di tutto le variabili che devono essere usate dai cmdlet di PowerShell nei passaggi seguenti. Assicurarsi di aggiornare i segnaposto "YourResourceGroupName", "YourStorageAccountName" e "YourKeyVaultName" e di impostare $keyVaultSpAppId su `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`, come specificato in precedenza in [ID applicazione dell'entità servizio](#service-principal-application-id).
 
 Verranno usati anche i cmdlet [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) e [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) di Azure PowerShell per ottenere l'ID utente e il contesto dell'account di archiviazione di Azure.
 

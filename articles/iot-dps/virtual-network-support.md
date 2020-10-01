@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 43d7b3ae906909312a9e9ec4517061a788267a0c
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534601"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612779"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Supporto del servizio Device provisioning in hub Azure (DPS) per le reti virtuali
 
@@ -69,13 +69,13 @@ Si notino le seguenti limitazioni correnti per DPS quando si usano endpoint priv
 
 Per configurare un endpoint privato, attenersi alla procedura seguente:
 
-1. Nella [portale di Azure](https://portal.azure.com/)aprire la risorsa DPS e fare clic sulla scheda **rete** . fare clic su **connessioni a endpoint privato** e su **+ endpoint privato**.
+1. Nella [portale di Azure](https://portal.azure.com/)aprire la risorsa DPS e fare clic sulla scheda **rete** . Fare clic su **connessioni a endpoint privati** e su **endpoint privato**.
 
     ![Aggiungere un nuovo endpoint privato per DPS](./media/virtual-network-support/networking-tab-add-private-endpoint.png)
 
 2. Nella pagina _Crea un endpoint privato_ immettere le informazioni indicate nella tabella seguente.
 
-    ![Configurare la risorsa a cui viene eseguito il mapping di un nuovo endpoint privato](./media/virtual-network-support/create-private-endpoint-basics.png)
+    ![Creare nozioni di base sugli endpoint privati](./media/virtual-network-support/create-private-endpoint-basics.png)
 
     | Campo | Valore |
     | :---- | :-----|
@@ -88,7 +88,7 @@ Per configurare un endpoint privato, attenersi alla procedura seguente:
 
 3. Nella pagina _Crea una risorsa endpoint privata_ immettere le informazioni indicate nella tabella seguente.
 
-    ![Configurare la risorsa a cui viene eseguito il mapping di un nuovo endpoint privato](./media/virtual-network-support/create-private-endpoint-resource.png)
+    ![Crea risorsa endpoint privato](./media/virtual-network-support/create-private-endpoint-resource.png)
 
     | Campo | Valore |
     | :---- | :-----|
@@ -107,7 +107,7 @@ Per configurare un endpoint privato, attenersi alla procedura seguente:
  
     Fare clic su **Avanti: Tag**e, facoltativamente, specificare eventuali tag per la risorsa.
 
-    ![Configurare la risorsa a cui viene eseguito il mapping di un nuovo endpoint privato](./media/virtual-network-support/create-private-endpoint-configuration.png)
+    ![Configura endpoint privato](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
 6. Fare clic su **Verifica + crea** e quindi su **Crea** per creare la risorsa dell'endpoint privato.
 
@@ -129,7 +129,7 @@ Per configurare un endpoint privato, attenersi alla procedura seguente:
     | :---- | :-----|
     | **ID risorsa o alias** | Immettere l'ID risorsa per la risorsa DPS. |
     | **Sottorisorsa di destinazione** | Immettere **iotDps** |
-    | **Messaggio di richiesta** | Immettere un messaggio di richiesta per il proprietario della risorsa DPS.<br>ad esempio: <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
+    | **Messaggio di richiesta** | Immettere un messaggio di richiesta per il proprietario della risorsa DPS.<br>Ad esempio, <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
 
     Fare clic su **Next: Configuration** per configurare il VNET per l'endpoint privato.
 
@@ -141,7 +141,7 @@ Per configurare un endpoint privato, attenersi alla procedura seguente:
 
 5. Il proprietario DPS visualizzerà la richiesta di endpoint privato nell'elenco **connessioni endpoint privato** nella scheda rete DPS. In questa pagina, il proprietario può **approvare** o **rifiutare** la richiesta di endpoint privato, come illustrato di seguito.
 
-    ![Scheda Proprietà DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
+    ![Approvazione DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
 
 
 ## <a name="pricing-private-endpoints"></a>Endpoint privati con prezzi

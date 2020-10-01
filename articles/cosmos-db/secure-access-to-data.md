@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0a5411a8fba8456deb59a5c9ede4e9314876dbdb
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d06ec62f2ef1438657a4406b0f9a5b2c85feee16
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569582"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611640"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteggere l'accesso ai dati in Azure Cosmos DB
 
@@ -22,21 +22,21 @@ Azure Cosmos DB usa due tipi di chiavi per autenticare gli utenti e fornire acce
 
 |Tipo di chiave|Risorse|
 |---|---|
-|[Chiavi master](#primary-keys) |Usate per risorse amministrative, ovvero account di database, database, utenti e autorizzazioni|
+|[Chiavi primarie](#primary-keys) |Usate per risorse amministrative, ovvero account di database, database, utenti e autorizzazioni|
 |[Token delle risorse](#resource-tokens)|Usati per le risorse dell'applicazione, ovvero contenitori, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente|
 
 <a id="primary-keys"></a>
 
-## <a name="master-keys"></a>Chiavi master
+## <a name="primary-keys"></a>Chiavi primarie
 
-Le chiavi master consentono di accedere a tutte le risorse amministrative per l'account del database. Chiavi master:
+Le chiavi primarie forniscono l'accesso a tutte le risorse amministrative per l'account del database. Chiavi primarie:
 
 - Consentono di accedere ad account, database, utenti e autorizzazioni. 
 - Non possono essere usate per fornire l'accesso granulare a contenitori e documenti.
 - Vengono create durante la creazione di un account.
 - Possono essere rigenerate in qualsiasi momento.
 
-Ogni account è costituito da due chiavi master: una chiave primaria e una chiave secondaria. Lo scopo delle due chiavi è consentire la rigenerazione o la rotazione delle chiavi mantenendo l'accesso continuo ai dati e all'account.
+Ogni account è costituito da due chiavi primarie: una chiave primaria e una chiave secondaria. Lo scopo delle due chiavi è consentire la rigenerazione o la rotazione delle chiavi mantenendo l'accesso continuo ai dati e all'account.
 
 Oltre alle due chiavi primarie per l'account Cosmos DB, sono disponibili due chiavi di sola lettura. Queste chiavi consentono solo operazioni di lettura per l'account. Le chiavi di sola lettura non forniscono l'accesso in lettura alle risorse di autorizzazione.
 

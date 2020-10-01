@@ -8,24 +8,32 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 09/30/2020
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: 8de6a7aafdd402e4ee75862e69ac60af3af0e041
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 7eb01ccda3c3e13827a8977b8ee0e244aef6b0be
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114932"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613239"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Come modificare le impostazioni predefinite per la durata del token per un'applicazione personalizzata
 
 Questo articolo illustra come usare Azure AD PowerShell per impostare i criteri per la durata dei token. Azure AD Premium consente agli sviluppatori di app e agli amministratori di tenant di configurare la durata dei token emessi per i client non riservati. I criteri di durata dei token vengono impostati a livello di tenant o per le risorse a cui si accede.
 
-1. Per impostare i criteri di durata del token, è necessario scaricare il [modulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
-1. Eseguire il comando **Connect-AzureAD -Confirm**.
+Per impostare i criteri di durata del token, è necessario scaricare il [modulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+Eseguire il comando **Connect-AzureAD -Confirm**.
 
-    Un esempio di criteri che impostano il token di aggiornamento di un singolo fattore di età massima è riportato di seguito. Creare i criteri: ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
+Ecco un criterio di esempio che richiede agli utenti di eseguire l'autenticazione con maggiore frequenza nell'app Web. Questi criteri consentono di impostare la durata dei token di accesso/ID e la validità massima di un token di sessione a più fattori per l'entità servizio dell'app Web. Creare il criterio e assegnarlo all'entità servizio. È necessario ottenere anche l'ObjectId dell'entità servizio.
+
+```powershell
+$policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+
+$sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
+
+Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

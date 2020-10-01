@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: b07ed4589a54948ef87f516ac4bb97ef8492283e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 68f54e18cf20680156de8a29c54f7924ca6064d1
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398836"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91610110"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Eseguire la migrazione alla rete WAN virtuale di Azure
 
@@ -20,49 +20,49 @@ La rete WAN virtuale di Azure consente alle aziende di semplificare la connettiv
 
 Per informazioni sui vantaggi che la rete WAN virtuale di Azure consente alle aziende che adottano una rete globale aziendale moderna, vedere l' [architettura di rete di transito globale e la rete WAN virtuale](virtual-wan-global-transit-network-architecture.md).
 
-![Figura Hub e spoke ](./media/migrate-from-hub-spoke-topology/hub-spoke.png)
- **: rete WAN virtuale di Azure**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/hub-spoke.png" alt-text="Hub e spoke":::
+**Figura: rete WAN virtuale di Azure**
 
 Il modello di connettività Hub e spoke di Azure è stato adottato da migliaia di clienti per sfruttare il comportamento di routing transitivo predefinito della rete di Azure per creare reti cloud semplici e scalabili. La rete WAN virtuale di Azure si basa su questi concetti e introduce nuove funzionalità che consentono le topologie di connettività globali, non solo tra percorsi locali e Azure, ma anche per consentire ai clienti di sfruttare la scalabilità della rete Microsoft per migliorare le reti globali esistenti.
 
-Questo articolo illustra come eseguire la migrazione di un ambiente ibrido esistente a una rete WAN virtuale.
+Questo articolo illustra come eseguire la migrazione di un ambiente Hub e spoke gestito dal cliente esistente a una topologia basata sulla rete WAN virtuale di Azure.
 
 ## <a name="scenario"></a>Scenario
 
-Contoso è un'organizzazione finanziaria globale con uffici in Europa e Asia. Pianificano di spostare le applicazioni esistenti da un data center locale in Azure e hanno creato un progetto di base basato sull'architettura manuale Hub e spoke, incluse le reti virtuali dell'hub gestito dal cliente locale per la connettività ibrida. Nell'ambito del passaggio alle tecnologie basate sul cloud, il team di rete è stato in grado di garantire che la connettività sia stata ottimizzata in futuro.
+Contoso è un'organizzazione finanziaria globale con uffici in Europa e Asia. Pianificano di spostare le applicazioni esistenti da un data center locale in Azure e hanno creato un progetto di base basato sull'architettura hub-spoke gestita dal cliente, incluse le reti virtuali dell'Hub locale per la connettività ibrida. Nell'ambito del passaggio alle tecnologie basate sul cloud, il team di rete è stato in grado di garantire che la connettività sia stata ottimizzata in futuro.
 
 Nella figura seguente viene illustrata una visualizzazione di alto livello della rete globale esistente, inclusa la connettività a più aree di Azure.
 
-![Figura della topologia di rete esistente Contoso ](./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png)
- **: topologia di rete esistente contoso**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png" alt-text="Hub e spoke":::
+**Figura: topologia di rete esistente di contoso**
 
 La topologia di rete esistente presenta le caratteristiche seguenti:
 
-- Una topologia hub-spoke viene usata in più aree, inclusi i circuiti ExpressRoute Premium per la connettività a una rete WAN privata comune.
+* Una topologia hub-and-spoke viene usata in più aree, inclusi i circuiti ExpressRoute per la connettività a una rete WAN (Wide Area Network) privata comune.
 
-- In alcuni di questi siti sono anche presenti tunnel VPN collegati direttamente ad Azure per raggiungere le applicazioni ospitate nel cloud Microsoft.
+* Alcuni di questi siti hanno anche tunnel VPN direttamente in Azure per raggiungere le applicazioni ospitate nel cloud.
 
 ## <a name="requirements"></a>Requisiti
 
 Il team di rete viene incaricato di sviluppare un modello di rete globale in grado di supportare la migrazione di Contoso al cloud e che sia ottimizzato in termini di costi, scalabilità e prestazioni. In breve, devono essere soddisfatti i requisiti seguenti:
 
-- Fornire nelle sedi centrali e nelle filiali un percorso ottimizzato verso le applicazioni ospitate nel cloud.
-- Rimuovere la dipendenza dai data center locali esistenti per la terminazione VPN, mantenendo i percorsi di connettività seguenti:
-  - **Da ramo a VNet**: gli uffici connessi VPN devono essere in grado di accedere alle applicazioni migrate nel cloud nell'area di Azure locale.
-  - Da **ramo a hub**a hub a VNet: gli uffici connessi alla VPN devono poter accedere alle applicazioni migrate nel cloud nell'area di Azure remota.
-  - **Ramo a ramo**: gli uffici connessi con VPN a livello di area devono essere in grado di comunicare tra loro e i siti HQ/DC connessi ExpressRoute.
-  - Da **ramo a hub**a hub a ramo: gli uffici connessi VPN a livello globale devono essere in grado di comunicare tra loro e con qualsiasi sito HQ/DC connesso ExpressRoute.
-  - **Da ramo a Internet**: i siti connessi devono essere in grado di comunicare con Internet. Il traffico deve essere filtrato e registrato.
-  - Da **VNet a VNet**: le reti virtuali spoke nella stessa area devono essere in grado di comunicare tra loro.
-  - Da **VNet a hub a VNet**: le reti virtuali spoke nelle diverse aree devono essere in grado di comunicare tra loro.
-- Fornire la possibilità per gli utenti di roaming di Contoso (portatile e telefono) di accedere alle risorse aziendali mentre non si trovino nella rete aziendale.
+* Fornire nelle sedi centrali e nelle filiali un percorso ottimizzato verso le applicazioni ospitate nel cloud.
+* Rimuovere la dipendenza dai data center locali esistenti per la terminazione VPN, mantenendo i percorsi di connettività seguenti:
+  * **Da ramo a VNet**: gli uffici connessi VPN devono essere in grado di accedere alle applicazioni migrate nel cloud nell'area di Azure locale.
+  * Da **ramo a hub a hub a VNet**: gli uffici connessi alla VPN devono poter accedere alle applicazioni migrate nel cloud nell'area di Azure remota.
+  * **Ramo a ramo**: gli uffici connessi con VPN a livello di area devono essere in grado di comunicare tra loro e i siti HQ/DC connessi ExpressRoute.
+  * Da **ramo a hub a hub a ramo**: gli uffici connessi VPN a livello globale devono essere in grado di comunicare tra loro e con tutti i siti HQ/DC connessi ExpressRoute.
+  * **Da ramo a Internet**: i siti connessi devono essere in grado di comunicare con Internet. Il traffico deve essere filtrato e registrato.
+  * Da **VNet a VNet**: le reti virtuali spoke nella stessa area devono essere in grado di comunicare tra loro.
+  * Da **VNet a hub a hub a VNet**: le reti virtuali spoke nelle diverse aree devono essere in grado di comunicare tra loro.
+* Fornire la possibilità per gli utenti di roaming di Contoso (portatile e telefono) di accedere alle risorse aziendali mentre non si trovino nella rete aziendale.
 
 ## <a name="azure-virtual-wan-architecture"></a><a name="architecture"></a>Architettura WAN virtuale di Azure
 
 Nella figura seguente viene illustrata una visualizzazione di alto livello della topologia di destinazione aggiornata tramite la rete WAN virtuale di Azure per soddisfare i requisiti descritti nella sezione precedente.
 
-![Figura architettura WAN virtuale di Contoso ](./media/migrate-from-hub-spoke-topology/vwan-architecture.png)
- **: architettura WAN virtuale di Azure**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/vwan-architecture.png" alt-text="Hub e spoke":::
+**Figura: architettura WAN virtuale di Azure**
 
 Riepilogo:
 
@@ -82,8 +82,8 @@ Questa sezione illustra i diversi passaggi per la migrazione alla rete WAN virtu
 
 Nella figura seguente viene illustrata una topologia a singola area per contoso prima dell'implementazione della rete WAN virtuale di Azure:
 
-![Topologia a singola area ](./media/migrate-from-hub-spoke-topology/figure1.png)
- **Figura 1: Hub manuale a singola area-spoke**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure1.png" alt-text="Hub e spoke":::
+**Figura 1: Hub manuale a singola area e spoke**
 
 In conformità con l'approccio Hub e spoke, la rete virtuale dell'hub gestito dal cliente contiene diversi blocchi di funzioni:
 
@@ -94,7 +94,7 @@ In conformità con l'approccio Hub e spoke, la rete virtuale dell'hub gestito da
 
 ### <a name="step-2-deploy-virtual-wan-hubs"></a>Passaggio 2: distribuire Hub WAN virtuali
 
-Distribuire un hub WAN virtuale in ogni area. Configurare l'hub WAN virtuale con gateway VPN e gateway ExpressRoute come descritto negli articoli seguenti:
+Distribuire un hub WAN virtuale in ogni area. Configurare l'hub WAN virtuale con la funzionalità VPN e ExpressRoute come descritto negli articoli seguenti:
 
 - [Esercitazione: Creare una connessione da sito a sito con la rete WAN virtuale di Azure](virtual-wan-site-to-site-portal.md)
 - [Esercitazione: creare un'associazione ExpressRoute usando la rete WAN virtuale di Azure](virtual-wan-expressroute-portal.md)
@@ -102,8 +102,8 @@ Distribuire un hub WAN virtuale in ogni area. Configurare l'hub WAN virtuale con
 > [!NOTE]
 > La rete WAN virtuale di Azure deve usare lo SKU standard per abilitare alcuni dei percorsi di traffico illustrati in questo articolo.
 
-![Distribuire Hub WAN virtuali ](./media/migrate-from-hub-spoke-topology/figure2.png)
- **Figura 2: hub gestito dal cliente e da spoke a migrazione WAN virtuale**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="Hub e spoke":::
+**Figura 2: hub gestito dal cliente e da spoke a migrazione WAN virtuale**
 
 ### <a name="step-3-connect-remote-sites-expressroute-and-vpn-to-virtual-wan"></a>Passaggio 3: connettere siti remoti (ExpressRoute e VPN) a una rete WAN virtuale
 
@@ -112,8 +112,8 @@ Connettere l'hub WAN virtuale ai circuiti ExpressRoute esistenti e configurare l
 > [!NOTE]
 > I circuiti ExpressRoute devono essere aggiornati al tipo di SKU Premium per connetterli all'hub della rete WAN virtuale.
 
-![Connettere i siti remoti alla rete WAN virtuale ](./media/migrate-from-hub-spoke-topology/figure3.png)
- **Figura 3: hub gestito dal cliente e da spoke a migrazione WAN virtuale**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="Hub e spoke":::
+**Figura 3: migrazione da Hub e spoke a una rete virtuale gestita dal cliente**
 
 A questo punto, le apparecchiature di rete locali inizieranno a ricevere route che riflettono lo spazio degli indirizzi IP assegnato all'hub gestito da WAN virtuale VNet. In questa fase le filiali remote connesse alla VPN vedranno due percorsi alle applicazioni esistenti nelle reti virtuali spoke. Questi dispositivi devono essere configurati per continuare a usare il tunnel per l'hub gestito dal cliente per garantire il routing simmetrico durante la fase di transizione.
 
@@ -121,13 +121,15 @@ A questo punto, le apparecchiature di rete locali inizieranno a ricevere route c
 
 Prima di usare l'hub WAN virtuale gestito per la connettività di produzione, è consigliabile configurare una rete virtuale con test spoke e una connessione VNet WAN virtuale. Verificare che le connessioni a questo ambiente di test funzionino tramite ExpressRoute e VPN da sito a sito prima di continuare con i passaggi successivi.
 
-![Testare la connettività ibrida tramite la rete WAN virtuale ](./media/migrate-from-hub-spoke-topology/figure4.png)
- **Figura 4: hub gestito dal cliente e da spoke a migrazione WAN virtuale**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure4.png" alt-text="Hub e spoke":::
+**Figura 4: hub gestito dal cliente e da spoke a migrazione WAN virtuale**
+
+In questa fase è importante riconoscere che la rete virtuale dell'hub gestito dal cliente originale e il nuovo hub WAN virtuale sono entrambi connessi allo stesso circuito ExpressRoute. A causa di questo problema, è possibile usare un percorso di traffico per consentire la comunicazione tra i spoke in entrambi gli ambienti. Ad esempio, il traffico da un spoke collegato alla rete virtuale dell'hub gestito dal cliente attraverserà i dispositivi MSEE usati per il circuito ExpressRoute per raggiungere tutti i spoke connessi tramite una connessione VNet al nuovo hub WAN virtuale. In questo modo è possibile eseguire una migrazione temporanea dei spoke nel passaggio 5.
 
 ### <a name="step-5-transition-connectivity-to-virtual-wan-hub"></a>Passaggio 5: transizione della connettività all'hub WAN virtuale
 
-![Connettività di transizione all'hub WAN virtuale ](./media/migrate-from-hub-spoke-topology/figure5.png)
- **Figura 5: hub gestito dal cliente e da spoke a migrazione WAN virtuale**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure5.png" alt-text="Hub e spoke":::
+**Figura 5: migrazione da Hub e spoke a una rete virtuale gestita dal cliente**
 
 **oggetto**. Eliminare le connessioni peering esistenti dalle reti virtuali spoke all'hub gestito dal cliente precedente. L'accesso alle applicazioni nelle reti virtuali spoke non è disponibile finché non vengono completati i passaggi a-c.
 
@@ -143,8 +145,8 @@ Prima di usare l'hub WAN virtuale gestito per la connettività di produzione, è
 
 La rete di Azure è ora stata riprogettata in modo da configurare l'hub della rete WAN virtuale come punto centrale nella nuova topologia.
 
-![L'hub precedente diventa servizi condivisi spoke ](./media/migrate-from-hub-spoke-topology/figure6.png)
- **Figura 6: hub gestito dal cliente e da spoke a migrazione WAN virtuale**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure6.png" alt-text="Hub e spoke":::
+**Figura 6: hub gestito dal cliente e da spoke a migrazione WAN virtuale**
 
 Poiché l'hub WAN virtuale è un'entità gestita e non consente la distribuzione di risorse personalizzate, ad esempio macchine virtuali, il blocco dei servizi condivisi ora esiste come rete virtuale spoke e ospita funzioni come l'ingresso Internet tramite applicazione Azure gateway o Appliance virtualizzato di rete. Il traffico tra l'ambiente di servizi condivisi e le macchine virtuali back-end ora transita attraverso l'hub gestito dalla rete WAN virtuale.
 
@@ -152,18 +154,19 @@ Poiché l'hub WAN virtuale è un'entità gestita e non consente la distribuzione
 
 In questa fase, Contoso ha quasi completato la migrazione delle applicazioni aziendali al cloud Microsoft, con solo alcune applicazioni legacy rimanenti all'interno del controller di dominio locale.
 
-![Ottimizzare la connettività locale per usare completamente la rete WAN virtuale ](./media/migrate-from-hub-spoke-topology/figure7.png)
- **Figura 7: hub gestito dal cliente e da spoke a migrazione WAN virtuale**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure7.png" alt-text="Hub e spoke":::
+**Figura 7: hub gestito dal cliente e da spoke a migrazione WAN virtuale**
 
 Per sfruttare tutte le funzionalità della rete WAN virtuale di Azure, Contoso decide di rimuovere le connessioni VPN locali legacy. Le filiali che continuano ad accedere alle reti di sedi centrali o data center possono transitare nella rete globale Microsoft tramite il routing di transito predefinito della rete WAN virtuale di Azure.
 
 > [!NOTE]
-> Il servizio Copertura globale di ExpressRoute rappresenta un'alternativa per i clienti che scelgono di sfruttare il backbone Microsoft per integrare le loro reti WAN private esistenti.
+> ExpressRoute Copertura globale è necessario per i clienti che vogliono sfruttare la dorsale Microsoft per fornire ExpressRoute al transito ExpressRoute (non illustrato nella figura 7).
+>
 
 ## <a name="end-state-architecture-and-traffic-paths"></a>Architettura e percorsi di traffico dello stato finale
 
-![Architettura dello stato finale e percorsi di traffico ](./media/migrate-from-hub-spoke-topology/figure8.png)
- **Figura: rete WAN virtuale a doppia area**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure8.png" alt-text="Hub e spoke":::
+**Figura: rete WAN virtuale a doppia area**
 
 Questa sezione include alcuni flussi di traffico di esempio per dimostrare come questa topologia soddisfa i requisiti originali.
 
@@ -177,7 +180,7 @@ Il traffico viene instradato come segue:
 
 - L'hub della rete WAN virtuale in Asia instrada il traffico in locale alla rete virtuale connessa.
 
-![Flusso 1](./media/migrate-from-hub-spoke-topology/flow1.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow1.png" alt-text="Hub e spoke":::
 
 ### <a name="path-2"></a>Percorso 2
 
@@ -189,7 +192,7 @@ Il traffico viene instradato come segue:
 
 - La connettività globale da hub a hub della rete WAN virtuale garantisce il transito del traffico verso la rete virtuale connessa nell'area remota.
 
-![Flusso 2](./media/migrate-from-hub-spoke-topology/flow2.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow2.png" alt-text="Hub e spoke":::
 
 ### <a name="path-3"></a>Percorso 3
 
@@ -203,7 +206,7 @@ Il traffico viene instradato come segue:
 
 - La connettività globale da Hub a hub WAN virtuale consente il transito del traffico.
 
-![Flusso 3](./media/migrate-from-hub-spoke-topology/flow3.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow3.png" alt-text="Hub e spoke":::
 
 ### <a name="path-4"></a>Percorso 4
 
@@ -213,7 +216,7 @@ Il traffico viene instradato come segue:
 
 - La connettività globale da hub a hub della rete WAN virtuale consente il transito nativo di tutte le reti virtuali di Azure connesse senza ulteriori configurazioni dell'utente.
 
-![Flusso 4](./media/migrate-from-hub-spoke-topology/flow4.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow4.png" alt-text="Hub e spoke":::
 
 ### <a name="path-5"></a>Percorso 5
 
@@ -225,14 +228,14 @@ Il traffico viene instradato come segue:
 
 - L'hub della rete WAN virtuale in Europa occidentale instrada il traffico in locale alla rete virtuale connessa.
 
-![Flusso 5](./media/migrate-from-hub-spoke-topology/flow5.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow5.png" alt-text="Hub e spoke":::
 
 ## <a name="security-and-policy-control-via-azure-firewall"></a>Controllo di sicurezza e criteri tramite Firewall di Azure
 
 Contoso ha ora convalidato la connettività tra tutti i rami e reti virtuali in linea con i requisiti descritti in precedenza in questo articolo. Per soddisfare i requisiti per il controllo di sicurezza e l'isolamento di rete, è necessario continuare a separare e registrare il traffico tramite la rete Hub. In precedenza questa funzione veniva eseguita da un'appliance virtuale di rete. Contoso vuole anche rimuovere le autorizzazioni dei servizi proxy esistenti e usare i servizi nativi di Azure per i filtri Internet in uscita.
 
-![Sicurezza e controllo dei criteri tramite Azure firewall ](./media/migrate-from-hub-spoke-topology/security-policy.png)
- **figure: firewall di Azure in WAN virtuale (hub virtuale protetto)**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/security-policy.png" alt-text="Hub e spoke":::
+**Figura: firewall di Azure in WAN virtuale (hub virtuale protetto)**
 
 I passaggi di alto livello seguenti sono necessari per introdurre il firewall di Azure negli hub WAN virtuali per abilitare un punto unificato di controllo dei criteri. Per altre informazioni su questo processo e sul concetto di hub virtuali sicuri, vedere [gestione firewall di Azure](../firewall-manager/index.yml).
 
@@ -240,7 +243,8 @@ I passaggi di alto livello seguenti sono necessari per introdurre il firewall di
 2. Collegare i criteri firewall all'hub della rete WAN virtuale di Azure. Questo passaggio consente all'hub WAN virtuale esistente di funzionare come hub virtuale protetto e distribuisce le risorse del firewall di Azure necessarie.
 
 > [!NOTE]
-> Se il firewall di Azure viene distribuito in un hub WAN virtuale standard (SKU: standard): i criteri di V2V, B2V, V2I e B2I FW vengono applicati solo sul traffico proveniente dal reti virtuali e dai rami connessi all'hub specifico in cui viene distribuito il FW di Azure (hub protetto). Il traffico originato da reti virtuali e rami remoti collegati ad altri hub WAN virtuali nella stessa rete WAN virtuale non sarà "con firewall", anche se i rami remoti e VNet sono interconnessi tramite l'hub WAN virtuale ai collegamenti Hub. Il supporto del firewall tra più hub si trova nella Guida di orientamento della rete virtuale di Azure e di gestione firewall.
+> Esistono vincoli correlati all'uso di hub virtuali protetti, incluso il traffico tra aree. Per ulteriori informazioni, vedere [gestione firewall-problemi noti](../firewall-manager/overview.md#known-issues).
+>
 
 I percorsi seguenti illustrano i percorsi di connettività abilitati tramite hub virtuali protetti di Azure:
 
@@ -254,7 +258,7 @@ Il traffico viene instradato come segue:
 
 - Firewall di Azure può applicare i criteri a questi flussi.
 
-![Flusso 6](./media/migrate-from-hub-spoke-topology/flow6.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow6.png" alt-text="Hub e spoke":::
 
 ### <a name="path-7"></a>Percorso 7
 
@@ -266,7 +270,7 @@ Il traffico viene instradato come segue:
 
 - Questo traffico può essere filtrato localmente usando le regole FQDN del firewall di Azure o inviato a un servizio di sicurezza di terze parti per l'ispezione.
 
-![Flusso 7](./media/migrate-from-hub-spoke-topology/flow7.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow7.png" alt-text="Hub e spoke":::
 
 ### <a name="path-8"></a>Percorso 8
 
@@ -278,7 +282,7 @@ Il traffico viene instradato come segue:
 
 - Questo traffico può essere filtrato localmente usando le regole FQDN del firewall di Azure o inviato a un servizio di sicurezza di terze parti per l'ispezione.
 
-![Flusso 8](./media/migrate-from-hub-spoke-topology/flow8.png) 
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow8.png" alt-text="Hub e spoke":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

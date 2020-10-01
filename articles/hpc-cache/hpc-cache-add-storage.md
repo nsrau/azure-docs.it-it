@@ -4,14 +4,14 @@ description: Come definire le destinazioni di archiviazione in modo che la cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 585ea3b5ddd16acb9af83c1c1e0e4aa6ca9e631a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ab9b7fa330964f7db8393334dd8f209efd75573d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826705"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611290"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -19,65 +19,21 @@ Le *destinazioni di archiviazione* sono archiviazione back-end per i file a cui 
 
 È possibile definire fino a dieci destinazioni di archiviazione diverse per una cache. La cache presenta tutte le destinazioni di archiviazione in uno spazio dei nomi aggregato.
 
+I percorsi dello spazio dei nomi vengono configurati separatamente dopo aver aggiunto le destinazioni di archiviazione. In generale, una destinazione di archiviazione NFS può avere fino a dieci percorsi dello spazio dei nomi o più per alcune configurazioni di grandi dimensioni. Per informazioni dettagliate, vedere [percorsi dello spazio dei nomi NFS](add-namespace-paths.md#nfs-namespace-paths) .
+
 Tenere presente che le esportazioni di archiviazione devono essere accessibili dalla rete virtuale della cache. Per l'archiviazione hardware locale, potrebbe essere necessario configurare un server DNS in grado di risolvere i nomi host per l'accesso con archiviazione NFS. Per altre informazioni, vedere [accesso DNS](hpc-cache-prerequisites.md#dns-access).
 
-Aggiungere le destinazioni di archiviazione dopo la creazione della cache. La procedura è leggermente diversa a seconda che si stia aggiungendo un archivio BLOB di Azure o un'esportazione NFS. Di seguito sono riportati i dettagli per ognuno di essi.
+Aggiungere le destinazioni di archiviazione dopo la creazione della cache. Seguire questa procedura:
+
+1. [Creare la cache](hpc-cache-create.md)
+1. Definire una destinazione di archiviazione (informazioni in questo articolo)
+1. [Creazione dei percorsi rivolte al client](add-namespace-paths.md) (per lo [spazio dei nomi aggregato](hpc-cache-namespace.md))
+
+La procedura per aggiungere una destinazione di archiviazione è leggermente diversa a seconda che si stia aggiungendo un archivio BLOB di Azure o un'esportazione NFS. Di seguito sono riportati i dettagli per ognuno di essi.
 
 Fare clic sull'immagine seguente per visualizzare una [dimostrazione video](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) della creazione di una cache e l'aggiunta di una destinazione di archiviazione dal portale di Azure.
 
 [![anteprima video: cache HPC di Azure: programma di installazione (fare clic per visitare la pagina del video)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
-
-## <a name="view-storage-targets"></a>Visualizzare le destinazioni di archiviazione
-
-### <a name="portal"></a>[Portale](#tab/azure-portal)
-
-Dalla portale di Azure aprire l'istanza di cache e fare clic su **destinazioni di archiviazione** nella barra laterale sinistra. La pagina Destinazioni di archiviazione elenca tutte le destinazioni esistenti e fornisce un collegamento per aggiungerne una nuova.
-
-![screenshot del collegamento destinazioni di archiviazione nella barra laterale, sotto l'intestazione Configura, che è tra le impostazioni delle intestazioni di categoria e il monitoraggio](media/hpc-cache-storage-targets-sidebar.png)
-
-### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
-Usare l'opzione [AZ HPC-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) per visualizzare le destinazioni di archiviazione esistenti per una cache. Specificare il nome della cache e il gruppo di risorse (a meno che non sia stato impostato globalmente).
-
-```azurecli
-az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
-```
-
-Usare [AZ HPC-cache storage-target Show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) per visualizzare i dettagli relativi a una particolare destinazione di archiviazione. (Specificare la destinazione di archiviazione in base al nome).
-
-Esempio:
-
-```azurecli
-$ az hpc-cache storage-target show --cache-name doc-cache0629 --name nfsd1
-
-{
-  "clfs": null,
-  "id": "/subscriptions/<subscription_ID>/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/doc-cache0629/storageTargets/nfsd1",
-  "junctions": [
-    {
-      "namespacePath": "/nfs1/data1",
-      "nfsExport": "/datadisk1",
-      "targetPath": ""
-    }
-  ],
-  "location": "eastus",
-  "name": "nfsd1",
-  "nfs3": {
-    "target": "10.0.0.4",
-    "usageModel": "WRITE_WORKLOAD_15"
-  },
-  "provisioningState": "Succeeded",
-  "resourceGroup": "scgroup",
-  "targetType": "nfs3",
-  "type": "Microsoft.StorageCache/caches/storageTargets",
-  "unknown": null
-}
-$
-```
-
----
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Aggiungere una nuova destinazione di archiviazione BLOB di Azure
 
@@ -86,6 +42,14 @@ Una nuova destinazione di archiviazione BLOB necessita di un contenitore BLOB vu
 La pagina portale di Azure **Aggiungi destinazione di archiviazione** include l'opzione per creare un nuovo contenitore BLOB appena prima di aggiungerlo.
 
 ### <a name="portal"></a>[Portale](#tab/azure-portal)
+
+Dalla portale di Azure aprire l'istanza di cache e fare clic su **destinazioni di archiviazione** nella barra laterale sinistra.
+
+![screenshot delle impostazioni > pagina destinazione di archiviazione, con due destinazioni di archiviazione esistenti in una tabella e un'evidenziazione intorno al pulsante + Aggiungi destinazione di archiviazione sopra la tabella](media/add-storage-target-button.png)
+
+La pagina **destinazioni di archiviazione** elenca tutte le destinazioni esistenti e fornisce un collegamento per aggiungerne una nuova.
+
+Fare clic sul pulsante **Aggiungi destinazione di archiviazione** .
 
 ![screenshot della pagina Aggiungi destinazione di archiviazione, popolato con le informazioni per una nuova destinazione di archiviazione BLOB di Azure](media/hpc-cache-add-blob.png)
 
@@ -102,8 +66,6 @@ Per definire un contenitore BLOB di Azure, immettere queste informazioni.
 * **Contenitore di archiviazione** : selezionare il contenitore BLOB per la destinazione oppure fare clic su **Crea nuovo**.
 
   ![screenshot della finestra di dialogo per specificare il nome e il livello di accesso (privato) per il nuovo contenitore](media/add-blob-new-container.png)
-
-* **Percorso dello spazio dei nomi virtuale** : impostare il percorso del file per il client per questa destinazione di archiviazione. Per ulteriori informazioni sulla funzionalità spazio dei nomi virtuale, vedere [configurare lo spazio dei nomi aggregato](hpc-cache-namespace.md) .
 
 Al termine, fare clic su **OK** per aggiungere la destinazione di archiviazione.
 
@@ -163,17 +125,20 @@ Controllare anche le impostazioni del firewall dell'account di archiviazione. Se
 
 Usare l'interfaccia [AZ HPC-cache BLOB-Storage-target Add](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-add) per definire una destinazione di archiviazione BLOB di Azure.
 
+> [!NOTE]
+> Ai comandi dell'interfaccia della riga di comando di Azure è attualmente necessario creare un percorso dello spazio dei nomi quando si aggiunge una destinazione di archiviazione. Questa operazione è diversa dal processo utilizzato con l'interfaccia portale di Azure.
+
 Oltre ai parametri standard del gruppo di risorse e del nome della cache, è necessario specificare le opzioni seguenti per la destinazione di archiviazione:
 
-* ``--name``-Impostare un nome che identifichi la destinazione di archiviazione nella cache HPC di Azure.
+* ``--name`` -Impostare un nome che identifichi la destinazione di archiviazione nella cache HPC di Azure.
 
 * ``--storage-account``-Identificatore account, nel formato seguente:/subscriptions/*<subscription_id>*/resourceGroups/*<storage_resource_group *>/Providers/Microsoft.storage/storageAccounts/*<* account_name>
 
   Per informazioni sul tipo di account di archiviazione che è possibile usare, vedere [requisiti di archiviazione BLOB](hpc-cache-prerequisites.md#blob-storage-requirements).
 
-* ``--container-name``-Specificare il nome del contenitore da usare per questa destinazione di archiviazione.
+* ``--container-name`` -Specificare il nome del contenitore da usare per questa destinazione di archiviazione.
 
-* ``--virtual-namespace-path``-Impostare il percorso del file per il client per la destinazione di archiviazione. Racchiudere i percorsi tra virgolette. Per ulteriori informazioni sulla funzionalità spazio dei nomi virtuale, vedere [pianificare lo spazio dei nomi aggregato](hpc-cache-namespace.md) .
+* ``--virtual-namespace-path`` -Impostare il percorso del file per il client per la destinazione di archiviazione. Racchiudere i percorsi tra virgolette. Per ulteriori informazioni sulla funzionalità spazio dei nomi virtuale, vedere [pianificare lo spazio dei nomi aggregato](hpc-cache-namespace.md) .
 
 Comando di esempio:
 
@@ -188,7 +153,7 @@ az hpc-cache blob-storage-target add --resource-group "hpc-cache-group" \
 
 ## <a name="add-a-new-nfs-storage-target"></a>Aggiungere una nuova destinazione di archiviazione NFS
 
-Una destinazione di archiviazione NFS ha più campi di quelli della destinazione di archiviazione BLOB. Questi campi specificano come raggiungere l'esportazione dell'archiviazione e come memorizzare nella cache i dati in modo efficiente. Una destinazione di archiviazione NFS consente inoltre di creare più percorsi dello spazio dei nomi se l'host NFS dispone di più di un'esportazione disponibile.
+Una destinazione di archiviazione NFS ha impostazioni diverse da una destinazione di archiviazione BLOB. L'impostazione del modello di utilizzo consente alla cache di memorizzare in modo efficiente i dati da questo sistema di archiviazione.
 
 ![Screenshot della pagina Aggiungi destinazione di archiviazione con destinazione NFS definita](media/add-nfs-target.png)
 
@@ -228,6 +193,14 @@ In questa tabella vengono riepilogate le differenze del modello di utilizzo:
 
 ### <a name="portal"></a>[Portale](#tab/azure-portal)
 
+Dalla portale di Azure aprire l'istanza di cache e fare clic su **destinazioni di archiviazione** nella barra laterale sinistra.
+
+![screenshot delle impostazioni > pagina destinazione di archiviazione, con due destinazioni di archiviazione esistenti in una tabella e un'evidenziazione intorno al pulsante + Aggiungi destinazione di archiviazione sopra la tabella](media/add-storage-target-button.png)
+
+La pagina **destinazioni di archiviazione** elenca tutte le destinazioni esistenti e fornisce un collegamento per aggiungerne una nuova.
+
+Fare clic sul pulsante **Aggiungi destinazione di archiviazione** .
+
 ![Screenshot della pagina Aggiungi destinazione di archiviazione con destinazione NFS definita](media/add-nfs-target.png)
 
 Fornire queste informazioni per una destinazione di archiviazione supportata da NFS:
@@ -240,47 +213,36 @@ Fornire queste informazioni per una destinazione di archiviazione supportata da 
 
 * **Modello di utilizzo** : scegliere uno dei profili di caching dei dati in base al flusso di lavoro, descritto in [scegliere un modello di utilizzo](#choose-a-usage-model) precedente.
 
-### <a name="nfs-namespace-paths"></a>Percorsi dello spazio dei nomi NFS
-
-Una destinazione di archiviazione NFS può avere più percorsi virtuali, purché ogni percorso rappresenti un'esportazione o una sottodirectory diversa nello stesso sistema di archiviazione.
-
-Creare tutti i percorsi da una destinazione di archiviazione.
-
-È possibile [aggiungere e modificare i percorsi dello spazio dei nomi](hpc-cache-edit-storage.md) in una destinazione di archiviazione in qualsiasi momento.
-
-Immettere questi valori per ogni percorso dello spazio dei nomi:
-
-* **Percorso dello spazio dei nomi virtuale** : impostare il percorso del file per il client per questa destinazione di archiviazione. Per ulteriori informazioni sulla funzionalità spazio dei nomi virtuale, vedere [configurare lo spazio dei nomi aggregato](hpc-cache-namespace.md) .
-
-* **Percorso di esportazione NFS** : immettere il percorso dell'esportazione NFS.
-
-* **Percorso sottodirectory** : se si vuole montare una sottodirectory specifica dell'esportazione, immetterla qui. In caso contrario, lasciare vuoto questo campo.
-
 Al termine, fare clic su **OK** per aggiungere la destinazione di archiviazione.
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
-Usare il comando dell'interfaccia della riga di comando di Azure [AZ HPC-cache NFS-storage-target Add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) per creare la destinazione di archiviazione. Specificare questi valori oltre al nome della cache e al gruppo di risorse della cache:
+Usare il comando dell'interfaccia della riga di comando di Azure [AZ HPC-cache NFS-storage-target Add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) per creare la destinazione di archiviazione.
 
-* ``--name``-Impostare un nome che identifichi la destinazione di archiviazione nella cache HPC di Azure.
-* ``--nfs3-target``-Indirizzo IP del sistema di archiviazione NFS. È possibile utilizzare un nome di dominio completo se la cache ha accesso a un server DNS in grado di risolvere il nome.
-* ``--nfs3-usage-model``-Uno dei profili di caching dei dati, descritto in [scegliere un modello di utilizzo](#choose-a-usage-model), sopra.
+> [!NOTE]
+> Ai comandi dell'interfaccia della riga di comando di Azure è attualmente necessario creare un percorso dello spazio dei nomi quando si aggiunge una destinazione di archiviazione. Questa operazione è diversa dal processo utilizzato con l'interfaccia portale di Azure.
+
+Specificare questi valori oltre al nome della cache e al gruppo di risorse della cache:
+
+* ``--name`` -Impostare un nome che identifichi la destinazione di archiviazione nella cache HPC di Azure.
+* ``--nfs3-target`` -Indirizzo IP del sistema di archiviazione NFS. È possibile utilizzare un nome di dominio completo se la cache ha accesso a un server DNS in grado di risolvere il nome.
+* ``--nfs3-usage-model`` -Uno dei profili di caching dei dati, descritto in [scegliere un modello di utilizzo](#choose-a-usage-model), sopra.
 
   Verificare i nomi dei modelli di utilizzo con il comando [AZ HPC-cache Usage-model list](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list).
 
-* ``--junction``-Il parametro di giunzione collega il percorso del file virtuale per il client con un percorso di esportazione sul sistema di archiviazione.
+* ``--junction`` -Il parametro di giunzione collega il percorso del file virtuale per il client con un percorso di esportazione sul sistema di archiviazione.
 
   Una destinazione di archiviazione NFS può avere più percorsi virtuali, purché ogni percorso rappresenti un'esportazione o una sottodirectory diversa nello stesso sistema di archiviazione. Creare tutti i percorsi per un sistema di archiviazione in una destinazione di archiviazione.
 
-  È possibile [aggiungere e modificare i percorsi dello spazio dei nomi](hpc-cache-edit-storage.md) in una destinazione di archiviazione in qualsiasi momento.
+  È possibile [aggiungere e modificare i percorsi dello spazio dei nomi](add-namespace-paths.md) in una destinazione di archiviazione in qualsiasi momento.
 
   Il ``--junction`` parametro usa i valori seguenti:
 
-  * ``namespace-path``-Percorso del file virtuale rivolte al client
-  * ``nfs-export``-Esportazione del sistema di archiviazione da associare al percorso del client
-  * ``target-path``(facoltativo): sottodirectory dell'esportazione, se necessario
+  * ``namespace-path`` -Percorso del file virtuale rivolte al client
+  * ``nfs-export`` -Esportazione del sistema di archiviazione da associare al percorso del client
+  * ``target-path`` (facoltativo): sottodirectory dell'esportazione, se necessario
 
   Esempio: ``--junction namespace-path="/nas-1" nfs-export="/datadisk1" target-path="/test"``
 
@@ -325,10 +287,67 @@ Output:
 
 ---
 
+## <a name="view-storage-targets"></a>Visualizzare le destinazioni di archiviazione
+
+È possibile usare il portale di Azure o l'interfaccia della riga di comando di Azure per visualizzare le destinazioni di archiviazione già definite per la cache.
+
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
+Dalla portale di Azure aprire l'istanza di cache e fare clic su **destinazioni di archiviazione**, che si trova sotto l'intestazione Impostazioni sulla barra laterale sinistra. Nella pagina Destinazioni di archiviazione sono elencati tutti i controlli e le destinazioni esistenti per aggiungerli o eliminarli.
+
+Fare clic sul nome di una destinazione di archiviazione per aprirne la pagina dei dettagli.
+
+Per altre informazioni, vedere [modificare le destinazioni di archiviazione](hpc-cache-edit-storage.md) .
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Usare l'opzione [AZ HPC-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) per visualizzare le destinazioni di archiviazione esistenti per una cache. Specificare il nome della cache e il gruppo di risorse (a meno che non sia stato impostato globalmente).
+
+```azurecli
+az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
+```
+
+Usare [AZ HPC-cache storage-target Show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) per visualizzare i dettagli relativi a una particolare destinazione di archiviazione. (Specificare la destinazione di archiviazione in base al nome).
+
+Esempio:
+
+```azurecli
+$ az hpc-cache storage-target show --cache-name doc-cache0629 --name nfsd1
+
+{
+  "clfs": null,
+  "id": "/subscriptions/<subscription_ID>/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/doc-cache0629/storageTargets/nfsd1",
+  "junctions": [
+    {
+      "namespacePath": "/nfs1/data1",
+      "nfsExport": "/datadisk1",
+      "targetPath": ""
+    }
+  ],
+  "location": "eastus",
+  "name": "nfsd1",
+  "nfs3": {
+    "target": "10.0.0.4",
+    "usageModel": "WRITE_WORKLOAD_15"
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "scgroup",
+  "targetType": "nfs3",
+  "type": "Microsoft.StorageCache/caches/storageTargets",
+  "unknown": null
+}
+$
+```
+
+---
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato le destinazioni di archiviazione, prendere in considerazione una delle seguenti attività:
+Dopo aver creato le destinazioni di archiviazione, continuare con queste attività per preparare la cache per l'uso:
 
+* [Configurare lo spazio dei nomi aggregato](add-namespace-paths.md)
 * [Montare la cache HPC di Azure](hpc-cache-mount.md)
 * [Spostare i dati nell'archivio BLOB di Azure](hpc-cache-ingest.md)
 

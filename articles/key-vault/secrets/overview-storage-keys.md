@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20418dbc7432000116dcbe73a64987d83f38419d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585067"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612184"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gestire le chiavi degli account di archiviazione con Key Vault e l'interfaccia della riga di comando di Azure
 
@@ -28,7 +28,6 @@ Quando si usa la funzionalità di chiave dell'account di archiviazione gestita, 
 - I valori di chiave non vengono mai restituiti in risposta a un chiamante.
 - È necessario che solo Key Vault gestisca le chiavi dell'account di archiviazione. Non è possibile gestire autonomamente le chiavi e occorre evitare di interferire con i processi di Key Vault.
 - È necessario che solo un singolo oggetto di Key Vault gestisca le chiavi dell'account di archiviazione. È necessario non consentire la gestione delle chiavi da più oggetti.
-- È possibile richiedere a Key Vault di gestire l'account di archiviazione con un'entità utente ma non con un'entità servizio.
 - È necessario rigenerare le chiavi solo tramite Key Vault. Non rigenerare manualmente le chiavi dell'account di archiviazione.
 
 È consigliabile usare l'integrazione di Archiviazione di Azure con Azure Active Directory (Azure AD), il servizio Microsoft basato sul cloud per la gestione delle identità e dell'accesso. L'integrazione con Azure AD è disponibile per [BLOB e code di Azure](../../storage/common/storage-auth-aad.md) e offre l'accesso basato su token OAuth2 ad Archiviazione di Azure, analogamente ad Azure Key Vault.

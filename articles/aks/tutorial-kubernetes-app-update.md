@@ -3,14 +3,14 @@ title: Esercitazione su Kubernetes in Azure - Aggiornare un'applicazione
 description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come aggiornare la distribuzione di un'applicazione esistente nel servizio Azure Kubernetes con una nuova versione del codice dell'applicazione.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: e9981f9df31f6de21262aedc9790dbf1a7725fc7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6619d7c9f7d2b0cd78f3941ce431e80342b6f563
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985357"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576439"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Esercitazione: aggiornare un'applicazione nel servizio Azure Kubernetes
 
@@ -79,7 +79,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Usare [docker tag][docker-tag] per assegnare il tag all'immagine. Sostituire `<acrLoginServer>` con il nome del server di accesso di Registro Azure Container o con il nome host del registro pubblico e aggiornare la versione dell'immagine a *:v2* come di seguito:
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
+docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v2
 ```
 
 Usare ora [docker push][docker-push] per caricare l'immagine nel registro. Sostituire `<acrLoginServer>` con il nome del server di accesso di Registro Azure Container.

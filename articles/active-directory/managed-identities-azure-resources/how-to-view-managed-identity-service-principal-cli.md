@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2018
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b8eec72666eadf90a401dc8f0adb77df77dbf782
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1c0f167a36ceff6a9b62e2a3ccf24ca6e13e6294
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90969298"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611912"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-azure-cli"></a>Visualizzare l'entità servizio di un'identità gestita tramite l'interfaccia della riga di comando di Azure
 
@@ -35,15 +35,15 @@ In questo articolo viene descritto come visualizzare l'entità servizio di un'id
 - Se non si ha già un account Azure, è possibile [registrarsi per ottenerne uno gratuito](https://azure.microsoft.com/free/).
 - Abilitare l'[identità assegnata dal sistema nella macchina virtuale](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) o nell'[applicazione](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
 - Per eseguire gli script di esempio, sono disponibili due opzioni:
-    - Usare il [Azure cloud Shell](../../cloud-shell/overview.md), che è possibile aprire usando il pulsante **prova** nell'angolo superiore destro dei blocchi di codice.
-    - Eseguire gli script localmente installando la versione più recente dell'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli), quindi accedere ad Azure usando [AZ login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure in cui si vogliono creare risorse.   
+    - Usare [Azure Cloud Shell](../../cloud-shell/overview.md), che è possibile aprire usando il pulsante **Prova** nell'angolo in alto a destra dei blocchi di codice.
+    - Eseguire gli script in locale installando l'ultima versione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli), quindi accedere ad Azure usando [az login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure in cui si vogliono creare le risorse.   
 
 ## <a name="view-the-service-principal"></a>Visualizzare l'entità servizio
 
-Il comando seguente mostra come visualizzare l'entità servizio di una macchina virtuale o un'applicazione in cui è abilitata un'identità gestita. Sostituire `<VM or application name>` con i propri valori. 
+Il comando seguente mostra come visualizzare l'entità servizio di una macchina virtuale o un'applicazione in cui è abilitata un'identità gestita. Sostituire `<Azure resource name>` con i propri valori.
 
 ```azurecli-interactive
-az ad sp list --display-name <VM or application name>
+az ad sp list --display-name <Azure resource name>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

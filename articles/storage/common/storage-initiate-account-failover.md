@@ -10,13 +10,13 @@ ms.date: 06/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 74f4c30f7aa018502f3437fd4a577f8c2a9de491
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e39548a923e76fc118dec4158398d02577ec20c5
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077944"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91610059"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Avviare un failover dell'account di archiviazione
 
@@ -54,7 +54,7 @@ Per avviare un failover dell'account dal portale di Azure, seguire questa proced
 1. Selezionare **prepara per il failover**.
 1. Rivedere la finestra di conferma. Quando si è pronti, immettere **Sì** per confermare e avviare il failover.
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Screenshot che mostra la finestra di dialogo di conferma per un failover dell'account":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Screenshot che mostra la replica geografica e lo stato del failover":::
 
 ## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 09/29/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 939d78fb75dc69af91cbc920fadce69945a24e39
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 400f0b1b55136f133c9ad01fd0ba4b5dbc5e6bcb
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447735"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612745"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Aggiungere assegnazioni di ruolo di Azure tramite modelli di Azure Resource Manager
 
@@ -52,6 +52,18 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
+### <a name="managed-identities"></a>Identità gestite
+
+Per ottenere l'ID di un'identità gestita, è possibile usare i comandi [Get-AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) o [AZ ad SP](/cli/azure/ad/sp) .
+
+```azurepowershell
+$objectid = (Get-AzADServicePrincipal -DisplayName <Azure resource name>).id
+```
+
+```azurecli
+objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectId --output tsv)
+```
+
 ### <a name="application"></a>Applicazione
 
 Per ottenere l'ID di un'entità servizio (identità usata da un'applicazione), è possibile usare i comandi [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) o [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list). Per un'entità servizio usare l'ID oggetto, **non** l'ID applicazione.
@@ -77,7 +89,7 @@ Il modello seguente mostra un metodo di base per aggiungere un'assegnazione di r
 Per usare il modello, è necessario:
 
 - Creare un nuovo file JSON e copiare il modello
-- Sostituire `<your-principal-id>` con l'ID di un utente, un gruppo o un'applicazione a cui assegnare il ruolo
+- Sostituire `<your-principal-id>` con l'ID di un utente, di un gruppo, di un'identità gestita o di un'applicazione a cui assegnare il ruolo
 
 ```json
 {
@@ -120,7 +132,7 @@ Il modello precedente non è molto flessibile. Il modello seguente usa parametri
 
 Per usare il modello, è necessario specificare gli input seguenti:
 
-- L'ID di un utente, un gruppo o un'applicazione a cui assegnare il ruolo
+- ID di un utente, di un gruppo, di un'identità gestita o di un'applicazione a cui assegnare il ruolo
 - Un ID univoco che verrà usato per l'assegnazione del ruolo. In alternativa, è possibile usare l'ID predefinito
 
 ```json
@@ -214,7 +226,7 @@ Il modello seguente illustra:
 
 Per usare il modello, è necessario specificare gli input seguenti:
 
-- L'ID di un utente, un gruppo o un'applicazione a cui assegnare il ruolo
+- ID di un utente, di un gruppo, di un'identità gestita o di un'applicazione a cui assegnare il ruolo
 
 ```json
 {

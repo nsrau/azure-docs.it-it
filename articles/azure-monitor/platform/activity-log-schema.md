@@ -4,15 +4,15 @@ description: Descrive lo schema dell'evento per ogni categoria nel log attività
 author: bwren
 services: azure-monitor
 ms.topic: reference
-ms.date: 06/09/2020
+ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 656161849ce8d48fb15cfac4024ec5b77adb5fee
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829510"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612762"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
 Il [log attività di Azure](platform-logs-overview.md) fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive le categorie del log attività e lo schema per ciascuna di esse. 
@@ -23,11 +23,22 @@ Lo schema può variare a seconda della modalità di accesso al log:
 - Vedere lo schema della sezione finale [dall'account di archiviazione e hub eventi](#schema-from-storage-account-and-event-hubs) per lo schema quando si usa un' [impostazione di diagnostica](diagnostic-settings.md) per inviare il log attività ad archiviazione di Azure o hub eventi di Azure.
 - Vedere [riferimento ai dati di monitoraggio di Azure](/azure/azure-monitor/reference/) per lo schema quando si usa un' [impostazione di diagnostica](diagnostic-settings.md) per inviare il log attività a un'area di lavoro log Analytics.
 
+## <a name="severity-level"></a>Livello di gravità
+Ogni voce nel log attività ha un livello di gravità. Il livello di gravità può avere uno dei valori seguenti:  
+
+| Gravità | Descrizione |
+|:---|:---|
+| Critico | Eventi che richiedono l'attenzione immediata di un amministratore di sistema. Può indicare che un'applicazione o un sistema non è stato in grado di rispondere.
+| Errore | Eventi che indicano un problema, ma che non richiedono attenzione immediata.
+| Avviso | Eventi che forniscono il preavviso dei potenziali problemi, anche se non si tratta di un errore effettivo. Indica che una risorsa non si trova in uno stato ideale e può compromettere in seguito la visualizzazione degli errori o degli eventi critici.  
+| Informativo | Eventi che passano informazioni non critiche all'amministratore. Simile a una nota che indica: "per informazioni". 
+
+Il devlopers di ogni provider di risorse sceglie i livelli di gravità delle relative voci di risorsa. Di conseguenza, la gravità effettiva può variare a seconda del modo in cui viene compilata l'applicazione. Ad esempio, gli elementi che sono "critici" per una particolare risorsa eseguita in isloation potrebbero non essere importanti come "errori" in un tipo di risorsa centrale per l'applicazione Azure. Assicurarsi di prendere in considerazione questo fatto quando si decidono gli eventi su cui inviare l'avviso.  
 
 ## <a name="categories"></a>Categorie
 Ogni evento nel log attività dispone di una categoria specifica descritta nella tabella seguente. Vedere le sezioni seguenti per altre informazioni su ogni categoria e il relativo schema quando si accede al log attività dal portale, da PowerShell, dall'interfaccia della riga di comando e dall'API REST. Lo schema è diverso quando si esegue [lo streaming del log attività in hub eventi o di archiviazione](./resource-logs.md#send-to-azure-event-hubs). Un mapping delle proprietà allo schema dei [log delle risorse](./resource-logs-schema.md) è disponibile nell'ultima sezione dell'articolo.
 
-| Categoria | Descrizione |
+| Category | Descrizione |
 |:---|:---|
 | [Administrative](#administrative-category) | Contiene il record di tutte le operazioni di creazione, aggiornamento, eliminazione e azione eseguite tramite Resource Manager. Esempi di eventi amministrativi includono la _creazione di una macchina virtuale_ e l'_eliminazione di un gruppo di sicurezza di rete_.<br><br>Ogni azione eseguita da un utente o da un'applicazione che usa Resource Manager viene modellata come operazione su un particolare tipo di risorsa. Se l'operazione è di tipo _scrittura_, _eliminazione_ o _azione_, i record di avvio e riuscita o di non riuscita di tale operazione vengono registrati nella categoria Amministrativo. Gli eventi di tipo Amministrativo includono anche eventuali modifiche al controllo degli accessi in base al ruolo in una sottoscrizione. |
 | [Integrità dei servizi](#service-health-category) | Contiene il record degli eventi imprevisti di integrità dei servizi che si sono verificati in Azure. Un esempio di evento di tipo Integrità dei servizi è _Tempo di inattività registrato in SQL Azure negli Stati Uniti orientali_. <br><br>Gli eventi di tipo Integrità dei servizi sono di cinque tipi: _Intervento necessario_, _Recupero assistito_, _Evento imprevisto_, _Manutenzione_, _Informazioni_ o _Sicurezza_. Questi eventi vengono creati solo se si dispone di una risorsa nella sottoscrizione che potrebbe essere interessata dall'evento.
