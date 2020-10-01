@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0940521873b8d6746381acbd8e6c4c6d3a273c49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325760"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613765"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -111,6 +111,10 @@ Una volta preparati gli strumenti di Gestione dei servizi IT, seguire la procedu
 Una volta creata la connessione di Gestione dei servizi IT, è possibile creare uno o più elementi di lavoro nello strumento di Gestione dei servizi IT in base agli avvisi di Azure tramite **ITSM Action** (Azione di Gestione dei servizi IT) in **Gruppi di azioni**.
 
 I gruppi di azioni forniscono un modo modulare e riutilizzabile per attivare le azioni per gli avvisi di Azure. È possibile usare i gruppi di azioni con avvisi relativi alle metriche, avvisi del log attività e avvisi di Azure Log Analytics nel portale di Azure.
+
+> [!NOTE]
+> Una volta creata la connessione ITSM, è necessario attendere 30 minuti dopo che il connettore creato per il processo di sincronizzazione verrà completato
+> 
 
 Utilizzare la procedura seguente:
 

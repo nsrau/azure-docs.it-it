@@ -2,13 +2,13 @@
 title: Panoramica di Centro backup
 description: Questo articolo fornisce una panoramica di backup Center per Azure.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: e7577f302b9a137f5f3c257dc35d0fdf339f69a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/30/2020
+ms.openlocfilehash: 2857433e00a678603e30c8e5fc276020c4658f2e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997010"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614284"
 ---
 # <a name="overview-of-backup-center"></a>Panoramica di Centro backup
 
@@ -39,7 +39,11 @@ Nel riquadro **Jobs (processi** ) si ottiene una vista riepilogativa di tutti i 
 
 Nel riquadro **istanze di backup** si ottiene una vista riepilogativa di tutte le istanze di backup nell'area di backup. Ad esempio, è possibile visualizzare il numero di istanze di backup in stato di eliminazione temporanea rispetto al numero di istanze ancora configurate per la protezione. Selezionando uno dei numeri in questo riquadro è possibile visualizzare altre informazioni sulle istanze di backup per un tipo di origine dati e uno stato di protezione specifici.
 
-Attenersi alla procedura seguente per comprendere le diverse funzionalità offerte da backup Center e come usare queste funzionalità per gestire in modo efficiente la proprietà di backup.
+Guardare il video seguente per comprendere le funzionalità di backup Center:
+
+> [!VIDEO https://www.youtube.com/embed/pFRMBSXZcUk?t=497]
+
+Segui i [passaggi successivi](#next-steps) per comprendere le diverse funzionalità offerte da backup Center e come usare queste funzionalità per gestire in modo efficiente il tuo patrimonio di backup.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 08/14/2020
-ms.openlocfilehash: ceb1c9711d67b32f9a31e6105df0e0e0eec42907
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 44dafd1b0043c2daa7065069f571f13529303a73
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321374"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614428"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Panoramica del modello vCore: database SQL di Azure e Istanza gestita SQL di Azure 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -38,7 +38,7 @@ Le opzioni del livello di servizio nel modello vCore includono per utilizzo gene
 |IOPS e velocità effettiva (approssimativa)|**Database SQL**: vedere i limiti delle risorse per i [database singoli](resource-limits-vcore-single-databases.md) e i [pool elastici](resource-limits-vcore-elastic-pools.md).<br/>**Istanza gestita SQL**: vedere [Panoramica dei limiti delle risorse di Azure SQL istanza gestita](../managed-instance/resource-limits.md#service-tier-characteristics).|Vedere limiti delle risorse per [database singoli](resource-limits-vcore-single-databases.md) e [pool elastici](resource-limits-vcore-elastic-pools.md).|La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. I IOPS e la velocità effettiva effettivi dipendono dal carico di lavoro.|
 |Disponibilità|1 replica, nessuna replica con scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](read-scale-out.md),<br/>disponibilità elevata con ridondanza della zona (HA)|1 replica di lettura/scrittura, più 0-4 [repliche con scalabilità in lettura](read-scale-out.md)|
 |Backup|[Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35 giorni (7 giorni per impostazione predefinita)|Backup basati su snapshot nell'archiviazione remota di Azure. Questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscano sulle prestazioni di I/O di calcolo. I ripristini sono veloci e non sono un'operazione di dimensioni dei dati (che richiede minuti anziché ore o giorni).|
-|In memoria|Non supportate|Supportato|Non supportate|
+|In memoria|Non supportato|Supportato|Non supportato|
 |||
 
 
@@ -91,7 +91,11 @@ La serie Fsv2 è supportata solo nel livello per utilizzo generico. Per le aree 
 - La serie M è un'opzione hardware con ottimizzazione per la memoria per carichi di lavoro che richiedono più memoria e limiti di calcolo superiori rispetto a quelli forniti da Quinta generazione.
 - La serie M offre 29 GB per vCore e fino a 128 Vcore, che aumenta il limite di memoria rispetto a Quinta generazione da 8x a circa 4 TB.
 
-La serie M è supportata solo nel livello business critical e non supporta la ridondanza della zona.  La sottoscrizione deve essere un tipo di offerta a pagamento, incluso il pagamento in base al consumo o Enterprise Agreement (EA). Per le aree in cui è disponibile la serie M, vedere [disponibilità della serie m](#m-series-1).
+La serie M è supportata solo nel livello business critical e non supporta la ridondanza della zona.  Per le aree in cui è disponibile la serie M, vedere [disponibilità della serie m](#m-series-1).
+
+#### <a name="azure-offer-types-supported-by-m-series"></a>Tipi di offerta di Azure supportati dalla serie M
+
+Per accedere alla serie M, la sottoscrizione deve essere un tipo di offerta a pagamento, ad esempio con pagamento in base al consumo o Enterprise Agreement (EA).  Per un elenco completo dei tipi di offerta di Azure supportati dalla serie M, vedere [offerte correnti senza limiti di spesa](https://azure.microsoft.com/support/legal/offer-details).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).

@@ -3,12 +3,12 @@ title: Hub eventi-Acquisisci eventi di streaming con portale di Azure
 description: Questo articolo descrive come abilitare l'acquisizione di eventi in streaming tramite Hub eventi di Azure tramite il portale di Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 103aa4e3da84e41275bec6310035c117fe780a18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2381bfa627d00a78ed91af0ba81579588ee016ce
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315738"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613578"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Abilitare l'acquisizione di eventi in streaming tramite Hub eventi di Azure
 
@@ -17,6 +17,9 @@ L' [acquisizione di hub eventi][capture-overview] di Azure consente di recapitar
 È possibile configurare Acquisizione al momento della creazione dell'hub eventi usando il [portale di Azure](https://portal.azure.com). È possibile acquisire i dati in un contenitore di [archiviazione BLOB](https://azure.microsoft.com/services/storage/blobs/) di Azure o in un account [Azure Data Lake storage generazione 1 o di seconda generazione](https://azure.microsoft.com/services/data-lake-store/) .
 
 Per altre informazioni, vedere la [panoramica della funzionalità di acquisizione di Hub eventi][capture-overview].
+
+> [!IMPORTANT]
+> L'account di archiviazione di destinazione (archiviazione di Azure o Azure Data Lake Storage) deve trovarsi nella stessa sottoscrizione dell'hub eventi.
 
 ## <a name="capture-data-to-azure-storage"></a>Acquisire i dati in archiviazione di Azure
 

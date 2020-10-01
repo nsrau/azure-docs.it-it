@@ -3,18 +3,20 @@ title: Gestire la proprietà di backup con backup Center
 description: Informazioni su come gestire l'ambiente Azure per assicurarsi che tutte le risorse siano conformi da una prospettiva di backup con il centro di backup.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 009ee461b0372a3fb73ffb3b0ee5151b77bd8ef8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8a16769be827bf34e5be82409d5b8eb014cdcf1a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997661"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614333"
 ---
 # <a name="govern-your-backup-estate-using-backup-center"></a>Gestire la proprietà di backup con backup Center
 
 Backup Center consente di gestire l'ambiente Azure per assicurarsi che tutte le risorse siano conformi dal punto di vista del backup. Di seguito sono riportate alcune delle funzionalità di governance di backup Center:
 
 * Visualizzare e assegnare criteri di Azure per il backup
+
+* Visualizzare la conformità delle risorse in tutti i criteri di Azure predefiniti per il backup.
 
 * Visualizzare tutte le origini dati che non sono state configurate per il backup.
 
@@ -29,6 +31,12 @@ Per visualizzare tutti i [criteri di Azure](https://docs.microsoft.com/azure/gov
 Selezionando una delle definizioni è possibile [assegnare i criteri](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) a un ambito.
 
 ![Selezionare le definizioni dei criteri di Azure](./media/backup-center-govern-environment/azure-policy-definitions.png)
+
+## <a name="backup-compliance"></a>Conformità del backup
+
+Facendo clic sulla voce di menu conformità backup è possibile visualizzare la [conformità](https://docs.microsoft.com/azure/governance/policy/how-to/get-compliance-data) delle risorse in base ai vari criteri predefiniti assegnati all'ambiente Azure. È possibile visualizzare la percentuale di risorse conformi a tutti i criteri, nonché i criteri che dispongono di una o più risorse non conformi.
+
+![Visualizzare la conformità del backup](./media/backup-center-govern-environment/azure-policy-compliance.png)
 
 ## <a name="protectable-datasources"></a>Origini dati da proteggere
 

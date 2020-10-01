@@ -3,12 +3,12 @@ title: Panoramica dell'architettura
 description: Panoramica dell'architettura, dei componenti e dei processi usati dal servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986495"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614003"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -35,7 +35,7 @@ Scopri di più sulle funzionalità di [cui puoi eseguire il](backup-overview.md)
 
 ## <a name="where-is-data-backed-up"></a>Dove viene eseguito il backup dei dati?
 
-Backup di Azure archivia i dati sottoposti a backup in un insieme di credenziali: ripristinare insiemi di credenziali dei servizi e insiemi di credenziali di backup. Un insieme di credenziali è un'entità di archiviazione online in Azure usata per conservare i dati, ad esempio copie di backup, punti di ripristino e criteri di backup.
+Backup di Azure archivia i dati sottoposti a backup in un insieme di credenziali: insiemi di credenziali dei servizi di ripristino e insiemi di credenziali di backup. Un insieme di credenziali è un'entità di archiviazione online in Azure usata per conservare i dati, ad esempio copie di backup, punti di ripristino e criteri di backup.
 
 Gli insiemi di credenziali includono le funzionalità seguenti:
 

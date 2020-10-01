@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: eb25fc0d7831bc06b708431ce3d47c73b36fe5c6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281251"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613901"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Supporto dell'hub IoT per le reti virtuali con collegamento privato e identità gestita
 
@@ -38,7 +38,7 @@ Questo articolo descrive come raggiungere questi obiettivi usando un [collegamen
 
 Un endpoint privato è un indirizzo IP privato allocato all'interno di una rete virtuale di proprietà del cliente tramite la quale è raggiungibile una risorsa di Azure. Tramite il collegamento privato di Azure è possibile configurare un endpoint privato per l'hub IoT per consentire ai servizi all'interno della rete virtuale di raggiungere l'hub IoT senza richiedere che il traffico venga inviato all'endpoint pubblico dell'hub IoT. In modo analogo, i dispositivi locali possono utilizzare la [rete VPN (Virtual Private Network)](../vpn-gateway/vpn-gateway-about-vpngateways.md) o il peering [ExpressRoute](https://azure.microsoft.com/services/expressroute/) per ottenere la connettività alla rete virtuale e all'hub IoT (tramite l'endpoint privato). Di conseguenza, è possibile limitare o bloccare completamente la connettività agli endpoint pubblici dell'hub IoT utilizzando il [filtro IP dell'hub IoT](./iot-hub-ip-filtering.md) e [configurando il routing in modo che non vengano inviati dati all'endpoint predefinito](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). Questo approccio consente di mantenere la connettività all'hub utilizzando l'endpoint privato per i dispositivi. Questa configurazione è destinata principalmente ai dispositivi all'interno di una rete locale. Questa configurazione non è consigliata per i dispositivi distribuiti su una rete WAN.
 
-![Endpoint pubblico dell'hub IoT](./media/virtual-network-support/virtual-network-ingress.png)
+![Ingresso rete virtuale dell'hub Internet delle cose](./media/virtual-network-support/virtual-network-ingress.png)
 
 Prima di iniziare, verificare che siano soddisfatti i seguenti prerequisiti:
 
@@ -52,11 +52,11 @@ L'endpoint privato funziona per le API del dispositivo dell'hub Internet (ad ese
 
 1. Nel portale di Azure selezionare **Rete**, **Connessioni a endpoint privato**, quindi fare clic su **+ endpoint privato**.
 
-    :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Screenshot che mostra come aggiungere un endpoint privato per l'hub IoT":::
+    :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Screenshot che mostra come aggiungere un endpoint privato per l'hub IoT&quot;:::
 
 1. Specificare la sottoscrizione, il gruppo di risorse e l'area per la creazione del nuovo endpoint privato. Idealmente, l'endpoint privato deve essere creato nella stessa area dell'hub.
 
-1. Fare clic su **Avanti: Risorsa** e specificare la sottoscrizione per la risorsa dell'hub IoT, selezionare "**Microsoft.Devices/IotHubs**" come tipo di risorsa, il nome dell'hub IoT come **risorsa** e **iotHub** come risorsa secondaria di destinazione.
+1. Fare clic su **Avanti: Risorsa** e specificare la sottoscrizione per la risorsa dell'hub IoT, selezionare &quot;**Microsoft.Devices/IotHubs**" come tipo di risorsa, il nome dell'hub IoT come **risorsa** e **iotHub** come risorsa secondaria di destinazione.
 
 1. Fare clic su **Avanti: Configurazione** e specificare la rete virtuale e la subnet in cui creare l'endpoint privato. Selezionare l'opzione per l'integrazione con la zona DNS privata di Azure, se lo si desidera.
 
@@ -92,7 +92,11 @@ Per consentire ad altri servizi di trovare l'hub IoT come servizio Microsoft att
 
 1. In **Stato** selezionare **Attiva**, quindi fare clic su **Salva**.
 
-    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Screenshot che mostra come attivare l'identità gestita per l'hub IoT":::
+    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Screenshot che mostra come aggiungere un endpoint privato per l'hub IoT&quot;:::
+
+1. Specificare la sottoscrizione, il gruppo di risorse e l'area per la creazione del nuovo endpoint privato. Idealmente, l'endpoint privato deve essere creato nella stessa area dell'hub.
+
+1. Fare clic su **Avanti: Risorsa** e specificare la sottoscrizione per la risorsa dell'hub IoT, selezionare &quot;**Microsoft.Devices/IotHubs**":::
 
 ### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Assegnare l'identità gestita all'hub Internet in fase di creazione usando il modello ARM
 

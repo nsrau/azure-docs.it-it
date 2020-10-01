@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0e312cf49ee54020d0feb8d8e2f4c7a9bb77215a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0af98993cc4b3c7d19cdaa61cd7a35e3b444a3df
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074528"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613799"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Creare un account BlockBlobStorage
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Nessuno.
+No.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -109,7 +109,7 @@ Per creare un account BlockBlobStorage nel portale di Azure, seguire questa proc
 
 7. Per le altre impostazioni, configurare quanto segue:
 
-   |Campo     |valore  |
+   |Campo     |Valore  |
    |---------|---------|
    |**Prestazioni**    |  Selezionare **Premium**.   |
    |**Tipo di account**    | Selezionare **BlockBlobStorage**.      |
@@ -128,7 +128,7 @@ Per creare un account BlockBlobStorage nel portale di Azure, seguire questa proc
 
 8. Selezionare **Verifica + crea** per verificare le impostazioni dell'account di archiviazione.
 
-9. Selezionare **Create** (Crea).
+9. Selezionare **Crea**.
 
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 

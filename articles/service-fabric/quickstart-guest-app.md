@@ -4,12 +4,12 @@ description: Usare un cluster di Azure Service Fabric per ospitare un'applicazio
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 29278faa80340d17e9ed9093dd5f432fd24a3a2d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314284"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614105"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Ospitare un'applicazione Node.js in Azure Service Fabric
 
@@ -31,7 +31,7 @@ Creare un progetto con `CTRL`+`SHIFT`+`N`.
 
 Nella finestra di dialogo **Nuovo progetto** scegliere **Cloud > Applicazione di Service Fabric**.
 
-Assegnare all'applicazione il nome **MyGuestApp** e fare clic su **OK**.
+Assegnare all'applicazione il nome **MyGuestApp** e fare clic su **Crea**.
 
 >[!IMPORTANT]
 >Node.js può facilmente superare il limite di 260 caratteri per i percorsi presente in Windows. Usare per il progetto un percorso breve, ad esempio **c:\code\svc1**. È anche possibile seguire **[queste istruzioni](https://stackoverflow.com/a/41687101/1664231)** per abilitare i percorsi di file lunghi in Windows 10.
@@ -42,7 +42,7 @@ Nella finestra di dialogo successiva è possibile creare qualsiasi tipo di servi
 
 Assegnare al servizio il nome **MyGuestService** e impostare le opzioni a destra sui valori seguenti:
 
-| Impostazione                   | valore |
+| Impostazione                   | Valore |
 | ------------------------- | ------ |
 | Cartella del pacchetto di codice       | _&lt;la cartella con l'app Node.js&gt;_ |
 | Comportamento del pacchetto di codice     | Copia il contenuto della cartella nel progetto |

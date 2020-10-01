@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0f4552d6488ecd083b6ee5d4cae2ef2bd660efc7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c4af0e8eda818fcb57ea9e050b760c3754c46e2c
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906381"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613646"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Domande frequenti per i clienti che usano già i log di monitoraggio di Azure<a name="existingloganalyticscust"></a>
 
@@ -35,7 +35,6 @@ Una soluzione del Centro sicurezza viene installata nell'area di lavoro selezion
 Quando il Centro sicurezza rileva che una macchina virtuale è già connessa a un'area di lavoro creata, il Centro sicurezza Abilita le soluzioni in questa area di lavoro in base alla configurazione dei prezzi. Le soluzioni vengono applicate solo alle macchine virtuali rilevanti di Azure tramite il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md), quindi la fatturazione rimane invariata.
 
 - **Azure Defender off** : il Centro sicurezza installa la soluzione ' SecurityCenterFree ' nell'area di lavoro. Non verrà addebitato alcun costo.
-- 
 - **Azure Defender on** : il Centro sicurezza installa la soluzione ' Security ' nell'area di lavoro.
 
    ![Soluzioni nell'area di lavoro predefinita](./media/security-center-platform-migration-faq/solutions.png)

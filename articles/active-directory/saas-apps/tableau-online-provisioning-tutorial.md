@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: da89bf6cb336087f97341ca57a9b2545c966a053
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533440"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613926"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Esercitazione: Configurare Tableau Online per il provisioning utenti automatico
 
@@ -133,7 +133,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 11. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a Tableau online nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Tableau Online per le operazioni di aggiornamento. Per salvare le modifiche, selezionare **Salva**.
 
-    ![Tableau online attributi utente corrispondenti](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
+    ![Tableau online attributi utente corrispondenti](./media/tableau-online-provisioning-tutorial/attribute.png)
 
 12. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Groups to Tableau** (Sincronizza gruppi di Azure Active Directory con Tableau).
 
@@ -162,6 +162,9 @@ L'operazione avvia la sincronizzazione iniziale di tutti gli utenti o i gruppi d
 È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti al report dell'attività di provisioning. Il report descrive tutte le azioni eseguite dal servizio di provisioning Azure AD in Tableau online.
 
 Per informazioni su come leggere i log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
+
+## <a name="change-log"></a>Registro delle modifiche
+* 09/30/2020-è stato aggiunto il supporto per l'attributo "authSetting" per gli utenti.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

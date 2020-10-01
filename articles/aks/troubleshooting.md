@@ -4,12 +4,12 @@ description: Informazioni su come individuare e risolvere i problemi comuni quan
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 855e5e5e23371f600a7e73139f2e6da1eebc91d0
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 81adbfe7a5a04ffb8fcb3311ad3561135b77ab7b
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068830"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614020"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -183,6 +183,14 @@ Per questo problema, usare le soluzioni alternative seguenti:
 ## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>Ricevo quando si `"AADSTS7000215: Invalid client secret is provided."` Usa l'API AKS. Cosa devo fare?
 
 Questa operazione è in genere dovuta alla scadenza delle credenziali dell'entità servizio. [Aggiornare le credenziali per un cluster AKS.](update-credentials.md)
+
+## <a name="i-cant-access-my-cluster-api-from-my-automationdev-machinetooling-when-using-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Non è possibile accedere all'API del cluster da automazione/computer di sviluppo/strumenti quando si usano intervalli IP autorizzati del server API. Come si risolve il problema?
+
+Questa operazione richiede `--api-server-authorized-ip-ranges` l'inclusione degli indirizzi IP o degli intervalli IP dei sistemi di automazione/sviluppo/strumenti utilizzati. Vedere la sezione "come trovare l'IP" in [accesso sicuro al server API usando gli intervalli di indirizzi IP autorizzati](api-server-authorized-ip-ranges.md).
+
+## <a name="im-unable-to-view-resources-in-kubernetes-resource-viewer-in-azure-portal-for-my-cluster-configured-with-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Non è possibile visualizzare le risorse nel Visualizzatore risorse di Kubernetes in portale di Azure per il cluster configurato con intervalli IP autorizzati del server API. Come si risolve il problema?
+
+Il [Visualizzatore risorse Kubernetes](kubernetes-portal.md) richiede `--api-server-authorized-ip-ranges` di includere l'accesso per il computer client locale o l'intervallo di indirizzi IP (da cui viene visualizzato il portale). Vedere la sezione "come trovare l'IP" in [accesso sicuro al server API usando gli intervalli di indirizzi IP autorizzati](api-server-authorized-ip-ranges.md).
 
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Errori dopo la limitazione del traffico in uscita
 

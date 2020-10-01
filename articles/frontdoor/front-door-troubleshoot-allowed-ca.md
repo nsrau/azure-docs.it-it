@@ -1,6 +1,6 @@
 ---
 title: Autorità di certificazione consentita per l'abilitazione di HTTPS personalizzato in Azure
-description: Se si usa il proprio certificato per abilitare HTTPS in un dominio 0custom di Azure front door, è necessario usare un'autorità di certificazione (CA) consentita per crearla.
+description: Se si usa il proprio certificato per abilitare HTTPS in un dominio personalizzato di Azure front door, è necessario usare un'autorità di certificazione (CA) consentita per crearla.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -10,17 +10,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2018
+ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: 973df2505eefc2a46aa105b874f32b61fe6e8b36
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 20c5d611272ee2159ce8ddcc2865797a225a7ebb
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269803"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613680"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door"></a>Autorità di certificazione consentite per l'abilitazione di HTTPS personalizzato in Azure front door
 
-Per un dominio personalizzato di Azure front door, quando si [Abilita la funzionalità HTTPS usando il proprio certificato](front-door-custom-domain-https.md?tabs=option-2-enable-https-with-your-own-certificate), è necessario usare un'autorità di certificazione (CA) consentita per creare il certificato TLS/SSL. In caso contrario, se si usa una CA non consentita o un certificato autofirmato, la richiesta verrà rifiutata.
+Quando si [Abilita la funzionalità HTTPS usando il proprio certificato](front-door-custom-domain-https.md?tabs=option-2-enable-https-with-your-own-certificate) per un dominio personalizzato di Azure front door. Per creare il certificato TLS/SSL è necessaria un'autorità di certificazione (CA) consentita. In caso contrario, se si usa una CA non consentita o un certificato autofirmato, la richiesta verrà rifiutata.
 
 [!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]

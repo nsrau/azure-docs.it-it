@@ -3,13 +3,13 @@ title: Eliminare il gruppo di risorse e le risorse
 description: Viene descritto come eliminare i gruppi di risorse e le risorse. Descrive il modo in cui Azure Resource Manager Ordina l'eliminazione delle risorse quando si elimina un gruppo di risorse. Descrive i codici di risposta e il modo in cui Resource Manager li gestisce in modo da determinare se l'eliminazione è stata completata.
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 2720a9ae8c0a67d8e6f9c1105b33c0a3c343cf47
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: seodec18
+ms.openlocfilehash: d6c38169916cc6c47d6f05c88645fa435bbdb146
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498498"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614411"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager l'eliminazione di risorse e gruppi di risorse
 
@@ -75,7 +75,7 @@ az group delete --name ExampleResourceGroup
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Nel [portale](https://portal.azure.com)selezionare il gruppo di risorse che si vuole eliminare.
+1. Nel [portale](https://portal.azure.com) selezionare il gruppo di risorse che si intende eliminare.
 
 1. Selezionare **Elimina gruppo di risorse**.
 
@@ -123,4 +123,4 @@ az resource delete \
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sui concetti correlati a Resource Manager, vedere [Panoramica di Azure Resource Manager](overview.md).
-* Per i comandi di eliminazione, vedere [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Interfaccia della riga di comando di Azure](/cli/azure/group?view=azure-cli-latest#az-group-delete) e [API REST](/rest/api/resources/resourcegroups/delete).
+* Per i comandi di eliminazione, vedere [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Interfaccia della riga di comando di Azure](/cli/azure/group#az-group-delete) e [API REST](/rest/api/resources/resourcegroups/delete).

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/6/2020
 ms.reviewer: sngun
-ms.openlocfilehash: af777efda769315019ecee41d4053f5ab82f3047
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: bb8a413f2e2a3aa4a8facd533d822312bb61fa0e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920433"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613561"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Livelli di coerenza e API di Azure Cosmos DB
 
@@ -49,11 +49,11 @@ Quando si usa l'API di Azure Cosmos DB per MongoDB:
 
 * Azure Cosmos DB eseguirà il mapping dinamico del problema di lettura specificato dal driver client MongoDB a uno dei livelli di coerenza Azure Cosmos DB configurati in modo dinamico in una richiesta di lettura.  
 
-* È possibile aggiungere annotazioni a un'area specifica associata all'account Azure Cosmos come "Master" rendendo la regione come prima area scrivibile. 
+* È possibile aggiungere annotazioni a un'area specifica associata all'account Azure Cosmos come "primaria", rendendo la regione come prima area scrivibile. 
 
 La tabella seguente illustra come viene eseguito il mapping dei problemi di scrittura/lettura MongoDB nativi ai livelli di coerenza di Azure Cosmos quando si usa l'API di Azure Cosmos DB per MongoDB:
 
-:::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png" alt-text="Mapping del modello di coerenza MongoDB" lightbox= "./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png":::
+:::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png" alt-text="Mapping del modello di coerenza Cassandra" lightbox= "./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
