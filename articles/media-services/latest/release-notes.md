@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5a22bd9508feac1348bcd8042fa6ac791864c261
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 88b1eb70814c349d488933179a16c084a0af803c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425637"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619968"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -42,9 +42,9 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 ## <a name="august-2020"></a>Agosto 2020
 
 ### <a name="dynamic-encryption"></a>Crittografia dinamica
-Il supporto per la crittografia legacy PlayReady protected Interoperable file Format (PIFF 1,1) è ora disponibile in Dynamic Packager. Fornisce supporto per i set di Smart TV legacy da Samsung e LG che hanno implementato le prime bozze dello standard crittografia comune (CENC) pubblicate da Microsoft.  Il formato PIFF 1,1 è noto anche come formato di crittografia precedentemente supportato dalla libreria client Silverlight. Attualmente, l'unico scenario di utilizzo per questo formato di crittografia è quello di puntare al mercato Smart TV legacy, in cui rimane un numero non semplice di Smart TV in alcune aree che supportano solo Smooth Streaming con la crittografia PIFF 1,1. 
+Il supporto per la crittografia legacy PlayReady protected Interoperable file Format (PIFF 1,1) è ora disponibile in Dynamic Packager. Fornisce supporto per i set di Smart TV legacy da Samsung e LG che hanno implementato le prime bozze dello standard crittografia comune (CENC) pubblicate da Microsoft.  Il formato PIFF 1,1 è noto anche come formato di crittografia precedentemente supportato dalla libreria client Silverlight. Attualmente, l'unico scenario di utilizzo per questo formato di crittografia è quello di puntare al mercato Smart TV legacy, in cui rimane un numero non semplice di TV intelligenti in alcune aree che supportano solo Smooth Streaming con la crittografia PIFF 1,1. 
 
-Per usare il nuovo supporto per la crittografia PIFF 1,1, modificare il valore di crittografia in ' Piff ' nel percorso URL del localizzatore di streaming. Per ulteriori informazioni, vedere la [panoramica protezione del contenuto.](content-protection-overview.md)
+Per usare il nuovo supporto per la crittografia PIFF 1,1, modificare il valore di crittografia in ' Piff ' nel percorso URL del localizzatore di streaming. Per ulteriori informazioni, vedere la [Panoramica di protezione del contenuto.](content-protection-overview.md)
 Per esempio: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Le trascrizioni Live supportano ora 19 lingue e 8 aree.
 
 È stata pubblicata un'esercitazione denominata [protezione del contenuto end-to-end con Azure ad](./azure-ad-content-protection.md).
 
-### <a name="high-availablity"></a>Disponibilità elevato
+### <a name="high-availability"></a>Disponibilità elevata
 
 È stato pubblicato un [esempio](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming)di disponibilità elevata con servizi multimediali e [Panoramica](./media-services-high-availability-encoding.md) di video on demand (VOD).
 
@@ -135,13 +135,13 @@ Aggiunta del supporto per i nuovi codificatori partner consigliati indicati di s
 ### <a name="file-encoding-enhancements"></a>Ottimizzazione della codifica file
 
 - È ora disponibile un nuovo set di impostazioni di codifica con riconoscimento del contenuto, che produce un set di MP4 allineati a GOP mediante codifica con riconoscimento del contenuto. Dato un determinato contenuto di input, il servizio esegue un'analisi iniziale semplice del contenuto di input e usa i risultati ottenuti per determinare il numero ottimale di livelli, la velocità in bit appropriata e le impostazioni di risoluzione per il recapito tramite flusso adattivo. Questo set di impostazioni è particolarmente efficace per i video di bassa e media complessità, in cui i file di output presentano una velocità in bit inferiore, ma con una qualità che offre comunque una valida esperienza ai visualizzatori. L'output conterrà file MP4 con interfoliazione video e audio. Per altre informazioni, vedere le [specifiche OpenAPI](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
-- Ottimizzazione delle prestazioni e del multithreading per il ridimensionamento del codificatore standard. In condizioni specifiche, il cliente dovrebbe vedere un miglioramento delle prestazioni compreso tra il 5 e il 40% di codifica VOD. Il contenuto con complessità bassa codificato con una velocità in bit multipla vedrà il massimo aumento delle prestazioni. 
-- La codifica standard ora mantiene una cadenza GOP regolare per il contenuto della frequenza dei fotogrammi variabile (VFR) durante la codifica VOD quando si usa l'impostazione GOP basata sul tempo.  Questo significa che il cliente che invia contenuti di frequenza fotogrammi misti che variano da 15 a 30 fps, ad esempio, visualizzerà ora distanze GOP regolari calcolate nell'output per i file MP4 in streaming a bitrate adattivo. Ciò consente di migliorare la capacità di passare perfettamente da un brano all'altro durante la distribuzione tramite HLS o DASH. 
+- Miglioramento delle prestazioni e del multithreading per il ridimensionamento del codificatore standard. In condizioni specifiche, il cliente dovrebbe vedere un miglioramento delle prestazioni compreso tra il 5 e il 40% di codifica VOD. Il contenuto con complessità bassa codificato con una velocità in bit multipla vedrà il massimo aumento delle prestazioni. 
+- La codifica standard ora mantiene una cadenza GOP regolare per il contenuto della frequenza dei fotogrammi variabile (VFR) durante la codifica VOD quando si usa l'impostazione GOP basata sul tempo.  Questo significa che i clienti che inviano contenuto misto di frequenza dei fotogrammi che variano tra 15-30 fps, ad esempio, dovrebbero ora visualizzare le normali distanze del GOP calcolate nell'output per i file MP4 di streaming a bitrate adattivo. Ciò consente di migliorare la capacità di passare perfettamente da un brano all'altro durante la distribuzione tramite HLS o DASH. 
 -  Ottimizzazione della sincronizzazione AV per i contenuti di origine con frequenza fotogrammi variabile (VFR)
 
 ### <a name="video-indexer-video-analytics"></a>Video Indexer, analisi video
 
-- I fotogrammi chiave estratti mediante il set di impostazioni VideoAnalyzer presentano ora la risoluzione video originale anziché essere ridimensionati. L'estrazione di fotogrammi chiave a risoluzione elevata offre immagini di qualità originale e consente di usare i modelli di intelligenza artificiale basati su immagini offerti dai servizi Visione artificiale e Visione personalizzata di Microsoft per ottenere informazioni ancora più approfondite dal video.
+- I fotogrammi chiave estratti mediante il set di impostazioni VideoAnalyzer presentano ora la risoluzione video originale anziché essere ridimensionati. L'estrazione di fotogrammi chiave ad alta risoluzione offre immagini di qualità originali e consente di usare i modelli di intelligenza artificiale basati su immagini forniti da Microsoft Visione artificiale e Visione personalizzata Services per ottenere informazioni ancora più approfondite dal video.
 
 ## <a name="september-2019"></a>Settembre 2019
 
@@ -155,7 +155,7 @@ Media Services V3 annuncia l'anteprima di 24 ore per 365 giorni della codifica l
 
 #### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
 
-Viene annunciata la deprecazione di *Azure Media Indexer* e *Anteprima di Azure Media Indexer 2*. Per le date di ritiro, vedere l'argomento relativo ai [componenti legacy](../previous/legacy-components.md). [Video Indexer di Servizi multimediali di Azure](../video-indexer/index.yml) sostituisce questi processori di contenuti multimediali legacy.
+Si annuncia la deprecazione di *Azure Media Indexer* e *Anteprima di Azure Media Indexer 2*. Per le date di ritiro, vedere l'articolo relativo ai  [componenti legacy](../previous/legacy-components.md) . [Video Indexer di Servizi multimediali di Azure](../video-indexer/index.yml) sostituisce questi processori di contenuti multimediali legacy.
 
 Per altre informazioni, vedere l'articolo [Eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a Video Indexer di Servizi multimediali di Azure](../previous/migrate-indexer-v1-v2.md).
 
@@ -173,7 +173,7 @@ Per altre informazioni, vedere [Cloud e aree in cui sono presenti Servizi multim
 
 #### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
 
-Viene annunciata la deprecazione dei processori di contenuti multimediali *Windows Azure Media Encoder* (WAME) e *Azure Media Encoder* (AME), che sono in fase di ritiro. Per le date di ritiro, vedere questo argomento relativo ai [componenti legacy](../previous/legacy-components.md).
+Viene annunciata la deprecazione dei processori di contenuti multimediali *Windows Azure Media Encoder* (WAME) e *Azure Media Encoder* (AME), che sono in fase di ritiro. Per le date di ritiro, vedere l'articolo relativo ai [componenti legacy](../previous/legacy-components.md) .
 
 Per informazioni dettagliate, vedere [Eseguire la migrazione da WAME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) ed [Eseguire la migrazione da AME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
  
@@ -223,8 +223,8 @@ Per altre informazioni, vedere [Cloud e aree in cui sono presenti Servizi multim
 
 Sono stati aggiunti aggiornamenti che includono miglioramenti delle prestazioni di Servizi multimediali.
 
-* Sono state aggiornate le dimensioni massime del file supportate per l'elaborazione. Vedere [Quote e limitazioni](limits-quotas-constraints.md).
-* [Ottimizzazione della velocità di codifica](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+* Sono state aggiornate le dimensioni massime del file supportate per l'elaborazione. Vedere, [quote e limiti](limits-quotas-constraints.md).
+* [Ottimizzazione della velocità di codifica](concept-media-reserved-units.md).
 
 ## <a name="april-2019"></a>Aprile 2019
 

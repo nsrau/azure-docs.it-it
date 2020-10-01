@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 09/14/2020
-ms.openlocfilehash: 08b7fe2b3e959536589cfd425541ad36e3bd1e78
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 385e910befb79daafa532fa816b96d50a46b7d8c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532189"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620087"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
 La funzionalità di scalabilità automatica gratuita di Azure HDInsight può aumentare o ridurre automaticamente il numero di nodi del ruolo di lavoro nel cluster in base ai criteri impostati in precedenza. Si imposta un numero minimo e massimo di nodi durante la creazione del cluster, si stabiliscono i criteri di scalabilità usando una pianificazione giornaliera o metriche delle prestazioni specifiche e la piattaforma HDInsight esegue il resto.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 La funzionalità di scalabilità automatica usa due tipi di condizioni per attivare gli eventi di scalabilità: le soglie per diverse metriche delle prestazioni del cluster (denominate *scalabilità basata sul carico*) e i trigger basati sul tempo, denominati *scalabilità basata su pianificazione*. Il ridimensionamento basato sul carico modifica il numero di nodi nel cluster, all'interno di un intervallo impostato, per garantire un utilizzo ottimale della CPU e ridurre al minimo i costi di esecuzione. La scalabilità basata sulla pianificazione modifica il numero di nodi nel cluster in base alle operazioni che si associano a date e ore specifiche.
 
@@ -68,11 +68,11 @@ Per il ridimensionamento automatico, la scalabilità automatica invia una richie
 > [!Important]
 > La funzionalità di scalabilità automatica di Azure HDInsight, rilasciata per la disponibilità generale il 7 novembre 2019 per i cluster Spark e Hadoop, include miglioramenti non disponibili nella versione di anteprima della funzionalità. Se è stato creato un cluster Spark prima del 7 novembre 2019 e si vuole usare la funzionalità di scalabilità automatica nel cluster, è consigliabile creare un nuovo cluster e abilitare la scalabilità automatica nel nuovo cluster.
 >
-> La scalabilità automatica per Interactive query (LLAP) è stata rilasciata per la disponibilità generale il 27 agosto 2020. I cluster HBase sono ancora in anteprima. La funzionalità di scalabilità automatica è disponibile solo nei cluster Spark, Hadoop, Interactive Query e HBase.
+> La scalabilità automatica per Interactive query (LLAP) è stata rilasciata per la disponibilità generale per HDI 4,0 il 27 agosto 2020. I cluster HBase sono ancora in anteprima. La funzionalità di scalabilità automatica è disponibile solo nei cluster Spark, Hadoop, Interactive Query e HBase.
 
 La tabella seguente descrive i tipi di cluster e le versioni compatibili con la funzionalità di scalabilità automatica.
 
-| Versione | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
+| Versione | Spark | Hive | Interactive Query | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
 | HDInsight 4,0 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
@@ -81,7 +81,7 @@ La tabella seguente descrive i tipi di cluster e le versioni compatibili con la 
 
 \* I cluster HBase possono essere configurati solo per la scalabilità basata su pianificazione, non per il caricamento.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Creare un cluster con scalabilità automatica basata sul carico
 
@@ -251,7 +251,7 @@ Il completamento di un'operazione di ridimensionamento può richiedere da 10 a 2
 
 ### <a name="prepare-for-scaling-down"></a>Preparare la scalabilità verso il basso
 
-Durante il processo di ridimensionamento automatico del cluster, la scalabilità automatica rimuove le autorizzazioni dei nodi per soddisfare le dimensioni di destinazione. Se le attività sono in esecuzione in tali nodi, la scalabilità automatica attende il completamento delle attività. Poiché ogni nodo di lavoro svolge anche un ruolo in HDFS, i dati temporanei vengono spostati nei nodi rimanenti. Assicurarsi che sia disponibile spazio sufficiente nei nodi rimanenti per ospitare tutti i dati temporanei.
+Durante il processo di ridimensionamento automatico del cluster, la scalabilità automatica rimuove le autorizzazioni dei nodi per soddisfare le dimensioni di destinazione. Se le attività sono in esecuzione in tali nodi, la scalabilità automatica attende il completamento delle attività per i cluster Spark e Hadoop. Poiché ogni nodo di lavoro svolge anche un ruolo in HDFS, i dati temporanei vengono spostati nei nodi rimanenti. Assicurarsi che sia disponibile spazio sufficiente nei nodi rimanenti per ospitare tutti i dati temporanei.
 
 I processi in esecuzione continueranno. I processi in sospeso attendono la pianificazione con un minor numero di nodi di lavoro disponibili.
 
@@ -265,7 +265,7 @@ La scalabilità automatica per i cluster Hadoop monitora anche l'utilizzo di HDF
 
 ### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>Impostare la configurazione hive numero massimo di query simultanee per lo scenario di utilizzo massimo
 
-Gli eventi di scalabilità automatica non modificano il *numero massimo di query simultanee* di configurazione hive in Ambari. Ciò significa che il servizio interattivo hive Server 2 è in grado di gestire solo il numero specificato di query simultanee in qualsiasi momento, anche se il numero di daemon LLAP viene scalato verso l'alto e verso il basso in base al carico e alla pianificazione. L'indicazione generale è quella di impostare questa configurazione per lo scenario di utilizzo massimo per evitare l'intervento manuale.
+Gli eventi di scalabilità automatica non modificano il *numero massimo di query simultanee* di configurazione hive in Ambari. Ciò significa che il servizio interattivo hive Server 2 è in grado di gestire solo il numero specificato di query simultanee in qualsiasi momento, anche se il conteggio dei daemon di query interattive viene scalato verso l'alto e verso il basso in base al carico e alla pianificazione. L'indicazione generale è quella di impostare questa configurazione per lo scenario di utilizzo massimo per evitare l'intervento manuale.
 
 Tuttavia, è possibile che si verifichi un errore di riavvio del server hive 2 se è presente solo un numero ridotto di nodi del ruolo di lavoro e il valore massimo per le query simultanee totali è troppo elevato. Come minimo, è necessario il numero minimo di nodi del ruolo di lavoro in grado di contenere il numero specificato di TeZ AMS (uguale alla configurazione totale massima delle query simultanee). 
 
@@ -275,11 +275,11 @@ Tuttavia, è possibile che si verifichi un errore di riavvio del server hive 2 s
 
 La scalabilità automatica di HDInsight usa un file di etichetta del nodo per determinare se un nodo è pronto per l'esecuzione di attività. Il file dell'etichetta del nodo viene archiviato in HDFS con tre repliche. Se le dimensioni del cluster vengono ridimensionate in modo significativo ed è presente una grande quantità di dati temporanei, è possibile che tutte e tre le repliche vengano eliminate. In tal caso, il cluster entra in uno stato di errore.
 
-### <a name="llap-daemons-count"></a>Conteggio daemon LLAP
+### <a name="interactive-query-daemons-count"></a>Conteggio daemon Interactive query
 
-Nel caso di cluster LLAP abilitati per autoscae, un evento di aumento o riduzione della scalabilità automatica aumenta il numero di daemon LLAP al numero di nodi di lavoro attivi. La modifica del numero di daemon non è resa permanente nella `num_llap_nodes` configurazione in Ambari. Se i servizi hive vengono riavviati manualmente, il numero di daemon LLAP viene reimpostato in base alla configurazione in Ambari.
+In caso di cluster Interactive query abilitati per la scalabilità automatica, un evento di aumento o riduzione della scalabilità automatica aumenta il numero di daemon di query interattive al numero di nodi di lavoro attivi. La modifica del numero di daemon non è resa permanente nella `num_llap_nodes` configurazione in Ambari. Se i servizi hive vengono riavviati manualmente, il numero di daemon di query interattive viene reimpostato in base alla configurazione in Ambari.
 
-Se il servizio LLAP viene riavviato manualmente, è necessario modificare manualmente la `num_llap_node` configurazione (il numero di nodi necessari per eseguire il daemon hive LLAP) in *Advanced hive-Interactive-ENV* in modo che corrisponda al numero di nodi del ruolo di lavoro attivo corrente.
+Se il servizio Interactive query viene riavviato manualmente, è necessario modificare manualmente la `num_llap_node` configurazione (il numero di nodi necessari per eseguire il daemon hive Interactive query) in *Advanced hive-Interactive-ENV* in modo che corrisponda al numero di nodi del ruolo di lavoro attivo corrente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

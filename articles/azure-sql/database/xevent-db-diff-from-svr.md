@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 7f0f50de3f74f0e8040118035e28b3e905ed5616
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84033842"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619815"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventi estesi nel database SQL di Azure 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Il set di funzionalità degli eventi estesi nel database SQL di Azure è un subs
 
 Ulteriori informazioni sugli eventi estesi sono disponibili all'indirizzo:
 
-- [Avvio rapido: eventi estesi in SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
+- [Avvio rapido: Eventi estesi in SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 - [Eventi estesi](/sql/relational-databases/extended-events/extended-events)
 
 ## <a name="prerequisites"></a>Prerequisiti

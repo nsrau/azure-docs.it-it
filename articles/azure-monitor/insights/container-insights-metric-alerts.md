@@ -1,18 +1,18 @@
 ---
-title: Avvisi relativi alle metriche da monitoraggio di Azure per i contenitori | Microsoft Docs
+title: Avvisi relativi alle metriche da monitoraggio di Azure per i contenitori
 description: Questo articolo esamina gli avvisi della metrica consigliati disponibili da monitoraggio di Azure per i contenitori in anteprima pubblica.
 ms.topic: conceptual
-ms.date: 08/04/2020
-ms.openlocfilehash: aace260ff22d63211424f2ce4a7319bf577436f4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.date: 09/24/2020
+ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019887"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619951"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Avvisi metrica consigliati (anteprima) da monitoraggio di Azure per i contenitori
 
-Per generare un avviso sui problemi relativi alle risorse di sistema quando si verificano picchi di domanda e in esecuzione near Capacity, con monitoraggio di Azure per i contenitori è necessario creare un avviso di log in base ai dati sulle prestazioni archiviati nei log di monitoraggio di Azure Il monitoraggio di Azure per i contenitori include ora le regole di avviso delle metriche preconfigurate per il cluster AKS, disponibile in anteprima pubblica.
+Per generare un avviso sui problemi relativi alle risorse di sistema quando si verificano picchi di domanda e in esecuzione near Capacity, con monitoraggio di Azure per i contenitori è necessario creare un avviso di log in base ai dati sulle prestazioni archiviati nei log di monitoraggio di Azure Il monitoraggio di Azure per i contenitori include ora regole di avviso delle metriche preconfigurate per il cluster Kubernetes abilitato per il servizio contenitore di Azure e il cluster di Azure Arc abilitato, disponibile in anteprima pubblica
 
 Questo articolo esamina l'esperienza e fornisce indicazioni sulla configurazione e la gestione di queste regole di avviso.
 
@@ -22,22 +22,22 @@ Se non si ha familiarità con gli avvisi di monitoraggio di Azure, vedere [Panor
 
 Prima di iniziare, verificare quanto segue:
 
-* Le metriche personalizzate sono disponibili solo in un subset di aree di Azure. Un elenco di aree supportate è documentato [qui](../platform/metrics-custom-overview.md#supported-regions).
+* Le metriche personalizzate sono disponibili solo in un subset di aree di Azure. Un elenco di aree supportate è documentato nelle [aree supportate](../platform/metrics-custom-overview.md#supported-regions).
 
-* Per supportare gli avvisi sulle metriche e l'introduzione di altre metriche, la versione minima dell'agente richiesta è **Microsoft/OMS: ciprod05262020**.
+* Per supportare gli avvisi sulle metriche e l'introduzione di altre metriche, la versione minima dell'agente richiesta è **Microsoft/OMS: ciprod05262020** per AKS e **Microsoft/OMS: ciprod09252020** per il cluster Kubernetes abilitato per Azure Arc.
 
     Per verificare che il cluster esegua la versione più recente dell'agente, è possibile effettuare una delle operazioni seguenti:
 
     * Eseguire il comando: `kubectl describe <omsagent-pod-name> --namespace=kube-system` . Nello stato restituito prendere nota del valore in **immagine** per omsagent nella sezione *contenitori* dell'output. 
     * Nella scheda **nodi** selezionare il nodo del cluster e nel riquadro **Proprietà** a destra, annotare il valore in **tag immagine agente**.
 
-    Il valore visualizzato deve essere una versione successiva a **ciprod05262020**. Se il cluster ha una versione precedente, seguire l' [aggiornamento dell'agente nei passaggi del cluster AKS](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) per ottenere la versione più recente.
-    
+    Il valore visualizzato per AKS deve essere **ciprod05262020** o versione successiva. Il valore visualizzato per il cluster Kubernetes abilitato per Azure ARC deve essere **ciprod09252020** o versione successiva. Se il cluster ha una versione precedente, vedere [How to upgrade the Azure Monitor for container Agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) per i passaggi da seguire per ottenere la versione più recente.
+
     Per ulteriori informazioni relative alla versione dell'agente, vedere [cronologia delle versioni degli agenti](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Per verificare la raccolta delle metriche, è possibile usare Esplora metriche di monitoraggio di Azure e verificare dallo **spazio dei nomi della metrica** che sono elencate le **informazioni dettagliate** . In tal caso, è possibile iniziare a configurare gli avvisi. Se non viene visualizzata alcuna metrica, l'entità servizio cluster o l'identità del servizio gestito non dispone delle autorizzazioni necessarie. Per verificare che il nome SPN o l'identità del servizio gestito sia un membro del ruolo **server di pubblicazione metrica di monitoraggio** , seguire i passaggi descritti nella sezione [eseguire l'aggiornamento per cluster usando l'interfaccia](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) della riga di comando di Azure per confermare e impostare l'assegnazione di ruolo
 
 ## <a name="alert-rules-overview"></a>Cenni preliminari sulle regole di avviso
 
-Per segnalare gli aspetti importanti, monitoraggio di Azure per i contenitori include gli avvisi delle metriche seguenti per i cluster AKS:
+Per ricevere un avviso sulla questione, monitoraggio di Azure per i contenitori include gli avvisi delle metriche seguenti per i cluster Kubernetes abilitati per AKS e Azure Arc:
 
 |Nome| Descrizione |Soglia predefinita |
 |----|-------------|------------------|
@@ -146,7 +146,7 @@ I passaggi di base sono i seguenti:
 
 3. Cercare il **modello**, quindi selezionare **distribuzione modelli**.
 
-4. Selezionare **Create** (Crea).
+4. Selezionare **Crea**.
 
 5. Sono disponibili diverse opzioni per la creazione di un modello, selezionare **Compila un modello personalizzato nell'editor**.
 

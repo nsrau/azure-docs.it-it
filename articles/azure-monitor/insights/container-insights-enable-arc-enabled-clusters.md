@@ -2,13 +2,13 @@
 title: Configurare il cluster Kubernetes abilitato per Azure Arc con monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo descrive come configurare il monitoraggio con monitoraggio di Azure per i contenitori nei cluster Kubernetes abilitati per Azure Arc.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 44512acbd09df449dbba2177bb10f22f480b82d6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: 79a534e4f37fb0154115e43402f031752a603ccb
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977525"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620291"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Abilita il monitoraggio del cluster Kubernetes abilitato per Azure Arc
 
@@ -21,8 +21,6 @@ Il monitoraggio di Azure per i contenitori può essere abilitato per una o più 
 Monitoraggio di Azure per i contenitori supporta il monitoraggio di Azure Arc abilitato Kubernetes (anteprima), come descritto nell'articolo [introduttivo](container-insights-overview.md) , ad eccezione delle funzionalità seguenti:
 
 - Dati in tempo reale (anteprima)
-
-- [Raccogliere le metriche](container-insights-update-metrics.md) dai nodi e dai pod del cluster e archiviarle nel database di metriche di monitoraggio di Azure
 
 Il codice seguente è ufficialmente supportato con monitoraggio di Azure per i contenitori:
 
@@ -106,7 +104,7 @@ Per abilitare il monitoraggio del cluster usando lo script di PowerShell o bash 
 1. Scaricare e salvare lo script in una cartella locale che configuri il cluster con il componente aggiuntivo monitoraggio usando i comandi seguenti:
 
     ```powershell
-    wget https://aka.ms/enable-monitoring-powershell-script -outfile enable-monitoring.ps1
+    Invoke-WebRequest https://aka.ms/enable-monitoring-powershell-script -OutFile enable-monitoring.ps1
     ```
 
 2. Configurare la `$azureArcClusterResourceId` variabile impostando i valori corrispondenti per `subscriptionId` `resourceGroupName` e `clusterName` rappresentando l'ID risorsa della risorsa cluster Kubernetes abilitata per Azure Arc.
@@ -264,7 +262,7 @@ Il valore di configurazione proxy ha la sintassi seguente: `[protocol://][user:p
 |proxyhost | Indirizzo o FQDN del server proxy |
 |port | Numero di porta facoltativo per il server proxy |
 
-Ad esempio: `http://user01:password@proxy01.contoso.com:3128`
+ad esempio `http://user01:password@proxy01.contoso.com:3128`
 
 Se si specifica il protocollo come **http**, le richieste HTTP vengono create usando la connessione protetta SSL/TLS. Il server proxy deve supportare i protocolli SSL/TLS.
 

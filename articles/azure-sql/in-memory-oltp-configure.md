@@ -5,17 +5,17 @@ services: sql-database
 ms.service: sql-database
 ms.custom: sqldbrb=2
 ms.subservice: development
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
-ms.openlocfilehash: d31fd8cca9df2ea21bf19beed26810568fc6481e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e17e98e784b7453c87814c5cce5c03568f66b1cb
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345309"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619747"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Usare OLTP in memoria per migliorare le prestazioni delle applicazioni nel database SQL di Azure e in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -177,6 +177,6 @@ Tenere sotto controllo gli effetti sulle prestazioni delle implementazioni in me
 
 ## <a name="related-links"></a>Collegamenti correlati
 
-* [OLTP in memoria (ottimizzazione per la memoria)](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
+* [OLTP in memoria (ottimizzazione in memoria)](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 * [Stored procedure compilate in modo nativo](/sql/relational-databases/in-memory-oltp/a-guide-to-query-processing-for-memory-optimized-tables)
 * [Ottimizzazione guidata per la memoria](/sql/relational-databases/in-memory-oltp/memory-optimization-advisor)

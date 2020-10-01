@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b1a228e9d15a349f032291fb0678bdd0ad9d95b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 69cfe529f3d2b0f956bfbe9d002a5a220b37e19f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048846"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620010"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Usare Azure PowerShell per creare un cluster HDInsight con Azure Data Lake Storage Gen1 (come risorsa di archiviazione aggiuntiva)
 
@@ -77,7 +77,7 @@ Per creare un account Data Lake Storage Gen1, seguire questa procedura.
     ```
 
    > [!NOTE]
-   > Se si riceve un errore simile a `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` quando si registra il provider di risorse Data Lake Storage Gen1, è possibile che la sottoscrizione non sia abilitata per Data Lake Storage Gen1. Assicurarsi di abilitare la sottoscrizione di Azure per Data Lake Storage Gen1 seguendo queste [istruzioni](data-lake-store-get-started-portal.md).
+   > Se viene visualizzato un errore simile a `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` quando si registra il provider di risorse data Lake storage Gen1, è possibile che la sottoscrizione non sia approvata per data Lake storage Gen1. Assicurarsi di abilitare la sottoscrizione di Azure per Data Lake Storage Gen1 seguendo queste [istruzioni](data-lake-store-get-started-portal.md).
    >
    >
 2. Un account Data Lake Storage Gen1 è associato a un gruppo di risorse di Azure. Per iniziare, creare un gruppo di risorse di Azure.

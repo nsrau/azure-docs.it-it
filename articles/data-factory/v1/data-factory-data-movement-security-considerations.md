@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 19b37472d7decb46825da4760511f1761493c246
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9ae4970383802adad755fff4a6ce382db6ce32fe
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441936"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619917"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati
 
@@ -63,7 +63,7 @@ Alcuni archivi di dati supportano la crittografia dei dati inattivi. È consigli
 #### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 Transparent Data Encryption (Transparent Data Encryption) in Azure sinapsi Analytics aiuta a proteggersi dalla minaccia di attività dannose eseguendo la crittografia e la decrittografia in tempo reale dei dati inattivi. Questo comportamento è trasparente per il client. Per altre informazioni, vedere [proteggere un database in sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Database SQL di Azure
+#### <a name="azure-sql-database"></a>database SQL di Azure
 Il database SQL di Azure supporta anche la funzionalità Transparent Data Encryption (TDE), che consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei dati, senza dover apportare modifiche all'applicazione. Questo comportamento è trasparente per il client. Per altre informazioni, vedere [Transparent Data Encryption con il database SQL di Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
 #### <a name="azure-data-lake-store"></a>Archivio Azure Data Lake
@@ -114,7 +114,7 @@ Attualmente, il gateway di gestione dati usa un singolo **certificato**. Questo 
 | Versione del gateway (durante la creazione) | Credenziali memorizzate | Crittografia/sicurezza delle credenziali | 
 | --------------------------------- | ------------------ | --------- |  
 | < = 2.3.xxxx.x | Nel cloud | Crittografate mediante certificato (diverso da quello usato dall'app Gestione credenziali) | 
-| > = 2.4.xxxx.x | Locale | Protette tramite DPAPI | 
+| > = 2.4.xxxx.x | In locale | Protette tramite DPAPI | 
   
 
 ### <a name="encryption-in-transit"></a>Crittografia in transito
@@ -142,7 +142,7 @@ Le immagini seguenti mostrano come usare il gateway di gestione dati per spostar
 
 ![VPN IPSec con gateway](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Configurazioni del firewall e inserimento nell'elenco elementi consentiti dell'indirizzo IP del gateway
+### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>Configurazioni del firewall e filtro dell'indirizzo IP del gateway
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisiti del firewall per la rete locale/privata  
 In un'azienda, un **firewall aziendale** viene eseguito nel router centrale dell'organizzazione. Inoltre, il **firewall di Windows** viene eseguito come daemon nel computer locale in cui è stato installato il gateway. 
@@ -158,7 +158,7 @@ La tabella seguente indica la **porta in uscita** e i requisiti di dominio per i
 | `*.azuredatalakestore.net` | 443 | (OPTIONALE) necessaria quando la destinazione è Azure Data Lake Store | 
 
 > [!NOTE] 
-> Potrebbe essere necessario gestire porte/domini di inserimento nell'elenco elementi consentiti a livello del firewall aziendale come richiesto dalle rispettive origini dati. Questa tabella usa solo il database SQL di Azure, Azure sinapsi Analytics, Azure Data Lake Store come esempi.   
+> Potrebbe essere necessario gestire le porte o i domini di filtro a livello di firewall aziendale come richiesto dalle rispettive origini dati. Questa tabella usa solo il database SQL di Azure, Azure sinapsi Analytics, Azure Data Lake Store come esempi.   
 
 Nella tabella seguente vengono indicati i requisiti relativi alla **porta in ingresso** per il **firewall di Windows**.
 
@@ -168,10 +168,10 @@ Nella tabella seguente vengono indicati i requisiti relativi alla **porta in ing
 
 ![Requisiti relativi alla porta del gateway](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
-#### <a name="ip-configurations-whitelisting-in-data-store"></a>Inserimento nell'elenco elementi consentiti/configurazioni IP nell'archivio dati
-Alcuni archivi dati nel cloud richiedono anche l'inserimento nell'elenco elementi consentiti del computer da cui si accede. Assicurarsi che l'indirizzo IP del computer del gateway sia stato correttamente inserito nell'elenco elementi consentiti nel firewall.
+#### <a name="ip-configurationsfiltering-in-data-store"></a>Configurazioni/filtri IP nell'archivio dati
+Alcuni archivi dati nel cloud richiedono anche l'approvazione dell'indirizzo IP del computer che li accede. Verificare che l'indirizzo IP del computer del gateway sia approvato/configurato nel firewall in modo appropriato.
 
-Gli archivi dati cloud seguenti richiedono l'inserimento nell'elenco elementi consentiti dell'indirizzo IP del computer del gateway, ma, per impostazione predefinita, alcuni di questi archivi dati potrebbero non richiederlo. 
+Gli archivi dati cloud seguenti richiedono l'approvazione dell'indirizzo IP del computer del gateway. Per impostazione predefinita, alcuni di questi archivi dati potrebbero non richiedere l'approvazione dell'indirizzo IP. 
 
 - [Database SQL di Azure](../../azure-sql/database/firewall-configure.md) 
 - [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -185,12 +185,10 @@ Gli archivi dati cloud seguenti richiedono l'inserimento nell'elenco elementi co
 **Risposta:** questa funzionalità non è ancora supportata, ma Microsoft ci sta lavorando attivamente.
 
 **Domanda:** quali sono i requisiti di porta per poter usare il gateway?
-**Risposta:** il gateway stabilisce connessioni basate su HTTP per accedere a Internet. Le **porte in uscita 80 e 443** deve essere aperte per permettere al gateway di stabilire una connessione. Aprire la **porta in ingresso 8050** solo a livello di computer (non a livello di firewall aziendale) per l'applicazione di gestione delle credenziali. Se il database SQL di Azure o l'analisi delle sinapsi di Azure viene usata come origine/destinazione, è necessario aprire anche la porta **1433** . Per altre informazioni, vedere la sezione [Configurazioni del firewall e inserimento nell'elenco elementi consentiti degli indirizzi IP](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
+**Risposta:** il gateway stabilisce connessioni basate su HTTP per accedere a Internet. Le **porte in uscita 80 e 443** deve essere aperte per permettere al gateway di stabilire una connessione. Aprire la **porta in ingresso 8050** solo a livello di computer (non a livello di firewall aziendale) per l'applicazione di gestione delle credenziali. Se il database SQL di Azure o l'analisi delle sinapsi di Azure viene usata come origine/destinazione, è necessario aprire anche la porta **1433** . Per ulteriori informazioni, vedere la sezione [configurazioni del firewall e filtro degli indirizzi IP](#firewall-configurations-and-filtering-ip-address-of gateway) . 
 
 **Domanda:** quali sono i requisiti relativi al certificato per il gateway?
 **Risposta:** il gateway corrente richiede un certificato che viene usato dall'applicazione di gestione delle credenziali per impostare in modo sicuro le credenziali dell'archivio dati. Si tratta di un certificato autofirmato creato e configurato dal programma di installazione del gateway. È invece possibile usare il proprio certificato TLS/SSL. Per altre informazioni, vedere la sezione dedicata all'[applicazione di gestione delle credenziali con un solo clic](#click-once-credentials-manager-app). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sulle prestazioni dell'attività di copia, vedere [Guida alle prestazioni dell'attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
-
- 
