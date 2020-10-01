@@ -97,6 +97,8 @@
       href: ../../azure-functions/security-baseline.md
     - name: Baseline di sicurezza dell'hub IoT di Azure
       href: ../../iot-hub/security-baseline.md
+    - name: Baseline di sicurezza di Azure Load Balancer
+      href: ../../load-balancer/security-baseline.md
     - name: Baseline di sicurezza di Monitoraggio di Azure
       href: ../../azure-monitor/security-baseline.md
     - name: Baseline di sicurezza di Azure Machine Learning

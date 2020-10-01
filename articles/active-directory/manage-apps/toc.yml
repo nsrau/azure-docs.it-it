@@ -26,7 +26,7 @@
       href: delete-application-portal.md
 - name: Esercitazioni
   items:
-    - name: 'App della raccolta integrata (ad esempio ServiceNow, Salesforce, Dropbox)'
+    - name: Elenco delle app preconfigurate
       href: /azure/active-directory/saas-apps/
     - name: Aggiungere un'app locale con proxy dell'applicazione
       href: application-proxy-add-on-premises-application.md
@@ -142,7 +142,7 @@
       items:
         - name: Risorse per la migrazione
           href: migration-resources.md
-        - name: Eseguire la migrazione di un'app AD FS in Azure
+        - name: Eseguire la migrazione di un'app di AD FS in Azure
           href: migrate-adfs-apps-to-azure.md
         - name: Usare il report attività delle applicazioni AD FS (anteprima)
           href: migrate-adfs-application-activity.md

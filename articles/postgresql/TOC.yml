@@ -4,6 +4,8 @@
   items:
     - name: Informazioni su Database di Azure per PostgreSQL
       href: overview.md
+    - name: Quale opzione di distribuzione PostgreSQL scegliere?
+      href: overview-postgres-choose-server-options.md
     - name: Aggiornamenti del servizio
       items:
         - name: Scadenza del certificato radice SSL

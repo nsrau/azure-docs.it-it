@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: b-juche
   ms.author: b-juche
-  ms.date: 03/11/2020
-  ms.openlocfilehash: bcca681fcae02df3e3521b48f710acd36127c882
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 08/25/2020
+  ms.openlocfilehash: f44cd7bc6269a7efbaaaaf2788f660363bafcbac
+  ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79369053"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91567843"
 landingContent:
 - title: Informazioni su Azure NetApp Files
   linkLists:
@@ -22,6 +22,8 @@ landingContent:
     links:
     - text: Che cos'è Azure NetApp Files?
       url: azure-netapp-files-introduction.md
+    - text: Novità
+      url: whats-new.md
     - text: Informazioni sulla gerarchia di archiviazione
       url: azure-netapp-files-understand-storage-hierarchy.md
   - linkListType: concept
@@ -36,7 +38,7 @@ landingContent:
     links:
     - text: Video su Azure NetApp Files
       url: azure-netapp-files-videos.md
-- title: Introduzione
+- title: Operazioni preliminari
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -46,7 +48,7 @@ landingContent:
     links:
     - text: Configurare Azure NetApp Files e creare un volume NFS
       url: azure-netapp-files-quickstart-set-up-account-create-volumes.md
-- title: Create
+- title: Crea
   linkLists:
   - linkListType: how-to-guide
     links:

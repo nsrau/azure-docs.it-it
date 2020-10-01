@@ -78,6 +78,8 @@
                   href: security-baseline.md
                 - name: Esaminare la sicurezza
                   href: data-box-security.md
+            - name: Trasferire elenchi di controllo di accesso e metadati
+              href: data-box-file-acls-preservation.md
             - name: Domande frequenti
               href: data-box-faq.md
         - name: Procedure
