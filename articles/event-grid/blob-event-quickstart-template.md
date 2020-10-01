@@ -3,14 +3,14 @@ title: Inviare eventi di archiviazione BLOB a un endpoint Web - Modello
 description: Usare Griglia di eventi di Azure e un modello di Azure Resource Manager per creare un account di archiviazione BLOB e sottoscrivere i relativi eventi. Inviare eventi a un webhook.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 32fc17d1af552afa5a81fbc4a5973d69006742b9
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: fc6216142c6bec99cb12bf4e0bdae920f27f1bf2
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661266"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598350"
 ---
-# <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Instradare gli eventi di archiviazione BLOB a un endpoint Web usando un modello di Resource Manager
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Avvio rapido: Instradare gli eventi di archiviazione BLOB a un endpoint Web usando un modello di Resource Manager
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo articolo descrive come usare un modello di Azure Resource Manager per creare un account di archiviazione BLOB, sottoscrivere i relativi eventi e attivare un evento per visualizzare il risultato. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
 
