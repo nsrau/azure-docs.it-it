@@ -3,12 +3,12 @@ title: Hub eventi di Azure - Elaborare eventi di Apache Kafka
 description: 'Esercitazione: Questo articolo illustra come elaborare gli eventi di Kafka che vengono inseriti tramite hub eventi usando Analisi di flusso di Azure'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 6dfca5b476dff1ee3367b5365c15869c8cff819b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f0c7bf40b721a3f35fcf68c71cb38a4302a56f6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074906"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531288"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Esercitazione: Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso 
 Questo articolo illustra come eseguire lo streaming dei dati in Hub eventi ed elaborarli con Analisi di flusso di Azure. L'articolo include le istruzioni dettagliate per le operazioni seguenti: 
@@ -136,7 +136,7 @@ Dopo aver configurato un processo di Analisi di flusso per leggere un flusso di 
 3. Sostituire `[YourInputAlias]` con l'alias di input creato in precedenza. 
 4. Sulla barra degli strumenti selezionare **Salva**. 
 
-    ![Query](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![Schermata che mostra la finestra di query con i valori per le variabili di input e di output.](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### <a name="run-the-stream-analytics-job"></a>Eseguire il processo di Analisi di flusso

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b68d4779d33d2f8a1f1c2bae35f438ad2ccccabb
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505840"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090075"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Esercitazione: Raccogliere e analizzare i log delle risorse da una risorsa di Azure
 
@@ -84,7 +84,7 @@ I dati vengono recuperati da un'area di lavoro Log Analytics tramite una query s
     > [!NOTE]
     > Se i log sono stati aperti dal menu Monitoraggio di Azure, l'ambito sarà impostato sull'area di lavoro Log Analytics. In questo caso, le query includeranno tutti i record nell'area di lavoro.
    
-    ![Log](media/tutorial-resource-logs/logs.png)
+    ![Screenshot che mostra i log per un'app per la logica che visualizza una nuova query con il nome dell'app per la logica evidenziato.](media/tutorial-resource-logs/logs.png)
 
 4. Il servizio illustrato nell'esempio esegue la scrittura dei log delle risorse nella tabella **AzureDiagnostics**, ma le tabelle in cui scrivono altri servizi potrebbero essere diverse. Per informazioni sulle tabelle usate dai vari servizi di Azure, vedere [Servizi, schemi e categorie supportati per i log delle risorse di Azure](../platform/resource-logs-schema.md).
 

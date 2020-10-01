@@ -1,19 +1,19 @@
 ---
-title: 'Esercitazione: ASP.NET Core con database SQL'
-description: Informazioni su come ottenere un'app .NET Core da usare nel Servizio app di Azure, con connessione a un database SQL.
+title: 'Esercitazione: ASP.NET Core con database SQL di Azure'
+description: Informazioni su come ottenere un'app .NET Core da usare nel servizio app di Azure, con connessione a un database SQL di Azure.
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 27b01a86d1bc44b5adb977f10339a0f2d56a64d4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: b83dfbd715a6b27491fd5f5efd41213210092325
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958542"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982879"
 ---
-# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure
+# <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>Esercitazione: Creare un'app ASP.NET Core con database SQL di Azure nel servizio app di Azure
 
 ::: zone pivot="platform-windows"  
 

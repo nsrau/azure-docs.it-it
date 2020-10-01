@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: c000d48043a46ecdbdfee263cc5c8ce877f66b4b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 30a782c7d7c13eb9c92e4a4bf64e268416a2b382
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923705"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561551"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Esercitazione: Scrivere codice con le API di Gemelli digitali di Azure
 
@@ -112,7 +112,7 @@ Per eseguire l'autenticazione, sono necessarie tre informazioni:
 >[!TIP]
 > Se non si conosce l'*ID directory (tenant)* , è possibile ottenerlo eseguendo questo comando in [Azure Cloud Shell](https://shell.azure.com):
 > 
-> ```azurecli-interactive
+> ```azurecli
 > az account show --query tenantId
 > ```
 
@@ -322,12 +322,13 @@ Si noti che non viene generato alcun errore quando i gemelli vengono creati per 
 
 Successivamente, è possibile creare **relazioni** tra i gemelli creati, per connetterli in un **grafo dei gemelli**. I [grafi dei gemelli](concepts-twins-graph.md) vengono usati per rappresentare l'intero ambiente.
 
-Per poter creare relazioni, aggiungere un'istruzione `using` per il tipo di base di relazione nell'SDK. Ignorare questo passaggio se l'istruzione è già stata aggiunta.
+Per poter creare relazioni, è necessario lo spazio dei nomi `Azure.DigitalTwins.Core.Serialization`, aggiunto al progetto in precedenza con l'istruzione `using`:
+
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
-Aggiungere quindi un nuovo metodo statico alla classe `Program`, sotto il metodo `Main`:
+Aggiungere un nuovo metodo statico alla classe `Program`, sotto il metodo `Main`:
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {

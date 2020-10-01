@@ -1,31 +1,31 @@
 ---
-title: Usare i gruppi di dispositivi nell'applicazione IoT Central di Azure | Microsoft Docs
-description: Come operatore, informazioni su come usare i gruppi di dispositivi per analizzare i dati di telemetria dai dispositivi nell'applicazione IoT Central di Azure.
+title: "Esercitazione: Usare i gruppi di dispositivi nell'applicazione Azure IoT Central | Microsoft Docs"
+description: "Esercitazione: un operatore può apprendere come usare i gruppi di dispositivi per analizzare i dati di telemetria dei dispositivi nell'applicazione Azure IoT Central."
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/12/2020
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 58fc71ab05c34e8acd252e7a1984c55996d1b3a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 3192a9f121d4380a3e681747596fc91997662bf0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80999028"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967942"
 ---
-# <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Esercitazione: usare i gruppi di dispositivi per analizzare i dati di telemetria del dispositivo
+# <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Esercitazione: Usare i gruppi di dispositivi per analizzare la telemetria dei dispositivi
 
-Questo articolo descrive come un operatore per usare i gruppi di dispositivi per analizzare i dati di telemetria del dispositivo nell'applicazione IoT Central di Azure.
+L'articolo descrive come un operatore può usare i gruppi di dispositivi per analizzare la telemetria dei dispositivi nell'applicazione Azure IoT Central.
 
-Un gruppo di dispositivi è un elenco di dispositivi raggruppati in quanto corrispondono ad alcuni criteri specificati. I gruppi di dispositivi consentono di gestire, visualizzare e analizzare i dispositivi su larga scala raggruppando i dispositivi in gruppi logici più piccoli. Ad esempio, è possibile creare un gruppo di dispositivi per elencare tutti i dispositivi aria condizionata a Seattle per consentire a un tecnico di trovare i dispositivi per i quali sono responsabili.
+Un gruppo di dispositivi è un elenco di dispositivi raggruppati in base ad alcuni criteri specificati. I gruppi di dispositivi consentono di gestire, visualizzare e analizzare grandi quantità di dispositivi raggruppando i dispositivi in gruppi logici più piccoli. Ad esempio, è possibile creare un gruppo di dispositivi per elencare tutti i dispositivi condizionatore di Seattle per consentire a un tecnico di trovare i dispositivi di cui è responsabile.
 
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un gruppo di dispositivi
-> * Usare un gruppo di dispositivi per analizzare i dati di telemetria del dispositivo
+> * Usare un gruppo di dispositivi per analizzare la telemetria dei dispositivi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,27 +33,27 @@ Prima di iniziare, è necessario completare gli argomenti di avvio rapido [Crear
 
 ## <a name="create-simulated-devices"></a>Creare dispositivi simulati
 
-Prima di creare un gruppo di dispositivi, aggiungere almeno cinque dispositivi simulati dal modello di dispositivo **DevKit MXChip** Internet da usare in questa esercitazione:
+Prima di creare un gruppo di dispositivi, aggiungere almeno cinque dispositivi simulati dal modello di dispositivo **MXChip IoT DevKit** da usare in questa esercitazione:
 
-![Cinque dispositivi sensori simulati](./media/tutorial-use-device-groups/simulated-devices.png)
+![Cinque dispositivi sensore simulati](./media/tutorial-use-device-groups/simulated-devices.png)
 
-Per quattro dispositivi di sensori simulati, usare la visualizzazione **Gestisci dispositivo** per impostare il nome del cliente su *Contoso*:
+Per quattro dei dispositivi sensore simulati usare la visualizzazione **Gestisci dispositivo** per impostare il nome del cliente su *Contoso*:
 
-![Imposta il nome del cliente su contoso](./media/tutorial-use-device-groups/customer-name.png)
+![Imposta il nome del cliente su Contoso](./media/tutorial-use-device-groups/customer-name.png)
 
 ## <a name="create-a-device-group"></a>Creare un gruppo di dispositivi
 
 Per creare un gruppo di dispositivi:
 
-1. Scegliere **gruppi di dispositivi** nel riquadro sinistro.
+1. Scegliere **Gruppi di dispositivi** nel riquadro sinistro.
 
 1. Selezionare **+** :
 
     ![Nuovo gruppo di dispositivi](media/tutorial-use-device-groups/image1.png)
 
-1. Assegnare al gruppo di dispositivi il nome *Contoso Devices*. È anche possibile aggiungere una descrizione. Un gruppo di dispositivi può contenere solo dispositivi da un singolo modello di dispositivo. Scegliere il modello di dispositivo **MXChip Internet DevKit** da usare per questo gruppo.
+1. Assegnare al gruppo di dispositivi il nome *Contoso devices*. È anche possibile aggiungere una descrizione. Un gruppo di dispositivi può contenere solo dispositivi basati su un singolo modello di dispositivo. Scegliere il modello di dispositivo **MXChip IoT DevKit** da usare per questo gruppo.
 
-1. Per personalizzare il gruppo di dispositivi in modo da includere solo i dispositivi appartenenti a **Contoso**, selezionare **+ filtro**. Selezionare la proprietà **nome cliente** , l'operatore di confronto **uguale** a e **Contoso** come valore. È possibile aggiungere più filtri e dispositivi che soddisfano **tutti** i criteri di filtro inseriti nel gruppo di dispositivi. Il gruppo di dispositivi creato è accessibile a chiunque abbia accesso all'applicazione, in modo che chiunque possa visualizzare, modificare o eliminare il gruppo di dispositivi:
+1. Per personalizzare il gruppo di dispositivi in modo da includere solo i dispositivi appartenenti a **Contoso**, selezionare **+ Filtro**. Selezionare la proprietà **Customer Name**, l'operatore di confronto **Equals** e **Contoso** come valore. È possibile aggiungere più filtri per inserire nel gruppo i dispositivi che soddisfano **tutti** i criteri di filtro. Il gruppo di dispositivi creato è accessibile a chiunque abbia accesso all'applicazione, in modo che tutti gli utenti possano visualizzare, modificare o eliminare il gruppo di dispositivi:
 
     ![Query sul gruppo di dispositivi](media/tutorial-use-device-groups/image2.png)
 
@@ -63,31 +63,31 @@ Per creare un gruppo di dispositivi:
 1. Scegliere **Salva**.
 
 > [!NOTE]
-> Per Azure IoT Edge dispositivi, selezionare Azure IoT Edge modelli per creare un gruppo di dispositivi.
+> Per i dispositivi Azure IoT Edge selezionare i modelli di Azure IoT Edge per creare un gruppo di dispositivi.
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analisi
 
-È possibile usare **Analytics** con un gruppo di dispositivi per analizzare i dati di telemetria dai dispositivi del gruppo. È possibile, ad esempio, tracciare la temperatura media indicata da tutti i sensori ambientali di contoso.
+È possibile usare **Analytics** con un gruppo di dispositivi per analizzare i dati di telemetria dei dispositivi del gruppo. È possibile, ad esempio, tracciare la temperatura media indicata da tutti i sensori ambientali di Contoso.
 
 Per analizzare i dati di telemetria per un gruppo di dispositivi:
 
-1. Scegliere **analisi** nel riquadro sinistro.
+1. Scegliere **Analytics** nel riquadro sinistro.
 
-1. Selezionare il gruppo di dispositivi del dispositivo **Contoso** creato. Aggiungere quindi i tipi di telemetria di **temperatura** e **umidità** :
+1. Selezionare il gruppo di dispositivi **Contoso devices** creato. Aggiungere quindi sia la **temperatura** che l'**umidità** come tipi di dati di telemetria:
 
-    ![Crea analisi](./media/tutorial-use-device-groups/create-analysis.png)
+    ![Creare un'analisi](./media/tutorial-use-device-groups/create-analysis.png)
 
-    Usare le icone a forma di ingranaggio accanto ai tipi di telemetria per selezionare un tipo di aggregazione. Il valore predefinito è **media**. Utilizzare **Split by** per modificare il modo in cui vengono visualizzati i dati di aggregazione. Ad esempio, se si divide per ID dispositivo viene visualizzato un tracciato per ogni dispositivo quando si seleziona **analizza**.
+    Usare le icone a forma di ingranaggio accanto ai tipi di telemetria per selezionare un tipo di aggregazione. Il valore predefinito è **Media**. Usare **Dividi per** per modificare la modalità di visualizzazione dei dati di aggregazione. Ad esempio, se si divide per ID dispositivo viene visualizzato un tracciato per ogni dispositivo quando si seleziona **Analizza**.
 
-1. Selezionare **analizza** per visualizzare i valori medi di telemetria:
+1. Selezionare **Analizza** per visualizzare i valori medi di telemetria:
 
-    ![Visualizza analisi](./media/tutorial-use-device-groups/view-analysis.png)
+    ![Visualizzare l'analisi](./media/tutorial-use-device-groups/view-analysis.png)
 
     È possibile personalizzare la visualizzazione, modificare il periodo di tempo indicato ed esportare i dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come usare i gruppi di dispositivi nell'applicazione IoT Central di Azure, ecco il passaggio successivo suggerito:
+Ora che si conosce la procedura per usare i gruppi di dispositivi nell'applicazione Azure IoT Central, il prossimo passo suggerito è:
 
 > [!div class="nextstepaction"]
 > [Come creare regole dei dati di telemetria](tutorial-create-telemetry-rules.md)

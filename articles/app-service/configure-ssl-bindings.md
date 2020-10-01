@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 6c3f4cfe7c896b317edc5897098a1c18c98dc826
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: f7301809b3befc41110a32062d6e478c412fa56e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962639"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981125"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure
 
@@ -108,7 +108,7 @@ Se non si usa il protocollo IP SSL nell'app, passare alla sezione [Testare HTTPS
 
 In diversi browser passare a `https://<your.custom.domain>` per verificare che l'app sia gestita.
 
-![Passaggio all'app di Azure nel portale](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+:::image type="content" source="./media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="Screenshot che illustra un esempio di esplorazione del dominio personalizzato con l'URL contoso.com evidenziato.":::
 
 Il codice dell'applicazione può ispezionare il protocollo tramite l'intestazione "x-appservice-proto". L'intestazione avrà il valore `http` o `https`. 
 

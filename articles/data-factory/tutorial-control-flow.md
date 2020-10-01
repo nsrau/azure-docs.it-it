@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6eaf00679566aa8dfb7a90db95228349c81fcfec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85513314"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983414"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 
@@ -26,7 +26,7 @@ In questa esercitazione si crea una pipeline di Data Factory che illustra alcune
 
 Questa immagine offre una panoramica dello scenario:
 
-![Panoramica](media/tutorial-control-flow/overview.png)
+![Diagramma che mostra l'Archiviazione BLOB di Azure, che è la destinazione di una copia, che, in caso di esito positivo, invia un messaggio di posta elettronica con i dettagli o, in caso di errore, invia un messaggio di posta elettronica con i dettagli dell'errore.](media/tutorial-control-flow/overview.png)
 
 L'esercitazione illustra come eseguire queste attività:
 

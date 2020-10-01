@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: e12f0cd44143621d34096a6c1161a22a89d21d9b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c046d2e437004146b5ee4c53dd98942ca1781ad4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077653"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983731"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Diramazione e concatenamento delle attività in una pipeline di Azure Data Factory con il portale di Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "86077653"
 
 In questa esercitazione si crea una pipeline di Data Factory che illustra alcune funzionalità del flusso di controllo. La pipeline esegue una semplice copia da un contenitore nell'archivio BLOB di Azure a un altro contenitore nello stesso account di archiviazione. Se l'attività di copia ha esito positivo, la pipeline invia i dettagli dell'operazione di copia completata (ad esempio, la quantità di dati scritti) in un messaggio di posta elettronica di operazione riuscita. Se l'attività di copia ha esito negativo, la pipeline invia i dettagli dell'errore di copia (ad esempio, il messaggio di errore) in un messaggio di posta elettronica di operazione non riuscita. Nel corso dell'esercitazione verrà illustrato come passare i parametri.
 
-Panoramica generale dello scenario: ![Overview](media/tutorial-control-flow-portal/overview.png)
+Panoramica generale dello scenario: ![Diagramma che mostra l'Archiviazione BLOB di Azure, che è la destinazione di una copia, che, in caso di esito positivo, invia un messaggio di posta elettronica con i dettagli o, in caso di errore, invia un messaggio di posta elettronica con i dettagli dell'errore.](media/tutorial-control-flow-portal/overview.png)
 
 In questa esercitazione vengono completati i passaggi seguenti:
 

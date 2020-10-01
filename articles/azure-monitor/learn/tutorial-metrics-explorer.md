@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: d8f72471dd3109bf584d18f032ec2f4d949a4993
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 72f90918afa275e56528016539ecb2eec93d5db0
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79082813"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090092"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Esercitazione: Creare un grafico delle metriche in Monitoraggio di Azure
 Esplora metriche è una funzionalità di Monitoraggio di Azure nel portale di Azure che consente di creare grafici dai valori delle metriche, correlare le tendenze a livello visivo ed esaminare picchi e flessioni nei valori delle metriche. Usare Esplora metriche per esaminare l'integrità e l'utilizzo delle risorse di Azure o per tracciare grafici dalle metriche personalizzate. 
@@ -52,7 +52,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 4. Facoltativamente, modificare l'**Aggregazione** della metrica. Questa opzione consente di definire il modo in cui i valori della metrica verranno aggregati in base alla granularità temporale per il grafico. Se, ad esempio, la granularità temporale è impostata su 15 minuti e l'aggregazione è impostata sulla somma, ogni punto nel grafico sarà la somma di tutti i valori raccolti in ogni segmento di 15 minuti.
 
-    ![Grafico](media/tutorial-metrics-explorer/chart.png)
+    ![Screenshot che mostra un grafico denominato Sum Ingress per contosoretailweb.](media/tutorial-metrics-explorer/chart.png)
 
 5. Usare il pulsante **Aggiungi metrica** e ripetere questi passaggi per visualizzare più metriche tracciate nello stesso grafico. Per più grafici in un'unica visualizzazione, selezionare il pulsante **Nuovo grafico**.
 

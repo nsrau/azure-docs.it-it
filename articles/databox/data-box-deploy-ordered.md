@@ -2,18 +2,18 @@
 title: Esercitazione per ordinare Azure Data Box | Microsoft Docs
 description: Questa esercitazione fornisce informazioni su Azure Data Box, una soluzione ibrida che consente di importare dati locali in Azure, e illustra come ordinare il dispositivo Azure Data Box.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
-ms.author: twooley
-ms.openlocfilehash: 2000ecc84a92bef5ad6b80fecde4aee0157e4bc5
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/15/2020
+ms.author: alkohli
+ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783570"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604309"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
@@ -268,8 +268,21 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     ![Ordine di Data Box per disco gestito](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     L'account di archiviazione specificato per i dischi gestiti viene usato come account di archiviazione di staging. Il servizio Data Box carica i dischi rigidi virtuali come BLOB di pagine per l'account di archiviazione di staging prima di convertirli in dischi gestiti e spostarli nei gruppi di risorse. Per altre informazioni, vedere [Verificare il caricamento dei dati in Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+   > [!NOTE]
+   > Se un BLOB di pagine non viene convertito correttamente in un disco gestito, rimane nell'account di archiviazione e l'archiviazione viene addebitata.
 
-    Selezionare **Avanti: Dettagli contatto** per continuare.
+    Selezionare **Avanti: Sicurezza** per continuare.
+
+1. In **Sicurezza**, se si vuole abilitare la crittografia doppia basata su software, selezionare **Abilita crittografia doppia per l'ordine**. 
+
+   La crittografia basata su software viene eseguita oltre alla crittografia AES a 256 bit dei dati nel Data Box.
+
+   > [!NOTE]
+   > Se si abilita questa opzione, l'elaborazione dll'ordine e la copia dei dati potrebbero richiedere più tempo. Non è possibile modificare questa opzione dopo aver creato l'ordine.
+
+   ![Schermata di sicurezza per l'importazione di data box, crittografia doppia](media/data-box-deploy-ordered/select-data-box-import-07c.png)
+
+   Selezionare **Avanti: Dettagli contatto** per continuare.
 
 8. In **Dettagli contatto**selezionare **+ Aggiungi indirizzo di spedizione**.
 

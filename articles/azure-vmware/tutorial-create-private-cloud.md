@@ -3,12 +3,12 @@ title: 'Esercitazione: Distribuire un cluster vSphere in Azure'
 description: Informazioni su come distribuire un cluster vSphere in Azure con la soluzione Azure VMWare
 ms.topic: tutorial
 ms.date: 09/07/2020
-ms.openlocfilehash: 69a29a459ba283bb34169112ac2fa174ac6a14af
-ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
+ms.openlocfilehash: 2aa9d64dfa143e77b0edcc0c32a853645803ef67
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512370"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985941"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Esercitazione: Distribuire un cloud privato della soluzione Azure VMware in Azure
 
@@ -76,14 +76,24 @@ azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
 
-## <a name="delete-a-private-cloud-azure-portal"></a>Eliminare un cloud privato (portale di Azure)
+## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Eliminare un cloud privato della soluzione Azure VMware
 
-Se si dispone di un cloud privato della soluzione Azure VMware che non è più necessario, è possibile eliminarlo. Quando si elimina un cloud privato, vengono eliminati anche tutti i cluster e i relativi componenti.
-
-A questo scopo, passare al cloud privato nel portale di Azure e selezionare **Elimina**. Nella pagina di conferma verificare il nome del cloud privato e selezionare **Sì**.
+Se si dispone di un cloud privato della soluzione Azure VMware che non è più necessario, è possibile eliminarlo. Un cloud privato della soluzione Azure VMware include un dominio di rete isolato, uno o più cluster vSphere di cui è stato effettuato il provisioning nei nodi server dedicati e in genere molte macchine virtuali. Quando viene eliminato un cloud privato, vengono eliminate tutte le macchine virtuali, i relativi dati e i cluster. I nodi bare metal dedicati vengono cancellati e restituiti in modo sicuro al pool gratuito. Il dominio di rete di cui è stato effettuato il provisioning per il cliente viene eliminato.  
 
 > [!CAUTION]
-> L'eliminazione del cloud privato è un'operazione irreversibile. Una volta eliminato il cloud privato, non è possibile recuperare i dati perché questa operazione termina tutti i carichi di lavoro in esecuzione e i componenti ed elimina definitivamente tutti i dati e le impostazioni di configurazione del cloud privato, inclusi gli indirizzi IP pubblici. 
+> L'eliminazione del cloud privato è un'operazione irreversibile. Una volta eliminato il cloud privato, non è possibile recuperare i dati perché questa operazione termina tutti i carichi di lavoro in esecuzione e i componenti ed elimina definitivamente tutti i dati e le impostazioni di configurazione del cloud privato, inclusi gli indirizzi IP pubblici.
+
+### <a name="prerequisites"></a>Prerequisiti
+
+Una volta eliminato un cloud privato, non è possibile recuperare le macchine virtuali e i relativi dati. Se i dati della macchina virtuale saranno necessari in un secondo momento, l'amministratore deve prima eseguire il backup di tutti i dati prima di eliminare il cloud privato.
+
+### <a name="steps-to-delete-an-azure-vmware-solution-private-cloud"></a>Passaggi per eliminare un cloud privato della soluzione Azure VMware
+
+1. Accedere alla pagina Soluzioni Azure VMware nel portale di Azure.
+
+2. Selezionare il cloud privato da eliminare.
+ 
+3. Immettere il nome del cloud privato e selezionare **Sì**. Il processo di eliminazione viene completato in poche ore.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -92,6 +102,7 @@ In questa esercitazione sono state illustrate le procedure per:
 > [!div class="checklist"]
 > * Creare un cloud privato della soluzione Azure VMware
 > * Verificare la distribuzione del cloud privato
+> * Eliminare un cloud privato della soluzione Azure VMware
 
 Continuare con l'esercitazione successiva per informazioni su come creare una rete virtuale da usare con il cloud privato come parte della configurazione della gestione locale per i cluster del cloud privato.
 

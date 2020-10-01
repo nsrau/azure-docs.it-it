@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79a631ba82d0b4a420ef27684e5a62571ddf85a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e58a98f8503c271eec113298a7e7a0cab5e0003e
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034577"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707493"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Esercitazione: Creare il primo pacchetto di accesso in Gestione entitlement di Azure AD
 
@@ -41,6 +41,8 @@ In questa esercitazione verranno illustrate le procedure per:
 Per una dimostrazione dettagliata del processo di distribuzione di Gestione entitlement di Azure Active Directory, inclusa la creazione del primo pacchetto di accesso, vedere il video seguente:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
+
+È anche possibile creare un pacchetto di accesso a livello di codice usando Microsoft Graph. Per un'esercitazione che illustra come creare un pacchetto di accesso a livello di codice, vedere l'[API di gestione entitlement](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -106,7 +108,7 @@ Un *pacchetto di accesso* è un bundle di risorse di cui necessita un team o un 
 
 9. Nel riquadro Seleziona gruppi trovare e selezionare il gruppo **Marketing resources** creato in precedenza.
 
-    Per impostazione predefinita, i gruppi sono visualizzati all'interno e all'esterno del catalogo **Generale**. Quando si seleziona un gruppo all'esterno del catalogo **Generale**, questo verrà aggiungo al catalogo **Generale**.
+     Per impostazione predefinita, i gruppi sono visualizzati all'interno del catalogo Generale. Quando si seleziona un gruppo all'esterno del catalogo Generale, che è possibile visualizzare se si seleziona la casella di controllo **Visualizza tutto**, questo verrà aggiunto al catalogo Generale.
 
     ![Nuovo pacchetto di accesso - scheda Ruoli delle risorse](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 

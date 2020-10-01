@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: b337065f125d12e309dd1f7fcc56c2af72b1c28c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874232"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088358"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Esercitazione: Introduzione alle query di Log Analytics
 
@@ -42,7 +42,7 @@ Uno *schema* è una raccolta di tabelle raggruppate in categorie logiche. Lo sch
 
 Le tabelle dello schema vengono visualizzate nella scheda **Tabelle** dell'area di lavoro Log Analytics. Le tabelle contengono le colonne, ognuna con un tipo di dati visualizzato dall'icona accanto al nome della colonna. Ad esempio, la tabella **Event** contiene colonne di testo come **Computer** e colonne numeriche come **EventCategory**.
 
-![SCHEMA](media/get-started-portal/schema.png)
+![Screenshot che mostra la pagina Log del portale di Azure con una nuova query, evidenziando il riquadro Tabelle con Computer ed EventCategory evidenziati.](media/get-started-portal/schema.png)
 
 ## <a name="write-and-run-basic-queries"></a>Scrivere ed eseguire query di base
 
@@ -120,7 +120,7 @@ Per filtrare i risultati della query `Event` per gli eventi **Error** filtrando 
    
 1. Selezionare **Filtra**.
    
-   ![Filtro](media/get-started-portal/filter.png)
+   ![Screenshot che mostra una tabella di risultati con un menu contestuale per filtrare i risultati in base a EventLevelName.](media/get-started-portal/filter.png)
 
 ## <a name="sort-group-and-select-columns"></a>Ordinare, raggruppare e selezionare le colonne
 Per ordinare i risultati della query in base a una colonna specifica, ad esempio **TimeGenerated [UTC]** , selezionare l'intestazione di colonna. Selezionare di nuovo l'intestazione per passare dall'ordine crescente a quello decrescente e viceversa.
@@ -129,7 +129,7 @@ Per ordinare i risultati della query in base a una colonna specifica, ad esempio
 
 Un altro modo per organizzare i risultati è in gruppi. Per raggruppare i risultati in base a una colonna specifica, trascinare l'intestazione di colonna nella barra sopra la tabella dei risultati denominata **Trascina qui un'intestazione di colonna per eseguire il raggruppamento in base alla colonna specifica**. Per creare sottogruppi, trascinare le altre colonne nella barra superiore. È possibile ridisporre la gerarchia e l'ordinamento dei gruppi e dei sottogruppi nella barra.
 
-![Gruppi](media/get-started-portal/groups.png)
+![Screenshot che mostra i risultati delle query con sottogruppi per EventLevelName e Computer.](media/get-started-portal/groups.png)
 
 Per nascondere o visualizzare le colonne nei risultati, selezionare **Colonne** sopra la tabella, quindi selezionare o deselezionare le colonne desiderate dall'elenco a discesa.
 

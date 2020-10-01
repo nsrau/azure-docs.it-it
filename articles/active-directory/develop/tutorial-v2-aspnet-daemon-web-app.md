@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4b05bbf818676cc70f485dd94ece79141e8f01a4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641110"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982857"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Esercitazione: Creare un daemon multi-tenant che usa l'endpoint di Microsoft Identity Platform
 
@@ -41,7 +41,7 @@ Il componente "daemon" in questo esempio è un controller API, `SyncController.c
 
 Poiché l'app è multi-tenant per i clienti aziendali Microsoft, deve fornire un modo per "iscriversi" o "connettere" l'applicazione ai dati aziendali. Durante il flusso di connessione, un amministratore dell'azienda concede prima di tutto le *autorizzazioni dell'applicazione* direttamente all'app affinché possa accedere ai dati aziendali in modo non interattivo, senza la presenza di un utente connesso. La maggior parte della logica di questo esempio mostra come ottenere questo flusso di connessione usando l'endpoint del [consenso dell'amministratore](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) di Identity Platform.
 
-![Topologia](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
+![Diagramma che mostra l'app UserSync con tre elementi locali che si connettono ad Azure, con Start.Auth che acquisisce un token in modo interattivo per connettersi ad Azure AD, AccountController che ottiene il consenso dell'amministratore per connettersi ad Azure AD e SyncController che legge l'utente per connettersi a Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 Per altre informazioni sui concetti di questo esempio, leggere la [documentazione relativa al protocollo di credenziali client per l'endpoint di Identity Platform](v2-oauth2-client-creds-grant-flow.md).
 

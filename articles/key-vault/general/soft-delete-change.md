@@ -10,17 +10,19 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: c5509d6a284ab7afe827f67b79b7be027e76f66c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: bf758a07cff248fc0da3f279e68a14e88797e382
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068847"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984599"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>L'eliminazione temporanea verrà abilitata in tutti gli insiemi di credenziali delle chiavi
 
 > [!WARNING]
 > **Modifica di rilievo**: la possibilità di rifiutare esplicitamente l'eliminazione temporanea verrà deprecata entro la fine dell'anno e la protezione dell'eliminazione temporanea verrà attivata automaticamente per tutti gli insiemi di credenziali delle chiavi.  Utenti e amministratori di Azure Key Vault dovranno abilitare immediatamente l'eliminazione temporanea sugli insiemi di credenziali delle chiavi.
+>
+> Per il modulo di protezione hardware gestito, l'eliminazione temporanea è abilitata per impostazione predefinita e non può essere disabilitata.
 
 Senza protezione dell'eliminazione temporanea, un segreto eliminato da un insieme di credenziali delle chiavi viene rimosso definitivamente. Gli utenti possono attualmente rifiutare esplicitamente l'eliminazione temporanea durante la creazione dell'insieme di credenziali delle chiavi, ma, per proteggere i segreti da eliminazioni accidentali o dannose da parte di un utente, Microsoft abiliterà la protezione dell'eliminazione temporanea in **tutti** insiemi di credenziali delle chiavi e gli utenti non avranno più la possibilità di rifiutarla o disattivarla.
 
