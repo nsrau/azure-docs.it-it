@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: locale, Docker, container, Kubernetes
-ms.openlocfilehash: 48bfad4b101556dfcc4e57cf684341bda8063202
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: ccba46c1e83f92b1f27c64cb4d9ca32039862bd1
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461207"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597452"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contenitori dei servizi cognitivi di Azure
 
@@ -55,12 +55,12 @@ Le risorse di servizi cognitivi sono disponibili in [Microsoft Azure](https://az
 
 I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenitori Docker, ognuno dei quali contiene un subset di funzionalità dei servizi disponibili in Servizi cognitivi di Azure:
 
-| Service | Piano tariffario supportato | Contenitore | Descrizione |
+| Servizio | Piano tariffario supportato | Contenitore | Descrizione |
 |--|--|--|--|
 | [Rilevamento anomalie][ad-containers] | F0, S0 | **Rilevamento anomalie** ([immagine](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico.<br>[Richiedere l'accesso][request-access] |
-| [Visione artificiale][cv-containers] | F0, S1 | **Lettura** | Estre testo stampato dalle immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster e biglietti da visita. Il contenitore di lettura rileva anche il *testo scritto a mano* nelle immagini e fornisce il supporto per PDF/TIFF/più pagine.<br/><br/>**Importante:** Il contenitore di lettura attualmente funziona solo con l'inglese. |
-| [Viso][fa-containers] | F0, S0 | **Viso** | Rileva i visi umani nelle immagini e identifica gli attributi, ad esempio i punti di riferimento del viso (come naso e occhi), il sesso, l'età e altre caratteristiche facciali con previsioni basate su computer. Oltre al rilevamento, Viso può verificare se due volti nella stessa immagine o in immagini diverse sono uguali mediante un punteggio di attendibilità oppure può confrontare i visi con un database per verificare se esistono già visi simili o identici. È anche possibile organizzare i visi simili in gruppi mediante caratteristiche condivise.<br>[Richiedere l'accesso][request-access] |
-| [Riconoscimento moduli][fr-containers] | F0, S0 | **Riconoscimento modulo** | La comprensione dei moduli applica la tecnologia di machine learning per identificare ed estrarre le coppie chiave-valore e le tabelle dai moduli.<br>[Richiedere l'accesso][request-access] |
+| [Visione artificiale][cv-containers] | F0, S1 | **Leggi** OCR ([immagine](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Il contenitore OCR Read consente di estrarre testo stampato e scritto a mano da immagini e documenti con supporto per formati di file JPEG, PNG, BMP, PDF e TIFF. Per ulteriori informazioni, vedere la [documentazione relativa all'API di lettura](./computer-vision/concept-recognizing-text.md).<br>[Richiedere l'accesso][request-access] |
+| [Viso][fa-containers] | F0, S0 | **Viso** | Rileva i visi umani nelle immagini e identifica gli attributi, ad esempio i punti di riferimento del viso (come naso e occhi), il sesso, l'età e altre caratteristiche facciali con previsioni basate su computer. Oltre al rilevamento, Viso può verificare se due volti nella stessa immagine o in immagini diverse sono uguali mediante un punteggio di attendibilità oppure può confrontare i visi con un database per verificare se esistono già visi simili o identici. È anche possibile organizzare i visi simili in gruppi mediante caratteristiche condivise. |
+| [Riconoscimento moduli][fr-containers] | F0, S0 | **Riconoscimento modulo** | La comprensione dei moduli applica la tecnologia di machine learning per identificare ed estrarre le coppie chiave-valore e le tabelle dai moduli. |
 | [LUIS][lu-containers] | F0, S0 | **LUIS** ([immagine](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Carica un modello Language Understanding sottoposto a training o pubblicato, noto anche come app LUIS, in un contenitore Docker e fornisce l'accesso alle stime di query dagli endpoint dell'API del contenitore. È possibile raccogliere i log di query dal contenitore e caricarli nel [portale LUIS](https://www.luis.ai) per migliorare l'accuratezza delle stime dell'app. |
 | [API servizio Voce][sp-containers-stt] | F0, S0 | **Sintesi vocale** ([immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Esegue la trascrizione del parlato continuo in tempo reale in testo. |
 | [API servizio Voce][sp-containers-cstt] | F0, S0 | **Da riconoscimento vocale personalizzato a testo** ([immagine](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Trascrive il discorso continuo in tempo reale nel testo usando un modello personalizzato. |
@@ -82,7 +82,7 @@ Inoltre, alcuni contenitori sono supportati in Servizi cognitivi [**All-in-One c
 * Visione artificiale
 * Viso
 * LUIS
-* Text Analytics
+* Analisi del testo
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilità dei contenitori in Servizi cognitivi di Azure
 

@@ -12,15 +12,14 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 5a38aa5200ac8d498d2bc296a46b4b98357ab0b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 53e759b973a5d912474dd754876c5279cfb7bdab
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322292"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596452"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Avviare, monitorare e annullare le esecuzioni di training in Python
-
 
 Il [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), l'interfaccia della riga di comando di [Machine Learning](reference-azure-machine-learning-cli.md)e [Azure Machine Learning Studio](https://ml.azure.com) offre diversi metodi per monitorare, organizzare e gestire le esecuzioni per il training e la sperimentazione.
 
@@ -49,151 +48,160 @@ Sono necessari gli elementi seguenti:
 
 * L' [interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) della riga di comando di Azure e l' [estensione CLI per Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
-## <a name="start-a-run-and-its-logging-process"></a>Avviare un'esecuzione e il processo di registrazione
+## <a name="monitor-run-performance"></a>Monitorare le prestazioni di esecuzione
 
-### <a name="using-the-sdk"></a>Uso dell'SDK
+* Avviare un'esecuzione e il processo di registrazione
 
-Configurare l'esperimento importando le [classi area di lavoro](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true), [esperimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true), [esecuzione](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)e [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) dal pacchetto [azureml. Core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py&preserve-view=true) .
-
-```python
-import azureml.core
-from azureml.core import Workspace, Experiment, Run
-from azureml.core import ScriptRunConfig
-
-ws = Workspace.from_config()
-exp = Experiment(workspace=ws, name="explore-runs")
-```
-
-Avviare un'esecuzione e il processo di registrazione con il [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-logging--args----kwargs-) metodo.
-
-```python
-notebook_run = exp.start_logging()
-notebook_run.log(name="message", value="Hello from run!")
-```
-
-### <a name="using-the-cli"></a>Uso dell'interfaccia della riga di comando
-
-Per avviare un'esecuzione dell'esperimento, seguire questa procedura:
-
-1. Da una shell o da un prompt dei comandi, usare l'interfaccia della riga di comando di Azure per eseguire l'autenticazione alla sottoscrizione di Azure:
-
-    ```azurecli-interactive
-    az login
-    ```
+    # <a name="python"></a>[Python](#tab/python)
     
-    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
+    1. Configurare l'esperimento importando le [classi area di lavoro](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true), [esperimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true), [esecuzione](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)e [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) dal pacchetto [azureml. Core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py&preserve-view=true) .
+    
+        ```python
+        import azureml.core
+        from azureml.core import Workspace, Experiment, Run
+        from azureml.core import ScriptRunConfig
+        
+        ws = Workspace.from_config()
+        exp = Experiment(workspace=ws, name="explore-runs")
+        ```
+    
+    1. Avviare un'esecuzione e il processo di registrazione con il [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-logging--args----kwargs-) metodo.
+    
+        ```python
+        notebook_run = exp.start_logging()
+        notebook_run.log(name="message", value="Hello from run!")
+        ```
+        
+    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+    
+    Per avviare un'esecuzione dell'esperimento, seguire questa procedura:
+    
+    1. Da una shell o da un prompt dei comandi, usare l'interfaccia della riga di comando di Azure per eseguire l'autenticazione alla sottoscrizione di Azure:
+    
+        ```azurecli-interactive
+        az login
+        ```
+        
+        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
+    
+    1. Alleghi una configurazione dell'area di lavoro alla cartella che contiene lo script di training. Sostituire `myworkspace` con l'area di lavoro Azure Machine Learning. Sostituire `myresourcegroup` con il gruppo di risorse di Azure che contiene l'area di lavoro:
+    
+        ```azurecli-interactive
+        az ml folder attach -w myworkspace -g myresourcegroup
+        ```
+    
+        Questo comando crea una `.azureml` sottodirectory che contiene i file di ambiente runconfig e conda di esempio. Contiene anche un file `config.json` usato per comunicare con l'area di lavoro di Azure Machine Learning.
+    
+        Per altre informazioni, vedere [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-folder-attach).
+    
+    2. Per avviare l'esecuzione, usare il comando seguente. Quando si usa questo comando, specificare il nome del file runconfig (il testo prima di \*.runconfig se si sta esaminando il file system) rispetto al parametro -c.
+    
+        ```azurecli-interactive
+        az ml run submit-script -c sklearn -e testexperiment train.py
+        ```
+    
+        > [!TIP]
+        > Il `az ml folder attach` comando ha creato una `.azureml` sottodirectory, che contiene due file runconfig di esempio.
+        >
+        > Se si dispone di uno script Python che crea un oggetto di configurazione di esecuzione a livello di codice, è possibile usare [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) per salvarlo come file runconfig.
+        >
+        > Per ulteriori esempi di file runconfig, vedere [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
+    
+        Per altre informazioni, vedere [az ml run submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-submit-script).
+    
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+    
+    Per avviare un invio di un'esecuzione della pipeline nella finestra di progettazione, attenersi alla procedura seguente:
+    
+    1. Impostare una destinazione di calcolo predefinita per la pipeline.
+    
+    1. Selezionare **Esegui** nella parte superiore dell'area di disegno della pipeline.
+    
+    1. Selezionare un esperimento per raggruppare le esecuzioni della pipeline.
+    
+    ---
 
-1. Alleghi una configurazione dell'area di lavoro alla cartella che contiene lo script di training. Sostituire `myworkspace` con l'area di lavoro Azure Machine Learning. Sostituire `myresourcegroup` con il gruppo di risorse di Azure che contiene l'area di lavoro:
+* Monitorare lo stato di un'esecuzione
 
-    ```azurecli-interactive
-    az ml folder attach -w myworkspace -g myresourcegroup
-    ```
-
-    Questo comando crea una `.azureml` sottodirectory che contiene i file di ambiente runconfig e conda di esempio. Contiene anche un file `config.json` usato per comunicare con l'area di lavoro di Azure Machine Learning.
-
-    Per altre informazioni, vedere [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-folder-attach).
-
-2. Per avviare l'esecuzione, usare il comando seguente. Quando si usa questo comando, specificare il nome del file runconfig (il testo prima di \*.runconfig se si sta esaminando il file system) rispetto al parametro -c.
-
-    ```azurecli-interactive
-    az ml run submit-script -c sklearn -e testexperiment train.py
-    ```
-
-    > [!TIP]
-    > Il `az ml folder attach` comando ha creato una `.azureml` sottodirectory, che contiene due file runconfig di esempio.
-    >
-    > Se si dispone di uno script Python che crea un oggetto di configurazione di esecuzione a livello di codice, è possibile usare [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) per salvarlo come file runconfig.
-    >
-    > Per ulteriori esempi di file runconfig, vedere [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
-
-    Per altre informazioni, vedere [az ml run submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-submit-script).
-
-### <a name="using-azure-machine-learning-studio"></a>Uso di Azure Machine Learning Studio
-
-Per avviare un invio di un'esecuzione della pipeline nella finestra di progettazione, attenersi alla procedura seguente:
-
-1. Impostare una destinazione di calcolo predefinita per la pipeline.
-
-1. Selezionare **Esegui** nella parte superiore dell'area di disegno della pipeline.
-
-1. Selezionare un esperimento per raggruppare le esecuzioni della pipeline.
-
-## <a name="monitor-the-status-of-a-run"></a>Monitorare lo stato di un'esecuzione
-
-### <a name="using-the-sdk"></a>Uso dell'SDK
-
-Ottenere lo stato di un'esecuzione con il [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-status--) metodo.
-
-```python
-print(notebook_run.get_status())
-```
-
-Per ottenere l'ID esecuzione, il tempo di esecuzione e altri dettagli sull'esecuzione, usare il [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) metodo.
-
-```python
-print(notebook_run.get_details())
-```
-
-Al termine dell'esecuzione, utilizzare il [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) metodo per contrassegnarlo come completato.
-
-```python
-notebook_run.complete()
-print(notebook_run.get_status())
-```
-
-Se si usa lo `with...as` schema progettuale di Python, l'esecuzione verrà contrassegnata automaticamente come completata quando l'esecuzione non rientra nell'ambito. Non è necessario contrassegnare manualmente l'esecuzione come completata.
-
-```python
-with exp.start_logging() as notebook_run:
-    notebook_run.log(name="message", value="Hello from run!")
-    print(notebook_run.get_status())
-
-print(notebook_run.get_status())
-```
-
-### <a name="using-the-cli"></a>Uso dell'interfaccia della riga di comando
-
-1. Per visualizzare un elenco di esecuzioni per l'esperimento, usare il comando seguente. Sostituire `experiment` con il nome dell'esperimento:
-
-    ```azurecli-interactive
-    az ml run list --experiment-name experiment
-    ```
-
-    Questo comando restituisce un documento JSON che elenca le informazioni sulle esecuzioni per questo esperimento.
-
-    Per altre informazioni, vedere [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-experiment-list).
-
-2. Per visualizzare le informazioni su un'esecuzione specifica, usare il comando seguente. Sostituire `runid` con l'ID dell'esecuzione:
-
-    ```azurecli-interactive
-    az ml run show -r runid
-    ```
-
-    Questo comando restituisce un documento JSON che elenca le informazioni sull'esecuzione.
-
-    Per ulteriori informazioni, vedere [AZ ml Run Show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-show).
-
-
-### <a name="using-azure-machine-learning-studio"></a>Uso di Azure Machine Learning Studio
-
-Per visualizzare il numero di esecuzioni attive per l'esperimento in studio.
-
-1. Passare alla sezione **esperimenti** . 
-
-1. Selezionare un esperimento.
-
-    Nella pagina dell'esperimento è possibile visualizzare il numero di destinazioni di calcolo attive e la durata di ogni esecuzione. 
-
-1. Selezionare un numero di esecuzione specifico.
-
-1. Nella scheda **logs** è possibile trovare i log di diagnostica e degli errori per l'esecuzione della pipeline.
-
-
+    # <a name="python"></a>[Python](#tab/python)
+    
+    * Ottenere lo stato di un'esecuzione con il [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-status--) metodo.
+    
+        ```python
+        print(notebook_run.get_status())
+        ```
+    
+    * Per ottenere l'ID esecuzione, il tempo di esecuzione e altri dettagli sull'esecuzione, usare il [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) metodo.
+    
+        ```python
+        print(notebook_run.get_details())
+        ```
+    
+    * Al termine dell'esecuzione, utilizzare il [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) metodo per contrassegnarlo come completato.
+    
+        ```python
+        notebook_run.complete()
+        print(notebook_run.get_status())
+        ```
+    
+    * Se si usa lo `with...as` schema progettuale di Python, l'esecuzione verrà contrassegnata automaticamente come completata quando l'esecuzione non rientra nell'ambito. Non è necessario contrassegnare manualmente l'esecuzione come completata.
+        
+        ```python
+        with exp.start_logging() as notebook_run:
+            notebook_run.log(name="message", value="Hello from run!")
+            print(notebook_run.get_status())
+        
+        print(notebook_run.get_status())
+        ```
+    
+    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+    
+    * Per visualizzare un elenco di esecuzioni per l'esperimento, usare il comando seguente. Sostituire `experiment` con il nome dell'esperimento:
+    
+        ```azurecli-interactive
+        az ml run list --experiment-name experiment
+        ```
+    
+        Questo comando restituisce un documento JSON che elenca le informazioni sulle esecuzioni per questo esperimento.
+    
+        Per altre informazioni, vedere [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-experiment-list).
+    
+    * Per visualizzare le informazioni su un'esecuzione specifica, usare il comando seguente. Sostituire `runid` con l'ID dell'esecuzione:
+    
+        ```azurecli-interactive
+        az ml run show -r runid
+        ```
+    
+        Questo comando restituisce un documento JSON che elenca le informazioni sull'esecuzione.
+    
+        Per ulteriori informazioni, vedere [AZ ml Run Show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-show).
+    
+    
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+    
+    Per visualizzare il numero di esecuzioni attive per l'esperimento in studio.
+    
+    1. Passare alla sezione **esperimenti** .
+    
+    1. Selezionare un esperimento.
+    
+        Nella pagina dell'esperimento è possibile visualizzare il numero di destinazioni di calcolo attive e la durata di ogni esecuzione. 
+    
+    1. Apportare personalizzazioni all'esperimento selezionando esecuzioni da confrontare, aggiungendo grafici o applicando filtri. Queste modifiche possono essere salvate come una **visualizzazione personalizzata** , in modo da poter tornare facilmente al lavoro. Gli utenti con autorizzazioni per l'area di lavoro possono modificare o visualizzare la visualizzazione personalizzata. Inoltre, condividere la visualizzazione personalizzata con altri copiando e incollando l'URL nel browser.  
+    
+        :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="Screenshot: creare una visualizzazione personalizzata":::
+    
+    1. Selezionare un numero di esecuzione specifico.
+    
+    1. Nella scheda **logs** è possibile trovare i log di diagnostica e degli errori per l'esecuzione della pipeline.
+    
+    ---
+    
 ## <a name="cancel-or-fail-runs"></a>Esecuzioni annullate o non riuscite
 
 Se si nota un errore o se il completamento dell'esecuzione richiede troppo tempo, è possibile annullare l'esecuzione.
 
-### <a name="using-the-sdk"></a>Uso dell'SDK
+# <a name="python"></a>[Python](#tab/python)
 
 Per annullare un'esecuzione utilizzando l'SDK, utilizzare il [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecancel--) Metodo:
 
@@ -214,7 +222,7 @@ local_run.fail()
 print(local_run.get_status())
 ```
 
-### <a name="using-the-cli"></a>Uso dell'interfaccia della riga di comando
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per annullare un'esecuzione usando l'interfaccia della riga di comando, usare il comando seguente. Sostituire `runid` con l'ID dell'esecuzione
 
@@ -224,7 +232,7 @@ az ml run cancel -r runid -w workspace_name -e experiment_name
 
 Per ulteriori informazioni, vedere [AZ ml Run Cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-cancel).
 
-### <a name="using-azure-machine-learning-studio"></a>Uso di Azure Machine Learning Studio
+# <a name="studio"></a>[Studio](#tab/azure-studio)
 
 Per annullare un'esecuzione in studio, seguire questa procedura:
 
@@ -234,6 +242,7 @@ Per annullare un'esecuzione in studio, seguire questa procedura:
 
 1. Sulla barra degli strumenti selezionare **Annulla**
 
+---
 
 ## <a name="create-child-runs"></a>Crea esecuzioni figlio
 
@@ -319,87 +328,95 @@ print(parent_run.get_children())
 
 In Azure Machine Learning, è possibile usare proprietà e tag per organizzare ed eseguire query sulle esecuzioni per ottenere informazioni importanti.
 
-### <a name="add-properties-and-tags"></a>Aggiungere proprietà e tag
+* Aggiungere proprietà e tag
 
-#### <a name="using-the-sdk"></a>Uso dell'SDK
+    # <a name="python"></a>[Python](#tab/python)
+    
+    Per aggiungere metadati ricercabili alle esecuzioni, usare il [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-properties-properties-) metodo. Il codice seguente, ad esempio, aggiunge la `"author"` proprietà all'esecuzione:
+    
+    ```Python
+    local_run.add_properties({"author":"azureml-user"})
+    print(local_run.get_properties())
+    ```
+    
+    Le proprietà non sono modificabili, quindi creano un record permanente a scopo di controllo. L'esempio di codice seguente genera un errore perché è già stato aggiunto `"azureml-user"` come `"author"` valore della proprietà nel codice precedente:
+    
+    ```Python
+    try:
+        local_run.add_properties({"author":"different-user"})
+    except Exception as e:
+        print(e)
+    ```
+    
+    Diversamente dalle proprietà, i tag sono modificabili. Per aggiungere informazioni significative e ricercabili per i consumer dell'esperimento, usare il [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truetag-key--value-none-) metodo.
+    
+    ```Python
+    local_run.tag("quality", "great run")
+    print(local_run.get_tags())
+    
+    local_run.tag("quality", "fantastic run")
+    print(local_run.get_tags())
+    ```
+    
+    È anche possibile aggiungere tag stringa semplici. Quando questi tag vengono visualizzati nel dizionario dei tag come chiavi, hanno un valore pari a `None` .
+    
+    ```Python
+    local_run.tag("worth another look")
+    print(local_run.get_tags())
+    ```
+    
+    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+    
+    > [!NOTE]
+    > Usando l'interfaccia della riga di comando, è possibile aggiungere o aggiornare solo i tag.
+    
+    Per aggiungere o aggiornare un tag, usare il comando seguente:
+    
+    ```azurecli-interactive
+    az ml run update -r runid --add-tag quality='fantastic run'
+    ```
+    
+    Per ulteriori informazioni, vedere [AZ ml Run Update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-update).
+    
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+    
+    È possibile visualizzare le proprietà e i tag in studio, ma non modificarli.
+    
+    ---
 
-Per aggiungere metadati ricercabili alle esecuzioni, usare il [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-properties-properties-) metodo. Il codice seguente, ad esempio, aggiunge la `"author"` proprietà all'esecuzione:
+* Proprietà e tag della query
 
-```Python
-local_run.add_properties({"author":"azureml-user"})
-print(local_run.get_properties())
-```
+    È possibile eseguire query sulle esecuzioni all'interno di un esperimento per restituire un elenco di esecuzioni corrispondenti a proprietà e tag specifici.
 
-Le proprietà non sono modificabili, quindi creano un record permanente a scopo di controllo. L'esempio di codice seguente genera un errore perché è già stato aggiunto `"azureml-user"` come `"author"` valore della proprietà nel codice precedente:
-
-```Python
-try:
-    local_run.add_properties({"author":"different-user"})
-except Exception as e:
-    print(e)
-```
-
-Diversamente dalle proprietà, i tag sono modificabili. Per aggiungere informazioni significative e ricercabili per i consumer dell'esperimento, usare il [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truetag-key--value-none-) metodo.
-
-```Python
-local_run.tag("quality", "great run")
-print(local_run.get_tags())
-
-local_run.tag("quality", "fantastic run")
-print(local_run.get_tags())
-```
-
-È anche possibile aggiungere tag stringa semplici. Quando questi tag vengono visualizzati nel dizionario dei tag come chiavi, hanno un valore pari a `None` .
-
-```Python
-local_run.tag("worth another look")
-print(local_run.get_tags())
-```
-
-#### <a name="using-the-cli"></a>Uso dell'interfaccia della riga di comando
-
-> [!NOTE]
-> Usando l'interfaccia della riga di comando, è possibile aggiungere o aggiornare solo i tag.
-
-Per aggiungere o aggiornare un tag, usare il comando seguente:
-
-```azurecli-interactive
-az ml run update -r runid --add-tag quality='fantastic run'
-```
-
-Per ulteriori informazioni, vedere [AZ ml Run Update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-update).
-
-### <a name="query-properties-and-tags"></a>Proprietà e tag della query
-
-È possibile eseguire query sulle esecuzioni all'interno di un esperimento per restituire un elenco di esecuzioni corrispondenti a proprietà e tag specifici.
-
-#### <a name="using-the-sdk"></a>Uso dell'SDK
-
-```Python
-list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
-list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
-```
-
-#### <a name="using-the-cli"></a>Uso dell'interfaccia della riga di comando
-
-L'interfaccia della riga di comando di Azure supporta le query [JMESPath](http://jmespath.org) , che possono essere usate per filtrare le esecuzioni in base a proprietà e tag. Per usare una query JMESPath con l'interfaccia della riga di comando di Azure, specificarla con il `--query` parametro. Gli esempi seguenti illustrano alcune query che usano proprietà e Tag:
-
-```azurecli-interactive
-# list runs where the author property = 'azureml-user'
-az ml run list --experiment-name experiment [?properties.author=='azureml-user']
-# list runs where the tag contains a key that starts with 'worth another look'
-az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
-# list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
-az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
-```
-
-Per altre informazioni sull'esecuzione di query sui risultati dell'interfaccia della riga di comando di Azure, vedere [eseguire query sull'output del comando CLI](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest&preserve-view=true)
-
-### <a name="using-azure-machine-learning-studio"></a>Uso di Azure Machine Learning Studio
-
-1. Passare alla sezione **pipeline** .
-
-1. Usare la barra di ricerca per filtrare le pipeline usando i tag, le descrizioni, i nomi degli esperimenti e il nome del mittente.
+    # <a name="python"></a>[Python](#tab/python)
+    
+    ```Python
+    list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
+    list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
+    ```
+    
+    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+    
+    L'interfaccia della riga di comando di Azure supporta le query [JMESPath](http://jmespath.org) , che possono essere usate per filtrare le esecuzioni in base a proprietà e tag. Per usare una query JMESPath con l'interfaccia della riga di comando di Azure, specificarla con il `--query` parametro. Gli esempi seguenti illustrano alcune query che usano proprietà e Tag:
+    
+    ```azurecli-interactive
+    # list runs where the author property = 'azureml-user'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user']
+    # list runs where the tag contains a key that starts with 'worth another look'
+    az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
+    # list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
+    ```
+    
+    Per altre informazioni sull'esecuzione di query sui risultati dell'interfaccia della riga di comando di Azure, vedere [eseguire query sull'output del comando CLI](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest&preserve-view=true)
+    
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+    
+    1. Passare alla sezione **pipeline** .
+    
+    1. Usare la barra di ricerca per filtrare le pipeline usando i tag, le descrizioni, i nomi degli esperimenti e il nome del mittente.
+    
+    ---
 
 ## <a name="example-notebooks"></a>Notebook di esempio
 

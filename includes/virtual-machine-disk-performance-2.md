@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 7a546c06e990d7fdb0fa7865c176f39772136539
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e5a6dae98e786bf55dc17d8fabe42f84e9927442
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540028"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91605769"
 ---
 ![Documentazione di Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
-Il numero massimo di velocità effettiva del disco non **memorizzato nella cache** è il limite massimo di archiviazione predefinito che la macchina virtuale è in grado di gestire. Il limite massimo di velocità effettiva di archiviazione **memorizzata nella cache** è un limite separato quando si Abilita la memorizzazione nella cache dell'host. La memorizzazione nella cache dell'host funziona avvicinando la risorsa di archiviazione alla macchina virtuale che può essere scritta o letta rapidamente. La quantità di spazio di archiviazione disponibile per la macchina virtuale per la memorizzazione nella cache dell'host è disponibile nella documentazione di. Ad esempio, è possibile vedere che la Standard_D8s_v3 viene fornita con 200 GiB di archiviazione della cache. Ora 
+Il numero massimo di velocità effettiva del disco non **memorizzato nella cache** è il limite massimo di archiviazione predefinito che la macchina virtuale è in grado di gestire. Il limite massimo di velocità effettiva di archiviazione **memorizzata nella cache** è un limite separato quando si Abilita la memorizzazione nella cache dell'host. La memorizzazione nella cache dell'host funziona avvicinando la risorsa di archiviazione alla macchina virtuale che può essere scritta o letta rapidamente. La quantità di spazio di archiviazione disponibile per la macchina virtuale per la memorizzazione nella cache dell'host è disponibile nella documentazione di. Ad esempio, è possibile vedere che la Standard_D8s_v3 viene fornita con 200 GiB di archiviazione della cache.
 
 L'abilitazione della memorizzazione nella cache dell'host può essere eseguita durante la creazione della macchina virtuale e il fissaggio dei dischi. È anche possibile modificare per attivare e disattivare la memorizzazione nella cache dell'host dei dischi in una macchina virtuale esistente.
 
@@ -94,7 +94,7 @@ Configurazione:
     - Caching dell'host: lettura/scrittura
 - 2 dischi dati P30 X 2
     - IOPS: 5.000
-    - Caching dell'host: lettura/scrittura
+    - Caching dell'host: disabilitato
 
 ![Esempio di memorizzazione nella cache dell'host con archiviazione remota](media/vm-disk-performance/host-caching-example-with-remote.jpg)
 

@@ -3,12 +3,12 @@ title: Ottenere i dati di conformità ai criteri
 description: Le valutazioni e gli effetti di Criteri di Azure determinano la conformità. Informazioni su come ottenere informazioni dettagliate sulle risorse di Azure.
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5a308a23e84587eba69951081674d3525f083441
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 2b4db7daf75f153cadb03e5dd028084e311bb874
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91537951"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596032"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -46,7 +46,37 @@ Le valutazioni delle iniziative e dei criteri assegnati sono il risultato di div
 
 ### <a name="on-demand-evaluation-scan"></a>Analisi di valutazione su richiesta
 
-È possibile avviare un'analisi di valutazione per una sottoscrizione o un gruppo di risorse con l'interfaccia della riga di comando di Azure, Azure PowerShell o una chiamata all'API REST. Questa analisi è un processo asincrono.
+È possibile avviare un'analisi di valutazione per una sottoscrizione o un gruppo di risorse con l'interfaccia della riga di comando di Azure, Azure PowerShell, una chiamata all'API REST o tramite l' [azione GitHub di analisi della conformità dei criteri di Azure](https://github.com/marketplace/actions/azure-policy-compliance-scan).
+Questa analisi è un processo asincrono.
+
+#### <a name="on-demand-evaluation-scan---github-action"></a>Analisi di valutazione su richiesta-azione GitHub
+
+Usare l' [azione di analisi della conformità dei criteri di Azure](https://github.com/marketplace/actions/azure-policy-compliance-scan) per attivare un'analisi di valutazione su richiesta dal flusso di [lavoro GitHub](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows) in una o più risorse, gruppi di risorse o sottoscrizioni e controllare il flusso di lavoro in base allo stato di conformità delle risorse. È anche possibile configurare il flusso di lavoro per l'esecuzione a un'ora pianificata in modo da ottenere lo stato di conformità più recente in un momento appropriato. Facoltativamente, questa azione GitHub può generare un report sullo stato di conformità delle risorse analizzate per un'ulteriore analisi o per l'archiviazione.
+
+Nell'esempio seguente viene eseguita un'analisi di conformità per una sottoscrizione. 
+
+```yaml
+on:
+  schedule:    
+    - cron:  '0 8 * * *'  # runs every morning 8am
+jobs:
+  assess-policy-compliance:    
+    runs-on: ubuntu-latest
+    steps:         
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}} 
+
+    
+    - name: Check for resource compliance
+      uses: azure/policy-compliance-scan@v0
+      with:
+        scopes: |
+          /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+Per altre informazioni ed esempi di flusso di lavoro, vedere l' [azione GitHub per il repository di analisi della conformità dei criteri di Azure](https://github.com/Azure/policy-compliance-scan).
 
 #### <a name="on-demand-evaluation-scan---azure-cli"></a>Analisi di valutazione su richiesta-interfaccia della riga di comando di Azure
 

@@ -3,7 +3,7 @@ title: Risolvere i problemi di CPU elevata per le macchine virtuali Windows di A
 description: .
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: v-miegge
+author: mnanda
 manager: dcscontentpm
 editor: v-jesits
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: 1cc1b6cc6e678e30b2d66d67cdc4aa438cd2058b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542957"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596841"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Risolvere i problemi di CPU elevata per le macchine virtuali Windows di Azure
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I problemi di prestazioni si verificano in diversi sistemi operativi o applicazioni. ogni problema richiede un approccio univoco per la risoluzione dei problemi. La maggior parte di questi problemi riguarda CPU, memoria, rete e input/output (I/O) come posizioni chiave in cui si verifica il problema. Ognuna di queste aree genera sintomi diversi (a volte simultaneamente) e richiede una diagnosi e una soluzione diverse.
 

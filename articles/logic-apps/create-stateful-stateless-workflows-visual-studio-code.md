@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 09/26/2020
-ms.openlocfilehash: 1595051c851d1c21242bcbb5368baa28a1da740d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409851"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597794"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creare flussi di lavoro con stato o senza stato in Visual Studio Code con l'estensione app per la logica di Azure (anteprima)
 
@@ -389,9 +389,11 @@ Il flusso di lavoro dell'app per la logica in questo esempio usa questo trigger 
 
 1. Se è necessario eliminare un elemento nella finestra di progettazione, attenersi alla procedura seguente:
 
-   1. Nella finestra di progettazione selezionare l'elemento.
+   1. Nella finestra di progettazione selezionare l'elemento, che consente di aprire il riquadro dettagli dell'elemento sul lato destro.
 
-   1. Nel riquadro dei dettagli dell'elemento visualizzato sul lato destro selezionare il pulsante con i puntini di sospensione (**...**) per **>** **eliminare**. Per confermare l'eliminazione, fare clic su **OK**.
+   1. Espandere la finestra di Visual Studio Code sufficientemente ampia in modo che accanto al trigger o al nome dell'azione, il pulsante con i puntini di sospensione (**...**) venga visualizzato nell'angolo in alto a destra. 
+
+   1. Aprire il menu con i puntini di sospensione (**..**.) e selezionare **Elimina**. Per confermare l'eliminazione, fare clic su **OK**.
 
       ![Screenshot che mostra l'elemento selezionato nella finestra di progettazione con il riquadro dettagli aperto e con il pulsante con i puntini di sospensione selezionati e l'opzione "Elimina".](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 

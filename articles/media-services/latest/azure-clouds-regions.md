@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: e9da87f3b5f7cb513b4b5d51c93a59d1703d401d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9c54482dc188141c4fc697bd43628b81e0ddc29f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258657"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597125"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Cloud e aree in cui sono presenti i Aervizi multimediali v3 di Azure
 
@@ -27,7 +27,7 @@ I Servizi multimediali v3 di Azure sono disponibili tramite il manifesto di Azur
 
 ## <a name="feature-availability-in-azure-clouds"></a>Funzionalità disponibili nei cloud di Azure
 
-| Funzionalità|Aree globali di Azure | Azure Government|Azure Germania|21Vianet per Azure Cina|
+| Feature|Aree globali di Azure | Azure Government|Azure Germania|21Vianet per Azure Cina|
 | --- | --- | --- | --- | --- |
 | [Azure EventGrid](reacting-to-media-services-events.md) | Disponibile | Non disponibile | Non disponibile | Non disponibile |
 | [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponibile | Non disponibile | Non disponibile | Non disponibile |
@@ -82,7 +82,7 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 
 ### <a name="global-azure"></a>Azure globale
 
-| Service | Endpoint |
+| Servizio | Endpoint |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.azure.com/` |
 | Authentication | `https://login.microsoftonline.com/` |
@@ -90,15 +90,17 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 
 ### <a name="azure-government"></a>Azure Government
 
-| Service | Endpoint |
+| Servizio | Endpoint |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | Authentication | `https://login.microsoftonline.us/` |
 | Destinatari dei token | `https://management.core.usgovcloudapi.net/` |
 
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
+
 ### <a name="azure-germany"></a>Azure Germania
 
-| Service | Endpoint |
+| Servizio | Endpoint |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
 | Authentication | `https://login.microsoftonline.de/` |
@@ -106,7 +108,7 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 
 ### <a name="azure-china-21vianet"></a>Azure Cina 21Vianet
 
-| Service | Endpoint |
+| Servizio | Endpoint |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Authentication | `https://login.chinacloudapi.cn/` |

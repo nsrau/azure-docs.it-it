@@ -2,13 +2,13 @@
 title: Metriche del bus di sevizio di Azure in Monitoraggio di Azure| Microsoft Docs
 description: Questo articolo illustra come usare Monitoraggio di Azure per monitorare le entità del bus di servizio (code, argomenti e sottoscrizioni).
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: 158662a5d0fc3489b2cac638b28a64aa218b888e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 169edb651a59302d0ea1245fd48787404dd3e555
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320439"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598132"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metriche del bus di servizio di Azure in Monitoraggio di Azure
 
@@ -93,7 +93,7 @@ I due tipi di errori seguenti sono classificati come errori utente:
 
 | Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
-|Connessioni attive|Numero di connessioni attive in uno spazio dei nomi e in un'entità.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: nome entità|
+|Connessioni attive|Numero di connessioni attive in uno spazio dei nomi e in un'entità nello spazio dei nomi. Il valore di questa metrica è un valore temporizzato. Le connessioni attive immediatamente dopo tale temporizzazione potrebbero non essere riflesse nella metrica.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: nome entità|
 |Connessioni aperte |Numero di connessioni aperte.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: nome entità|
 |Connessioni chiuse |Numero di connessioni chiuse.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: nome entità|
 

@@ -11,42 +11,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2020
+ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: 79399d0890f61d723f371528408d226f6a192ce4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d778b3ae0889ea0bf9cc38ca5813ac61fc5fcdbe
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336497"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595655"
 ---
 # <a name="outbound-connections"></a>Connessioni in uscita
 
 Azure Load Balancer fornisce la connettività in uscita tramite diversi meccanismi. Questo articolo descrive gli scenari e le modalità di gestione. 
 
-## <a name="outbound-connections-scenario-overview"></a><a name="scenarios"></a>Panoramica dello scenario relativo alle connessioni in uscita
 
-Termini usati in questi scenari. Per ulteriori informazioni, vedere [terminologia](#terms):
+## <a name="scenarios"></a>Scenari
 
-* [SNAT (Source Network Address Translation)](#snat)
-* [Mascheramento delle porte (PAT)](#pat)
-* Transmission Control Protocol (TCP)
-* UDP (User Datagram Protocol)
-* Network Address Translation
-* Internet Control Message Protocol
-* Incapsulamento del protocollo di sicurezza
+* Macchina virtuale con indirizzo IP pubblico.
+* Macchina virtuale senza indirizzo IP pubblico.
+* Macchina virtuale senza IP pubblico e senza Load Balancer standard.
 
-### <a name="scenarios"></a>Scenari
-
-* [Scenario 1](#scenario1) -macchina virtuale con indirizzo IP pubblico.
-* [Scenario 2](#scenario2) : macchina virtuale senza indirizzo IP pubblico.
-* [Scenario 3](#scenario3) : macchina virtuale senza IP pubblico e senza Load Balancer standard.
-
-### <a name="scenario-1---virtual-machine-with-public-ip"></a><a name="scenario1"></a>Scenario 1-macchina virtuale con IP pubblico
+### <a name="virtual-machine-with-public-ip"></a><a name="scenario1"></a>Macchina virtuale con IP pubblico
 
 | Associazioni | Metodo | Protocolli IP |
 | ---------- | ------ | ------------ |
-| Servizio di bilanciamento del carico pubblico o autonomo | [SNAT](#snat) </br> [Mascheramento della porta](#pat) non utilizzata. | TCP </br> UDP </br> ICMP </br> ESP |
+| Servizio di bilanciamento del carico pubblico o autonomo | [SNAT (origine Network Address Translation)](#snat) </br> [Pat (mascheramento delle porte)](#pat) non utilizzato. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (incapsulamento del payload di sicurezza) |
 
 #### <a name="description"></a>Descrizione
 
@@ -54,11 +43,11 @@ Azure usa l'indirizzo IP pubblico assegnato alla configurazione IP della scheda 
 
 Un indirizzo IP pubblico assegnato a una macchina virtuale è una relazione 1:1, anziché 1:molti, e viene implementato come NAT 1:1 senza stato.
 
-### <a name="scenario-2---virtual-machine-without-public-ip"></a><a name="scenario2"></a>Scenario 2: macchina virtuale senza IP pubblico
+### <a name="virtual-machine-without-public-ip"></a><a name="scenario2"></a>Macchina virtuale senza IP pubblico
 
 | Associazioni | Metodo | Protocolli IP |
 | ------------ | ------ | ------------ |
-| Bilanciamento del carico pubblico | Uso del front-end del servizio di bilanciamento del carico per [SNAT](#snat) con [mascheramento delle porte (Pat)](#pat).| TCP </br> UDP |
+| Bilanciamento del carico pubblico | Uso del front-end del servizio di bilanciamento del carico per [SNAT](#snat) con [Pat (mascheramento delle porte)](#pat).| TCP </br> UDP |
 
 #### <a name="description"></a>Descrizione
 
@@ -74,15 +63,15 @@ Le porte temporanee dell'indirizzo IP pubblico front-end del servizio di bilanci
 
 In questo contesto le porte temporanee usate per SNAT sono dette porte SNAT. Le porte SNAT vengono preallocate come descritto nella [tabella di allocazione delle porte SNAT predefinite](#snatporttable).
 
-### <a name="scenario-3---virtual-machine-without-public-ip-and-without-standard-load-balancer"></a><a name="scenario3"></a> Scenario 3: macchina virtuale senza IP pubblico e senza Load Balancer standard
+### <a name="virtual-machine-without-public-ip-and-without-standard-load-balancer"></a><a name="scenario3"></a>Macchina virtuale senza IP pubblico e senza Load Balancer standard
 
 | Associazioni | Metodo | Protocolli IP |
 | ------------ | ------ | ------------ |
-|nessuno </br> Servizio di bilanciamento del carico di base | [SNAT](#snat) con [mascheramento delle porte (Pat)](#pat)| TCP </br> UDP | 
+|Nessuno </br> Servizio di bilanciamento del carico di base | [SNAT](#snat) con [mascheramento delle porte (Pat)](#pat)| TCP </br> UDP | 
 
 #### <a name="description"></a>Descrizione
 
-Quando la macchina virtuale crea un flusso in uscita, Azure converte l'indirizzo IP di origine del flusso in uscita in un indirizzo IP di origine pubblica. Questo indirizzo IP pubblico **non è configurabile** e non può essere riservato. Questo indirizzo non viene conteggiato rispetto al limite di risorse IP pubblico della sottoscrizione. 
+Quando la macchina virtuale crea un flusso in uscita, Azure converte l'indirizzo IP di origine in un indirizzo IP di origine pubblica. Questo indirizzo IP pubblico **non è configurabile** e non può essere riservato. Questo indirizzo non viene conteggiato rispetto al limite di risorse IP pubblico della sottoscrizione. 
 
 L'indirizzo IP pubblico verrà rilasciato e verrà richiesto un nuovo indirizzo IP pubblico se si ridistribuisce: 
 
@@ -136,7 +125,7 @@ La modifica delle dimensioni del pool back-end potrebbe influire su alcuni dei f
 > [!NOTE]
 > La **rete virtuale di Azure NAT** può fornire connettività in uscita per le macchine virtuali in una rete virtuale.  Per ulteriori informazioni, vedere informazioni sulla [rete virtuale di Azure NAT](../virtual-network/nat-overview.md) .
 
-Si dispone di un controllo dichiarativo completo sulla connettività in uscita per scalare e ottimizzare questa capacità in base alle esigenze. Questa sezione espande lo scenario 2 come descritto in precedenza.
+Si dispone di un controllo dichiarativo completo sulla connettività in uscita per scalare e ottimizzare questa capacità in base alle esigenze.
 
 ![Regole in uscita del servizio di bilanciamento del carico](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
@@ -196,24 +185,20 @@ A volte non è auspicabile che una macchina virtuale crei un flusso in uscita. P
 
 Quando si applica un gruppo di sicurezza di rete a una macchina virtuale con carico bilanciato, considerare i [tag del servizio](../virtual-network/security-overview.md#service-tags) e le [regole di sicurezza predefinite](../virtual-network/security-overview.md#default-security-rules). Assicurarsi che la macchina virtuale sia in grado di ricevere richieste di probe di integrità da Azure Load Balancer.
 
-Se un gruppo di sicurezza di rete blocca le richieste di probe di integrità dal tag AZURE_LOADBALANCER predefinito, il probe di integrità della macchina virtuale avrà esito negativo e la macchina virtuale sarà contrassegnata come non attiva. Load Balancer interrompe l'invio di nuovi flussi a tale macchina virtuale.
+Se un NSG blocca le richieste di probe di integrità dal AZURE_LOADBALANCER tag predefinito, il probe di integrità della macchina virtuale ha esito negativo e la macchina virtuale è contrassegnata come Load Balancer interrompe l'invio di nuovi flussi a tale macchina virtuale.
 
 ## <a name="scenarios-with-outbound-rules"></a>Scenari con regole in uscita
 
 ### <a name="outbound-rules-scenarios"></a>Scenari di regole in uscita
 
-* [Scenario 1](#scenario1out) : configurare le connessioni in uscita a un set specifico di indirizzi IP pubblici o prefisso.
-* [Scenario 2](#scenario2out) : modificare l'allocazione della porta [SNAT](#snat) .
-* [Scenario 3](#scenario3out) : abilitare solo in uscita.
-* [Scenario 4](#scenario4out) : NAT in uscita solo per le macchine virtuali (nessun in ingresso).
-* [Scenario 5](#scenario5out) : NAT in uscita per Load Balancer standard interno.
-* [Scenario 6](#scenario6out) : abilitare protocolli UDP TCP & per la NAT in uscita con un servizio di bilanciamento del carico standard pubblico.
+* Configurare le connessioni in uscita a un set specifico di indirizzi IP pubblici o prefisso.
+* Modificare l'allocazione della porta [SNAT](#snat) .
+* Abilita solo in uscita.
+* NAT in uscita solo per le macchine virtuali (nessun in ingresso).
+* NAT in uscita per il servizio di bilanciamento del carico standard interno.
+* Abilitare entrambi i protocolli TCP & UDP per la NAT in uscita con un servizio di bilanciamento del carico standard pubblico.
 
-### <a name="scenario-1"></a><a name="scenario1out"></a>Scenario 1
-
-| Scenario |
-| -------- |
-| Configurare le connessioni in uscita a un set specifico di indirizzi IP pubblici o prefisso|
+### <a name="configure-outbound-connections-to-a-specific-set-of-public-ips-or-prefix"></a><a name="scenario1out"></a>Configurare le connessioni in uscita a un set specifico di indirizzi IP pubblici o prefisso
 
 #### <a name="details"></a>Dettagli
 
@@ -229,11 +214,7 @@ Per usare un indirizzo IP pubblico o un prefisso diverso da quello usato da una 
 4. Riutilizzare un pool back-end o creare un pool back-end e inserire le VM in un pool back-end del servizio di bilanciamento del carico pubblico
 5. Configurare una regola in uscita per il servizio di bilanciamento del carico pubblico per abilitare la NAT in uscita per le macchine virtuali usando il front-end. Se non si desidera che la regola di bilanciamento del carico venga utilizzata per le connessioni in uscita, disabilitare SNAT in uscita nella regola di bilanciamento del carico.
 
-### <a name="scenario-2"></a><a name="scenario2out"></a>Scenario 2
-
-| Scenario |
-| -------- |
-| Modificare l'allocazione delle porte [SNAT](#snat) |
+### <a name="modify-snat-port-allocation"></a><a name="scenario2out"></a>Modificare l'allocazione delle porte [SNAT](#snat)
 
 #### <a name="details"></a>Dettagli
 
@@ -251,26 +232,18 @@ Se si tenta di assegnare più porte [SNAT](#snat) rispetto a quelle disponibili 
 
 Se si assegnano 10.000 porte per macchina virtuale e sette macchine virtuali in un pool back-end condividono un solo indirizzo IP pubblico, la configurazione viene rifiutata. 7 moltiplicato per 10.000 supera il limite di 64.000 porte. Aggiungere altri indirizzi IP pubblici al front-end della regola in uscita per abilitare lo scenario. 
 
-Ripristinare l' [allocazione di porte predefinita](load-balancer-outbound-connections.md#preallocatedports) specificando 0 per il numero di porte. La prima istanza di VM 50 otterrà 1024 porte, 51-100 istanze di VM otterranno 512 fino al numero massimo di istanze.  Per ulteriori informazioni sull'allocazione di porte SNAT predefinite, vedere [sopra](#snatporttable).
+Ripristinare l' [allocazione di porte predefinita](load-balancer-outbound-connections.md#preallocatedports) specificando 0 per il numero di porte. La prima istanza di VM 50 otterrà 1024 porte, 51-100 istanze di VM otterranno 512 fino al numero massimo di istanze.  Per ulteriori informazioni sull'allocazione di porte SNAT predefinite, vedere [tabella di allocazione delle porte SNAT](#snatporttable).
 
-### <a name="scenario-3"></a><a name="scenario3out"></a>Scenario 3
-
-| Scenario |
-| -------- |
-|  Abilitare NAT solo in uscita |
+### <a name="enable-outbound-only"></a><a name="scenario3out"></a>Abilita solo in uscita
 
 #### <a name="details"></a>Dettagli
 
-È possibile usare un servizio di bilanciamento del carico standard pubblico per fornire NAT in uscita per un gruppo di macchine virtuali. In questo scenario, utilizzare una regola in uscita autonomamente, senza la necessità di regole aggiuntive.
+Usare un servizio di bilanciamento del carico standard pubblico per fornire NAT in uscita per un gruppo di macchine virtuali. In questo scenario, utilizzare una regola in uscita autonomamente, senza la necessità di regole aggiuntive.
 
 > [!NOTE]
 > La **rete virtuale di Azure NAT** può fornire connettività in uscita per le macchine virtuali senza la necessità di un servizio di bilanciamento del carico.  Per ulteriori informazioni, vedere informazioni sulla [rete virtuale di Azure NAT](../virtual-network/nat-overview.md) .
 
-### <a name="scenario-4"></a><a name="scenario4out"></a>Scenario 4
-
-| Scenario |
-| -------- |
-| Solo NAT in uscita per le macchine virtuali (non in ingresso) |
+### <a name="outbound-nat-for-vms-only-no-inbound"></a><a name="scenario4out"></a>Solo NAT in uscita per le macchine virtuali (non in ingresso)
 
 > [!NOTE]
 > La **rete virtuale di Azure NAT** può fornire connettività in uscita per le macchine virtuali senza la necessità di un servizio di bilanciamento del carico.  Per ulteriori informazioni, vedere informazioni sulla [rete virtuale di Azure NAT](../virtual-network/nat-overview.md) .
@@ -288,11 +261,7 @@ Per questo scenario:
 
 Usare un prefisso o un indirizzo IP pubblico per scalare le porte [SNAT](#snat) . Aggiungere l'origine delle connessioni in uscita a un elenco Consenti o nega.
 
-### <a name="scenario-5"></a><a name="scenario5out"></a>Scenario 5
-
-| Scenario |
-| -------- |
-| NAT in uscita per Load Balancer standard interno |
+### <a name="outbound-nat-for-internal-standard-load-balancer"></a><a name="scenario5out"></a>NAT in uscita per Load Balancer standard interno
 
 > [!NOTE]
 > La **rete virtuale di Azure NAT** può fornire connettività in uscita per le macchine virtuali che usano un servizio di bilanciamento del carico standard interno.  Per ulteriori informazioni, vedere informazioni sulla [rete virtuale di Azure NAT](../virtual-network/nat-overview.md) .
@@ -304,11 +273,7 @@ La connettività in uscita non è disponibile per un servizio di bilanciamento d
 Per altre informazioni, vedere Configurazione del servizio di [bilanciamento del carico solo in uscita](https://docs.microsoft.com/azure/load-balancer/egress-only).
 
 
-### <a name="scenario-6"></a><a name="scenario6out"></a>Scenario 6
-
-| Scenario |
-| -------- |
-| Abilitare protocolli UDP TCP & per la NAT in uscita con un servizio di bilanciamento del carico standard pubblico |
+### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a><a name="scenario6out"></a>Abilitare protocolli UDP TCP & per la NAT in uscita con un servizio di bilanciamento del carico standard pubblico
 
 #### <a name="details"></a>Dettagli
 
@@ -360,7 +325,7 @@ Quando un servizio di bilanciamento del carico pubblico è associato a macchine 
 
 L'origine viene riscritta dall'indirizzo IP privato della rete virtuale all'indirizzo IP pubblico front-end del servizio di bilanciamento del carico. 
 
-Nello spazio degli indirizzi IP pubblici, le cinque tuple del flusso di seguito devono essere univoche:
+Nello spazio degli indirizzi IP pubblici, le cinque tuple del flusso devono essere univoche:
 
 * Indirizzo IP di origine
 * Porta di origine

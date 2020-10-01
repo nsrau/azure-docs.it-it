@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
-ms.openlocfilehash: 6802e3f6c0892993f9ffe4373f43274362b8a003
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 8310c34e06d52dc12af42f8bc33f4a4d7e99d68d
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569674"
+ms.locfileid: "91598102"
 ---
 # <a name="data-flow-script-dfs"></a>Script del flusso di dati (DFS)
 
@@ -176,13 +176,13 @@ aggregate(groupBy(movie),
 Utilizzare questo codice nello script del flusso di dati per creare una nuova colonna derivata denominata ```DWhash``` che produce un ```sha1``` hash di tre colonne.
 
 ```
-derive(DWhash = sha1(Name,ProductNumber,Color))
+derive(DWhash = sha1(Name,ProductNumber,Color)) ~> DWHash
 ```
 
 È anche possibile usare lo script seguente per generare un hash di riga usando tutte le colonne presenti nel flusso, senza dover assegnare un nome a ogni colonna:
 
 ```
-derive(DWhash = sha1(columns()))
+derive(DWhash = sha1(columns())) ~> DWHash
 ```
 
 ### <a name="string_agg-equivalent"></a>Equivalente String_agg
@@ -191,7 +191,7 @@ Questo codice agirà come la funzione T-SQL ```string_agg()``` e aggrega i valor
 ```
 source1 aggregate(groupBy(year),
     string_agg = collect(title)) ~> Aggregate1
-Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+Aggregate1 derive(string_agg = toString(string_agg)) ~> StringAgg
 ```
 
 ### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Conteggio numero di aggiornamenti, Upsert, inserimenti, eliminazioni
@@ -216,7 +216,7 @@ aggregate(groupBy(mycols = sha2(256,columns())),
 Si tratta di un frammento che è possibile incollare nel flusso di dati per controllare in modo generico tutte le colonne per i valori NULL. Questa tecnica sfrutta la deriva dello schema per esaminare tutte le colonne in tutte le righe e usa una suddivisione condizionale per separare le righe con valori NULL dalle righe prive di valori NULL. 
 
 ```
-CreateColumnArray split(contains(array(columns()),isNull(#item)),
+split(contains(array(columns()),isNull(#item)),
     disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 

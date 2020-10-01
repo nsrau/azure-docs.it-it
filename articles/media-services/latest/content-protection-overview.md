@@ -15,18 +15,20 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d0f040961bfb72082f8c5accb86999d489a93de5
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5d6530cf7b8d8611ff23a3517112cb0aa7442d6d
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401385"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595987"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteggi i tuoi contenuti con la crittografia dinamica di servizi multimediali
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Usare Servizi multimediali di Azure per proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e recapito. Con Servizi multimediali è possibile distribuire contenuti live e on demand crittografati dinamicamente con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. Se il contenuto è crittografato con una chiave non crittografata AES e viene inviato tramite HTTPS, non è chiaro finché non raggiunge il client. 
+Usare Servizi multimediali di Azure per proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e recapito. Con Servizi multimediali è possibile distribuire contenuti live e on demand crittografati dinamicamente con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. Se il contenuto è crittografato con una chiave non crittografata AES e viene inviato tramite HTTPS, non è chiaro finché non raggiunge il client.
+
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 In servizi multimediali V3, una chiave simmetrica è associata a un localizzatore di streaming (vedere [questo esempio](protect-with-aes128.md)). Se si usa il servizio di distribuzione delle chiavi di servizi multimediali, è possibile consentire a servizi multimediali di Azure di generare automaticamente la chiave simmetrica. La chiave simmetrica deve essere generata autonomamente se si usa il servizio di distribuzione delle chiavi o se è necessario gestire uno scenario a disponibilità elevata in cui è necessario avere la stessa chiave simmetrica in due data center.
 
@@ -136,7 +138,7 @@ HLS/CMAF + FairPlay (incluso HEVC/H. 265) è supportato nei dispositivi seguenti
 
 * iOS 11 o versione successiva.
 * iPhone 8 o versione successiva.
-* MacOS High Sierra con CPU Intel 7 di generazione.
+* macOS High Sierra con CPU Intel 7 di generazione.
 
 ### <a name="mpeg-dash"></a>MPEG-DASH
 
@@ -255,7 +257,7 @@ Per esempi REST che usano URL di acquisizione di licenze/chiavi personalizzati, 
 > [!NOTE]
 > Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 Se viene ricevuto l' `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` errore, assicurarsi di specificare i criteri di flusso appropriati.
 

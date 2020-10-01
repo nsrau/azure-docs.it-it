@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3e9075014863e653a986dc4dbec7b9bc5e9f31bc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ee4d3957403e169d41fb9e3befa0d62e4b0d9075
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421196"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597865"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Creare risorse di Azure Time Series Insights generazione 1 usando modelli di Azure Resource Manager
+
+> [!CAUTION]
+> Questo è un articolo di Gen1.
 
 Questo articolo descrive come creare e distribuire Azure Time Series Insights risorse usando [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell e il provider di risorse di Azure Time Series Insights.
 
@@ -43,13 +46,13 @@ Il modello di avvio rapido [201-timeseriesinsights-environment-with-eventhub](ht
 
 ## <a name="specify-deployment-template-and-parameters"></a>Specificare i parametri e il modello di distribuzione
 
-La procedura seguente descrive come usare PowerShell per distribuire un modello di Azure Resource Manager per creare un ambiente Azure Time Series Insights, un'origine evento figlio configurata per utilizzare gli eventi da un hub eventi e i criteri di accesso che concedono l'accesso ai dati dell'ambiente. Se non è specificato un hub eventi esistente, ne verrà creato uno con la distribuzione.
+La procedura seguente descrive come usare PowerShell per distribuire un modello di Azure Resource Manager per creare un ambiente di Azure Time Series Insights, un'origine evento figlio configurato per utilizzare gli eventi da un hub eventi e i criteri di accesso che concedono l'accesso ai dati dell'ambiente. Se non è specificato un hub eventi esistente, ne verrà creato uno con la distribuzione.
 
 1. Installare Azure PowerShell seguendo le istruzioni riportate in [Introduzione ai cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 1. Clone o copiare il modello [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) da GitHub.
 
-   * Creare un file di parametri
+   - Creare un file di parametri
 
      Per creare un file di parametri, copiare il file [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json).
 
@@ -57,7 +60,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
     <div id="required-parameters"></div>
 
-   * Parametri obbligatori
+   - Parametri obbligatori
 
      | Parametro | Descrizione |
      | --- | --- |
@@ -69,7 +72,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
     <div id="optional-parameters"></div>
 
-   * Parametri facoltativi
+   - Parametri facoltativi
 
      | Parametro | Descrizione |
      | --- | --- |
@@ -84,7 +87,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
      | accessPolicyReaderObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso in lettura all'ambiente. L'objectId dell'entità servizio può essere ottenuto chiamando il cmdlet **Get-AzADUser** o **Get-AzADServicePrincipal**. La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
      | accessPolicyContributorObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso per collaboratori all'ambiente. L'objectId dell'entità servizio può essere ottenuto chiamando il cmdlet **Get-AzADUser** o **Get-AzADServicePrincipal**. La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
 
-   * Ad esempio, per creare un ambiente verrebbe usato il file dei parametri seguente e un'origine evento che legge gli eventi da un hub eventi esistente. Crea inoltre due criteri di accesso che concedono l'accesso per i collaboratori all'ambiente.
+   - Ad esempio, per creare un ambiente verrebbe usato il file dei parametri seguente e un'origine evento che legge gli eventi da un hub eventi esistente. Crea inoltre due criteri di accesso che concedono l'accesso per i collaboratori all'ambiente.
 
      ```JSON
      {
@@ -114,12 +117,12 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
                      "AGUID001-0000-0000-0000-000000000000",
                      "AGUID002-0000-0000-0000-000000000000"
                  ]
-             }    
+             }
          }
      }
      ```
 
-    * Per altre informazioni, leggere l'articolo [Parametri](../azure-resource-manager/templates/parameter-files.md).
+   - Per altre informazioni, leggere l'articolo [Parametri](../azure-resource-manager/templates/parameter-files.md).
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Distribuire il modello di avvio rapido in locale tramite PowerShell
 
@@ -128,19 +131,19 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. In PowerShell accedere all'account Azure.
 
-    * Al prompt di PowerShell, eseguire il comando seguente:
+    - Al prompt di PowerShell, eseguire il comando seguente:
 
       ```powershell
       Connect-AzAccount
       ```
 
-    * Il sistema chiede di accedere all'account Azure. Dopo l'accesso, eseguire il comando seguente per visualizzare le sottoscrizioni disponibili:
+    - Il sistema chiede di accedere all'account Azure. Dopo l'accesso, eseguire il comando seguente per visualizzare le sottoscrizioni disponibili:
 
       ```powershell
       Get-AzSubscription
       ```
 
-    * Questo comando restituisce un elenco delle sottoscrizioni di Azure disponibili. Scegliere una sottoscrizione per la sessione corrente eseguendo il comando seguente. Sostituire `<YourSubscriptionId>` con il GUID della sottoscrizione di Azure che si vuole usare:
+    - Questo comando restituisce un elenco delle sottoscrizioni di Azure disponibili. Scegliere una sottoscrizione per la sessione corrente eseguendo il comando seguente. Sostituire `<YourSubscriptionId>` con il GUID della sottoscrizione di Azure che si vuole usare:
 
       ```powershell
       Set-AzContext -SubscriptionID <YourSubscriptionId>
@@ -148,13 +151,13 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Se non esiste, creare un nuovo gruppo di risorse.
 
-   * Se non è disponibile un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup**. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
+   - Se non è disponibile un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup**. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"
      ```
 
-   * Se il nuovo gruppo di risorse è stato creato correttamente, viene visualizzato il relativo riepilogo.
+   - Se il nuovo gruppo di risorse è stato creato correttamente, viene visualizzato il relativo riepilogo.
 
      ```powershell
      ResourceGroupName : MyDemoRG
@@ -166,7 +169,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Testare la distribuzione.
 
-   * Convalidare la distribuzione eseguendo il cmdlet `Test-AzResourceGroupDeployment`. Durante il test della distribuzione, specificare esattamente gli stessi parametri di quando si esegue la distribuzione.
+   - Convalidare la distribuzione eseguendo il cmdlet `Test-AzResourceGroupDeployment`. Durante il test della distribuzione, specificare esattamente gli stessi parametri di quando si esegue la distribuzione.
 
      ```powershell
      Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -174,27 +177,27 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Creare la distribuzione
 
-    * Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene usato il valore predefinito **Incremental**. Per altre informazioni, leggere [Distribuzioni incrementali e complete](../azure-resource-manager/templates/deployment-modes.md).
+    - Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene usato il valore predefinito **Incremental**. Per altre informazioni, leggere [Distribuzioni incrementali e complete](../azure-resource-manager/templates/deployment-modes.md).
 
-    * Il comando seguente richiede cinque parametri obbligatori nella finestra di PowerShell:
+    - Il comando seguente richiede cinque parametri obbligatori nella finestra di PowerShell:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
       ```
 
-    * Per specificare invece un file di parametri, usare il comando seguente:
+    - Per specificare invece un file di parametri, usare il comando seguente:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
       ```
 
-    * È anche possibile usare i parametri inline quando si esegue il cmdlet di distribuzione. Il comando è il seguente:
+    - È anche possibile usare i parametri inline quando si esegue il cmdlet di distribuzione. Il comando è il seguente:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * Per eseguire una distribuzione [completa](../azure-resource-manager/templates/deployment-modes.md), impostare il parametro **Mode** su **Complete**:
+    - Per eseguire una distribuzione [completa](../azure-resource-manager/templates/deployment-modes.md), impostare il parametro **Mode** su **Complete**:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -202,7 +205,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Verificare la distribuzione
 
-    * Se le risorse vengono distribuite correttamente, nella finestra di PowerShell viene visualizzato il riepilogo della distribuzione:
+    - Se le risorse vengono distribuite correttamente, nella finestra di PowerShell viene visualizzato il riepilogo della distribuzione:
 
       ```powershell
        DeploymentName          : MyDemoDeployment
@@ -243,7 +246,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Distribuire il modello di avvio rapido tramite il portale di Azure
 
-   * La home page del modello di avvio rapido GitHub include inoltre il **Distribuisci in Azure**. Facendo clic su di esso si apre la pagina Distribuzione personalizzata nel portale di Azure. In questa pagina, è possibile immettere o selezionare i valori per ognuno dei parametri dalle tabelle dei [parametri obbligatori](#required-parameters) o dei [parametri facoltativi](#optional-parameters). Dopo aver immesso le impostazioni, facendo clic sul pulsante **Acquisto** si avvierà la distribuzione del modello.
+   - La home page del modello di avvio rapido GitHub include inoltre il **Distribuisci in Azure**. Facendo clic su di esso si apre la pagina Distribuzione personalizzata nel portale di Azure. In questa pagina, è possibile immettere o selezionare i valori per ognuno dei parametri dalle tabelle dei [parametri obbligatori](#required-parameters) o dei [parametri facoltativi](#optional-parameters). Dopo aver immesso le impostazioni, facendo clic sul pulsante **Acquisto** si avvierà la distribuzione del modello.
     </br>
     </br>
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">

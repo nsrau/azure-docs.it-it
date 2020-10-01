@@ -1,14 +1,14 @@
 ---
 title: Progettare flussi di lavoro di criteri come codice
 description: Informazioni su come progettare i flussi di lavoro per distribuire le definizioni di Criteri di Azure come codice e convalidare automaticamente le risorse.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7fa8eb36283821527e16c1d97e326aa9dcde9dba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651889"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598223"
 ---
 # <a name="design-policy-as-code-workflows"></a>Progettare flussi di lavoro di criteri come codice
 
@@ -38,6 +38,8 @@ Esempi di questi formati di file sono disponibili nel [repository GitHub di crit
 
 - Definizione dei criteri: [aggiungere un tag alle risorse](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Definizione di iniziativa: [tag di fatturazione](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
+
+Vedere anche [esportare le risorse di criteri di Azure](../how-to/export-resources.md) per ottenere le definizioni e le assegnazioni esistenti nell'ambiente di gestione del codice sorgente [GitHub](https://www.github.com).
 
 ## <a name="workflow-overview"></a>Panoramica del flusso di lavoro
 

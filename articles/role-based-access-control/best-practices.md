@@ -2,23 +2,19 @@
 title: Procedure consigliate per RBAC di Azure
 description: Procedure consigliate per l'uso del controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 09/30/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 053e86f3493c7a11a3cbbaad0871e45345697878
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cb3e1fe0275c676e2ce54ff9201502fc3595937
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735335"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595500"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Procedure consigliate per RBAC di Azure
 
@@ -28,7 +24,9 @@ Questo articolo descrive alcune procedure consigliate per l'uso del controllo de
 
 Usando il controllo degli accessi in base al ruolo di Azure, è possibile separare le mansioni all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il loro lavoro. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni in un particolare ambito.
 
-Quando si pianifica la strategia di controllo degli accessi, è consigliabile concedere agli utenti almeno il privilegio per completare la propria sessione di lavoro. Il diagramma seguente illustra un modello consigliato per l'uso di RBAC di Azure.
+Quando si pianifica la strategia di controllo degli accessi, è consigliabile concedere agli utenti almeno il privilegio per completare la propria sessione di lavoro. Evitare di assegnare ruoli più ampi in ambiti più ampi anche se inizialmente sembra più pratico. Limitando i ruoli e gli ambiti, si limitano le risorse a rischio se l'entità di sicurezza non viene mai compromessa.
+
+Il diagramma seguente illustra un modello consigliato per l'uso di RBAC di Azure.
 
 ![RBAC di Azure e privilegi minimi](./media/best-practices/rbac-least-privilege.png)
 

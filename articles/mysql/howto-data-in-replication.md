@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 8/7/2020
-ms.openlocfilehash: f745e5e8b611271be9dff2131a2079abc609cf91
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 9/29/2020
+ms.openlocfilehash: c3a6f9b5831d4fed377d3f8702dbc0af0663b3a5
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539062"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596505"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Come configurare la replica dei dati in ingresso in Database di Azure per MySQL
 
@@ -51,10 +51,41 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
 1. Prima di procedere, esaminare i [requisiti del server master](concepts-data-in-replication.md#requirements) . 
 
-   Verificare, ad esempio, che il server di origine consenta il traffico in ingresso e in uscita sulla porta 3306 e che il server di origine disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o disponga di un nome di dominio completo (FQDN). 
+2. Verificare che il server di origine consenta il traffico in ingresso e in uscita sulla porta 3306 e che il server di origine disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o disponga di un nome di dominio completo (FQDN). 
    
    Testare la connettività al server di origine provando a connettersi da uno strumento come la riga di comando MySQL ospitata in un altro computer o dalla [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponibile nel portale di Azure.
 
+   Se l'organizzazione dispone di rigidi criteri di sicurezza e non consente a tutti gli indirizzi IP nel server di origine di abilitare la comunicazione da Azure al server di origine, è possibile usare il comando seguente per determinare l'indirizzo IP del server MySQL.
+
+   1. Accedere al database di Azure per MySQL usando uno strumento come la riga di comando di MySQL.
+   2. Eseguire la query seguente.
+      ```bash
+      mysql> SELECT @@global.redirect_server_host;
+      ```
+      Di seguito è riportato un esempio di output:
+      ```bash 
+      +-----------------------------------------------------------+
+      | @@global.redirect_server_host                             |
+      +-----------------------------------------------------------+
+      | e299ae56f000.tr1830.westus1-a.worker.database.windows.net |
+       +-----------------------------------------------------------+
+      ```
+   3. Uscire dalla riga di comando di MySQL.
+   4. Eseguire il comando seguente nell'utilità ping per ottenere l'indirizzo IP.
+      ```bash
+      ping <output of step 2b>
+      ``` 
+      Ad esempio: 
+      ```bash      
+      C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
+      Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
+      ```
+
+   5. Configurare le regole del firewall del server di origine per includere l'indirizzo IP dell'output del passaggio precedente sulla porta 3306.
+
+   > [!NOTE]
+   > Questo indirizzo IP può cambiare a causa di operazioni di manutenzione/distribuzione. Questo metodo di connettività è solo per i clienti che non possono permettersi di consentire tutti gli indirizzi IP sulla porta 3306.
+   
 1. Attivare la registrazione binaria
 
    Per verificare se è stata abilitata la registrazione binaria nell'origine, eseguire il comando seguente: 
@@ -126,7 +157,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
 1. Ottenere l'offset e il nome del file di log binario
 
-   Eseguire il [` show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) comando per determinare il nome e l'offset del file di log binario corrente.
+   Eseguire il [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) comando per determinare il nome e l'offset del file di log binario corrente.
     
    ```sql
     show master status;

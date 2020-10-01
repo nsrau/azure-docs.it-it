@@ -1,5 +1,5 @@
 ---
-title: Eseguire query sui dati Azure Cosmos DB usando SQL su richiesta nel collegamento sinapsi di Azure (anteprima)
+title: Eseguire query sui dati Azure Cosmos DB usando il collegamento SQL Server in Azure sinapsi (anteprima)
 description: In questo articolo si apprenderà come eseguire query Azure Cosmos DB usando SQL su richiesta nel collegamento sinapsi di Azure (anteprima).
 services: synapse analytics
 author: jovanpop-msft
@@ -9,27 +9,27 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8dd6ab5bcb42765c995e8cd767358be5e62aa0b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 028f47fcfb4a6a4d94d672e950b4c37d739e672b
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288394"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597312"
 ---
-# <a name="query-azure-cosmos-db-data-using-sql-on-demand-in-azure-synapse-link-preview"></a>Eseguire query sui dati Azure Cosmos DB usando SQL su richiesta nel collegamento sinapsi di Azure (anteprima)
+# <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Eseguire query sui dati Azure Cosmos DB usando il collegamento SQL Server in Azure sinapsi (anteprima)
 
-SQL Server (in precedenza SQL su richiesta) consente di analizzare i dati nei contenitori Azure Cosmos DB abilitati con il [collegamento sinapsi di Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quasi in tempo reale senza influito sulle prestazioni dei carichi di lavoro transazionali. Offre una nota sintassi T-SQL per eseguire query sui dati dall' [Archivio analitico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e la connettività integrata a un'ampia gamma di strumenti di query ad hoc e BI tramite l'interfaccia t-SQL.
+SQL Server (in precedenza SQL senza server) consente di analizzare i dati nei contenitori Azure Cosmos DB abilitati con il [collegamento sinapsi di Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quasi in tempo reale senza influito sulle prestazioni dei carichi di lavoro transazionali. Offre una nota sintassi T-SQL per eseguire query sui dati dall' [Archivio analitico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e la connettività integrata a un'ampia gamma di strumenti di query ad hoc e BI tramite l'interfaccia t-SQL.
 
 > [!NOTE]
-> Il supporto per l'esecuzione di query Azure Cosmos DB archivio analitico con SQL su richiesta è attualmente disponibile in anteprima controllata. 
+> Il supporto per l'esecuzione di query Azure Cosmos DB archivio analitico con SQL Server non è attualmente disponibile in anteprima gestita. 
 
-Per eseguire query Azure Cosmos DB, la superficie di attacco di [selezione](/sql/t-sql/queries/select-transact-sql.md?view=sql-server-ver15&preserve-view=true) completa è supportata tramite la funzione [OPENROWSET](develop-openrowset.md) , inclusa la maggior parte degli [operatori e delle funzioni SQL](overview-features.md). È anche possibile archiviare i risultati della query che legge i dati da Azure Cosmos DB insieme ai dati nell'archivio BLOB di Azure o Azure Data Lake Storage usando [Crea tabella esterna come SELECT](develop-tables-cetas.md#cetas-in-sql-on-demand). Attualmente non è possibile archiviare i risultati delle query su richiesta SQL per Azure Cosmos DB usando [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+Per eseguire query Azure Cosmos DB, la superficie di attacco di [selezione](/sql/t-sql/queries/select-transact-sql.md?view=sql-server-ver15&preserve-view=true) completa è supportata tramite la funzione [OPENROWSET](develop-openrowset.md) , inclusa la maggior parte degli [operatori e delle funzioni SQL](overview-features.md). È anche possibile archiviare i risultati della query che legge i dati da Azure Cosmos DB insieme ai dati nell'archivio BLOB di Azure o Azure Data Lake Storage usando [Crea tabella esterna come SELECT](develop-tables-cetas.md#cetas-in-sql-on-demand). Attualmente non è possibile archiviare i risultati delle query SQL senza server per Azure Cosmos DB usando [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
-In questo articolo si apprenderà come scrivere una query usando SQL su richiesta che eseguirà query sui dati di contenitori di Azure Cosmos DB che sono abilitati per il collegamento sinapsi. È quindi possibile ottenere altre informazioni sulla creazione di visualizzazioni su richiesta SQL su Azure Cosmos DB contenitori e sulla connessione ai modelli di Power BI in [questa](./tutorial-data-analyst.md) esercitazione. 
+In questo articolo si apprenderà come scrivere una query usando SQL Server che eseguirà query sui dati di contenitori di Azure Cosmos DB che sono abilitati per il collegamento sinapsi. È quindi possibile ottenere altre informazioni sulla creazione di viste SQL senza server su Azure Cosmos DB contenitori e sulla connessione ai modelli di Power BI in [questa](./tutorial-data-analyst.md) esercitazione. 
 
 ## <a name="overview"></a>Panoramica
 
-Per supportare l'esecuzione di query e l'analisi dei dati in Azure Cosmos DB archivio analitico, SQL su richiesta usa la `OPENROWSET` sintassi seguente:
+Per supportare l'esecuzione di query e l'analisi dei dati in Azure Cosmos DB archivio analitico, SQL Server usa la `OPENROWSET` sintassi seguente:
 
 ```sql
 OPENROWSET( 
@@ -47,7 +47,7 @@ La stringa di connessione Azure Cosmos DB specifica il nome dell'account di Azur
 Il nome del contenitore Azure Cosmos DB viene specificato senza virgolette nella `OPENROWSET` sintassi. Se il nome del contenitore contiene caratteri speciali, ad esempio un trattino "-", il nome deve essere racchiuso tra parentesi quadre `[]` nella `OPENROWSET` sintassi.
 
 > [!NOTE]
-> SQL su richiesta non supporta l'esecuzione di query Azure Cosmos DB archivio transazionale.
+> SQL Server non supporta l'esecuzione di query Azure Cosmos DB archivio transazionale.
 
 ## <a name="sample-data-set"></a>Set di dati campione
 
@@ -55,14 +55,14 @@ Gli esempi in questo articolo si basano sui dati del [Centro europeo per la prev
 
 È possibile visualizzare la licenza e la struttura dei dati in queste pagine e scaricare i dati di esempio per i set di dati [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) e [Cord19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) .
 
-Per seguire la procedura illustrata in questo articolo come eseguire query sui dati di Cosmos DB con SQL su richiesta, assicurarsi di creare le risorse seguenti:
+Per continuare con questo articolo che illustra come eseguire query Cosmos DB dati con SQL Server, assicurarsi di creare le risorse seguenti:
 * Un account di database di Azure Cosmos DB con il [collegamento sinapsi abilitato](../../cosmos-db/configure-synapse-link.md)
 * Un database Azure Cosmos DB denominato `covid`
 * Sono stati caricati due Azure Cosmos DB contenitori denominati `EcdcCases` e `Cord19` con i set di dati di esempio precedenti.
 
 ## <a name="explore-azure-cosmos-db-data-with-automatic-schema-inference"></a>Esplorazione dei dati di Azure Cosmos DB con inferenza automatica dello schema
 
-Il modo più semplice per esplorare i dati in Azure Cosmos DB consiste nel sfruttare la funzionalità di inferenza automatica dello schema. Omettendo la `WITH` clausola dall' `OPENROWSET` istruzione, è possibile indicare a SQL su richiesta di rilevare automaticamente (dedurre) lo schema dell'archivio analitico del contenitore Azure Cosmos DB.
+Il modo più semplice per esplorare i dati in Azure Cosmos DB consiste nel sfruttare la funzionalità di inferenza automatica dello schema. Omettendo la `WITH` clausola dall' `OPENROWSET` istruzione, è possibile indicare a SQL Server di rilevare automaticamente (dedurre) lo schema dell'archivio analitico del contenitore Azure Cosmos DB.
 
 ```sql
 SELECT TOP 10 *
@@ -71,7 +71,7 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-Nell'esempio precedente si sta indicando a SQL su richiesta di connettersi al `covid` database in Azure Cosmos DB account `MyCosmosDbAccount` autenticato usando la chiave di Azure Cosmos DB (fittizio nell'esempio precedente). Viene quindi eseguito l'accesso all' `EcdcCases` Archivio analitico del contenitore nell' `West US 2` area. Poiché non è presente alcuna proiezione di proprietà specifiche, `OPENROWSET` la funzione restituirà tutte le proprietà dagli elementi Azure Cosmos DB.
+Nell'esempio precedente viene indicato che SQL Server non è in fase di connessione al `covid` database in Azure Cosmos DB account `MyCosmosDbAccount` autenticato usando la chiave di Azure Cosmos DB (fittizio nell'esempio precedente). Viene quindi eseguito l'accesso all' `EcdcCases` Archivio analitico del contenitore nell' `West US 2` area. Poiché non è presente alcuna proiezione di proprietà specifiche, `OPENROWSET` la funzione restituirà tutte le proprietà dagli elementi Azure Cosmos DB.
 
 Se è necessario esplorare i dati dall'altro contenitore nello stesso database di Azure Cosmos DB, è possibile usare la stessa stringa di connessione e il contenitore di riferimento necessario come terzo parametro:
 
@@ -118,7 +118,7 @@ Per ulteriori informazioni sui tipi SQL da utilizzare per Azure Cosmos DB valore
 
 ## <a name="querying-nested-objects-and-arrays"></a>Esecuzione di query su oggetti e matrici annidati
 
-Azure Cosmos DB consente di rappresentare modelli di dati più complessi componendoli come oggetti annidati o matrici. La funzionalità di sincronizzazione automatica del collegamento sinapsi per Azure Cosmos DB gestisce la rappresentazione dello schema nell'archivio analitico, che include la gestione dei tipi di dati annidati che consentono di eseguire query avanzate da SQL su richiesta.
+Azure Cosmos DB consente di rappresentare modelli di dati più complessi componendoli come oggetti annidati o matrici. La funzionalità di sincronizzazione automatica del collegamento sinapsi per Azure Cosmos DB gestisce la rappresentazione dello schema nell'archivio analitico, che include la gestione dei tipi di dati annidati che consentono di eseguire query avanzate da SQL Server.
 
 Il set di dati [Cord-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) , ad esempio, contiene documenti JSON che seguono la struttura seguente:
 
@@ -170,7 +170,7 @@ FROM
     ) AS docs;
 ```
 
-Altre informazioni sull'analisi di [tipi di dati complessi nel collegamento sinapsi](../how-to-analyze-complex-schema.md) e [nelle strutture annidate in SQL su richiesta](query-parquet-nested-types.md).
+Altre informazioni sull'analisi di [tipi di dati complessi nel collegamento sinapsi](../how-to-analyze-complex-schema.md) e [nelle strutture annidate in SQL Server](query-parquet-nested-types.md).
 
 > [!IMPORTANT]
 > Se vengono visualizzati caratteri imprevisti nel testo, `MÃƒÂ©lade` ad esempio anziché `Mélade` , le regole di confronto del database non sono impostate sulle regole di confronto [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) . 
@@ -201,7 +201,7 @@ Azure Cosmos DB dati potrebbero avere sottomatrici annidate come la matrice dell
 }
 ```
 
-In alcuni casi, potrebbe essere necessario "unire" le proprietà dall'elemento principale (metadati) con tutti gli elementi della matrice (autori). SQL su richiesta consente di rendere flat le strutture annidate applicando `OPENJSON` la funzione sulla matrice annidata:
+In alcuni casi, potrebbe essere necessario "unire" le proprietà dall'elemento principale (metadati) con tutti gli elementi della matrice (autori). SQL senza server consente di rendere flat le strutture annidate applicando `OPENJSON` la funzione sulla matrice annidata:
 
 ```sql
 SELECT
@@ -236,7 +236,7 @@ Informazioni supplementari su Eco-epidemi... | `[{"first":"Nicolas","last":"4#",
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>Azure Cosmos DB ai mapping dei tipi SQL
 
-È importante notare che, anche se Azure Cosmos DB archivio transazionale è indipendente dallo schema, l'archivio analitico è schematizzato per ottimizzare le prestazioni delle query analitiche. Con la funzionalità di sincronizzazione automatica del collegamento sinapsi, Azure Cosmos DB gestisce la rappresentazione dello schema nell'archivio analitico, inclusa la gestione dei tipi di dati annidati. Poiché SQL su richiesta esegue query nell'archivio analitico, è importante comprendere come eseguire il mapping di Azure Cosmos DB tipi di dati di input ai tipi di dati SQL.
+È importante notare che, anche se Azure Cosmos DB archivio transazionale è indipendente dallo schema, l'archivio analitico è schematizzato per ottimizzare le prestazioni delle query analitiche. Con la funzionalità di sincronizzazione automatica del collegamento sinapsi, Azure Cosmos DB gestisce la rappresentazione dello schema nell'archivio analitico, inclusa la gestione dei tipi di dati annidati. Dal momento che SQL Server non esegue query nell'archivio analitico, è importante comprendere come eseguire il mapping di Azure Cosmos DB tipi di dati di input ai tipi di dati SQL.
 
 Gli account Azure Cosmos DB dell'API SQL (Core) supportano i tipi di proprietà JSON di Number, String, Boolean, null, oggetto annidato o matrice. Se si usa la clausola in, è necessario scegliere i tipi SQL che corrispondono a questi tipi JSON `WITH` `OPENROWSET` . Vedere sotto i tipi di colonna SQL da usare per diversi tipi di proprietà in Azure Cosmos DB.
 

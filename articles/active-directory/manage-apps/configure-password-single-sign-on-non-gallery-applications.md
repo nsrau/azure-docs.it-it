@@ -1,25 +1,25 @@
 ---
-title: Come configurare Single Sign-On basate su password per le app Azure AD
-description: Come configurare l'accesso Single Sign-on basato Single Sign-On su password per le applicazioni Azure AD in Microsoft Identity Platform (Azure AD)
+title: Informazioni sulle Single Sign-On basate su password (SSO) per le app in Azure Active Directory
+description: Informazioni sulle Single Sign-On basate su password (SSO) per le app in Azure Active Directory
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: e04a3aab128bb8f0bdee01361bc0d09aad6ed2fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9b48bc62fc0548c0c4f431e71598fdfa6850de13
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049061"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598337"
 ---
-# <a name="configure-password-based-single-sign-on"></a>Configurare Single Sign-On basate su password
+# <a name="understand-password-based-single-sign-on"></a>Informazioni Single Sign-On basate su password
 
-Nella [serie di guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni si è appreso come usare Azure ad come provider di identità (IDP) per un'applicazione. Nella Guida introduttiva viene configurato l'accesso Single Sign-on basato su SAML. Un'altra opzione è Single Sign-on basato su password. Questo articolo illustra in modo più dettagliato l'opzione SSO basato su password. 
+Nella [serie di guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni si è appreso come usare Azure ad come provider di identità (IDP) per un'applicazione. Nella Guida introduttiva viene configurato l'accesso Single Sign-on basato su SAML o su OIDC. Un'altra opzione è Single Sign-on basato su password. Questo articolo illustra in modo più dettagliato l'opzione SSO basato su password. 
 
 Questa opzione è disponibile per qualsiasi sito Web con una pagina di accesso HTML. SSO basato su password è anche noto come insieme di credenziali delle password. SSO basato su password consente di gestire l'accesso e le password degli utenti alle applicazioni Web che non supportano la Federazione delle identità. È anche utile quando più utenti devono condividere un singolo account, ad esempio gli account di app di social media dell'organizzazione.
 
@@ -39,7 +39,7 @@ SSO basato su password è un ottimo modo per iniziare a integrare rapidamente le
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-L'uso di Azure AD come provider di identità (IdP) e la configurazione di Single Sign-On (SSO) può essere semplice o complesso a seconda dell'applicazione usata. Alcune applicazioni possono essere configurate con poche azioni. Altri richiedono una configurazione approfondita. Per iniziare rapidamente, esaminare la serie di [guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni. Se l'applicazione che si sta aggiungendo è semplice, probabilmente non è necessario leggere questo articolo. Se l'applicazione che si sta aggiungendo richiede una configurazione personalizzata ed è necessario usare l'accesso SSO basato su password, questo articolo è adatto all'utente.
+L'utilizzo di Azure AD come provider di identità (IdP) e la configurazione di Single Sign-On (SSO) può essere semplice o complesso a seconda dell'applicazione utilizzata. Alcune applicazioni possono essere configurate solo con poche azioni. Altri richiedono una configurazione approfondita. Per velocizzare la conoscenza, esaminare la [serie di guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni. Se l'applicazione che si sta aggiungendo è semplice, probabilmente non è necessario leggere questo articolo. Se l'applicazione che si sta aggiungendo richiede una configurazione personalizzata ed è necessario usare l'accesso SSO basato su password, questo articolo è adatto all'utente.
 
 > [!IMPORTANT] 
 > Esistono alcuni scenari in cui l'opzione **Single Sign-on** non verrà spostata per un'applicazione nelle **applicazioni aziendali**. 

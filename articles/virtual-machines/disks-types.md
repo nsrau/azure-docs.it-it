@@ -3,17 +3,17 @@ title: Selezionare un tipo di disco per le macchine virtuali IaaS di Azure - dis
 description: Informazioni sui tipi di dischi di Azure disponibili per le macchine virtuali, tra cui dischi Ultra, SSD Premium, SSD Standard e HDD Standard.
 author: roygara
 ms.author: rogarana
-ms.date: 06/03/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: bfc1a818aeb85eca04faca713d4c7acbbce3626a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 7f274827e646ea0a7c0fd103983cfc566d699228
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088494"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596771"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
 
@@ -23,7 +23,7 @@ Azure Managed Disks offre attualmente quattro tipi di dischi, ciascuno dei quali
 
 La tabella seguente fornisce un confronto tra dischi Ultra, unità SSD Premium, unità SSD standard e unità disco rigido standard (HDD) per Managed disks che consentono di decidere cosa usare.
 
-| Dettagli | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
+| Dettaglio | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Tipo di disco   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |Carichi di lavoro intensivo di i/o, come [SAP Hana](workloads/sap/hana-vm-operations-storage.md), database di livello superiore (ad esempio, SQL, Oracle) e altri carichi di lavoro con transazioni pesanti.   |Carichi di lavoro di produzione con requisiti particolari di prestazioni   |Server Web, applicazioni aziendali usate poco di frequente e sviluppo/test   |Backup, carichi di lavoro non critici, accesso poco frequente   |
@@ -54,10 +54,10 @@ Di seguito sono riportate alcune funzionalità chiave di dischi Ultra:
 |8     |2400         |600         |
 |16     |4.800         |1.200         |
 |32     |9.600         |2.000         |
-|64     |19.200         |2\.000         |
+|64     |19.200         |2.000         |
 |128     |38.400         |2.000         |
 |256     |76.800         |2.000         |
-|512     |80.000         |2\.000         |
+|512     |153.600         |2.000         |
 |1.024-65.536 (dimensioni in questo intervallo con aumento con incrementi di 1 TiB)     |160.000         |2.000         |
 
 ### <a name="ga-scope-and-limitations"></a>Ambito e limitazioni di GA

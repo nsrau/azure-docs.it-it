@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4c0430f96934c16a26ca3ab908da6aa017810ad0
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: b6163ca0cb02670024fe95459f31ac81c4da756c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377574"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596367"
 ---
 # <a name="azure-key-vault-security"></a>Sicurezza di Azure Key Vault
 
@@ -75,6 +75,14 @@ I criteri di accesso di Key Vault concedono autorizzazioni separate per chiavi, 
 Quando le regole del firewall vengono applicate, gli utenti possono leggere i dati da Key Vault solo quando le loro richieste hanno origine da reti virtuali o intervalli di indirizzi IPv4 consentiti. Questo vale anche per l'accesso a Key Vault dal portale di Azure. Benché gli utenti possano accedere a un insieme di credenziali delle chiavi dal portale di Azure, potrebbero non essere in grado di elencare chiavi, segreti o certificati se il computer client in uso non è presente nell'elenco dei computer consentiti. Ciò influisce anche sul selettore dell'insieme di credenziali delle chiavi di altri servizi di Azure. Se le regole del firewall bloccano i computer client, gli utenti potrebbero essere in grado di visualizzare l'elenco degli insiemi di credenziali delle chiavi ma non di elencare le chiavi.
 
 Per altre informazioni sull'indirizzo di rete di Azure Key Vault, vedere [Endpoint servizio di rete virtuale per Azure Key Vault](overview-vnet-service-endpoints.md)
+
+### <a name="tls-and-https"></a>TLS e HTTPS
+
+*   Il front-end Key Vault (piano dati) è un server multi-tenant. Questo significa che gli insiemi di credenziali delle chiavi di diversi clienti possono condividere lo stesso indirizzo IP pubblico. Per ottenere l'isolamento, ogni richiesta HTTP viene autenticata e autorizzata indipendentemente da altre richieste.
+*   È possibile identificare le versioni precedenti di TLS per segnalare le vulnerabilità, ma poiché l'indirizzo IP pubblico è condiviso, non è possibile per il team del servizio Key Vault disabilitare le versioni precedenti di TLS per gli insiemi di credenziali delle chiavi singoli a livello di trasporto.
+*   Il protocollo HTTPS consente al client di partecipare alla negoziazione TLS. I **client possono applicare la versione più recente di TLS**e, ogni volta che un client esegue questa operazione, l'intera connessione utilizzerà la protezione del livello corrispondente. Il fatto che Key Vault supporta ancora le versioni precedenti di TLS non compromettere la sicurezza delle connessioni usando versioni di TLS più recenti.
+*   Nonostante le vulnerabilità note nel protocollo TLS, non esiste alcun attacco noto che consentirebbe a un agente malintenzionato di estrarre tutte le informazioni dall'insieme di credenziali delle chiavi quando l'utente malintenzionato inizia una connessione con una versione di TLS con vulnerabilità. L'utente malintenzionato deve comunque eseguire l'autenticazione e l'autorizzazione e, a condizione che i client legittimi si connettano sempre alle versioni recenti di TLS, non è possibile che le credenziali siano state perse da vulnerabilità nelle versioni precedenti di TLS.
+
 
 ## <a name="monitoring"></a>Monitoraggio
 

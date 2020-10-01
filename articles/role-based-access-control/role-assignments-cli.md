@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
-ms.openlocfilehash: 17a32b27fba4fcde2e148e44e9db768cc9270e01
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441986"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597659"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Aggiungere o rimuovere assegnazioni di ruolo in Azure tramite l'interfaccia della riga di comando
 
@@ -95,7 +95,7 @@ Per altre informazioni, vedere [elencare le definizioni dei ruoli di Azure](role
  
 ### <a name="step-3-identify-the-needed-scope"></a>Passaggio 3: identificare l'ambito necessario
 
-Azure offre quattro livelli di ambito: risorse, [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups), sottoscrizione e [gruppo di gestione](../governance/management-groups/overview.md). È consigliabile concedere l'accesso con il privilegio minimo necessario, quindi evitare di assegnare un ruolo a un ambito più ampio.
+Azure offre quattro livelli di ambito: risorse, [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups), sottoscrizione e [gruppo di gestione](../governance/management-groups/overview.md). È consigliabile concedere l'accesso con il privilegio minimo necessario, quindi evitare di assegnare un ruolo a un ambito più ampio. Per ulteriori informazioni sull'ambito, vedere [comprendere l'ambito](scope-overview.md).
 
 **Ambito risorsa**
 

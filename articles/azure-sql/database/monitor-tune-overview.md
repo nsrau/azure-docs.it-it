@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: 36a1be4f802292e62c98098508927b06a5851afa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 6c8d048d43a16191cc7b1245ad2d686ba2ca22ab
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333087"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596981"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitoraggio e ottimizzazione delle prestazioni del database SQL di Azure e di Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,11 +27,14 @@ Il database SQL di Azure offre una serie di Advisor di database per fornire indi
 
 Il database SQL di Azure e Azure SQL Istanza gestita offrono funzionalità avanzate di monitoraggio e ottimizzazione supportate dall'intelligenza artificiale per facilitare la risoluzione dei problemi e ottimizzare le prestazioni dei database e delle soluzioni. È possibile scegliere di configurare l' [esportazione di flussi](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) di questi [Intelligent Insights](intelligent-insights-overview.md) e altri log delle risorse del database e le metriche in una delle diverse destinazioni per l'utilizzo e l'analisi, in particolare tramite analisi [SQL](../../azure-monitor/insights/azure-sql.md). Analisi SQL di Azure è una soluzione di monitoraggio cloud avanzata per il monitoraggio delle prestazioni di tutti i database su larga scala e tra più sottoscrizioni in un'unica visualizzazione. Per un elenco dei log e delle metriche che è possibile esportare, vedere [telemetria diagnostica per l'esportazione](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
 
-Infine, SQL Server dispone di funzionalità di monitoraggio e diagnostica personalizzate utilizzate da database SQL e SQL Istanza gestita, ad esempio [archivio query](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) e [viste a gestione dinamica (DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Vedere [monitoraggio con DMV](monitoring-with-dmvs.md) per gli script da monitorare per diversi problemi di prestazioni.
+SQL Server dispone di funzionalità di monitoraggio e diagnostica personalizzate utilizzate da database SQL e SQL Istanza gestita, ad esempio [archivio query](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) e [viste a gestione dinamica (DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Vedere [monitoraggio con DMV](monitoring-with-dmvs.md) per gli script da monitorare per diversi problemi di prestazioni.
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Funzionalità di monitoraggio e ottimizzazione nell'portale di Azure
 
-Nel portale di Azure, il database SQL di Azure e Azure SQL Istanza gestita consentono di monitorare le metriche delle risorse. Inoltre, il database SQL di Azure fornisce Advisor di database e Informazioni dettagliate prestazioni query fornisce indicazioni per l'ottimizzazione delle query e l'analisi delle prestazioni delle query. Infine, nella portale di Azure è possibile abilitare l'attivazione automatica per i [server SQL logici](logical-servers.md) e i relativi database singoli e in pool.
+Nel portale di Azure, il database SQL di Azure e Azure SQL Istanza gestita consentono di monitorare le metriche delle risorse. Il database SQL di Azure fornisce gli Advisor di database e Informazioni dettagliate prestazioni query fornisce indicazioni per l'ottimizzazione delle query e l'analisi delle prestazioni delle query. Nella portale di Azure è possibile abilitare l'ottimizzazione automatica per i [server SQL logici](logical-servers.md) e i relativi database singoli e in pool.
+
+> [!NOTE]
+> I database con un utilizzo estremamente basso possono essere visualizzati nel portale con un utilizzo inferiore a quello effettivo. A causa del modo in cui i dati di telemetria vengono emessi durante la conversione di un valore Double nell'intero più vicino, determinati importi di utilizzo minori di 0,5 verranno arrotondati a 0, causando una perdita di granularità dei dati di telemetria emessi. Per informazioni dettagliate, vedere [metriche del database ridotto e del pool elastico arrotondamento a zero](#low-database-and-elastic-pool-metrics-rounding-to-zero).
 
 ### <a name="azure-sql-database-and-azure-sql-managed-instance-resource-monitoring"></a>Monitoraggio delle risorse del database SQL di Azure e di Azure SQL Istanza gestita
 
@@ -46,6 +49,33 @@ Il database SQL di Azure include gli [Advisor di database](database-advisor-impl
 ### <a name="query-performance-insight-in-azure-sql-database"></a>Informazioni dettagliate prestazioni query nel database SQL di Azure
 
 [Informazioni dettagliate prestazioni query](query-performance-insight-use.md) Mostra le prestazioni della portale di Azure delle query più lunghe e più lunghe per i database singoli e in pool.
+
+### <a name="low-database-and-elastic-pool-metrics-rounding-to-zero"></a>Metriche di database e pool elastici di basso livello fino a zero
+
+A partire dal 2020 settembre, i database con utilizzo estremamente basso possono essere visualizzati nel portale con un utilizzo inferiore rispetto a quello effettivo. A causa del modo in cui i dati di telemetria vengono emessi durante la conversione di un valore Double nell'intero più vicino, determinati importi di utilizzo minori di 0,5 verranno arrotondati a 0, causando una perdita di granularità dei dati di telemetria emessi.
+
+Ad esempio: si consideri una finestra di 1 minuto con i quattro punti dati seguenti: 0,1, 0,1, 0,1, 0,1, questi valori bassi vengono arrotondati per difetto a 0, 0, 0, 0 e presentano una media pari a 0. Se uno dei punti dati è maggiore di 0,5, ad esempio: 0,1, 0,1, 0,9, 0,1, vengono arrotondati a 0, 0, 1, 0 e indicano una media di 0,25.
+
+Metriche del database interessate:
+- cpu_percent
+- log_write_percent
+- workers_percent
+- sessions_percent
+- physical_data_read_percent
+- dtu_consumption_percent2
+- xtp_storage_percent
+
+Metriche del pool elastico interessate:
+- cpu_percent
+- physical_data_read_percent
+- log_write_percent
+- memory_usage_percent
+- data_storage_percent
+- peak_worker_percent
+- peak_session_percent
+- xtp_storage_percent
+- allocated_data_storage_percent
+
 
 ## <a name="generate-intelligent-assessments-of-performance-issues"></a>Genera valutazioni intelligenti dei problemi di prestazioni
 

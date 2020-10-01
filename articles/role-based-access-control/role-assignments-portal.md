@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2020
+ms.date: 09/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 76f4f39e7def192b8cb97c37aefc9f67d82ad4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e5c13c635091988f299d31c67795916e709d51a
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362243"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597624"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Questo articolo descrive come assegnare i ruoli usando il portale di Azure.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Questo articolo descrive come assegnare i ruoli usando il portale di Azure.
 
 Se è necessario assegnare ruoli di amministratore in Azure Active Directory, vedere [visualizzare e assegnare ruoli di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
 
@@ -35,19 +35,15 @@ Il **controllo di accesso (IAM)** è la pagina che in genere si usa per assegnar
 
 ![Pagina controllo di accesso (IAM) per una sottoscrizione](./media/role-assignments-portal/access-control-subscription.png)
 
-Per essere il più efficace con la pagina controllo di accesso (IAM), è utile se è possibile rispondere alle tre domande seguenti quando si tenta di assegnare un ruolo:
+Per essere il più efficace con la pagina controllo di accesso (IAM), consente di eseguire la procedura seguente per assegnare un ruolo.
 
-1. **Chi deve accedere?**
+1. Determinare chi necessita di accesso. È possibile assegnare un ruolo a un utente, un gruppo, un'entità servizio o un'identità gestita.
 
-    Che fa riferimento a un utente, un gruppo, un'entità servizio o un'identità gestita. Questa operazione è detta anche *entità di sicurezza*.
+1. Trovare il ruolo appropriato. Le autorizzazioni vengono raggruppate in ruoli. È possibile scegliere da un elenco di diversi [ruoli predefiniti di Azure](built-in-roles.md) oppure usare ruoli personalizzati.
 
-1. **Quale ruolo è necessario?**
+1. Identificare l'ambito necessario. Azure offre quattro livelli di ambito: [gruppo di gestione](../governance/management-groups/overview.md), sottoscrizione, [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups)e risorsa. Per ulteriori informazioni sull'ambito, vedere [comprendere l'ambito](scope-overview.md).
 
-    Le autorizzazioni vengono raggruppate in ruoli. È possibile scegliere da un elenco di diversi [ruoli predefiniti](built-in-roles.md) oppure è possibile usare ruoli personalizzati.
-
-1. **Dove è necessario accedere?**
-
-    Dove si riferisce al set di risorse a cui viene applicato l'accesso. Dove può essere un gruppo di gestione, una sottoscrizione, un gruppo di risorse o una singola risorsa, ad esempio un account di archiviazione. Questa operazione viene definita *ambito*.
+1. Eseguire i passaggi in una delle sezioni seguenti per assegnare un ruolo.
 
 ## <a name="add-a-role-assignment"></a>Aggiungi un'assegnazione di ruolo
 
@@ -67,9 +63,9 @@ In controllo degli accessi in base al ruolo di Azure per concedere l'accesso a u
 
    Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
 
-   ![Menu Aggiungi assegnazione ruolo](./media/shared/add-role-assignment-menu.png)
+   ![Menu Aggiungi assegnazione di ruolo](./media/shared/add-role-assignment-menu.png)
 
-    Verrà aperto il riquadro Aggiungi assegnazione di ruolo.
+    Viene visualizzato il riquadro Aggiungi assegnazione di ruolo.
 
    ![Riquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -101,11 +97,11 @@ Per rendere un utente amministratore per una sottoscrizione di Azure, assegnargl
 
    Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
 
-   ![Menu Aggiungi assegnazione ruolo](./media/shared/add-role-assignment-menu.png)
+   ![Menu Aggiungi assegnazione ruolo per una sottoscrizione](./media/shared/add-role-assignment-menu.png)
 
-    Verrà aperto il riquadro Aggiungi assegnazione di ruolo.
+    Viene visualizzato il riquadro Aggiungi assegnazione di ruolo.
 
-   ![Riquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment.png)
+   ![Riquadro Aggiungi assegnazione ruolo per una sottoscrizione](./media/role-assignments-portal/add-role-assignment.png)
 
 1. Nell’elenco a discesa **Ruolo**, selezionare il ruolo **Proprietario.**
 
@@ -150,7 +146,7 @@ Seguire questa procedura per assegnare un ruolo a un'identità gestita assegnata
 
 1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore Macchina virtuale**.
 
-   ![Riquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+   ![Riquadro Aggiungi assegnazione ruolo per identità gestita assegnata dal sistema](./media/role-assignments-portal/add-role-assignment-with-scope.png)
 
 1. Fare clic su **Salva** per assegnare un ruolo.
 
@@ -166,7 +162,7 @@ Seguire questa procedura per assegnare un ruolo a un'identità gestita assegnata
 
     Se i ruoli sono già stati assegnati all'identità gestita assegnata dall'utente selezionata, viene visualizzato l'elenco di assegnazioni di ruolo. Questo elenco include tutte le assegnazioni di ruolo per le quali si dispone dell'autorizzazione di lettura.
 
-    ![Assegnazioni di ruolo per un'identità gestita assegnata dal sistema](./media/shared/role-assignments-user-assigned.png)
+    ![Assegnazioni di ruolo per un'identità gestita assegnata dall'utente](./media/shared/role-assignments-user-assigned.png)
 
 1. Per modificare la sottoscrizione, fare clic sull'elenco **sottoscrizione** .
 
@@ -178,7 +174,7 @@ Seguire questa procedura per assegnare un ruolo a un'identità gestita assegnata
 
 1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore Macchina virtuale**.
 
-   ![Riquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+   ![Riquadro Aggiungi assegnazione ruolo per un'identità gestita assegnata dall'utente](./media/role-assignments-portal/add-role-assignment-with-scope.png)
 
 1. Fare clic su **Salva** per assegnare un ruolo.
 
@@ -194,7 +190,7 @@ In controllo degli accessi in base al ruolo di Azure è possibile rimuovere un'a
 
 1. Nell'elenco delle assegnazioni di ruolo aggiungere un segno di spunta accanto all'entità di sicurezza con l'assegnazione di ruolo che si vuole rimuovere.
 
-   ![Messaggio di rimozione assegnazione di ruolo](./media/role-assignments-portal/remove-role-assignment-select.png)
+   ![Assegnazione di ruolo selezionata per la rimozione](./media/role-assignments-portal/remove-role-assignment-select.png)
 
 1. Scegliere **Rimuovi**.
 
@@ -204,7 +200,7 @@ In controllo degli accessi in base al ruolo di Azure è possibile rimuovere un'a
 
     Se viene visualizzato un messaggio in cui non è possibile rimuovere le assegnazioni di ruolo ereditate, si sta tentando di rimuovere un'assegnazione di ruolo in un ambito figlio. È necessario aprire il controllo di accesso (IAM) nell'ambito in cui è stato assegnato il ruolo e riprovare. Un modo rapido per aprire il controllo di accesso (IAM) nell'ambito corretto consiste nell'esaminare la colonna **ambito** e fare clic sul collegamento accanto a **(ereditato)**.
 
-   ![Messaggio di rimozione assegnazione di ruolo](./media/role-assignments-portal/remove-role-assignment-inherited.png)
+   ![Rimuovere un messaggio di assegnazione di ruolo per le assegnazioni di ruolo ereditate](./media/role-assignments-portal/remove-role-assignment-inherited.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

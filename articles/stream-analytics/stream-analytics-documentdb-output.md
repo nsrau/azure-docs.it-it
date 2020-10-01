@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: dbeb1305a64fcace0be527708bc9122a4ffb931d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870834"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596565"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
 Analisi di flusso di Azure può usare [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione.
@@ -72,7 +72,9 @@ A seconda della chiave di partizione scelta, è possibile che venga visualizzato
 
 È importante scegliere una proprietà della chiave di partizione con un numero di valori distinti e che consente di distribuire il carico di lavoro in modo uniforme tra questi valori. Come artefatto naturale del partizionamento, le richieste che coinvolgono la stessa chiave di partizione sono limitate dalla velocità effettiva massima di una singola partizione. 
 
-Le dimensioni di archiviazione per i documenti che appartengono alla stessa chiave di partizione sono limitate a 20 GB. Una chiave di partizione ideale appare spesso come filtro nelle query e ha una cardinalità sufficiente per garantire la scalabilità della soluzione.
+Le dimensioni di archiviazione per i documenti che appartengono allo stesso valore della chiave di partizione sono limitate a 20 GB (il [limite delle dimensioni della partizione fisica](../cosmos-db/partition-data.md) è 50 GB). Una [chiave di partizione ideale](../cosmos-db/partitioning-overview.md#choose-partitionkey) viene visualizzata spesso come filtro nelle query e ha una cardinalità sufficiente per garantire la scalabilità della soluzione.
+
+Le chiavi di partizione usate per le query di analisi di flusso e Cosmos DB non devono essere identiche. Le topologie completamente parallele consigliano di usare la *chiave di partizione di input*, `PartitionId` , come chiave di partizione della query di analisi di flusso, ma che potrebbe non essere la scelta consigliata per la chiave di partizione di un contenitore Cosmos DB.
 
 Una chiave di partizione è anche il limite per le transazioni in stored procedure e trigger per Azure Cosmos DB. È necessario scegliere la chiave di partizione in modo che i documenti che si verificano insieme nelle transazioni condividano lo stesso valore della chiave di partizione. L'articolo [Partizionamento in Azure Cosmos DB](../cosmos-db/partitioning-overview.md) fornisce altri dettagli sulla scelta di una chiave di partizione.
 

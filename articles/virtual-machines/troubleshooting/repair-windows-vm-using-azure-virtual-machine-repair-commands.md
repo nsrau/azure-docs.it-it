@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 66dfd198b543ec49fabe381b50174b182cf070c7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 82bebcbda3110d51ae72df1fb4b18fedaa6c2f4e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336038"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597700"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Riparare una macchina virtuale Windows usando i comandi di riparazione della macchina virtuale di Azure
 
@@ -43,7 +43,7 @@ Seguire questa procedura per risolvere il problema della macchina virtuale:
 1. Avviare Azure Cloud Shell
 2. Eseguire az extension add/update.
 3. Eseguire az vm repair create.
-4. Eseguire az vm repair run.
+4. Eseguire AZ VM Repair Run o eseguire passaggi di mitigazione.
 5. Eseguire az vm repair restore.
 
 Per ulteriori documenti e istruzioni, vedere [az vm repair](/cli/azure/ext/vm-repair/vm/repair).
@@ -60,7 +60,7 @@ Per ulteriori documenti e istruzioni, vedere [az vm repair](/cli/azure/ext/vm-re
 
    Se si preferisce installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessaria l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire ``az --version`` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
    
-   Se è necessario eseguire l'accesso a Cloud Shell con un account diverso da quello attualmente connesso al portale di Azure con, è possibile usare il comando ``az login`` [AZ login Reference](/cli/azure/reference-index?view=azure-cli-latest#az-login).  Per spostarsi tra le sottoscrizioni associate all'account, è possibile usare ``az account set --subscription`` [AZ account Set Reference](/cli/azure/account?view=azure-cli-latest#az-account-set).
+   Se è necessario eseguire l'accesso a Cloud Shell con un account diverso da quello attualmente connesso al portale di Azure con, è possibile usare il comando ``az login`` [AZ login Reference](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).  Per spostarsi tra le sottoscrizioni associate all'account, è possibile usare ``az account set --subscription`` [AZ account Set Reference](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true).
 
 2. Se si usano i comandi `az vm repair` per la prima volta, aggiungere l'estensione dell'interfaccia della riga di comando per la riparazione della macchina virtuale.
 
@@ -80,11 +80,13 @@ Per ulteriori documenti e istruzioni, vedere [az vm repair](/cli/azure/ext/vm-re
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password 'password!234' --verbose
    ```
 
-4. Eseguire `az vm repair run`. Questo comando eseguirà lo script di ripristino specificato sul disco collegato tramite la macchina virtuale di ripristino. Se la guida alla risoluzione dei problemi in uso specifica un ID di esecuzione, usarlo qui, altrimenti è possibile usare `az vm repair list-scripts` per visualizzare gli script di ripristino disponibili. Il gruppo di risorse e il nome della VM usati qui sono per la VM non funzionale usata nel passaggio 3.
+4. Eseguire `az vm repair run`. Questo comando eseguirà lo script di ripristino specificato sul disco collegato tramite la macchina virtuale di ripristino. Se la guida alla risoluzione dei problemi in uso specifica un ID di esecuzione, usarlo qui, altrimenti è possibile usare `az vm repair list-scripts` per visualizzare gli script di ripristino disponibili. Il gruppo di risorse e il nome della VM usati qui sono per la VM non funzionale usata nel passaggio 3. Ulteriori informazioni sugli script di ripristino sono disponibili nella libreria di [script di ripristino](https://github.com/Azure/repair-script-library).
 
    ```azurecli-interactive
    az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id win-hello-world --verbose
    ```
+   
+   Facoltativamente, è possibile eseguire tutti i passaggi di mitigazione manuali necessari usando la macchina virtuale di ripristino, quindi procedere con il passaggio 5.
 
 5. Eseguire `az vm repair restore`. Questo comando scambia il disco del sistema operativo riparato con il disco del sistema operativo originale della macchina virtuale. Il gruppo di risorse e il nome della VM usati qui sono per la VM non funzionale usata nel passaggio 3.
 

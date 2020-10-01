@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1788eba0ef9be781fb7cf23f1eb86b48c9c360e1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287416"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598108"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Pianificare l'ambiente in Azure Time Series Insights Gen2
 
@@ -25,7 +25,7 @@ Questo articolo descrive le procedure consigliate per pianificare e iniziare rap
 
 Gli articoli seguenti illustrano le procedure consigliate per la pianificazione e la preparazione dell'ambiente.
 
-* Cosa si ottiene quando si effettua [il provisioning di un ambiente di Azure Time Series Insights Gen2](#the-gen2-environment).
+* Cosa si ottiene quando si effettua il [provisioning di un ambiente di Azure Time Series Insights Gen2](#the-gen2-environment).
 * Quali [sono gli ID e le proprietà timestamp delle serie temporali](#configure-time-series-ids-and-timestamp-properties).
 * Qual è il nuovo [modello Time Series](#understand-the-time-series-model)e come crearne di personalizzati.
 * Come [inviare eventi in modo efficiente in JSON](#shape-your-events).
@@ -36,7 +36,6 @@ Azure Time Series Insights usa un modello di business con pagamento in base al c
 ## <a name="the-gen2-environment"></a>Ambiente Gen2
 
 Quando si esegue il provisioning di un ambiente Azure Time Series Insights Gen2, si creano due risorse di Azure:
-
 
 * Ambiente Gen2 Azure Time Series Insights
 * Un account di archiviazione Azure
@@ -94,8 +93,8 @@ Per altre informazioni e per comprendere il modo in cui gli eventi verranno resi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare [Azure Advisor](../advisor/advisor-overview.md) per pianificare le opzioni di configurazione per il ripristino di business.
-- Esaminare [Azure Advisor](../advisor/advisor-overview.md) per pianificare le opzioni di configurazione per il ripristino di business.
-- Scopri di più sull'inserimento di [dati](./concepts-ingestion-overview.md) in Azure Time Series Insights Gen2.
-- Vedere l'articolo sull' [archiviazione dei dati](./concepts-storage.md) in Azure Time Series Insights Gen2.
-- Informazioni sulla [modellazione dei dati](./concepts-model-overview.md) in Azure Time Series Insights Gen2.
+* Esaminare [Azure Advisor](../advisor/advisor-overview.md) per pianificare le opzioni di configurazione per il ripristino di business.
+* Esaminare [Azure Advisor](../advisor/advisor-overview.md) per pianificare le opzioni di configurazione per il ripristino di business.
+* Scopri di più sull'inserimento di [dati](./concepts-ingestion-overview.md) in Azure Time Series Insights Gen2.
+* Vedere l'articolo sull' [archiviazione dei dati](./concepts-storage.md) in Azure Time Series Insights Gen2.
+* Informazioni sulla [modellazione dei dati](./concepts-model-overview.md) in Azure Time Series Insights Gen2.
