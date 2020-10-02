@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 41dbb42637db98dcd97e3487f252e88f2ba5f9a3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fccdaaab121f315f1cb98b2b6ee3bffcb9ac2b3b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649891"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653010"
 ---
 # <a name="dcsv2-series"></a>Serie DCsv2
 
@@ -21,17 +21,13 @@ La serie DCsv2 consente di proteggere la riservatezza e l'integrità dei dati e 
 
 I casi d'uso di esempio includono: condivisione tra più parti di dati riservati, rilevamento delle frodi, antiriciclaggio, blockchain, analisi di utilizzo riservata, analisi di Business Intelligence e Machine Learning riservato.
 
-Archiviazione Premium: Supportato*
-
-Memorizzazione nella cache Archiviazione Premium: Supportato*
-
-Live Migration: Non supportato
-
-Manutenzione con mantenimento della memoria: Non supportato
+[Archiviazione Premium](premium-storage-performance.md): supportato *<br>
+[Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
+[Live Migration](maintenance-and-updates.md): non supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 
 *Tranne che per Standard_DC8_v2
-
-
 
 | Dimensione             | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Schede di interfaccia di rete max/Larghezza di banda di rete prevista (Mbps) | Memoria EPC (MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|

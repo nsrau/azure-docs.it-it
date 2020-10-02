@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: bb76dbf975ce15f72d3ad339853c407de42cf507
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 9475d3f000bbfd84c16efc080cbbb9df63cac608
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594391"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653265"
 ---
 # <a name="hc-series"></a>Serie HC
 
@@ -21,17 +21,15 @@ Le macchine virtuali della serie HC sono ottimizzate per le applicazioni basate 
 
 VM serie HC funzionalità 100 GB/sec Mellanox EDR InfiniBand. Queste VM sono connesse in un albero Fat senza blocco per prestazioni RDMA ottimizzate e coerenti. Queste macchine virtuali supportano il routing adattivo e il trasporto con connessione dinamica (DCT, in aggiunta ai trasporti standard RC e UD). Queste funzionalità migliorano le prestazioni, la scalabilità e la coerenza delle applicazioni e l'utilizzo di tali funzionalità è fortemente consigliato.
 
-ACU: 297-315
+[ACU](acu.md): 297-315<br>
+[Archiviazione Premium](premium-storage-performance.md): non supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): non supportato<br>
+[Live Migration](maintenance-and-updates.md): non supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+<br>
 
-Archiviazione Premium: supportata
-
-Memorizzazione nella cache Archiviazione Premium: supportata
-
-Live Migration: Non supportato
-
-Manutenzione con mantenimento della memoria: Non supportato
-
-| Dimensione | vCPU | Processore | Memoria (GB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | NIC Ethernet max |
+| Dimensione | vCPU | Processore | Memoria (GiB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Spazio di archiviazione temp (GiB) | Numero massimo di dischi dati | NIC Ethernet max |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3,7 | 100 | Tutti | 700 | 4 | 1 |
 

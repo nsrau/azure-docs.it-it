@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8a70097cbae3bc5ebf48c0358faa32aea0a6be5
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370178"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653214"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -187,6 +187,7 @@ La connessione Desktop remoto a dispositivi aggiunti ad Azure AD richiede che il
 A partire dall'aggiornamento di Windows 10 2004, gli utenti possono anche usare desktop remoto da un dispositivo Windows 10 registrato Azure AD a un dispositivo Azure AD aggiunto. 
 
 ## <a name="understand-your-provisioning-options"></a>Identificazione delle opzioni di provisioning
+**Nota**: non è possibile distribuire Azure ad dispositivi aggiunti tramite l'utilità preparazione sistema (Sysprep) o strumenti di imaging simili
 
 È possibile effettuare il provisioning dell'aggiunta ad Azure AD tramite gli approcci seguenti:
 

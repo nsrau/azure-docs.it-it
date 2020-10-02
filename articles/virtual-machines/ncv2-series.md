@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f7d4403fa480aa03868df5a0daa09e54ce8ecda7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 19ed565cbc68cc49da9daa5460e4dca41ce01cbc
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286224"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653486"
 ---
 # <a name="ncv2-series"></a>Serie NCv2
 
@@ -20,13 +20,11 @@ Le macchine virtuali serie NCv2 sono basate sulle GPU NVIDIA Tesla P100. Queste 
 
 La configurazione NC24rs v2 offre un'interfaccia di rete ad alta velocità effettiva e a bassa latenza, ottimizzata per carichi di lavoro di calcolo paralleli strettamente associati.
 
-Archiviazione Premium:  Supportato
-
-Memorizzazione nella cache Archiviazione Premium:  Supportato
-
-Live Migration: Non supportato
-
-Manutenzione con mantenimento della memoria: Non supportato
+[Archiviazione Premium](premium-storage-performance.md): supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
+[Live Migration](maintenance-and-updates.md): non supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 
 > [!IMPORTANT]
 > Per questa serie di macchine virtuali, la quota di vCPU (Core) nella sottoscrizione viene inizialmente impostata su 0 in ogni area. [Richiedere un aumento della quota di vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) per questa serie in un' [area disponibile](https://azure.microsoft.com/regions/services/).

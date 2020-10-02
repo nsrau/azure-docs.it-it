@@ -8,30 +8,29 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 17ce5314f58a92158ff4fd187ad0ca46bb14a275
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c3423e8bd5cd3e38c05205842845bec2243ed83
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320167"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653503"
 ---
 # <a name="ncast4_v3-series-in-preview"></a>Serie NCasT4_v3 (in anteprima) 
 
 Le macchine virtuali serie NCasT4_v3 sono basate su GPU [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) e CPU AMD EPYC 7V12 (Roma). Le macchine virtuali sono dotate di un massimo di 4 GPU NVIDIA T4 con 16 GB di memoria ciascuno, fino a 64 core del processore AMD EPYC 7V12 (Roma) non multithread e 440 GiB della memoria di sistema. Queste macchine virtuali sono ideali per la distribuzione di servizi di intelligenza artificiale, ad esempio l'inferenza in tempo reale delle richieste generate dall'utente o per carichi di lavoro grafici e di visualizzazione interattivi tramite il Driver GRID e la tecnologia GPU virtuale di NVIDIA. I carichi di lavoro di calcolo GPU standard basati su CUDA, TensorRT, caffe, ONNX e altri Framework, o applicazioni grafiche con accelerazione GPU basate su OpenGL e DirectX, possono essere distribuiti in modo economico, con prossimità agli utenti, nella serie NCasT4_v3.
 
-È possibile [inviare una richiesta](https://aka.ms/NCT4v3Preview) per partecipare al programma di anteprima.
+> [!NOTe]
+> [Inviare una richiesta](https://aka.ms/NCT4v3Preview) di partecipazione al programma di anteprima.
 
 <br>
 
-ACU: 230-260
-
-Archiviazione Premium:  Supportato
-
-Memorizzazione nella cache Archiviazione Premium:  Supportato
-
-Live Migration: Non supportato
-
-Manutenzione con mantenimento della memoria: Non supportato
+[ACU](acu.md): 230-260<br>
+[Archiviazione Premium](premium-storage-performance.md): supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
+[Live Migration](maintenance-and-updates.md): non supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
+<br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Schede di interfaccia di rete max |
 | --- | --- | --- | --- | --- | --- | --- | --- |

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 39bb129d6edba168ed1ed45b1de205a206c83ed2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aec72644f708d6363a80da28c5e571d0165fcdfa
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678172"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651837"
 ---
 # <a name="export-your-application"></a>Esportare l'applicazione
 
@@ -30,7 +30,7 @@ Sono disponibili due opzioni:
 
 Selezionare **Copia**. Nella finestra di dialogo immettere i dettagli per la nuova applicazione. Quindi selezionare **copia** per confermare che si vuole continuare. Per ulteriori informazioni sui campi nel modulo, vedere la Guida introduttiva alla [creazione di un'applicazione](quick-deploy-iot-central.md) .
 
-![Pagina delle impostazioni dell'applicazione](media/howto-use-app-templates/appcopy2.png)
+![Screenshot che mostra la pagina di impostazioni "copia applicazione".](media/howto-use-app-templates/appcopy2.png)
 
 Una volta completata l'operazione di copia dell'app, è possibile passare alla nuova applicazione usando il collegamento.
 

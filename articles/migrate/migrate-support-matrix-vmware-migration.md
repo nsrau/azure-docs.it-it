@@ -3,12 +3,12 @@ title: Supporto per la migrazione di VMware in Azure Migrate
 description: Informazioni sul supporto per la migrazione di macchine virtuali VMware in Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f41223e9dfa336fdbf64fcfdc56798511f3a5b21
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 87733cac23d0336e4b9319f2a325e8d844e6e5b2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442278"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651956"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione a VMware
 
@@ -154,7 +154,7 @@ Server di elaborazione | Il server di elaborazione riceve i dati di replica, li 
 
 ## <a name="azure-vm-requirements"></a>Requisiti per le VM di Azure
 
-Tutte le macchine virtuali locali replicate in Azure, con migrazione senza agenti o basate su agenti, devono soddisfare i requisiti delle macchine virtuali di Azure riepilogati in questa tabella. 
+Tutte le macchine virtuali locali replicate in Azure (con migrazione senza agenti o basata su agenti) devono soddisfare i requisiti delle macchine virtuali di Azure riepilogati in questa tabella. 
 
 **Componente** | **Requisiti** 
 --- | --- | ---

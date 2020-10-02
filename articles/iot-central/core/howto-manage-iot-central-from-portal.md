@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: e7efda8efa27044168386e3ebbc557bf7fb74e8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0802169898cad51e9a5d208e546a004f7ea7b3c0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157926"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653333"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gestire IoT Central dal portale di Azure
 
@@ -56,13 +56,13 @@ Per iniziare, selezionare **tutte le risorse** nel portale. Selezionare **Mostra
 
 Per passare all'applicazione, selezionare l' **URL dell'applicazione IoT Central**:
 
-![Portale di gestione: gestione delle risorse](media/howto-manage-iot-central-from-portal/image3.png)
+![Screenshot che mostra la pagina "panoramica" con l'URL dell'applicazione IoT Central evidenziato.](media/howto-manage-iot-central-from-portal/image3.png)
 
 Per spostare l'applicazione in un gruppo di risorse diverso, selezionare **Cambia** accanto al gruppo di risorse. Nella pagina **Sposta risorse** scegliere il gruppo di risorse in cui si vuole spostare l'applicazione:
 
-![Portale di gestione: gestione delle risorse](media/howto-manage-iot-central-from-portal/image4a.png)
+![Screenshot che mostra la pagina "Overview" con il "gruppo di risorse (modifica)" evidenziato.](media/howto-manage-iot-central-from-portal/image4a.png)
 
-Per spostare l'applicazione in una sottoscrizione diversa, selezionare **Cambia** accanto alla sottoscrizione. Nella pagina **Sposta risorse** scegliere la sottoscrizione in cui si vuole spostare l'applicazione:
+Per spostare l'applicazione in una sottoscrizione diversa, selezionare  **Cambia** accanto alla sottoscrizione. Nella pagina **Sposta risorse** scegliere la sottoscrizione in cui si vuole spostare l'applicazione:
 
 ![Portale di gestione: gestione delle risorse](media/howto-manage-iot-central-from-portal/image5a.png)
 

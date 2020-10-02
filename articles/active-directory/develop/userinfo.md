@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 09/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8f3fd462a52b035cd5b5447560e5472b41f237fa
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119641"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653231"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Endpoint UserInfo di Microsoft Identity Platform
 
@@ -28,7 +28,7 @@ L'endpoint UserInfo fa parte dello [standard OpenID Connect](https://openid.net/
 
 È possibile individuare l'endpoint UserInfo a livello di codice usando il documento di individuazione di OpenID Connect, all'indirizzo `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Viene elencato nel `userinfo_endpoint` campo e questo modello può essere usato tra i cloud per fare riferimento all'endpoint corretto.  Non è consigliabile impostare come hardcoded l'endpoint UserInfo nell'app. utilizzare il documento di individuazione OIDC per trovare questo endpoint in fase di esecuzione.
 
-Come parte della specifica di OpenID Connect, l'endpoint UserInfo viene spesso chiamato automaticamente da [librerie conformi a OIDC](https://openid.net/developers/certified/) per ottenere informazioni sull'utente.  Senza l'hosting di un endpoint di questo tipo, la piattaforma di identità Microsoft non sarà conforme agli standard e alcune librerie avranno esito negativo.  Dall' [elenco di attestazioni identificato nello standard OIDC](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) , le attestazioni del nome, l'attestazione dell'oggetto e il messaggio di posta elettronica vengono prodotti quando disponibili e sono consentiti per.  
+Come parte della specifica di OpenID Connect, l'endpoint UserInfo viene spesso chiamato automaticamente da [librerie conformi a OIDC](https://openid.net/developers/certified/)  per ottenere informazioni sull'utente.  Senza l'hosting di un endpoint di questo tipo, la piattaforma di identità Microsoft non sarà conforme agli standard e alcune librerie avranno esito negativo.  Dall' [elenco di attestazioni identificato nello standard OIDC](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) , le attestazioni del nome, l'attestazione dell'oggetto e il messaggio di posta elettronica vengono prodotti quando disponibili e sono consentiti per.  
 
 ## <a name="consider-use-an-id-token-instead"></a>Prendere in considerazione: usare invece un token ID
 
@@ -42,7 +42,7 @@ UserInfo è un'API del token di connessione OAuth standard, denominata come qual
 
 ### <a name="permissions"></a>Autorizzazioni
 
-Usare le [autorizzazioni OIDC](v2-permissions-and-consent.md#openid-connect-scopes) seguenti per chiamare l'API UserInfo. `openid`è obbligatorio e gli `profile` `email` ambiti e assicurano che nella risposta vengano fornite informazioni aggiuntive.
+Usare le [autorizzazioni OIDC](v2-permissions-and-consent.md#openid-connect-scopes) seguenti per chiamare l'API UserInfo. `openid` è obbligatorio e gli `profile` `email` ambiti e assicurano che nella risposta vengano fornite informazioni aggiuntive.
 
 |Tipo di autorizzazione      | Autorizzazioni    |
 |:--------------------|:---------------------------------------------------------|
@@ -81,7 +81,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Il…
 }
 ```
 
-Le attestazioni elencate qui, incluse `sub` , sono le stesse attestazioni che l'app dovrebbe visualizzare nel [token ID](id-tokens.md) emesso per l'app.  
+Le attestazioni elencate di seguito sono tutte le attestazioni che l'endpoint UserInfo può restituire.  Si tratta degli stessi valori che verranno visualizzati dall'app nel [token ID](id-tokens.md) emesso per l'app.  
 
 ## <a name="notes-and-caveats-on-the-userinfo-endpoint"></a>Note e avvertenze sull'endpoint UserInfo
 

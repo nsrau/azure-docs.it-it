@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 14d5e5af6f485346b0e1f070e84843a9bf085126
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 3e79373da3de2750a47e68a6d8f10c3ffb9c38de
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595343"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652976"
 ---
 # <a name="hb-series"></a>Serie HB
 
@@ -21,19 +21,17 @@ Le VM serie HB sono ottimizzate per le applicazioni basate sulla larghezza di ba
 
 VM serie HB funzionalità 100 GB/sec Mellanox EDR InfiniBand. Queste VM sono connesse in un albero Fat senza blocco per prestazioni RDMA ottimizzate e coerenti. Queste macchine virtuali supportano il routing adattivo e il trasporto con connessione dinamica (DCT, in aggiunta ai trasporti standard RC e UD). Queste funzionalità migliorano le prestazioni, la scalabilità e la coerenza delle applicazioni e l'utilizzo di tali funzionalità è fortemente consigliato.
 
-ACU: 199-216
+[ACU](acu.md): 199-216<br>
+[Archiviazione Premium](premium-storage-performance.md): supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
+[Live Migration](maintenance-and-updates.md): non supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+<br>
 
-Archiviazione Premium: supportata
-
-Memorizzazione nella cache Archiviazione Premium: supportata
-
-Live Migration: Non supportato
-
-Manutenzione con mantenimento della memoria: Non supportato
-
-| Dimensione | vCPU | Processore | Memoria (GB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | NIC Ethernet max |
+| Dimensione | vCPU | Processore | Memoria (GiB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Spazio di archiviazione temp (GiB) | Numero massimo di dischi dati | NIC Ethernet max |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2,0 | 2.55 | 2.55 | 100 | Tutti | 700 | 4 | 1 |
+| Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | Tutti | 700 | 4 | 1 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

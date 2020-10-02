@@ -7,24 +7,22 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: de118f7a4a29d306fe351199795a5a8cacb38fcd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ab08d23fe7448e50db42ea126e8158ad284b3320
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289750"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653469"
 ---
 # <a name="ncv3-series"></a>Serie NCv3
 
 Le macchine virtuali serie NCv3 sono basate sulle GPU NVIDIA Tesla V100. Queste GPU possono offrire prestazioni di calcolo una volta e mezzo superiori rispetto a quelle della serie NCv2. I clienti possono sfruttare i vantaggi di queste GPU aggiornate per carichi di lavoro HPC tradizionali, come la modellazione delle riserve, il sequenziamento del DNA, l'analisi di proteine, le simulazioni Monte Carlo e altro ancora. La configurazione NC24rs v3 offre un'interfaccia di rete ad alta velocità effettiva e a bassa latenza, ottimizzata per carichi di lavoro di calcolo paralleli strettamente associati. Oltre alle GPU, le macchine virtuali della serie NCv3 sono basate anche su CPU Intel Xeon E5-2690 V4 (Broadwell).
 
-Archiviazione Premium:  Supportato
-
-Memorizzazione nella cache Archiviazione Premium:  Supportato
-
-Live Migration: Non supportato
-
-Manutenzione con mantenimento della memoria: Non supportato
+[Archiviazione Premium](premium-storage-performance.md): supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
+[Live Migration](maintenance-and-updates.md): non supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 
 > [!IMPORTANT]
 > Per questa serie di macchine virtuali, la quota di vCPU (Core) nella sottoscrizione viene inizialmente impostata su 0 in ogni area. [Richiedere un aumento della quota di vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) per questa serie in un' [area disponibile](https://azure.microsoft.com/regions/services/).

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 08/31/2020
+ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 061ae48de9a73270ed499282c9fc9a4f8f1dba90
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298947"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651753"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services V2 e V3
 
@@ -30,18 +30,17 @@ In questo articolo vengono descritte le modifiche introdotte nella versione 3 di
 
 ## <a name="general-changes-from-v2"></a>Modifiche generali da V2
 
-* Per gli asset creati con V3, servizi multimediali supporta solo la [crittografia di archiviazione lato server di archiviazione di Azure](../../storage/common/storage-service-encryption.md).
-    * È possibile usare le API v3 con gli asset creati con le API v2 che dispongono di [crittografia di archiviazione](../previous/media-services-rest-storage-encryption.md) (AES 256) offerta da Servizi multimediali.
-    * Non è possibile usare le API v3 per creare nuovi asset con [crittografia di archiviazione](../previous/media-services-rest-storage-encryption.md) AES 256.
-* Le proprietà dell' [Asset](assets-concept.md)in V3 sono diverse da V2, vedere [come viene mappata la proprietà](#map-v3-asset-properties-to-v2).
+* Per le modifiche relative agli asset, vedere la sezione relativa alle [modifiche specifiche dell'asset](#asset-specific-changes) riportata di seguito.
 * Gli SDK v3 di Servizi multimediali sono ora separati da Storage SDK, che conferisce maggiore controllo sulla versione di Storage SDK che si intende usare ed evitare problemi di controllo delle versioni. 
 * Nelle API v3 tutte le velocità in bit di codifica sono in bit al secondo. Questo comportamento è diverso dai set di impostazioni di Media Encoder Standard v2. Ad esempio, la velocità in bit che in v2 viene specificata come 128 (kbps), nella versione v3 sarà 128000 (bit/secondo). 
 * Le entità AssetFiles, AccessPolicies e IngestManifests non esistono in v3.
-* La proprietà IAsset.ParentAssets non esiste nella versione 3.
 * ContentKey non è più un'entità, ma una proprietà del localizzatore di streaming.
 * Il supporto della griglia di eventi sostituisce NotificationEndpoints.
-* Le entità seguenti sono state rinominate
-    * Job Output sostituisce Task e fa ora parte di un processo.
+* Le entità seguenti sono state rinominate:
+
+   * V3 JobOutput sostituisce l'attività V2 e fa ora parte di un processo. Gli input e gli output sono ora a livello di processo. Per altre informazioni, vedere [creare un input di un processo da un file locale](job-input-from-local-file-how-to.md). 
+
+       Per ottenere la cronologia dello stato di avanzamento del processo, ascoltare gli eventi EventGrid. Per ulteriori informazioni, vedere [gestione degli eventi di griglia di eventi](reacting-to-media-services-events.md).
     * Streaming Locator sostituisce Locator.
     * Live Event sostituisce Channel.<br/>La fatturazione degli eventi live si basa sui contatori dei canali live. Per altre informazioni, vedere [fatturazione](live-event-states-billing.md) e [prezzi](https://azure.microsoft.com/pricing/details/media-services/).
     * Live Output sostituisce Program.
@@ -89,6 +88,12 @@ L'API v3 include i gap di funzionalità seguenti rispetto all'API v2. È in cors
 
 ## <a name="asset-specific-changes"></a>Modifiche specifiche dell'asset
 
+* Per gli asset creati con V3, servizi multimediali supporta solo la [crittografia di archiviazione lato server di archiviazione di Azure](../../storage/common/storage-service-encryption.md).
+    * È possibile usare le API v3 con gli asset creati con le API v2 che dispongono di [crittografia di archiviazione](../previous/media-services-rest-storage-encryption.md) (AES 256) offerta da Servizi multimediali.
+    * Non è possibile usare le API v3 per creare nuovi asset con [crittografia di archiviazione](../previous/media-services-rest-storage-encryption.md) AES 256.
+* Le proprietà dell' [Asset](assets-concept.md)in V3 sono diverse da V2, vedere [come viene mappata la proprietà](#map-v3-asset-properties-to-v2).
+* La proprietà IAsset.ParentAssets non esiste nella versione 3.
+
 ### <a name="map-v3-asset-properties-to-v2"></a>Mappare le proprietà Asset V3 alla versione V2
 
 La tabella seguente illustra in che modo le proprietà dell' [Asset](/rest/api/media/assets/createorupdate#asset)in V3 sono mappate alle proprietà dell'asset nella versione V2.
@@ -113,8 +118,8 @@ Per proteggere gli asset inattivi, è necessario crittografarli tramite crittogr
 |Opzione di crittografia|Descrizione|Servizi multimediali v2|Servizi multimediali v3|
 |---|---|---|---|
 |Crittografia di archiviazione di Servizi multimediali|Crittografia AES-256, chiave gestita da servizi multimediali.|Supportata<sup>(1)</sup>|Non supportata<sup>(2)</sup>|
-|[Crittografia del servizio di archiviazione per dati inattivi](../../storage/common/storage-service-encryption.md)|Crittografia lato server offerta da archiviazione di Azure, chiave gestita da Azure o dal cliente.|Funzionalità supportata|Funzionalità supportata|
-|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da archiviazione di Azure, la chiave gestita dal cliente in Key Vault.|Non supportate|Non supportate|
+|[Crittografia del servizio di archiviazione per dati inattivi](../../storage/common/storage-service-encryption.md)|Crittografia lato server offerta da archiviazione di Azure, chiave gestita da Azure o dal cliente.|Supportato|Supportato|
+|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da archiviazione di Azure, la chiave gestita dal cliente in Key Vault.|Non supportato|Non supportato|
 
 <sup>1</sup> anche se servizi multimediali supporta la gestione del contenuto in chiaro o senza alcuna forma di crittografia, questa operazione non è consigliata.
 
@@ -124,7 +129,7 @@ Per proteggere gli asset inattivi, è necessario crittografarli tramite crittogr
 
 La tabella seguente illustra le differenze a livello di codice tra v2 e v3 per scenari comuni.
 
-|Scenario|API V2|API V3|
+|Scenario|API v2|API V3|
 |---|---|---|
 |Creare un asset e caricare un file |[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Inviare un processo|[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra come creare una trasformazione e quindi inviare un processo.|

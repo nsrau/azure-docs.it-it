@@ -8,12 +8,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 235d82e54c79350f110ab0cda4f4b672e396c61d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085145"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652007"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con processi Web nel servizio app Azure
 
@@ -73,14 +73,14 @@ when making changes in one don't forget the other two.
 
 3. Usare le impostazioni di **Aggiungi processo Web** specificate nella tabella.
 
-   ![Pagina Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjcontinuous.png)
+   ![Screenshot che mostra le impostazioni di aggiunta di processo Web che è necessario configurare.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | Impostazione      | Valore di esempio   | Descrizione  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myContinuousWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
    | **Tipo** | Continua | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
-   | **Ridimensionamento** | Istanze multiple | Disponibile solo per i processi Web continui. Determina se il programma o lo script viene eseguito in tutte le istanze o in una sola istanza. L'opzione per l'esecuzione in più istanze non si applica ai [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuito o Condiviso. | 
+   | **Scalabilità** | Istanze multiple | Disponibile solo per i processi Web continui. Determina se il programma o lo script viene eseguito in tutte le istanze o in una sola istanza. L'opzione per l'esecuzione in più istanze non si applica ai [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuito o Condiviso. | 
 
 4. Fare clic su **OK**.
 
@@ -111,7 +111,7 @@ when making changes in one don't forget the other two.
 
 3. Usare le impostazioni di **Aggiungi processo Web** specificate nella tabella.
 
-   ![Pagina Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjtriggered.png)
+   ![Screenshot che mostra le impostazioni che devono essere impostate per la creazione di un processo Web attivato manualmente.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | Impostazione      | Valore di esempio   | Descrizione  |
    | ------------ | ----------------- | ------------ |
@@ -156,7 +156,7 @@ when making changes in one don't forget the other two.
    | **Nome** | myScheduledWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
    | **Tipo** | Attivato | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
-   | **Trigger** | Scheduled | Per il corretto funzionamento della pianificazione, abilitare la funzionalità Sempre online. Sempre online è disponibile solo nei piani tariffari Basic, Standard e Premium.|
+   | **Trigger** | Pianificate | Per il corretto funzionamento della pianificazione, abilitare la funzionalità Sempre online. Sempre online è disponibile solo nei piani tariffari Basic, Standard e Premium.|
    | **Espressione CRON** | 0 0/20 * * * * | Le [espressioni CRON](#ncrontab-expressions) vengono descritte nella sezione seguente. |
 
 4. Fare clic su **OK**.
@@ -179,7 +179,7 @@ Per altre informazioni, vedere [pianificazione di un processo Web attivato](webj
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a>Visualizzare la cronologia processo
+## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a> Visualizzare la cronologia processo
 
 1. Selezionare il processo Web di cui si vuole visualizzare la cronologia e quindi selezionare il pulsante **Log**.
    

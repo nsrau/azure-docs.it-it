@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e63cb73b726c495d4124447028b681a81b8fcca9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7ab9d270ae5da52cbf9b5ba0ed4730233225a7c1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286207"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653446"
 ---
 # <a name="updated-ndv2-series"></a>Serie NDv2 aggiornate
 
@@ -24,6 +24,7 @@ Le istanze di NDv2 offrono prestazioni eccellenti per i carichi di lavoro HPC e 
 
 In modo critico, il NDv2 è progettato per la scalabilità verticale sia a livello di calcolo (sfruttando 8 GPU per macchina virtuale) sia per la scalabilità orizzontale (sfruttando più macchine virtuali che operano insieme) carichi di lavoro. La serie NDv2 supporta ora le reti back-end InfiniBand EDR 100-Gigabit, simili a quelle disponibili nella serie HB della VM HPC, per consentire il clustering a prestazioni elevate per gli scenari paralleli, incluso il training distribuito per AI e ML. Questa rete back-end supporta tutti i principali protocolli InfiniBand, inclusi quelli usati dalle librerie NCCL2 di NVIDIA, consentendo un clustering di GPU senza problemi.
 
+> [!IMPORTANT]
 > Quando si [Abilita InfiniBand](./workloads/hpc/enable-infiniband.md) nella macchina virtuale ND40rs_v2, usare il driver OFED Mellanox 4.7-1.0.0.1.
 >
 > A causa di una maggiore memoria GPU, la nuova macchina virtuale ND40rs_v2 richiede l'uso di [macchine virtuali di seconda generazione](./windows/generation-2.md) e immagini del Marketplace. 
@@ -32,15 +33,13 @@ In modo critico, il NDv2 è progettato per la scalabilità verticale sia a livel
 
 <br>
 
-Archiviazione Premium:  Supportato
-
-Memorizzazione nella cache Archiviazione Premium:  Supportato
-
-Live Migration: Non supportato
-
-Manutenzione con mantenimento della memoria: Non supportato
-
-InfiniBand: supportato
+[Archiviazione Premium](premium-storage-performance.md): supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
+[Live Migration](maintenance-and-updates.md): non supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
+InfiniBand: supportato<br>
+<br>
 
 | Dimensione | vCPU | Memoria: GiB | Archiviazione temporanea (SSD): GiB | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda di rete massima | Schede di interfaccia di rete max |
 |---|---|---|---|---|---|---|---|---|---|

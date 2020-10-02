@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
-ms.openlocfilehash: b72126933c5454b8fabe19dda08ad5eb66edd1ba
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: f080f5011311101ed8f9faa2ee807c030a048409
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392671"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653044"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerazioni sulle prestazioni per Gestione traffico
 
@@ -50,7 +50,7 @@ Gli strumenti disponibili in questi siti misurano la latenza DNS e visualizzano 
 
     Uno degli strumenti più semplici è WebSitePulse. Immettere l'URL per visualizzare statistiche, ad esempio i tempi di risoluzione DNS, i tempi per il primo byte e per l'ultimo byte e altre statistiche sulle prestazioni. È possibile scegliere tra tre posizioni di test. In questo esempio, la prima esecuzione mostra che la ricerca DNS impiega 0,204 secondi.
 
-    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+    ![Screenshot che mostra lo strumento "WebSitePulse" con il risultato della ricerca "DNS" evidenziato.](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
 
     Poiché i risultati vengono memorizzati nella cache, nel secondo test relativo allo stesso endpoint di Gestione traffico la ricerca DNS impiega 0,002 secondi.
 

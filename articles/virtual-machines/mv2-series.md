@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: c91e9832e4b415a59c12b71964a0da580e9fda21
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5bf6a17c1a4aa1c7f212045af0d1b750ddb2a906
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651132"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653554"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
@@ -20,15 +20,13 @@ La serie Mv2 offre una piattaforma a bassa latenza e velocità effettiva elevata
 
 Funzionalità della VM della serie Mv2 Intel® tecnologia Hyper-Threading
 
-Archiviazione Premium: supportata
-
-Caching archiviazione Premium: supportato
-
-Live Migration: Non supportato
-
-Manutenzione con mantenimento della memoria: Non supportato
-
-Acceleratore di scrittura: [supportato](./how-to-enable-write-accelerator.md)
+[Archiviazione Premium](premium-storage-performance.md): supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
+[Live Migration](maintenance-and-updates.md): non supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+[Acceleratore di scrittura](./how-to-enable-write-accelerator.md): supportato<br>
+<br>
 
 |Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max | Larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|---|

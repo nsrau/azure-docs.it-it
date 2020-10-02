@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 08/07/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b7c3719b1539aa585dbc030bb8dfe732e73c81ac
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 7cef6252a99430f0d62d8f976510f0a723badc1f
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185070"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91654436"
 ---
 ## <a name="trusted-microsoft-services"></a>Servizi Microsoft attendibili
 Quando si Abilita l'impostazione **Consenti ai servizi Microsoft attendibili di ignorare questo firewall** , ai servizi seguenti viene concesso l'accesso alle risorse di hub eventi.
 
 | Servizio attendibile | Scenari di utilizzo supportati | 
 | --------------- | ------------------------- | 
-| Griglia di eventi di Azure | Consente a griglia di eventi di Azure di inviare eventi a hub eventi nello spazio dei nomi di hub eventi. |
+| Griglia di eventi di Azure | Consente a griglia di eventi di Azure di inviare eventi a hub eventi nello spazio dei nomi di hub eventi. È anche necessario eseguire i passaggi seguenti: <ul><li>Abilitare l'identità assegnata dal sistema per un argomento o un dominio</li><li>Aggiungere l'identità al ruolo di mittente dei dati di hub eventi di Azure nello spazio dei nomi di hub eventi</li><li>Configurare quindi la sottoscrizione dell'evento che usa un hub eventi come endpoint per usare l'identità assegnata dal sistema.</li></ul> <p>Per altre informazioni, vedere [recapito di eventi con un'identità gestita](../articles/event-grid/managed-service-identity.md)</p>|
 | Monitoraggio di Azure (impostazioni di diagnostica) | Consente a monitoraggio di Azure di inviare informazioni di diagnostica a hub eventi nello spazio dei nomi di hub eventi. |

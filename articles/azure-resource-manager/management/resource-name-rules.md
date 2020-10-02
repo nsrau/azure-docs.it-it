@@ -2,13 +2,13 @@
 title: Restrizioni di denominazione per le risorse
 description: Illustra le regole e le restrizioni di denominazione per le risorse di Azure.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: a4c3bf58bf5e84051b1e21863d2d581af5fa9f23
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/01/2020
+ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447534"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653367"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regole di denominazione e restrizioni per le risorse di Azure
 
@@ -174,7 +174,7 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > | galleries/images/versions | image | Intero a 32 bit | Numeri e punti. |
 > | images | gruppo di risorse | 1-80 | Caratteri alfanumerici, caratteri di sottolineatura, punti e trattini.<br><br>Deve iniziare con un carattere alfanumerico. Deve terminare con un carattere alfanumerico o di sottolineatura. |
 > | snapshots | gruppo di risorse | 1-80 | Caratteri alfanumerici, caratteri di sottolineatura, punti e trattini.<br><br>Deve iniziare con un carattere alfanumerico. Deve terminare con un carattere alfanumerico o di sottolineatura. |
-> | virtualMachines | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare lo spazio o i caratteri seguenti:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Non può iniziare con un carattere di sottolineatura. Non può terminare con un punto o un trattino. |
+> | virtualMachines | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare lo spazio o i caratteri seguenti:<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Le macchine virtuali Windows non possono includere il punto o terminare con il trattino.<br><br>Le macchine virtuali Linux non possono terminare con un punto o un segno meno. |
 > | virtualMachineScaleSets | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare lo spazio o i caratteri seguenti:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Non può iniziare con un carattere di sottolineatura. Non può terminare con un punto o un trattino. |
 
 > [!NOTE]

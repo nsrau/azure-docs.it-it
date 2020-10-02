@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 711bcc06a65483921492aaad819b961fc09740d4
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 87314e38225d6e08f81ce6c3855f70a13db9c6bf
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067036"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653180"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per la GPU
 
@@ -21,7 +21,7 @@ Le dimensioni delle VM ottimizzate per GPU sono macchine virtuali specializzate 
 
 - Le dimensioni serie [NC](nc-series.md), [NCv2](ncv2-series.md), [NCv3](ncv3-series.md) e serie [NCT4_v3](nct4-v3-series.md) sono ottimizzate per le applicazioni e gli algoritmi a elevato utilizzo di calcolo e di rete. Di seguito sono riportati alcuni esempi di applicazioni e simulazioni basate su CUDA e OpenCL, intelligenza artificiale e apprendimento avanzato. La serie NCT4v3 è incentrata sui carichi di lavoro di inferenza dotati di NVIDIA Tesla T4 GPU e AMD EPYC2 Rome Processor. La serie NCv3 è progettata per i carichi di lavoro HPC (High-Performance Computing) e dotata di GPU NVIDIA Tesla V100. La serie NC USA il processore Intel Xeon E5-2690 V3 2.60 GHz V3 (Haswell) e le VM serie NCv2 e NCv3 usano il processore Intel Xeon E5-2690 V4 (Broadwell).
 
-- Le serie [ND](nd-series.md)e [NDv2](ndv2-series.md) sono incentrate sugli scenari di formazione e inferenza per l'apprendimento avanzato. Usano NVIDIA Tesla P40 GPU e il processore Intel Xeon E5-2690 V4 (Broadwell). La serie NDv2 usa il processore Intel Xeon Platinum 8168 (Skylake).
+- Le serie [ND](nd-series.md)e [NDv2](ndv2-series.md) sono incentrate sugli scenari di formazione e inferenza per l'apprendimento avanzato. La serie ND USA NVIDIA Tesla P40 GPU e il processore Intel Xeon E5-2690 V4 (Broadwell). La serie NDv2 USA NVIDIA volta V100 e il processore Intel Xeon Platinum 8168 (Skylake).
 
 - Le dimensioni serie [NV](nv-series.md) e [NVv3](nvv3-series.md) sono ottimizzate e progettate per scenari di visualizzazione remota, streaming, giochi, codifica e VDI usando Framework come OpenGL e DirectX. Queste macchine virtuali hanno GPU NVIDIA Tesla M60.
 

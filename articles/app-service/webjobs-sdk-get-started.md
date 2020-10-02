@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: eebdf053cc3eea1dfc91476bff3817891bec42a3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959057"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652041"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -264,13 +264,13 @@ In questa sezione si compila e si esegue il progetto in locale e si attiva la fu
 
 1. Immettere *queue* come nome della coda e quindi selezionare **OK**.
 
-   ![Crea coda](./media/webjobs-sdk-get-started/create-queue.png)
+   ![Screenshot che mostra dove creare la coda e assegnarle il nome "Queue". ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. Fare clic con il pulsante destro del mouse sul nodo della nuova coda e quindi scegliere **Visualizza coda**.
 
 1. Selezionare l'icona **Aggiungi messaggio**.
 
-   ![Crea coda](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![Screenshot che evidenzia l'icona Aggiungi messaggio.](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. Nella finestra di dialogo **Aggiungi messaggio** immettere *Hello World!* come **Testo messaggio** e quindi selezionare **OK**. È ora presente un messaggio nella coda.
 

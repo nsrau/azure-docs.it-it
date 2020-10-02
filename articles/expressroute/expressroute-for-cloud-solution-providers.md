@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: ec3f8f71713abb818f29458748eb0054390f474e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396676"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653639"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute per Cloud Solution Provider (CSP)
 Microsoft fornisce servizi su vasta scala per consentire a rivenditori e distributori tradizionali (CSP) di effettuare rapidamente il provisioning di nuovi servizi e soluzioni per i clienti senza dover investire nello sviluppo di questi nuovi servizi. Per offrire al Cloud Solution Provider (CSP) la possibilità di gestire direttamente questi nuovi servizi, Microsoft fornisce programmi e API che consentono al CSP di gestire le risorse di Microsoft Azure per conto dei clienti. Una di queste risorse è ExpressRoute. ExpressRoute consente al CSP di connettere le risorse esistenti dei clienti ai servizi di Azure. ExpressRoute è un collegamento di comunicazione privata ad alta velocità ai servizi in Azure. 
@@ -34,18 +34,18 @@ Microsoft fornisce CSP con API per gestire le sottoscrizioni dei clienti di Azur
 La modalità di gestione della sottoscrizione dipende dal contratto stipulato con il cliente. Il CSP può gestire direttamente la creazione e la manutenzione delle risorse oppure il cliente può mantenere il controllo della sottoscrizione di Microsoft Azure e creare le risorse di Azure necessarie. Se il cliente gestisce la creazione delle risorse nella sottoscrizione di Microsoft Azure, utilizzerà uno dei due modelli seguenti: modello "*Connect-through*" o "*Direct-to*". Questi modelli vengono descritti in dettaglio nelle sezioni seguenti.  
 
 ### <a name="connect-through-model"></a>Modello di connessione indiretta
-![testo alternativo](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
+![Diagramma che mostra il modello "Connect-through".](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 In questo modello il CSP crea una connessione diretta tra il data center e la sottoscrizione di Azure del cliente. La connessione diretta viene stabilita usando ExpressRoute, che connette la rete ad Azure. Il cliente quindi si connette alla rete. Questo scenario prevede che il cliente passi attraverso la rete CSP per accedere ai servizi di Azure. 
 
 Se il cliente ha altre sottoscrizioni di Azure non gestite dall'utente, utilizzerebbe la rete Internet pubblica o la propria connessione privata per connettersi ai servizi di cui è stato effettuato il provisioning nella sottoscrizione non CSP. 
 
-Per il CSP che gestisce i servizi di Azure, si presuppone che il CSP disponga di un archivio di identità dei clienti precedentemente stabilito, che verrebbe quindi replicato in Azure Active Directory per la gestione della sottoscrizione CSP tramite l'amministrazione per conto di (AOBO). I driver chiave per questo scenario includono il fatto che un determinato partner o provider di servizi ha stabilito una relazione con il cliente, il cliente utilizza attualmente i servizi del provider o il partner ha il desiderio di fornire una combinazione di soluzioni ospitate dal provider e ospitate da Azure per fornire flessibilità e risolvere le esigenze dei clienti che non possono essere soddisfatte solo da CSP. Questo modello è illustrato nella **figura**seguente.
+Per il CSP che gestisce i servizi di Azure, si presuppone che il CSP disponga di un archivio di identità dei clienti precedentemente stabilito, che verrebbe quindi replicato in Azure Active Directory per la gestione della sottoscrizione CSP tramite l'amministrazione per conto di (AOBO). I driver chiave per questo scenario includono il fatto che un determinato partner o provider di servizi ha stabilito una relazione con il cliente, il cliente utilizza attualmente i servizi del provider o il partner ha il desiderio di fornire una combinazione di soluzioni ospitate dal provider e ospitate da Azure per fornire flessibilità e risolvere le esigenze dei clienti che non possono essere soddisfatte solo da CSP. Questo modello è illustrato nella **Figura** seguente.
 
-![testo alternativo](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
+![Diagramma che mostra uno scenario dettagliato per il modello "Connect-through".](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
 ### <a name="connect-to-model"></a>Modello di connessione diretta
-![testo alternativo](./media/expressroute-for-cloud-solution-providers/connect-to.png)
+![Diagramma che mostra il modello "Connetti a".](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 In questo modello il provider di servizi crea una connessione diretta tra il data center del cliente e la sottoscrizione di Azure di cui viene effettuato il provisioning dal CSP usando ExpressRoute nella rete del cliente (cliente).
 
@@ -56,7 +56,7 @@ In questo modello il provider di servizi crea una connessione diretta tra il dat
 
 Questo scenario di connettività richiede che il cliente si connetta direttamente tramite una rete del cliente per accedere alla sottoscrizione di Azure gestita da CSP, usando una connessione di rete diretta creata, di proprietà e gestita interamente o in parte dal cliente. Per questi clienti si presuppone che il provider non disponga attualmente di un archivio di identità del cliente stabilito e che il provider contribuisca al cliente a replicare il proprio archivio di identificazione corrente nel Azure Active Directory per la gestione della propria sottoscrizione tramite AOBO. I fattori chiave di questo scenario includono dove un determinato partner o provider di servizi ha stabilito una relazione con il cliente, dove il cliente utilizza attualmente i servizi del provider o dove il partner vuole fornire servizi basati esclusivamente su soluzioni ospitate da Azure senza la necessità di un data center o di un'infrastruttura del provider esistente.
 
-![testo alternativo](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
+![Diagramma che mostra uno scenario dettagliato per il modello "Connetti a".](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 Le scelte tra queste due opzioni sono basate sulle esigenze del cliente e sulla necessità di fornire i servizi di Azure. Informazioni dettagliate su questi modelli e sul controllo degli accessi in base al ruolo associato, sulla rete e sugli schemi progettuali delle identità sono disponibili nel collegamenti seguenti:
 
@@ -95,7 +95,7 @@ ExpressRoute offre tre domini di routing: peer pubblico, privato e Microsoft. Og
 > 
 > 
 
-## <a name="routing"></a>Routing.
+## <a name="routing"></a>Routing
 ExpressRoute si connette alle reti di Azure tramite il gateway di rete virtuale di Azure. I gateway di rete forniscono il routing per le reti virtuali di Azure.
 
 Con la creazione delle reti virtuali di Azure viene creata anche una tabella di routing predefinita che consente alla rete virtuale di indirizzare il traffico alle/dalle subnet della rete virtuale. Se la tabella di route predefinita non è sufficiente per la soluzione, possono essere create route personalizzate per instradare il traffico in uscita ad appliance personalizzate o per bloccare le route a reti esterne o subnet specifiche.
@@ -109,7 +109,7 @@ La tabella di route predefinita include le route seguenti:
 * Da rete virtuale a rete virtuale con un gateway VPN
 * Da rete virtuale a rete locale con un gateway VPN o ExpressRoute
 
-![testo alternativo](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
+![Diagramma che mostra le opzioni di routing predefinite.](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>Routing definito dall'utente
 Le route definite dall'utente consentono di controllare il traffico in uscita dalla subnet assegnata ad altre subnet nella rete virtuale o su uno degli altri gateway predefiniti (ExpressRoute, Internet o VPN). La tabella di routing di sistema predefinita può essere sostituita con una tabella di routing definita dall'utente che sostituisce la tabella di routing predefinita con route personalizzate. Con il routing definito dall'utente, i clienti possono creare route specifiche alle appliance, ad esempio firewall o appliance per il rilevamento di intrusioni, o bloccare l'accesso a subnet specifiche dalla subnet che ospita la route definita dall'utente. Per una panoramica delle route definite dall'utente, vedere [qui](../virtual-network/virtual-networks-udr-overview.md). 

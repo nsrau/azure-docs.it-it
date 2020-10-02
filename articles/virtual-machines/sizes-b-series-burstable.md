@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: a5a3887efe9b8f19608fac63216ca53576d9ec3f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8591b703382049346fe019b89a5f31517380757f
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654736"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653418"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali della serie B con supporto per burst
 
@@ -21,13 +21,12 @@ Le macchine virtuali della serie B sono ideali per i carichi di lavoro che non n
 
 La serie B è dotata delle dimensioni seguenti per le macchine virtuali:
 
-Archiviazione Premium:  Supportato
-
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
-
-Live Migration: Supportato
-
-Manutenzione con mantenimento della memoria: Supportato
+[Archiviazione Premium](premium-storage-performance.md): supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): non supportato<br>
+[Live Migration](maintenance-and-updates.md): supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+<br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Prestazioni base della CPU della VM | Prestazioni massime della CPU della VM | Crediti iniziali | Crediti in banca/ora | Crediti massimi accumulati | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Schede di interfaccia di rete max |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

@@ -7,24 +7,23 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bd62d7f7c04896a8a62ab1290ddbc9370934d333
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 38365cc144bbffbedfa1416112c5f8eca2b5fc13
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286241"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653520"
 ---
 # <a name="nc-series"></a>Serie NC
 
 Le macchine virtuali della serie NC sono basate sulla scheda [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) e sul processore Intel Xeon E5-2690 V3 (Haswell). Gli utenti possono elaborare i dati più velocemente sfruttando i core CUDA per eseguire l'analisi del consumo delle applicazioni, simulazioni di arresto anomalo, rendering con ray tracing, Deep Learning e altro ancora. La configurazione NC24r offre un'interfaccia di rete ad alta velocità effettiva e a bassa latenza, ottimizzata per carichi di lavoro di calcolo paralleli strettamente associati.
 
-Archiviazione Premium:  Non supportato
-
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
-
-Live Migration: Non supportato
-
-Manutenzione con mantenimento della memoria: Non supportato
+[Archiviazione Premium](premium-storage-performance.md): non supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): non supportato<br>
+[Live Migration](maintenance-and-updates.md): non supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
+<br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Schede di interfaccia di rete max |
 |---|---|---|---|---|---|---|---|

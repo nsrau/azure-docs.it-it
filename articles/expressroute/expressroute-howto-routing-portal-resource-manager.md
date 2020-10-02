@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/13/2019
 ms.author: duau
-ms.openlocfilehash: 8ac38c25821a9f636ac98903599ee7d3acfa5e17
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ccbd9645ac7d331c06e528298b3a45a184c6cc49
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395724"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652228"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Creare e modificare i peering per un circuito ExpressRoute
 
 Questo articolo illustra come creare e gestire la configurazione di routing per un circuito ExpressRoute di Azure Resource Manager (ARM), usando il portale di Azure. La procedura seguente mostra anche come controllare lo stato e aggiornare, eliminare o effettuare il deprovisioning dei peering per un circuito ExpressRoute. Se si vuole usare un metodo diverso per eseguire operazioni nel circuito, selezionare l'articolo appropriato nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Portale di Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-routing-cli.md)
 > * [Peering pubblico](about-public-peering.md)

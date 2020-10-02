@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2020
-ms.openlocfilehash: 9ee433f226b37c8ffd6ad466cca7cbd844d53524
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 10/01/2020
+ms.openlocfilehash: 5627d6afab22defebeebd3f04695ef95390f1163
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535978"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653316"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Lead di clienti tramite l'offerta del marketplace commerciale
 
@@ -44,7 +44,7 @@ Di seguito sono riportati i punti in cui viene generato un lead.
 
 ## <a name="connect-to-your-crm-system"></a>Connettersi al sistema CRM
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Links to lead configuration for different CRM systems](./includes/connect-lead-management.md)]
 
 ## <a name="understand-lead-data"></a>Informazioni sui dati dei lead
 
@@ -94,78 +94,8 @@ Di seguito sono riportati alcuni suggerimenti per guidare i lead nel ciclo di ve
 - **Completamento**: non dimenticare di seguirli entro 24 ore. Si otterrà il lead nel CRM preferito immediatamente dopo la distribuzione di un test drive da parte del cliente; inviare un messaggio di posta elettronica all'interno di mentre sono ancora a caldo. Richiede la pianificazione di una telefonata per comprendere meglio se il prodotto è una soluzione ottimale per il problema. Si prevede che la transazione tipica richieda numerose chiamate di completamento.
 - **Seguire**: consolidare i lead in modo da raggiungere un margine di profitto superiore. Archiviarli senza bombardarli. Si consiglia di inviare messaggi di posta elettronica almeno alcune volte prima di chiuderli; non abbandonarsi dopo il primo tentativo. Tenere presente che questi clienti hanno partecipato direttamente al prodotto e hanno dedicato tempo a una versione di valutazione gratuita; sono ottime prospettive.
 
-## <a name="common-questions-about-lead-management"></a>Domande frequenti sulla gestione dei lead
-
-### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Dove è possibile ottenere assistenza per configurare la destinazione dei lead?
-
-Attenersi alla procedura illustrata nella sezione [Connettersi al sistema CRM](#connect-to-your-crm-system) o inviare un ticket di supporto tramite la [Guida e il supporto tecnico del Centro per i partner](https://aka.ms/marketplacepublishersupport). Selezionare quindi **Offer creation (Creazione offerta)**  > **Your type of offer (Tipo di offerta)**  > **Lead management configuration (Configurazione di gestione dei lead)** .
-
-### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>È necessario configurare una destinazione dei lead per pubblicare un'offerta nel marketplace commerciale?
-
-La risposta dipende dal tipo di offerta che si sta pubblicando. Software as a service (SaaS) e Dynamics 365 Customer Engagement usano il pulsante **Contatta** per elencare tutte le offerte di Dynamics 365 per Finanza e operazioni, tutte le offerte di Dynamics 365 Business Central e tutte le offerte dei Servizi di consulenza. Di conseguenza, richiedono una connessione a una destinazione lead. Se il tipo di offerta non è presente nell'elenco, non è necessaria una connessione a una destinazione lead. Si consiglia di configurare una destinazione lead in modo da non perdere le opportunità aziendali.
-
-### <a name="how-can-i-find-the-test-lead"></a>Come si trova il lead di test?
-
-Cercare `"MSFT_TEST"` nella destinazione del lead. Di seguito è riportato un esempio di lead di test di Microsoft. Si noti che il formato del lead di test varia a seconda della destinazione principale.
-
-```
-{
-    "UserDetails": {
-      "FirstName": "MSFT_TEST_636573304831318844",
-      "LastName": "MSFT_TEST_636573304831318844",
-      "Email": "MSFT_TEST_636573304831318844@test.com",
-      "Phone": "1234567890",
-      "Country": "US",
-      "Company": "MSFT_TEST_636573304831318844",
-      "Title": "MSFT_TEST_636573304831318844"
-    },
-    "LeadSource": "AzureMarketplace",
-    "ActionCode": "INS",
-    "OfferTitle": "Contoso Test"
-    "Description": "MSFT_TEST_636573304831318844"
-}
-```
-
-### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>Perché per un'offerta attiva non è visualizzato alcun lead?
-
-Verificare che la connessione alla destinazione del lead sia valida. Microsoft invierà un lead di test dopo aver selezionato **Pubblica** sull'offerta nel Centro per i partner. Se viene visualizzato il lead di test, la connessione è valida. È anche possibile testare la connessione del lead provando ad acquisire l'anteprima dell'offerta durante il passaggio dell'anteprima. Selezionare **Scarica adesso**, **Contatta** o **Versione di valutazione gratuita** nell'inserzione nel marketplace commerciale.
-
-Assicurarsi inoltre di cercare i dati corretti. Il contenuto della sezione [Informazioni sui dati dei lead](#understand-lead-data) di questo articolo descrive i dati inviati alla destinazione dei lead.
-
-### <a name="i-configured-azure-blob-storage-as-my-lead-destination-but-why-dont-i-see-the-lead"></a>È stata configurata l'archiviazione BLOB di Azure come destinazione dei lead. Perché il lead non è visualizzato?
-
-L'archiviazione BLOB di Azure non è più supportata come destinazione dei lead, quindi mancano i lead dei clienti generati dall'offerta. Passare a qualsiasi altra [opzione di destinazione dei lead](./commercial-marketplace-get-customer-leads.md). 
-
-### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>È stato ricevuto un messaggio di posta elettronica dal marketplace commerciale, perché non si riesce a trovare il lead nel sistema CRM?
-
-È possibile che il dominio di posta elettronica dell'utente finale sia di tipo edu. Per motivi di privacy, le informazioni personali non vengono passate da questo tipo di domini. Inviare un ticket di supporto tramite la [Guida e il supporto tecnico del Centro per i partner](https://aka.ms/marketplacepublishersupport).
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>È stata configurata una tabella di Azure come destinazione dei lead. Come è possibile visualizzare i lead?
-
-È possibile accedere ai dati dei lead archiviati nella tabella di Azure dal portale di Azure. È possibile inoltre scaricare e installare gratuitamente [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per visualizzare i dati delle tabelle del proprio account di archiviazione di Azure.
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-commercial-marketplace-lead-is-sent"></a>È stata configurata una tabella di Azure come destinazione dei lead. Posso ricevere una notifica ogni volta che viene inviato un nuovo lead del marketplace commerciale?
-
-Sì. Seguire le istruzioni in [Usare le tabelle di Azure per configurare la gestione dei lead](./commercial-marketplace-lead-management-instructions-azure-table.md) per configurare un flusso Microsoft che invia un messaggio di posta elettronica se viene aggiunto un lead alla tabella di Azure.
-
-### <a name="i-configured-salesforce-as-my-lead-destination-but-why-cant-i-find-the-leads"></a>È stato configurato Salesforce come destinazione dei lead. Perché i lead non sono visualizzati?
-
-Verificare se il modulo Web-to-Lead (Da Web a lead) è un campo obbligatorio in base a un elenco a discesa. Se lo è, impostarlo su un campo di testo non obbligatorio.
-
-### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>C'è stato un problema con la destinazione dei lead e non si sono visti alcuni lead. È possibile riceverli tramite posta elettronica?
-
-A causa dei criteri relativi ai dati personali, non è possibile condividere informazioni sui lead tramite posta elettronica non protetta.
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>È stata configurata una tabella di Azure come destinazione dei lead. Quale sarà il costo?
-
-I dati sulla generazione dei lead sono scarsi. Sono inferiori a 1 GB per quasi tutti gli autori. Il costo dipende dal numero di lead ricevuti. Se, ad esempio, vengono ricevuti 1.000 lead in un mese, il costo è di circa 50 centesimi. Per altre informazioni sui prezzi dell'archiviazione, vedere [Panoramica dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
-
-Se non è stata fornita una risposta alla domanda, contattare il supporto tecnico Microsoft tramite la [Guida e il supporto tecnico del Centro per i partner](https://aka.ms/marketplacepublishersupport). Selezionare quindi **Offer creation (Creazione offerta)**  > **Your type of offer (Tipo di offerta)**  > **Lead management configuration (Configurazione di gestione dei lead)** .
-
-### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>Ricevo notifiche tramite posta elettronica quando vengono ricevuti nuovi lead. Come è possibile configurare un altro utente per la ricezione di questi messaggi di posta elettronica?
-
-Accedere alla propria offerta nel Centro per i partner e passare alla pagina **Offer setup (Configurazione dell'offerta)** > **Lead Management (Gestione dei lead)**  > **Modifica**. Aggiornare gli indirizzi di posta elettronica nel campo **Indirizzo di posta elettronica di contatto**.
+Dopo che è stata eseguita la configurazione tecnica, incorporare i lead nella strategia di vendita e marketing e nei processi operativi correnti. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dati sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Sono graditi [feedback](mailto:AzureMarketOnboard@microsoft.com) e suggerimenti che consentano al team di vendita di sviluppare i lead del marketplace commerciale in modo ottimale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo che è stata eseguita la configurazione tecnica, incorporare i lead nella strategia di vendita e marketing e nei processi operativi correnti. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dati sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Sono graditi [feedback](mailto:AzureMarketOnboard@microsoft.com) e suggerimenti che consentano al team di vendita di sviluppare i lead del marketplace commerciale in modo ottimale.
+- [Domande frequenti e risoluzione dei problemi di gestione dei lead](../lead-management-faq.md)

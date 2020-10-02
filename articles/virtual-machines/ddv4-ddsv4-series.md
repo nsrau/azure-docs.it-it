@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 3c51a00e5760a2dac1648cc938416625bd52ddb7
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5f09ed7aeb6e8b60093681abb16923ec23fd7f57
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649908"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652993"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Serie Ddv4 e Ddsv4
 
@@ -28,15 +28,13 @@ Le dimensioni serie Ddv4, dotate di processore Intel&reg; Xeon&reg; Platinum 827
 
 Le nuove dimensioni delle macchine virtuali Ddv4 prevedono una risorsa di archiviazione SSD locale veloce e più grande (fino a 2.400 GiB) e sono progettate per applicazioni in grado di sfruttare una bassa latenza e una risorsa di archiviazione locale ad alta velocità, come le applicazioni che richiedono un'alta velocità di lettura/scrittura per l'archiviazione temporanea o per le quali è necessaria l'archiviazione temporanea per cache o file temporanei. Alle macchine virtuali Ddv4 è possibile collegare risorse di archiviazione SSD Standard e HDD Standard. L'archiviazione su disco dati remoto viene fatturata separatamente dalle macchine virtuali.
 
-ACU: 195-210
-
-Archiviazione Premium:  Non supportato
-
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
-
-Live Migration: Supportato
-
-Manutenzione con mantenimento della memoria: Supportato
+[ACU](acu.md): 195-210<br>
+[Archiviazione Premium](premium-storage-performance.md): non supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): non supportato<br>
+[Live Migration](maintenance-and-updates.md): supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
+<br> 
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Schede di interfaccia di rete max|Larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -57,15 +55,13 @@ Le nuove dimensioni delle macchine virtuali Ddsv4 prevedono una risorsa di archi
  > [!NOTE]
  >I prezzi e i contatori di fatturazione per le dimensioni Ddsv4 sono uguali a quelli della serie Ddv4.
 
-ACU: 195-210
-
-Archiviazione Premium:  Supportato
-
-Memorizzazione nella cache Archiviazione Premium:  Supportato
-
-Live Migration: Supportato
-
-Manutenzione con mantenimento della memoria: Supportato
+[ACU](acu.md): 195-210<br>
+[Archiviazione Premium](premium-storage-performance.md): supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
+[Live Migration](maintenance-and-updates.md): supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+<br> 
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Schede di interfaccia di rete max|Larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|---|

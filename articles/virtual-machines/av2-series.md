@@ -7,27 +7,24 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 33d481d546d94bb1279cafbd85ae23c8ac4d00b8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 65aab240dd0be97aafa370883aa953f8eb766cf2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437268"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650749"
 ---
 # <a name="av2-series"></a>Serie Av2
 
 Le macchine virtuali di serie Av2 possono essere distribuite su una vasta gamma di tipi di hardware e processori. Le macchine virtuali della serie AV2 hanno configurazioni di memoria e prestazioni della CPU più adatte per carichi di lavoro a livello di voce quali sviluppo e test. La dimensione è limitata per offrire prestazioni del processore coerenti per l'istanza in esecuzione, indipendentemente dall'hardware in cui è distribuita. Per determinare l'hardware fisico in cui viene distribuita questa dimensione, eseguire una query nell'hardware virtuale dall'interno della macchina virtuale. Alcuni casi d'uso di esempio includono server di sviluppo e test, server Web con traffico ridotto, database di piccole e medie dimensioni, modelli di prova e repository di codice.
 
-ACU: 100
-
-Archiviazione Premium:  Non supportato
-
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
-
-Live Migration: Supportato
-
-Manutenzione con mantenimento della memoria: Supportato
-
+[ACU](acu.md): 100<br>
+[Archiviazione Premium](premium-storage-performance.md): non supportata <br>
+[Caching archiviazione Premium](premium-storage-performance.md): non supportato <br>
+[Live Migration](maintenance-and-updates.md): supportato <br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati <br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1 <br>
+<br>
 
 | Dimensione | vCore | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/Mbps di scrittura | Numero massimo di dischi dati/velocità effettiva: IOPS | Schede di interfaccia di rete max | Larghezza di banda di rete prevista (Mbps)
 |---|---|---|---|---|---|---|---|

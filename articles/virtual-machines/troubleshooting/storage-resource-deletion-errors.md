@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8209f5b7fc02f59c33ad0a7b58ec6305d6eecf0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8d727bc8bdc8f015504baa57f9596b3bacac9712
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320082"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651634"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Risolvere gli errori di eliminazione delle risorse di archiviazione
 
@@ -95,7 +95,7 @@ Se il disco rigido virtuale è un disco dati, scollegarlo dalla macchina virtual
 7. Selezionare **Modifica** nella parte superiore del riquadro **Dischi**.
 8. Fare clic sull'**icona di scollegamento** del disco dati da eliminare.
 
-     ![Schermata del portale, con il riquadro "Metadati BLOB" dell'account di archiviazione aperto](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
+     ![Screenshot del portale, con il riquadro "metadati BLOB" di archiviazione aperto ed evidenzia l'icona di scollegamento del disco dati da eliminare.](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
 
 9. Selezionare **Salva**. Il disco a questo punto è scollegato dalla macchina virtuale e non esiste più un lease per il disco rigido virtuale. Il rilascio del lease può richiedere alcuni minuti. Per verificare che il lease sia stato rilasciato, selezionare il percorso del BLOB e nel riquadro **Proprietà BLOB** il valore di **Stato lease** deve essere **Sbloccato** o **Disponibile**.
 

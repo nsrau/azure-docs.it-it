@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: d778b3ae0889ea0bf9cc38ca5813ac61fc5fcdbe
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91595655"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649797"
 ---
 # <a name="outbound-connections"></a>Connessioni in uscita
 
@@ -160,7 +160,7 @@ Ognuno degli indirizzi IP all'interno del prefisso IP pubblico fornisce altre po
 
 ### <a name="outbound-flow-idle-timeout-and-tcp-reset"></a><a name="idletimeout"></a> Timeout di inattività del flusso in uscita e ripristino TCP
 
-Le regole in uscita includono un parametro di configurazione per controllare il timeout di inattività per i flussi in uscita in modo da adattarlo alle esigenze dell'applicazione. Il timeout di inattività in uscita è per impostazione predefinita di 4 minuti. Per altre informazioni, vedere [configurare i timeout di inattività](load-balancer-tcp-idle-timeout.md#tcp-idle-timeout). 
+Le regole in uscita includono un parametro di configurazione per controllare il timeout di inattività per i flussi in uscita in modo da adattarlo alle esigenze dell'applicazione. Il timeout di inattività in uscita è per impostazione predefinita di 4 minuti. Per altre informazioni, vedere [configurare i timeout di inattività](load-balancer-tcp-idle-timeout.md). 
 
 Il comportamento predefinito del servizio di bilanciamento del carico prevede l'eliminazione invisibile del flusso quando è stato raggiunto il timeout di inattività in uscita. Il `enableTCPReset` parametro abilita un comportamento e un controllo dell'applicazione stimabile. Il parametro determina se inviare la reimpostazione TCP (TCP RST) bidirezionale al timeout del timeout di inattività in uscita. 
 

@@ -3,12 +3,12 @@ title: Guida alla configurazione accelerata di un lab per le classi per Azure La
 description: Questa guida consente agli autori di lab di configurare rapidamente un account apposito da usare all'interno della scuola.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ad1a679c556316c2d23a713ffa5ac5dfe86cce0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 510aa97a0a47e62f627203495c601bb2538e19ad
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445577"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652211"
 ---
 # <a name="classroom-lab-setup-guide"></a>Guida alla configurazione di un lab per le classi
 
@@ -60,9 +60,6 @@ Lab Services usa un modello di prezzi con pagamento in base al consumo dove il c
 - **Pianificazione**: una pianificazione consente di controllare automaticamente quando le macchine virtuali dei lab vengono avviate e arrestate.
 - **Quota**: la quota controlla il numero di ore in cui gli studenti avranno accesso a una macchina virtuale al di fuori delle ore pianificate. Se la quota viene raggiunta durante l'uso da parte di uno studente, la macchina virtuale viene arrestata automaticamente. Lo studente potrà riavviare la macchina virtuale solo se la quota viene aumentata.
 - **Arresto automatico**: quando è abilitata, questa impostazione determina l'arresto automatico delle macchine virtuali Windows dopo un certo periodo di tempo, dopo che uno studente si è disconnesso da una sessione Remote Desktop Protocol (RDP). Per impostazione predefinita, questa impostazione è disabilitata.  
-
-    > [!NOTE]
-    > Questa impostazione è attualmente disponibile solo per Windows.
 
 ### <a name="how-will-students-save-their-work"></a>In che modo gli studenti salveranno il proprio lavoro?
 

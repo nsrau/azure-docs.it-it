@@ -2,13 +2,13 @@
 title: Eliminazioni della cronologia di distribuzione
 description: Viene descritto come Azure Resource Manager Elimina automaticamente le distribuzioni dalla cronologia di distribuzione. Le distribuzioni vengono eliminate quando la cronologia è prossima al superamento del limite di 800.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 0c5d972eea9bc9cf2bf8716b26cd0e07d0a07b82
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/01/2020
+ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284734"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652483"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Eliminazioni automatiche dalla cronologia di distribuzione
 
@@ -23,7 +23,7 @@ Azure Resource Manager Elimina automaticamente le distribuzioni dalla cronologia
 
 ## <a name="when-deployments-are-deleted"></a>Quando vengono eliminate le distribuzioni
 
-Le distribuzioni vengono eliminate dalla cronologia quando si raggiungono 775 o più distribuzioni. Azure Resource Manager Elimina le distribuzioni finché la cronologia non è impostata su 750. Le distribuzioni meno recenti vengono sempre eliminate per prime.
+Le distribuzioni vengono eliminate dalla cronologia quando si superano 775 distribuzioni. Azure Resource Manager Elimina le distribuzioni finché la cronologia non è impostata su 750. Le distribuzioni meno recenti vengono sempre eliminate per prime.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Eliminazioni dalla cronologia di distribuzione":::
 

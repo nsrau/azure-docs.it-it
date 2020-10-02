@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 78d707c0b5afd745ae805c9513243f3791d47c60
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: dd755e1bc220d61aa540a0e7da9e3f174bde9d76
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654753"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652925"
 ---
 # <a name="lsv2-series"></a>Serie Lsv2
 
@@ -25,17 +25,14 @@ La serie Lsv2 offre velocità effettiva elevata, bassa latenza, risorse di archi
 >
 > Per altre informazioni, vedere ottimizzare le prestazioni nelle macchine virtuali della serie Lsv2 per [Windows](../virtual-machines/windows/storage-performance.md) o [Linux](../virtual-machines/linux/storage-performance.md).  
 
-ACU: 150-175
-
-In sequenza: supportato
-
-Archiviazione Premium: supportata
-
-Caching archiviazione Premium: non supportato
-
-Live Migration: Non supportato
-
-Manutenzione con mantenimento della memoria: Non supportato
+[ACU](acu.md): 150-175<br>
+[Archiviazione Premium](premium-storage-performance.md): supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): non supportato<br>
+[Live Migration](maintenance-and-updates.md): non supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+In sequenza: supportato<br>
+<br>
 
 | Dimensione | vCPU | Memoria (GiB) | Disco temporaneo<sup>1</sup> (GiB) | Dischi NVMe<sup>2</sup> | Velocità effettiva del disco NVMe<sup>3</sup> (letture IOPS/Mbps) | Velocità effettiva del disco dati non memorizzata nella cache (IOPs/MBps)<sup>4</sup> | Velocità effettiva massima del disco dati non memorizzato nella cache (IOPs/MBps)<sup>5</sup>| Numero massimo di dischi dati | Schede di interfaccia di rete max | Larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|---|

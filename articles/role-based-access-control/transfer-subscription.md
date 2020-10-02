@@ -1,5 +1,5 @@
 ---
-title: Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)
+title: Trasferire una sottoscrizione di Azure a una directory Azure AD diversa
 description: Informazioni su come trasferire una sottoscrizione di Azure e le risorse correlate note a una directory Azure Active Directory (Azure AD) diversa.
 services: active-directory
 author: rolyon
@@ -10,19 +10,14 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: ab004c11b46428c5fad28177b0d94edc04b95654
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6d0c0333186655d4f105337021164814453ab47a
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400545"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652385"
 ---
-# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)
-
-> [!IMPORTANT]
-> La procedura seguente per trasferire una sottoscrizione a una directory Azure AD diversa è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Trasferire una sottoscrizione di Azure a una directory Azure AD diversa
 
 Le organizzazioni potrebbero avere più sottoscrizioni di Azure. Ogni sottoscrizione è associata a una particolare directory Azure Active Directory (Azure AD). Per semplificare la gestione, è consigliabile trasferire una sottoscrizione a un'altra directory di Azure AD. Quando si trasferisce una sottoscrizione a una directory Azure AD diversa, alcune risorse non vengono trasferite alla directory di destinazione. Ad esempio, tutte le assegnazioni di ruolo e i ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure (RBAC di Azure) vengono eliminati **definitivamente** dalla directory di origine e non vengono trasferiti alla directory di destinazione.
 
@@ -81,7 +76,7 @@ Diverse risorse di Azure hanno una dipendenza da una sottoscrizione o una direct
 | Sincronizzazione file di Azure | Sì | Sì |  |  |
 | Azure Managed Disks | Sì | N/D |  |  |
 | Servizi contenitore di Azure per Kubernetes | Sì | Sì |  |  |
-| Azure Active Directory Domain Services | Sì | No |  |  |
+| Servizi di dominio Azure Active Directory | Sì | No |  |  |
 | Registrazioni per l'app | Sì | Sì |  |  |
 
 > [!WARNING]
@@ -91,7 +86,7 @@ Diverse risorse di Azure hanno una dipendenza da una sottoscrizione o una direct
 
 Per completare questi passaggi, sarà necessario:
 
-- [Bash in Azure cloud Shell o nell'interfaccia della riga di comando di](/azure/cloud-shell/overview) [Azure](https://docs.microsoft.com/cli/azure)
+- [Bash in Azure cloud Shell o nell'interfaccia della riga di comando di](/azure/cloud-shell/overview) [Azure](/cli/azure)
 - Amministratore account della sottoscrizione che si desidera trasferire nella directory di origine
 - Ruolo [proprietario](built-in-roles.md#owner) nella directory di destinazione
 
@@ -101,13 +96,13 @@ Per completare questi passaggi, sarà necessario:
 
 1. Accedere ad Azure come amministratore.
 
-1. Ottenere un elenco delle sottoscrizioni con il comando [AZ account list](/cli/azure/account#az-account-list) .
+1. Ottenere un elenco delle sottoscrizioni con il comando [AZ account list](/cli/azure/account#az_account_list) .
 
     ```azurecli
     az account list --output table
     ```
 
-1. Usare [AZ account set](https://docs.microsoft.com/cli/azure/account#az-account-set) per impostare la sottoscrizione attiva che si desidera trasferire.
+1. Usare [AZ account set](/cli/azure/account#az_account_set) per impostare la sottoscrizione attiva che si desidera trasferire.
 
     ```azurecli
     az account set --subscription "Marketing"
@@ -115,9 +110,9 @@ Per completare questi passaggi, sarà necessario:
 
 ### <a name="install-the-resource-graph-extension"></a>Installare l'estensione Graph di risorse
 
- L'estensione Graph di risorse consente di usare il comando [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) per eseguire query sulle risorse gestite da Azure Resource Manager. Questo comando verrà usato nei passaggi successivi.
+ L'estensione Graph di risorse consente di usare il comando [AZ Graph](/cli/azure/ext/resource-graph/graph) per eseguire query sulle risorse gestite da Azure Resource Manager. Questo comando verrà usato nei passaggi successivi.
 
-1. Usare [AZ Extension List](https://docs.microsoft.com/cli/azure/extension#az-extension-list) per verificare se l'estensione del *grafico risorse* è installata.
+1. Usare [AZ Extension List](/cli/azure/extension#az_extension_list) per verificare se l'estensione del *grafico risorse* è installata.
 
     ```azurecli
     az extension list
@@ -131,7 +126,7 @@ Per completare questi passaggi, sarà necessario:
 
 ### <a name="save-all-role-assignments"></a>Salva tutte le assegnazioni di ruolo
 
-1. Usare [AZ Role Assignment list](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-list) per elencare tutte le assegnazioni di ruolo, incluse le assegnazioni di ruolo ereditate.
+1. Usare [AZ Role Assignment list](/cli/azure/role/assignment#az_role_assignment_list) per elencare tutte le assegnazioni di ruolo, incluse le assegnazioni di ruolo ereditate.
 
     Per semplificare la revisione dell'elenco, è possibile esportare l'output come JSON, TSV o una tabella. Per altre informazioni, vedere [elencare le assegnazioni di ruolo usando RBAC di Azure e l'interfaccia](role-assignments-list-cli.md)della riga di comando
 
@@ -149,7 +144,7 @@ Per completare questi passaggi, sarà necessario:
 
 ### <a name="save-custom-roles"></a>Salva ruoli personalizzati
 
-1. Usare l' [elenco AZ Role Definition](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) per elencare i ruoli personalizzati. Per altre informazioni, vedere [creare o aggiornare i ruoli personalizzati di Azure con l'interfaccia](custom-roles-cli.md)della riga di comando di Azure.
+1. Usare l' [elenco AZ Role Definition](/cli/azure/role/definition#az_role_definition_list) per elencare i ruoli personalizzati. Per altre informazioni, vedere [creare o aggiornare i ruoli personalizzati di Azure con l'interfaccia](custom-roles-cli.md)della riga di comando di Azure.
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -193,7 +188,7 @@ Le identità gestite non vengono aggiornate quando si trasferisce una sottoscriz
 
 1. Esaminare l' [elenco dei servizi di Azure che supportano le identità gestite](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) per tenere presente dove si potrebbero usare identità gestite.
 
-1. Usare [AZ ad SP list](/cli/azure/identity?view=azure-cli-latest#az-identity-list) per elencare le identità gestite assegnate dall'utente e assegnate dal sistema.
+1. Usare [AZ ad SP list](/cli/azure/ad/sp#az_ad_sp_list) per elencare le identità gestite assegnate dall'utente e assegnate dal sistema.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
@@ -207,7 +202,7 @@ Le identità gestite non vengono aggiornate quando si trasferisce una sottoscriz
     | `alternativeNames` la proprietà non include `isExplicit` | Assegnato dal sistema |
     | `alternativeNames` inclusioni proprietà `isExplicit=True` | Assegnati dall'utente |
 
-    È anche possibile usare [AZ Identity list](https://docs.microsoft.com/cli/azure/identity#az-identity-list) per elencare solo le identità gestite assegnate dall'utente. Per altre informazioni, vedere [creare, elencare o eliminare un'identità gestita assegnata dall'utente usando l'interfaccia della](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)riga di comando di Azure.
+    È anche possibile usare [AZ Identity list](/cli/azure/identity#az_identity_list) per elencare solo le identità gestite assegnate dall'utente. Per altre informazioni, vedere [creare, elencare o eliminare un'identità gestita assegnata dall'utente usando l'interfaccia della](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)riga di comando di Azure.
 
     ```azurecli
     az identity list
@@ -224,7 +219,7 @@ Quando si crea un insieme di credenziali delle chiavi, questo viene automaticame
 > [!WARNING]
 > Se si usa la crittografia dei dati inattivi per una risorsa, ad esempio un account di archiviazione o un database SQL, che ha una dipendenza da un insieme di credenziali delle chiavi che **non** si trova nella stessa sottoscrizione da trasferire, può causare uno scenario irreversibile. In tal caso, è necessario eseguire i passaggi per usare un insieme di credenziali delle chiavi diverso o disabilitare temporaneamente le chiavi gestite dal cliente per evitare questo scenario irreversibile.
 
-- Se si dispone di un insieme di credenziali delle chiavi, usare [AZ Key Vault Show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) per elencare i criteri di accesso. Per altre informazioni, vedere [assegnare un criterio di accesso key Vault](../key-vault/general/assign-access-policy-cli.md).
+- Se si dispone di un insieme di credenziali delle chiavi, usare [AZ Key Vault Show](/cli/azure/keyvault#az_keyvault_show) per elencare i criteri di accesso. Per altre informazioni, vedere [assegnare un criterio di accesso key Vault](../key-vault/general/assign-access-policy-cli.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -232,7 +227,7 @@ Quando si crea un insieme di credenziali delle chiavi, questo viene automaticame
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Elencare i database SQL di Azure con autenticazione Azure AD
 
-- Usare [AZ SQL Server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) e [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension per verificare se si usano database sql di Azure con Azure ad l'integrazione dell'autenticazione abilitata. Per altre informazioni, vedere [configurare e gestire Azure Active Directory autenticazione con SQL](../azure-sql/database/authentication-aad-configure.md).
+- Usare [AZ SQL Server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) e [AZ Graph](/cli/azure/ext/resource-graph/graph) Extension per verificare se si usano database sql di Azure con Azure ad l'integrazione dell'autenticazione abilitata. Per altre informazioni, vedere [configurare e gestire Azure Active Directory autenticazione con SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -248,13 +243,13 @@ Quando si crea un insieme di credenziali delle chiavi, questo viene automaticame
 
 ### <a name="list-other-known-resources"></a>Elencare altre risorse note
 
-1. Usare [AZ account Show](https://docs.microsoft.com/cli/azure/account#az-account-show) per ottenere l'ID sottoscrizione.
+1. Usare [AZ account Show](/cli/azure/account#az_account_show) per ottenere l'ID sottoscrizione.
 
     ```azurecli
     subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
     ```
 
-1. Usare [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension per elencare altre risorse di Azure con le dipendenze della directory Azure ad note.
+1. Usare [AZ Graph](/cli/azure/ext/resource-graph/graph) Extension per elencare altre risorse di Azure con le dipendenze della directory Azure ad note.
 
     ```azurecli
     az graph query -q \
@@ -286,13 +281,13 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 
     Solo l'utente nel nuovo account che ha accettato la richiesta di trasferimento avrà accesso per gestire le risorse.
 
-1. Ottenere un elenco delle sottoscrizioni con il comando [AZ account list](https://docs.microsoft.com/cli/azure/account#az-account-list) .
+1. Ottenere un elenco delle sottoscrizioni con il comando [AZ account list](/cli/azure/account#az_account_list) .
 
     ```azurecli
     az account list --output table
     ```
 
-1. Usare [AZ account set](https://docs.microsoft.com/cli/azure/account#az-account-set) per impostare la sottoscrizione attiva che si vuole usare.
+1. Usare [AZ account set](/cli/azure/account#az_account_set) per impostare la sottoscrizione attiva che si vuole usare.
 
     ```azurecli
     az account set --subscription "Contoso"
@@ -300,7 +295,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 
 ### <a name="create-custom-roles"></a>Creare ruoli personalizzati
         
-- Usare [AZ Role Definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) per creare ogni ruolo personalizzato dai file creati in precedenza. Per altre informazioni, vedere [creare o aggiornare i ruoli personalizzati di Azure con l'interfaccia](custom-roles-cli.md)della riga di comando di Azure.
+- Usare [AZ Role Definition create](/cli/azure/role/definition#az_role_definition_create) per creare ogni ruolo personalizzato dai file creati in precedenza. Per altre informazioni, vedere [creare o aggiornare i ruoli personalizzati di Azure con l'interfaccia](custom-roles-cli.md)della riga di comando di Azure.
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -308,7 +303,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 
 ### <a name="create-role-assignments"></a>Creare assegnazioni di ruolo
 
-- Usare [AZ Role Assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) per creare le assegnazioni di ruolo per utenti, gruppi ed entità servizio. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e l'interfaccia](role-assignments-cli.md)della riga di comando di Azure.
+- Usare [AZ Role Assignment create](/cli/azure/role/assignment#az_role_assignment_create) per creare le assegnazioni di ruolo per utenti, gruppi ed entità servizio. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e l'interfaccia](role-assignments-cli.md)della riga di comando di Azure.
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -324,7 +319,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | Altri servizi | [Servizi che supportano le identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. Usare [AZ Role Assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) per creare le assegnazioni di ruolo per le identità gestite assegnate dal sistema. Per altre informazioni, vedere [assegnare un accesso a identità gestite a una risorsa tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Usare [AZ Role Assignment create](/cli/azure/role/assignment#az_role_assignment_create) per creare le assegnazioni di ruolo per le identità gestite assegnate dal sistema. Per altre informazioni, vedere [assegnare un accesso a identità gestite a una risorsa tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -340,7 +335,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | Altri servizi | [Servizi che supportano le identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. Usare [AZ Role Assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) per creare le assegnazioni di ruolo per le identità gestite assegnate dall'utente. Per altre informazioni, vedere [assegnare un accesso a identità gestite a una risorsa tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Usare [AZ Role Assignment create](/cli/azure/role/assignment#az_role_assignment_create) per creare le assegnazioni di ruolo per le identità gestite assegnate dall'utente. Per altre informazioni, vedere [assegnare un accesso a identità gestite a una risorsa tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>

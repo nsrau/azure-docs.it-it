@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 24a214d63fd01fc4353be6563d18f9e28b820c6f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 10/1/2020
+ms.openlocfilehash: 2c70e862364aea549c10c24a9dcc1c424c792993
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036522"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652177"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
@@ -25,7 +25,11 @@ Database di Azure per MySQL supporta l'ottimizzazione dei valori dei parametri d
 
 Al momento della distribuzione iniziale, un server Azure per MySQL include le tabelle di sistema per le informazioni sul fuso orario, ma queste tabelle non vengono popolate. Per popolare le tabelle di fuso orario, è possibile chiamare la stored procedure `mysql.az_load_timezone` da uno strumento come la riga di comando di MySQL o MySQL Workbench. Fare riferimento agli articoli sul [portale di Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) o l'[interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) per le modalità in cui è possibile chiamare la stored procedure e impostare i fusi orari a livello globale o di sessione.
 
-## <a name="storage-engine-support"></a>Supporto del motore di archiviazione
+I plug-in per le password, ad esempio "validate_password" e "caching_sha2_password", non sono supportati dal servizio.
+
+## <a name="storage-engines"></a>Motori di archiviazione
+
+MySQL supporta molti motori di archiviazione. Nel database di Azure per MySQL server flessibile, i motori di archiviazione seguenti sono supportati e non supportati:
 
 ### <a name="supported"></a>Supportato
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
@@ -37,21 +41,23 @@ Al momento della distribuzione iniziale, un server Azure per MySQL include le ta
 - [ARCHIVE](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
 - [FEDERATED](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
-## <a name="privilege-support"></a>Supporto dei privilegi
+## <a name="privileges--data-manipulation-support"></a>Privilegi & supporto per la manipolazione dei dati
+
+Molti parametri e impostazioni del server possono inavvertitamente degradare le prestazioni del server o negare le proprietà ACID del server MySQL. Per mantenere l'integrità del servizio e il contratto di servizio a livello di prodotto, questo servizio non espone più ruoli. 
+
+Il servizio MySQL non consente l'accesso diretto all'file system sottostante. Alcuni comandi di manipolazione dei dati non sono supportati. 
 
 ### <a name="unsupported"></a>Non supportato
-- Ruolo DBA: molti parametri e impostazioni server possono accidentalmente influire in modo negativo sulle prestazioni del server o negare le proprietà ACID del sistema DBMS. Per mantenere quindi l'integrità del servizio e un contratto di servizio a livello di prodotto, il ruolo DBA non è esposto. L'account utente predefinito, costruito quando viene creata una nuova istanza di database, consente agli utenti di eseguire la maggior parte delle istruzioni DDL e DML nell'istanza di database gestita. 
-- Privilegi SUPER: in modo analogo, anche i [privilegi SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) presentano limitazioni.
-- DEFINER: Richiede privilegi avanzati per la creazione e presenta restrizioni. Se vengono importati dati tramite backup, rimuovere i comandi `CREATE DEFINER` manualmente o tramite il comando `--skip-definer` quando si esegue mysqldump.
-- Database di sistema: nel database di Azure per MySQL, il [database di sistema MySQL](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html) è di sola lettura perché viene usato per supportare le varie funzionalità del servizio PaaS. Si noti che non è possibile modificare nulla nel `mysql` database di sistema.
 
-## <a name="data-manipulation-statement-support"></a>Supporto delle istruzioni di gestione dei dati
+Gli elementi seguenti non sono supportati:
+- Ruolo DBA: con restrizioni. In alternativa, è possibile utilizzare l'utente amministratore, creato durante la creazione di un nuovo server, consente di eseguire la maggior parte delle istruzioni DDL e DML. 
+- Privilegi SUPER: in modo analogo, il [privilegio Super](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) è limitato.
+- DEFINER: Richiede privilegi avanzati per la creazione e presenta restrizioni. Se vengono importati dati tramite backup, rimuovere i comandi `CREATE DEFINER` manualmente o tramite il comando `--skip-definer` quando si esegue mysqldump.
+- Database di sistema: il [database di sistema MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) è di sola lettura e viene usato per supportare varie funzionalità PaaS. Non è possibile apportare modifiche al `mysql` database di sistema.
+- `SELECT ... INTO OUTFILE`: Non supportato nel servizio.
 
 ### <a name="supported"></a>Supportato
 - L'istruzione `LOAD DATA INFILE` è supportata ma è necessario specificare il parametro `[LOCAL]` che deve essere indirizzato a un percorso UNC (archiviazione di Azure montata tramite SMB).
-
-### <a name="unsupported"></a>Non supportato
-- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>Limitazioni funzionali
 

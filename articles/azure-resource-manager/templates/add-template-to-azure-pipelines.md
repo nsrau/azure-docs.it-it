@@ -1,38 +1,36 @@
 ---
 title: CI/CD con Azure Pipelines e modelli
-description: Viene descritto come configurare l'integrazione continua in Azure Pipelines usando i progetti di distribuzione del gruppo di risorse di Azure in Visual Studio per distribuire modelli Gestione risorse.
+description: Viene descritto come configurare l'integrazione continua in Azure Pipelines usando modelli Azure Resource Manager. Mostra come usare uno script di PowerShell o copiare i file in un percorso di gestione temporanea e distribuirli da questa posizione.
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/01/2020
+ms.openlocfilehash: 6784df30340e4c54b8b1d6e82b45046666824315
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82084652"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653401"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrare i modelli ARM con Azure Pipelines
 
-Visual Studio fornisce il progetto gruppo di risorse di Azure per la creazione di modelli di Azure Resource Manager (ARM) e la relativa distribuzione nella sottoscrizione di Azure. È possibile integrare questo progetto con Azure Pipelines per l'integrazione continua e la distribuzione continua (CI/CD).
+È possibile integrare modelli di Azure Resource Manager (modelli ARM) con Azure Pipelines per l'integrazione continua e la distribuzione continua (CI/CD). L'esercitazione [integrazione continua dei modelli ARM con Azure Pipelines](deployment-tutorial-pipeline.md) illustra come usare l' [attività di distribuzione del modello ARM](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) per distribuire un modello dal repository GitHub. Questo approccio funziona quando si desidera distribuire un modello direttamente da un repository.
 
-Esistono due modi per distribuire i modelli con Azure Pipelines:
+In questo articolo vengono illustrati altri due modi per distribuire i modelli con Azure Pipelines. Questo articolo illustra come:
 
-* **Aggiungere un'attività che esegue uno script Azure PowerShell**. Questa opzione offre il vantaggio di garantire la coerenza durante tutto il ciclo di vita dello sviluppo, perché si usa lo stesso script incluso nel progetto di Visual Studio (Deploy-AzureResourceGroup.ps1). Lo script crea una fase di creazione degli artefatti dal progetto a un account di archiviazione a cui Gestione risorse può accedere. Gli artefatti sono elementi del progetto, ad esempio modelli collegati, script e file binari dell'applicazione. Quindi, lo script distribuisce il modello.
+* **Aggiungere un'attività che esegue uno script Azure PowerShell**. Questa opzione offre il vantaggio di garantire la coerenza per tutto il ciclo di vita dello sviluppo, perché è possibile usare lo stesso script usato durante l'esecuzione di test locali. Lo script distribuisce il modello, ma può anche eseguire altre operazioni, ad esempio il recupero di valori da utilizzare come parametri.
 
-* **Aggiunta di attività per la copia e la distribuzione di attività**. Questa opzione offre una comoda alternativa allo script del progetto. Si configurano due attività nella pipeline. Un'attività esegue la fase degli artefatti e l'altra distribuisce il modello.
+   Visual Studio fornisce il [progetto gruppo di risorse di Azure](create-visual-studio-deployment-project.md) che include uno script di PowerShell. Lo script crea una fase di creazione degli artefatti dal progetto a un account di archiviazione a cui Gestione risorse può accedere. Gli artefatti sono elementi del progetto, ad esempio modelli collegati, script e file binari dell'applicazione. Se si vuole continuare a usare lo script dal progetto, usare l'attività script di PowerShell illustrata in questo articolo.
 
-Questo articolo illustra entrambi gli approcci.
+* **Aggiunta di attività per la copia e la distribuzione di attività**. Questa opzione offre una comoda alternativa allo script del progetto. Si configurano due attività nella pipeline. Un'attività consente di eseguire la fase degli elementi in una posizione accessibile. L'altra attività distribuisce il modello da tale percorso.
 
 ## <a name="prepare-your-project"></a>Preparare il progetto
 
-Questo articolo presuppone che il progetto di Visual Studio e l'organizzazione DevOps di Azure siano pronti per la creazione della pipeline. I passaggi seguenti illustrano come assicurarsi di essere pronti:
+Questo articolo presuppone che il modello ARM e l'organizzazione DevOps di Azure siano pronti per la creazione della pipeline. I passaggi seguenti illustrano come assicurarsi di essere pronti:
 
-* Si dispone di un'organizzazione di Azure DevOps. Se non è disponibile, [crearne uno](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)gratuitamente. Se il team ha già un'organizzazione DevOps di Azure, assicurarsi di essere un amministratore del progetto Azure DevOps che si vuole usare.
+* Si dispone di un'organizzazione di Azure DevOps. Se non è disponibile, [crearne uno](/azure/devops/pipelines/get-started/pipelines-sign-up)gratuitamente. Se il team ha già un'organizzazione DevOps di Azure, assicurarsi di essere un amministratore del progetto Azure DevOps che si vuole usare.
 
-* È stata configurata una [connessione al servizio](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) per la sottoscrizione di Azure. Le attività nella pipeline vengono eseguite con l'identità dell'entità servizio. Per i passaggi necessari per creare la connessione, vedere [creare un progetto DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
+* È stata configurata una [connessione al servizio](/azure/devops/pipelines/library/connect-to-azure) per la sottoscrizione di Azure. Le attività nella pipeline vengono eseguite con l'identità dell'entità servizio. Per i passaggi necessari per creare la connessione, vedere [creare un progetto DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
 
-* Si dispone di un progetto di Visual Studio creato dal modello di partenza del **gruppo di risorse di Azure** . Per informazioni sulla creazione di questo tipo di progetto, vedere [creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](create-visual-studio-deployment-project.md).
-
-* Il progetto di Visual Studio è [connesso a un progetto DevOps di Azure](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops).
+* Si dispone di un [modello ARM](quickstart-create-templates-use-visual-studio-code.md) che definisce l'infrastruttura per il progetto.
 
 ## <a name="create-pipeline"></a>Creare una pipeline
 
@@ -56,27 +54,32 @@ Questo articolo presuppone che il progetto di Visual Studio e l'organizzazione D
 
 ## <a name="azure-powershell-task"></a>Attività di Azure PowerShell
 
-Questa sezione illustra come configurare la distribuzione continua usando una singola attività che esegue lo script di PowerShell nel progetto. Il file YAML seguente crea un' [attività Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops):
+Questa sezione illustra come configurare la distribuzione continua usando una singola attività che esegue lo script di PowerShell nel progetto. Se è necessario uno script di PowerShell che distribuisce un modello, vedere [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) o [Deploy-AzureResourceGroup.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzureResourceGroup.ps1).
 
-```yaml
+Il file YAML seguente crea un' [attività Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell):
+
+```yml
+trigger:
+- master
+
 pool:
-  name: Hosted Windows 2019 with VS2019
-  demands: azureps
+  vmImage: 'ubuntu-latest'
 
 steps:
-- task: AzurePowerShell@3
+- task: AzurePowerShell@5
   inputs:
-    azureSubscription: 'demo-deploy-sp'
-    ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus'
-    azurePowerShellVersion: LatestVersion
+    azureSubscription: 'script-connection'
+    ScriptType: 'FilePath'
+    ScriptPath: './Deploy-Template.ps1'
+    ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
+    azurePowerShellVersion: 'LatestVersion'
 ```
 
-Quando si imposta l'attività su `AzurePowerShell@3` , la pipeline usa i comandi del modulo AzureRM per autenticare la connessione. Per impostazione predefinita, lo script di PowerShell nel progetto di Visual Studio usa il modulo AzureRM. Se lo script è stato aggiornato per usare il [modulo AZ](/powershell/azure/new-azureps-module-az), impostare l'attività su `AzurePowerShell@4` .
+Quando si imposta l'attività su `AzurePowerShell@5` , la pipeline usa il [modulo AZ](/powershell/azure/new-azureps-module-az). Se si usa il modulo AzureRM nello script, impostare l'attività su `AzurePowerShell@3` .
 
 ```yaml
 steps:
-- task: AzurePowerShell@4
+- task: AzurePowerShell@3
 ```
 
 Per `azureSubscription` , specificare il nome della connessione al servizio creata.
@@ -92,69 +95,45 @@ Per `scriptPath` , specificare il percorso relativo dal file della pipeline allo
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
 ```
 
-Se non è necessario gestire gli artefatti, è sufficiente passare il nome e il percorso di un gruppo di risorse da usare per la distribuzione. Lo script di Visual Studio crea il gruppo di risorse, se non esiste già.
+In `ScriptArguments` specificare tutti i parametri necessari per lo script. Nell'esempio seguente vengono illustrati alcuni parametri per uno script, ma è necessario personalizzare i parametri per lo script.
 
 ```yaml
-ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>'
+ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
 ```
 
-Se è necessario organizzare gli artefatti in un account di archiviazione esistente, usare:
+Quando si seleziona **Salva**, la pipeline di compilazione viene eseguita automaticamente. Tornare al riepilogo per la pipeline di compilazione e controllare lo stato.
 
-```yaml
-ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>' -UploadArtifacts -ArtifactStagingDirectory '$(Build.StagingDirectory)' -StorageAccountName '<your-storage-account>'
-```
-
-Ora che si è appreso come creare l'attività, procedere con la procedura per modificare la pipeline.
-
-1. Aprire la pipeline e sostituire il contenuto con YAML:
-
-   ```yaml
-   pool:
-     name: Hosted Windows 2019 with VS2019
-     demands: azureps
-
-   steps:
-   - task: AzurePowerShell@3
-     inputs:
-       azureSubscription: 'demo-deploy-sp'
-       ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-       ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus' -UploadArtifacts -ArtifactStagingDirectory '$(Build.StagingDirectory)' -StorageAccountName 'stage3a4176e058d34bb88cc'
-       azurePowerShellVersion: LatestVersion
-   ```
-
-1. Selezionare **Salva**.
-
-   ![Salvare la pipeline](./media/add-template-to-azure-pipelines/save-pipeline.png)
-
-1. Fornire un messaggio per il commit ed eseguire il commit direttamente nel **database master**.
-
-1. Quando si seleziona **Salva**, la pipeline di compilazione viene eseguita automaticamente. Tornare al riepilogo per la pipeline di compilazione e controllare lo stato.
-
-   ![Visualizzazione dei risultati](./media/add-template-to-azure-pipelines/view-results.png)
+![Visualizzazione dei risultati](./media/add-template-to-azure-pipelines/view-results.png)
 
 È possibile selezionare la pipeline attualmente in esecuzione per visualizzare i dettagli relativi alle attività. Al termine, vengono visualizzati i risultati per ogni passaggio.
 
 ## <a name="copy-and-deploy-tasks"></a>Copiare e distribuire attività
 
-In questa sezione viene illustrato come configurare la distribuzione continua utilizzando due attività per organizzare gli elementi e distribuire il modello.
+In questa sezione viene illustrato come configurare la distribuzione continua utilizzando due attività. La prima attività esegue la fase degli elementi in un account di archiviazione e la seconda attività distribuisce il modello.
 
-Il seguente YAML mostra l' [attività copia file di Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
+Per copiare i file in un account di archiviazione, all'entità servizio per la connessione al servizio deve essere assegnato il ruolo di collaboratore dati BLOB di archiviazione o di proprietario dati BLOB di archiviazione. Per altre informazioni, vedere [Introduzione a AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 
-```yaml
-- task: AzureFileCopy@3
-  displayName: 'Stage files'
+Il codice YAML seguente mostra l' [attività copia file di Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy).
+
+```yml
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: AzureFileCopy@4
   inputs:
-    SourcePath: 'AzureResourceGroup1'
-    azureSubscription: 'demo-deploy-sp'
+    SourcePath: 'templates'
+    azureSubscription: 'copy-connection'
     Destination: 'AzureBlob'
-    storage: 'stage3a4176e058d34bb88cc'
-    ContainerName: 'democontainer'
-    outputStorageUri: 'artifactsLocation'
-    outputStorageContainerSasToken: 'artifactsLocationSasToken'
-    sasTokenTimeOutInMinutes: '240'
+    storage: 'demostorage'
+    ContainerName: 'projecttemplates'
+  name: AzureFileCopy
 ```
 
-Esistono diverse parti di questa attività da rivedere per l'ambiente in uso. `SourcePath`Indica la posizione degli elementi relativi al file della pipeline. In questo esempio, i file sono presenti in una cartella denominata `AzureResourceGroup1` che è il nome del progetto.
+Esistono diverse parti di questa attività da rivedere per l'ambiente in uso. `SourcePath`Indica la posizione degli elementi relativi al file della pipeline.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
@@ -173,92 +152,82 @@ storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
+Dopo aver creato l'attività copia file, è possibile aggiungere l'attività per distribuire il modello di gestione temporanea.
+
 Il YAML seguente mostra l' [attività di distribuzione del modello di Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md):
 
 ```yaml
-- task: AzureResourceGroupDeployment@2
-  displayName: 'Deploy template'
+- task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
-    ConnectedServiceName: 'demo-deploy-sp'
-    subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+    azureResourceManagerConnection: 'copy-connection'
+    subscriptionId: '00000000-0000-0000-0000-000000000000'
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
-    location: 'Central US'
+    location: 'West US'
     templateLocation: 'URL of the file'
-    csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-    csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-    overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+    csmParametersFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.parameters.json$(AzureFileCopy.StorageContainerSasToken)'
     deploymentMode: 'Incremental'
+    deploymentName: 'deploy1'
 ```
 
-Esistono diverse parti di questa attività da rivedere per l'ambiente in uso.
+Esistono diverse parti di questa attività da esaminare in modo più dettagliato.
 
-- `deploymentScope`: Selezionare l'ambito di distribuzione dalle opzioni: `Management Group` `Subscription` e `Resource Group` . Usare il **gruppo di risorse** in questa procedura dettagliata. Per altre informazioni sugli ambiti, vedere [Ambiti di distribuzione](deploy-rest.md#deployment-scope).
+- `deploymentScope`: Selezionare l'ambito di distribuzione dalle opzioni: `Management Group` , `Subscription` e `Resource Group` . Per altre informazioni sugli ambiti, vedere [Ambiti di distribuzione](deploy-rest.md#deployment-scope).
 
-- `ConnectedServiceName`: Specificare il nome della connessione al servizio creata.
+- `azureResourceManagerConnection`: Specificare il nome della connessione al servizio creata.
 
-    ```yaml
-    ConnectedServiceName: '<your-connection-name>'
-    ```
+- `subscriptionId`: Specificare l'ID sottoscrizione di destinazione. Questa proprietà si applica solo all'ambito di distribuzione del gruppo di risorse e all'ambito di distribuzione della sottoscrizione.
 
-- `subscriptionName`: Specificare l'ID sottoscrizione di destinazione. Questa proprietà si applica solo all'ambito di distribuzione del gruppo di risorse e all'ambito di distribuzione della sottoscrizione.
+- `resourceGroupName` e `location` : specificare il nome e il percorso del gruppo di risorse in cui si vuole eseguire la distribuzione. L'attività crea il gruppo di risorse, se non esiste.
 
-- `resourceGroupName`e `location` : specificare il nome e il percorso del gruppo di risorse in cui si vuole eseguire la distribuzione. L'attività crea il gruppo di risorse, se non esiste.
-
-    ```yaml
-    resourceGroupName: '<resource-group-name>'
-    location: '<location>'
-    ```
-
-L'attività di distribuzione è collegata a un modello denominato `WebSite.json` e a un file di parametri denominato WebSite.parameters.json. Usare i nomi dei file di modello e di parametri.
-
-Ora che si è appreso come creare le attività, procedere con la procedura per modificare la pipeline.
-
-1. Aprire la pipeline e sostituire il contenuto con YAML:
-
-   ```yaml
-   pool:
-     name: Hosted Windows 2019 with VS2019
-
-   steps:
-   - task: AzureFileCopy@3
-     displayName: 'Stage files'
-     inputs:
-       SourcePath: 'AzureResourceGroup1'
-       azureSubscription: 'demo-deploy-sp'
-       Destination: 'AzureBlob'
-       storage: 'stage3a4176e058d34bb88cc'
-       ContainerName: 'democontainer'
-       outputStorageUri: 'artifactsLocation'
-       outputStorageContainerSasToken: 'artifactsLocationSasToken'
-       sasTokenTimeOutInMinutes: '240'
-    - task: AzureResourceGroupDeployment@2
-      displayName: 'Deploy template'
-      inputs:
-        deploymentScope: 'Resource Group'
-        ConnectedServiceName: 'demo-deploy-sp'
-        subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
-        action: 'Create Or Update Resource Group'
-        resourceGroupName: 'demogroup'
-        location: 'Central US'
-        templateLocation: 'URL of the file'
-        csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-        csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-        overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
-        deploymentMode: 'Incremental'
+   ```yml
+   resourceGroupName: '<resource-group-name>'
+   location: '<location>'
    ```
 
-1. Selezionare **Salva**.
+- `csmFileLink`: Specificare il collegamento per il modello di gestione temporanea. Quando si imposta il valore, utilizzare le variabili restituite dall'attività copia file. Nell'esempio seguente viene collegato a un modello denominato mainTemplate.json. La cartella **templates** è inclusa, in quanto l'attività di copia di file ha copiato il file in. Nella pipeline specificare il percorso del modello e il nome del modello.
 
-1. Fornire un messaggio per il commit ed eseguire il commit direttamente nel **database master**.
+   ```yml
+   csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+   ```
 
-1. Quando si seleziona **Salva**, la pipeline di compilazione viene eseguita automaticamente. Tornare al riepilogo per la pipeline di compilazione e controllare lo stato.
+L'aspetto della pipeline è simile al seguente:
 
-   ![Visualizzazione dei risultati](./media/add-template-to-azure-pipelines/view-results.png)
+```yml
+trigger:
+- master
 
-È possibile selezionare la pipeline attualmente in esecuzione per visualizzare i dettagli relativi alle attività. Al termine, vengono visualizzati i risultati per ogni passaggio.
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: AzureFileCopy@4
+  inputs:
+    SourcePath: 'templates'
+    azureSubscription: 'copy-connection'
+    Destination: 'AzureBlob'
+    storage: 'demostorage'
+    ContainerName: 'projecttemplates'
+  name: AzureFileCopy
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'copy-connection'
+    subscriptionId: '00000000-0000-0000-0000-000000000000'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'demogroup'
+    location: 'West US'
+    templateLocation: 'URL of the file'
+    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+    csmParametersFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.parameters.json$(AzureFileCopy.StorageContainerSasToken)'
+    deploymentMode: 'Incremental'
+    deploymentName: 'deploy1'
+```
+
+Quando si seleziona **Salva**, la pipeline di compilazione viene eseguita automaticamente. Tornare al riepilogo per la pipeline di compilazione e controllare lo stato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un processo dettagliato sull'uso di Azure Pipelines con i modelli ARM, vedere [esercitazione: integrazione continua di modelli di Azure Resource Manager con Azure Pipelines](deployment-tutorial-pipeline.md).
+Per informazioni sull'uso dei modelli ARM con le azioni di GitHub, vedere [distribuire modelli di Azure Resource Manager usando le azioni di GitHub](deploy-github-actions.md).

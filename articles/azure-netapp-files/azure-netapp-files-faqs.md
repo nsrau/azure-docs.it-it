@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 4b8c879a89da47a081e4b95382d17b3d2baede9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a64e595f0ea07510f416be56a54a3c74294b95d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325573"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653622"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -178,15 +178,11 @@ Yes, Azure NetApp Files supports LDAP signing by default. This functionality ena
 
 ### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>Ho provato a usare "root" e gli utenti locali per accedere a un volume a doppio protocollo con lo stile di sicurezza NTFS in un sistema UNIX. Perché è stato riscontrato un errore di autorizzazione negata?   
 
-Un volume con doppio protocollo supporta i protocolli NFS e SMB.  Quando si tenta di accedere al volume montato sul sistema UNIX, il sistema tenta di eseguire il mapping dell'utente UNIX usato a un utente di Windows. Se non viene trovato alcun mapping, si verifica l'errore "autorizzazione negata".  Questa situazione si verifica anche quando si usa l'utente "root" per l'accesso.    
-
-Per evitare il problema "autorizzazione negata", assicurarsi che Windows Active Directory includa `pcuser` prima di accedere al punto di montaggio. Se si aggiunge `pcuser` dopo aver rilevato il problema "autorizzazione negata", attendere 24 ore prima che la voce della cache venga cancellata prima di riprovare ad accedere.
+Vedere [risolvere i problemi relativi ai volumi a doppio protocollo](troubleshoot-dual-protocol-volumes.md) per le risoluzioni.
 
 ### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Quando si tenta di creare un volume a doppio protocollo, perché il processo di creazione ha esito negativo con l'errore "non è stato possibile convalidare la configurazione LDAP, riprovare dopo aver corretto la configurazione LDAP"?  
 
-Il record del puntatore (PTR) del computer host Active Directory potrebbe non essere presente nel server DNS. È necessario creare una zona di ricerca inversa nel server DNS, quindi aggiungere un record PTR del computer host AD nella zona di ricerca inversa.
-
-Si supponga, ad esempio, che l'indirizzo IP del computer AD sia `1.1.1.1` , il nome host del computer ad (come rilevato tramite il `hostname` comando) sia `AD1` e il nome di dominio sia `myDomain.com` .  Il record PTR aggiunto alla zona di ricerca inversa deve essere `1.1.1.1`  ->  `AD1.myDomain.com` .
+Vedere [risolvere i problemi relativi ai volumi a doppio protocollo](troubleshoot-dual-protocol-volumes.md) per le risoluzioni.
 
 ## <a name="capacity-management-faqs"></a>Domande frequenti sulla gestione della capacità
 
