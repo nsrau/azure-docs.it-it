@@ -1,5 +1,5 @@
 ---
-title: TCP Reset di Load Balancer per inattività in Azure
+title: Reimpostazione Load Balancer TCP e timeout di inattività in Azure
 titleSuffix: Azure Load Balancer
 description: In questo articolo vengono fornite informazioni sulle Azure Load Balancer con i pacchetti RST TCP bidirezionali in timeout di inattività.
 services: load-balancer
@@ -11,21 +11,23 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2019
+ms.date: 11/09/2019
 ms.author: allensu
-ms.openlocfilehash: 68714053ac92faf8550a3e5f83a526afa1222971
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f77dd21a2c017ee41f955fdf5e0848df190dec2a
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808472"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651276"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer con TCP Reset per inattività
+# <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Reimpostazione Load Balancer TCP e timeout di inattività
 
 È possibile usare [Load Balancer Standard](load-balancer-standard-overview.md) per creare un comportamento delle applicazioni più prevedibile per gli scenari abilitando TCP Reset per timeout di inattività per una determinata regola. Il comportamento predefinito di Load Balancer prevede l'eliminazione trasparente dei flussi quando viene raggiunto il timeout di inattività di un flusso.  Se si abilita questa funzionalità, Load Balancer invierà TCP Reset bidirezionali (pacchetto RST TCP) in caso di timeout per inattività.  In questo modo gli endpoint dell'applicazione verranno informati che si è verificato il timeout della connessione e quest'ultima non è più utilizzabile.  Gli endpoint possono stabilire immediatamente una nuova connessione, se necessario.
 
 ![TCP Reset di Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
  
+## <a name="tcp-reset"></a>Ripristino TCP
+
 Si modifica questo comportamento predefinito e si abilita l'invio di TCP Reset per timeout di inattività per regole NAT in ingresso, regole di bilanciamento del carico e [regole in uscita](https://aka.ms/lboutboundrules).  Quando questo comportamento viene abilitato per ogni regola, Load Balancer invierà TCP Reset bidirezionali (pacchetti TCP RST) agli endpoint client e server al momento del timeout di inattività per tutti i flussi corrispondenti.
 
 Gli endpoint che ricevono pacchetti TCP RST chiudono il socket corrispondente immediatamente. Gli endpoint ricevono così una notifica immediata del rilascio della connessione e le eventuali comunicazioni future sulla stessa connessione TCP avranno esito negativo.  Le applicazioni possono ripulire le connessioni alla chiusura del socket e ristabilire le connessioni all'occorrenza senza attendere il timeout della connessione TCP.
@@ -36,41 +38,24 @@ Se la durata dell'inattività supera quella consentita dalla configurazione o l'
 
 Esaminare attentamente l'intero scenario per decidere se l'abilitazione dei TCP Reset e la regolazione del timeout di inattività risultano vantaggiosi e se possono essere necessari passaggi aggiuntivi per garantire il comportamento desiderato dell'applicazione.
 
-## <a name="enabling-tcp-reset-on-idle-timeout"></a>Abilitazione di TCP Reset in caso di timeout di inattività
+## <a name="configurable-tcp-idle-timeout"></a>Timeout di inattività TCP configurabile
 
-Con l'API versione 2018-07-01, è possibile abilitare l'invio di TCP Reset bidirezionali per timeout di inattività in base a regole:
+Azure Load Balancer ha un'impostazione di timeout di inattività di 4 minuti a 120 minuti. Per impostazione predefinita, questa proprietà è impostata su 4 minuti. Se un periodo di inattività è più lungo del valore di timeout, non ci sono garanzie che venga mantenuta la sessione TCP o HTTP tra il client e il servizio cloud.
 
-```json
-      "loadBalancingRules": [
-        {
-          "enableTcpReset": true | false,
-        }
-      ]
-```
+Quando la connessione viene chiusa, l'applicazione client potrebbe ricevere il messaggio di errore seguente: "La connessione sottostante è stata chiusa: una connessione che doveva restare attiva è stata chiusa dal server in modo imprevisto".
 
-```json
-      "inboundNatRules": [
-        {
-          "enableTcpReset": true | false,
-        }
-      ]
-```
+Una prassi comune consiste nell'usare una connessione TCP keep-alive per mantenere la connessione attiva per un periodo più lungo. Per altre informazioni, vedere questi [esempi .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Con la connessione keep-alive abilitata, i pacchetti vengono inviati durante i periodi di inattività della connessione. I pacchetti keep-alive garantiscono che il valore del timeout di inattività non venga raggiunto e che la connessione sia mantenuta per un lungo periodo.
 
-```json
-      "outboundRules": [
-        {
-          "enableTcpReset": true | false,
-        }
-      ]
-```
+L'impostazione funziona solo per le connessioni in entrata. Per evitare di perdere la connessione, configurare l'impostazione keep-alive TCP con un intervallo minore rispetto all'impostazione di timeout di inattività o aumentare il valore del timeout di inattività. Per supportare questi scenari, è stato aggiunto il supporto per un timeout di inattività configurabile.
 
-## <a name="region-availability"></a><a name="regions"></a>Disponibilità area
+La connessione TCP keep-alive è adatta per gli scenari non vincolati alla durata della batteria, mentre non è consigliabile per le applicazioni mobili. L'uso di un'impostazione keep-alive TCP in un'applicazione per dispositivi mobili può far scaricare più velocemente la batteria del dispositivo.
 
-Disponibile in tutte le aree.
 
 ## <a name="limitations"></a>Limitazioni
 
-- Il protocollo RST TCP viene inviato solo durante la connessione TCP nello stato stabilito.
+- Il ripristino TCP viene inviato solo durante la connessione TCP nello stato stabilito.
+- La reimpostazione TCP non viene inviata per i bilanciamento del carico interni con le porte a disponibilità elevata configurate.
+- Il timeout di inattività TCP non influisce sulle regole di bilanciamento del carico sul protocollo UDP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,31 +14,24 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 0b5558501042dd7816202ea05b3a332b23400ff4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e7e3c2eb058d3549f2e1a10ffacf01fd354fbd47
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91343319"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651055"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Risolvere i problemi del pool di capacità
 
 Questo articolo descrive le soluzioni ai problemi che potrebbero verificarsi durante la gestione dei pool di capacità. 
 
-## <a name="issues-creating-a-capacity-pool"></a>Problemi di creazione di un pool di capacità
+## <a name="error-conditions-and-resolutions"></a>Condizioni di errore e risoluzioni 
 
-Verificare che il numero di pool di capacità non superi il limite. Vedere [limiti delle risorse per Azure NetApp files](azure-netapp-files-resource-limits.md).  Se il conteggio è inferiore al limite e si verificano ancora problemi, archiviare un ticket di supporto e specificare il nome del pool di capacità.
-
-## <a name="issues-deleting-a-capacity-pool"></a>Problemi di eliminazione di un pool di capacità
-
-Assicurarsi di aver rimosso tutti i volumi Azure NetApp Files e gli snapshot nella sottoscrizione in cui si sta provando a eliminare il pool di capacità.   
-
-Se sono già stati rimossi tutti i volumi e gli snapshot e non è ancora possibile eliminare il pool di capacità, i riferimenti alle risorse potrebbero ancora esistere senza essere visualizzati nel portale. In questo caso, archiviare un ticket di supporto e specificare di aver eseguito i passaggi indicati in precedenza. 
-
-## <a name="volume-creation-or-modification-fails-with-requested-throughput-not-available-error"></a>La creazione o la modifica del volume non riesce con l'errore "velocità effettiva richiesta non disponibile"
-
-La velocità effettiva disponibile per un volume è determinata dalle dimensioni del pool di capacità e dal livello di servizio. Se la velocità effettiva non è sufficiente, è necessario aumentare le dimensioni del pool o regolare la velocità effettiva del volume esistente.
-
+|     Condizione di errore    |     Soluzione    |
+|-|-|
+| Problemi di creazione di un pool di capacità |  Verificare che il numero di pool di capacità non superi il limite. Vedere [limiti delle risorse per Azure NetApp files](azure-netapp-files-resource-limits.md).  Se il conteggio è inferiore al limite e si verificano ancora problemi, archiviare un ticket di supporto e specificare il nome del pool di capacità. |
+| Problemi di eliminazione di un pool di capacità  |  Assicurarsi di rimuovere tutti Azure NetApp Files volumi e snapshot nella sottoscrizione in cui si sta provando a eliminare il pool di capacità. <br> Se sono già stati rimossi tutti i volumi e gli snapshot e non è ancora possibile eliminare il pool di capacità, i riferimenti alle risorse potrebbero ancora esistere senza essere visualizzati nel portale. In questo caso, archiviare un ticket di supporto e specificare di aver eseguito i passaggi indicati in precedenza. |
+| Creazione o modifica del volume non riuscita con `Requested throughput not available` errore | La velocità effettiva disponibile per un volume è determinata dalle dimensioni del pool di capacità e dal livello di servizio. Se la velocità effettiva non è sufficiente, è necessario aumentare le dimensioni del pool o regolare la velocità effettiva del volume esistente. | 
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

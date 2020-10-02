@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: lahugh
-ms.openlocfilehash: 2fe09d785d282b0f3954e2285b15458c867a9401
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 698b95dc5b38e1d365a80878a5057dee357d81af
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906183"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649576"
 ---
 # <a name="ev3-and-esv3-series"></a>Serie Ev3 e Esv3
 
@@ -26,15 +26,13 @@ L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtu
 
 La funzionalità della VM serie EV3 Intel® tecnologia Hyper-Threading.
 
-Unità di calcolo di Azure: 160-190
-
-Archiviazione Premium:  Non supportato
-
-Memorizzazione nella cache Archiviazione Premium:  Non supportato
-
-Live Migration: Supportato
-
-Manutenzione con mantenimento della memoria: Supportato
+[ACU](acu.md): 160-190<br>
+[Archiviazione Premium](premium-storage-performance.md): non supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): non supportato<br>
+[Live Migration](maintenance-and-updates.md): supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
+<br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Larghezza di banda della rete/scheda NIC max |
 |---|---|---|---|---|---|---|
@@ -58,15 +56,13 @@ Le istanze della serie Esv3 sono eseguite su Intel® Xeon® Platinum 8272CL (Cas
 
 La funzionalità della VM serie Esv3 Intel® tecnologia Hyper-Threading.
 
-Unità di calcolo di Azure: 160-190
-
-Archiviazione Premium:  Supportato
-
-Memorizzazione nella cache Archiviazione Premium:  Supportato
-
-Live Migration: Supportato
-
-Manutenzione con mantenimento della memoria: Supportato
+[ACU](acu.md): 160-190<br>
+[Archiviazione Premium](premium-storage-performance.md): supportata<br>
+[Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
+[Live Migration](maintenance-and-updates.md): supportato<br>
+[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+<br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Velocità effettiva di inserimento nella cache e archiviazione temporanea: IOPS/MBps<sup>3</sup> | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps |  Velocità effettiva del disco non memorizzato nella cache: IOPS/MBps<sup>3</sup>| NIC massimo/larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|

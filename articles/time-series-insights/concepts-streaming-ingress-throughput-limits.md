@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3bc68b7f4682ff00d2b93a75e39e0e5eabe4637b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4d1d071a36531ed5f159543e33e9ac043160cd70
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287441"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650766"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limiti della velocità effettiva di inserimento dei flussi
 
@@ -28,7 +28,7 @@ Di seguito sono riportate le limitazioni di ingresso dei dati in streaming Gen2 
 
 In generale, la velocità di ingresso viene visualizzata come il fattore che determina il numero di dispositivi all'interno dell'organizzazione, la frequenza di emissione degli eventi e le dimensioni di ogni evento:
 
-*  **Numero di dispositivi** × **Frequenza di emissione degli eventi** × **Dimensioni di ogni evento**.
+* **Numero di dispositivi** × **Frequenza di emissione degli eventi** × **Dimensioni di ogni evento**.
 
 Per impostazione predefinita, Azure Time Series Insights Gen2 è in grado di inserire i dati in ingresso a una velocità di un **massimo di 1 megabyte al secondo (Mbps) per Azure Time Series Insights ambiente Gen2**. [Per ogni partizione dell'hub](./concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits) ci sono altre limitazioni.
 
@@ -36,12 +36,12 @@ Per impostazione predefinita, Azure Time Series Insights Gen2 è in grado di ins
 >
 > * Il supporto dell'ambiente per l'inserimento di velocità fino a 8 MBps può essere fornito dalla richiesta.
 > * Contattaci se è necessaria una velocità effettiva maggiore inviando un ticket di supporto tramite il portale di Azure.
- 
+
 * **Esempio 1:**
 
     In Contoso Shipping ci sono 100.000 dispositivi che emettono un evento tre volte al minuto. Le dimensioni di un evento sono pari a 200 byte. Usano un hub Internet delle cose con quattro partizioni come Azure Time Series Insights origine evento Gen2.
 
-    * La velocità di inserimento per l'ambiente Gen2 Azure Time Series Insights è: **100.000 dispositivi * 200 byte/evento * (3/60 evento/sec) = 1 Mbps**.
+  * La velocità di inserimento per l'ambiente Gen2 Azure Time Series Insights è: **100.000 dispositivi * 200 byte/evento * (3/60 evento/sec) = 1 Mbps**.
     * Supponendo che le partizioni bilanciate, la velocità di inserimento per partizione è 0,25 MBps.
     * Il tasso di inserimento di Contoso Shipping sarà entro i limiti di scalabilità.
 
@@ -49,13 +49,13 @@ Per impostazione predefinita, Azure Time Series Insights Gen2 è in grado di ins
 
     Contoso Fleet Analytics ha 40.000 dispositivi che emettono un evento ogni secondo. Usano un hub eventi con un numero di partizioni pari a 2 come Azure Time Series Insights origine evento Gen2. Le dimensioni di un evento sono pari a 200 byte.
 
-    * La velocità di inserimento dell'ambiente è: **40.000 dispositivi * 200 byte/evento * 1 evento/sec = 8 Mbps**.
+  * La velocità di inserimento dell'ambiente è: **40.000 dispositivi * 200 byte/evento * 1 evento/sec = 8 Mbps**.
     * Supponendo che le partizioni bilanciate, la velocità per partizione sarebbe 4 MBps.
     * La velocità di inserimento di Contoso Fleet Analytics supera i limiti dell'ambiente e della partizione. Possono inviare una richiesta di Azure Time Series Insights Gen2 tramite il portale di Azure per aumentare la velocità di inserimento per il proprio ambiente e creare un hub eventi con più partizioni entro i limiti.
 
 ## <a name="hub-partitions-and-per-partition-limits"></a>Partizioni dell'hub e limiti per partizione
 
-Quando si pianifica la Azure Time Series Insights ambiente Gen2, è importante prendere in considerazione la configurazione delle origini eventi a cui ci si connetterà Azure Time Series Insights Gen2. Sia l'hub IoT che l'hub eventi di Azure usano le partizioni per abilitare la scalabilità orizzontale per l'elaborazione degli eventi. 
+Quando si pianifica la Azure Time Series Insights ambiente Gen2, è importante prendere in considerazione la configurazione delle origini eventi a cui ci si connetterà Azure Time Series Insights Gen2. Sia l'hub IoT che l'hub eventi di Azure usano le partizioni per abilitare la scalabilità orizzontale per l'elaborazione degli eventi.
 
 Una *partizione* è una sequenza ordinata di eventi contenuta in un hub. Il numero di partizioni viene impostato durante la fase di creazione dell'hub e non può essere modificato.
 
@@ -64,7 +64,7 @@ Per le procedure consigliate di partizionamento degli hub eventi, vedere [Quante
 > [!NOTE]
 > Per la maggior parte degli hub Internet usati con Azure Time Series Insights Gen2 sono necessarie solo quattro partizioni.
 
-Sia che si stia creando un nuovo hub per l'ambiente Gen2 Azure Time Series Insights o che ne venga usato uno esistente, è necessario calcolare la velocità di inserimento per partizione per determinare se è entro i limiti. 
+Sia che si stia creando un nuovo hub per l'ambiente Gen2 Azure Time Series Insights o che ne venga usato uno esistente, è necessario calcolare la velocità di inserimento per partizione per determinare se è entro i limiti.
 
 Azure Time Series Insights Gen2 dispone attualmente di un **limite generale per partizione di 0,5 Mbps**.
 

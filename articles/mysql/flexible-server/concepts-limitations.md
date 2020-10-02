@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 64f4b6e87f038b265fbd2c3e13f3779fb4c24f74
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/1/2020
+ms.openlocfilehash: 6fff7f22e7d265eb9b15bcec8604eeab692ac1c0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939302"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650290"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitazioni nel database di Azure per MySQL-server flessibile (anteprima)
 
@@ -26,6 +26,8 @@ Questo articolo descrive le limitazioni del servizio server flessibile del datab
 > Se si cercano valori min/max per parametri del server come `max_connections` e `innodb_buffer_pool_size` , queste informazioni sono state spostate nei concetti relativi ai parametri del server <!-- **[server parameters](./concepts-server-parameters.md)** --> (versione aggiornata).
 
 Database di Azure per MySQL supporta l'ottimizzazione dei valori dei parametri del server. Valore minimo e massimo di alcuni parametri (ad esempio `max_connections`, `join_buffer_size` , `query_cache_size` ) è determinato dal livello di calcolo e dalle dimensioni di calcolo del server. Vedere Concetti relativi ai parametri del server <!-- [server parameters](./concepts-server-parameters.md)--> Per ulteriori informazioni su questi limiti.
+
+I plug-in per le password, ad esempio "validate_password" e "caching_sha2_password", non sono supportati dal servizio.
 
 ## <a name="storage-engines"></a>Motori di archiviazione
 

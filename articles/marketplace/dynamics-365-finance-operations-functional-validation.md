@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: e512c233ccfd793b87f203f837b11e97966d8102
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016246"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651157"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>Convalida funzionale AppSource Dynamics 365 Finance and Operations
 
@@ -56,9 +56,9 @@ Per pianificare una chiamata di revisione finale, contattare [appsourceCRM@micro
 
       2. Passare a **LCS**  >  **soluzione Gestione**  >  **test pacchetto soluzione**. Eseguire screenshot che includono la panoramica e il contenuto dei pacchetti illustrati negli esempi seguenti:
 
-    | Campo | Immagine <img src="" width="400px">|
+    | Campo | Image <img src="" width="400px">|
     | --- | --- |
-    | Panoramica del pacchetto | [![Schermata di panoramica del pacchetto](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
+    | Panoramica del pacchetto | [![Screenshot che mostra la finestra "Panoramica dei pacchetti".](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Responsabili approvazione soluzioni</li></ul> | [![Schermata di panoramica del pacchetto](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
     | Contenuto del pacchetto<ul><li>Modello</li><li>Pacchetto distribuibile software</li></ul> | [![Schermata contenuto pacchetto uno](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
     | <ul><li>Configurazione di GER</li><li>Backup di database</li></ul><br>Gli artefatti non sono necessari nella sezione di **configurazione GER** . | [![Schermata contenuto pacchetto due](media/dynamics-365-finance-operations/package-contents-2-45.png)](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |

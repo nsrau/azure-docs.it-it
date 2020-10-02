@@ -1,25 +1,37 @@
 ---
-title: Informazioni sulle chiavi di Azure Key Vault - Azure Key Vault
+title: Informazioni sulle chiavi - Azure Key Vault
 description: Panoramica dei dettagli di sviluppo e dell'interfaccia REST di Azure Key Vault per le chiavi.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: b9803726bf3a54eb31d3c2ebaddce11fb96472be
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.date: 09/15/2020
+ms.author: ambapat
+ms.openlocfilehash: 29930a835297b0ddd3a91534dab9ccb6d74896e3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413724"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967551"
 ---
-# <a name="about-azure-key-vault-keys"></a>Informazioni sulle chiavi di Azure Key Vault
+# <a name="about-keys"></a>Informazioni sulle chiavi
 
-Azure Key Vault supporta più tipi di chiavi e algoritmi e consente l'utilizzo di moduli di protezione hardware (HSM) per le chiavi di valore elevato.
+Azure Key Vault offre due tipi di risorse per l'archiviazione e la gestione delle chiavi crittografiche:
+
+|Tipo di risorsa|Metodi di protezione della chiave|URL di base dell'endpoint del piano dati|
+|--|--|--|
+| **Insiemi di credenziali** | Protetta da software<br/><br/>e<br/><br/>Con protezione HSM (con SKU Premium)</li></ul> | https://{nome-insiemecredenziali}.vault.azure.net |
+| **Pool di moduli di protezione hardware gestiti** | Con protezione HSM | https://{nome-hsm}.managedhsm.azure.net |
+||||
+
+- **Insiemi di credenziali**: gli insiemi di credenziali offrono una soluzione di gestione delle chiavi a basso costo, facile da distribuire, multi-tenant, con resilienza della zona (dove disponibile) e a disponibilità elevata adatta per gli scenari di applicazioni cloud più comuni.
+- **Moduli di protezione hardware gestiti**: i moduli di protezione hardware gestiti sono moduli a singolo tenant, con resilienza della zona (se disponibile) e a disponibilità elevata per l'archiviazione e la gestione delle chiavi crittografiche. Sono particolarmente adatti per le applicazioni e gli scenari di utilizzo che gestiscono chiavi con valore elevato. Soddisfano inoltre i requisiti di sicurezza, conformità e normativi più rigorosi. 
+
+> [!NOTE]
+> Gli insiemi di credenziali consentono anche di archiviare e gestire diversi tipi di oggetti, come segreti, certificati e chiavi dell'account di archiviazione, oltre alle chiavi crittografiche.
 
 Le chiavi crittografiche in Key Vault sono rappresentate come oggetti JSON Web Key [JWK]. Le specifiche per JSON (JavaScript Object Notation) e JOSE (JavaScript Object Signing and Encryption) sono:
 
@@ -28,30 +40,49 @@ Le chiavi crittografiche in Key Vault sono rappresentate come oggetti JSON Web K
 -   [JSON Web Algorithms (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
-Le specifiche JWK/JWA di base vengono anche estese per abilitare tipi di chiave univoci per l'implementazione di Key Vault. Ad esempio, l'importazione di chiavi tramite la creazione di pacchetti HSM specifici del fornitore consente il trasporto sicuro delle chiavi, che possono essere usate solo nei moduli di protezione hardware di Key Vault. 
+Le specifiche JWK/JWA di base vengono inoltre estese per abilitare tipi di chiave univoci per le implementazioni di Azure Key Vault e dei moduli di protezione hardware gestiti. 
 
-Azure Key Vault supporta chiavi protette tramite software e tramite modulo di protezione hardware:
+Le chiavi con protezione HSM vengono elaborate in un modulo di protezione hardware e rimangono sempre entro i limiti di questa protezione. 
 
-- **Chiavi protette tramite software**: chiave elaborata da Key Vault nel software, ma archiviata come crittografata quando inattiva tramite l'uso di una chiave di sistema che si trovi in un modulo di protezione hardware. I client possono importare una chiave RSA o EC (Elliptic Curve) esistente oppure richiedere a Key Vault di generarne una.
-- **Chiavi protette tramite modulo di protezione hardware**: chiave elaborata in un modulo di protezione hardware. Queste chiavi sono protette in uno degli scenari di sicurezza di un modulo di protezione hardware di Key Vault (è disponibile uno scenario di sicurezza per ogni area geografica per garantire l'isolamento). I client possono importare una chiave RSA o EC protetta tramite software o mediante l'esportazione da un modulo di protezione hardware compatibile. I client possono anche richiedere a Key Vault di generare una chiave. Questo tipo di chiave aggiunge l'attributo key_hsm a JWK per riportare il materiale della chiave HSM.
+- Gli insiemi di credenziali usano moduli di protezione hardware convalidati in base agli standard **FIPS 140-2 livello 2** per proteggere le chiavi con protezione HSM nell'infrastruttura back-end HSM. 
+- I pool di moduli di protezione hardware gestiti usano moduli di protezione hardware convalidati in base agli standard **FIPS 140-2 livello 3** per proteggere le chiavi. Ogni pool di moduli di protezione hardware è un'istanza a tenant singolo isolata con il proprio [dominio di sicurezza](../managed-hsm/security-domain.md) che fornisce l'isolamento crittografico completo da tutti gli altri pool che condividono la stessa infrastruttura hardware.
 
-Per ulteriori informazioni sui limiti geografici, vedere [Centro di protezione Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
+Queste chiavi sono protette nei pool di moduli di protezione hardware a tenant singolo. È possibile importare una chiave RSA, EC o simmetrica protetta tramite software o mediante l'esportazione da un modulo di protezione hardware supportato. È possibile anche generare chiavi nei pool di moduli di protezione hardware. Quando si importano le chiavi con protezione HSM usando il metodo descritto nella [specifica BYOK (Bring Your Own Key)](../keys/byok-specification.md), viene abilitato il materiale della chiave di trasporto sicuro nei pool di moduli di protezione hardware gestiti. 
 
-## <a name="cryptographic-protection"></a>Protezione crittografica
+Per ulteriori informazioni sui limiti geografici, vedere [Centro di protezione Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)
 
-Key Vault supporta solo chiavi RSA ed EC (Elliptic Curve). 
+## <a name="key-types-protection-methods-and-algorithms"></a>Tipi di chiave, metodi di protezione e algoritmi
 
--   **EC**: chiave a curva ellittica protetta tramite software.
--   **EC-HSM**: chiave "hard" a curva ellittica.
--   **RSA**: chiave RSA protetta tramite software.
--   **RSA-HSM**: chiave "hard" RSA.
+Key Vault supporta le chiavi RSA, EC e simmetriche. 
 
-Key Vault supporta chiavi RSA di dimensioni pari a 2048, 3072 e 4096 e chiavi EC (Elliptic Curve) di tipo P-256, P-384, P-521 e P-256K (SECP256K1).
+### <a name="hsm-protected-keys"></a>Chiavi protette dal modulo di protezione hardware
 
-I moduli crittografici usati da Key Vault, moduli di protezione hardware o software, dispongono di convalida FIPS (Federal Information Processing Standards). Non è necessario attuare misure preventive particolari per l'esecuzione in modalità FIPS. Le chiavi **create** o **importate** come protette tramite il modulo di protezione hardware vengono elaborate all'interno di un modulo di questo tipo e convalidate per FIPS 140-2 livello 2. Le chiavi **create** o **importate** come protette tramite software vengono elaborate all'interno di moduli crittografici e convalidate per FIPS 140-2 livello 1.
+|Tipo di chiave|Insiemi di credenziali (solo SKU Premium)|Pool di moduli di protezione hardware gestiti|
+|--|--|--|--|
+**EC-HSM**: chiave a curva ellittica|Modulo di protezione hardware FIPS 140-2 livello 2|Modulo di protezione hardware FIPS 140-2 livello 3
+**RSA-HSM**: chiave RSA|Modulo di protezione hardware FIPS 140-2 livello 2|Modulo di protezione hardware FIPS 140-2 livello 3
+**oct-HSM**: Simmetrica|Non supportato|Modulo di protezione hardware FIPS 140-2 livello 3
+||||
+
+### <a name="software-protected-keys"></a>Chiavi protette tramite software
+
+|Tipo di chiave|Insiemi di credenziali|Pool di moduli di protezione hardware gestiti|
+|--|--|--|--|
+**RSA**: chiave RSA protetta tramite software|FIPS 140-2 livello 1|Non supportato
+**EC**: chiave a curva ellittica protetta tramite software|FIPS 140-2 livello 1|Non supportato
+||||
+
+### <a name="supported-algorithms"></a>Algoritmi supportati
+
+|Tipi di chiave/dimensioni/curve| Crittografa/Decrittografa<br>(Wrapping/Annullamento del wrapping) | Firma/Verifica | 
+| --- | --- | --- |
+|EC-P256, EC-P256K, EC-P384, EC-521|N/D|ES256<br>ES256K<br>ES384<br>ES512|
+|RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
+|AES a 128 bit, 256 bit| AES-KW<br>AES-GCM<br>AES-CBC| N/D| 
+|||
 
 ###  <a name="ec-algorithms"></a>Algoritmi EC
- Gli identificatori di algoritmo seguenti sono supportati con le chiavi EC ed EC-HSM in Key Vault. 
+ Gli identificatori di algoritmo seguenti sono supportati con le chiavi EC-HSM
 
 #### <a name="curve-types"></a>Tipi di curva
 
@@ -68,12 +99,13 @@ I moduli crittografici usati da Key Vault, moduli di protezione hardware o softw
 -   **ES512** - ECDSA per digest e chiavi SHA-512 creati con la curva P-521. Questo algoritmo è descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 ###  <a name="rsa-algorithms"></a>Algoritmi RSA  
- Gli identificatori di algoritmo seguenti sono supportati con le chiavi RSA e RSA-HSM in Key Vault.  
+ Gli identificatori di algoritmo seguenti sono supportati con le chiavi RSA e RSA-HSM  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>ESEGUI/NON ESEGUIRE IL WRAPPING DELLA CHIAVE, CRITTOGRAFA/DECRITTOGRAFA
 
 -   **RSA1_5**: crittografia della chiave RSAES-PKCS1-V1_5 [RFC3447]  
 -   **RSA-OAEP**: RSAES con OAEP (Optimal Asymmetric Encryption Padding) [RFC3447] con i parametri predefiniti specificati da RFC 3447 nella sezione A.2.1. Tali parametri predefiniti usano una funzione hash di SHA-1 e una funzione di generazione della maschera MGF1 con SHA-1.  
+-  **RSA-OAEP-256**: RSAES con OAEP (Optimal Asymmetric Encryption Padding) con una funzione hash SHA-256 e una funzione di generazione della maschera di MGF1 con SHA-256
 
 #### <a name="signverify"></a>SIGN//VERIFY
 
@@ -83,11 +115,19 @@ I moduli crittografici usati da Key Vault, moduli di protezione hardware o softw
 -   **RS256**: RSASSA-PKCS-v1_5 tramite SHA-256. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-256 e deve avere una lunghezza di 32 byte.  
 -   **RS384**: RSASSA-PKCS-v1_5 tramite SHA-384. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-384 e deve avere una lunghezza di 48 byte.  
 -   **RS512**: RSASSA-PKCS-v1_5 tramite SHA-512. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-512 e deve avere una lunghezza di 64 byte.  
--   **RSNULL**: vedere [RFC2437], un caso di utilizzo specializzato per abilitare determinati scenari TLS.  
+-   **RSNULL**: vedere [RFC2437](https://tools.ietf.org/html/rfc2437), un caso di utilizzo specializzato per abilitare determinati scenari TLS.  
+
+###  <a name="symmetric-key-algorithms"></a>Algoritmi per chiavi simmetriche
+- **AES-KW**: wrapping delle chiavi AES ([RFC3394](https://tools.ietf.org/html/rfc3394)).
+- **AES-GCM**: crittografia AES in modalità contatore di Galois ([NIST SP800-38d](https://csrc.nist.gov/publications/sp800))
+- **AES-CBC**: crittografia AES in modalità Cipher Block Chaining ([NIST SP800-38a](https://csrc.nist.gov/publications/sp800))
+
+> [!NOTE] 
+> L'attuale implementazione di AES-GCM e le API corrispondenti sono in fase sperimentale. L'implementazione e le API potrebbero subire cambiamenti sostanziali nelle iterazioni future. 
 
 ##  <a name="key-operations"></a>Operazioni relative alle chiavi
 
-Key Vault supporta le operazioni seguenti sugli oggetti chiave:  
+Il modulo di protezione hardware gestito supporta le operazioni seguenti sugli oggetti chiave:  
 
 -   **Creazione**: consente a un client di creare una chiave in Key Vault. Il valore della chiave viene generato da Key Vault e archiviato e non viene rilasciato al cliente. In Key Vault è possibile creare chiavi asimmetriche.  
 -   **Import**: consente a un client di importare una chiave esistente in Key Vault. Le chiavi asimmetriche possono essere importate in Key Vault usando una serie di metodi di creazione di pacchetti diversi all'interno di un costrutto JWK. 
@@ -103,7 +143,7 @@ Per altre informazioni, vedere le [operazioni relative alle chiavi nell'articolo
 
 Dopo aver creato una chiave in Key Vault, sarà possibile eseguire le operazioni crittografiche seguenti usando tale chiave:  
 
--   **Firma e verifica**: in senso stretto, si tratta di una firma hash o di una verifica hash", poiché Key Vault non supporta l'hashing del contenuto durante la creazione della firma. Le applicazioni devono eseguire l'hashing dei dati per la firma locale e quindi richiedere a Key Vault la firma dell'hash. La verifica degli hash firmati è supportata come operazione utile per le applicazioni che non possono accedere al materiale delle chiavi [pubblico]. Per prestazioni ottimali delle applicazioni, è consigliabile eseguire le operazioni VERIFY in locale.  
+-   **Firma e verifica**: in senso stretto, si tratta di una firma hash o di una verifica hash", poiché Key Vault non supporta l'hashing del contenuto durante la creazione della firma. Le applicazioni devono eseguire l'hashing dei dati per la firma locale e quindi richiedere a Key Vault la firma dell'hash. La verifica degli hash firmati è supportata come operazione utile per le applicazioni che non possono accedere al materiale delle chiavi [pubblico]. Per ottenere prestazioni ottimali delle applicazioni, è consigliabile eseguire le operazioni VERIFY in locale.  
 -   **Crittografia tramite chiave/Wrapping**: una chiave archiviata in Key Vault può essere usata per proteggere un'altra chiave, in genere una chiave CEK (Content Encryption Key) simmetrica. Quando la chiave in Key Vault è asimmetrica, viene usata la crittografia della chiave. Ad esempio, RSA-OAEP e le operazioni WRAPKEY/UNWRAPKEY equivalgono a ENCRYPT/DECRYPT. Quando la chiave in Key Vault è simmetrica, viene usato il wrapping della chiave, ad esempio AES-KW. L'operazione WRAPKEY è supportata come strumento utile per le applicazioni che non possono accedere al materiale delle chiavi [pubblico]. Per ottenere prestazioni ottimali dalle applicazioni, le operazioni WRAPKEY devono essere eseguite in locale.  
 -   **Crittografia e decrittografia**: una chiave archiviata in Key Vault può essere usata per crittografare o decrittografare un singolo blocco di dati. Le dimensioni del blocco sono determinate dal tipo di chiave e dall'algoritmo di crittografia selezionato. L'operazione Encrypt viene fornita per comodità per le applicazioni che non possono accedere al materiale delle chiavi [pubblico]. Per prestazioni ottimali delle applicazioni, è consigliabile eseguire le operazioni ENCRYPT in locale.  
 
@@ -142,8 +182,8 @@ Per altre informazioni su altri possibili attributi, vedere [JSON Web Key (JWK)]
 
 È possibile specificare metadati aggiuntivi specifici dell'applicazione sotto forma di tag. Key Vault supporta fino a 15 tag, ognuno dei quali può avere un nome di 256 caratteri e un valore di 256 caratteri.  
 
->[!Note]
->I tag possono essere letti da un chiamante che ha l'autorizzazione *list* o *get* per accedere a un determinato tipo di oggetto (chiave, segreto o certificato).
+> [!NOTE] 
+> Un chiamante può leggere i tag se ha l'autorizzazione *list* o *get* per la chiave.
 
 ##  <a name="key-access-control"></a>Controllo di accesso per le chiavi
 
@@ -176,10 +216,10 @@ Le autorizzazioni seguenti possono essere concesse, su base principale utente/se
 Per altre informazioni sull'uso delle chiavi, vedere le operazioni relative alle chiavi in [Key Vault REST API reference](/rest/api/keyvault) (Riferimenti sull'API REST di Key Vault). Per informazioni sulla definizione delle autorizzazioni, vedere [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) (Insiemi di credenziali - Create o Update) e [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy) (Insiemi di credenziali - Update Access Policy). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 - [Informazioni su Key Vault](../general/overview.md)
-- [Informazioni su chiavi, segreti e certificati](../general/about-keys-secrets-certificates.md)
+- [Informazioni sul modulo di protezione hardware gestito](../managed-hsm/overview.md)
 - [Informazioni sui segreti](../secrets/about-secrets.md)
 - [Informazioni sui certificati](../certificates/about-certificates.md)
+- [Panoramica dell'API REST di Key Vault](../general/about-keys-secrets-certificates.md)
 - [Autenticazione, richieste e risposte](../general/authentication-requests-and-responses.md)
 - [Guida per gli sviluppatori all'insieme di credenziali delle chiavi](../general/developers-guide.md)

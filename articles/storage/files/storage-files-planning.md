@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: bf982b313c99034065aad5f246a69caf665a2657
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 85264eae325d9ed7049daac47a124cf1efb806e0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563448"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649950"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 [File di Azure](storage-files-introduction.md) può essere distribuito in due modi principali: montando direttamente le condivisioni file di Azure senza server o memorizzando nella cache le condivisioni file di Azure in locale usando sincronizzazione file di Azure. L'opzione di distribuzione scelta cambia gli elementi che è necessario prendere in considerazione durante la pianificazione della distribuzione. 
@@ -117,7 +117,7 @@ Per altre informazioni, vedere [Advanced Threat Protection per archiviazione di 
 
 In generale, le funzionalità di File di Azure e l'interoperabilità con altri servizi sono le stesse tra le condivisioni file Premium e le condivisioni file standard (incluse le condivisioni file ottimizzate per le transazioni, ad accesso frequente e ad accesso sporadico), tuttavia esistono alcune importanti differenze:
 - **Modello di fatturazione**
-    - Le condivisioni file Premium vengono fatturate usando un modello di fatturazione con provisioning, ovvero si paga la quantità di spazio di archiviazione di cui si esegue il provisioning invece della quantità di spazio di archiviazione effettivamente richiesta. 
+    - Le condivisioni file Premium vengono fatturate usando un modello di fatturazione con provisioning, il che significa che è possibile pagare il prezzo fisso per quanto spazio di archiviazione viene effettuato il provisioning invece della quantità di spazio di archiviazione usata. Non sono previsti costi aggiuntivi per le transazioni e i metadati inattivi.
     - Le condivisioni file standard vengono fatturate usando un modello con pagamento in base al consumo, che include un costo di archiviazione di base per la quantità di spazio di archiviazione effettivamente utilizzata e quindi un costo aggiuntivo per le transazioni in base alla modalità di utilizzo della condivisione. Con le condivisioni file standard, la fattura aumenterà se si usa (lettura/scrittura/montaggio) la condivisione file di Azure.
 - **Opzioni di ridondanza**
     - Le condivisioni file Premium sono disponibili solo per l'archiviazione con ridondanza locale (con ridondanza locale) e con ridondanza della zona (ZRS).
@@ -126,7 +126,7 @@ In generale, le funzionalità di File di Azure e l'interoperabilità con altri s
     - È possibile eseguire il provisioning delle condivisioni file Premium per un massimo di 100 TiB senza ulteriori operazioni.
     - Per impostazione predefinita, le condivisioni file standard possono estendersi solo fino a 5 TiB, sebbene il limite di condivisione possa essere aumentato a 100 TiB scegliendo il flag di funzionalità dell'account di archiviazione per la *condivisione file di grandi dimensioni* . Le condivisioni file standard possono includere fino a 100 TiB solo per gli account di archiviazione con ridondanza locale o con ridondanza della zona. Per altre informazioni sull'aumento delle dimensioni delle condivisioni file, vedere [abilitare e creare condivisioni file di grandi dimensioni](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
 - **Disponibilità a livello di area**
-    - Le condivisioni file Premium non sono disponibili in ogni area e il supporto con ridondanza della zona è disponibile in un subset più piccolo di aree. Per scoprire se le condivisioni file Premium sono attualmente disponibili nella propria area geografica, vedere la pagina [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=storage) per Azure. Per informazioni sulle aree che supportano ZRS, vedere [supporto per la zona di disponibilità di Azure in base all'area](../../availability-zones/az-region.md). Per aiutarci a classificare in ordine di priorità le nuove aree e le funzionalità del livello Premium, compila questo [sondaggio](https://aka.ms/pfsfeedback).
+    - Le condivisioni file Premium sono disponibili nella maggior parte delle aree di Azure, ad eccezione di alcune aree. Il supporto con ridondanza della zona è disponibile in un subset di aree. Per scoprire se le condivisioni file Premium sono attualmente disponibili nella propria area geografica, vedere la pagina [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=storage) per Azure. Per informazioni sulle aree che supportano ZRS, vedere [archiviazione con ridondanza della zona](../common/storage-redundancy.md#zone-redundant-storage). Per aiutarci a classificare in ordine di priorità le nuove aree e le funzionalità del livello Premium, compila questo [sondaggio](https://aka.ms/pfsfeedback).
     - Le condivisioni file standard sono disponibili in ogni area di Azure.
 - Azure Kubernetes Service (AKS) supporta le condivisioni file Premium nella versione 1,13 e successive.
 

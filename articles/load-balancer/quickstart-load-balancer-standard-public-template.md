@@ -1,7 +1,7 @@
 ---
-title: 'Avvio rapido: Creare una risorsa Load Balancer - Modello di Azure'
+title: 'Avvio rapido: Creare un servizio di bilanciamento del carico pubblico - Modello di Azure'
 titleSuffix: Azure Load Balancer
-description: Questa guida di avvio rapido mostra come creare un servizio di bilanciamento del carico usando il modello di Azure Resource Manager.
+description: Questo argomento di avvio rapido illustra come creare un servizio di bilanciamento del carico usando un modello di Azure Resource Manager.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,16 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: d83d58d608fc184f94ae70e60c56fe8fdc1e5eaa
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 66d702846bac5825239e891ce47f8cca5bb857f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706048"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984414"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Avvio rapido: Creare un servizio di bilanciamento del carico per le macchine virtuali tramite un modello di Resource Manager
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Avvio rapido: Creare un servizio di bilanciamento del carico pubblico per le macchine virtuali tramite un modello di Resource Manager
 
-Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra più macchine virtuali. Questo argomento di avvio rapido illustra come distribuire un modello di Azure Resource Manager che crea un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali. L'uso di un modello di Resource Manager richiede meno passaggi rispetto ad altri metodi di distribuzione.
+Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra più macchine virtuali. 
+
+Questo argomento di avvio rapido illustra come distribuire un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali.
+
+L'uso di un modello di Resource Manager richiede meno passaggi rispetto ad altri metodi di distribuzione.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -40,7 +44,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-load-balancer-standard-create/).
 
-Gli SKU di Load Balancer e quelli degli indirizzi IP pubblici devono corrispondere. Quando si crea una risorsa Load Balancer Standard, è necessario creare anche un nuovo indirizzo IP pubblico Standard che viene configurato come front-end per Load Balancer Standard. Se si desidera creare una risorsa Load Balancer Basic, usare [questo modello](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). Microsoft consiglia di usare SKU Standard per i carichi di lavoro di produzione.
+Gli SKU di Load Balancer e dell'indirizzo IP pubblico devono corrispondere. Quando si crea un'istanza di Load Balancer Standard, è necessario creare anche un nuovo indirizzo IP pubblico standard configurato come front-end per Load Balancer Standard. Se si vuole creare un'istanza di Load Balancer Basic, usare [questo modello](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). Microsoft consiglia di usare SKU Standard per i carichi di lavoro di produzione.
 
 :::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json":::
 
@@ -52,7 +56,7 @@ Nel modello sono state definite più risorse di Azure.
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (3 risorse di questo tipo).
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3 risorse di questo tipo).
-- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 risorse di questo tipo): da usare per configurare IIS e le pagine Web.
+- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 risorse di questo tipo): da usare per configurare Internet Information Services (IIS) e le pagine Web.
 
 Per altri modelli correlati ad Azure Load Balancer, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -91,7 +95,7 @@ Per la distribuzione del modello sono necessari circa 10 minuti. Al termine, l'o
 
 ![Modello di Resource Manager per Azure Load Balancer Standard: output della distribuzione con PowerShell](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-powershell-output.png)
 
-Per distribuire il modello viene usato Azure PowerShell. Oltre ad Azure PowerShell, è anche possibile usare il portale di Azure, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-portal.md).
+Per distribuire il modello viene usato Azure PowerShell. È possibile usare anche il portale di Azure, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-portal.md).
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
@@ -115,13 +119,23 @@ Per verificare la distribuzione del traffico dell'istanza di Load Balancer fra t
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare il gruppo di risorse, il servizio di bilanciamento del carico e tutte le risorse correlate. A questo scopo, accedere al portale di Azure, selezionare il gruppo di risorse che contiene l'istanza di Load Balancer e quindi selezionare **Elimina gruppo di risorse**.
+Quando non servono più, eliminare le risorse seguenti: 
+
+* Resource group
+* Bilanciamento del carico
+* Risorse correlate
+
+Accedere al portale di Azure, selezionare il gruppo di risorse che contiene l'istanza di Load Balancer e quindi selezionare **Elimina gruppo di risorse**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stata creata un'istanza di Load Balancer Standard, sono state collegate ad essa alcune macchine virtuali, è stata configurata la regola del traffico di Load Balancer, è stato definito il probe di integrità e quindi è stata testata l'istanza di Load Balancer.
+In questo argomento di avvio rapido:
 
-Per altre informazioni, passare alle esercitazioni su Load Balancer.
+* È stata creata un'istanza di Load Balancer Standard, a cui sono quindi state collegate delle macchine virtuali.
+* Sono stati configurati la regola del traffico di bilanciamento del carico e il probe di integrità.
+* È stato testato il servizio di bilanciamento del carico.
+
+Per altre informazioni, continuare con le esercitazioni su Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Esercitazioni su Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: e29d031bc3461c4adab87b1d784ef19c89c7c12d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 7f1d8d34d6351fc344fdb101ac8e9a96678df9d5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613008"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651429"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montare la cache HPC di Azure
 
@@ -79,7 +79,7 @@ Seguire questa procedura per creare il comando di montaggio.
 
 1. Scegliere il **percorso dello spazio dei nomi virtuale** da usare per il client. Questi percorsi sono collegati alle esportazioni nel sistema di archiviazione back-end.
 
-   ![screenshot del campo percorsi dello spazio dei nomi con selettore aperto](media/mount-select-target.png)
+   ![Screenshot che mostra il campo "percorso spazio dei nomi virtuale" con selettore aperto.](media/mount-select-target.png)
 
    È possibile visualizzare e modificare i percorsi dello spazio dei nomi virtuali nella pagina del portale **dello spazio dei nomi** . Leggere [configurare lo spazio dei nomi aggregato](add-namespace-paths.md) per vedere come.
 

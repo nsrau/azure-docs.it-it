@@ -6,20 +6,33 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 08/01/2020
+ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 788b3f5e9f4012e418ece691ebb5fbc5d2f866af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4526e4916a89b53ae13a31bcdef6cd4715dd7e8c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931846"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979590"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
 Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio.
 
 ## <a name="feature-announcements-in-2020"></a>Annunci di funzionalità nel 2020
+
+### <a name="september-2020"></a>Settembre 2020
+
+Creare un'identità per un servizio di ricerca in Azure Active Directory, quindi usare le autorizzazioni di controllo degli accessi in base al ruolo per concedere all'identità le autorizzazioni di sola lettura per le origini dati di Azure. Se le regole IP non sono disponibili, è possibile scegliere la funzionalità di [eccezione del servizio attendibile](search-indexer-howto-access-trusted-service-exception.md).
+
+
+|Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
+|------------------------------|----------|-------------|---------------|
+| [Identità del servizio gestita](search-howto-managed-identities-data-sources.md) | Indicizzatori, sicurezza | Creare un'identità per un servizio di ricerca in Azure Active Directory, quindi usare le autorizzazioni di controllo degli accessi in base al ruolo per accedere alle origini dati di Azure. Questo approccio elimina la necessità di immettere credenziali nella stringa di connessione. <br><br>Un altro modo per usare un'identità del servizio gestita è tramite un'[eccezione del servizio attendibile](search-indexer-howto-access-trusted-service-exception.md), se non è possibile usare le regole IP. | Disponibile a livello generale. Accedere a questa funzionalità tramite il portale o [creare un'origine dati (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) con api-version=2020-06-30. |
+| [Richieste in uscita tramite un collegamento privato](search-indexer-howto-access-private.md) | Indicizzatori, sicurezza | Creare una risorsa collegamento privato condivisa che può essere usata dagli indicizzatori per accedere alle risorse di Azure protette da Collegamento privato di Azure. Per altre informazioni su tutte le modalità di protezione delle connessioni dell'indicizzatore, vedere [Proteggere le risorse dell'indicizzatore usando le funzionalità di sicurezza di rete di Azure](search-indexer-securing-resources.md). | Disponibile a livello generale. Accedere a questa funzionalità tramite il portale o una [risorsa collegamento privato condivisa](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) con api-version=2020-08-01. |
+| [API REST di gestione (2020-08-01)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | La nuova API REST stabile aggiunge il supporto per la creazione di risorse collegamento privato condivise. | Disponibile a livello generale. |
+| [API REST di gestione (2020-08-01-Preview)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Aggiunge una risorsa collegamento privato condivisa per Funzioni di Azure e Azure SQL per database MySQL. | Anteprima pubblica. |
+| [.NET SDK 4.0 per la gestione](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | .NET SDK | Aggiornamento di Azure SDK per l'SDK di gestione, destinato all'API REST versione 2020-08-01. | Disponibile a livello generale. |
 
 ### <a name="august-2020"></a>Agosto 2020
 
@@ -31,9 +44,9 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
-| [Libreria client Azure.Search.Documents](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK per .NET | Libreria client .NET rilasciata dal team di Azure SDK, progettata per coerenza con altre librerie client .NET. <br/><br/>La versione 11 è destinata all'API REST Ricerca api-version=2020-06-30, ma non supporta ancora l'archivio conoscenze, i tipi geospaziali o [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). <br/><br/>Per altre informazioni, vedere [Avvio rapido: Creare un indice](search-get-started-dotnet.md) ed [Eseguire l'aggiornamento ad Azure.Search.Documents (v11)](search-dotnet-sdk-migration-version-11.md). | Disponibile a livello generale. </br> Installare il [pacchetto Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) da NuGet. |
-| [Libreria client azure.search.documents](/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK per Python| Libreria client Python rilasciata dal team di Azure SDK, progettata per coerenza con altre librerie client Python. <br/><br/>La versione 11 è destinata all'API REST Ricerca api-version=2020-06-30. | Disponibile a livello generale. </br> Installare il [pacchetto azure-search-documents](https://pypi.org/project/azure-search-documents/) da PyPI. |
-| [@azure/search-documents libreria client](/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)  | Azure SDK per JavaScript | Libreria client JavaScript rilasciata dal team di Azure SDK, progettata per coerenza con altre librerie client JavaScript. <br/><br/>La versione 11 è destinata all'API REST Ricerca api-version=2020-06-30. | Disponibile a livello generale. </br> Installare il [pacchetto @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents) da npm. |
+| [Libreria client Azure.Search.Documents](/dotnet/api/overview/azure/search.documents-readme) | Azure SDK per .NET | Libreria client .NET rilasciata dal team di Azure SDK, progettata per coerenza con altre librerie client .NET. <br/><br/>La versione 11 è destinata all'API REST Ricerca api-version=2020-06-30, ma non supporta ancora l'archivio conoscenze, i tipi geospaziali o [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder). <br/><br/>Per altre informazioni, vedere [Avvio rapido: Creare un indice](search-get-started-dotnet.md) ed [Eseguire l'aggiornamento ad Azure.Search.Documents (v11)](search-dotnet-sdk-migration-version-11.md). | Disponibile a livello generale. </br> Installare il [pacchetto Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) da NuGet. |
+| [Libreria client azure.search.documents](/python/api/overview/azure/search-documents-readme)  | Azure SDK per Python| Libreria client Python rilasciata dal team di Azure SDK, progettata per coerenza con altre librerie client Python. <br/><br/>La versione 11 è destinata all'API REST Ricerca api-version=2020-06-30. | Disponibile a livello generale. </br> Installare il [pacchetto azure-search-documents](https://pypi.org/project/azure-search-documents/) da PyPI. |
+| [@azure/search-documents libreria client](/javascript/api/overview/azure/search-documents-readme)  | Azure SDK per JavaScript | Libreria client JavaScript rilasciata dal team di Azure SDK, progettata per coerenza con altre librerie client JavaScript. <br/><br/>La versione 11 è destinata all'API REST Ricerca api-version=2020-06-30. | Disponibile a livello generale. </br> Installare il [pacchetto @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents) da npm. |
 
 ### <a name="june-2020"></a>Giugno 2020
 
@@ -49,7 +62,7 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
 | [**Sessioni di debug**](cognitive-search-debug-session.md) | Arricchimento con intelligenza artificiale | Le sessioni di debug forniscono un'interfaccia basata su portale per esaminare e risolvere i problemi relativi a un set di competenze esistente. Le correzioni create nella sessione di debug possono essere salvate nei set di competenze di produzione. Introduzione a [questa esercitazione](cognitive-search-tutorial-debug-sessions.md). | Anteprima pubblica, nel portale. |
-| [**Regole IP per il supporto del firewall in ingresso**](service-configure-firewall.md) | Sicurezza | Limitano l'accesso a un endpoint di servizio di ricerca a indirizzi IP specifici. | Disponibile a livello generale. </br> Usare l'[API REST di gestione 2020-03-13](/rest/api/searchmanagement/) o versioni successive oppure il portale. |
+| [**Regole IP per il supporto del firewall in ingresso**](service-configure-firewall.md) | Security | Limitano l'accesso a un endpoint di servizio di ricerca a indirizzi IP specifici. | Disponibile a livello generale. </br> Usare l'[API REST di gestione 2020-03-13](/rest/api/searchmanagement/) o versioni successive oppure il portale. |
 | [**Collegamento privato di Azure per un endpoint di ricerca privato**](service-create-private-endpoint.md) | Sicurezza| Scherma un servizio di ricerca dalla rete Internet pubblica eseguendolo come una risorsa collegamento privato, accessibile solo alle app client e ad altri servizi di Azure nella stessa rete virtuale. | Disponibile a livello generale. </br> Usare l'[API REST di gestione 2020-03-13](/rest/api/searchmanagement/) o versioni successive oppure il portale. |
 | [**Identità gestita dal sistema (anteprima)** ](search-howto-managed-identities-data-sources.md) | Sicurezza (indicizzatori) | Registra un servizio di ricerca come servizio attendibile con Azure Active Directory per configurare le connessioni a un'origine dati di Azure supportata per l'indicizzazione. Si applica agli [indicizzatori](search-indexer-overview.md) che inseriscono contenuto da origini dati di Azure, ad esempio database SQL di Azure, Azure Cosmos DB e Archiviazione di Azure. | Anteprima pubblica. </br> Usare il portale per registrare il servizio di ricerca. |
 | [**Parametro di query sessionId**](index-similarity-and-scoring.md), [scoringStatistics=parametro globale](index-similarity-and-scoring.md#scoring-statistics) | Query (pertinenza) | Aggiungere sessionID a una query per stabilire una sessione per il calcolo dei punteggi di ricerca, con scoringStatistics=global per raccogliere i punteggi da tutte le partizioni, per calcoli più coerenti dei punteggi di ricerca. | Disponibile a livello generale. </br> Usare l'[API REST di ricerca 2020-06-30](/rest/api/searchservice/) o versioni successive oppure l'API REST 2019-05-06. |
@@ -74,7 +87,7 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
 | [**Chiavi di crittografia gestite dal cliente**](search-security-manage-encryption-keys.md) |Sicurezza | Aggiunge un ulteriore livello di crittografia oltre alla crittografia incorporata della piattaforma. Usando una chiave di crittografia creata e gestita personalmente, è possibile crittografare il contenuto dell'indice e le mappe di sinonimi prima che il payload raggiunga un servizio di ricerca. | Disponibile a livello generale. </br> Usare l'API REST di ricerca 2019-05-06 o versioni successive. Per il codice gestito, il pacchetto corretto è ancora [.NET SDK versione 8.0-preview](search-dotnet-sdk-migration-version-9.md) anche se la funzionalità non è più in anteprima. |
-| [**Regole IP per il supporto del firewall in ingresso (anteprima)** ](service-configure-firewall.md) | Sicurezza | Limitano l'accesso a un endpoint di servizio di ricerca a indirizzi IP specifici. L'API di anteprima include le nuove proprietà **IpRule** e **NetworkRuleSet** nell'[API CreateOrUpdate ](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Questa funzionalità di anteprima è disponibile in specifiche aree. |  Anteprima pubblica con api-version=2019-10-01-Preview.  |
+| [**Regole IP per il supporto del firewall in ingresso (anteprima)** ](service-configure-firewall.md) | Security | Limitano l'accesso a un endpoint di servizio di ricerca a indirizzi IP specifici. L'API di anteprima include le nuove proprietà **IpRule** e **NetworkRuleSet** nell'[API CreateOrUpdate ](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Questa funzionalità di anteprima è disponibile in specifiche aree. |  Anteprima pubblica con api-version=2019-10-01-Preview.  |
 | [**Collegamento privato di Azure per un endpoint di ricerca privato (anteprima)** ](service-create-private-endpoint.md) | Sicurezza| Scherma un servizio di ricerca dalla rete Internet pubblica eseguendolo come una risorsa collegamento privato, accessibile solo alle app client e ad altri servizi di Azure nella stessa rete virtuale. | Anteprima pubblica con api-version=2019-10-01-Preview.  |
 
 ## <a name="feature-announcements-in-2019"></a>Annunci di funzionalità nel 2019

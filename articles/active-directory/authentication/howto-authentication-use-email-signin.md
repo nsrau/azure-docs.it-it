@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 10/01/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: scottsta
-ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.reviewer: calui
+ms.openlocfilehash: 9b9617b4109318257895587cc0d8e75054a7f729
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419530"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650307"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Accedere a Azure Active Directory usando la posta elettronica come ID di accesso alternativo (anteprima)
 
@@ -28,6 +28,8 @@ Alcune organizzazioni non sono passate all'autenticazione ibrida per i motivi se
 * A causa di motivi aziendali o di conformità, l'organizzazione non vuole usare l'UPN locale per accedere a Azure AD.
 
 Per semplificare il passaggio all'autenticazione ibrida, è ora possibile configurare Azure AD per consentire agli utenti di accedere con un messaggio di posta elettronica nel dominio verificato come ID di accesso alternativo. Ad esempio, se *Contoso* è stato rinominato in *Fabrikam*, anziché continuare ad accedere con l'UPN `balas@contoso.com` precedente ora è possibile usare l'indirizzo e-mail come ID di accesso alternativo. Per accedere a un'applicazione o a un servizio, gli utenti accedono a Azure AD usando il proprio indirizzo di posta elettronica assegnato, ad esempio `balas@fabrikam.com` .
+
+Questo articolo illustra come abilitare e usare la posta elettronica come ID di accesso alternativo. Questa funzionalità è disponibile in Azure AD Free Edition e versioni successive.
 
 > [!NOTE]
 > Accedere ad Azure AD con l'indirizzo e-mail come ID di accesso alternativo è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -45,6 +47,8 @@ La soluzione alternativa tipica di questo problema consiste nell'impostare il Az
 Un approccio diverso consiste nel sincronizzare il Azure AD e il UPN locale con lo stesso valore e quindi configurare Azure AD per consentire agli utenti di accedere Azure AD con un messaggio di posta elettronica verificato. Per fornire questa capacità, è necessario definire uno o più indirizzi di posta elettronica nell'attributo *proxyAddresses* dell'utente nella directory locale. *ProxyAddresses* vengono quindi sincronizzati per Azure ad automaticamente utilizzando Azure ad Connect.
 
 ## <a name="preview-limitations"></a>Limiti di anteprima
+
+Accedere a Azure AD con posta elettronica come ID di accesso alternativo è disponibile nella Azure AD Free edizione e versioni successive.
 
 Nello stato di anteprima corrente, quando un utente accede con un indirizzo di posta elettronica non UPN come ID di accesso alternativo, si applicano le limitazioni seguenti:
 
