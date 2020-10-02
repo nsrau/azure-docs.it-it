@@ -3,16 +3,16 @@ title: Risolvere i problemi del servizio Azure Image Builder
 description: Risolvere i problemi e gli errori comuni quando si usa il servizio Generatore di immagini di VM di Azure
 author: cynthn
 ms.author: danis
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: ee65cd1605e23dfd5699f92a900bdb5e7952fe13
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: dd17057a56e8dfb269a22458b9aa20fefaab68bc
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459930"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661109"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Risolvere i problemi del servizio Azure Image Builder
 
@@ -40,7 +40,7 @@ Le sezioni seguenti includono informazioni aggiuntive sulla risoluzione dei prob
 
 ### <a name="updateupgrade-of-image-templates-is-currently-not-supported"></a>L'aggiornamento e l'aggiornamento dei modelli di immagine non sono attualmente supportati
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 
 ```text
 'Conflict'. Details: Update/Upgrade of image templates is currently not supported
@@ -56,7 +56,7 @@ Se si invia un modello di configurazione dell'immagine e l'invio ha esito negati
 
 ### <a name="the-resource-operation-completed-with-terminal-provisioning-state-failed"></a>L'operazione della risorsa è stata completata con lo stato di provisioning del terminale ' failed '
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 
 ```text
 Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' failed with message '{
@@ -84,7 +84,7 @@ Per altre informazioni sulla configurazione delle autorizzazioni, vedere Configu
 
 ### <a name="error-getting-managed-image"></a>Errore durante il recupero dell'immagine gestita
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 
 ```text
 Build (Managed Image) step failed: Error getting Managed Image '/subscriptions/.../providers/Microsoft.Compute/images/mymanagedmg1': Error getting managed image (...): compute.
@@ -106,7 +106,7 @@ Per altre informazioni sulla configurazione delle autorizzazioni, vedere Configu
 
 ### <a name="build--step-failed-for-image-version"></a>Istruzione di compilazione non riuscita per la versione dell'immagine
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 ```text
 Build (Shared Image Version) step failed for Image Version '/subscriptions/.../providers/Microsoft.Compute/galleries/.../images/... /versions/0.23768.4001': Error getting Image Version '/subscriptions/.../resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001': Error getting image version '... :0.23768.4001': compute.GalleryImageVersionsClient#Get: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. 
 Status=404 Code="ResourceNotFound" Message="The Resource 'Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001' under resource group '<rgName>' was not found."
@@ -121,7 +121,7 @@ Verificare che l'immagine di origine sia corretta ed esista nella posizione del 
 
 ### <a name="downloading-external-file-to-local-file"></a>Download del file esterno nel file locale
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 
 ```text
 Downloading external file (<myFile>) to local file (xxxxx.0.customizer.fp) [attempt 1 of 10] failed: Error downloading '<myFile>' to 'xxxxx.0.customizer.fp'..
@@ -228,7 +228,7 @@ Il file customization. log include le fasi seguenti:
 
 ### <a name="packer-build-command-failure"></a>Errore del comando di compilazione di Packer
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 
 ```text
   "provisioningState": "Succeeded",
@@ -263,7 +263,7 @@ Ad esempio:
 
 ### <a name="timeout-exceeded"></a>Timeout superato
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 
 ```text
 Deployment failed. Correlation ID: xxxxx-xxxx-xxxx-xxxx-xxxxxxxxx. Failed in building/customizing image: Failed while waiting for packerizer: Timeout waiting for microservice to complete: 'context deadline exceeded'
@@ -289,7 +289,7 @@ La compilazione ha superato il timeout di compilazione. Questo errore si verific
 
 ### <a name="long-file-download-time"></a>Tempo di download di file lunghi
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 ```text
 [086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT 
 myBigFile.zip 826 B / 826000 B  1.00%
@@ -312,7 +312,7 @@ Il file verbi è adatto solo per i download di file di piccole dimensioni inferi
 
 ### <a name="error-waiting-on-shared-image-gallery"></a>Errore di attesa nella raccolta di immagini condivise
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 
 ```text
 Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in distributing 1 images out of total 1: {[Error 0] [Distribute 0] Error publishing MDI to shared image gallery:/subscriptions/<subId>/resourceGroups/xxxxxx/providers/Microsoft.Compute/galleries/xxxxx/images/xxxxxx, Location:eastus. Error: Error returned from SIG client while publishing MDI to shared image gallery for dstImageLocation: eastus, dstSubscription: <subId>, dstResourceGroupName: XXXXXX, dstGalleryName: XXXXXX, dstGalleryImageName: XXXXXX. Error: Error waiting on shared image gallery future for resource group: XXXXXX, gallery name: XXXXXX, gallery image name: XXXXXX.Error: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded}
@@ -335,7 +335,7 @@ Aumentare il **buildTimeoutInMinutes**.
  
 ### <a name="low-windows-resource-information-events"></a>Eventi di informazioni sulle risorse Windows insufficienti
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 
 ```text
 [45f485cf-5a8c-4379-9937-8d85493bc791] PACKER OUT     azure-arm: Waiting for operation to complete (system performance: 1% cpu; 37% memory)...
@@ -390,7 +390,7 @@ Aumentare le dimensioni della macchina virtuale di compilazione.
 
 ### <a name="builds-finished-but-no-artifacts-were-created"></a>Compilazioni completate, ma non sono stati creati artefatti
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 
 ```text
 [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT Build 'azure-arm' errored: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded
@@ -417,7 +417,7 @@ Eseguire di nuovo la compilazione per riprovare.
 
 ### <a name="resource-not-found"></a>Resource not found
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 
 ```text
   "provisioningState": "Succeeded",
@@ -440,7 +440,7 @@ Per altre informazioni sulla configurazione delle autorizzazioni, vedere Configu
 
 ### <a name="sysprep-timing"></a>Temporizzazione Sysprep
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 
 ```text
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER OUT     azure-arm: Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
@@ -504,7 +504,7 @@ Aumentare le dimensioni della macchina virtuale. In alternativa, è possibile ag
 
 ### <a name="cancelling-builder-after-context-cancellation-context-canceled"></a>Annullamento del generatore dopo il contesto di annullamento del contesto annullato
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 ```text
 PACKER ERR 2020/03/26 22:11:23 Cancelling builder after context cancellation context canceled
 PACKER OUT Cancelling build after receiving terminated
@@ -554,7 +554,7 @@ Nei casi in cui è necessario esaminare le compilazioni riuscite e si desidera e
 
 ### <a name="operation-was-canceled"></a>L'operazione è stata annullata
 
-#### <a name="error"></a>Errore
+#### <a name="error"></a>Errore di
 
 ```text
 2020-05-05T18:28:24.9280196Z ##[section]Starting: Azure VM Image Builder Task
@@ -591,6 +591,18 @@ Per altre informazioni sulle funzionalità e sulle limitazioni di Azure DevOps, 
 #### <a name="solution"></a>Soluzione
 
 È possibile ospitare agenti DevOps personalizzati o cercare di ridurre il tempo di compilazione. Ad esempio, se si esegue la distribuzione nella raccolta di immagini condivise, eseguire la replica in un'area. Se si desidera eseguire la replica in modo asincrono. 
+
+### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>Accesso lento a Windows:' attendere il programma di installazione dei moduli di Windows '
+
+#### <a name="error"></a>Errore di
+Dopo aver creato un'immagine di Windows 10 con Image Builder, creare una VM dall'immagine, eseguire il protocollo RDP e attendere qualche minuto al primo accesso, visualizzando una schermata blu con il messaggio:
+```text
+Please wait for the Windows Modules Installer
+```
+
+#### <a name="solution"></a>Soluzione
+Per prima cosa, nel controllo della compilazione dell'immagine non sono necessari riavvii in attesa aggiungendo un riavvio di Windows verbi come ultima personalizzazione e che l'installazione del software sia completa. Infine, aggiungere l'opzione [/mode: VM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-command-line-options) al Sysprep predefinito usato da AIB, vedere di seguito,' le macchine virtuali create da immagini AIB non creano correttamente ' >' eseguendo l'override dei comandi '  
+
  
 ## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>Le macchine virtuali create da immagini AIB non vengono create correttamente
 

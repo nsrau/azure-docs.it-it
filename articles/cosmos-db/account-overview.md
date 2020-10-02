@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7583e35cad03927d003de7a836de03af091b55eb
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d01164552b1f3f10f592cedf80eafe57566bf09c
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569698"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661075"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Usare l'account Azure Cosmos
 
@@ -27,7 +27,7 @@ Per gestire in modo sicuro l'accesso a tutti i dati nell'account Azure Cosmos, �
 
 Azure Cosmos container è l'unità di base della scalabilità. È possibile ottenere archiviazione e unità elaborate supportate per il provisioning (UR/s) praticamente illimitate in un contenitore. Azure Cosmos DB partiziona in modo trasparente il contenitore usando la chiave di partizione logica specificata per ridimensionare in modo elastico l'archiviazione e le unità elaborate supportate per il provisioning. Per altre informazioni, vedere [Working with Azure Cosmos containers and items](databases-containers-items.md) (Uso di contenitori ed elementi di Azure Cosmos).
 
-Attualmente è possibile creare un massimo di 100 account Azure Cosmos in una sottoscrizione di Azure. Un solo account Azure Cosmos può gestire praticamente una quantità illimitata di dati e di unità elaborate supportate per il provisioning. Per gestire i dati e le unità elaborate supportate per il provisioning, è possibile creare uno o più database Cosmos Azure nel proprio account e all'interno del database è possibile creare uno o più contenitori. L'immagine seguente mostra la gerarchia degli elementi in un account Azure Cosmos:
+Attualmente, è possibile creare un massimo di 50 account Azure Cosmos in una sottoscrizione di Azure. si tratta di un limite flessibile che può essere aumentato tramite la richiesta di supporto. Un solo account Azure Cosmos può gestire praticamente una quantità illimitata di dati e di unità elaborate supportate per il provisioning. Per gestire i dati e le unità elaborate supportate per il provisioning, è possibile creare uno o più database Cosmos Azure nel proprio account e all'interno del database è possibile creare uno o più contenitori. L'immagine seguente mostra la gerarchia degli elementi in un account Azure Cosmos:
 
 :::image type="content" source="./media/account-overview/hierarchy.png" alt-text="Gerarchia di un account Azure Cosmos" border="false":::
 

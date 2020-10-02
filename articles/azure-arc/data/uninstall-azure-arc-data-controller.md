@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7e1a2d50e04601b977bb7a708f60e78089ddded1
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: a040200c5746defcaee84a951521d5919c0c4d28
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631019"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660677"
 ---
 # <a name="delete-azure-arc-data-controller"></a>Elimina il controller dati di Azure Arc
 
@@ -75,16 +75,21 @@ oc adm policy remove-scc-from-user anyuid     -z default -n arc
 
 ### <a name="delete-cluster-level-objects"></a>Elimina oggetti a livello di cluster
 
-Oltre agli oggetti con ambito spazio dei nomi, se si desidera eliminare anche gli oggetti a livello di cluster, ad esempio CRD, `clusterroles` e `clusterrolebindings` , eseguire i comandi seguenti:
+Oltre agli oggetti con ambito spazio dei nomi se si desidera eliminare anche gli oggetti a livello di cluster, ad esempio CRD, `clusterroles` ed `clusterrolebindings` eseguire i comandi seguenti:
 
-```
+```console
 # Cleanup azure arc data service artifacts
+#Delete CRDs
 kubectl delete crd datacontrollers.arcdata.microsoft.com 
 kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com 
 kubectl delete crd postgresql-11s.arcdata.microsoft.com 
 kubectl delete crd postgresql-12s.arcdata.microsoft.com
-kubectl delete clusterroles azure-arc-data:cr-arc-metricsdc-reader
-kubectl delete clusterrolebindings azure-arc-data:crb-arc-metricsdc-reader
+#Delete clusterrole
+kubectl delete clusterrole <namespace>:cr-arc-metricsdc-reader
+#For example: kubectl delete clusterrole arc:cr-arc-metricsdc-reader
+#Delete rolebinding
+kubectl delete clusterrolebinding <namespace>:crb-arc-metricsdc-reader
+#For example: kubectl delete clusterrolebinding arc:crb-arc-metricsdc-reader
 ```
 
 ### <a name="optionally-delete-the-azure-arc-data-controller-namespace"></a>Facoltativamente, eliminare lo spazio dei nomi del controller di dati di Azure Arc
@@ -92,7 +97,7 @@ kubectl delete clusterrolebindings azure-arc-data:crb-arc-metricsdc-reader
 
 ```console
 kubectl delete ns <nameSpecifiedDuringCreation>
-# for example kubectl delete ns arc
+# for example: kubectl delete ns arc
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

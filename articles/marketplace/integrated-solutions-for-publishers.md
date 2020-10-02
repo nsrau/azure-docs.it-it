@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: a1fcaced7783d09f1733fbee8744ba725b639a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2e976b895c6aa63b73c55b458668c00b64c6f960
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119532"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660905"
 ---
 # <a name="publish-an-integrated-solution"></a>Pubblicare una soluzione integrata
 
@@ -52,7 +52,7 @@ Per una panoramica del programma Soluzioni integrate, guardare il [video di pano
 
 ## <a name="submit-a-nomination"></a>Inviare una nomina
 
-I partner che vogliono partecipare al programma devono identificare altri partner con cui vogliono collaborare, completando il [modulo di nomina per Soluzioni integrate](https://aka.ms/AA5qicu). Il team del programma Soluzioni integrate esamina la nomina, a cui dà seguito entro 10 giorni lavorativi. Il team comunica l'approvazione e i passaggi successivi.
+I partner che vogliono partecipare al programma devono identificare altri partner con cui vogliono collaborare, Devono completare il [modulo di candidatura per le soluzioni integrate](https://aka.ms/AA5qicu). Il team del programma Soluzioni integrate esamina la nomina, a cui dà seguito entro 10 giorni lavorativi. Il team comunica l'approvazione e i passaggi successivi.
 
 ## <a name="develop-an-integrated-solution"></a>Sviluppare una soluzione integrata
 
@@ -114,4 +114,4 @@ Quando la soluzione è live in Microsoft AppSource o in Azure Marketplace, è op
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sull'acquisto di una soluzione integrata nel marketplace, vedere [Soluzioni integrate](./integrated-solutions.md).
+- [Modulo di candidatura per soluzioni integrate](https://aka.ms/AA5qicu)

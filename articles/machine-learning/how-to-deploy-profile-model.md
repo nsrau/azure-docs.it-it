@@ -10,12 +10,12 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: aac5fba68c43892216cbd16dd99b0c6a9bf70217
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935586"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660990"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Profilare il modello per determinare l'utilizzo delle risorse
 
@@ -24,6 +24,10 @@ Questo articolo illustra come profilare un apprendimento automatico al modello p
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che sia stato eseguito il training e la registrazione di un modello con Azure Machine Learning. Vedere l' [esercitazione di esempio qui](how-to-train-scikit-learn.md) per un esempio di formazione e registrazione di un modello Scikit-learn con Azure Machine Learning.
+
+## <a name="limitations"></a>Limitazioni
+
+* La profilatura non funziona quando il Container Registry di Azure (ACR) per l'area di lavoro è dietro una rete virtuale.
 
 ## <a name="run-the-profiler"></a>Eseguire il profiler
 
