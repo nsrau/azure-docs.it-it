@@ -3,15 +3,17 @@ title: 'Avvio rapido: Librerie client di LUIS (Language Understanding) SDK'
 description: Questa guida di avvio rapido illustra come creare ed eseguire query su un'app LUIS con le librerie client di LUIS SDK con C#, Python o JavaScript.
 ms.topic: quickstart
 ms.date: 09/14/2020
+ms.service: cognitive-services
+ms.subservice: language-understanding
 keywords: Azure, intelligenza artificiale, ia, elaborazione del linguaggio naturale, nlp, LUIS, azure luis, natural language understanding, chatbot di ia, strumento di creazione di chatbot, comprensione del linguaggio naturale
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 64288bbffa2d2c24e2f719477d98426f52da4070
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c2bc607fb5a5b5b38249453a1d0fce833547191f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972624"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327282"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Avvio rapido: Librerie client di LUIS (Language Understanding) SDK per creare ed eseguire query sull'app LUIS
 
