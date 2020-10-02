@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 24b3710861f0ee158619ae9103584dcdb181f3d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b01ab9787f86e6905f8d25ad4609385e3f6b6a5a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460450"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628497"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Domande frequenti sulle prestazioni SMB per Azure NetApp Files
 
@@ -46,7 +46,7 @@ Windows supporta SMB multicanale a partire da Windows 2012 per garantire prestaz
 
 Per verificare se le schede NIC delle macchine virtuali di Azure supportano RSS, eseguire il comando `Get-SmbClientNetworkInterface` come indicato di seguito e selezionare il campo `RSS Capable` : 
 
-![Supporto RSS per la macchina virtuale di Azure](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
+![Screenshot che mostra l'output RSS per la macchina virtuale di Azure.](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
 
 ## <a name="does-azure-netapp-files-support-smb-direct"></a>Azure NetApp Files supporta SMB diretto?
 
@@ -60,9 +60,9 @@ La funzionalità SMB multicanale consente a un client SMB3 di stabilire un pool 
 
 No. Il client SMB corrisponderà al numero di NIC restituito dal server SMB.  Ogni volume di archiviazione è accessibile da un solo endpoint di archiviazione.  Ciò significa che verrà usata una sola scheda di interfaccia di rete per ogni relazione SMB specificata.  
 
-Come illustrato nell'output di `Get-SmbClientNetworkInterace` seguito, la macchina virtuale ha due interfacce di rete, ovvero 15 e 12.  Come illustrato di seguito sotto il comando `Get-SmbMultichannelConnection` , anche se sono presenti due schede di interfaccia di rete che supportano RSS, viene usata solo l'interfaccia 12 in connessione alla condivisione SMB; l'interfaccia 15 non è in uso.
+Come illustrato nell'output di `Get-SmbClientNetworkInterace` seguito, la macchina virtuale ha 2 interfacce di rete, 15 e 12.  Come illustrato nel comando seguente `Get-SmbMultichannelConnection` , anche se sono presenti due schede di interfaccia di rete che supportano RSS, in connessione alla condivisione SMB viene utilizzata solo l'interfaccia 12. l'interfaccia 15 non è in uso.
 
-![NIC compatibili con RSS](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
+![Schermata che mostra l'output per schede NIC che supportano RSS.](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
 
 ## <a name="is-nic-teaming-supported-in-azure"></a>Il gruppo NIC è supportato in Azure?
 
@@ -74,25 +74,61 @@ I test e i grafici seguenti illustrano la potenza di SMB multicanale sui carichi
 
 ### <a name="random-io"></a>I/O casuale  
 
-Con SMB multicanale disabilitato nel client, i test di lettura e scrittura puri da 8 KB sono stati eseguiti con FIO e 40-GiB working set.  La condivisione SMB è stata scollegata tra ogni test, con incrementi del numero di connessioni client SMB per ogni impostazione dell'interfaccia di rete RSS di `1` , `4` , `8` , `16` , `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . I test indicano che l'impostazione predefinita di `4` è sufficiente per i carichi di lavoro con utilizzo intensivo di I/O; l'incremento a `8` e `16` non ha effetto. 
+Con SMB multicanale disabilitato nel client, i test di lettura e scrittura puri di 4 KiB sono stati eseguiti usando FIO e un working set GiB 40.  La condivisione SMB è stata scollegata tra ogni test, con incrementi del numero di connessioni client SMB per ogni impostazione dell'interfaccia di rete RSS di `1` , `4` , `8` , `16` , `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . I test indicano che l'impostazione predefinita di `4` è sufficiente per i carichi di lavoro con utilizzo intensivo di I/O; l'incremento a `8` e `16` ha avuto un effetto trascurabile. 
 
 Il comando ha `netstat -na | findstr 445` dimostrato che sono state stabilite connessioni aggiuntive con incrementi da `1` a a e a `4` `8` `16` .  Quattro core CPU sono stati completamente utilizzati per SMB durante ogni test, come confermato dalla `Per Processor Network Activity Cycles` statistica PerfMon (non incluso in questo articolo).
 
-![Test di I/O casuali](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
+![Grafico che mostra il confronto di I/O casuale di SMB multicanale.](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
 
-La macchina virtuale di Azure non influisce sui limiti di I/O di archiviazione SMB (o NFS).  Come illustrato di seguito, il tipo di istanza di D16 ha una frequenza limitata di 32.000 per gli IOPS di archiviazione memorizzati nella cache e 25.600 per gli IOPS di archiviazione non memorizzati nella cache.  Tuttavia, il grafico precedente mostra un numero significativamente maggiore di I/O su SMB.
+La macchina virtuale di Azure non influisce sui limiti di I/O di archiviazione SMB (o NFS).  Come illustrato nel grafico seguente, il tipo di istanza di D32ds ha una frequenza limitata di 308.000 per gli IOPS di archiviazione memorizzati nella cache e 51.200 per gli IOPS di archiviazione non memorizzati nella cache.  Tuttavia, il grafico precedente mostra un numero significativamente maggiore di I/O su SMB.
 
-![Confronto I/O casuale](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
+![Grafico che mostra il test di confronto I/O casuale.](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
 
 ### <a name="sequential-io"></a>IO sequenziale 
 
-I test simili ai test di I/O casuali descritti in precedenza sono stati eseguiti con l'I/O sequenziale 64-KiB. Sebbene gli aumenti nel conteggio delle connessioni client per ogni interfaccia di rete RSS oltre il 4' non abbiano effetto evidente sull'I/O casuale, lo stesso non si applica all'I/O sequenziale. Come illustrato nel grafico seguente, ogni aumento è associato a un aumento corrispondente della velocità effettiva di lettura. La velocità effettiva di scrittura è rimasta piana a causa di restrizioni della larghezza di banda di rete posizionate da Azure per ogni tipo di istanza 
+I test simili ai test di I/O casuali descritti in precedenza sono stati eseguiti con I/O sequenziali 64-KiB. Sebbene gli aumenti nel conteggio delle connessioni client per ogni interfaccia di rete RSS oltre il 4' non abbiano effetto evidente sull'I/O casuale, lo stesso non si applica all'I/O sequenziale. Come illustrato nel grafico seguente, ogni aumento è associato a un aumento corrispondente della velocità effettiva di lettura. La velocità effettiva di scrittura è rimasta piana a causa di restrizioni della larghezza di banda di rete posizionate da Azure per ogni tipo di istanza 
 
-![Test di I/O sequenziali](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
+![Grafico che mostra il confronto del test della velocità effettiva.](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
 
-Azure pone limiti di velocità di rete per ogni tipo di macchina virtuale/dimensioni. Il limite di frequenza viene imposto solo sul traffico in uscita. Il numero di schede di rete presenti in una macchina virtuale non ha alcun impatto sulla quantità totale di larghezza di banda disponibile per il computer.  Il tipo di istanza D16, ad esempio, ha un limite di rete imposto di 8000 Mbps (1.000 MiB/s).  Come illustrato nel grafico sequenziale precedente, il limite influiscono sul traffico in uscita (scritture) ma non sulle letture multicanale.
+Azure pone limiti di velocità di rete per ogni tipo di macchina virtuale/dimensioni. Il limite di frequenza viene imposto solo sul traffico in uscita. Il numero di schede di rete presenti in una macchina virtuale non ha alcun impatto sulla quantità totale di larghezza di banda disponibile per il computer.  Il tipo di istanza D32ds, ad esempio, ha un limite di rete imposto di 16.000 Mbps (2.000 MiB/s).  Come illustrato nel grafico sequenziale precedente, il limite influiscono sul traffico in uscita (scritture) ma non sulle letture multicanale.
 
-![Confronto I/O sequenziale](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
+![Grafico che mostra il test di confronto I/O sequenziale.](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
+
+## <a name="what-performance-is-expected-with-a-single-instance-with-a-1-tb-dataset"></a>Quali prestazioni sono previste con una singola istanza con un set di dati da 1 TB?
+
+Per fornire informazioni più dettagliate sui carichi di lavoro con miscele di lettura/scrittura, i due grafici seguenti mostrano le prestazioni di un singolo volume cloud a livello di servizio di 50 TB con un set di dati da 1 TB e con SMB multicanale di 4. È stato usato un IODepth ottimale di 16 e sono stati usati parametri di i/o flessibili (FIO) per garantire l'uso completo della larghezza di banda di rete ( `numjobs=16` ).
+
+Il grafico seguente mostra i risultati per l'I/O casuale 4K, con una singola istanza di macchina virtuale e una combinazione di lettura/scrittura a intervalli del 10%:
+
+![Grafico che mostra il test di IO casuale _D32ds_v4 4K di Windows 2019 standard.](../media/azure-netapp-files/smb-performance-standard-4k-random-io.png)
+
+Il grafico seguente mostra i risultati per le operazioni di I/O sequenziali:
+
+![Grafico che mostra la velocità effettiva sequenziale _D32ds_v4 standard di Windows 2019 64K.](../media/azure-netapp-files/smb-performance-standard-64k-throughput.png)
+
+## <a name="what-performance-is-expected-when-scaling-out-using-5-vms-with-a-1-tb-dataset"></a>Quali sono le prestazioni previste per la scalabilità orizzontale con 5 VM con un set di dati da 1 TB?
+
+Questi test con 5 macchine virtuali usano lo stesso ambiente di test della singola macchina virtuale, in cui ogni processo scrive nel proprio file.
+
+Il grafico seguente mostra i risultati per I/O casuali:
+
+![Grafico che mostra il test Windows 2019 standard _D32ds_v4 4K a 6 istanze.](../media/azure-netapp-files/smb-performance-standard-4k-random-io-5-instances.png)
+
+Il grafico seguente mostra i risultati per le operazioni di I/O sequenziali:
+
+![Grafico che mostra la velocità effettiva sequenziale _D32ds_v4 64K a 5 istanze di Windows 2019 standard.](../media/azure-netapp-files/smb-performance-standard-64k-throughput-5-instances.png)
+
+## <a name="how-do-you-monitor-hyper-v-ethernet-adapters-and-ensure-that-you-maximize-network-capacity"></a>Come è possibile monitorare le schede Ethernet Hyper-V e assicurarsi di ottimizzare la capacità di rete?  
+
+Una strategia usata per i test con FIO è l'impostazione `numjobs=16` . In questo modo, ogni processo viene suddiviso in 16 istanze specifiche per ottimizzare la Microsoft Hyper-V scheda di rete.
+
+È possibile verificare l'attività in ogni adapter di performance monitor di Windows selezionando **performance monitor > Aggiungi contatori > interfaccia di rete > Microsoft Hyper-V scheda di rete**.
+
+![Screenshot che mostra l'interfaccia del contatore di performance monitor.](../media/azure-netapp-files/smb-performance-performance-monitor-add-counter.png)
+
+Dopo aver eseguito il traffico dei dati nei volumi, è possibile monitorare le schede in Performance Monitor di Windows. Se non si utilizzano tutte e 16 le schede virtuali, potrebbe non essere possibile massimizzare la capacità della larghezza di banda di rete.
+
+![Screenshot che mostra l'output di performance monitor.](../media/azure-netapp-files/smb-performance-performance-monitor-output.png)
 
 ## <a name="is-accelerated-networking-recommended"></a>La rete accelerata è consigliata?
 
@@ -115,7 +151,7 @@ La firma SMB è supportata per tutte le versioni del protocollo SMB supportate d
 
 La firma SMB ha un effetto deleterio sulle prestazioni SMB. Tra le altre possibili cause del calo delle prestazioni, la firma digitale di ogni pacchetto utilizza una CPU aggiuntiva sul lato client, come illustrato nell'output di PerfMon riportato di seguito. In questo caso, Core 0 viene visualizzato come responsabile di SMB, inclusa la firma SMB.  Un confronto con i numeri di velocità effettiva di lettura sequenziale non multicanale nella sezione precedente mostra che la firma SMB riduce la velocità effettiva complessiva da 875MiB/s a circa 250MiB/s. 
 
-![Effetti sulle prestazioni della firma SMB](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
+![Grafico che mostra l'effetto sulle prestazioni della firma SMB.](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi  

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c6e3316afc09992d16e17d9d2e2afe6b92dcd22
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a09c4513206bea3462577ecba49b5d77b655b0e0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049044"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628265"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Accesso condizionale: accesso condizionale basato sui rischi di accesso
 
@@ -37,7 +37,7 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
    1. Selezionare **Operazione completata**.
 1. In **app Cloud o azioni**  >  **Includi**selezionare **tutte le app Cloud**.
-1. In **Conditions**  >  **User Risk**impostare **Configure** su **Yes**. In **selezionare il livello di rischio di accesso a cui verranno applicati i criteri** 
+1. In **condizioni**di  >  **accesso al rischio**, impostare **Configura** su **Sì**. In **selezionare il livello di rischio di accesso a cui verranno applicati i criteri** 
    1. Selezionare **alta** e **media**.
    1. Selezionare **Fine**.
 1. In **Controlli di accesso** > **Concedi**, selezionare **Concedi accesso**, **Richiedi autenticazione a più fattori** e selezionare **Seleziona**.

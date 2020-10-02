@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: 6137201f8accb901ffe1892d9876b172411cfe6b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee45d2f489b23289e4f92a544590a510e77ece13
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329595"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627951"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matrice di supporto di Azure Migrate
 
@@ -97,7 +97,7 @@ Regno Unito | Regno Unito meridionale o Regno Unito occidentale
 Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
 
 > [!NOTE]
-> Per la Svizzera geografia, Svizzera occidentale è disponibile solo per gli utenti dell'API REST ed è necessaria una sottoscrizione all'elenco elementi consentiti.
+> Per la Svizzera geografia, Svizzera occidentale è disponibile solo per gli utenti dell'API REST ed è necessaria una sottoscrizione approvata.
 
 ## <a name="supported-geographies-azure-government"></a>Aree geografiche supportate (Azure per enti pubblici)
 

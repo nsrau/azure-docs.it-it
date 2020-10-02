@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8901f54c4802766eb3f12830d98d29fb47337ae5
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 866640d90c66dd82e8be61d221bc903907575454
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705215"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91643800"
 ---
 Durante l'anteprima, NFS presenta le limitazioni seguenti:
 
@@ -22,7 +22,7 @@ Durante l'anteprima, NFS presenta le limitazioni seguenti:
 - È necessario creare un nuovo account di archiviazione per creare una condivisione NFS.
 - Sono supportate solo le API REST del piano di gestione. Le API REST del piano dati non sono disponibili, il che significa che strumenti come Storage Explorer non funzioneranno con le condivisioni NFS né sarà possibile sfogliare i dati di condivisione NFS nel portale di Azure.
 - Disponibile solo per il livello Premium.
-- Attualmente disponibile solo con archiviazione con ridondanza locale.
+- Attualmente disponibile solo con archiviazione con ridondanza locale (con ridondanza locale).
 
 ### <a name="azure-storage-features-not-yet-supported"></a>Funzionalità di archiviazione di Azure non ancora supportate
 

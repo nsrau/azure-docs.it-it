@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 28fb9da04c9c9d3e98b5226e1aee4cf5dde7183b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658375"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628673"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Domande frequenti sul provisioning di Azure Active Directory Connect Cloud
 
@@ -83,6 +83,18 @@ No, l'installazione dell'agente in Server Core non è supportata.
 **D: è possibile utilizzare un server di staging con l'agente di provisioning cloud?**
 
 No, i server di gestione temporanea non sono supportati.
+
+**D: è possibile sincronizzare gli account utente Guest?**
+
+No, la sincronizzazione degli account utente Guest non è supportata.
+
+**D: se si sposta un utente da un'unità organizzativa con ambito per il provisioning del cloud a un'unità organizzativa con ambito Azure AD Connect, cosa accade?**
+
+L'utente verrà eliminato e ricreato.  Il trasferimento di un utente da un'unità organizzativa con ambito per il provisioning nel cloud verrà visualizzato come operazione di eliminazione.  Se l'utente viene spostato in un'unità organizzativa gestita da Azure AD Connect, ne verrà eseguito nuovamente il provisioning in Azure AD e verrà creato un nuovo utente.
+
+**D: se si rinomina o si sposta l'unità organizzativa che rientra nell'ambito del filtro di provisioning cloud, cosa accade all'utente creato in Azure AD?**
+
+Nessun pacchetto.  Se l'unità organizzativa viene rinominata o spostata, gli utenti non verranno eliminati.
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

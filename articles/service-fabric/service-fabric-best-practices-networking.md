@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: 0f25627c852befb03c2c32d741b8fe9b64cd4dc2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948964"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630703"
 ---
 # <a name="networking"></a>Rete
 
@@ -59,20 +59,20 @@ Per abilitare la rete accelerata in un cluster esistente è necessario ridimensi
 
 ## <a name="network-security-rules"></a>Regole di sicurezza di rete
 
-Di seguito sono riportate le regole di base per un blocco di sicurezza di un cluster di Service Fabric gestito di Azure. Se si verifica un errore durante l'apertura delle porte seguenti o dell'elenco elementi consentiti, l'indirizzo IP/URL impedirà il corretto funzionamento del cluster e potrebbe non essere supportato. Con questo set di regole è strettamente necessario usare gli [aggiornamenti automatici delle immagini del sistema operativo](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). in caso contrario, sarà necessario aprire porte aggiuntive.
+Di seguito sono riportate le regole di base per un blocco di sicurezza di un cluster di Service Fabric gestito di Azure. L'impossibilità di aprire le porte seguenti o di approvare l'IP/URL impedirà il corretto funzionamento del cluster e potrebbe non essere supportato. Con questo set di regole è strettamente necessario usare gli [aggiornamenti automatici delle immagini del sistema operativo](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). in caso contrario, sarà necessario aprire porte aggiuntive.
 
 ### <a name="inbound"></a>In ingresso 
 |Priorità   |Nome               |Porta        |Protocollo  |Source (Sorgente)             |Destination       |Azione   
 |---        |---                |---         |---       |---                |---               |---
-|3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |Allow
-|3910       |Client             |19000       |TCP       |Internet           |VirtualNetwork    |Allow
-|3920       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3930       |Effimera          |49152-65534 |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3940       |Applicazione        |20000-30000 |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3950       |SMB                |445         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
+|3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |Consenti
+|3910       |Client             |19000       |TCP       |Internet           |VirtualNetwork    |Consenti
+|3920       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |VirtualNetwork    |Consenti
+|3930       |Effimera          |49152-65534 |TCP       |VirtualNetwork     |VirtualNetwork    |Consenti
+|3940       |Applicazione        |20000-30000 |TCP       |VirtualNetwork     |VirtualNetwork    |Consenti
+|3950       |SMB                |445         |TCP       |VirtualNetwork     |VirtualNetwork    |Consenti
 |3960       |RDP                |3389-3488   |TCP       |Internet           |VirtualNetwork    |Nega
 |3970       |SSH                |22          |TCP       |Internet           |VirtualNetwork    |Nega
-|3980       |Endpoint personalizzato    |80          |TCP       |Internet           |VirtualNetwork    |Allow
+|3980       |Endpoint personalizzato    |80          |TCP       |Internet           |VirtualNetwork    |Consenti
 |4100       |Blocca in ingresso      |443         |Qualsiasi       |Qualsiasi                |Qualsiasi               |Allow
 
 Ulteriori informazioni sulle regole di sicurezza in ingresso:
@@ -99,9 +99,9 @@ Ulteriori informazioni sulle regole di sicurezza in ingresso:
 
 |Priorità   |Nome               |Porta        |Protocollo  |Source (Sorgente)             |Destination       |Azione   
 |---        |---                |---         |---       |---                |---               |---
-|3900       |Rete            |Qualsiasi         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3910       |Provider di risorse  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Allow
-|3920       |Aggiornamento            |443         |TCP       |VirtualNetwork     |Internet          |Allow
+|3900       |Rete            |Qualsiasi         |TCP       |VirtualNetwork     |VirtualNetwork    |Consenti
+|3910       |Provider di risorse  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Consenti
+|3920       |Aggiornamento            |443         |TCP       |VirtualNetwork     |Internet          |Consenti
 |3950       |Blocca in uscita     |Qualsiasi         |Qualsiasi       |Qualsiasi                |Qualsiasi               |Nega
 
 Ulteriori informazioni sulle regole di sicurezza in uscita:

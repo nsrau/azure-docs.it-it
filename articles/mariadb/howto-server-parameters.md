@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: 53ba3c71679ebda1e8e2bf0a59a6ef69d051df4f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 10/1/2020
+ms.openlocfilehash: 9d0b6865c7fb5b59f379568d15bd9b96883202e9
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120416"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626429"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-portal"></a>Configurare i parametri del server nel database di Azure per MariaDB usando il portale di Azure
 
 Database di Azure per MariaDB supporta la configurazione di alcuni parametri del server. Questo articolo illustra come configurare questi parametri usando il portale di Azure. Non tutti i parametri di server possono essere modificati.
+
+>[!Note]
+> I parametri del server possono essere aggiornati globalmente a livello di server, usare l'interfaccia della riga di comando di [Azure](./howto-configure-server-parameters-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md)o [portale di Azure](./howto-server-parameters.md).
 
 ## <a name="configure-server-parameters"></a>Configurare i parametri del server
 
@@ -24,7 +27,7 @@ Database di Azure per MariaDB supporta la configurazione di alcuni parametri del
 ![Pagina Parametri del server del portale di Azure](./media/howto-server-parameters/azure-portal-server-parameters.png)
 3. Individuare eventuali impostazioni da modificare. Esaminare la colonna **Descrizione** per ottenere informazioni sulle finalità e sui valori consentiti.
 ![Elenco a discesa dei parametri di tipo enumerato](./media/howto-server-parameters/3-toggle_parameter.png)
-4. Fare clic su **Salva** per salvare le modifiche.
+4. Fare clic su  **Salva** per salvare le modifiche.
 ![Salvataggio o rimozione delle modifiche](./media/howto-server-parameters/4-save_parameters.png)
 5. Se sono stati salvati nuovi valori per i parametri, è possibile ripristinare i valori predefiniti in qualsiasi momento selezionando **Ripristina tutte le impostazioni predefinite**.
 ![Ripristino di tutte le impostazioni predefinite](./media/howto-server-parameters/5-reset_parameters.png)
@@ -34,10 +37,10 @@ Database di Azure per MariaDB supporta la configurazione di alcuni parametri del
 Se il parametro Server che si desidera aggiornare non è elencato nella portale di Azure, è possibile impostare facoltativamente il parametro a livello di connessione utilizzando `init_connect` . In questo modo vengono impostati i parametri del server per ogni client che si connette al server. 
 
 1. Nella sezione **IMPOSTAZIONI**, fare clic su **Parametri del server** per aprire la pagina dei parametri del server del Database di Azure per il server MariaDB.
-2. Cerca`init_connect`
+2. Cerca `init_connect`
 3. Aggiungere i parametri del server nel formato: `SET parameter_name=YOUR_DESIRED_VALUE` valore nella colonna valore.
 
-    Ad esempio, è possibile modificare il set di caratteri del server impostando `init_connect` su`SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
+    Ad esempio, è possibile modificare il set di caratteri del server impostando `init_connect` su `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
 4. Fare clic su **Salva** per salvare le modifiche.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Uso del parametro di fuso orario

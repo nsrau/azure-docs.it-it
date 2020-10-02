@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 74c603576016b72edddb4c0fe7aa970bd8626a4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fedbcf00512e2eb671656ca1c585df83560a8c02
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325216"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627619"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti su Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -277,7 +277,7 @@ La subnet deve avere un numero sufficiente di [indirizzi IP](connectivity-archit
 
 **Cosa accade se non sono disponibili indirizzi IP sufficienti per eseguire l'operazione di aggiornamento dell'istanza?**
 
-Se nella subnet non è disponibile un numero sufficiente di [indirizzi IP](connectivity-architecture-overview.md#network-requirements) in cui viene effettuato il provisioning dell'istanza gestita, sarà necessario creare una nuova subnet e una nuova istanza gestita al suo interno. Si consiglia inoltre di creare la nuova subnet con più indirizzi IP allocati, in modo che le operazioni di aggiornamento future eviteranno situazioni simili. Al termine del provisioning della nuova istanza, è possibile eseguire manualmente il backup e il ripristino dei dati tra le istanze precedenti e nuove o eseguire il [ripristino temporizzato](point-in-time-restore.md?tabs=azure-powershell)tra istanze.
+Se nella subnet non è disponibile un numero sufficiente di [indirizzi IP](connectivity-architecture-overview.md#network-requirements) in cui viene effettuato il provisioning dell'istanza gestita, sarà necessario creare una nuova subnet e una nuova istanza gestita al suo interno. Si consiglia anche di creare la nuova subnet con più indirizzi IP allocati, in modo da evitare situazioni simili nelle operazioni di aggiornamento future. Al termine del provisioning della nuova istanza, è possibile eseguire manualmente il backup e il ripristino dei dati tra le istanze precedenti e nuove o eseguire il [ripristino temporizzato](point-in-time-restore.md?tabs=azure-powershell)tra istanze.
 
 **È necessaria una subnet vuota per creare un Istanza gestita?**
 
@@ -334,9 +334,12 @@ No, questa opzione non è disponibile.  Per l'endpoint di dati privati, Istanza 
 
 **Qual è il modo consigliato per connettere le istanze gestite posizionate in aree diverse?**
 
-Il peering del circuito Express route è il modo migliore per eseguire questa operazione. Questo non deve essere combinato con il peering di rete virtuale tra aree non supportato a causa di [vincoli](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)interni correlati al servizio di bilanciamento del carico.
+Il peering del circuito Express route è il modo migliore per eseguire questa operazione. Il peering di rete virtuale globale è supportato con la limitazione descritta nella nota riportata di seguito.  
 
-Se il peering del circuito Express route non è possibile, l'unica altra opzione consiste nel creare una connessione VPN da sito a sito ([portale di Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
+> [!IMPORTANT]
+> [Il 9/22/2020 abbiamo annunciato il peering di rete virtuale globale per i cluster virtuali appena creati](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Ciò significa che il peering di rete virtuale globale è supportato per le istanze gestite di SQL create in subnet vuote dopo la data di annuncio, nonché per tutte le istanze gestite successive create in tali subnet. Per tutte le altre istanze di SQL gestito, il supporto del peering è limitato alle reti nella stessa area a causa dei [vincoli del peering di rete virtuale globale](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Per altri dettagli, vedere anche la sezione pertinente dell'articolo [domande frequenti sulle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
+
+Se il peering del circuito Express Route e il peering di rete virtuale globale non sono possibili, l'unica altra opzione consiste nel creare una connessione VPN da sito a sito ([portale di Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Attenuazione dei rischi exfiltration  
 

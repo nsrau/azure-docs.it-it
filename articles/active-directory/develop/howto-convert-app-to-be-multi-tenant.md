@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705895"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631308"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
@@ -97,7 +97,7 @@ Poiché l'endpoint /common non corrisponde a un tenant e non è un'autorità di 
     https://sts.windows.net/{tenantid}/
 ```
 
-Un'applicazione multi-tenant non può quindi convalidare i token semplicemente confrontando il valore dell'autorità di certificazione nei metadati con il valore `issuer` nel token. Un'applicazione multi-tenant richiede una logica per decidere quali valori di autorità di certificazione sono validi in base alla parte ID del tenant del valore dell'autorità di certificazione. 
+Un'applicazione multi-tenant non può quindi convalidare i token semplicemente confrontando il valore dell'autorità di certificazione nei metadati con il valore `issuer` nel token. Un'applicazione multi-tenant richiede una logica per decidere quali valori di autorità di certificazione sono validi in base alla parte ID del tenant del valore dell'autorità di certificazione.
 
 Se ad esempio un'applicazione multi-tenant consente l'accesso solo da tenant specifici che hanno eseguito l'accesso ai servizi, è necessario verificare il valore dell'autorità di certificazione o il valore di attestazione `tid` nel token per assicurarsi che sia incluso nel relativo elenco di sottoscrittori. Se un'applicazione multi-tenant gestisce solo persone e non adotta decisioni di accesso basate su tenant, è possibile ignorare il valore dell'autorità di certificazione.
 
@@ -116,7 +116,7 @@ Questa esperienza di consenso è interessata dalle autorizzazioni richieste dall
 * Un'autorizzazione delegata concede a un'applicazione la possibilità di agire come utente connesso per un sottoinsieme di operazioni che l'utente può eseguire. Ad esempio, è possibile concedere a un'applicazione l'autorizzazione delegata per la lettura del calendario dell'utente connesso.
 * Un'autorizzazione solo app viene concessa direttamente all'identità dell'applicazione. Ad esempio, è possibile concedere a un'applicazione l'autorizzazione solo app per leggere l'elenco di utenti in un tenant, indipendentemente dall'utente che ha eseguito l'accesso all'applicazione.
 
-Alcune autorizzazioni possono essere concesse da un utente normale, mentre altre richiedono il consenso dell'amministratore tenant. 
+Alcune autorizzazioni possono essere concesse da un utente normale, mentre altre richiedono il consenso dell'amministratore tenant.
 
 ### <a name="admin-consent"></a>Consenso dell'amministratore
 
@@ -141,7 +141,7 @@ L'applicazione può avere più livelli, ognuno rappresentato dalla propria regis
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Più livelli in un tenant singolo
 
-Può trattarsi di un problema se l'applicazione logica è costituita da due o più registrazioni di applicazioni, ad esempio un client e una risorsa separati. Come ottenere prima la risorsa nel tenant del cliente? Azure AD si occupa di questo caso, concedendo al client e alla risorsa l'autorizzazione in un unico passaggio. L'utente visualizza la somma totale delle autorizzazioni richieste dal client e dalla risorsa nella pagina del consenso. Per abilitare questo comportamento, la registrazione dell'applicazione della risorsa deve includere l'ID app del client come `knownClientApplications` nel [manifesto dell'applicazione][AAD-App-Manifest]. Esempio:
+Può trattarsi di un problema se l'applicazione logica è costituita da due o più registrazioni di applicazioni, ad esempio un client e una risorsa separati. Come ottenere prima la risorsa nel tenant del cliente? Azure AD si occupa di questo caso, concedendo al client e alla risorsa l'autorizzazione in un unico passaggio. L'utente visualizza la somma totale delle autorizzazioni richieste dal client e dalla risorsa nella pagina del consenso. Per abilitare questo comportamento, la registrazione dell'applicazione della risorsa deve includere l'ID app del client come `knownClientApplications` nel [manifesto dell'applicazione][AAD-App-Manifest]. Ad esempio:
 
 ```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
@@ -179,10 +179,6 @@ Se un amministratore fornisce il consenso a un'applicazione per tutti gli utenti
 
 Le applicazioni multi-tenant possono anche ottenere i token di accesso per eseguire chiamate alle API protette da Azure AD. Un errore comune quando si usa Active Directory Authentication Library (ADAL) con un'applicazione multi-tenant è quello di richiedere inizialmente un token per un utente tramite /common, ricevere una risposta e quindi richiedere un token successivo per lo stesso utente usando sempre /common. Poiché la risposta da Azure AD proviene da un tenant, non /common, la libreria ADAL memorizza nella cache il token come proveniente dal tenant. Nella chiamata successiva a /common per ottenere un token di accesso per l'utente non è presente la voce della cache e all'utente viene richiesto di accedere di nuovo. Per evitare questo errore della cache, assicurarsi che le chiamate successive per un utente già connesso vengano eseguite all'endpoint del tenant.
 
-## <a name="next-steps"></a>Passaggi successivi
-
-Questo articolo ha illustrato come compilare un'applicazione che consente a un utente di accedere da qualsiasi tenant di Azure AD. Dopo aver abilitato l'accesso Single Sign-on (SSO) tra l'app e Azure AD, è anche possibile aggiornare l'applicazione per accedere alle API esposte da risorse Microsoft, ad esempio Microsoft 365. In questo modo è possibile offrire un'esperienza personalizzata nell'applicazione, ad esempio mostrando informazioni contestuali per gli utenti, come l'immagine del profilo o il successivo appuntamento nel calendario. Per altre informazioni sull'esecuzione di chiamate API a Azure AD e Microsoft 365 servizi come Exchange, SharePoint, OneDrive, OneNote e altro ancora, vedere [Microsoft Graph API][MSFT-Graph-overview].
-
 ## <a name="related-content"></a>Contenuti correlati
 
 * [Esempio di applicazione multi-tenant](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
@@ -191,6 +187,10 @@ Questo articolo ha illustrato come compilare un'applicazione che consente a un u
 * [Integrazione di applicazioni con Azure Active Directory][AAD-Integrating-Apps]
 * [Panoramica del Framework di consenso][AAD-Consent-Overview]
 * [Microsoft Graph API permission scopes][MSFT-Graph-permission-scopes] (Ambiti di autorizzazione dell'API Microsoft Graph)
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Questo articolo ha illustrato come compilare un'applicazione che consente a un utente di accedere da qualsiasi tenant di Azure AD. Dopo aver abilitato l'accesso Single Sign-on (SSO) tra l'app e Azure AD, è anche possibile aggiornare l'applicazione per accedere alle API esposte da risorse Microsoft, ad esempio Microsoft 365. In questo modo è possibile offrire un'esperienza personalizzata nell'applicazione, ad esempio mostrando informazioni contestuali per gli utenti, come l'immagine del profilo o il successivo appuntamento nel calendario. Per altre informazioni sull'esecuzione di chiamate API a Azure AD e Microsoft 365 servizi come Exchange, SharePoint, OneDrive, OneNote e altro ancora, vedere [Microsoft Graph API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -228,8 +228,7 @@ Questo articolo ha illustrato come compilare un'applicazione che consente a un u
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
-[OAuth2-AuthZ-Code-Grant-Flow]: /previous-versions/azure/dn645542(v=azure.100)
-[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
+[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html

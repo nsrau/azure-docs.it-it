@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dde4db7f3eb476b7645e910504e48fea8bb6df0c
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 4fb64a2ea55744d66b203ef4d901f22ae4695e1a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569714"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630424"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Backup e ripristino per i gruppi di server con iperscalabilità PostgreSQL abilitati per Azure Arc
 
@@ -93,8 +93,6 @@ Dove:
 - __nome__ indica il nome di un backup
 - __nome-server__ indica un gruppo di server
 - __No-wait__ indica che la riga di comando non attende il completamento del backup per poter continuare a usare questa finestra della riga di comando
-
->**Nota**: il comando che consente di elencare i backup disponibili per il ripristino non viene ancora visualizzato, ovvero la data/ora in cui è stato creato il backup. È quindi consigliabile assegnare un nome al backup (usando il parametro--Name) che include le informazioni relative a data e ora.
 
 Questo comando consente di coordinare un backup completo distribuito in tutti i nodi che costituiscono il gruppo di server di scalabilità PostgreSQL abilitato per Azure Arc. In altre parole, eseguirà il backup di tutti i dati nel coordinatore e nei nodi di lavoro.
 

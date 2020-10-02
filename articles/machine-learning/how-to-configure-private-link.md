@@ -1,5 +1,5 @@
 ---
-title: Configurare un endpoint privato (anteprima)
+title: Configurare un endpoint privato
 titleSuffix: Azure Machine Learning
 description: Usare il collegamento privato di Azure per accedere in modo sicuro all'area di lavoro di Azure Machine Learning da una rete virtuale.
 services: machine-learning
@@ -10,34 +10,17 @@ ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/21/2020
-ms.openlocfilehash: 619960238125191e7bd4e702a49016c8fd58c847
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 1a34f8ec42969cded5921d377b1fa62276a30cc7
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296655"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630390"
 ---
-# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configurare il collegamento privato di Azure per un'area di lavoro Azure Machine Learning (anteprima)
+# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurare il collegamento privato di Azure per un'area di lavoro Azure Machine Learning
 
-In questo documento si apprenderà come usare il collegamento privato di Azure con l'area di lavoro Azure Machine Learning. Per informazioni sulla configurazione di una rete virtuale per Azure Machine Learning, vedere [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md)
-
-> [!IMPORTANT]
-> L'uso del collegamento privato di Azure con Azure Machine Learning area di lavoro è attualmente disponibile in anteprima pubblica. Questa funzionalità è disponibile solo nelle aree geografiche seguenti:
->
-> * **Stati Uniti orientali**
-> * **Stati Uniti centro-meridionali**
-> * **Stati Uniti occidentali**
-> * **Stati Uniti occidentali 2**
-> * **Canada centrale**
-> * **Asia sud-orientale**
-> * **Giappone orientale**
-> * **Europa settentrionale**
-> * **Australia orientale**
-> * **Regno Unito meridionale**
->
-> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In questo documento si apprenderà come usare il collegamento privato di Azure con l'area di lavoro Azure Machine Learning. Per informazioni sulla creazione di una rete virtuale per Azure Machine Learning, vedere [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md)
 
 Il collegamento privato di Azure consente di connettersi all'area di lavoro usando un endpoint privato. L'endpoint privato è un set di indirizzi IP privati all'interno della rete virtuale. È quindi possibile limitare l'accesso all'area di lavoro solo per gli indirizzi IP privati. Il collegamento privato consente di ridurre il rischio di exfiltration dei dati. Per altre informazioni sugli endpoint privati, vedere l'articolo [Collegamento privato di Azure](/azure/private-link/private-link-overview).
 
@@ -46,21 +29,46 @@ Il collegamento privato di Azure consente di connettersi all'area di lavoro usan
 >
 > Se si usa Mozilla Firefox, è possibile che si verifichino problemi durante il tentativo di accedere all'endpoint privato per l'area di lavoro. Questo problema può essere correlato a DNS su HTTPS in Mozilla. È consigliabile usare Microsoft Edge di Google Chrome come soluzione alternativa.
 
-> [!TIP]
-> Azure Machine Learning istanza di calcolo può essere usata con un'area di lavoro e un endpoint privato. Questa funzionalità è attualmente disponibile in anteprima pubblica nelle aree **Stati Uniti orientali**, **Stati Uniti centro-meridionali** e **Stati Uniti occidentali 2** .
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Se si prevede di usare un'area di lavoro con collegamento privato abilitato con una chiave gestita dal cliente, è necessario richiedere questa funzionalità usando un ticket di supporto. Per altre informazioni, vedere [gestire e aumentare le quote](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
+## <a name="limitations"></a>Limitazioni
+
+L'uso di un'area di lavoro Azure Machine Learning con collegamento privato non è disponibile nelle aree di Azure per enti pubblici o Azure Cina 21Vianet.
+
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Creare un'area di lavoro che usa un endpoint privato
 
-> [!IMPORTANT]
-> Attualmente è supportata solo l'abilitazione di un endpoint privato quando si crea una nuova area di lavoro Azure Machine Learning.
+Per creare un'area di lavoro con un endpoint privato, usare uno dei metodi seguenti:
 
-Il modello in [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) può essere usato per creare un'area di lavoro con un endpoint privato.
+> [!TIP]
+> Il modello di Azure Resource Manager può creare una nuova rete virtuale, se necessario. Per tutti gli altri metodi è necessaria una rete virtuale esistente.
+
+# <a name="resource-manager-template"></a>[Modello di Resource Manager](#tab/azure-resource-manager)
+
+Il modello di Azure Resource Manager in [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) fornisce un modo semplice per creare un'area di lavoro con un endpoint privato e una rete virtuale.
 
 Per informazioni sull'uso di questo modello, inclusi gli endpoint privati, vedere [usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning](how-to-create-workspace-template.md).
+
+# <a name="python"></a>[Python](#tab/python)
+
+Il Azure Machine Learning Python SDK fornisce la classe [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) , che può essere usata con [Workspace. Create ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) per creare un'area di lavoro con un endpoint privato. Questa classe richiede una rete virtuale esistente.
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+L' [estensione dell'interfaccia della riga di comando di Azure per Machine Learning](reference-azure-machine-learning-cli.md) include il comando [AZ ml Workspace create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_create) . È possibile utilizzare i seguenti parametri per questo comando per creare un'area di lavoro con una rete privata, ma è necessaria una rete virtuale esistente:
+
+* `--pe-name`: Nome dell'endpoint privato creato.
+* `--pe-auto-approval`: Se le connessioni all'area di lavoro dell'endpoint privato devono essere approvate automaticamente.
+* `--pe-resource-group`: Il gruppo di risorse in cui creare l'endpoint privato. Deve essere lo stesso gruppo che contiene la rete virtuale.
+* `--pe-vnet-name`: Rete virtuale esistente in cui creare l'endpoint privato.
+* `--pe-subnet-name`: Nome della subnet in cui creare l'endpoint privato. Il valore predefinito è `default`.
+
+# <a name="portal"></a>[Portale](#tab/azure-portal)
+
+La scheda __rete__ in Azure Machine Learning Studio consente di configurare un endpoint privato. Tuttavia, richiede una rete virtuale esistente. Per altre informazioni, vedere [creare aree di lavoro nel portale](how-to-manage-workspace.md).
+
+---
 
 ## <a name="using-a-workspace-over-a-private-endpoint"></a>Uso di un'area di lavoro su un endpoint privato
 

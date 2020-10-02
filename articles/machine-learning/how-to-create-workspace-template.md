@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 09/21/2020
-ms.openlocfilehash: 0d8965fcbde799ff4f48c320fe796746545eeea7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 20fa52febaa42850609f3f793d6f4aa4ae2704a6
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315644"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626327"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -31,6 +31,13 @@ Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Ge
 * Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Per usare un modello da un'interfaccia della riga di comando, è necessario [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+
+* Per alcuni scenari è necessario aprire un ticket di supporto. Questi scenari sono:
+
+    * __Area di lavoro con collegamento privato abilitato con una chiave gestita dal cliente (CMK)__
+    * __Container Registry di Azure per l'area di lavoro dietro la rete virtuale__
+
+    Per altre informazioni, vedere [gestire e aumentare le quote](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 * Per alcuni scenari è necessario aprire un ticket di supporto. Questi scenari sono:
 
@@ -279,21 +286,7 @@ Impostando il `vnetOption` valore del parametro su `new` o `existing` , è possi
 Se le risorse associate non sono dietro una rete virtuale, è possibile impostare il parametro **privateEndpointType** su `AutoAproval` o `ManualApproval` per distribuire l'area di lavoro dietro un endpoint privato. Questa operazione può essere eseguita per le aree di lavoro nuove ed esistenti. Quando si aggiorna un'area di lavoro esistente, compilare i parametri del modello con le informazioni dell'area di lavoro esistente.
 
 > [!IMPORTANT]
-> L'uso del collegamento privato di Azure per creare un endpoint privato per Azure Machine Learning area di lavoro è attualmente disponibile in anteprima pubblica. Questa funzionalità è disponibile solo nelle aree geografiche seguenti:
->
-> * **Stati Uniti orientali**
-> * **Stati Uniti centro-meridionali**
-> * **Stati Uniti occidentali**
-> * **Stati Uniti occidentali 2**
-> * **Canada centrale**
-> * **Asia sud-orientale**
-> * **Giappone orientale**
-> * **Europa settentrionale**
-> * **Australia orientale**
-> * **Regno Unito meridionale**
->
-> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> L'uso di un'area di lavoro Azure Machine Learning con collegamento privato non è disponibile nelle aree di Azure per enti pubblici o Azure Cina 21Vianet.
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
 

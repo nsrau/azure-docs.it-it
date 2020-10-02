@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a11573da29cead49bfb17c2c5df3951229182959
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360651"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630152"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servizio di riconoscimento vocale per i dati di telefonia
 
@@ -70,7 +70,7 @@ La latenza end-to-end è notevolmente bassa per le varie tecnologie interattive,
 
 Le nuove voci sono inoltre indistinguibili da quelle umane. Puoi usare le nostre voci per offrire al tuo bot la sua personalità univoca.
 
-### <a name="search"></a>Ricerca
+### <a name="search"></a>Cerca
 
 Un altro elemento di base dell'analisi consiste nell'identificare le interazioni in cui si è verificata un'esperienza o un evento specifico. Questa operazione viene in genere eseguita con uno dei due approcci seguenti: una ricerca ad hoc in cui l'utente digita semplicemente una frase e il sistema risponde oppure una query più strutturata in cui un analista può creare un set di istruzioni logiche che identificano uno scenario in una chiamata e quindi ogni chiamata può essere indicizzata in base a tale set di query. Un esempio di ricerca valido è la dichiarazione di conformità universale "questa chiamata verrà registrata per scopi qualitativi... ". Molte aziende desiderano assicurarsi che i loro agenti forniscano questa dichiarazione di non responsabilità ai clienti prima che la chiamata venga effettivamente registrata. La maggior parte dei sistemi di analisi è in grado di eseguire la tendenza dei comportamenti individuati dagli algoritmi di ricerca/query e questa segnalazione delle tendenze è in definitiva una delle funzioni più importanti di un sistema di analisi. Grazie alla [directory Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/directory/search/), la soluzione end-to-end può essere significativamente migliorata con funzionalità di indicizzazione e ricerca.
 
@@ -142,7 +142,7 @@ Il codice di esempio è disponibile in GitHub per ognuna delle funzionalità del
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [API REST: Riconoscimento vocale](rest-speech-to-text.md)
 - [API REST: Sintesi vocale](rest-text-to-speech.md)
-- [API REST: Trascrizione e personalizzazione batch](https://westus.cris.ai/swagger/ui/index)
+- [API REST: Trascrizione e personalizzazione batch](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 361b27ce84417b30fe58ac7651f70f8c72f8a16a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74379110"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627373"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory 
 
@@ -26,7 +26,7 @@ Questo articolo è applicabile solo ai dispositivi seguenti:
 - Windows 8.1 
 - Windows Server 2008 R2 
 - Windows Server 2012 
-- R2 per Windows Server 2012 
+- Windows Server 2012 R2 
 
 Per Windows 10 o Windows Server 2016, vedere [Risoluzione dei problemi relativi a dispositivi Windows 10 e Windows Server 2016 aggiunti all'identità ibrida di Azure Active Directory](troubleshoot-hybrid-join-windows-current.md).
 
@@ -40,7 +40,6 @@ Questo articolo fornisce indicazioni sulla risoluzione di potenziali problemi.
 
 - L'aggiunta ad Azure AD ibrido per i dispositivi Windows di livello inferiore funziona in modo leggermente diverso rispetto a Windows 10. Molti clienti non si rendono conto di dover configurare AD FS (per i domini federati) o Seamless SSO (per i domini gestiti).
 - Per i clienti con domini federati, se il punto di connessione del servizio (SCP) è stato configurato in modo da puntare al nome del dominio gestito (ad esempio, contoso.onmicrosoft.com invece di contoso.com), l'aggiunta ad Azure AD ibrido per i dispositivi Windows di livello inferiore non funzionerà.
-- Il numero massimo di dispositivi per utente attualmente si applica anche ai dispositivi di livello inferiore aggiunti ad Azure AD ibrido. 
 - Lo stesso dispositivo fisico viene visualizzato più volte in Azure AD quando più utenti di dominio accedono ai dispositivi di livello inferiore aggiunti ad Azure AD ibrido.  Ad esempio: se *jdoe* e *jharnett* accedono a questo dispositivo, viene creata una registrazione separata (DeviceID) per ciascuno di questi utenti nella scheda di informazioni **UTENTE**. 
 - È anche possibile ottenere più voci per un dispositivo nella scheda delle informazioni sull'utente in seguito a una reinstallazione del sistema operativo o a una nuova registrazione manuale.
 - La registrazione/aggiunta iniziale dei dispositivi è configurata in modo da eseguire un tentativo di accesso o blocco/sblocco. Potrebbero esserci 5 minuti di ritardo causati da un'attività dell'utilità di pianificazione. 
@@ -52,7 +51,7 @@ Questo articolo fornisce indicazioni sulla risoluzione di potenziali problemi.
 
 1. Accedere con l'account utente che ha eseguito l'aggiunta all'identità ibrida di Azure AD.
 1. Aprire il prompt dei comandi 
-1. Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`.
+1. Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
 Questo comando consente di visualizzare una finestra di dialogo che fornisce dettagli relativi allo stato delle aggiunte.
 

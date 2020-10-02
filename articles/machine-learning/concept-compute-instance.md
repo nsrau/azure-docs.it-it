@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/25/2020
-ms.openlocfilehash: 14229af9766f6604e71713f835935d43f6c7fcc6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56febc6c2a0e88b2be547c71a2f90ccfa9b78f26
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330146"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630832"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo di Azure Machine Learning?
 
@@ -91,6 +91,8 @@ In alternativa, è possibile accedere a una finestra del terminale in uno dei mo
 * Jupyter Lab:  selezionare il riquadro **Terminal** (Terminale) nell'intestazione **Other** (Altro) nella scheda Launcher (Utilità di avvio).
 * Jupyter:  selezionare **New>Terminal** (Nuovo>Terminale) in alto a destra nella scheda File.
 * Accedere con SSH al computer  e quindi installare i pacchetti Python nell'ambiente **Python 3.6 - AzureML**.  Installare i pacchetti R nell'ambiente **R**.
+
+Quando si Personalizza l'istanza di calcolo, assicurarsi di non eliminare l'ambiente azureml_py36 conda o il kernel Python 3,6-AzureML. Questa operazione è necessaria per la funzionalità Jupyter/JupyterLab
 
 ### <a name="add-new-kernels"></a>Aggiungere nuovi kernel
 

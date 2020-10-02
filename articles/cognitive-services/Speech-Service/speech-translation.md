@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traduzione vocale
-ms.openlocfilehash: e4bc2f07fce3917bfa59f79305498bb91889344d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e54659b0d4504def272d3de40d5e953d98404a8d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91359801"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630071"
 ---
 # <a name="what-is-speech-translation"></a>Che cos'è la traduzione vocale?
 
@@ -58,7 +58,7 @@ Se le applicazioni, gli strumenti o i prodotti usano la [API traduzione vocale](
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [API REST: Riconoscimento vocale](rest-speech-to-text.md)
 * [API REST: Sintesi vocale](rest-text-to-speech.md)
-* [API REST: Trascrizione e personalizzazione batch](https://westus.cris.ai/swagger/ui/index)
+* [API REST: Trascrizione e personalizzazione batch](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

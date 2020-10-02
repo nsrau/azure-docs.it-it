@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: b6e4845ca626dc8805b9bec6ca50076371d35b55
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 30b7e34f2a791cfd8dec1a6d8e81d706fa07939f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419130"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631223"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Codici di errore dell'API REST di Azure Key Vault
  
@@ -128,7 +128,7 @@ Se è possibile ottenere solo il token di accesso della risposta, è possibile d
 HTTP 403 indica che la richiesta è stata autenticata (conosce l'identità richiedente), ma l'identità non è autorizzata ad accedere alla risorsa richiesta. Esistono due cause:
 
 - Non sono disponibili criteri di accesso per l'identità.
-- L'indirizzo IP della risorsa richiedente non è inserito nell'elenco elementi consentiti nelle impostazioni del firewall di Key Vault.
+- L'indirizzo IP della risorsa richiesta non è approvato nelle impostazioni del firewall del Key Vault.
 
 Il protocollo HTTP 403 spesso si verifica quando l'applicazione del cliente non utilizza l'ID client che il cliente considera. Che in genere significa che i criteri di accesso non sono configurati correttamente per l'identità chiamante effettiva.
 
@@ -166,5 +166,3 @@ La limitazione delle richieste è ovvia all'uso di queste tecniche:
 - Se il numero di richieste non può essere ridotto mediante la memorizzazione nella cache e il backoff temporizzato non funziona, provare a suddividere le chiavi in più insiemi di credenziali delle chiavi. Il limite di servizio per una singola sottoscrizione è 5x il singolo limite Key Vault. Se si usano più di 5 insiemi di credenziali delle chiavi, è necessario considerare l'uso di più sottoscrizioni. 
 
 Indicazioni dettagliate, inclusa la richiesta di aumento dei limiti, sono disponibili qui: [linee guida per la limitazione Key Vault](overview-throttling.md)
-
-

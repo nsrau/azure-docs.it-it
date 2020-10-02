@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8861e641f5ee6a10576425a7702ba02da297a0bf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115612"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631274"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Utilizzo degli attributi di estensione dello schema di directory nelle attestazioni
 
@@ -35,7 +35,7 @@ L'identificatore per un attributo di estensione dello schema di directory è nel
 Gli attributi di estensione dello schema di directory possono essere registrati e popolati in uno dei due modi seguenti:
 
 - Configurando AD Connect per crearli e sincronizzarvi i dati da AD locale. Vedere [Azure ad Connect le estensioni della directory di sincronizzazione](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
-- Uso di Microsoft Graph per eseguire la registrazione, impostare i valori di e leggere dalle estensioni dello schema di directory degli attributi di estensione dello schema di directory [| API Graph concetti](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) e/o PowerShell + [gestione degli attributi di estensione con i cmdlet di PowerShell per AzureAD](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
+- Utilizzando Microsoft Graph per la registrazione, impostare i valori di e leggere dalle [estensioni dello schema](/graph/extensibility-overview). Sono disponibili anche i [cmdlet di PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample) .
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>Creazione di attestazioni con dati da attributi di estensione dello schema di directory creati con AD Connect
 Gli attributi di estensione dello schema di directory creati e sincronizzati con AD Connect sono sempre associati all'ID applicazione usato da AD Connect. Possono essere usate come origine per le attestazioni configurate come attestazioni nella configurazione delle **applicazioni aziendali** nell'interfaccia utente del portale per le applicazioni SAML registrate tramite la raccolta o nell'esperienza di configurazione dell'applicazione non della raccolta in **applicazioni aziendali**e tramite un criterio di mapping delle attestazioni per le applicazioni registrate tramite l'esperienza di registrazione dell'applicazione.  Quando un attributo di estensione della directory creato tramite AD Connect si trova nella directory, verrà visualizzato nell'interfaccia utente di configurazione delle attestazioni SSO SAML.
@@ -58,7 +58,7 @@ Ecco ad esempio un criterio di mapping delle attestazioni per generare una singo
                 "Source": "User",
                 "ExtensionID": "extension_xxxxxxx_test",
                 "JWTClaimType": "http://schemas.contoso.com/identity/claims/exampleclaim"
-            }, 
+            },
         ]
     }
 }
@@ -72,5 +72,5 @@ Dove *xxxxxxx* è l'ID applicazione con cui è stata registrata l'estensione.
 > Il parametro "ID" nello schema Claims usato per gli attributi di directory predefiniti è "ExtensionID" per gli attributi di estensione della directory.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come [aggiungere attestazioni personalizzate o aggiuntive ai token SAML 2,0 e JSON Web Tokens (JWT)](active-directory-optional-claims.md). 
+- Informazioni su come [aggiungere attestazioni personalizzate o aggiuntive ai token SAML 2,0 e JSON Web Tokens (JWT)](active-directory-optional-claims.md).
 - Informazioni su come [personalizzare le attestazioni emesse nei token per un'app specifica](active-directory-claims-mapping.md).

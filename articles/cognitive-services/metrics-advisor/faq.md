@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0fde9a0f46073a2f3a24962ea58431581455f474
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e4a75bdd6147ee2189660c37062c5bec9d55d512
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939045"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631741"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Domande frequenti su Metrics Advisor
 
@@ -74,9 +74,26 @@ In base alla granularità dei dati, le lunghezze dei dati cronologici che avrann
 
 ### <a name="more-concepts-and-technical-terms"></a>Altri concetti e termini tecnici
 
-Per ulteriori informazioni, visitare il [Glossario](glossary.md) .
+Per ulteriori informazioni, vedere anche il [Glossario](glossary.md) .
 
-## <a name="how-do-i-detect-such-kinds-of-anomalies"></a>Ricerca per categorie rilevare tali tipi di anomalie? 
+###  <a name="how-do-i-write-a-valid-query-for-ingesting-my-data"></a>Ricerca per categorie scrivere una query valida per l'inserimento dei dati?  
+
+Per l'inserimento dei dati in metriche Advisor, è necessario creare una query che restituisca le dimensioni dei dati in un singolo timestamp. La query viene eseguita più volte da metrica Advisor per ottenere i dati da ogni timestamp. 
+
+Si noti che la query deve restituire al massimo un record per ogni combinazione di dimensione, a un timestamp specificato. Tutti i record restituiti devono avere lo stesso timestamp. Non devono essere presenti record duplicati restituiti dalla query.
+
+Si supponga, ad esempio, di creare la query seguente per una metrica giornaliera: 
+ 
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(DAY, 1, @StartTime)`
+
+Assicurarsi di usare la granularità corretta per la serie temporale. Per una metrica oraria, usare: 
+
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(hour, 1, @StartTime)`
+
+Si noti che queste query restituiscono solo i dati in un singolo timestamp e contengono tutte le combinazioni di dimensioni che devono essere inserite da metrica Advisor. 
+
+:::image type="content" source="media/query-result.png" alt-text="Messaggio quando esiste già una risorsa F0" lightbox="media/query-result.png":::
+
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>Ricerca per categorie rilevare picchi & DIP come anomalie?
 

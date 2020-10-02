@@ -11,19 +11,19 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 9428ad0756fac59f54e7036d26a1b7d6408cab31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06f62fd656357e16396a0458a9afee12dcfa507f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200971"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629370"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Proteggere un database in una sinapsi di Azure
 
 > [!div class="op_single_selector"]
 >
 > * [Panoramica della sicurezza](sql-data-warehouse-overview-manage-security.md)
-> * [Autenticazione](sql-data-warehouse-authentication.md)
+> * [autenticazione](sql-data-warehouse-authentication.md)
 > * [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse](sql-data-warehouse-encryption-tde.md)
 > * [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md)
 
@@ -33,7 +33,7 @@ Questo articolo illustra le nozioni di base per la protezione del pool SQL sinap
 
 La sicurezza delle connessioni fa riferimento al modo che si limitano e proteggono le connessioni al database mediante regole del firewall e crittografia di connessione.
 
-Le regole del firewall vengono usate sia dal [server SQL logico](../../azure-sql/database/logical-servers.md) che dai relativi database per rifiutare i tentativi di connessione da indirizzi IP non consentiti in modo esplicito. Prima di consentire le connessioni dall'applicazione o dall'indirizzo IP pubblico del computer client, è necessario creare una regola del firewall di livello server tramite il portale di Azure, l'API REST o PowerShell.
+Le regole del firewall vengono usate sia dal [server SQL logico](../../azure-sql/database/logical-servers.md) che dai relativi database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati approvati in modo esplicito. Prima di consentire le connessioni dall'applicazione o dall'indirizzo IP pubblico del computer client, è necessario creare una regola del firewall di livello server tramite il portale di Azure, l'API REST o PowerShell.
 
 Come procedura consigliata, è consigliabile limitare il più possibile gli intervalli di indirizzi IP consentiti attraverso il firewall a livello di server.  Per accedere al pool SQL dal computer locale, verificare che il firewall in rete e nel computer locale consenta le comunicazioni in uscita sulla porta TCP 1433.  
 
@@ -70,7 +70,7 @@ Per altre informazioni sui questi ruoli aggiuntivi e sull'autenticazione a un da
 
 ## <a name="authorization"></a>Autorizzazione
 
-L'autorizzazione si riferisce alle operazioni che è possibile eseguire all'interno di un database dopo l'autenticazione e la connessione. I privilegi di autorizzazione sono determinati dalle appartenenze ai ruoli e dalle autorizzazioni. Come procedura consigliata, è opportuno concedere agli utenti i privilegi minimi necessari. Per gestire i ruoli, è possibile usare le stored procedure seguenti:
+L'autorizzazione si riferisce alle operazioni che è possibile eseguire all'interno di un database dopo l'autenticazione e la connessione. I privilegi di autorizzazione sono determinati dalle appartenenze ai ruoli e dalle autorizzazioni. È consigliabile concedere agli utenti i privilegi minimi necessari. Per gestire i ruoli, è possibile usare le stored procedure seguenti:
 
 ```sql
 EXEC sp_addrolemember 'db_datareader', 'ApplicationUser'; -- allows ApplicationUser to read data
@@ -96,7 +96,7 @@ La gestione di database e server dalla portale di Azure o tramite l'API Azure Re
 
 ## <a name="encryption"></a>Crittografia
 
-Transparent Data Encryption (Transparent Data Encryption) consente di proteggersi dalla minaccia di attività dannose mediante la crittografia e la decrittografia dei dati inattivi. Quando si crittografa il database, i file di log delle transazioni e i backup associati vengono crittografati senza bisogno di apportare modifiche alle applicazioni. TDE esegue la crittografia dell'archiviazione di un intero database usando una chiave simmetrica detta "chiave di crittografia del database".
+Transparent Data Encryption (Transparent Data Encryption) consente di proteggersi dalla minaccia di attività dannose mediante la crittografia e la decrittografia dei dati inattivi. Quando si crittografa il database, i file di log delle transazioni e i backup associati vengono crittografati senza bisogno di apportare modifiche alle applicazioni. TDE esegue la crittografia dello spazio di archiviazione di un intero database usando una chiave simmetrica detta "chiave di crittografia del database".
 
 Nel database SQL la chiave di crittografia del database è protetta da un certificato del server incorporato. Il certificato server integrato è univoco per ogni server. Microsoft ruota automaticamente questi certificati almeno ogni 90 giorni. L'algoritmo di crittografia usato è AES-256. Per una descrizione generale della funzionalità TDE, vedere [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 

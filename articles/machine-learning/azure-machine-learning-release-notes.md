@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 8df50096cc123003299b86da88f9230c95854775
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 954962d4f0f16cb35035527d4cb81d0e13495a86
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450083"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631835"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -44,12 +44,12 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     +  Correzione dei problemi di timeout di montaggio del set di dati.
   + **azureml-explain-Model**
     + correzione delle descrizioni dei pacchetti pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + Dashboard di visualizzazione rimosso da azureml-contrib-interpretare il pacchetto, spiegazione client spostata in azureml-interpretare il pacchetto e deprecato in azureml-contrib-interpretare il pacchetto e i notebook aggiornati per riflettere l'API migliorata
     + azureml-interpreta il pacchetto aggiornato per dipendere dalla 0.15.0 di interpretazione della community
     + correzione delle descrizioni dei pacchetti pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
   + **azureml-pipeline-core**
-    +  Correzione del problema di sospensione della pipeline con `OutputFileDatasetConfig` quando `register_on_complete` viene chiamato con il `name` parametro impostato su un nome di set di dati preesistente.
+    +  Problema di pipeline fisso con il `OutputFileDatasetConfig` quale il sistema potrebbe smettere `register_on_complete` di rispondere quando viene chiamato con il `name` parametro impostato su un nome di set di dati preesistente.
   + **azureml-pipeline-steps**
     + Rimossi notebook databricks obsoleti.
   + **azureml-tensorboard**
@@ -137,7 +137,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Modificare CLI&SDK per prendere il parametro adbworkspace e aggiungere l'area di lavoro ADB Lin/unlink Runner.
     + Correzione del bug nel set di dati. aggiornare che ha causato l'aggiornamento della versione più recente del set di dati, non la versione dell'aggiornamento del set di dati è stata chiamata. 
     + Correzione del bug nel set di dati. get_by_name che Visualizza i tag per la versione più recente del set di dati anche quando è stata recuperata una versione precedente specifica.
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + Sono stati aggiunti output di probabilità ai Explainer per il Punteggio Shap in azureml-interpretate in base al parametro shap_values_output dal Explainer originale.
   + **azureml-pipeline-core**
     + `PipelineOutputAbstractDataset.register`Documentazione migliorata.
@@ -373,7 +373,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
   + **azureml-dataprep**
     + Il caricamento di un set di dati di file parquet to_spark_dataframe ora è più veloce e supporta tutti i tipi di dati SQL parquet e Spark.
     + Migliore gestione della memoria per il problema OutOfMemory per to_pandas_dataframe.
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + Aggiornamento di azureml-interprete per l'uso di interpreta-community versione 0,12. *
   + **azureml-mlflow**
     + Miglioramenti ai documenti in azureml-mlflow.
@@ -440,7 +440,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Documentazione migliorata register_azure_blob_container e register_azure_file_share
   + **azureml-datadrift**
     + Implementazione migliorata per disabilitare e abilitare i monitoraggi per la derivazione del set di dati
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + In spiegazione client rimuovere NaNs o INFS prima della serializzazione JSON al caricamento dagli artefatti
     + Eseguire l'aggiornamento alla versione più recente di interpret-community per migliorare gli errori di memoria insufficiente per le spiegazioni globali con molte funzionalità e classi
     + Aggiungere true_ys parametro facoltativo al caricamento della spiegazione per abilitare funzionalità aggiuntive nell'interfaccia utente di studio
@@ -537,7 +537,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
   + **azureml-dataprep**
     + Avviso per aggiornare la versione di pyarrow in modo più esplicito.
     + Miglioramento della gestione degli errori e del messaggio restituito in caso di errore nell'esecuzione del flusso di flussi.
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + Aggiornamenti della documentazione per azureml-interpretare il pacchetto.
     + Correzione dei pacchetti di interpretazione e dei notebook compatibili con l'aggiornamento di sklearn più recente
   + **azureml-opendatasets**
@@ -634,7 +634,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Migliorare la gestione degli ambienti Python con restrizioni di scrittura quando si assicurano le dipendenze .NET necessarie per il recapito
     + Correzione della creazione del flusso di dati nel file con record vuoti iniziali.
     + Aggiunta delle opzioni di gestione degli errori per `to_partition_iterator` simili a `to_pandas_dataframe` .
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + Limiti di lunghezza del percorso di spiegazione ridotti per ridurre la probabilità di superamento del limite di Windows
     + Bugfix per le spiegazioni sparse create con il Explainer MIME usando un modello di surrogato lineare.
   + **azureml-opendatasets**
@@ -700,7 +700,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + Documentazione migliorata per il `grant_workspace_msi` parametro per `Datastore.register_azure_blob_store` .
     + Correzione del bug con `datastore.upload` per supportare l' `src_dir` argomento che termina con `/` o `\` .
     + È stato aggiunto un messaggio di errore eseguibile quando si tenta di caricare in un archivio dati di archiviazione BLOB di Azure che non dispone di una chiave di accesso o di un token SAS.
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + Aggiunto il limite superiore alle dimensioni del file per i dati di visualizzazione nelle spiegazioni caricate.
   + **azureml-train-automl-client**
     + Verifica in modo esplicito label_column_name & parametri di weight_column_name per AutoMLConfig di tipo stringa.
@@ -737,7 +737,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + DataSet: viene aggiunto un indice per la colonna Time Series quando si accede a un set di dati di serie temporali come frame di dati Pandas, che consente di velocizzare l'accesso ai dati basati su serie temporali.  In precedenza, all'indice veniva assegnato lo stesso nome della colonna timestamp, in modo da confondere gli utenti che corrisponde alla colonna timestamp effettiva e che corrisponde all'indice. A questo punto non è possibile assegnare un nome specifico all'indice perché non deve essere usato come colonna. 
     + Set di dati: problema di autenticazione del set di dati fisso in Sovereign cloud.
     + Set di dati: `Dataset.to_spark_dataframe` errore fisso per i set di dati creati dagli archivi dati PostgreSQL di Azure.
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + Sono stati aggiunti punteggi globali alla visualizzazione se i valori di importanza locale sono di tipo sparse
     + Aggiornamento di azureml-Interpret per l'uso di interpret-community 0,9. *
     + Correzione del problema relativo al download di una spiegazione con dati di valutazione di tipo sparse
@@ -781,7 +781,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + Aggiunta della possibilità di registrare ADLS Gen2 nell'interfaccia della riga di comando di Azure Machine Learning
     + Il parametro ' fine_grain_timestamp ' è stato rinominato in ' timestamp ' e il parametro ' coarse_grain_timestamp ' in ' partition_timestamp ' per il metodo with_timestamp_columns () in TabularDataset per riflettere meglio l'utilizzo dei parametri.
     + Aumento della lunghezza massima del nome dell'esperimento a 255.
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + Aggiornamento di azureml-Interpret-community 0,7. *
   + **azureml-sdk**
     + Modifica delle dipendenze con una versione compatibile tilde per il supporto dell'applicazione di patch nelle versioni non definitive e stabili.
@@ -851,7 +851,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + Correzione del bug in cui le lettere maiuscole non possono essere utilizzate come nome di input del set di dati.
   + **azureml-valori predefiniti**
     + `azureml-dataprep` verrà ora installato come parte di `azureml-defaults` . Non è più necessario installare manualmente la preparazione dei dati [fuse] sulle destinazioni di calcolo per montare i set di dati.
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + Aggiornamento di azureml-Interpret-community 0,6. *
     + Aggiornamento di azureml-interprete per dipendere da 0.5.0 della community di interpretazione
     + Aggiunta di eccezioni di tipo azureml a azureml-Interpret
@@ -901,7 +901,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
       + Metodo di aggiornamento dell'area di lavoro reso disponibile pubblicamente.
       + Aggiunto image_build_compute parametro nel metodo di aggiornamento dell'area di lavoro per consentire all'utente di aggiornare il calcolo per la compilazione di immagini
     +  Aggiunta dei messaggi di deprecazione al flusso di lavoro di profilatura obsoleto. Correzione dei limiti di memoria e CPU per la profilatura
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + aggiornare azureml-interpretate per interpretare la community 0,6. *
   + **azureml-mlflow**
     + Aggiungere il supporto per i cloud sovrani a azureml. mlflow
@@ -936,7 +936,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + La profilatura di un'istanza singola è stata corretta per produrre una raccomandazione ed è stata resa disponibile in Core SDK.
     + Correzione del problema in aks.py _deploy
     + Convalida l'integrità dei modelli caricati per evitare errori di archiviazione invisibile all'utente.
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + Aggiunta di eccezioni di tipo azureml a azureml-Interpret
     + correzione della serializzazione DeepScoringExplainer per i modelli keras
   + **azureml-pipeline-core**
@@ -968,7 +968,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + Correzione del controllo della frequenza durante i punteggi, ora nelle attività di previsione non è necessaria una rigida equivalenza della frequenza tra il training e il set di test.
   + **azureml-core**
     + L'utente può ora specificare un valore per la chiave di autenticazione durante la rigenerazione delle chiavi per i servizi WebService.
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + Aggiornamento di azureml-interprete per dipendere da 0.5.0 della community di interpretazione
   + **azureml-pipeline-core**
     + Correzione di un bug in cui i risultati di PythonScriptStep potrebbero essere riutilizzati in modo errato nonostante la modifica dell'elenco di argomenti
@@ -1007,7 +1007,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + Correzione get_active_runs
   + **azureml-explain-Model**
     + aggiornamento di Shap a 0.33.0 e interpretazione della community a 0,4. *
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + aggiornamento di Shap a 0.33.0 e interpretazione della community a 0,4. *
   + **azureml-train-automl-runtime**
     + Aggiunto il coefficiente di correlazione Matthews come metrica di classificazione, per la classificazione sia binaria che multiclasse.
@@ -1031,7 +1031,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + Correzione del problema per cui non è stato possibile creare un pacchetto di modelli che usano source_dir per funzioni di Azure.    
     + Aggiunta di un'opzione a [Environment. build_local ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) per eseguire il push di un'immagine nel registro contenitori dell'area di lavoro AzureML
     + Aggiornamento dell'SDK per l'uso della nuova libreria di token in sinapsi di Azure in modo compatibile.
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + Correzione del bug in cui non è stato restituito alcuno se non sono disponibili spiegazioni per il download. Genera ora un'eccezione e un comportamento di corrispondenza altrove.
   + **azureml-pipeline-steps**
     + Non `DatasetConsumptionConfig` è consentito il passaggio di s al `Estimator` `inputs` parametro quando `Estimator` verrà usato in un oggetto `EstimatorStep` .
@@ -1113,7 +1113,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + È stata aggiunta la possibilità di registrare l'archivio dati del database SQL di Azure usando l'autenticazione con nome utente e password
     + Correzione per il caricamento di RunConfigurations da percorsi relativi.
     + Quando `keep_columns` si chiama o `drop_columns` che determina l'eliminazione di una colonna della serie temporale, le funzionalità corrispondenti verranno eliminate anche per il set di dati.
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + versione aggiornata di interpreta-community per 0.2.0
   + **azureml-pipeline-steps**
     + Valori supportati documentati per i `runconfig_pipeline_params` passaggi della pipeline di Azure Machine Learning.
@@ -1163,7 +1163,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + Aggiunta append_prefix parametro bool per download_files in run.py e download_artifacts_from_prefix in artifacts_client. Questo flag viene usato per appiattire selettivamente il FilePath di origine in modo che al output_directory venga aggiunto solo il nome del file o della cartella.
     + Correzione del problema di deserializzazione per `run_config.yml` con utilizzo del set di dati.
     + Quando `keep_columns` si chiama o `drop_columns` che determina l'eliminazione di una colonna della serie temporale, le funzionalità corrispondenti verranno eliminate anche per il set di dati.
-  + **azureml-interpreta**
+  + **azureml-interpret**
     + Versione della community di interpretazione aggiornata per 0.1.0.3
   + **azureml-train-automl**
     + Correzione di un problema per cui automl_step potrebbe non stampare problemi di convalida.
