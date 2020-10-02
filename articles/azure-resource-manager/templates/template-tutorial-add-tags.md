@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ce25047ae93a332b62b7e785b23da5794031a98b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ace23e392d90e77c02df7861df96c066c82eee33
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497512"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069068"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>Esercitazione: Aggiungere tag nel modello di Azure Resource Manager
 
@@ -72,7 +72,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
+> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 

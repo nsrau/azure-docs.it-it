@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 49b7a3700bf497ad868b7c4ab1f0802564b61bf3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3a5489241aa15ce105dbe4d89086aff00373ca55
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652353"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603969"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Esercitazione: Spostare macchine virtuali tra aree
 
@@ -68,6 +68,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Selezionare le risorse da spostare.
 
 - Vengono visualizzati tutti i tipi di risorse supportati presenti nei gruppi di risorse all'interno dell'area di origine selezionata.
+- Le risorse che sono già state aggiunte per lo spostamento tra aree non vengono visualizzate.
 - Le risorse vengono spostate in un'area di destinazione nella stessa sottoscrizione dell'area di origine. Se si vuole cambiare la sottoscrizione, è possibile eseguire questa operazione dopo lo spostamento delle risorse.
 
 1. Nel portale di Azure cercare *spostamento risorse*. In **Servizi** selezionare quindi **Spostamento risorse di Azure**.
@@ -80,7 +81,6 @@ Selezionare le risorse da spostare.
 
 3. In **Sposta risorse** > **Origine e destinazione** selezionare l'area e la sottoscrizione di origine.
 4. In **Destinazione** selezionare l'area in cui spostare le macchine virtuali. Quindi fare clic su **Next**.
-5. In **Area dei metadati** selezionare la posizione in cui archiviare i metadati relativi alle risorse da spostare. Viene creato un gruppo di risorse appositamente per questo scopo. Quindi fare clic su **Next**.
 
     ![Pagina per la selezione dell'area di origine e di destinazione](./media/tutorial-move-region-virtual-machines/source-target.png)
 
@@ -90,7 +90,7 @@ Selezionare le risorse da spostare.
     ![Pagina per selezionare le macchine virtuali da spostare](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  In **Risorse da spostare** fare clic su **Avanti**.
-9. In **Rivedi e aggiungi** verificare le impostazioni relative a origine e destinazione. Verificare di aver compreso che i metadati relativi allo spostamento verranno archiviati in un gruppo di risorse creato a questo scopo nell'area dei metadati.
+9. In **Rivedi e aggiungi** verificare le impostazioni relative a origine e destinazione. 
 
     ![Pagina per rivedere le impostazioni e procedere allo spostamento](./media/tutorial-move-region-virtual-machines/review.png)
 10. Per iniziare ad aggiungere le risorse, fare clic su **Continua**.
@@ -235,7 +235,8 @@ Se si vuole completare il processo di spostamento, eseguire il commit dello spos
 
 ## <a name="configure-settings-after-the-move"></a>Configurare le impostazioni dopo lo spostamento
 
-Il servizio di mobilità non viene disinstallato automaticamente dalle macchine virtuali. Disinstallarlo manualmente oppure lasciarlo installato se si prevede di spostare nuovamente il server.
+- Il servizio di mobilità non viene disinstallato automaticamente dalle macchine virtuali. Disinstallarlo manualmente oppure lasciarlo installato se si prevede di spostare nuovamente il server.
+- Modificare le regole di controllo degli accessi in base al ruolo di Azure dopo lo spostamento.
 
 ## <a name="delete-source-resources-after-commit"></a>Eliminare le risorse di origine dopo il commit
 

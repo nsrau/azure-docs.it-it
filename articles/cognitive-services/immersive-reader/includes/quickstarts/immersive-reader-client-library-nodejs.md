@@ -7,24 +7,23 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-javascript
-ms.openlocfilehash: bbef435bc7cf0bf146009859044bcabe3c0f55ee
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: d485e95e0f41b323d1297c669c13fb1fe5886619
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505396"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978251"
 ---
-Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è uno strumento incluso che implementa tecniche comprovate per migliorare la comprensione della lettura.
+Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è stato progettato per l'inclusività e implementa tecniche comprovate per migliorare la comprensione della lettura per nuovi lettori, studenti di lingue e persone con differenze di apprendimento, come la dislessia. È possibile usare lo strumento di lettura immersiva nelle applicazioni per isolare il testo stimolare l'attenzione, visualizzare immagini per le parole di uso comune, evidenziare parti del discorso, leggere il testo selezionato ad alta voce, tradurre parole e frasi in tempo reale e altro ancora.
 
-In questo argomento di avvio rapido si creerà da zero un'app Web in cui si integrerà lo strumento di lettura immersiva tramite l'apposita libreria client. Un esempio pratico completo di questo argomento di avvio rapido è disponibile [qui](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
-
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
+In questo argomento di avvio rapido si crea un'app Web da zero e si integra lo strumento di lettura immersiva tramite l'apposita libreria client. Un esempio pratico completo di questo argomento di avvio rapido è disponibile [in GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services)
 * Una risorsa dello strumento di lettura immersiva configurata per l'autenticazione Azure Active Directory. Seguire [queste istruzioni](../../how-to-create-immersive-reader.md) per configurare l'ambiente. Per la configurazione delle proprietà dell'ambiente, saranno necessari alcuni dei valori creati qui. Salvare l'output della sessione in un file di testo per riferimento futuro.
 * [Node.js](https://nodejs.org/) e [Yarn](https://yarnpkg.com)
 * Un ambiente di sviluppo integrato, ad esempio [Visual Studio Code](https://code.visualstudio.com/)
@@ -246,13 +245,13 @@ npm start
 
 Aprire il browser e passare a _http://localhost:3000_ . Dovrebbe essere visualizzata la seguente schermata:
 
-![App di esempio](../../media/quickstart-nodejs/1-buildapp.png)
+![App di esempio - Node.js](../../media/quickstart-nodejs/1-buildapp.png)
 
 ## <a name="launch-the-immersive-reader"></a>Avviare lo strumento di lettura immersiva
 
 Quando si fa clic sul pulsante "Strumento di lettura immersiva", verrà avviato lo strumento di lettura immersiva con il contenuto della pagina.
 
-![Strumento di lettura immersiva](../../media/quickstart-nodejs/2-viewimmersivereader.png)
+![Strumento di lettura immersiva - Node.js](../../media/quickstart-nodejs/2-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

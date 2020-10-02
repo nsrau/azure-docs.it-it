@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 992640424f6fdb632327866e132fdbb1c6244492
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 35a3f6d1e7894eec9baa4ea5432a8e3fec138a21
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400331"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085043"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Esercitazione: Come visualizzare le indicazioni stradali usando il servizio di pianificazione percorso e il controllo mappa di Mappe di Azure
 
@@ -106,7 +106,7 @@ La procedura seguente illustra come creare e visualizzare il controllo mappa in 
 
 ## <a name="define-route-display-rendering"></a>Definire il rendering della visualizzazione del percorso
 
-In questa esercitazione verrà eseguito il rendering del percorso usando un livello linea. Il rendering dei punti di partenza e di arrivo verrà eseguito usando un livello simbolo. Per altre informazioni sull'aggiunta di livelli linea, vedere [Aggiungere un livello linea a una mappa](map-add-line-layer.md). Per altre informazioni sui livelli simbolo, vedere [Aggiungere un livello simbolo a una mappa](map-add-pin.md).
+In questa esercitazione verrà eseguito il rendering del percorso usando un livello linea. Il rendering dei punti iniziale e finale verrà eseguito con un livello di simboli. Per altre informazioni sull'aggiunta di livelli linea, vedere [Aggiungere un livello linea a una mappa](map-add-line-layer.md). Per altre informazioni sui livelli simbolo, vedere [Aggiungere un livello simbolo a una mappa](map-add-pin.md).
 
 1. Aggiungere il codice JavaScript seguente alla funzione `GetMap`. Questo codice implementa il gestore dell'evento `ready` del controllo mappa. Il resto del codice in questa esercitazione verrà inserito all'interno del gestore dell'evento `ready`.
 
@@ -143,7 +143,7 @@ In questa esercitazione verrà eseguito il rendering del percorso usando un live
 
     Nel gestore dell'evento `ready` del controllo mappa viene creata un'origine dati per archiviare il percorso dal punto di partenza a quello di arrivo. Per definire il rendering della linea del percorso viene creato un livello linea che viene collegato all'origine dati.  Per assicurarsi che la linea del percorso non copra le etichette stradali, è stato passato un secondo parametro con il valore `'labels'`.
 
-    Viene poi creato un livello simbolo collegato all'origine dati. Questo livello specifica la modalità di rendering del punto di partenza e del punto di arrivo. In questo caso sono state aggiunte espressioni per recuperare l'immagine dell'icona e le informazioni sull'etichetta di testo dalle proprietà di ogni oggetto punto.
+    Viene poi creato un livello simbolo collegato all'origine dati. Questo livello specifica come viene eseguito il rendering dei punti iniziale e finale. Sono state aggiunte espressioni per recuperare l'immagine dell'icona e le informazioni sulle etichette di testo dalle proprietà in ogni oggetto punto. Per altre informazioni sulle espressioni, vedere [Espressioni di stile basate su dai](data-driven-style-expressions-web-sdk.md).
 
 2. Impostare Microsoft come punto di partenza e una stazione di rifornimento a Seattle come punto di arrivo.  Nel gestore dell'evento `ready` del controllo mappa aggiungere il codice seguente.
 
@@ -168,17 +168,22 @@ In questa esercitazione verrà eseguito il rendering del percorso usando un live
     });
     ```
 
-    Questo codice crea due [oggetti punto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) per rappresentare i punti di partenza e di arrivo, che vengono quindi aggiunti all'origine dati. L'ultimo blocco di codice imposta la visualizzazione della fotocamera tramite le informazioni di latitudine e longitudine del punto di partenza e di arrivo. Per altre informazioni sulla proprietà setCamera del controllo mappa, vedere [setCamera(CameraOptions | CameraBoundsOptions e AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-).
+    Questo codice crea due [oggetti punto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) per rappresentare i punti di partenza e di arrivo, che vengono quindi aggiunti all'origine dati. 
+
+    L'ultimo blocco di codice imposta la visualizzazione della fotocamera tramite le informazioni di latitudine e longitudine del punto di partenza e di arrivo. I punti di partenza e di arrivo vengono aggiunti all'origine dati. Per il calcolo del rettangolo di selezione viene usata la funzione `atlas.data.BoundingBox.fromData`. Questo rettangolo di selezione viene usato per impostare la visualizzazione delle videocamere della mappa sull'intero percorso con la funzione `map.setCamera`. Per compensare le dimensioni in pixel delle icone di simbolo, viene aggiunta una spaziatura interna. Per altre informazioni sulla proprietà setCamera del controllo mappa, vedere [setCamera(CameraOptions | CameraBoundsOptions e AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
 
 3. Salvare **MapRoute.html** e aggiornare il browser. La mappa è ora centrata sulla città di Seattle. L'indicatore blu a goccia contrassegna il punto di partenza. L'indicatore rotondo a goccia contrassegna il punto di arrivo.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Visualizzare il punto di partenza e di arrivo di un percorso sulla mappa":::
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Rendering di una mappa di base del controllo mappa":::
 
 <a id="getroute"></a>
 
 ## <a name="get-route-directions"></a>Ottenere le indicazioni stradali
 
-Questa sezione illustra come usare l'API del servizio di pianificazione percorso di Mappe di Azure per ottenere le indicazioni da un punto a un altro. In questo servizio sono disponibili altre API che consentono di pianificare il percorso *più veloce*, *più breve*, *più ecologico* o *più interessante* tra due posizioni. Questo servizio consente anche agli utenti di pianificare percorsi futuri in base alle condizioni storiche del traffico. Gli utenti possono visualizzare la durata stimata del percorso per qualsiasi ora specificata. Per altre informazioni, vedere [API Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+Questa sezione illustra come usare l'API di indicazioni stradali di Mappe di Azure per ottenere indicazioni stradali e il tempo previsto di arrivo da un punto a un altro.
+
+>[!TIP]
+>I servizi di pianificazione percorso offrono API per pianificare più tipi di percorso, ad esempio *più veloce*, *più breve*, *più ecologico* o *più entusiasmante*, in base alla distanza, alle condizioni del traffico e alla modalità di trasporto usata. Il servizio consente anche di pianificare percorsi futuri in base alle condizioni storiche del traffico. Gli utenti possono visualizzare la durata stimata del percorso per qualsiasi ora specificata. Per altre informazioni, vedere [API Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
 1. Nella funzione `GetMap`, all'interno del gestore dell'evento `ready` del controllo, aggiungere quanto segue al codice JavaScript.
 
@@ -193,7 +198,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential` crea un elemento `SubscriptionKeyCredentialPolicy` per autenticare le richieste HTTP in Mappe di Azure con la chiave di sottoscrizione. `atlas.service.MapsURL.newPipeline()` acquisisce il criterio `SubscriptionKeyCredential` e crea un'istanza [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest). `routeURL` rappresenta un URL per le operazioni di [pianificazione del percorso](https://docs.microsoft.com/rest/api/maps/route) di Mappe di Azure.
+   `SubscriptionKeyCredential` crea un elemento `SubscriptionKeyCredentialPolicy` per autenticare le richieste HTTP in Mappe di Azure con la chiave di sottoscrizione. `atlas.service.MapsURL.newPipeline()` acquisisce il criterio `SubscriptionKeyCredential` e crea un'istanza [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline). `routeURL` rappresenta un URL per le operazioni di [pianificazione del percorso](https://docs.microsoft.com/rest/api/maps/route) di Mappe di Azure.
 
 2. Dopo aver impostato le credenziali e l'URL, aggiungere il codice seguente nel gestore dell'evento `ready` del controllo. Questo codice costruisce il percorso dal punto di partenza a quello di arrivo. `routeURL` richiede all'API del servizio di pianificazione percorso di Mappe di Azure di calcolare le indicazioni stradali. Dalla risposta viene estratta una raccolta di funzionalità GeoJSON con il metodo `geojson.getFeatures()` e viene aggiunta all'origine dati.
 
@@ -211,7 +216,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
 
 3. Salvare il file **MapRoute.html** e aggiornare il Web browser. La mappa dovrebbe ora visualizzare il percorso dal punto di partenza al punto di arrivo.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Controllo mappa e servizio di pianificazione percorso di Azure":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Rendering di una mappa di base del controllo mappa":::
 
     È possibile ottenere il codice sorgente completo per l'esempio [qui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Un esempio eseguibile è disponibile [qui](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 

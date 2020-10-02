@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77426361"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972434"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Esercitazione: Creare un'applicazione di gestione rifiuti connessa in IoT Central
 
@@ -131,13 +131,13 @@ Per visualizzare il modello di dispositivo:
 
 1. Fare clic su **Modelli di dispositivo** nel riquadro sinistro dell'applicazione in IoT Central. 
 
-    ![Modello di dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
+    ![Screenshot dell'elenco di modelli di dispositivo nell'applicazione](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
 2. Nell'elenco Modelli di dispositivo è presente il modello **Connected Waste Bin** (Cassonetto connesso). Aprirlo facendo clic sul nome.
 
 3. Acquisire familiarità con le funzionalità del modello di dispositivo. Come si può vedere, il modello definisce sensori come *Fill level* (Livello di colmo), *Odor meter* (Misuratore odori), *Weight* (Peso), *Location* (Posizione) e altri.
 
-   ![Modello di dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
+   ![Screenshot dei dettagli del modello di dispositivo cassonetto](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
    
 
@@ -265,8 +265,9 @@ Se non si intende continuare a usare questa applicazione, eliminarla seguendo qu
 1. Aprire la scheda Amministrazione nel riquadro sinistro dell'applicazione IoT Central.
 2. Selezionare Impostazioni applicazione e fare clic sul pulsante Elimina nella parte inferiore della pagina.
 
-  
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sui [concetti di gestione rifiuti connessa](./concepts-connectedwastemanagement-architecture.md)
+* Informazioni sui
+ 
+> [!div class="nextstepaction"]
+> [concetti sulla gestione di rifiuti connessa](./concepts-connectedwastemanagement-architecture.md)

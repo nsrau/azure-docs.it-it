@@ -1,6 +1,6 @@
 ---
 title: Ruoli di amministratore personalizzati in Azure Active Directory | Microsoft Docs
-description: Anteprima dei ruoli di Azure AD personalizzati per la delega della gestione delle identità. Gestire i ruoli di Azure nel portale di Azure, in PowerShell o nell'API Graph.
+description: Informazioni sui ruoli personalizzati di Azure AD in Azure Active Directory (Azure AD), con il controllo degli accessi in base al ruolo e gli ambiti delle risorse.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e962bea893e8a658b876aabf417e64b11a31dfc1
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: aac8713affd56d011e5e1f5e9326de501fb3ce67
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033507"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975551"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Ruoli di amministratore personalizzati in Azure Active Directory (anteprima)
 

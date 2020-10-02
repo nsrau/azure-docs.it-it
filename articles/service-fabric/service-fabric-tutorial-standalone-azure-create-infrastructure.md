@@ -4,12 +4,12 @@ description: In questa esercitazione si apprende come configurare l'infrastruttu
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e9f62f944fff331bcf2dad1b380161e563614219
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614010"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561841"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Esercitazione: Creare un'infrastruttura di macchine virtuali di Azure per ospitare un cluster di Service Fabric
 
@@ -49,7 +49,7 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure.  Se n
 
 8. Impostare quindi il **Gruppo di sicurezza di rete della scheda di interfaccia di rete** su **Avanzato**. Creare un nuovo gruppo di sicurezza, prendendo nota del nome di questo, e creare le regole seguenti per consentire il traffico TCP da qualsiasi origine:
 
-   ![sf-inbound][sf-inbound]
+   ![Screenshot che mostra la creazione di regole per consentire il traffico TCP in ingresso.][sf-inbound]
 
    * Porta `3389`, per RDP e ICMP (connettività di base).
    * Porte `19000-19003`, per Service Fabric.
@@ -61,7 +61,7 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure.  Se n
 
 9. Aggiungere un'altra regola. Impostare **Service Tag** come origine e **VirtualNetwork** come tag del servizio di origine. Per la comunicazione all'interno del cluster, Service Fabric richiede che le porte seguenti siano aperte: 135, 137-139, 445, 20001-20031, 20606-20861.
 
-   ![vnet-inbound][vnet-inbound]
+   ![Screenshot che mostra la creazione di regole per consentire il traffico TCP per un cluster.][vnet-inbound]
 
 10. Per le opzioni rimanenti è accettabile lo stato predefinito di ognuna. Rivedere le opzioni, se si vuole, e quindi avviare la macchina virtuale.
 

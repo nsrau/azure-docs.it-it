@@ -10,13 +10,13 @@ ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
-ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: c83a67f7d524a062485f2c68e0adb7fdd2855a84
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.custom: devops, devx-track-js
+ms.openlocfilehash: 6bc6776df889c5c8ccc6acfe5764549ccf7354a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462174"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320201"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Azure DevOps Services e Azure Pipelines
 
@@ -147,6 +147,7 @@ Le macchine virtuali possono essere aggiunte come risorse all'interno di [ambien
 Selezionare il modello **starter** e copiare il frammento di codice YAML seguente per creare il progetto Java ed eseguire i test con Apache Maven:
 
 ```YAML
+jobs:
 - job: Build
   displayName: Build Maven Project
   steps:
@@ -209,7 +210,7 @@ Per altre informazioni, seguire la procedura descritta in [Compilare l'app Node.
 
 ## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Definire i passaggi di CD per la distribuzione nella VM Linux
 
-1. Modificare la pipeline precedente e includere un [processo di distribuzione](/azure/devops/pipelines/process/deployment-jobs) facendo riferimento all'ambiente e alle risorse VM definite in precedenza usando la sintassi YAML seguente:
+1. Cambiare il file YAML per la pipeline indicata sopra per includere un [processo di distribuzione](/azure/devops/pipelines/process/deployment-jobs) facendo riferimento all'ambiente e alle risorse VM create in precedenza con la sintassi YAML seguente:
 
    ```YAML
    jobs:  
@@ -218,8 +219,7 @@ Per altre informazioni, seguire la procedura descritta in [Compilare l'app Node.
      environment:
        name:  <environment name>
        resourceType: VirtualMachine
-       tags: web1
-     strategy:
+       tags: web
    ```
 2. È possibile selezionare set specifici di macchine virtuali dell'ambiente per ricevere la distribuzione specificando i **tag** definiti per ogni macchina virtuale nell'ambiente.
 [Qui](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) è disponibile lo schema YAML completo per il processo di distribuzione.

@@ -6,12 +6,12 @@ ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 140eb73cdf6d5bb701c08b0dd8d5f85b6f137df6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 124df19287062a7fc8a6b9cf8b9d32eb3863b581
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497478"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069238"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager
 
@@ -178,7 +178,7 @@ Il comando di distribuzione restituisce risultati. Cercare `ProvisioningState` p
 ---
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
+> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 

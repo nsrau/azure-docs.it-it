@@ -1,24 +1,26 @@
 ---
 title: Che cos'è il servizio Language Understanding (LUIS)?
 description: Language Understanding (LUIS) è un servizio API basato sul cloud che applica il Machine Learning al linguaggio naturale delle conversazioni per stimare il significato ed estrarre le informazioni.
-keywords: Azure, intelligenza artificiale, IA, elaborazione del linguaggio naturale, NLP, comprensione del linguaggio naturale, NLU, conversazione di intelligenza artificiale, chatbot IA, LUIS, Azure LUIS
+keywords: Azure, intelligenza artificiale, ia, elaborazione del linguaggio naturale, nlp, comprensione del linguaggio naturale, nlu, LUIS, IA conversazionale, chatbot di ia, ia nlp, azure luis
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 09/02/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: ff9aa2652fe8a1e503b5e2c93ca149112770b081
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 242d131e79966ebdb286a20f75d20f91f5fa7406
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400943"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334651"
 ---
 # <a name="what-is-language-understanding-luis"></a>Che cos'è il servizio Language Understanding (LUIS)?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Language Understanding (LUIS) è un servizio API basato sul cloud che applica l'intelligence dell'apprendimento automatico personalizzato al testo in linguaggio naturale parlato di un utente per prevedere il significato generale ed estrarre informazioni rilevanti e dettagliate.
+Language Understanding (LUIS) è un servizio di intelligenza artificiale conversazionale basato sul cloud che applica l'intelligenza di Machine Learning al testo in linguaggio naturale della conversazione di un utente per prevedere il significato generale ed estrarre informazioni pertinenti e dettagliate.
 
-Un'applicazione client per LUIS può essere una qualsiasi applicazione di linguaggio parlato che comunica con un utente in linguaggio naturale per completare un compito. Esempi di applicazioni client includono app di social media, chatbot e applicazioni per desktop con funzionalità vocali.
+Un'applicazione client per LUIS può essere una qualsiasi applicazione di linguaggio parlato che comunica con un utente in linguaggio naturale per completare un compito. Esempi di applicazioni client includono app di social media, chatbot di IA e applicazioni per desktop con funzionalità vocali.
 
 ![Immagine concettuale di tre applicazioni client che funzionano con LUIS (Language Understanding) di Servizi cognitivi](./media/luis-overview/luis-entry-point.png "Immagine concettuale di tre applicazioni client che funzionano con LUIS (Language Understanding) di Servizi cognitivi")
 
@@ -26,7 +28,7 @@ Un'applicazione client per LUIS può essere una qualsiasi applicazione di lingua
 
 <a name="Accessing-LUIS"></a>
 
-Una volta pubblicata l'app LUIS, un'applicazione client invia le espressioni (testo) all'[API][endpoint-apis] dell'endpoint di elaborazione del linguaggio naturale LUIS e riceve i risultati come risposte JSON. Un'applicazione client comune per LUIS è un chatbot.
+Una volta pubblicata l'app LUIS di Azure, un'applicazione client invia le espressioni (testo) all'[API][endpoint-apis] dell'endpoint di elaborazione del linguaggio naturale LUIS e riceve i risultati come risposte JSON. Un'applicazione client comune per LUIS è un chatbot.
 
 
 ![Immagini concettuali di LUIS che funziona con un chatbot per prevedere il testo utente con la comprensione del linguaggio naturale (NLP)](./media/luis-overview/LUIS-chat-bot-request-response.svg "Immagini concettuali di LUIS che funziona con un chatbot per prevedere il testo utente con la comprensione del linguaggio naturale (NLP)")
@@ -44,7 +46,7 @@ L'app LUIS fornisce intelligence in modo che l'applicazione client possa effettu
 
 ## <a name="natural-language-understanding-nlu"></a>Comprensione del linguaggio naturale
 
-[LUIS fornisce l'intelligenza artificiale](artificial-intelligence.md "LUIS fornisce intelligenza artificiale (IA)") con NLU (Natural Language Understanding), ossia comprensione del linguaggio naturale, un sottoinsieme di NLP (Natural Language Processing, elaborazione del linguaggio naturale).
+[LUIS fornisce intelligenza artificiale (IA)](artificial-intelligence.md "LUIS fornisce intelligenza artificiale (IA)") sotto forma di comprensione del linguaggio naturale (NLU, Natural Language Understanding), un sottoinsieme dell'intelligenza artificiale per l'elaborazione del linguaggio naturale.
 
 L'app LUIS contiene un modello linguistico naturale specifico del dominio. È possibile avviare l'app LUIS con un modello di dominio precompilato, creare il proprio o unire parti di un dominio precompilato con le proprie informazioni personalizzate.
 
@@ -52,7 +54,7 @@ L'app LUIS contiene un modello linguistico naturale specifico del dominio. È po
 
 * **Modello personalizzato** Il servizio LUIS offre diversi modi per identificare i modelli personalizzati, comprese finalità ed entità. Le entità includono entità di Machine Learning, entità specifiche o letterali e una combinazione di entità di Machine Learning e letterali.
 
-Altre informazioni su [NLP](artificial-intelligence.md "NLP") e sull'area di NLU specifica di LUIS.
+Vedere altre informazioni sull'[IA NLP](artificial-intelligence.md "NLP") e sull'area di NLU specifica di LUIS.
 
 ## <a name="step-1-design-and-build-your-model"></a>Passaggio 1: Progettare e compilare il modello
 

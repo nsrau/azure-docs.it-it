@@ -1,5 +1,6 @@
 ---
 title: Spostare le macchine virtuali in un'area di Azure con zone di disponibilità tramite Azure Site Recovery
+description: Informazioni su come spostare le VM in una zona di disponibilità in un'area diversa con Site Recovery
 services: site-recovery
 author: sideeksh
 ms.service: site-recovery
@@ -7,14 +8,18 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: c1a552ba634234ac3b4d4a8eec260c739ce0d846
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425473"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605108"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Spostare macchine virtuali di Azure nelle zone di disponibilità
+
+Questo articolo descrive come spostare le VM di Azure in una zona di disponibilità in un'area diversa. Per informazioni su come eseguire lo spostamento in una zona diversa della stessa area, [vedere questo articolo](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+
+
 Le zone di disponibilità di Azure consentono di proteggere le applicazioni e i dati da eventuali guasti del data center. Ogni zona di disponibilità è costituita da uno o più data center dotati di impianti indipendenti per l'energia, il raffreddamento e la rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati dai guasti del data center. Con le zone di disponibilità, Azure offre un Contratto di servizio con tempo di attività delle macchine virtuali del 99,99%. Le zone di disponibilità sono supportate in aree selezionate, come indicato in [Aree che supportano le zone di disponibilità in Azure](../availability-zones/az-region.md).
 
 Se le macchine virtuali sono distribuite come *istanza singola* in un'area specifica e si vuole migliorare la disponibilità spostandole in una zona di disponibilità, è possibile eseguire questa operazione usando Azure Site Recovery. Questa operazione può essere ulteriormente classificata in:
@@ -23,7 +28,15 @@ Se le macchine virtuali sono distribuite come *istanza singola* in un'area speci
 - Spostare macchine virtuali in un set di disponibilità nelle zone di disponibilità in un'area di destinazione
 
 > [!IMPORTANT]
-> Attualmente Azure Site Recovery supporta lo spostamento delle macchine virtuali da un'area a un'altra. Supporta lo spostamento tra zone all'interno di un'area solo in alcune aree. [Altre informazioni](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
+> Per spostare le VM di Azure in una zona di disponibilità in un'area diversa, è consigliabile usare [Spostamento risorse di Azure](../resource-mover/move-region-availability-zone.md). Spostamento risorse di Azure è attualmente disponibile in anteprima pubblica e offre:
+> - Un singolo hub per lo spostamento di risorse tra aree.
+> - Riduzione dei tempi richiesti e della complessità degli spostamenti. Tutto il necessario in un'unica posizione.
+> - Un'esperienza semplice e coerente per spostare diversi tipi di risorse di Azure.
+> - Un modo semplice per identificare le dipendenze tra le risorse da spostare. È quindi possibile spostare contemporaneamente le risorse correlate in modo che dopo lo spostamento tutto funzioni come previsto nell'area di destinazione.
+> - Pulizia automatica delle risorse nell'area di origine, se si preferisce eliminarle dopo lo spostamento.
+> - Test. È possibile provare a eseguire uno spostamento e quindi annullarlo se non si vuole procedere a uno spostamento completo.
+
+
 
 ## <a name="check-prerequisites"></a>Verificare i prerequisiti
 

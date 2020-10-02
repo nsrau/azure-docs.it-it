@@ -6,21 +6,21 @@ ms.topic: tutorial
 ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8eac40ad958a10b8c853304ee2be8b2dc27af1a2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b8eb8378480b8784939e3ab63327e73e3705c74a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008713"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526511"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Esercitazione: Creare un pool di host per convalidare gli aggiornamenti dei servizi
 
 >[!IMPORTANT]
 >Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
 
-I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Prima di distribuire i pool di host nell'ambiente di produzione, si consiglia di creare un pool di host di convalida. Gli aggiornamenti vengono prima applicati nel pool di host di convalida, consentendo all'utente di monitorare gli aggiornamenti del servizio prima di distribuirlo nell'ambiente di produzione. Senza un pool di host di convalida, si potrebbero non notare i cambiamenti che presentano errori, il che può provocare tempi di inattività per gli utenti nell'ambiente di produzione.
+I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno dell'ambiente di Desktop virtuale Windows. È consigliabile creare un pool di host di convalida in cui applicare per primi gli aggiornamenti del servizio. In questo modo è possibile monitorare gli aggiornamenti del servizio prima che vengano applicati all'ambiente standard o non di convalida. Senza un pool di host di convalida, si potrebbero non rilevare modifiche che introducono errori, con conseguenti possibili tempi di inattività per gli utenti nell'ambiente standard.
 
-Per garantire il funzionamento delle app con gli aggiornamenti più recenti, il pool di host di convalida deve essere il più simile possibile ai pool di host nell'ambiente di produzione. Gli utenti devono connettersi al pool di host di convalida con la stessa frequenza con cui si connettono al pool di host di produzione. Se nel pool di host sono attivi i test automatizzati, è necessario includere i test automatizzati anche nel pool di host di convalida.
+Per garantire il funzionamento delle app con gli aggiornamenti più recenti, il pool di host di convalida deve essere il più simile possibile ai pool di host nell'ambiente non di convalida. Gli utenti dovranno connettersi al pool di host di convalida con la stessa frequenza con cui si connettono al pool di host standard. Se nel pool di host sono attivi i test automatizzati, è necessario includere i test automatizzati anche nel pool di host di convalida.
 
 È possibile eseguire il debug dei problemi nel pool di host di convalida con [la funzionalità di diagnostica](diagnostics-role-service.md) o gli [articoli di risoluzione dei problemi del Desktop virtuale Windows](troubleshoot-set-up-overview.md).
 

@@ -3,15 +3,15 @@ title: Pool di host di Desktop virtuale Windows nel portale di Azure - Azure
 description: Come creare un pool di host di Desktop virtuale Windows tramite il portale di Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: da944f74fd6214e1b69a3ee7d230e72accd4e2e4
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322586"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084363"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Esercitazione: Creare un pool di host con il portale di Azure
 
@@ -188,6 +188,13 @@ Per registrare il gruppo di app desktop in un'area di lavoro:
      - Un collegamento di download per un modello di Azure Resource Manager in base alla configurazione.
 
 Dopo questa verifica, la procedura è terminata.
+
+## <a name="run-the-azure-resource-manager-template-to-provision-a-new-host-pool"></a>Eseguire il modello di Resource Manager per effettuare il provisioning di un nuovo pool di host
+
+Se invece si preferisce usare un processo automatizzato, [scaricare il modello di Azure Resource Manager](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) per effettuare il provisioning del nuovo pool host.
+
+>[!NOTE]
+>Se si usa un processo automatizzato per creare l'ambiente, è necessaria la versione più recente del file JSON di configurazione. Il file JSON è disponibile [qui](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

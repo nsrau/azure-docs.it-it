@@ -11,12 +11,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: e7dca9224fd213178aa9cee3a284f1eba39fb4fc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8d11fada41d0152b44be6cb0cdef41e68808689b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001174"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967510"
 ---
 # <a name="secure-access-to-application-data"></a>Proteggere l'accesso ai dati delle applicazioni
 
@@ -160,7 +160,7 @@ Nell'attività precedente vengono usate le classi, le proprietà e i metodi segu
 
 La [crittografia di Archiviazione di Azure](../common/storage-service-encryption.md) consente di proteggere e salvaguardare i dati crittografando i dati inattivi e gestendo la crittografia e la decrittografia. Tutti i dati sono crittografati tramite la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)a 256 bit, una delle crittografie a blocchi più solide tra quelle disponibili.
 
-È possibile scegliere di affidare a Microsoft la gestione delle chiavi di crittografia oppure usare chiavi personalizzate con chiavi gestite dal cliente con Azure Key Vault. Per altre informazioni, vedere [Usare chiavi gestite dal cliente con Azure Key Vault per gestire la crittografia di Archiviazione di Azure](../common/encryption-customer-managed-keys.md).
+È possibile scegliere di affidare a Microsoft la gestione delle chiavi di crittografia oppure usare le proprie chiavi con chiavi gestite dal cliente in Azure Key Vault o nel modulo di protezione hardware (HSM) gestito di Key Vault (anteprima). Per altre informazioni, vedere [Chiavi gestite dal cliente per la crittografia di archiviazione di Azure](../common/customer-managed-keys-overview.md).
 
 La crittografia di Archiviazione di Azure crittografa automaticamente i dati in tutti i livelli di prestazioni (Standard e Premium), tutti i modelli di distribuzione (distribuzione classica e Azure Resource Manager) e tutti i servizi di Archiviazione di Azure (BLOB, code, tabelle e file).
 

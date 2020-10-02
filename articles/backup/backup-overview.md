@@ -4,12 +4,12 @@ description: Panoramica del servizio Backup di Azure e del suo contributo nel co
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 9954c8fa6affca7d2c2b73d7176280587d749476
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 72dee7bbcaa730f12af3ee323157fa92f6694603
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017890"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968328"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Informazioni sul servizio Backup di Azure
 
@@ -24,6 +24,7 @@ Il servizio Backup di Azure offre soluzioni semplici, sicure ed economicamente c
 - **Condivisioni file di Azure** - [: backup di condivisioni file di Azure nell'account di archiviazione](backup-afs.md)
 - **SQL Server in macchine virtuali di Azure** -  [: backup di database SQL Server in esecuzione in macchine virtuali di Azure](backup-azure-sql-database.md)
 - **Database SAP HANA in macchine virtuali di Azure** - [: backup di database SAP HANA in esecuzione in macchine virtuali di Azure](backup-azure-sap-hana-database.md)
+- **Server di Database di Azure per PostgreSQL (anteprima)**  -  [Backup di database di Azure per PostgreSQL conservati per un totale di 10 anni](backup-azure-database-postgresql.md)
 
 ![Panoramica di Backup di Azure](./media/backup-overview/azure-backup-overview.png)
 
@@ -43,8 +44,9 @@ Backup di Azure offre i vantaggi principali seguenti:
 - **Conservazione a breve e a lungo termine**: è possibile usare gli [insiemi di credenziali di Servizi di ripristino](backup-azure-recovery-services-vault-overview.md) per la conservazione dei dati a breve termine e a lungo termine.
 - **Gestione automatica dell'archiviazione**. Gli ambienti ibridi richiedono spesso un'archiviazione eterogenea, in parte in locale e in parte nel cloud. Con Backup di Azure non sono previsti costi per l'uso di dispositivi di archiviazione locali. Backup di Azure alloca e gestisce automaticamente le risorse di archiviazione di backup e usa un modello di pagamento in base al consumo. Verranno addebitate le sole risorse di archiviazione usate. [Altre informazioni](https://azure.microsoft.com/pricing/details/backup) sui prezzi.
 - **Più opzioni di archiviazione**: Backup di Azure offre due tipi di replica per garantire la disponibilità elevata delle risorse di archiviazione e/o dei dati.
-  - L'[archiviazione con ridondanza locale](../storage/common/storage-redundancy.md) replica i dati tre volte (crea tre copie dei dati) in un'unità di scala di archiviazione in un data center. Tutte le copie dei dati si trovano nella stessa area geografica. L'archiviazione con ridondanza locale è un'opzione a costo contenuto per la protezione dei dati da errori hardware locali.
-  - L'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md) è l'opzione di replica predefinita e consigliata. L'archiviazione con ridondanza geografica replica i dati in un'area secondaria a centinaia di chilometri di distanza dalla posizione primaria dei dati di origine. L'archiviazione con ridondanza geografica è più costosa dell'archiviazione con ridondanza locale, ma offre un livello più elevato di durabilità per i dati, anche in presenza di un'interruzione di servizio a livello di area.
+  - L'[archiviazione con ridondanza locale](../storage/common/storage-redundancy.md#locally-redundant-storage) replica i dati tre volte (crea tre copie dei dati) in un'unità di scala di archiviazione in un data center. Tutte le copie dei dati si trovano nella stessa area geografica. L'archiviazione con ridondanza locale è un'opzione a costo contenuto per la protezione dei dati da errori hardware locali.
+  - L'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage) è l'opzione di replica predefinita e consigliata. L'archiviazione con ridondanza geografica replica i dati in un'area secondaria a centinaia di chilometri di distanza dalla posizione primaria dei dati di origine. L'archiviazione con ridondanza geografica è più costosa dell'archiviazione con ridondanza locale, ma offre un livello più elevato di durabilità per i dati, anche in presenza di un'interruzione di servizio a livello di area.
+  - L'[archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) replica i dati in [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantendone la residenza e la resilienza nella stessa area. L'archiviazione con ridondanza della zona non prevede tempi di inattività. Pertanto, i carichi di lavoro critici che richiedono la [residenza dei dati](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) e non possono subire tempi di inattività possono essere sottoposti a backup nell'archiviazione con ridondanza della zona.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 25c58f99f56a4328527d1dd970e3ade21eb51819
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76834685"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987163"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Esercitazione: Diagnosticare un problema di comunicazione tra reti tramite il portale di Azure
 
@@ -73,12 +73,12 @@ Se si dispone già di un Network Watcher abilitato nell'area Stati Uniti orienta
 8. Durante l'esecuzione del test, viene visualizzato **In esecuzione** nella colonna **STATO RISOLUZIONE DEI PROBLEMI** dove viene visualizzato **Non avviato** nell'immagine precedente. L'esecuzione del test può richiedere alcuni minuti.
 9. Visualizzare lo stato di un test completato. L'immagine seguente mostra i risultati di stato di un test di diagnostica completato:
 
-    ![Stato](./media/diagnose-communication-problem-between-networks/status.png)
+    ![Screenshot che mostra i risultati dello stato di un test di diagnostica, che in questo caso indica Non integro, con un riepilogo e i dettagli.](./media/diagnose-communication-problem-between-networks/status.png)
 
     È possibile visualizzare che lo **STATO RISOLUZIONE DEI PROBLEMI** è **Non integro**, nonché il **Riepilogo** e i **Dettagli** del problema nella scheda **Stato**.
 10. Quando si seleziona la scheda **Azione** diagnostica VPN offre informazioni aggiuntive. Nell'esempio illustrato nella figura seguente diagnostica VPN informa l'utente che è necessario controllare l'integrità di ogni connessione:
 
-    ![Azione](./media/diagnose-communication-problem-between-networks/action.png)
+    ![Screenshot della scheda Azione, che offre informazioni aggiuntive.](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## <a name="diagnose-a-gateway-connection"></a>Diagnosticare una connessione gateway
 
@@ -86,7 +86,7 @@ Un gateway è connesso ad altre reti tramite una connessione gateway. Sia il gat
 
 1. Completare di nuovo il passaggio 7 di [Diagnosticare un gateway](#diagnose-a-gateway), questa volta, selezionando una connessione. Nell'esempio seguente viene testata una connessione denominata **VNet1toSite1**:
 
-    ![Connessione](./media/diagnose-communication-problem-between-networks/connection.png)
+    ![Screenshot che mostra come avviare la risoluzione dei problemi per una connessione selezionata.](./media/diagnose-communication-problem-between-networks/connection.png)
 
     Il test viene eseguito per alcuni minuti.
 2. Dopo aver completato il test della connessione, si ricevono risultati simili ai risultati mostrati nelle immagini seguenti nelle schede **Stato** e **Azione**:

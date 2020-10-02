@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: cb40252460fe62deb94ce495bb41d38c326f10e2
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: a76df67d1ef9d203d5e5d54cb95bb8fc90f70180
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81001340"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980739"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Esercitazione: Distribuire ed esaminare un modello di applicazione del centro distribuzione digitale
 
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà come:
 1. Passare al sito Web di gestione applicazioni di Azure IoT Central. Selezionare **Compila** dalla barra di spostamento a sinistra e quindi fare clic sulla scheda **Retail**.
 
     > [!div class="mx-imgBorder"]
-    > ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    > ![Screenshot che mostra come selezionare il modello di applicazione del centro di distribuzione digitale](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
 
 2. Selezionare la scheda **Retail** e quindi **Crea app** in **Centro di distribuzione digitale**
 
@@ -46,10 +46,10 @@ In questa esercitazione si apprenderà come:
    **Creazione**: Selezionare Crea nella parte inferiore della pagina per distribuire l'applicazione.
 
     > [!div class="mx-imgBorder"]
-    > ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-create.png)
+    > ![Screenshot che mostra come creare un'app dal modello di applicazione del centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-create.png)
 
     > [!div class="mx-imgBorder"]
-    > ![Informazioni sulla fatturazione del centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+    > ![Screenshot che mostra le opzioni di fatturazione quando si crea l'applicazione](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
 
 ## <a name="walk-through-the-application-dashboard"></a>Esaminare il dashboard dell'applicazione 
 
@@ -62,31 +62,31 @@ Il dashboard è organizzato in modo logico per mostrare le funzionalità di gest
    * Gestire tutte le fotocamere che fanno parte della soluzione. 
 
 > [!div class="mx-imgBorder"]
-> ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
+> ![Screenshot che mostra il dashboard del centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
 
 ## <a name="device-template"></a>Modello di dispositivo
 
 Fare clic sulla scheda Modelli di dispositivo per visualizzare il modello di funzionalità del gateway. Un modello di funzionalità è strutturato su due interfacce diverse **Videocamera** e **Digital Distribution Gateway** (Gateway di distribuzione digitale)
 
 > [!div class="mx-imgBorder"]
-> ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Screenshot che mostra il modello di dispositivo gateway del centro di distribuzione digitale nell'applicazione](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 **Videocamera**: questa interfaccia organizza tutte le funzionalità di comando specifiche della videocamera 
 
 > [!div class="mx-imgBorder"]
-> ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![Screenshot che mostra l'interfaccia della fotocamera nel modello di dispositivo gateway di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 **Digital Distribution Gateway** (Gateway di distribuzione digitale): questa interfaccia rappresenta tutti i dati di telemetria provenienti dalla videocamera, le proprietà dei dispositivi gemelli definite nel cloud e le informazioni sul gateway.
 
 > [!div class="mx-imgBorder"]
-> ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Screenshot che mostra l'interfaccia del gateway di distribuzione digitale nel modello di dispositivo gateway di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 
 ## <a name="gateway-commands"></a>Comandi del gateway
 Questa interfaccia organizza tutte le funzionalità di comando del gateway
 
 > [!div class="mx-imgBorder"]
-> ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![Screenshot che mostra l'interfaccia di comandi del gateway nel modello di dispositivo gateway di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 ## <a name="rules"></a>Regole
 Selezionare la scheda delle regole per visualizzare due regole diverse presenti in questo modello di applicazione. Queste regole sono configurate per inviare notifiche tramite posta elettronica agli operatori per altre indagini.
@@ -96,7 +96,7 @@ Selezionare la scheda delle regole per visualizzare due regole diverse presenti 
 **Large package** (Pacchetto grande): questa regola viene attivata se la telecamera rileva un pacchetto enorme per cui non è possibile eseguire il controllo della qualità. 
 
 > [!div class="mx-imgBorder"]
-> ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-rules.png)
+> ![Screenshot dell'elenco di regole nell'applicazione del centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-rules.png)
 
 ## <a name="jobs"></a>Processi
 Selezionare la scheda dei processi per visualizzare cinque diversi processi che fanno parte di questo modello di applicazione: È possibile usare la funzionalità dei processi per eseguire operazioni a livello di soluzione. I processi del centro di distribuzione digitale usano i comandi del dispositivo e funzionalità dei dispositivi gemelli per eseguire attività, ad esempio:
@@ -105,15 +105,17 @@ Selezionare la scheda dei processi per visualizzare cinque diversi processi che 
    * Modifica dell'intervallo di telemetria per gestire il caricamento dei dati
 
 > [!div class="mx-imgBorder"]
-> ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-jobs.png)
+> ![Screenshot dell'elenco di processi nell'applicazione del centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Se non si intende continuare a usare questa applicazione, eliminare il modello di applicazione scegliendo **Amministrazione** > **Impostazioni applicazione** e facendo clic su **Elimina**.
 
 > [!div class="mx-imgBorder"]
-> ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
+> ![Screenshot che mostra come eliminare l'applicazione quando non serve più](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sul [concetto di centro distribuzione digitale](./architecture-digital-distribution-center.md) dell'architettura della soluzione del centro distribuzione digitale
+* Informazioni sull'architettura della soluzione per centro di distribuzione digitale 
+> [!div class="nextstepaction"]
+> [Concetti del centro di distribuzione digitale](./architecture-digital-distribution-center.md)
 * Altre informazioni sui altri [modelli di vendita al dettaglio di IoT Central](./overview-iot-central-retail.md)
 * Per altre informazioni su IoT Central fare riferimento a [Panoramica di IoT Central](../core/overview-iot-central.md)

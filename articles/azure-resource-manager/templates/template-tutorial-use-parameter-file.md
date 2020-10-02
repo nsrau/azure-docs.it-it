@@ -2,20 +2,20 @@
 title: 'Esercitazione: Usare un file di parametri per distribuire il modello'
 description: Usare file di parametri che contengono i valori da usare per la distribuzione del modello di Azure Resource Manager.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd7917a96550d45b14eb5a5b5cae1ac957aa78b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de72f9f32a3b08ad1742ee2055efce5b93cab899
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502801"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069510"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Esercitazione: Usare file di parametri per distribuire il modello di Azure Resource Manager
 
-Questa esercitazione illustra come usare i [file di parametri](parameter-files.md) per archiviare i valori passati durante la distribuzione. Nelle esercitazioni precedenti sono stati usati parametri inline con il comando di distribuzione. Questo approccio ha funzionato per il test del modello di Azure Resource Manager (ARM), ma quando si automatizzano le distribuzioni può risultare più agevole passare un set di valori per l'ambiente. I file di parametri semplificano la creazione di un pacchetto di valori di parametri per un ambiente specifico. In questa esercitazione si creeranno file di parametri per gli ambienti di sviluppo e di produzione. Per completare l'esercitazione, sono necessari circa **12 minuti**.
+Questa esercitazione illustra come usare i [file di parametri](parameter-files.md) per archiviare i valori passati durante la distribuzione. Nelle esercitazioni precedenti sono stati usati parametri inline con il comando di distribuzione. Questo approccio ha funzionato per il test del modello di Azure Resource Manager, ma quando si automatizzano le distribuzioni può risultare più agevole passare un set di valori per l'ambiente. I file di parametri semplificano la creazione di un pacchetto di valori di parametri per un ambiente specifico. In questa esercitazione si creeranno file di parametri per gli ambienti di sviluppo e di produzione. Per completare l'esercitazione, sono necessari circa **12 minuti**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,6 +34,12 @@ Questo modello funziona correttamente, ma ora si vogliono gestire facilmente i p
 ## <a name="add-parameter-files"></a>Aggiungere file di parametri
 
 I file di parametri sono file JSON con una struttura simile a quella del modello. Nel file è possibile specificare i valori dei parametri da passare durante la distribuzione.
+
+Nel file di parametri specificare i valori per i parametri del modello. Il nome di ogni parametro nel file di parametri deve corrispondere al nome di un parametro nel modello. Il nome non fa distinzione tra maiuscole/minuscole, ma per vedere facilmente i valori corrispondenti, è consigliabile usare la stessa combinazione del modello.
+
+Non è necessario specificare un valore per ogni parametro. Se un parametro non specificato ha un valore predefinito, verrà usato durante la distribuzione. Se un parametro non ha un valore predefinito e non viene specificato nel file di parametri, viene chiesto di specificarlo durante la distribuzione.
+
+Nel file di parametri non è possibile specificare un nome di parametro che non corrisponde a un nome di parametro nel modello. Se si specificano parametri sconosciuti, si riceve un errore.
 
 In VS Code creare un nuovo file con il contenuto seguente. Salvare il file con il nome **azuredeploy.parameters.dev.json**.
 
@@ -122,7 +128,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
+> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 

@@ -2,22 +2,22 @@
 title: 'Avvio rapido: Librerie client di LUIS (Language Understanding) SDK'
 description: Questa guida di avvio rapido illustra come creare ed eseguire query su un'app LUIS con le librerie client di LUIS SDK con C#, Python o JavaScript.
 ms.topic: quickstart
-ms.date: 09/01/2020
-keywords: Azure, intelligenza artificiale, IA, elaborazione del linguaggio naturale, NLP, comprensione del linguaggio naturale, NLU, conversazione di intelligenza artificiale, chatbot IA, LUIS, Azure LUIS
+ms.date: 09/14/2020
+keywords: Azure, intelligenza artificiale, ia, elaborazione del linguaggio naturale, nlp, LUIS, azure luis, natural language understanding, chatbot di ia, strumento di creazione di chatbot, comprensione del linguaggio naturale
 ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 6bcdca85125d44475fadfd195c1dfda88f761f88
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 64288bbffa2d2c24e2f719477d98426f52da4070
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323086"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972624"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Avvio rapido: Librerie client di LUIS (Language Understanding) SDK per creare ed eseguire query sull'app LUIS
 
-Questa guida di avvio rapido illustra come creare ed eseguire query su un'app LUIS con le librerie client di LUIS SDK con C#, Python o JavaScript.
+Guida di avvio rapido su come creare ed eseguire query su un'app di intelligenza artificiale (IA) di Azure LUIS con le librerie client di LUIS SDK con C#, Python o JavaScript.
 
-Language Understanding (LUIS) consente di applicare l'intelligence dell'apprendimento automatico personalizzato al testo in linguaggio naturale parlato di un utente per prevedere il significato generale ed estrarre informazioni pertinenti e dettagliate.
+Language Understanding (LUIS) consente di applicare l'elaborazione del linguaggio naturale (NLP, Natural Language Processing) al testo in linguaggio naturale della conversazione di un utente per prevedere il significato generale ed estrarre informazioni pertinenti e dettagliate.
 
 * La libreria client di **Authoring SDK** consente di creare, modificare, eseguire il training e pubblicare l'app LUIS. * La libreria client di **Prediction Runtime SDK** consente di eseguire una query sull'app pubblicata.
 
@@ -45,7 +45,7 @@ Language Understanding (LUIS) consente di applicare l'intelligence dell'apprendi
 * Training: un eventuale errore di training in genere indica un'app vuota (senza finalità con espressioni di esempio) o un'app con finalità o entità in formato non valido.
 * Errori vari: poiché il codice chiama le librerie client con oggetti JSON e di testo, assicurarsi di non aver modificato il codice.
 
-Altri errori: se viene ricevuto un errore non incluso nell'elenco precedente, segnalarlo inviando un feedback nella parte inferiore della pagina. Includere il linguaggio di programmazione e la versione delle librerie client installate. 
+Altri errori: se viene ricevuto un errore non incluso nell'elenco precedente, segnalarlo inviando un feedback nella parte inferiore della pagina. Includere il linguaggio di programmazione e la versione delle librerie client installate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -53,3 +53,5 @@ Altri errori: se viene ricevuto un errore non incluso nell'elenco precedente, se
 * [Novità](whats-new.md)
 * [Finalità](luis-concept-intent.md), [entità](luis-concept-entity-types.md), [espressioni di esempio](luis-concept-utterance.md) ed [entità predefinite](luis-reference-prebuilt-entities.md)
 * Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
+* Comprensione del linguaggio naturale: [comprensione del linguaggio naturale (NLU, Natural Language Understanding) ed elaborazione del linguaggio naturale (NLP, Natural Language Processing)](artificial-intelligence.md)
+* Bot: [chatbot di IA](luis-csharp-tutorial-bf-v4.md "Esercitazione sullo strumento di creazione di chatbot")

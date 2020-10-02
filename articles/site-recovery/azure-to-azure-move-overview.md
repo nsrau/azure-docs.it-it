@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0c7efc94bcde18e7b6ff43726602fa87641f3e76
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 61d596c4b3a65c54e1a70682adad5b7328c384f8
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86130619"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007367"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Spostamento delle VM di Azure in un'altra area di Azure
 
@@ -26,9 +26,21 @@ Si possono spostare le macchine virtuali per i motivi seguenti:
 - È stata già eseguita la distribuzione in un'area geografica ed è stato aggiunto il supporto per una nuova area più vicina a quella degli utenti finali dell'applicazione o del servizio. In questo scenario, è consigliabile spostare le macchine virtuali così come sono nella nuova area per ridurre la latenza. Usare lo stesso approccio per consolidare le sottoscrizioni o se esistono regole di governance/organizzazione che richiedono lo spostamento.
 - La macchina virtuale è stata distribuita come VM a istanza singola o come parte di un set di disponibilità. Se si vuole aumentare la disponibilità di contratti di servizio, è possibile spostare le macchine virtuali in una zona di disponibilità.
 
-## <a name="steps-to-move-azure-vms"></a>Operazioni per spostare le macchine virtuali di Azure
+## <a name="move-vms-with-resource-mover"></a>Spostare le VM con Spostamento risorse
 
-Per spostare le macchine virtuali, seguire questa procedura:
+È ora possibile spostare le VM in un'altra area con [Spostamento risorse di Azure](../resource-mover/tutorial-move-region-virtual-machines.md). Spostamento risorse di Azure è attualmente disponibile in anteprima pubblica e offre:
+- Un singolo hub per lo spostamento di risorse tra aree.
+- Riduzione dei tempi richiesti e della complessità degli spostamenti. Tutto il necessario in un'unica posizione.
+- Un'esperienza semplice e coerente per spostare diversi tipi di risorse di Azure.
+- Un modo semplice per identificare le dipendenze tra le risorse da spostare. È quindi possibile spostare contemporaneamente le risorse correlate in modo che dopo lo spostamento tutto funzioni come previsto nell'area di destinazione.
+- Pulizia automatica delle risorse nell'area di origine, se si preferisce eliminarle dopo lo spostamento.
+- Test. È possibile provare a eseguire uno spostamento e quindi annullarlo se non si vuole procedere a uno spostamento completo.
+
+
+
+## <a name="move-vms-with-site-recovery"></a>Spostare le VM con Site Recovery
+
+Lo spostamento di VM con Site Recovery prevede i passaggi seguenti:
 
 1. Verificare i prerequisiti.
 2. Preparare le VM di origine.
@@ -49,7 +61,7 @@ Questa sezione illustra le architetture di distribuzione più comuni per un'appl
 
 * **VM a istanza singola distribuite tra vari livelli**: Ogni VM di un livello è configurata come VM a istanza singola, connessa tramite servizi di bilanciamento del carico agli altri livelli. Questa configurazione è la più semplice da adottare.
 
-     ![Distribuzione di macchine virtuali a istanza singola tra i livelli](media/move-vm-overview/regular-deployment.png)
+     ![Selezione per spostare la distribuzione di VM a istanza singola tra livelli](media/move-vm-overview/regular-deployment.png)
 
 * **VM di ogni livello distribuite in set di disponibilità**: Ogni VM di un livello è configurata in un set di disponibilità. I [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) assicurano che le in Azure le macchine virtuali vengano distribuite tra più nodi hardware isolati in un cluster. Questa operazione assicura che, se si verifica un errore hardware o software all'interno di Azure, solo un subset delle macchine virtuali viene interessato e che nel complesso la soluzione rimane disponibile e operativa.
 
@@ -64,16 +76,8 @@ Questa sezione illustra le architetture di distribuzione più comuni per un'appl
 In base alle [architetture](#typical-architectures-for-a-multi-tier-deployment) citate sopra, ecco come saranno le distribuzioni dopo aver eseguito lo spostamento delle VM così come sono nell'area di destinazione.
 
 * **VM a istanza singola distribuite tra vari livelli**
-
-     ![Distribuzione di macchine virtuali a istanza singola tra i livelli](media/move-vm-overview/single-zone.png)
-
 * **VM di ogni livello distribuite in set di disponibilità**
-
-     ![Set di disponibilità tra aree](media/move-vm-overview/crossregionaset.png)
-
 * **VM di ogni livello distribuite tra zone di disponibilità**
-
-     ![Distribuzione di macchine virtuali tra zone di disponibilità](media/move-vm-overview/azonecross.png)
 
 ## <a name="move-vms-to-increase-availability"></a>Spostare le macchine virtuali per aumentare la disponibilità
 

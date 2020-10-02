@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdaff3dd8c1397ea2a0f70a5b84c0e42e9692412
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: bb05660b15fc09eb0d24a869f16f466a99f91211
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255427"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969015"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -37,15 +37,9 @@ Questo articolo illustra come eseguire le seguenti operazioni relative alle iden
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#managed-identity-types)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Per eseguire gli esempi di script dell'interfaccia della riga di comando, sono disponibili tre opzioni:
-    - Usare [Azure Cloud Shell](../../cloud-shell/overview.md) dal portale di Azure (vedere la sezione successiva).
-    - Usare l'opzione Azure Cloud Shell incorporata tramite il pulsante "Prova", disponibile nell'angolo superiore destro di ogni blocco di codice.
-    - [Installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) se si preferisce usare una console dell'interfaccia della riga di comando locale. 
-      
-      > [!NOTE]
-      > I comandi sono stati aggiornati in base alla versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).     
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- Per eseguire gli script di esempio, sono disponibili due opzioni:
+    - Usare [Azure Cloud Shell](../../cloud-shell/overview.md), che è possibile aprire con il pulsante **Prova** nell'angolo in alto a destra dei blocchi di codice.
+    - Eseguire gli script in locale installando l'ultima versione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli), quindi accedere ad Azure usando [az login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure in cui creare le risorse.
 
 ## <a name="system-assigned-managed-identity"></a>Identità gestita assegnata dal sistema
 
@@ -55,19 +49,13 @@ Questa sezione illustra come abilitare e disabilitare l'identità gestita assegn
 
 Per creare una macchina virtuale di Azure con l'identità gestita assegnata dal sistema abilitata, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
 
-1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale:
-
-   ```azurecli-interactive
-   az login
-   ```
-
-2. Creare un [gruppo di risorse](../../azure-resource-manager/management/overview.md#terminology) per il contenuto e la distribuzione della macchina virtuale e le risorse correlate, usando [az group create](/cli/azure/group/#az-group-create). Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio:
+1. Creare un [gruppo di risorse](../../azure-resource-manager/management/overview.md#terminology) per il contenuto e la distribuzione della macchina virtuale e le risorse correlate, usando [az group create](/cli/azure/group/#az-group-create). Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. Creare una macchina virtuale usando il comando [az vm create](/cli/azure/vm/#az-vm-create). L'esempio seguente crea una macchina virtuale denominata *myVM* con un'identità gestita assegnata dal sistema, come richiesto dal parametro `--assign-identity`. I parametri `--admin-username` e `--admin-password` specificano il nome utente e la password dell'account amministrativo per l'accesso alla macchina virtuale. Aggiornare questi valori in base alle esigenze specifiche dell'ambiente: 
+1. Creare una macchina virtuale usando il comando [az vm create](/cli/azure/vm/#az-vm-create). L'esempio seguente crea una macchina virtuale denominata *myVM* con un'identità gestita assegnata dal sistema, come richiesto dal parametro `--assign-identity`. I parametri `--admin-username` e `--admin-password` specificano il nome utente e la password dell'account amministrativo per l'accesso alla macchina virtuale. Aggiornare questi valori in base alle esigenze specifiche dell'ambiente: 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12

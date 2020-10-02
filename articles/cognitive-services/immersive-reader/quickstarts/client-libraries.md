@@ -1,7 +1,7 @@
 ---
-title: 'Avvio rapido: Usare la libreria client dello strumento di lettura immersiva'
+title: 'Avvio rapido: Libreria client dello strumento di lettura immersiva'
 titleSuffix: Azure Cognitive Services
-description: L'API Strumento di lettura immersiva offre librerie client che semplificano l'integrazione delle funzionalità di ricerca nelle applicazioni. Usare questo argomento di avvio rapido per iniziare a inviare richieste di ricerca e ottenere risultati.
+description: La libreria client dello strumento di lettura immersiva semplifica l'integrazione del servizio nelle applicazioni Web per migliorare la comprensione della lettura. Questa guida di avvio rapido illustra come usare lo strumento di lettura immersiva per la selezione del testo, il riconoscimento di parti del discorso, la lettura ad alta voce del testo selezionato, la traduzione e altro ancora.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -9,17 +9,18 @@ zone_pivot_groups: programming-languages-set-twenty
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.custom: devx-track-csharp
-ms.openlocfilehash: c5f02c473fb4a44fb8c0235658d3c8f6e3279844
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.custom: cog-serv-seo-aug-2020
+keywords: visualizzare immagini, parti del discorso, leggere il testo selezionato, tradurre parole, comprensione della lettura
+ms.openlocfilehash: 621be6293b4ac487cafafc14498524c97fdc6d82
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505397"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978301"
 ---
-# <a name="quickstart-use-the-immersive-reader-client-library"></a>Avvio rapido: Usare la libreria client dello strumento di lettura immersiva
+# <a name="quickstart-get-started-with-immersive-reader"></a>Avvio rapido: Introduzione allo strumento di lettura immersiva
 
 ::: zone pivot="programming-language-csharp"
 

@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 5604153d31a2828bcefbeccbd2f4fea428e878b5
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 95f877c9030d51e68b97a21875ff3ff05b383457
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961534"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973752"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Guida introduttiva: Creare un'app Web ASP.NET Core in Azure
 
@@ -137,7 +137,7 @@ Per gestire l'app Web, passare al [portale di Azure](https://portal.azure.com), 
 
 Nella pagina **Servizi app** selezionare il nome dell'app Web.
 
-![Passaggio all'app di Azure nel portale](./media/quickstart-dotnetcore/select-app-service.png)
+:::image type="content" source="./media/quickstart-dotnetcore/select-app-service.png" alt-text="Screenshot della pagina Servizi app con un'app Web di esempio selezionata.":::
 
 La pagina **Panoramica** per l'app Web contiene le opzioni per la gestione di base, ad esempio Sfoglia, Arresta, Avvia, Riavvia ed Elimina. Il menu a sinistra include ulteriori pagine per la configurazione dell'app.
 
@@ -304,7 +304,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
 Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Azure.
 
-![Passaggio all'app di Azure nel portale](./media/quickstart-dotnetcore/portal-app-service-list.png)
+:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="Screenshot della pagina Servizi app con un'app Web di esempio selezionata.":::
 
 Verrà visualizzata la pagina Panoramica dell'app. Qui è possibile eseguire attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app. 
 

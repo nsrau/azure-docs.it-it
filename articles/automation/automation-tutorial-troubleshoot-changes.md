@@ -7,12 +7,12 @@ keywords: modifica, rilevamento, rilevamento modifiche, inventario, automazione
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 63fe36a51b69648039c3a16be4267fc0c72e8a58
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 05b99c7f010ad307956b70890ee45f649111b373
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185807"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530540"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Risolvere i problemi delle modifiche in una VM di Azure
 
@@ -218,9 +218,9 @@ La visualizzazione delle modifiche nel portale di Azure può essere utile, ma la
 
 18. Per personalizzare l'oggetto del messaggio di posta elettronica di avviso, selezionare **Personalizza azioni**. 
 
-19. Per **Crea regola**, selezionare **Oggetto del messaggio di posta elettronica**, quindi scegliere **Crea regola di avviso**. L'avviso segnala quando una distribuzione di un aggiornamento ha esito positivo e indica i computer inclusi nella distribuzione. L'immagine seguente illustra un messaggio di posta elettronica di esempio ricevuto in caso di arresto del servizio W3SVC.
+19. Per **Crea regola**, selezionare **Oggetto del messaggio di posta elettronica**, quindi scegliere **Crea regola di avviso**. L'avviso segnala quando una distribuzione di un aggiornamento ha esito positivo e indica i computer inclusi nella distribuzione. L'immagine seguente illustra un messaggio di posta elettronica di esempio ricevuto in caso di arresto dei servizi W3SVC.
 
-    ![email](./media/automation-tutorial-troubleshoot-changes/email.png)
+    ![Lo screenshot mostra una notifica di posta elettronica ricevuta in caso di arresto dei servizi W3SVC.](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

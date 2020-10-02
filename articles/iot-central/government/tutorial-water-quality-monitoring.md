@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 77ec999d63175f63c1de6e31fdb3f72c963d228c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a80fe998c1ab241e35bee195b927846e264dec59
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82024473"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972369"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Esercitazione: Creare un'applicazione di monitoraggio della qualità dell'acqua in Azure IoT Central
 
@@ -256,4 +256,7 @@ Se non si intende continuare a usare l'applicazione, eliminarla seguendo questa 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sui [concetti di monitoraggio della qualità dell'acqua](./concepts-waterqualitymonitoring-architecture.md)
+* Altre informazioni su: 
+
+> [!div class="nextstepaction"]
+> [Concetti sul monitoraggio della qualità dell'acqua](./concepts-waterqualitymonitoring-architecture.md).

@@ -1,83 +1,83 @@
 ---
-title: 'Azure Defender per registri contenitori: vantaggi e funzionalità'
-description: Scopri i vantaggi e le funzionalità di Azure Defender per i registri di contenitori.
+title: Azure Defender per registri contenitori - Vantaggi e funzionalità
+description: Informazioni sui vantaggi e sulle funzionalità di Azure Defender per registri contenitori.
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6254b78ad19e7034f78f7891d57a3474fee0c602
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: MT
+ms.openlocfilehash: 12264a79ee5428e98d6cf7d37bef6706295e68dc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301924"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448382"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduzione ad Azure Defender per registri contenitori
 
-Azure Container Registry (ACR) è un servizio di registro Docker privato gestito che archivia e gestisce le immagini del contenitore per le distribuzioni di Azure in un registro centrale. Si basa sul registro Docker open source 2,0.
+Registro Azure Container è un servizio di registri Docker privato e gestito che archivia e gestisce le immagini del contenitore per le distribuzioni di Azure in un registro centrale. È basato sull'applicazione open source Docker Registry 2.0.
 
-Per proteggere tutti i registri basati su Azure Resource Manager nella sottoscrizione, abilitare **Azure Defender per i registri contenitori** a livello di sottoscrizione. Il Centro sicurezza analizzerà quindi le immagini che vengono inserite nel registro di sistema, importate nel registro di sistema o eventuali immagini estratte negli ultimi 30 giorni. Questa funzionalità viene addebitata per ogni immagine.
+Per proteggere tutti i registri basati su Azure Resource Manager nella sottoscrizione, abilitare **Azure Defender per registri contenitori** a livello della sottoscrizione. Il Centro sicurezza analizzerà quindi le immagini che sono state inserite nel registro, importate nel registro o estratte negli ultimi 30 giorni. Questa funzionalità prevede un addebito per ogni immagine.
 
-## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>Quali sono i vantaggi di Azure Defender per i registri di contenitori?
+## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>Quali sono i vantaggi di Azure Defender per registri contenitori?
 
-Il Centro sicurezza identifica Azure Resource Manager registri ACR basati sulla sottoscrizione e fornisce facilmente la valutazione e la gestione delle vulnerabilità native di Azure per le immagini del registro.
+Il Centro sicurezza identifica i registri del servizio Registro Azure Container basati su Azure Resource Manager nella sottoscrizione e facilita la valutazione e la gestione delle vulnerabilità native di Azure per le immagini del registro.
 
-**Azure Defender per i registri contenitori** include uno scanner di vulnerabilità per analizzare le immagini nei registri di Azure container Registry basati su Azure Resource Manager e fornire una maggiore visibilità sulle vulnerabilità delle immagini. Lo scanner integrato è alimentato da Qualys, il fornitore leader del settore per l'analisi delle vulnerabilità.
+**Azure Defender per registri contenitori** include una funzionalità di analisi delle vulnerabilità che analizza le immagini nei registri di Registro Azure Container basati su Azure Resource Manager e fornisce una maggiore visibilità sulle vulnerabilità delle immagini. La funzionalità di analisi integrata è fornita da Qualys, leader nel settore dell'analisi delle vulnerabilità.
 
-Quando vengono rilevati problemi, da Qualys o dal centro sicurezza, si riceverà una notifica nel dashboard del Centro sicurezza. Per ogni vulnerabilità, il Centro sicurezza offre raccomandazioni di utilità pratica, oltre a una classificazione di gravità e indicazioni su come correggere il problema. Per informazioni dettagliate sulle raccomandazioni del Centro sicurezza per i contenitori, vedere l' [elenco di riferimento di raccomandazioni](recommendations-reference.md#recs-containers).
+Quando viene rilevato un problema, da Qualys o dal Centro sicurezza, viene visualizzata una notifica nel dashboard del Centro sicurezza. Per ogni vulnerabilità il Centro sicurezza offre raccomandazioni pratiche, una classificazione della gravità e istruzioni per la risoluzione del problema. Per informazioni dettagliate sulle raccomandazioni del Centro sicurezza per i contenitori, vedere l'[elenco di riferimento delle raccomandazioni](recommendations-reference.md#recs-containers).
 
-Il Centro sicurezza filtra e classifica i risultati dallo scanner. Quando un'immagine è integra, il Centro sicurezza le contrassegna come tali. Il Centro sicurezza genera raccomandazioni sulla sicurezza solo per le immagini che presentano problemi da risolvere. Il Centro sicurezza fornisce i dettagli di ogni vulnerabilità segnalata e una classificazione di gravità. Vengono inoltre fornite indicazioni su come correggere le vulnerabilità specifiche rilevate in ogni immagine.
+Il Centro sicurezza filtra e classifica i risultati restituiti dalla funzionalità di analisi. Quando un'immagine è integra, il Centro sicurezza la contrassegna come tale. Il Centro sicurezza genera raccomandazioni sulla sicurezza solo per le immagini che presentano problemi da risolvere. Il Centro sicurezza fornisce informazioni dettagliate su ogni vulnerabilità segnalata, insieme a una classificazione della gravità. Fornisce inoltre indicazioni su come correggere le vulnerabilità specifiche rilevate in ogni immagine.
 
-Inviando notifiche solo quando si verificano problemi, il Centro sicurezza riduce il rischio di avvisi indesiderati informativi.
+Inviando notifiche solo in caso di problemi individuati, il Centro sicurezza riduce il rischio di avvisi informativi indesiderati.
 
 
 ## <a name="when-are-images-scanned"></a>Quando vengono analizzate le immagini?
 
-Sono disponibili tre trigger per un'analisi di immagine:
+L'analisi di un'immagine viene attivata da tre trigger:
 
-- **Al push** : ogni volta che viene eseguito il push di un'immagine nel registro, il Centro sicurezza analizza automaticamente tale immagine. Per attivare l'analisi di un'immagine, eseguirne il push nel repository.
+- **Inserimento**: ogni volta che un'immagine viene inserita nel registro, il Centro sicurezza la analizza automaticamente. Per attivare l'analisi di un'immagine, inserirla nel repository.
 
-- **Pull di recente** : poiché le nuove vulnerabilità vengono individuate ogni giorno, **Azure Defender per i registri contenitori** analizza anche le immagini che sono state estratte negli ultimi 30 giorni. Non sono previsti costi aggiuntivi per la ripetizione dell'analisi. come indicato in precedenza, la fatturazione viene addebitata una volta per ogni immagine.
+- **Estrazione recente**: poiché ogni giorno vengono rilevate nuove vulnerabilità, **Azure Defender per registri contenitori** analizza anche qualsiasi immagine estratta negli ultimi 30 giorni. Non sono previsti costi aggiuntivi per la ripetizione dell'analisi. Come accennato in precedenza, i costi vengono addebitati una sola volta per ogni immagine.
 
-- **In import** -Azure container Registry include strumenti di importazione per inserire le immagini nel registro dall'hub Docker, da Microsoft container Registry o da un altro registro contenitori di Azure. **Azure Defender per i registri contenitori** analizza tutte le immagini supportate importate. Per altre informazioni, vedere [importare le immagini del contenitore in un registro contenitori](../container-registry/container-registry-import-images.md).
+- **Importazione**: Registro Azure Container offre strumenti di importazione per inserire immagini nel registro da Docker Hub, Registro contenitori di Microsoft o un altro registro contenitori di Azure. **Azure Defender per registri contenitori** analizza le immagini supportate importate. Per altre informazioni, vedere [Importare immagini del contenitore in un registro contenitori](../container-registry/container-registry-import-images.md).
  
-L'analisi viene completata in genere entro 2 minuti, ma potrebbero essere necessari fino a 15 minuti. I risultati vengono resi disponibili come raccomandazioni del Centro sicurezza, ad esempio:
+L'analisi viene completata in genere entro 2 minuti, ma può impiegare fino a 15 minuti. I risultati vengono resi disponibili in forma di raccomandazioni del Centro sicurezza, come la seguente:
 
-[![Esempio di raccomandazione del Centro sicurezza di Azure sulle vulnerabilità individuate in un'immagine ospitata di Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
-
-
-## <a name="how-does-security-center-work-with-azure-container-registry"></a>Funzionamento del Centro sicurezza con Azure Container Registry
-
-Di seguito è riportato un diagramma di alto livello dei componenti e dei vantaggi della protezione dei registri con il Centro sicurezza.
-
-![Panoramica di alto livello del Centro sicurezza di Azure e di Azure Container Registry (ACR)](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
+[![Esempio di raccomandazione del Centro sicurezza di Azure sulle vulnerabilità rilevate in un'immagine ospitata da Registro Azure Container](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 
+## <a name="how-does-security-center-work-with-azure-container-registry"></a>Funzionamento del Centro sicurezza con Registro Azure Container
+
+Di seguito è riportato un diagramma generale dei componenti e dei vantaggi della protezione dei registri con il Centro sicurezza.
+
+![Panoramica generale del Centro sicurezza di Azure e del servizio Registro Azure Container](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
 
-## <a name="faq-for-azure-container-registry-image-scanning"></a>Domande frequenti sull'analisi di immagini Container Registry di Azure
 
-### <a name="how-does-security-center-scan-an-image"></a>In che modo il Centro sicurezza analizza un'immagine?
-Viene eseguito il pull dell'immagine dal registro di sistema. Viene quindi eseguito in una sandbox isolata con lo scanner Qualys che estrae un elenco di vulnerabilità note.
 
-Il Centro sicurezza filtra e classifica i risultati dallo scanner. Quando un'immagine è integra, il Centro sicurezza le contrassegna come tali. Il Centro sicurezza genera raccomandazioni sulla sicurezza solo per le immagini che presentano problemi da risolvere. Inviando notifiche solo quando si verificano problemi, il Centro sicurezza riduce il rischio di avvisi indesiderati informativi.
+## <a name="faq-for-azure-container-registry-image-scanning"></a>Domande frequenti sull'analisi delle immagini di Registro Azure Container
+
+### <a name="how-does-security-center-scan-an-image"></a>Come vengono analizzate le immagini dal Centro sicurezza?
+L'immagine viene estratta dal registro. Viene quindi eseguita in una sandbox isolata con la funzionalità di analisi di Qualys che estrae un elenco di vulnerabilità note.
+
+Il Centro sicurezza filtra e classifica i risultati restituiti dalla funzionalità di analisi. Quando un'immagine è integra, il Centro sicurezza la contrassegna come tale. Il Centro sicurezza genera raccomandazioni sulla sicurezza solo per le immagini che presentano problemi da risolvere. Inviando notifiche solo in caso di problemi individuati, il Centro sicurezza riduce il rischio di avvisi informativi indesiderati.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>È possibile ottenere i risultati dell'analisi tramite l'API REST?
-Sì. I risultati si trovano nell' [API REST delle sottovalutazioni](/rest/api/securitycenter/subassessments/list/). È anche possibile usare Azure Resource Graph (ARG), l'API simile a kusto per tutte le risorse: una query può recuperare un'analisi specifica.
+Sì. I risultati si trovano nell'[API REST Sub-Assessments](/rest/api/securitycenter/subassessments/list/). Si può anche usare Azure Resource Graph, l'API Kusto-per tutte le risorse: una query può recuperare un'analisi specifica.
  
-### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Quali tipi di registro vengono analizzati? Quali tipi vengono fatturati?
-Per un elenco dei tipi di registri contenitori supportati da Azure Defender per i registri contenitori, vedere [disponibilità](defender-for-container-registries-usage.md#availability).
+### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Quali tipi di registri vengono analizzati? Per quali tipi vengono addebitati dei costi?
+Per un elenco dei tipi di registri contenitori supportati da Azure Defender per registri contenitori, vedere [Disponibilità](defender-for-container-registries-usage.md#availability).
 
-Se si connettono registri non supportati alla sottoscrizione di Azure, non verranno analizzati e non verranno addebitati costi.
+Se si collegano registri non supportati alla sottoscrizione di Azure, questi non vengono analizzati e non viene addebitato alcun costo.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulle funzionalità di sicurezza del contenitore del Centro sicurezza, vedere:
+Per altre informazioni sulle funzionalità di sicurezza dei contenitori del Centro sicurezza, vedere:
 
-- [Sicurezza del contenitore e del Centro sicurezza di Azure](container-security.md)
+- [Centro sicurezza di Azure e sicurezza dei contenitori](container-security.md)
 
 - [Introduzione ad Azure Defender per Kubernetes](defender-for-kubernetes-introduction.md)
 

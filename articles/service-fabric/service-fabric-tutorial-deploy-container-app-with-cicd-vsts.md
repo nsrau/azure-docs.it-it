@@ -4,12 +4,12 @@ description: In questa esercitazione si apprenderà come configurare l'integrazi
 ms.topic: tutorial
 ms.date: 08/29/2018
 ms.custom: mvc
-ms.openlocfilehash: 9cf619eddd07bbe55cd7aea5f27051a7d0415c24
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 498513d1e31108d633de8165b2684dffbebdf37d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614129"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563948"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Esercitazione: Distribuire un'applicazione contenitore con CI/CD in un cluster di Service Fabric
 
@@ -142,7 +142,7 @@ Verificare che la distribuzione venga completata correttamente e che l'applicazi
 
 Per verificare che la pipeline di integrazione continua funzioni correttamente, è possibile archiviare alcune modifiche al codice in Azure DevOps.
 
-Durante la scrittura del codice, le modifiche vengono rilevate automaticamente da Visual Studio. Per eseguire il commit delle modifiche nel repository GIT locale, selezionare l'icona di modifiche in sospeso (![In sospeso][pending]) sulla barra di stato in basso a destra.
+Durante la scrittura del codice, le modifiche vengono rilevate automaticamente da Visual Studio. Per eseguire il commit delle modifiche nel repository GIT locale, selezionare l'icona di modifiche in sospeso (![L'icona delle modifiche in sospeso è rappresentata da una matita e da un numero.][pending]) sulla barra di stato in basso a destra.
 
 Nella visualizzazione **Modifiche** in Team Explorer aggiungere un messaggio che descrive l'aggiornamento ed eseguire il commit delle modifiche.
 

@@ -6,12 +6,12 @@ ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7aaeb7af3876c2603208faaf46bead01199906cd
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6a2c59a9cbaddc02159ee89497900509f33772c0
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650058"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069544"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Esercitazione: Usare il modello esportato dal portale di Azure
 
@@ -111,7 +111,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
+> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
 

@@ -6,25 +6,25 @@ services: cognitive-services
 author: nitinme
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: immersive-reader
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f3d694a1e1eb368a97d994ebe9885c279ff44463
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 08996d7343ccab4c5d6e688b580a8e6e1ca5bceb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505395"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377163"
 ---
-Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è uno strumento incluso che implementa tecniche comprovate per migliorare la comprensione della lettura.
+Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è stato progettato per l'inclusività e implementa tecniche comprovate per migliorare la comprensione della lettura per nuovi lettori, studenti di lingue e persone con differenze di apprendimento, come la dislessia. È possibile usare lo strumento di lettura immersiva nelle applicazioni per isolare il testo stimolare l'attenzione, visualizzare immagini per le parole di uso comune, evidenziare parti del discorso, leggere il testo selezionato ad alta voce, tradurre parole e frasi in tempo reale e altro ancora.
 
-In questo argomento di avvio rapido si creerà da zero un'app Web in cui si integrerà lo strumento di lettura immersiva tramite l'apposita libreria client. Un esempio pratico completo di questo argomento di avvio rapido è disponibile [qui](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
-
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
+In questo argomento di avvio rapido si crea un'app Web da zero e si integra lo strumento di lettura immersiva tramite l'apposita libreria client. Un esempio pratico completo di questo argomento di avvio rapido è disponibile [in GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
 * Una risorsa dello strumento di lettura immersiva configurata per l'autenticazione Azure Active Directory. Seguire [queste istruzioni](../../how-to-create-immersive-reader.md) per configurare l'ambiente. Per la configurazione delle proprietà del progetto di esempio, saranno necessari alcuni dei valori creati qui. Salvare l'output della sessione in un file di testo per riferimento futuro.
 
@@ -32,17 +32,17 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Creare un nuovo progetto in Visual Studio usando il modello di applicazione Web ASP.NET Core con Model-View-Controller incorporato e ASP.NET Core 2.1. Assegnare al progetto il nome "QuickstartSampleWebApp".
 
-![Nuovo progetto](../../media/quickstart-csharp/1-createproject.png)
+![Nuovo progetto - C#](../../media/quickstart-csharp/1-createproject.png)
 
-![Configurare il nuovo progetto](../../media/quickstart-csharp/2-configureproject.png)
+![Configurazione del nuovo progetto - C#](../../media/quickstart-csharp/2-configureproject.png)
 
-![Nuova applicazione Web ASP.NET Core](../../media/quickstart-csharp/3-createmvc.png)
+![Nuova applicazione Web ASP.NET Core - C#](../../media/quickstart-csharp/3-createmvc.png)
 
 ## <a name="set-up-authentication"></a>Configurare l'autenticazione
 
 ### <a name="configure-authentication-values"></a>Configurare i valori di autenticazione
 
-Fare clic con il pulsante destro del mouse sul progetto in _Esplora soluzioni_ e scegliere **Gestisci segreti utente**. Verrà visualizzato un file denominato _secrets.json_. Il file non viene archiviato nel controllo del codice sorgente. Fare clic [qui](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows) per altre informazioni. Sostituire il contenuto del file _secrets.json_ con il seguente, specificando i valori forniti durante la creazione della risorsa dello strumento di lettura immersiva.
+Fare clic con il pulsante destro del mouse sul progetto in _Esplora soluzioni_ e scegliere **Gestisci segreti utente**. Verrà visualizzato un file denominato _secrets.json_. Il file non viene archiviato nel controllo del codice sorgente. Fare clic [qui](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true) per altre informazioni. Sostituire il contenuto del file _secrets.json_ con il seguente, specificando i valori forniti durante la creazione della risorsa dello strumento di lettura immersiva.
 
 ```json
 {
@@ -53,7 +53,7 @@ Fare clic con il pulsante destro del mouse sul progetto in _Esplora soluzioni_ e
 }
 ```
 
-### <a name="add-the-microsoftidentitymodelclientsactivedirectory-nuget-package"></a>Aggiungere il pacchetto NuGet Microsoft.IdentityModel.Clients.ActiveDirectory
+### <a name="install-active-directory"></a>Installare Active Directory
 
 Il codice seguente usa oggetti dal pacchetto NuGet **Microsoft.IdentityModel.Clients.ActiveDirectory**, quindi sarà necessario aggiungere un riferimento al pacchetto nel progetto.
 
@@ -216,7 +216,7 @@ Nell'app Web verranno ora aggiunti alcuni contenuti di esempio. Aprire _Views\Ho
 
 Si noti che tutto il testo ha un attributo **lang**, che ne descrive le lingue. Questo attributo consente allo strumento di lettura immersiva di fornire funzionalità di lingua e grammatica pertinenti.
 
-## <a name="add-javascript-to-handle-launching-the-immersive-reader"></a>Aggiungere JavaScript per gestire l'avvio dello strumento di lettura immersiva
+## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Aggiungere codice JavaScript per gestire l'avvio dello strumento di lettura immersiva
 
 La libreria dello strumento di lettura immersiva fornisce funzionalità come l'avvio dello strumento e la visualizzazione dei relativi pulsanti. Fare clic [qui](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference) per altre informazioni.
 
@@ -296,18 +296,14 @@ Nella barra dei menu selezionare **Debug > Avvia debug** oppure premere **F5** p
 
 Nel browser verrà visualizzato il contenuto seguente:
 
-![App di esempio](../../media/quickstart-csharp/4-buildapp.png)
+![App di esempio - C#](../../media/quickstart-csharp/4-buildapp.png)
 
 ## <a name="launch-the-immersive-reader"></a>Avviare lo strumento di lettura immersiva
 
 Quando si fa clic sul pulsante "Strumento di lettura immersiva", verrà avviato lo strumento di lettura immersiva con il contenuto della pagina.
 
-![Strumento di lettura immersiva](../../media/quickstart-csharp/5-viewimmersivereader.png)
+![Strumento di lettura immersiva - C#](../../media/quickstart-csharp/5-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Visualizzare l'[argomento di avvio rapido per Node.js](../../tutorial-nodejs.md) per scoprire quali altre attività è possibile eseguire con la libreria client dello strumento di lettura immersiva usando Node.js
-* Visualizzare l'[esercitazione per Android](../../tutorial-android.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Java o Kotlin per Android
-* Visualizzare l'[esercitazione per iOS](../../tutorial-ios.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Swift per iOS
-* Visualizzare l'[esercitazione per Python](../../tutorial-python.md) per scoprire quali altre attività è possibile eseguire con la libreria client dello strumento di lettura immersiva usando Python
 * Esplorare [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](../../reference.md)

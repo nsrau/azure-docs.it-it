@@ -1,6 +1,6 @@
 ---
-title: Spostare le VM IaaS di Azure in un'altra area con Azure Site Recovery
-description: Usare Site Recovery per lo spostamento di macchine virtuali IaaS di Azure da un'area di Azure a un'altra.
+title: Spostare le VM di Azure in un'area diversa con Azure Site Recovery
+description: Usare Azure Site Recovery per spostare le VM di Azure da un'area di Azure a un'altra.
 services: site-recovery
 author: Sharmistha-Rai
 ms.service: site-recovery
@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: e8f14b86678f7d395f445438d7e869168b13e54b
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: f33d5ff37cbc9923262963b3e59b9266ea6760a6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425926"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006415"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
+# <a name="move-vms-to-another-azure-region"></a>Spostare le VM in un'altra area di Azure
 
 Esistono vari scenari in cui può essere opportuno spostare le macchine virtuali (VM) IaaS di Azure esistenti da un'area a un'altra, ad esempio per aumentare l'affidabilità e la disponibilità delle VM esistenti, per migliorare la gestibilità oppure per motivi di governance. Per altre informazioni, vedere la [panoramica dello spostamento di VM di Azure](azure-to-azure-move-overview.md). 
 
-È possibile usare il servizio [Azure Site Recovery](site-recovery-overview.md) per gestire e orchestrare il ripristino di emergenza di computer locali e VM di Azure ai fini della continuità aziendale e del ripristino di emergenza, nonché per gestire lo spostamento di VM di Azure in un'area secondaria.
+È possibile usare il servizio [Azure Site Recovery](site-recovery-overview.md) per spostare le VM di Azure in un'area secondaria.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > 
@@ -30,7 +30,19 @@ In questa esercitazione si apprenderà come:
 > * Copiare i dati e abilitare la replica
 > * Testare la configurazione ed eseguire lo spostamento
 > * Eliminare le risorse nell'area di origine
-> 
+
+
+> [!IMPORTANT]
+> Per spostare le VM di Azure in un'altra area, è consigliabile usare [Spostamento risorse di Azure](../resource-mover/tutorial-move-region-virtual-machines.md). Spostamento risorse di Azure è attualmente disponibile in anteprima pubblica e offre:
+> - Un singolo hub per lo spostamento di risorse tra aree.
+> - Riduzione dei tempi richiesti e della complessità degli spostamenti. Tutto il necessario in un'unica posizione.
+> - Un'esperienza semplice e coerente per spostare diversi tipi di risorse di Azure.
+> - Un modo semplice per identificare le dipendenze tra le risorse da spostare. È quindi possibile spostare contemporaneamente le risorse correlate in modo che dopo lo spostamento tutto funzioni come previsto nell'area di destinazione.
+> - Pulizia automatica delle risorse nell'area di origine, se si preferisce eliminarle dopo lo spostamento.
+> - Test. È possibile provare a eseguire uno spostamento e quindi annullarlo se non si vuole procedere a uno spostamento completo.
+
+
+
 > [!NOTE]
 > Questa esercitazione illustra come spostare VM di Azure da un'area a un'altra così come sono. Se è necessario migliorare la disponibilità spostando le VM di un set di disponibilità in VM aggiunte a una zona in un'altra area, vedere l'esercitazione [Spostare macchine virtuali di Azure nelle zone di disponibilità](move-azure-vms-avset-azone.md).
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 24117e914afa0e443ce979ae71eb506156fa11b3
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4fc8a0a4ea5063f52b6f9553018bddddd7bcf312
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830411"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974600"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Esercitazione: usare il Centro sicurezza di Azure per monitorare le macchine virtuali Linux
 
@@ -41,7 +41,7 @@ Per accedere al dashboard del Centro sicurezza, nel portale di Azure selezionare
 
 Il Centro sicurezza va oltre l'individuazione dei dati per offrire raccomandazioni sui problemi rilevati. Ad esempio, se una macchina virtuale è stata distribuita senza un gruppo di sicurezza di rete collegato, il Centro sicurezza consente di visualizzare una raccomandazione, con una procedura di correzione da eseguire. Offre la correzione automatica senza lasciare il contesto del Centro sicurezza.  
 
-![Consigli](./media/tutorial-azure-security/recommendations.png)
+![Screenshot della pagina Raccomandazioni, che include una descrizione, la risorsa, lo stato e la gravità delle raccomandazioni.](./media/tutorial-azure-security/recommendations.png)
 
 ## <a name="set-up-data-collection"></a>Configurare la raccolta dei dati
 

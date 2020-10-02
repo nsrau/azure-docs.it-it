@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 06/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bc94f31887526f387413f78fe3270784a4e3bd88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ba69b94514a0c1b59001011a64a4fb28e5e4a827
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525168"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606461"
 ---
 1. Nella pagina del portale per la rete WAN virtuale, nella sezione **Connettività** selezionare **Siti VPN** per aprire la pagina Siti VPN.
 2. Nella pagina **Siti VPN** fare clic su **+Crea sito**.
 
-   ![Nozioni di base](./media/virtual-wan-tutorial-site-include/basics.png "Nozioni di base")
+   ![Screenshot della finestra VPN da sito a sito con il riquadro Creare sito VPN aperto.](./media/virtual-wan-tutorial-site-include/basics.png "Nozioni di base")
 3. Nella pagina **Crea sito WAN**, nella scheda **Nozioni di base**, compilare i campi seguenti:
 
     * **Regione** - Precedentemente denominata posizione. Si tratta del percorso in cui si vuole creare la risorsa del sito.
@@ -29,7 +29,7 @@ ms.locfileid: "86525168"
     * **Hub** - Hub a cui si vuole connettere il sito. Un sito può essere connesso solo agli hub con gateway VPN. Se non viene visualizzato un hub, creare prima un gateway VPN in tale hub.
 4. Selezionare **Collegamenti** per aggiungere informazioni sui collegamenti fisici al ramo. Se è presente un dispositivo CPE del partner WAN virtuale, rivolgersi al partner per verificare se queste informazioni vengono scambiate con Azure nell'ambito del caricamento delle informazioni sul ramo configurato dai rispettivi sistemi.
 
-   ![collegamenti](./media/virtual-wan-tutorial-site-include/links.png "Collegamenti")
+   ![Screenshot del riquadro Creare sito VPN con la scheda Collegamenti selezionata.](./media/virtual-wan-tutorial-site-include/links.png "Collegamenti")
 
     * **Nome collegamento** - Nome che si desidera fornire per il collegamento fisico al sito VPN. Esempio: mylink1.
     * **Nome provider** - Nome del collegamento fisico al sito VPN. Esempio: ATT, Verizon.

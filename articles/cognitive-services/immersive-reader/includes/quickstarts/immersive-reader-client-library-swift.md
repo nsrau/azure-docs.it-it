@@ -6,24 +6,24 @@ services: cognitive-services
 author: nitinme
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: immersive-reader
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.openlocfilehash: 2455297cd9dd77d2b5f605bf36ed46b6240b3f4d
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 967a7d9a78b5edd0c4e5b60545520baef635b340
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505394"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377605"
 ---
-Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è uno strumento incluso che implementa tecniche comprovate per migliorare la comprensione della lettura.
+Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è stato progettato per l'inclusività e implementa tecniche comprovate per migliorare la comprensione della lettura per nuovi lettori, studenti di lingue e persone con differenze di apprendimento, come la dislessia. È possibile usare lo strumento di lettura immersiva nelle applicazioni per isolare il testo stimolare l'attenzione, visualizzare immagini per le parole di uso comune, evidenziare parti del discorso, leggere il testo selezionato ad alta voce, tradurre parole e frasi in tempo reale e altro ancora.
 
 In questo argomento di avvio rapido si creerà da zero un'app iOS che si integrerà con lo strumento di lettura immersiva. Un esempio pratico completo di questo argomento di avvio rapido è disponibile [qui](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
-
 ## <a name="prerequisites"></a>Prerequisiti
 
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services)
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * Una risorsa dello strumento di lettura immersiva configurata per l'autenticazione Azure Active Directory. Seguire [queste istruzioni](../../how-to-create-immersive-reader.md) per configurare l'ambiente. Per la configurazione delle proprietà del progetto di esempio, saranno necessari alcuni dei valori creati qui. Salvare l'output della sessione in un file di testo per riferimento futuro.
 
@@ -31,21 +31,21 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Creare un nuovo progetto in Xcode.
 
-![Nuovo progetto](../../media/ios/xcode-create-project.png)
+![Nuovo progetto - Swift](../../media/ios/xcode-create-project.png)
 
 Scegliere **App visualizzazione singola**.
 
-![Nuova app a visualizzazione singola](../../media/ios/xcode-single-view-app.png)
+![Nuova app a visualizzazione singola - Swift](../../media/ios/xcode-single-view-app.png)
 
 ## <a name="set-up-authentication"></a>Configurare l'autenticazione
 
 Nel menu in alto fare clic su **Prodotto > Schema > Modifica schema**.
 
-![Modifica schema](../../media/ios/quickstart-ios-edit-scheme.png)
+![Modifica dello schema - Swift](../../media/ios/quickstart-ios-edit-scheme.png)
 
 Nella visualizzazione **Esegui** fare clic sulla scheda **Argomenti**.
 
-![Modifica schema](../../media/ios/quickstart-ios-env-vars.png)
+![Variabili di ambiente per la modifica dello schema - Swift](../../media/ios/quickstart-ios-env-vars.png)
 
 Nella sezione **Variabili di ambiente** aggiungere i nomi e i valori seguenti, specificando i valori forniti durante la creazione della risorsa dello strumento di lettura immersiva.
 
@@ -557,19 +557,19 @@ function sendContentToReader(message) {
 
 Impostare lo schema di archiviazione in Xcode selezionando come destinazione un simulatore o un dispositivo.
 
-![Schema di archiviazione](../../media/ios/xcode-archive-scheme.png)
+![Archiviazione dello schema - Swift](../../media/ios/xcode-archive-scheme.png)
 
-![Selezionare la destinazione](../../media/ios/xcode-select-target.png)
+![Selezione della destinazione - Swift](../../media/ios/xcode-select-target.png)
 
 In Xcode premere **CTRL + R** oppure fare clic sul pulsante Play per eseguire il progetto. L'app verrà avviata nel simulatore o nel dispositivo specificato.
 
 Nell'app verrà visualizzato il contenuto seguente:
 
-![App di esempio](../../media/ios/sample-app-ipad.png)
+![App di esempio - Swift](../../media/ios/sample-app-ipad.png)
 
 Quando si fa clic sul pulsante **Strumento di lettura immersiva**, lo strumento di lettura immersiva verrà avviato con il contenuto dell'app.
 
-![Strumento di lettura immersiva](../../media/ios/immersive-reader-ipad.png)
+![Strumento di lettura immersiva - Swift](../../media/ios/immersive-reader-ipad.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,18 +5,18 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/10/2020
+ms.date: 09/15/2020
 ms.author: victorh
-ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7c7ea5297276ed9a1d1f2ca8f4190997dcab57c3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79475842"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602218"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Esercitazione: Creare un criterio di web application firewall in Frontdoor di Azure usando il portale di Azure
 
-Questa esercitazione illustra come creare un criterio di base di web application firewall (WAF) di Azure e applicarlo a un host front-end in Frontdoor di Azure.
+Questa esercitazione illustra come creare un criterio di base di Web application firewall (WAF) di Azure e applicarlo a un host front-end in Frontdoor di Azure.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -68,7 +68,7 @@ Per vedere WAF in azione, è possibile cambiare le impostazioni della modalità 
 
 È possibile creare una regola personalizzata selezionando **Aggiungi regola personalizzata** nella sezione **Regole personalizzate**. Viene avviata la pagina di configurazione delle regole personalizzate. Di seguito è riportato un esempio di configurazione di una regola personalizzata per bloccare una richiesta se la stringa di query contiene **blockme**.
 
-![Cambiare la modalità del criterio WAF](../media/waf-front-door-create-portal/customquerystring2.png)
+![Regole personalizzate](../media/waf-front-door-create-portal/customquerystring2.png)
 
 ### <a name="default-rule-set-drs"></a>Set di regole predefinite
 
@@ -76,8 +76,11 @@ Il set di regole predefinite gestito da Azure è abilitato per impostazione pred
 
  ![Modificare il set di regole WAF](../media/waf-front-door-create-portal/managed2.png)
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non sono più necessari, rimuovere il gruppo di risorse e tutte le risorse correlate.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni su web application firewall di Azure](../overview.md)
 > [Altre informazioni su Frontdoor di Azure](../../frontdoor/front-door-overview.md)

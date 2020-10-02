@@ -1,6 +1,6 @@
 ---
 title: Che cos'è HSM dedicato? - Modulo di protezione hardware dedicato di Azure | Microsoft Docs
-description: Panoramica di Modulo di protezione hardware dedicato di Azure che offre capacità di archiviazione chiavi in Azure conformi alla certificazione FIPS 140-2 Livello 3
+description: Informazioni sul servizio HSM dedicato di Azure, che fornisce l'archiviazione di chiavi crittografiche in Azure.
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6eb82400b2f598b4b54da4b238f4bce71d83de6b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70881087"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970197"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>Informazioni su Modulo di protezione hardware dedicato di Azure
 
@@ -60,7 +60,7 @@ HSM dedicato di Azure è un servizio specializzato che soddisfa requisiti unici 
 
 ### <a name="best-fit"></a>Soluzione ottimale
 
-HSM dedicato di Azure è la soluzione più adatta a scenari di trasferimento in modalità "lift-and-shift", che richiedono l'accesso diretto ed esclusivo ai dispositivi HSM. Tra gli esempi sono inclusi:
+HSM dedicato di Azure è la soluzione più adatta a scenari di trasferimento in modalità "lift-and-shift", che richiedono l'accesso diretto ed esclusivo ai dispositivi HSM. Ecco alcuni esempi:
 
 - La migrazione delle applicazioni dalle macchine locali alle macchine virtuali di Azure
 - La migrazione delle applicazioni da Amazon AWS EC2 alle macchine virtuali che usano il servizio AWS Cloud HSM Classic (Amazon non offre questo servizio ai nuovi clienti)

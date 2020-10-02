@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto DoD Impact Level 5
 description: Mapping dei controlli dell'esempio di progetto DoD Impact Level 5. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a7d1439a73cf387cee773d558ced50ce1c07f6dc
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 456560a8042b239a4d53e1c309742650c00bfa6a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921317"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978363"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto DoD Impact Level 5
 
@@ -307,11 +307,8 @@ Questo progetto consente di gestire le vulnerabilità dei sistemi informativi as
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) Correzione degli errori | Rimozione delle versioni precedenti del software/firmware
 
-Questo progetto assegna le definizioni dei criteri per assicurarsi che le applicazioni usino la versione più recente di .NET Framework, HTTP, Java, PHP, Python e TLS. Questo progetto assegna anche una definizione dei criteri che garantisce che i servizi Kubernetes vengano aggiornati alla relativa versione non vulnerabile.
+Questo progetto assegna le definizioni dei criteri per assicurare che le applicazioni usino la versione più recente di HTTP, Java, PHP, Python e TLS. Questo progetto assegna anche una definizione dei criteri che garantisce che i servizi Kubernetes vengano aggiornati alla relativa versione non vulnerabile.
 
-- Assicurarsi che la versione di '.NET Framework' sia la più recente, se usata come parte dell'app per le API
-- Assicurarsi che la versione di '.NET Framework' sia la più recente, se usata come parte dell'app per le funzioni
-- Assicurarsi che la versione di '.NET Framework' sia la più recente, se usata come parte dell'app Web
 - Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le API
 - Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le funzioni
 - Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app Web
@@ -319,7 +316,6 @@ Questo progetto assegna le definizioni dei criteri per assicurarsi che le applic
 - Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le funzioni
 - Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app Web
 - Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app per le API
-- Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app per le funzioni
 - Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app Web
 - Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le API
 - Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le funzioni

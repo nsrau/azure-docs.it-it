@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 105ab0c71d9e7e935842550ecdc4c8d2ff2a2d8c
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 64470b42efeea49b7c778d6dffd88465b8445e36
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84977924"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606620"
 ---
 1. Individuare la rete WAN virtuale creata. Nella pagina della rete WAN virtuale selezionare **Hub** nella sezione **Connettività**.
 2. Nella pagina Hub selezionare **+Nuovo hub** per aprire la pagina **Crea hub virtuale**.
 
-    ![Nozioni di base](./media/virtual-wan-tutorial-hub-include/basics.png "Nozioni di base")
+    ![Screenshot del riquadro Crea hub virtuale con la scheda Informazioni di base selezionata.](./media/virtual-wan-tutorial-hub-include/basics.png "Nozioni di base")
 3. Nella scheda **Generale** della pagina **Crea hub virtuale** completare i campi seguenti:
 
     **Dettagli del progetto**
@@ -28,7 +28,7 @@ ms.locfileid: "84977924"
    * Spazio di indirizzi privato dell'hub. Lo spazio di indirizzi minimo per la creazione di un hub è /24; qualsiasi intervallo compreso tra /25 e /32 genererà pertanto un errore durante la creazione. La rete WAN virtuale di Azure è un servizio gestito di Microsoft che crea nell'hub virtuale le subnet appropriate per i diversi gateway/servizi, ad esempio gateway VPN, gateway ExpressRoute, gateway VPN utente/da punto a sito, firewall, routing e così via. Non è necessario che l'utente pianifichi in modo esplicito lo spazio degli indirizzi della subnet per i servizi nell'hub virtuale, poiché Microsoft esegue questa operazione come parte del servizio.
 4. Selezionare **Avanti: Da sito a sito**.
 
-    ![Da sito a sito](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Da sito a sito")
+    ![Screenshot del riquadro Crea hub virtuale con l'opzione Da sito a sito selezionata.](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Da sito a sito")
 
 5. Nella scheda **Da sito a sito** completare i campi seguenti:
 

@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto DoD Impact Level 4
 description: Mapping dei controlli dell'esempio di progetto DoD Impact Level 4. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a704731f4fe8e810235507fd84c90b17571a8442
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9ee3214f8cdacd1d70a59bc5a23e4638cadb579d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923289"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978408"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto DoD Impact Level 4
 
@@ -102,11 +102,11 @@ Questo progetto assegna le definizioni dei criteri che consentono di assicurarsi
 I dati del log applicazioni raccolti da Monitoraggio di Azure vengono archiviati in un'area di lavoro Log Analytics per la centralizzazione della configurazione e della gestione. Questo progetto consente di assicurarsi che gli eventi vengano registrati assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano e impongono la distribuzione dell'agente di Log Analytics nelle macchine virtuali di Azure.
 
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
+- Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
 - \[Anteprima\]: Controlla area di lavoro Log Analytics per la macchina virtuale - Segnala mancata corrispondenza
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
+- Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
+- Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>AU-5 Risposta a errori di elaborazione di controllo
@@ -123,11 +123,11 @@ Questo progetto assegna definizioni di [Criteri di Azure](../../../policy/overvi
 I dati del log raccolti da Monitoraggio di Azure vengono archiviati in un'area di lavoro Log Analytics per la centralizzazione della creazione di report e dell'analisi. Questo progetto consente di assicurarsi che gli eventi vengano registrati assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano e impongono la distribuzione dell'agente di Log Analytics nelle macchine virtuali di Azure.
 
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
+- Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
 - \[Anteprima\]: Controlla area di lavoro Log Analytics per la macchina virtuale - Segnala mancata corrispondenza
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
+- Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
+- Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Verifica, analisi e report di controllo | Funzionalità di integrazione/analisi e monitoraggio
@@ -144,7 +144,7 @@ Questo progetto fornisce le definizioni dei criteri per il controllo dei record 
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
 - Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
+- Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
 
 ## <a name="au-12-audit-generation"></a>AU-12 Generazione di controlli
 
@@ -152,11 +152,11 @@ Questo progetto fornisce le definizioni dei criteri che controllano e impongono 
 Controllano anche la configurazione dei log di diagnostica per fornire informazioni dettagliate sulle operazioni eseguite nelle risorse di Azure. Il controllo e la funzionalità Sicurezza dei dati avanzata vengono inoltre configurati nei server SQL.
 
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
+- Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
 - \[Anteprima\]: Controlla area di lavoro Log Analytics per la macchina virtuale - Segnala mancata corrispondenza
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
+- Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
+- Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
 - È consigliabile abilitare il controllo nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
@@ -336,11 +336,8 @@ Questo progetto consente di gestire le vulnerabilità dei sistemi informativi as
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) Correzione degli errori | Rimozione delle versioni precedenti del software/firmware
 
-Questo progetto assegna le definizioni dei criteri per assicurarsi che le applicazioni usino la versione più recente di .NET Framework, HTTP, Java, PHP, Python e TLS. Questo progetto assegna anche una definizione dei criteri che garantisce che i servizi Kubernetes vengano aggiornati alla relativa versione non vulnerabile.
+Questo progetto assegna le definizioni dei criteri per assicurare che le applicazioni usino la versione più recente di HTTP, Java, PHP, Python e TLS. Questo progetto assegna anche una definizione dei criteri che garantisce che i servizi Kubernetes vengano aggiornati alla relativa versione non vulnerabile.
 
-- Assicurarsi che la versione di '.NET Framework' sia la più recente, se usata come parte dell'app per le API
-- Assicurarsi che la versione di '.NET Framework' sia la più recente, se usata come parte dell'app per le funzioni
-- Assicurarsi che la versione di '.NET Framework' sia la più recente, se usata come parte dell'app Web
 - Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le API
 - Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le funzioni
 - Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app Web
@@ -348,7 +345,6 @@ Questo progetto assegna le definizioni dei criteri per assicurarsi che le applic
 - Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le funzioni
 - Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app Web
 - Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app per le API
-- Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app per le funzioni
 - Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app Web
 - Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le API
 - Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le funzioni
@@ -356,7 +352,7 @@ Questo progetto assegna le definizioni dei criteri per assicurarsi che le applic
 - Nell'app per le API è necessario usare la versione più recente di TLS
 - Nell'app per le funzioni è necessario usare la versione più recente di TLS
 - Nell'app Web è necessario usare la versione più recente di TLS
-- \[Anteprima\]: I servizi Kubernetes devono essere aggiornati a una versione di Kubernetes non vulnerabile
+- I servizi Kubernetes devono essere aggiornati a una versione di Kubernetes non vulnerabile
 
 ## <a name="si-3-malicious-code-protection"></a>SI-3 Protezione dal malware
 
@@ -378,11 +374,11 @@ Questo progetto consente di gestire Endpoint Protection, inclusa la protezione d
 Questo progetto consente di monitorare il sistema controllando e imponendo la registrazione e la sicurezza dei dati nelle risorse di Azure. In particolare, i criteri assegnati controllano e impongono la distribuzione dell'agente di Log Analytics, nonché impostazioni di sicurezza avanzata per database SQL, account di archiviazione e risorse di rete. Queste funzionalità consentono di rilevare comportamenti anomali e indicatori di attacchi in modo che sia possibile adottare le misure appropriate.
 
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
+- Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
 - \[Anteprima\]: Controlla area di lavoro Log Analytics per la macchina virtuale - Segnala mancata corrispondenza
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
+- Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
+- Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
 - Sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL

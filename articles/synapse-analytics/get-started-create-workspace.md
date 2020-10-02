@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 08/27/2020
-ms.openlocfilehash: 56292d3e8ba4c9ec89d73f10640264c178f8a9a7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 78ec233e618511c748ed9f51b97161eddc5e8308
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255019"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707527"
 ---
 # <a name="create-a-synapse-workspace"></a>Creare un'area di lavoro di Synapse
 
@@ -24,18 +24,14 @@ In questa esercitazione si apprenderà a creare un'area di lavoro di Synapse, un
 
 1. Aprire il [portale di Azure](https://portal.azure.com) e nella parte superiore cercare **Synapse**.
 1. Nei risultati della ricerca, in **Servizi** selezionare **Azure Synapse Analytics (anteprima delle aree di lavoro)** .
-1. Selezionare **Aggiungi** per creare un'area di lavoro usando queste impostazioni:
-
-    |Scheda|Impostazione | Valore consigliato | Descrizione |
-    |---|---|---|---|
-    |Nozioni di base|**Nome area di lavoro**|È possibile assegnare un nome qualsiasi.| In questo documento verrà usato il nome **myworkspace**.|
-    |Nozioni di base|**Area**|Usare la stessa area dell'account di archiviazione.|
-
+1. Selezionare **Aggiungi** per creare un'area di lavoro.
+1. In **Informazioni di base** scegliere un nome per l'area di lavoro. In questa esercitazione si userà **myworkspace**.
 1. Per creare un'area di lavoro, è necessario un account ADLSGEN2. La scelta più semplice consiste nel crearne una nuova. Se si vuole riutilizzarne una esistente, sarà necessario eseguire alcune operazioni di configurazione aggiuntive. 
 1. OPZIONE 1 Creazione di un nuovo account ADLSGEN2 
-    1. In **Seleziona account Data Lake Storage Gen2** fare clic su **Crea nuovo** e denominarlo **contosolake**.
-    1. In **Seleziona account Data Lake Storage Gen2** fare clic su **File system** e denominarlo **users**.
-1. OPZIONE 2 Vedere le istruzioni in **Preparare un account di archiviazione** nella parte inferiore di questo documento.
+    1. Passare a **Selezionare Data Lake Storage Gen 2**. 
+    1. Fare clic su **Crea nuovo** e scegliere **contosolake** come nome.
+    1. Fare clic su **File system** e scegliere **users** come nome.
+1. OPZIONE 2 Uso di un account ADLSGEN2 esistente. Vedere le istruzioni riportate in **Preparare un account di archiviazione ADLSGEN2** alla fine di questo documento.
 1. L'area di lavoro di Azure Synapse userà questo account di archiviazione come account di archiviazione "primario" e il contenitore per archiviare i dati dell'area di lavoro. L'area di lavoro archivia i dati in tabelle Apache Spark. Archivia i log delle applicazioni Spark in una cartella denominata **/synapse/nome_area_di_lavoro**.
 1. Selezionare **Rivedi e crea** > **Crea**. L'area di lavoro sarò pronta entro pochi minuti.
 
@@ -94,29 +90,23 @@ Diversamente dagli altri tipi di pool, la fatturazione per SQL su richiesta è b
 * SQL su richiesta dispone di database SQL su richiesta indipendenti da qualsiasi pool SQL su richiesta.
 * A un'area di lavoro è sempre associato esattamente un pool SQL su richiesta denominato **SQL su richiesta**.
 
-## <a name="prepare-a-storage-account"></a>Preparare un account di archiviazione
+## <a name="preparing-a-adlsgen2-storage-account"></a>Preparare un account di archiviazione ADLSGEN2
+
+### <a name="perform-the-following-steps-before-you-create-your-workspace"></a>Eseguire i passaggi seguenti PRIMA di creare l'area di lavoro
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
-1. Creare un nuovo account di archiviazione con le impostazioni seguenti:
-
-    |Scheda|Impostazione | Valore consigliato | Descrizione |
-    |---|---|---|---|
-    |Nozioni di base|**Nome account di archiviazione**| Scegliere qualsiasi nome.| In questo documento si userà il nome **contosolake**.|
-    |Nozioni di base|**Tipo di account**| **StorageV2** ||
-    |Nozioni di base|**Posizione**|Scegliere la località desiderata.| È consigliabile che l'area di lavoro di Azure Synapse Analytics e l'account Azure Data Lake Storage Gen2 risiedano nella stessa area.|
-    |Avanzate|**Data Lake Storage Gen2**|**Enabled**| Azure Synapse funziona solo con account di archiviazione con questa impostazione abilitata.|
-    |||||
-
-1. Dopo aver creato l'account di archiviazione, selezionare **Controllo di accesso (IAM)** nel riquadro a sinistra. Assegnare quindi i ruoli seguenti o verificare che siano già assegnati:
+1. Passare all'account di archiviazione esistente
+1. Selezionare **Controllo di accesso (IAM)** dal riquadro sinistro. 
+1. Assegnare i ruoli seguenti o verificare che siano già assegnati:
     * Assegnare a se stessi al ruolo **Proprietario**.
     * Assegnare a se stessi il ruolo **Proprietario dei dati dei BLOB di archiviazione**.
 1. Nel riquadro a sinistra selezionare **Contenitori** e creare un contenitore.
-1. È possibile assegnare al contenitore il nome desiderato. In questo documento verrà assegnato il nome **users**.
+1. È possibile assegnare un nome al contenitore. In questo documento viene usato il nome **users**.
 1. Accettare l'impostazione predefinita **Livello di accesso pubblico**, quindi selezionare **Crea**.
 
-### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Configurare l'accesso all'account di archiviazione dall'area di lavoro
+### <a name="perform-the-following-steps-after-you-create-your-workspace"></a>Eseguire i passaggi seguenti DOPO aver creato l'area di lavoro
 
-Le identità gestite per l'area di lavoro di Azure Synapse potrebbero già avere accesso all'account di archiviazione. Per verificare, seguire questa procedura:
+Configurare l'accesso all'account di archiviazione dall'area di lavoro. Le identità gestite per l'area di lavoro di Azure Synapse potrebbero già avere accesso all'account di archiviazione. Per verificare, seguire questa procedura:
 
 1. Aprire il [portale di Azure](https://portal.azure.com) e aprire l'account di archiviazione primario scelto per l'area di lavoro.
 1. Selezionare **Controllo di accesso (IAM)** dal riquadro a sinistra.

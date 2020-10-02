@@ -15,18 +15,18 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 998527a8557db0b0cf271dc8b05d5771660a175c
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 17817a5730678ae708c92c99093e7b859e05f8fe
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209439"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983854"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Guida introduttiva: Aggiungere flag di funzionalità a un'app .NET Framework
 
 In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'app .NET Framework per creare un'implementazione end-to-end di Gestione funzionalità. È possibile usare il servizio Configurazione app per archiviare tutti i flag di funzionalità in una posizione centralizzata e controllarne gli stati. 
 
-Le librerie di Gestione funzionalità di .NET estendono il framework con il supporto completo per i flag di funzionalità. Queste librerie si basano sul sistema di configurazione di .NET. Si integrano facilmente con Configurazione app tramite il provider di configurazione di .NET.
+Le librerie di Gestione funzionalità di .NET estendono il framework con il supporto per i flag di funzionalità. Queste librerie si basano sul sistema di configurazione di .NET. Si integrano con Configurazione app tramite il provider di configurazione di .NET.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

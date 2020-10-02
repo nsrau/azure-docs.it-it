@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 03/11/2020
 ms.author: charwen
-ms.openlocfilehash: 3c2780c8c99fd4568a7213b625ce785d3a99129c
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: b0155ae92e3179918273d6a19773aa15b67949ea
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743984"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985590"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Avvio rapido: Connettersi a una macchina virtuale usando un indirizzo IP privato e Azure Bastion
 
@@ -72,7 +72,7 @@ Al termine della distribuzione della risorsa Bastion nella rete virtuale, la sch
 
 1. Digitare il nome utente e la password per la macchina virtuale. Selezionare **Connect** (Connetti).
 
-   ![connessione](./media/quickstart-host-portal/connect.png)
+   ![Screenshot della finestra di dialogo Connetti con Azure Bastion, che chiede di immettere un nome utente e una password.](./media/quickstart-host-portal/connect.png)
 1. La connessione RDP a questa macchina virtuale tramite Bastion verrà aperta direttamente nel portale di Azure (tramite HTML5) usando la porta 443 e il servizio Bastion.
 
    ![Connessione RDP](./media/quickstart-host-portal/443-rdp.png)

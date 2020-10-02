@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Introduzione all'analisi con Spark"
-description: Questa esercitazione illustra i passaggi di base per la configurazione e l'uso di Azure Synapse Analytics.
+description: Questa esercitazione illustra come analizzare i dati con Apache Spark
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,16 +9,30 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 5c6b35c1d9f00cae8fc688569e3a491679900995
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ebcec3907e40a8ba58aab841cd788c58ec7a94fe
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093799"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017915"
 ---
 # <a name="analyze-with-apache-spark"></a>Analizzare dati con Apache Spark
 
+## <a name="analyze-nyc-taxi-data-in-blob-storage--using-spark"></a>Analizzare i dati dei taxi di New York in archiviazione BLOB con Spark
+
 Questa esercitazione illustra i passaggi di base per caricare e analizzare i dati con Apache Spark per Azure Synapse.
+
+1. Nell'hub **Dati** in **Collegati** fare clic il pulsante destro del mouse su **Archivio BLOB di Azure > Set di dati di esempio > nyc_tlc_yellow** e scegliere **SELECT New notebook** (Seleziona il nuovo notebook)
+1. Verrà creato un nuovo notebook con il codice seguente:
+    ```
+    from azureml.opendatasets import NycTlcYellow
+
+    data = NycTlcYellow()
+    data_df = data.to_spark_dataframe()
+    display(data_df.limit(10))
+    ```
+1. Nel notebook scegliere un pool Spark dal menu **Collega a**
+1. Fare clic su **Esegui** nella cella
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Caricare i dati di NYC Taxi nel database nyctaxi di Spark
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: dd9aee01edf45f89feb6a6010c8d958511bc3904
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 613ce41820dc5f388af441836bdb4a93e43e5d07
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185399"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987631"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Esercitazione: Creare un runbook del flusso di lavoro PowerShell
 
@@ -109,17 +109,17 @@ Il runbook creato è ancora in modalità bozza. È necessario pubblicarlo prima 
 
 6. Si noti che lo stato del processo viene visualizzato in **Riepilogo processi**. Questo stato corrisponde agli stati visualizzati durante il test del runbook.
 
-   ![Riepilogo dei processi](../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png" alt-text="Screenshot del riquadro Processo del runbook con la sezione Riepilogo processi evidenziata.":::
 
 7. Quando lo stato del runbook risulta Completato, fare clic su **Output**. Verrà aperta la pagina Output in cui è possibile visualizzare il messaggio `Hello World`.
 
-   ![Riepilogo dei processi](../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Screenshot del riquadro Processo del runbook con la sezione Riepilogo processi evidenziata.":::
 
 8. Chiudere la pagina Output.
 
 9. Fare clic su **Tutti i log** per aprire il riquadro Flussi relativo al processo del runbook. Nel flusso di output sarà visibile solo `Hello World`. Si noti che nel riquadro Flussi potrebbero essere visualizzati altri flussi per un processo del runbook, ad esempio Dettagliato ed Errore, se il runbook esegue la scrittura in questi flussi.
 
-   ![Riepilogo dei processi](../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Screenshot del riquadro Processo del runbook con la sezione Riepilogo processi evidenziata.":::
 
 10. Chiudere il riquadro Flussi e il riquadro Processi per tornare alla pagina MyFirstRunbook.
 

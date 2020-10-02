@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0163fcc62ea6c813af8e9e5693ca35fa0e650f96
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9e841cccdfb3d304d63eb19b45be5555eea2a66c
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497529"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069408"
 ---
 # <a name="tutorial-add-a-resource-to-your-arm-template"></a>Esercitazione: Aggiungere una risorsa al modello di Azure Resource Manager
 
@@ -85,7 +85,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
+> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
 
 Potrebbero verificarsi due errori di distribuzione:
 

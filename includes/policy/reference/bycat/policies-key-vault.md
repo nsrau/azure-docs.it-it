@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/04/2020
+ms.date: 09/16/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: a79b86ec958341465a790a3a27e2f44394e35e1b
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 1c5ab172f4d6382cf09d1c1f67bfa6b673f7c82c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487790"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982531"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -24,4 +24,6 @@ ms.locfileid: "89487790"
 |[I certificati che usano la crittografia RSA devono avere le dimensioni minime della chiave specificate](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcee51871-e572-4576-855c-047c820360f0) |Consente di gestire i requisiti di conformità aziendali specificando le dimensioni minime della chiave per i certificati RSA archiviati nell'insieme di credenziali delle chiavi. |Audit, Deny, Disabled |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_RSA_MinimumKeySize.json) |
 |[Distribuisci le impostazioni di diagnostica per Key Vault nell'hub eventi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fed7c8c13-51e7-49d1-8a43-8490431a0da2) |Distribuisce le impostazioni di diagnostica per Key Vault per lo streaming in un hub eventi a livello di area quando viene creato o aggiornato un Key Vault in cui manca questa impostazione di diagnostica. |deployIfNotExists |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_DiagnosticLog_Deploy.json) |
 |[I log di diagnostica in Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Controlla l'abilitazione dei log di diagnostica consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
+|[Il firewall deve essere abilitato in Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) |Il firewall dell'insieme di credenziali delle chiavi impedisce al traffico non autorizzato di raggiungere l'insieme di credenziali delle chiavi e fornisce un ulteriore livello di protezione per i segreti. Abilitare il firewall dell'insieme di credenziali delle chiavi per assicurarsi che solo il traffico dalle reti consentite possa accedere all'insieme di credenziali delle chiavi. |Audit, Disabled |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultFirewallEnabled_Audit.json) |
 |[Gli oggetti Key Vault devono essere recuperabili](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Questo criterio controlla se gli oggetti insieme di credenziali delle chiavi non sono recuperabili. La funzionalità di eliminazione temporanea permette di conservare in modo efficace le risorse per un periodo di conservazione specificato (90 giorni) anche dopo un'operazione di eliminazione, pur facendo sembrare che l'oggetto sia stato eliminato. Quando la funzionalità di protezione dall'eliminazione è attivata, non è possibile ripulire un insieme di credenziali o un oggetto in stato eliminato fino al termine del periodo di conservazione di 90 giorni. Questi insiemi di credenziali e oggetti possono ancora essere recuperati, assicurando ai clienti il rispetto dei criteri di conservazione. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[L'endpoint privato deve essere configurato per Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) |Il collegamento privato consente di connettere un insieme di credenziali delle chiavi alle risorse di Azure senza inviare il traffico sulla rete Internet pubblica. Il collegamento privato garantisce una protezione con difesa approfondita dall'esfiltrazione di dati. |Audit, Disabled |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultPrivateEndpointEnabled_Audit.json) |

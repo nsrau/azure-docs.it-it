@@ -1,5 +1,5 @@
 ---
-title: Definire un nuovo tipo di dispositivo gateway in Azure IoT Central | Microsoft Docs
+title: 'Esercitazione: Definire un nuovo tipo di dispositivo gateway in Azure IoT Central | Microsoft Docs'
 description: Questa esercitazione illustra come definire un nuovo tipo di dispositivo gateway IoT nell'applicazione Azure IoT Central.
 author: rangv
 ms.author: rangv
@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758123"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967917"
 ---
-# <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definire un nuovo tipo di dispositivo gateway IoT nell'applicazione Azure IoT Central
+# <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Esercitazione: Definire un nuovo tipo di dispositivo gateway IoT nell'applicazione Azure IoT Central
 
 *Le informazioni di questo articolo sono destinate a generatori di soluzioni e sviluppatori di dispositivi.*
 
@@ -31,6 +31,9 @@ Oltre a consentire ai dispositivi downstream di comunicare con l'applicazione Io
 * Inviare i propri dati di telemetria, ad esempio la temperatura.
 * Rispondere agli aggiornamenti di proprietà scrivibili eseguiti da un operatore. Ad esempio, un operatore potrebbe modificare l'intervallo di invio dei dati di telemetria.
 * Rispondere ai comandi, ad esempio il riavvio del dispositivo.
+
+> [!div class="checklist"]
+> Creare modelli di dispositivo downstream Creare un modello di dispositivo gateway Pubblicare il modello di dispositivo Creare i dispositivi simulati
 
 ## <a name="prerequisites"></a>Prerequisiti
 

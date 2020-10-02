@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 90d5c2688d20b62a4a5fda78eb67ed01777bc28c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a798fd9d4ec7b937fbae231a8e17596abcb897f9
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496883"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069527"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Esercitazione: Usare i modelli di avvio rapido di Azure
 
@@ -91,7 +91,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
+> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

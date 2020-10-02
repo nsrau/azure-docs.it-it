@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 897e36a6c5165549d7809512d0298fa2cfed2fa8
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75450850"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606255"
 ---
 1. Selezionare **Connetti siti VPN** per visualizzare la pagina **Connetti siti**.
 
-    ![connect](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "connessione")
+    ![Screenshot del riquadro Siti connessi per l'hub virtuale pronto per una chiave precondivisa e le impostazioni associate.](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "connessione")
 
    Completare i campi seguenti:
 
@@ -28,7 +28,7 @@ ms.locfileid: "75450850"
 2. Selezionare **Connetti**.
 3. Nel giro di qualche minuto il sito visualizzerà lo stato di connessione e di connettività.
 
-   ![Stato](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![Screenshot che mostra una connessione VPN da sito a sito con lo stato di connettività.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
    **Stato della connessione:** si tratta dello stato della risorsa di Azure per la connessione che connette il sito VPN al gateway VPN dell'hub di Azure. Dopo che questa operazione del piano di controllo ha esito positivo, il gateway VPN di Azure e il dispositivo VPN locale tenteranno di stabilire la connettività.
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c6afdae275b98a86eba14b920a6969c967c5a7db
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 057cbd5d42eafaa693abc418de62c3ae03a6b995
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508237"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984581"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Esercitazione: Usare il Centro sicurezza di Azure per monitorare le macchine virtuali Windows
 
@@ -36,7 +36,7 @@ Per accedere al dashboard del Centro sicurezza, nel portale di Azure selezionare
 
 Il Centro sicurezza va oltre l'individuazione dei dati per offrire raccomandazioni sui problemi rilevati. Ad esempio, se una macchina virtuale è stata distribuita senza un gruppo di sicurezza di rete collegato, il Centro sicurezza consente di visualizzare una raccomandazione, con una procedura di correzione da eseguire. Offre la correzione automatica senza lasciare il contesto del Centro sicurezza.  
 
-![Consigli](./media/tutorial-azure-security/recommendations.png)
+![Screenshot della pagina Raccomandazioni, che include una descrizione, la risorsa, lo stato e la gravità delle raccomandazioni.](./media/tutorial-azure-security/recommendations.png)
 
 ## <a name="set-up-data-collection"></a>Configurare la raccolta dei dati
 

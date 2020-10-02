@@ -16,11 +16,11 @@ ms.workload: ''
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 315d4d6b85a28337b0e7c43ad7054e4d31eba670
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 54da7a4054dc5c657b9e0454e5446e3da28b06c8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78674204"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981915"
 ---
-È possibile [Provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, a titolo gratuito e senza impegno, oppure creare gratuitamente un [account Azure Cosmos DB di livello gratuito](../articles/cosmos-db/optimize-dev-test.md#azure-cosmos-db-free-tier), con le prime 400 UR/s e 5 GB di spazio di archiviazione. È anche possibile usare l'[Emulatore di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l'URI `https://localhost:8081`. Per la chiave da usare con l'emulatore, vedere [Autenticazione delle richieste](../articles/cosmos-db/local-emulator.md#authenticating-requests).
+È possibile [Provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, a titolo gratuito e senza impegno, oppure creare gratuitamente un [account Azure Cosmos DB di livello gratuito](../articles/cosmos-db/optimize-dev-test.md#azure-cosmos-db-free-tier), con le prime 400 UR/s e 5 GB di spazio di archiviazione. È anche possibile usare l'[Emulatore di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l'URI `https://localhost:8081`. Per informazioni sulla chiave da usare con l'emulatore, vedere [Richieste di autenticazione](../articles/cosmos-db/local-emulator.md# authenticate-requests).

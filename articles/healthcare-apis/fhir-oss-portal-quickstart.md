@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 7fa119db0c974c93aff667060d153b21b8de16bb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 57ab6bca820c4c25a9a56e4a801aa7d917d317ec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843488"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978577"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-portal"></a>Avvio rapido: Distribuire il server FHIR open source con il portale di Azure
 
@@ -25,17 +25,17 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Passare alla [pagina di distribuzione di GitHub](https://github.com/Microsoft/fhir-server/blob/master/docs/DefaultDeployment.md) e individuare i pulsanti "Distribuisci in Azure":
 
-![Pagina di distribuzione open source](media/quickstart-oss-portal/deployment-page-oss.png)
+>[!div class="mx-imgBorder"]
+>![Pagina di distribuzione open source](media/quickstart-oss-portal/deployment-page-oss.png)
 
 Fare clic sul pulsante distribuzione per aprire il portale di Azure.
 
 ## <a name="fill-in-deployment-parameters"></a>Specificare i parametri di distribuzione
 
-Scegliere di creare un nuovo gruppo di risorse e assegnargli un nome. L'unico altro parametro obbligatorio è un nome per il servizio.
+Scegliere di creare un nuovo gruppo di risorse e assegnargli un nome. Gli unici altri parametri necessario sono il nome del servizio e la password di amministratore di SQL.
 
-![Parametri di distribuzione personalizzati](media/quickstart-oss-portal/deployment-custom-parameters.png)
-
-Si noti che la distribuzione eseguirà il pull del codice sorgente direttamente dal repository open source in GitHub. Se è stato creata una copia del repository tramite fork, è possibile puntare al proprio repository e a un ramo specifico.
+>[!div class="mx-imgBorder"]
+>![Parametri di distribuzione personalizzati](media/quickstart-oss-portal/deployment-custom-parameters.png)
 
 Dopo aver specificato i dettagli, è possibile avviare la distribuzione.
 

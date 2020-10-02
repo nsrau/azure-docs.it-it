@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 5582056f1bae2dbeb69a7d05044f055ff1394bd5
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ebc6ca630ea3cabb519805ae8505abf336a2a9ea
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244670"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604292"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Esercitazione: Usare Visione personalizzata con un dispositivo IoT per segnalare gli stati visivi
 
@@ -52,7 +52,7 @@ L'app IoT Visual Alerts viene eseguita a ciclo continuo e passa attraverso quatt
 * **Waiting For Trained Model** (In attesa del modello sottoposto a training): in questo stato, l'app chiama l'API Visione personalizzata ogni secondo per verificare se il progetto di destinazione contiene un'iterazione sottoposta a training. Quando ne trova una, scarica il modello ONNX corrispondente in un file locale e passa allo stato **Scoring** (Assegnazione di punteggio).
 * **Scoring** (Assegnazione di punteggio): in questo stato, l'app usa Windows ML per valutare un singolo fotogramma della fotocamera rispetto al modello ONNX locale. La classificazione dell'immagine risultante viene visualizzata sullo schermo e inviata come messaggio all'hub IoT. L'app quindi va in sospensione per un secondo prima di assegnare un punteggio a una nuova immagine.
 
-## <a name="understand-the-code-structure"></a>Informazioni sulla struttura del codice
+## <a name="examine-the-code-structure"></a>Esaminare la struttura del codice
 
 I file seguenti gestiscono la modalità di funzionamento principale dell'app.
 
@@ -98,13 +98,13 @@ Mentre l'app acquisisce immagini, è necessario esporre la fotocamera ai tipi di
 
 ## <a name="train-the-custom-vision-model"></a>Eseguire il training del modello di Visione personalizzata
 
-Dopo aver completato il processo di acquisizione, l'app caricherà le immagini e passerà allo stato **Waiting For Trained Model** (In attesa del modello sottoposto a training). A questo punto, è necessario accedere al [portale di Visione personalizzata](https://www.customvision.ai/) e creare un modello basato sulle nuove immagini di training. L'animazione seguente mostra un esempio di questo processo.
+Dopo aver completato il processo di acquisizione, l'app caricherà le immagini e passerà allo stato **Waiting For Trained Model** (In attesa del modello sottoposto a training). A questo punto, è necessario passare al [sito Web di Visione personalizzata](https://www.customvision.ai/) e creare un modello basato sulle nuove immagini del training. L'animazione seguente mostra un esempio di questo processo.
 
 ![Animazione: assegnazione di tag a più immagini di banane](./media/iot-visual-alerts-tutorial/labeling.gif)
 
 Per ripetere questo processo con il proprio scenario:
 
-1. Accedere al [portale di Visione personalizzata](http://customvision.ai).
+1. Accedere al [sito Web di Visione personalizzata](http://customvision.ai).
 1. Trovare il progetto di destinazione, che a questo punto dovrebbe avere tutte le immagini di training caricate dall'app.
 1. Per ogni stato visivo che si vuole identificare, selezionare le immagini appropriate e applicare manualmente il tag.
     * Se, ad esempio, l'obiettivo è distinguere tra una stanza vuota e una stanza con persone, è consigliabile contrassegnare cinque o più immagini con persone come una nuova classe, **People**, e altre cinque o più immagini senza persone con il tag **Negative**. In questo modo si aiuterà il modello a distinguere tra i due diversi stati.

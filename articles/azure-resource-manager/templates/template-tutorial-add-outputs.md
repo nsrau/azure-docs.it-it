@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4c90f1ce4bc3f3f5ed91bee86bb1f6f9093876c7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 34bda2b63360226b3a246d73ef560f666e48604f
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497784"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069272"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Esercitazione: Aggiungere output al modello di Azure Resource Manager
 
@@ -92,7 +92,7 @@ Nell'output del comando di distribuzione verrà visualizzato un oggetto simile a
 ```
 
 > [!NOTE]
-> Se la distribuzione non è riuscita, usare l'opzione **debug** con il comando di distribuzione per visualizzare i log di debug.  È anche possibile usare l'opzione **verbose** per visualizzare i log di debug completi.
+> Se la distribuzione non è riuscita, usare l'opzione **verbose** per ottenere informazioni sulle risorse create. Usare l'opzione **debug** per ottenere altre informazioni per il debug.
 
 ## <a name="review-your-work"></a>Esaminare il lavoro
 

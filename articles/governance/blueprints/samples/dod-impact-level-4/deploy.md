@@ -1,14 +1,14 @@
 ---
 title: Esempio di progetto DoD Impact Level 4
 description: Procedura di distribuzione per l'esempio di progetto DoD Impact Level 4, inclusi i dettagli dei parametri degli artefatti del progetto.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: bb2599399284b2be5a9a7f88ef1d0244812ec4b2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 7ab2e5967031b52bcad7c1b6f38b546cb8a7eb86
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044975"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978399"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Distribuire l'esempio di progetto DoD Impact Level 4
 
@@ -99,11 +99,11 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 |Distribuisci il controllo nei server SQL|Assegnazione di criteri|Nome gruppo di risorse per l'account di archiviazione per il controllo di SQL Server|Il controllo esegue la scrittura degli eventi del database in un log di controllo nell'account di archiviazione di Azure. Verrà creato un account di archiviazione in ogni area in cui viene creato un server SQL che verrà condiviso da tutti i server di tale area. Importante: per il corretto funzionamento del controllo, non eliminare o rinominare il gruppo di risorse o gli account di archiviazione.|
 |Distribuire le impostazioni di diagnostica per i gruppi di sicurezza di rete|Assegnazione di criteri|Prefisso dell'account di archiviazione per la diagnostica del gruppo di sicurezza di rete|Questo prefisso verrà combinato con la posizione del gruppo di sicurezza di rete per formare il nome dell'account di archiviazione creato.|
 |Distribuire le impostazioni di diagnostica per i gruppi di sicurezza di rete|Assegnazione di criteri|Nome del gruppo di risorse per l'account di archiviazione per la diagnostica del gruppo di sicurezza di rete (deve esistere)|Il gruppo di risorse in cui verrà creato l'account di archiviazione. Questo gruppo di risorse deve già esistere.|
-|Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux|Assegnazione di criteri|Area di lavoro Log Analytics per i set di scalabilità di macchine virtuali Linux|Se quest'area di lavoro non rientra nell'ambito dell'assegnazione, è necessario concedere manualmente le autorizzazioni di "Collaboratore di Log Analytics" (o simile) all'ID entità di sicurezza dell'assegnazione dei criteri.|
+|Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux|Assegnazione di criteri|Area di lavoro Log Analytics per set di scalabilità di macchine virtuali Linux|Se quest'area di lavoro non rientra nell'ambito dell'assegnazione, è necessario concedere manualmente le autorizzazioni di "Collaboratore di Log Analytics" (o simile) all'ID entità di sicurezza dell'assegnazione dei criteri.|
 |Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux|Assegnazione di criteri|Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Linux da aggiungere all'ambito|Una matrice vuota può essere usata per indicare l'assenza di parametri facoltativi: \[\]|
 |Distribuisci l'agente di Log Analytics per le macchine virtuali Linux|Assegnazione di criteri|Area di lavoro Log Analytics per VM Linux|Se quest'area di lavoro non rientra nell'ambito dell'assegnazione, è necessario concedere manualmente le autorizzazioni di "Collaboratore di Log Analytics" (o simile) all'ID entità di sicurezza dell'assegnazione dei criteri.|
 |Distribuisci l'agente di Log Analytics per le macchine virtuali Linux|Assegnazione di criteri|Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Linux da aggiungere all'ambito|Una matrice vuota può essere usata per indicare l'assenza di parametri facoltativi: \[\]|
-|Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows|Assegnazione di criteri|Area di lavoro Log Analytics per i set di scalabilità di macchine virtuali|Se quest'area di lavoro non rientra nell'ambito dell'assegnazione, è necessario concedere manualmente le autorizzazioni di "Collaboratore di Log Analytics" (o simile) all'ID entità di sicurezza dell'assegnazione dei criteri.|
+|Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows|Assegnazione di criteri|Area di lavoro Log Analytics per set di scalabilità di macchine virtuali Windows|Se quest'area di lavoro non rientra nell'ambito dell'assegnazione, è necessario concedere manualmente le autorizzazioni di "Collaboratore di Log Analytics" (o simile) all'ID entità di sicurezza dell'assegnazione dei criteri.|
 |Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows|Assegnazione di criteri|Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Windows da aggiungere all'ambito|Una matrice vuota può essere usata per indicare l'assenza di parametri facoltativi: \[\]|
 |Distribuisci l'agente di Log Analytics per le macchine virtuali Windows|Assegnazione di criteri|Area di lavoro Log Analytics per VM Windows|Se quest'area di lavoro non rientra nell'ambito dell'assegnazione, è necessario concedere manualmente le autorizzazioni di "Collaboratore di Log Analytics" (o simile) all'ID entità di sicurezza dell'assegnazione dei criteri.|
 |Distribuisci l'agente di Log Analytics per le macchine virtuali Windows|Assegnazione di criteri|Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Windows da aggiungere all'ambito|Una matrice vuota può essere usata per indicare l'assenza di parametri facoltativi: \[\]|

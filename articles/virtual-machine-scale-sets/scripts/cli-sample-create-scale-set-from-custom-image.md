@@ -1,6 +1,6 @@
 ---
 title: Esempi dell'interfaccia della riga di comando di Azure - Usare un'immagine di VM personalizzata
-description: Questo script crea un set di scalabilità di macchine virtuali che usa un'immagine di macchina virtuale personalizzata come origine delle istanze di macchina virtuale.
+description: Questo script dell'interfaccia della riga di comando di Azure crea un set di scalabilità di macchine virtuali che usa un'immagine di VM personalizzata come origine delle istanze di VM.
 author: axayjo
 ms.author: akjosh
 ms.topic: sample
@@ -9,12 +9,12 @@ ms.subservice: imaging
 ms.date: 03/27/2018
 ms.reviewer: cynthn
 ms.custom: akjosh, devx-track-azurecli
-ms.openlocfilehash: 8f8384667eb9f0c3fc0b3368ac38cbb3e25e979b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d5b7c2814bd6b4be5c0a2243cc61af3405054db4
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499722"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526766"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli"></a>Creare un set di scalabilità di macchine virtuali da un'immagine di macchina virtuale personalizzata con l'interfaccia della riga di comando di Azure
 Questo script crea un set di scalabilità di macchine virtuali che usa un'immagine di macchina virtuale personalizzata come origine delle istanze di macchina virtuale.

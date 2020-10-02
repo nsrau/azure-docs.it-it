@@ -1,6 +1,6 @@
 ---
 title: Esempi di Servizi cognitivi per Big Data in Scala
-description: Provare gli esempi di Servizi cognitivi in Python per Azure Databricks per eseguire la pipeline MMLSpark per Big Data.
+description: Usare Servizi cognitivi per Azure Databricks per eseguire una pipeline MMLSpark per Big Data.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 098b59b8de0d0d7e5c3929ce084276350c04810a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4546ef03c82f19d188a71a86f6964ca87c0f834e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86189311"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524964"
 ---
 # <a name="quick-examples"></a>Esempi rapidi
 

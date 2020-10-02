@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 5a48ea0747a110720a29a9c34fa2dca0f5a74f16
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: c0f4c4deaa57b1414a3ef55226e4c451b53ba72c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310003"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971302"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Esercitazione: Creare ed esaminare il modello di app per il monitoraggio dei pannelli solari 
 
@@ -105,8 +105,9 @@ Se si decide di non continuare a usare questa applicazione, seguire questa proce
     > [!div class="mx-imgBorder"]
     > ![Eliminare l'applicazione](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
-
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni sull'architettura dell'app per pannelli solari, vedere l'[articolo relativo ai concetti](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
+* Per informazioni sull'architettura dell'app per pannelli solari, vedere 
+> [!div class="nextstepaction"]
+> [l'articolo sui concetti](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
 * Creare modelli di applicazione per pannelli solari gratuitamente: [app per pannelli solari](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
 * Per altre informazioni su IoT Central, vedere [Panoramica di IoT Central](https://docs.microsoft.com/azure/iot-central/)

@@ -5,14 +5,14 @@ author: avneet723
 ms.author: avneets
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 74deb4253a21445e21f7ef04f53f3bfe3f1fe0d0
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 880d8ee0e6e2b3984f6bea4b994642724085d512
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81001270"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980535"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Esercitazione: Distribuire ed esaminare un modello di applicazione Centro di micro-adempimenti
 
@@ -62,11 +62,11 @@ Nel dashboard è possibile eseguire queste operazioni:
    * Visualizzare la planimetria e la posizione dei trasportatori robotizzati all'interno della struttura di adempimenti.
    * Attivare comandi, ad esempio la reimpostazione del sistema di controllo, l'aggiornamento del firmware dei trasportatori e la riconfigurazione della rete.
 
-     ![Screenshot del dashboard del centro di micro-adempimenti di Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Screenshot della metà superiore del dashboard del centro di micro-adempimenti di Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
    * Visualizzare un esempio del dashboard che può essere usato da un operatore per monitorare le condizioni all'interno del centro di adempimenti. 
    * Monitorare l'integrità dei payload in esecuzione nel dispositivo gateway all'interno del centro di adempimenti.    
 
-     ![Screenshot del dashboard del centro di micro-adempimenti di Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Screenshot della metà inferiore del dashboard del centro di micro-adempimenti di Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## <a name="device-template"></a>Modello di dispositivo
 Se si seleziona la scheda Modelli di dispositivo, si noterà che il modello include due tipi diversi di dispositivo: 
@@ -91,6 +91,9 @@ Se non si intende continuare a usare questa applicazione, eliminare il modello d
 ![Screenshot della pagina Impostazioni dell'applicazione in Centro di micro-adempimenti](./media/tutorial-micro-fulfillment-center-app/delete.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sull'[architettura della soluzione per il centro di micro-adempimenti](./architecture-micro-fulfillment-center.md).
-* Altre informazioni sugli altri [modelli per la vendita al dettaglio di Azure IoT Central](./overview-iot-central-retail.md).
-* [Panoramica di Azure IoT Central](../preview/overview-iot-central.md).
+
+Altre informazioni su:
+> [!div class="nextstepaction"]
+> [Architettura della soluzione del centro di micro-adempimenti](./architecture-micro-fulfillment-center.md)
+* Altre informazioni sui [modelli per la vendita al dettaglio di Azure IoT Central](./overview-iot-central-retail.md)
+* Altre informazioni con una [panoramica di Azure IoT Central](../preview/overview-iot-central.md)

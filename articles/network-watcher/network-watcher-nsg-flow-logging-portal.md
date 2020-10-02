@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: da7d56a0fd8571e796567331a7543074f0bf1eda
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 89258b05831170ff502cde80577f3a6851659bf2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808700"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986325"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Esercitazione: Registrare il traffico di rete da e verso una macchina virtuale tramite il portale di Azure
 
@@ -101,7 +101,7 @@ La registrazione del flusso di NSG richiede il provider **Microsoft.Insights**. 
 4. Nell'angolo in alto a sinistra del portale selezionare **Tutti i servizi**. Nella **casella del filtro** digitare *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati della ricerca.
 5. In **LOGS** (LOG) selezionare **Log del flusso del NSG**, come illustrato nell'immagine seguente:
 
-    ![Gruppi di sicurezza di rete](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
+    ![Screenshot dei log del flusso del gruppo di sicurezza di rete di Network Watcher.](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
 6. Dall'elenco di NSG selezionare l'NSG denominato **myVm-nsg**.
 7. In **Impostazioni dei log dei flussi** selezionare **On**.

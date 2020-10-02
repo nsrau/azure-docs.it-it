@@ -1,5 +1,5 @@
 ---
-title: Aggiungere intestazioni di sicurezza con il motore regole - Frontdoor di Azure
+title: 'Esercitazione: Aggiungere intestazioni di sicurezza con il motore regole - Frontdoor di Azure'
 description: Questo articolo illustra come configurare un'intestazione di sicurezza tramite il motore regole nel servizio Frontdoor di Azure
 services: frontdoor
 documentationcenter: ''
@@ -7,47 +7,57 @@ author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 6/22/2020
+ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: ad1e8a8a2162ece69af9904d76a394d4bad5de23
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 204a7676fd03466929fc67a0879ff28e0318d21d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399141"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085238"
 ---
-# <a name="add-security-headers-with-rules-engine"></a>Aggiungere intestazioni di sicurezza con il motore regole
+# <a name="tutorial-add-security-headers-with-rules-engine"></a>Esercitazione: Aggiungere intestazioni di sicurezza con il motore regole
 
-Implementare le intestazioni di sicurezza per evitare vulnerabilità basate sul browser come HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy o X-Frame-Options. Gli attributi basati sulla sicurezza possono anche essere definiti con i cookie.
+Questa esercitazione illustra come implementare le intestazioni di sicurezza per evitare vulnerabilità basate sul browser come HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy o X-Frame-Options. Gli attributi basati sulla sicurezza possono anche essere definiti con i cookie.
 
 L'esempio seguente illustra come aggiungere un'intestazione Content-Security-Policy a tutte le richieste in ingresso che corrispondono al percorso definito nella route a cui è associata la configurazione del motore regole. In questo caso, nell'applicazione è consentita l'esecuzione di script solo dal sito attendibile **https://apiphany.portal.azure-api.net** .
 
+In questa esercitazione verranno illustrate le procedure per:
+> [!div class="checklist"]
+> - Configurare un criterio di sicurezza del contenuto all'interno del motore di regole.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* Prima di poter completare i passaggi di questa esercitazione, è necessario creare una frontdoor. Per altre informazioni, vedere [Avvio rapido: Creare una frontdoor](quickstart-create-front-door.md).
+* Se è la prima volta che si usa la funzionalità del motore di regole, vedere [Configurare un motore di regole](front-door-tutorial-rules-engine.md).
+
 ## <a name="add-a-content-security-policy-header-in-azure-portal"></a>Aggiungere un'intestazione Content-Security-Policy nel portale di Azure
 
-1. Prima di creare questa regola specifica, è possibile acquisire informazioni su come [creare una frontdoor](quickstart-create-front-door.md) o su come [creare un motore regole](front-door-tutorial-rules-engine.md) se è la prima volta che si usa il servizio Frontdoor di Azure o la funzionalità motore regole.
+1. Fare clic su **Aggiungi** per aggiungere una nuova regola. Specificare un nome per la regola e quindi fare clic su **Aggiungi un'azione** > **Intestazione della risposta**.
 
-2. Fare clic su **Aggiungi** per aggiungere una nuova regola. Specificare un nome per la regola e quindi fare clic su **Aggiungi un'azione** > **Intestazione della risposta**.
+1. Impostare l'operatore **Accoda** per aggiungere questa intestazione come risposta a tutte le richieste in ingresso a questa route.
 
-3. Impostare l'operatore **Accoda** per aggiungere questa intestazione come risposta a tutte le richieste in ingresso a questa route.
+1. Aggiungere il nome dell'intestazione: **Content-Security-Policy** e definire i valori che verranno accettati da questa intestazione. Per questo scenario, si sceglierà *"script-src 'self' https://apiphany.portal.azure-api.net."*
 
-4. Aggiungere il nome dell'intestazione: **Content-Security-Policy** e definire i valori che verranno accettati da questa intestazione. Per questo scenario, si sceglierà *"script-src 'self' https://apiphany.portal.azure-api.net."*
-
-5. Dopo aver aggiunto tutte le regole desiderate alla configurazione, non dimenticare di passare alla route preferita e associare la configurazione del motore regole alla regola di route. Questo passaggio è obbligatorio per il funzionamento della regola. 
+1. Dopo aver aggiunto tutte le regole desiderate alla configurazione, non dimenticare di passare alla route preferita e associare la configurazione del motore regole alla regola di route. Questo passaggio è obbligatorio per il funzionamento della regola. 
 
 ![esempio del portale](./media/front-door-rules-engine/rules-engine-security-header-example.png)
 
 > [!NOTE]
-> In questo scenario non sono state aggiunte [condizioni di corrispondenza](front-door-rules-engine-match-conditions.md) alla regola. Questa regola verrà applicata a tutte le richieste in ingresso che corrispondono al percorso definito nella regola di route. Per applicarla solo a un subset di tali richieste, assicurarsi di aggiungere le condizioni di corrispondenza specifiche a questa regola.
+> In questo scenario non sono state aggiunte [condizioni di corrispondenza](front-door-rules-engine-match-conditions.md) alla regola. Questa regola verrà applicata a tutte le richieste in ingresso che corrispondono al percorso definito nella regola di route. Per applicarla solo a un sottoinsieme di queste richieste, aggiungere le **condizioni di corrispondenza** specifiche alla regola.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Nei passaggi precedenti sono state configurate le intestazioni di sicurezza con il motore di regole. Se la regola non serve più, è possibile rimuoverla facendo clic su Elimina regola.
+
+:::image type="content" source="./media/front-door-rules-engine/rules-engine-delete-rule.png" alt-text="Eliminare la regola":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sul [motore regole di Frontdoor di Azure](front-door-rules-engine.md). 
-- Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).
-- Informazioni sul [funzionamento di Frontdoor](front-door-routing-architecture.md).
-- Altre informazioni sulle [condizioni di corrispondenza](front-door-rules-engine-match-conditions.md) del motore regole
-- Vedere le [informazioni di riferimento dell'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest) per il motore regole di Frontdoor di Azure. 
-- Vedere le [informazioni di riferimento di PowerShell](https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.8.0) per il motore regole di Frontdoor di Azure. 
+Per informazioni su come configurare un Web application firewall per Frontdoor, continuare con l'esercitazione successiva.
+
+> [!div class="nextstepaction"]
+> [Web Application Firewall e Frontdoor](front-door-waf.md)

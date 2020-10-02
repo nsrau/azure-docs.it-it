@@ -1,14 +1,14 @@
 ---
-title: Panoramica di esempio del progetto Australian Government ISM PROTECTED
-description: Panoramica dell'esempio di progetto Australian Government ISM PROTECTED. Questo esempio di progetto consente ai clienti di valutare specifici controlli ISM PROTECTED.
-ms.date: 08/03/2020
+title: Controlli dell'esempio di progetto Australian Government ISM PROTECTED
+description: Mapping dei controlli dell'esempio di progetto Australian Government ISM PROTECTED. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
+ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 605e92b75da1e5363884fc6ef9457251cfbc6e4e
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760431"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030107"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Australian Government ISM PROTECTED
 
@@ -350,6 +350,10 @@ Questo progetto consente di limitare la località per la distribuzione di tutte 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altri articoli sui progetti e su come usarli:
+
+> [!div class="nextstepaction"]
+> [Progetto ISM PROTECTED - Panoramica](./index.md)
+> [Progetto ISM PROTECTED - Procedura di distribuzione](./deploy.md)
 
 - Informazioni sul [ciclo di vita del progetto](../../concepts/lifecycle.md).
 - Informazioni su come usare [parametri statici e dinamici](../../concepts/parameters.md).

@@ -1,15 +1,15 @@
 ---
 title: Creare avvisi di Azure Advisor per nuove raccomandazioni usando un modello di Resource Manager
-description: Creare avvisi di Azure Advisor per nuove raccomandazioni
+description: Informazioni su come configurare un avviso per nuove raccomandazioni di Azure Advisor usando un modello di Azure Resource Manager.
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 2becfbbc63beb6451e5e877c5a60553d98650494
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a10ca5f0b4119fb65d6b0f717f5c212acb20f9cd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057824"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973682"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Avvio rapido: Creare avvisi di Azure Advisor per nuove raccomandazioni usando un modello di Azure Resource Manager
 
