@@ -44,6 +44,10 @@
       items:
         - name: Gerarchia di paesi/aree usata da Gestione traffico
           href: traffic-manager-geographic-regions.md
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Profili nidificati di Gestione traffico
       href: traffic-manager-nested-profiles.md
     - name: Tipi di endpoint

@@ -43,6 +43,8 @@
           href: cache-java-spring-boot-initializer-with-redis-cache.md
     - name: Creare tabelloni punteggi
       href: cache-web-app-cache-aside-leaderboard.md
+    - name: Distribuire un modello di Machine Learning
+      href: cache-ml.md
     - name: Gestire con Azure PowerShell
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Gestire con l'interfaccia della riga di comando di Azure
@@ -68,6 +70,8 @@
       items:
         - name: Scegliere un livello di cache
           href: cache-overview.md#choosing-the-right-tier
+        - name: Impostare la versione Redis
+          href: cache-how-to-version.md
         - name: Distribuire la cache con il clustering
           href: cache-how-to-premium-clustering.md
         - name: Rendere persistente la cache con la persistenza dei dati Redis

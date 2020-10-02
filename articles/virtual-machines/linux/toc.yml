@@ -595,10 +595,6 @@
                   href: ../../bastion/create-host-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Usare Bastion per la connessione
               href: ../../bastion/bastion-connect-vm-ssh.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-              items:
-                - name: Connessione SSH Bastion
-            - name: Connessione RDP Bastion
-              href: ../../bastion/bastion-connect-vm-rdp.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Encrypt
           items:
             - name: Scenari di crittografia dei dischi per Linux
@@ -625,7 +621,7 @@
               href: disk-encryption-troubleshooting.md
             - name: Domande frequenti sulla crittografia del disco
               href: disk-encryption-faq.md
-            - name: Crittografia dischi - versione precedente (Azure AD)
+            - name: Crittografia dischi - versione precedente
               items:
                 - name: Panoramica
                   href: disk-encryption-overview-aad.md
@@ -640,6 +636,7 @@
         - name: Creare un insieme di credenziali delle chiavi
           href: key-vault-setup.md
         - name: Creare e usare chiavi SSH
+          displayName: ssh keys ssh openssh
           items:
             - name: In Linux o macOS
               href: mac-create-ssh-keys.md
@@ -950,7 +947,7 @@
           href: /azure/architecture/topics/high-performance-computing/
         - name: IBM Db2 pureScale
           items:
-            - name: Architecture
+            - name: Architettura
               href: ibm-db2-purescale-azure.md
             - name: Distribuzione
               href: deploy-ibm-db2-purescale-azure.md

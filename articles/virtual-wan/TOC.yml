@@ -76,6 +76,8 @@
       href: upgrade-virtual-wan.md
     - name: Creare un'appliance virtuale di rete in un hub virtuale
       href: How-to-nva-hub.md
+    - name: Creare una connessione a rete virtuale tra tenant
+      href: cross-tenant-vnet.md
     - name: ExpressRoute
       items:
         - name: Creare una connessione ExpressRoute
@@ -116,7 +118,7 @@
           href: openvpn-azure-ad-client.md
         - name: Configurare l'autenticazione multi-applicazione di Azure AD
           href: openvpn-azure-ad-tenant-multi-app.md
-    - name: Routing.
+    - name: Routing
       items:
         - name: Come configurare il routing dell'hub virtuale
           href: how-to-virtual-hub-routing.md

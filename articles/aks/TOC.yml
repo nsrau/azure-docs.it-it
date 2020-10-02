@@ -6,7 +6,7 @@
       href: intro-kubernetes.md
     - name: Architetture delle soluzioni
       href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare un cluster del servizio Azure Kubernetes
@@ -50,6 +50,8 @@
       href: concepts-identity.md
     - name: Sicurezza
       items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
         - name: Sicurezza per applicazioni e cluster
           href: concepts-security.md
         - name: Controlli di sicurezza in base a Criteri di Azure

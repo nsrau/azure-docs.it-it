@@ -57,10 +57,16 @@
           href: developer-guidance-for-integrating-applications.md
     - name: Single sign-on
       items:
-        - name: Opzioni di accesso Single Sign-On
-          href: sso-options.md
         - name: Pianificare una distribuzione di Single Sign-On
           href: plan-sso-deployment.md
+        - name: Opzioni di accesso Single Sign-On
+          href: sso-options.md
+        - name: SSO basato su SAML
+          href: configure-saml-single-sign-on.md
+        - name: SSO basato su password
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: SSO basato su collegamento
+          href: configure-linked-sign-on.md
         - name: Accesso SSO con un clic
           href: one-click-sso-tutorial.md
     - name: Sicurezza dell'applicazione
@@ -102,14 +108,6 @@
 - name: Guide pratiche
   expanded: false
   items:
-    - name: Configura accesso Single Sign-On
-      items:
-        - name: Configurare l'accesso Single Sign-On basato su SAML
-          href: configure-saml-single-sign-on.md
-        - name: Configurare l'accesso basato su password
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Configurare l'accesso collegato
-          href: configure-linked-sign-on.md
     - name: Assegnare utenti e gestire l'accesso alle app
       items:
         - name: Configurare il consenso utente

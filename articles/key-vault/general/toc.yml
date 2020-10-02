@@ -43,6 +43,8 @@
       href: basic-concepts.md
     - name: Sicurezza
       items:
+        - name: Nozioni fondamentali sull'autenticazione di Key Vault
+          href: authentication-fundamentals.md
         - name: Sicurezza di Azure Key Vault
           href: overview-security.md
         - name: Procedure consigliate per usare Key Vault - Azure Key Vault
@@ -130,6 +132,8 @@
           href: access-behind-firewall.md
     - name: Eliminazione temporanea
       items:
+        - name: Ripristino di Key Vault (eliminazione temporanea e protezione dall'eliminazione)
+          href: key-vault-recovery.md
         - name: Usare l'eliminazione temporanea con l'interfaccia della riga di comando
           href: soft-delete-cli.md
         - name: Usare l'eliminazione temporanea con PowerShell

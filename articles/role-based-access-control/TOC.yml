@@ -28,6 +28,10 @@
       href: tutorial-custom-role-cli.md
 - name: Concetti
   items:
+    - name: Definizioni dei ruoli
+      href: role-definitions.md
+    - name: Ambito
+      href: scope-overview.md
     - name: Procedure consigliate
       href: best-practices.md
     - name: Accesso condizionale per la gestione di Azure
@@ -40,11 +44,7 @@
 - name: Guide pratiche
   items:
     - name: Elencare le definizioni di ruolo
-      items:
-        - name: Panoramica
-          href: role-definitions.md
-        - name: Elencare le definizioni di ruolo
-          href: role-definitions-list.md
+      href: role-definitions-list.md
     - name: Elencare le assegnazioni di ruolo
       items:
         - name: Portale
@@ -57,6 +57,8 @@
           href: role-assignments-list-rest.md
     - name: Aggiungere o rimuovere assegnazioni di ruolo
       items:
+        - name: Procedura per aggiungere un'assegnazione di ruolo
+          href: role-assignments-steps.md
         - name: Portale
           href: role-assignments-portal.md
         - name: Portale - Utenti guest

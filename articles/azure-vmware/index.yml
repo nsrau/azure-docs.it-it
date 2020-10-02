@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 05/04/2020
-  ms.openlocfilehash: aad6bc60066d76c96dd38fa3ba1e94069bb9e25a
-  ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+  ms.date: 09/21/2020
+  ms.openlocfilehash: 76a879f1c2c228fd509f0b0725b7ff3ddac4fa41
+  ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 08/22/2020
-  ms.locfileid: "88752109"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91574909"
 landingContent:
 - title: Informazioni sulla soluzione Azure VMware
   linkLists:
@@ -22,15 +22,61 @@ landingContent:
     links:
     - text: Che cos'è la soluzione Azure VMware?
       url: introduction.md
+  - linkListType: concept
+    links:
+    - text: Cloud privato e cluster
+      url: concepts-private-clouds-clusters.md
+    - text: Rete di cloud privati e interconnettività
+      url: concepts-networking.md
+    - text: Archiviazione nei cloud privati
+      url: concepts-storage.md
+    - text: Accedere e identificare i cloud privati
+      url: concepts-identity.md
+    - text: Controllo degli accessi in base al ruolo
+      url: concepts-role-based-access-control.md
+    - text: Aggiornamenti di cloud privati
+      url: concepts-upgrades.md
+- title: Distribuire la soluzione Azure VMware
+  linkLists:
   - linkListType: get-started
     links:
-    - text: Elenco di controllo per la rete
-      url: tutorial-network-checklist.md
+    - text: Processo di pre-distribuzione
+      url: production-ready-deployment-steps.md
+    - text: Elenco di controllo per la pre-distribuzione
+      url: pre-deployment-checklist.md
+    - text: 1 - Distribuire la soluzione Azure VMware
+      url: deploy-azure-vmware-solution.md
+    - text: 2 - Connettersi all'ambiente locale
+      url: azure-vmware-solution-on-premises.md
+    - text: 3 - Distribuire e configurare HCX
+      url: tutorial-deploy-vmware-hcx.md
   - linkListType: tutorial
     links:
-    - text: Creare un cloud privato AVS
+    - text: Elenco di controllo per la pianificazione della rete
+      url: tutorial-network-checklist.md
+    - text: Creare un cloud privato
       url: tutorial-create-private-cloud.md
+    - text: Accedere a un cloud privato
+      url: tutorial-access-private-cloud.md
     - text: Configurare le impostazioni di rete
       url: tutorial-configure-networking.md
-    - text: Accedere al cloud privato
-      url: tutorial-access-private-cloud.md
+    - text: Creare un segmento di rete NSX-T
+      url: tutorial-nsx-t-network-segment.md
+    - text: Eseguire il peering dal cloud locale al cloud privato
+      url: tutorial-expressroute-global-reach-private-cloud.md
+    - text: Distribuire e configurare VMware HCX
+      url: tutorial-deploy-vmware-hcx.md
+    - text: Ridimensionare un cloud privato
+      url: tutorial-scale-private-cloud.md
+- title: Estendere la soluzione Azure VMware
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Valutazione della migrazione
+      url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+    - text: Gestire DHCP
+      url: manage-dhcp.md
+    - text: Distribuire il ripristino di emergenza per le macchine virtuali
+      url: disaster-recovery-for-virtual-machines.md
+    - text: Distribuire VM tramite una raccolta di contenuto
+      url: tutorial-deploy-vm-content-library.md
