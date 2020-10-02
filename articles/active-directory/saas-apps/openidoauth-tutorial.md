@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1934b6256ecf4f35c54bbc2ac497c331b2c5ee89
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f36c80b9d08f2fde07483c1dde3afe99ec9f92d7
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543925"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705623"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurare un'applicazione OpenID/OAuth dalla raccolta di app di Azure AD
 
@@ -76,13 +76,13 @@ Per impostazione predefinita, Azure AD promuove le applicazioni multi-tenant. È
 ## <a name="consent-framework"></a>Framework di consenso
 
 È possibile usare il framework di consenso di Azure AD per sviluppare applicazioni client Web multi-tenant e native. Queste applicazioni consentono l'accesso da parte degli account utente da un tenant di Azure AD diverso da quello in cui l'applicazione è registrata. Potrebbe dover accedere anche ad API Web, ad esempio:
-- L'API Graph di Microsoft per accedere ad Azure AD, Intune e ai servizi di Office 365.
+- L'API Microsoft Graph per accedere ad Azure AD, Intune e ai servizi di Microsoft 365.
 - Altre API di servizi Microsoft.
 - API Web personalizzate.
 
 Il framework è basato sulla possibilità per un utente o un amministratore di fornire il consenso alla richiesta di registrazione di un'applicazione nella propria directory, che può comportare l'accesso a dati di directory. Una volta ottenuto il consenso, l'applicazione client può chiamare l'API Graph di Microsoft per conto dell'utente e usare le informazioni nel modo necessario.
 
-L'[API Graph di Microsoft](https://developer.microsoft.com/graph/) garantisce l'accesso ai dati in Office 365, ad esempio:
+L'[API Microsoft Graph](https://developer.microsoft.com/graph/) offre l'accesso ai dati in Microsoft 365, ad esempio:
 
 - Calendari e messaggi di Exchange.
 - Siti ed elenchi di SharePoint.
@@ -121,7 +121,7 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
 
 3. Se l'utente non è già autenticato, l'endpoint di Azure AD/dell'autorizzazione richiede l'accesso.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![Screenshot della richiesta di accesso per l'account](./media/openidoauth-tutorial/authentication.png)
 
 4. Dopo che l'utente ha effettuato l'accesso, Azure AD determinerà se l'utente deve essere reindirizzato a una pagina di consenso. Questa decisione dipende dal fatto che l'utente o l'amministratore dell'organizzazione abbia o meno già concesso il consenso dell'applicazione.
 

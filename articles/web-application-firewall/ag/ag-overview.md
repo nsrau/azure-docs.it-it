@@ -5,15 +5,15 @@ description: Questo articolo offre una panoramica di web application firewall (W
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/31/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226999"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267024"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Che cos'è Azure web application firewall nel gateway applicazione di Azure?
 
@@ -75,9 +75,21 @@ Questa sezione descrive i vantaggi principali offerti da WAF nel gateway applica
 - Traffico con filtro basato sull'area geografica per consentire o impedire a determinati paesi/aree geografiche di accedere alle applicazioni. (anteprima)
 - Protezione delle applicazioni dai bot con il set di regole di mitigazione dei bot. (anteprima)
 
-## <a name="waf-policy"></a>Criterio di WAF
+## <a name="waf-policy-and-rules"></a>Regole e criteri di WAF
 
-Per abilitare Web Application Firewall in un gateway applicazione, è necessario creare un criterio di WAF. Questo criterio include tutte le regole gestite, le regole personalizzate, le esclusioni e altre personalizzazioni, ad esempio un limite per il caricamento di file. 
+Per abilitare web application firewall nel gateway applicazione, è necessario creare un criterio di WAF. Questo criterio include tutte le regole gestite, le regole personalizzate, le esclusioni e altre personalizzazioni, come il limite per il caricamento di file.
+
+È possibile configurare un criterio di WAF e associarlo a uno o più gateway applicazione per la protezione. I criteri di WAF sono costituiti da due tipi di regole di sicurezza:
+
+- Regole personalizzate che vengono create
+
+- Set di regole gestite, ovvero una raccolta di set di regole preconfigurate gestite da Azure
+
+Quando sono presenti entrambi i tipi, le regole personalizzate vengono elaborate prima di quelle incluse in un set di regole gestito. Una regola è costituita da una condizione di corrispondenza, una priorità e un'azione. I tipi di azione supportati sono: ALLOW, BLOCK e LOG. È possibile creare criteri completamente personalizzati che soddisfino specifici requisiti di protezione delle applicazioni combinando regole gestite e personalizzate.
+
+Le regole all'interno dei criteri vengono elaborate in ordine di priorità. La priorità è un numero intero univoco che definisce l'ordine di elaborazione delle regole. Un valore intero più basso indica una priorità più alta e quindi le regole con valori di priorità più bassi vengono elaborate prima di quelle con valori più alti. Una volta trovata una corrispondenza per una regola, alla richiesta viene applicata l'azione definita in tale regola. Dopo l'elaborazione di una corrispondenza di questo tipo, le regole con priorità più bassa non vengono elaborate ulteriormente.
+
+Un'applicazione Web distribuita dal gateway applicazione può essere associata a un criterio di WAF a livello globale, a livello di singolo sito o a livello di singolo URI.
 
 ### <a name="core-rule-sets"></a>Set di regole principali
 
@@ -159,6 +171,11 @@ Con la cartella di lavoro predefinita degli eventi del firewall Azure WAF, è po
 
 
 ![Cartella di lavoro di eventi del firewall Azure WAF](../media/ag-overview/sentinel.png)
+
+
+#### <a name="azure-monitor-workbook-for-waf"></a>Cartella di lavoro di Monitoraggio di Azure per WAF
+
+Questa cartella di lavoro consente la visualizzazione personalizzata degli eventi di WAF pertinenti per la sicurezza in diversi pannelli filtrabili. È compatibile con tutti i tipi di WAF, tra cui gateway applicazione, Frontdoor e rete CDN, e può essere filtrata in base al tipo di WAF o a una specifica istanza di WAF. Importarla tramite un modello di Resource Manager o un modello di raccolta. Per distribuire questa cartella di lavoro, vedere [Cartella di lavoro di WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
 
 #### <a name="logging"></a>Registrazione
 

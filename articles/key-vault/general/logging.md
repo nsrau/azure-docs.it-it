@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0ed50b8d128386008a73eb4d1a8b412a42fdb945
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0364495d751465f644686824758992d47f0b8bdf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485456"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290654"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
 
@@ -133,6 +133,7 @@ Informazioni registrate:
   * Creazione, modifica o eliminazione di queste chiavi o segreti.
   * Firma, verifica, crittografia, decrittografia, wrapping e annullamento del wrapping delle chiavi, recupero di segreti ed elenco di chiavi e segreti (e delle relative versioni).
 * Richieste non autenticate che generano una risposta 401. Alcuni esempi sono le richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.  
+* Eventi di notifica di modifica di Griglia di eventi per i criteri di accesso all'insieme di credenziali delle chiavi vicini alla scadenza o scaduti (l'evento su nuove versioni non viene registrato). Gli eventi vengono registrati indipendentemente dalla disponibilità di una sottoscrizione di eventi creata nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Schema di eventi di Griglia di eventi per Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
 
 ## <a name="enable-logging-using-azure-cli"></a>Abilitare la registrazione con l'interfaccia della riga di comando di Azure
 
@@ -289,6 +290,8 @@ I valori del campo **operationName** sono nel formato *OggettoVerbo*. Ad esempio
 
 La tabella seguente include un elenco di valori **operationName** con il comando API REST corrispondente:
 
+### <a name="operation-names-table"></a>Tabella di nomi di operazioni
+
 | operationName | Comando API REST |
 | --- | --- |
 | **autenticazione** |Eseguire l'autenticazione tramite l'endpoint di Azure Active Directory |
@@ -318,6 +321,13 @@ La tabella seguente include un elenco di valori **operationName** con il comando
 | **SecretDelete** |[Eliminare un segreto](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
 | **SecretList** |[Elencare i segreti in un insieme di credenziali](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Elencare le versioni di un segreto](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultAccessPolicyChangedEventGridNotification** | Evento di modifica dei criteri di accesso all'insieme di credenziali pubblicato |
+| **SecretNearExpiryEventGridNotification** |Evento di segreto vicino alla scadenza pubblicato |
+| **SecretExpiredEventGridNotification** |Evento di segreto scaduto pubblicato |
+| **KeyNearExpiryEventGridNotification** |Evento di chiave vicina alla scadenza pubblicato |
+| **KeyExpiredEventGridNotification** |Evento di chiave scaduta pubblicato |
+| **CertificateNearExpiryEventGridNotification** |Evento di certificato vicino alla scadenza pubblicato |
+| **CertificateExpiredEventGridNotification** |Evento di certificato scaduto pubblicato |
 
 ## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Usare i log di Monitoraggio di Azure
 

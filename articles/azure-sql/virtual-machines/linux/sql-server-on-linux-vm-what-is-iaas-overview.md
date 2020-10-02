@@ -1,22 +1,22 @@
 ---
-title: Panoramica delle SQL Server in macchine virtuali di Azure per Linux | Microsoft Docs
-description: Informazioni su come eseguire edizioni complete di SQL Server in macchine virtuali di Azure per Linux. con collegamenti diretti a tutte le immagini di VM Linux di SQL Server e ai contenuti correlati.
+title: Panoramica di SQL Server in macchine virtuali di Azure per Linux | Microsoft Docs
+description: Informazioni su come eseguire le edizioni complete di SQL Server in macchine virtuali di Azure per Linux. con collegamenti diretti a tutte le immagini di VM Linux di SQL Server e ai contenuti correlati.
 services: virtual-machines-linux
 documentationcenter: ''
 author: MashaMSFT
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: conceptual
+ms.topic: overview
 ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6e6038e2c0aa4f6b41c4a4da9bde6e98555ceb31
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
-ms.translationtype: MT
+ms.openlocfilehash: f7b1255553334bfaa75c5c0c96ecd36afa2c27f4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613558"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293765"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Panoramica di SQL Server in macchine virtuali di Azure (Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -25,47 +25,47 @@ ms.locfileid: "89613558"
 > * [Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 > * [Linux](sql-server-on-linux-vm-what-is-iaas-overview.md)
 
-SQL Server in macchine virtuali di Azure consente di usare le versioni complete di SQL Server nel cloud senza dover gestire hardware locale. Le VM di SQL Server semplificano anche i costi di licenza quando si sceglie il modello con pagamento in base al consumo.
+SQL Server in macchine virtuali di Azure consente di usare le versioni complete di SQL Server nel cloud senza la necessità di gestire hardware in locale. Le VM di SQL Server semplificano anche i costi di licenza quando si sceglie il modello con pagamento in base al consumo.
 
 Le macchine virtuali di Azure vengono eseguite in diverse [aree geografiche](https://azure.microsoft.com/regions/) in tutto il mondo. Offrono anche un'ampia gamma di [dimensioni](../../../virtual-machines/windows/sizes.md). La raccolta di immagini di macchine virtuali consente di creare una VM di SQL Server con la versione, l'edizione e il sistema operativo appropriati. Le macchine virtuali possono così rappresentare una valida opzione per numerosi carichi di lavoro di SQL Server diversi. 
 
-Se non si ha familiarità con SQL di Azure, consultare il video *sulla panoramica delle macchine virtuali SQL Server in Azure* dalla nostra [serie di video di Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)approfondita:
+Se non si ha familiarità con Azure SQL, vedere il video *Panoramica di SQL Server in macchine virtuali di Azure* della [serie di video approfonditi su Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
 
-## <a name="get-started-with-sql-server-vms"></a><a id="create"></a> Introduzione alle macchine virtuali SQL Server
+## <a name="get-started-with-sql-server-vms"></a><a id="create"></a> Introduzione alle VM di SQL Server
 
 Per iniziare, scegliere un'immagine di macchina virtuale di SQL Server con la versione, l'edizione e il sistema operativo appropriati. Le sezioni seguenti forniscono collegamenti diretti al portale di Azure per le immagini della raccolta di macchine virtuali di SQL Server.
 
 > [!TIP]
-> Per altre informazioni su come comprendere i prezzi per le immagini SQL Server, vedere [la pagina dei prezzi per le macchine virtuali Linux che eseguono SQL Server](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+> Per altre informazioni sui prezzi per le immagini di SQL Server, vedere la [pagina dei prezzi per macchine virtuali Linux che eseguono SQL Server](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 | Versione | Sistema operativo | Edizione |
 | --- | --- | --- |
 | **SQL Server 2019** | Ubuntu 18.04 | [Enterprise](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ubuntu1804enterprise-ARM), [Standard](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ubuntu1804standard-ARM), [Web](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ubuntu1804web-ARM), [Developer](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ubuntu1804sqldev-ARM) | 
 | **SQL Server 2019** | Red Hat Enterprise Linux (RHEL) 8 | [Enterprise](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-rhel8enterprise-ARM), [Standard](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-rhel8standard-ARM), [Web](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-rhel8web-ARM), [Developer](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-rhel8sqldev-ARM)|
-| **SQL Server 2019** | SUSE Linux Enterprise Server (SLES) V12 SP5 | [Enterprise](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-sles12sp5enterprise-ARM), [Standard](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-sles12sp5standard-ARM), [Web](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-sles12sp5web-ARM), [Developer](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-sles12sp5sqldev-ARM)|
+| **SQL Server 2019** | SUSE Linux Enterprise Server (SLES) v12 SP5 | [Enterprise](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-sles12sp5enterprise-ARM), [Standard](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-sles12sp5standard-ARM), [Web](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-sles12sp5web-ARM), [Developer](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-sles12sp5sqldev-ARM)|
 | **SQL Server 2017** | Red Hat Enterprise Linux (RHEL) 7.4 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonRedHatEnterpriseLinux74), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonRedHatEnterpriseLinux74), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonRedHatEnterpriseLinux74), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonRedHatEnterpriseLinux74), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonRedHatEnterpriseLinux74) |
 | **SQL Server 2017** | SUSE Linux Enterprise Server (SLES) v12 SP2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonSLES12SP2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonSLES12SP2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonSLES12SP2), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2) |
 | **SQL Server 2017** | Ubuntu 16.04 LTS |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS) |
 
 > [!NOTE]
-> Per visualizzare le immagini di macchine virtuali SQL Server disponibili per Windows, vedere [Panoramica di SQL Server in macchine virtuali di Azure (Windows)](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
+> Per informazioni sulle immagini di macchine virtuali di SQL Server disponibili per Windows, vedere [Panoramica di SQL Server in macchine virtuali di Azure (Windows)](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 
 ## <a name="installed-packages"></a><a id="packages"></a> Pacchetti installati
 
-Quando si configura SQL Server in Linux, installare il pacchetto di motore di database e quindi diversi pacchetti facoltativi a seconda delle esigenze. Le immagini di macchine virtuali Linux per SQL Server installano automaticamente la maggior parte dei pacchetti. La tabella seguente illustra i pacchetti installati per ogni distribuzione.
+Quando si configura SQL Server in Linux, si installano il pacchetto del motore di database e quindi diversi pacchetti facoltativi in base ai requisiti specifici. Le immagini di macchine virtuali Linux per SQL Server installano automaticamente la maggior parte dei pacchetti. La tabella seguente illustra i pacchetti installati per ogni distribuzione.
 
-| Distribuzione | [Motore di database](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Strumenti](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [Agente di SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Ricerca full-text](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Componente aggiuntivo per disponibilità elevata](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
+| Distribuzione | [Motore di database](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Strumenti](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server Agent](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Ricerca full-text](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Componente aggiuntivo per disponibilità elevata](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
-| RHEL | ![RHEL e motore di database](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL e strumenti](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL e agente SQL Server](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL e ricerca full-text](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL e SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Componente aggiuntivo RHEL e disponibilità elevata](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
-| SLES | ![SLES e motore di database](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES e strumenti](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES e SQL Server Agent](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES e ricerca full-text](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES e SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![Componente aggiuntivo SLES e disponibilità elevata](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
-| Ubuntu | ![Ubuntu e motore di database](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu e strumenti](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu e agente SQL Server](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu e ricerca full-text](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu e SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Componente aggiuntivo Ubuntu e disponibilità elevata](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
+| RHEL | ![RHEL e motore di database](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL e strumenti](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL e SQL Server Agent](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL e ricerca full-text](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL e SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL e componente aggiuntivo per la disponibilità elevata](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
+| SLES | ![SLES e motore di database](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES e strumenti](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES e SQL Server Agent](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES e ricerca full-text](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES e SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![SLES e componente aggiuntivo per la disponibilità elevata](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
+| Ubuntu | ![Ubuntu e motore di database](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu e strumenti](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu e SQL Server Agent](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu e ricerca full-text](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu e SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu e componente aggiuntivo per la disponibilità elevata](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
 
 ## <a name="related-products-and-services"></a>Prodotti e servizi correlati
 
 ### <a name="linux-virtual-machines"></a>Macchine virtuali Linux
 
-* [Panoramica di macchine virtuali di Azure](../../../virtual-machines/linux/overview.md)
+* [Panoramica delle macchine virtuali di Azure](../../../virtual-machines/linux/overview.md)
 
 ### <a name="storage"></a>Archiviazione
 
@@ -84,10 +84,10 @@ Quando si configura SQL Server in Linux, installare il pacchetto di motore di da
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Introduzione a SQL Server in Linux macchine virtuali:
+Introduzione alle macchine virtuali di SQL Server in Linux:
 
 * [Creare una VM di SQL Server nel portale di Azure](sql-vm-create-portal-quickstart.md)
 
-Risposte alle domande frequenti sulle macchine virtuali SQL Server in Linux:
+Risposte alle domande comuni sulle VM di SQL Server in Linux:
 
 * [Domande frequenti su SQL Server in macchine virtuali di Azure](frequently-asked-questions-faq.md)

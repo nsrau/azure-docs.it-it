@@ -1,64 +1,64 @@
 ---
 title: Panoramica di SQL Server nelle macchine virtuali Windows di Azure | Microsoft Docs
-description: Informazioni su come eseguire edizioni complete di SQL Server in macchine virtuali di Azure nel cloud senza dover gestire hardware locale.
+description: Informazioni su come eseguire le edizioni complete di SQL Server in macchine virtuali di Azure nel cloud senza la necessità di gestire hardware in locale.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 541f3e5ada69568506969f6406564a8ff59c0ba6
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
-ms.translationtype: MT
+ms.openlocfilehash: ae00703805bef6f5e9758bafcb781eda91cd93f9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613233"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272158"
 ---
-# <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Informazioni sulle SQL Server in macchine virtuali di Azure (Windows)
+# <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Cos'è SQL Server in macchine virtuali di Azure (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 > * [Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 
-[SQL Server in macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) consente di usare le versioni complete di SQL Server nel cloud senza dover gestire hardware locale. SQL Server macchine virtuali (VM) semplificano anche i costi di licenza quando si paga in base al consumo.
+[SQL Server in macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) consente di usare le versioni complete di SQL Server nel cloud senza la necessità di gestire hardware in locale. Le VM di SQL Server semplificano inoltre i costi delle licenze si sceglie il modello con pagamento in base al consumo.
 
-Le macchine virtuali di Azure vengono eseguite in diverse [aree geografiche](https://azure.microsoft.com/regions/) in tutto il mondo. Offrono anche un'ampia gamma di [dimensioni](../../../virtual-machines/windows/sizes.md). La raccolta di immagini di macchine virtuali consente di creare una VM di SQL Server con la versione, l'edizione e il sistema operativo appropriati. In questo modo le macchine virtuali sono un'opzione ideale per molti carichi di lavoro SQL Server diversi.
+Le macchine virtuali di Azure vengono eseguite in diverse [aree geografiche](https://azure.microsoft.com/regions/) in tutto il mondo. Offrono anche un'ampia gamma di [dimensioni](../../../virtual-machines/windows/sizes.md). La raccolta di immagini di macchine virtuali consente di creare una VM di SQL Server con la versione, l'edizione e il sistema operativo appropriati. Le macchine virtuali rappresentano quindi un'opzione valida per molti carichi di lavoro diversi di SQL Server.
 
-Se non si ha familiarità con SQL Server nelle macchine virtuali di Azure, vedere la pagina relativa alla panoramica della SQL Server nel video sulla *macchina virtuale* di Azure della [serie di video di Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)approfondita:
+Se non si ha familiarità con SQL Server in macchine virtuali di Azure, vedere il video *Panoramica di SQL Server in macchine virtuali di Azure* della [serie di video approfonditi su Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
 
 ## <a name="automated-updates"></a>Aggiornamenti automatici
 
-SQL Server in macchine virtuali di Azure possono usare l'applicazione [automatica delle patch](automated-patching.md) per pianificare una finestra di manutenzione per l'installazione automatica di importanti aggiornamenti di windows e SQL Server.
+SQL Server in macchine virtuali di Azure può usare l'[applicazione automatica delle patch](automated-patching.md) per pianificare una finestra di manutenzione per l'installazione automatica di importanti aggiornamenti di Windows e SQL Server.
 
 ## <a name="automated-backups"></a>Backup automatizzati
 
-SQL Server in macchine virtuali di Azure può avvalersi del [backup automatico](automated-backup.md), che consente di creare periodicamente backup del database nell'archivio BLOB. È anche possibile usare questa tecnica manualmente. Per altre informazioni, vedere [Usare Archiviazione di Azure per il backup e il ripristino di SQL Server](azure-storage-sql-server-backup-restore-use.md).
+SQL Server in macchine virtuali di Azure può sfruttare il [backup automatico](automated-backup.md), che crea periodicamente backup del database nell'archiviazione BLOB. È anche possibile usare questa tecnica manualmente. Per altre informazioni, vedere [Usare Archiviazione di Azure per il backup e il ripristino di SQL Server](azure-storage-sql-server-backup-restore-use.md).
 
-Azure offre anche una soluzione di backup di livello aziendale per SQL Server in esecuzione in macchine virtuali di Azure. Si tratta di una soluzione di backup completamente gestita che supporta gruppi di disponibilità Always On, conservazione a lungo termine, recupero temporizzato e gestione e monitoraggio centralizzati. Per altre informazioni, vedere [backup di Azure per SQL Server in macchine virtuali di Azure](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
+Azure offre anche una soluzione di backup di livello aziendale per SQL Server in esecuzione in macchine virtuali di Azure. Si tratta di una soluzione di backup completamente gestita che supporta gruppi di disponibilità Always On, conservazione a lungo termine, recupero temporizzato e gestione e monitoraggio centralizzati. Per altre informazioni, vedere [Backup di Azure per SQL Server in macchine virtuali di Azure](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
   
 
 ## <a name="high-availability"></a>Disponibilità elevata
 
-Se è necessaria la disponibilità elevata, è consigliabile configurare i gruppi di disponibilità di SQL Server. Questa operazione riguarda più istanze di SQL Server in macchine virtuali di Azure in una rete virtuale. È possibile configurare la soluzione a disponibilità elevata manualmente oppure è possibile usare i modelli nel portale di Azure per la configurazione automatica. Per una panoramica di tutte le opzioni di disponibilità elevata, vedere [disponibilità elevata e ripristino di emergenza per SQL Server in macchine virtuali di Azure](business-continuity-high-availability-disaster-recovery-hadr-overview.md).
+Se è necessaria la disponibilità elevata, è consigliabile configurare i gruppi di disponibilità di SQL Server. A questo scopo sono necessarie più istanze di SQL Server in macchine virtuali di Azure in una rete virtuale. È possibile configurare la soluzione a disponibilità elevata manualmente oppure usando i modelli nel portale di Azure per la configurazione automatica. Per una panoramica di tutte le opzioni di disponibilità elevata, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server in macchine virtuali di Azure](business-continuity-high-availability-disaster-recovery-hadr-overview.md).
 
 ## <a name="performance"></a>Prestazioni
 
-Le macchine virtuali di Azure sono disponibili in più dimensioni per soddisfare le diverse esigenze di carico di lavoro. SQL Server VM forniscono anche la configurazione di archiviazione automatica, ottimizzata in modo da soddisfare i requisiti di prestazioni. Per altre informazioni sulla configurazione dell'archiviazione per le macchine virtuali SQL Server, vedere [configurazione dell'archiviazione per le vm SQL Server](storage-configuration.md). Per ottimizzare le prestazioni, vedere le procedure consigliate [per le prestazioni per SQL Server in macchine virtuali di Azure](performance-guidelines-best-practices.md).
+Le macchine virtuali di Azure sono disponibili in più dimensioni per soddisfare le diverse esigenze di carico di lavoro. Le VM di SQL Server offrono anche la configurazione automatizzata dell'archiviazione, ottimizzata per requisiti di prestazioni specifici. Per altre informazioni sulla configurazione dell'archiviazione per le VM di SQL Server, vedere [Configurazione dell'archiviazione per le VM di SQL Server](storage-configuration.md). Per ottimizzare le prestazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in macchine virtuali di Azure](performance-guidelines-best-practices.md).
 
-## <a name="get-started-with-sql-server-vms"></a>Introduzione alle macchine virtuali SQL Server
+## <a name="get-started-with-sql-server-vms"></a>Introduzione alle VM di SQL Server
 
 Per iniziare, scegliere un'immagine di macchina virtuale di SQL Server con la versione, l'edizione e il sistema operativo appropriati. Le sezioni seguenti forniscono collegamenti diretti al portale di Azure per le immagini della raccolta di macchine virtuali di SQL Server.
 
 > [!TIP]
-> Per altre informazioni su come comprendere i prezzi per le immagini SQL Server, vedere [linee guida sui prezzi per SQL Server in macchine virtuali di Azure](pricing-guidance.md). 
+> Per altre informazioni sui prezzi delle immagini di SQL Server, vedere [Guida ai prezzi di SQL Server in macchine virtuali di Azure](pricing-guidance.md). 
 
 ### <a name="pay-as-you-go"></a><a id="payasyougo"></a> Pagamento in base al consumo
 La tabella seguente fornisce una matrice delle immagini di SQL Server con pagamento in base al consumo.
@@ -72,7 +72,7 @@ La tabella seguente fornisce una matrice delle immagini di SQL Server con pagame
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP4StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP4WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP4ExpressWindowsServer2012R2) |
 | **SQL Server 2008 R2 SP3** |Windows Server 2008 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2008R2) |
 
-Per visualizzare le immagini di macchine virtuali SQL Server in Linux disponibili, vedere [Panoramica di SQL Server in macchine virtuali di Azure (Linux)](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md).
+Per informazioni sulle immagini disponibili di macchine virtuali di SQL Server in Linux, vedere [Panoramica di SQL Server in macchine virtuali di Azure (Linux)](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md).
 
 > [!NOTE]
 > Per usare la licenza personale, è ora possibile modificare il modello di licenza di una macchina virtuale di SQL Server con pagamento in base all'utilizzo. Per altre informazioni, vedere [Come cambiare il livello di licenza per una macchina virtuale SQL Server](licensing-model-azure-hybrid-benefit-ahb-change.md). 
@@ -80,7 +80,7 @@ Per visualizzare le immagini di macchine virtuali SQL Server in Linux disponibil
 ### <a name="bring-your-own-license"></a><a id="BYOL"></a> Bring Your Own License
 È anche possibile scegliere l'opzione Bring Your Own License (BYOL). In questo scenario si paga solo per la VM senza altre spese per le licenze di SQL Server.  L'opzione Bring Your Own License consente di risparmiare denaro nel tempo per i carichi di lavoro di produzione continui. Per i requisiti per questa opzione, vedere [Guida ai prezzi per le VM di SQL Server in Azure](pricing-guidance.md#byol).
 
-Per usare la propria licenza, è possibile convertire una macchina virtuale SQL Server con pagamento in base all'utilizzo esistente oppure è possibile distribuire un'immagine con il prefisso **{BYOL}**. Per altre informazioni su come cambiare il modello di gestione delle licenze tra i costi di utilizzo e BYOL, vedere [How to change the licensing model for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+Per usare l'opzione Bring Your Own License, è possibile convertire una VM di SQL Server con pagamento in base all'utilizzo esistente oppure distribuire un'immagine con il prefisso **{BYOL}** . Per altre informazioni sul passaggio tra il modello di licenza con pagamento in base all'utilizzo e BYOL, vedere [Come cambiare il livello di licenza per una VM di SQL Server](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 | Versione | Sistema operativo | Edizione |
 | --- | --- | --- |
@@ -90,7 +90,7 @@ Per usare la propria licenza, è possibile convertire una macchina virtuale SQL 
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 
-È possibile distribuire un'immagine meno recente di SQL Server che non è disponibile nel portale di Azure usando PowerShell. Per visualizzare tutte le immagini disponibili tramite PowerShell, utilizzare il comando seguente:
+È possibile distribuire un'immagine meno recente di SQL Server che non è disponibile nel portale di Azure usando PowerShell. Per visualizzare tutte le immagini disponibili con PowerShell, usare il comando seguente:
 
   ```powershell
   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
@@ -100,10 +100,10 @@ Per altre informazioni sulla distribuzione di macchine virtuali di SQL Server us
 
 
 ### <a name="connect-to-the-vm"></a>Connettersi alla VM
-Una volta creata la VM di SQL Server, stabilire la connessione con applicazioni o strumenti come SQL Server Management Studio (SSMS). Per istruzioni, vedere [connettersi a una macchina virtuale SQL Server in Azure](ways-to-connect-to-sql.md).
+Una volta creata la VM di SQL Server, stabilire la connessione con applicazioni o strumenti come SQL Server Management Studio (SSMS). Per le istruzioni, vedere [Connettersi a una VM di SQL Server in Azure](ways-to-connect-to-sql.md).
 
 ### <a name="migrate-your-data"></a>Migrare i dati
-Se si dispone di un database esistente, è opportuno spostarlo nella macchina virtuale di SQL Server appena sottoposta a provisioning. Per le linee guida e un elenco di opzioni per la migrazione, vedere [Eseguire la migrazione di un database di SQL Server a SQL Server in una macchina virtuale di Azure](migrate-to-vm-from-sql-server.md).
+Se esiste già un database, è possibile spostarlo nella nuova VM di SQL Server di cui è stato effettuato il provisioning. Per le linee guida e un elenco di opzioni per la migrazione, vedere [Eseguire la migrazione di un database di SQL Server a SQL Server in una macchina virtuale di Azure](migrate-to-vm-from-sql-server.md).
 
 ## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Creare e gestire risorse SQL di Azure con il portale di Azure
 
@@ -131,7 +131,7 @@ Per informazioni dettagliate, vedere:
 - [Creare un'istanza gestita](../../managed-instance/instance-create-quickstart.md)
 - [Creare una singola macchina virtuale SQL Server](sql-vm-create-portal-quickstart.md)
 
-## <a name="sql-server-vm-image-refresh-policy"></a><a id="lifecycle"></a> SQL Server criteri di aggiornamento dell'immagine di macchina virtuale
+## <a name="sql-server-vm-image-refresh-policy"></a><a id="lifecycle"></a> Criteri di aggiornamento delle immagini di VM di SQL Server
 Azure gestisce una sola immagine di macchina virtuale per ogni combinazione supportata di sistema operativo, versione ed edizione. Ciò significa che le immagini vengono aggiornate nel tempo e quelle meno recenti vengono rimosse. Per altre informazioni, vedere la sezione **Immagini** delle [domande frequenti sulle macchine virtuali SQL Server](frequently-asked-questions-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Analisi utilizzo software
@@ -139,7 +139,7 @@ Il programma Analisi utilizzo software è abilitato per impostazione predefinita
 
 ## <a name="related-products-and-services"></a>Prodotti e servizi correlati
 ### <a name="windows-virtual-machines"></a>Macchine virtuali Windows
-* [Panoramica di macchine virtuali di Azure](../../../virtual-machines/windows/overview.md)
+* [Panoramica delle macchine virtuali di Azure](../../../virtual-machines/windows/overview.md)
 
 ### <a name="storage"></a>Archiviazione
 * [Introduzione ad Archiviazione di Microsoft Azure](../../../storage/common/storage-introduction.md)
