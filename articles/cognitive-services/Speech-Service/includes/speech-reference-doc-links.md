@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
-ms.openlocfilehash: 1b837797bf0baf025d350cec1918cf4a5b639416
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9074b10b9bf7f8147f70d77bcfbe02749e39154b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650598"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91643834"
 ---
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
@@ -24,12 +24,12 @@ Il servizio di riconoscimento vocale fornisce due SDK. Il primo SDK è l' [SDK d
 
 Usare l'elenco seguente per trovare la documentazione di riferimento dell'SDK vocale appropriata:
 
-- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">SDK PER C#<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">SDK PER C++<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">SDK Java<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">SDK PER C# <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">SDK PER C++ <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">SDK Java <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Python SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">JavaScript SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Objective-C SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Objective-C SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 > [!TIP]
 > L'SDK del servizio di riconoscimento vocale viene attivamente gestito e aggiornato. Per tenere traccia delle modifiche, gli aggiornamenti e le aggiunte delle funzionalità fanno riferimento alle [Note sulla versione dell'SDK di riconoscimento vocale](../releasenotes.md).
@@ -45,4 +45,4 @@ Per i riferimenti a diverse API REST del servizio vocale, vedere l'elenco seguen
 - [API REST: Riconoscimento vocale](../rest-speech-to-text.md)
 - [API REST: valutazione della pronuncia](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [API REST: Sintesi vocale](../rest-text-to-speech.md)
-- <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">API REST: trascrizione e personalizzazione di batch<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0" target="_blank" rel="noopener">API REST: trascrizione e personalizzazione di batch <span class="docon docon-navigate-external x-hidden-focus"></span></a>

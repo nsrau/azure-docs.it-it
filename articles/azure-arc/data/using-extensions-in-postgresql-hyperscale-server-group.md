@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 19b2ec283619df0cc8d3c880cb2df6f53f6fb332
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 58386786266c48c6e721094f9f2837709bb684e5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939102"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631767"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Usare le estensioni di PostgreSQL nel gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc
 
@@ -30,6 +30,7 @@ Oltre alle estensioni in [`contrib`](https://www.postgresql.org/docs/12/contrib.
 - `pg_cron`, v: 1,2
 - `plpgsql`, v: 1,0
 - `postgis`, v: 3.0.2
+- `plv8`, v: 2.3.14
 
 Questo elenco è in continua evoluzione e gli aggiornamenti verranno pubblicati in questo documento. Non è ancora possibile aggiungere estensioni oltre a quelle elencate in precedenza.
 
@@ -240,3 +241,7 @@ Per informazioni dettagliate sulla sintassi, vedere il [file leggimi pg_cron](ht
 >[!NOTE]
 >Non è supportato per eliminare l' `citus` estensione. L' `citus` estensione è necessaria per fornire l'esperienza di iperscalabilità.
 
+## <a name="next-steps"></a>Passaggi successivi:
+- Leggi la documentazione su [PLV8](https://plv8.github.io/)
+- Leggi la documentazione su [PostGIS](https://postgis.net/)
+- Leggi la documentazione su [`pg_cron`](https://github.com/citusdata/pg_cron)

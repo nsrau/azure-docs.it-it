@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 5657741a1496084b55d2f76aef12c5e84c274feb
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6e3d87d613db63e05ddee47d43aead779eca75c3
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918129"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628010"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configurazione DNS dell'endpoint privato di Azure
 
@@ -74,7 +74,7 @@ Per i servizi di Azure, usare i nomi di zona consigliati come descritto nella ta
 | Azure Machine Learning (Microsoft. MachineLearningServices/Workspaces)/area di lavoro | privatelink.api.azureml.ms | api.azureml.ms |
 | Hub Internet (Microsoft. Devices/IotHubs)/IotHub | privatelink.azure-devices.net | azure-devices.net |
 | SignalR (Microsoft. SignalRService/SignalR)/SignalR | privatelink.service.signalr.net | service.signalr.net |
-| Monitoraggio di Azure (Microsoft. Insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.com | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.com |
+| Monitoraggio di Azure (Microsoft. Insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | Servizi cognitivi (Microsoft. CognitiveServices/accounts)/account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Sincronizzazione file di Azure (Microsoft. StorageSync/storageSyncServices)/AFS |  privatelink.afs.azure.net  |  afs.azure.net  |
 
@@ -121,7 +121,7 @@ Questo modello può essere esteso a più reti virtuali con peering associate all
 
 In questo scenario è presente una topologia di rete [hub-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) con le reti spoke che condividono un endpoint privato comune e tutte le reti virtuali spoke sono collegate alla stessa zona DNS privata. 
 
-:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hub-spoke con DNS fornito da Azure":::
+:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Rete virtuale singola e DNS fornito da Azure":::
 
 ## <a name="on-premises-workloads-using-a-dns-forwarder"></a>Carichi di lavoro locali con server d'inoltro DNS
 
@@ -142,7 +142,7 @@ Per configurare correttamente, sono necessarie le risorse seguenti:
 
 Il diagramma seguente illustra la sequenza di risoluzione DNS da una rete locale che usa un server di destinazione DNS distribuito in Azure, in cui la risoluzione viene eseguita da una zona DNS privata [collegata a una rete virtuale](../dns/private-dns-virtual-network-links.md):
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Rete locale che usa DNS di Azure":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Rete virtuale singola e DNS fornito da Azure":::
 
 Questa configurazione può essere estesa per una rete locale in cui è già presente una soluzione DNS. 
 La soluzione DNS locale deve essere configurata per l'invio del traffico DNS a DNS di Azure tramite un server d'istruzione [condizionale](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) che fa riferimento al server di distribuzione DNS distribuito in Azure.
@@ -163,7 +163,7 @@ Il diagramma seguente illustra la sequenza di risoluzione DNS da una rete locale
 > [!IMPORTANT]
 > L'invio condizionale deve essere eseguito al server d'istruzione [pubblico di zona DNS pubblico](#azure-services-dns-zone-configuration)consigliato.Ad esempio:  `database.windows.net`   invece di **privatelink**. database.Windows.NET.
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Inoltro locale al servizio DNS di Azure":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Rete virtuale singola e DNS fornito da Azure":::
 
 ## <a name="virtual-network-and-on-premises-workloads-using-a-dns-forwarder"></a>Rete virtuale e carichi di lavoro locali usando un server di un server d'invio
 
@@ -190,7 +190,7 @@ Per configurare correttamente, sono necessarie le risorse seguenti:
 
 Il diagramma seguente illustra la sequenza di risoluzione DNS da una rete locale e una rete virtuale che usa un server di destinazione DNS distribuito in Azure, in cui la risoluzione viene eseguita da una zona DNS privata [collegata a una rete virtuale](../dns/private-dns-virtual-network-links.md):
 
-:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Scenario ibrido":::
+:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Rete virtuale singola e DNS fornito da Azure":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Informazioni sugli endpoint privati](private-endpoint-overview.md)

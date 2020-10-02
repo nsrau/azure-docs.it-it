@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: f0f14bf24bd867344ec72c86a6fd517085b66d1f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ed836e3df28c5e39aa7f9d21f020c0d37292dcfc
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317553"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631801"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia di analisi per il marketplace commerciale e domande comuni
 
@@ -45,6 +45,7 @@ Se si riceve questo messaggio, sono presenti dati analitici, ma non per l'interv
 | Tipo di licenza di Azure: Enterprise | Cliente, ordine | Il cliente finale ottiene Azure e l'offerta del Marketplace dell'utente tramite un contratto Enterprise Agreement firmato direttamente con Microsoft.|
 | Tipo di licenza di Azure: Enterprise tramite rivenditore  | Cliente, ordine | Il cliente finale ottiene Azure e l'offerta nel marketplace tramite un rivenditore che ne semplifica il Contratto Enterprise con Microsoft.|
 | Tipo di licenza di Azure: Pagamento a consumo| Cliente, ordine | Il cliente finale ottiene Azure e l'offerta nel marketplace tramite un contratto con pagamento in base al consumo firmato direttamente con Microsoft.|
+| ID account di fatturazione| Cliente, ordine, utilizzo| Identificatore dell'account in cui viene generata la fatturazione. Utilizzare questo attributo per connettere i report analitici al report delle transazioni di pagamento.|
 | Nome dell'istanza cloud| Ordine| Microsoft Cloud in cui sono state distribuite le macchine virtuali.|
 | Nome istanza cloud: Azure Global| JSON| Cloud Microsoft globale pubblico.|
 | Nome istanza cloud: Azure Government | Ordine| Cloud Microsoft specifici per enti pubblici per uno degli enti pubblici seguenti: Cina, Germania o Stati Uniti.| |
@@ -64,8 +65,8 @@ Se si riceve questo messaggio, sono presenti dati analitici, ma non per l'interv
 | Is Promotional Contact Opt In (Consenso esplicito contatti promozionali)| Customer| Indica se il cliente ha acconsentito esplicitamente ai contatti promozionali da parte degli editori. Al momento l'opzione non è presentata ai clienti, pertanto è stato indicato "No" a livello generale. Dopo la distribuzione della funzionalità, si procederà all'aggiornamento dovuto.|
 | Marketplace License Type| Ordine| Metodo di fatturazione dell'offerta del Marketplace dell'utente.|
 | Tipo di licenza Marketplace: Fatturazione con Azure| Ordine| Microsoft è l'agente per questa offerta del Marketplace dell'utente ed emette le fatture al cliente per conto dell'utente. Il pagamento avviene con l'uso di carta di credito per pagamento in base al consumo o fattura aziendale.|
-| Tipo di licenza Marketplace: Bring Your Own License | Ordine| Per poter essere distribuita, la macchina virtuale richiede un codice di licenza fornito dal cliente. Microsoft non addebita ai clienti la presentazione delle proprie offerte in questo modo tramite il marketplace.|
-| Tipo di licenza Marketplace: Gratuito| JSON| L'offerta è configurata come gratuita per tutti gli utenti. Microsoft non addebita ai clienti l'utilizzo di questa offerta.|
+| Tipo di licenza Marketplace: Bring Your Own License | JSON| Per poter essere distribuita, la macchina virtuale richiede un codice di licenza fornito dal cliente. Microsoft non addebita ai clienti la presentazione delle proprie offerte in questo modo tramite il marketplace.|
+| Tipo di licenza Marketplace: Gratuito| Ordine| L'offerta è configurata come gratuita per tutti gli utenti. Microsoft non addebita ai clienti l'utilizzo di questa offerta.|
 | Tipo di licenza Marketplace: Microsoft come rivenditore  | Ordine| Microsoft è il rivenditore di questa offerta del Marketplace dell'utente.|
 | ID sottoscrizione Marketplace | Cliente, ordine | Identificatore univoco associato alla sottoscrizione di Azure usata dal cliente per acquistare l'offerta nel marketplace. L'ID è stato in precedenza il GUID della sottoscrizione di Azure.|
 | Nome offerta  | JSON| Nome dell'offerta nel marketplace.|

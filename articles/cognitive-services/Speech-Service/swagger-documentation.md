@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: e42d9713d1d61bb681c0ee51e46cc52eb0bcc807
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 30e8224b6cb757f044a5eac598d834cee838391e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91363189"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629982"
 ---
 # <a name="swagger-documentation"></a>Documentazione di Swagger
 
@@ -26,21 +26,20 @@ Il servizio riconoscimento vocale offre una specifica di spavalderia per interag
 
 ## <a name="generating-code-from-the-swagger-specification"></a>Generazione di codice dalla specifica di Swagger
 
-La [specifica di Swagger](https://cris.ai/swagger/ui/index) include opzioni che consentono di testare rapidamente diversi percorsi. A volte è tuttavia preferibile generare il codice per tutti i percorsi, creando una singola libreria di chiamate su cui poter basare le soluzioni future. Verrà ora illustrato il processo per generare una libreria Python.
+La [specifica di Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) include opzioni che consentono di testare rapidamente diversi percorsi. A volte è tuttavia preferibile generare il codice per tutti i percorsi, creando una singola libreria di chiamate su cui poter basare le soluzioni future. Verrà ora illustrato il processo per generare una libreria Python.
 
 È necessario impostare spavalderia sulla stessa area della sottoscrizione del servizio di riconoscimento vocale. È possibile confermare l'area nel portale di Azure nella risorsa del servizio di riconoscimento vocale. Per un elenco completo delle aree supportate, vedere [aree](regions.md).
 
-1. Passare a https://editor.swagger.io.
-2. Fare clic su **File** e quindi su **Import** (Importa).
-3. Immettere l'URL di spavalderia, inclusa l'area per la sottoscrizione al servizio di riconoscimento vocale `https://<your-region>.cris.ai/docs/v2.0/swagger`
-4. Fare clic su **genera client** e selezionare Python
-5. Salvare la libreria client
+1. In un browser passare alla specifica di spavalderia per l'area geografica `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0` . In questa pagina fare clic su **definizione API**e quindi su **spavalderia**. Copiare l'URL della pagina visualizzata.
+1. In un nuovo browser passare a https://editor.swagger.io
+1. Fare clic su **file**, quindi su **Importa URL**, incollare l'URL e fare clic su **OK**.
+1. Fare clic su **genera client** e selezionare **Python**. La libreria client viene scaricata nel computer.
 
 È possibile usare la libreria Python generata con gli esempi di [servizio vocale su GitHub](https://aka.ms/csspeech/samples).
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
-* [REST (spavalderia): trascrizione e personalizzazione di batch](https://westus.cris.ai/swagger/ui/index)
+* [REST (spavalderia): trascrizione e personalizzazione di batch](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 * [API REST: Riconoscimento vocale](rest-speech-to-text.md)
 * [API REST: Sintesi vocale](rest-text-to-speech.md)
 

@@ -3,12 +3,12 @@ title: Hub eventi come gestore eventi per gli eventi di Griglia di eventi di Azu
 description: Spiega in che modo usare gli hub eventi come gestori degli eventi di Griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 5e6a84c1737c6b8a575f47576aeb1d3d9efae6eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4fb8027290831dbfed4b6d202d61d2d689274828
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322564"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629625"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Hub eventi come gestore eventi per gli eventi di Griglia di eventi di Azure
 Un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue un'azione per elaborare l'evento. Diversi servizi di Azure vengono configurati automaticamente per gestire eventi, uno dei quali è **Hub eventi di Azure**. 
@@ -81,9 +81,6 @@ Se si usa un **Hub eventi** come gestore eventi per gli eventi da griglia di eve
     }
 }
 ```
-
-> [!NOTE]
-> La distribuzione di eventi a un hub eventi di Azure in **un altro tenant** non è supportata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco di gestori eventi supportati, vedere l'articolo [Gestori eventi](event-handlers.md). 

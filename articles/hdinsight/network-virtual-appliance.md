@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 1dcc345260c6a0844344bb33dec94c40d1dd9a54
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 407160a5c315844003db4c5e371a03e6e25d2694
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650872"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630934"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurare l'appliance virtuale di rete in Azure HDInsight
 
@@ -23,7 +23,7 @@ Il firewall di Azure viene configurato automaticamente per consentire il traffic
 
 * Gli endpoint di servizio che supportano i servizi possono essere configurati con gli endpoint di servizio, causando il bypass dell'appliance virtuale di dispositivo, in genere per considerazioni su costi o prestazioni
 * Le dipendenze degli indirizzi IP sono per il traffico non HTTP/S (traffico TCP e UDP).
-* Gli endpoint HTTP/HTTPS FQDN possono essere inclusi nell'elenco elementi consentiti nel dispositivo NVA.
+* Gli endpoint HTTP/HTTPS FQDN possono essere approvati nel dispositivo NVA.
 * Assegnare la tabella di route creata alla subnet HDInsight.
 
 ## <a name="service-endpoint-capable-dependencies"></a>Dipendenze con supporto per endpoint di servizio

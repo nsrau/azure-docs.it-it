@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235537"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629013"
 ---
 # <a name="on-demand-provisioning"></a>Provisioning su richiesta
 Usare il provisioning su richiesta per eseguire il provisioning di un utente in un'applicazione in pochi secondi. Tra le altre cose, è possibile usare questa funzionalità per:
@@ -28,12 +28,15 @@ Usare il provisioning su richiesta per eseguire il provisioning di un utente in 
 ## <a name="how-to-use-on-demand-provisioning"></a>Come usare il provisioning su richiesta
 
 1. Accedere al **portale di Azure**.
-2. Passare a **tutti i servizi**  >  **applicazioni aziendali**.
-3. Selezionare l'applicazione, quindi passare alla pagina di configurazione del provisioning.
-4. Configurare il provisioning fornendo le credenziali di amministratore.
-5. Selezionare **il provisioning su richiesta**.
-6. Cercare un utente per nome, cognome, nome visualizzato, nome dell'entità utente o indirizzo di posta elettronica.
-7. Selezionare **provision (provisioning** ) nella parte inferiore della pagina.
+1. Passare a **tutti i servizi**  >  **applicazioni aziendali**.
+1. Selezionare l'applicazione, quindi passare alla pagina di configurazione del provisioning.
+1. Configurare il provisioning fornendo le credenziali di amministratore.
+1. Selezionare **il provisioning su richiesta**.
+1. Cercare un utente per nome, cognome, nome visualizzato, nome dell'entità utente o indirizzo di posta elettronica.
+   > [!NOTE]
+   > Per l'app di provisioning HR cloud (giorno lavorativo/SuccessFactors ad ad/Azure AD), il valore di input è diverso. Per lo scenario di giornata lavorativa, fornire "WID" dell'utente nella giornata lavorativa. Per lo scenario SuccessFactors, immettere "personIdExternal" dell'utente in SuccessFactors. 
+ 
+1. Selezionare **provision (provisioning** ) nella parte inferiore della pagina.
 
 :::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Screenshot che mostra l'interfaccia utente di portale di Azure per il provisioning di un utente su richiesta.":::
 
@@ -121,7 +124,7 @@ Infine, il servizio di provisioning esegue un'azione, ad esempio la creazione, l
 
 Di seguito è riportato un esempio di ciò che è possibile vedere dopo il completamento del provisioning su richiesta di un utente:
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Screenshot che mostra il completamento del provisioning su richiesta di un utente.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Screenshot che mostra l'interfaccia utente di portale di Azure per il provisioning di un utente su richiesta.":::
 
 #### <a name="view-details"></a>Visualizza i dettagli
 
@@ -144,7 +147,7 @@ Esistono attualmente alcune limitazioni note per il provisioning su richiesta. P
 > [!NOTE]
 > Le limitazioni seguenti sono specifiche per la funzionalità di provisioning su richiesta. Per informazioni sull'eventuale supporto di gruppi, eliminazioni o altre funzionalità da parte di un'applicazione, vedere l'esercitazione relativa a tale applicazione.
 
-* La giornata lavorativa, Amazon Web Services (AWS) e le applicazioni SuccessFactors non supportano il provisioning su richiesta. 
+* L'applicazione Amazon Web Services (AWS) non supporta il provisioning su richiesta. 
 * Il provisioning su richiesta di gruppi e ruoli non è supportato.
 * Il provisioning su richiesta supporta la disabilitazione degli utenti che non sono stati assegnati dall'applicazione. Tuttavia, non supporta la disabilitazione o l'eliminazione di utenti che sono stati disabilitati o eliminati da Azure AD. Questi utenti non verranno visualizzati quando si cerca un utente.
 

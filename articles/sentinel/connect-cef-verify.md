@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2020
+ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: f6892f4ebb250290a0faad546fd000530baf4479
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 643b28b2e88f233d2924270511d3c87fa4d9b767
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038172"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631631"
 ---
 # <a name="step-3-validate-connectivity"></a>PASSAGGIO 3: convalidare la connettività
 
@@ -54,7 +54,7 @@ Lo script di convalida esegue i controlli seguenti:
 
 1. Verifica che il file includa il testo seguente:
 
-    ```console
+    ```bash
     <source>
         type syslog
         port 25226
@@ -72,24 +72,59 @@ Lo script di convalida esegue i controlli seguenti:
     </filter>
     ```
 
+1. Verifica che l'analisi di Cisco ASA per gli eventi del firewall sia configurata come previsto:
+
+    ```bash
+    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
+        /opt/microsoft/omsagent/plugin/security_lib.rb && 
+        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Verifica che il campo *computer* nell'origine syslog sia mappato correttamente nell'agente di log Analytics:
+
+    ```bash
+    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
+        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
+        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
 1. Controlla se nel computer sono presenti miglioramenti della sicurezza che potrebbero bloccare il traffico di rete, ad esempio un firewall host.
 
-1. Verifica che il daemon syslog (rsyslog) sia configurato correttamente per inviare i messaggi identificati come CEF (usando un'espressione regolare) all'agente Log Analytics sulla porta TCP 25226:
+1. Verifica che il daemon syslog (rsyslog) sia configurato correttamente per l'invio di messaggi (che identifica come CEF) all'agente Log Analytics sulla porta TCP 25226:
 
-    - File di configurazione:`/etc/rsyslog.d/security-config-omsagent.conf`
+    - File di configurazione: `/etc/rsyslog.d/security-config-omsagent.conf`
 
-        ```console
-        :rawmsg, regex, "CEF"|"ASA"
-        *.* @@127.0.0.1:25226
+        ```bash
+        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226 
         ```
-  
-1. Verifica che il daemon syslog riceva dati sulla porta 514
 
-1. Verifica che siano stabilite le connessioni necessarie: TCP 514 per la ricezione di dati, TCP 25226 per la comunicazione interna tra il daemon syslog e l'agente di Log Analytics
+1. Riavvia il daemon syslog e l'agente di Log Analytics:
+
+    ```bash
+    service rsyslog restart
+
+    /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Verifica che siano stabilite le connessioni necessarie: TCP 514 per la ricezione di dati, TCP 25226 per la comunicazione interna tra il daemon syslog e l'agente di Log Analytics:
+
+    ```bash
+    netstat -an | grep 514
+
+    netstat -an | grep 25226
+    ```
+
+1. Verifica che il daemon syslog riceva dati sulla porta 514 e che l'agente riceva i dati sulla porta 25226:
+
+    ```bash
+    sudo tcpdump -A -ni any port 514 -vv
+
+    sudo tcpdump -A -ni any port 25226 -vv
+    ```
 
 1. Invia dati fittizi alla porta 514 in localhost. Questi dati devono essere osservabili nell'area di lavoro di Azure Sentinel eseguendo la query seguente:
 
-    ```console
+    ```kusto
     CommonSecurityLog
     | where DeviceProduct == "MOCK"
     ```
@@ -102,7 +137,7 @@ Lo script di convalida esegue i controlli seguenti:
 
 1. Verifica che il file includa il testo seguente:
 
-    ```console
+    ```bash
     <source>
         type syslog
         port 25226
@@ -120,25 +155,61 @@ Lo script di convalida esegue i controlli seguenti:
     </filter>
     ```
 
+1. Verifica che l'analisi di Cisco ASA per gli eventi del firewall sia configurata come previsto:
+
+    ```bash
+    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
+        /opt/microsoft/omsagent/plugin/security_lib.rb && 
+        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Verifica che il campo *computer* nell'origine syslog sia mappato correttamente nell'agente di log Analytics:
+
+    ```bash
+    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
+        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
+        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
 1. Controlla se nel computer sono presenti miglioramenti della sicurezza che potrebbero bloccare il traffico di rete, ad esempio un firewall host.
 
 1. Verifica che il daemon syslog (syslog-ng) sia configurato correttamente per inviare messaggi identificati come CEF (usando un'espressione regolare) all'agente Log Analytics sulla porta TCP 25226:
 
-    - File di configurazione:`/etc/syslog-ng/conf.d/security-config-omsagent.conf`
+    - File di configurazione: `/etc/syslog-ng/conf.d/security-config-omsagent.conf`
 
-        ```console
+        ```bash
         filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
         destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
         log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
         ```
 
-1. Verifica che il daemon syslog riceva dati sulla porta 514
+1. Riavvia il daemon syslog e l'agente di Log Analytics:
 
-1. Verifica che siano stabilite le connessioni necessarie: TCP 514 per la ricezione di dati, TCP 25226 per la comunicazione interna tra il daemon syslog e l'agente di Log Analytics
+    ```bash
+    service syslog-ng restart
+
+    /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Verifica che siano stabilite le connessioni necessarie: TCP 514 per la ricezione di dati, TCP 25226 per la comunicazione interna tra il daemon syslog e l'agente di Log Analytics:
+
+    ```bash
+    netstat -an | grep 514
+
+    netstat -an | grep 25226
+    ```
+
+1. Verifica che il daemon syslog riceva dati sulla porta 514 e che l'agente riceva i dati sulla porta 25226:
+
+    ```bash
+    sudo tcpdump -A -ni any port 514 -vv
+
+    sudo tcpdump -A -ni any port 25226 -vv
+    ```
 
 1. Invia dati fittizi alla porta 514 in localhost. Questi dati devono essere osservabili nell'area di lavoro di Azure Sentinel eseguendo la query seguente:
 
-    ```console
+    ```kusto
     CommonSecurityLog
     | where DeviceProduct == "MOCK"
     ```

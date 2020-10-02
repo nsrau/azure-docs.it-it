@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1177551b698bb2e295a71f6cd4a132411d1c5bea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f97b7cb836009683a689fc49882e61ce66abac58
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210695"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627075"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Ottimizzare le prestazioni tramite l'aggiornamento del pool SQL di Azure sinapsi Analytics
 
@@ -114,7 +114,7 @@ Aggiornare il pool SQL alla generazione più recente dell'architettura hardware 
 
    > [!NOTE]
    > Se la scheda **Aggiorna alla seconda generazione** non è visualizzata sotto la scheda Attività, il tipo di sottoscrizione è limitato nell'area corrente.
-   > [Inviare un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) per fare inserire la sottoscrizione nell'elenco elementi consentiti.
+   > [Invia un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) per richiedere l'approvazione della sottoscrizione.
 
 3. Assicurarsi che il carico di lavoro abbia completato l'esecuzione e sia inattivo prima dell'aggiornamento. Si verificheranno tempi di inattività per alcuni minuti prima che il pool SQL sia nuovamente online come pool SQL ottimizzato per il livello Gen2 di calcolo. **Selezionare l'aggiornamento**:
 

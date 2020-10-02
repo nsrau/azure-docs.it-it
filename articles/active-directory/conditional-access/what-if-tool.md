@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db76ec2bc2fc8640214f962a809fee559b4c4af3
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: bebd32d2773ca86638de221d305079bb262e3e5e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948199"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631427"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Risoluzione dei problemi di Accesso condizionale tramite lo strumento What If
 
@@ -30,13 +30,13 @@ Lo **strumento criteri di What If di accesso condizionale** consente di comprend
 
 Lo strumento **What If** fornisce un modo per determinare rapidamente i criteri applicati a un utente specifico. Queste informazioni possono essere usate, ad esempio, se è necessario risolvere un problema.    
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Nello **strumento di What If dell'accesso condizionale**, è prima di tutto necessario configurare le impostazioni dello scenario di accesso che si vuole simulare. Le impostazioni includono:
 
 - L'utente da testare 
 - Le app cloud a cui l'utente proverà ad accedere
-- Le condizioni in cui viene eseguito l'accesso alle app cloud configurate
+- Condizioni in base alle quali viene eseguito l'accesso alle app Cloud configurate
      
 Come passaggio successivo, è possibile avviare una simulazione per valutare le impostazioni. Una valutazione prende in esame solo i criteri abilitati.
 
@@ -86,7 +86,7 @@ Per impostazione predefinita, esegue la valutazione di tutti i criteri per i qua
 
 Questa impostazione simula la [condizione di rischio di accesso](concept-conditional-access-conditions.md#sign-in-risk).   
 
-## <a name="evaluation"></a>Versione di valutazione 
+## <a name="evaluation"></a>Valutazione 
 
 Per avviare una valutazione, fare clic su **What If**. Al termine della valutazione, viene generato un report contenente gli elementi seguenti: 
 

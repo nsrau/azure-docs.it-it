@@ -2,13 +2,13 @@
 title: Risolvere i problemi di rete con il registro di sistema
 description: Sintomi, cause e risoluzione dei problemi comuni durante l'accesso a un registro contenitori di Azure in una rete virtuale o dietro a un firewall
 ms.topic: article
-ms.date: 08/11/2020
-ms.openlocfilehash: 06c5b65537fd7d256010260bb3a93888721f643b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/01/2020
+ms.openlocfilehash: c2ae8609dbd28a1a39a634e3c065030552aefb06
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532449"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630951"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Risolvere i problemi di rete con il registro di sistema
 
@@ -22,6 +22,7 @@ Può includere uno o più degli elementi seguenti:
 * Non è possibile eseguire il push o il pull delle immagini e si riceve un errore dell'interfaccia della `Could not connect to the registry login server`
 * Non è possibile estrarre le immagini dal registro di sistema al servizio Azure Kubernetes o a un altro servizio di Azure
 * Non è possibile accedere a un registro di sistema dietro un proxy HTTPS e si riceve un errore `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* Non è possibile configurare le impostazioni della rete virtuale e viene visualizzato l'errore `Failed to save firewall and virtual network settings for container registry`
 * Non è possibile accedere alle impostazioni del registro di sistema o visualizzarle in portale di Azure o gestire il registro di sistema con l'interfaccia
 * Non è possibile aggiungere o modificare le impostazioni della rete virtuale o le regole di accesso pubblico
 * Le attività ACR non sono in grado di eseguire il push o il pull delle immagini
@@ -47,7 +48,7 @@ Vedere [verificare l'integrità di un registro contenitori di Azure](container-r
 
 ### <a name="configure-client-firewall-access"></a>Configurare l'accesso al firewall client
 
-Per accedere a un registro da dietro un firewall client o un server proxy, configurare le regole del firewall per accedere agli endpoint di dati e REST del registro di sistema. Se gli [endpoint dati dedicati](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) sono abilitati, è necessario disporre di regole per accedere a:
+Per accedere a un registro da dietro un firewall client o un server proxy, configurare le regole del firewall per accedere agli endpoint di dati e REST pubblici del registro di sistema. Se gli [endpoint dati dedicati](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) sono abilitati, è necessario disporre di regole per accedere a:
 
 * Endpoint REST: `<registryname>.azurecr.io`
 * Endpoint dati: `<registry-name>.<region>.data.azurecr.io`
@@ -85,6 +86,8 @@ Verificare che la rete virtuale sia configurata con un endpoint privato per il c
 Esaminare le regole e i tag del servizio NSG usati per limitare il traffico da altre risorse della rete al registro di sistema. 
 
 Se è configurato un endpoint di servizio per il registro di sistema, verificare che venga aggiunta una regola di rete al registro di sistema che consenta l'accesso da tale subnet di rete. L'endpoint servizio supporta solo l'accesso da macchine virtuali e cluster AKS nella rete.
+
+Se si vuole limitare l'accesso al registro di sistema usando una rete virtuale in un'altra sottoscrizione di Azure, assicurarsi di registrare il `Microsoft.ContainerRegistry` provider di risorse nella sottoscrizione. [Registrare il provider di risorse](../azure-resource-manager/management/resource-providers-and-types.md) per Azure container Registry usando il portale di Azure, l'interfaccia della riga di comando di Azure o altri strumenti di Azure.
 
 Se nella rete è configurato un firewall di Azure o una soluzione simile, verificare che il traffico in uscita da altre risorse, ad esempio un cluster AKS, sia abilitato per raggiungere gli endpoint del registro di sistema.
 

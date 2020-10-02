@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 6808117728569ba6fd0b094c7330ce9a1baa24c4
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 59bfdbf2d78497bc253f466e94fd69367a85070d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618608"
+ms.locfileid: "91631784"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Distribuire un contenitore personalizzato nel servizio app usando le azioni di GitHub
 
@@ -23,7 +23,7 @@ Per un flusso di lavoro del contenitore del servizio app Azure, il file è costi
 
 |Sezione  |Attività  |
 |---------|---------|
-|**autenticazione** | 1. entità servizio o profilo di pubblicazione. <br /> 2. creare un segreto GitHub. |
+|**autenticazione** | 1. recuperare un'entità servizio o un profilo di pubblicazione. <br /> 2. creare un segreto GitHub. |
 |**Build** | 1. creare l'ambiente. <br /> 2. compilare l'immagine del contenitore. |
 |**Distribuzione** | 1. distribuire l'immagine del contenitore. |
 

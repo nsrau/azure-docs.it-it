@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 9d58a8c1dc79c10ed42fd1675115eb14f2ad4d3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283732"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628367"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Connettere l'applicazione a un'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,10 +45,10 @@ Sono disponibili due opzioni per la connessione di reti virtuali:
 - [Peering di Azure VNet](../../virtual-network/virtual-network-peering-overview.md)
 - Gateway da rete virtuale a rete virtuale ([portale di Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Interfaccia della riga di comando di Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
-Il peering è preferibile perché usa la rete backbone Microsoft. Pertanto, dal punto di vista della connettività, non esiste alcuna differenza evidente nella latenza tra le macchine virtuali in una rete virtuale con peering e nella stessa rete virtuale. Il peering di rete virtuale è limitato alle reti nella stessa area.  
+Il peering è preferibile perché usa la rete backbone Microsoft. Pertanto, dal punto di vista della connettività, non esiste alcuna differenza evidente nella latenza tra le macchine virtuali in una rete virtuale con peering e nella stessa rete virtuale. Il peering di rete virtuale è supportato tra le reti nella stessa area. Il peering di rete virtuale globale è supportato anche con la limitazione descritta nella nota riportata di seguito.  
 
 > [!IMPORTANT]
-> Lo scenario di peering di rete virtuale per SQL Istanza gestita è limitato alle reti nella stessa area a causa dei [vincoli del peering di rete virtuale globale](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Per altri dettagli, vedere anche la sezione pertinente dell'articolo [domande frequenti sulle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
+> [Il 9/22/2020 abbiamo annunciato il peering di rete virtuale globale per i cluster virtuali appena creati](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Ciò significa che il peering di rete virtuale globale è supportato per le istanze gestite di SQL create in subnet vuote dopo la data di annuncio, nonché per tutte le istanze gestite successive create in tali subnet. Per tutte le altre istanze di SQL gestito, il supporto del peering è limitato alle reti nella stessa area a causa dei [vincoli del peering di rete virtuale globale](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Per altri dettagli, vedere anche la sezione pertinente dell'articolo [domande frequenti sulle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
 
 ## <a name="connect-from-on-premises"></a>Connetti da locale 
 

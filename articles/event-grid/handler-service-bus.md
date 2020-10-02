@@ -3,12 +3,12 @@ title: Code e argomenti del bus di servizio come gestori per gli eventi di Grigl
 description: Descrive come usare code e argomenti del bus di servizio come gestori per gli eventi di Griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 00f937a66ff17c2d5f502fe976675c999ee02a58
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ab219f0dc6009dc01d5915995fc04094e72a88cf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270169"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629506"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Code e argomenti del bus di servizio come gestori per gli eventi di Griglia di eventi di Azure
 Un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue altre azioni per elaborare l'evento. Diversi servizi di Azure vengono configurati automaticamente per gestire eventi, uno dei quali è il **bus di servizio di Azure**. 
@@ -156,9 +156,6 @@ L'ID sistema interno per il messaggio verrà mantenuto durante il recapito dell'
     }
 }
 ```
-
-> [!NOTE]
-> La distribuzione di eventi a una coda o a un argomento del bus di servizio di Azure in **un altro tenant** non è supportata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco di gestori eventi supportati, vedere l'articolo [Gestori eventi](event-handlers.md). 

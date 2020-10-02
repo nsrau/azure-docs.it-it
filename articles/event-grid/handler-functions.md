@@ -3,12 +3,12 @@ title: Funzione di Azure come gestore dell'evento per gli eventi di Griglia di e
 description: Spiega in che modo usare le funzioni di Azure come gestori degli eventi di Griglia di eventi.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 87aeb78729dcc7bec9f193fab389e5c0952e63d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: db06962c020eb954bf0c595e5a4019b1df774898
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270321"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629689"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Funzione di Azure come gestore dell'evento per gli eventi di Griglia di eventi
 
@@ -60,7 +60,7 @@ Al momento della creazione di una sottoscrizione nell'interfaccia utente, nella 
 
 È possibile aggiornare questi valori per una sottoscrizione esistente nella scheda **funzionalità** della pagina dell' **argomento griglia di eventi** . 
 
-:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Abilita batch dopo la creazione":::
+:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Abilitare la suddivisione in batch al momento della creazione di una sottoscrizione":::
 
 ### <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 È possibile impostare **maxEventsPerBatch** e **preferredBatchSizeInKilobytes** in un modello di Azure Resource Manager. Per ulteriori informazioni, vedere il [riferimento al modello eventSubscriptions di Microsoft. EventGrid](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/eventsubscriptions).
@@ -70,9 +70,6 @@ Al momento della creazione di una sottoscrizione nell'interfaccia utente, nella 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 È possibile usare il cmdlet [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) o [Update-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) per configurare le impostazioni relative al batch usando i parametri seguenti: `-MaxEventsPerBatch` o `-PreferredBatchSizeInKiloBytes` .
-
-> [!NOTE]
-> La distribuzione di eventi a una funzione di Azure in **un altro tenant** non è supportata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco di gestori eventi supportati, vedere l'articolo [Gestori eventi](event-handlers.md). 

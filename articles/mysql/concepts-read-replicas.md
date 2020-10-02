@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 7/7/2020
-ms.openlocfilehash: 4550f1da0ac87a55bab64566a0035451dee8d225
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/1/2020
+ms.openlocfilehash: b32ef80ad670e369315ec3ddb6972aef30bec27a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538263"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627568"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -36,6 +36,9 @@ Uno scenario comune consiste nel fare in modo che i carichi di lavoro BI e anali
 Poiché le repliche sono di sola lettura, non riducono direttamente gli oneri per la capacità di scrittura sul master. Questa funzionalità non è destinata a carichi di lavoro con utilizzo elevato di scrittura.
 
 Questa funzionalità di replica in lettura si avvale della replica asincrona di MySQL. La funzionalità non è concepita per scenari di replica sincrona. Si verifica un ritardo misurabile tra l'origine e la replica. I dati nella replica diventano alla fine coerenti con i dati nel master. Usare questa funzionalità per i carichi di lavoro in grado di sostenere questo ritardo.
+
+> [!IMPORTANT]
+> Database di Azure per MySQL usa la registrazione binaria basata su **righe** . Se nella tabella manca una chiave primaria, verranno analizzate tutte le righe della tabella per le operazioni DML. Questo causa un aumento del ritardo di replica. Per assicurarsi che la replica sia in grado di mantenere le modifiche nell'origine, in genere è consigliabile aggiungere una chiave primaria nelle tabelle nel server di origine prima di creare il server di replica o ricreare il server di replica se ne è già presente uno.
 
 ## <a name="cross-region-replication"></a>Replica tra più aree
 È possibile creare una replica di lettura in un'area diversa dal server di origine. La replica tra più aree può essere utile per scenari come la pianificazione del ripristino di emergenza o per avvicinare i dati agli utenti.

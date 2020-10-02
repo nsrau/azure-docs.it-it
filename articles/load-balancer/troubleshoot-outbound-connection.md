@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: cd98d5b8d2d4a959a48bfb04fe2eb9e16c4113c9
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851134"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628996"
 ---
-# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a>Risoluzione degli errori delle connessioni in uscita
+# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Risoluzione degli errori delle connessioni in uscita
 
 Questo articolo ha lo scopo di fornire risoluzioni per i problemi comuni che possono verificarsi con le connessioni in uscita da un Azure Load Balancer. La maggior parte dei problemi con la connettività in uscita che i clienti riscontrano sono dovuti all'esaurimento delle porte SNAT e ai timeout di connessione che portano a pacchetti eliminati. Questo articolo illustra la procedura per attenuare ognuno di questi problemi.
 
@@ -44,7 +44,7 @@ Quando vengono esaurite le [porte temporanee preallocate](load-balancer-outbound
 Le porte temporanee hanno un timeout di inattività di 4 minuti (non modificabile). Se i tentativi di ripetizione sono troppo aggressivi, l'esaurimento delle porte non viene eliminato autonomamente. La modalità e la frequenza con cui l'applicazione effettua nuovi tentativi di transazioni sono quindi un fattore fondamentale della progettazione.
 
 ## <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>Assegnare un indirizzo IP pubblico a ogni macchina virtuale
-L'assegnazione di un indirizzo IP pubblico modifica lo scenario da [IP pubblico a una macchina virtuale](load-balancer-outbound-connections.md). Tutte le porte temporanee dell'IP pubblico usate per ogni VM sono disponibili per la VM, al contrario di quanto accade negli scenari in cui le porte temporanee di un IP pubblico sono condivise con tutte le VM associate al rispettivo pool back-end. Bisogna considerare anche l'altro lato della medaglia, ad esempio i costi aggiuntivi per gli indirizzi IP pubblici e l'impatto potenziale di creare un elenco con un numero elevato di singoli indirizzi IP consentiti.
+L'assegnazione di un indirizzo IP pubblico modifica lo scenario da [IP pubblico a una macchina virtuale](load-balancer-outbound-connections.md). Tutte le porte temporanee dell'IP pubblico usate per ogni VM sono disponibili per la VM, In contrapposizione agli scenari in cui le porte temporanee di un IP pubblico sono condivise con tutte le VM associate al rispettivo pool back-end. Ci sono compromessi da considerare, ad esempio il costo aggiuntivo degli indirizzi IP pubblici e il potenziale impatto del filtraggio di un numero elevato di singoli indirizzi IP.
 
 >[!NOTE] 
 >Questa opzione non è disponibile per i ruoli di lavoro Web.

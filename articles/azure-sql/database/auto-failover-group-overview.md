@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 023d6512a13e1add1e9980d450a91ed2183e7793
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614445"
+ms.locfileid: "91627228"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -359,7 +359,11 @@ Quando si configura un gruppo di failover tra istanze di SQL gestite primarie e 
 - Le due istanze di SQL Istanza gestita devono trovarsi in aree di Azure diverse.
 - Le due istanze di SQL Istanza gestita devono essere lo stesso livello di servizio e hanno le stesse dimensioni di archiviazione.
 - L'istanza secondaria di SQL Istanza gestita deve essere vuota (nessun database utente).
-- Le reti virtuali usate dalle istanze di SQL Istanza gestita devono essere connesse tramite un [gateway VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) o [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Quando due reti virtuali si connettono tramite una rete locale, assicurarsi che non sia presente una regola del firewall che blocca le porte 5022 e 11000-11999. Il peering di reti virtuali globale non è supportato.
+- Le reti virtuali usate dalle istanze di SQL Istanza gestita devono essere connesse tramite un [gateway VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) o [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Quando due reti virtuali si connettono tramite una rete locale, assicurarsi che non sia presente una regola del firewall che blocca le porte 5022 e 11000-11999. Il peering VNet globale è supportato con la limitazione descritta nella nota riportata di seguito.
+
+   > [!IMPORTANT]
+   > [Il 9/22/2020 abbiamo annunciato il peering di rete virtuale globale per i cluster virtuali appena creati](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Ciò significa che il peering di rete virtuale globale è supportato per le istanze gestite di SQL create in subnet vuote dopo la data di annuncio, nonché per tutte le istanze gestite successive create in tali subnet. Per tutte le altre istanze di SQL gestito, il supporto del peering è limitato alle reti nella stessa area a causa dei [vincoli del peering di rete virtuale globale](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Per altri dettagli, vedere anche la sezione pertinente dell'articolo [domande frequenti sulle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
+
 - Le due reti virtuali SQL Istanza gestita non possono avere indirizzi IP sovrapposti.
 - È necessario configurare i gruppi di sicurezza di rete (NSG) in modo che le porte 5022 e l'intervallo 11000~12000 siano aperti in ingresso e in uscita per le connessioni dalla subnet dell'altra istanza gestita, per consentire il traffico di replica tra le istanze.
 

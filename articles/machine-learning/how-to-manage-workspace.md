@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 6462226436aa7976f5293a5c271258be8a340cd4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d2885c6cc259cba74ab991ecf5046856984824f1
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322335"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631248"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creare e gestire le aree di lavoro di Azure Machine Learning nel portale di Azure
 
@@ -43,9 +43,9 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
    Campo|Descrizione 
    ---|---
    Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti. Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
-   Subscription |Selezionare la sottoscrizione di Azure da usare.
-   Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. Per usare un gruppo di risorse esistente, è necessario un ruolo di *collaboratore* o *proprietario* .  Per ulteriori informazioni sull'accesso, vedere [gestire l'accesso a un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
-   Region | Per creare l'area di lavoro, selezionare l'area di Azure più vicina agli utenti e alle risorse di dati.
+   Sottoscrizione |Selezionare la sottoscrizione di Azure da usare.
+   Gruppo di risorse | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. Per usare un gruppo di risorse esistente, è necessario un ruolo di *collaboratore* o *proprietario* .  Per ulteriori informazioni sull'accesso, vedere [gestire l'accesso a un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
+   Area | Per creare l'area di lavoro, selezionare l'area di Azure più vicina agli utenti e alle risorse di dati.
    Edizione dell'area di lavoro | Selezionare **Basic** o **Enterprise**.  Questa edizione dell'area di lavoro determina le funzionalità a cui si avrà accesso e i prezzi. Altre informazioni su [Azure Machine Learning](overview-what-is-azure-ml.md). 
 
     ![Configurare l'area di lavoro](./media/how-to-manage-workspace/select-edition.png)
@@ -64,17 +64,15 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
 ### <a name="networking"></a>Rete  
 
 > [!IMPORTANT]  
-> Per ulteriori informazioni sull'utilizzo di un endpoint privato e di una rete virtuale con l'area di lavoro, vedere [isolamento e privacy della rete](how-to-enable-virtual-network.md).  
-1. La configurazione di rete predefinita prevede l'uso di un __endpoint pubblico__accessibile dalla rete Internet pubblica. Per limitare l'accesso all'area di lavoro a una rete virtuale di Azure creata, è invece possibile selezionare __endpoint privato__ (anteprima) come __metodo di connettività__e quindi usare __+ Aggiungi__ per configurare l'endpoint.   
-
-   > [!IMPORTANT]   
-   > L'uso di un endpoint privato con Azure Machine Learning area di lavoro è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.  
-   > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> Per ulteriori informazioni sull'utilizzo di un endpoint privato e di una rete virtuale con l'area di lavoro, vedere [isolamento e privacy della rete](how-to-enable-virtual-network.md).
+    
+1. La configurazione di rete predefinita prevede l'uso di un __endpoint pubblico__accessibile dalla rete Internet pubblica. Per limitare l'accesso all'area di lavoro a una rete virtuale di Azure creata, è invece possibile selezionare __endpoint privato__ come __metodo di connettività__e quindi usare __+ Aggiungi__ per configurare l'endpoint. 
+    
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Selezione endpoint privato":::  
 
 1. Nel modulo __Crea endpoint privato__ impostare il percorso, il nome e la rete virtuale da usare. Se si vuole usare l'endpoint con una zona DNS privato, selezionare __integra con zona DNS privata__ e selezionare la zona usando il campo __area DNS privato__ . Selezionare __OK__ per creare l'endpoint.   
 
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Creazione di endpoint privati":::   
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Selezione endpoint privato":::   
 
 1. Al termine della configurazione della rete, è possibile selezionare __Verifica + crea__o passare alla configurazione __avanzata__ facoltativa. 
 
@@ -112,14 +110,15 @@ Se si usa la versione __Enterprise__ di Azure Machine Learning, è invece possib
 >   
 >     Non è necessario creare manualmente l'istanza di Azure Cosmos DB, ne verrà creata una automaticamente durante la creazione dell'area di lavoro. Questa istanza di Azure Cosmos DB verrà creata in un gruppo di risorse distinto usando un nome basato su questo modello: `<your-workspace-resource-name>_<GUID>` .   
 >   
-> Questa impostazione non può essere modificata dopo la creazione dell'area di lavoro. Se si elimina il Azure Cosmos DB usato dall'area di lavoro, è necessario eliminare anche l'area di lavoro che lo usa.   
+> Questa impostazione non può essere modificata dopo la creazione dell'area di lavoro. Se si elimina il Azure Cosmos DB usato dall'area di lavoro, è necessario eliminare anche l'area di lavoro che lo usa.
+
 1. Selezionare __chiavi gestite dal cliente__, quindi selezionare __fare clic per selezionare la chiave__.   
 
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Chiavi gestite dal cliente":::   
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Selezione endpoint privato":::   
 
 1. Nel modulo __Seleziona chiave da Azure Key Vault__ selezionare una Azure Key Vault esistente, una chiave che contiene e la versione della chiave. Questa chiave viene usata per crittografare i dati archiviati in Azure Cosmos DB. Usare infine il pulsante __Seleziona__ per usare questa chiave. 
 
-   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Selezionare la chiave":::
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Selezione endpoint privato":::
 
 ### <a name="download-a-configuration-file"></a>Scaricare un file di configurazione
 
@@ -148,7 +147,7 @@ Se si usa la versione __Enterprise__ di Azure Machine Learning, è invece possib
 
 Nella [portale di Azure](https://portal.azure.com/)selezionare **Elimina**  nella parte superiore dell'area di lavoro che si vuole eliminare.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Elimina area di lavoro":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Selezione endpoint privato":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

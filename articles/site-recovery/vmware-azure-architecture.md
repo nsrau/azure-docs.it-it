@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 217e3b9de7c9a46174c6ce6d1a3b151c904a7bf2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45baee286fede0ab16da62b7c2e84008d58690b1
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314114"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626497"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da VMware ad Azure
 
@@ -50,7 +50,7 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 | Replica               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Consente alla macchina virtuale di comunicare con il servizio Site Recovery. |
 | Bus di servizio               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Consente alla macchina virtuale di scrivere i dati di diagnostica e monitoraggio di Site Recovery. |
 
-Per un elenco completo degli URL da includere nell'elenco elementi consentiti per la comunicazione tra l'infrastruttura Azure Site Recovery locale e i servizi di Azure, vedere [la sezione requisiti di rete nell'articolo prerequisiti](vmware-azure-deploy-configuration-server.md#prerequisites).
+Per un elenco completo degli URL da filtrare per la comunicazione tra l'infrastruttura Azure Site Recovery locale e i servizi di Azure, vedere [la sezione requisiti di rete nell'articolo prerequisiti](vmware-azure-deploy-configuration-server.md#prerequisites).
 
 ## <a name="replication-process"></a>Processo di replica
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0be60208146681135c7502746a271e4e007dc0ea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 40fb5a1623175445065f0546403661a1f6eb399f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249587"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629438"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Risolvere i problemi di File di Azure in Linux (SMB)
 
@@ -298,6 +298,32 @@ Questo errore viene registrato perché File di Azure [attualmente non supporta S
 
 ### <a name="solution"></a>Soluzione
 Questo errore può essere ignorato.
+
+
+### <a name="unable-to-access-folders-or-files-which-name-has-a-space-or-a-dot-at-the-end"></a>Non è possibile accedere alle cartelle o ai file il cui nome ha uno spazio o un punto alla fine
+
+Non è possibile accedere alle cartelle o ai file dalla condivisione file di Azure mentre è installato in Linux, i comandi come du e LS e/o le applicazioni di terze parti possono avere esito negativo con un errore di tipo "file o directory" durante l'accesso alla condivisione. Tuttavia, è possibile caricare i file in tali cartelle tramite il portale.
+
+### <a name="cause"></a>Causa
+
+Le cartelle o i file sono stati caricati da un sistema che codifica i caratteri alla fine del nome in un altro carattere, i file caricati da un computer Macintosh possono avere un carattere "0xF028" o "0xF029" invece di 0x20 (spazio) o 0X2E (punto).
+
+### <a name="solution"></a>Soluzione
+
+Usare l'opzione mapchars nella condivisione durante il montaggio della condivisione in Linux: 
+
+Invece di:
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+usare
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
+```
+
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 

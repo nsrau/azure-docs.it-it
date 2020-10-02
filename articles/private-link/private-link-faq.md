@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 7870b68ca931123d50e88e846aa066ce53972dbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f557bb271c88b32a9b53cf9b41b911314427530a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75349933"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629948"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Domande frequenti sul collegamento privato di Azure
 
@@ -65,7 +65,7 @@ Sì. Un servizio di collegamento privato può ricevere connessioni da più endpo
 È possibile controllare l'esposizione usando la configurazione di visibilità nel servizio di collegamento privato. Visibility supporta tre impostazioni:
 
 - Le sottoscrizioni solo **None** con accesso RBAC possono individuare il servizio. 
-- Le sottoscrizioni solo **restrittive** e con accesso RBAC possono individuare il servizio. 
+- Le sottoscrizioni solo **restrittive** approvate e con accesso RBAC possono individuare il servizio. 
 - **Tutti** : tutti gli utenti possono individuare il servizio. 
  
 ### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>È possibile creare un servizio di collegamento privato con Load Balancer di base? 

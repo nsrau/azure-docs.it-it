@@ -3,12 +3,12 @@ title: Supporto per lo spostamento per tipo di risorsa
 description: Elenca i tipi di risorse di Azure che possono essere spostati in un nuovo gruppo di risorse o una sottoscrizione.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: e1e90a7cbc4f817f5dd6c854020e2711e8ac097b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 675f7bb11ed98dd17e8f4ee4a0197d05128af851
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284976"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627109"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 
@@ -1416,7 +1416,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | frontdoors | No | No |
 > | ipallocations | Sì | Sì |
 > | ipgroups | Sì | Sì |
-> | loadbalancers | Sì - SKU di base<br>No - SKU standard | Sì - SKU di base<br>No - SKU standard |
+> | loadbalancers | Sì - SKU di base<br> Sì, SKU standard | Sì - SKU di base<br>No - SKU standard |
 > | localnetworkgateways | Sì | Sì |
 > | natgateways | No | No |
 > | networkexperimentprofiles | No | No |
@@ -1435,7 +1435,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | privateendpointredirectmaps | No | No |
 > | privateendpoints | Sì | Sì |
 > | privatelinkservices | No | No |
-> | publicipaddresses | Sì - SKU di base<br>No - SKU standard | Sì - SKU di base<br>No - SKU standard |
+> | publicipaddresses | Sì - SKU di base<br>Sì, SKU standard | Sì - SKU di base<br>No - SKU standard |
 > | publicipprefixes | Sì | Sì |
 > | routefilters | No | No |
 > | routetables | Sì | Sì |
