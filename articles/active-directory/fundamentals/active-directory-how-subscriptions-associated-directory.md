@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ddca4bc684646854ae8d308043b3de56ec65924
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 747edfdb2a2709a842f767d2ace09662d139c827
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426096"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666433"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory
 
@@ -50,7 +50,7 @@ Prima di poter associare o aggiungere la sottoscrizione, eseguire le attività s
   - Se si dispone di insiemi di credenziali delle chiavi, questi saranno inaccessibili e sarà necessario correggerli dopo l'associazione
   - Se si hanno identità gestite per le risorse, ad esempio le macchine virtuali o le app per la logica, è necessario riabilitarle o ricrearle dopo l'associazione
   - Se si dispone di un Azure Stack registrato, sarà necessario registrarlo di nuovo dopo l'associazione
-  - Per altre informazioni, vedere [Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)](../../role-based-access-control/transfer-subscription.md).
+  - Per altre informazioni, vedere [trasferire una sottoscrizione di Azure a un'altra directory di Azure ad](../../role-based-access-control/transfer-subscription.md).
 
 - Accedere con un account che:
 
@@ -93,7 +93,7 @@ Dopo aver associato una sottoscrizione a una directory diversa, potrebbe essere 
 
 - Se è stata registrata una Azure Stack usando questa sottoscrizione, è necessario ripetere la registrazione. Per altre informazioni, vedere [registrare Azure stack con Azure](/azure-stack/operator/azure-stack-registration).
 
-- Per altre informazioni, vedere [Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)](../../role-based-access-control/transfer-subscription.md).
+- Per altre informazioni, vedere [trasferire una sottoscrizione di Azure a un'altra directory di Azure ad](../../role-based-access-control/transfer-subscription.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

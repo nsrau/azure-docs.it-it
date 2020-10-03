@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/10/2020
+ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d205998ad5710ecad346db4d7be18a68747c087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388528"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664852"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Codici di errore: Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Il servizio Azure Active Directory B2C può restituire gli errori seguenti.
 | `AADB2C90013` | Il tipo di risposta richiesto ' {0} ' specificato nella richiesta non è supportato. |
 | `AADB2C90014` | La modalità di risposta richiesta ' {0} ' specificata nella richiesta non è supportata. |
 | `AADB2C90016` | Il tipo di asserzione client richiesto ' {0} ' non corrisponde al tipo previsto ' {1} '. |
-| `AADB2C90017` | L'asserzione client specificata nella richiesta non è valida:{0} |
+| `AADB2C90017` | L'asserzione client specificata nella richiesta non è valida: {0} |
 | `AADB2C90018` | L'ID client ' {0} ' specificato nella richiesta non è registrato nel tenant ' {1} '. |
 | `AADB2C90019` | La chiave del contenitore di chiavi con ID ' {0} ' nel tenant ' {1} ' non è valida. Motivo: {2} . |
 | `AADB2C90021` | Il profilo tecnico ' {0} ' non esiste nel criterio ' {1} ' del tenant ' {2} '. |
@@ -73,7 +73,8 @@ Il servizio Azure Active Directory B2C può restituire gli errori seguenti.
 | `AADB2C90085` | Si è verificato un errore interno del servizio. Ripetere l'autenticazione e riprovare. |
 | `AADB2C90086` | Il grant_type specificato [ {0} ] non è supportato. |
 | `AADB2C90087` | La concessione specificata non è stata rilasciata per questa versione dell'endpoint del protocollo. |
-| `AADB2C90088` | La concessione specificata non è stata rilasciata per questo endpoint. Valore effettivo: {0} e valore previsto:{1} |
+| `AADB2C90088` | La concessione specificata non è stata rilasciata per questo endpoint. Valore effettivo: {0} e valore previsto: {1} |
+| `AADB2C90091` | Annullamento dell'utente. |
 | `AADB2C90092` | L'applicazione specificata con ID ' {0} ' è disabilitata per il tenant ' {1} '. Abilitare l'applicazione e riprovare. |
 | `AADB2C90107` | L'applicazione con ID ' {0} ' non può ottenere un token ID perché l'ambito OpenID non è stato specificato nella richiesta o l'applicazione non è autorizzata. |
 | `AADB2C90108` | Il passaggio di orchestrazione ' {0} ' non specifica un CpimIssuerTechnicalProfileReferenceId se ne era previsto uno. |

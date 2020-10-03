@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: d53097c7884b9908cd3a2c7f21dc059ed9d00c39
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9abca58aa79e0924281ab69314271f2aeca6bfa6
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540163"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667633"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
@@ -101,7 +101,7 @@ L'analisi delle modifiche dell'applicazione è un detector autonomo negli strume
 
    ![Screenshot del pulsante "arresti anomali dell'applicazione"](./media/change-analysis/application-changes.png)
 
-3. Per abilitare l'analisi delle modifiche, selezionare **Abilita ora**.
+3. Il collegamento consente di modificare l'applicazione dell'interfaccia utente di Aalysis nell'ambito dell'app Web. Se il rilevamento delle modifiche nell'app Web in-Guest non è abilitato, seguire il banner per ottenere le modifiche alle impostazioni di file e app.
 
    ![Screenshot delle opzioni "arresti anomali dell'applicazione"](./media/change-analysis/enable-changeanalysis.png)
 
@@ -109,11 +109,33 @@ L'analisi delle modifiche dell'applicazione è un detector autonomo negli strume
 
     ![Screenshot dell'interfaccia utente "Enable Change Analysis"](./media/change-analysis/change-analysis-on.png)
 
-5. Per accedere all'analisi delle modifiche, selezionare **diagnostica e Risolvi i problemi relativi**a  >  **disponibilità e prestazioni**  >  **anomali dell'applicazione**. Verrà visualizzato un grafico che riepiloga il tipo di modifiche nel tempo insieme ai dettagli relativi a tali modifiche. Per impostazione predefinita, le modifiche apportate nelle ultime 24 ore vengono visualizzate per facilitare i problemi immediatamente.
+5. I dati delle modifiche sono disponibili anche in selezione **app Web** e rilevamenti **arresti anomali dell'applicazione** . Verrà visualizzato un grafico che riepiloga il tipo di modifiche nel tempo insieme ai dettagli relativi a tali modifiche. Per impostazione predefinita, le modifiche apportate nelle ultime 24 ore vengono visualizzate per facilitare i problemi immediatamente.
 
      ![Screenshot della visualizzazione delle differenze delle modifiche](./media/change-analysis/change-view.png)
 
-### <a name="enable-change-analysis-at-scale"></a>Abilitare l'analisi delle modifiche su larga scala
+
+
+### <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnostica e risoluzione dei problemi della macchina virtuale
+
+Passare allo strumento diagnostica e risoluzione dei problemi per una macchina virtuale.  Passare a **strumenti per la risoluzione dei problemi**, esplorare la pagina e selezionare **analizza modifiche recenti** per visualizzare le modifiche apportate alla macchina virtuale.
+
+![Screenshot della macchina virtuale diagnosticare e risolvere i problemi](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+
+![Analizzatore modifiche in strumenti di risoluzione dei problemi](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="activity-log-change-history"></a>Cronologia modifiche log attività
+La funzionalità [Visualizza cronologia modifiche](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#view-change-history) nel log attività chiama il back-end del servizio di analisi delle modifiche dell'applicazione per ottenere le modifiche associate a un'operazione. **Cronologia delle modifiche** usata per chiamare direttamente il [grafo delle risorse di Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview) , ma lo scambio del back-end per chiamare l'analisi delle modifiche dell'applicazione in modo che le modifiche restituite includano le modifiche a livello di risorsa da [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), le proprietà delle risorse da [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)e le modifiche in-Guest dai servizi di PaaS, ad esempio app Web Affinché il servizio di analisi delle modifiche dell'applicazione sia in grado di analizzare le modifiche apportate alle sottoscrizioni degli utenti, è necessario registrare un provider di risorse. La prima volta che si immette la scheda **cronologia modifiche** , lo strumento inizierà automaticamente a registrare il provider di risorse **Microsoft. ChangeAnalysis** . Dopo la registrazione, le modifiche da **Azure Resource Graph** saranno disponibili immediatamente e copriranno gli ultimi 14 giorni. Le modifiche apportate da altre origini saranno disponibili dopo circa 4 ore dopo l'onboarding della sottoscrizione.
+
+![Integrazione cronologia modifiche log attività](./media/change-analysis/activity-log-change-history.png)
+
+### <a name="vm-insights-integration"></a>Integrazione di VM Insights
+Gli utenti che hanno abilitato [VM Insights](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) possono visualizzare le modifiche apportate alle macchine virtuali che potrebbero causare picchi in un grafico delle metriche, ad esempio CPU o memoria e chiedersi cosa ha causato. I dati delle modifiche sono integrati nella barra di spostamento sul lato di VM Insights. L'utente può visualizzare se sono state apportate modifiche alla macchina virtuale e fare clic su verifica **modifiche** per visualizzare i dettagli delle modifiche nell'interfaccia utente autonoma di analisi modifiche applicazione.
+
+[![Integrazione di VM Insights](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
+
+
+
+## <a name="enable-change-analysis-at-scale"></a>Abilitare l'analisi delle modifiche su larga scala
 
 Se la sottoscrizione include numerose app Web, l'abilitazione del servizio al livello dell'app Web risulterebbe inefficiente. Eseguire lo script seguente per abilitare tutte le app Web nella sottoscrizione.
 
@@ -121,7 +143,7 @@ Prerequisiti:
 
 - PowerShell AZ Module. Seguire le istruzioni in [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0)
 
-Eseguire lo script riportato di seguito:
+Eseguire lo script seguente:
 
 ```PowerShell
 # Log in to your Azure subscription
@@ -147,13 +169,25 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-### <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnostica e risoluzione dei problemi della macchina virtuale
+## <a name="troubleshoot"></a>Risolvere problemi
 
-Passare allo strumento diagnostica e risoluzione dei problemi per una macchina virtuale.  Passare a **strumenti per la risoluzione dei problemi**, esplorare la pagina e selezionare **analizza modifiche recenti** per visualizzare le modifiche apportate alla macchina virtuale.
+### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Problemi durante la registrazione di Microsoft. modificare il provider di risorse di analisi dalla scheda cronologia modifiche
+Se è la prima volta che si visualizza la cronologia delle modifiche dopo l'integrazione con l'analisi delle modifiche dell'applicazione, si noterà che il provider di risorse **Microsoft. ChangeAnalysis**viene registrato automaticamente. In rari casi potrebbe non riuscire per i motivi seguenti:
 
-![Screenshot della macchina virtuale diagnosticare e risolvere i problemi](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+- **Non si dispone delle autorizzazioni sufficienti per registrare il provider di risorse Microsoft. ChangeAnalysis**. Questo messaggio di errore indica che il ruolo nella sottoscrizione corrente non ha l'ambito **Microsoft. support/register/Action** associato. Questo problema può verificarsi se non si è il proprietario di una sottoscrizione e si hanno le autorizzazioni di accesso condiviso tramite un collega. ovvero visualizzare l'accesso a un gruppo di risorse. Per risolvere il problema, è possibile contattare il proprietario della sottoscrizione per registrare il provider di risorse **Microsoft. ChangeAnalysis** . Questa operazione può essere eseguita in portale di Azure tramite **sottoscrizioni | Provider di risorse** e ricerca ```Microsoft.ChangeAnalysis``` e registrazione nell'interfaccia utente o tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
-![Screenshot della macchina virtuale diagnosticare e risolvere i problemi](./media/change-analysis/analyze-recent-changes.png)
+    Registrare il provider di risorse tramite PowerShell: 
+    ```PowerShell
+    # Register resource provider
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+    ```
+
+- **Non è stato possibile registrare il provider di risorse Microsoft. ChangeAnalysis**. Questo messaggio indica che si è verificato un errore immediatamente perché l'interfaccia utente ha inviato una richiesta di registrazione del provider di risorse e non è correlata al problema di autorizzazione. Probabilmente potrebbe trattarsi di un problema temporaneo di connettività Internet. Provare ad aggiornare la pagina e a controllare la connessione a Internet. Se l'errore è permanente, contattare changeanalysishelp@microsoft.com
+
+- **Questa operazione richiede più tempo del previsto**. Questo messaggio indica che la registrazione richiede più di 2 minuti. Si tratta di un'operazione insolita, ma non implica necessariamente un errore. È possibile passare alle **sottoscrizioni | Provider di risorse** per verificare lo stato di registrazione del provider di risorse **Microsoft. ChangeAnalysis** . È possibile provare a usare l'interfaccia utente per annullare la registrazione, ripetere la registrazione o aggiornare per verificare se è utile. Se il problema persiste, contattare il changeanalysishelp@microsoft.com supporto tecnico.
+    ![Risoluzione dei problemi di registrazione RP troppo lungo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

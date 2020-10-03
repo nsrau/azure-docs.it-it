@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 10/02/2020
 ms.author: jushiman
-ms.openlocfilehash: 18389f3058bcc60c22f8598040f4fea4b036f1ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: afad68be53637cf258223eafab0a13f525a92f4c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298913"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666620"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generazioni precedenti delle dimensioni delle macchine virtuali
 
@@ -163,7 +163,7 @@ Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso
 <sup>1</sup>Per le applicazioni MPI, la rete back-end RDMA dedicata viene abilitata dalla rete InfiniBand FDR, che offre latenza estremamente bassa e larghezza di banda elevata.  
 
 > [!NOTE]
-> Il ritiro delle macchine virtuali A8 -A11 è previsto per marzo 2021. Per altre informazioni, vedere [Guida alla migrazione HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> Il ritiro delle macchine virtuali A8 -A11 è previsto per marzo 2021. Si consiglia vivamente di non creare nuove macchine virtuali a8-a11. Eseguire la migrazione di tutte le macchine virtuali a8-a11 esistenti a dimensioni di VM di calcolo ad alte prestazioni più recenti e potenti, ad esempio H, HB, HC, HBv2, nonché le dimensioni delle macchine virtuali di calcolo per utilizzo generico, ad esempio D, e e F, per migliorare le prestazioni dei prezzi. Per altre informazioni, vedere [Guida alla migrazione HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
 

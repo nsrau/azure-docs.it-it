@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: ed836e3df28c5e39aa7f9d21f020c0d37292dcfc
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: aff26d3b491896aa9a1b1fee93d39a5ec93d730c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631801"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665142"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia di analisi per il marketplace commerciale e domande comuni
 
@@ -45,7 +45,7 @@ Se si riceve questo messaggio, sono presenti dati analitici, ma non per l'interv
 | Tipo di licenza di Azure: Enterprise | Cliente, ordine | Il cliente finale ottiene Azure e l'offerta del Marketplace dell'utente tramite un contratto Enterprise Agreement firmato direttamente con Microsoft.|
 | Tipo di licenza di Azure: Enterprise tramite rivenditore  | Cliente, ordine | Il cliente finale ottiene Azure e l'offerta nel marketplace tramite un rivenditore che ne semplifica il Contratto Enterprise con Microsoft.|
 | Tipo di licenza di Azure: Pagamento a consumo| Cliente, ordine | Il cliente finale ottiene Azure e l'offerta nel marketplace tramite un contratto con pagamento in base al consumo firmato direttamente con Microsoft.|
-| ID account di fatturazione| Cliente, ordine, utilizzo| Identificatore dell'account in cui viene generata la fatturazione. Utilizzare questo attributo per connettere i report analitici al report delle transazioni di pagamento.|
+| ID account di fatturazione| Cliente, ordine, utilizzo| Identificatore dell'account in cui viene generata la fatturazione. Mappare l' **ID dell'account di fatturazione** a **CustomerID** per connettere il report delle transazioni di pagamento ai report relativi a clienti, ordini e utilizzo.|
 | Nome dell'istanza cloud| Ordine| Microsoft Cloud in cui sono state distribuite le macchine virtuali.|
 | Nome istanza cloud: Azure Global| JSON| Cloud Microsoft globale pubblico.|
 | Nome istanza cloud: Azure Government | Ordine| Cloud Microsoft specifici per enti pubblici per uno degli enti pubblici seguenti: Cina, Germania o Stati Uniti.| |

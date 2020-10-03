@@ -3,15 +3,15 @@ title: Creare un pool di host in Desktop virtuale Windows con PowerShell - Azure
 description: Come creare un pool di host in Desktop virtuale Windows con i cmdlet di PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ce3b2b30b1ed421937c11e58bc014cc740b45480
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287288"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667164"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Creare un pool host di desktop virtuali Windows con PowerShell
 
@@ -99,6 +99,9 @@ Per aggiungere correttamente il computer a un dominio, eseguire le operazioni se
 
     >[!NOTE]
     > Se si intende aggiungere le macchine virtuali a un ambiente Azure AD Domain Services (Azure AD DS), assicurarsi che l'utente di aggiunta a un dominio sia anche membro del [gruppo AAD DC Administrators](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+
+>[!IMPORTANT]
+>Si consiglia di non abilitare alcun criterio o configurazione che Disabilita Windows Installer. Se si disattiva Windows Installer, il servizio non sarà in grado di installare gli aggiornamenti degli agenti negli host della sessione e gli host della sessione non funzioneranno correttamente.
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registrare le macchine virtuali nel pool di host di Desktop virtuale Windows
 

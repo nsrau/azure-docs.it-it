@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 5c175a1575a4efbdc2294412e3743e201d8c4bb1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c0d4c72bd60f35088773ec6dc5df80709c5ae98c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653294"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666824"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Che cos'è IPv6 per la rete virtuale di Azure?
 
@@ -61,7 +61,7 @@ IPv6 per la rete virtuale di Azure include le funzionalità riportate di seguito
     - Nota: IPv6 può essere con carico bilanciato solo per l'interfaccia di rete primaria (NIC) nelle macchine virtuali di Azure. 
 - Supporto per [Load Balancer interno IPv6 standard](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) per la creazione di applicazioni multilivello resilienti nelle reti virtuali di Azure.   
 - Il supporto per Load Balancer pubblico IPv6 di base per la compatibilità con le distribuzioni legacy
-- Gli [indirizzi IP pubblici IPv6 riservati e gli intervalli di indirizzi](ipv6-public-ip-address-prefix.md) offrono indirizzi IPv6 stabili e prevedibili, che semplificano la creazione di elenchi di elementi consentiti delle applicazioni ospitate in Azure per la società e i clienti.
+- [Gli indirizzi IP pubblici IPv6 riservati e gli intervalli di indirizzi](ipv6-public-ip-address-prefix.md) offrono indirizzi IPv6 stabili e prevedibili che semplificano il filtraggio delle applicazioni ospitate in Azure per la società e i clienti.
 - IP pubblico a livello di istanza fornisce la connettività Internet IPv6 direttamente alle singole macchine virtuali.
 - [Aggiungere IPv6 alle distribuzioni solo IPv4 esistenti](ipv6-add-to-existing-vnet-powershell.md): questa funzionalità consente di aggiungere facilmente connettività IPv6 alle distribuzioni solo IPv4 esistenti senza la necessità di ricreare le distribuzioni.  Il traffico di rete IPv4 non è interessato da questo processo, quindi a seconda dell'applicazione e del sistema operativo, potrebbe essere possibile aggiungere IPv6 anche ai servizi attivi.    
 - Consentire ai client Internet di accedere facilmente all'applicazione dual stack usando il protocollo scelto con il supporto DNS di Azure per i record IPv6 (AAAA). 

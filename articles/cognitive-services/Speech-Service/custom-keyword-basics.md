@@ -1,5 +1,5 @@
 ---
-title: Creazione di parole chiave personalizzate-servizio riconoscimento vocale
+title: Creazione rapida di parole chiave-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Il dispositivo è sempre in ascolto di una parola chiave (o frase). Quando l'utente dice la parola chiave, il dispositivo invia tutti i file audio successivi al cloud, fino a quando l'utente non smette di parlare. Personalizzare la parola chiave è un modo efficace per distinguere il dispositivo e rafforzare la personalizzazione.
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/20/2019
+ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 188824b9c43387cf106a3cdd53a09fd6bcb198b8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360668"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667694"
 ---
-# <a name="custom-keyword-basics"></a>Informazioni di base sulle parole chiave personalizzate
+# <a name="get-started-with-custom-keyword"></a>Introduzione alla parola chiave Custom
 
-Questo articolo illustra le nozioni di base per l'uso di parole chiave personalizzate, con speech studio e l'SDK di riconoscimento vocale. Una parola chiave è una parola o una frase breve che consente di attivare la voce del prodotto. È possibile creare modelli di parole chiave in speech studio, quindi esportare un file di modello usato con l'SDK di riconoscimento vocale nelle applicazioni.
+Questa Guida introduttiva illustra le nozioni di base sull'uso di parole chiave personalizzate, con speech studio e l'SDK di riconoscimento vocale. Una parola chiave è una parola o una frase breve che consente di attivare la voce del prodotto. È possibile creare modelli di parole chiave in speech studio, quindi esportare un file di modello usato con l'SDK di riconoscimento vocale nelle applicazioni.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

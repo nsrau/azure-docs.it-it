@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 07/07/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2673bb70582640cda97160eb31f16f7c7f1d60e6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421182"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665328"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Condividere una visualizzazione personalizzata usando un URL con parametri
 
@@ -24,6 +24,7 @@ Per condividere una visualizzazione personalizzata in Azure Time Series Insights
 Azure Time Series Insights Explorer supporta i parametri di query URL per specificare le viste nell'esperienza direttamente dall'URL. Ad esempio, usando solo l'URL, è possibile specificare un ambiente di destinazione, un predicato di ricerca e l'intervallo di tempo desiderato. Quando un utente seleziona l'URL personalizzato, l'interfaccia fornisce un collegamento direttamente a tale risorsa nel portale di Azure Time Series Insights. Vengono applicati i criteri di accesso ai dati.
 
 > [!TIP]
+>
 > * Visualizza la [demo Azure Time Series Insights](https://insights.timeseries.azure.com/samples)gratuita.
 > * Leggere la documentazione di [Azure Time Series Insights Explorer](./time-series-insights-explorer.md) associata.
 
@@ -33,7 +34,7 @@ Il parametro `environmentId=<guid>` specifica l'ID dell'ambiente di destinazione
 
 Un parametro ID di ambiente di esempio è `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Tempo
+## <a name="time"></a>Ora
 
 È possibile specificare valori assoluti o relativi con un URL con parametri.
 
@@ -55,14 +56,14 @@ Per un valore di ora relativa, usare `relativeMillis=<value>` , dove *value* è 
 
 I valori accettati corrispondono al menu **ora rapido** Esplora Azure Time Series Insights e includono:
 
-* `1800000`(Ultimi 30 minuti)
-* `3600000`(Ultimi 60 minuti)
-* `10800000`(Ultime 3 ore)
-* `21600000`(Ultime 6 ore)
-* `43200000`(Ultime 12 ore)
-* `86400000`(Ultime 24 ore)
-* `604800000`(Ultimi 7 giorni)
-* `2592000000`(Ultime 30 ore)
+* `1800000` (Ultimi 30 minuti)
+* `3600000` (Ultimi 60 minuti)
+* `10800000` (Ultime 3 ore)
+* `21600000` (Ultime 6 ore)
+* `43200000` (Ultime 12 ore)
+* `86400000` (Ultime 24 ore)
+* `604800000` (Ultimi 7 giorni)
+* `2592000000` (Ultime 30 ore)
 
 ### <a name="optional-parameters"></a>Parametri facoltativi
 
@@ -87,7 +88,7 @@ Il `timeSeriesDefinitions=<collection of term objects>` parametro specifica i te
 
 | Coppie | Descrizione |
 | --- | --- |
-| `multiChartStack=false` | `true`è abilitata per impostazione predefinita, quindi passa `false` allo stack. |
+| `multiChartStack=false` | `true` è abilitata per impostazione predefinita, quindi passa `false` allo stack. |
 | `multiChartStack=false&multiChartSameScale=true` | È necessario abilitare l'impilamento per usare la stessa scala dell'asse Y in tutti i termini.  `false`Per impostazione predefinita, `true` il passaggio Abilita questa funzionalità. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unità = `days` , `hours` , `minutes` , `seconds` , `milliseconds` .  Scrivere sempre in lettere maiuscole l'unità. </br> Definire il numero di unità passando l'intero desiderato per **timeBucketSize**.  |
 | `timezoneOffset=-<integer>` | L'intero viene sempre espresso in millisecondi. |
@@ -96,7 +97,7 @@ Il `timeSeriesDefinitions=<collection of term objects>` parametro specifica i te
 > i valori **timeBucketUnit** possono essere smussati fino a 7 giorni.
 > i valori di **timezoneOffset** non sono UTC né l'ora locale.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 Per aggiungere definizioni di serie temporali a un ambiente Azure Time Series Insights come parametro URL, aggiungere:
 
@@ -123,7 +124,7 @@ https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-000
 > Vedere la finestra di esplorazione in tempo reale [usando l'URL](https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[%7B%22name%22:%22F1PressureId%22,%22splitBy%22:%22Id%22,%22measureName%22:%22Pressure%22,%22predicate%22:%22%27Factory1%27%22%7D,%7B%22name%22:%22F2TempStation%22,%22splitBy%22:%22Station%22,%22measureName%22:%22Temperature%22,%22predicate%22:%22%27Factory2%27%22%7D,%7B%22name%22:%22F3VibrationPL%22,%22splitBy%22:%22ProductionLine%22,%22measureName%22:%22Vibration%22,%22predicate%22:%22%27Factory3%27%22%7D]
 ) riportato sopra.
 
-L'URL precedente descrive e visualizza la vista con parametri Azure Time Series Insights Explorer. 
+L'URL precedente descrive e visualizza la vista con parametri Azure Time Series Insights Explorer.
 
 * Predicati con parametri.
 

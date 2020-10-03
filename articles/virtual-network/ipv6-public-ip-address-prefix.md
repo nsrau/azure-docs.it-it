@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 096dbcb6b6a732bd21622658f6f30c5158a821c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff33bf771065e7af209934a5c54b6f8f2e34835e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420530"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666784"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>Prefisso dell'indirizzo IPv6 pubblico riservato
 
@@ -28,7 +28,7 @@ Tutti gli indirizzi IP pubblici riservati sono associati a un'area di Azure di p
 > [!WARNING]
 > Prestare attenzione a non eliminare accidentalmente gli indirizzi IP pubblici. L'eliminazione di un indirizzo IP pubblico ne comporta la rimozione dalla sottoscrizione e non sarà possibile recuperarla (anche con il supporto tecnico di Azure).
 
-Oltre a riservare i singoli indirizzi IPv6, è possibile riservare intervalli contigui di indirizzi IPv6 di Azure (noti come prefisso IP) per l'uso.  Analogamente ai singoli indirizzi IP, i prefissi riservati sono associati a un'area di Azure di propria scelta e alla sottoscrizione di Azure. Per riservare un intervallo di indirizzi prevedibile e contiguo sono presenti molti utilizzi. È possibile, ad esempio, semplificare notevolmente la *lista* degli indirizzi IP consentiti delle applicazioni ospitate in Azure dall'azienda e i clienti, in quanto gli intervalli di indirizzi IP statici possono essere prontamente programmati in firewall locali.  È possibile creare singoli IP pubblici dal prefisso IP in base alle esigenze e quando si eliminano i singoli indirizzi IP pubblici *restituiti* nell'intervallo riservato, in modo che sia possibile riutilizzarli in un secondo momento. Tutti gli indirizzi IP nel prefisso IP sono riservati per l'uso esclusivo fino al momento in cui si elimina il prefisso.
+Oltre a riservare i singoli indirizzi IPv6, è possibile riservare intervalli contigui di indirizzi IPv6 di Azure (noti come prefisso IP) per l'uso.  Analogamente ai singoli indirizzi IP, i prefissi riservati sono associati a un'area di Azure di propria scelta e alla sottoscrizione di Azure. Per riservare un intervallo di indirizzi prevedibile e contiguo sono presenti molti utilizzi. È possibile, ad esempio, semplificare notevolmente il *filtro* IP delle applicazioni ospitate in Azure dall'azienda e i clienti, in quanto gli intervalli di indirizzi IP statici possono essere facilmente programmati in firewall locali.  È possibile creare singoli IP pubblici dal prefisso IP in base alle esigenze e quando si eliminano i singoli indirizzi IP pubblici *restituiti* nell'intervallo riservato, in modo che sia possibile riutilizzarli in un secondo momento. Tutti gli indirizzi IP nel prefisso IP sono riservati per l'uso esclusivo fino al momento in cui si elimina il prefisso.
 
 
 

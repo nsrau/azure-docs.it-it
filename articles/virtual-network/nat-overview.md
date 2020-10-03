@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: 5efcf944f5d22759f9d448da5862bcf1f19e2efe
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 75a2bb187b2ed7a234e99d8cd293cb30148bcb1f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409562"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667198"
 ---
 # <a name="what-is-virtual-network-nat"></a>Che cos'è NAT di rete virtuale?
 
@@ -43,7 +43,7 @@ NAT (Network Address Translation) di rete virtuale semplifica la connettività I
 
 È possibile definire la connettività in uscita per ogni subnet con NAT.  Più subnet nella stessa rete virtuale possono avere NAT diversi. Per configurare una subnet, specificare la risorsa gateway NAT da usare. NAT verrà usato per tutti i flussi UDP e TCP in uscita di qualsiasi istanza di macchina virtuale. 
 
-NAT è compatibile con le risorse di indirizzi IP pubblici o di prefissi IP pubblici dello SKU o con una combinazioni di entrambe.  È possibile usare un prefisso di indirizzo IP pubblico direttamente oppure distribuire gli indirizzi IP pubblici del prefisso tra più risorse gateway NAT. NAT pulirà tutto il traffico verso l'intervallo di indirizzi IP del prefisso.  L'inserimento di distribuzioni nell'elenco elementi consentiti è ora più agevole.
+NAT è compatibile con le risorse di indirizzi IP pubblici o di prefissi IP pubblici dello SKU o con una combinazioni di entrambe.  È possibile usare un prefisso di indirizzo IP pubblico direttamente oppure distribuire gli indirizzi IP pubblici del prefisso tra più risorse gateway NAT. NAT pulirà tutto il traffico verso l'intervallo di indirizzi IP del prefisso.  Qualsiasi filtro IP delle distribuzioni è ora facile.
 
 Tutto il traffico in uscita per la subnet viene elaborato automaticamente da NAT senza richiedere alcuna configurazione da parte del cliente.  Le route definite dall'utente non sono necessarie. NAT ha la precedenza su altri scenari di connessioni in uscita e sostituisce la destinazione Internet predefinita di una subnet.
 
@@ -145,4 +145,3 @@ Ci interessa sapere come possiamo migliorare il servizio. Proporre nuove funzion
 
 * Informazioni sulla [risorsa gateway NAT](./nat-gateway-resource.md).
 * [Segnalare le nuove funzionalità richieste per NAT di rete virtuale in UserVoice](https://aka.ms/natuservoice).
-

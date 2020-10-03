@@ -3,12 +3,12 @@ title: Supporto per la valutazione VMware in Azure Migrate
 description: 'Informazioni sul supporto per la valutazione delle macchine virtuali VMware con lo strumento Azure Migrate: valutazione server.'
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 6716bea08347783d8c5728a4e346ffab8ea60a07
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660273"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667793"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per la valutazione di VMware 
 
@@ -40,12 +40,12 @@ Per eseguire la migrazione di macchine virtuali VMware in Azure, vedere la [matr
 **VMware** | **Dettagli**
 --- | ---
 **VM VMware** | Tutti i sistemi operativi possono essere valutati per la migrazione. 
-**Archiviazione** | Sono supportati i dischi collegati a SCSI, i controller basati su IDE e SATA.
+**Storage** | Sono supportati i dischi collegati a SCSI, i controller basati su IDE e SATA.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisiti dell'appliance di Azure Migrate
 
-Per l'individuazione e la valutazione, Azure Migrate usa l'[appliance di Azure Migrate](migrate-appliance.md). È possibile distribuire l'appliance come macchina virtuale VMWare usando un modello OVA importato nel server vCenter o usando uno [script PowerShell](deploy-appliance-script.md).
+Per l'individuazione e la valutazione, Azure Migrate usa l'[appliance di Azure Migrate](migrate-appliance.md). È possibile distribuire l'appliance come macchina virtuale VMware usando un modello OVA, importato in server vCenter o usando uno [script di PowerShell](deploy-appliance-script.md).
 
 - Informazioni sui [requisiti dell'appliance](migrate-appliance.md#appliance---vmware) per VMware.
 - In Azure per enti pubblici è necessario distribuire l'appliance [tramite lo script](deploy-appliance-script-government.md).
@@ -85,16 +85,15 @@ L'[analisi delle dipendenze](concepts-dependency-visualization.md) consente di i
 --- | --- 
 **Prima della distribuzione** | È necessario disporre di un progetto Azure Migrate con lo strumento Valutazione server aggiunto.<br/><br/>  La visualizzazione delle dipendenze viene distribuita dopo aver configurato un'appliance Azure Migrate per individuare i computer VMware locali.<br/><br/> [Informazioni](create-manage-projects.md) su come creare un progetto per la prima volta.<br/> [Informazioni](how-to-assess.md) su come aggiungere uno strumento di valutazione a un progetto esistente.<br/> [Informazioni](how-to-set-up-appliance-vmware.md) su come configurare l'appliance Azure Migrate per la valutazione di macchine virtuali VMware.
 **Computer supportati** | Attualmente supportato solo per le macchine virtuali VMware.
-**Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit).
+**Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit).<br/>Microsoft Windows Server 2008 (32 bit). Verificare che PowerShell sia installato.
 **Credenziali del server vCenter** | Per la visualizzazione delle dipendenze è necessario un account server vCenter con accesso di sola lettura e privilegi abilitati per Macchine virtuali > Operazioni Guest.
 **Autorizzazioni VM Windows** |  Per l'analisi delle dipendenze, l'appliance Azure Migrate necessita di un account amministratore di dominio o di un account amministratore locale per accedere alle macchine virtuali Windows.
-**Macchine virtuali di Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Account Linux** | Per l'analisi delle dipendenze, nei computer Linux l'appliance Azure Migrate necessita di un account utente con privilegi radice.<br/><br/> In alternativa, l'account utente deve disporre delle seguenti autorizzazioni per i file /bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE. Configurare queste funzionalità usando i comandi seguenti: <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/netstat
+**Macchine virtuali di Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 e versioni successive
+**Account Linux** | Per l'analisi delle dipendenze, nei computer Linux l'appliance Azure Migrate necessita di un account utente radice<br/><br/> In alternativa, l'account utente deve disporre delle seguenti autorizzazioni per i file /bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE. Configurare queste funzionalità usando i comandi seguenti: <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/netstat
 **Agenti obbligatori** | Non sono necessari agenti nei computer che si vuole analizzare.
 **Strumenti VMware** | Gli strumenti VMware (successivi alla versione 10.2) devono essere installati e in esecuzione in ogni macchina virtuale che si vuole analizzare.
-
-**PowerShell** | Per le macchine virtuali Windows deve essere installata la versione 2,0 o successiva di PowerShell.
-**Accesso alle porte** | Negli host ESXi che eseguono macchine virtuali che si vuole analizzare, il Azure Migrate appliance deve essere in grado di connettersi alla porta TCP 443.
+**PowerShell** | Sulle macchine virtuali Windows deve essere installato PowerShell 2.0 o versione precedente.
+**Accesso alla porta** | Negli host ESXi che eseguono macchine virtuali da analizzare, l'appliance di Azure Migrate deve essere in grado di connettersi alla porta TCP 443.
 
 
 ## <a name="dependency-analysis-requirements-agent-based"></a>Requisiti dell'analisi delle dipendenze (basata su agenti)

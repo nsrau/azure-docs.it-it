@@ -3,17 +3,17 @@ title: 'Serie B: macchine virtuali di Azure'
 description: Descrive le dimensioni delle macchine virtuali di Azure della serie B che includono il supporto per burst.
 services: virtual-machines
 ms.subservice: sizes
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: ayshak
-ms.openlocfilehash: 8591b703382049346fe019b89a5f31517380757f
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.author: sttsinar
+ms.openlocfilehash: 43e19df24de2f2c4e8e5334010ee788129cee68b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653418"
+ms.locfileid: "91666637"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali della serie B con supporto per burst
 
@@ -21,12 +21,14 @@ Le macchine virtuali della serie B sono ideali per i carichi di lavoro che non n
 
 La serie B è dotata delle dimensioni seguenti per le macchine virtuali:
 
+[Unità di calcolo di Azure](https://docs.microsoft.com/azure/virtual-machines/acu?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json): varia *<br>
 [Archiviazione Premium](premium-storage-performance.md): supportata<br>
 [Caching archiviazione Premium](premium-storage-performance.md): non supportato<br>
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 <br>
+* Le macchine virtuali della serie B sono in sequenza e i numeri di ACU variano in base ai carichi di lavoro e all'utilizzo di base.
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Prestazioni base della CPU della VM | Prestazioni massime della CPU della VM | Crediti iniziali | Crediti in banca/ora | Crediti massimi accumulati | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Schede di interfaccia di rete max |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

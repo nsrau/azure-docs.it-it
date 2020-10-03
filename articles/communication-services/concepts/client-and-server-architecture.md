@@ -6,15 +6,15 @@ author: mikben
 manager: mikben
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 38d6b131c972b4fd890af53624fdd6a36b3ecb6c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b844f61963081bf355837fd26254915112cbce11
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938144"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666943"
 ---
 # <a name="client-and-server-architecture"></a>Architettura client e server
 
@@ -43,13 +43,13 @@ Per ulteriori informazioni, vedere [procedure di gestione delle identità miglio
 
 Le librerie client JavaScript per le comunicazioni di Azure consentono alle applicazioni Web di usare un'interazione di testo, voce e video avanzata. L'applicazione interagisce direttamente con i servizi di comunicazione di Azure tramite la libreria client per accedere al piano dati e fornire comunicazioni di testo, voce e video in tempo reale. Un flusso di architettura di esempio è disponibile di seguito:
 
-:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagramma che illustra l'architettura del browser per i servizi di comunicazione.":::
+:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagramma che illustra l'architettura del token di accesso utente.":::
 
 ## <a name="native-app-communication"></a>Comunicazione delle app native
 
 Molti scenari sono particolarmente serviti con le applicazioni native. Servizi di comunicazione di Azure supporta la comunicazione da browser a app e da app a app.  Quando si compila un'esperienza di applicazione nativa, le notifiche push consentono agli utenti di ricevere chiamate anche quando l'applicazione non è in esecuzione. I servizi di comunicazione di Azure semplificano le notifiche push integrate a Google Firebase, Apple Push Notification Service e le notifiche push di Windows. Un flusso di architettura di esempio è disponibile di seguito:
 
-:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagramma che illustra l'architettura dei servizi di comunicazione per la comunicazione delle app native.":::
+:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagramma che illustra l'architettura del token di accesso utente.":::
 
 ## <a name="voice-and-sms-over-the-public-switched-telephony-network-pstn"></a>Voce e SMS sulla rete PSTN (Public Telephony Network)
 
@@ -58,7 +58,7 @@ La comunicazione sul sistema telefonico può aumentare significativamente la por
 > [!Note]
 > Durante l'anteprima pubblica, il provisioning dei numeri di telefono degli Stati Uniti è disponibile per i clienti con indirizzi di fatturazione situati negli Stati Uniti e in Canada. 
 
-:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagramma che illustra l'architettura PSTN dei servizi di comunicazione.":::
+:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagramma che illustra l'architettura del token di accesso utente.":::
 
 Per ulteriori informazioni sulle soluzioni PSTN e SMS, vedere [pianificare la soluzione PSTN e SMS](../concepts/telephony-sms/plan-solution.md)
 
@@ -66,7 +66,7 @@ Per ulteriori informazioni sulle soluzioni PSTN e SMS, vedere [pianificare la so
 
 Servizi di comunicazione Azure supporta la comunicazione da uomo a sistema tramite canali di testo e vocali, con servizi che accedono direttamente al piano dati di servizi di comunicazione di Azure. Ad esempio, è possibile avere un bot per rispondere alle telefonate in arrivo o partecipare a una chat Web. Servizi di comunicazione di Azure fornisce librerie client che consentono di effettuare questi scenari per la chiamata e la chat. Un flusso di architettura di esempio è disponibile di seguito:
 
-:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagramma che illustra l'architettura di bot per servizi di comunicazione.":::
+:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagramma che illustra l'architettura del token di accesso utente.":::
 
 ## <a name="networking"></a>Rete
 
@@ -78,12 +78,12 @@ Potrebbe essere necessario scambiare dati arbitrari tra gli utenti, ad esempio p
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creazione di token di accesso utente](../quickstarts/access-tokens.md)
+> [Creazione dei token di accesso utente](../quickstarts/access-tokens.md)
 
 Per altre informazioni, vedere gli articoli seguenti:
 
 - Informazioni sull' [autenticazione](../concepts/authentication.md)
 - Informazioni sulle [soluzioni PSTN e SMS](../concepts/telephony-sms/plan-solution.md)
 
-- [Aggiungere la chat all'app](../quickstarts/chat/get-started.md)
-- [Aggiungere la chiamata vocale all'app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
+- [Aggiungere una chat all'app](../quickstarts/chat/get-started.md)
+- [Aggiungere chiamate vocali all'app](../quickstarts/voice-video-calling/getting-started-with-calling.md)

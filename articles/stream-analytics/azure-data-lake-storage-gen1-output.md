@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: a642f7dfc470a695f96967cad0ed738d45b11efb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 59b4a04231df3b93b093750cc6c9d70982a418a9
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90881926"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665345"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Output di Azure Data Lake Storage generazione 1 da analisi di flusso di Azure
 
@@ -44,7 +44,7 @@ Per la chiave di partizione, usare i token {date} e {Time} nel modello di prefis
 
 ## <a name="output-batch-size"></a>Dimensione del batch di output
 
-Per la dimensione massima dei messaggi, vedere [limiti data Lake storage](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). Per ottimizzare le dimensioni del batch, utilizzare fino a 4 MB per operazione di scrittura.
+Per la dimensione massima dei messaggi, vedere [limiti data Lake storage](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits). Per ottimizzare le dimensioni del batch, utilizzare fino a 4 MB per operazione di scrittura.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

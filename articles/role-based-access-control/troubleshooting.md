@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 2f96e48d0c7b14178185f751b8c708e75ab3f322
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441836"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665992"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
 
@@ -86,7 +86,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Trasferimento di una sottoscrizione a una directory diversa
 
-- Per istruzioni su come trasferire una sottoscrizione a una directory Azure AD diversa, vedere [trasferire una sottoscrizione di Azure a una directory di Azure ad diversa (anteprima)](transfer-subscription.md).
+- Per istruzioni su come trasferire una sottoscrizione a una directory Azure AD diversa, vedere [trasferire una sottoscrizione di Azure a una directory di Azure ad diversa](transfer-subscription.md).
 - Se si trasferisce una sottoscrizione a una directory Azure AD diversa, tutte le assegnazioni di ruolo vengono eliminate **definitivamente** dalla directory di Azure ad di origine e non vengono migrate alla directory Azure ad di destinazione. È necessario ricreare le assegnazioni di ruolo nella directory di destinazione. È anche necessario ricreare manualmente le identità gestite per le risorse di Azure. Per altre informazioni, vedere [domande frequenti e problemi noti relativi alle identità gestite](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Se si è un Azure AD amministratore globale e non si ha accesso a una sottoscrizione dopo che è stato trasferito tra le directory, usare l'interruttore **gestione accessi per le risorse di Azure** per [elevare](elevate-access-global-admin.md) temporaneamente l'accesso per ottenere l'accesso alla sottoscrizione.
 

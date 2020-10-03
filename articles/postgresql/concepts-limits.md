@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6733e373b35dd160af94e3178cd11f657f362c1c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76836457"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665258"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limiti nel database di Azure per PostgreSQL-server singolo
 Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database. Per informazioni sui livelli di risorse (calcolo, memoria, archiviazione), vedere l'articolo [piani tariffari](concepts-pricing-tiers.md) .
@@ -66,6 +66,11 @@ Una connessione PostgreSQL, anche inattiva, può occupare circa 10 MB di memoria
 
 ### <a name="utf-8-characters-on-windows"></a>Caratteri UTF-8 in Windows
 - In alcuni scenari, i caratteri UTF-8 non sono completamente supportati in PostgreSQL open source per Windows, con ripercussioni su Database di Azure per PostgreSQL. Per ulteriori informazioni, vedere il thread nell'articolo [Bug #15476 in the postgresql-archive](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) (Bug n. 15476 in postgresql-archive).
+
+### <a name="gss-error"></a>Errore GSS
+Se viene visualizzato un errore correlato a **GSS**, è probabile che si stia usando una versione più recente del client/driver che non è ancora completamente supportata da Azure Postgres Single Server. Questo errore è noto per influire sulle [versioni del driver JDBC 42.2.15 e 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868).
+   - Si prevede di completare l'aggiornamento entro la fine di novembre. Nel frattempo, provare a usare una versione di driver funzionante.
+   - In alternativa, provare a disabilitare la richiesta GSS.  Usare un parametro di connessione come `gssEncMode=disable` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sulle [opzioni e prestazioni disponibili in ogni piano tariffario](concepts-pricing-tiers.md)

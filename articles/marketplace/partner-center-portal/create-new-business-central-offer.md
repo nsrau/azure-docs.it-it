@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: d92dc562136ef20dac19e7ddfa4339c565793308
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e42111de7d05f184e1153ddc351c3f1fa10cc86f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531820"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665239"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Creare un'offerta Dynamics 365 Business Central
 
@@ -85,7 +85,7 @@ Prima di continuare, selezionare **Salva bozza**.
 
 Questa pagina consente di definire le categorie e i settori usati per raggruppare l'offerta nel marketplace, la versione dell'app e i contratti legali che supportano l'offerta.
 
-### <a name="category"></a>Category
+### <a name="category"></a>Categoria
 
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
@@ -122,13 +122,13 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
 1. Logo
-2. Products
+2. Prodotti
 3. Categorie
 4. Indirizzo di supporto (collegamento)
 5. Condizioni per l'utilizzo
 6. Informativa sulla privacy
 7. Nome offerta
-8. Summary
+8. Riepilogo
 9. Descrizione
 10. Screenshot/video
 
@@ -256,9 +256,8 @@ Caricare il file del pacchetto dell'estensione (con estensione app) per l'offert
 
 Obbligatorio se l'offerta deve essere installata insieme a un'altra estensione che non verrà pubblicata nel marketplace. In questo caso, caricare qui il file con estensione app.
 
-#### <a name="dependency-package-file"></a>File del pacchetto di dipendenze
-
-Obbligatorio se l'offerta deve essere installata insieme a un'altra estensione che è già stata pubblicata nel marketplace. In questo caso, caricare qui il file `.app` o `.zip`.
+>[!NOTE]
+>Il file del pacchetto di dipendenze non viene più utilizzato. Caricare invece un file del pacchetto di libreria.
 
 ### <a name="url-to-app-installation"></a>URL per l'installazione dell'app
 

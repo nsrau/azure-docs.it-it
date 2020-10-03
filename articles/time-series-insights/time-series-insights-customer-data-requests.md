@@ -4,17 +4,17 @@ description: Informazioni sulle funzionalità di richiesta dei dati dei clienti 
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 04/17/2020
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 30b3832dfe3e1c4564d1d89b5c318421e48f554f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5565dd43689d0420fbb9b73f088f24a38a2d54db
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501696"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665906"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
 
@@ -54,13 +54,13 @@ Se si è un amministratore di tenant, è possibile visualizzare i criteri di acc
 
 I dati personali possono essere aggiunti all'archiviazione di Time Series Insights, andando a costituire uno scenario diverso rispetto a quello dei dati utente o dell'amministratore. Se si considerano i dati archiviati in Time Series Insights come dati personali, è possibile esportarli ed eliminarli mediante la procedura seguente:
 
-**Visualizzare ed esportare i dati**
+### <a name="view-and-export-data"></a>Visualizzare ed esportare i dati
 
 Per visualizzare ed esportare i dati archiviati in Time Series Insights, è necessario prima cercarli. Per visualizzare ed esportare i dati è possibile usare lo strumento di esplorazione di Time Series Insights o le API di query di Time Series Insight. Per visualizzare ed esportare i dati mediante lo strumento di esplorazione di Time Series Insights, eseguire prima una ricerca per trovare i dati utente in questione. Dopo aver eseguito la ricerca, fare clic con il pulsante destro del mouse sul grafico e selezionare **Esplora eventi**. Viene visualizzata la griglia degli eventi e vengono presentate le opzioni per esportare i dati come file con estensione csv e json.
 
 Per ulteriori informazioni, vedere [Azure Time Series Insights Explorer](time-series-insights-explorer.md).
 
-**Eliminare i dati**
+### <a name="delete-data"></a>Eliminare i dati
 
 Attualmente, Time Series Insights non supporta l'eliminazione granulare dei dati. Tuttavia, Time Series Insights offre la possibilità di rimuovere i dati dei clienti archiviati configurando i criteri di conservazione. È possibile regolare il periodo di conservazione dell'intero ambiente di Time Series Insights su qualsiasi numero di giorni per supportare i requisiti di eliminazione.
 

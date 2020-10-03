@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53f10996a7f15e32261f151600163f41df4e58ca
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708213"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666773"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gestire i dati exfiltration negli account di archiviazione di Azure con i criteri dell'endpoint del servizio rete virtuale usando l'interfaccia della riga di comando
 
@@ -37,7 +37,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 * Verificare l'accesso all'account di archiviazione consentito dalla subnet.
 * Verificare che l'accesso sia stato negato all'account di archiviazione non consentito dalla subnet.
 
-Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -252,7 +252,7 @@ az storage account network-rule add \
 
 I criteri dell'endpoint di servizio di Azure sono disponibili solo per archiviazione di Azure. Quindi, si Abilita l'endpoint di servizio per *Microsoft. storage* in questa subnet per questo esempio di installazione.
 
-I criteri dell'endpoint di servizio vengono applicati agli endpoint del servizio. Si inizierà creando un criterio dell'endpoint di servizio. Verranno quindi create le definizioni dei criteri in questo criterio per gli account di archiviazione di Azure da includere nell'elenco elementi consentiti per questa subnet
+I criteri dell'endpoint di servizio vengono applicati agli endpoint del servizio. Si inizierà creando un criterio dell'endpoint di servizio. Verranno quindi create le definizioni dei criteri in base a questo criterio per gli account di archiviazione di Azure da approvare per questa subnet
 
 Creare un criterio di endpoint di servizio
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: locale, Docker, container, Kubernetes
-ms.openlocfilehash: ccba46c1e83f92b1f27c64cb4d9ca32039862bd1
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ed61760312ad8bada0241b0338c36ab3557e2caa
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597452"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665413"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contenitori dei servizi cognitivi di Azure
 
@@ -29,7 +29,8 @@ Il supporto dei contenitori è attualmente disponibile per un sottoinsieme di se
 
 > [!div class="checklist"]
 > * [Rilevamento anomalie][ad-containers]
-> * [Visione artificiale][cv-containers]
+> * [Lettura OCR (riconoscimento ottico di caratteri) ][cv-containers]
+> * [Analisi spaziale][spa-containers]
 > * [Viso][fa-containers]
 > * [Riconoscimento modulo][fr-containers]
 > * [Language Understanding (LUIS)][lu-containers]

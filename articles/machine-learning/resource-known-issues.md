@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/13/2020
-ms.openlocfilehash: 3a1d5c70913f7e2a56eaf04be333a931c1adbc3d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/02/2020
+ms.openlocfilehash: c4250be15b1c4fdc5df81c0f0ba3623dedf6488f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450057"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667266"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi in Azure Machine Learning
 
@@ -387,9 +387,9 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   
 * **importazione AutoMLConfig non riuscita**: sono state apportate modifiche al pacchetto nella versione automatizzata di Machine Learning 1.0.76, che richiedono la disinstallazione della versione precedente prima dell'aggiornamento alla nuova versione. Se si verifica l' `ImportError: cannot import name AutoMLConfig` errore dopo l'aggiornamento da una versione di SDK precedente a v 1.0.76 a v 1.0.76 o versioni successive, risolvere l'errore eseguendo: `pip uninstall azureml-train automl` e quindi `pip install azureml-train-auotml` . Questa operazione viene eseguita automaticamente dallo script automl_setup. cmd. 
 
-* **area di lavoro. from_config ha esito negativo**: se chiama WS = workspace. from_config ()' ha esito negativo-
+* **Workspace.from_config ha esito negativo**: se la chiamata a ws = Workspace.from_config ()' ha esito negativo-
   1. Verificare che il notebook Configuration. ipynb sia stato eseguito correttamente.
-  2. Se il notebook è in esecuzione da una cartella che non si trova sotto la cartella in cui è `configuration.ipynb` stato eseguito, copiare la cartella aml_config e il file config.jsin cui è contenuto nella nuova cartella. Area di lavoro. from_config legge il config.jsper la cartella del notebook o la relativa cartella padre.
+  2. Se il notebook è in esecuzione da una cartella che non si trova sotto la cartella in cui è `configuration.ipynb` stato eseguito, copiare la cartella aml_config e il file config.jsin cui è contenuto nella nuova cartella. Workspace.from_config legge il config.jsper la cartella del notebook o la relativa cartella padre.
   3. Se è in uso una nuova sottoscrizione, un gruppo di risorse, un'area di lavoro o un'area, assicurarsi di eseguire di `configuration.ipynb` nuovo il notebook. La modifica di config.jsdirettamente funzionerà solo se l'area di lavoro esiste già nel gruppo di risorse specificato nella sottoscrizione specificata.
   4. Per modificare l'area, modificare l'area di lavoro, il gruppo di risorse o la sottoscrizione. `Workspace.create` non creerà o aggiornerà un'area di lavoro, se esiste già, anche se l'area specificata è diversa.
   
@@ -410,7 +410,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 Eseguire queste azioni per gli errori seguenti:
 
-|Errore  | Soluzione  |
+|Errore di  | Soluzione  |
 |---------|---------|
 |Errore di compilazione dell'immagine durante la distribuzione del servizio Web     |  Aggiungere "pynacl = = 1.2.1" come dipendenza pip al file conda per la configurazione dell'immagine       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Modificare lo SKU per le macchine virtuali usate nella distribuzione in uno con una maggiore quantità di memoria. |
@@ -449,6 +449,10 @@ kubectl get secret/azuremlfessl -o yaml
 
 >[!Note]
 >Kubernetes archivia i segreti nel formato con codifica base 64. Prima di fornire tali componenti, è necessario decodificare in base 64 i `cert.pem` `key.pem` componenti e dei segreti `attach_config.enable_ssl` . 
+
+### <a name="detaching-azure-kubernetes-service"></a>Scollegamento del servizio Azure Kubernetes
+
+L'uso di Azure Machine Learning Studio, SDK o l'estensione dell'interfaccia della riga di comando di Azure per l'apprendimento automatico per scollegare un cluster AKS non elimina il cluster AKS. Per eliminare il cluster, vedere [usare l'interfaccia della riga di comando di Azure con AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
 
 ### <a name="webservices-in-azure-kubernetes-service-failures"></a>Problemi relativi ai servizi WebService in Azure Kubernetes
 

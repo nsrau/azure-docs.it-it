@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: b124f828c4a6a019c45243528ed2d957e3f781f3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: fe5940083d04c1b5cc60b21834adf609e523e059
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191414"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666246"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Guida alla disponibilità elevata e al ripristino di emergenza per Data Lake Storage Gen1
 
@@ -37,8 +37,6 @@ Anche se Data Lake Storage Gen1 offre la resilienza dei dati tramite le repliche
 Per evitare l'eliminazione accidentale, è consigliabile impostare prima di tutto i criteri di accesso corretti per l'account Data Lake Storage Gen1. Questo include l'applicazione dei [blocchi delle risorse di Azure](../azure-resource-manager/management/lock-resources.md) per bloccare le risorse importanti e l'applicazione del controllo di accesso a livello di file e di account usando le [funzionalità di sicurezza data Lake storage Gen1](data-lake-store-security-overview.md)disponibili. È anche opportuno creare regolarmente copie dei dati critici usando [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) o [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) in un altro account Data Lake Storage Gen1, in una cartella o in una sottoscrizione di Azure. Queste copie possono essere usate per il ripristino in seguito a un danneggiamento dei dati o un evento imprevisto di eliminazione. Azure Data Factory è un servizio utile per creare e distribuire pipeline di spostamento dati a intervalli ricorrenti.
 
 È anche possibile abilitare la [registrazione diagnostica](data-lake-store-diagnostic-logs.md) per un account data Lake storage Gen1 per raccogliere gli itinerari di controllo dell'accesso ai dati. I percorsi di controllo forniscono informazioni su chi potrebbe avere eliminato o aggiornato un file.
-
-È possibile provare a ripristinare un elemento eliminato usando il modulo [AZ. archivio data lake](https://docs.microsoft.com/powershell/module/az.datalakestore/) Azure PowerShell per data Lake storage gen 1. In particolare, vedere il comando [Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem) . Assicurarsi di esaminare la sezione [Descrizione](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem#description) prima di provare a usare questo comando.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

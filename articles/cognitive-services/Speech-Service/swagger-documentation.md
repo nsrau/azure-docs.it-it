@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 30e8224b6cb757f044a5eac598d834cee838391e
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 6bb50e427fa85a170c5ad23a63d67c01e898a17d
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629982"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665685"
 ---
 # <a name="swagger-documentation"></a>Documentazione di Swagger
 
@@ -30,10 +30,17 @@ La [specifica di Swagger](https://westus.dev.cognitive.microsoft.com/docs/servic
 
 È necessario impostare spavalderia sulla stessa area della sottoscrizione del servizio di riconoscimento vocale. È possibile confermare l'area nel portale di Azure nella risorsa del servizio di riconoscimento vocale. Per un elenco completo delle aree supportate, vedere [aree](regions.md).
 
-1. In un browser passare alla specifica di spavalderia per l'area geografica `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0` . In questa pagina fare clic su **definizione API**e quindi su **spavalderia**. Copiare l'URL della pagina visualizzata.
+1. In un browser passare alla specifica di spavalderia per l'area geografica:  
+       `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0`
+1. In questa pagina fare clic su **definizione API**e quindi su **spavalderia**. Copiare l'URL della pagina visualizzata.
 1. In un nuovo browser passare a https://editor.swagger.io
 1. Fare clic su **file**, quindi su **Importa URL**, incollare l'URL e fare clic su **OK**.
-1. Fare clic su **genera client** e selezionare **Python**. La libreria client viene scaricata nel computer.
+1. Fare clic su **genera client** e selezionare **Python**. La libreria client viene scaricata nel computer in un `.zip` file.
+1. Estrarre tutti gli elementi dal download. `tar -xf`Per estrarre tutti gli elementi, è possibile usare.
+1. Installare il modulo estratto nell'ambiente Python:  
+       `pip install path/to/package/python-client`
+1. Il pacchetto installato è denominato `swagger_client` . Verificare che l'installazione abbia avuto esito positivo:  
+       `python -c "import swagger_client"`
 
 È possibile usare la libreria Python generata con gli esempi di [servizio vocale su GitHub](https://aka.ms/csspeech/samples).
 

@@ -3,12 +3,12 @@ title: Configurare l'analisi delle dipendenze senza agente in Azure Migrate serv
 description: Configurare l'analisi delle dipendenze senza agente in Azure Migrate server assessment.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 164cc20632faa1d444d06da6688000e9b40d7e76
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275592"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667470"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analizzare le dipendenze dei computer (senza agente)
 
@@ -137,12 +137,12 @@ Scegliere i computer in cui si desidera arrestare l'individuazione delle dipende
 Se si vuole arrestare la dipendenza da più computer, è possibile usare [PowerShell](#start-or-stop-dependency-discovery-using-powershell) .
 
 
-### <a name="start-or-stop-dependency-discovery-using-powershell"></a>Avviare o arrestare l'individuazione delle dipendenze tramite PowerShell
+## <a name="start-or-stop-dependency-discovery-using-powershell"></a>Avviare o arrestare l'individuazione delle dipendenze tramite PowerShell
 
 Scaricare il modulo PowerShell dal repository [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) su GitHub.
 
 
-#### <a name="log-in-to-azure"></a>Accedere ad Azure
+### <a name="log-in-to-azure"></a>Accedere ad Azure
 
 1. Accedere alla sottoscrizione di Azure usando il cmdlet Connect-AzAccount.
 
@@ -166,7 +166,7 @@ Scaricare il modulo PowerShell dal repository [Azure PowerShell Samples](https:/
     Import-Module .\AzMig_Dependencies.psm1
     ```
 
-#### <a name="enable-or-disable-dependency-data-collection"></a>Abilitare o disabilitare la raccolta dei dati sulle dipendenze
+### <a name="enable-or-disable-dependency-data-collection"></a>Abilitare o disabilitare la raccolta dei dati sulle dipendenze
 
 1. Ottenere l'elenco delle macchine virtuali VMware individuate nel progetto Azure Migrate usando i comandi seguenti. Nell'esempio seguente il nome del progetto è FabrikamDemoProject e il gruppo di risorse a cui appartiene è FabrikamDemoRG. L'elenco dei computer verrà salvato in FabrikamDemo_VMs.csv
 

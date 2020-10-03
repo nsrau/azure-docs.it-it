@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 5115190d944e78d476f369442dccdbda394e46ba
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: b0b19eaa86269feff28c73275e4db4a3d332b3df
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564050"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664874"
 ---
 # <a name="high-availability-ports-overview"></a>Panoramica delle porta a disponibilità elevata
 
-Azure Load Balancer Standard permette di bilanciare il carico di flussi TCP e UDP in tutte le porte simultaneamente quando si usa il bilanciamento del carico interno. 
+Azure Load Balancer Standard consente di bilanciare il carico di **tutti i** flussi di protocollo su **tutte le** porte contemporaneamente quando si usa una Load Balancer interna tramite porte a disponibilità elevata.
 
-Una regola di bilanciamento del carico delle porte a disponibilità elevata è una variante di una regola di bilanciamento del carico, configurata in un Load Balancer Standard interno. È possibile semplificare l'uso del bilanciamento del carico specificando un'unica regola per il bilanciamento del carico di tutti i flussi TCP e UDP in arrivo su tutte le porte del servizio Azure Load Balancer Standard interno. La decisione di bilanciamento del carico viene presa per ogni flusso in base a queste cinque tuple: indirizzo IP di origine, porta di origine, indirizzo IP di destinazione, porta di destinazione e protocollo.
+Le porte a disponibilità elevata sono un tipo di regola di bilanciamento del carico che fornisce un modo semplice per bilanciare il carico di **tutti i** flussi che arrivano su **tutte le** porte di una Load Balancer standard interna. La decisione di bilanciamento del carico viene presa per ogni flusso in base a queste cinque tuple: indirizzo IP di origine, porta di origine, indirizzo IP di destinazione, porta di destinazione e protocollo.
 
 Le regole di bilanciamento del carico per porte a disponibilità elevata permettono di gestire scenari critici, ad esempio la disponibilità elevata e la scalabilità per appliance di rete virtuali all'interno di reti virtuali. Questa funzionalità può essere utile anche quando è necessario eseguire il bilanciamento del carico di un numero elevato di porte. 
 
