@@ -51,6 +51,8 @@
       href: cli-samples.md
 - name: Concetti
   items:
+    - name: Disponibilità elevata
+      href: cache-high-availability.md
     - name: Failover e patch
       href: cache-failover.md
     - name: Procedure consigliate
@@ -90,8 +92,6 @@
           href: cache-reserved-pricing.md
         - name: Eseguire la migrazione alla cache di Azure per Redis
           href: cache-migration-guide.md
-        - name: Eseguire la migrazione dal Servizio cache gestita (deprecato)
-          href: cache-migrate-to-redis.md
         - name: Domande frequenti sulla pianificazione
           href: cache-planning-faq.md
     - name: Compilazione
