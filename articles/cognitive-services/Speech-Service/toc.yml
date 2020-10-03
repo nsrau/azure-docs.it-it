@@ -419,7 +419,7 @@
       items:
         - name: Che cos'è Direct Line Speech?
           href: direct-line-speech.md
-        - name: Avvii rapidi
+        - name: Avvi rapidi
           items:
             - name: Creare un assistente vocale personalizzato
               href: quickstarts/voice-assistants.md
@@ -449,12 +449,6 @@
               href: windows-voice-assistants-best-practices.md
             - name: Esempi e domande frequenti
               href: windows-voice-assistants-faq.md
-    - name: Parola chiave personalizzata
-      items:
-        - name: Panoramica delle parole chiave personalizzate
-          href: custom-keyword-overview.md
-        - name: Informazioni di base sulle parole chiave personalizzate
-          href: custom-keyword-basics.md
 - name: Riconoscimento del parlante
   items:
     - name: Panoramica di Riconoscimento del parlante
@@ -465,6 +459,12 @@
       items:
         - name: API REST Riconoscimento del parlante
           href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+- name: Parola chiave personalizzata
+  items:
+    - name: Panoramica delle parole chiave personalizzate
+      href: custom-keyword-overview.md
+    - name: Informazioni di base sulle parole chiave personalizzate
+      href: custom-keyword-basics.md
 - name: Strumenti
   items:
     - name: Speech SDK
