@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 926f4dd94ba5b1f864a002c282004b3a9f438dca
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 280b7e051c4c9d87c504c1abf6aca0b04bfa1b29
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722739"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704600"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Esaminare gli eventi di controllo di sicurezza in Azure Active Directory Domain Services usando le cartelle di lavoro di monitoraggio di Azure
 
@@ -58,7 +58,7 @@ Per accedere al modello di cartella di lavoro per il report Panoramica sicurezza
 1. Selezionare il dominio gestito, ad esempio *aaddscontoso.com*
 1. Dal menu sul lato sinistro scegliere **monitoraggio > cartelle di lavoro**
 
-    ![Selezionare l'opzione di menu cartelle di lavoro nella portale di Azure](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
+    ![Screenshot che hightlights dove selezionare il report Panoramica della sicurezza e il report attività account.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Scegliere il **report Panoramica sicurezza**.
 1. Dai menu a discesa nella parte superiore della cartella di lavoro selezionare la sottoscrizione di Azure e quindi un'area di lavoro di monitoraggio di Azure.

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 872775df82d609a640346ddef2f77381c2160fcf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276068"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704729"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Pianificare e gestire i costi per Azure Machine Learning
 
@@ -69,7 +69,7 @@ Con i dati che cambiano continuamente, è necessario un training del modello vel
 
 Azure Machine Learning utenti possono usare il cluster di calcolo Azure Machine Learning gestito, denominato anche AmlCompute. AmlCompute supporta un'ampia gamma di opzioni GPU e CPU. Il AmlCompute è ospitato internamente per conto della sottoscrizione da Azure Machine Learning. Offre la stessa sicurezza, conformità e governance di livello aziendale in Azure IaaS cloud scale.
 
-Poiché questi pool di calcolo si trovano all'interno dell'infrastruttura IaaS di Azure, è possibile distribuire, ridimensionare e gestire la formazione con gli stessi requisiti di sicurezza e conformità del resto dell'infrastruttura.  Queste distribuzioni si verificano nella sottoscrizione e rispettano le regole di governance. Altre informazioni sulle [Azure Machine Learning di calcolo](how-to-create-attach-compute-sdk.md#amlcompute).
+Poiché questi pool di calcolo si trovano all'interno dell'infrastruttura IaaS di Azure, è possibile distribuire, ridimensionare e gestire la formazione con gli stessi requisiti di sicurezza e conformità del resto dell'infrastruttura.  Queste distribuzioni si verificano nella sottoscrizione e rispettano le regole di governance. Altre informazioni sulle [Azure Machine Learning di calcolo](how-to-create-attach-compute-cluster.md).
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>Configurare i cluster di training per la scalabilità automatica
 
@@ -127,4 +127,4 @@ Azure Machine Learning calcolo supporta le istanze riservate intrinsecamente. Se
 Altre informazioni su:
 * [Gestire e aumentare le quote di risorse](how-to-manage-quotas.md)
 * [Gestione dei costi con l'analisi dei costi](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* Creare Azure Machine Learning calcolo con [SDK](how-to-create-attach-compute-sdk.md#amlcompute) o in [Studio](how-to-create-attach-compute-studio.md#amlcompute).
+* Creare Azure Machine Learning calcolo con [SDK](how-to-create-attach-compute-cluster.md) o in [Studio](how-to-create-attach-compute-studio.md#amlcompute).

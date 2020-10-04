@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 114f26c71ee1aecdb1a0ad3d1c01e558843c0969
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024384"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705059"
 ---
 # <a name="common-conditional-access-policies"></a>Criteri comuni di accesso condizionale
 
@@ -38,14 +38,14 @@ Altre informazioni sugli account di accesso di emergenza e sul motivo per cui so
 * [Richiedi autenticazione a più fattori per la gestione di Azure](howto-conditional-access-policy-azure-management.md)\*
 * [Richiedi autenticazione a più fattori per tutti gli utenti](howto-conditional-access-policy-all-users-mfa.md)\*
 
-\*Questi quattro criteri, quando configurati insieme, simulano la funzionalità abilitata dalle [impostazioni predefinite di sicurezza](../fundamentals/concept-fundamentals-security-defaults.md).
+\* Questi quattro criteri, quando configurati insieme, simulano la funzionalità abilitata dalle [impostazioni predefinite di sicurezza](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="additional-policies"></a>Criteri aggiuntivi
 
 * [Accesso condizionale basato sul rischio di accesso (richiede Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Accesso condizionale basato sul rischio utente (richiede Azure AD Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Richiedere una località attendibile per la registrazione dell'autenticazione a più fattori](howto-conditional-access-policy-registration.md)
-* [Blocca l'accesso in base alla località](howto-conditional-access-policy-location.md)
+* [Bloccare l'accesso in base alla località](howto-conditional-access-policy-location.md)
 * [Richiedere un dispositivo conforme](howto-conditional-access-policy-compliant-device.md)
 * [Blocca l'accesso eccetto app specifiche](howto-conditional-access-policy-block-access.md)
 

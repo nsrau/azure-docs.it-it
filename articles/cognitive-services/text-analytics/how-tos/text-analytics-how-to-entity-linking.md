@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: 5f5122b5fa7c20bc0717ef1605e41bb5f2700be2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d6820e890607ff16230ecf48e8318e6d1119a3a2
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91309099"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707507"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
@@ -34,7 +34,7 @@ Il riconoscimento delle entità denominate (NER) è la possibilità di identific
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Funzionalità                                                         | NER v 3.0 | NER v 3.1-Preview. 2 |
+| Feature                                                         | NER v 3.0 | NER v 3.1-Preview. 2 |
 |-----------------------------------------------------------------|--------|----------|
 | Metodi per richieste singole e batch                          | X      | X        |
 | Riconoscimento delle entità espanso tra diverse categorie           | X      | X        |
@@ -141,10 +141,11 @@ L'output viene restituito immediatamente. Si possono trasmettere i risultati a u
 
 ### <a name="example-responses"></a>Risposte di esempio
 
-La versione 3 fornisce endpoint distinti per NER e il collegamento di entità. Di seguito sono riportate le risposte per entrambe le operazioni. 
+La versione 3 fornisce endpoint distinti per il collegamento generale NER, PII ed Entity. Di seguito sono riportate le risposte per entrambe le operazioni. 
 
 #### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
+Esempio di risposta NER generale:
 ```json
 {
   "documents": [
@@ -198,6 +199,44 @@ La versione 3 fornisce endpoint distinti per NER e il collegamento di entità. D
 ```
 #### <a name="version-31-preview"></a>[Versione 3,1-Preview](#tab/version-3-preview)
 
+Esempio di risposta PII:
+```json
+{
+  "documents": [
+    {
+    "redactedText": "You can even pre-order from their online menu at *************************, call ************ or send email to ***************************!",
+    "id": "0",
+    "entities": [
+        {
+        "text": "www.contososteakhouse.com",
+        "category": "URL",
+        "offset": 49,
+        "length": 25,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "312-555-0176",
+        "category": "Phone Number",
+        "offset": 81,
+        "length": 12,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "order@contososteakhouse.com",
+        "category": "Email",
+        "offset": 111,
+        "length": 27,
+        "confidenceScore": 0.8
+        }
+      ],
+    "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-07-01"
+}
+```
+Esempio di risposta di collegamento di un'entità:
 ```json
 {
   "documents": [
@@ -244,11 +283,10 @@ La versione 3 fornisce endpoint distinti per NER e il collegamento di entità. D
   "modelVersion": "2020-02-01"
 }
 ```
-
 ---
 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il collegamento delle entità usando Analisi del testo nei Servizi cognitivi. In sintesi:
 

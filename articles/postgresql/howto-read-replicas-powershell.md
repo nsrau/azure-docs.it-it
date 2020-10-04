@@ -1,18 +1,18 @@
 ---
 title: Gestire le repliche di lettura-Azure PowerShell-database di Azure per PostgreSQL
 description: Informazioni su come configurare e gestire le repliche di lettura nel database di Azure per PostgreSQL usando PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b57fe5879c45225f8ba22e2c94aceeb5b38369e3
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 26c6f70f92e4c372c0ff6afbcbb3c0bb284e2f6c
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539453"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704804"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>Come creare e gestire le repliche di lettura nel database di Azure per PostgreSQL con PowerShell
 
@@ -31,7 +31,7 @@ Per completare questa guida, è necessario:
 
 > [!IMPORTANT]
 > Poiché il modulo Az.PostgreSql di PowerShell è in fase di anteprima, è necessario installarlo separatamente dal modulo Az PowerShell usando il comando seguente: `Install-Module -Name Az.PostgreSql -AllowPrerelease`.
-> Quando il modulo Az.PostgreSql di PowerShell sarà disponibile a livello generale, diventerà parte delle future versioni del modulo Az PowerShell e sarà disponibile in modo nativo dall'interno di Azure Cloud Shell.
+> Quando il modulo Az.PostgreSql di PowerShell sarà disponibile a livello generale, diventerà parte delle future versioni del modulo Az PowerShell e disponibile in modo nativo dall'interno di Azure Cloud Shell.
 
 Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
 
@@ -54,7 +54,7 @@ Il comando `New-AzPostgreSqlServerReplica` richiede i parametri seguenti:
 | Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Il gruppo di risorse in cui viene creato il server di replica.  |
-| Nome | mydemoreplicaserver | Nome del nuovo server di replica creato. |
+| Name | mydemoreplicaserver | Nome del nuovo server di replica creato. |
 
 Per creare una replica di lettura tra aree, usare il parametro **location** . Nell'esempio seguente viene creata una replica nell'area **Stati Uniti occidentali** .
 

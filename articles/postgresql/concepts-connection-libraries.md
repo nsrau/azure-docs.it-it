@@ -1,17 +1,17 @@
 ---
 title: Librerie di connessione-database di Azure per PostgreSQL-server singolo
 description: Questo articolo descrive diverse librerie e driver che è possibile usare quando si codificano le applicazioni per connettersi ed eseguire query su database di Azure per PostgreSQL-server singolo.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 2305a02e5b094ec9e98f39363ddbd0c39221ab0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45081c6ba161686498398f2c4ccae8b4cff4c0d1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768895"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704311"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Librerie di connessione per database di Azure per PostgreSQL-server singolo
 Questo argomento elenca le librerie e i driver che gli sviluppatori possono usare per creare applicazioni per la connessione e l'esecuzione di query in Database di Azure per PostgreSQL.

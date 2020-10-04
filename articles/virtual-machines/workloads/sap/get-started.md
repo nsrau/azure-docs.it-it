@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/30/2020
+ms.date: 10/01/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 450bd87c6dd1f55c58f4c8a620dbddcfdf42ec7f
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 15581178dc1c00b6905763e8552062869f8378ce
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596546"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704957"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso di Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -83,6 +83,7 @@ In questa sezione è possibile trovare informazioni su come configurare SSO con 
 ## <a name="change-log"></a>Registro modifiche
 
 - 09/30/2020: modificare la [disponibilità elevata di SAP Hana in macchine virtuali di Azure in RHEL](./sap-hana-high-availability-rhel.md), [ha per SAP Hana la scalabilità verticale con e su RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) e la [configurazione di pacemaker in RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) per adattare le istruzioni per RHEL 8,1
+- 09/29/2020: le restrizioni e le raccomandazioni sull'uso di PPG sono più ovvie nell'articolo [gruppi di posizionamento di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 
 - 09/28/2020: aggiunta di una nuova guida all'operazione di archiviazione per SAP HANA usando Azure NetApp Files con i volumi del documento [NFS v 4.1 in Azure NetApp files per SAP Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 - 09/23/2020: aggiungere nuovi SKU certificati per HLI in [SKU disponibili per HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 
 - 09/20/2020: modifiche alle considerazioni sui documenti [per la distribuzione DBMS di macchine virtuali di Azure per il carico di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general), [SQL Server la distribuzione DBMS di macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver), le [macchine virtuali di Azure distribuzione DBMS Oracle per il carico di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle), le [macchine virtuali di Azure IBM DB2 distribuzione DBMS per il carico di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm) per adattarsi ai nuovi suggerimenti di configurazione che suggeriscono la separazione dei file Aggiunta anche di raccomandazioni su disco per le diverse guide.

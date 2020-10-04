@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/25/2020
-ms.openlocfilehash: 56febc6c2a0e88b2be547c71a2f90ccfa9b78f26
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.date: 10/02/2020
+ms.openlocfilehash: 68143d3ee5df6dca29c43cb090f5873c4b50060f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630832"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704691"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo di Azure Machine Learning?
 
@@ -24,7 +24,7 @@ Le istanze di calcolo semplificano l'avvio dello sviluppo di Azure Machine Learn
 
 Usa un'istanza di calcolo come ambiente di sviluppo completamente configurato e gestito nel cloud per Machine Learning. Possono anche essere usati come destinazione di calcolo per il training e l'inferenza a scopo di sviluppo e test.  
 
-Per il training del modello di livello di produzione, usare un [cluster di calcolo Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute) con funzionalità di scalabilità a più nodi. Per la distribuzione del modello di livello di produzione, usare il [cluster di servizi Kubernetes di Azure](how-to-deploy-azure-kubernetes-service.md).
+Per il training del modello di livello di produzione, usare un [cluster di calcolo Azure Machine Learning](how-to-create-attach-compute-cluster.md) con funzionalità di scalabilità a più nodi. Per la distribuzione del modello di livello di produzione, usare il [cluster di servizi Kubernetes di Azure](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="why-use-a-compute-instance"></a>Perché usare un'istanza di calcolo?
 
@@ -37,6 +37,8 @@ Un'istanza di calcolo è una workstation basata su cloud completamente gestita, 
 |Preconfigurato &nbsp; per &nbsp; ml|Risparmio di tempo nelle attività di configurazione con pacchetti AML preconfigurati e aggiornati, framework di Deep Learning e driver GPU.|
 |Personalizzazione completa|Ampio supporto per i tipi di macchine virtuali di Azure, tra cui GPU e personalizzazione di basso livello persistente, come l'installazione di pacchetti e driver, che semplifica gli scenari avanzati. |
 
+È possibile [creare un'istanza di calcolo](how-to-create-manage-compute-instance.md?tabs=python#create) autonomamente oppure un amministratore può [creare un'istanza di calcolo](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview).
+
 ## <a name="tools-and-environments"></a><a name="contents"></a>Strumenti e ambienti
 
 > [!IMPORTANT]
@@ -45,7 +47,9 @@ Un'istanza di calcolo è una workstation basata su cloud completamente gestita, 
 
 L'istanza di calcolo di Azure Machine Learning consente di creare, eseguire il training e distribuire modelli in un'esperienza di notebook completamente integrata nell'area di lavoro.
 
-Tali strumenti e ambienti sono installati nell'istanza di calcolo. 
+È possibile [installare i pacchetti](how-to-create-manage-compute-instance.md#install-packages) e [aggiungere i kernel](how-to-create-manage-compute-instance.md#add-new-kernels) all'istanza di calcolo.  
+
+Questi strumenti e ambienti sono già installati nell'istanza di calcolo: 
 
 |Strumenti generali e ambienti|Dettagli|
 |----|:----:|
@@ -78,46 +82,6 @@ Tali strumenti e ambienti sono installati nell'istanza di calcolo.
 
 Tutti i pacchetti Python sono installati nell'ambiente **Python 3.6 - AzureML**.  
 
-### <a name="installing-packages"></a>Installazione dei pacchetti
-
-È possibile installare i pacchetti direttamente in Jupyter Notebook o RStudio:
-
-* RStudio: usare la scheda **Packages** (Pacchetti) in basso a sinistra o la scheda **Console** in alto a sinistra.  
-* Python: aggiungere il codice di installazione ed eseguire in una cella Jupyter Notebook.
-
-In alternativa, è possibile accedere a una finestra del terminale in uno dei modi seguenti.
-
-* RStudio: selezionare la scheda **Terminal** (Terminale) in alto a sinistra.
-* Jupyter Lab:  selezionare il riquadro **Terminal** (Terminale) nell'intestazione **Other** (Altro) nella scheda Launcher (Utilità di avvio).
-* Jupyter:  selezionare **New>Terminal** (Nuovo>Terminale) in alto a destra nella scheda File.
-* Accedere con SSH al computer  e quindi installare i pacchetti Python nell'ambiente **Python 3.6 - AzureML**.  Installare i pacchetti R nell'ambiente **R**.
-
-Quando si Personalizza l'istanza di calcolo, assicurarsi di non eliminare l'ambiente azureml_py36 conda o il kernel Python 3,6-AzureML. Questa operazione è necessaria per la funzionalità Jupyter/JupyterLab
-
-### <a name="add-new-kernels"></a>Aggiungere nuovi kernel
-
-Per aggiungere un nuovo kernel Jupyter all'istanza di calcolo:
-
-1. Creare un nuovo terminale da Jupyter, JupyterLab o dal riquadro notebook o SSH nell'istanza di calcolo
-2. Usare la finestra del terminale per creare un nuovo ambiente.  Il codice seguente, ad esempio, crea `newenv` :
-    ```shell
-    conda create --name newenv
-    ```
-3. Attivare l'ambiente.  Ad esempio, dopo aver creato `newenv`:
-
-    ```shell
-    conda activate newenv
-    ```
-4. Installare il pacchetto PIP e ipykernel nel nuovo ambiente e creare un kernel per la conda ENV
-
-    ```shell
-    conda install pip
-    conda install ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-
-È possibile installare uno dei [kernel Jupyter disponibili](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
-
 ## <a name="accessing-files"></a>Accesso ai file
 
 I notebook e gli script R vengono archiviati nell'account di archiviazione predefinito dell'area di lavoro nella condivisione file di Azure.  Tali file si trovano nella directory dei file dell'utente. Questo tipo di archiviazione semplifica la condivisione di notebook tra le istanze di calcolo. L'account di archiviazione consente inoltre di mantenere i notebook in modo sicuro quando si arresta o si elimina un'istanza di calcolo.
@@ -131,68 +95,6 @@ I file nella condivisione file sono accessibili da tutte le istanze di calcolo p
 La scrittura di file di piccole dimensioni può essere più lenta nelle unità di rete rispetto alla scrittura nel disco locale dell'istanza di calcolo.  Se si scrivono molti file di piccole dimensioni, provare a usare una directory direttamente nell'istanza di calcolo, ad esempio una directory `/tmp`. Si noti che questi file non saranno accessibili da altre istanze di calcolo. 
 
 È possibile usare la `/tmp` Directory nell'istanza di calcolo per i dati temporanei.  Tuttavia, non scrivere file di grandi dimensioni di dati nel disco del sistema operativo dell'istanza di calcolo.  Usare invece gli [archivi dati](concept-azure-machine-learning-architecture.md#datasets-and-datastores) . Se è stata installata l'estensione JupyterLab git, può anche causare un rallentamento delle prestazioni dell'istanza di calcolo.
-
-## <a name="managing-a-compute-instance"></a>Gestione di un'istanza di calcolo
-
-Nell'area di lavoro in Azure Machine Learning Studio selezionare **Calcolo**, quindi selezionare **Istanza di calcolo** nella parte superiore.
-
-![Gestire un'istanza di calcolo](./media/concept-compute-instance/manage-compute-instance.png)
-
-È possibile eseguire queste operazione:
-
-* [Creare un'istanza di calcolo](#create). 
-* Aggiornare la scheda istanze di calcolo.
-* Avviare, arrestare e riavviare un'istanza di calcolo.  Si paga per l'istanza ogni volta che viene eseguito. Arrestare l'istanza di calcolo quando non viene usata per ridurre i costi. L'arresto di un'istanza di calcolo la dealloca. e quindi riavviarla quando è necessario.
-* Eliminare un'istanza di calcolo.
-* Filtrare l'elenco delle istanze di calcolo in modo da visualizzare solo quelle create.
-
-Per ogni istanza di calcolo nell'area di lavoro che è possibile usare, è possibile:
-
-* Accedere a Jupyter, JupyterLab, RStudio nell'istanza di calcolo
-* Accedere con SSH all'istanza di calcolo. L'accesso SSH è disabilitato per impostazione predefinita, ma può essere abilitato al momento della creazione dell'istanza di calcolo. L'accesso SSH avviene tramite il meccanismo di chiave pubblica/privata. Nella scheda sono disponibili i dettagli per la connessione SSH, ad esempio indirizzo IP, nome utente e numero di porta.
-* Ottenere informazioni dettagliate su un'istanza di calcolo specifica, ad esempio l'indirizzo IP e l'area.
-
-Il [controllo degli accessi in base al ruolo](/azure/role-based-access-control/overview) consente di controllare quali utenti nell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare un'istanza di calcolo. Tutti gli utenti con il ruolo collaboratore e proprietario dell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare le istanze di calcolo nell'area di lavoro. Tuttavia, solo l'autore di un'istanza di calcolo specifica o l'utente assegnato se è stato creato per loro conto, può accedere a Jupyter, JupyterLab e RStudio in tale istanza di calcolo. Un'istanza di calcolo è dedicata a un singolo utente che ha accesso alla radice e può eseguire il terminale in tramite Jupyter/JupyterLab/RStudio. L'istanza di calcolo disporrà di un accesso utente singolo e tutte le azioni useranno l'identità dell'utente per il RBAC e l'attribuzione delle esecuzioni dell'esperimento. L'accesso SSH viene controllato tramite il meccanismo di chiave pubblica/privata.
-
-Queste azioni possono essere controllate da RBAC:
-* *Microsoft.MachineLearningServices/workspaces/computes/read*
-* *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *Microsoft.MachineLearningServices/workspaces/computes/delete*
-* *Microsoft. MachineLearningServices/Workspaces/Computes/Start/Action*
-* *Microsoft. MachineLearningServices/Workspaces/Computes/Stop/Action*
-* *Microsoft. MachineLearningServices/Workspaces/Computes/restart/Action*
-
-### <a name="create-a-compute-instance"></a><a name="create"></a>Creare un'istanza di ambiente di calcolo
-
-Nell'area di lavoro in Azure Machine Learning Studio [creare una nuova istanza di calcolo](how-to-create-attach-compute-studio.md#compute-instance) dalla sezione **calcolo** o nella sezione **notebook** quando si è pronti per eseguire uno dei notebook. 
-
-È anche possibile creare un'istanza nei modi seguenti:
-* Direttamente dall' [esperienza dei notebook integrati](tutorial-1st-experiment-sdk-setup.md#azure)
-* Nel portale di Azure
-* Da Azure Resource Manager modello. Per un modello di esempio, vedere la pagina relativa alla [creazione di un modello di istanza di calcolo Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-* Con [Azure Machine Learning SDK](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
-* Dall'estensione dell'interfaccia della riga [di comando per Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
-
-I core dedicati per area per la quota della famiglia di VM e la quota di area totale, applicabile alla creazione dell'istanza di calcolo, sono unificati e condivisi con Azure Machine Learning quota del cluster di calcolo di training. Se si arresta l'istanza di calcolo, la quota non viene rilasciata per garantire che sia possibile riavviare l'istanza di calcolo.
-
-
-### <a name="create-on-behalf-of-preview"></a>Crea per conto di (anteprima)
-
-In qualità di amministratore, è possibile creare un'istanza di calcolo per conto di un data scientist a cui assegnare l'istanza:
-* [Azure Resource Manager modello](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  Per informazioni dettagliate su come trovare TenantID e ObjectID necessari in questo modello, vedere [trovare ID oggetto Identity per la configurazione dell'autenticazione](../healthcare-apis/find-identity-object-ids.md).  È anche possibile trovare questi valori nel portale Azure Active Directory.
-* API REST
-
-Per i data scientist per cui si crea l'istanza di calcolo sono necessarie le autorizzazioni RBAC seguenti: 
-* *Microsoft. MachineLearningServices/Workspaces/Computes/Start/Action*
-* *Microsoft. MachineLearningServices/Workspaces/Computes/Stop/Action*
-* *Microsoft. MachineLearningServices/Workspaces/Computes/restart/Action*
-* *Microsoft. MachineLearningServices/Workspaces/Computes/applicationaccess/Action*
-
-Il data scientist può avviare, arrestare e riavviare l'istanza di calcolo. Possono usare l'istanza di calcolo per:
-* Jupyter
-* JupyterLab
-* RStudio
-* Notebook integrati
 
 ## <a name="compute-target"></a>Destinazione del calcolo
 
@@ -218,4 +120,5 @@ Non è possibile creare nuove macchine virtuali del notebook. È comunque possib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- * In [Esercitazione: Eseguire il training del primo modello di Machine Learning](tutorial-1st-experiment-sdk-train.md) viene illustrato come usare un'istanza di calcolo con un notebook integrato.
+* [Creare e gestire un'istanza di calcolo](how-to-create-manage-compute-instance.md)
+* In [Esercitazione: Eseguire il training del primo modello di Machine Learning](tutorial-1st-experiment-sdk-train.md) viene illustrato come usare un'istanza di calcolo con un notebook integrato.

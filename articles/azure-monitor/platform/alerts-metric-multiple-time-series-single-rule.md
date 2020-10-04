@@ -4,14 +4,14 @@ description: Avviso su larga scala con una sola regola di avviso per più serie 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
-ms.openlocfilehash: f7ca91ca49d9357285e1307c5051ef5685ad24c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88187001"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704481"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Monitorare più serie temporali in una singola regola di avviso della metrica
 
@@ -174,6 +174,11 @@ Il prezzo delle regole di avviso delle metriche è disponibile nella [pagina dei
 Quando si crea una regola di avviso per la metrica, la stima del prezzo fornita è basata sulle funzionalità selezionate e sul numero di serie temporali monitorate, che è determinato dalla configurazione della regola e dai valori della metrica corrente. Tuttavia, l'addebito mensile si basa sulle valutazioni effettive delle serie temporali e può quindi differire dalla stima originale se alcune serie temporali non dispongono di dati da valutare o se la regola di avviso USA funzionalità che possono aumentare la scalabilità dinamicamente.
 
 Una regola di avviso, ad esempio, può mostrare una stima di prezzo elevata se utilizza la funzionalità MULTIDIMENSIONE e viene selezionata una serie di valori di dimensioni elevato, con conseguente monitoraggio di molte serie temporali. Tuttavia, l'addebito effettivo per la regola di avviso può essere inferiore se non tutte le serie temporali risultanti dalle combinazioni di valori di dimensione hanno effettivamente dati da valutare.
+
+## <a name="number-of-time-series-monitored-by-a-single-alert-rule"></a>Numero di serie temporali monitorate da una sola regola di avviso
+
+Per evitare costi eccessivi, ogni regola di avviso può monitorare fino a 5000 serie temporali per impostazione predefinita. Per revocare questo limite dalla sottoscrizione, aprire un ticket di supporto.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
