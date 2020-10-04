@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420932"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708646"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
@@ -61,7 +61,8 @@ Selezionare le categorie e le sottocategorie che meglio si allineano con il tipo
 
 #### <a name="important-saas-offers-and-microsoft-365-add-ins"></a>IMPORTANTE: offerte SaaS e componenti aggiuntivi Microsoft 365
 
-Per informazioni dettagliate sul modo in cui le funzionalità di transazione possono influire sulla modalità di visualizzazione e acquisto da parte dei clienti del Marketplace, vedere la [Guida in base al tipo di offerta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) . Per le offerte SaaS, la funzionalità di transazione dell'offerta e la selezione delle categorie determinano il negozio online in cui verrà pubblicata l'offerta:
+Per informazioni dettagliate sul modo in cui le funzionalità di transazione possono influire sul modo in cui l'offerta può essere visualizzata e acquistata dai clienti del Marketplace, vedere la pagina relativa al [mercato commerciale](marketplace-commercial-transaction-capabilities-and-considerations.md) . Per le offerte SaaS, la funzionalità di transazione dell'offerta e la selezione delle categorie determinano il negozio online in cui verrà pubblicata l'offerta.
+
 
 | Offerta SaaS    | Offerta SaaS   | Offerta SaaS  | Offerta SaaS   | Offerta SaaS   | Offerta SaaS   | Offerta SaaS    | Negozio online applicabile| Negozio online applicabile |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
@@ -92,7 +93,7 @@ La selezione del settore si applica solo alle offerte pubblicate in AppSource e 
 | **Architettura & costruzione** | |
 | **Automobilistico** | |
 | **Distribuzione** | Vendita all'ingrosso <br> Spedizione pacchetti & pacco |  
-| **Education** | Istruzione superiore <br> Primario & secondario edu/K-12 <br> Librerie & musei |
+| **Istruzione** | Istruzione superiore <br> Primario & secondario edu/K-12 <br> Librerie & musei |
 | **Servizi finanziari** | Settore bancario & mercati finanziari <br> Assicurazioni | 
 | **Enti pubblici** |  Difesa & Intelligence <br> Governo civile <br> Sicurezza pubblica & giustizia |
 | **Servizi sanitari** | Pagante di integrità <br> Provider di integrità <br> Prodotti farmaceutici | 

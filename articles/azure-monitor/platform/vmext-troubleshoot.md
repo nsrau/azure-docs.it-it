@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
-ms.openlocfilehash: 873f6beaa88e1631397827a94161ce4427b5f0bb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e96ac5052221475d9aec11d4ed96e8f9c308d70
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323384"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710108"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Risoluzione dei problemi relativi all'estensione della macchina virtuale Log Analytics in Monitoraggio di Azure
 Questo articolo fornisce indicazioni sulla risoluzione di errori che possono verificarsi con l'estensione della VM di Log Analytics per le macchine virtuali di Windows e Linux in esecuzione su Microsoft Azure e suggerisce le possibili soluzioni per risolverli.
@@ -19,7 +19,7 @@ Questo articolo fornisce indicazioni sulla risoluzione di errori che possono ver
 Per verificare lo stato dell'estensione eseguire questi passaggi dal portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **macchine virtuali**. Quando si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Macchine virtuali**.
+2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **macchine virtuali**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Macchine virtuali**.
 3. Nell'elenco delle macchine virtuali trovarla e selezionarla.
 3. Nel pannello della macchina virtuale fare clic su **Extensions** (Estensioni).
 4. Nell'elenco verificare se l'estensione di Log Analytics è abilitata o meno.  Per Linux l'agente viene elencato come **OMSAgentforLinux** mentre per Windows viene elencato come **MicrosoftMonitoringAgent**.
@@ -52,7 +52,7 @@ Se l'estensione della macchina virtuale per l'*agente di Log Analytics per Linux
 
 1. Se lo stato dell'estensione è *Sconosciuto*, controllare che l'agente di macchine virtuali di Azure sia installato e funzioni correttamente esaminando il relativo file di log `/var/log/waagent.log`
    * Se il log non esiste, l'agente di macchine virtuali non è installato
-   * [Installare l'agente di macchine virtuali di Azure nelle VM Linux](../learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Installare l'agente di macchine virtuali di Azure nelle VM Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#installation)
 2. Per altri stati non integri, esaminare i file di log dell'estensione della macchina virtuale per l'agente di Log Analytics per Linux in `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` e `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. Se lo stato dell'estensione è integro ma i dati non vengono caricati, esaminare i file di log dell'agente di Log Analytics per Linux in `/var/opt/microsoft/omsagent/log/omsagent.log`
 

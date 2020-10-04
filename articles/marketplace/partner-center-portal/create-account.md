@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/01/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 64788544971eaa7738013ab1a0475771c13bab88
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 96a11caa93a925731ad2f24ac860b21301a29cdf
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647657"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708187"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account Marketplace commerciale nel centro per i partner
 
@@ -80,7 +80,7 @@ Il profilo di pubblicazione include il nome della società e l'ID MPN. Se non è
     
 1. Per verificare che l'account Marketplace commerciale sia elencato come registrato, selezionare **Impostazioni**  >  **partner impostazioni**  >  **programmi**.
 
-A questo punto è stato creato un account Marketplace commerciale nel centro per i partner. Per altre informazioni, vedere [Panoramica del Marketplace commerciale](./commercial-marketplace-overview.md). Per informazioni sull'aggiunta di editori, vedere [aggiungere nuovi editori al Marketplace commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
+A questo punto è stato creato un account Marketplace commerciale nel centro per i partner. Per informazioni sull'aggiunta di editori, vedere [aggiungere nuovi editori al Marketplace commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="create-an-account-by-using-existing-microsoft-partner-center-enrollments"></a>Creare un account usando le registrazioni esistenti del centro per i partner Microsoft
 
@@ -129,7 +129,7 @@ Dopo aver eseguito l'accesso, completare la configurazione dell'account attenend
     
 1. Per verificare che l'account Marketplace commerciale sia elencato come registrato, selezionare **Impostazioni**  >  **partner impostazioni**  >  **programmi**.
 
-A questo punto è stato creato un account Marketplace commerciale nel centro per i partner. Per altre informazioni, vedere [Panoramica del Marketplace commerciale](./commercial-marketplace-overview.md). Per informazioni sull'aggiunta di editori, vedere [aggiungere nuovi editori al Marketplace commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
+A questo punto è stato creato un account Marketplace commerciale nel centro per i partner. Per informazioni sull'aggiunta di editori, vedere [aggiungere nuovi editori al Marketplace commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ### <a name="what-if-im-already-enrolled-in-a-developer-program"></a>Cosa accade se si è già iscritti a un programma per sviluppatori?
 
@@ -157,7 +157,7 @@ Dopo aver effettuato l'accesso al centro per i partner, completare la configuraz
     
 1. Per verificare che l'account Marketplace commerciale sia elencato come registrato, selezionare **Impostazioni**  >  **partner impostazioni**  >  **programmi**.
 
-A questo punto è stato creato un account Marketplace commerciale nel centro per i partner. Per altre informazioni, vedere [Panoramica del Marketplace commerciale](./commercial-marketplace-overview.md). Per informazioni sull'aggiunta di editori, vedere [aggiungere nuovi editori al Marketplace commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
+A questo punto è stato creato un account Marketplace commerciale nel centro per i partner. Per informazioni sull'aggiunta di editori, vedere [aggiungere nuovi editori al Marketplace commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="for-publishers-who-moved-from-the-cloud-partner-portal"></a>Per gli editori che sono stati spostati dalla portale Cloud Partner
 
@@ -190,4 +190,5 @@ Al termine di questo processo, è possibile gestire il server di pubblicazione a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- [Che cos'è il Marketplace commerciale Microsoft?](../overview.md)
 - [Gestire l'account del marketplace commerciale nel Centro per i partner](./manage-account.md)

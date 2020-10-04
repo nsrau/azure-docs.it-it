@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: b4581b7e93cde9d6ba9a20d46ee263a879c05402
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 37c1854aeb1a1fa3d9283c00b07c665b213b306c
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961874"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708153"
 ---
 # <a name="deployment-best-practices"></a>Procedure consigliate per la distribuzione
 
@@ -47,7 +47,7 @@ Se il progetto ha designato rami per i test, il controllo di qualità e la gesti
 
 La distribuzione continua non dovrebbe mai essere abilitata per lo slot di produzione. Al contrario, il ramo di produzione (spesso Master) deve essere distribuito in uno slot non di produzione. Quando si è pronti per rilasciare il ramo di base, scambiarlo nello slot di produzione. Lo scambio in produzione, anziché la distribuzione nell'ambiente di produzione, impedisce tempi di inattività e consente di eseguire il rollback delle modifiche eseguendo di nuovo lo swapping. 
 
-![Visualizzazione di utilizzo slot](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+![Diagramma che mostra il flusso tra i rami di sviluppo, di staging e master e gli slot in cui vengono distribuiti.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
 
 ### <a name="continuously-deploy-containers"></a>Distribuire i contenitori in modo continuo
 

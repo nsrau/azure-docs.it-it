@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 2f05ab2bc7e514f3e58f383faf47a74ef69f94b6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 53d821809820b11a9a126a826db79726dd43e382
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535094"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708238"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurare e inviare le esecuzioni di training
 
@@ -31,9 +31,7 @@ Quando si esegue il training, è normale avviarsi nel computer locale e successi
 * Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree)
 * [SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
 * Un' [area di lavoro Azure Machine Learning](how-to-manage-workspace.md), `ws`
-* Una destinazione di calcolo, `my_compute_target` .  Creare una destinazione di calcolo con:
-  * [Python SDK](how-to-create-attach-compute-sdk.md) 
-  * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
+* Una destinazione di calcolo, `my_compute_target` .  [Creare una destinazione di calcolo](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>Che cos'è la configurazione di esecuzione dello script?
 Un [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) viene usato per configurare le informazioni necessarie per l'invio di un training eseguito come parte di un esperimento.
@@ -94,7 +92,7 @@ myenv = Environment.get(workspace=ws, name="AzureML-Minimal")
 
 Per altre informazioni e dettagli sugli ambienti, vedere [creare & usare gli ambienti software in Azure Machine Learning](how-to-use-environments.md).
   
-### <a name="local-compute-target"></a>Destinazione di calcolo locale
+### <a name="local-compute-target"></a><a name="local"></a>Destinazione di calcolo locale
 
 Se la destinazione di calcolo è il **computer locale**, l'utente è responsabile di garantire che tutti i pacchetti necessari siano disponibili nell'ambiente Python in cui viene eseguito lo script.  Usare `python.user_managed_dependencies` per usare l'ambiente Python corrente o il Python nel percorso specificato.
 
@@ -119,6 +117,10 @@ src = ScriptRunConfig(source_directory=project_folder,
                       script='train.py',
                       compute_target=my_compute_target,
                       environment=myenv)
+
+# Set compute target
+# Skip this if you are running on your local computer
+script_run_config.run_config.target = my_compute_target
 ```
 
 Se non si specifica un ambiente, verrà creato un ambiente predefinito.

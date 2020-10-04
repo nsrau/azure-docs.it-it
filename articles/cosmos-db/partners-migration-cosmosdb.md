@@ -6,18 +6,18 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 4507b3f3338dccbf51f7342081997549e62f13fe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bd0ec4cf085fb19c89c6be48d4f4534383560fd5
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290079"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707779"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Migrazione di Cosmos DB NoSQL e partner di sviluppo delle applicazioni
 
-Dalla migrazione NoSQL allo sviluppo di applicazioni, è possibile scegliere tra un'ampia gamma di strumenti e partner esperti di system integrator per supportare le soluzioni di Azure Cosmos DB. 
+Dalla migrazione NoSQL allo sviluppo di applicazioni, è possibile scegliere tra un'ampia gamma di strumenti e partner esperti di system integrator per supportare le soluzioni di Azure Cosmos DB. Questo articolo elenca i partner che hanno soluzioni o servizi che usano Azure Cosmos DB. Questo elenco cambia nel tempo, Microsoft non è responsabile di eventuali modifiche o aggiornamenti apportati alle soluzioni di questi partner.
 
-## <a name="systems-integrator-partners"></a>Partner System integrator
+## <a name="systems-integrator-and-tooling-partners"></a>Partner integratori di sistemi e strumenti
 
 |**Partner**  |**Competenze ed esperienza**  |**Supported countries/regions (Paesi supportati)**  |
 |---------|---------|---------|
@@ -25,7 +25,7 @@ Dalla migrazione NoSQL allo sviluppo di applicazioni, è possibile scegliere tra
 | [10thMagnitude](https://www.10thmagnitude.com/) | Internet delle cose, vendite al dettaglio (inventario), analisi operativa (Spark), architettura senza server, sviluppo di app | USA |
 |[Altoros Development LLC](https://www.altoros.com/)  |  Internet delle cose, personalizzazione al dettaglio (inventario), architetture senza server NoSQL migrazione, sviluppo di app|   USA |
 |[Avanade](https://www.avanade.com/) | Internet delle cose, vendite al dettaglio (inventario), architettura senza server, sviluppo di app | Austria, Germania, Svizzera, Italia, Norvegia, Spagna, Regno Unito, Canada |
-|[Accenture](https://www.accenture.com/) | Internet delle cose, vendite al dettaglio (inventario), architettura senza server, sviluppo di app |Global|
+|[Accenture](https://www.accenture.com/) | Internet delle cose, vendite al dettaglio (inventario), architettura senza server, sviluppo di app |Globale|
 |[Capax Global LLC](https://www.capaxglobal.com/) | Internet delle cose, personalizzazione, vendita al dettaglio (inventario), analisi operativa (Spark), architettura senza server, sviluppo di app|    USA     |  
 | [Capgemini](https://www.capgemini.com/) | Vendita al dettaglio (inventario), Internet delle cose, analisi operativa (Spark), sviluppo di app | Stati Uniti, Francia, Regno Unito, Paesi Bassi, Finlandia  |
 | [Cognizant](https://www.cognizant.com/) | Internet delle cose, personalizzazione, vendite al dettaglio (inventario), analisi operativa (Spark), sviluppo di app |Stati Uniti, Canada, Regno Unito, Danimarca, Paesi Bassi, Svizzera, Australia, Giappone |

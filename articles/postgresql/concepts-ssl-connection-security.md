@@ -1,17 +1,17 @@
 ---
 title: SSL/TLS-database di Azure per PostgreSQL-server singolo
 description: 'Istruzioni e informazioni su come configurare la connettività TLS per database di Azure per PostgreSQL: singolo server.'
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: e54b8bc51817d2a56153dcc0c14f45e76b9ae88b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 2785f79d327402a40be0a905877b5113b3f751b7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91444940"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710448"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Configurare la connettività TLS nel database di Azure per PostgreSQL-server singolo
 

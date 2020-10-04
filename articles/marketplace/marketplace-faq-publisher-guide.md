@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: 5bf94faff86edf954c687ca3024c63229829ca04
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369723"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707983"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Domande comuni sul Marketplace commerciale Microsoft
 
@@ -311,9 +311,8 @@ Per ricevere il rimborso, i clienti possono annullare le proprie sottoscrizioni 
 
 Di seguito sono riportate alcune risorse per iniziare:
 
-- [Introduzione al marketplace commerciale di Microsoft](/azure/marketplace/marketplace-publishers-guide)
+- [Che cos'è il Marketplace commerciale Microsoft?](overview.md)
 - [Hub partner del marketplace commerciale di Microsoft](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
-- [Introduzione al marketplace commerciale](index.yml)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>In che modo è possibile creare engagement con Microsoft e altri partner?
 
@@ -324,7 +323,7 @@ Risorse consigliate:
 
 ### <a name="where-can-i-learn-more-about-partner-center"></a>Dove è possibile reperire altre informazioni sul Centro per i partner?
 
-- [Documentazione sul Centro per i partner](https://docs.microsoft.com/partner-center/)
+- [Documentazione sul Centro per i partner](/partner-center/)
 - [Introduzione al marketplace commerciale](index.yml)
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Dove è possibile reperire altre informazioni sull'interfaccia di amministrazione di Microsoft?

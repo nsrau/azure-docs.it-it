@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 71a5434d985aad4033e4392dd31e6b7d112692de
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 052859e99ffd0082994d313508ebb6f0496d980b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183981"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710346"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple come destinazione di backup con Veeam
 
@@ -75,7 +75,7 @@ StorSimple offre i vantaggi seguenti:
 -   Algoritmi di deduplicazione e compressione univoci che usano il cloud per ottenere livelli avanzati di deduplicazione
 -   Disponibilità elevata
 -   Replica geografica usando la replica geografica di Azure
--   Integrazione con Azure
+-   Integrazione di Azure
 -   Crittografia dei dati nel cloud
 -   Miglioramento del ripristino di emergenza e della conformità
 
@@ -274,7 +274,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 
 1.  Nella console di backup e replica di Veeam, in **Repository Tools** (Strumenti di archivio), passare a **Backup Infrastructure** (Infrastruttura di backup). Fare clic con il pulsante destro del mouse su **Backup Repositories** (Archivi di backup) e selezionare **Add Backup Repository** (Aggiungi archivio di backup).
 
-    ![Console di gestione di Veeam, pagina dell'archivio di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
+    ![Screenshot che mostra la console di gestione di Veeam ed evidenzia l'opzione Aggiungi repository di backup.](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
 2.  Nella finestra di dialogo **New Backup Repository** (Nuovo archivio di backup) immettere un nome e una descrizione per l'archivio. Selezionare **Avanti**.
 
@@ -295,7 +295,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 
 6.  Nella finestra di dialogo **New Backup Repository** (Nuovo archivio di backup) selezionare la casella di controllo **Enable vPower NFS service on the mount server (recommended)** (Abilita servizio NFS vPower nel server di montaggio (scelta consigliata)). Selezionare **Avanti**.
 
-    ![Console di gestione di Veeam, pagina dell'archivio di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
+    ![Screenshot che mostra la console di gestione di Veeam in cui è possibile aggiungere un nuovo repository di backup.](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
 7.  Rivedere le impostazioni e selezionare **Next** (Avanti).
 
@@ -319,7 +319,7 @@ Di seguito è riportato un esempio di una pianificazione a rotazione GFS per qua
 | Frequenza/Tipo di backup | Full | Incrementale (giorni 1-5)  |   
 |---|---|---|
 | Settimanale (settimane 1-4) | Sabato | Lunedì-venerdì |
-| Ogni mese  | Sabato  |   |
+| Mensilmente  | Sabato  |   |
 | Annuale | Sabato  |   |
 
 
@@ -335,11 +335,11 @@ Per lo scenario di destinazione del backup primario, creare un processo giornali
 
 2.  Nella finestra di dialogo **New Backup Job** (Nuovo processo di backup) immettere un nome e una descrizione per il processo di backup giornaliero.
 
-    ![Console di gestione di Veeam, pagina del nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
+    ![Screenshot della console di gestione di Veeam in cui si aggiungono il nome e la descrizione.](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
 3.  Selezionare una macchina virtuale su cui eseguire il backup.
 
-    ![Console di gestione di Veeam, pagina del nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
+    ![Screenshot che mostra la console di gestione di Veeam in cui si seleziona la macchina virtuale.](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
 4.  Selezionare i valori desiderati per **Backup proxy** (Proxy di backup) e **Backup repository** (Repository di backup). Selezionare un valore per **Restore points to keep on disk** (Punti di ripristino da mantenere su disco) in base alle definizioni RPO e RTO dell'ambiente per l'archivio collegato locale. Fare clic su **Advanced** (Avanzate).
 
@@ -347,7 +347,7 @@ Per lo scenario di destinazione del backup primario, creare un processo giornali
 
 5. Nella finestra di dialogo **Advanced Settings** (Impostazioni avanzate), nella scheda **Backup**, selezionare **Incremental** (Incrementale). Assicurarsi che sia selezionata la casella di controllo **Create synthetic full backups periodically** (Crea periodicamente backup completi sintetici). Selezionare la casella di controllo **Create active full backups periodically** (Crea periodicamente backup completi attivi). Per **Active full backup** (Backup completo attivo) selezionare la casella di controllo **Weekly on selected days** (Settimanale nei giorni selezionati) per Saturday (Sabato).
 
-    ![Console di gestione di Veeam, pagina delle impostazioni avanzate nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
+    ![Screenshot che mostra la console di gestione di Veeam, in particolare la pagina delle impostazioni avanzate del nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
 6. Sulla scheda **Storage** (Archiviazione) assicurasi che la casella di controllo **Enable inline data deduplication** (Abilita deduplicazione dei dati in linea) sia deselezionata. Selezionare la casella di controllo **Exclude swap file blocks** (Escludi blocchi di file di scambio) e selezionare la casella di controllo **Exclude deleted file blocks** (Escludi blocchi di file eliminati). Impostare **Compression level** (Livello di compressione) su **None** (Nessuno). Per avere prestazioni e deduplicazioni equilibrate impostare **Storage optimization** (Ottimizzazione archiviazione) su **LAN Target** (Destinazione LAN). Selezionare **OK**.
 
@@ -399,7 +399,7 @@ Pianificazione della rotazione GFS settimanale, mensile e annuale
 | Settimana 2 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 3 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 4 | StorSimple settimane 2-4 |   |   |   |   |   |
-| Ogni mese | StorSimple Mensile |   |   |   |   |   |
+| Mensilmente | StorSimple Mensile |   |   |   |   |   |
 | Annuale | StorSimple Annuale  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Assegnare volumi StorSimple a un processo di copia Veeam
@@ -408,11 +408,11 @@ Pianificazione della rotazione GFS settimanale, mensile e annuale
 
 1.  Nella console di backup e replica di Veeam selezionare **Backup & Replication** (Backup e replica). Fare clic con il pulsante destro del mouse su **Backup** e selezionare **VMware** o **Hyper-V** in base all'ambiente.
 
-    ![Console di gestione di Veeam, pagina del processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
+    ![Screenshot che mostra la console di gestione di Veeam con le opzioni VMware e Hyper-V che è possibile selezionare.](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
 2.  Nella finestra di dialogo **New Backup Copy Job** (Nuovo processo di copia di backup) immettere un nome e una descrizione per il processo.
 
-    ![Console di gestione di Veeam, pagina del processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
+    ![Screenshot che mostra la console di gestione di Veeam in cui immettere il nome e la descrizione del processo.](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
 3.  Selezionare le VM da elaborare. Selezionare From backups (Dai backup) e quindi selezionare il backup giornaliero creato in precedenza.
 
@@ -422,13 +422,13 @@ Pianificazione della rotazione GFS settimanale, mensile e annuale
 
 5.  Selezionare l'archivio di backup e impostare un valore per **Restore points to keep** (Punti di ripristino da mantenere). Assicurarsi di selezionare la casella di controllo **Keep the following restore points for archival purposes** (Mantieni i seguenti punti di ripristino per motivi di archiviazione). Definire la frequenza di backup e quindi fare clic su **Advanced** (Avanzate).
 
-    ![Console di gestione di Veeam, pagina del processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
+    ![Screenshot che mostra la posizione in cui viene definita la frequenza di backup.](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
 6.  Specificare le impostazioni avanzate seguenti:
 
     * Nella scheda **Maintenance** (Manutenzione) disattivare la protezione dal danneggiamento a livello di archiviazione.
 
-    ![Console di gestione di Veeam, pagina delle impostazioni avanzate nuovo processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
+    ![Screenshot che mostra la scheda manutenzione della console di gestione di Veeam.](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
 
     * Nella scheda **Archiviazione** assicurarsi che la deduplicazione e compressione siano disattivate.
 

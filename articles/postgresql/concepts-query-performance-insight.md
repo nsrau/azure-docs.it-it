@@ -1,17 +1,17 @@
 ---
 title: Informazioni dettagliate prestazioni query-database di Azure per PostgreSQL-server singolo
 description: Questo articolo descrive la funzionalità Informazioni dettagliate prestazioni query di database di Azure per PostgreSQL-server singolo.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: a7573e99de96e3d13509056c49bc24be7fe166bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: babf2c8208732a194184549dfa5ed3228b376d0f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906524"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710261"
 ---
 # <a name="query-performance-insight"></a>Informazioni dettagliate prestazioni query 
 
@@ -40,7 +40,7 @@ Nella tabella sotto il grafico sono riportati altri dettagli sulle query con ese
 
 Selezionare la scheda **Statistiche di attesa** per visualizzare le corrispondenti visualizzazioni in attesa nel server.
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Statistiche di attesa di Informazioni dettagliate prestazioni query":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Informazioni dettagliate sulle prestazioni delle query a esecuzione prolungata":::
 
 ## <a name="considerations"></a>Considerazioni
 * Informazioni dettagliate prestazioni query non è disponibile per le [repliche di lettura](concepts-read-replicas.md).

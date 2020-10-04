@@ -1,17 +1,17 @@
 ---
 title: Continuità aziendale-database di Azure per PostgreSQL-server singolo
 description: Questo articolo descrive la continuità aziendale (ripristino temporizzato, interruzione del data center, ripristino geografico e repliche) quando si usa database di Azure per PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 75cd86bd1587a9294caef00efdf973fe8a26c150
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 6bcb1ea6c16fd387dfb7f15f909d1908c20a44d7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612013"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710907"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Panoramica della continuità aziendale con database di Azure per PostgreSQL-server singolo
 
@@ -19,16 +19,20 @@ Questa panoramica descrive le funzionalità offerte da Database di Azure per Pos
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Funzionalità che è possibile usare per assicurare la continuità aziendale
 
-Database di Azure per PostgreSQL offre funzionalità di continuità aziendale che includono i backup automatizzati e la possibilità per gli utenti di avviare il ripristino geografico. Ogni funzionalità presenta caratteristiche diverse in termini di tempo di recupero stimato (ERT) e di potenziale perdita di dati. Il tempo di recupero stimato (ERT) prevede una durata stimata per il completamento della funzionalità del database dopo una richiesta di ripristino/failover. Dopo aver compreso le opzioni disponibili, è possibile scegliere una di esse e usarle in modo combinato per i diversi scenari. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo l'evento di arresto improvviso. Si tratta dell'obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti (intervallo di tempo) che l'applicazione riesce a tollerare durante il ripristino dopo l'evento di arresto improvviso, ovvero l'obiettivo del punto di recupero (RPO).
+Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo l'evento di arresto improvviso. Si tratta dell'obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti (intervallo di tempo) che l'applicazione riesce a tollerare durante il ripristino dopo l'evento di arresto improvviso, ovvero l'obiettivo del punto di recupero (RPO).
 
-La tabella seguente mette a confronto i valori ERT e RPO per le funzionalità disponibili:
+Database di Azure per PostgreSQL offre funzionalità di continuità aziendale che includono backup con ridondanza geografica con la possibilità di avviare il ripristino geografico e di distribuire le repliche di lettura in un'area diversa. Ognuna presenta caratteristiche diverse per il tempo di recupero e la potenziale perdita di dati. Con la funzionalità di [ripristino geografico](concepts-backup.md) , viene creato un nuovo server usando i dati di backup replicati da un'altra area. Il tempo complessivo necessario per il ripristino e il recupero dipende dalle dimensioni del database e dalla quantità di log da ripristinare. Il tempo complessivo necessario per stabilire il server varia da pochi minuti ad alcune ore. Con le [repliche di lettura](concepts-read-replicas.md), i log delle transazioni dal database primario vengono trasmessi in modo asincrono alla replica. Il ritardo tra il database primario e la replica dipende dalla latenza tra i siti e anche dalla quantità di dati da trasmettere. In caso di errore di un sito primario, ad esempio un errore della zona di disponibilità, la promozione della replica offre una RTO più breve e una riduzione della perdita dei dati. 
+
+Nella tabella seguente vengono confrontati RTO e RPO in uno scenario tipico:
 
 | **Capacità** | **Base** | **Utilizzo generico** | **Ottimizzate per la memoria** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Ripristino temporizzato dal backup | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione |
-| Ripristino geografico dai backup con replica geografica | Non supportate | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |
+| Ripristino geografico dai backup con replica geografica | Non supportato | RTO-varia <br/>RPO < 1 ora | RTO-varia <br/>RPO < 1 ora |
+| Repliche in lettura | RTO-minuti <br/>RPO < 5 min | RTO-minuti <br/>RPO < 5 min| RTO-minuti <br/>RPO < 5 min|
 
-È anche possibile prendere in considerazione l'uso delle [repliche di lettura](concepts-read-replicas.md).
+> [!IMPORTANT]
+> I RTO e RPO previsti indicati qui sono solo a scopo di riferimento. Non sono disponibili contratti di servizi per queste metriche.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Ripristinare un server in seguito a errore di un'applicazione o di un utente
 

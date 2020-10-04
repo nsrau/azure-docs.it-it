@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 12987ae687e9af59fdd71b3aa846612c947b9a90
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cbaca0b9d608d7703beec559e5434f52308629ab
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649273"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709105"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creare un'offerta del contenitore di Azure in Azure Marketplace
 
@@ -80,10 +80,10 @@ Quando si pubblica l'offerta nel marketplace commerciale con il Centro per i par
 
 Di seguito sono riportate alcune risorse aggiuntive per la gestione dei lead:
 
-- [Panoramica della gestione dei lead](commercial-marketplace-get-customer-leads.md)
-- [Domande frequenti sulla gestione dei lead](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Errori comuni di configurazione dei lead](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
-- PDF [Panoramica della gestione dei lead](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assicurarsi che il blocco popup sia disattivato)
+- [Lead di clienti tramite l'offerta del marketplace commerciale](commercial-marketplace-get-customer-leads.md)
+- [Domande frequenti sulla gestione dei lead](../lead-management-faq.md#common-questions-about-lead-management)
+- [Risoluzione degli errori di configurazione del lead](../lead-management-faq.md#publishing-config-errors)
+- PDF [Panoramica della gestione dei clienti potenziali](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assicurarsi che il blocco dei popup sia disattivato)
 
 Prima di continuare, selezionare **Salva bozza**.
 
@@ -122,7 +122,7 @@ Per usare il contratto standard, selezionare * * Usa il contratto standard per i
 
 ##### <a name="your-own-terms-and-conditions"></a>Termini e condizioni personalizzati
 
-Per specificare i termini e le condizioni personalizzati, immetterli nella casella **Termini e condizioni**. In questa casella è possibile immettere una quantità illimitata di caratteri di testo. I clienti devono accettare questi termini prima di poter provare l'offerta.
+Per specificare i termini e le condizioni personalizzati, immetterli nella casella **Termini e condizioni**. In questa casella è possibile immettere un numero illimitato di caratteri di testo. I clienti devono accettare questi termini prima di poter provare l'offerta.
 
 Prima di passare alla sezione successiva, Presentazione dell'offerta, selezionare **Salva bozza**.
 
@@ -190,7 +190,7 @@ Per altre informazioni sulla creazione della presentazione dell'offerta, vedere 
 
 Fornire i logo e le immagini da usare con l'offerta. Tutte le immagini devono essere in formato PNG. Le immagini sfuocate verranno rifiutate.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio https://upload.xboxlive.com usato dal Centro per i partner.
@@ -223,19 +223,19 @@ Gli esempi seguenti mostrano come vengono visualizzati i campi della presentazio
 
 Questa immagine mostra la pagina **Presentazione dell'offerta** in Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Pagina di presentazione dell'offerta in Azure Marketplace." :::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft." :::
 
 Questa immagine mostra i risultati della ricerca in Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Risultati della ricerca in Azure Marketplace.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
 
 Questa immagine mostra la pagina **Presentazione dell'offerta** nel portale di Azure:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Pagina Presentazione dell'offerta nel portale di Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
 
 Questa immagine mostra i risultati della ricerca nel portale di Azure:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Risultati della ricerca nel portale di Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
 
 ## <a name="preview"></a>Anteprima
 
@@ -328,11 +328,11 @@ Gli esempi seguenti mostrano come vengono visualizzati i campi di Elenco piani i
 
 Questa immagine illustra i campi di Azure Marketplace quando si visualizzano i dettagli del piano:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Campi visualizzati nei dettagli del piano in Azure Marketplace.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
 
 Questa immagine illustra i dettagli del piano nel portale di Azure:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Dettagli del piano nel portale di Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
 
 ### <a name="plan-availability"></a>Disponibilità del piano
 
@@ -363,11 +363,11 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 
 **Nome utente amministratore per il container Registry di Azure** : specificare il [nome utente amministratore](../../container-registry/container-registry-authentication.md#admin-account)) collegato al container Registry di Azure con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere il nome utente e la password dell'amministratore, impostare la proprietà **admin-enabled** su **True** usando l'interfaccia della riga di comando di Azure. Facoltativamente è possibile impostare **Utente amministratore** su **Abilita** nel portale di Azure.
 
- :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Finestra di dialogo Aggiorna registro contenitori.":::
+ :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
 
 **Password per il Registro Azure Container**: specificare la password per il nome utente dell'amministratore associata al Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere la password nel portale di Azure, passare a **Registro contenitori** > **Chiavi di accesso** o con l'interfaccia della riga di comando di Azure usare il [comando show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Menu Chiave di accesso.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
 
 **Nome del repository all'interno del Registro Azure Container**. Specificare il nome del repository di Registro Azure Container con l'immagine. Includere il nome del repository quando si esegue il push dell'immagine nel registro. È possibile trovare il nome del repository passando alla pagina [Registro contenitori](https://azure.microsoft.com/services/container-registry/) > **Repository**. Per altre informazioni, vedere [Visualizzare repository di registri contenitori di Azure nel portale di Azure](../../container-registry/container-registry-repositories.md).
 

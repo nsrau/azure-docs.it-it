@@ -1,17 +1,17 @@
 ---
 title: Estensioni-database di Azure per PostgreSQL-server singolo
 description: Informazioni sulle estensioni Postgres disponibili nel database di Azure per PostgreSQL-server singolo
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 3f7796dd565238eb853fcea431a6bcb7d18ee05a
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f6c73362d554ada6c4845ab8dca2093d3dcbf173
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530234"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707949"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Estensioni di PostgreSQL in Database di Azure per PostgreSQL - Server singolo
 PostgreSQL offre la capacità di estendere le funzionalità del database usando le estensioni. Le estensioni creano un bundle di più oggetti SQL correlati in un singolo pacchetto che può essere caricato o rimosso dal database con un singolo comando. Dopo essere stato caricate nel database, le estensioni si comportano come le funzionalità predefinite.
@@ -35,7 +35,7 @@ Le estensioni seguenti sono disponibili nei server di database di Azure per Post
 > |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | tipo di dati per stringhe di caratteri senza distinzione tra maiuscole e minuscole|
 > |[cubo](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | tipo di dati per i cubi multidimensionali|
 > |[dblink](https://www.postgresql.org/docs/11/dblink.html)                       | 1.2             | connettersi ad altri database PostgreSQL dall'interno di un database|
-> |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1,0             | modello del dizionario di ricerca del testo per numeri interi|
+> |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1.0             | modello del dizionario di ricerca del testo per numeri interi|
 > |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1.1             | calcola le distanze di grandi cerchio sulla superficie della terra|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1.1             | determinare le analogie e la distanza tra le stringhe|
 > |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | tipo di dati per l'archiviazione di set di coppie (chiave, valore)|
@@ -54,14 +54,14 @@ Le estensioni seguenti sono disponibili nei server di database di Azure per Post
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | dati della relazione preriscaldati|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | tenere traccia delle statistiche di esecuzione di tutte le istruzioni SQL eseguite|
 > |[pg_trgm](https://www.postgresql.org/docs/11/pgtrgm.html)                      | 1.4             | misurazione della somiglianza del testo e ricerca nell'indice basata su trigrammi|
-> |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1,0             | Lingua procedurale PL/pgSQL|
+> |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | Lingua procedurale PL/pgSQL|
 > |[plv8](https://plv8.github.io/)                         | 2.3.11          | Linguaggio procedurale attendibile PL/JavaScript (V8)|
 > |[PostGIS](https://www.postgis.net/)                      | 2.5.1           | PostGIS geometria, geografia e tipi spaziali e funzioni raster|
 > |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | Funzioni SFCGAL PostGIS|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | Geocodificatore PostGIS Tiger e geocodificatore inverso|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Funzioni e tipi spaziali della topologia PostGIS|
-> |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1,0             | wrapper di dati esterni per server PostgreSQL remoti|
-> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1,0             | funzioni che modificano intere tabelle, inclusi i campi incrociati|
+> |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | wrapper di dati esterni per server PostgreSQL remoti|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | funzioni che modificano intere tabelle, inclusi i campi incrociati|
 > |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | Abilita inserimenti scalabili e query complesse per i dati di serie temporali|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | dizionario di ricerca di testo che rimuove gli accenti|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | genera identificatori universalmente univoci (UUID)|
@@ -77,11 +77,11 @@ Le estensioni seguenti sono disponibili nei server di database di Azure per Post
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Esempio di set di dati degli indirizzi standardizzati|
 > |[btree_gin](https://www.postgresql.org/docs/10/btree-gin.html)                    | 1.3             | supporto per l'indicizzazione di tipi di DataType comuni in GIN|
 > |[btree_gist](https://www.postgresql.org/docs/10/btree-gist.html)                   | 1.5             | supporto per l'indicizzazione di tipi di DataType comuni in GiST|
-> |[chkpass](https://www.postgresql.org/docs/10/chkpass.html)                       | 1,0             | tipo di dati per le password crittografate automaticamente|
+> |[chkpass](https://www.postgresql.org/docs/10/chkpass.html)                       | 1.0             | tipo di dati per le password crittografate automaticamente|
 > |[citext](https://www.postgresql.org/docs/10/citext.html)                       | 1.4             | tipo di dati per stringhe di caratteri senza distinzione tra maiuscole e minuscole|
 > |[cubo](https://www.postgresql.org/docs/10/cube.html)                         | 1.2             | tipo di dati per i cubi multidimensionali|
 > |[dblink](https://www.postgresql.org/docs/10/dblink.html)                       | 1.2             | connettersi ad altri database PostgreSQL dall'interno di un database|
-> |[dict_int](https://www.postgresql.org/docs/10/dict-int.html)                     | 1,0             | modello del dizionario di ricerca del testo per numeri interi|
+> |[dict_int](https://www.postgresql.org/docs/10/dict-int.html)                     | 1.0             | modello del dizionario di ricerca del testo per numeri interi|
 > |[earthdistance](https://www.postgresql.org/docs/10/earthdistance.html)                | 1.1             | calcola le distanze di grandi cerchio sulla superficie della terra|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/10/fuzzystrmatch.html)                | 1.1             | determinare le analogie e la distanza tra le stringhe|
 > |[hstore](https://www.postgresql.org/docs/10/hstore.html)                       | 1.4             | tipo di dati per l'archiviazione di set di coppie (chiave, valore)|
@@ -100,14 +100,14 @@ Le estensioni seguenti sono disponibili nei server di database di Azure per Post
 > |[pg_prewarm](https://www.postgresql.org/docs/10/pgprewarm.html)                   | 1.1             | dati della relazione preriscaldati|
 > |[pg_stat_statements](https://www.postgresql.org/docs/10/pgstatstatements.html)           | 1.6             | tenere traccia delle statistiche di esecuzione di tutte le istruzioni SQL eseguite|
 > |[pg_trgm](https://www.postgresql.org/docs/10/pgtrgm.html)                      | 1.3             | misurazione della somiglianza del testo e ricerca nell'indice basata su trigrammi|
-> |[plpgsql](https://www.postgresql.org/docs/10/plpgsql.html)                      | 1,0             | Lingua procedurale PL/pgSQL|
+> |[plpgsql](https://www.postgresql.org/docs/10/plpgsql.html)                      | 1.0             | Lingua procedurale PL/pgSQL|
 > |[plv8](https://plv8.github.io/)                         | 2.1.0          | Linguaggio procedurale attendibile PL/JavaScript (V8)|
 > |[PostGIS](https://www.postgis.net/)                      | 2.4.3           | PostGIS geometria, geografia e tipi spaziali e funzioni raster|
 > |[postgis_sfcgal](https://www.postgis.net/)               | 2.4.3           | Funzioni SFCGAL PostGIS|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.4.3           | Geocodificatore PostGIS Tiger e geocodificatore inverso|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.4.3           | Funzioni e tipi spaziali della topologia PostGIS|
-> |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1,0             | wrapper di dati esterni per server PostgreSQL remoti|
-> |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1,0             | funzioni che modificano intere tabelle, inclusi i campi incrociati|
+> |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | wrapper di dati esterni per server PostgreSQL remoti|
+> |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | funzioni che modificano intere tabelle, inclusi i campi incrociati|
 > |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Abilita inserimenti scalabili e query complesse per i dati di serie temporali|
 > |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | dizionario di ricerca di testo che rimuove gli accenti|
 > |[uuid-ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | genera identificatori universalmente univoci (UUID)|
@@ -121,13 +121,13 @@ Le estensioni seguenti sono disponibili nei server di database di Azure per Post
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.2           | Consente di analizzare un indirizzo nei suoi elementi costitutivi. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.2           | Esempio di set di dati degli indirizzi standardizzati|
-> |[btree_gin](https://www.postgresql.org/docs/9.6/btree-gin.html)                    | 1,0             | supporto per l'indicizzazione di tipi di DataType comuni in GIN|
+> |[btree_gin](https://www.postgresql.org/docs/9.6/btree-gin.html)                    | 1.0             | supporto per l'indicizzazione di tipi di DataType comuni in GIN|
 > |[btree_gist](https://www.postgresql.org/docs/9.6/btree-gist.html)                   | 1.2             | supporto per l'indicizzazione di tipi di DataType comuni in GiST|
-> |[chkpass](https://www.postgresql.org/docs/9.6/chkpass.html)                       | 1,0             | tipo di dati per le password crittografate automaticamente|
+> |[chkpass](https://www.postgresql.org/docs/9.6/chkpass.html)                       | 1.0             | tipo di dati per le password crittografate automaticamente|
 > |[citext](https://www.postgresql.org/docs/9.6/citext.html)                       | 1.3             | tipo di dati per stringhe di caratteri senza distinzione tra maiuscole e minuscole|
 > |[cubo](https://www.postgresql.org/docs/9.6/cube.html)                         | 1.2             | tipo di dati per i cubi multidimensionali|
 > |[dblink](https://www.postgresql.org/docs/9.6/dblink.html)                       | 1.2             | connettersi ad altri database PostgreSQL dall'interno di un database|
-> |[dict_int](https://www.postgresql.org/docs/9.6/dict-int.html)                     | 1,0             | modello del dizionario di ricerca del testo per numeri interi|
+> |[dict_int](https://www.postgresql.org/docs/9.6/dict-int.html)                     | 1.0             | modello del dizionario di ricerca del testo per numeri interi|
 > |[earthdistance](https://www.postgresql.org/docs/9.6/earthdistance.html)                | 1.1             | calcola le distanze di grandi cerchio sulla superficie della terra|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/9.6/fuzzystrmatch.html)                | 1.1             | determinare le analogie e la distanza tra le stringhe|
 > |[hstore](https://www.postgresql.org/docs/9.6/hstore.html)                       | 1.4             | tipo di dati per l'archiviazione di set di coppie (chiave, valore)|
@@ -146,14 +146,14 @@ Le estensioni seguenti sono disponibili nei server di database di Azure per Post
 > |[pg_prewarm](https://www.postgresql.org/docs/9.6/pgprewarm.html)                   | 1.1             | dati della relazione preriscaldati|
 > |[pg_stat_statements](https://www.postgresql.org/docs/9.6/pgstatstatements.html)           | 1.4             | tenere traccia delle statistiche di esecuzione di tutte le istruzioni SQL eseguite|
 > |[pg_trgm](https://www.postgresql.org/docs/9.6/pgtrgm.html)                      | 1.3             | misurazione della somiglianza del testo e ricerca nell'indice basata su trigrammi|
-> |[plpgsql](https://www.postgresql.org/docs/9.6/plpgsql.html)                      | 1,0             | Lingua procedurale PL/pgSQL|
+> |[plpgsql](https://www.postgresql.org/docs/9.6/plpgsql.html)                      | 1.0             | Lingua procedurale PL/pgSQL|
 > |[plv8](https://plv8.github.io/)                         | 2.1.0          | Linguaggio procedurale attendibile PL/JavaScript (V8)|
 > |[PostGIS](https://www.postgis.net/)                      | 2.3.2           | PostGIS geometria, geografia e tipi spaziali e funzioni raster|
 > |[postgis_sfcgal](https://www.postgis.net/)               | 2.3.2           | Funzioni SFCGAL PostGIS|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.3.2           | Geocodificatore PostGIS Tiger e geocodificatore inverso|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | Funzioni e tipi spaziali della topologia PostGIS|
-> |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1,0             | wrapper di dati esterni per server PostgreSQL remoti|
-> |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1,0             | funzioni che modificano intere tabelle, inclusi i campi incrociati|
+> |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | wrapper di dati esterni per server PostgreSQL remoti|
+> |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | funzioni che modificano intere tabelle, inclusi i campi incrociati|
 > |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Abilita inserimenti scalabili e query complesse per i dati di serie temporali|
 > |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | dizionario di ricerca di testo che rimuove gli accenti|
 > |[uuid-ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | genera identificatori universalmente univoci (UUID)|
@@ -167,20 +167,20 @@ Le estensioni seguenti sono disponibili nei server di database di Azure per Post
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.0           | Consente di analizzare un indirizzo nei suoi elementi costitutivi. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.0           | Esempio di set di dati degli indirizzi standardizzati|
-> |[btree_gin](https://www.postgresql.org/docs/9.5/btree-gin.html)                    | 1,0             | supporto per l'indicizzazione di tipi di DataType comuni in GIN|
+> |[btree_gin](https://www.postgresql.org/docs/9.5/btree-gin.html)                    | 1.0             | supporto per l'indicizzazione di tipi di DataType comuni in GIN|
 > |[btree_gist](https://www.postgresql.org/docs/9.5/btree-gist.html)                   | 1.1             | supporto per l'indicizzazione di tipi di DataType comuni in GiST|
-> |[chkpass](https://www.postgresql.org/docs/9.5/chkpass.html)                       | 1,0             | tipo di dati per le password crittografate automaticamente|
+> |[chkpass](https://www.postgresql.org/docs/9.5/chkpass.html)                       | 1.0             | tipo di dati per le password crittografate automaticamente|
 > |[citext](https://www.postgresql.org/docs/9.5/citext.html)                       | 1.1             | tipo di dati per stringhe di caratteri senza distinzione tra maiuscole e minuscole|
-> |[cubo](https://www.postgresql.org/docs/9.5/cube.html)                         | 1,0             | tipo di dati per i cubi multidimensionali|
+> |[cubo](https://www.postgresql.org/docs/9.5/cube.html)                         | 1.0             | tipo di dati per i cubi multidimensionali|
 > |[dblink](https://www.postgresql.org/docs/9.5/dblink.html)                       | 1.1             | connettersi ad altri database PostgreSQL dall'interno di un database|
-> |[dict_int](https://www.postgresql.org/docs/9.5/dict-int.html)                     | 1,0             | modello del dizionario di ricerca del testo per numeri interi|
-> |[earthdistance](https://www.postgresql.org/docs/9.5/earthdistance.html)                | 1,0             | calcola le distanze di grandi cerchio sulla superficie della terra|
-> |[fuzzystrmatch](https://www.postgresql.org/docs/9.5/fuzzystrmatch.html)                | 1,0             | determinare le analogie e la distanza tra le stringhe|
+> |[dict_int](https://www.postgresql.org/docs/9.5/dict-int.html)                     | 1.0             | modello del dizionario di ricerca del testo per numeri interi|
+> |[earthdistance](https://www.postgresql.org/docs/9.5/earthdistance.html)                | 1.0             | calcola le distanze di grandi cerchio sulla superficie della terra|
+> |[fuzzystrmatch](https://www.postgresql.org/docs/9.5/fuzzystrmatch.html)                | 1.0             | determinare le analogie e la distanza tra le stringhe|
 > |[hstore](https://www.postgresql.org/docs/9.5/hstore.html)                       | 1.3             | tipo di dati per l'archiviazione di set di coppie (chiave, valore)|
 > |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.1           | Indici ipotetici per PostgreSQL|
-> |[intarray](https://www.postgresql.org/docs/9.5/intarray.html)                     | 1,0             | funzioni, operatori e supporto per gli indici per matrici unidimensionali di numeri interi|
-> |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1,0             | tipi di dati per gli standard di numerazione dei prodotti internazionali|
-> |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1,0             | tipo di dati per le strutture ad albero gerarchico|
+> |[intarray](https://www.postgresql.org/docs/9.5/intarray.html)                     | 1.0             | funzioni, operatori e supporto per gli indici per matrici unidimensionali di numeri interi|
+> |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | tipi di dati per gli standard di numerazione dei prodotti internazionali|
+> |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | tipo di dati per le strutture ad albero gerarchico|
 > |[orafce](https://github.com/orafce/orafce)                       | 3,7             | Funzioni e operatori che emulano un subset di funzioni e pacchetti da un RDBMS commerciale|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.0.7             | fornisce funzionalità di controllo|
 > |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | funzioni di crittografia|
@@ -189,18 +189,18 @@ Le estensioni seguenti sono disponibili nei server di database di Azure per Post
 > |[pgstattuple](https://www.postgresql.org/docs/9.5/pgstattuple.html)                  | 1.3             | Mostra statistiche a livello di tupla|
 > |[pg_buffercache](https://www.postgresql.org/docs/9.5/pgbuffercache.html)               | 1.1             | esaminare la cache del buffer condivisa|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 2.6.3           | Estensione per gestire le tabelle partizionate in base all'ora o all'ID|
-> |[pg_prewarm](https://www.postgresql.org/docs/9.5/pgprewarm.html)                   | 1,0             | dati della relazione preriscaldati|
+> |[pg_prewarm](https://www.postgresql.org/docs/9.5/pgprewarm.html)                   | 1.0             | dati della relazione preriscaldati|
 > |[pg_stat_statements](https://www.postgresql.org/docs/9.5/pgstatstatements.html)           | 1.3             | tenere traccia delle statistiche di esecuzione di tutte le istruzioni SQL eseguite|
 > |[pg_trgm](https://www.postgresql.org/docs/9.5/pgtrgm.html)                      | 1.1             | misurazione della somiglianza del testo e ricerca nell'indice basata su trigrammi|
-> |[plpgsql](https://www.postgresql.org/docs/9.5/plpgsql.html)                      | 1,0             | Lingua procedurale PL/pgSQL|
+> |[plpgsql](https://www.postgresql.org/docs/9.5/plpgsql.html)                      | 1.0             | Lingua procedurale PL/pgSQL|
 > |[PostGIS](https://www.postgis.net/)                      | 2.3.0           | PostGIS geometria, geografia e tipi spaziali e funzioni raster|
 > |[postgis_sfcgal](https://www.postgis.net/)               | 2.3.0           | Funzioni SFCGAL PostGIS|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.3.0           | Geocodificatore PostGIS Tiger e geocodificatore inverso|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.0           | Funzioni e tipi spaziali della topologia PostGIS|
-> |[postgres_fdw](https://www.postgresql.org/docs/9.5/postgres-fdw.html)                 | 1,0             | wrapper di dati esterni per server PostgreSQL remoti|
-> |[tablefunc](https://www.postgresql.org/docs/9.5/tablefunc.html)                    | 1,0             | funzioni che modificano intere tabelle, inclusi i campi incrociati|
-> |[unaccent](https://www.postgresql.org/docs/9.5/unaccent.html)                     | 1,0             | dizionario di ricerca di testo che rimuove gli accenti|
-> |[uuid-ossp](https://www.postgresql.org/docs/9.5/uuid-ossp.html)                    | 1,0             | genera identificatori universalmente univoci (UUID)|
+> |[postgres_fdw](https://www.postgresql.org/docs/9.5/postgres-fdw.html)                 | 1.0             | wrapper di dati esterni per server PostgreSQL remoti|
+> |[tablefunc](https://www.postgresql.org/docs/9.5/tablefunc.html)                    | 1.0             | funzioni che modificano intere tabelle, inclusi i campi incrociati|
+> |[unaccent](https://www.postgresql.org/docs/9.5/unaccent.html)                     | 1.0             | dizionario di ricerca di testo che rimuove gli accenti|
+> |[uuid-ossp](https://www.postgresql.org/docs/9.5/uuid-ossp.html)                    | 1.0             | genera identificatori universalmente univoci (UUID)|
 
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements

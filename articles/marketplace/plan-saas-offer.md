@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 382a6056076179be0d25e0fee0d55b978a3b7169
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 1d75e0d9f57aee495524e2d35231dd3c78cedea1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420439"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708119"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Come pianificare un'offerta SaaS per il Marketplace commerciale
 
@@ -57,7 +57,7 @@ Le opzioni per _ottenere ora (gratuita)_, _versione di valutazione gratuita_e _v
 
 Questi requisiti tecnici aggiuntivi si applicano solo all'opzione di inserzione _sell through Microsoft_ (transazionale):
 
-- È necessario Azure AD con l'autenticazione e la gestione delle identità di Single Sign-On (SSO). Per istruzioni dettagliate, vedere [Azure ad e le offerte SaaS transazionali nel Marketplace commerciale](azure-ad-saas.md).
+- Per l'acquisto dell'utente che accede alla pagina di destinazione, è necessario Azure AD con la gestione delle identità di Single Sign-On (SSO) e l'autenticazione. Per istruzioni dettagliate, vedere [Azure ad e le offerte SaaS transazionali nel Marketplace commerciale](azure-ad-saas.md).
 - È necessario usare le [API di evasione Saas](./partner-center-portal/pc-saas-fulfillment-api-v2.md) per l'integrazione con Azure Marketplace e Microsoft AppSource. È necessario esporre un servizio che può interagire con la sottoscrizione SaaS per creare, aggiornare ed eliminare un account utente e un piano di servizio. Le modifiche critiche all'API devono essere supportate entro 24 ore. Le modifiche non critiche all'API verranno rilasciate periodicamente. I diagrammi e le spiegazioni dettagliate che descrivono l'utilizzo dei campi raccolti sono disponibili nella documentazione relativa alle [API](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 - È necessario creare almeno un piano per l'offerta. Il piano viene valutato in base al modello di determinazione dei prezzi selezionato prima della pubblicazione: _Tariffa_ fissa o _per utente_. Altre informazioni sui [piani](#plans) sono disponibili più avanti in questo articolo.
 - Il cliente può annullare l'offerta in qualsiasi momento.
@@ -90,7 +90,7 @@ Se si sta creando un'offerta transazionale, è necessario raccogliere le informa
   > [!NOTE]
   > Se il server di pubblicazione dispone di due o più account diversi nel centro per i partner, è necessario usare due o più ID app Azure AD diversi, ognuno per uno degli account. Ogni account partner nel centro per i partner deve usare un ID app univoco Azure AD per tutte le offerte SaaS pubblicate tramite questo account.
 
-## <a name="test-drives"></a>Test Drive
+## <a name="test-drives"></a>Test drive
 È possibile scegliere di abilitare un test drive per l'app SaaS. Le unità di test consentono ai clienti di accedere a un ambiente preconfigurato per un numero fisso di ore. È possibile abilitare le unità di test per qualsiasi opzione di pubblicazione, tuttavia questa funzionalità presenta requisiti aggiuntivi. Per ulteriori informazioni sulle unità di test, vedere [che cos'è un test drive?](what-is-test-drive.md). Per informazioni sulla configurazione di diversi tipi di unità di test, vedere [configurazione tecnica di test drive](test-drive-technical-configuration.md).
 
 > [!TIP]
@@ -100,7 +100,7 @@ Se si sta creando un'offerta transazionale, è necessario raccogliere le informa
 
 Per raccogliere informazioni sui clienti, è necessario connettere l'offerta al sistema CRM (Customer Relationship Management). Al cliente verrà chiesta l'autorizzazione per condividere le informazioni. Queste informazioni sui clienti, insieme al nome dell'offerta, all'ID e al negozio online in cui è stata trovata l'offerta, verranno inviate al sistema CRM configurato. Il Marketplace commerciale supporta un'ampia gamma di sistemi CRM, oltre alla possibilità di usare una tabella di Azure o di configurare un endpoint HTTPS usando Power automatici.
 
-È possibile aggiungere o modificare una connessione CRM in qualsiasi momento durante o dopo la creazione dell'offerta. Per istruzioni dettagliate, vedere [Lead Management per il Marketplace commerciale](lead-management-for-cloud-marketplace.md).
+È possibile aggiungere o modificare una connessione CRM in qualsiasi momento durante o dopo la creazione dell'offerta. Per istruzioni dettagliate, vedere [Lead dei clienti dall'offerta del Marketplace commerciale](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## <a name="selecting-an-online-store"></a>Selezione di uno Store online
 
@@ -183,7 +183,7 @@ Per semplificare la creazione dell'offerta, è possibile preparare alcuni di que
   - file con estensione png
   - Deve includere una didascalia
 - **Media-video** (facoltativo): è possibile aggiungere fino a quattro video con i requisiti seguenti, che dimostrano l'offerta:
-  - Nome
+  - Name
   - URL: deve essere ospitato solo su YouTube o Vimeo.
   - Anteprima: file 1280 x 720. png
 
@@ -194,7 +194,7 @@ Per semplificare la creazione dell'offerta, è possibile preparare alcuni di que
 Un pubblico di anteprima può accedere all'offerta prima di essere pubblicata Live nei negozi online per testare la funzionalità end-to-end prima di pubblicarla in tempo reale. Nella pagina **Anteprima destinatari** è possibile definire un numero limitato di destinatari di anteprima. Questa impostazione non è disponibile se si sceglie di elaborare le transazioni in modo indipendente anziché vendere l'offerta tramite Microsoft. In tal caso, è possibile ignorare questa sezione e passare ad [altre opportunità di vendita](#additional-sales-opportunities).
 
 > [!NOTE]
-> Un pubblico di anteprima è diverso da un piano privato. Un piano privato è quello reso disponibile solo per un determinato gruppo di destinatari. In questo modo è possibile negoziare un piano personalizzato con clienti specifici. Per altri dettagli, vedere la sezione successiva: piani.
+> Un pubblico di anteprima è diverso da un piano privato. Un piano privato è quello reso disponibile solo per un determinato gruppo di destinatari. In questo modo è possibile negoziare un piano personalizzato con clienti specifici. Per ulteriori informazioni, vedere la sezione successiva: piani.
 
 È possibile inviare gli inviti agli indirizzi di posta elettronica dell'account Microsoft (MSA) o Azure Active Directory (Azure AD). Aggiungere fino a 10 indirizzi di posta elettronica manualmente o importare fino a 20 con un file con estensione CSV. Se l'offerta è già attiva, è comunque possibile definire un pubblico di anteprima per testare eventuali modifiche o aggiornamenti all'offerta.
 

@@ -1,17 +1,17 @@
 ---
 title: Backup e ripristino-database di Azure per PostgreSQL-server singolo
 description: Informazioni sui backup automatici e il ripristino del database di Azure per il server PostgreSQL-server singolo.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: d3630b631944befaf8a8c3d32e90e775dd6d63fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0c1b0b5ac0c5c71dc5c98cb91d86f879a82809bc
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292879"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708455"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e ripristino nel database di Azure per PostgreSQL-server singolo
 
@@ -32,9 +32,9 @@ Per i server che supportano fino a 4 TB di spazio di archiviazione massimo, i ba
 
 #### <a name="servers-with-up-to-16-tb-storage"></a>Server con un massimo di 16 TB di archiviazione
 
-In un subset di [aree di Azure](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage), tutti i server di cui è stato effettuato il provisioning possono supportare fino a 16 TB di archiviazione. I backup su questi server di archiviazione di grandi dimensioni sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup di snapshot successivi sono solo backup differenziali. I backup differenziali degli snapshot non vengono eseguiti in base a una pianificazione fissa. In un giorno vengono eseguiti tre backup differenziali degli snapshot. I backup del log delle transazioni vengono eseguiti ogni cinque minuti. 
+In un subset di [aree di Azure](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage), tutti i server di cui è stato effettuato il provisioning possono supportare fino a 16 TB di archiviazione. I backup su questi server di archiviazione di grandi dimensioni sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup dello snapshot successivi sono solo backup differenziali. I backup differenziali degli snapshot non vengono eseguiti in base a una pianificazione fissa. In un giorno vengono eseguiti tre backup differenziali degli snapshot. I backup del log delle transazioni vengono eseguiti ogni cinque minuti. 
 
-### <a name="backup-retention"></a>Conservazione backup
+### <a name="backup-retention"></a>Conservazione dei backup
 
 I backup vengono conservati in base all'impostazione del periodo di conservazione dei backup nel server. È possibile selezionare un periodo di conservazione compreso tra 7 e 35 giorni. Il periodo di memorizzazione predefinito è 7 giorni. È possibile impostare il periodo di conservazione durante la creazione del server o in un secondo momento aggiornando la configurazione di backup usando [portale di Azure](https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal#set-backup-configuration) o l' [interfaccia](https://docs.microsoft.com/azure/postgresql/howto-restore-server-cli#set-backup-configuration)della riga di comando 
 
@@ -53,7 +53,7 @@ Nei livelli Utilizzo generico e Con ottimizzazione per la memoria, Database di A
 
 Database di Azure per PostgreSQL offre fino al 100% delle risorse di archiviazione del server di cui è stato effettuato il provisioning come archivio di backup senza costi aggiuntivi. Ogni ulteriore spazio di archiviazione di backup utilizzato viene addebitato in GB al mese. Se, ad esempio, è stato effettuato il provisioning di un server con 250 GB di spazio di archiviazione, sono disponibili 250 GB di spazio di archiviazione aggiuntivo per i backup del server senza costi aggiuntivi. Lo spazio di archiviazione utilizzato per i backup con più di 250 GB viene addebitato in base al [modello di determinazione prezzi](https://azure.microsoft.com/pricing/details/postgresql/).
 
-È possibile usare la metrica di [archiviazione di backup utilizzata](concepts-monitoring.md) in monitoraggio di Azure disponibile nel portale di Azure per monitorare l'archiviazione di backup utilizzata da un server. La metrica di archiviazione di backup utilizzata rappresenta la somma dello spazio di archiviazione utilizzato da tutti i backup completi del database, backup differenziali e backup del log mantenuti in base al periodo di conservazione dei backup impostato per il server. La frequenza dei backup è gestita dal servizio e illustrata in precedenza. Un'intensa attività transazionale sul server può causare un aumento dell'utilizzo dell'archiviazione di backup indipendentemente dalle dimensioni totali del database. Per l'archiviazione con ridondanza geografica, l'utilizzo dell'archiviazione di backup è due volte quello dell'archiviazione con ridondanza locale. 
+È possibile usare la metrica di [archiviazione di backup utilizzata](concepts-monitoring.md) in monitoraggio di Azure disponibile nel portale di Azure per monitorare l'archiviazione di backup utilizzata da un server. La metrica di archiviazione di backup utilizzata rappresenta la somma dello spazio di archiviazione utilizzato da tutti i backup completi del database, backup differenziali e backup del log mantenuti in base al periodo di conservazione dei backup impostato per il server. La frequenza dei backup è gestita dal servizio e illustrata in precedenza. Un'intensa attività transazionale sul server può causare un aumento dell'uso dell'archivio di backup indipendentemente dalle dimensioni totali del database. Per l'archiviazione con ridondanza geografica, l'utilizzo dell'archiviazione di backup è due volte quello dell'archiviazione con ridondanza locale. 
 
 Il modo principale per controllare i costi di archiviazione dei backup consiste nell'impostare il periodo di conservazione dei backup appropriato e scegliere le opzioni di ridondanza di backup corrette per soddisfare gli obiettivi di ripristino desiderati. È possibile selezionare un periodo di conservazione compreso tra 7 e 35 giorni. I server per utilizzo generico e con ottimizzazione per la memoria possono scegliere di disporre di archiviazione con ridondanza geografica per i backup.
 

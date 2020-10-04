@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 9f48c06f075ccdc3c3c212e1ba7912707565cd87
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 46749015d5141053eaea3f2f251bbba7d9455481
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405055"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709017"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Creare un'offerta di macchina virtuale di Azure in Azure Marketplace
 
@@ -118,7 +118,7 @@ Quando si pubblica l'offerta nel marketplace commerciale tramite il Centro per i
 
 Nella pagina **Proprietà** è possibile definire le categorie usate per raggruppare l'offerta in Azure Marketplace, la versione dell'applicazione e i contratti legali che supportano l'offerta.
 
-### <a name="category"></a>Category
+### <a name="category"></a>Categoria
 
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
@@ -242,7 +242,7 @@ Immettere le informazioni di contatto che Microsoft dovrà usare in caso di prob
 
 Inserire i logo e le immagini da usare con l'offerta. Tutte le immagini devono essere in formato PNG. Le immagini sfocate saranno rifiutate.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >In caso di problemi durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio https://upload.xboxlive.com usato dal Centro per i partner.
@@ -547,7 +547,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nei risultati della ricerca in Azure Marketplace:
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Illustra il modo in cui questa offerta viene visualizzata nei risultati della ricerca di Azure Marketplace.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -558,7 +558,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 
 <br>Di seguito è riportato un esempio di dettagli dei piani di Azure Marketplace:
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Illustra i dettagli del piano di Azure Marketplace.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -568,18 +568,18 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nell'portale di Azure:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Viene illustrato il modo in cui questa offerta viene visualizzata nel portale di Azure.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
-1. Nome
+1. Name
 2. Descrizione
 3. Collegamenti utili
 4. Screenshot/video
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nei risultati della ricerca portale di Azure:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Viene illustrato il modo in cui questa offerta viene visualizzata nei risultati della ricerca portale di Azure.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -589,7 +589,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 
 <br>Di seguito è riportato un esempio dei dettagli del piano di portale di Azure:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Vengono illustrati i dettagli del piano portale di Azure.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 

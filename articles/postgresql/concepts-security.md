@@ -1,17 +1,17 @@
 ---
 title: Sicurezza nel database di Azure per PostgreSQL-server singolo
 description: Panoramica delle funzionalità di sicurezza del database di Azure per PostgreSQL-server singolo.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: b95e02046b2f05dd89ec8fce5da438380a8894e9
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: be042a0ec076538cf0f0d155667acea6f1ae19cb
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375790"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710482"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Sicurezza nel database di Azure per PostgreSQL-server singolo
 
@@ -38,7 +38,7 @@ Le regole del firewall IP concedono l'accesso ai server in base all'indirizzo IP
 Gli endpoint di servizio della rete virtuale estendono la connettività della rete virtuale tramite la backbone di Azure. Uso delle regole della rete virtuale è possibile abilitare il database di Azure per il server PostgreSQL per consentire le connessioni da subnet selezionate in una rete virtuale. Per ulteriori informazioni, vedere [Panoramica dell'endpoint del servizio rete virtuale](concepts-data-access-and-security-vnet.md).
 
 ### <a name="private-ip"></a>IP privato
-Collegamento privato consente di connettersi al server singolo del database di Azure per PostgreSQL in Azure tramite un endpoint privato. Collegamento privato di Azure in pratica porta i servizi di Azure all'interno della rete virtuale privata. È possibile accedere alle risorse PaaS usando l'indirizzo IP privato come qualsiasi altra risorsa in VNet. Per ulteriori informazioni, vedere la [Panoramica del collegamento privato](concepts-data-access-and-security-private-link.md) .
+Collegamento privato consente di connettersi al server singolo del database di Azure per PostgreSQL in Azure tramite un endpoint privato. Collegamento privato di Azure in pratica porta i servizi di Azure all'interno della rete virtuale privata. È possibile accedere alle risorse PaaS usando l'indirizzo IP privato come per qualsiasi altra risorsa nella rete virtuale. Per ulteriori informazioni, vedere la [Panoramica del collegamento privato](concepts-data-access-and-security-private-link.md) .
 
 
 ## <a name="access-management"></a>Gestione degli accessi
@@ -54,6 +54,9 @@ Durante la creazione del database di Azure per il server PostgreSQL è possibile
 
 La [registrazione di controllo](concepts-audit.md) è disponibile per tenere traccia delle attività nei database. 
 
+## <a name="migrating-from-oracle"></a>Migrazione da Oracle
+
+Oracle supporta Transparent Data Encryption (Transparent Data Encryption) per crittografare i dati di tabella e tablespace. In Azure per PostgreSQL i dati vengono crittografati automaticamente a vari livelli. Vedere la sezione "inattivi" in questa pagina e fare riferimento anche a vari argomenti sulla sicurezza, incluse le [chiavi gestite dal cliente](./concepts-data-encryption-postgresql.md) e la [crittografia a doppia infrastruttura](./concepts-infrastructure-double-encryption.md). È anche possibile prendere in considerazione l'uso dell'estensione [pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html) , supportata in [Azure per PostgreSQL](./concepts-extensions.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Abilitare le regole del firewall per gli [indirizzi IP](concepts-firewall-rules.md) o le [reti virtuali](concepts-data-access-and-security-vnet.md)

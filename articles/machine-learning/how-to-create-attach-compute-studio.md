@@ -11,19 +11,22 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 5345fd81e41bbb354e11e1be23329c3130d4d0c2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898089"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708396"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Creare destinazioni di calcolo per il training e la distribuzione di modelli in Azure Machine Learning Studio
 
 Questo articolo illustra come creare e gestire le destinazioni di calcolo in Azure Machine Studio.  È anche possibile creare e gestire le destinazioni di calcolo con:
 
-* [SDK di Azure Machine Learning Learning](how-to-create-attach-compute-sdk.md), 
-* [Estensione dell'interfaccia](reference-azure-machine-learning-cli.md#resource-management) della riga di comando per Azure Machine Learning
+* Azure Machine Learning Learning SDK o l'estensione CLI per Azure Machine Learning
+  * [Istanza di calcolo](how-to-create-manage-compute-instance.md)
+  * [Cluster di calcolo](how-to-create-attach-compute-cluster.md)
+  * [Cluster del servizio Azure Kubernetes](how-to-create-attach-kubernetes.md)
+  * [Altre risorse di calcolo](how-to-attach-compute-targets.md)
 * [Estensione vs code](how-to-manage-resources-vscode.md#compute-clusters) per Azure Machine Learning.
 
 
@@ -56,11 +59,11 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 1. Se non si dispone di destinazioni di calcolo, selezionare  **Crea** al centro della pagina.
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Creare una destinazione di calcolo":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Visualizza l'elenco delle destinazioni di calcolo":::
 
 1. Se viene visualizzato un elenco di risorse di calcolo, selezionare **+ nuovo** sopra l'elenco.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Seleziona nuovo":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Visualizza l'elenco delle destinazioni di calcolo":::
 
 
 1. Compilare il modulo per il tipo di calcolo:
@@ -74,14 +77,14 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 1. Visualizzare lo stato dell'operazione di creazione selezionando la destinazione di calcolo dall'elenco:
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Visualizzare lo stato di calcolo da un elenco":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Visualizza l'elenco delle destinazioni di calcolo":::
 
 
 ### <a name="compute-instance"></a>Istanza di calcolo
 
 Usare la [procedura precedente](#portal-create) per creare l'istanza di calcolo.  Compilare quindi il modulo come segue:
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Creare una nuova istanza di calcolo":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Visualizza l'elenco delle destinazioni di calcolo":::
 
 
 |Campo  |Descrizione  |
@@ -107,7 +110,7 @@ Creare un cluster di calcolo a nodo singolo o a più nodi per i carichi di lavor
 |Numero massimo di nodi | Numero massimo di nodi di cui si vuole eseguire il provisioning. Il calcolo verrà ridimensionato automaticamente fino a un numero massimo di questo nodo quando viene inviato un processo. |
 |Impostazioni avanzate     |  facoltativo. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale**e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](how-to-enable-virtual-network.md#compute-instance) per vnet.   Connetti anche le [identità gestite](#managed-identity) per concedere l'accesso alle risorse     |
 
-#### <a name="set-up-managed-identity"></a><a id="managed-identity"></a> Configurare l'identità gestita
+#### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> Configurare l'identità gestita
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 

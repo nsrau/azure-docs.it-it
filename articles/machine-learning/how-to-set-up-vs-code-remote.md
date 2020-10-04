@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 09/03/2020
-ms.openlocfilehash: 2c7ff633705d3db327c563b41ce199a5342dda82
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461562"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708374"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Connettersi a un'istanza di calcolo Azure Machine Learning in Visual Studio Code (anteprima)
 
@@ -68,7 +68,7 @@ A questo punto, è possibile continuare a eseguire le celle nel notebook di Jupy
 Per un'esperienza di sviluppo remota completa, sono necessari alcuni prerequisiti:
 
 * [Visual Studio Code estensione SSH remota](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-* Istanza di calcolo abilitata per SSH. Per ulteriori informazioni, [vedere la Guida creare un'istanza di calcolo](concept-compute-instance.md#create).
+* Istanza di calcolo abilitata per SSH. Per ulteriori informazioni, [vedere la Guida creare un'istanza di calcolo](how-to-create-manage-compute-instance.md).
 
 > [!NOTE]
 > Nelle piattaforme Windows è necessario [installare un client SSH compatibile con OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) , se non ne è già presente uno. PuTTy non è supportato in Windows perché il comando ssh deve trovarsi nel percorso.

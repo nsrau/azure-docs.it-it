@@ -1,22 +1,22 @@
 ---
 title: Server-database di Azure per PostgreSQL-server singolo
 description: Questo articolo fornisce considerazioni e linee guida per la configurazione e la gestione di database di Azure per PostgreSQL-singolo server.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: d86170a53b4bfbe712bbca12db4d6063214aba21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8ae129cbad56e3bb63e055f9d843cac1da22fb1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768164"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710465"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Database di Azure per PostgreSQL - Server singolo
 Questo articolo fornisce considerazioni e linee guida per l'uso di database di Azure per PostgreSQL-server singolo.
 
-## <a name="what-is-an-azure-database-for-postgresql-server"></a>Che cos'è un database di Azure per il server PostgreSQL?
+## <a name="what-is-an-azure-database-for-postgresql-server"></a>Che cos'è un server di Database di Azure per PostgreSQL?
 Un server in database di Azure per PostgreSQL: l'opzione di distribuzione a server singolo è un punto amministrativo centrale per più database. È lo stesso costrutto di server PostgreSQL con cui probabilmente si ha familiarità nell'ambiente locale. In particolare, il servizio PostgreSQL è gestito, assicura le prestazioni garantite, espone accesso e funzionalità a livello di server.
 
 Un database di Azure per il server PostgreSQL:

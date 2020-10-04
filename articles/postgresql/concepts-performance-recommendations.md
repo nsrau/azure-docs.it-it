@@ -1,17 +1,17 @@
 ---
 title: Raccomandazioni per le prestazioni-database di Azure per PostgreSQL-server singolo
 description: Questo articolo descrive la funzionalità di raccomandazione per le prestazioni del database di Azure per PostgreSQL-server singolo.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: f0ce3843752ebd6ed56281f6699783181b52fdc6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d547844671e6485e71be7dd8c355de08f3dec5e6
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903879"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710567"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Suggerimenti sulle prestazioni in database di Azure per PostgreSQL-server singolo
 
@@ -33,7 +33,7 @@ Selezionare **Analizza** e scegliere un database per avviare l'analisi. A second
 
 Nella finestra **raccomandazioni** viene visualizzato un elenco di raccomandazioni, se trovate.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nuova pagina Raccomandazioni per le prestazioni":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Pagina di destinazione Elementi consigliati per le prestazioni":::
 
 Le raccomandazioni non vengono applicate automaticamente. Per applicare una raccomandazione, copiare il testo della query ed eseguirlo dal client preferito. Non dimenticare di eseguire le operazioni di test e monitoraggio per valutare la raccomandazione. 
 

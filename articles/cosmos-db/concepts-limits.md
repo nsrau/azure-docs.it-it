@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 2d14207bada52c937875bc62bdbde63d788c1aca
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: e67346eb1a0fccc7a788e8698df734536e1e395b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653588"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708952"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -137,6 +137,7 @@ A seconda dell'API usata, un elemento Azure Cosmos DB può rappresentare un docu
 | Lunghezza massima del valore della proprietà | Nessun limite pratico |
 | Lunghezza massima del valore della proprietà stringa | Nessun limite pratico |
 | Lunghezza massima del valore della proprietà numerica | IEEE754 a precisione doppia (64 bit) |
+| Livello massimo di nidificazione per oggetti/matrici incorporate | 128 |
 | Valore TTL massimo |2147483647|
 
 Non sono previste restrizioni per i payload dell'elemento come il numero di proprietà e la profondità di annidamento, ad eccezione delle limitazioni di lunghezza per la chiave di partizione e i valori ID e la restrizione della dimensione complessiva di 2 MB. Potrebbe essere necessario configurare i criteri di indicizzazione per i contenitori con strutture di elementi grandi o complesse per ridurre il consumo di UR. Per un esempio reale e modelli per la gestione di elementi di grandi dimensioni, vedere [Modellazione di elementi in Cosmos DB](how-to-model-partition-example.md).

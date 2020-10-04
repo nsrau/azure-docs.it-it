@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 397dac67ea94db22829080a65dfae857bb3706dd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a35b4e398757cb3d4b17e4fd6a5e342fe3c82918
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036931"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710380"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple come destinazione di backup con Backup Exec
 
@@ -73,7 +73,7 @@ StorSimple offre i vantaggi seguenti:
 -   Algoritmi di deduplicazione e compressione univoci che usano il cloud per ottenere livelli avanzati di deduplicazione
 -   Disponibilità elevata
 -   Replica geografica usando la replica geografica di Azure
--   Integrazione con Azure
+-   Integrazione di Azure
 -   Crittografia dei dati nel cloud
 -   Miglioramento del ripristino di emergenza e della conformità
 
@@ -255,7 +255,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 | Conservazione per tipo di backup | Dimensioni (TiB) | Moltiplicatore GFS\* | Capacità totale (TiB)  |
 |---|---|---|---|
 | Completo settimanale | 1 | 4  | 4 |
-| Incrementale giornaliero | 0,5 | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
+| Incrementale giornaliero | 0.5 | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
 | Completo mensile | 1 | 12 | 12 |
 | Completo annuale | 1  | 10 | 10 |
 | Requisito GFS |   | 38 |   |
@@ -313,7 +313,7 @@ Di seguito è riportato un esempio di una pianificazione a rotazione GFS per qua
 | Frequenza/Tipo di backup | Full | Incrementale (giorni 1-5)  |   
 |---|---|---|
 | Settimanale (settimane 1-4) | Sabato | Lunedì-venerdì |
-| Ogni mese  | Sabato  |   |
+| Mensilmente  | Sabato  |   |
 | Annuale | Sabato  |   |
 
 
@@ -387,7 +387,7 @@ La tabella seguente indica come configurare il backup per l'esecuzione su dischi
 | Settimana 2 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 3 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 4 | StorSimple settimane 2-4 |   |   |   |   |   |
-| Ogni mese | StorSimple Mensile |   |   |   |   |   |
+| Mensilmente | StorSimple Mensile |   |   |   |   |   |
 | Annuale | StorSimple Annuale  |   |   |   |   |   |
 
 
@@ -409,15 +409,15 @@ La tabella seguente indica come configurare il backup per l'esecuzione su dischi
 
 4.  Nell'elenco a discesa **Storage** (Archiviazione) selezionare il volume di StorSimple in cui si desidera che il processo di archiviazione memorizzi i dati.
 
-    ![Console di gestione di Backup Exec, proprietà di definizione del backup e opzioni di duplicazione](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
+    ![Screenshot che mostra l'elenco in cui è necessario selezionare l'archiviazione.](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
 5.  Selezionare **Verify** (Verifica) e quindi attivare la casella di controllo **Do not verify data for this job** (Non verificare i dati per questo processo).
 
-    ![Console di gestione di Backup Exec, proprietà di definizione del backup e opzioni di duplicazione](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
+    ![Screenshot che mostra la posizione in cui si seleziona l'opzione non verificare i dati per questo processo.](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
 6.  Selezionare **OK**.
 
-    ![Console di gestione di Backup Exec, proprietà di definizione del backup e opzioni di duplicazione](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
+    ![Screenshot che mostra le proprietà della definizione di backup.](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
 7.  Nella colonna **Backup** aggiungere una nuova fase. Per l'origine scegliere l'opzione **incrementale**. Per la destinazione scegliere il volume StorSimple in cui viene archiviato il processo di backup incrementale. Ripetere i passaggi da 1 a 6.
 

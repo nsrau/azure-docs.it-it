@@ -1,17 +1,17 @@
 ---
 title: Log-database di Azure per PostgreSQL-server singolo
 description: Descrive la configurazione di registrazione, l'archiviazione e l'analisi nel database di Azure per PostgreSQL-server singolo
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: c5515c21d89b01576bb6aae8c9d480b439dc1507
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8d249cdabcbfd82fc555c486f29bbdba200e1da1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902700"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710499"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Log nel database di Azure per PostgreSQL-server singolo
 
@@ -110,7 +110,7 @@ Nella tabella seguente vengono descritti i campi del tipo **PostgreSQLLogs** . A
 | ResourceType | `Servers` |
 | ResourceId | URI della risorsa |
 | Risorsa | Nome del server |
-| Category | `PostgreSQLLogs` |
+| Categoria | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Livello di registrazione, ad esempio: LOG, ERROR, NOTICE |
 | Messaggio | Messaggio di log primario | 

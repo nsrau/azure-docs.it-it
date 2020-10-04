@@ -10,27 +10,29 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e0c8e6fb3bab179483d03320e6d90ab712ec528
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: be0d428120f53a4edb9763199a78b0e50409b19a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89493349"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708739"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Miglioramenti alla gestione degli utenti (anteprima) in Azure Active Directory
 
-Questo articolo descrive come usare l'anteprima di gestione utente avanzata nel portale di Azure Active Directory (Azure AD). Le pagine **tutti gli utenti** e **gli utenti eliminati** sono state aggiornate per fornire altre informazioni e semplificare l'individuazione degli utenti. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Questo articolo descrive come usare l'anteprima di miglioramenti per la gestione degli utenti nel portale di Azure Active Directory (Azure AD). Le pagine **tutti gli utenti** e **gli utenti eliminati** sono state aggiornate per fornire altre informazioni e semplificare l'individuazione degli utenti. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Le modifiche nell'anteprima includono:
 
 - Proprietà utente più visibili, tra cui ID oggetto, stato di sincronizzazione della directory, tipo di creazione e autorità emittente di identità
 - La ricerca consente ora la ricerca combinata di nomi, messaggi di posta elettronica e ID oggetto
-- Filtro migliorato per tipo di utente (membro e Guest), stato di sincronizzazione della directory e tipo di creazione
+- Filtro migliorato per tipo di utente (membro, Guest, nessuno), stato di sincronizzazione della directory, tipo di creazione, nome della società e nome di dominio
+- Nuove funzionalità di ordinamento per proprietà quali nome e nome dell'entità utente
+- Un nuovo numero totale di utenti che si aggiorna con ricerche o filtri
 
 > [!NOTE]
 > Questa versione di anteprima non è attualmente disponibile per Azure AD B2C tenant.
@@ -66,7 +68,7 @@ Di seguito sono riportate le proprietà utente visualizzate nella pagina **tutti
 - Stato invito: stato dell'invito per un utente Guest.
 - Mail: il messaggio di posta elettronica dell'utente.
 
-   ![nuove proprietà utente visualizzate in tutte le pagine utenti e utenti eliminati](./media/users-search-enhanced/user-properties.png)
+![nuove proprietà utente visualizzate in tutte le pagine utenti e utenti eliminati](./media/users-search-enhanced/user-properties.png)
 
 ### <a name="deleted-users-page"></a>Pagina utenti eliminati
 
@@ -96,22 +98,36 @@ Sono state migliorate le funzionalità di filtro per offrire più opzioni di fil
 
 Di seguito sono riportate le proprietà filtrabili della pagina **tutti gli utenti** :
 
-- Tipo utente-membro o Guest
-- Stato sincronizzato della directory-Sì
-- Tipo di creazione: invito, messaggio di posta elettronica verificato, account locale
+- Tipo di utente: membro, Guest, nessuno
+- Stato sincronizzato della directory: Sì, no
+- Tipo di creazione: invito, verifica posta elettronica, account locale
 - Stato invito-accettazione in sospeso, accettato
+- Nome di dominio: immettere un nome di dominio
+- Nome società: immettere il nome di una società
 - Unità amministrativa: selezionare questa opzione per limitare l'ambito degli utenti che si visualizzano a una singola unità amministrativa. Per altre informazioni, vedere l' [anteprima della gestione delle unità amministrative](directory-administrative-units.md).
 
-## <a name="filtering-deleted-users-list"></a>Filtro elenco utenti eliminati
+### <a name="filtering-deleted-users-list"></a>Filtro elenco utenti eliminati
 
 La pagina **utenti eliminati** contiene filtri aggiuntivi non presenti nella pagina **tutti gli utenti** . Di seguito sono riportate le proprietà filtrabili della pagina **utenti eliminati** :
 
-- Tipo utente-membro o Guest
-- Stato sincronizzato della directory-Sì
-- Tipo di creazione: invito, messaggio di posta elettronica verificato, account locale
-- Stato invito-accettazione in sospeso, accettato
-- Data di eliminazione-ultimi 7, 14 o 30 giorni
-- Data di eliminazione permanente-ultimi 7, 14 o 30 giorni
+- Tipo di utente: membro, Guest, nessuno
+- Stato sincronizzato della directory: Sì, no
+- Tipo di creazione: invito, verifica posta elettronica, account locale
+- Stato invito: accettazione in sospeso, accettato
+- Data di eliminazione: ultimi 7, 14 o 30 giorni
+- Nome di dominio: immettere un nome di dominio
+- Nome società: immettere il nome di una società
+- Data di eliminazione permanente: ultimi 7, 14 o 30 giorni
+
+## <a name="user-list-sorting"></a>Ordinamento dell'elenco utenti
+
+È ora possibile ordinare in base al nome e al nome dell'entità utente nelle pagine **tutti gli utenti** e **utenti eliminati** . È inoltre possibile ordinare in base alla data di eliminazione nell'elenco **utenti eliminati** .
+
+## <a name="user-list-counts"></a>Conteggi elenco utenti
+
+È possibile visualizzare il numero totale di utenti nelle pagine **tutti gli utenti** e **utenti eliminati** . Quando si esegue la ricerca o si filtrano gli elenchi, il conteggio viene aggiornato in modo da riflettere il numero totale di utenti trovati.
+
+![Illustrazione dei conteggi degli elenchi utenti nella pagina tutti gli utenti](./media/users-search-enhanced/user-list-sorting.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -121,8 +137,6 @@ Che cosa accade alle funzionalità bulk per utenti e Guest? | Le operazioni bulk
 Cosa è successo alla colonna di origine? | La colonna di **origine** è stata sostituita con altre colonne che forniscono informazioni simili, consentendo al contempo di filtrare i valori in modo indipendente. Tra gli esempi sono inclusi il **tipo di creazione**, la **sincronizzazione delle directory** e l'emittente di **identità**.
 Cosa è successo alla colonna nome utente? | La colonna del **nome utente** è ancora presente, ma è stata rinominata come **nome dell'entità utente**. Ciò riflette meglio le informazioni contenute in tale colonna. Si noterà anche che il nome completo dell'entità utente è ora visualizzato per i guest B2B. Corrisponde a ciò che si otterrebbe in MS Graph.  
 Perché è possibile eseguire una ricerca "inizia con" e non una ricerca "Contains"? | Esistono alcune limitazioni che impediscono di consentire l'esecuzione di una ricerca "Contains". Il feedback è stato aggiornato.
-Perché non è possibile ordinare le colonne? | Esistono alcune limitazioni che impediscono di consentire l'ordinamento delle colonne. Il feedback è stato aggiornato.
-Perché è possibile filtrare solo la colonna **sincronizzata della directory** per Sì? | Esistono alcune limitazioni che impediscono a Microsoft di filtrare questa proprietà senza alcun valore. Il feedback è stato aggiornato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

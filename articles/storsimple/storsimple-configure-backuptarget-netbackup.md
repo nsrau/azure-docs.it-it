@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: b186fadcc99c6cc538b61eaa94d5d84d649c233f
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 23afa82ffda5341242c01cbe024fb71f482345d5
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184007"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710924"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple come destinazione di backup con NetBackup
 
@@ -73,7 +73,7 @@ StorSimple offre i vantaggi seguenti:
 -   Algoritmi di deduplicazione e compressione univoci che usano il cloud per ottenere livelli avanzati di deduplicazione
 -   Disponibilità elevata
 -   Replica geografica usando la replica geografica di Azure
--   Integrazione con Azure
+-   Integrazione di Azure
 -   Crittografia dei dati nel cloud
 -   Miglioramento del ripristino di emergenza e della conformità
 
@@ -132,7 +132,7 @@ La figura seguente mostra un'architettura in cui i backup e i ripristini inizial
 
 È importante impostare la dimensione del volume a prestazioni elevate in modo tale che possa gestire i requisiti di capacità e prestazioni dei criteri di conservazione.
 
-![Diagramma logico con StorSimple come destinazione secondaria di backup](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
+![Diagramma che mostra un'architettura in cui i backup e i ripristini iniziali hanno come destinazione un volume a prestazioni elevate.](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
 
 ### <a name="secondary-target-backup-logical-steps"></a>Passaggi logici per il backup nella destinazione secondaria
 
@@ -303,7 +303,7 @@ Di seguito è riportato un esempio di una pianificazione a rotazione GFS per qua
 | Frequenza/Tipo di backup | Full | Incrementale (giorni 1-5)  |   
 |---|---|---|
 | Settimanale (settimane 1-4) | Sabato | Lunedì-venerdì |
-| Ogni mese  | Sabato  |   |
+| Mensilmente  | Sabato  |   |
 | Annuale | Sabato  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Assegnazione di volumi StorSimple a un processo di backup NetBackup
@@ -414,7 +414,7 @@ La tabella seguente indica come configurare il backup per l'esecuzione su dischi
 | Settimana 2 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 3 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 4 | StorSimple settimane 2-4 |   |   |   |   |   |
-| Ogni mese | StorSimple Mensile |   |   |   |   |   |
+| Mensilmente | StorSimple Mensile |   |   |   |   |   |
 | Annuale | StorSimple Annuale  |   |   |   |   |   |
 
 

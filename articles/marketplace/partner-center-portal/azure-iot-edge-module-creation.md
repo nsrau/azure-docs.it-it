@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: dc1e8bfa9b747b9933762af1b6a5b59cf8cd98de
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815777"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708340"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creare un'offerta di moduli IoT Edge
 
@@ -78,9 +78,9 @@ Quando si pubblica l'offerta nel marketplace con il Centro per i partner, è pos
 
 Di seguito sono elencate alcune risorse aggiuntive per la gestione dei clienti potenziali:
 
-- [Panoramica della gestione dei clienti potenziali](commercial-marketplace-get-customer-leads.md)
-- [Domande frequenti sulla gestione dei lead](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Errori comuni di configurazione del lead](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
+- [Lead di clienti tramite l'offerta del marketplace commerciale](commercial-marketplace-get-customer-leads.md)
+- [Domande frequenti sulla gestione dei lead](../lead-management-faq.md#common-questions-about-lead-management)
+- [Risoluzione degli errori di configurazione del lead](../lead-management-faq.md#publishing-config-errors)
 - PDF [Panoramica della gestione dei clienti potenziali](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assicurarsi che il blocco dei popup sia disattivato)
 
 Prima di continuare, selezionare **Salva bozza**.
@@ -194,7 +194,7 @@ Per altre informazioni sulla creazione della presentazione dell'offerta, vedere 
 
 Fornire i logo e le immagini da usare con l'offerta. Tutte le immagini devono essere in formato PNG. Le immagini sfuocate verranno rifiutate.
 
-[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio https://upload.xboxlive.com usato dal Centro per i partner.
@@ -234,7 +234,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 3. Indirizzo di supporto (collegamento)
 4. Termini e condizioni
 5. Indirizzo privacy policy (collegamento)
-6. Nome
+6. Name
 7. Riepilogo
 8. Descrizione
 9. Collegamenti utili
@@ -242,7 +242,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nei risultati della ricerca in Azure Marketplace:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Illustra il modo in cui questa offerta viene visualizzata nei risultati della ricerca di Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -252,18 +252,18 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nell'portale di Azure:
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Viene illustrato il modo in cui questa offerta viene visualizzata nel portale di Azure.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
-1. Nome
+1. Name
 2. Descrizione
 3. Collegamenti utili
 4. Schermate
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nei risultati della ricerca portale di Azure:
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Viene illustrato il modo in cui questa offerta viene visualizzata nei risultati della ricerca portale di Azure.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -362,7 +362,7 @@ Dopo aver completato questi campi, selezionare **Salva bozza**.
 
 Di seguito è riportato un esempio di dettagli dei piani di Azure Marketplace (i prezzi elencati sono solo a scopo esemplificativo e non sono destinati a riflettere i costi effettivi):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Illustra i dettagli del piano di Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -372,7 +372,7 @@ Di seguito è riportato un esempio di dettagli dei piani di Azure Marketplace (i
 
 <br>Di seguito è riportato un esempio dei dettagli del piano di portale di Azure (i prezzi elencati sono solo a scopo esemplificativo e non sono destinati a riflettere i costi effettivi):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Vengono illustrati i dettagli del piano portale di Azure.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -393,7 +393,7 @@ Questo campo viene comunemente usato quando:
 
 ## <a name="technical-configuration"></a>Configurazione tecnica
 
-Il tipo di offerta di **modulo IoT Edge** è un tipo specifico di contenitore in esecuzione in un dispositivo IoT Edge. Nella scheda **Configurazione tecnica** specificare le informazioni di riferimento per il repository dell'immagine del contenitore all'interno del [Registro Azure Container](https://azure.microsoft.com/services/container-registry/) insieme alle impostazioni di configurazione che consentono ai clienti di usare il modulo facilmente.
+Il tipo di offerta di **modulo IoT Edge** è un tipo specifico di contenitore in esecuzione in un dispositivo IoT Edge. Nella scheda **configurazione tecnica** verranno fornite informazioni di riferimento per il repository di immagini contenitore all'interno del [container Registry di Azure](https://azure.microsoft.com/services/container-registry/), insieme a impostazioni di configurazione che consentono ai clienti di utilizzare il modulo in modo semplice.
 
 Dopo aver pubblicato l'offerta, l'immagine del contenitore IoT Edge viene copiata in Azure Marketplace in un registro contenitori pubblico specifico. Tutte le richieste degli utenti di Azure per l'uso del modulo vengono gestite dal registro contenitori pubblico di Azure Marketplace, non da quello privato.
 
@@ -413,7 +413,7 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 
 **Nome utente amministratore per il container Registry di Azure**: specificare il [nome utente amministratore](../../container-registry/container-registry-authentication.md#admin-account)) associato al container Registry di Azure con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere il nome utente e la password dell'amministratore, impostare la proprietà **admin-enabled** su **True** usando l'interfaccia della riga di comando di Azure (CLI). Facoltativamente è possibile impostare **Utente amministratore** su **Abilita** nel portale di Azure.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Finestra di dialogo Aggiorna registro contenitori.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-description"></a>Descrizione della chiamata
 
@@ -421,7 +421,7 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 
 <br>**Password del Registro Azure Container**: specificare la password per il nome utente dell'amministratore associata al Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere la password nel portale di Azure, passare a **Registro contenitori** > **Chiavi di accesso** o con l'interfaccia della riga di comando di Azure usare il [comando show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Viene illustrata la schermata chiave di accesso nella portale di Azure.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -429,7 +429,7 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 2. Username
 3. Password
 
-**Nome del repository all'interno del Registro Azure Container**. Specificare il nome del repository di Registro Azure Container con l'immagine. Specificare il nome del repository quando si esegue il push dell'immagine nel registro. È possibile trovare il nome del repository passando alla pagina [Registro contenitori](https://azure.microsoft.com/services/container-registry/) > **Repository**. Per altre informazioni, vedere [Visualizzare i repository del registro contenitori nel portale di Azure](../../container-registry/container-registry-repositories.md). Tenere presente che dopo averlo impostato, il nome non potrà più essere modificato. Usare un nome univoco per ogni offerta nell'account.
+**Nome del repository all'interno del Registro Azure Container**. Specificare il nome del repository di Registro Azure Container con l'immagine. Specificare il nome del repository quando si esegue il push dell'immagine nel registro. È possibile trovare il nome del repository passando alla pagina [Registro contenitori](https://azure.microsoft.com/services/container-registry/) > **Repository**. Per altre informazioni, vedere [Visualizzare i repository del registro contenitori nel portale di Azure](../../container-registry/container-registry-repositories.md). Dopo averlo impostato, il nome non potrà essere modificato. Usare un nome univoco per ogni offerta nell'account.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Tag dell'immagine per le nuove versioni dell'offerta
 
@@ -466,7 +466,7 @@ Se ad esempio un modulo richiede di accettare le condizioni d'uso prima dell'avv
 - Nome 1: ACCEPT_EULA
 - Valore 1: S
 
-**Default container create options** (Opzioni di creazione del contenitore predefinito). Le opzioni di creazione del contenitore guidano la creazione del contenitore Docker del modulo IoT Edge. IoT Edge supporta le opzioni del contenitore per la creazione dell'API del motore Docker. Vedere tutte le opzioni in [List containers](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) (Elencare i contenitori). Il campo Crea opzioni deve essere un JSON valido, non preceduto da carattere di escape e minore di 512 caratteri.
+**Default container create options** (Opzioni di creazione del contenitore predefinito). Le opzioni di creazione del contenitore guidano la creazione del contenitore Docker del modulo IoT Edge. IoT Edge supporta le opzioni del contenitore per la creazione dell'API del motore Docker. Vedere tutte le opzioni in [List containers](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) (Elencare i contenitori). Il campo Crea opzioni deve essere JSON valido, non di escape e inferiore a 512 caratteri.
 
 Se, ad esempio, un modulo richiede l'associazione della porta, è possibile definire le opzioni di creazione seguenti:
 

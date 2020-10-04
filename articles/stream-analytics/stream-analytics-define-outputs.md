@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
-ms.date: 08/25/2020
-ms.openlocfilehash: 7de882683248406e44a617dfb5d070e12879aea3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/2/2020
+ms.openlocfilehash: 5f109ad719ada9728938f6e37d4ec854d3950a24
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317753"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708436"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Output di analisi di flusso di Azure
 
@@ -26,10 +26,10 @@ Alcuni tipi di output supportano il [partizionamento](#partitioning) e le [dimen
 | Tipo di output | Partizionamento | Sicurezza | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Sì|Utente Azure Active Directory </br> Identità del servizio gestita|
-|[Database SQL di Azure](sql-database-output.md)|Sì, deve essere abilitato.|Autenticazione utente SQL </br> MSI (anteprima)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|No|Autenticazione utente SQL|
+|[Database SQL di Azure](sql-database-output.md)|Sì, facoltativo.|Autenticazione utente SQL </br> MSI (anteprima)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Sì|Autenticazione utente SQL|
 |[Archiviazione BLOB e Azure Data Lake generazione 2](blob-storage-azure-data-lake-gen2-output.md)|Sì|Identità del servizio gestita </br> Chiave di accesso|
-|[Hub eventi di Azure](event-hubs-output.md)|Sì|Chiave di accesso|
+|[Hub eventi di Azure](event-hubs-output.md)|Sì, è necessario impostare la colonna chiave di partizione nella configurazione di output.|Chiave di accesso|
 |[Power BI](power-bi-output.md)|No|Utente Azure Active Directory </br> Identità del servizio gestita|
 |[Archivio tabelle di Azure](table-storage-output.md)|Sì|Chiave account|
 |[Code del bus di servizio di Azure](service-bus-queues-output.md)|Sì|Chiave di accesso|
@@ -41,7 +41,7 @@ Alcuni tipi di output supportano il [partizionamento](#partitioning) e le [dimen
 
 Analisi di flusso supporta le partizioni per tutti gli output tranne Power BI. Per ulteriori informazioni sulle chiavi di partizione e sul numero di writer di output, vedere l'articolo relativo al tipo di output specifico a cui si è interessati. Tutti gli articoli di output sono collegati nella sezione precedente.  
 
-Il numero di writer di output può essere controllato usando una `INTO <partition count>` clausola (see [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) nella query, che può essere utile per ottenere una topologia di processo desiderata. Se l'adattatore di output non è partizionato, la mancanza di dati in una partizione di input comporta un ritardo fino alla quantità di tempo di arrivo in ritardo. In questi casi, l'output viene unito a un unico writer che può causare colli di bottiglia nella pipeline. Per altre informazioni sui criteri di arrivo in ritardo, vedere [Considerazioni sull'ordine degli eventi con Analisi di flusso di Azure](stream-analytics-out-of-order-and-late-events.md).
+Inoltre, per un'ottimizzazione più avanzata delle partizioni, il numero di writer di output può essere controllato utilizzando una `INTO <partition count>` clausola (see [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) nella query, che può essere utile per ottenere una topologia di processo desiderata. Se l'adattatore di output non è partizionato, la mancanza di dati in una partizione di input comporta un ritardo fino alla quantità di tempo di arrivo in ritardo. In questi casi, l'output viene unito a un unico writer che può causare colli di bottiglia nella pipeline. Per altre informazioni sui criteri di arrivo in ritardo, vedere [Considerazioni sull'ordine degli eventi con Analisi di flusso di Azure](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Dimensione del batch di output
 

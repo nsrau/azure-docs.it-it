@@ -7,16 +7,16 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 247a5c89b52c6b58f2e1d04723f4f73b85aeb153
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: bdd2dacbba4ef8b7c439a345ea70771354b7fb5a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400741"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708595"
 ---
 # <a name="cloud-solution-provider-program"></a>Programma per provider di soluzioni cloud
 
-Questo articolo illustra come configurare l'offerta in modo che sia disponibile per il programma Cloud Solution Provider (CSP). Oltre alla pubblicazione delle offerte tramite i [negozi online del Marketplace commerciale](comparing-appsource-azure-marketplace.md), è anche possibile vendere tramite il programma CSP per raggiungere milioni di clienti Microsoft qualificati che il programma serve.
+Questo articolo illustra come configurare l'offerta in modo che sia disponibile per il programma Cloud Solution Provider (CSP). Oltre alla pubblicazione delle offerte tramite i [negozi online del Marketplace commerciale](overview.md#commercial-marketplace-online-stores), è anche possibile vendere tramite il programma CSP per raggiungere milioni di clienti Microsoft qualificati che il programma serve.
 
 È possibile configurare offerte nuove o esistenti per la disponibilità nel programma CSP su base esplicita, in modo da consentire ai partner CSP di vendere i prodotti e creare soluzioni in bundle per i clienti.
 
@@ -60,7 +60,7 @@ Scegliere tra tre opzioni:
 
 Se si sceglie questa opzione, si autorizzano alcuni partner del programma CSP come idonei a rivendere l'offerta.
 
-Per autorizzare i partner, fare clic su **Seleziona partner CSP**. Verrà visualizzato un menu che consente di eseguire una ricerca per nome partner o ID tenant di Azure Active Directory (AAD).
+Per autorizzare i partner, selezionare **Seleziona partner CSP** . verrà visualizzato un menu che consente di eseguire la ricerca in base al nome del partner o all'ID del tenant Azure Active Directory (Azure ad) CSP.
 
 ![Menu di selezione CSP](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
@@ -81,7 +81,7 @@ Selezionare **Salva bozza** per registrare le modifiche.
 Se questa offerta non è stata pubblicata, sarà necessario pubblicarla per renderla disponibile ai partner selezionati.
 
 >[!NOTE]
->Se un partner del programma CSP in una determinata area viene autorizzato, può vendere l'offerta a qualsiasi cliente appartenente a tale area specifica. Per altre informazioni su come le offerte CSP sono classificate nelle diverse aree, vedere [Valute e mercati a livello di area del programma Cloud Solution Provider](https://docs.microsoft.com/partner-center/regional-authorization-overview).
+>Se un partner del programma CSP in una determinata area viene autorizzato, può vendere l'offerta a qualsiasi cliente appartenente a tale area specifica. Per altre informazioni su come le offerte CSP sono classificate in aree, vedere la pagina relativa ai [mercati e alla valuta per il programma Cloud Solution Provider](https://docs.microsoft.com/partner-center/regional-authorization-overview).
 
 Se si sta aggiornando l'elenco CSP di un'offerta già pubblicata, aggiungere gli altri partner e selezionare **Sync CSP audience** (Sincronizza destinatari CSP).
 
@@ -147,7 +147,7 @@ Se l'offerta attuale è **Opzione 2: Partner specifici nel programma CSP selezio
 5. Selezionare **Avanti** per passare alla pagina **Dettagli del problema** dove è possibile immettere altri dettagli sul problema.
 6. Usare **Deauthorize CSP** come titolo del problema e compilare la altre sezioni obbligatorie.
 
- Se l'offerta attuale è **Opzione 2: Partner specifici nel programma CSP selezionato** e si vuole passare a **Opzione 3: Nessun partner nel programma CSP**, sarà possibile passare a tale opzione solo se i partner del programma CSP autorizzati in precedenza non hanno rivenduto l'offerta ai clienti finali. Seguire questa procedura per creare una richiesta:
+ Se l'offerta attuale è **Opzione 2: Partner specifici nel programma CSP selezionato** e si vuole passare a **Opzione 3: Nessun partner nel programma CSP**, sarà possibile passare a tale opzione solo se i partner del programma CSP autorizzati in precedenza non hanno rivenduto l'offerta ai clienti finali. Usare le istruzioni seguenti per creare una richiesta:
 
 1. Andare alla [pagina della richiesta di supporto](https://aka.ms/marketplacepublishersupport). I primi menu a discesa vengono compilati automaticamente.
 
@@ -170,14 +170,11 @@ Per consentire ai partner del programma Cloud Solution Provider di rappresentare
 
 ### <a name="partner-center-csp-channel"></a>Canale CSP del Centro per i partner
 
-Se si è dato il consenso esplicitamente per il canale CSP nel Centro per i partner, gli editori devono immettere un URL che ospita i materiali di marketing pertinenti e le informazioni di contatto del canale nel modulo di inserzione dell'offerta del canale CSP:
+Se si è scelto il canale CSP nel centro per i partner, gli editori devono immettere un URL che ospita i materiali di marketing pertinenti e le informazioni di contatto del canale nel modulo di presentazione dell'offerta.
 
 ![Informazioni aggiuntive sui partner CSP nel Centro per i partner](media/marketplace-publishers-guide/pc-csp-channel.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visitare la [Guida alla pubblicazione per Azure Marketplace e AppSource](marketplace-publishers-guide.md).
-
-Per altre informazioni sui servizi per l'immissione sul mercato del marketplace, vedere [Servizi per l'immissione sul mercato](https://partner.microsoft.com/reach-customers/gtm).
-
-Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare e configurare l'offerta.
+- Scopri di più sui [Servizi go-to-Market](https://partner.microsoft.com/reach-customers/gtm).
+- Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare e configurare l'offerta.

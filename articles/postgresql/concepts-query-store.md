@@ -1,17 +1,17 @@
 ---
 title: Query Store-database di Azure per PostgreSQL-server singolo
 description: Questo articolo descrive la funzionalità Query Store di database di Azure per PostgreSQL-server singolo.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 2cda79e1b08e67e10d42acb5093230ce8450d67d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 7b6c8faafac34ada664ddfadebf8d71a16c73fa7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530919"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710533"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorare le prestazioni con Query Store
 
@@ -162,8 +162,8 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 |user_id    |oid    |pg_authid.oid  |OID dell'utente che ha eseguito l'istruzione|
 |db_id  |oid    |pg_database.oid    |OID del database in cui l'istruzione è stata eseguita|
 |query_id   |bigint     ||Codice hash interno, calcolato dall'albero di analisi dell'istruzione|
-|event_type |testo       ||Tipo di evento atteso dal back-end|
-|event  |testo       ||Nome dell'evento di attesa, se il back-end è attualmente in attesa|
+|event_type |text       ||Tipo di evento atteso dal back-end|
+|event  |text       ||Nome dell'evento di attesa, se il back-end è attualmente in attesa|
 |calls  |Integer        ||Numero dello stesso evento acquisito|
 
 
@@ -205,7 +205,7 @@ Le tabelle seguenti descrivono i campi per i due tipi di log. A seconda dell'end
 |---|---|
 | TimeGenerated [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
 | ResourceId | URI della risorsa di Azure del server Postgres |
-| Category | `QueryStoreRuntimeStatistics` |
+| Categoria | `QueryStoreRuntimeStatistics` |
 | OperationName | `QueryStoreRuntimeStatisticsEvent` |
 | LogicalServerName_s | Nome server Postgres | 
 | runtime_stats_entry_id_s | ID nella tabella runtime_stats_entries |
@@ -230,7 +230,7 @@ Le tabelle seguenti descrivono i campi per i due tipi di log. A seconda dell'end
 |---|---|
 | TimeGenerated [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
 | ResourceId | URI della risorsa di Azure del server Postgres |
-| Category | `QueryStoreWaitStatistics` |
+| Categoria | `QueryStoreWaitStatistics` |
 | OperationName | `QueryStoreWaitEvent` |
 | user_id_s | OID dell'utente che ha eseguito l'istruzione |
 | db_id_s | OID del database in cui l'istruzione è stata eseguita |

@@ -1,19 +1,19 @@
 ---
 title: Backup e ripristino-Azure PowerShell-database di Azure per PostgreSQL
 description: Informazioni su come eseguire il backup e il ripristino di un server in database di Azure per PostgreSQL usando Azure PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f582159b0ce1355b34c42496dc7516264b62d365
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: cf15898a7077f08ff4ab337cf5ad77ebcd2f3f1a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902032"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708102"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Come eseguire il backup e il ripristino di un server di Database di Azure per PostgreSQL con PowerShell
 
@@ -78,7 +78,7 @@ Il set di parametri **PointInTimeRestore** del `Restore-AzPostgreSqlServer` cmdl
 | Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
-| Nome | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
+| Name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Selezionare un momento specifico per il ripristino. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. Ad esempio, è possibile usare il proprio fuso orario locale, ad esempio **2020-03-13T05:59:00-08:00**. È anche possibile usare il formato UTC Zulu, ad esempio **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Usare la modalità temporizzata per il ripristino. |
 
@@ -120,7 +120,7 @@ Il set di parametri **Georestore** del `Restore-AzPostgreSqlServer` cmdlet richi
 | Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Nome del gruppo di risorse a cui appartiene il nuovo server.|
-|Nome | mydemoserver-georestored | Nome del nuovo server. |
+|Name | mydemoserver-georestored | Nome del nuovo server. |
 |Percorso | eastus | Posizione del nuovo server. |
 |UseGeoRestore | `<SwitchParameter>` | Usare la modalità geografica per il ripristino. |
 

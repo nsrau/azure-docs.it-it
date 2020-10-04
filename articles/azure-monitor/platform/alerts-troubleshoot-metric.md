@@ -4,14 +4,14 @@ description: Problemi comuni relativi agli avvisi delle metriche di monitoraggio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
-ms.openlocfilehash: f9003aa7b9b2c28e443485484ccd4eb50fa6e0dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1280529aa758194dbd02196d71a715310431a73b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294226"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710295"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di monitoraggio di Azure 
 
@@ -76,6 +76,9 @@ Per ulteriori informazioni sulla raccolta di dati dal sistema operativo guest di
 > [!NOTE] 
 > Se sono state configurate le metriche Guest da inviare a un'area di lavoro Log Analytics, le metriche vengono visualizzate sotto la risorsa Log Analytics area di lavoro e inizieranno a visualizzare i dati **solo** dopo la creazione di una regola di avviso che li monitora. A tal proposito, seguire la procedura per [configurare un avviso delle metriche per i log](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
+> [!NOTE] 
+> Il monitoraggio di una metrica Guest per più macchine virtuali con una singola regola di avviso non è attualmente supportato dagli avvisi delle metriche. È possibile ottenere questo risultato con una [regola di avviso del log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). A tale scopo, verificare che le metriche Guest vengano raccolte in un'area di lavoro Log Analytics e creare una regola di avviso del log nell'area di lavoro.
+
 ## <a name="cant-find-the-metric-to-alert-on"></a>Impossibile trovare la metrica per l'avviso
 
 Se si sta cercando di ricevere un avviso per una metrica specifica, ma non è possibile visualizzare alcuna metrica per la risorsa, [controllare se il tipo di risorsa è supportato per gli avvisi delle metriche](./alerts-metric-near-real-time.md).
@@ -110,7 +113,7 @@ Gli avvisi delle metriche sono con stato per impostazione predefinita e pertanto
 
 Quando si crea una regola di avviso per la metrica, il nome della metrica viene convalidato in base all' [API delle definizioni delle metriche](/rest/api/monitor/metricdefinitions/list) per assicurarsi che esista. In alcuni casi, si vuole creare una regola di avviso su una metrica personalizzata anche prima che venga emessa. Ad esempio, quando si crea (usando un modello di Gestione risorse) una risorsa Application Insights che emette una metrica personalizzata, insieme a una regola di avviso che monitora tale metrica.
 
-Per evitare che la distribuzione abbia esito negativo quando si tenta di convalidare le definizioni della metrica personalizzata, è possibile usare il parametro *skipMetricValidation* nella sezione criteri della regola di avviso, che causerà l'omissione della convalida della metrica. Vedere l'esempio seguente per informazioni su come usare questo parametro in un modello di Gestione risorse. Per ulteriori informazioni, vedere gli [esempi di modelli di gestione risorse completi per la creazione di regole di avviso per le metriche](./alerts-metric-create-templates.md).
+Per evitare che la distribuzione abbia esito negativo quando si tenta di convalidare le definizioni della metrica personalizzata, è possibile usare il parametro *skipMetricValidation* nella sezione criteri della regola di avviso, che causerà l'omissione della convalida della metrica. Vedere l'esempio seguente per informazioni su come usare questo parametro in un modello di Gestione risorse. Per ulteriori informazioni, vedere gli [esempi di modelli di gestione risorse completi per la creazione di regole di avviso per la metrica](./alerts-metric-create-templates.md).
 
 ```json
 "criteria": {
@@ -252,6 +255,12 @@ Ad esempio:
     - Desidero aggiornare la prima condizione e monitorare solo le transazioni in cui la dimensione **ApiName** è uguale a *"GetBlob"*
     - Poiché le metriche **Transactions** e **SuccessE2ELatency** supportano una dimensione **ApiName** , sarà necessario aggiornare entrambe le condizioni e fare in modo che entrambe specifichino la dimensione **ApiName** con un valore *"GetBlob"* .
 
+## <a name="setting-the-alert-rules-period-and-frequency"></a>Impostazione del periodo e della frequenza della regola di avviso
+
+È consigliabile scegliere una *granularità di aggregazione (periodo)* maggiore della *frequenza di valutazione*, per ridurre la probabilità che manchi la prima valutazione della serie temporale aggiunta nei casi seguenti:
+-   Regola di avviso metrica che monitora più dimensioni: quando viene aggiunta una nuova combinazione di valori di dimensione
+-   Regola di avviso metrica che monitora più risorse: quando una nuova risorsa viene aggiunta all'ambito
+-   Regola di avviso metrica che monitora una metrica che non viene emessa continuamente (metrica di tipo sparse): quando la metrica viene emessa dopo un periodo di tempo superiore a 24 ore in cui non è stata emessa
 
 ## <a name="next-steps"></a>Passaggi successivi
 

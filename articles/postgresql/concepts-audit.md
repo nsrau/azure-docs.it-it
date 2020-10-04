@@ -1,17 +1,17 @@
 ---
 title: Registrazione di controllo-database di Azure per PostgreSQL-server singolo
 description: 'Concetti per la registrazione di controllo di pgAudit nel database di Azure per PostgreSQL: singolo server.'
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 165e7984c21b74fa7730fc02756b9e75b4b33aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efd4cb7c0c5db50729539373938ebccd689dee42
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131236"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708986"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registrazione di controllo nel database di Azure per PostgreSQL-server singolo
 
@@ -66,7 +66,7 @@ Dopo aver [installato pgAudit](#installing-pgaudit), è possibile configurarne i
 
 > [!NOTE]
 > `pgaudit.log_client`Se si imposta su on, i log vengono reindirizzati a un processo client, ad esempio PSQL, anziché essere scritti nel file. Questa impostazione viene in genere disabilitata. <br> <br>
-> `pgaudit.log_level`viene abilitato solo quando `pgaudit.log_client` è on.
+> `pgaudit.log_level` viene abilitato solo quando `pgaudit.log_client` è on.
 
 > [!NOTE]
 > In database di Azure per PostgreSQL `pgaudit.log` non è possibile impostare l'uso di un `-` collegamento di segno (meno), come descritto nella documentazione di pgAudit. Tutte le classi di istruzioni obbligatorie (READ, WRITE e così via) devono essere specificate singolarmente.
@@ -74,7 +74,7 @@ Dopo aver [installato pgAudit](#installing-pgaudit), è possibile configurarne i
 ### <a name="audit-log-format"></a>Formato del log di controllo
 Ogni voce di controllo è indicata da `AUDIT:` vicino all'inizio della riga del log. Il formato del resto della voce è descritto in dettaglio nella [documentazione di pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
 
-Se sono necessari altri campi per soddisfare i requisiti di controllo, usare il parametro Postgres `log_line_prefix` . `log_line_prefix`è una stringa che viene restituita all'inizio di ogni riga del log di postgres. Ad esempio, l' `log_line_prefix` impostazione seguente fornisce il timestamp, il nome utente, il nome del database e l'ID del processo:
+Se sono necessari altri campi per soddisfare i requisiti di controllo, usare il parametro Postgres `log_line_prefix` . `log_line_prefix` è una stringa che viene restituita all'inizio di ogni riga del log di postgres. Ad esempio, l' `log_line_prefix` impostazione seguente fornisce il timestamp, il nome utente, il nome del database e l'ID del processo:
 
 ```
 t=%m u=%u db=%d pid=[%p]:
@@ -82,7 +82,7 @@ t=%m u=%u db=%d pid=[%p]:
 
 Per altre informazioni su `log_line_prefix` , vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
 
-### <a name="getting-started"></a>Introduzione
+### <a name="getting-started"></a>Guida introduttiva
 Per iniziare rapidamente, impostare `pgaudit.log` su `WRITE` e aprire i log per esaminare l'output. 
 
 ## <a name="viewing-audit-logs"></a>Visualizzazione dei log di controllo

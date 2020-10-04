@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e14995b92e99e1a9695f81fb71bcab6dd62303a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5f3f6238bb72704d13fef4a7171aeaebee5f9141
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011668"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708697"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modello di hosting di Azure Service Fabric
 Questo articolo fornisce una panoramica dei modelli di hosting delle applicazioni offerti da Azure Service Fabric e descrive le differenze tra i modelli **Shared Process** (Processo condiviso) ed **Exclusive Process** (Processo esclusivo). Descrive l'aspetto di un'applicazione in un nodo di Service Fabric e la relazione tra le repliche (o istanze) del servizio e il processo host servizio.
@@ -30,19 +30,19 @@ Per comprendere il servizio di hosting, esaminare l'esempio seguente. Si suppong
 Si supponga anche di avere un cluster a tre nodi e di creare un'*applicazione* **fabric:/App1** di tipo "MyAppType". All'interno di questa applicazione **fabric:/App1** viene creato un servizio **fabric:/App1/ServiceA** di tipo "MyServiceType". Questo servizio ha due partizioni (ad esempio, **P1** e **P2**) e tre repliche per ogni partizione. Il diagramma seguente mostra la visualizzazione di questa applicazione distribuita in un nodo.
 
 
-![Diagramma della visualizzazione del nodo dell'applicazione distribuita][node-view-one]
+![Diagramma che mostra la visualizzazione di questa applicazione quando viene distribuita in un nodo.][node-view-one]
 
 
 Service Fabric ha attivato "MyServicePackage" che ha avviato "MyCodePackage". Quest'ultimo ospita repliche da entrambe le partizioni. Tutti i nodi del cluster hanno la stessa visualizzazione perché è stato scelto un numero di repliche per partizione uguale al numero di nodi del cluster. Verrà ora creato un altro servizio, **fabric:/App1/ServiceB**, nell'applicazione **fabric:/App1**. Questo servizio ha una partizione (ad esempio, **P3**) e tre repliche per ogni partizione. Il diagramma seguente mostra la nuova visualizzazione del nodo:
 
 
-![Diagramma della visualizzazione del nodo dell'applicazione distribuita][node-view-two]
+![Diagramma che mostra la nuova visualizzazione nel nodo.][node-view-two]
 
 
 Service Fabric posiziona la nuova replica per la partizione **P3** del servizio **fabric:/App1/ServiceB** nell'attivazione esistente di "MyServicePackage". Verrà ora creata un'altra applicazione **fabric:/App2** di tipo "MyAppType". In **fabric:/App2** creare un servizio **fabric:/App2/ServiceA**. Questo servizio ha due partizioni (**P4** e **P5**) e tre repliche per ogni partizione. Il diagramma seguente mostra la nuova visualizzazione del nodo:
 
 
-![Diagramma della visualizzazione del nodo dell'applicazione distribuita][node-view-three]
+![Diagramma che mostra la nuova visualizzazione del nodo.][node-view-three]
 
 
 Service Fabric attiva una nuova copia di "MyServicePackage", che avvia una nuova copia di "MyServicePackage". Repliche di entrambe le partizioni del servizio **fabric:/App2/ServiceA** (**P4** e **P5**) vengono posizionate in questa nuova copia "MyCodePackage".
@@ -157,7 +157,7 @@ Ora si supponga di creare un'applicazione, **fabric:/SpecialApp**. In **fabric:/
 In un determinato nodo entrambi i servizi hanno due repliche ognuno. Poiché per creare i servizi è stato usato il modello Exclusive Process (Processo esclusivo), Service Fabric attiva una nuova copia di "MyServicePackage" per ogni replica. Ogni attivazione di "MultiTypeServicePackage" avvia una copia di "MyCodePackageA" e "MyCodePackageB". Tuttavia, solo uno tra "MyCodePackageA" e "MyCodePackageB" ospita la replica per la quale è stato attivato "MultiTypeServicePackage". Il diagramma seguente mostra la visualizzazione del nodo:
 
 
-![Diagramma della visualizzazione del nodo dell'applicazione distribuita][node-view-five]
+![Diagramma che mostra la visualizzazione del nodo.][node-view-five]
 
 
 Nell'attivazione di "MultiTypeServicePackage" per la replica della partizione **P1** del servizio **fabric:/SpecialApp/ServiceA**, "MyCodePackageA" ospita la replica. "MyCodePackageB" è in esecuzione. Analogamente, nell'attivazione di "MultiTypeServicePackage" per la replica della partizione **P3** del servizio **fabric:/SpecialApp/ServiceB**, "MyCodePackageB" ospita la replica. "MyCodePackageA" è in esecuzione. Di conseguenza, maggiore è il numero di *CodePackage* (che registrano *ServiceType* differenti) per *ServicePackage*, più elevato è l'utilizzo ridondante delle risorse. 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2020
-ms.openlocfilehash: 6b166e46c8ebb640e15c005e2ddae3161e141f10
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 09/29/2020
+ms.openlocfilehash: ca23bb49a3592dcc139bcc04875f3867018e158d
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446783"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707736"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -28,18 +28,31 @@ In un ciclo di vita di sviluppo di modelli tipico, è possibile:
 Le risorse di calcolo usate per le destinazioni di calcolo sono collegate a un' [area di lavoro](concept-workspace.md). Le risorse di calcolo diverse dal computer locale sono condivise dagli utenti dell'area di lavoro.
 
 ## <a name="training-compute-targets"></a><a name="train"></a> Training delle destinazioni di calcolo
-
-Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo.  È anche possibile aggiungere una risorsa di calcolo personalizzata, anche se il supporto per vari scenari può variare.
+Azure Machine Learning offre un supporto variabile per le diverse destinazioni di calcolo. Un tipico ciclo di vita di sviluppo modello inizia con lo sviluppo e la sperimentazione su una piccola quantità di dati. In questa fase è consigliabile usare un ambiente locale, ad esempio il computer locale o una macchina virtuale basata sul cloud. Quando il training viene eseguito su set di dati più grandi, o quando si esegue il training distribuito, è consigliabile usare l'ambiente di calcolo di Azure Machine Learning per creare un cluster a uno o più nodi che viene ridimensionato automaticamente ogni volta che viene inviata un'esecuzione. È possibile collegare la propria risorsa di calcolo, anche se il supporto per i diversi scenari può variare, come indicato di seguito:
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Altre informazioni sull' [uso di una destinazione di calcolo per il training del modello](how-to-set-up-training-targets.md).
+Altre informazioni su come [inviare un'esecuzione di training a una destinazione di calcolo](how-to-set-up-training-targets.md).
 
-## <a name="deployment-targets"></a><a name="deploy"></a>Destinazioni della distribuzione
+## <a name="compute-targets-for-inference"></a><a name="deploy"></a> Destinazioni di calcolo per l'inferenza
 
 Per ospitare la distribuzione del modello, è possibile usare le risorse di calcolo seguenti.
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+Quando si esegue l'inferenza, Azure Machine Learning crea un contenitore Docker che ospita il modello e le risorse associate necessarie per usarlo. Questo contenitore viene quindi utilizzato in uno degli scenari di distribuzione seguenti:
+
+* Come __servizio Web__ utilizzato per l'inferenza in tempo reale. Le distribuzioni di servizi Web usano una delle seguenti destinazioni di calcolo:
+
+    * [Computer locale](how-to-attach-compute-targets.md#local)
+    * [Istanza di calcolo di Azure Machine Learning](how-to-create-manage-compute-instance.md)
+    * [Istanze di Azure Container](how-to-attach-compute-targets.md#aci)
+    * [Servizio Azure Kubernetes](how-to-create-attach-kubernetes.md)
+    * Funzioni di Azure (anteprima). La distribuzione in funzioni di Azure si basa solo su Azure Machine Learning per compilare il contenitore docker. Da qui viene distribuito usando funzioni di Azure. Per altre informazioni, vedere [distribuire un modello di Machine Learning in funzioni di Azure (anteprima)](how-to-deploy-functions.md).
+
+* Come endpoint di __inferenza batch__ usato per elaborare periodicamente batch di dati. L'inferenza di batch USA [Azure Machine Learning cluster di elaborazione](how-to-create-attach-compute-cluster.md).
+
+* In un __dispositivo__ Internet (anteprima). La distribuzione in un dispositivo Internet è basata solo su Azure Machine Learning per compilare il contenitore docker. Da qui viene distribuito usando Azure IoT Edge. Per altre informazioni, vedere [deploy As a IOT Edge Module (Preview)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 Informazioni su [dove e come distribuire il modello in una destinazione di calcolo](how-to-deploy-and-where.md).
 
@@ -50,8 +63,9 @@ Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning.
 
 È possibile creare Azure Machine Learning istanze di calcolo o cluster di calcolo da:
 * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
-* Portale di Azure
-* Classi [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance%28class%29?view=azure-ml-py&preserve-view=true) e [AMLCOMPUTE](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) per Python SDK
+* SDK Python e interfaccia della riga di comando:
+    * [Istanza di calcolo](how-to-create-manage-compute-instance.md)
+    * [Cluster di calcolo](how-to-create-attach-compute-cluster.md)
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (anteprima)
 * Gestione risorse modello. Per un modello di esempio, vedere [creare Azure Machine Learning modello di calcolo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * [Estensione di machine learning per l'interfaccia della riga di comando di Azure](reference-azure-machine-learning-cli.md#resource-management).  
@@ -68,7 +82,7 @@ Quando vengono create, queste risorse di calcolo fanno automaticamente parte del
 
 
 > [!NOTE]
-> Quando un cluster di calcolo è inattivo, viene ridimensionato automaticamente a 0 nodi, quindi non si paga se non è in uso.  Un' *istanza*di calcolo, tuttavia, è sempre attiva e non esegue la scalabilità automatica.  È necessario [arrestare l'istanza di calcolo](concept-compute-instance.md#managing-a-compute-instance) quando non viene usata per evitare costi aggiuntivi. 
+> Quando un cluster di calcolo è inattivo, viene ridimensionato automaticamente a 0 nodi, quindi non si paga se non è in uso.  Un' *istanza*di calcolo, tuttavia, è sempre attiva e non esegue la scalabilità automatica.  È necessario [arrestare l'istanza di calcolo](how-to-create-manage-compute-instance.md#manage) quando non viene usata per evitare costi aggiuntivi. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Serie e dimensioni di macchine virtuali supportate
 

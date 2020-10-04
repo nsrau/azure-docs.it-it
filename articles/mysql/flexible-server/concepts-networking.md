@@ -1,17 +1,17 @@
 ---
 title: Panoramica della rete-server flessibile per database di Azure per MySQL
 description: Informazioni sulle opzioni di connettività e rete nell'opzione di distribuzione flessibile del server per database di Azure per MySQL
-author: rachel-msft
-ms.author: raagyema
+author: ambhatna
+ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
-ms.openlocfilehash: 4eb9ffceada245f7a7f4b2631a79330fb497a452
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 48265856e5e745e05f6625766f9cd0c9b15c90a5
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331727"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708663"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Connettività e concetti di rete per database di Azure per MySQL-server flessibile (anteprima)
 

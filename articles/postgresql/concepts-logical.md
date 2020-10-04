@@ -1,17 +1,17 @@
 ---
 title: Decodifica logica-database di Azure per PostgreSQL-server singolo
 description: Descrive la decodifica logica e wal2json per Change Data Capture nel database di Azure per PostgreSQL-server singolo
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903891"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708612"
 ---
 # <a name="logical-decoding"></a>Decodifica logica
  
@@ -38,7 +38,7 @@ Il server deve essere riavviato dopo una modifica di questo parametro. Intername
 
 ### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
-1. Impostare Azure. replication_support su `logical` .
+1. Impostare azure.replication_support su `logical` .
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
@@ -56,7 +56,7 @@ Il server deve essere riavviato dopo una modifica di questo parametro. Intername
 
 2. Riavviare il server per applicare la modifica selezionando **Sì**.
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Database di Azure per PostgreSQL-replica-conferma riavvio":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Database di Azure per PostgreSQL-replica-supporto della replica di Azure":::
 
 
 ## <a name="start-logical-decoding"></a>Avvia decodifica logica
@@ -159,7 +159,7 @@ SELECT pg_drop_replication_slot('test_slot');
 ```
 
 > [!IMPORTANT]
-> Se si interrompe l'uso della decodifica logica, modificare Azure. replication_support di nuovo in `replica` o `off` . I dettagli di WAL conservati da `logical` sono più dettagliati e devono essere disabilitati quando la decodifica logica non è in uso. 
+> Se si interrompe l'utilizzo della decodifica logica, modificare azure.replication_support di nuovo in `replica` o `off` . I dettagli di WAL conservati da `logical` sono più dettagliati e devono essere disabilitati quando la decodifica logica non è in uso. 
 
  
 ## <a name="next-steps"></a>Passaggi successivi

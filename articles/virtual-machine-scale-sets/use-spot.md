@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b5888000028ba87d503bb0bc690aad6628a51a37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 61f82cf907ef861307a907f6cd2b9b13f043b9a0
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072741"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709045"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VM di Azure spot per i set di scalabilità di macchine virtuali 
 
@@ -163,8 +163,7 @@ Per eliminare l'istanza dopo che è stata rimossa, impostare il `evictionPolicy`
 
 **D:**  La scalabilità automatica funziona con entrambi i criteri di rimozione (deallocazione ed eliminazione)?
 
-**R:** È consigliabile impostare i criteri di rimozione per l'eliminazione quando si usa la scalabilità automatica. Questo avviene perché le istanze appena deallocate sono incluse nel calcolo delle capacità nel set di scalabilità. Quando si usa la scalabilità automatica, probabilmente verrà raggiunto rapidamente il numero di istanze di destinazione a causa delle istanze deallocate e rimosse. 
-
+**R:** È consigliabile impostare i criteri di rimozione per l'eliminazione quando si usa la scalabilità automatica. Questo avviene perché le istanze appena deallocate sono incluse nel calcolo delle capacità nel set di scalabilità. Quando si usa la scalabilità automatica, probabilmente verrà raggiunto rapidamente il numero di istanze di destinazione a causa delle istanze deallocate e rimosse. Inoltre, le operazioni di ridimensionamento possono essere influenzate da eliminazioni di spot. Ad esempio, le istanze di VMSS possono scendere al di sotto del numero di set min a causa di più eliminazioni spot durante le operazioni di ridimensionamento. 
 
 **D:** Quali canali supportano le macchine virtuali spot?
 

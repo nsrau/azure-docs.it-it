@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 9745dce03d87b447dfd606f021891794cb343593
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 25f110f27ec9ac55420f624b5eea4555e482e7f4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419755"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708357"
 ---
 # <a name="consulting-service-offers"></a>Offerte di servizi di consulenza
 
@@ -22,7 +22,7 @@ Queste offerte di servizi di consulenza sono engagement specifici del cliente. G
 
 ## <a name="compare-consulting-services"></a>Confrontare i servizi di consulenza
 
-I negozi online del Marketplace commerciale, Microsoft AppSource e Azure Marketplace, sono allineati ai tipi di soluzioni e ai prodotti cloud per aiutare i clienti a trovare gli elementi necessari. In ogni negozio online sono disponibili opzioni di pubblicazione specializzate che consentono di ottimizzare l'investimento di pubblicazione. Per ulteriori informazioni sulla differenza tra i due archivi online, vedere [confronto tra Microsoft AppSource e Azure Marketplace](comparing-appsource-azure-marketplace.md).
+I negozi online del Marketplace commerciale, Microsoft AppSource e Azure Marketplace, sono allineati ai tipi di soluzioni e ai prodotti cloud per aiutare i clienti a trovare gli elementi necessari. In ogni negozio online sono disponibili opzioni di pubblicazione specializzate che consentono di ottimizzare l'investimento di pubblicazione. Per altre informazioni sulle differenze tra AppSource e Azure Marketplace, vedere [negozi online di Marketplace commerciali](overview.md#commercial-marketplace-online-stores).
 
 Le offerte di servizi di consulenza basate su Dynamics 365, Power Apps e Power BI sono idonee alla presentazione in AppSource. Per altre informazioni, scaricare il file PDF [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) (Linee guida alla presentazione dei servizi di consulenza in Microsoft AppSource).
 

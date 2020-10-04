@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 7b42c12499977b5f7bc1704c57904e90be2e8466
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 464e75e55bc67ce619134be01ba00f2606a271a4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398015"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709071"
 ---
 # <a name="create-a-consulting-service-offer"></a>Creare un'offerta di un servizio di consulenza
 
@@ -76,10 +76,10 @@ Quando si pubblica l'offerta nel marketplace con il Centro per i partner, _è ne
 
 Di seguito sono elencate alcune risorse aggiuntive per la gestione dei lead:
 
-- [Panoramica della gestione dei lead](commercial-marketplace-get-customer-leads.md)
-- [Domande frequenti sulla gestione dei lead](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Errori comuni di configurazione del lead](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
-- PDF [Panoramica della gestione dei lead](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assicurarsi che il blocco dei popup sia disattivato)
+- [Lead di clienti tramite l'offerta del marketplace commerciale](commercial-marketplace-get-customer-leads.md)
+- [Domande frequenti sulla gestione dei lead](../lead-management-faq.md#common-questions-about-lead-management)
+- [Risoluzione degli errori di configurazione del lead](../lead-management-faq.md#publishing-config-errors)
+- PDF [Panoramica della gestione dei clienti potenziali](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assicurarsi che il blocco dei popup sia disattivato)
 
 Prima di continuare, selezionare **Salva bozza**.
 
@@ -98,7 +98,7 @@ Questa pagina consente di impostare il prodotto primario offerto dal servizio di
 
 3. Se è stato selezionato **Azure** come prodotto primario, selezionare fino a tre **aree della soluzione**. Le aree semplificano la ricerca dell'offerta da parte dei clienti in Azure Marketplace. Se non è stato scelto Azure, ignorare questo passaggio.
 
-    - Analytics
+    - Analisi
     - Modernizzazione delle app
     - Archiviazione
     - Intelligenza artificiale e Machine Learning
@@ -140,13 +140,13 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 3. Aree della soluzione
 4. Settori
 5. Nome offerta
-6. Summary
+6. Riepilogo
 7. Descrizione
 8. Screenshot/video
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta in Microsoft AppSource (i prezzi elencati sono solo a scopo esemplificativo e non sono destinati a riflettere i costi effettivi):
 
-:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Microsoft AppSource.":::
+:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -155,7 +155,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 3. Prodotti
 4. Settori
 5. Nome offerta
-6. Summary
+6. Riepilogo
 7. Descrizione
 8. Screenshot/video
 9. Documenti
@@ -202,7 +202,7 @@ Aggiungere almeno uno fino a un massimo di tre documenti PDF di supporto per l'o
 
 Inserire i logo e le immagini da usare per l'offerta. Tutte le immagini devono essere in formato PNG. Le immagini sfuocate verranno rifiutate.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio https://upload.xboxlive.com usato dal Centro per i partner.
@@ -247,7 +247,7 @@ Definire elementi come prezzi, mercato e una chiave privata.
 
 Dopo aver completato tutte le sezioni obbligatorie dell'offerta, è possibile inviare l'offerta per la revisione e la pubblicazione.
 
-1. Quando si è pronti per pubblicare l'offerta del servizio di consulenza, fare clic su **Rivedi e pubblica**.
+1. Quando si è pronti per pubblicare l'offerta del servizio di consulenza, selezionare **revisione e pubblicazione**.
 2. Esaminare i dettagli nella pagina di invio finale.
 3. Se necessario, scrivere una nota per il team di certificazione se si ritiene che alcuni dettagli dell'offerta richiedano una spiegazione.
 4. Al termine, selezionare **Invia**.

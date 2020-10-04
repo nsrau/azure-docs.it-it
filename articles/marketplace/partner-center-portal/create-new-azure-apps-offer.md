@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 512f901c33ebce4fef06629fe78976a071820c87
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251440"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710720"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -153,7 +153,7 @@ Prima di continuare, selezionare **Salva bozza**.
 
 La pagina delle **Proprietà** consente di definire le categorie usate per raggruppare l'offerta nel Marketplace, la versione dell'app e i contratti legali che supportano l'offerta.
 
-### <a name="category"></a>Category
+### <a name="category"></a>Categoria
 
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
@@ -187,13 +187,13 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 4. Condizioni per l'utilizzo
 5. Indirizzo privacy policy (collegamento)
 6. Nome offerta
-7. Summary
+7. Riepilogo
 8. Descrizione
 9. Screenshot/video
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nell'portale di Azure:
 
-:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Viene illustrato il modo in cui questa offerta viene visualizzata nel portale di Azure.":::
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -242,7 +242,7 @@ Fornire il nome, l'indirizzo di posta elettronica e il numero di telefono per **
 
 Fornire i logo e le immagini da usare con l'offerta. Tutte le immagini devono essere in formato PNG. Le immagini sfocate verranno rifiutate.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio https://upload.xboxlive.com usato dal Centro per i partner.

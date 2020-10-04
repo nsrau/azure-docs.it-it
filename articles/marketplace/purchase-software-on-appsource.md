@@ -1,5 +1,5 @@
 ---
-title: Come acquistare il software in AppSource | Azure Marketplace
+title: Come acquistare il software in Microsoft AppSource
 description: Procedura per l'acquisto del software in AppSource | Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/20/2020
-ms.openlocfilehash: 6ea96f23f6d8c6a2e95a6217522f23545d49e9df
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: bfdae8de4c1a460844b09f82048e1e1d6abdb2ad
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032844"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708034"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Come acquistare il software in Microsoft AppSource
 
 Microsoft [AppSource](https://appsource.microsoft.com/) ora consente ai clienti di sottoscrivere le applicazioni SaaS offerte dai partner Microsoft. I clienti possono trovare applicazioni Web certificate nello Store e possono gestire gli addebiti, gli aggiornamenti, i downgrade e gli annullamenti da un'unica posizione usando l'interfaccia di amministrazione di Microsoft. Questo articolo descrive come acquistare un'app dallo Store.
 
-AppSource offre una selezione di app tra cui scegliere, incluse sottoscrizioni gratuite, versioni di valutazione e a pagamento. Questo articolo descrive come acquistare le sottoscrizioni a pagamento tramite AppSource.
+AppSource offre una selezione di app tra cui scegliere, incluse le versioni di valutazione gratuite e le sottoscrizioni a pagamento. Questo articolo descrive come acquistare le sottoscrizioni a pagamento tramite AppSource.
 
 ## <a name="requirements"></a>Requisiti
 
@@ -51,7 +51,7 @@ Per acquistare le offerte SaaS, è necessario:
 
 Dopo la ricezione dell'ordine, l'arrivo della conferma potrebbe richiedere alcuni secondi. Si riceverà un collegamento per configurare la sottoscrizione SaaS nella pagina, un messaggio di posta elettronica che conferma l'acquisto e il collegamento per completare la configurazione.
 
-1. Nella pagina **Conferma ordine** selezionare **Configura**. È altrimenti possibile usare il collegamento di configurazione inviato nel messaggio di posta elettronica di conferma.
+1. Nella pagina **Conferma ordine** selezionare **Configura**. In alternativa, è possibile usare il collegamento di configurazione inviato nel messaggio di posta elettronica di conferma.
 1. Completare il provisioning e la configurazione nel sito Web del provider del software.
 
     > [!Note]
@@ -65,4 +65,4 @@ Per i prodotti aziendali, [contattare l'assistenza qui](/office365/admin/contact
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni, vedere la [documentazione del marketplace commerciale](partner-center-portal/commercial-marketplace-overview.md).
+- [Documentazione per i clienti di Microsoft Marketplace](/marketplace/)
