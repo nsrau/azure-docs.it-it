@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 85c406fc561424d7b02d39dfd58dc3c8fe34aab2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116088"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704549"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali
 
@@ -159,7 +159,7 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
     a. fare clic sull'icona **modifica** per aprire **attributi utente &** finestra di dialogo attestazioni.
 
-      ![Pulsante Aggiungi attributo](./media/active-directory-enterprise-app-role-management/editattribute.png)
+      ![Screenshot che evidenzia l'icona di modifica utilizzata per aprire la finestra di dialogo attributi utente & attestazioni.](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
     b. Nella finestra di dialogo **Gestisci attestazioni utente** aggiungere l'attributo token SAML facendo clic su **Aggiungi nuova attestazione**.
 

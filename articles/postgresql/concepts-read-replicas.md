@@ -1,17 +1,17 @@
 ---
 title: Leggere repliche-database di Azure per PostgreSQL-server singolo
 description: Questo articolo descrive la funzionalità di lettura della replica nel database di Azure per PostgreSQL-server singolo.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: d1fa99d0954177e2804039fc71c2ba010b94bd50
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 2d0ee0e4c5cf3f7c2f4b623f0270ecf5eb01fc36
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530941"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710516"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leggere le repliche nel database di Azure per PostgreSQL-server singolo
 
@@ -83,7 +83,7 @@ Quando richiesto, immettere la password per l'account dell'utente.
 ## <a name="monitor-replication"></a>Monitorare la replica
 Database di Azure per PostgreSQL offre due metriche per il monitoraggio della replica. Le due metriche sono il **ritardo massimo tra repliche** e **ritardo di replica**. Per informazioni su come visualizzare queste metriche, vedere la sezione **monitorare una replica** dell'articolo sulle [procedure di lettura della replica](howto-read-replicas-portal.md).
 
-La metrica **Max lag tra repliche** indica il ritardo in byte tra la replica primaria e quella più in ritardo. Questa metrica è disponibile solo sul server primario.
+La metrica **Max lag tra repliche** indica il ritardo in byte tra la replica primaria e quella più in ritardo. Questa metrica è disponibile solo nel server primario e sarà disponibile solo se almeno una della replica di lettura è connessa al database primario.
 
 La metrica **ritardo di replica** indica il tempo trascorso dall'ultima transazione rieseguita. Se non sono presenti transazioni nel server primario, la metrica riflette questo intervallo di tempo. Questa metrica è disponibile solo per i server di replica. Il ritardo di replica viene calcolato dalla `pg_stat_wal_receiver` visualizzazione:
 
@@ -141,6 +141,9 @@ Dopo aver deciso di voler eseguire il failover a una replica,
     
 Una volta che l'applicazione ha elaborato correttamente le operazioni di lettura e scrittura, il failover è stato completato. La quantità di tempo di inattività di cui l'applicazione dipenderà quando si rileva un problema e si completano i passaggi 1 e 2 precedenti.
 
+### <a name="disaster-recovery"></a>Ripristino di emergenza
+
+Quando si verifica un evento di emergenza grave, ad esempio un errore a livello di zona di disponibilità o di area, è possibile eseguire un'operazione di ripristino di emergenza promuovendo la replica di lettura. Dal portale dell'interfaccia utente è possibile passare al server di replica di lettura. Fare quindi clic sulla scheda replica ed è possibile arrestare la replica per innalzarla di livello come server indipendente. In alternativa, è possibile usare l' [interfaccia](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) della riga di comando di Azure per arrestare e alzare di livello il server di replica.
 
 ## <a name="considerations"></a>Considerazioni
 
