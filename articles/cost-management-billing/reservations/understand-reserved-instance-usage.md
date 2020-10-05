@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: b1b5a344da20bff31f85a2d3cb20a0a35e4c4bde
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2b00c90abce915ae6fd645cbcce3536870609558
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681924"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447887"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione singola con pagamento in base al consumo
 
@@ -74,7 +74,7 @@ Si presuppone che sia eseguito un database SQL di quarta generazione nell'area S
 
 Filtrare in base al nome del misuratore **Utilizzo istanze riservate** e quindi scegliere **Categoria misuratore** - Database SQL di Azure o Azure Cosmos DB. Il contenuto visualizzato sarà simile allo screenshot seguente:
 
-![File CSV per la capacità riservata del database SQL](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+![Screenshot che illustra una voce di Categoria misuratore.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
 La riga **Utilizzo istanze riservate** include il numero totale di ore core coperte dalla prenotazione. La tariffa per questa riga è $ 0, perché la prenotazione copre tutti i costi.
 
@@ -82,7 +82,7 @@ La riga **Utilizzo istanze riservate** include il numero totale di ore core cope
 
 Applicare un filtro in **Informazioni aggiuntive** e digitare l'**ID prenotazione**. Lo screenshot mostra i campi correlati alla prenotazione di capacità riservata per il database SQL.
 
-![File CSV per la capacità riservata del database SQL](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+![Screenshot che illustra i dettagli di un file con estensione csv relativo alla capacità riservata.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
 
 1. **ReservationId** nel campo **Informazioni aggiuntive** rappresenta la prenotazione di capacità riservata del database SQL applicata alla risorsa database SQL.
 2. **ConsumptionMeter** è l'ID contatore per la risorsa database SQL.

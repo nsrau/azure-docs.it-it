@@ -9,16 +9,16 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 5fef68c9de4dae8063799255fcc7d68ff6b1e6b8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: eb266680cc514b1e2d70e510ed65e9a7790c0260
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684848"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370335"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-microsoft-365-account"></a>Iscriversi a una sottoscrizione di Azure con il proprio account di Microsoft 365
 
-Se si ha una sottoscrizione di Microsoft 365, è possibile usare l'account di Microsoft 365 per creare una sottoscrizione di Azure. Accedere al [portale di Azure](https://portal.azure.com/) usando il nome utente e la password di Microsoft 365. Se si vuole configurare le macchine virtuali o usare altri servizi di Azure, è necessario ottenere una sottoscrizione di Azure. È possibile condividere la sottoscrizione di Azure con altri utenti e [usare controllo degli accessi in base al ruolo per gestire l'accesso alle risorse e alla sottoscrizione di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Se si ha una sottoscrizione di Microsoft 365, è possibile usare l'account di Microsoft 365 per creare una sottoscrizione di Azure. Accedere al [portale di Azure](https://portal.azure.com/) usando il nome utente e la password di Microsoft 365. Se si vuole configurare le macchine virtuali o usare altri servizi di Azure, è necessario ottenere una sottoscrizione di Azure. È possibile condividere la sottoscrizione di Azure con altri utenti e [usare Controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle risorse e alla sottoscrizione di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 Se si ha già sia un account di Microsoft 365 sia una sottoscrizione di Azure, vedere [Associare un tenant di Microsoft 365 a una sottoscrizione di Azure](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -57,4 +57,4 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- È possibile condividere la sottoscrizione di Azure con altri utenti e [usare controllo degli accessi in base al ruolo per gestire l'accesso alle risorse e alla sottoscrizione di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+- Condividere la sottoscrizione di Azure con altri utenti e [usare Controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle risorse e alla sottoscrizione di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

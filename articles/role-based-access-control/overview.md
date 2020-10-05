@@ -2,25 +2,20 @@
 title: Che cos'è il controllo degli accessi in base al ruolo di Azure?
 description: Verrà fornita una panoramica del controllo degli accessi in base al ruolo di Azure. Usare le assegnazioni di ruolo per controllare l'accesso alle risorse di Azure.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/23/2020
+ms.date: 09/30/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.custom: azuread-video-2020
-ms.openlocfilehash: cb77bfb6173e94ea3cdaadf4456947de75676565
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.custom: contperfq1, azuread-video-2020
+ms.openlocfilehash: b61da9710b51ad4802b46cae7625d6ba9a66e86c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761128"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595759"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Che cos'è il controllo degli accessi in base al ruolo di Azure?
 
@@ -47,49 +42,35 @@ Per controllare l'accesso alle risorse tramite il controllo degli accessi in bas
 
 ### <a name="security-principal"></a>Entità di sicurezza
 
-Un'*entità di sicurezza* è un oggetto che rappresenta un utente, un gruppo, un'entità servizio o un'identità gestita che richiede l'accesso alle risorse di Azure.
+Un'*entità di sicurezza* è un oggetto che rappresenta un utente, un gruppo, un'entità servizio o un'identità gestita che richiede l'accesso alle risorse di Azure. È possibile assegnare un ruolo a una di queste entità di sicurezza.
 
-![Entità di sicurezza per un'assegnazione di ruolo](./media/overview/rbac-security-principal.png)
-
-- Utente: un soggetto che dispone di un profilo in Azure Active Directory. È anche possibile assegnare ruoli agli utenti in altri tenant. Per informazioni sugli utenti in altre organizzazioni, vedere [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
-- Gruppo: un set di utenti creato in Azure Active Directory. Quando si assegna un ruolo a un gruppo, tutti gli utenti all'interno di tale gruppo dispongono del ruolo appropriato. 
-- Entità servizio: un'identità di sicurezza utilizzata da applicazioni o servizi per accedere a specifiche risorse di Azure. È possibile pensare a questo elemento come a un'*identità utente* (nome utente e password o certificato) per un'applicazione.
-- Identità gestita: un'identità in Azure Active Directory che viene gestita automaticamente da Azure. Le [identità gestite](../active-directory/managed-identities-azure-resources/overview.md) vengono in genere usate durante lo sviluppo di applicazioni cloud per gestire le credenziali per l'autenticazione ai servizi di Azure.
+![Entità di sicurezza per un'assegnazione di ruolo](./media/shared/rbac-security-principal.png)
 
 ### <a name="role-definition"></a>Definizione di ruolo
 
 Una *definizione di ruolo* è una raccolta di autorizzazioni, generalmente chiamata *ruolo*. Una definizione di ruolo elenca le operazioni che è possibile eseguire, ad esempio lettura, scrittura ed eliminazione, I ruoli possono essere di livello superiore, ad esempio quello di proprietario, o specifici, ad esempio quello di lettore di macchina virtuale.
 
-![Definizione di ruolo per un'assegnazione di ruolo](./media/overview/rbac-role-definition.png)
+![Definizione di ruolo per un'assegnazione di ruolo](./media/shared/rbac-role-definition.png)
 
-Azure include diversi [ruoli predefiniti](built-in-roles.md) che è possibile usare. Di seguito sono elencati quattro fondamentali ruoli predefiniti. I primi tre si applicano a tutti i tipi di risorse.
-
-- [Proprietario](built-in-roles.md#owner): ha accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti.
-- [Collaboratore](built-in-roles.md#contributor): può creare e gestire tutti i tipi di risorse di Azure, ma non può concedere l'accesso ad altri.
-- [Lettore](built-in-roles.md#reader): può visualizzare le risorse di Azure esistenti.
-- [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator): consente di gestire l'accesso degli utenti alle risorse di Azure.
-
-Gli altri ruoli predefiniti consentono la gestione di risorse di Azure specifiche. Ad esempio, il ruolo [Collaboratore Macchina virtuale](built-in-roles.md#virtual-machine-contributor) consente a un utente di creare e gestire macchine virtuali. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati di Azure](custom-roles.md).
+Azure include diversi [ruoli predefiniti](built-in-roles.md) che è possibile usare. Ad esempio, il ruolo [Collaboratore Macchina virtuale](built-in-roles.md#virtual-machine-contributor) consente a un utente di creare e gestire macchine virtuali. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati di Azure](custom-roles.md).
 
 Questo video offre una panoramica rapida dei ruoli predefiniti e dei ruoli personalizzati.
 
 >[!VIDEO https://www.youtube.com/embed/I1mefHptRgo]
 
-Azure dispone di operazioni sui dati che consentono di concedere l'accesso ai dati all'interno di un oggetto. Ad esempio, se un utente dispone dell'accesso in lettura ai dati per un account di archiviazione, può leggere i BLOB o i messaggi all'interno di tale account. Per altre informazioni, vedere [Informazioni sulle definizioni dei ruoli di Azure](role-definitions.md).
+Azure dispone di operazioni sui dati che consentono di concedere l'accesso ai dati all'interno di un oggetto. Ad esempio, se un utente dispone dell'accesso in lettura ai dati per un account di archiviazione, può leggere i BLOB o i messaggi all'interno di tale account.
+
+Per altre informazioni, vedere [Informazioni sulle definizioni dei ruoli di Azure](role-definitions.md).
 
 ### <a name="scope"></a>Scope
 
 *Ambito* è il set di risorse a cui si applica l'accesso. Quando si assegna un ruolo, è possibile limitare ulteriormente le azioni consentite definendo un ambito. Ciò è utile se si intende creare un [collaboratore di siti Web](built-in-roles.md#website-contributor), ma solo per un gruppo di risorse.
 
-In Azure, è possibile specificare un ambito su più livelli: [gruppo di gestione](../governance/management-groups/overview.md), sottoscrizione, gruppo di risorse o risorsa. Gli ambiti sono strutturati in una relazione padre-figlio.
+In Azure, è possibile specificare un ambito su quattro livelli: [gruppo di gestione](../governance/management-groups/overview.md), sottoscrizione, [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups) o risorsa. Gli ambiti sono strutturati in una relazione padre-figlio. È possibile assegnare i ruoli a qualsiasi livello dell'ambito.
 
-![Ambito per un'assegnazione di ruolo](./media/overview/rbac-scope.png)
+![Ambito per un'assegnazione di ruolo](./media/shared/rbac-scope.png)
 
-Quando si concede l'accesso in un ambito padre, tali autorizzazioni vengono ereditate negli ambiti figlio. Ad esempio:
-
-- Se si assegna il ruolo [Proprietario](built-in-roles.md#owner) a un utente nell'ambito del gruppo di gestione, tale utente può gestire tutto in tutte le sottoscrizioni nel gruppo di gestione.
-- Se si assegna il ruolo [Lettore](built-in-roles.md#reader) a un gruppo nell'ambito di sottoscrizione, i membri di tale gruppo possono visualizzare ogni gruppo di risorse e risorsa nella sottoscrizione.
-- Se si assegna il ruolo [Collaboratore](built-in-roles.md#contributor) a un'applicazione nell'ambito del gruppo di risorse, è possibile gestire risorse di tutti i tipi in quel gruppo di risorse, ma non altri gruppi di risorse nella sottoscrizione.
+Per altre informazioni sull'ambito, vedere [Informazioni sull'ambito](scope-overview.md).
 
 ### <a name="role-assignments"></a>Assegnazioni di ruoli
 
@@ -99,7 +80,9 @@ Lo schema seguente mostra un esempio di assegnazione di ruolo. In questo esempio
 
 ![Assegnazione di ruolo per controllare l'accesso](./media/overview/rbac-overview.png)
 
-È possibile creare assegnazioni di ruolo nel portale di Azure, nell'interfaccia della riga di comando di Azure, in Azure PowerShell, tramite gli SDK Azure o le API REST. È possibile avere fino a **2000** assegnazioni di ruolo in ogni sottoscrizione. Questo limite include le assegnazioni di ruolo negli ambiti di sottoscrizione, gruppo di risorse e risorsa. È possibile avere fino a **500** assegnazioni di ruolo in ogni sottoscrizione. Per creare e rimuovere assegnazioni di ruoli, l'utente deve disporre dell'autorizzazione `Microsoft.Authorization/roleAssignments/*`. Questa autorizzazione viene concessa tramite il ruolo [Proprietario](built-in-roles.md#owner) o [Amministratore accessi utente](built-in-roles.md#user-access-administrator).
+È possibile creare assegnazioni di ruolo nel portale di Azure, nell'interfaccia della riga di comando di Azure, in Azure PowerShell, tramite gli SDK Azure o le API REST.
+
+Per altre informazioni, vedere [Procedura per aggiungere un'assegnazione di ruolo](role-assignments-steps.md).
 
 ## <a name="multiple-role-assignments"></a>Più assegnazioni di ruolo
 
@@ -109,7 +92,9 @@ Cosa succede se si hanno più assegnazioni di ruolo sovrapposte? Il controllo de
 
 ## <a name="deny-assignments"></a>Assegnazioni di rifiuto
 
-In precedenza, il controllo degli accessi in base al ruolo di Azure era un modello per il solo consenso, ma ora supporta in modo limitato le assegnazioni di rifiuto. Analogamente a un'assegnazione di ruolo, un'*assegnazione di rifiuto* associa un set di azioni di rifiuto a un utente, un gruppo, un'entità servizio o un'identità gestita in un determinato ambito allo scopo di rifiutare l'accesso. Un'assegnazione di ruolo definisce un set di azioni *consentite*, mentre un'assegnazione di rifiuto definisce un set di azioni *non consentite*. In altre parole, le assegnazioni di rifiuto impediscono agli utenti di eseguire azioni specificate, anche se un'assegnazione di ruolo concede loro l'accesso. Le assegnazioni di rifiuto hanno la precedenza sulle assegnazioni di ruolo. Per altre informazioni, vedere [Informazioni sulle assegnazioni di rifiuto di Azure](deny-assignments.md).
+In precedenza, il controllo degli accessi in base al ruolo di Azure era un modello per il solo consenso, ma ora supporta in modo limitato le assegnazioni di rifiuto. Analogamente a un'assegnazione di ruolo, un'*assegnazione di rifiuto* associa un set di azioni di rifiuto a un utente, un gruppo, un'entità servizio o un'identità gestita in un determinato ambito allo scopo di rifiutare l'accesso. Un'assegnazione di ruolo definisce un set di azioni *consentite*, mentre un'assegnazione di rifiuto definisce un set di azioni *non consentite*. In altre parole, le assegnazioni di rifiuto impediscono agli utenti di eseguire azioni specificate, anche se un'assegnazione di ruolo concede loro l'accesso. Le assegnazioni di rifiuto hanno la precedenza sulle assegnazioni di ruolo.
+
+Per altre informazioni, vedere [Informazioni sulle assegnazioni di rifiuto di Azure](deny-assignments.md).
 
 ## <a name="how-azure-rbac-determines-if-a-user-has-access-to-a-resource"></a>Come il controllo degli accessi in base al ruolo di Azure determina se un utente può accedere a una risorsa
 

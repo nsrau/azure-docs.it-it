@@ -5,13 +5,13 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 08/25/2020
-ms.openlocfilehash: f77d197c30d00083b280a97079fe03146fcfeb82
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.date: 09/25/2020
+ms.openlocfilehash: ca075414b234b65f15b82847a112104f6fbe3cc1
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061802"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597888"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Esercitazione: Configurare ed eseguire il provider di Azure Key Vault per il driver CSI dell'archivio di segreti in Kubernetes
 
@@ -114,7 +114,7 @@ Per creare un oggetto SecretProviderClass personalizzato con parametri specifici
 
 Nel file YAML SecretProviderClass di esempio compilare i parametri mancanti. I parametri seguenti sono obbligatori:
 
-* **userAssignedIdentityID**: # [OBBLIGATORIO] se si usa un'entità servizio, usare l'ID client per specificare l'identità gestita assegnata dall'utente da usare. Se si usa un'identità assegnata dall'utente come identità gestita della macchina virtuale, specificare l'ID client dell'identità. Se il valore è vuoto, per impostazione predefinita viene usata l'identità assegnata dal sistema nella macchina virtuale 
+* **userAssignedIdentityID**: # [OBBLIGATORIO] Se si usa un'entità servizio, usare l'ID client per specificare l'identità gestita assegnata all'utente da usare. Se si usa un'identità assegnata dall'utente come identità gestita della macchina virtuale, specificare l'ID client dell'identità. Se il valore è vuoto, per impostazione predefinita viene usata l'identità assegnata dal sistema nella macchina virtuale 
 * **keyvaultName**: il nome dell'istanza di Key Vault
 * **objects**: il contenitore per tutto il contenuto dei segreti da montare
     * **objectName**: il nome del contenuto dei segreti

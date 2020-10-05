@@ -8,12 +8,12 @@ ms.subservice: cost-management
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: e2252d13dd39587e7730b141a6096afc0a34dbc1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 07595eed70850ce5270a261d588a33b68ff964fe
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690018"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371933"
 ---
 # <a name="azure-consumption-api-overview"></a>Panoramica delle API per il consumo di Azure
 

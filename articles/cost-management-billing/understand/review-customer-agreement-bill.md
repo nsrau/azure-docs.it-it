@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4adb3bb1408357d40e3869c2a0d251b11d015195
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689525"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447536"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Esercitazione: Controllare la fattura del Contratto del cliente Microsoft
 
@@ -47,7 +47,7 @@ Verificare il tipo di contratto per determinare se si dispone dell'accesso a un 
 
 Nella casella di ricerca del portale di Azure digitare *gestione dei costi e fatturazione* e quindi selezionare **Gestione dei costi e fatturazione**.
 
-![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale di Azure](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
+![Screenshot che illustra la ricerca di Gestione dei costi e fatturazione nel portale di Azure.](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
 
 Se si ha accesso a un solo ambito di fatturazione, selezionare **Proprietà** sul lato sinistro. Si ha accesso a un account di fatturazione per un Contratto del cliente Microsoft se il tipo di account di fatturazione è **Contratto del cliente Microsoft**.
 
@@ -106,7 +106,7 @@ Selezionare la scheda **Riepilogo** nella parte superiore della schermata.
 
 Nella sezione relativa agli addebiti vengono visualizzati gli addebiti da inizio mese e quelli del mese scorso.
 
-![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale di Azure](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
+![Screenshot che illustra il riepilogo di un profilo di fatturazione.](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
 
 Gli addebiti da inizio mese sono quelli in sospeso per il mese corrente e vengono fatturati quando viene generata la fattura per il mese. Se la fattura relativa al mese scorso non è stata ancora generata, anche i relativi addebiti sono in sospeso e verranno visualizzati nella fattura successiva.
 
@@ -138,7 +138,7 @@ Selezionare **Tutte le sottoscrizioni** sul lato sinistro della pagina.
 
 La pagina Sottoscrizioni di Azure visualizza gli addebiti del mese corrente e di quello scorso per ogni sottoscrizione del profilo di fatturazione. Gli addebiti da inizio mese sono quelli in sospeso per il mese corrente e vengono fatturati quando viene generata la fattura per il mese. Se la fattura relativa al mese scorso non è stata ancora generata, anche i relativi addebiti sono in sospeso.
 
-![Screenshot che mostra l'elenco delle sottoscrizioni di Azure per il profilo di fatturazione](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
+![Screenshot che illustra le sottoscrizioni con gli addebiti da inizio mese e gli addebiti dell'ultimo mese.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
 
 ## <a name="analyze-your-azure-usage-charges"></a>Analizzare gli addebiti per l'utilizzo di Azure
 
@@ -172,7 +172,7 @@ Filtrare la colonna **invoiceSectionName** nel file CSV in base a **Accounting D
 
 L'immagine seguente mostra l'elenco di sottoscrizioni nel portale di Azure.
 
-![Screenshot che mostra l'elenco delle sottoscrizioni di Azure per il profilo di fatturazione](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
+![Screenshot che illustra l'elenco delle sottoscrizioni nel portale di Azure con una sottoscrizione in evidenza.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
 
 Filtrare la colonna **subscriptionName** nel file CSV dei dati di utilizzo e addebiti di Azure in base a **WA_Subscription** per visualizzare gli addebiti dettagliati per l'utilizzo relativi alla sottoscrizione WA_Subscription.
 

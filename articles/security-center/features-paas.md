@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 7087fb7b1de0b16480d0bb02043b40e0e97204f6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 4c56f8cba232220844a8a8f9c408a60c89c581cd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449961"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613629"
 ---
 # <a name="feature-coverage-for-azure-paas-services"></a>Copertura delle funzionalità per i servizi PaaS di Azure <a name="paas-services"></a>
 
 La tabella seguente mostra la disponibilità delle funzionalità del Centro sicurezza di Azure per le risorse PaaS supportate.
 
-|Service|Raccomandazioni (servizio gratuito)|Avvisi di sicurezza (Azure Defender)|Valutazione delle vulnerabilità (Azure Defender)|
+|Servizio|Raccomandazioni (servizio gratuito)|Avvisi di sicurezza (Azure Defender)|Valutazione delle vulnerabilità (Azure Defender)|
 |:----|:----:|:----:|:----:|
 |Servizio app di Azure|✔|✔|-|
 |Account di automazione di Azure|✔|-|-|
@@ -36,20 +36,20 @@ La tabella seguente mostra la disponibilità delle funzionalità del Centro sicu
 |Registro Azure Container|-|-|✔|
 |Azure Cosmos DB*|-|✔|-|
 |Azure Data Lake Analytics.|✔|-|-|
-|Azure Data Lake Storage|✔|-|-|
-|Database di Azure per MySQL*|✔|✔|-|
-|Database di Azure per PostgreSQL*|✔|✔|-|
+|Azure Data Lake Storage|✔|✔|-|
+|Database di Azure per MySQL*|-|✔|-|
+|Database di Azure per PostgreSQL*|-|✔|-|
 |Spazio dei nomi di Hub eventi di Azure|✔|-|-|
 |App Funzioni di Azure|✔|-|-|
 |Insieme di credenziali chiave di Azure|✔|✔|-|
 |Servizio Azure Kubernetes|✔|✔|-|
 |Azure Load Balancer|✔|-|-|
 |App per la logica di Azure|✔|-|-|
-|Database SQL di Azure|✔|✔|✔|
+|database SQL di Azure|✔|✔|✔|
 |Istanza gestita di SQL di Azure|✔|✔|✔|
 |Spazio dei nomi del bus di servizio di Azure|✔|-|-|
 |Account di Azure Service Fabric|✔|-|-|
-|Account di archiviazione di Azure|✔|-|-|
+|Account di archiviazione di Azure|✔|✔|-|
 |Analisi di flusso di Azure|✔|-|-|
 |Sottoscrizione di Azure|✔ **|✔|-|
 |Rete virtuale di Azure</br> (inclusi subnet, schede di interfaccia di rete e gruppi di sicurezza di rete)|✔|-|-|

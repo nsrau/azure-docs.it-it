@@ -1,24 +1,26 @@
 ---
-title: 'Avvio rapido: Etichettare moduli, eseguire il training di un modello e analizzare un modulo usando lo strumento di etichettatura campioni - Riconoscimento modulo'
+title: 'Avvio rapido: Etichettare moduli, eseguire il training di un modello e analizzare i moduli usando lo strumento di etichettatura campioni - Riconoscimento modulo'
 titleSuffix: Azure Cognitive Services
-description: In questo argomento di avvio rapido si userà lo strumento di etichettatura campioni di Riconoscimento modulo per etichettare manualmente documenti modulo. Con i documenti etichettati, verrà quindi eseguito il training di un modello personalizzato, che verrà usato per estrarre coppie chiave-valore.
+description: In questo argomento di avvio rapido si userà lo strumento di etichettatura campioni di Riconoscimento modulo per etichettare manualmente documenti modulo. Con i documenti etichettati, verrà quindi eseguito il training di un modello di elaborazione di documenti personalizzato, che verrà usato per estrarre coppie chiave-valore.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/25/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.custom: cog-serv-seo-aug-2020
+keywords: elaborazione di documenti
+ms.openlocfilehash: 6b641df00d4b4981aa47f314f8e575a9cbcccbba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89418960"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597744"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
-In questo argomento di avvio rapido si userà l'API REST Riconoscimento modulo con lo strumento di etichettatura campioni per eseguire il training di un modello personalizzato con dati etichettati manualmente. Per altre informazioni su questa funzionalità, vedere la sezione [Eseguire il training con le etichette](../overview.md#train-with-labels) della panoramica.
+In questo argomento di avvio rapido si userà l'API REST Riconoscimento modulo con lo strumento di etichettatura campioni per eseguire il training di un modello di elaborazione di documenti personalizzato con dati etichettati manualmente. Per altre informazioni sull'apprendimento supervisionato con Riconoscimento modulo, vedere la sezione [Eseguire il training con le etichette](../overview.md#train-with-labels) della panoramica.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -137,7 +139,7 @@ Nello strumento di etichettatura campioni vengono archiviate le configurazioni e
 * **Chiave API**: la chiave di sottoscrizione di Riconoscimento modulo.
 * **Descrizione** (facoltativo): la descrizione del progetto
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Pagina di nuovo progetto nello strumento di etichettatura campioni.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
 
 ## <a name="label-your-forms"></a>Etichettare i moduli
 
@@ -153,7 +155,7 @@ Fare clic su **Run OCR on all files** (Esegui OCR su tutti i file) nel riquadro 
 
 Indicherà anche quali tabelle sono state estratte automaticamente. Fare clic sull'icona della tabella o della griglia sul lato sinistro del documento per visualizzare la tabella estratta. In questa guida di avvio rapido il contenuto della tabella, poiché è stato estratto automaticamente, non verrà etichettato, ma ci si baserà sull'estrazione automatica.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualizzazione della tabella nello strumento di etichettatura campioni.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
 
 ### <a name="apply-labels-to-text"></a>Applicare le etichette al testo
 
@@ -199,7 +201,7 @@ Creare quindi i tag (etichette) e applicarli agli elementi di testo che dovranno
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Finestra dell'editor principale dello strumento di etichettatura campioni.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
 
 
 Seguire i passaggi precedenti per etichettare almeno cinque moduli.
@@ -254,7 +256,7 @@ Fare clic sull'icona del training nel riquadro sinistro per aprire la pagina cor
 * L'elenco dei tag e l'accuratezza stimata per ognuno.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Visualizzazione del training.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
 
 Al termine del training, esaminare il valore di **Average Accuracy** (Accuratezza media). Se è basso, è necessario aggiungere altri documenti di input e ripetere i passaggi precedenti. I documenti già etichettati rimarranno nell'indice del progetto.
 
@@ -273,7 +275,7 @@ Con lo strumento di composizione modelli è possibile comporre fino a 100 modell
 
 Per comporre modelli nello strumento di etichettatura campioni, fare clic sull'icona a forma di freccia di unione dello strumento di composizione modelli a sinistra. A sinistra selezionare i modelli da comporre insieme. I modelli contrassegnati con l'icona della freccia sono già composti. Fare clic sul pulsante "Componi". Nella finestra popup assegnare un nome al nuovo modello composto e fare clic su "Componi". Al termine dell'operazione, il nuovo modello composto dovrebbe essere visualizzato nell'elenco. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Visualizzazione dell'esperienza utente di composizione modelli.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
 
 ---
 
@@ -306,7 +308,10 @@ Infine, passare alla pagina principale (icona della casa) e fare clic su Open Cl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido si è appreso come usare lo strumento di etichettatura campioni di Riconoscimento modulo per eseguire il training di un modello con dati etichettati manualmente. Se si vuole integrare lo strumento di etichettatura nella propria applicazione, usare le API REST che gestiscono il training dei dati etichettati.
+In questo argomento di avvio rapido si è appreso come usare lo strumento di etichettatura campioni di Riconoscimento modulo per eseguire il training di un modello con dati etichettati manualmente. Per creare un'utilità personalizzata per etichettare i dati di training, usare le API REST relative ai dati di training etichettati.
 
 > [!div class="nextstepaction"]
 > [Eseguire il training con le etichette usando Python](./python-labeled-data.md)
+
+* [Informazioni su Riconoscimento modulo](../overview.md)
+* [Avvio rapido: Usare la libreria client di Riconoscimento modulo](client-library.md)

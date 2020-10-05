@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
-ms.openlocfilehash: 0cdcc26ca0ae64455f8a27b13c2e4bc87e0ecb68
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 18f36664b670c7c19ac3783c1e9699d61ff354d7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74222665"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361186"
 ---
 Verificare il tipo di contratto per determinare se si dispone dell'accesso a un account di fatturazione per un Contratto Microsoft Partner.
  
@@ -17,7 +17,7 @@ Verificare il tipo di contratto per determinare se si dispone dell'accesso a un 
  
 2. Eseguire ricerche in **Gestione dei costi e fatturazione**.
  
-   ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-check-mpa/search-cmb.png)
+   ![Screenshot che illustra la ricerca di Gestione dei costi e fatturazione nel portale di Azure.](./media/billing-check-mpa/search-cmb.png)
  
 3. Se si ha accesso a un solo ambito di fatturazione, selezionare **Proprietà** sul lato sinistro. Si ha accesso a un account di fatturazione per un Contratto Microsoft Partner se il tipo di account di fatturazione è **Contratto Microsoft Partner**.
  

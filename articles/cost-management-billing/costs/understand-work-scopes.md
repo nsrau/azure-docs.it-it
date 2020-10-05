@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 64e7f0eae10f590ffd268b43b63a5d8cb0987c57
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683148"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372358"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -26,7 +26,7 @@ Un _ambito_ è un nodo nella gerarchia delle risorse di Azure a cui gli utenti d
 - Dati di fatturazione, ad esempio pagamenti e fatture
 - Servizi cloud, ad esempio governance dei costi e dei criteri
 
-Negli ambiti è possibile gestire i dati di fatturazione, avere ruoli specifici per i pagamenti, visualizzare le fatture e gestire l'account in generale. I ruoli di fatturazione e account vengono gestiti separatamente dai ruoli usati per la gestione delle risorse, che usano il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md). Per distinguerne chiaramente la finalità, incluse le differenze relative al controllo di accesso, gli ambiti sono definiti rispettivamente _ambiti di fatturazione_ e _ambiti del controllo degli accessi in base al ruolo_.
+Negli ambiti è possibile gestire i dati di fatturazione, avere ruoli specifici per i pagamenti, visualizzare le fatture e gestire l'account in generale. I ruoli di fatturazione e account vengono gestiti separatamente dai ruoli usati per la gestione delle risorse, che usano il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md). Per distinguerne chiaramente le finalità degli ambiti separati, incluse le differenze relative al controllo di accesso, gli ambiti sono definiti rispettivamente _ambiti di fatturazione_ e _ambiti di Controllo degli accessi in base al ruolo di Azure_.
 
 Per altre informazioni sugli ambiti, vedere il video sulla [configurazione di gerarchie per Gestione costi](https://www.youtube.com/watch?v=n3TLRaYJ1NY). Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
 
@@ -34,7 +34,7 @@ Per altre informazioni sugli ambiti, vedere il video sulla [configurazione di ge
 
 ## <a name="how-cost-management-uses-scopes"></a>Modalità di utilizzo degli ambiti in Gestione costi
 
-Gestione costi usa gli ambiti nelle risorse per consentire alle organizzazioni di gestire i costi al livello di accesso, sia che si tratti dell'intero account di fatturazione che di un singolo gruppo di risorse. Mentre gli ambiti di fatturazione variano in base al contratto Microsoft (tipo di sottoscrizione), gli ambiti del controllo degli accessi in base al ruolo rimangono invariati.
+Gestione costi usa gli ambiti nelle risorse per consentire alle organizzazioni di gestire i costi al livello di accesso, sia che si tratti dell'intero account di fatturazione che di un singolo gruppo di risorse. Mentre gli ambiti di fatturazione variano in base al contratto Microsoft (tipo di sottoscrizione), gli ambiti di Controllo degli accessi in base al ruolo di Azure rimangono invariati.
 
 ## <a name="azure-rbac-scopes"></a>Ambiti del controllo degli accessi in base al ruolo di Azure
 
@@ -98,7 +98,7 @@ Gli ambiti di fatturazione EA supportano i ruoli seguenti:
 - **Utente aziendale con accesso in sola lettura** : può visualizzare le impostazioni dell'account di fatturazione, i dati sui costi e la configurazione dei costi, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione EA è identico a quello del [ruolo di Azure di lettore per Gestione costi](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Amministratore del reparto**: può gestire le impostazioni del reparto, ad esempio il centro di costo, accedere, visualizzare tutti i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni.  L'impostazione **DA view charges** (Visualizzazione addebiti per amministratori di reparto) deve essere abilitata perché gli amministratori del reparto e gli utenti con accesso in sola lettura possano visualizzare i costi. Se l'opzione **DA view charges** (Visualizzazione addebiti per amministratori di reparto) è disabilitata, gli utenti del reparto non possono visualizzare i costi a nessun livello, neanche se sono proprietari di un account o di una sottoscrizione.
 - **Utente del reparto con accesso in sola lettura**: può visualizzare le impostazioni del reparto, i dati sui costi e la configurazione dei costi, ad esempio i budget e le esportazioni. Se l'opzione **DA view charges** (Visualizzazione addebiti per amministratori di reparto) è disabilitata, gli utenti del reparto non possono visualizzare i costi a nessun livello, neanche se sono proprietari di un account o di una sottoscrizione.
-- **Proprietario dell'account**: può gestire le impostazioni dell'account di registrazione, ad esempio il centro di costo, visualizzare tutti i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni, per l'account di registrazione. L'impostazione **OA view charges** (Visualizzazione addebiti per proprietari dell'account) deve essere abilitata perché i proprietari dell'account e gli utenti del controllo degli accessi in base al ruolo possano visualizzare i costi.
+- **Proprietario dell'account**: può gestire le impostazioni dell'account di registrazione, ad esempio il centro di costo, visualizzare tutti i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni, per l'account di registrazione. L'impostazione **OA view charges** (Visualizzazione addebiti per proprietari dell'account) deve essere abilitata perché i proprietari dell'account e gli utenti di Controllo degli accessi in base al ruolo di Azure possano visualizzare i costi.
 
 Gli utenti dell'account di fatturazione EA non hanno accesso diretto alle fatture. Le fatture sono disponibili da un sistema di contratti multilicenza esterno.
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: v-myoung
-ms.openlocfilehash: 3607ecb7d1ef01b968b67c704e12136cc1888b69
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.author: inhenkel
+ms.openlocfilehash: 797ba00820e7ff9d96868acdfc1dddfff3d21623
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296230"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91598278"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Creazione dinamica dei pacchetti in Servizi multimediali versione 3
 
@@ -56,6 +56,9 @@ Il client di streaming può specificare i formati HLS seguenti:
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
 |HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
+
+> [!NOTE]
+> Le linee guida precedenti di Apple consigliavano che il fallback per le reti a larghezza di banda ridotta fornissero un flusso solo audio.  Al momento, il codificatore di Servizi multimediali genera automaticamente una traccia solo audio.  Le linee guida di Apple attuali dichiarano che la traccia solo audio *non* deve essere inclusa, specialmente per la distribuzione di Apple TV.  Per evitare che il lettore usi l'impostazione predefinita di una traccia solo audio, è consigliabile usare il tag "audio-only=false" nell'URL, che rimuove il rendering solo audio in HLS o semplicemente usa HLS-V3. Ad esempio: `http://host/locator/asset.ism/manifest(format=m3u8-aapl,audio-only=false)`.
 
 ### <a name="mpeg-dash-protocol"></a>Protocollo MPEG-DASH
 
