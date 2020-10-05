@@ -3,12 +3,12 @@ title: Autorizzazioni in Azure Advisor
 description: Le autorizzazioni di Advisor e il modo in cui possono bloccare la possibilità di configurare le sottoscrizioni o posticipare o ignorare le raccomandazioni.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 3c7b42372ae6de5c2f519b69aec8a154a2f35a82
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 402a21c47c4cba8f747d5d4601f9c95034c99262
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927386"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712926"
 ---
 # <a name="permissions-in-azure-advisor"></a>Autorizzazioni in Azure Advisor
 
@@ -47,7 +47,7 @@ Se viene visualizzato un errore durante il tentativo di posticipare o ignorare u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha fornito una panoramica del modo in cui Advisor usa il controllo degli accessi in base al ruolo per controllare le autorizzazioni utente e risolvere i problemi comuni Per altre informazioni su Advisor, vedere:
+Questo articolo ha fornito una panoramica del modo in cui Advisor usa il controllo degli accessi in base al ruolo di Azure per controllare le autorizzazioni utente e risolvere i problemi Per altre informazioni su Advisor, vedere:
 
-- [Che cos'è Azure Advisor?](./advisor-overview.md)
+- [Cos'è Azure Advisor?](./advisor-overview.md)
 - [Introduzione ad Azure Advisor](./advisor-get-started.md)

@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a56fdf8bc3bfa93c12cce66664e68b223fa97ff2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 806222fc522c548fd58935812d705e12c9b3cee1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029536"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714422"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autorizzazione dell'accesso ai dati in archiviazione di Azure
 
@@ -25,19 +25,19 @@ La tabella seguente descrive le opzioni offerte da archiviazione di Azure per au
 
 | Artefatto di Azure | Chiave condivisa (chiave dell'account di archiviazione) | Firma di accesso condiviso | Azure Active Directory (Azure AD) | Active Directory Domain Services locale (anteprima) | Accesso in lettura pubblico Anonimo |
 | -------------- | -------------------------------- | ----------------------------- | --------------------------------- | ------------------------------------------------------ | ---------------------------- |
-|BLOB di Azure     |[Supportato](/rest/api/storageservices/authorize-with-shared-key/)         |[Supportato](storage-sas-overview.md)         |[Supportato](storage-auth-aad.md)         |Non supportato|[Supportato](../blobs/storage-manage-access-to-resources.md)         |
-|File di Azure (SMB)     |[Supportato](/rest/api/storageservices/authorize-with-shared-key/)         |Non supportato         |[Supportato solo con servizi di dominio AAD](../files/storage-files-active-directory-overview.md)         |[Supportato, le credenziali devono essere sincronizzate con Azure AD](../files/storage-files-active-directory-overview.md)|Non supportato         |
-|File di Azure (REST)     |[Supportato](/rest/api/storageservices/authorize-with-shared-key/)         |[Supportato](storage-sas-overview.md)         |Non supportato         |Non supportato |Non supportato         |
-|Code di Azure     |[Supportato](/rest/api/storageservices/authorize-with-shared-key/)         |[Supportato](storage-sas-overview.md)         |[Supportato](storage-auth-aad.md)         |Non Supportato | Non supportato         |
-|Tabelle di Azure     |[Supportato](/rest/api/storageservices/authorize-with-shared-key/)         |[Supportato](storage-sas-overview.md)         |Non supportato         |Non supportato| Non supportato         |
+|BLOB di Azure     |[Supporto](/rest/api/storageservices/authorize-with-shared-key/)         |[Supporto](storage-sas-overview.md)         |[Supporto](storage-auth-aad.md)         |Non supportato|[Supporto](../blobs/storage-manage-access-to-resources.md)         |
+|File di Azure (SMB)     |[Supporto](/rest/api/storageservices/authorize-with-shared-key/)         |Non supportato         |[Supportato solo con servizi di dominio AAD](../files/storage-files-active-directory-overview.md)         |[Supportato, le credenziali devono essere sincronizzate con Azure AD](../files/storage-files-active-directory-overview.md)|Non supportato         |
+|File di Azure (REST)     |[Supporto](/rest/api/storageservices/authorize-with-shared-key/)         |[Supporto](storage-sas-overview.md)         |Non supportato         |Non supportato |Non supportato         |
+|Code di Azure     |[Supporto](/rest/api/storageservices/authorize-with-shared-key/)         |[Supporto](storage-sas-overview.md)         |[Supporto](storage-auth-aad.md)         |Non supportato | Non supportato         |
+|Tabelle di Azure     |[Supporto](/rest/api/storageservices/authorize-with-shared-key/)         |[Supporto](storage-sas-overview.md)         |Non supportato         |Non supportato| Non supportato         |
 
 Ogni opzione di autorizzazione viene descritta brevemente di seguito:
 
-- **Integrazione di Azure Active Directory (Azure ad)** per i BLOB e le code. Azure AD fornisce il controllo degli accessi in base al ruolo (RBAC) per controllare l'accesso di un client alle risorse in un account di archiviazione. Per altre informazioni sull'integrazione Azure AD per i BLOB e le code, vedere [autorizzare l'accesso a BLOB e code di Azure usando Azure Active Directory](storage-auth-aad.md).
+- **Integrazione di Azure Active Directory (Azure ad)** per i BLOB e le code. Azure fornisce il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare l'accesso di un client alle risorse in un account di archiviazione. Per altre informazioni sull'integrazione Azure AD per i BLOB e le code, vedere [autorizzare l'accesso a BLOB e code di Azure usando Azure Active Directory](storage-auth-aad.md).
 
-- **Autenticazione Azure Active Directory Domain Services (Azure AD DS)** per file di Azure. File di Azure supporta l'autorizzazione basata sull'identità su Server Message Block (SMB) tramite Azure AD DS. È possibile usare il controllo degli accessi in base al ruolo per un controllo con granularità fine sull'accesso di un client a File di Azure risorse in un account di archiviazione. Per ulteriori informazioni sull'autenticazione File di Azure utilizzando servizi di dominio, vedere la [Panoramica](../files/storage-files-active-directory-overview.md).
+- **Autenticazione Azure Active Directory Domain Services (Azure AD DS)** per file di Azure. File di Azure supporta l'autorizzazione basata sull'identità su Server Message Block (SMB) tramite Azure AD DS. È possibile usare il controllo degli accessi in base al ruolo di Azure per un controllo con granularità fine sull'accesso di un client a File di Azure risorse in un account di archiviazione. Per ulteriori informazioni sull'autenticazione File di Azure utilizzando servizi di dominio, vedere la [Panoramica](../files/storage-files-active-directory-overview.md).
 
-- **L'autenticazione Active Directory Domain Services locale (servizi di dominio Active Directory o Active Directory Domain Services locale) (anteprima)** per file di Azure. File di Azure supporta l'autorizzazione basata sull'identità su SMB tramite servizi di dominio Active Directory. L'ambiente di dominio Active Directory può essere ospitato in computer locali o in macchine virtuali di Azure. L'accesso SMB ai file è supportato tramite le credenziali di servizi di dominio Active Directory da computer aggiunti a un dominio, sia in locale che in Azure. È possibile utilizzare una combinazione di RBAC per il controllo di accesso a livello di condivisione e gli elenchi DACL NTFS per l'imposizione delle autorizzazioni a livello di directory/file. Per ulteriori informazioni sull'autenticazione File di Azure utilizzando servizi di dominio, vedere la [Panoramica](../files/storage-files-active-directory-overview.md).
+- **L'autenticazione Active Directory Domain Services locale (servizi di dominio Active Directory o Active Directory Domain Services locale) (anteprima)** per file di Azure. File di Azure supporta l'autorizzazione basata sull'identità su SMB tramite servizi di dominio Active Directory. L'ambiente di dominio Active Directory può essere ospitato in computer locali o in macchine virtuali di Azure. L'accesso SMB ai file è supportato tramite le credenziali di servizi di dominio Active Directory da computer aggiunti a un dominio, sia in locale che in Azure. È possibile usare una combinazione di RBAC di Azure per il controllo di accesso a livello di condivisione e DACL NTFS per l'imposizione delle autorizzazioni a livello di directory/file. Per ulteriori informazioni sull'autenticazione File di Azure utilizzando servizi di dominio, vedere la [Panoramica](../files/storage-files-active-directory-overview.md).
 
 - **Autorizzazione con chiave condivisa** per BLOB, file, code e tabelle. Un client che usa una chiave condivisa passa con ogni richiesta un'intestazione che viene firmata usando la chiave di accesso dell'account di archiviazione. Per altre informazioni, vedere [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key/) (Autorizzazione con chiave condivisa).
 - **Firme di accesso condiviso** per BLOB, file, code e tabelle. Le firme di accesso condiviso concedono accesso delegato limitato alle risorse in un account di archiviazione. L'aggiunta di vincoli per l'intervallo di tempo durante il quale la firma è valida o per le autorizzazioni concesse fornisce flessibilità di gestione dell'accesso. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).

@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: ea818cd14e6052da2bbcf2a4473e95c68cd5e4a9
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: faf7a6e0331e3891c2ece7461685b14e751c0894
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91671311"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713041"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticare i problemi di configurazione dei collegamenti privati nei Azure Key Vault
 
@@ -24,7 +24,7 @@ Se non si ha familiarità con questa funzionalità, vedere [integrare Key Vault 
 
 ### <a name="symptoms-covered-by-this-article"></a>Sintomi trattati in questo articolo
 
-- Le query DNS restituiscono ancora un indirizzo IP pubblico per l'insieme di credenziali delle chiavi, anziché un indirizzo IP privato che si prevede di usare la funzionalità di collegamento privato.
+- Le query DNS restituiscono ancora un indirizzo IP pubblico per l'insieme di credenziali delle chiavi, anziché un indirizzo IP privato che si prevede di usare la funzionalità dei collegamenti privati.
 - Tutte le richieste effettuate da un determinato client che utilizza il collegamento privato, hanno esito negativo con timeout o errori di rete e il problema non è intermittente.
 - L'insieme di credenziali delle chiavi ha un indirizzo IP privato, ma le richieste ricevono comunque una `403` risposta con il `ForbiddenByFirewall` codice di errore interno.
 - Si usano i collegamenti privati, ma l'insieme di credenziali delle chiavi accetta comunque le richieste provenienti dalla rete Internet pubblica.
@@ -34,7 +34,7 @@ Se non si ha familiarità con questa funzionalità, vedere [integrare Key Vault 
 ### <a name="symptoms-not-covered-by-this-article"></a>Sintomi non trattati in questo articolo
 
 - Si è verificato un problema di connettività intermittente. In un client specifico, vengono visualizzate alcune richieste che funzionano e alcune non funzionano. *I problemi intermittenti non sono in genere causati da un problema nella configurazione dei collegamenti privati; si tratta di un segno di sovraccarico di rete o client.*
-- Si usa il prodotto Azure che supporta BYOK (Bring Your Own Key) o CMK (chiavi gestite dal cliente) e tale prodotto non può accedere all'insieme di credenziali delle chiavi. *Esaminare l'altra documentazione del prodotto. Assicurarsi che specifichi in modo esplicito il supporto per gli insiemi di credenziali delle chiavi con il firewall abilitato. Se necessario, contattare il supporto tecnico per il prodotto specifico.*
+- Si usa un prodotto Azure che supporta BYOK (Bring Your Own Key) o CMK (chiavi gestite dal cliente) e il prodotto non può accedere all'insieme di credenziali delle chiavi. *Esaminare l'altra documentazione del prodotto. Assicurarsi che specifichi in modo esplicito il supporto per gli insiemi di credenziali delle chiavi con il firewall abilitato. Se necessario, contattare il supporto tecnico per il prodotto specifico.*
 
 ### <a name="how-to-read-this-article"></a>Come leggere questo articolo
 
@@ -46,7 +46,7 @@ Se non si ha familiarità con i collegamenti privati o si sta valutando una dist
 
 ### <a name="confirm-that-your-client-runs-at-the-virtual-network"></a>Verificare che il client venga eseguito nella rete virtuale
 
-Questa guida alla risoluzione dei problemi è applicabile alle connessioni a Key Vault originate dal codice dell'applicazione. Esempi sono le applicazioni e gli script eseguiti in macchine virtuali, cluster di Azure Service Fabric, app Azure servizio, Azure Kubernetes Service (AKS) e altri simili.
+Questa guida è utile per correggere le connessioni a Key Vault che provengono dal codice dell'applicazione. Esempi sono le applicazioni e gli script eseguiti in macchine virtuali di Azure, cluster di Azure Service Fabric, app Azure servizio, Azure Kubernetes Service (AKS) e altri simili.
 
 Per definizione dei collegamenti privati, l'applicazione o lo script deve essere in esecuzione in un computer, in un cluster o in un ambiente connesso alla rete virtuale in cui è stata distribuita la [risorsa dell'endpoint privato](../../private-link/private-endpoint-overview.md) . Se l'applicazione è in esecuzione in una rete connessa a Internet arbitraria, questa guida non è applicabile e probabilmente non è possibile usare collegamenti privati.
 
@@ -158,11 +158,11 @@ Linux:
 
 Come si può notare, il nome viene risolto in un indirizzo IP pubblico e non esiste alcun `privatelink` alias. L'alias viene illustrato più avanti, quindi non è un problema.
 
-Il risultato precedente è previsto indipendentemente dal fatto che il computer sia connesso alla rete virtuale o sia un computer arbitrario con una connessione Internet. Questo problema si verifica perché nell'insieme di credenziali delle chiavi non è presente alcun collegamento privato nello stato approvato e pertanto non è necessario che l'insieme di credenziali delle chiavi supporti le connessioni di collegamento privato.
+Il risultato precedente è previsto indipendentemente dal fatto che il computer sia connesso alla rete virtuale o sia un computer arbitrario con una connessione Internet. Questo problema si verifica perché l'insieme di credenziali delle chiavi non dispone di una connessione all'endpoint privato nello stato approvato e pertanto non è necessario che l'insieme di credenziali delle chiavi supporti i collegamenti privati.
 
 ### <a name="key-vault-with-private-link-resolving-from-arbitrary-internet-machine"></a>Insieme di credenziali delle chiavi con la risoluzione dei collegamenti privati da un computer Internet arbitrario
 
-Quando l'insieme di credenziali delle chiavi ha una o più connessioni a endpoint privato in stato approvato e si risolve il nome host da un computer arbitrario connesso a Internet (un computer che **non è** connesso alla rete virtuale in cui risiede l'endpoint privato), si noterà quanto segue:
+Quando l'insieme di credenziali delle chiavi ha una o più connessioni a endpoint privato in stato approvato e si risolve il nome host da un computer arbitrario connesso a Internet (un computer che *non è* connesso alla rete virtuale in cui risiede l'endpoint privato), si noterà quanto segue:
 
 Windows:
 
@@ -229,7 +229,7 @@ La sottoscrizione di Azure deve avere una risorsa [DNS privato zona](../../dns/p
 
 È possibile verificare la presenza di questa risorsa passando alla pagina sottoscrizione nel portale e selezionando "risorse" nel menu a sinistra. Il nome della risorsa deve essere `privatelink.vaultcore.azure.net` e il tipo di risorsa deve essere **DNS privato zona**.
 
-Normalmente questa risorsa viene creata automaticamente quando si crea un endpoint privato usando un metodo tipico. In alcuni casi, tuttavia, questa risorsa non viene creata automaticamente e sarà necessario eseguire questa operazione manualmente. È possibile che la risorsa sia stata eliminata accidentalmente.
+Normalmente questa risorsa viene creata automaticamente quando si crea un endpoint privato usando un metodo tipico. In alcuni casi, tuttavia, questa risorsa non viene creata automaticamente ed è necessario eseguire questa operazione manualmente. È possibile che la risorsa sia stata eliminata accidentalmente.
 
 Se questa risorsa non è presente, creare una nuova risorsa DNS privato zona nella sottoscrizione. Tenere presente che il nome deve essere esattamente `privatelink.vaultcore.azure.net` , senza spazi o punti aggiuntivi. Se si specifica il nome errato, la risoluzione dei nomi descritta in questo articolo non funzionerà. Per altre informazioni su come creare questa risorsa, vedere [creare una zona DNS privata di Azure usando il portale di Azure](../../dns/private-dns-getstarted-portal.md). Se si segue questa pagina, è possibile ignorare la creazione della rete virtuale perché a questo punto è necessario avere già una. È anche possibile ignorare le procedure di convalida con le macchine virtuali.
 
@@ -253,7 +253,7 @@ Per il corretto funzionamento della risoluzione dei nomi di Key Vault, è necess
 Inoltre, il valore del `A` record (indirizzo IP) deve essere [l'indirizzo IP privato](#find-the-key-vault-private-ip-address-in-the-virtual-network)dell'insieme di credenziali delle chiavi. Se il record viene trovato `A` ma è contenuto nell'indirizzo IP errato, è necessario rimuovere l'indirizzo IP errato e aggiungerne uno nuovo. Si consiglia di rimuovere l'intero `A` record e di aggiungerne uno nuovo.
 
 >[!NOTE]
-> Ogni volta che si rimuove o si modifica un `A` record, il computer potrebbe comunque risolversi nell'indirizzo IP precedente, perché il valore TTL (time to Live) potrebbe non essere ancora scaduto. Si consiglia di specificare sempre un valore TTL non inferiore a 60 secondi (un minuto) e non più grande di 600 secondi (10 minuti). Se si specifica un valore troppo grande, i client avranno problemi di recupero da interruzioni.
+> Ogni volta che si rimuove o si modifica un `A` record, il computer potrebbe comunque risolversi nell'indirizzo IP precedente, perché il valore TTL (time to Live) potrebbe non essere ancora scaduto. Si consiglia di specificare sempre un valore TTL non inferiore a 60 secondi (un minuto) e non più grande di 600 secondi (10 minuti). Se si specifica un valore troppo grande, i client potrebbero richiedere troppo tempo per il ripristino in caso di interruzioni.
 
 ### <a name="dns-resolution-for-more-than-one-virtual-network"></a>Risoluzione DNS per più di una rete virtuale
 
@@ -261,15 +261,13 @@ Se sono presenti più reti virtuali e ognuna ha una risorsa di endpoint privato 
 
 Negli scenari più avanzati sono disponibili più reti virtuali con peering abilitato. In questo caso, solo una rete virtuale necessita della risorsa endpoint privato, sebbene sia necessario che sia collegata alla risorsa DNS privato zona. Questo scenario non è coperto direttamente da questo documento.
 
-### <a name="fact-the-user-controls-dns-resolution"></a>Fact: l'utente controlla la risoluzione DNS
+### <a name="fact-you-have-control-over-dns-resolution"></a>Fact: si ha il controllo sulla risoluzione DNS
 
-Se si è un erudito di rete o una persona curiosa, è probabile che sia stata realizzata la risoluzione del funzionamento della risoluzione DNS. Come illustrato nella [sezione precedente](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine), un insieme di credenziali delle chiavi con collegamenti privati avrà l'alias `{vaultname}.privatelink.vaultcore.azure.net` nella registrazione *pubblica* . Il server DNS usato dalla rete virtuale verificherà ogni alias per la registrazione di un nome *privato* e, se ne viene trovato uno, verrà interrotto dopo gli alias della registrazione pubblica.
+Come illustrato nella [sezione precedente](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine), un insieme di credenziali delle chiavi con collegamenti privati ha l'alias `{vaultname}.privatelink.vaultcore.azure.net` nella registrazione *pubblica* . Il server DNS usato dalla rete virtuale usa la registrazione pubblica, ma controlla ogni alias per una registrazione *privata* . se ne viene trovato uno, arresterà gli alias seguenti definiti alla registrazione pubblica.
 
-Si consideri, ad esempio, che la rete virtuale è collegata a una zona DNS privato con nome `privatelink.vaultcore.azure.net` e che la registrazione DNS pubblica per l'insieme di credenziali delle chiavi presenta l'alias `fabrikam.privatelink.vaultcore.azure.net` . Si noti che il suffisso corrisponde esattamente al nome della zona DNS privato. Ciò significa che la risoluzione cercherà prima un `A` record con `fabrikam` il nome nella zona DNS privato. Se il `A` record viene trovato, il relativo indirizzo IP verrà restituito nella query DNS. E tale indirizzo IP viene semplicemente utilizzato come indirizzo IP privato dell'insieme di credenziali delle chiavi.
+Questa logica significa che se la rete virtuale è collegata a una zona DNS privato con nome `privatelink.vaultcore.azure.net` e la registrazione DNS pubblica per l'insieme di credenziali delle chiavi presenta l'alias `fabrikam.privatelink.vaultcore.azure.net` (si noti che il suffisso nome host dell'insieme di credenziali delle chiavi corrisponde esattamente al nome della zona di DNS privato), la query DNS cercherà un `A` record con nome `fabrikam` *nella zona DNS privato*. Se il `A` record viene trovato, il relativo indirizzo IP viene restituito nella query DNS e non viene eseguita alcuna ricerca aggiuntiva alla registrazione DNS pubblica.
 
-Come si può notare, l'intera risoluzione dei nomi è sotto controllo utente.
-
-Esistono due motivi per la progettazione:
+Come si può notare, la risoluzione dei nomi è sotto il proprio controllo. Le logiche per questa progettazione sono:
 
 - È possibile che si disponga di uno scenario complesso che include server DNS personalizzati e l'integrazione con le reti locali. In tal caso, è necessario controllare il modo in cui i nomi vengono convertiti in indirizzi IP.
 - Potrebbe essere necessario accedere a un insieme di credenziali delle chiavi senza collegamenti privati. In tal caso, la risoluzione del nome host dalla rete virtuale deve restituire l'indirizzo IP pubblico. questa situazione si verifica perché gli insiemi di credenziali delle chiavi senza collegamenti privati non hanno l' `privatelink` alias nella registrazione del nome.

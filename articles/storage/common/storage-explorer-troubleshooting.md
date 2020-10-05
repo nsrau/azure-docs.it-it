@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534856"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714443"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -21,13 +21,13 @@ Microsoft Azure Storage Explorer è un'app autonoma che facilita l'uso dei dati 
 
 Questa guida riepiloga le soluzioni per i problemi che si verificano comunemente in Storage Explorer.
 
-## <a name="rbac-permissions-issues"></a>Problemi relativi alle autorizzazioni RBAC
+## <a name="azure-rbac-permissions-issues"></a>Problemi relativi alle autorizzazioni RBAC di Azure
 
-Il [controllo degli](https://docs.microsoft.com/azure/role-based-access-control/overview) accessi in base al ruolo consente la gestione degli accessi estremamente granulari delle risorse di Azure combinando set di autorizzazioni in _ruoli_. Di seguito sono riportate alcune strategie che consentono di lavorare in modo ottimale in Storage Explorer.
+Il controllo degli accessi in base al ruolo [di Azure consente](https://docs.microsoft.com/azure/role-based-access-control/overview) la gestione degli accessi estremamente granulari delle risorse di Azure combinando set di autorizzazioni in _ruoli_. Ecco alcune strategie per ottimizzare il controllo degli accessi in base al ruolo di Azure in Storage Explorer.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Ricerca per categorie accedere alle risorse in Storage Explorer?
 
-Se si verificano problemi durante l'accesso alle risorse di archiviazione tramite RBAC, è possibile che non siano stati assegnati i ruoli appropriati. Le sezioni seguenti descrivono le autorizzazioni Storage Explorer attualmente richiede l'accesso alle risorse di archiviazione. Se non si è certi di disporre dei ruoli o delle autorizzazioni appropriate, contattare l'amministratore dell'account Azure.
+In caso di problemi di accesso alle risorse di archiviazione tramite il controllo degli accessi in base al ruolo di Azure, è possibile che non siano stati assegnati i ruoli appropriati Le sezioni seguenti descrivono le autorizzazioni Storage Explorer attualmente richiede l'accesso alle risorse di archiviazione. Se non si è certi di disporre dei ruoli o delle autorizzazioni appropriate, contattare l'amministratore dell'account Azure.
 
 #### <a name="read-listget-storage-accounts-permissions-issue"></a>Problemi di autorizzazione "lettura: elenco/ottenere account di archiviazione"
 
@@ -65,7 +65,7 @@ Se si vuole accedere a contenitori o code BLOB, è possibile connettersi a tali 
 3. Selezionare l'account utente e il tenant associati alla risorsa a cui si sta eseguendo la connessione. Scegliere Avanti.
 4. Selezionare il tipo di risorsa, immettere l'URL della risorsa e immettere un nome visualizzato univoco per la connessione. Scegliere Avanti. Fare clic su Connetti.
 
-Per altri tipi di risorse, non è attualmente disponibile una soluzione relativa al controllo degli accessi in base al ruolo. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Per altri tipi di risorse, non è attualmente disponibile una soluzione correlata a RBAC di Azure. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Ruoli predefiniti di Azure consigliati
 

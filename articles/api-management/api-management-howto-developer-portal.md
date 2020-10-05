@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 3642b95f5bd6d0207508ca85f1d22ce20b44eae3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614051"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715464"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Panoramica del portale per sviluppatori di Gestione API
 
@@ -172,7 +172,7 @@ Applicare automaticamente i criteri di CORS facendo clic sul pulsante **Abilita 
 
 ### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>Quali autorizzazioni sono necessarie per modificare il portale per sviluppatori?
 
-Se l'errore viene visualizzato `Oops. Something went wrong. Please try again later.` quando si apre il portale in modalità amministrativa, potrebbero mancare le autorizzazioni necessarie (RBAC).
+Se viene visualizzato l' `Oops. Something went wrong. Please try again later.` errore quando si apre il portale in modalità amministrativa, potrebbero mancare le autorizzazioni necessarie (controllo degli accessi in base al ruolo di Azure).
 
 I portali legacy hanno richiesto l'autorizzazione nell' `Microsoft.ApiManagement/service/getssotoken/action` ambito del servizio ( `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>` ) per consentire all'amministratore utente di accedere ai portali. Il nuovo portale richiede l'autorizzazione `Microsoft.ApiManagement/service/users/token/action` per l'ambito `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1` .
 
@@ -212,7 +212,7 @@ L'errore di chiamata può anche essere causato da un certificato TLS/SSL, che è
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>Qual è il supporto del browser per il portale?
 
-| Browser                     | Funzionalità supportata       |
+| Browser                     | Supportato       |
 |-----------------------------|-----------------|
 | Apple Safari                | Sì<sup>1</sup> |
 | Google Chrome               | Sì<sup>1</sup> |

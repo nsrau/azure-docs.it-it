@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 348106c405e6e096f7bfd9a225fc783c4454b1ad
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449763"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714973"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Domande frequenti su Azure automanage per le macchine virtuali
 
@@ -35,7 +35,7 @@ Di seguito sono riportati i prerequisiti per l'abilitazione di Azure automanage:
 - Le macchine virtuali non devono essere collegate a un'area di lavoro di log Analytics in una sottoscrizione diversa
 - Il servizio di gestione delle sottoscrizioni sandbox al momento non è supportato
 
-**Quale autorizzazione RBAC è necessaria per abilitare la gestione della funzionalità automanage?**
+**Quale autorizzazione RBAC di Azure è necessaria per abilitare la gestione autogestita?**
 
 Se si Abilita la gestione in una macchina virtuale con un account di gestione autogestito esistente, è necessario il ruolo Collaboratore per il gruppo di risorse in cui risiede la macchina virtuale.
 

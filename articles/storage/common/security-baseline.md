@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6358f9d233b3c09dc4ae4f3ecac7c91dea8bba6e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228274"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715153"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Baseline della sicurezza di Azure per archiviazione di Azure
 
@@ -380,13 +380,13 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Usare Azure Active Directory
 
-**Linee guida**: usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale. Azure AD fornisce controllo degli accessi in base al ruolo per un controllo granulare dell'accesso del client alle risorse in un account di archiviazione.  Usare le credenziali di Azure AD quando possibile come procedura di sicurezza consigliata, anziché usare la chiave dell'account, che può essere compromessa più facilmente. Quando la progettazione dell'applicazione richiede firme di accesso condiviso per l'accesso all'archiviazione BLOB, usare le credenziali Azure AD per creare firme di accesso condiviso (SAS) di delega utente quando possibile per una sicurezza superiore.
+**Linee guida**: usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale. Azure fornisce il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per un controllo con granularità fine sull'accesso di un client alle risorse in un account di archiviazione.  Usare le credenziali di Azure AD quando possibile come procedura di sicurezza consigliata, anziché usare la chiave dell'account, che può essere compromessa più facilmente. Quando la progettazione dell'applicazione richiede firme di accesso condiviso per l'accesso all'archiviazione BLOB, usare le credenziali Azure AD per creare firme di accesso condiviso (SAS) di delega utente quando possibile per una sicurezza superiore.
 
 - [Come creare e configurare un'istanza di Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 - [Usare il provider di risorse di archiviazione di Azure per accedere alle risorse di gestione](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Come configurare l'accesso ai dati di Accodamento e BLOB di Azure con RBAC in portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Come configurare l'accesso ai dati di Accodamento e BLOB di Azure con RBAC di Azure in portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Autorizzazione dell'accesso ai dati in archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
@@ -478,7 +478,7 @@ Creare le impostazioni di diagnostica per Azure Active Directory account utente,
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
-**Linee guida**: implementare l'isolamento usando sottoscrizioni separate, gruppi di gestione e account di archiviazione per singoli domini di sicurezza, ad esempio l'ambiente, la riservatezza dei dati.  È possibile limitare l'account di archiviazione per controllare il livello di accesso agli account di archiviazione richiesti dalle applicazioni e dagli ambienti aziendali, in base al tipo e al subset di reti usate. Quando le regole di rete sono configurate, solo le applicazioni che richiedono dati sul set di reti specificato possono accedere a un account di archiviazione. È possibile controllare l'accesso ad archiviazione di Azure tramite Azure AD RBAC. È anche possibile configurare endpoint privati per migliorare la sicurezza perché il traffico tra la rete virtuale e il servizio attraversa la rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica. 
+**Linee guida**: implementare l'isolamento usando sottoscrizioni separate, gruppi di gestione e account di archiviazione per singoli domini di sicurezza, ad esempio l'ambiente, la riservatezza dei dati.  È possibile limitare l'account di archiviazione per controllare il livello di accesso agli account di archiviazione richiesti dalle applicazioni e dagli ambienti aziendali, in base al tipo e al subset di reti usate. Quando le regole di rete sono configurate, solo le applicazioni che richiedono dati sul set di reti specificato possono accedere a un account di archiviazione. È possibile controllare l'accesso ad archiviazione di Azure tramite RBAC di Azure. È anche possibile configurare endpoint privati per migliorare la sicurezza perché il traffico tra la rete virtuale e il servizio attraversa la rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica. 
 
 - [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -502,7 +502,7 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 - [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
-- [Criteri dell'endpoint del servizio rete virtuale per archiviazione di Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
+- [Criteri degli endpoint servizio di rete virtuale per Archiviazione di Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
@@ -534,13 +534,13 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Linee guida**: Azure Active Directory (Azure ad) autorizza i diritti di accesso alle risorse protette tramite il controllo degli accessi in base al ruolo (RBAC). Archiviazione di Azure definisce un set di ruoli predefiniti di Azure che comprende i set comuni di autorizzazioni utilizzate per accedere ai dati BLOB o di Accodamento. 
+**Linee guida**: Azure Active Directory (Azure ad) autorizza i diritti di accesso alle risorse protette tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Archiviazione di Azure definisce un set di ruoli predefiniti di Azure che comprende i set comuni di autorizzazioni utilizzate per accedere ai dati BLOB o di Accodamento. 
 
 - [Come assegnare i ruoli di Azure per l'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Usare il provider di risorse di archiviazione di Azure per accedere alle risorse di gestione](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Come configurare l'accesso ai dati di Accodamento e BLOB di Azure con RBAC in portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Come configurare l'accesso ai dati di Accodamento e BLOB di Azure con RBAC di Azure in portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Come creare e configurare un'istanza di AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 287bd02a11c71fbdd29b28b5ec9fc8424a477fea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: af88f0b3403fb80acbb7dacebe293ac583e35799
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320354"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716037"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte 2: assegnare autorizzazioni a livello di condivisione a un'identità
 
@@ -52,7 +52,7 @@ Per assegnare un ruolo di Azure a un'identità di Azure AD, usando il [portale d
 
 ### <a name="powershell"></a>PowerShell
 
-L'esempio di PowerShell seguente illustra come assegnare un ruolo di Azure a un'identità di Azure AD, in base al nome di accesso. Per altre informazioni sull'assegnazione di ruoli di Azure con PowerShell, vedere [gestire l'accesso con RBAC e Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+L'esempio di PowerShell seguente illustra come assegnare un ruolo di Azure a un'identità di Azure AD, in base al nome di accesso. Per altre informazioni sull'assegnazione di ruoli di Azure con PowerShell, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure con il modulo Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Prima di eseguire lo script di esempio seguente, sostituire i valori segnaposto, comprese le parentesi quadre, con i valori.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>CLI
   
-Il comando seguente dell'interfaccia della riga di comando 2,0 assegna un ruolo di Azure a un'identità di Azure AD, in base al nome di accesso. Per altre informazioni sull'assegnazione di ruoli di Azure con l'interfaccia della [riga di comando di Azure, vedere Manage Access by using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+Il comando seguente dell'interfaccia della riga di comando 2,0 assegna un ruolo di Azure a un'identità di Azure AD, in base al nome di accesso. Per altre informazioni sull'assegnazione di ruoli di Azure con l'interfaccia della riga di comando di Azure, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia della](../../role-based-access-control/role-assignments-cli.md)riga di comando 
 
 Prima di eseguire lo script di esempio seguente, ricordarsi di sostituire i valori segnaposto, comprese le parentesi, con valori personalizzati.
 

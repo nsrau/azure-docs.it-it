@@ -7,22 +7,22 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: de0f58b54f0cb5ad450949bb1a7b8744f081227d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50753950556531ed3915292f44668073b88be45b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320337"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716014"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte 3: configurare le autorizzazioni a livello di directory e di file su SMB 
 
 Prima di iniziare questo articolo, assicurarsi di aver completato l'articolo precedente, [assegnare le autorizzazioni a livello di condivisione a un'identità](storage-files-identity-ad-ds-assign-permissions.md) per assicurarsi che le autorizzazioni a livello di condivisione siano disponibili.
 
-Dopo aver assegnato le autorizzazioni a livello di condivisione con il controllo degli accessi in base al ruolo, è necessario configurare gli elenchi di controllo di accesso di Windows appropriati a livello di radice, di directory o di file per sfruttare i vantaggi del controllo Si considerino le autorizzazioni a livello di condivisione RBAC come Gatekeeper di alto livello che determina se un utente può accedere alla condivisione. Gli ACL di Windows operano a un livello più granulare per determinare le operazioni che l'utente può eseguire a livello di directory o di file. Quando un utente tenta di accedere a un file o a una directory, vengono applicate sia le autorizzazioni a livello di condivisione che di file/directory. se, pertanto, si verifica una differenza tra di esse, verrà applicata solo quella più restrittiva. Ad esempio, se un utente dispone di accesso in lettura/scrittura a livello di file, ma solo di lettura a livello di condivisione, potrà solo leggere tale file. Lo stesso vale se è stato invertito e un utente dispone di accesso in lettura/scrittura a livello di condivisione, ma solo a livello di file può leggere il file.
+Dopo aver assegnato le autorizzazioni a livello di condivisione con il controllo degli accessi in base al ruolo di Azure, è necessario configurare gli elenchi di controllo di accesso di Windows appropriati a livello di radice, di directory o di file per sfruttare il controllo Si considerino le autorizzazioni a livello di condivisione RBAC di Azure come Gatekeeper di alto livello che determina se un utente può accedere alla condivisione. Gli ACL di Windows operano a un livello più granulare per determinare le operazioni che l'utente può eseguire a livello di directory o di file. Quando un utente tenta di accedere a un file o a una directory, vengono applicate sia le autorizzazioni a livello di condivisione che di file/directory. se, pertanto, si verifica una differenza tra di esse, verrà applicata solo quella più restrittiva. Ad esempio, se un utente dispone di accesso in lettura/scrittura a livello di file, ma solo di lettura a livello di condivisione, potrà solo leggere tale file. Lo stesso vale se è stato invertito e un utente dispone di accesso in lettura/scrittura a livello di condivisione, ma solo a livello di file può leggere il file.
 
-## <a name="rbac-permissions"></a>Autorizzazioni RBAC
+## <a name="azure-rbac-permissions"></a>Autorizzazioni RBAC di Azure
 
-La tabella seguente contiene le autorizzazioni RBAC correlate a questa configurazione:
+La tabella seguente contiene le autorizzazioni RBAC di Azure correlate a questa configurazione:
 
 
 | Ruolo predefinito  | Autorizzazione NTFS  | Accesso risultante  |

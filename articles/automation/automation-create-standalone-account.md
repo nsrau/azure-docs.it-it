@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c78a65c3cc2d913ba0b836947d2184b3a061a648
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987280"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714637"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creare un account di Automazione di Azure autonomo
 
@@ -22,7 +22,7 @@ Quando si crea un account di Automazione nel portale di Azure, viene creato auto
 
 * Crea un'entità servizio in Azure Active Directory (Azure AD).
 * Crea un certificato.
-* Assegna il controllo degli accessi in base al ruolo Collaboratore, che permette di gestire le risorse di Azure Resource Manager usando i runbook.
+* Assegna il ruolo Collaboratore, che gestisce le risorse Azure Resource Manager usando manuali operativi.
 
 Con questo account già creato è possibile iniziare rapidamente la compilazione e distribuzione di runbook per supportare le esigenze di automazione.
 
@@ -74,7 +74,7 @@ Per creare un account di Automazione di Azure nel portale di Azure, seguire ques
    > [!NOTE]
    > Se si sceglie di non creare l'account RunAs selezionando **No** per **Crea un account RunAs di Azure**, viene visualizzato un messaggio nel riquadro Aggiungi account di Automazione. Anche se l'account viene creato nel portale di Azure, l'account non ha un'identità di autenticazione corrispondente nella sottoscrizione del modello di distribuzione classico o nel servizio directory della sottoscrizione di Azure Resource Manager. Pertanto, l'account di Automazione non ha accesso alle risorse nella sottoscrizione. Questo impedirà ai runbook che fanno riferimento a questo account di completare l'autenticazione ed eseguire attività sulle risorse in tali modelli di distribuzione.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Screenshot della richiesta con il messaggio "si è scelto di non creare un account RunAs".":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Screenshot della richiesta ' non si è autorizzati a creare un account RunAs in Azure Active Directory '.":::
    >
    > Se non viene creata l'entità servizio, il ruolo Collaboratore non viene assegnato.
    >

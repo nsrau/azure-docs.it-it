@@ -6,29 +6,29 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: b53e37384ba85770b445f834c440075cd35b6eb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 8eafd99f07c64c20565a954216341f3dea9541b0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84026582"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442659"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Libreria client dei database elastici con Entity Framework
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Questo documento illustra le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con le funzionalità degli [strumenti del database elastico](elastic-scale-introduction.md). L'obiettivo è quello di comporre la [gestione delle mappe](elastic-scale-shard-map-management.md) partizioni e il [routing dipendente dai dati](elastic-scale-data-dependent-routing.md) con l'approccio Entity Framework **Code First** . L'esercitazione [Code First per un nuovo database](https://msdn.microsoft.com/data/jj193542.aspx) per Entity Framework servirà da esempio nell'intero documento. Il codice di esempio che accompagna questo documento fa parte del set di esempi sugli strumenti dei database elastici negli esempi di codice di Visual Studio.
+Questo documento illustra le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con le funzionalità degli [strumenti del database elastico](elastic-scale-introduction.md). Vengono descritti in particolare la [gestione delle mappe partizioni](elastic-scale-shard-map-management.md) e il [routing dipendente dai dati](elastic-scale-data-dependent-routing.md) con l'approccio **Code First** di Entity Framework. L'esercitazione [Code First per un nuovo database](https://msdn.microsoft.com/data/jj193542.aspx) per Entity Framework servirà da esempio nell'intero documento. Il codice di esempio che accompagna questo documento fa parte del set di esempi sugli strumenti dei database elastici negli esempi di codice di Visual Studio.
 
 ## <a name="downloading-and-running-the-sample-code"></a>Download ed esecuzione del codice di esempio
 
 Per scaricare il codice per questo articolo:
 
 * È richiesto Visual Studio 2012 o versione successiva.
-* Scaricare l' [esempio di integrazione degli strumenti di database elastici per Azure SQL-Entity Framework](https://github.com/Azure/elastic-db-tools/). Decomprimere l'esempio in un percorso a piacere.
+* Scaricare l'esempio [Elastic DB Tools for Azure SQL - Entity Framework Integration](https://github.com/Azure/elastic-db-tools/) (Strumenti del database elastico per SQL di Azure - Integrazione con Entity Framework). Decomprimere l'esempio in un percorso a piacere.
 * Avviare Visual Studio.
 * In Visual Studio selezionare File -> Apri progetto/soluzione.
 * Nella finestra di dialogo **Apri progetto** passare all'esempio scaricato e selezionare **EntityFrameworkCodeFirst.sln** per aprirlo.
@@ -39,7 +39,7 @@ Per eseguire l'esempio è necessario creare tre database vuoti nel database SQL 
 * Database partizione 1
 * Database partizione 2
 
-Dopo aver creato questi database, compilare i titolari di posizione in **Program.cs** con il nome del server, i nomi dei database e le credenziali per connettersi ai database. Compilare la soluzione in Visual Studio. Visual Studio scaricherà i pacchetti NuGet necessari per la libreria client dei database elastici, Entity Framework e la gestione degli errori temporanei come parte del processo di compilazione. Verificare che per la soluzione sia abilitato il ripristino dei pacchetti NuGet. Per abilitare questa impostazione, fare clic con il pulsante destro del mouse sul file di soluzione in Esplora soluzioni di Visual Studio.
+Dopo aver creato questi database, riempire i segnaposto nel file **Program.cs** con il nome del server, i nomi dei database e le credenziali per la connessione ai database. Compilare la soluzione in Visual Studio. Visual Studio scaricherà i pacchetti NuGet necessari per la libreria client dei database elastici, Entity Framework e la gestione degli errori temporanei come parte del processo di compilazione. Verificare che per la soluzione sia abilitato il ripristino dei pacchetti NuGet. Per abilitare questa impostazione, fare clic con il pulsante destro del mouse sul file di soluzione in Esplora soluzioni di Visual Studio.
 
 ## <a name="entity-framework-workflows"></a>Flussi di lavoro di Entity Framework
 
@@ -81,7 +81,7 @@ Le connessioni di database con Entity Framework vengono in genere gestite tramit
 
 Per integrare i **DbContext** con il routing dipendente dai dati per la scalabilità orizzontale:
 
-1. Creare connessioni di database fisiche tramite le interfacce client dei database elastici del gestore delle mappe partizioni.
+1. Creare connessioni di database fisiche mediante le interfacce client del database elastico del gestore delle mappe partizioni.
 2. Eseguire il wrapping della connessione con la sottoclasse **DbContext**
 3. Passare la connessione alle classi base **DbContext** per assicurare che venga eseguita anche tutta l'elaborazione sul lato Entity Framework.
 
@@ -276,7 +276,7 @@ Gli approcci descritti in questo documento implicano due limitazioni:
 
 ## <a name="conclusion"></a>Conclusioni
 
-Seguendo le procedure descritte in questo documento, le applicazioni Entity Framework possono usufruire della funzionalità di routing dipendente dai dati della libreria client dei database elastici mediante il refactoring dei costruttori delle sottoclassi **DbContext** usate nelle applicazioni stesse. Questo limita le modifiche necessarie per le posizioni in cui esistono già le classi **DbContext** . Inoltre, le applicazioni Entity Framework possono continuare a usufruire della distribuzione automatica dello schema combinando le operazioni che richiamano le migrazioni Entity Framework con la registrazione di nuove partizioni e mapping nella mappa partizioni.
+Seguendo le procedure descritte in questo documento, le applicazioni Entity Framework possono usufruire della funzionalità di routing dipendente dai dati della libreria client dei database elastici mediante il refactoring dei costruttori delle sottoclassi **DbContext** usate nelle applicazioni stesse. Questo limita il numero di modifiche necessarie nelle posizioni in cui sono già presenti classi **DbContext**. Inoltre, le applicazioni Entity Framework possono continuare a usufruire della distribuzione automatica dello schema combinando le operazioni che richiamano le migrazioni Entity Framework con la registrazione di nuove partizioni e mapping nella mappa partizioni.
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 

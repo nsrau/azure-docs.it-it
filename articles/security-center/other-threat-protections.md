@@ -1,29 +1,29 @@
 ---
-title: Protezione dalle minacce aggiuntiva nel centro sicurezza di Azure
-description: Informazioni sulla protezione dalle minacce disponibile nel centro sicurezza di Azure oltre ad Azure Defender
+title: Funzionalità di protezione dalle minacce aggiuntive nel Centro sicurezza di Azure
+description: Informazioni sulle funzionalità di protezione dalle minacce disponibili nel Centro sicurezza di Azure oltre ad Azure Defender
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 0f4a849af2be9f02187dc3cda526c9c4727cab1b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
-ms.translationtype: MT
+ms.openlocfilehash: 377c68cd2f0b0c132fc690cb03d7c3c5694bb52e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938655"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91438906"
 ---
-# <a name="additional-threat-protections-in-azure-security-center"></a>Protezioni aggiuntive per le minacce nel centro sicurezza di Azure
-Oltre alle protezioni predefinite di [Azure Defender](azure-defender.md), il Centro sicurezza di Azure offre anche le funzionalità di protezione dalle minacce seguenti.
+# <a name="additional-threat-protections-in-azure-security-center"></a>Funzionalità di protezione dalle minacce aggiuntive nel Centro sicurezza di Azure
+Oltre alle [protezioni di Azure Defender](azure-defender.md) integrate, il Centro sicurezza di Azure offre anche le funzionalità di protezione dalle minacce seguenti.
 
 > [!TIP]
-> Per abilitare le funzionalità di protezione dalle minacce del Centro sicurezza, è necessario abilitare Azure Defender nella sottoscrizione che contiene i carichi di lavoro applicabili.
+> Per abilitare le funzionalità di protezione dalle minacce del Centro sicurezza, è necessario abilitare Azure Defender nella sottoscrizione contenente i carichi di lavoro applicabili.
 >
-> È possibile abilitare la protezione dalle minacce per il **database di Azure per MariaDB/MySQL/PostgreSQL** solo a livello di risorsa.
+> È possibile abilitare la protezione dalle minacce per **Database di Azure per MariaDB/MySQL/PostgreSQL** solo a livello di risorsa.
 
 
 ## <a name="threat-protection-for-azure-network-layer"></a>Protezione dalle minacce per il livello di rete di Azure <a name="network-layer"></a>
@@ -51,15 +51,15 @@ Per un elenco degli avvisi di Azure Resource Manager (anteprima), vedere la [tab
 > 1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.
 > 1. Selezionare la sottoscrizione da modificare.
 > 1. Selezionare **Rilevamento delle minacce**.
-> 1. Deselezionare **consenti Microsoft cloud app Security per accedere ai dati**e selezionare **Salva**.
+> 1. Deselezionare **Consenti a Microsoft Cloud App Security di accedere ai dati** e selezionare **Salva**.
 
 
 >[!NOTE]
 >Il Centro sicurezza archivia i dati dei clienti correlati alla sicurezza nella stessa area geografica della risorsa. Se Microsoft non ha ancora distribuito il Centro sicurezza nell'area geografica della risorsa, archivia i dati nel Stati Uniti. Quando è abilitato Cloud App Security, queste informazioni vengono archiviate in base alle regole relative alla posizione geografica di Cloud App Security. Per altre informazioni, vedere [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/) (Archiviazione dei dati per i servizi non a livello di area).
 
-1. Impostare l'area di lavoro in cui si sta installando l'agente. Assicurarsi che l'area di lavoro si trovi nella stessa sottoscrizione che si usa nel Centro sicurezza e di disporre delle autorizzazioni di lettura/scrittura nell'area di lavoro.
+1. Impostare l'area di lavoro in cui si installa l'agente. Assicurarsi che l'area di lavoro si trovi nella stessa sottoscrizione che si usa nel Centro sicurezza e di disporre delle autorizzazioni di lettura/scrittura nell'area di lavoro.
 
-1. Abilitare **Azure Defender**e selezionare **Salva**.
+1. Abilitare **Azure Defender**, quindi selezionare **Salva**.
 
 
 ## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Protezione dalle minacce per Azure Cosmos DB (anteprima)<a name="cosmos-db"></a>

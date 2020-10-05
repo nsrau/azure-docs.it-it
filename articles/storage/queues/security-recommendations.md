@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 70bb96da858c94fbd2c75d56cda4e705f2ffa3ba
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 44dac73f4e51214dbc41e8663dd44550dc9549f4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986622"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715391"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Raccomandazioni sulla sicurezza per l'archiviazione code
 
@@ -29,7 +29,7 @@ Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle
 
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
-| Usare il modello di distribuzione Azure Resource Manager | Creare nuovi account di archiviazione usando il modello di distribuzione Azure Resource Manager per importanti miglioramenti della sicurezza, tra cui controllo degli accessi in base al controllo (RBAC) e controllo, distribuzione e governance basati su Gestione risorse, accesso alle identità gestite, accesso ai Azure Key Vault per i segreti e autenticazione basata su Azure AD e autorizzazione per l'accesso ai dati e alle risorse di archiviazione di Azure. Se possibile, eseguire la migrazione degli account di archiviazione esistenti che usano il modello di distribuzione classica per usare Azure Resource Manager. Per ulteriori informazioni su Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
+| Usare il modello di distribuzione Azure Resource Manager | Creare nuovi account di archiviazione usando il modello di distribuzione Azure Resource Manager per importanti miglioramenti della sicurezza, tra cui il controllo degli accessi in base al ruolo di Azure superiore (RBAC di Azure) e il controllo, la distribuzione e la governance basate su Gestione risorse, l'accesso alle identità gestite, l'accesso ai Azure Key Vault per i segreti e l'autenticazione basata su Azure AD e l'autorizzazione per l'accesso ai dati e alle risorse Se possibile, eseguire la migrazione degli account di archiviazione esistenti che usano il modello di distribuzione classica per usare Azure Resource Manager. Per ulteriori informazioni su Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
 | Abilitare Advanced Threat Protection per tutti gli account di archiviazione | Advanced Threat Protection per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli account di archiviazione. Gli avvisi di sicurezza vengono attivati nel centro sicurezza di Azure quando si verificano anomalie nelle attività e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con dettagli relativi a attività sospette e consigli su come analizzare e correggere le minacce. Per altre informazioni, vedere [Advanced Threat Protection per archiviazione di Azure](../common/azure-defender-storage-configure.md). | [Sì](../../security-center/security-center-sql-service-recommendations.md) |
 | Limitare i token di firma di accesso condiviso solo alle connessioni HTTPS | Richiesta di HTTPS quando un client utilizza un token di firma di accesso condiviso per accedere ai dati della coda consente di ridurre al minimo il rischio di intercettazione. Per altre informazioni, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../common/storage-sas-overview.md). | - |
 
@@ -38,7 +38,7 @@ Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
 | Usare Azure Active Directory (Azure AD) per autorizzare l'accesso ai dati della coda | Azure AD offre sicurezza e facilità d'uso superiori rispetto alla chiave condivisa per l'autorizzazione delle richieste all'archiviazione di Accodamento. Per altre informazioni, vedere [autorizzare l'accesso a BLOB e code di Azure usando Azure Active Directory](../common/storage-auth-aad.md). | - |
-| Tenere presente l'entità del privilegio minimo quando si assegnano autorizzazioni a un'entità di sicurezza Azure AD tramite RBAC | Quando si assegna un ruolo a un utente, a un gruppo o a un'applicazione, concedere all'entità di sicurezza solo le autorizzazioni necessarie per eseguire le attività. La limitazione dell'accesso alle risorse consente di evitare l'utilizzo non intenzionale e dannoso dei dati. | - |
+| Tenere presente il principale privilegio minimo quando si assegnano autorizzazioni a un'entità di sicurezza Azure AD tramite il controllo degli accessi in base al ruolo di Azure | Quando si assegna un ruolo a un utente, a un gruppo o a un'applicazione, concedere all'entità di sicurezza solo le autorizzazioni necessarie per eseguire le attività. La limitazione dell'accesso alle risorse consente di evitare l'utilizzo non intenzionale e dannoso dei dati. | - |
 | Proteggere le chiavi di accesso dell'account con Azure Key Vault | Microsoft consiglia di usare Azure AD per autorizzare le richieste ad archiviazione di Azure. Tuttavia, se è necessario usare l'autorizzazione della chiave condivisa, proteggere le chiavi dell'account con Azure Key Vault. È possibile recuperare le chiavi dall'insieme di credenziali delle chiavi in fase di esecuzione, anziché salvarle con l'applicazione. | - |
 | Rigenerare periodicamente le chiavi dell'account | La rotazione delle chiavi dell'account riduce periodicamente il rischio di esporre i dati a attori malintenzionati. | - |
 | Tenere presente l'entità del privilegio minimo quando si assegnano le autorizzazioni a una firma di accesso condiviso | Quando si crea una firma di accesso condiviso, specificare solo le autorizzazioni richieste dal client per eseguire la relativa funzione. La limitazione dell'accesso alle risorse consente di evitare l'utilizzo non intenzionale e dannoso dei dati. | - |

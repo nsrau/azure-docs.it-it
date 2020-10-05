@@ -34,6 +34,10 @@
           href: how-to-install.md
         - name: Configurazione del provisioning cloud
           href: how-to-configure.md
+        - name: Provisioning su richiesta
+          href: how-to-on-demand-provision.md
+        - name: Mapping degli attributi
+          href: how-to-attribute-mapping.md
         - name: Usare Single Sign-On
           href: how-to-sso.md
     - name: Pianificare e progettare

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Usare GitOps per la configurazione di cluster abilitata per Azure Arc (anteprima)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: 142c131f0382eb887d51185db920511ccf4eb735
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: c00ed30c9a7424d083bf076c64cf008e0480bb2b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541629"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714190"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Distribuire le configurazioni con GitOps nel cluster Kubernetes abilitato per Arc (anteprima)
 
@@ -23,7 +23,7 @@ La connessione tra il cluster e uno o più repository Git viene rilevata in Azur
 
 Il `config-agent` in esecuzione nel cluster è responsabile dell'osservazione delle risorse di estensione nuove o aggiornate `sourceControlConfiguration` nella risorsa Kubernetes abilitata per Azure Arc, nella distribuzione di un operatore Flux per il controllo del repository git e nella propagazione di tutti gli aggiornamenti apportati a `sourceControlConfiguration` . È anche possibile creare più `sourceControlConfiguration` risorse con ambito nello `namespace` stesso cluster Kubernetes abilitato per Azure Arc per ottenere il multi-tenant. In tal caso, ogni operatore può distribuire le configurazioni solo nel rispettivo spazio dei nomi.
 
-Il repository Git può contenere qualsiasi risorsa Kubernetes valida, tra cui spazi dei nomi, distribuzioni, elementi ConfigMap e DaemonSet e così via.  Esso può anche contenere grafici Helm per la distribuzione di applicazioni. Un set di scenari comune prevede la definizione di una configurazione di base per l'organizzazione, che può includere ruoli e associazioni RBAC comuni, agenti di monitoraggio o registrazione o servizi a livello di cluster.
+Il repository Git può contenere qualsiasi risorsa Kubernetes valida, tra cui spazi dei nomi, distribuzioni, elementi ConfigMap e DaemonSet e così via.  Esso può anche contenere grafici Helm per la distribuzione di applicazioni. Un set di scenari comune prevede la definizione di una configurazione di base per l'organizzazione, che può includere i ruoli e le associazioni comuni di Azure, gli agenti di monitoraggio o registrazione o i servizi a livello di cluster.
 
 Lo stesso modello può essere usato per gestire una raccolta di cluster più ampia, che può essere distribuita in ambienti eterogenei. Ad esempio, è possibile disporre di un unico repository che definisce la configurazione di base per l'organizzazione e applicarlo a decine di cluster Kubernetes contemporaneamente. [Criteri di Azure consente di automatizzare](use-azure-policy.md) la creazione di un oggetto `sourceControlConfiguration` con un set specifico di parametri in tutte le risorse Kubernetes abilitate per Azure Arc in un ambito (sottoscrizione o gruppo di risorse).
 

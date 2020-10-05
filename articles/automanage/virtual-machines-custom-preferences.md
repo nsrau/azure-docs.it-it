@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 7a716ed9bca6d34ad4dbcd2566837a839f71153b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 377677c9e5e81487059241db68baff639a3de033
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450308"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715034"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Creare una preferenza personalizzata in Azure automanage per le macchine virtuali
 
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.micr
 > Gli account di valutazione gratuiti non hanno accesso alle macchine virtuali usate in questa esercitazione. Eseguire l'aggiornamento a una sottoscrizione con pagamento in base al consumo.
 
 > [!IMPORTANT]
-> L'autorizzazione RBAC seguente è necessaria per abilitare la gestione autogestita: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
+> L'autorizzazione RBAC di Azure seguente è necessaria per abilitare la gestione autogestita: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
@@ -66,7 +66,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 6. Nel profilo scelto, in **Preferenze di configurazione** è disponibile un elenco a discesa in cui è possibile modificare determinati servizi.
     1. Fare clic su **Crea nuove preferenze**.
     1. Nel pannello **Crea una preferenza di configurazione** compilare la scheda nozioni di base:
-        1. Sottoscrizione
+        1. Subscription
         1. Resource group
         1. Nome preferenza
         1. Region
