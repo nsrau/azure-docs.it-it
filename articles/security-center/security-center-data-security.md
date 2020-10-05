@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 33f2c9f4-21aa-4f0c-9e5e-4cd1223e39d7
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 97d3b5030ed0ddb29fc439f4a0f6bcc7ff98b6ce
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: MT
+ms.openlocfilehash: 8a999e2b5706c04b426f758ba46f49fb9f7e3057
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268027"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91438791"
 ---
 # <a name="azure-security-center-data-security"></a>Sicurezza dei dati nel Centro sicurezza di Azure
 Per consentire ai clienti di impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati correlati alla sicurezza, tra cui informazioni di configurazione, metadati, log eventi e altro ancora. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio.
@@ -65,18 +65,18 @@ Per le macchine virtuali e i server in esecuzione in altri ambienti, ad esempio 
 
 **Archiviazione nel Centro sicurezza di Azure**: le informazioni sugli avvisi di sicurezza, inclusi gli avvisi dei partner, vengono archiviate a livello regionale in base alla posizione della risorsa di Azure correlata, mentre le informazioni sullo stato di integrità della sicurezza e i consigli vengono archiviati a livello centrale negli Stati Uniti o in Europa in base alla posizione del cliente. Gli elementi del computer vengono archiviati centralmente nella stessa area della VM.
 
-## <a name="manage-data-collection-from-virtual-machines"></a>Gestione della raccolta dati da macchine virtuali
+## <a name="manage-data-collection-from-virtual-machines"></a>Gestire la raccolta dati da macchine virtuali
 
 Quando si abilita il Centro sicurezza in Azure, viene attivata la raccolta dati per ogni sottoscrizione di Azure. È anche possibile attivare la raccolta dati per le sottoscrizioni esistenti nella sezione Criteri di sicurezza del Centro sicurezza di Azure. Quando la raccolta dati è attivata, il Centro sicurezza di Azure effettua il provisioning dell'agente di Log Analytics in tutte le macchine virtuali di Azure supportate esistenti e in quelle nuove che vengono create.
 L'agente di Log Analytics esegue l'analisi delle varie configurazioni correlate alla sicurezza e ne genera gli eventi nelle tracce di [Event Trace for Windows (ETW)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx). Il sistema operativo genererà anche eventi del log eventi durante l'esecuzione del computer. Esempi di tali dati sono: tipo e versione del sistema operativo, log del sistema operativo (registri eventi di Windows), processi in esecuzione, nome computer, indirizzi IP, utente connesso e ID tenant. L'agente di Log Analytics legge le voci del log eventi ed ETW le traccia e le copia nelle aree di lavoro per l'analisi. L'agente di Log Analytics abilita anche gli eventi di creazione del processo e il controllo della riga di comando.
 
-Se non si usa Azure Defender, è anche possibile disabilitare la raccolta dati dalle macchine virtuali nei criteri di sicurezza. La raccolta dei dati è necessaria per le sottoscrizioni protette da Azure Defender. Gli snapshot dei dischi delle VM e la raccolta di elementi resteranno abilitati anche se la raccolta dati è stata disabilitata.
+Se non si usa Azure Defender, è anche possibile disabilitare la raccolta dati dalle macchine virtuali nei criteri di sicurezza. La raccolta dati è necessaria per le sottoscrizioni protette da Azure Defender. Gli snapshot dei dischi delle VM e la raccolta di elementi resteranno abilitati anche se la raccolta dati è stata disabilitata.
 
 ## <a name="data-consumption"></a>Uso dei dati
 
 I clienti possono utilizzare i dati relativi al Centro sicurezza da flussi dei dati diversi, come illustrato sotto:
 
-* **Attività di Azure**: tutti gli avvisi di sicurezza, le richieste [just-in-Time del](security-center-just-in-time.md) Centro sicurezza approvate e tutti gli avvisi generati dai [controlli applicazione adattivi](security-center-adaptive-application.md).
+* **Attività di Azure**: tutti gli avvisi di sicurezza, le richieste [JIT](security-center-just-in-time.md) del Centro sicurezza approvate e tutti gli avvisi generati dai [controlli applicazioni adattivi](security-center-adaptive-application.md).
 * **Log di monitoraggio di Azure**: tutti gli avvisi di sicurezza.
 
 

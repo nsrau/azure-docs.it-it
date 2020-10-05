@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: 27a6f8f0ed0d58deb64f768d2e47bafebc910edb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: fce0ca7df3851aa0e96b6ee630a4a1b0b85eb070
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690426"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371743"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introduzione all'account di fatturazione di Azure aggiornato
 
@@ -113,7 +113,7 @@ Altre informazioni sulla nuova esperienza sono disponibili nelle sezioni seguent
 
 **Nessun tempo di inattività dei servizi**. L'esecuzione dei servizi di Azure nella sottoscrizione continuerà senza interruzioni. Verrà aggiornata soltanto l'esperienza di fatturazione, senza alcun impatto sulle risorse, sui gruppi di risorse o sui gruppi di gestione esistenti.
 
-**Nessuna modifica alle risorse di Azure**. L'aggiornamento non influisce sull'accesso alle risorse di Azure impostate con il controllo degli accessi in base al ruolo di Azure.
+**Nessuna modifica alle risorse di Azure**. L'aggiornamento non influisce sull'accesso alle risorse di Azure impostate con Controllo degli accessi in base al ruolo di Azure.
 
 **Disponibilità delle fatture precedenti nella nuova esperienza**. Le fatture generate prima dell'aggiornamento dell'account saranno ancora disponibili nel portale di Azure.
 

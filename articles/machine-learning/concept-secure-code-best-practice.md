@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: larryfr
-author: larryfr
+ms.author: cgronlun
+author: cjgronlund
 ms.date: 11/12/2019
-ms.openlocfilehash: 9e41323d05f1a81fbc73a9158cf30c2b0f7953f3
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4bc9a982f6ce77b803a3ba91e050bcda9ec74fed
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147058"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728523"
 ---
 # <a name="secure-code-best-practices-with-azure-machine-learning"></a>Procedure consigliate per il codice protetto con Azure Machine Learning
 
@@ -60,7 +60,7 @@ __Possibili minacce__:
 * Richiesta tra siti falsificazione (CSRF)
 
 __Mitigazioni fornite da Azure Machine Learning__:
-* Nessuno. Jupyter e Jupyter Lab sono applicazioni open source ospitate nell'istanza di calcolo Azure Machine Learning.
+* No. Jupyter e Jupyter Lab sono applicazioni open source ospitate nell'istanza di calcolo Azure Machine Learning.
 
 __Azioni consigliate__:
 * Assicurarsi di considerare attendibile il contenuto dei file prima del caricamento in studio. Quando si carica, è necessario confermare che si sta caricando file attendibili.

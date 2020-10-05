@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 6dfced457f6840294700fb998c93cf2ab993024c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b1f261d3d777ccf19cea84e77ef83eb45ecc2065
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683539"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372256"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a Gestione costi di Azure per i partner
 
@@ -22,7 +22,7 @@ Gestione costi di Azure è disponibile in modo nativo per i partner diretti che 
 
 Per i partner diretti e i provider indiretti, l'amministratore globale e gli agenti di amministrazione possono accedere a Gestione costi nel tenant del partner e gestire i costi ai prezzi fatturati.
 
-I rivenditori e i clienti possono accedere a Gestione costi nel tenant del cliente e visualizzare i costi per le sottoscrizioni, dove i costi sono calcolati e visualizzati con le tariffe al dettaglio. Devono però avere accesso con controllo degli accessi in base al ruolo alla sottoscrizione nel tenant del cliente per visualizzare i costi. I criteri di visibilità dei costi devono essere abilitati dal provider per il tenant del cliente.
+I rivenditori e i clienti possono accedere a Gestione costi nel tenant del cliente e visualizzare i costi per le sottoscrizioni, dove i costi sono calcolati e visualizzati con le tariffe al dettaglio. Devono però avere accesso con Controllo degli accessi in base al ruolo di Azure alla sottoscrizione nel tenant del cliente per visualizzare i costi. I criteri di visibilità dei costi devono essere abilitati dal provider per il tenant del cliente.
 
 I clienti possono usare le funzionalità di Gestione costi quando sono abilitate dal partner CSP.
 
@@ -55,13 +55,13 @@ Gestione costi di Azure richiede l'accesso in lettura all'account di fatturazion
 
 Per altre informazioni sull'abilitazione e l'assegnazione dell'accesso a Gestione costi di Azure per un account di fatturazione, vedere [Assegnare autorizzazioni e ruoli utente](/partner-center/permissions-overview). I ruoli **amministratore globale** e **agente amministratore** possono gestire i costi per un account di fatturazione.
 
-Per accedere a Gestione costi di Azure nell'ambito della sottoscrizione, qualsiasi utente con accesso RBAC a una sottoscrizione può visualizzare i costi in base alle tariffe al dettaglio (pagamento in base al consumo). È tuttavia necessario abilitare i [criteri di visibilità dei costi per il tenant del cliente](#enable-the-policy-to-view-azure-usage-charges). Per visualizzare un elenco completo dei tipi di account supportati, vedere [Informazioni sui dati di Gestione costi](understand-cost-mgt-data.md).
+Per accedere a Gestione costi di Azure nell'ambito della sottoscrizione, qualsiasi utente con accesso di Controllo degli accessi in base al ruolo di Azure a una sottoscrizione può visualizzare i costi in base alle tariffe al dettaglio (pagamento in base al consumo). È tuttavia necessario abilitare i [criteri di visibilità dei costi per il tenant del cliente](#enable-the-policy-to-view-azure-usage-charges). Per visualizzare un elenco completo dei tipi di account supportati, vedere [Informazioni sui dati di Gestione costi](understand-cost-mgt-data.md).
 
 ## <a name="how-cost-management-uses-scopes"></a>Modalità di utilizzo degli ambiti in Gestione costi
 
-Gli ambiti consentono di gestire i dati di fatturazione, avere ruoli specifici per i pagamenti, visualizzare le fatture e gestire l'account in generale. I ruoli di fatturazione e account vengono gestiti separatamente dagli ambiti usati per la gestione delle risorse, che usano RBAC. Per distinguerne chiaramente le finalità, incluse le differenze relative al controllo di accesso, gli ambiti sono definiti rispettivamente ambiti di fatturazione e ambiti RBAC.
+Gli ambiti consentono di gestire i dati di fatturazione, avere ruoli specifici per i pagamenti, visualizzare le fatture e gestire l'account in generale. I ruoli di fatturazione e account vengono gestiti separatamente dagli ambiti usati per la gestione delle risorse, che usano Controllo degli accessi in base al ruolo di Azure. Per distinguerne chiaramente le finalità, incluse le differenze relative al controllo di accesso, gli ambiti sono definiti rispettivamente ambiti di fatturazione e ambiti di Controllo degli accessi in base al ruolo di Azure.
 
-Per informazioni sugli ambiti di fatturazione e sugli ambiti RBAC nonché sul funzionamento della gestione dei costi con gli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+Per informazioni sugli ambiti di fatturazione e sugli ambiti di Controllo degli accessi in base al ruolo di Azure nonché sul funzionamento della gestione dei costi con gli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 ## <a name="manage-costs-with-partner-tenant-billing-scopes"></a>Gestire i costi con gli ambiti di fatturazione del tenant del partner
 
@@ -116,9 +116,9 @@ Solo gli utenti con i ruoli **Amministratore globale** e **Agente amministratore
 
 ## <a name="enable-cost-management-for-customer-tenant-subscriptions"></a>Abilitare Gestione costi per le sottoscrizioni del tenant del cliente
 
-I partner possono consentire l'accesso a Gestione costi dopo che è stato eseguito l'onboarding dei clienti a un Contratto del cliente Microsoft. I partner possono quindi abilitare un criterio che consente ai clienti di visualizzare i propri costi per i servizi utilizzati di Azure calcolati applicando le tariffe al dettaglio con pagamento in base al consumo. I costi vengono visualizzati nella valuta di fatturazione del cliente in base all'utilizzo effettivo negli ambiti RBAC di sottoscrizione e del gruppo di risorse.
+I partner possono consentire l'accesso a Gestione costi dopo che è stato eseguito l'onboarding dei clienti a un Contratto del cliente Microsoft. I partner possono quindi abilitare un criterio che consente ai clienti di visualizzare i propri costi per i servizi utilizzati di Azure calcolati applicando le tariffe al dettaglio con pagamento in base al consumo. I costi vengono visualizzati nella valuta di fatturazione del cliente in base all'utilizzo effettivo negli ambiti di sottoscrizione e del gruppo di risorse di Controllo degli accessi in base al ruolo di Azure.
 
-Quando il criterio per la visibilità dei costi è abilitato dal partner, qualsiasi utente con accesso Azure Resource Manager alla sottoscrizione può gestire e analizzare i costi applicando tariffe con pagamento in base al consumo. Di fatto, i rivenditori e i clienti con accesso RBAC appropriato alle sottoscrizioni di Azure possono visualizzare i costi.
+Quando il criterio per la visibilità dei costi è abilitato dal partner, qualsiasi utente con accesso Azure Resource Manager alla sottoscrizione può gestire e analizzare i costi applicando tariffe con pagamento in base al consumo. Di fatto, i rivenditori e i clienti con accesso di Controllo degli accessi in base al ruolo di Azure appropriato alle sottoscrizioni di Azure possono visualizzare i costi.
 
 Indipendentemente dai criteri, gli amministratori globali e gli agenti di amministrazione del provider possono visualizzare i costi di una sottoscrizione se hanno accesso alla sottoscrizione e al gruppo di risorse.
 
@@ -149,9 +149,9 @@ Per visualizzare i costi per una sottoscrizione, aprire **Gestione dei costi e f
 
 [![Visualizzare l'analisi dei costi come cliente](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
-L'analisi dei costi, i budget e gli avvisi sono disponibili per gli ambiti RBAC di sottoscrizione e del gruppo di risorse con costi basati sulle tariffe con pagamento in base al consumo.
+L'analisi dei costi, i budget e gli avvisi sono disponibili per gli ambiti di sottoscrizione e del gruppo di risorse di Controllo degli accessi in base al ruolo di Azure con costi basati sulle tariffe con pagamento in base al consumo.
 
-Le visualizzazioni ammortizzate e i costi effettivi per le istanze riservate negli ambiti RBAC indicano addebiti pari a zero. I costi delle istanze riservate vengono visualizzati solo negli ambiti di fatturazione in cui sono stati effettuati gli acquisti.
+Le visualizzazioni ammortizzate e i costi effettivi per le istanze riservate negli ambiti di Controllo degli accessi in base al ruolo di Azure indicano addebiti pari a zero. I costi delle istanze riservate vengono visualizzati solo negli ambiti di fatturazione in cui sono stati effettuati gli acquisti.
 
 Le tariffe al dettaglio usate per calcolare i costi indicati nella visualizzazione corrispondono ai prezzi visualizzati nel Calcolatore prezzi di Azure per tutti i clienti. I costi visualizzati non includono eventuali sconti o crediti del partner, come i crediti guadagnati dal partner, gli sconti in base al livello e gli sconti dei servizi globali.
 
@@ -159,7 +159,7 @@ Le tariffe al dettaglio usate per calcolare i costi indicati nella visualizzazio
 
 I partner con accesso agli ambiti di fatturazione nel tenant partner possono esplorare e analizzare nell'analisi dei costi di tutti i clienti i costi fatturati per un cliente o una fattura specifici. Nella vista dell'[analisi dei costi](quick-acm-cost-analysis.md) è anche possibile [salvare le viste](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) ed esportare i dati in [file CSV e PNG](quick-acm-cost-analysis.md#download-usage-data).
 
-Gli utenti RBAC con accesso alla sottoscrizione nel tenant del cliente possono anche analizzare i costi al dettaglio per le sottoscrizioni nel tenant del cliente, salvare le viste ed esportare i dati in file CSV e PNG.
+Gli utenti di Controllo degli accessi in base al ruolo di Azure con accesso alla sottoscrizione nel tenant del cliente possono anche analizzare i costi al dettaglio per le sottoscrizioni nel tenant del cliente, salvare le viste ed esportare i dati in file con estensione csv e png.
 
 Per analizzare i costi in base a più campi, è possibile usare le funzionalità di filtro e di raggruppamento nell'analisi dei costi. Nella sezione successiva sono visualizzati i campi specifici del partner.
 
@@ -223,8 +223,8 @@ I campi dati seguenti si trovano nei file dei dettagli dell'utilizzo e nelle API
 | costinBillingCurrency | ExtendedCost o costo misto pre-imposta nella valuta fatturata. | N/D |
 | costinPricingCurrency | ExtendedCost o costo misto pre-imposta nella valuta dei prezzi per la correlazione con i prezzi. | N/D |
 | **costinUSD** | Valore stimato di ExtendedCost o del costo misto pre-imposta in USD. | N/D |
-| **paygCostInBillingCurrency** | Visualizza i costi se i prezzi sono prezzi di vendita al dettaglio. Indica i prezzi con pagamento in base al consumo nella valuta di fatturazione. Disponibile solo negli ambiti RBAC. | N/D |
-| **paygCostInUSD** | Visualizza i costi se i prezzi sono prezzi di vendita al dettaglio. Indica i prezzi con pagamento in base al consumo in USD. Disponibile solo negli ambiti RBAC. | N/D |
+| **paygCostInBillingCurrency** | Visualizza i costi se i prezzi sono prezzi di vendita al dettaglio. Indica i prezzi con pagamento in base al consumo nella valuta di fatturazione. Disponibile solo negli ambiti di Controllo degli accessi in base al ruolo di Azure. | N/D |
+| **paygCostInUSD** | Visualizza i costi se i prezzi sono prezzi di vendita al dettaglio. Indica i prezzi con pagamento in base al consumo in USD. Disponibile solo negli ambiti di Controllo degli accessi in base al ruolo di Azure. | N/D |
 | exchangeRate | Tasso di cambio usato per convertire la valuta dei prezzi nella valuta di fatturazione. | Denominato PCToBCExchangeRate nel Centro per i partner. Tasso di cambio da valuta dei prezzi a valuta di fatturazione.|
 | exchangeRateDate | Data del tasso di cambio usato per convertire la valuta da valuta dei prezzi in valuta di fatturazione. | Denominato PCToBCExchangeRateDat nel Centro per i partner. Data del tasso di cambio da valuta dei prezzi a valuta di fatturazione.|
 | isAzureCreditEligible | Indica se il costo è idoneo per il pagamento con crediti Azure. | N/D |
@@ -262,7 +262,7 @@ I dati sull'utilizzo del servizio in genere vengono visualizzati in Gestione cos
 
 I partner con accesso agli ambiti di fatturazione in un tenant partner possono esportare i propri dati su costi e utilizzo in un BLOB del servizio di archiviazione di Azure. Il BLOB deve trovarsi in una sottoscrizione nel tenant partner che non è una sottoscrizione del servizio condiviso o una sottoscrizione di un cliente. Per abilitare l'esportazione dei dati sui costi, è consigliabile configurare una sottoscrizione indipendente con pagamento in base al consumo nel tenant partner per ospitare i dati sui costi esportati. L'account di archiviazione di esportazione viene creato nel BLOB di Archiviazione di Azure ospitato nella sottoscrizione con pagamento in base al consumo. In base all'ambito in cui il partner crea l'esportazione, i dati associati vengono esportati automaticamente nell'account di archiviazione a scadenze regolari.
 
-Gli utenti con accesso RBAC alla sottoscrizione possono anche esportare i dati sui costi in un BLOB di Archiviazione di Azure ospitato in qualsiasi sottoscrizione nel tenant cliente.
+Gli utenti con accesso di Controllo degli accessi in base al ruolo di Azure alla sottoscrizione possono anche esportare i dati sui costi in un BLOB di Archiviazione di Azure ospitato in qualsiasi sottoscrizione nel tenant cliente.
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Creare un'esportazione in un tenant partner o un tenant cliente
 
@@ -276,7 +276,7 @@ Selezionare quindi **Aggiungi**, digitare il nome e selezionare un tipo di espor
 
 Quando si crea un'esportazione nel tenant partner, selezionare la sottoscrizione con pagamento in base al consumo nel tenant partner. Creare un account di Archiviazione di Azure usando quella sottoscrizione.
 
-Per gli utenti RBAC del tenant cliente, selezionare una sottoscrizione nel tenant cliente. Creare un account di Archiviazione di Azure usando la sottoscrizione.
+Per gli utenti di Controllo degli accessi in base al ruolo di Azure del tenant cliente, selezionare una sottoscrizione nel tenant cliente. Creare un account di Archiviazione di Azure usando la sottoscrizione.
 
 Esaminare il contenuto e quindi selezionare **Crea** per pianificare un'esportazione.
 
