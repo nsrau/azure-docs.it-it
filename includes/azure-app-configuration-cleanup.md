@@ -9,10 +9,10 @@ ms.date: 1/31/2020
 ms.author: lcozzens
 ms.custom: include file
 ms.openlocfilehash: 751613e7b3b2252b62dff2c3e1adad83bdc8c393
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88639032"
 ---
 Se non si vuole continuare a usare le risorse create in questo articolo, eliminare il gruppo di risorse creato qui per evitare addebiti.

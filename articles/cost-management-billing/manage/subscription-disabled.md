@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 32a6284c7766f3b5d9413a76056dc915a8ac93dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686803"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308963"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Riattivare una sottoscrizione di Azure disabilitata
 
@@ -32,7 +32,7 @@ Le sottoscrizioni di Azure con credito derivante dalla versione di prova gratuit
 > [!NOTE]
 > Se si usa una sottoscrizione di valutazione gratuita e si rimuove il limite di spesa, la sottoscrizione verrà convertita in sottoscrizione individuale con pagamento in base al consumo alla fine del periodo di valutazione gratuita. Conservare il credito rimanente per 30 giorni dopo la creazione della sottoscrizione. Si dispone inoltre dell'accesso ai servizi gratuiti per 12 mesi.
 
-Per monitorare e gestire l'attività di fatturazione per Azure, vedere [Evitare costi imprevisti con la gestione dei costi e la fatturazione di Azure](getting-started.md).
+Per monitorare e gestire l'attività di fatturazione per Azure, vedere [Pianificare la gestione dei costi di Azure](../understand/plan-manage-costs.md).
 
 
 ## <a name="your-bill-is-past-due"></a>Il saldo da pagare è scaduto
@@ -60,4 +60,4 @@ Per altri tipi di sottoscrizione, [contattare il supporto tecnico](https://porta
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come [Monitorare e gestire l'attività di fatturazione per Azure](getting-started.md).
+- Informazioni su come [Pianificare la gestione dei costi di Azure](../understand/plan-manage-costs.md).
