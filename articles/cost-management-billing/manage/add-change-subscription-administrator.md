@@ -1,6 +1,6 @@
 ---
 title: Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
-description: Descrive come aggiungere o modificare un amministratore di una sottoscrizione di Azure mediante il controllo degli accessi in base al ruolo.
+description: Descrive come aggiungere o modificare un amministratore di una sottoscrizione di Azure mediante Controllo degli accessi in base al ruolo di Azure.
 author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
@@ -9,21 +9,21 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 2ccdb16af788f6f8d106628742b2a83e25b26263
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 273f12765f60eb1a0d65037e30e33e58b16463bf
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683097"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372307"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
 
 
 Per gestire l'accesso alle risorse di Azure, è necessario il ruolo di amministratore appropriato. In Azure è disponibile un sistema di autorizzazione detto [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md), con diversi ruoli predefiniti tra cui è possibile scegliere. È possibile assegnare questi ruoli in ambiti diversi, ad esempio gruppo di gestione, sottoscrizione o gruppo di risorse. Per impostazione predefinita, la persona che crea una nuova sottoscrizione di Azure può assegnare ad altri utenti l'accesso amministrativo a una sottoscrizione.
 
-Questo articolo descrive come aggiungere o modificare il ruolo di amministratore per un utente mediante il controllo degli accessi in base al ruolo nell'ambito della sottoscrizione.
+Questo articolo descrive come aggiungere o modificare il ruolo di amministratore per un utente mediante Controllo degli accessi in base al ruolo di Azure nell'ambito della sottoscrizione.
 
-Microsoft consiglia di gestire l'accesso alle risorse usando il controllo degli accessi in base al ruolo. Se però si sta ancora usando il modello di distribuzione classico e si stanno gestendo le risorse classiche tramite il [modulo PowerShell di gestione del servizio Azure](/powershell/module/servicemanagement/azure.service), sarà necessario usare un amministratore classico.
+Microsoft consiglia di gestire l'accesso alle risorse usando Controllo degli accessi in base al ruolo di Azure. Se però si sta ancora usando il modello di distribuzione classico e si stanno gestendo le risorse classiche tramite il [modulo PowerShell di gestione del servizio Azure](/powershell/module/servicemanagement/azure.service), sarà necessario usare un amministratore classico.
 
 > [!TIP]
 > Se si usa solo il portale di Azure per gestire le risorse classiche, non è necessario usare l'amministratore classico.

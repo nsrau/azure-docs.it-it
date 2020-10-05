@@ -4,18 +4,18 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
-ms.openlocfilehash: bc60e7d39e6dbdf04744a10ef6c6f286e1b1ea52
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6787983421285122834479cb652fec52ee7bf72b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75987785"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360693"
 ---
 1. Accedere al [portale di Azure](https://portal.azure.com).
  
 2. Eseguire ricerche in **Gestione dei costi e fatturazione**.
  
-   ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-check-account-type/billing-search-cost-management-billing.png)    
+   ![Screenshot che illustra la ricerca di Gestione dei costi e fatturazione nel portale di Azure.](./media/billing-check-account-type/billing-search-cost-management-billing.png)    
  
 3. Se si ha accesso a un solo ambito di fatturazione, selezionare **Proprietà** sul lato sinistro.
  

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b18e08f93df143f9844fe774eee59452978d7437
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 42d9c2b4b1edac62449fa4120463a384400d6d27
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686395"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360694"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Account e ambiti di fatturazione nel portale di Azure
 
@@ -80,11 +80,11 @@ Un ambito è un nodo all'interno di un account di fatturazione che si usa per vi
 
 2. Cercare **Gestione dei costi e fatturazione**.
 
-   ![Screenshot che mostra una ricerca nel portale di Azure](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   ![Screenshot che illustra la ricerca di Gestione dei costi e fatturazione nel portale di Azure.](./media/view-all-accounts/billing-search-cost-management-billing.png)
 
 3. Nella pagina di panoramica selezionare **Cambiare ambito**.
 
-   ![Screenshot che mostra gli ambiti di fatturazione](./media/view-all-accounts/overview-select-scopes.png)
+   ![Screenshot che illustra gli ambiti di fatturazione.](./media/view-all-accounts/overview-select-scopes.png)
 
    > [!Note]
     >
@@ -92,7 +92,7 @@ Un ambito è un nodo all'interno di un account di fatturazione che si usa per vi
 
 4. Selezionare un ambito per visualizzare i dettagli.
 
-   ![Screenshot che mostra gli ambiti di fatturazione](./media/view-all-accounts/list-of-scopes.png)
+   ![Screenshot che illustra gli ambiti di fatturazione che è possibile selezionare per visualizzare i dettagli.](./media/view-all-accounts/list-of-scopes.png)
 
 ## <a name="check-the-type-of-your-account"></a>Verificare il tipo di account in uso
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]

@@ -5,19 +5,19 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: 52dd9d2f6299f8d574934e7baec54333d2ffc0c8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997575"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371406"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP
 
-Questo articolo illustra i passaggi generali necessari per trasferire le sottoscrizioni di Azure tra i partner Cloud Solution Provider (CSP) e i clienti.
+Questo articolo illustra i passaggi generali necessari per trasferire le sottoscrizioni di Azure tra i partner Cloud Solution Provider (CSP) e i clienti. Le informazioni qui contenute sono destinate al sottoscrittore di Azure per consentire il coordinamento con il partner. Le informazioni usate dai partner Microsoft per il processo di trasferimento sono descritte in [Informazioni su come trasferire sottoscrizioni di Azure di un cliente a un altro partner](/partner-center/switch-azure-subscriptions-to-a-different-partner).
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Trasferire sottoscrizioni con contratto Enterprise a un partner CSP
 
@@ -38,7 +38,7 @@ Per trasferire altre sottoscrizioni di Azure a un partner CSP, il sottoscrittore
     > [!IMPORTANT]
     > - Quando si associa una sottoscrizione a una directory di Azure AD diversa, gli utenti che dispongono di ruoli assegnati con il [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) perdono l'accesso. Anche gli amministratori delle sottoscrizioni classiche, tra cui l'amministratore del servizio e i coamministratori, perdono l'accesso.
     > - Anche le assegnazioni dei criteri vengono rimosse da una sottoscrizione quando la sottoscrizione è associata a una directory diversa.
-1. L'account utente utilizzato per il trasferimento deve avere [ il controllo degli accessi in base al ruolo](add-change-subscription-administrator.md) proprietario per entrambe le sottoscrizioni.
+1. L'account utente usato per il trasferimento deve disporre dell'accesso come proprietario di [Controllo degli accessi in base al ruolo di Azure](add-change-subscription-administrator.md) per entrambe le sottoscrizioni.
 1. Prima di iniziare, [convalidare](/rest/api/resources/resources/validatemoveresources) l'opzione secondo cui tutte le risorse di Azure possono essere spostate dalla sottoscrizione di origine alla sottoscrizione di destinazione.  
     Alcune risorse di Azure non possono essere spostate tra le sottoscrizioni. Per visualizzare l'elenco completo di risorse di Azure che possono essere spostate, vedere [Supporto per lo spostamento delle risorse](../../azure-resource-manager/management/move-support-resources.md).
     > [!IMPORTANT]
@@ -57,10 +57,10 @@ Per trasferire altre sottoscrizioni da un partner CSP a qualunque altra offerta 
     Si noti che la directory da modificare non è la sottoscrizione CSP. Ad esempio, se si esegue il trasferimento da una sottoscrizione CSP a una sottoscrizione con pagamento in base al consumo, è necessario modificare la directory della sottoscrizione con pagamento in base al consumo affinché corrisponda.
 
     > [!IMPORTANT]
-    >  - Quando si associa una sottoscrizione a una directory diversa, gli utenti che dispongono di ruoli assegnati che usano il [controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md) perdono l'accesso. Anche gli amministratori delle sottoscrizioni classiche, tra cui l'amministratore del servizio e i coamministratori, perdono l'accesso.
+    >  - Quando si associa una sottoscrizione a una directory diversa, gli utenti che dispongono di ruoli assegnati che usano [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) perdono l'accesso. Anche gli amministratori delle sottoscrizioni classiche, tra cui l'amministratore del servizio e i coamministratori, perdono l'accesso.
     >  - Anche le assegnazioni dei criteri vengono rimosse da una sottoscrizione quando la sottoscrizione è associata a una directory diversa.
 
-1. L'account utente utilizzato per il trasferimento deve avere [ il controllo degli accessi in base al ruolo](add-change-subscription-administrator.md) proprietario per entrambe le sottoscrizioni.
+1. L'account utente usato per il trasferimento deve disporre dell'accesso come proprietario di [Controllo degli accessi in base al ruolo di Azure](add-change-subscription-administrator.md) per entrambe le sottoscrizioni.
 1. Prima di iniziare, [convalidare](/rest/api/resources/resources/validatemoveresources) l'opzione secondo cui tutte le risorse di Azure possono essere spostate dalla sottoscrizione di origine alla sottoscrizione di destinazione.
     > [!IMPORTANT]
     >  - Alcune risorse di Azure non possono essere spostate tra le sottoscrizioni. Per visualizzare l'elenco completo di risorse di Azure che possono essere spostate, vedere [Supporto per lo spostamento delle risorse](../../azure-resource-manager/management/move-support-resources.md).

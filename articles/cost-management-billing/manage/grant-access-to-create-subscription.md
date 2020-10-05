@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: b154d723e82d02ea864459ef65eb5c05c14ae336
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 661b088d024a6da631fa06fbd97131091b9f650b
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88943182"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371882"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Concedere l'accesso per creare sottoscrizioni di Azure Enterprise (anteprima)
 
@@ -23,11 +23,11 @@ Come cliente di Azure, in [Enterprise Agreement (EA)](https://azure.microsoft.co
 
 ## <a name="grant-access"></a>Concedere l'accesso
 
-Per [creare sottoscrizioni in un account di registrazione](programmatically-create-subscription.md), gli utenti devono avere il [ruolo Proprietario di controllo degli accessi in base al ruolo](../../role-based-access-control/built-in-roles.md#owner) in tale account. È possibile concedere a un utente o a un gruppo di utenti il ruolo Proprietario di controllo degli accessi in base al ruolo in un account di registrazione seguendo questa procedura:
+Per [creare sottoscrizioni in un account di registrazione](programmatically-create-subscription.md), gli utenti devono avere il [ruolo Proprietario](../../role-based-access-control/built-in-roles.md#owner) di Controllo degli accessi in base al ruolo di Azure in tale account. È possibile concedere a un utente o a un gruppo di utenti il ruolo Proprietario di Controllo degli accessi in base al ruolo di Azure in un account di registrazione seguendo questa procedura:
 
 1. Ottenere l'ID oggetto dell'account di registrazione a cui si vuole concedere l'accesso
 
-    Per concedere ad altri utenti il ruolo Proprietario di controllo degli accessi in base al ruolo in un account di registrazione, è necessario essere il Proprietario dell'account o un Proprietario di controllo degli accessi in base al ruolo dell'account.
+    Per concedere ad altri utenti il ruolo Proprietario di Controllo degli accessi in base al ruolo di Azure in un account di registrazione, è necessario essere il Proprietario dell'account o un Proprietario di Controllo degli accessi in base al ruolo di Azure dell'account.
 
     # <a name="rest"></a>[REST](#tab/rest)
 
@@ -62,7 +62,7 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
     }
     ```
 
-    Usare la proprietà `principalName` per identificare l'account per cui si vuole concedere l'accesso al Proprietario di Controllo degli accessi in base al ruolo. Copiare il valore `name` di tale account. Se ad esempio si vuole concedere al Proprietario di controllo degli accessi in base al ruolo l'accesso all'account di registrazione SignUpEngineering@contoso.com, copiare ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. È l'ID oggetto dell'account di registrazione. Incollare questo valore da qualche parte per poterlo usare nel passaggio successivo come `enrollmentAccountObjectId`.
+    Usare la proprietà `principalName` per identificare l'account per cui si vuole concedere al Proprietario di Controllo degli accessi in base al ruolo di Azure. Copiare il valore `name` di tale account. Se, ad esempio, si vuole concedere al Proprietario di Controllo degli accessi in base al ruolo di Azure l'accesso all'account di registrazione SignUpEngineering@contoso.com, copiare ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. È l'ID oggetto dell'account di registrazione. Incollare questo valore da qualche parte per poterlo usare nel passaggio successivo come `enrollmentAccountObjectId`.
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -80,7 +80,7 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    Usare la proprietà `principalName` per identificare l'account per cui si vuole concedere l'accesso al Proprietario di controllo degli accessi in base al ruolo. Copiare il valore `ObjectId` di tale account. Se ad esempio si vuole concedere al Proprietario di controllo degli accessi in base al ruolo l'accesso all'account di registrazione SignUpEngineering@contoso.com, copiare ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Incollare l'ID oggetto da qualche parte per poterlo usare nel passaggio successivo come `enrollmentAccountObjectId`.
+    Usare la proprietà `principalName` per identificare l'account per cui si vuole concedere l'accesso al Proprietario di Controllo degli accessi in base al ruolo di Azure. Copiare il valore `ObjectId` di tale account. Se, ad esempio, si vuole concedere al Proprietario di Controllo degli accessi in base al ruolo di Azure l'accesso all'account di registrazione SignUpEngineering@contoso.com, copiare ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Incollare l'ID oggetto da qualche parte per poterlo usare nel passaggio successivo come `enrollmentAccountObjectId`.
 
     # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -111,18 +111,18 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
 
     ---
 
-    Usare la proprietà `principalName` per identificare l'account per cui si vuole concedere l'accesso al Proprietario di controllo degli accessi in base al ruolo. Copiare il valore `name` di tale account. Se ad esempio si vuole concedere al Proprietario di controllo degli accessi in base al ruolo l'accesso all'account di registrazione SignUpEngineering@contoso.com, copiare ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. È l'ID oggetto dell'account di registrazione. Incollare questo valore da qualche parte per poterlo usare nel passaggio successivo come `enrollmentAccountObjectId`.
+    Usare la proprietà `principalName` per identificare l'account per cui si vuole concedere l'accesso al Proprietario di Controllo degli accessi in base al ruolo di Azure. Copiare il valore `name` di tale account. Se, ad esempio, si vuole concedere al Proprietario di Controllo degli accessi in base al ruolo di Azure l'accesso all'account di registrazione SignUpEngineering@contoso.com, copiare ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. È l'ID oggetto dell'account di registrazione. Incollare questo valore da qualche parte per poterlo usare nel passaggio successivo come `enrollmentAccountObjectId`.
 
-1. <a id="userObjectId"></a>Ottenere l'ID oggetto dell'utente o gruppo a cui si vuole assegnare il ruolo Proprietario di controllo degli accessi in base al ruolo
+1. <a id="userObjectId"></a>Ottenere l'ID oggetto dell'utente o gruppo a cui si vuole assegnare il ruolo Proprietario di Controllo degli accessi in base al ruolo di Azure
 
     1. Nel portale di Azure cercare **Azure Active Directory**.
     1. Se si vuole concedere l'accesso a un utente, scegliere **Utenti** dal menu a sinistra. Per concedere l'accesso a un gruppo, selezionare **Gruppi**.
-    1. Selezionare l'utente o il gruppo a cui si vuole concedere il ruolo Proprietario di controllo degli accessi in base al ruolo.
+    1. Selezionare l'utente o il gruppo a cui si vuole assegnare il ruolo Proprietario di Controllo degli accessi in base al ruolo di Azure.
     1. Se è stato selezionato un utente, l'ID oggetto sarà disponibile nella pagina Profilo. Se è stato selezionato un gruppo, l'ID oggetto sarà disponibile nella pagina Panoramica. Copiare il valore **ObjectID** selezionando l'icona alla destra della casella di testo. Incollare questo valore da qualche parte per poterlo usare nel passaggio successivo come `userObjectId`.
 
-1. Concedere all'utente o gruppo il ruolo Proprietario di controllo degli accessi in base al ruolo nell'account di registrazione
+1. Concedere all'utente o al gruppo il ruolo Proprietario di Controllo degli accessi in base al ruolo di Azure nell'account di registrazione
 
-    Usando i valori raccolti nei primi due passaggi, concedere all'utente o al gruppo il ruolo Proprietario di controllo degli accessi in base al ruolo nell'account di registrazione.
+    Usando i valori raccolti nei primi due passaggi, concedere all'utente o al gruppo il ruolo Proprietario di Controllo degli accessi in base al ruolo di Azure nell'account di registrazione.
 
     # <a name="rest"></a>[REST](#tab/rest-2)
 
@@ -174,7 +174,7 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Quando un utente diventa Proprietario di controllo degli accessi in base al ruolo per l'account di registrazione, può [creare sottoscrizioni a livello di codice](programmatically-create-subscription.md) in tale account. In una sottoscrizione creata da un utente delegato il proprietario dell'account originale è ancora amministratore del servizio, ma anche l'utente delegato è un Proprietario di controllo degli accessi in base al ruolo per impostazione predefinita.
+    Quando un utente diventa Proprietario di Controllo degli accessi in base al ruolo di Azure per l'account di registrazione, può [creare sottoscrizioni a livello di codice](programmatically-create-subscription.md) in tale account. In una sottoscrizione creata da un utente delegato il proprietario dell'account originale è ancora amministratore del servizio, ma anche l'utente delegato è un Proprietario di Controllo degli accessi in base al ruolo di Azure per impostazione predefinita.
 
     ---
 

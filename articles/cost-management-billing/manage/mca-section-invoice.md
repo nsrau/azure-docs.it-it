@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 9f5e69a609931f4f8ead62f4d5c5ba2a1064a6ea
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6424fc0ff49566fad949b3fba4718acb2bad4cd3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683012"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362773"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organizzare i costi personalizzando l'account di fatturazione
 
@@ -53,19 +53,19 @@ Questa sezione descrive gli scenari comuni per l'organizzazione dei costi e dell
 |---------|---------|
 |Jack si iscrive ad Azure. Gli serve un'unica fattura mensile. | Un profilo di fatturazione e una sezione della fattura. Questa struttura viene configurata automaticamente per Jack quando si iscrive ad Azure e non richiede passaggi aggiuntivi. |
 
-![Immagine grafica con informazioni relative a uno scenario di fatturazione semplice](./media/mca-section-invoice/organize-billing-scenario1.png)
+![Infografica con informazioni relative a uno scenario di fatturazione singolo.](./media/mca-section-invoice/organize-billing-scenario1.png)
 
 |Scenario  |Struttura  |
 |---------|---------|
 |Contoso è un'organizzazione di piccole dimensioni che necessita di un'unica fattura mensile, ma con i costi raggruppati per reparto. I reparti sono Marketing ed Engineering.  | Un profilo di fatturazione per Contoso e una sezione della fattura per ognuno dei reparti Marketing ed Engineering. |
 
-![Immagine grafica con informazioni relative a uno scenario di fatturazione semplice](./media/mca-section-invoice/organize-billing-scenario2.png)
+![Infografica con informazioni relative a uno scenario di fatturazione multiplo.](./media/mca-section-invoice/organize-billing-scenario2.png)
 
 |Scenario  |Struttura  |
 |---------|---------|
 |Fabrikam è un'organizzazione di medie dimensioni che necessita di una fattura separata per ognuno dei propri reparti, Engineering e Marketing. Per il reparto Engineering, Fabrikam vuole raggruppare i costi in base agli ambienti: Production e Development.  | Un profilo di fatturazione per ognuno dei reparti Marketing ed Engineering. Per il reparto Engineering, una sezione della fattura per ognuno degli ambienti Production e Development. |
 
-![Immagine grafica con informazioni relative a uno scenario di fatturazione semplice](./media/mca-section-invoice/organize-billing-scenario3.png)
+![Inografica per uno scenario di fatturazione multiplo, con fatturazione separata per ambienti di produzione e di sviluppo.](./media/mca-section-invoice/organize-billing-scenario3.png)
 
 ## <a name="create-a-new-invoice-section"></a>Creare una nuova sezione della fattura
 
@@ -79,7 +79,7 @@ Per creare una sezione della fattura, è necessario essere un **proprietario del
 
 3. Selezionare **Profili di fatturazione** dal riquadro a sinistra. Selezionare un profilo di fatturazione dall'elenco. La nuova sezione verrà visualizzata nella fattura del profilo di fatturazione selezionato.
 
-   [![Screenshot che visualizza l'elenco dei profili di fatturazione](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Screenshot che illustra l'elenco dei profili di fatturazione.](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
 4. Selezionare **Sezioni della fattura** dal riquadro a sinistra e quindi selezionare **Aggiungi** nella parte superiore della pagina.
 
@@ -107,7 +107,7 @@ Per creare un profilo di fatturazione, è necessario essere **proprietario dell'
 
 3. Selezionare **Profili di fatturazione** dal riquadro a sinistra e quindi selezionare **Aggiungi** nella parte superiore della pagina.
 
-   [![Screenshot che visualizza l'elenco dei profili di fatturazione](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
+   [![Screenshot che illustra l'elenco dei profili di fatturazione con l'opzione Aggiungi selezionata.](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
 
     > [!Note]
     >
@@ -136,15 +136,15 @@ Dopo aver personalizzato l'account di fatturazione in base alle esigenze, è pos
 
 2. Cercare **Sottoscrizioni**.
 
-   [![Screenshot che illustra la ricerca di sottoscrizioni nel portale](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
+   [![Screenshot che illustra la ricerca di sottoscrizioni nel portale di Azure.](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
 
 3. Selezionare **Aggiungi** nella parte superiore della pagina.
 
-   ![Screenshot che mostra il pulsante Aggiungi nella visualizzazione Sottoscrizioni](./media/mca-section-invoice/subscription-add.png)
+   ![Screenshot che illustra il pulsante Aggiungi nella visualizzazione Sottoscrizioni per una nuova sottoscrizione.](./media/mca-section-invoice/subscription-add.png)
 
 4. Se si ha accesso a più account di fatturazione, selezionare quello relativo al Contratto del cliente Microsoft.
 
-   ![Screenshot che mostra il pulsante Aggiungi nella visualizzazione Sottoscrizioni](./media/mca-section-invoice/mca-create-azure-subscription.png)
+   ![Screenshot che illustra il riquadro Crea sottoscrizione.](./media/mca-section-invoice/mca-create-azure-subscription.png)
 
 5. Selezionare il profilo di fatturazione a cui fatturare l'utilizzo della sottoscrizione. I costi per l'utilizzo di Azure e per gli altri acquisti correlati a questa sottoscrizione verranno addebitati nella fattura per il profilo di fatturazione selezionato.
 
@@ -166,7 +166,7 @@ Se si hanno già sottoscrizioni di Azure o altri prodotti, ad esempio Azure Mark
 
 2. Cercare **Gestione dei costi e fatturazione**.
 
-   ![Screenshot che mostra la ricerca di Sottoscrizioni nel portale](./media/mca-section-invoice/search-cmb.png)
+   ![Screenshot che illustra la ricerca di Gestione dei costi e fatturazione nel portale di Azure.](./media/mca-section-invoice/search-cmb.png)
 
 3. Per collegare una sottoscrizione a una nuova sezione della fattura, selezionare **Sottoscrizioni di Azure** sul lato sinistro della schermata. Per altri prodotti, ad esempio Azure Marketplace e le risorse di origine delle app, selezionare **Addebiti ricorrenti**.
 

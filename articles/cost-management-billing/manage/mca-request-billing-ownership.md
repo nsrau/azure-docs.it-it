@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 233cc5330096b9b6419c8024205a41646ddd9519
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2aae71836a4eaba845e4752edf708607977763fa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682961"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371865"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure da altri account
 
@@ -152,7 +152,7 @@ Se si trasferiscono sottoscrizioni con contratto Enterprise (EA) o Contratti del
 
 ### <a name="access-to-azure-services"></a>Accesso ai servizi di Azure
 
-La transizione non influisce sull'accesso per utenti, gruppi o entità servizio esistenti assegnati con il controllo degli accessi in base al ruolo di Azure[../role-based-access-control/overview.md].
+La transizione non influisce sull'accesso per utenti, gruppi o entità servizio esistenti assegnati con [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md).
 
 ### <a name="azure-support-plan"></a>Piano di supporto tecnico di Azure
 

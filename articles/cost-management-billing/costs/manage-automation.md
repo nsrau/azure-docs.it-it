@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2bf28384ae672440a18331cad8ac95f6ea051b85
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526647"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372188"
 ---
 # <a name="manage-costs-with-automation"></a>Gestire i costi con l'automazione
 
@@ -234,7 +234,7 @@ Esistono diversi modi per configurare un budget nell'ambiente Azure. Considerare
 - **Periodo di tempo**: indica per quanto tempo il budget è valido. Il budget monitora e avvisa attivamente solo se rimane valido.
 - **Notifications**
   - Indirizzi di posta elettronica di contatto: gli indirizzi di posta elettronica ricevono gli avvisi quando un budget accumula i costi e supera le soglie definite.
-  - Ruoli di contatto: con questa opzione tutti gli utenti con un ruolo di controllo degli accessi in base al ruolo di Azure corrispondente nell'ambito specificato ricevono gli avvisi di posta elettronica. Ad esempio, i proprietari della sottoscrizione potrebbero ricevere un avviso per un budget creato nell'ambito della sottoscrizione.
+  - Ruoli di contatto: con questa opzione tutti gli utenti con un ruolo di Azure corrispondente nell'ambito specificato ricevono gli avvisi di posta elettronica. Ad esempio, i proprietari della sottoscrizione potrebbero ricevere un avviso per un budget creato nell'ambito della sottoscrizione.
   - Gruppi di contatti: il budget chiama i gruppi di azioni configurati quando viene superata una soglia di avviso.
 - **Filtri dimensione costi**: gli stessi filtri che è possibile applicare all'analisi dei costi o all'API di query possono essere applicati al budget. Usare questo filtro per ridurre l'intervallo di costi che si sta monitorando con il budget.
 

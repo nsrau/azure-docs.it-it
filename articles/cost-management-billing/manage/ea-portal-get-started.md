@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 8997cf5e86eb79b527c0b37ef0b85556469aea98
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0404e3b268f5797e34b3818df8eebeefbe68a1f3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687638"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371950"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introduzione ad Azure Enterprise Portal
 
@@ -242,10 +242,10 @@ Per il trasferimento degli account tenere a mente queste importanti informazioni
 
 - Al termine del trasferimento di una sottoscrizione, Microsoft aggiorna il proprietario dell'account.
 
-Informazioni sui criteri di controllo degli accessi in base al ruolo (RBAC):
+Informazioni sui criteri di Controllo degli accessi in base al ruolo di Azure:
 
-- Quando si eseguono trasferimenti di sottoscrizioni tra due ID organizzativi dello stesso tenant, i criteri di Controllo degli accessi in base al ruolo e i ruoli di amministratore del servizio e coamministratore esistenti vengono mantenuti.
-- Altri trasferimenti di sottoscrizioni generano la perdita dei criteri di controllo degli accessi in base al ruolo e delle assegnazioni di ruoli.
+- Quando si eseguono trasferimenti di sottoscrizioni tra due ID organizzativi dello stesso tenant, i criteri di Controllo degli accessi in base al ruolo di Azure e i ruoli di amministratore del servizio e coamministratore esistenti vengono mantenuti.
+- Altri trasferimenti di sottoscrizioni generano la perdita dei criteri di Controllo degli accessi in base al ruolo di Azure e delle assegnazioni di ruoli.
 - I criteri e i ruoli di amministratore non vengono trasferiti tra directory diverse. Gli amministratori del servizio vengono aggiornati nel proprietario dell'account di destinazione.
 
 Prima di cambiare il proprietario di un account:
@@ -569,7 +569,7 @@ Dopo aver creato reparti e sottoscrizioni, è possibile visualizzare i dati nel 
 
 Per definire la quota di spesa, selezionare un reparto e quindi selezionare l'icona di modifica. Dopo aver modificato i dettagli relativi al limite di spesa selezionare **Salva**.
 
-### <a name="i-used-resource-groups-to-implement-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>Sono stati usati gruppi di risorse per implementare il controllo degli accessi in base al ruolo e rilevare l'utilizzo. Come è possibile visualizzare i dettagli di utilizzo associati?
+### <a name="i-used-resource-groups-to-implement-azure-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>Sono stati usati gruppi di risorse per implementare Controllo degli accessi in base al ruolo di Azure e rilevare l'utilizzo. Come è possibile visualizzare i dettagli di utilizzo associati?
 
 Se si usano i _gruppi di risorse_ e i _tag_, queste informazioni vengono rilevate a livello di servizio ed è possibile accedervi nel file di utilizzo dettagliato scaricabile (con estensione csv). Vedere il [report sull'utilizzo](https://ea.azure.com/report/downloadusage) scaricabile in Azure Enterprise Portal.
 

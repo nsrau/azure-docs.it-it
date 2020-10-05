@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: cffb753d515c4d066c8ce52e7dacebe5a8f6f8ca
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 12b20f7556a460506067305401fb2379678ee58e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682638"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371695"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API per l'automazione delle prenotazioni di Azure
 
@@ -88,9 +88,9 @@ Se si ritiene che le prenotazioni dell'organizzazione siano sottoutilizzate:
 
 Ottenere l'elenco di tutte le prenotazioni a cui un utente può accedere usando l'[API Reservation - Operation - List](/rest/api/reserved-vm-instances/reservationorder/list). Per consentire l'accesso a una prenotazione a livello di codice, vedere uno degli articoli seguenti:
 
-- [Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'API REST](../../role-based-access-control/role-assignments-rest.md)
-- [Gestire l'accesso tramite il controllo degli accessi in base al ruolo e Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure](../../role-based-access-control/role-assignments-cli.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST](../../role-based-access-control/role-assignments-rest.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia della riga di comando di Azure](../../role-based-access-control/role-assignments-cli.md)
 
 ## <a name="split-or-merge-reservation"></a>Dividere o unire una prenotazione
 

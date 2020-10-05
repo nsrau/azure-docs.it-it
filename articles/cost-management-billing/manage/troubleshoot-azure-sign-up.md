@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 86f9f92810cff241f816dadfc6e1e8ca120f1f4a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3e611e25288d52b0be93c76e8a3a28ce6d7d5088
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686650"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326607"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Risolvere i problemi di iscrizione a un nuovo account nel portale di Azure o nel Centro account di Azure
 
@@ -131,7 +131,7 @@ Seguire questa procedura per aggiornare le impostazioni relative ai cookie del b
 
 ### <a name="i-saw-a-charge-on-my-free-trial-account"></a>Viene visualizzato un addebito sull'account di valutazione gratuita
 
-Dopo l'iscrizione, si potrebbe notare una piccola trattenuta di verifica temporanea sulla carta di credito. Questa trattenuta viene rimossa entro tre-cinque giorni. Se si è preoccupati della gestione dei costi, leggere altre informazioni per [evitare costi imprevisti](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started).
+Dopo l'iscrizione, si potrebbe notare una piccola trattenuta di verifica temporanea sulla carta di credito. Questa trattenuta viene rimossa entro tre-cinque giorni. Se si è preoccupati per la gestione dei costi, leggere altre informazioni in [Analizzare gli addebiti imprevisti](../understand/analyze-unexpected-charges.md).
 
 ## <a name="agreement"></a>Contratto
 

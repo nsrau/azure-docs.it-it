@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: afa95609e0bcb879b6ad4b3b50b5dff5feb9a9f7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5498fd83efa0fa52f5f0861588eaa8cdeb0953ac
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682791"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371797"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurare l'account di fatturazione per un Contratto del cliente Microsoft
 
@@ -132,7 +132,7 @@ L'esecuzione dei servizi di Azure della sottoscrizione continua senza interruzio
 
 ### <a name="user-access-to-azure-resources"></a>Accesso degli utenti alle risorse di Azure
 
-La transizione non influisce sull'accesso alle risorse di Azure impostate con il controllo degli accessi in base al ruolo di Azure.
+La transizione non influisce sull'accesso alle risorse di Azure impostate con Controllo degli accessi in base al ruolo di Azure.
 
 ### <a name="azure-reservations"></a>Prenotazioni di Azure
 
@@ -225,7 +225,7 @@ Eventuali prenotazioni di Azure presenti nella registrazione del contratto Enter
 
 4. Selezionare **Controllo di accesso (IAM)** sul lato sinistro.
 
-   ![Screenshot che mostra l'accesso degli amministratori dell'organizzazione post-transizione](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
+   ![Screenshot che illustra l'accesso degli amministratori dell'organizzazione elencati come proprietari dell'account di fatturazione post-transizione.](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
 
 Gli amministratori dell'organizzazione sono elencati come proprietari dell'account di fatturazione mentre gli amministratori dell'organizzazione con autorizzazioni di sola lettura sono elencati come lettori dell'account di fatturazione. Se si ritiene che manchi l'accesso per un qualsiasi amministratore dell'organizzazione, è possibile concedere loro l'accesso nel portale di Azure. Per altre informazioni, vedere [Gestire i ruoli di fatturazione nel portale di Azure](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
@@ -241,7 +241,7 @@ Gli amministratori dell'organizzazione sono elencati come proprietari dell'accou
 
 4. Selezionare **Controllo di accesso (IAM)** sul lato sinistro.
 
-   ![Screenshot che mostra l'accesso degli amministratori dell'organizzazione post-transizione](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
+   ![Screenshot che illustra l'accesso degli amministratori dell'organizzazione elencati come proprietari del profilo di fatturazione post-transizione.](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
 
 Gli amministratori dell'organizzazione sono elencati come proprietari del profilo di fatturazione mentre gli amministratori dell'organizzazione con autorizzazioni di sola lettura sono elencati come lettori per il profilo di fatturazione. Se si ritiene che manchi l'accesso per un qualsiasi amministratore dell'organizzazione, è possibile concedere loro l'accesso nel portale di Azure. Per altre informazioni, vedere [Gestire i ruoli di fatturazione nel portale di Azure](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 

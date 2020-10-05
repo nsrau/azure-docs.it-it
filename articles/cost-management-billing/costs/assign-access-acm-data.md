@@ -9,20 +9,20 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: c69dc63af6bacb4aaf1beda1a0846a98b06ec209
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 660b5751e3b3cbc632331e99d797af3392a8aea4
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689253"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371967"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Assegnare l’accesso ai dati di Gestione costi
 
-Per gli utenti con contratti Enterprise di Azure, una combinazione di autorizzazioni concesse nel portale di Azure e nel portale Enterprise (EA) definisce il livello di accesso di un utente ai dati di Gestione costi di Azure. Per gli utenti con altri tipi di account di Azure, la definizione di un livello di accesso ai dati di Gestione costi è più semplice usando il controllo degli accessi in base al ruolo di Azure. Questo articolo illustra l'assegnazione dell'accesso ai dati di Gestione costi. Dopo l'assegnazione della combinazione di autorizzazioni, l'utente può visualizza i dati in Gestione costi in base all'ambito di accesso di cui dispone e all'ambito che ha selezionato nel portale di Azure.
+Per gli utenti con contratti Enterprise di Azure, una combinazione di autorizzazioni concesse nel portale di Azure e nel portale Enterprise (EA) definisce il livello di accesso di un utente ai dati di Gestione costi di Azure. Per gli utenti con altri tipi di account Azure, la definizione di un livello di accesso ai dati di Gestione costi è più semplice usando Controllo degli accessi in base al ruolo di Azure. Questo articolo illustra l'assegnazione dell'accesso ai dati di Gestione costi. Dopo l'assegnazione della combinazione di autorizzazioni, l'utente può visualizza i dati in Gestione costi in base all'ambito di accesso di cui dispone e all'ambito che ha selezionato nel portale di Azure.
 
 L'ambito selezionato dall’utente viene usato in Gestione costi per fornire il consolidamento dei dati e per controllare l'accesso alle informazioni sui costi. Quando si usano gli ambiti, gli utenti non possono selezionarne più di uno. Possono tuttavia selezionare un ambito più ampio al quale si riferiscono ambiti secondari e quindi filtrare i contenuti che desiderano visualizzare. È importante comprendere il consolidamento dei dati perché alcuni utenti non devono avere accesso a un ambito padre a cui appartengono ambiti figlio.
 
-Per informazioni sull'assegnazione dell'accesso per visualizzare i costi e gli addebiti con il controllo degli accessi in base al ruolo di Azure, vedere il video sul [controllo dell'accesso di Gestione costi](https://www.youtube.com/watch?v=_uQzQ9puPyM). Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
+Per informazioni sull'assegnazione dell'accesso per visualizzare i costi e gli addebiti con Controllo degli accessi in base al ruolo di Azure, vedere il video sul [controllo dell'accesso di Gestione costi](https://www.youtube.com/watch?v=_uQzQ9puPyM). Per guardare altri video, visitare il [canale YouTube di Gestione costi](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
@@ -71,7 +71,7 @@ Per abilitare un'opzione nel portale di Azure:
 1. In **Impostazioni** selezionare la voce di menu **Criteri** e quindi configurare l'impostazione.  
     ![Criteri dell'ambito di fatturazione che mostrano le opzioni di visualizzazione degli addebiti](./media/assign-access-acm-data/azure-portal-policies-view-charges.png)
 
-Una volta abilitate le opzioni di visualizzazione addebiti, per la maggior parte degli ambiti è anche necessario configurare l'autorizzazione di controllo degli accessi in base al ruolo (RBAC) nel portale di Azure.
+Una volta abilitate le opzioni di visualizzazione addebiti, per la maggior parte degli ambiti è anche necessario configurare l'autorizzazione di Controllo degli accessi in base al ruolo di Azure nel portale di Azure.
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Abilitare l'accesso ai costi nel portale EA
 
@@ -84,7 +84,7 @@ Per abilitare un'opzione in EA Portal:
 3. Per gli ambiti di Gestione costi ai quali si desidera fornire l’accesso, abilitare l’opzione **Visualizzazione addebiti abilitata per gli amministratori di reparto** e/o **Visualizzazione addebiti abilitata per i proprietari dell'account**.  
     ![Scheda di registrazione che mostra le opzioni di visualizzazione addebiti per amministratori di reparto e per i proprietari dell’account](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-Una volta abilitate le opzioni di visualizzazione addebiti, per la maggior parte degli ambiti è anche necessario configurare l'autorizzazione di controllo degli accessi in base al ruolo (RBAC) nel portale di Azure.
+Una volta abilitate le opzioni di visualizzazione addebiti, per la maggior parte degli ambiti è anche necessario configurare l'autorizzazione di Controllo degli accessi in base al ruolo di Azure nel portale di Azure.
 
 ## <a name="enterprise-administrator-role"></a>Ruolo Amministratore azienda
 
@@ -182,9 +182,9 @@ Per accedere a un gruppo di risorse è richiesta almeno l'autorizzazione Lettore
 
 ## <a name="cross-tenant-authentication-issues"></a>Problemi di autenticazione tra tenant
 
-Attualmente Gestione costi di Azure offre un supporto limitato per l'autenticazione tra tenant. In alcuni casi, quando si tenta di eseguire l'autenticazione tra i tenant, è possibile che venga visualizzato un errore **Accesso negato** nell'analisi dei costi. Questo problema può verificarsi se si configura il controllo degli accessi in base al ruolo per la sottoscrizione di un altro tenant e si tenta di visualizzare i dati sui costi.
+Attualmente Gestione costi di Azure offre un supporto limitato per l'autenticazione tra tenant. In alcuni casi, quando si tenta di eseguire l'autenticazione tra i tenant, è possibile che venga visualizzato un errore **Accesso negato** nell'analisi dei costi. Questo problema può verificarsi se si configura Controllo degli accessi in base al ruolo di Azure per la sottoscrizione di un altro tenant e si tenta di visualizzare i dati sui costi.
 
-*Soluzione alternativa per ovviare al problema*: dopo aver configurato il controllo degli accessi in base al ruolo tra tenant, attendere un'ora. Quindi provare a visualizzare i costi nell'analisi dei costi o concedere l'accesso di Gestione costi agli utenti in entrambi i tenant.  
+*Soluzione alternativa per ovviare al problema*: dopo aver configurato Controllo degli accessi in base al ruolo di Azure tra tenant, attendere un'ora. Quindi provare a visualizzare i costi nell'analisi dei costi o concedere l'accesso di Gestione costi agli utenti in entrambi i tenant.  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

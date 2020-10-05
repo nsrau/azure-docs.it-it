@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: overview
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: carlr
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 03/10/2020
-ms.openlocfilehash: 8c9bdb059008a3d9e33631c3101cb7b459660119
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 6b4b31ab4bc0cb1fe5bd9140870df86db6841ff3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436783"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91450353"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizzare le attività di gestione con processi di database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -249,7 +249,7 @@ L'**esempio 3** mostra un gruppo di destinazione simile a quello dell'*esempio 2
 L'**esempio 4** mostra un gruppo di destinazione contenente un pool elastico come destinazione. Analogamente all'*esempio 2*, il pool verrà enumerato in modo dinamico in fase di esecuzione del processo per determinare l'elenco dei database nel pool.
 <br><br>
 
-![Esempi di gruppi di destinazione](./media/job-automation-overview/targetgroup-examples2.png)
+![Altri esempi di gruppi di destinazione](./media/job-automation-overview/targetgroup-examples2.png)
 
 L'**esempio 5** e l'**esempio 6** mostrano scenari avanzati in cui server, pool elastici e database possono essere combinati usando regole di inclusione e di esclusione.<br>
 L'**esempio 7** mostra che in fase di esecuzione del processo possono essere valutate anche le partizioni in una mappa delle partizioni.
