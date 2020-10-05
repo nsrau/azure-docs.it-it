@@ -7,18 +7,18 @@ ms.date: 9/12/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3f59bae9864e533270b0bfea829f64ccf541a8a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 500fa45db7e0e6bffb587d9d352ee1ab49f14703
+ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301432"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712273"
 ---
 # <a name="harden-your-docker-hosts"></a>Proteggere in modo avanzato gli host Docker
 
-Il Centro sicurezza di Azure identifica i contenitori non gestiti ospitati in macchine virtuali IaaS Linux o altri computer Linux che eseguono contenitori docker. Il Centro sicurezza valuta continuamente le configurazioni di questi contenitori. Viene quindi confrontato con il [benchmark Docker di Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/docker/).
+Il Centro sicurezza di Azure identifica i contenitori non gestiti ospitati in VM Linux IaaS o in altre VM Linux che eseguono contenitori Docker. Il Centro sicurezza valuta continuamente le configurazioni di questi contenitori. Le confronta quindi con [CIS Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
 
-Il Centro sicurezza include l'intero set di regole del benchmark Docker di CIS e avvisa l'utente se i contenitori non soddisfano i controlli. Quando rileva configurazioni non configurate, il Centro sicurezza genera raccomandazioni sulla sicurezza. Usare la **pagina raccomandazioni** del Centro sicurezza per visualizzare le raccomandazioni e correggere i problemi.
+Il Centro sicurezza include l'intero set di regole di CIS Docker Benchmark e invia avvisi se i contenitori non soddisfano i controlli. Quando rileva errori di configurazione, il Centro sicurezza genera raccomandazioni sulla sicurezza. Usare la **pagina delle raccomandazioni** del Centro sicurezza per visualizzare le raccomandazioni e correggere i problemi.
 
 Quando vengono rilevate vulnerabilità, vengono raggruppate all'interno di un'unica raccomandazione.
 
@@ -29,10 +29,10 @@ Quando vengono rilevate vulnerabilità, vengono raggruppate all'interno di un'un
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Disponibile a livello generale|
-|Prezzi|Richiede [Azure Defender per i server](defender-for-servers-introduction.md)|
-|Ruoli e autorizzazioni necessari:|**Reader** nell'area di lavoro a cui si connette l'host|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
+|Stato della versione:|Disponibile a livello generale|
+|Prezzi:|Richiede [Azure Defender per i server](defender-for-servers-introduction.md)|
+|Autorizzazioni e ruoli obbligatori:|**Reader** nell'area di lavoro a cui si connette l'host|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 
 ## <a name="identify-and-remediate-security-vulnerabilities-in-your-docker-configuration"></a>Identificare e correggere le vulnerabilità di sicurezza nella configurazione di Docker
@@ -50,11 +50,11 @@ Quando vengono rilevate vulnerabilità, vengono raggruppate all'interno di un'un
     > [!TIP]
     > Se è stata avviata la pagina inventario asset ed è stata raggiunta questa raccomandazione da qui, seleziona il pulsante di **azione** nella pagina di raccomandazione.
     >
-    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Pulsante azione per avviare Log Analytics":::
+    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Raccomandazione per correggere le vulnerabilità nelle configurazioni di sicurezza del contenitore ":::
 
     Log Analytics si apre con un'operazione personalizzata pronta per l'esecuzione. La query personalizzata predefinita include un elenco di tutte le regole non riuscite valutate, insieme alle linee guida che consentono di risolvere i problemi.
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Log Analytics pagina con la query che Mostra tutti i controlli CIS non riusciti":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Raccomandazione per correggere le vulnerabilità nelle configurazioni di sicurezza del contenitore ":::
 
 1. Se necessario, modificare i parametri della query.
 
