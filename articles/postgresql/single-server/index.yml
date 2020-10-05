@@ -3,17 +3,17 @@ title: Documentazione di Database di Azure per PostgreSQL - Server singolo
 summary: Il database di Azure per PostgreSQL è un servizio di database relazionale basato sul motore di database Postgres open source.  Server singolo è una delle diverse opzioni di distribuzione disponibili per la creazione di un server PostgreSQL. Le guide introduttive, le esercitazioni e gli esempi illustrano come usare Server singolo.
 metadata:
   description: Database di Azure per PostgreSQL è un servizio di database relazionale incluso in Microsoft Cloud, creato per gli sviluppatori e basato sul motore di database PostgreSQL open source.
-  author: rachel-msft
-  ms.author: raagyema
+  author: sunilagarwal
+  ms.author: sunila
   ms.date: 09/20/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 833b35b7a2f597186c69d95fc4ab8f2704b59c91
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 34ecc6339f1ade7fd9f0bc427982b1b322d79f56
+  ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90928836"
+  ms.lasthandoff: 10/04/2020
+  ms.locfileid: "91710156"
 landingContent:
 - title: Informazioni su Server singolo
   linkLists:
