@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b603776ce19bca8d6fefa7c3c85366ebe3b7b01f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1f335640eb37f51857fa295298d0a3ca91f2a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653801"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714989"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduzione ai servizi di archiviazione di Azure di base
 
@@ -49,7 +49,7 @@ Nella tabella seguente vengono confrontati i file, i BLOB, i dischi, le code e l
 | **Code di Azure** | Consente la coda asincrona dei messaggi tra i componenti dell'applicazione. | Si desidera separare i componenti dell'applicazione e utilizzare la messaggistica asincrona per comunicare tra di essi.<br><br>Per indicazioni su quando usare l'archiviazione di Accodamento e le code del bus di servizio, vedere Code di [archiviazione e code del bus di servizio-confronto e contrasto](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
 | **Tabelle di Azure** | Consente di archiviare dati NoSQL strutturati nel cloud, offrendo un archivio di chiavi/attributi con una progettazione senza schema. | Si desidera archiviare set di dati flessibili come i dati utente per le applicazioni Web, le rubriche, le informazioni sui dispositivi o altri tipi di metadati richiesti dal servizio. <br/><br/>Per indicazioni su quando usare l'archiviazione tabelle rispetto alla Azure Cosmos DB API Tabella, vedere [sviluppo con Azure Cosmos DB API tabella e archiviazione tabelle di Azure](../../cosmos-db/table-support.md). |
 
-## <a name="blob-storage"></a>Archiviazione - BLOB
+## <a name="blob-storage"></a>Archiviazione BLOB
 
 L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. L'archivio BLOB è ottimizzato per l'archiviazione di enormi quantità di dati non strutturati, come dati di testo o binari.
 
@@ -111,7 +111,7 @@ Archiviazione di Azure offre diversi tipi di account di archiviazione. Ogni tipo
 
 Ogni richiesta ad archiviazione di Azure deve essere autorizzata. Archiviazione di Azure supporta i seguenti metodi di autorizzazione:
 
-- **Integrazione di Azure Active Directory (Azure AD) per i dati di BLOB e di Accodamento.** Archiviazione di Azure supporta l'autenticazione e l'autorizzazione con Azure AD per i servizi BLOB e di accodamento tramite il controllo degli accessi in base al ruolo (RBAC). L'autorizzazione delle richieste con Azure AD è consigliata per una maggiore sicurezza e semplicità d'uso. Per altre informazioni, vedere [autorizzare l'accesso a BLOB e code di Azure usando Azure Active Directory](storage-auth-aad.md).
+- **Integrazione di Azure Active Directory (Azure AD) per i dati di BLOB e di Accodamento.** Archiviazione di Azure supporta l'autenticazione e l'autorizzazione con Azure AD per i servizi BLOB e di accodamento tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). L'autorizzazione delle richieste con Azure AD è consigliata per una maggiore sicurezza e semplicità d'uso. Per altre informazioni, vedere [autorizzare l'accesso a BLOB e code di Azure usando Azure Active Directory](storage-auth-aad.md).
 - **Azure AD autorizzazione su SMB per File di Azure.** File di Azure supporta l'autorizzazione basata sull'identità su SMB (Server Message Block) tramite Azure Active Directory Domain Services (Azure AD DS) o Active Directory Domain Services locali (anteprima). Le macchine virtuali di Windows appartenenti a un dominio possono accedere alle condivisioni file di Azure usando le credenziali Azure AD. Per ulteriori informazioni, vedere la [Panoramica del supporto per l'autenticazione file di Azure basata sull'identità per l'accesso SMB](../files/storage-files-active-directory-overview.md) e [la pianificazione di una distribuzione di file di Azure](../files/storage-files-planning.md#identity).
 - **Autorizzazione con chiave condivisa.** I servizi BLOB del servizio di archiviazione di Azure, file, coda e tabella supportano l'autorizzazione con la chiave condivisa. Un client che usa l'autorizzazione della chiave condivisa passa un'intestazione con ogni richiesta firmata usando la chiave di accesso dell'account di archiviazione. Per altre informazioni, vedere [Authorize with Shared Key](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key) (Autorizzazione con chiave condivisa).
 - **Autorizzazione mediante le firme di accesso condiviso (SAS).** Una firma di accesso condiviso è una stringa contenente un token di sicurezza che può essere aggiunto all'URI per una risorsa di archiviazione. Il token di sicurezza incapsula vincoli quali le autorizzazioni e l'intervallo di accesso. Per altre informazioni, vedere [uso delle firme di accesso condiviso (SAS)](storage-sas-overview.md).

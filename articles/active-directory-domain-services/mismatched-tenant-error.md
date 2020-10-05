@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 0e21009341857cc6de3cb7aa411445bc10e6827e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 62768dcc8df9f7dbd6cbb15c434ec9886e2d1d44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223483"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713005"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Risolvere gli errori di directory senza corrispondenza per i domini gestiti Azure Active Directory Domain Services esistenti
 
@@ -28,11 +28,11 @@ Questo articolo spiega perché si è verificato l'errore e come risolverlo.
 
 Si verifica un errore di directory non corrispondente quando un dominio gestito Azure AD DS e una rete virtuale appartengono a due tenant Azure AD diversi. Ad esempio, è possibile che si disponga di un dominio gestito denominato *aaddscontoso.com* che viene eseguito nel tenant Azure ad di contoso. Tuttavia, la rete virtuale di Azure per il dominio gestito fa parte del tenant Azure AD fabrikam.
 
-Azure usa il controllo degli accessi in base al ruolo (RBAC) per limitare l'accesso alle risorse. Quando si Abilita Azure AD DS in un tenant di Azure AD, gli hash delle credenziali vengono sincronizzati con il dominio gestito. Per eseguire questa operazione, è necessario essere un amministratore tenant per la directory Azure AD e controllare l'accesso alle credenziali.
+Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) viene usato per limitare l'accesso alle risorse. Quando si Abilita Azure AD DS in un tenant di Azure AD, gli hash delle credenziali vengono sincronizzati con il dominio gestito. Per eseguire questa operazione, è necessario essere un amministratore tenant per la directory Azure AD e controllare l'accesso alle credenziali.
 
 Per distribuire le risorse in una rete virtuale di Azure e controllare il traffico, è necessario disporre dei privilegi amministrativi per la rete virtuale in cui viene distribuito il dominio gestito.
 
-Affinché il controllo degli accessi in base al ruolo funzioni in modo coerente e sicuro per tutte le risorse Azure AD USA DS, il dominio gestito e la rete virtuale devono appartenere allo stesso tenant di Azure AD.
+Affinché il controllo degli accessi in base al ruolo di Azure funzioni in modo coerente e sicuro per tutte le risorse usate Azure AD DS, il dominio gestito e la rete virtuale devono appartenere allo stesso tenant di Azure AD.
 
 Per le distribuzioni si applicano le regole seguenti:
 

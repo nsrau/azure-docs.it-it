@@ -18,6 +18,8 @@
       items:
         - name: Aggiungere destinazioni di archiviazione
           href: hpc-cache-add-storage.md
+        - name: Aggiungere i percorsi degli spazi dei nomi
+          href: add-namespace-paths.md
         - name: Spostare i dati nelle destinazioni di archiviazione (se necessario)
           items:
             - name: Precaricare una nuova archiviazione BLOB
@@ -42,8 +44,6 @@
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/hpc-cache/hpc-cache
-    - name: Azure PowerShell
-      href: /powershell/module/Az.HPCCache
 - name: Risorse
   items:
     - name: Aprire un ticket di supporto

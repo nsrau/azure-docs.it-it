@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 834d3bd3e41be0487a3d05f00846bcb58bfe00a8
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018188"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714215"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Connettersi ad Azure IoT Central
 
@@ -99,13 +99,13 @@ Per aggiungere e verificare un certificato radice o intermedio al gruppo di regi
 
 1. Nella **pagina certificato primario**caricare il certificato X. 509 primario. Si tratta del certificato radice o intermedio:
 
-    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Schermata del certificato primario":::
+    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Schermata di aggiunta di un gruppo di registrazioni X. 509":::
 
-1. Usare il **codice di verifica** per generare un codice di verifica nello strumento che si sta usando. Quindi selezionare **Verifica** per caricare il certificato di verifica.
+1. Fare clic su **genera codice di verifica** per generare un codice per lo strumento che si sta utilizzando per generare il certificato di verifica. Quindi selezionare **Verifica** per caricare il certificato di verifica.
 
 1. Quando la verifica ha esito positivo, viene visualizzata la conferma seguente:
 
-    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Schermata del certificato primario verificato":::
+    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Schermata di aggiunta di un gruppo di registrazioni X. 509":::
 
 La verifica della proprietà del certificato garantisce che l'autore del caricamento del certificato sia in possesso della chiave privata del certificato.
 
@@ -147,7 +147,7 @@ Il flusso è leggermente diverso a seconda che i dispositivi usino token di firm
 
 1. Copiare la chiave primaria del gruppo dal gruppo di registrazione **SAS-Internet-i-dispositivi** :
 
-    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Raggruppare la chiave primaria dal gruppo di registrazione SAS-Internet del dispositivo":::
+    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Schermata di aggiunta di un gruppo di registrazioni X. 509":::
 
 1. Usare il `az iot central device compute-device-key` comando per generare le chiavi di firma di accesso condiviso del dispositivo. Usare la chiave primaria del gruppo del passaggio precedente. Gli ID dispositivo devono essere in minuscolo:
 

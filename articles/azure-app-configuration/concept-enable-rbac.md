@@ -1,20 +1,20 @@
 ---
 title: Autorizzare l'accesso a Configurazione app di Azure tramite Azure Active Directory
-description: Abilitare il controllo degli accessi in base al ruolo per autorizzare l'accesso all'istanza di Configurazione app di Azure
+description: Abilitare RBAC di Azure per autorizzare l'accesso all'istanza di configurazione di app Azure
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 8889e7270127aa3991adb3c0575a4bce96090db2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7e7b524f125eda406adc9be2300c94e5944e1819
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830072"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715961"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorizzare l'accesso a Configurazione app di Azure tramite Azure Active Directory
-Oltre all'uso di Message Authentication Code basato su hash (HMAC), app Azure configurazione supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle istanze di configurazione dell'app.  Azure AD consente di usare il controllo degli accessi in base al ruolo per concedere le autorizzazioni a un'entità di sicurezza.  Un'entità di sicurezza può essere un utente, un' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) o un' [entità servizio dell'applicazione](../active-directory/develop/app-objects-and-service-principals.md).  Per altre informazioni sui ruoli e sulle assegnazioni di ruolo, vedere [Informazioni sui diversi ruoli](../role-based-access-control/overview.md).
+Oltre all'uso di Message Authentication Code basato su hash (HMAC), app Azure configurazione supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle istanze di configurazione dell'app.  Azure AD consente di usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per concedere le autorizzazioni a un'entità di sicurezza.  Un'entità di sicurezza può essere un utente, un' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) o un' [entità servizio dell'applicazione](../active-directory/develop/app-objects-and-service-principals.md).  Per altre informazioni sui ruoli e sulle assegnazioni di ruolo, vedere [Informazioni sui diversi ruoli](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Panoramica
 È necessario autorizzare le richieste effettuate da un'entità di sicurezza per accedere a una risorsa di configurazione dell'app. Con Azure AD, l'accesso a una risorsa è un processo in due passaggi:

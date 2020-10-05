@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 32e78b3b8ccad791bc7b9bb11123dbe901df597f
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088672"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715518"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Scegliere come autorizzare l'accesso ai dati della coda nel portale di Azure
 
@@ -24,11 +24,11 @@ Quando si accede ai dati della coda usando il [portale di Azure](https://portal.
 
 ## <a name="permissions-needed-to-access-queue-data"></a>Autorizzazioni necessarie per accedere ai dati della coda
 
-A seconda di come si desidera autorizzare l'accesso ai dati della coda nel portale di Azure, saranno necessarie autorizzazioni specifiche. Nella maggior parte dei casi, queste autorizzazioni vengono fornite tramite il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni su RBAC, vedere informazioni sul [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
+A seconda di come si desidera autorizzare l'accesso ai dati della coda nel portale di Azure, saranno necessarie autorizzazioni specifiche. Nella maggior parte dei casi, queste autorizzazioni vengono fornite tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per ulteriori informazioni sul controllo degli accessi in base al ruolo di Azure, vedere informazioni sul [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md)di Azure.
 
 ### <a name="use-the-account-access-key"></a>Usare la chiave di accesso dell'account
 
-Per accedere ai dati della coda con la chiave di accesso dell'account, è necessario che sia assegnato un ruolo di Azure che includa l'azione RBAC **Microsoft. storage/storageAccounts/listkeys/Action**. Questo ruolo di Azure può essere un ruolo predefinito o personalizzato. I ruoli predefiniti che supportano **Microsoft. storage/storageAccounts/listkeys/Action** includono:
+Per accedere ai dati della coda con la chiave di accesso dell'account, è necessario che sia assegnato un ruolo di Azure che includa l'azione RBAC di Azure **Microsoft. storage/storageAccounts/listkeys/Action**. Questo ruolo di Azure può essere un ruolo predefinito o personalizzato. I ruoli predefiniti che supportano **Microsoft. storage/storageAccounts/listkeys/Action** includono:
 
 - Ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
 - Ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
@@ -74,11 +74,11 @@ Quando si passa a una coda, il portale di Azure indica se si sta usando la chiav
 
 Se si esegue l'autenticazione usando la chiave di accesso dell'account, verrà visualizzata la **chiave di accesso** specificata come metodo di autenticazione nel portale:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Screenshot che mostra l'utente che accede alle code con la chiave dell'account":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Screenshot che illustra come passare ai dati della coda nel portale di Azure":::
 
 Per passare a utilizzando l'account Azure AD, fare clic sul collegamento evidenziato nell'immagine. Se si dispone delle autorizzazioni appropriate tramite i ruoli di Azure assegnati, sarà possibile procedere. Tuttavia, se non si dispone delle autorizzazioni appropriate, verrà visualizzato un messaggio di errore simile al seguente:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Errore visualizzato se Azure AD account non supporta l'accesso":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Screenshot che illustra come passare ai dati della coda nel portale di Azure":::
 
 Si noti che nell'elenco non viene visualizzata alcuna coda se l'account Azure AD non dispone delle autorizzazioni per visualizzarli. Fare clic sul collegamento **passa a chiave di accesso** per usare di nuovo la chiave di accesso per l'autenticazione.
 
@@ -86,7 +86,7 @@ Si noti che nell'elenco non viene visualizzata alcuna coda se l'account Azure AD
 
 Se si esegue l'autenticazione usando l'account Azure AD, viene visualizzato **Azure ad account utente** specificato come metodo di autenticazione nel portale:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Screenshot che mostra l'utente che accede attualmente alle code con Azure AD account":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Screenshot che illustra come passare ai dati della coda nel portale di Azure":::
 
 Per passare all'uso della chiave di accesso dell'account, fare clic sul collegamento evidenziato nell'immagine. Se si ha accesso alla chiave dell'account, sarà possibile continuare. Tuttavia, se non si dispone dell'accesso alla chiave dell'account, il portale di Azure Visualizza un messaggio di errore.
 
@@ -95,6 +95,6 @@ Se non si dispone dell'accesso alle chiavi dell'account, le code non sono elenca
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Autenticare l'accesso a BLOB e code di Azure usando Azure Active Directory](../common/storage-auth-aad.md)
-- [Concedi l'accesso a contenitori e code di Azure con RBAC nel portale di Azure](../common/storage-auth-aad-rbac-portal.md)
-- [Concedere l'accesso ai dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo tramite l'interfaccia della riga di comando di Azure](../common/storage-auth-aad-rbac-cli.md)
-- [Concedere l'accesso ai dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo tramite PowerShell](../common/storage-auth-aad-rbac-powershell.md)
+- [Usare il portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](../common/storage-auth-aad-rbac-portal.md)
+- [Usare l'interfaccia della riga di comando di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e della coda](../common/storage-auth-aad-rbac-cli.md)
+- [Usare il modulo Azure PowerShell per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](../common/storage-auth-aad-rbac-powershell.md)

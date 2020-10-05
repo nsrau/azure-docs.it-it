@@ -4,14 +4,14 @@ description: Problemi comuni relativi agli avvisi delle metriche di monitoraggio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/04/2020
+ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 1280529aa758194dbd02196d71a715310431a73b
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710295"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715332"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di monitoraggio di Azure 
 
@@ -81,8 +81,10 @@ Per ulteriori informazioni sulla raccolta di dati dal sistema operativo guest di
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>Impossibile trovare la metrica per l'avviso
 
-Se si sta cercando di ricevere un avviso per una metrica specifica, ma non è possibile visualizzare alcuna metrica per la risorsa, [controllare se il tipo di risorsa è supportato per gli avvisi delle metriche](./alerts-metric-near-real-time.md).
-Se è possibile visualizzare alcune metriche per la risorsa ma non si riesce a trovare una metrica specifica, [verificare se tale metrica è disponibile](./metrics-supported.md)e, in caso affermativo, vedere la descrizione della metrica per verificare se è disponibile solo in versioni o edizioni specifiche della risorsa.
+Se si sta cercando di generare un avviso per una metrica specifica ma non è possibile visualizzarla quando si crea una regola di avviso, verificare quanto segue:
+- Se non è possibile visualizzare alcuna metrica per la risorsa, [controllare se il tipo di risorsa è supportato per gli avvisi delle metriche](./alerts-metric-near-real-time.md).
+- Se è possibile visualizzare alcune metriche per la risorsa, ma non si riesce a trovare una metrica specifica, [verificare se tale metrica è disponibile](./metrics-supported.md)e, in tal caso, vedere la descrizione della metrica per verificare se è disponibile solo in versioni o edizioni specifiche della risorsa.
+- Se la metrica non è disponibile per la risorsa, potrebbe essere disponibile nei log delle risorse e può essere monitorata usando gli avvisi del log. Vedere qui per altre informazioni su come [raccogliere e analizzare i log delle risorse da una risorsa di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Impossibile trovare la dimensione metrica su cui inviare l'avviso
 

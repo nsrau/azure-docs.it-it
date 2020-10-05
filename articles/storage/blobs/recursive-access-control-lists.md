@@ -9,12 +9,12 @@ ms.date: 09/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 88349e90102bf3b0e4dc2868d5f65d476aac51f7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 794e89e75505d3c1c34bf2a15209c3218dfa3582
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280369"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714104"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Impostare gli elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake Storage Gen2
 
@@ -138,7 +138,7 @@ Scegliere quindi come si vuole che i comandi ottengano l'autorizzazione per l'ac
 
 ### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>Opzione 1: ottenere l'autorizzazione utilizzando Azure Active Directory (AD)
 
-Con questo approccio, il sistema garantisce che l'account utente disponga delle assegnazioni di controllo degli accessi in base al ruolo (RBAC) e delle autorizzazioni ACL appropriate. 
+Con questo approccio, il sistema garantisce che l'account utente disponga delle assegnazioni appropriate di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e delle autorizzazioni ACL. 
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
@@ -153,7 +153,7 @@ Nella tabella seguente vengono illustrati tutti i ruoli supportati e la relativa
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Opzione 2: ottenere l'autorizzazione usando la chiave dell'account di archiviazione
 
-Con questo approccio, il sistema non controlla le autorizzazioni RBAC o ACL.
+Con questo approccio, il sistema non controlla le autorizzazioni RBAC o ACL di Azure.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
@@ -174,7 +174,7 @@ Al termine dell'installazione del pacchetto, aggiungere questa istruzione using 
 using Azure.Identity;
 ```
 
-Ottenere un ID client, un segreto client e un ID tenant. Per eseguire questa operazione, vedere [acquisizione di un token da Azure ad per l'autorizzazione delle richieste da un'applicazione client](../common/storage-auth-aad-app.md). Come parte di tale processo, è necessario assegnare uno dei ruoli di controllo degli [accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md) seguenti all'entità di sicurezza. 
+Ottenere un ID client, un segreto client e un ID tenant. Per eseguire questa operazione, vedere [acquisizione di un token da Azure ad per l'autorizzazione delle richieste da un'applicazione client](../common/storage-auth-aad-app.md). Come parte di questo processo, è necessario assegnare uno dei ruoli di controllo degli [accessi in base al ruolo di Azure (RBAC)](../../role-based-access-control/overview.md) per l'entità di sicurezza. 
 
 |Ruolo|Funzionalità impostazione ACL|
 |--|--|
@@ -229,7 +229,7 @@ Per usare i frammenti di codice in questo articolo, è necessario creare un'ista
 
 È possibile usare la [libreria client Azure Identity per Python](https://pypi.org/project/azure-identity/) per autenticare l'applicazione con Azure ad.
 
-Questo esempio crea un'istanza di **DataLakeServiceClient** usando un ID client, un segreto client e un ID tenant.  Per ottenere questi valori, vedere [acquisizione di un token da Azure ad per l'autorizzazione delle richieste da un'applicazione client](../common/storage-auth-aad-app.md). Come parte di tale processo, è necessario assegnare uno dei ruoli di controllo degli [accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md) seguenti all'entità di sicurezza. 
+Questo esempio crea un'istanza di **DataLakeServiceClient** usando un ID client, un segreto client e un ID tenant.  Per ottenere questi valori, vedere [acquisizione di un token da Azure ad per l'autorizzazione delle richieste da un'applicazione client](../common/storage-auth-aad-app.md). Come parte di questo processo, è necessario assegnare uno dei ruoli di controllo degli [accessi in base al ruolo di Azure (RBAC)](../../role-based-access-control/overview.md) per l'entità di sicurezza. 
 
 |Ruolo|Funzionalità impostazione ACL|
 |--|--|
@@ -345,7 +345,7 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Impostare un ACL in modo ricorsivo chiamando il metodo **DataLakeDirectoryClient. set_access_control_recursive** .
+Impostare un ACL in modo ricorsivo chiamando il metodo **DataLakeDirectoryClient.set_access_control_recursive** .
 
 In questo esempio viene impostato l'ACL di una directory denominata `my-parent-directory` . Queste voci forniscono le autorizzazioni di lettura, scrittura ed esecuzione dell'utente proprietario, fornisce al gruppo proprietario solo le autorizzazioni di lettura ed esecuzione e offre a tutti gli altri utenti l'accesso. L'ultima voce ACL in questo esempio fornisce a un utente specifico l'ID oggetto "" xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx "autorizzazioni di lettura ed esecuzione.
 
@@ -423,7 +423,7 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Aggiornare un ACL in modo ricorsivo chiamando il metodo **DataLakeDirectoryClient. update_access_control_recursive** . 
+Aggiornare un ACL in modo ricorsivo chiamando il metodo **DataLakeDirectoryClient.update_access_control_recursive** . 
 
 Questo esempio aggiorna una voce ACL con autorizzazione di scrittura. 
 
@@ -498,7 +498,7 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Rimuovere le voci ACL chiamando il metodo **DataLakeDirectoryClient. remove_access_control_recursive** . 
+Rimuovere le voci ACL chiamando il metodo **DataLakeDirectoryClient.remove_access_control_recursive** . 
 
 In questo esempio viene rimossa una voce ACL dall'ACL della directory denominata `my-parent-directory` . 
 

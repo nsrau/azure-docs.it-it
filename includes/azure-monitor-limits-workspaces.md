@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 9de26246756f831ace57e7ed03a3a598ef020c91
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e6b64b5a1a60ba3bbf93e607536eeb0379669c73
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451359"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91642588"
 ---
 **Conservazione e volume della raccolta dati** 
 
@@ -70,7 +70,7 @@ Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di c
 
 Quando si inviano dati a un'area di lavoro a una velocità del volume superiore all'80% della soglia configurata nell'area di lavoro, viene inviato un evento alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Quando la velocità del volume è superiore alla soglia, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Se il volume di inserimento continua a superare la soglia o se si prevede di raggiungerlo presto, è possibile richiedere un aumento aprendo una richiesta di supporto. 
 
-Per ricevere una notifiche quando il limite della velocità del volume di inserimento sta per essere raggiunto o è stato raggiunto nell'area di lavoro, creare una [regola di avviso del log](../articles/azure-monitor/platform/alerts-log.md) usando la query seguente con una logica di avviso basata su un numero di risultati maggiore di zero, un periodo di valutazione di 5 minuti e una frequenza di 5 minuti.
+Per ricevere una notifiche quando il limite della velocità del volume di inserimento si avvicina o è stato raggiunto nell'area di lavoro, creare una [regola di avviso del log](../articles/azure-monitor/platform/alerts-log.md) usando la query seguente con una logica di avviso basata su un numero di risultati maggiore di zero, un periodo di valutazione di 5 minuti e una frequenza di 5 minuti.
 
 La velocità del volume di inserimento ha raggiunto la soglia
 ```Kusto

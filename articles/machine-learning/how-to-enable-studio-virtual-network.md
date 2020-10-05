@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 0c5f91f1423bc20b2202589c488c9b225ed3fbaa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 58395463c494a95a8842cddbe4d51544ce03d212
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333852"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713377"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
@@ -70,7 +70,7 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * BLOB Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* Database SQL di Azure
+* database SQL di Azure
 
 ### <a name="configure-datastores-to-use-managed-identity"></a>Configurare gli archivi dati per usare l'identità gestita
 
@@ -102,7 +102,7 @@ Per l' __archiviazione BLOB di Azure__, l'identità gestita dall'area di lavoro 
 
 È possibile utilizzare gli elenchi di controllo di accesso (ACL) di tipo RBAC e POSIX per controllare l'accesso ai dati all'interno di una rete virtuale.
 
-Per utilizzare il controllo degli accessi in base al ruolo, aggiungere l'identità gestita dall'area di lavoro al ruolo [lettore dati BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
+Per utilizzare il controllo degli accessi in base al ruolo, aggiungere l'identità gestita dall'area di lavoro al ruolo [lettore dati BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control).
 
 Per usare gli ACL, è possibile assegnare l'accesso all'identità gestita dall'area di lavoro in modo analogo a qualsiasi altro principio di sicurezza. Per altre informazioni, vedere [elenchi di controllo di accesso per file e directory](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

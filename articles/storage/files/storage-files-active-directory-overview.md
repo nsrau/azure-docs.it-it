@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 3f2fd9f2b75faeeb2d40bd71d074a929e86eebdf
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358373"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716071"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Panoramica delle opzioni di autenticazione File di Azure basate sull'identità per l'accesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -46,7 +46,7 @@ Per informazioni su come abilitare l'autenticazione di Azure AD DS per le condiv
 
 -   **Controllo degli accessi in base al ruolo di Azure**
 
-    Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente una gestione degli accessi con granularità fine per Azure. Usando RBAC è possibile gestire l'accesso alle risorse concedendo agli utenti il minor numero di autorizzazioni necessarie per svolgere il proprio lavoro. Per altre informazioni su RBAC, vedere [che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) in Azure](../../role-based-access-control/overview.md).
+    Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente una gestione degli accessi con granularità fine per Azure. Usando il controllo degli accessi in base al ruolo di Azure, è possibile gestire l'accesso alle risorse concedendo agli utenti il minor numero di autorizzazioni necessarie per l'esecuzione Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, vedere informazioni sul [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md)di Azure.
 
 ## <a name="common-use-cases"></a>Casi d'uso comuni
 
@@ -92,7 +92,7 @@ L'autenticazione basata su identità per File di Azure offre diversi vantaggi ri
 -   **Eseguire il backup degli elenchi di accesso Windows (noti anche come NTFS) insieme ai dati**  
     È possibile usare le condivisioni file di Azure per eseguire il backup delle condivisioni file locali esistenti. File di Azure conserva gli ACL insieme ai dati quando si esegue il backup di una condivisione file in condivisioni file di Azure tramite SMB.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Le condivisioni file di Azure sfruttano il protocollo Kerberos per l'autenticazione con servizi di dominio Active Directory locale o Azure AD DS. Quando un'identità associata a un utente o a un'applicazione in esecuzione su un client tenta di accedere ai dati nelle condivisioni file di Azure, la richiesta viene inviata al servizio del dominio, ad DS o Azure AD DS, per autenticare l'identità. Se l'autenticazione ha esito positivo, viene restituito un token Kerberos. Il client invia una richiesta che include il token Kerberos e le condivisioni file di Azure usano tale token per autorizzare la richiesta. Le condivisioni file di Azure ricevono solo il token Kerberos, non le credenziali di accesso.
 

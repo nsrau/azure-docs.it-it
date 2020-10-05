@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 47f4085ff01526853fab29da2c1bc1a3e8998d23
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8f679626b69bd855e86b94cdde51955edd068e8f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937652"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714892"
 ---
 # <a name="enable-automanage-for-virtual-machines-through-azure-policy"></a>Abilitare la gestione automatici per le macchine virtuali tramite criteri di Azure
 
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.micr
 > Gli account di valutazione gratuiti non hanno accesso alle macchine virtuali usate in questa esercitazione. Eseguire l'aggiornamento a una sottoscrizione con pagamento in base al consumo.
 
 > [!IMPORTANT]
-> Per abilitare la gestione, è necessaria l'autorizzazione RBAC seguente: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
+> Per abilitare la gestione, è necessaria l'autorizzazione RBAC di Azure seguente: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure

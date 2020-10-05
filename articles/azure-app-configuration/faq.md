@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 10510774409a6b75687086290b32885b30d9131a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335382"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715446"
 ---
 # <a name="azure-app-configuration-faq"></a>Domande frequenti sulla configurazione di app Azure
 
@@ -94,7 +94,7 @@ Di seguito sono riportate alcune considerazioni per la scelta di un livello.
     Per gli archivi di livello standard, le prime 200.000 richieste ogni giorno sono incluse nell'addebito giornaliero. Le richieste aggiuntive vengono fatturate come eccedenze.
 
 - **Contratto di servizio**: il livello standard dispone di un contratto di servizio con disponibilità del 99,9%. Il livello gratuito non ha un contratto di licenza.
-- **Funzionalità di sicurezza**: entrambi i livelli includono funzionalità di sicurezza di base, tra cui la crittografia con chiavi gestite da Microsoft, l'autenticazione tramite HMAC o Azure Active Directory, il supporto RBAC e l'identità gestita. Il livello standard offre funzionalità di sicurezza più avanzate, tra cui il supporto dei collegamenti privati e la crittografia con chiavi gestite dal cliente.
+- **Funzionalità di sicurezza**: entrambi i livelli includono funzionalità di sicurezza di base, tra cui la crittografia con chiavi gestite da Microsoft, l'autenticazione tramite HMAC o Azure Active Directory, il supporto RBAC di Azure e l'identità gestita. Il livello standard offre funzionalità di sicurezza più avanzate, tra cui il supporto dei collegamenti privati e la crittografia con chiavi gestite dal cliente.
 - **Costo**: gli archivi di livello standard hanno un costo di utilizzo giornaliero. È anche previsto un addebito per le richieste oltre l'allocazione giornaliera. Non è previsto alcun costo per l'uso di un archivio di livello gratuito.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>È possibile aggiornare un archivio dal livello gratuito al livello standard? È possibile effettuare il downgrade di un negozio dal livello standard al livello gratuito?

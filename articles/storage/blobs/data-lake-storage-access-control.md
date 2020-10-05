@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 31d67daebf2e15fb11b5ebe30c4f7741a09eed2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017235"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716106"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -21,22 +21,22 @@ Azure Data Lake Storage Gen2 implementa un modello di controllo di accesso che s
 
 <a id="azure-role-based-access-control-rbac"></a>
 
-## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
+## <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
-RBAC usa le assegnazioni di ruolo per applicare in modo efficace i set di autorizzazioni alle *entità di sicurezza*. Un' *entità di sicurezza* è un oggetto che rappresenta un utente, un gruppo, un'entità servizio o un'identità gestita definita in Azure Active Directory (ad) che richiede l'accesso alle risorse di Azure.
+Il controllo degli accessi in base al ruolo di Azure usa assegnazioni di ruolo per applicare i set di autorizzazioni alle *entità di sicurezza* Un' *entità di sicurezza* è un oggetto che rappresenta un utente, un gruppo, un'entità servizio o un'identità gestita definita in Azure Active Directory (ad) che richiede l'accesso alle risorse di Azure.
 
 In genere, le risorse di Azure sono vincolate alle risorse di primo livello, ad esempio gli account di archiviazione di Azure. Nel caso di archiviazione di Azure e di conseguenza Azure Data Lake Storage Gen2 questo meccanismo è stato esteso alla risorsa contenitore (file system).
 
-Per informazioni su come assegnare i ruoli alle entità di sicurezza nell'ambito dell'account di archiviazione, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Per informazioni su come assegnare i ruoli alle entità di sicurezza nell'ambito dell'account di archiviazione, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati di Accodamento e BLOB](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Un utente Guest non può creare un'assegnazione di ruolo.
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>L'effetto delle assegnazioni di ruolo negli elenchi di controllo di accesso a livello di file e directory
 
-Quando si usano le assegnazioni di ruolo di Azure è un meccanismo potente per controllare le autorizzazioni di accesso, si tratta di un meccanismo con granularità grossolana rispetto agli ACL. La granularità minima per il controllo degli accessi in base al ruolo è a livello di contenitore e verrà valutata con una priorità più alta rispetto agli ACL. Se pertanto si assegna un ruolo a un'entità di sicurezza nell'ambito di un contenitore, l'entità di sicurezza dispone del livello di autorizzazione associato a tale ruolo per tutte le directory e i file in tale contenitore, indipendentemente dalle assegnazioni ACL.
+Quando si usano le assegnazioni di ruolo di Azure è un meccanismo potente per controllare le autorizzazioni di accesso, si tratta di un meccanismo con granularità grossolana rispetto agli ACL. La granularità minima per il controllo degli accessi in base al ruolo di Azure è a livello di contenitore e verrà valutata con una priorità più alta rispetto agli ACL. Se pertanto si assegna un ruolo a un'entità di sicurezza nell'ambito di un contenitore, l'entità di sicurezza dispone del livello di autorizzazione associato a tale ruolo per tutte le directory e i file in tale contenitore, indipendentemente dalle assegnazioni ACL.
 
-Quando a un'entità di sicurezza vengono concesse le autorizzazioni per i dati RBAC tramite un [ruolo predefinito](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)o tramite un ruolo personalizzato, queste autorizzazioni vengono valutate per prime all'autorizzazione di una richiesta. Se l'operazione richiesta è autorizzata dalle assegnazioni di ruolo di Azure dell'entità di sicurezza, l'autorizzazione viene immediatamente risolta e non vengono eseguiti controlli ACL aggiuntivi. In alternativa, se l'entità di sicurezza non ha un'assegnazione di ruolo di Azure o l'operazione della richiesta non corrisponde all'autorizzazione assegnata, vengono eseguiti i controlli ACL per determinare se l'entità di sicurezza è autorizzata a eseguire l'operazione richiesta.
+Quando a un'entità di sicurezza vengono concesse le autorizzazioni per i dati RBAC di Azure tramite un [ruolo predefinito](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)o tramite un ruolo personalizzato, queste autorizzazioni vengono valutate prima all'autorizzazione di una richiesta. Se l'operazione richiesta è autorizzata dalle assegnazioni di ruolo di Azure dell'entità di sicurezza, l'autorizzazione viene immediatamente risolta e non vengono eseguiti controlli ACL aggiuntivi. In alternativa, se l'entità di sicurezza non ha un'assegnazione di ruolo di Azure o l'operazione della richiesta non corrisponde all'autorizzazione assegnata, vengono eseguiti i controlli ACL per determinare se l'entità di sicurezza è autorizzata a eseguire l'operazione richiesta.
 
 > [!NOTE]
 > Se all'entità di sicurezza è stata assegnata l'assegnazione di ruolo incorporata del proprietario dei dati del BLOB di archiviazione, l'entità di sicurezza viene considerata un *utente con privilegi avanzati* e viene concesso l'accesso completo a tutte le operazioni di mutazione, inclusa l'impostazione del proprietario di una directory o di un file, nonché gli ACL per le directory e i file per cui non sono proprietari. L'accesso utente con privilegi avanzati è il solo modo autorizzato di cambiare il proprietario di una risorsa.
@@ -65,7 +65,7 @@ Non è possibile usare gli elenchi di controllo di accesso per fornire un livell
 
 Per impostare le autorizzazioni a livello di file e directory, vedere gli articoli seguenti:
 
-| Environment | Articolo |
+| Ambiente | Articolo |
 |--------|-----------|
 |Esplora archivi Azure |[Usare Azure Storage Explorer per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Usare .NET per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
@@ -102,7 +102,7 @@ Le autorizzazioni per un oggetto contenitore sono di **lettura**, **scrittura**e
 | **Esecuzione (X)** | Nessun valore nel contesto di Data Lake Storage Gen2 | È necessaria per attraversare gli elementi figlio di una directory |
 
 > [!NOTE]
-> Se si concedono le autorizzazioni usando solo ACL (nessun controllo degli accessi in base al ruolo), per concedere a un'entità di sicurezza l'accesso in lettura o scrittura a un file, è necessario assegnare all'entità di sicurezza le autorizzazioni di **esecuzione** per il contenitore e a ogni cartella nella gerarchia di cartelle che portano al file.
+> Se si concedono le autorizzazioni usando solo ACL (nessun controllo degli accessi in base al ruolo di Azure), per concedere a un'entità di sicurezza l'accesso in lettura o scrittura a un file, è necessario assegnare all'entità di sicurezza le autorizzazioni di **esecuzione** al contenitore e a ogni cartella nella gerarchia di cartelle che portano al file.
 
 #### <a name="short-forms-for-permissions"></a>Forme brevi per le autorizzazioni
 
@@ -347,6 +347,6 @@ Gli elenchi di controllo di accesso non ereditano. Gli ACL predefiniti tuttavia 
 * [ACL POSIX in Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Using Access Control Lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso di elenchi di controllo di accesso in Linux)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Panoramica di Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

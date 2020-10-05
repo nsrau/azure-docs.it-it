@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: eeca42ea748c10970f312a84ea32c53fb904344a
-  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.openlocfilehash: 4716d537a6a3e402a4f399be8d64c9fd51edc292
+  ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90974433"
+  ms.lasthandoff: 10/01/2020
+  ms.locfileid: "91620121"
 landingContent:
 - title: Informazioni su Backup di Azure
   linkLists:
@@ -60,6 +60,12 @@ landingContent:
       url: backup-center-overview.md
     - text: Eseguire il backup di Database di Azure per PostgreSQL
       url: backup-azure-database-postgresql.md
+    - text: Backup e ripristino selettivi dei dischi per le VM di Azure
+      url: selective-disk-backup-restore.md
+    - text: Ripristino tra aree per i database di SQL Server con le VM di Azure
+      url: restore-sql-database-azure-vm.md#cross-region-restore
+    - text: Supporto per il backup di VM con un totale di 32 dischi
+      url: backup-support-matrix-iaas.md#vm-storage-support
     - text: Eliminazione temporanea per Backup di Azure
       url: backup-azure-security-feature-cloud.md
     - text: Ripristino di SQL Server come file in VM di Azure

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ddfa12bd758ffc362c51e10f63800665109d54a6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 453eaa816ad48626b476fa392999f44e3c1a10cd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534074"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714564"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Creare una firma di accesso condiviso per un contenitore o un BLOB con l'interfaccia della riga di comando di Azure
 
@@ -36,7 +36,7 @@ Per creare una firma di accesso condiviso di delega utente usando l'interfaccia 
 
 Accedere all'interfaccia della riga di comando di Azure con le credenziali Azure AD. Per altre informazioni, vedere [Accedere tramite l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
 
-## <a name="assign-permissions-with-rbac"></a>Assegnare autorizzazioni con RBAC
+## <a name="assign-permissions-with-azure-rbac"></a>Assegnare autorizzazioni con RBAC di Azure
 
 Per creare una firma di accesso condiviso di delega utente da Azure PowerShell, è necessario assegnare all'account Azure AD usato per accedere all'interfaccia della riga di comando di Azure un ruolo che includa l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** . Questa autorizzazione consente a tale account Azure AD di richiedere la *chiave di delega dell'utente*. La chiave di delega utente viene usata per firmare la firma di accesso condiviso della delega utente. Il ruolo che fornisce l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** deve essere assegnato a livello dell'account di archiviazione, del gruppo di risorse o della sottoscrizione.
 

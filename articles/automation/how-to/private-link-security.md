@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4985784a17f2e0350a7b2c7a4f62f574862d50c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423797"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714349"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti ad automazione di Azure (anteprima)
 
@@ -53,7 +53,7 @@ Come parte della versione di anteprima, un account di automazione non è in grad
 
 ### <a name="webhook-scenario"></a>Scenario webhook
 
-È possibile avviare manuali operativi eseguendo un POST sull'URL del webhook. Ad esempio, l'URL è simile al seguente:`https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+È possibile avviare manuali operativi eseguendo un POST sull'URL del webhook. Ad esempio, l'URL è simile al seguente: `https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### <a name="state-configuration-agentsvc-scenario"></a>Scenario di configurazione dello stato (agentsvc)
 
@@ -79,7 +79,7 @@ In questa sezione verrà creato un endpoint privato per l'account di automazione
 
 3. In **creare una macchina virtuale-nozioni di base**immettere o selezionare le informazioni seguenti:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -93,7 +93,7 @@ In questa sezione verrà creato un endpoint privato per l'account di automazione
 
 5. In **Crea una risorsa endpoint privato**immettere o selezionare le informazioni seguenti:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     |Metodo di connessione  | Selezionare Connettersi a una risorsa di Azure nella directory.|
     | Subscription| Selezionare la propria sottoscrizione. |
@@ -128,7 +128,7 @@ Selezionare la risorsa per visualizzare tutti i dettagli. In questo modo viene c
 
 Analogamente, viene creato un nome di dominio completo (FQDN) univoco per la configurazione dello stato (agentsvc) e per il runtime del processo di lavoro ibrido per Runbook (jrds). A ognuno di essi viene assegnato un indirizzo IP separato dalla VNet e lo **stato della connessione** viene visualizzato come **approvato**.
 
-Se l'utente del servizio dispone di autorizzazioni RBAC per la risorsa di automazione, può scegliere il metodo di approvazione automatica. In questo caso, quando la richiesta raggiunge la risorsa del provider di automazione, non è richiesta alcuna azione da parte del provider di servizi e la connessione viene approvata automaticamente.
+Se il consumer del servizio dispone delle autorizzazioni RBAC di Azure per la risorsa di automazione, può scegliere il metodo di approvazione automatica. In questo caso, quando la richiesta raggiunge la risorsa del provider di automazione, non è richiesta alcuna azione da parte del provider di servizi e la connessione viene approvata automaticamente.
 
 ## <a name="set-public-network-access-flags"></a>Impostare i flag di accesso alla rete pubblica
 

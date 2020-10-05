@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a089ffb7631ded7bd36a4eee5fb862ced3fd2ad0
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 66815dac145c8c30b770e831a002f6a0ee093675
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589063"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714579"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Scegliere come autorizzare l'accesso ai dati BLOB o della coda con l'interfaccia della riga di comando di Azure
 
@@ -43,11 +43,11 @@ Per usare il `--auth-mode` parametro, verificare di avere installato l'interfacc
 
 Quando si accede all'interfaccia della riga di comando di Azure con Azure AD credenziali, viene restituito un token di accesso OAuth 2,0. Il token viene usato automaticamente dall'interfaccia della riga di comando di Azure per autorizzare le operazioni sui dati successive sull'archiviazione di BLOB o code. Per le operazioni supportate, non è più necessario passare un chiave dell'account o un token di firma di accesso condiviso con il comando.
 
-È possibile assegnare autorizzazioni per i dati BLOB e di Accodamento a un Azure AD entità di sicurezza tramite il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni sui ruoli di Azure in archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione di Azure con RBAC](storage-auth-aad-rbac.md).
+È possibile assegnare autorizzazioni per i dati BLOB e di Accodamento a un'entità di sicurezza Azure AD tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per altre informazioni sui ruoli di Azure in archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione di Azure con RBAC di Azure](storage-auth-aad-rbac.md).
 
 ### <a name="permissions-for-calling-data-operations"></a>Autorizzazioni per la chiamata di operazioni sui dati
 
-Le estensioni di archiviazione di Azure sono supportate per le operazioni sui dati BLOB e di Accodamento. Le operazioni che è possibile chiamare dipendono dalle autorizzazioni concesse all'entità di sicurezza Azure AD con cui si accede all'interfaccia della riga di comando di Azure. Le autorizzazioni per i contenitori o le code di archiviazione di Azure vengono assegnate tramite RBAC. Se ad esempio viene assegnato il ruolo **lettore dati BLOB** , è possibile eseguire i comandi di scripting per la lettura di dati da un contenitore o una coda. Se viene assegnato il ruolo di **collaboratore dati BLOB** , è possibile eseguire i comandi di scripting per la lettura, la scrittura o l'eliminazione di un contenitore o di una coda o dei dati in essi contenuti.
+Le estensioni di archiviazione di Azure sono supportate per le operazioni sui dati BLOB e di Accodamento. Le operazioni che è possibile chiamare dipendono dalle autorizzazioni concesse all'entità di sicurezza Azure AD con cui si accede all'interfaccia della riga di comando di Azure. Le autorizzazioni per i contenitori o le code di archiviazione di Azure vengono assegnate tramite RBAC di Azure. Se ad esempio viene assegnato il ruolo **lettore dati BLOB** , è possibile eseguire i comandi di scripting per la lettura di dati da un contenitore o una coda. Se viene assegnato il ruolo di **collaboratore dati BLOB** , è possibile eseguire i comandi di scripting per la lettura, la scrittura o l'eliminazione di un contenitore o di una coda o dei dati in essi contenuti.
 
 Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione di archiviazione di Azure in un contenitore o in una coda, vedere [chiamare le operazioni di archiviazione con token OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
@@ -55,10 +55,10 @@ Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione
 
 L'esempio seguente illustra come creare un contenitore dall'interfaccia della riga di comando di Azure usando le credenziali Azure AD. Per creare il contenitore, è necessario accedere all'interfaccia della riga di comando di Azure e sono necessari un gruppo di risorse e un account di archiviazione. Per informazioni su come creare queste risorse, vedere [Guida introduttiva: creare, scaricare ed elencare BLOB con l'interfaccia](../blobs/storage-quickstart-blobs-cli.md)della riga di comando di Azure.
 
-1. Prima di creare il contenitore, assegnare il ruolo [Collaboratore ai dati dei BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni sui dati nell'account di archiviazione. Per altre informazioni sull'assegnazione di ruoli di Azure, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](storage-auth-aad-rbac.md).
+1. Prima di creare il contenitore, assegnare il ruolo [Collaboratore ai dati dei BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni sui dati nell'account di archiviazione. Per altre informazioni sull'assegnazione di ruoli di Azure, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > Le assegnazioni di ruolo di Azure potrebbero richiedere alcuni minuti per la propagazione.
+    > La propagazione delle assegnazioni dei ruoli può richiedere alcuni minuti.
 
 1. Chiamare il comando [AZ Storage container create](/cli/azure/storage/container#az-storage-container-create) con il `--auth-mode` parametro impostato su `login` per creare il contenitore usando le credenziali Azure ad. È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 

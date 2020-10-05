@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9b0eeda443aefc105fb36d6075c717fafae4cb61
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598020"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715991"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Risolvere i problemi di File di Azure in Windows (SMB)
 
@@ -26,7 +26,7 @@ Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure qua
 
 Quando si tenta di montare una condivisione file, è possibile che si riceva l'errore seguente:
 
-- Errore di sistema 5. Accesso negato.
+- Errore di sistema 5. L'accesso è negato.
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: canale di comunicazione non crittografato
 
@@ -173,7 +173,7 @@ Verificare che le regole di rete virtuale e di firewall siano configurate corret
 
 ### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
 
-Passare all'account di archiviazione in cui si trova la condivisione file di Azure, fare clic su **Controllo di accesso (IAM)** e verificare che l'account utente abbia accesso all'account di archiviazione. Per altre informazioni, vedere [Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Passare all'account di archiviazione in cui si trova la condivisione file di Azure, fare clic su **Controllo di accesso (IAM)** e verificare che l'account utente abbia accesso all'account di archiviazione. Per altre informazioni, vedere [come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Impossibile eliminare un file o una directory in una condivisione file di Azure

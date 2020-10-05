@@ -39,6 +39,7 @@
         - name: Azure Defender per il servizio app
           href: defender-for-app-service-introduction.md
         - name: Azure Defender per Archiviazione
+          displayName: 'blob, adls, files'
           href: defender-for-storage-introduction.md
         - name: Azure Defender per SQL
           displayName: database
@@ -46,7 +47,7 @@
         - name: Azure Defender per IoT
           href: defender-for-iot-introduction.md
         - name: Azure Defender per Key Vault
-          displayName: KV
+          displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
         - name: Azure Defender per Kubernetes
           displayName: 'clusters, k8s'
@@ -65,13 +66,13 @@
   items:
     - name: Introduzione
       href: security-center-get-started.md
-    - name: Connettere macchine virtuali non di Azure
-      displayName: 'azure stack, windows, linux'
-      href: quickstart-onboard-machines.md
-    - name: Connettere account AWS e GCP
+    - name: Configurare l'ambiente ibrido
       items:
+        - name: Connettere macchine virtuali non di Azure
+          displayName: 'azure stack, ash, windows, linux, hybrid, arc'
+          href: quickstart-onboard-machines.md
         - name: Connettere account AWS
-          displayName: 'hybrid, multicloud, amazon'
+          displayName: 'hybrid, multicloud, amazon, arc'
           href: quickstart-onboard-aws.md
         - name: Connettere account GCP
           displayName: 'hybrid, multicloud, google'
@@ -90,7 +91,7 @@
       href: security-center-planning-and-operations-guide.md
     - name: Proteggere le risorse
       href: tutorial-protect-resources.md
-    - name: Rispondere agli eventi imprevisti
+    - name: Analizzare e rispondere agli avvisi di sicurezza
       href: tutorial-security-incident.md
     - name: Migliorare la conformità alle normative
       href: security-center-compliance-dashboard.md
@@ -206,6 +207,7 @@
       items:
         - name: Configurare Azure Defender per SQL nelle macchine virtuali di Azure
           href: defender-for-sql-usage.md
+          displayName: 'hybrid, arc'
         - name: Personalizzare i criteri di protezione delle informazioni
           href: security-center-info-protection-policy.md
     - name: Usare Azure Defender per registri contenitori
@@ -218,6 +220,7 @@
         - name: Creare e gestire le regole di eliminazione degli avvisi
           href: alerts-suppression-rules.md
         - name: Rispondere agli avvisi di Azure Defender per Key Vault
+          displayName: 'akv, kv'
           href: defender-for-key-vault-usage.md
         - name: Gestire gli eventi imprevisti della sicurezza
           href: security-center-incident.md

@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78c25afe69565840ca1af013d29dd512550241b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: df0bc6a07444070a0f14e632e81ad0bb787569c8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280240"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714758"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Acquisire un token da Azure AD per autorizzare le richieste da un'applicazione client
 
@@ -31,7 +31,7 @@ L'applicazione di esempio offre un'esperienza end-to-end che Mostra come configu
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Assegnare un ruolo a un'entità di sicurezza Azure AD
 
-Prima di poter autenticare un'entità di sicurezza dall'applicazione di Archiviazione di Azure, configurare le impostazioni di controllo degli accessi in base al ruolo per l'entità di sicurezza. Archiviazione di Azure definisce ruoli predefiniti che includono le autorizzazioni per contenitori e code. Quando il ruolo di controllo degli accessi in base al ruolo viene assegnato a un'entità di sicurezza, a questa viene concesso l'accesso a tale risorsa. Per altre informazioni, vedere [gestire i diritti di accesso ai dati di Accodamento e BLOB di Azure con RBAC](storage-auth-aad-rbac.md).
+Per autenticare un'entità di sicurezza dall'applicazione di archiviazione di Azure, configurare prima le impostazioni di controllo degli accessi in base al ruolo di Azure (RBAC) per tale entità di sicurezza. Archiviazione di Azure definisce ruoli predefiniti che includono le autorizzazioni per contenitori e code. Quando il ruolo Azure viene assegnato a un'entità di sicurezza, all'entità di sicurezza viene concesso l'accesso a tale risorsa. Per altre informazioni, vedere [gestire i diritti di accesso ai dati di Accodamento e BLOB di Azure con RBAC di Azure](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registrare l'applicazione nel tenant di Azure AD
 
@@ -46,7 +46,7 @@ Nell'immagine seguente vengono illustrate le impostazioni comuni per la registra
 
 Al termine della registrazione dell'applicazione, verrà visualizzato l'ID applicazione (o ID client) in **Impostazioni**:
 
-:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot che mostra l'ID client":::
+:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot che illustra come registrare l'applicazione di archiviazione con Azure AD":::
 
 Per altre informazioni sulla registrazione di un'applicazione in Azure AD, vedere [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/quickstart-v2-register-an-app.md).
 
@@ -59,13 +59,13 @@ Successivamente, concedere all'applicazione le autorizzazioni per chiamare le AP
 1. Nel riquadro **autorizzazioni API richiesta** , in **quali tipi di autorizzazioni sono richieste dall'applicazione?**, osservare che il tipo di autorizzazione disponibile è **autorizzazioni delegate**. Questa opzione è selezionata per impostazione predefinita.
 1. In **autorizzazioni**selezionare la casella di controllo accanto a **user_impersonation**, quindi selezionare il pulsante **Aggiungi autorizzazioni** .
 
-    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Screenshot che mostra le autorizzazioni per l'API di archiviazione":::
+    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Screenshot che illustra come registrare l'applicazione di archiviazione con Azure AD":::
 
 1. Successivamente, concedere il consenso dell'amministratore per queste autorizzazioni facendo clic su **concedi il consenso dell'amministratore per la directory predefinita**.
 
 Il riquadro **autorizzazioni API** Mostra ora che l'applicazione Azure ad registrata ha accesso alle api di Microsoft Graph e di archiviazione di Azure e che il consenso è concesso per la directory predefinita. Le autorizzazioni vengono automaticamente concesse a Microsoft Graph quando si registra l'app per la prima volta in Azure AD.
 
-:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Screenshot che mostra le autorizzazioni API per l'app registrata":::
+:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Screenshot che illustra come registrare l'applicazione di archiviazione con Azure AD":::
 
 ### <a name="create-a-client-secret"></a>Creare un segreto client
 
@@ -87,7 +87,7 @@ Configurare quindi il flusso di concessione implicita per l'applicazione. Seguir
 1. Nella sezione **Gestisci** selezionare l'impostazione di **autenticazione** .
 1. Nella sezione **Grant implicite** selezionare la casella di controllo per abilitare i token ID, come illustrato nell'immagine seguente:
 
-    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot che illustra come abilitare le impostazioni per il flusso di concessione implicito":::
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot che illustra come registrare l'applicazione di archiviazione con Azure AD":::
 
 ## <a name="client-libraries-for-token-acquisition"></a>Librerie client per l'acquisizione di token
 
@@ -127,7 +127,7 @@ Per richiedere il token, sono necessari i valori seguenti dalla registrazione de
 
 Per eseguire l'esempio di codice, creare un account di archiviazione nella stessa sottoscrizione del Azure Active Directory. Quindi, creare un contenitore all'interno dell'account di archiviazione. Il codice di esempio creerà un BLOB in blocchi in questo contenitore.
 
-Successivamente, assegnare in modo esplicito il ruolo di **collaboratore dati BLOB di archiviazione** all'account utente con cui verrà eseguito il codice di esempio. Per istruzioni su come assegnare questo ruolo nella portale di Azure, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](storage-auth-aad-rbac-portal.md).
+Successivamente, assegnare in modo esplicito il ruolo di **collaboratore dati BLOB di archiviazione** all'account utente con cui verrà eseguito il codice di esempio. Per istruzioni su come assegnare questo ruolo nella portale di Azure, vedere [usare i portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati di Accodamento e BLOB](storage-auth-aad-rbac-portal.md).
 
 > [!NOTE]
 > Quando si crea un account di archiviazione di Azure, non vengono assegnate automaticamente le autorizzazioni per accedere ai dati tramite Azure AD. È necessario assegnare in modo esplicito a se stessi un ruolo di Azure per archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
@@ -291,5 +291,5 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/)
-- [Gestione dei diritti di accesso ai dati di archiviazione con RBAC](storage-auth-aad-rbac.md)
+- [Gestire i diritti di accesso ai dati di archiviazione con RBAC di Azure](storage-auth-aad-rbac.md)
 - [Autenticare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](storage-auth-aad-msi.md)

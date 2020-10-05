@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 44fe71f575a32ccc1a687bc87793cb6a8b6508a9
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
-ms.translationtype: HT
+ms.openlocfilehash: 7eaa2fbe6033f801a252f6f2c7afa5eb726bce2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650622"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318246"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Abilitare la registrazione nelle esecuzioni del training di Azure ML
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Azure Machine Learning Python SDK consente di registrare le informazioni in tempo reale usando sia il pacchetto di registrazione Python predefinito che la funzionalità specifica dell'SDK. È possibile registrare in locale e inviare i log all'area di lavoro nel portale.
 
@@ -37,17 +37,17 @@ I log consentono di diagnosticare gli errori e gli avvisi o di tenete traccia di
 
 ## <a name="data-types"></a>Tipi di dati
 
-È possibile registrare più tipi di dati, tra cui valori scalari, elenchi, tabelle, immagini, directory e altro ancora. Per altre informazioni e per esempi di codice Python per tipi di dati diversi, vedere la [pagina di informazioni di riferimento sulla classe Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).
+È possibile registrare più tipi di dati, tra cui valori scalari, elenchi, tabelle, immagini, directory e altro ancora. Per altre informazioni e per esempi di codice Python per tipi di dati diversi, vedere la [pagina di informazioni di riferimento sulla classe Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true).
 
 ## <a name="interactive-logging-session"></a>Sessione di registrazione interattiva
 
-Le sessioni di registrazione interattive vengono in genere usate negli ambienti notebook. Il metodo [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) avvia una sessione di registrazione interattiva. Le metriche registrate durante la sessione vengono aggiunte al record esecuzione nell'esperimento. Il metodo [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) termina le sessioni e contrassegna l'esecuzione come completata.
+Le sessioni di registrazione interattive vengono in genere usate negli ambienti notebook. Il metodo [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-logging--args----kwargs-) avvia una sessione di registrazione interattiva. Le metriche registrate durante la sessione vengono aggiunte al record esecuzione nell'esperimento. Il metodo [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) termina le sessioni e contrassegna l'esecuzione come completata.
 
-## <a name="scriptrunconfig-logs"></a>Log ScriptRunConfig
+## <a name="scriptrun-logs"></a>Log ScriptRun
 
-Questa sezione illustra come aggiungere codice di registrazione all'interno delle esecuzioni di ScriptConfig. È possibile usare la classe [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) per incapsulare gli script e gli ambienti per esecuzioni ripetibili. È anche possibile usare questa opzione per mostrare un widget visuale di Jupyter Notebook per il monitoraggio.
+Questa sezione illustra come aggiungere codice di registrazione all'interno delle esecuzioni create se la configurazione è stata eseguita con ScriptRunConfig. È possibile usare la classe [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) per incapsulare gli script e gli ambienti per esecuzioni ripetibili. È anche possibile usare questa opzione per mostrare un widget visuale di Jupyter Notebook per il monitoraggio.
 
-Questo esempio esegue uno spostamento di parametri su valori alfa e acquisisce i risultati con il metodo [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truelog-name--value--description----).
+Questo esempio esegue uno spostamento di parametri su valori alfa e acquisisce i risultati con il metodo [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truelog-name--value--description----).
 
 1. Creare uno script di training che include la logica di registrazione, `train.py`.
 
@@ -83,7 +83,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 Azure Machine Learning può anche registrare le informazioni provenienti da altre origini durante il training, ad esempio le esecuzioni di Machine Learning automatizzato o i contenitori Docker che eseguono i processi. Questi log non sono documentati, ma se si verificano problemi e si contatta il supporto tecnico Microsoft, potrebbero risultare utili per la risoluzione.
 
-Per informazioni sulla registrazione di metriche nella finestra di progettazione di Azure Machine Learning (anteprima), vedere [Come registrare le metriche nella finestra di progettazione (anteprima)](how-to-track-designer-experiments.md)
+Per informazioni sulla registrazione di metriche nella finestra di progettazione di Azure Machine Learning, vedere [Come registrare le metriche nella finestra di progettazione](how-to-track-designer-experiments.md)
 
 ## <a name="example-notebooks"></a>Notebook di esempio
 
@@ -97,6 +97,6 @@ I notebook seguenti illustrano i concetti descritti in questo articolo:
 
 Per altre informazioni su come usare Azure Machine Learning, vedere questi articoli:
 
-* Informazioni su come [registrare le metriche nella finestra di progettazione di Azure Machine Learning (anteprima)](how-to-track-designer-experiments.md).
+* Informazioni su come [registrare le metriche nella finestra di progettazione di Azure Machine Learning](how-to-track-designer-experiments.md).
 
 * Vedere un esempio di come registrare il modello migliore e distribuirlo nell'esercitazione [Eseguire il training di un modello di classificazione delle immagini con Azure Machine Learning](tutorial-train-models-with-aml.md).

@@ -73,7 +73,7 @@
           href: time-series-insights-update-query-data-csharp.md
         - name: Eseguire query sui dati con C# - Gen1
           href: time-series-insights-query-data-csharp.md
-        - name: Gestire i dati di riferimento in C#
+        - name: Gestire i dati di riferimento in C# - Gen1
           href: time-series-insights-manage-reference-data-csharp.md
         - name: Condividere una visualizzazione personalizzata
           href: time-series-insights-parameterized-urls.md

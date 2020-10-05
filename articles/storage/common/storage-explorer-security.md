@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: d9dea7cd0cc22cc8a1e0aa5c93ece76d689de0e0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835443"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714373"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guida alla sicurezza di Azure Storage Explorer
 
@@ -42,11 +42,11 @@ Quando possibile, è consigliabile usare l'autenticazione Azure AD.
 
 Questa sezione descrive le due tecnologie basate su Azure AD che possono essere usate per proteggere le risorse di archiviazione.
 
-#### <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
+#### <a name="azure-role-based-access-control-azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure
 
-Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) ti permette di ottenere un controllo di accesso con granularità fine sulle risorse di Azure. I ruoli e le autorizzazioni RBAC possono essere gestiti dal portale di Azure.
+Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) ti permette di ottenere un controllo di accesso con granularità fine sulle risorse di Azure. I ruoli e le autorizzazioni di Azure possono essere gestiti dal portale di Azure.
 
-Storage Explorer supporta l'accesso RBAC ad account di archiviazione, BLOB e code. Se è necessario accedere a condivisioni file o tabelle, sarà necessario assegnare i ruoli RBAC che concedono l'autorizzazione per elencare le chiavi dell'account di archiviazione.
+Storage Explorer supporta l'accesso RBAC di Azure ad account di archiviazione, BLOB e code. Se è necessario accedere a condivisioni file o tabelle, sarà necessario assegnare i ruoli di Azure che concedono l'autorizzazione per elencare le chiavi dell'account di archiviazione.
 
 #### <a name="access-control-lists-acls"></a>Elenchi di controllo di accesso (ACL)
 
@@ -77,11 +77,11 @@ Quando si usa SAS in Storage Explorer, è consigliabile attenersi alle linee gui
 
 ### <a name="storage-account-keys"></a>Chiavi dell'account di archiviazione
 
-Le chiavi dell'account di archiviazione concedono l'accesso illimitato ai servizi e alle risorse in un account di archiviazione. Per questo motivo, è consigliabile limitare l'uso delle chiavi per accedere alle risorse in Storage Explorer. Usare le funzionalità RBAC o SAS per fornire l'accesso.
+Le chiavi dell'account di archiviazione concedono l'accesso illimitato ai servizi e alle risorse in un account di archiviazione. Per questo motivo, è consigliabile limitare l'uso delle chiavi per accedere alle risorse in Storage Explorer. Usare le funzionalità RBAC di Azure o SAS per fornire l'accesso
 
-Alcuni ruoli RBAC concedono l'autorizzazione per recuperare le chiavi dell'account di archiviazione. Le persone con questi ruoli possono aggirare efficacemente le autorizzazioni concesse o negate da RBAC. Si consiglia di non concedere questa autorizzazione, a meno che non sia necessario.
+Alcuni ruoli di Azure concedono l'autorizzazione per recuperare le chiavi dell'account di archiviazione. Gli utenti con questi ruoli possono eludere efficacemente le autorizzazioni concesse o negate da Azure RBAC. Si consiglia di non concedere questa autorizzazione, a meno che non sia necessario.
 
-Storage Explorer tenterà di usare le chiavi dell'account di archiviazione, se disponibili, per autenticare le richieste. È possibile disabilitare questa funzionalità in impostazioni (**servizi > account di archiviazione > disabilitare l'utilizzo delle chiavi**). Alcune funzionalità non supportano RBAC, ad esempio l'uso di account di archiviazione classici. Tali funzionalità richiedono ancora chiavi e non sono interessate da questa impostazione.
+Storage Explorer tenterà di usare le chiavi dell'account di archiviazione, se disponibili, per autenticare le richieste. È possibile disabilitare questa funzionalità in impostazioni (**servizi > account di archiviazione > disabilitare l'utilizzo delle chiavi**). Alcune funzionalità non supportano RBAC di Azure, ad esempio l'uso di account di archiviazione classici. Tali funzionalità richiedono ancora chiavi e non sono interessate da questa impostazione.
 
 Se è necessario usare le chiavi per accedere alle risorse di archiviazione, è consigliabile attenersi alle linee guida seguenti:
 

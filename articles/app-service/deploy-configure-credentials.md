@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 739325f66594667c6973df356e2bcf26a3eb056d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300273"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715414"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
 Il [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) supporta due tipi di credenziali per la [distribuzione di GIT locale](deploy-local-git.md) e la [distribuzione FTP/S](deploy-ftp.md). Queste credenziali sono diverse dalle credenziali della sottoscrizione di Azure.
@@ -100,7 +100,7 @@ Per verificare che le credenziali del profilo di pubblicazione siano bloccate su
 
 ### <a name="disable-access-to-the-api"></a>Disabilitare l'accesso all'API
 
-L'API nella sezione precedente è supportata dal controllo degli accessi in base al ruolo di Azure (RBAC), che significa che è possibile [creare un ruolo personalizzato](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) e assegnare utenti priveldged al ruolo in modo da non consentire l'autenticazione di base in tutti i siti. Per configurare il ruolo personalizzato, [seguire queste istruzioni](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+L'API nella sezione precedente è supportata dal controllo degli accessi in base al ruolo di Azure (RBAC di Azure), il che significa che è possibile [creare un ruolo personalizzato](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) e assegnare utenti priveldged inferiori al ruolo, in modo che non possano abilitare l'autenticazione di base in tutti i siti. Per configurare il ruolo personalizzato, [seguire queste istruzioni](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
 
 È anche possibile usare [monitoraggio di Azure](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) per controllare le richieste di autenticazione riuscite e usare i [criteri di Azure](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) per applicare questa configurazione per tutti i siti nella sottoscrizione.
 

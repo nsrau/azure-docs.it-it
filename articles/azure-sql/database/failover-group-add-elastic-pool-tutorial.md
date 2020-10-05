@@ -1,78 +1,78 @@
 ---
-title: 'Esercitazione: aggiungere un pool elastico a un gruppo di failover'
-description: Aggiungere un pool elastico del database SQL di Azure a un gruppo di failover usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
+title: 'Esercitazione: Aggiungere un pool elastico a un gruppo di failover'
+description: Aggiungere un pool elastico di database SQL di Azure a un gruppo di failover usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 0c4a3c97649f168d339f5209cc10a46f56e97381
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: MT
+ms.openlocfilehash: a9f5bac475fd019b294f79abf0acdfaff198f52b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335178"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442757"
 ---
-# <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Esercitazione: aggiungere un pool elastico del database SQL di Azure a un gruppo di failover
+# <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Esercitazione: Aggiungere un pool elastico di database SQL di Azure a un gruppo di failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Configurare un gruppo di failover per un pool elastico del database SQL di Azure e un failover di test usando il portale di Azure.  In questa esercitazione verranno illustrate le procedure per:
+Configurare un gruppo di failover per un pool elastico di database SQL di Azure e testare il failover usando il portale di Azure.  In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 >
 > - Creare un database singolo.
 > - Aggiungere il database a un pool elastico.
 > - Creare un [gruppo di failover](auto-failover-group-overview.md) per due pool elastici tra due server.
-> - Failover di test.
+> - Testare il failover.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, accertarsi di avere:
 
-- Una sottoscrizione di Azure. [Creare un account gratuito](https://azure.microsoft.com/free/) se non ne è già disponibile uno.
+- Una sottoscrizione di Azure. [Creare un account gratuito](https://azure.microsoft.com/free/), se non ne è già disponibile uno.
 
-## <a name="1---create-a-single-database"></a>1-creare un database singolo
+## <a name="1---create-a-single-database"></a>1 - Creare un database singolo
 
 [!INCLUDE [sql-database-create-single-database](../includes/sql-database-create-single-database.md)]
 
-## <a name="2---add-the-database-to-an-elastic-pool"></a>2-aggiungere il database a un pool elastico
+## <a name="2---add-the-database-to-an-elastic-pool"></a>2 - Aggiungere il database a un pool elastico
 
-In questo passaggio si creerà un pool elastico e si aggiungerà il database.
+In questo passaggio si creerà un pool elastico, a cui si aggiungerà il database.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Creare il pool elastico usando il portale di Azure.
+Creare il pool elastico tramite il portale di Azure.
 
-1. Selezionare **Azure SQL** nel menu a sinistra nel portale di Azure. Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare "Azure SQL" nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro.
+1. Selezionare **Azure SQL** nel menu a sinistra nel portale di Azure. Se **Azure SQL** non è presente nell'elenco, selezionare **Tutti i servizi** e quindi digitare "Azure SQL" nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro.
 1. Selezionare **+ Aggiungi** per aprire la pagina **Selezionare l'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive sui diversi database selezionando Mostra dettagli nel riquadro Database.
-1. Selezionare **pool elastico** dall'elenco a discesa **tipo di risorsa** nel riquadro **database SQL** . Selezionare **Crea** per creare il pool elastico.
+1. Selezionare **Pool elastico** dall'elenco a discesa **Tipo di risorsa** nel riquadro **Database SQL**. Selezionare **Crea** per creare il pool elastico.
 
-    ![Seleziona pool elastico](./media/failover-group-add-elastic-pool-tutorial/select-azure-sql-elastic-pool.png)
+    ![Selezionare il pool elastico](./media/failover-group-add-elastic-pool-tutorial/select-azure-sql-elastic-pool.png)
 
 1. Configurare il pool elastico con i valori seguenti:
-   - **Nome**: specificare un nome univoco per il pool elastico, ad esempio `myElasticPool` .
-   - **Sottoscrizione**: selezionare la sottoscrizione dall'elenco a discesa.
-   - **ResourceGroup**: selezionare `myResourceGroup` dall'elenco a discesa il gruppo di risorse creato nella sezione 1.
-   - **Server**: selezionare il server creato nella sezione 1 dall'elenco a discesa.  
+   - **Nome**: specificare un nome univoco per il pool elastico, ad esempio `myElasticPool`.
+   - **Sottoscrizione** Selezionare la sottoscrizione dall'elenco a discesa.
+   - **Gruppo di risorse**: nell'elenco a discesa selezionare `myResourceGroup`, il gruppo di risorse creato nella sezione 1.
+   - **Server**: nell'elenco a discesa selezionare il server creato nella sezione 1.  
 
-       ![Crea nuovo server per il pool elastico](./media/failover-group-add-elastic-pool-tutorial/use-existing-server-for-elastic-pool.png)
+       ![Creare un nuovo server per il pool elastico](./media/failover-group-add-elastic-pool-tutorial/use-existing-server-for-elastic-pool.png)
 
-   - **Calcolo e archiviazione**: selezionare **Configura pool elastico** per configurare il calcolo, l'archiviazione e aggiungere il database singolo al pool elastico. Nella scheda **Impostazioni pool** lasciare l'impostazione predefinita quinta generazione, con 2 Vcore e 32 GB.
+   - **Calcolo e archiviazione**: selezionare **Configura pool elastico** per configurare le risorse di calcolo e archiviazione e aggiungere il database singolo al pool elastico. Nella scheda **Impostazioni pool** lasciare il valore predefinito Gen5, con 2 vCore e 32 GB.
 
-1. Nella pagina **Configura** selezionare la scheda **database** , quindi scegliere **Aggiungi database**. Scegliere il database creato nella sezione 1 e quindi fare clic su **applica** per aggiungerlo al pool elastico. Selezionare di nuovo **applica** per applicare le impostazioni del pool elastico e chiudere la pagina **Configura** .
+1. Nella pagina **Configura** selezionare la scheda **Database** e quindi scegliere **Aggiungi database**. Selezionare il database creato nella sezione 1 e quindi selezionare **Applica** per aggiungerlo al pool elastico. Selezionare di nuovo **Applica** per applicare le impostazioni del pool elastico e chiudere la pagina **Configura**.
 
-    ![Aggiungere un database al pool elastico](./media/failover-group-add-elastic-pool-tutorial/add-database-to-elastic-pool.png)
+    ![Aggiungere il database al pool elastico](./media/failover-group-add-elastic-pool-tutorial/add-database-to-elastic-pool.png)
 
-1. Selezionare **Verifica + crea** per esaminare le impostazioni del pool elastico e quindi selezionare **Crea** per creare il pool elastico.
+1. Selezionare **Rivedi e crea** per verificare le impostazioni del pool elastico e quindi selezionare **Crea** per creare il pool elastico.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Creare i pool elastici e il server secondario usando PowerShell.
+Creare il pool elastico e il server secondario usando PowerShell.
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -116,55 +116,55 @@ Creare i pool elastici e il server secondario usando PowerShell.
    $addDatabase
    ```
 
-Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
+In questa parte dell'esercitazione si usano i cmdlet di PowerShell seguenti:
 
 | Comando | Note |
 |---|---|
-| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Consente di creare un pool di database elastici per un database SQL di Azure.|
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Crea un pool di database elastico per un database SQL di Azure.|
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Imposta le proprietà per un database oppure sposta un database esistente in un pool elastico. |
 
 ---
 
-## <a name="3---create-the-failover-group"></a>3-creare il gruppo di failover
+## <a name="3---create-the-failover-group"></a>3 - Creare il gruppo di failover
 
-In questo passaggio verrà creato un gruppo di [failover](auto-failover-group-overview.md) tra un server esistente e un nuovo server in un'altra area. Aggiungere quindi il pool elastico al gruppo di failover.
+In questo passaggio si creerà un [gruppo di failover](auto-failover-group-overview.md) tra un server esistente e un nuovo server in un'altra area. Aggiungere quindi il pool elastico al gruppo di failover.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Creare il gruppo di failover usando il portale di Azure.
+Creare il gruppo di failover con il portale di Azure.
 
-1. Selezionare **Azure SQL** nel menu a sinistra del [portale di Azure](https://portal.azure.com). Se **Azure SQL** non è presente nell'elenco, selezionare **Tutti i servizi** e quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro.
-1. Selezionare il pool elastico creato nella sezione precedente, ad esempio `myElasticPool` .
-1. Nel riquadro **Panoramica** selezionare il nome del server in **nome server** per aprire le impostazioni per il server.
+1. Selezionare **Azure SQL** nel menu a sinistra nel [portale di Azure](https://portal.azure.com). Se **Azure SQL** non è presente nell'elenco, selezionare **Tutti i servizi** e quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro.
+1. Selezionare il pool elastico creato nella sezione precedente, ossia `myElasticPool`.
+1. Nel riquadro **Panoramica** selezionare il nome del server in **Nome del server** per aprire le impostazioni del server.
   
-    ![Apri server per pool elastico](./media/failover-group-add-elastic-pool-tutorial/server-for-elastic-pool.png)
+    ![Aprire il server per il pool elastico](./media/failover-group-add-elastic-pool-tutorial/server-for-elastic-pool.png)
 
-1. Selezionare **gruppi di failover** nel riquadro **Impostazioni** e quindi selezionare **Aggiungi gruppo** per creare un nuovo gruppo di failover.
+1. Nel riquadro **Impostazioni** selezionare **Gruppi di failover** e quindi selezionare **Aggiungi gruppo** per creare un nuovo gruppo di failover.
 
-    ![Aggiungi nuovo gruppo di failover](./media/failover-group-add-elastic-pool-tutorial/elastic-pool-failover-group.png)
+    ![Aggiungere un nuovo gruppo di failover](./media/failover-group-add-elastic-pool-tutorial/elastic-pool-failover-group.png)
 
-1. Nella pagina **gruppo di failover** immettere o selezionare i valori seguenti e quindi selezionare **Crea**:
-    - **Nome del gruppo di failover**: digitare un nome di gruppo di failover univoco, ad esempio `failovergrouptutorial` .
-    - **Server secondario**: selezionare l'opzione per *configurare le impostazioni necessarie* e quindi scegliere di **creare un nuovo server**. In alternativa, è possibile scegliere un server già esistente come server secondario. Dopo aver immesso i valori seguenti per il nuovo server secondario, selezionare **Seleziona**.
-        - **Nome server**: digitare un nome univoco per il server secondario, ad esempio `mysqlsecondary` .
-        - **Accesso amministratore server**: tipo `azureuser`
-        - **Password**: digitare una password complessa che soddisfi i requisiti delle password.
-        - **Località**: scegliere un percorso dall'elenco a discesa, ad esempio `East US` . Il percorso non può essere uguale a quello del server primario.
+1. Nella pagina **Gruppo di failover** immettere o selezionare i valori seguenti e quindi selezionare **Crea**:
+    - **Nome del gruppo di failover**: digitare un nome univoco per il gruppo di failover, ad esempio `failovergrouptutorial`.
+    - **Server secondario**: selezionare *Configura le impostazioni obbligatorie* e quindi scegliere **Crea un nuovo server**. In alternativa, è possibile selezionare un server già esistente come server secondario. Dopo aver immesso i valori seguenti per il nuovo server secondario, selezionare **Seleziona**.
+        - **Nome server**: digitare un nome univoco per il server secondario, ad esempio `mysqlsecondary`.
+        - **Account di accesso amministratore server**: Digitare `azureuser`.
+        - **Password**: Digitare una password complessa che soddisfi i corrispondenti requisiti.
+        - **Località**: scegliere una località dall'elenco a discesa, ad esempio `East US`. Questa località non deve corrispondere a quella del server primario.
 
        > [!NOTE]
-       > L'account di accesso del server e le impostazioni del firewall devono corrispondere a quelle del server primario.
+       > Le impostazioni di accesso e del firewall del server devono corrispondere a quelle del server primario.
 
-       ![Creazione di un server secondario per il gruppo di failover](./media/failover-group-add-elastic-pool-tutorial/create-secondary-failover-server.png)
+       ![Creare un server secondario per il gruppo di failover](./media/failover-group-add-elastic-pool-tutorial/create-secondary-failover-server.png)
 
-1. Selezionare i **database all'interno del gruppo** e quindi selezionare il pool elastico creato nella sezione 2. Verrà visualizzato un avviso che richiede di creare un pool elastico nel server secondario. Selezionare l'avviso e quindi fare clic su **OK** per creare il pool elastico nel server secondario. 
+1. Selezionare **Database nel gruppo** quindi selezionare il pool elastico creato nella sezione 2. Dovrebbe essere visualizzato un avviso in cui viene chiesto di creare un pool elastico nel server secondario. Selezionare l'avviso e quindi scegliere **OK** per creare il pool elastico nel server secondario. 
 
-   ![Aggiungere un pool elastico al gruppo di failover](./media/failover-group-add-elastic-pool-tutorial/add-elastic-pool-to-failover-group.png)
+   ![Aggiungere il pool elastico al gruppo di failover](./media/failover-group-add-elastic-pool-tutorial/add-elastic-pool-to-failover-group.png)
 
-1. Selezionare **Seleziona** per applicare le impostazioni del pool elastico al gruppo di failover e quindi selezionare **Crea** per creare il gruppo di failover. L'aggiunta del pool elastico al gruppo di failover avvierà automaticamente il processo di replica geografica.
+1. Selezionare **Seleziona** per applicare le impostazioni del pool elastico al gruppo di failover, quindi selezionare **Crea** per creare il gruppo di failover. Aggiungendo il pool elastico al gruppo di failover viene avviato automaticamente il processo di replica geografica.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Creare il gruppo di failover usando PowerShell.
+Creare il gruppo di failover con PowerShell.
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -233,49 +233,49 @@ Creare il gruppo di failover usando PowerShell.
    $failoverGroup
    ```
 
-Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
+In questa parte dell'esercitazione si usano i cmdlet di PowerShell seguenti:
 
 | Comando | Note |
 |---|---|
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Crea un server che ospita database e pool elastici. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crea una regola del firewall per un server. |
-| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Consente di creare un pool elastico per un database SQL di Azure.|
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Crea un pool elastico per un database SQL di Azure.|
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Crea un nuovo gruppo di failover. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Aggiunge uno o più database SQL di Azure a un gruppo di failover. |
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Ottiene o elenca i gruppi di failover del database SQL di Azure. |
 
 ---
 
-## <a name="4---test-failover"></a>4-failover di test
+## <a name="4---test-failover"></a>4 - Testare il failover
 
-In questo passaggio si verificherà un errore nel gruppo di failover nel server secondario e quindi si eseguirà il failback utilizzando il portale di Azure.
+In questo passaggio verrà eseguito il failover del gruppo di failover nel server secondario e quindi il failback usando il portale di Azure.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Testare il failover del gruppo di failover usando il portale di Azure.
+Testare il failover del gruppo di failover con il portale di Azure.
 
-1. Selezionare **Azure SQL** nel menu a sinistra del [portale di Azure](https://portal.azure.com). Se **Azure SQL** non è presente nell'elenco, selezionare **Tutti i servizi** e quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro.
-1. Selezionare il pool elastico creato nella sezione precedente, ad esempio `myElasticPool` .
-1. Selezionare il nome del server in **nome server** per aprire le impostazioni per il server.
+1. Selezionare **Azure SQL** nel menu a sinistra nel [portale di Azure](https://portal.azure.com). Se **Azure SQL** non è presente nell'elenco, selezionare **Tutti i servizi** e quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro.
+1. Selezionare il pool elastico creato nella sezione precedente, ossia `myElasticPool`.
+1. In **Nome del server** selezionare il nome del server per aprire le impostazioni del server.
 
-    ![Apri server per pool elastico](./media/failover-group-add-elastic-pool-tutorial/server-for-elastic-pool.png)
+    ![Aprire il server per il pool elastico](./media/failover-group-add-elastic-pool-tutorial/server-for-elastic-pool.png)
 
-1. Selezionare **gruppi di failover** nel riquadro **Impostazioni** , quindi scegliere il gruppo di failover creato nella sezione 2.
+1. Nel riquadro **Impostazioni** selezionare **Gruppi di failover** e quindi selezionare il gruppo di failover creato nella sezione 2.
   
-   ![Selezionare il gruppo di failover dal portale](./media/failover-group-add-elastic-pool-tutorial/select-failover-group.png)
+   ![Selezionare il gruppo di failover nel portale](./media/failover-group-add-elastic-pool-tutorial/select-failover-group.png)
 
-1. Esaminare il server primario e il server secondario.
-1. Selezionare **failover** dal riquadro attività per eseguire il failover del gruppo di failover che contiene il pool elastico.
-1. Selezionare **Sì** nell'avviso che informa che le sessioni TDS verranno disconnesse.
+1. Verificare qual è il server primario e quale quello secondario.
+1. Selezionare **Failover** nel riquadro attività per eseguire il failover del gruppo di failover che contiene il pool elastico.
+1. Selezionare **Sì** nella finestra dell'avviso che informa che le sessioni TDS verranno disconnesse.
 
-   ![Eseguire il failover del gruppo di failover contenente il database](./media/failover-group-add-elastic-pool-tutorial/failover-sql-db.png)
+   ![Failover del gruppo di failover contenente il database](./media/failover-group-add-elastic-pool-tutorial/failover-sql-db.png)
 
-1. Esaminare il server primario, il server secondario. Se il failover ha avuto esito positivo, i due server dovrebbero avere ruoli scambiati.
-1. Selezionare di nuovo **failover** per non riuscire a ripristinare le impostazioni originali del gruppo di failover.
+1. Verificare qual è il server primario e quale quello secondario. Se il failover è riuscito, i due server dovrebbero essersi scambiati i ruoli.
+1. Selezionare di nuovo **Failover** per ripristinare le impostazioni originali del gruppo di failover.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Failover di test del gruppo di failover usando PowerShell.
+Testare il failover del gruppo di failover con PowerShell.
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -307,7 +307,7 @@ Failover di test del gruppo di failover usando PowerShell.
    Write-host "Failover group failed over to" $drServerName
    ```
 
-Interrompere il gruppo di failover nel server secondario e quindi eseguire il failback usando PowerShell.
+Si eseguirà il failover del gruppo di failover nel server secondario e quindi il failback usando PowerShell.
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -339,7 +339,7 @@ Interrompere il gruppo di failover nel server secondario e quindi eseguire il fa
    Write-host "Failover group failed over to" $serverName
    ```
 
-Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
+In questa parte dell'esercitazione si usano i cmdlet di PowerShell seguenti:
 
 | Comando | Note |
 |---|---|
@@ -350,17 +350,17 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Pulire le risorse eliminando il gruppo di risorse.
+Per pulire le risorse, eliminare il gruppo di risorse.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Passare al gruppo di risorse nel [portale di Azure](https://portal.azure.com).
-1. Selezionare  **Elimina gruppo di risorse** per eliminare tutte le risorse nel gruppo, nonché il gruppo di risorse stesso.
-1. Digitare il nome del gruppo di risorse, `myResourceGroup` , nella casella di testo e quindi selezionare **Elimina** per eliminare il gruppo di risorse.
+1. Selezionare **Elimina gruppo di risorse** per eliminare tutte le risorse nel gruppo, compreso il gruppo di risorse stesso.
+1. Nella casella di testo digitare il nome del gruppo di risorse, `myResourceGroup`, quindi selezionare **Elimina** per eliminare il gruppo di risorse.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Pulire le risorse usando PowerShell.
+Pulire le risorse mediante PowerShell.
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -372,7 +372,7 @@ Pulire le risorse usando PowerShell.
    Write-host "Resource group removed =" $resourceGroupName
    ```
 
-Questa parte dell'esercitazione usa il cmdlet di PowerShell seguente:
+In questa parte dell'esercitazione si usa il cmdlet di PowerShell seguente:
 
 | Comando | Note |
 |---|---|
@@ -381,7 +381,7 @@ Questa parte dell'esercitazione usa il cmdlet di PowerShell seguente:
 ---
 
 > [!IMPORTANT]
-> Se si desidera lasciare il gruppo di risorse, ma eliminare il database secondario, rimuoverlo dal gruppo di failover prima di eliminarlo. L'eliminazione di un database secondario prima che venga rimossa dal gruppo di failover può causare un comportamento imprevedibile.
+> Se si vuole mantenere il gruppo di risorse ma eliminare il database secondario, rimuoverlo dal gruppo di failover prima di eliminarlo. L'eliminazione di un database secondario prima della rimozione dal gruppo di failover può causare comportamenti imprevisti.
 
 ## <a name="full-script"></a>Script completo
 
@@ -397,7 +397,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Crea un server che ospita database e pool elastici. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crea una regola del firewall per un server. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crea un database. |
-| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Consente di creare un pool di database elastici per un database SQL di Azure.|
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Crea un pool di database elastico per un database SQL di Azure.|
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Imposta le proprietà per un database oppure sposta un database esistente in un pool elastico. |
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Crea un nuovo gruppo di failover. |
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Ottiene uno o più database nel database SQL. |
@@ -408,22 +408,22 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Non sono disponibili script per la portale di Azure.
+Non sono disponibili script per il portale di Azure.
 
 ---
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato aggiunto un pool elastico del database SQL di Azure a un gruppo di failover e testato il failover. Si è appreso come:
+In questa esercitazione è stato aggiunto un pool elastico di database SQL di Azure a un gruppo di failover ed è stato testato il failover. Si è appreso come:
 
 > [!div class="checklist"]
 >
 > - Creare un database singolo.
 > - Aggiungere il database in un pool elastico.
 > - Creare un [gruppo di failover](auto-failover-group-overview.md) per due pool elastici tra due server.
-> - Failover di test.
+> - Testare il failover.
 
 Passare all'esercitazione successiva per informazioni su come eseguire la migrazione con Servizio Migrazione del database.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: eseguire la migrazione di SQL Server a un database in pool con DMS](../../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json)
+> [Esercitazione: Eseguire la migrazione di SQL Server in un database in pool mediante il servizio Migrazione del database](../../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json)

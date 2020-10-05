@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 9bf656989dc331fdd4ce044126ea9d0be9414930
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 16080440a9458753992c62309ce75ed241fb64d5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088800"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715112"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedisci l'autorizzazione della chiave condivisa per un account di archiviazione di Azure (anteprima)
 
@@ -67,7 +67,7 @@ Seguire questa procedura per creare una metrica per tenere traccia delle richies
 
 Dopo aver configurato la metrica, le richieste all'account di archiviazione inizieranno a essere visualizzate nel grafico. Nell'immagine seguente vengono illustrate le richieste autorizzate con chiave condivisa o effettuate con un token SAS. Le richieste vengono aggregate ogni giorno negli ultimi 30 giorni.
 
-:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot che mostra le richieste aggregate autorizzate con la chiave condivisa":::
+:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot che illustra come configurare la metrica per le transazioni Sum effettuate con la chiave condivisa o con la firma di accesso condiviso":::
 
 È anche possibile configurare una regola di avviso per ricevere una notifica quando viene effettuato un determinato numero di richieste autorizzate con chiave condivisa per l'account di archiviazione. Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).
 
@@ -93,7 +93,7 @@ Per registrare i dati di archiviazione di Azure con monitoraggio di Azure e anal
 1. In **Dettagli categoria**, nella sezione **log** , scegliere **StorageRead**, **StorageWrite**e **StorageDelete** per registrare tutte le richieste di dati al servizio selezionato.
 1. In **Dettagli destinazione**selezionare **Invia a log Analytics**. Selezionare la sottoscrizione e l'area di lavoro Log Analytics creata in precedenza, come illustrato nella figura seguente.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot che illustra come creare un'impostazione di diagnostica per la registrazione delle richieste":::
+    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot che illustra come configurare la metrica per le transazioni Sum effettuate con la chiave condivisa o con la firma di accesso condiviso":::
 
 È possibile creare un'impostazione di diagnostica per ogni tipo di risorsa di archiviazione di Azure nell'account di archiviazione.
 
@@ -133,7 +133,7 @@ Per non consentire l'autorizzazione della chiave condivisa per un account di arc
 1. Individuare l'impostazione di **configurazione** in **Impostazioni**.
 1. Impostare **Consenti accesso chiave condivisa** su **disabilitato**.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot che illustra come impedire l'accesso con chiave condivisa per l'account":::
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot che illustra come configurare la metrica per le transazioni Sum effettuate con la chiave condivisa o con la firma di accesso condiviso":::
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -218,8 +218,8 @@ Alcuni strumenti di Azure offrono la possibilità di usare Azure AD autorizzazio
 | Esplora archivi Azure | Supportato solo per l'archiviazione BLOB e Azure Data Lake Storage Gen2. Azure AD l'accesso all'archiviazione code non è supportato. Assicurarsi di selezionare il tenant Azure AD corretto. Per ulteriori informazioni, vedere [Introduzione a Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Supportata. Per informazioni su come autorizzare i comandi di PowerShell per operazioni BLOB o di Accodamento con Azure AD, vedere [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB](../blobs/authorize-active-directory-powershell.md) o [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati della coda](../queues/authorize-active-directory-powershell.md). |
 | Interfaccia della riga di comando di Azure | Supportata. Per informazioni su come autorizzare i comandi dell'interfaccia della riga di comando di Azure con Azure AD per l'accesso ai dati BLOB e di Accodamento, vedere [eseguire comandi dell'interfaccia della riga di comando di Azure con Azure ad credenziali per accedere ai dati BLOB](authorize-data-operations-cli.md) |
-| Hub IoT Azure | Supportata. Per altre informazioni, vedere [supporto dell'hub Internet per le reti virtuali](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell è una shell integrata nel portale di Azure. Azure Cloud Shell ospita file per la persistenza in una condivisione file di Azure in un account di archiviazione. Questi file diventeranno inaccessibili se l'autorizzazione della chiave condivisa non è consentita per l'account di archiviazione. Per altre informazioni, vedere [connettere l'archiviazione dei file di Microsoft Azure](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Per eseguire i comandi in Azure Cloud Shell per gestire gli account di archiviazione per cui non è consentito l'accesso con chiave condivisa, verificare prima di tutto che siano state concesse le autorizzazioni necessarie per questi account tramite il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md). |
+| Hub IoT di Azure | Supportata. Per altre informazioni, vedere [supporto dell'hub Internet per le reti virtuali](../../iot-hub/virtual-network-support.md). |
+| Azure Cloud Shell | Azure Cloud Shell è una shell integrata nel portale di Azure. Azure Cloud Shell ospita file per la persistenza in una condivisione file di Azure in un account di archiviazione. Questi file diventeranno inaccessibili se l'autorizzazione della chiave condivisa non è consentita per l'account di archiviazione. Per altre informazioni, vedere [connettere l'archiviazione dei file di Microsoft Azure](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Per eseguire i comandi in Azure Cloud Shell per gestire gli account di archiviazione per cui non è consentito l'accesso con chiave condivisa, verificare prima di tutto che siano state concesse le autorizzazioni necessarie per questi account tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md). |
 
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
 

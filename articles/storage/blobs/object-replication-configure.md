@@ -10,12 +10,12 @@ ms.date: 09/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e6e6c802da212294594f45d0545c6cf07694760b
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 48831a9482087dbeed0952cc30fcbc9c14fbaed0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707918"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715634"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurare la replica di oggetti per i BLOB in blocchi
 
@@ -37,7 +37,7 @@ Un account di archiviazione può fungere da account di origine per un massimo di
 
 Quando si configura la replica degli oggetti, si crea un criterio di replica nell'account di destinazione tramite il provider di risorse di archiviazione di Azure. Dopo aver creato i criteri di replica, archiviazione di Azure assegna un ID criterio. È quindi necessario associare i criteri di replica all'account di origine utilizzando l'ID criterio. L'ID criterio negli account di origine e di destinazione deve essere lo stesso affinché venga eseguita la replica.
 
-Per configurare un criterio di replica degli oggetti per un account di archiviazione, è necessario avere l'assegnazione del ruolo di **collaboratore** Azure Resource Manager, con ambito al livello dell'account di archiviazione o superiore. Per altre informazioni, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md) nella documentazione relativa al controllo degli accessi in base al ruolo di Azure (RBAC).
+Per configurare un criterio di replica degli oggetti per un account di archiviazione, è necessario avere l'assegnazione del ruolo di **collaboratore** Azure Resource Manager, con ambito al livello dell'account di archiviazione o superiore. Per altre informazioni, vedere [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) di Azure nella documentazione relativa al controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
 ### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>Configurare la replica di oggetti quando si ha accesso a entrambi gli account di archiviazione
 
@@ -65,19 +65,19 @@ Per creare un criterio di replica nel portale di Azure, seguire questa procedura
 
     L'immagine seguente illustra i filtri che limitano quali BLOB vengono copiati come parte di una regola di replica.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Screenshot che illustra i filtri per una regola di replica":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Screenshot che illustra regole di replica nel portale di Azure":::
 
 1. Per impostazione predefinita, l'ambito di copia è impostato in modo che vengano copiati solo i nuovi oggetti. Per copiare tutti gli oggetti nel contenitore o per copiare oggetti a partire da una data e un'ora personalizzate, selezionare il collegamento **cambia** e configurare l'ambito di copia per la coppia di contenitori.
 
     Nell'immagine seguente viene illustrato un ambito di copia personalizzato che copia gli oggetti da una data e un'ora specificate in avanti.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot che illustra un ambito di copia personalizzato per la replica di oggetti":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot che illustra regole di replica nel portale di Azure":::
 
 1. Selezionare **Salva e applica** per creare i criteri di replica e avviare la replica dei dati.
 
 Dopo aver configurato la replica degli oggetti, nel portale di Azure vengono visualizzati i criteri e le regole di replica, come illustrato nell'immagine seguente.
 
-:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Screenshot che illustra i criteri di replica degli oggetti in portale di Azure":::
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Screenshot che illustra regole di replica nel portale di Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -238,7 +238,7 @@ az storage account or-policy show \
 
 Se non si dispone delle autorizzazioni per l'account di archiviazione di origine, è possibile configurare la replica degli oggetti nell'account di destinazione e fornire un file JSON che contenga la definizione dei criteri a un altro utente per creare gli stessi criteri nell'account di origine. Se, ad esempio, l'account di origine si trova in un tenant di Azure AD diverso dall'account di destinazione, è possibile usare questo approccio per configurare la replica degli oggetti.
 
-Tenere presente che è necessario avere a disposizione il ruolo **collaboratore** Azure Resource Manager ambito per il livello dell'account di archiviazione di destinazione o superiore per creare il criterio. Per altre informazioni, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md) nella documentazione relativa al controllo degli accessi in base al ruolo di Azure (RBAC).
+Tenere presente che è necessario avere a disposizione il ruolo **collaboratore** Azure Resource Manager ambito per il livello dell'account di archiviazione di destinazione o superiore per creare il criterio. Per altre informazioni, vedere [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) di Azure nella documentazione relativa al controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
 La tabella seguente riepiloga i valori da usare per l'ID criterio e gli ID regola nel file JSON in ogni scenario.
 
@@ -284,7 +284,7 @@ Per configurare la replica di oggetti nell'account di destinazione con un file J
 1. Selezionare **carica regole di replica**.
 1. Caricare il file JSON. Il portale di Azure Visualizza i criteri e le regole che verranno creati, come illustrato nella figura seguente.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Screenshot che illustra come caricare un file JSON per definire un criterio di replica":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Screenshot che illustra regole di replica nel portale di Azure":::
 
 1. Selezionare **carica** per creare i criteri di replica nell'account di destinazione.
 
@@ -293,7 +293,7 @@ Per configurare la replica di oggetti nell'account di destinazione con un file J
 1. Passare alle impostazioni di **replica degli oggetti** per l'account di destinazione nel portale di Azure.
 1. Selezionare il pulsante **altro** accanto al criterio che si desidera scaricare, quindi selezionare **Scarica regole**, come illustrato nella figura seguente.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Screenshot che illustra come scaricare le regole di replica in un file JSON":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Screenshot che illustra regole di replica nel portale di Azure":::
 
 1. Salvare il file JSON nel computer locale per condividerlo con un altro utente per configurare i criteri nell'account di origine.
 

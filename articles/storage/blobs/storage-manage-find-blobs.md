@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
 ms.custom: references_regions
-ms.openlocfilehash: 70d0e31809227d5e27f8f2b22a7703d5a8ccca3c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3b6162552e43c9f475bef2ca3097da22ae198011
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275065"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713684"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Gestire e trovare i dati BLOB di Azure con indice BLOB (anteprima)
 
@@ -129,7 +129,7 @@ La tabella seguente mostra tutti gli operatori validi per le operazioni condizio
 |     <      |  Minore di   | "Age" < "32" |
 |     <=     |  Minore o uguale a  | "Company" <= "contoso" |
 |    AND     |  And logico  | "Rank" >=' 010' è Rank ' <' 100' |
-|     OR     | OR logico   | "Status" = "Done" o "Priority" >= "05" |
+|     OPPURE     | OR logico   | "Status" = "Done" o "Priority" >= "05" |
 
 > [!NOTE]
 > Sono disponibili due operatori aggiuntivi, non uguali e logici, che sono consentiti nell'intestazione x-ms-if-Tags condizionale per l'operazione BLOB, ma non esistono nell'operazione FindBlobsByTags.
@@ -196,7 +196,7 @@ La regola di gestione del ciclo di vita di esempio seguente si applica ai BLOB i
 
 È possibile autorizzare l'accesso all'indice BLOB usando uno degli approcci seguenti:
 
-- Utilizzando il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni a un'entità di sicurezza Azure Active Directory (Azure AD). Microsoft consiglia di usare Azure AD per una maggiore sicurezza e semplicità d'uso. Per altre informazioni sull'uso di Azure AD con le operazioni BLOB, vedere [autorizzare l'accesso a BLOB e code usando Azure Active Directory](../common/storage-auth-aad.md).
+- Usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per concedere le autorizzazioni a un'entità di sicurezza Azure Active Directory (Azure AD). Microsoft consiglia di usare Azure AD per una maggiore sicurezza e semplicità d'uso. Per altre informazioni sull'uso di Azure AD con le operazioni BLOB, vedere [autorizzare l'accesso a BLOB e code usando Azure Active Directory](../common/storage-auth-aad.md).
 - Usando una firma di accesso condiviso (SAS) per delegare l'accesso all'indice BLOB. Per altre informazioni sulle firme di accesso condiviso, vedere [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso](../common/storage-sas-overview.md).
 - Utilizzando le chiavi di accesso dell'account per autorizzare le operazioni con la chiave condivisa. Per altre informazioni, vedere [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key) (Autorizzazione con chiave condivisa).
 
@@ -205,7 +205,7 @@ I tag di indice BLOB sono una risorsa secondaria per i dati BLOB. Un utente con 
 ### <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 Ai chiamanti che usano un' [identità Azure ad](../common/storage-auth-aad.md) possono essere concesse le autorizzazioni seguenti per operare sui tag degli indici BLOB.
 
-|   Operazioni BLOB  |  Azione RBAC   |
+|   Operazioni BLOB  |  Azione RBAC di Azure   |
 |--------------------|----------------|
 | Trovare i BLOB in base ai tag | Microsoft. storage/storageAccounts/blobServices/Containers/BLOB/filtro/azione |
 | Imposta tag BLOB      | Microsoft. storage/storageAccounts/blobServices/Containers/BLOB/Tag/scrittura |

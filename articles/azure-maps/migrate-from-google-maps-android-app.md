@@ -1,20 +1,20 @@
 ---
-title: "Esercitazione: Eseguire la migrazione di un'app Android | Mappe di Microsoft Azure"
-description: Come eseguire la migrazione di un'app Android da Google Maps a Mappe di Microsoft Azure.
+title: Eseguire la migrazione di un'app Android | Mappe di Microsoft Azure
+description: Come eseguire la migrazione di una mappa di Android da Google Maps a Mappe di Microsoft Azure
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
-ms.topic: tutorial
+ms.date: 08/19/2020
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: fe67364ef51248d04cbc6095eb691ffe255fa02c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 96f68bdf58d9cc98815e4ae76ae01da87c38dc88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319640"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Eseguire la migrazione di un'app Android da Google Maps
 
@@ -30,35 +30,35 @@ Per altre informazioni su come sviluppare con Android SDK di Mappe di Azure, ved
 
 La procedura di caricamento in un'app Android con Google Maps prevede molti passaggi simili a quella di Mappe di Azure. Quando si usa uno degli SDK è necessario:
 
-- Ottenere un'API o una chiave di sottoscrizione per accedere a una delle piattaforme.
-- Aggiungere del codice XML a un'attività per specificare la posizione del rendering e la disposizione della mappa.
-- Eseguire l'override dei metodi del ciclo di vita dall'attività contenente la visualizzazione della mappa con quelli corrispondenti nella classe map. In particolare, è necessario eseguire l'override dei metodi seguenti:
-    - `onCreate(Bundle)`
-    - `onStart()`
-    - `onResume()`
-    - `onPause()`
-    - `onStop()`
-    - `onDestroy()`
-    - `onSaveInstanceState(Bundle)`
-    - `onLowMemory()`
-- Attendere che la mappa sia pronta prima di provare ad accedervi e a programmarla.
+* Ottenere un'API o una chiave di sottoscrizione per accedere a una delle piattaforme.
+* Aggiungere del codice XML a un'attività per specificare la posizione del rendering e la disposizione della mappa.
+* Eseguire l'override dei metodi del ciclo di vita dall'attività contenente la visualizzazione della mappa con quelli corrispondenti nella classe map. In particolare, è necessario eseguire l'override dei metodi seguenti:
+    * `onCreate(Bundle)`
+    * `onStart()`
+    * `onResume()`
+    * `onPause()`
+    * `onStop()`
+    * `onDestroy()`
+    * `onSaveInstanceState(Bundle)`
+    * `onLowMemory()`
+* Attendere che la mappa sia pronta prima di provare ad accedervi e a programmarla.
 
-**Prima: Google Maps**
+### <a name="before-google-maps"></a>Prima: Google Maps
 
 Per visualizzare una mappa con Google Maps SDK per Android, occorre seguire questa procedura:
 
-1.  Verificare che Google Play Services sia installato.
-2.  Aggiungere una dipendenza per il servizio Google Maps al file **gradle.build** del modulo: 
+1. Verificare che Google Play Services sia installato.
+2. Aggiungere una dipendenza per il servizio Google Maps al file **gradle.build** del modulo:
 
     `implementation 'com.google.android.gms:play-services-maps:17.0.0'`
 
-1.  Aggiungere una chiave API di Google Maps all'interno della sezione application del file **google\_maps\_api.xml**:
-    
+3. Aggiungere una chiave API di Google Maps all'interno della sezione application del file **google\_maps\_api.xml**:
+
     ```xml
     <meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR_GOOGLE_MAPS_KEY"/>
     ```
 
-1.  Aggiungere un frammento di mappa all'attività principale:
+4. Aggiungere un frammento di mappa all'attività principale:
 
     ```xml
     <com.google.android.gms.maps.MapView
@@ -67,13 +67,13 @@ Per visualizzare una mappa con Google Maps SDK per Android, occorre seguire ques
             android:layout_height="match_parent"/>
     ```
 
-1.  Nel file **MainActivity.java** è necessario importare Google Maps SDK. Trasferire tutti i metodi del ciclo di vita dall'attività contenente la visualizzazione della mappa a quelli corrispondenti nella classe della mappa. Recuperare un'istanza di `MapView` dal frammento della mappa usando il metodo `getMapAsync(OnMapReadyCallback)`. `MapView` inizializza automaticamente il sistema delle mappe e la visualizzazione. Modificare il file **MainActivity.java** come segue:
+5. Nel file **MainActivity.java** è necessario importare Google Maps SDK. Trasferire tutti i metodi del ciclo di vita dall'attività contenente la visualizzazione della mappa a quelli corrispondenti nella classe della mappa. Recuperare un'istanza di `MapView` dal frammento della mappa usando il metodo `getMapAsync(OnMapReadyCallback)`. `MapView` inizializza automaticamente il sistema delle mappe e la visualizzazione. Modificare il file **MainActivity.java** come segue:
 
     ```java
     import com.google.android.gms.maps.GoogleMap;
     import com.google.android.gms.maps.MapView;
     import com.google.android.gms.maps.OnMapReadyCallback;
-    
+ 
     import android.support.v7.app.AppCompatActivity;
     import android.os.Bundle;
     
@@ -144,11 +144,9 @@ Per visualizzare una mappa con Google Maps SDK per Android, occorre seguire ques
 
 Quando si esegue un'applicazione, il controllo mappa viene caricato come illustrato nell'immagine seguente.
 
-<center>
+![Mappa semplice di Google Maps](media/migrate-google-maps-android-app/simple-google-maps.png)
 
-![Mappa semplice di Google Maps](media/migrate-google-maps-android-app/simple-google-maps.png)</center>
-
-**Dopo: Mappe di Azure**
+### <a name="after-azure-maps"></a>Dopo: Mappe di Azure
 
 Per visualizzare una mappa con Azure Maps SDK per Android, occorre seguire questa procedura:
 
@@ -161,7 +159,7 @@ Per visualizzare una mappa con Azure Maps SDK per Android, occorre seguire quest
     ```
 
 2. Aggiornare **app/build.gradle** e aggiungervi il codice seguente:
-    
+
     1. Verificare che il valore di **minSdkVersion** del progetto sia API 21 o versione successiva.
 
     2. Aggiungere il codice seguente alla sezione Android:
@@ -172,6 +170,7 @@ Per visualizzare una mappa con Azure Maps SDK per Android, occorre seguire quest
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
+
     3. Aggiornare il blocco delle dipendenze. Aggiungere una nuova riga di dipendenza implementation per la versione più recente di Azure Maps Android SDK:
 
         ```java
@@ -180,10 +179,11 @@ Per visualizzare una mappa con Azure Maps SDK per Android, occorre seguire quest
 
         > [!Note]
         > Azure Maps Android SDK viene regolarmente aggiornato e migliorato. Vedere [Introduzione al controllo mappa di Android](how-to-use-android-map-control-library.md) per recuperare il numero di versione più recente di Mappe di Azure. È anche possibile impostare il numero di versione da "0.2" a "0+" affinché il codice punti sempre alla versione più recente.
-    
+
     4. Passare a **File** sulla barra degli strumenti e fare clic su **Sync Project with Gradle Files** (Sincronizza progetto con file Gradle).
-3. Aggiungere un frammento di mappa all'attività principale (resources \> layout \> activity\_main.xml):
-    
+
+3. Aggiungere un frammento di mappa all'attività principale (resources pwd\> layout \> activity\_main.xml):
+
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
     <FrameLayout
@@ -202,7 +202,7 @@ Per visualizzare una mappa con Azure Maps SDK per Android, occorre seguire quest
     ```
 
 4. Nel file **MainActivity.java** è necessario:
-    
+
     * Importare Azure Maps SDK
     * Impostare le informazioni di autenticazione di Mappe di Azure
     * Ottenere l'istanza del controllo mappa nel metodo **onCreate**
@@ -221,7 +221,7 @@ Per visualizzare una mappa con Azure Maps SDK per Android, occorre seguire quest
     * `onLowMemory()`
 
     Modificare il file **MainActivity.java** come segue:
-    
+
     ```java
     package com.example.myapplication;
 
@@ -234,7 +234,7 @@ Per visualizzare una mappa con Azure Maps SDK per Android, occorre seguire quest
     import com.microsoft.azure.maps.mapcontrol.source.DataSource;
 
     public class MainActivity extends AppCompatActivity {
-        
+     
         static {
             AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
         }
@@ -303,9 +303,8 @@ Per visualizzare una mappa con Azure Maps SDK per Android, occorre seguire quest
 
 Se si esegue l'applicazione, il controllo mappa viene caricato come illustrato nell'immagine seguente.
 
-<center>
 
-![Mappa semplice di Mappe di Azure](media/migrate-google-maps-android-app/simple-azure-maps.png)</center>
+![Mappa semplice di Mappe di Azure](media/migrate-google-maps-android-app/simple-azure-maps.png)
 
 Si noti che il controllo Mappe di Azure supporta maggiormente lo zoom indietro e offre una più ampia visualizzazione del mondo.
 
@@ -316,7 +315,7 @@ Si noti che il controllo Mappe di Azure supporta maggiormente lo zoom indietro e
 
 Se i destinatari sono distribuiti in più paesi/aree geografiche o parlano lingue diverse, la localizzazione è importante.
 
-**Prima: Google Maps**
+### <a name="before-google-maps"></a>Prima: Google Maps
 
 Aggiungere il codice seguente al metodo `onCreate` per impostare la lingua della mappa prima di impostare la visualizzazione del contesto della mappa. Il codice lingua "fr" limita la lingua al francese.
 
@@ -332,11 +331,9 @@ getBaseContext().getResources().updateConfiguration(config,
 
 Di seguito è riportato un esempio di Google Maps con la lingua impostata su "fr".
 
-<center>
+![Localizzazione di Google Maps](media/migrate-google-maps-android-app/google-maps-localization.png)
 
-![Localizzazione di Google Maps](media/migrate-google-maps-android-app/google-maps-localization.png)</center>
-
-**Dopo: Mappe di Azure**
+### <a name="after-azure-maps"></a>Dopo: Mappe di Azure
 
 Mappe di Azure offre tre modi diversi per impostare la lingua e la visualizzazione a livello di area della mappa. La prima opzione consiste nel passare le informazioni sulla lingua e sulla visualizzazione a livello di area nella classe `AzureMaps`. Questa opzione usa i metodi statici `setLanguage` e `setView` a livello globale. In questo modo la lingua e la visualizzazione a livello di area predefinite vengono impostate in tutti i controlli di Mappe di Azure caricati nell'app. Questo esempio imposta la lingua francese usando il codice lingua "fr-FR".
 
@@ -376,9 +373,7 @@ mapControl.onReady(map -> {
 
 Di seguito è riportato un esempio di Mappe di Azure con la lingua impostata su "fr-FR".
 
-<center>
-
-![Localizzazione di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-localization.png)</center>
+![Localizzazione di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-localization.png)
 
 Vedere l'elenco completo delle [lingue supportate](supported-languages.md).
 
@@ -386,7 +381,7 @@ Vedere l'elenco completo delle [lingue supportate](supported-languages.md).
 
 Le mappe dinamiche in Mappe di Azure e Google Maps possono essere spostate a livello di codice in nuove aree geografiche chiamando i metodi appropriati. Ora verrà illustrato come visualizzare le immagini aeree satellitari, centrare la mappa su una posizione con le coordinate e modificare il livello di zoom. In questo esempio verranno usati i valori seguenti: latitudine: 35.0272, longitudine: -111.0225 e livello di zoom 15.
 
-**Prima: Google Maps**
+### <a name="before-google-maps"></a>Prima: Google Maps
 
 La fotocamera del controllo mappa di Google Maps può essere spostata a livello di codice usando il metodo `moveCamera`. Il metodo `moveCamera` consente di specificare il centro della mappa e un livello di zoom. Il metodo `setMapType` modifica il tipo di mappa da visualizzare.
 
@@ -400,14 +395,12 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-<center>
-
-![Impostazione visualizzazione di Google Maps](media/migrate-google-maps-android-app/google-maps-set-view.png)</center>
+![Impostazione visualizzazione di Google Maps](media/migrate-google-maps-android-app/google-maps-set-view.png)
 
 > [!NOTE]
-> Google Maps usa tessere con dimensioni di 256 pixel, mentre Mappe di Azure usa tessere più grandi, da 512 pixel. In questo modo si riduce il numero di richieste di rete necessarie a Mappe di Azure per caricare la stessa area mappa di Google Maps. Per ottenere la stessa area visualizzabile di una mappa in Google Maps, in Mappe di Azure è necessario ridurre il livello di zoom usato in Google Maps di uno. 
+> Google Maps usa tessere con dimensioni di 256 pixel, mentre Mappe di Azure usa tessere più grandi, da 512 pixel. In questo modo si riduce il numero di richieste di rete necessarie a Mappe di Azure per caricare la stessa area mappa di Google Maps. Per ottenere la stessa area visualizzabile di una mappa in Google Maps, in Mappe di Azure è necessario ridurre il livello di zoom usato in Google Maps di uno.
 
-**Dopo: Mappe di Azure**
+### <a name="after-azure-maps"></a>Dopo: Mappe di Azure
 
 Come indicato in precedenza, per ottenere la stessa area visualizzabile in Mappe di Azure, occorre ridurre di uno il livello di zoom usato in Google Maps, in questo caso usando un livello di zoom pari a 14.
 
@@ -437,19 +430,17 @@ mapControl.onReady(map -> {
 });
 ```
 
-<center>
-
-![Impostazione visualizzazione di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-set-view.png)</center>
+![Impostazione visualizzazione di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-set-view.png)
 
 **Risorse aggiuntive:**
 
-- [Stili di mappa supportati](supported-map-styles.md)
+* [Stili di mappa supportati](supported-map-styles.md)
 
 ## <a name="adding-a-marker"></a>Aggiungere un marcatore
 
 Il rendering dei dati dei punti viene spesso eseguito tramite un'immagine sulla mappa. In genere queste immagini sono denominate indicatori, puntine da disegno, segnaposto o simboli. Negli esempi seguenti viene eseguito il rendering dei dati dei punti come indicatori sulla mappa alle coordinate seguenti: latitudine: 51.5, longitudine: -0.2.
 
-**Prima: Google Maps**
+### <a name="before-google-maps"></a>Prima: Google Maps
 
 Con Google Maps i marcatori vengono aggiunti tramite il metodo `addMarker` della mappa.
 
@@ -462,11 +453,9 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-<center>
+![Marcatore di Google Maps](media/migrate-google-maps-android-app/google-maps-marker.png)
 
-![Marcatore di Google Maps](media/migrate-google-maps-android-app/google-maps-marker.png)</center>
-
-**Dopo: Mappe di Azure**
+### <a name="after-azure-maps"></a>Dopo: Mappe di Azure
 
 In Mappe di Azure è possibile eseguire il rendering dei dati dei punti sulla mappa aggiungendo prima i dati a un'origine dati e quindi connettendo l'origine dati a un livello simbolo. L'origine dati ottimizza la gestione dei dati spaziali nel controllo mappa. Il livello simbolo specifica come eseguire il rendering dei dati dei punti usando un'immagine o un testo.
 
@@ -484,9 +473,7 @@ mapControl.onReady(map -> {
 });
 ```
 
-<center>
-
-![Marcatore di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-marker.png)</center>
+![Marcatore di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-marker.png)
 
 ## <a name="adding-a-custom-marker"></a>Aggiungere un marcatore personalizzato
 
@@ -499,7 +486,7 @@ yellow-pushpin.png</center>
 
 In entrambi gli esempi l'immagine precedente viene aggiunta alla cartella di risorse drawable delle risorse dell'app.
 
-**Prima: Google Maps**
+### <a name="before-google-maps"></a>Prima: Google Maps
 
 Con Google Maps è possibile usare immagini personalizzate per gli indicatori. Caricare le immagini personalizzate usando l'opzione `icon` dell'indicatore. Per allineare il punto dell'immagine alla coordinata, usare l'opzione `anchor`. L'ancoraggio è relativo alle dimensioni dell'immagine. In questo caso, l'ancoraggio è di 0,2 unità di larghezza e 1 unità di altezza.
 
@@ -514,11 +501,9 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-<center>
+![Marcatore personalizzato di Google Maps](media/migrate-google-maps-android-app/google-maps-custom-marker.png)
 
-![Marcatore personalizzato di Google Maps](media/migrate-google-maps-android-app/google-maps-custom-marker.png)</center>
-
-**Dopo: Mappe di Azure**
+### <a name="after-azure-maps"></a>Dopo: Mappe di Azure
 
 I livelli simbolo in Mappe di Azure supportano anche le immagini personalizzate, ma è prima necessario caricare l'immagine nelle risorse della mappa e assegnarle un ID univoco. Il livello simbolo deve quindi fare riferimento a questo ID. Scostare il simbolo affinché sia allineato al punto corretto sull'immagine usando l'opzione `iconOffset`. L'offset dell'icona è espresso in pixel. Per impostazione predefinita, l'offset è relativo alla parte centrale inferiore dell'immagine, ma può essere regolato usando l'opzione `iconAnchor`. Questo esempio imposta l'opzione `iconAnchor` su `"center"` e usa un offset dell'icona per spostare l'immagine di cinque pixel a destra e 15 pixel in alto per allinearla al punto dell'immagine della puntina da disegno.
 
@@ -542,15 +527,13 @@ mapControl.onReady(map -> {
 });
 ```
 
-<center>
-
-![Marcatore personalizzato di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-custom-marker.png)</center>
+![Marcatore personalizzato di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-custom-marker.png)
 
 ## <a name="adding-a-polyline"></a>Aggiungere una polilinea
 
 Le polilinee vengono usate per rappresentare una linea o un percorso sulla mappa. Negli esempi seguenti viene illustrato come creare una polilinea tratteggiata sulla mappa.
 
-**Prima: Google Maps**
+### <a name="before-google-maps"></a>Prima: Google Maps
 
 Con Google Maps è possibile eseguire il rendering di una polilinea usando la classe `PolylineOptions`. Aggiungere la polilinea alla mappa usando il metodo `addPolyline`. Impostare il colore del tratto usando l'opzione `color`. Impostare lo spessore del tratto usando l'opzione `width`. Aggiungere una matrice tratteggiata del tratto usando l'opzione `pattern`.
 
@@ -574,11 +557,9 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-<center>
+![Polilinea di Google Maps](media/migrate-google-maps-android-app/google-maps-polyline.png)
 
-![Polilinea di Google Maps](media/migrate-google-maps-android-app/google-maps-polyline.png)</center>
-
-**Dopo: Mappe di Azure**
+### <a name="after-azure-maps"></a>Dopo: Mappe di Azure
 
 In Mappe di Azure le polilinee sono denominate come oggetti `LineString` o `MultiLineString`. Aggiungere questi oggetti a un'origine dati ed eseguirne il rendering usando un livello linea. Impostare lo spessore del tratto usando l'opzione `strokeWidth`. Aggiungere una matrice tratteggiata del tratto usando l'opzione `strokeDashArray`.
 
@@ -607,15 +588,13 @@ mapControl.onReady(map -> {
 });
 ```
 
-<center>
-
-![Polilinea di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-polyline.png)</center>
+![Polilinea di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-polyline.png)
 
 ## <a name="adding-a-polygon"></a>Aggiungere un poligono
 
 I poligoni vengono usati per rappresentare un'area sulla mappa. Negli esempi successivi viene illustrato come creare un poligono. Questo poligono forma un triangolo basato sulla coordinata centrale della mappa.
 
-**Prima: Google Maps**
+### <a name="before-google-maps"></a>Prima: Google Maps
 
 Con Google Maps è possibile eseguire il rendering di un poligono usando la classe `PolygonOptions`. Aggiungere il poligono alla mappa usando il metodo `addPolygon`. Impostare i colori di riempimento e del tratto usando rispettivamente le opzioni `fillColor` e `strokeColor`. Impostare lo spessore del tratto usando l'opzione `strokeWidth`.
 
@@ -639,11 +618,9 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-<center>
+![Poligono di Google Maps](media/migrate-google-maps-android-app/google-maps-polygon.png)
 
-![Poligono di Google Maps](media/migrate-google-maps-android-app/google-maps-polygon.png)</center>
-
-**Dopo: Mappe di Azure**
+### <a name="after-azure-maps"></a>Dopo: Mappe di Azure
 
 In Mappe di Azure aggiungere gli oggetti `Polygon` e `MultiPolygon` a un'origine dati ed eseguirne il rendering sulla mappa usando i livelli. Eseguire il rendering dell'area di un poligono usando un livello poligono. Eseguire il rendering del contorno di un poligono usando un livello linea. Impostare il colore e lo spessore del tratto usando le opzioni `strokeColor` e `strokeWidth`.
 
@@ -676,10 +653,7 @@ mapControl.onReady(map -> {
         strokeWidth(2f)));
 });
 ```
-
-<center>
-
-![Poligono di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-polygon.png)</center>
+![Poligono di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-polygon.png)
 
 ## <a name="overlay-a-tile-layer"></a>Sovrapporre un livello tessera
 
@@ -687,7 +661,7 @@ mapControl.onReady(map -> {
 
 Gli esempi seguenti mostrano la sovrapposizione di un livello tessera di radar meteo dall'Iowa Environmental Mesonet dell'Iowa State University. Le dimensioni delle tessere sono di 256 pixel.
 
-**Prima: Google Maps**
+### <a name="before-google-maps"></a>Prima: Google Maps
 
 Con Google Maps è possibile sovrapporre un livello tessera sulla mappa. Usare la classe `TileOverlayOptions`. Aggiungere il livello tessera alla mappa usando il metodo `addTileLauer`. Per rendere le tessere semi-trasparenti, l'opzione `transparency` è impostata su 0,2 o su una trasparenza del 20%.
 
@@ -716,11 +690,9 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-<center>
+![Livello tessera di Google Maps](media/migrate-google-maps-android-app/google-maps-tile-layer.png)
 
-![Livello tessera di Google Maps](media/migrate-google-maps-android-app/google-maps-tile-layer.png)</center>
-
-**Dopo: Mappe di Azure**
+### <a name="after-azure-maps"></a>Dopo: Mappe di Azure
 
 È possibile aggiungere un livello tessera alla mappa con la stessa procedura usata per qualsiasi altro livello. Viene usato un URL formattato con i segnaposto x, y e zoom. `{x}`, `{y}`, `{z}` indicano rispettivamente al livello dove accedere alle tessere. Inoltre, i livelli tessera in Mappe di Azure supportano anche i segnaposto `{quadkey}`, `{bbox-epsg-3857}` e `{subdomain}`. Per rendere semi-trasparente il livello tessera, viene usato un valore di opacità pari a 0,8. L'opacità e la trasparenza, benché simili, usano valori invertiti. Per eseguire la conversione tra entrambe le opzioni, è sufficiente sottrarre il valore dal numero uno.
 
@@ -738,15 +710,13 @@ mapControl.onReady(map -> {
 });
 ```
 
-<center>
-
-![Livello tessera di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-tile-layer.png)</center>
+![Livello tessera di Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-tile-layer.png)
 
 ## <a name="show-traffic"></a>Visualizzare il traffico
 
 In Mappe di Azure e in Google Maps sono disponibili opzioni per la sovrapposizione dei dati sul traffico.
 
-**Prima: Google Maps**
+### <a name="before-google-maps"></a>Prima: Google Maps
 
 Con Google Maps, i dati del flusso di traffico possono essere sovrapposti sopra la mappa passando il valore true al metodo `setTrafficEnabled` della mappa.
 
@@ -759,11 +729,9 @@ public void onMapReady(GoogleMap googleMap) {
 }
 ```
 
-<center>
+![Traffico di Google Maps](media/migrate-google-maps-android-app/google-maps-traffic.png)
 
-![Traffico di Google Maps](media/migrate-google-maps-android-app/google-maps-traffic.png)</center>
-
-**Dopo: Mappe di Azure**
+### <a name="after-azure-maps"></a>Dopo: Mappe di Azure
 
 Mappe di Azure offre numerose opzioni per la visualizzazione del traffico. Gli eventi del traffico, come strade chiuse e incidenti stradali, possono essere visualizzati come icone sulla mappa. Il flusso del traffico e le strade con codifica a colori possono essere sovrapposti sulla mappa. È possibile modificare i colori affinché vengano visualizzati in relazione al limite di velocità indicato, al normale ritardo previsto o al ritardo assoluto. I dati relativi agli incidenti in Mappe di Azure vengono aggiornati ogni minuto e i dati del flusso di traffico ogni due minuti.
 
@@ -775,13 +743,8 @@ mapControl.onReady(map -> {
 });
 ```
 
-<center>
-
-![Traffico in Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-traffic.png)</center>
-
-## <a name="next-steps"></a>Passaggi successivi
+![Traffico in Mappe di Azure](media/migrate-google-maps-android-app/azure-maps-traffic.png)
 
 Altre informazioni su Azure Maps Android SDK.
 
-> [!div class="nextstepaction"]
-> [Come usare il controllo mappa di Android](how-to-use-android-map-control-library.md)
+[Come usare il controllo mappa di Android](how-to-use-android-map-control-library.md)

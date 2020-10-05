@@ -10,16 +10,16 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2fd0269744c7ee49c72806e3cb0e1227035de4f0
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f681a271dcd64468cb471c81496e489f0ce8413f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019173"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713651"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizzare l'accesso a BLOB e code usando Azure Active Directory
 
-Archiviazione di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste all'archiviazione BLOB e di Accodamento. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2,0. Il token può quindi essere usato per autorizzare una richiesta per l'archiviazione di BLOB o code.
+Archiviazione di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste all'archiviazione BLOB e di Accodamento. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2,0. Il token può quindi essere usato per autorizzare una richiesta per l'archiviazione di BLOB o code.
 
 L'autorizzazione delle richieste per l'archiviazione di Azure con Azure AD offre sicurezza e facilità d'uso superiori rispetto all'autorizzazione della chiave condivisa. Microsoft consiglia di usare Azure AD autorizzazione con le applicazioni BLOB e di Accodamento quando possibile per ridurre al minimo le potenziali vulnerabilità di sicurezza inerenti alla chiave condivisa.
 
@@ -37,7 +37,7 @@ Quando un'entità di sicurezza (un utente, un gruppo o un'applicazione) tenta di
 
 Il passaggio di autenticazione richiede che un'applicazione chieda un token di accesso OAuth 2,0 in fase di esecuzione. Se un'applicazione viene eseguita da un'entità di Azure, ad esempio una VM di Azure, un set di scalabilità di macchine virtuali o un'app funzioni di Azure, può usare un' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) per accedere a BLOB o code. Per informazioni su come autorizzare le richieste effettuate da un'identità gestita al BLOB o Servizio di accodamento di Azure, vedere [autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](storage-auth-aad-msi.md).
 
-Il passaggio di autorizzazione richiede che uno o più ruoli di Azure siano assegnati all'entità di sicurezza. Archiviazione di Azure fornisce ruoli di Azure che includono set comuni di autorizzazioni per i dati di BLOB e di Accodamento. I ruoli assegnati a un'entità di sicurezza determinano le autorizzazioni che saranno disponibili nell'entità. Per altre informazioni sull'assegnazione di ruoli di Azure per archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione con RBAC](storage-auth-aad-rbac.md).
+Il passaggio di autorizzazione richiede che uno o più ruoli di Azure siano assegnati all'entità di sicurezza. Archiviazione di Azure fornisce ruoli di Azure che includono set comuni di autorizzazioni per i dati di BLOB e di Accodamento. I ruoli assegnati a un'entità di sicurezza determinano le autorizzazioni che saranno disponibili nell'entità. Per altre informazioni sull'assegnazione di ruoli di Azure per archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione con RBAC di Azure](storage-auth-aad-rbac.md).
 
 Le applicazioni native e le applicazioni Web che effettuano richieste al BLOB di Azure o a Servizio di accodamento possono anche autorizzare l'accesso con Azure AD. Per informazioni su come richiedere un token di accesso e usarlo per autorizzare le richieste di dati BLOB o di Accodamento, vedere [autorizzare l'accesso ad archiviazione di Azure con Azure ad da un'applicazione di archiviazione di Azure](storage-auth-aad-app.md).
 
@@ -53,9 +53,9 @@ Quando un ruolo di Azure viene assegnato a un'entità di sicurezza Azure AD, Azu
 
 Per informazioni su come assegnare un ruolo predefinito di Azure a un'entità di sicurezza, vedere uno degli articoli seguenti:
 
-- [Concedere l'accesso ai dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo nel portale di Azure](storage-auth-aad-rbac-portal.md)
-- [Concedere l'accesso ai dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo tramite l'interfaccia della riga di comando di Azure](storage-auth-aad-rbac-cli.md)
-- [Concedere l'accesso ai dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo tramite PowerShell](storage-auth-aad-rbac-powershell.md)
+- [Usare il portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](storage-auth-aad-rbac-portal.md)
+- [Usare l'interfaccia della riga di comando di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e della coda](storage-auth-aad-rbac-cli.md)
+- [Usare il modulo Azure PowerShell per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](storage-auth-aad-rbac-powershell.md)
 
 Per altre informazioni sul modo in cui vengono definiti i ruoli predefiniti per Archiviazione di Azure, vedere [Informazioni sulle definizioni di ruolo](../../role-based-access-control/role-definitions.md#management-and-data-operations). Per informazioni sulla creazione di ruoli personalizzati di Azure, vedere [ruoli personalizzati di Azure](../../role-based-access-control/custom-roles.md).
 
@@ -77,7 +77,7 @@ Il portale di Azure può usare l'account Azure AD o le chiavi di accesso dell'ac
 
 Quando si tenta di accedere ai dati di BLOB o di Accodamento, il portale di Azure controlla prima di tutto se è stato assegnato un ruolo di Azure con **Microsoft. storage/storageAccounts/listkeys/Action**. Se è stato assegnato un ruolo con questa azione, il portale di Azure usa la chiave dell'account per accedere ai dati BLOB e di accodamento tramite l'autorizzazione della chiave condivisa. Se a questa azione non è stato assegnato un ruolo, il portale di Azure tenta di accedere ai dati usando l'account Azure AD.
 
-Per accedere ai dati BLOB o della coda dalla portale di Azure usando l'account Azure AD, è necessario disporre delle autorizzazioni per accedere ai dati BLOB e di Accodamento e sono necessarie anche le autorizzazioni per spostarsi tra le risorse dell'account di archiviazione nel portale di Azure. I ruoli predefiniti forniti dall'archiviazione di Azure concedono l'accesso alle risorse BLOB e di Accodamento, ma non concedono le autorizzazioni per le risorse dell'account di archiviazione. Per questo motivo, l'accesso al portale richiede anche l'assegnazione di un ruolo Azure Resource Manager, ad esempio il ruolo [Reader](../../role-based-access-control/built-in-roles.md#reader) , limitato al livello dell'account di archiviazione o superiore. Il ruolo **Reader** concede le autorizzazioni più limitate, ma è accettabile anche un altro Azure Resource Manager ruolo che concede l'accesso alle risorse di gestione degli account di archiviazione. Per altre informazioni su come assegnare le autorizzazioni agli utenti per l'accesso ai dati nel portale di Azure con un account di Azure AD, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nell'portale di Azure](storage-auth-aad-rbac-portal.md).
+Per accedere ai dati BLOB o della coda dalla portale di Azure usando l'account Azure AD, è necessario disporre delle autorizzazioni per accedere ai dati BLOB e di Accodamento e sono necessarie anche le autorizzazioni per spostarsi tra le risorse dell'account di archiviazione nel portale di Azure. I ruoli predefiniti forniti dall'archiviazione di Azure concedono l'accesso alle risorse BLOB e di Accodamento, ma non concedono le autorizzazioni per le risorse dell'account di archiviazione. Per questo motivo, l'accesso al portale richiede anche l'assegnazione di un ruolo Azure Resource Manager, ad esempio il ruolo [Reader](../../role-based-access-control/built-in-roles.md#reader) , limitato al livello dell'account di archiviazione o superiore. Il ruolo **Reader** concede le autorizzazioni più limitate, ma è accettabile anche un altro Azure Resource Manager ruolo che concede l'accesso alle risorse di gestione degli account di archiviazione. Per altre informazioni su come assegnare le autorizzazioni agli utenti per l'accesso ai dati nel portale di Azure con un account di Azure AD, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati di BLOB e di Accodamento](storage-auth-aad-rbac-portal.md).
 
 Il portale di Azure indica quale schema di autorizzazione è in uso quando si passa a un contenitore o a una coda. Per ulteriori informazioni sull'accesso ai dati nel portale, vedere [scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure](../blobs/authorize-blob-access-portal.md) e [scegliere come autorizzare l'accesso ai dati della coda nel portale di Azure](../queues/authorize-queue-access-portal.md).
 
