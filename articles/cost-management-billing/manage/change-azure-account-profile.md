@@ -1,25 +1,27 @@
 ---
-title: Cambiare le informazioni di contatto per l'account Azure
-description: Questo articolo descrive come cambiare le informazioni di contatto dell'account amministrativo di Azure
+title: Modificare le informazioni di contatto per un account di fatturazione di Azure
+description: Descrive come modificare le informazioni di contatto dell'account di fatturazione di Azure
 author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/23/2020
 ms.author: banders
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6045afba230fa204dd5f93adc11b67ff0e3e209f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: contperfq1
+ms.openlocfilehash: be3de838e340400da09ad261d82328f6793aed2e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684899"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297726"
 ---
-# <a name="change-the-contact-information-for-your-azure-account"></a>Cambiare le informazioni di contatto per l'account Azure
+# <a name="change-contact-information-for-an-azure-billing-account"></a>Modificare le informazioni di contatto per un account di fatturazione di Azure
 
-Questo articolo illustra come aggiornare le informazioni di contatto per l'account nel portale di Azure. Le istruzioni per aggiornare le informazioni di contatto variano in base al tipo di account di fatturazione. Per altre informazioni sugli account di fatturazione e su come identificare il tipo di account di fatturazione, vedere [Visualizzare gli account di fatturazione nel portale di Azure](view-all-accounts.md).
+Questo articolo illustra come aggiornare le informazioni di contatto per un *account di fatturazione* nel portale di Azure. Le istruzioni per aggiornare le informazioni di contatto variano in base al tipo di account di fatturazione. Per altre informazioni sugli account di fatturazione e su come identificare il tipo di account di fatturazione, vedere [Visualizzare gli account di fatturazione nel portale di Azure](view-all-accounts.md). L'account di fatturazione di Azure è distinto dall'account utente di Azure e dall'[account Microsoft](https://account.microsoft.com/).
+
+Per aggiornare le informazioni del profilo utente di Azure Active Directory, tenere presente che solo un amministratore utenti può apportare le modifiche. Se non è stato assegnato il ruolo di amministratore utenti, contattare l'amministratore utenti. Per altre informazioni sulla modifica del profilo utente, vedere [Aggiungere o aggiornare informazioni di un profilo utente con Azure Active Directory](../../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
 *Indirizzo acquirente*: corrisponde all'indirizzo e alle informazioni di contatto dell'organizzazione o della persona responsabile di un account di fatturazione. Viene visualizzato in tutte le fatture generate per l'account di fatturazione.
 
@@ -31,21 +33,21 @@ Questo articolo illustra come aggiornare le informazioni di contatto per l'accou
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando l'indirizzo di posta elettronica con l'autorizzazione di amministratore per l'account.
 1. Cercare **Gestione dei costi e fatturazione**.  
-    ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale](./media/change-azure-account-profile/search-cmb.png)
+    ![Screenshot che illustra dove cercare Gestione dei costi e fatturazione nel portale di Azure](./media/change-azure-account-profile/search-cmb.png)
 1. Selezionare **Proprietà** sul lato sinistro.  
-    ![Screenshot che mostra la pagina di aggiornamento dell'indirizzo](./media/change-azure-account-profile/update-contact-information-select-properties.png)
+    ![Screenshot che illustra le proprietà dell'account di fatturazione del Programma Sottoscrizione Microsoft Online](./media/change-azure-account-profile/update-contact-information-select-properties.png)
 1. Selezionare **Aggiornare l'indirizzo di fatturazione** per aggiornare gli indirizzi dell'acquirente e di fatturazione. Immettere il nuovo indirizzo e selezionare **Salva**.  
-    ![Screenshot che mostra la pagina di aggiornamento dell'indirizzo](./media/change-azure-account-profile/update-contact-information-mosp.png)
+    ![Screenshot che illustra l'indirizzo aggiornato per l'account di fatturazione del Programma Sottoscrizione Microsoft Online](./media/change-azure-account-profile/update-contact-information-mosp.png)
 
 ## <a name="update-an-mca-billing-account-sold-to-address"></a>Aggiornare l'indirizzo dell'acquirente di un account di fatturazione per un Contratto del cliente Microsoft
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando l'indirizzo di posta elettronica con un ruolo di proprietario o di collaboratore per l'account di fatturazione per un Contratto del cliente Microsoft.
 1. Cercare **Gestione dei costi e fatturazione**.  
-    ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale](./media/change-azure-account-profile/search-cmb.png)
+    ![Screenshot che illustra dove eseguire la ricerca nel portale di Azure](./media/change-azure-account-profile/search-cmb.png)
 1. Selezionare **Proprietà** sul lato sinistro, quindi selezionare **Aggiorna il valore di Venduto a**.  
-    ![Screenshot che mostra la selezione dell'aggiornamento dell'indirizzo dell'acquirente](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
+    ![Screenshot che illustra le proprietà di un account di fatturazione del Contratto del cliente Microsoft in cui è possibile modificare l'indirizzo dell'acquirente](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
 1. Immettere il nuovo indirizzo e selezionare **Salva**.  
-    ![Screenshot che mostra l'aggiornamento dell'indirizzo](./media/change-azure-account-profile/update-sold-to-save-mca.png)
+    ![Screenshot che illustra l'aggiornamento dell'indirizzo dell'acquirente per un account del Contratto del cliente Microsoft](./media/change-azure-account-profile/update-sold-to-save-mca.png)
 
     > [!IMPORTANT]
     > Per alcuni account è necessaria una verifica aggiuntiva prima di poter aggiornare l'indirizzo del destinatario. Se l'account richiede l'approvazione manuale, verrà chiesto di contattare il supporto tecnico di Azure.
@@ -54,15 +56,14 @@ Questo articolo illustra come aggiornare le informazioni di contatto per l'accou
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando l'indirizzo di posta elettronica con un ruolo di proprietario o di collaboratore per un account di fatturazione o un profilo di fatturazione per un Contratto del cliente Microsoft.
 1. Cercare **Gestione dei costi e fatturazione**.  
-    ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale](./media/change-azure-account-profile/search-cmb.png)
 1. Selezionare **Profili di fatturazione** sul lato sinistro.
 1. Selezionare un profilo di fatturazione per aggiornare l'indirizzo di fatturazione.  
-    ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
+    ![Screenshot che illustra la pagina Profili di fatturazione in cui è possibile selezionare un profilo di fatturazione](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
 1. Selezionare **Proprietà** sul lato sinistro.
 1. Selezionare **Aggiorna l'indirizzo**.  
-    ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
+    ![Screenshot che illustra dove aggiornare l'indirizzo](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
 1. Immettere il nuovo indirizzo e selezionare **Salva**.  
-    ![Screenshot che mostra l'aggiornamento dell'indirizzo](./media/change-azure-account-profile/update-bill-to-save-mca.png)
+    ![Screenshot che illustra l'aggiornamento dell'indirizzo](./media/change-azure-account-profile/update-bill-to-save-mca.png)
 
 ## <a name="service-and-marketing-emails"></a>Messaggi di posta elettronica di servizio e di marketing
 
@@ -83,11 +84,9 @@ Immettere l'indirizzo di posta elettronica a cui ricevere le comunicazioni relat
 
 È possibile cambiare l'indirizzo di posta elettronica di contatto con uno dei metodi seguenti. L'aggiornamento dell'indirizzo di posta elettronica di contatto non comporta l'aggiornamento di quello usato per l'accesso.
 
-* Se si è un amministratore account per un Programma Sottoscrizione Microsoft Online, seguire le istruzioni riportate in [Aggiornare l'indirizzo di un account di fatturazione per un Programma Sottoscrizione Microsoft Online](#update-an-mosp-billing-account-address) e selezionare **Aggiorna le informazioni di contatto** nell'ultimo passaggio. Immettere quindi il nuovo indirizzo di posta elettronica.
-
-* Passare all'area [Informazioni contatto](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) nel portale di Azure e immettere il nuovo indirizzo di posta elettronica. 
-
-* Nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) selezionare l'icona con le proprie iniziali o con l'immagine. Quindi selezionare il menu di scelta rapida ( **...** ). Scegliere quindi **Informazioni di contatto** dal menu e immettere il nuovo indirizzo di posta elettronica.
+1. Se si è un amministratore account per un Programma Sottoscrizione Microsoft Online, seguire le istruzioni riportate in [Aggiornare l'indirizzo di un account di fatturazione per un Programma Sottoscrizione Microsoft Online](#update-an-mosp-billing-account-address) e selezionare **Aggiorna le informazioni di contatto** nell'ultimo passaggio. Immettere quindi il nuovo indirizzo di posta elettronica.
+1. Passare all'area [Informazioni contatto](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) nel portale di Azure e immettere il nuovo indirizzo di posta elettronica. 
+1. Nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) selezionare l'icona con le proprie iniziali o con l'immagine. Quindi selezionare il menu di scelta rapida ( **...** ). Scegliere quindi **Informazioni di contatto** dal menu e immettere il nuovo indirizzo di posta elettronica.
 
 ![Esempio di aggiornamento di un indirizzo di posta elettronica in Azure](./media/change-azure-account-profile/azure-contact-information.png)
 
