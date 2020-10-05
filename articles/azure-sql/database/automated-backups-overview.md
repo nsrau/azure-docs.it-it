@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 09/25/2020
-ms.openlocfilehash: 93370050b503875d670283b720088b0871377c09
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/05/2020
+ms.openlocfilehash: 43551ca17180cbb3614c670490a19aeaae6c7701
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535084"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728659"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -50,7 +50,7 @@ Per un database SQL è possibile configurare la ridondanza dell'archiviazione di
 > L'archiviazione con ridondanza della zona è attualmente disponibile solo in [determinate aree geografiche](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> La ridondanza dell'archiviazione di backup configurabile del database SQL di Azure è attualmente disponibile in anteprima pubblica solo nell'area di Azure Asia sudorientale.  
+> La ridondanza di archiviazione di backup configurabile per il database SQL di Azure è attualmente disponibile in anteprima pubblica solo nell'area di Azure Asia sudorientale. Questa funzionalità non è ancora disponibile per il livello iperscalabile. 
 
 ### <a name="backup-usage"></a>Utilizzo backup
 
@@ -439,9 +439,9 @@ Se i requisiti di residenza dei dati richiedono la conservazione di tutti i dati
 
 Vengono aggiunti i nuovi criteri predefiniti seguenti, che possono essere assegnati a livello di sottoscrizione o di gruppo di risorse per bloccare la creazione di nuovi database o istanze con archiviazione di backup con ridondanza geografica. 
 
-[Il database SQL deve evitare di usare la ridondanza del backup GRS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb219b9cf-f672-4f96-9ab0-f5a3ac5e1c13)
+[I database SQL devono evitare di usare l'archiviazione con ridondanza geografica per il backup](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb219b9cf-f672-4f96-9ab0-f5a3ac5e1c13)
 
-[Le istanze gestite di SQL devono evitare di usare la ridondanza del backup GRS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
+[Le istanze gestite di SQL devono evitare di usare l'archiviazione con ridondanza geografica per il backup](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
 
 Un elenco completo delle definizioni dei criteri predefinite per il database SQL e Istanza gestita è disponibile [qui](https://docs.microsoft.com/azure/azure-sql/database/policy-reference).
 

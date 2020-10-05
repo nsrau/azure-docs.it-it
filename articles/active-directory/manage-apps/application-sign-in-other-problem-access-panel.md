@@ -11,16 +11,16 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfb4d265a42fe1e4473af0f9bde4ebb76f0734a0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3b9acc3f91a91527e96f450d825d06f6b909e15d
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707969"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729152"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Risolvere i problemi di accesso a un'applicazione da Azure AD app personali
 
-My Apps è un portale basato sul Web che consente a un utente con un account aziendale o dell'Istituto di istruzione in Azure Active Directory (Azure AD) di visualizzare e avviare applicazioni basate sul cloud a cui l'amministratore Azure AD ha concesso l'accesso. 
+My Apps è un portale basato sul Web che consente a un utente con un account aziendale o dell'Istituto di istruzione in Azure Active Directory (Azure AD) di visualizzare e avviare applicazioni basate sul cloud a cui l'amministratore Azure AD ha concesso l'accesso. È possibile accedere alle app personali usando un Web browser all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com) .
 
 Per altre informazioni sull'uso di Azure AD come provider di identità per un'app, vedere la pagina relativa alla [gestione delle applicazioni in Azure ad](what-is-application-management.md). Per iniziare rapidamente, vedere la [serie di guide introduttive sulla gestione delle applicazioni](view-applications-portal.md).
 

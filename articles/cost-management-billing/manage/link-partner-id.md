@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: dc4d319e0e6b55af8af460fa8a56b9ef24a53341
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 03953e210f1c4caf1541db272ce4c02c271dafaa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487352"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371831"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 
@@ -151,9 +151,9 @@ I report sulle prestazioni dei prodotti cloud sono disponibili per i partner nel
 
 Il cliente non viene visualizzato nei report per i motivi seguenti
 
-1. L'account utente collegato non ha [accesso in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview) per nessuna sottoscrizione o risorsa di Azure del cliente.
+1. L'account utente collegato non ha [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) per nessuna sottoscrizione o risorsa di Azure del cliente.
 
-2. La sottoscrizione di Azure in cui l'utente ha [accesso in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview) non include dati di utilizzo.
+2. La sottoscrizione di Azure in cui l'utente ha [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) non include dati di utilizzo.
 
 **Il collegamento dell'ID partner funziona con Azure Stack?**
 

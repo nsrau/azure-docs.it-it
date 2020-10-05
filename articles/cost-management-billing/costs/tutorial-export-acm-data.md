@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: c0fcc9d5753ce90365829fba658031e633819513
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6ef5a457bac7b384dc1b4349b1782a752c41ea26
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683267"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447613"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -91,9 +91,9 @@ Le esportazioni per i gruppi di gestione di altri tipi di sottoscrizione non son
 
 1. Se non è stato ancora creato un gruppo di gestione, crearne uno e assegnarvi le sottoscrizioni.
 1. Nell'analisi dei costi impostare l'ambito sul gruppo di gestione e scegliere **Select this management group** (Seleziona questo gruppo di gestione).  
-    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Esempio che mostra l'opzione per selezionare il gruppo di gestione" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Esempio di nuova esportazione" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
 1. Creare un'esportazione a livello di ambito per ottenere i dati di gestione dei costi per le sottoscrizioni nel gruppo di gestione.  
-    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Esempio che mostra l'opzione Crea nuova esportazione con un ambito del gruppo di gestione":::
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Esempio di nuova esportazione":::
 
 ## <a name="verify-that-data-is-collected"></a>Verificare che i dati vengano raccolti
 
@@ -128,11 +128,11 @@ Il file viene aperto con l'applicazione o il programma impostato per aprire le e
 
 È possibile visualizzare la cronologia di esecuzione dell'esportazione pianificata selezionando una singola esportazione nella pagina dell'elenco. La pagina dell'elenco di esportazioni fornisce un accesso rapido per visualizzare l'ora di esecuzione delle esportazioni precedenti e l'ora successiva in cui ne verrà eseguita una. Ecco un esempio che mostra la cronologia di esecuzione.
 
-:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Esempio che mostra la cronologia di esecuzione dell'esportazione":::
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Esempio di nuova esportazione":::
 
 Selezionare un'esportazione per visualizzare la relativa cronologia di esecuzione.
 
-:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Esempio che mostra la cronologia di esecuzione dell'esportazione":::
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Esempio di nuova esportazione":::
 
 ## <a name="access-exported-data-from-other-systems"></a>Accedere a dati esportati da altri sistemi
 

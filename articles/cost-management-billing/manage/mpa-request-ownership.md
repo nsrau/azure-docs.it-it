@@ -1,6 +1,6 @@
 ---
 title: Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure per il Contratto Microsoft Partner
-description: Informazioni su come richiedere la proprietà della fatturazione delle sottoscrizioni di Azure da altri utenti.
+description: Informazioni su come richiedere la proprietà della fatturazione delle sottoscrizioni di Azure da altri utenti per il Contratto Microsoft Partner.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: eef36726db735cfdd42f5a103073303cf3b3a632
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bb2a58b76445f2cfd14a905de1fb66dbff3eee7e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684950"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371015"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure dall'account del contratto Microsoft Partner
 
@@ -35,7 +35,7 @@ Le informazioni in questo articolo si applicano agli account di fatturazione per
 
 1. Accedere al [portale di Azure](https://portal.azure.com) mediante le credenziali di agente amministratore CSP nel tenant CSP.
 1. Cercare **Gestione dei costi e fatturazione**.  
-    ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale di Azure](./media/mpa-request-ownership/search-cmb.png)
+    ![Screenshot che illustra la ricerca di Gestione dei costi e fatturazione nel portale di Azure per richiedere la proprietà della fatturazione.](./media/mpa-request-ownership/search-cmb.png)
 1. Selezionare **Clienti** sul lato sinistro e quindi selezionare un cliente dall'elenco.  
     [![Screenshot che mostra la selezione dei clienti](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Selezionare **Richieste di trasferimento** sul lato sinistro e quindi **Aggiungi una nuova richiesta**.  
@@ -56,7 +56,7 @@ Le informazioni in questo articolo si applicano agli account di fatturazione per
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Cercare **Gestione dei costi e fatturazione**.  
-    ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale di Azure](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
+    ![Screenshot che illustra la ricerca di Gestione dei costi e fatturazione nel portale di Azure per richiedere lo stato del trasferimento.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Selezionare **Clienti** sul lato sinistro.  
     [![Screenshot che mostra la selezione dei clienti](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Selezionare il cliente nell'elenco per cui è stata inviata la richiesta di trasferimento.
@@ -127,7 +127,7 @@ Le prenotazioni di Azure non vengono spostate automaticamente con le sottoscrizi
 
 ### <a name="access-to-azure-services"></a>Accesso ai servizi di Azure
 
-La transizione non influisce sull'accesso per utenti, gruppi o entità servizio esistenti assegnati con il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md). Il partner non otterrà alcun nuovo accesso con controllo degli accessi in base al ruolo alle sottoscrizioni.
+La transizione non influisce sull'accesso per utenti, gruppi o entità servizio esistenti assegnati con [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md). Il partner non otterrà alcun nuovo accesso con Controllo degli accessi in base al ruolo di Azure alle sottoscrizioni.
 
 I partner devono collaborare con il cliente per ottenere l'accesso alle sottoscrizioni. I partner devono ottenere l'accesso [Amministra per conto terzi](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) o [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider) per aprire ticket di supporto.
 
@@ -174,4 +174,4 @@ Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azur
 ## <a name="next-steps"></a>Passaggi successivi
 
 * La proprietà della fatturazione delle sottoscrizioni di Azure è stata trasferita all'utente. È possibile tenere traccia degli addebiti per queste sottoscrizioni nel [portale di Azure](https://portal.azure.com).
-* Collaborare con il cliente per ottenere l'accesso alle sottoscrizioni di Azure trasferite. [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+* Collaborare con il cliente per ottenere l'accesso alle sottoscrizioni di Azure trasferite. [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

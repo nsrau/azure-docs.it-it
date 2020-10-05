@@ -3,20 +3,20 @@ title: Configurare l'autenticazione
 titleSuffix: Azure Machine Learning
 description: "Informazioni su come impostare e configurare l'autenticazione per diverse risorse e flussi di lavoro in Azure Machine Learning. Esistono diversi modi per configurare e usare l'autenticazione all'interno del servizio: dalla semplice autenticazione basata sull'interfaccia utente a scopo di sviluppo o test, all'autenticazione Azure Active Directory basata su entità servizio completa."
 services: machine-learning
-author: larryfr
-ms.author: larryfr
+author: cjgronlund
+ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: 0650b1c6364a187447ea3a378675df9d76eef4d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 486f026f0d9b325f8e17a040c69f9d3e1da9b359
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275728"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729033"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurare l'autenticazione per le risorse e i flussi di lavoro di Azure Machine Learning
 

@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ad39b9980562c345aff87f4e0771f265011886b3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 469ccad773693047391f56c1f1109a9c444ee90b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683301"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447697"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Attività di amministratore account nel portale di Azure
 
@@ -35,14 +35,14 @@ Per eseguire una di queste attività, è necessario avere il ruolo di amministra
 
 1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione a cui si vuole aggiungere la carta di credito.
 
-   ![Screenshot che mostra la griglia delle sottoscrizioni personali in visualizzazione panoramica](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+   ![Screenshot che illustra la pagina Gestione dei costi e fatturazione in cui è possibile selezionare una sottoscrizione.](./media/account-admin-tasks/cost-management-billing-overview-x.png)
 
    > [!NOTE]
    > Se non vengono visualizzate alcune sottoscrizioni, è possibile che la directory della sottoscrizione sia stata modificata in un determinato momento. Per queste sottoscrizioni, è necessario passare alla directory originale (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2.
 
 1. Selezionare **Metodi di pagamento**.
 
-    ![Screenshot che mostra il pannello dei metodi di pagamento selezionato.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
+    ![Screenshot che illustra la pagina Metodi di pagamento in cui è possibile aggiungere un metodo di pagamento.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
 Qui è possibile aggiungere una nuova carta di credito, modificare il metodo di pagamento attivo, modificare i dettagli della carta di credito ed eliminare carte di credito.
 
@@ -100,7 +100,7 @@ Se si è idonei al pagamento con fattura (tramite assegno o bonifico), è possib
 
 1. Selezionare **Pagamento con fattura** sulla barra dei comandi.
 
-    ![Screenshot che mostra il pannello dei metodi di pagamento selezionato.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
+    ![Screenshot che illustra la pagina Metodi di pagamento con l'opzione Pagamento con fattura selezionata.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Immettere l'indirizzo per il metodo di pagamento con fattura.
 1. Fare clic su **Avanti**.
@@ -124,7 +124,7 @@ Il limite di spesa non è disponibile per le sottoscrizioni con piani di impegno
 
 1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione di Visual Studio Enterprise.
 
-   ![Screenshot che mostra la griglia delle sottoscrizioni personali in visualizzazione panoramica](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+   ![Screenshot che illustra l'area Sottoscrizioni personali in cui è possibile selezionare la sottoscrizione di Visual Studio Enterprise.](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Se non vengono visualizzate alcune sottoscrizioni di Visual Studio, è possibile che la directory della sottoscrizione sia stata modificata in un determinato momento. Per queste sottoscrizioni, è necessario passare alla directory originale (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2.
@@ -152,7 +152,7 @@ Se si dispone di una sottoscrizione di Licenze Azure in Open, è possibile aggiu
 
 1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione di Azure in Open.
 
-    ![Screenshot che mostra la griglia delle sottoscrizioni personali in visualizzazione panoramica](./media/account-admin-tasks/cost-management-overview-aio-x.png)
+    ![Screenshot che illustra l'area Sottoscrizioni personali in cui è possibile selezionare la sottoscrizione di Azure in Open.](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > Se non vengono visualizzate le proprie sottoscrizioni, è possibile che la relativa directory sia stata modificata in un determinato momento. È necessario passare alla directory originale della sottoscrizione (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2.
@@ -183,4 +183,4 @@ Se si dispone di una sottoscrizione di Licenze Azure in Open, è possibile aggiu
 Non sono supportate le carte virtuali o prepagate. Se si ricevono messaggi di errore durante l'aggiunta o l'aggiornamento di una carta di credito valida, provare ad aprire il browser in modalità privata.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Vedere altre informazioni su come [analizzare i costi ed evitare addebiti imprevisti nel portale di Azure](getting-started.md)
+- Altre informazioni sull'[analisi di addebiti imprevisti](../understand/analyze-unexpected-charges.md)

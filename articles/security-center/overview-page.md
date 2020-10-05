@@ -1,57 +1,57 @@
 ---
-title: Dashboard principale del Centro sicurezza di Azure o pagina ' panoramica '
-description: Informazioni sulle funzionalità della pagina Panoramica del Centro sicurezza
+title: Dashboard principale o pagina di panoramica del Centro sicurezza di Azure
+description: Informazioni sulle funzionalità della pagina di panoramica del Centro sicurezza
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 637f7dde63d562f71aa31561a960ed3502a80229
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
-ms.translationtype: MT
+ms.openlocfilehash: cc52610eacc3916b7a8978cba17a1db3f3d50686
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937171"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91447683"
 ---
-# <a name="azure-security-centers-overview-page"></a>Pagina Panoramica del Centro sicurezza di Azure
+# <a name="azure-security-centers-overview-page"></a>Pagina di panoramica del Centro sicurezza di Azure
 
-Quando si apre il Centro sicurezza di Azure, la prima pagina visualizzata è la pagina panoramica. 
+Quando si apre il Centro sicurezza di Azure, la prima pagina che viene visualizzata è quella di panoramica. 
 
 :::image type="content" source="media/overview-page/overview.png" alt-text="Pagina di panoramica di Centro sicurezza":::
 
-Individuare e valutare la sicurezza dei carichi di lavoro e identificare e ridurre i rischi con la pagina Panoramica del Centro sicurezza.
+La pagina di panoramica del Centro sicurezza consente di individuare e valutare la sicurezza dei carichi di lavoro e di identificare e ridurre i rischi.
 
-La panoramica offre una visione unificata del comportamento di sicurezza dei carichi di lavoro cloud ibridi. Vengono inoltre visualizzati gli avvisi di sicurezza, le informazioni di code coverage e altro ancora.
+La panoramica offre una visualizzazione unificata del comportamento di sicurezza dei carichi di lavoro nel cloud ibrido. Mostra inoltre avvisi di sicurezza, informazioni sulla copertura e altri dettagli.
 
 
-## <a name="features-of-the-overview-page"></a>Funzionalità della pagina Panoramica
+## <a name="features-of-the-overview-page"></a>Funzionalità della pagina di panoramica
 
-:::image type="content" source="media/overview-page/top-bar-of-overview.png" alt-text="Barra superiore della pagina Panoramica del Centro sicurezza":::
+:::image type="content" source="media/overview-page/top-bar-of-overview.png" alt-text="Pagina di panoramica di Centro sicurezza":::
 
 La **barra dei menu superiore** offre:
-- **Sottoscrizioni** : è possibile visualizzare e filtrare l'elenco delle sottoscrizioni selezionando questo pulsante. Il Centro sicurezza modificherà la visualizzazione in modo da riflettere il comportamento di sicurezza delle sottoscrizioni selezionate.
-- **Novità: apre** le note sulla [versione](release-notes.md) in modo che sia possibile rimanere aggiornati sulle nuove funzionalità, le correzioni di bug e le funzionalità deprecate.
-- **Numeri di alto livello** per gli account cloud connessi, per visualizzare il contesto delle informazioni nei riquadri principali indicati di seguito. Nonché il numero di avvisi e avvisi attivi.
-    Scopri di più sulla connessione degli [account AWS](quickstart-onboard-aws.md) e dei tuoi [progetti GCP](quickstart-onboard-gcp.md).
+- **Sottoscrizioni**: selezionando questo pulsante è possibile visualizzare e filtrare l'elenco delle sottoscrizioni. Il Centro sicurezza modificherà la visualizzazione in modo da riflettere il comportamento di sicurezza delle sottoscrizioni selezionate.
+- **Novità**: apre le [note sulla versione](release-notes.md) per mantenersi aggiornati sulle nuove funzionalità, le correzioni di bug e le funzionalità deprecate.
+- **Numeri generali** per gli account cloud connessi, per mostrare il contesto delle informazioni nei riquadri principali descritti di seguito. Viene visualizzato anche il numero di raccomandazioni e avvisi attivi.
+    Leggere altre informazioni sulla connessione degli [account AWS](quickstart-onboard-aws.md) e dei [progetti GCP](quickstart-onboard-gcp.md).
 
 
-Al centro della pagina sono disponibili **quattro riquadri centrali**, ciascuno dei quali viene collegato a un dashboard dedicato per altri dettagli:
-- **Punteggio sicuro** : il Centro sicurezza valuta continuamente le risorse, le sottoscrizioni e le organizzazioni per i problemi di sicurezza. Aggrega quindi tutti i risultati in un singolo punteggio, in modo da poter indicare, a colpo d'occhio, lo stato di sicurezza attuale: maggiore è il punteggio, minore è il livello di rischio identificato. [Altre informazioni](secure-score-security-controls.md)
-- **Conformità** : il Centro sicurezza fornisce informazioni approfondite sul comportamento di conformità basato sulle valutazioni continue dell'ambiente Azure. Il Centro sicurezza analizza i fattori di rischio nell'ambiente cloud ibrido in base alle procedure di sicurezza consigliate. Queste valutazioni vengono mappate ai controlli di conformità da un set di standard supportato. [Altre informazioni](security-center-compliance-dashboard.md).
-- **Azure Defender** : si tratta della piattaforma di protezione del carico di lavoro cloud (CWPP) integrata nel centro sicurezza per la protezione avanzata e intelligente dei carichi di lavoro ibridi e Azure. Il riquadro Mostra il code coverage delle risorse connesse (per le sottoscrizioni attualmente selezionate) e gli avvisi recenti, codificati in base al livello di gravità. [Altre informazioni](azure-defender.md)
-- **Inventario** : il riquadro Mostra il numero di macchine virtuali non monitorate e un barometro semplice delle risorse monitorate da CenterBen di sicurezza. [Altre informazioni](asset-inventory.md)
+Al centro della pagina sono presenti **quattro riquadri centrali**, ognuno dei quali conduce a un dashboard dedicato contenente altri dettagli:
+- **Punteggio di sicurezza**: il Centro sicurezza valuta continuamente le risorse, le sottoscrizioni e l'intera organizzazione per rilevare problemi di sicurezza. Aggrega quindi tutti i risultati in un singolo punteggio, in modo da poter indicare, a colpo d'occhio, lo stato di sicurezza attuale: maggiore è il punteggio, minore è il livello di rischio identificato. [Altre informazioni](secure-score-security-controls.md)
+- **Conformità**: il Centro sicurezza offre informazioni dettagliate sul comportamento di conformità in base a valutazioni continue dell'ambiente Azure. Il Centro sicurezza analizza i fattori di rischio nell'ambiente cloud ibrido in base alle procedure di sicurezza consigliate. Queste valutazioni sono associate ai controlli di conformità di un set di standard supportato. [Altre informazioni](security-center-compliance-dashboard.md).
+- **Azure Defender**: è la soluzione CWPP (Cloud Workload Protection Platform) integrata nel Centro sicurezza per offrire una protezione avanzata e intelligente dei carichi di lavoro di Azure e ibridi. Il riquadro mostra la copertura delle risorse connesse (per le sottoscrizioni attualmente selezionate) e gli avvisi recenti, contraddistinti da colori diversi in base al livello di gravità. [Altre informazioni](azure-defender.md)
+- **Inventario**: il riquadro mostra il numero di macchine virtuali non monitorate e un semplice barometro delle risorse monitorate dal Centro sicurezza. [Altre informazioni](asset-inventory.md)
 
 
-Il riquadro **Insights** offre elementi personalizzati per l'ambiente, tra cui:
-- Risorse più attaccate
-- I controlli di sicurezza che hanno il massimo potenziale per aumentare il Punteggio sicuro
-- Raccomandazioni attive con la maggior parte delle risorse interessate
-- Post di Blog recenti degli esperti del Centro sicurezza di Azure
+Il riquadro **Informazioni dettagliate** offre elementi personalizzati per l'ambiente, tra cui:
+- Risorse che hanno subito il maggior numero di attacchi
+- Controlli di sicurezza con le maggiori probabilità di aumentare il punteggio di sicurezza
+- Raccomandazioni attive per le risorse maggiormente interessate
+- Post di blog recenti degli esperti del Centro sicurezza di Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa pagina è stata introdotta la pagina Panoramica del Centro sicurezza. Per informazioni correlate, vedere:
+In questo articolo sono state fornite informazioni introduttive sulla pagina di panoramica del Centro sicurezza. Per informazioni correlate, vedere:
 
-- [Esplorare e gestire le risorse con gli strumenti di inventario e gestione degli asset](asset-inventory.md)
+- [Esplorare e gestire le risorse con gli strumenti di inventario e gestione delle risorse](asset-inventory.md)
 - [Punteggio di sicurezza nel Centro sicurezza di Azure](secure-score-security-controls.md)

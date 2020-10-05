@@ -3,16 +3,16 @@ title: Creare una specifica di modello con i modelli collegati
 description: Informazioni su come creare una specifica di modello con i modelli collegati.
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: df3403fea47f31481f4b3c6d1292749d69f2f584
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: adcce8194f380b90eb9a29f4da25763e112b9f12
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369179"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728540"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Esercitazione: creare una specifica di modello con i modelli collegati (anteprima)
 
-Informazioni su come creare una [specifica del modello](template-specs.md) con un [modello collegato](linked-templates.md#linked-template). Si usano le specifiche del modello per condividere i modelli ARM con altri utenti nell'organizzazione. Questo articolo illustra come creare una specifica del modello per creare un pacchetto di un modello principale e dei relativi modelli collegati usando la nuova `relativePath` proprietà della [risorsa di distribuzione](/azure/templates/microsoft.resources/deployments).
+Informazioni su come creare una [specifica del modello](template-specs.md) con un [modello collegato](linked-templates.md#linked-template). Si usano le specifiche del modello per condividere i modelli ARM con altri utenti nell'organizzazione. Questo articolo illustra come creare una specifica del modello per creare un pacchetto di un modello principale e dei relativi modelli collegati usando la `relativePath` proprietà della [risorsa di distribuzione](/azure/templates/microsoft.resources/deployments).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

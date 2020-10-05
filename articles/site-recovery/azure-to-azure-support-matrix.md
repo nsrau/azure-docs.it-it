@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: da7853e1da576f9309045f404a1b3c07d29e6590
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fb2c048580022f44af30178070a6c2b84ce54df1
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326219"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728744"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -121,17 +121,17 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 --- | --- | --- |
 14.04 LTS | [9,33](https://support.microsoft.com/help/4564347/),[9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/), [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/)| Da 3.13.0-24 generica a 3.13.0-170 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-148 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1045 Azure |
 |||
-16.04 LTS | [9,37](https://support.microsoft.com/help/4582666/) | 4.4.0-21-generico a 4.4.0-189-generico,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-115-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure in 4.15.0-1093-Azure </br> 4.15.0-117-Generic, 4.15.0-1095-Azure fino a 9,37 patch per la correzione a caldo * *|
+16.04 LTS | [9,37](https://support.microsoft.com/help/4582666/) | 4.4.0-21-generico a 4.4.0-189-generico,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-115-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure in 4.15.0-1093-Azure </br> 4.4.0-190-Generic, 4.15.0-117-Generic, 4.15.0-118-Generic, 4.15.0-1095-Azure, 4.15.0-1096-Azure 9,37 tramite patch di correzione a caldo * *|
 16.04 LTS | [9,36](https://support.microsoft.com/help/4578241/)| 4.4.0-21-generico per 4.4.0-187-generico,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>4.15.0-13-generico a 4.15.0-112-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure in 4.15.0-1092-Azure |
 16.04 LTS | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | da 4.4.0-21-generico a 4.4.0-184-generico<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-106-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure in 4.15.0-1089-Azure</br> 4.15.0-107-Generic, 4.4.0-185-Generic & 4.15.0-1091-Azure fino a 9,35 patch per la correzione a caldo * * |
 16.04 LTS | [9,33](https://support.microsoft.com/help/4564347/) | 4.4.0-21-generico per 4.4.0-178-generico,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-99-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure in 4.15.0-1082-Azure </br> 4.15.0-101-Generic & 4.4.0-179-Generic fino a 9,33 patch per la correzione a caldo * *|
 |||
-18.04 LTS | [9,37](https://support.microsoft.com/help/4582666/) | 4.15.0-20-generico a 4.15.0-115-generico </br> Da 4.18.0-13 generica a 4.18.0-25 generica </br> 5.0.0-15-generico a 5.0.0-60-generico </br> 5.3.0-19-generico a 5.3.0-66-generico </br> 5.4.0-37-generico a 5.4.0-45-generico</br> 4.15.0-1009-Azure a 4.15.0-1093-Azure </br> Da 4.18.0-1006 Azure a 4.18.0-1025 Azure </br> 5.0.0-1012-Azure in 5.0.0-1036-Azure </br> 5.3.0-1007-da Azure a 5.3.0-1035-Azure </br> 5.4.0-1020-Azure a 5.4.0-1023-Azure</br> 4.15.0-117-Generic, 5.0.0-61-Generic, 5.3.0-67-Generic, 5.4.0-47-Generic, 4.15.0-1095-Azure, 5.4.0-1025-Azure con 9,37 patch per la correzione a caldo * *|
+18.04 LTS | [9,37](https://support.microsoft.com/help/4582666/) | 4.15.0-20-generico a 4.15.0-115-generico </br> Da 4.18.0-13 generica a 4.18.0-25 generica </br> 5.0.0-15-generico a 5.0.0-60-generico </br> 5.3.0-19-generico a 5.3.0-66-generico </br> 5.4.0-37-generico a 5.4.0-45-generico</br> 4.15.0-1009-Azure a 4.15.0-1093-Azure </br> Da 4.18.0-1006 Azure a 4.18.0-1025 Azure </br> 5.0.0-1012-Azure in 5.0.0-1036-Azure </br> 5.3.0-1007-da Azure a 5.3.0-1035-Azure </br> 5.4.0-1020-Azure a 5.4.0-1023-Azure</br> 4.15.0-117-Generic, 4.15.0-118-Generic, 5.0.0-61-Generic, 5.3.0-67-Generic, 5.4.0-47-Generic, 5.4.0-48-Generic, 4.15.0-1095-Azure, 4.15.0-1096-Azure, 5.4.0-1025-Azure, 5.4.0-1026-Azure 9,37 tramite patch di correzione a caldo * *|
 18.04 LTS | [9,36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-generico a 4.15.0-112-generico </br> Da 4.18.0-13 generica a 4.18.0-25 generica </br> 5.0.0-15-generico a 5.0.0-58-generico </br> 5.3.0-19-generico a 5.3.0-65-generico </br> 5.4.0-37-generico a 5.4.0-42-generico</br> 4.15.0-1009-Azure a 4.15.0-1092-Azure </br> Da 4.18.0-1006 Azure a 4.18.0-1025 Azure </br> 5.0.0-1012-Azure in 5.0.0-1036-Azure </br> 5.3.0-1007-da Azure a 5.3.0-1032-Azure </br> 5.4.0-1020-da Azure a 5.4.0-1022-Azure </br> 5.0.0-60-Generic & 5.3.0-1035-Azure fino a 9,36 patch per la correzione a caldo * *|
 18.04 LTS | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | 4.15.0-20-generico a 4.15.0-108-generico </br> Da 4.18.0-13 generica a 4.18.0-25 generica </br> 5.0.0-15-generico a 5.0.0-52-generico </br> 5.3.0-19-generico a 5.3.0-61-generico </br> 4.15.0-1009-Azure a 4.15.0-1089-Azure </br> Da 4.18.0-1006 Azure a 4.18.0-1025 Azure </br> 5.0.0-1012-Azure in 5.0.0-1036-Azure </br> 5.3.0-1007-da Azure a 5.3.0-1031-Azure </br> 4.15.0-109-Generic, 5.0.0-53-Generic, 5.3.0-62-Generic, 4.15.0-1091-Azure & 5.3.0-1032-Azure 9,35 tramite patch di correzione a caldo * *|
 18.04 LTS | [9,33](https://support.microsoft.com/help/4564347/) | 4.15.0-20-generico a 4.15.0-99-generico </br> Da 4.18.0-13 generica a 4.18.0-25 generica </br> 5.0.0-15-generico a 5.0.0-47-generico </br> 5.3.0-19-generico a 5.3.0-51-generico </br> 4.15.0-1009-Azure a 4.15.0-1082-Azure </br> Da 4.18.0-1006 Azure a 4.18.0-1025 Azure </br> 5.0.0-1012-Azure in 5.0.0-1036-Azure </br> 5.3.0-1007-da Azure a 5.3.0-1020-Azure </br> 4.15.0-101-Generic, 5.0.0-48-Generic, 5.3.0-1022-Azure & 5.3.0-53-Generic fino a 9,33 patch per la correzione a caldo * *|
 |||
-20,04 LTS |[9,37](https://support.microsoft.com/help/4582666/) | 5.4.0-26-generico a 5.4.0-45 </br> -Generic 5.4.0-1010-Azure a 5.4.0-1023-Azure </br> 5.4.0-47-Generic, 5.4.0-1025-Azure fino a 9,37 patch per la correzione a caldo * *
+20,04 LTS |[9,37](https://support.microsoft.com/help/4582666/) | 5.4.0-26-generico a 5.4.0-45 </br> -Generic 5.4.0-1010-Azure a 5.4.0-1023-Azure </br> 5.4.0-47-Generic, 5.4.0-48-Generic, 5.4.0-1025-Azure, 5.4.0-1026-da Azure a 9,37 patch di correzione a caldo * *
 20,04 LTS |[9,36](https://support.microsoft.com/help/4578241/) | 5.4.0-26-generico a 5.4.0-42 </br> -Generic 5.4.0-1010-da Azure a 5.4.0-1022-Azure
 
 * * Nota: per supportare i kernel Linux più recenti entro 30 giorni dal rilascio, Azure Site Recovery distribuisce patch di correzione a caldo oltre alla versione più recente dell'agente di mobilità. Questa correzione viene implementata tra due versioni principali. Per eseguire l'aggiornamento alla versione più recente dell'agente Mobility (inclusa patch per la correzione a caldo), seguire i passaggi descritti in [questo articolo](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Questa patch è attualmente implementata per gli agenti di mobilità usati in uno scenario di ripristino di emergenza di Azure in Azure.
@@ -245,7 +245,7 @@ Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si limit
 Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | Supportato | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
 Generazione 2 (avvio UEFI) | Supportato
 Dischi NVMe | Non supportate
-Dischi condivisi di Azure | Non supportate
+Dischi condivisi di Azure | Non supportato
 Opzione di trasferimento sicuro | Supportato
 
 >[!IMPORTANT]

@@ -3,12 +3,12 @@ title: Distribuire Horizon in una soluzione VMware di Azure
 description: Informazioni su come distribuire VMware Horizon in una soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 60207b0ed9e1df805ac667752b55f14a693ec25c
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91492470"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729050"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Distribuire Horizon in una soluzione VMware di Azure 
 
@@ -84,7 +84,7 @@ Ogni cloud privato di Azure/SDDC è in grado di gestire 4.000 sessioni desktop o
 
 Dato il limite massimo di cloud privato/SDDC di Azure, si consiglia un'architettura di distribuzione in cui i server di connessione Horizon e VMware Unified Access Gateway (UAGs) sono in esecuzione all'interno della rete virtuale di Azure. In questo modo, ogni cloud/SDDC privato di Azure viene trasformato in un blocco. Questo, a sua volta, ottimizza la scalabilità di Horizon in esecuzione nella soluzione VMware di Azure.
 
-La connessione dalla rete virtuale di Azure ai cloud privati/SDDCs di Azure deve essere configurata con il percorso veloce di ExpressPath. Il diagramma seguente illustra una distribuzione di base di un pod.
+La connessione dalla rete virtuale di Azure ai cloud privati/SDDCs di Azure deve essere configurata con ExpressRoute FastPath. Il diagramma seguente illustra una distribuzione di base di un pod.
 
 :::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Differenze tra l'orizzonte nella soluzione VMware di Azure e il cloud Horizon in Azure" border="false":::
 
@@ -92,7 +92,7 @@ La connessione dalla rete virtuale di Azure ai cloud privati/SDDCs di Azure deve
 
 Questa sezione illustra l'architettura di rete a un livello elevato per la scalabilità di Horizon nella soluzione VMware di Azure con alcuni esempi di distribuzione comuni. Lo stato attivo si concentra in particolare sugli elementi di rete critici.
 
-### <a name="single-horizon-pd-on-azure-vmware-solution"></a>Soluzione VMware a singolo orizzonte in Azure
+### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Soluzione VMware Single Horizon pod in Azure
 
 :::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Differenze tra l'orizzonte nella soluzione VMware di Azure e il cloud Horizon in Azure" border="false":::
 

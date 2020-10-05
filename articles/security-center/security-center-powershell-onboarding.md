@@ -1,5 +1,5 @@
 ---
-title: Eseguire l'onboarding nel centro sicurezza di Azure con PowerShell
+title: Eseguire l'onboarding nel Centro sicurezza di Azure con PowerShell
 description: Questo documento fornisce indicazioni dettagliate sul processo di onboarding del Centro sicurezza di Azure tramite i cmdlet di PowerShell.
 services: security-center
 documentationcenter: na
@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: e367851c4d709acbc0eb94a47d7e20d4d3c1cc46
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
-ms.translationtype: MT
+ms.openlocfilehash: c805b35b2c05600f96983da42ea7206a09e2e3e8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904812"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91447398"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizzare l'onboarding del Centro sicurezza di Azure con PowerShell
 
@@ -29,15 +29,15 @@ L'onboarding del Centro sicurezza di Azure tramite PowerShell consente di automa
 
 Questo articolo fornisce uno script di PowerShell di esempio che può essere modificato e applicato all'ambiente in uso per implementare il Centro sicurezza in tutte le sottoscrizioni. 
 
-In questo esempio verrà abilitato il Centro sicurezza in una sottoscrizione con ID: d07c0080-170C-4c24-861d-9c817742786c e verranno applicate le impostazioni consigliate che garantiscono un elevato livello di protezione, abilitando Azure Defender, che offre funzionalità avanzate di protezione dalle minacce e rilevamento:
+In questo esempio si abiliterà il Centro sicurezza in una sottoscrizione con ID d07c0080-170c-4c24-861d-9c817742786c e si applicheranno le impostazioni raccomandate che forniscono un livello elevato di protezione abilitando Azure Defender, che offre funzionalità avanzate di protezione e rilevamento delle minacce:
 
 1. Abilitare [Azure Defender](azure-defender.md). 
  
-2. Impostare l'area di lavoro Log Analytics a cui l'agente di Log Analytics invierà i dati raccolti nelle VM associate alla sottoscrizione, in questo esempio un'area di lavoro definita dall'utente esistente (area di lavoro).
+2. Impostare l'area di lavoro Log Analytics a cui l'agente di Log Analytics invierà i dati raccolti nelle VM associate alla sottoscrizione, in questo esempio un'area di lavoro esistente definita dall'utente (myWorkspace).
 
-3. Attivare il provisioning automatico dell'agente del Centro sicurezza che [distribuisce l'agente di log Analytics](security-center-enable-data-collection.md#auto-provision-mma).
+3. Attivare il provisioning automatico dell'agente del Centro sicurezza che [distribuisce l'agente di Log Analytics](security-center-enable-data-collection.md#auto-provision-mma).
 
-5. Impostare ciso dell'organizzazione [come contatto di sicurezza per gli avvisi del Centro sicurezza e gli eventi rilevanti](security-center-provide-security-contact-details.md).
+5. Impostare il [CISO dell'organizzazione come contatto di sicurezza per gli eventi significativi e gli avvisi del Centro sicurezza](security-center-provide-security-contact-details.md).
 
 6. Assegnare i [criteri di sicurezza predefiniti](tutorial-security-policy.md) del Centro sicurezza.
 
@@ -61,7 +61,7 @@ Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa pr
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-1. Facoltativo: impostare il livello di code coverage (Azure Defender on/off) delle sottoscrizioni. Se non è definito, Defender è disattivato:
+1. Facoltativo: Impostare il livello di copertura (Azure Defender attivato/disattivato) delle sottoscrizioni. Se questa impostazione non viene definita, Defender è disattivato:
 
     ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 
@@ -71,7 +71,7 @@ Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa pr
 
     ```Set-AzSecurityWorkspaceSetting -Name "default" -Scope "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"```
 
-1. Eseguire il provisioning automatico dell'agente di Log Analytics nelle macchine virtuali di Azure:
+1. Effettuare il provisioning automatico dell'installazione dell'agente di Log Analytics nelle VM di Azure:
     
     ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
     
@@ -91,7 +91,7 @@ Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa pr
 
     ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Enable Monitoring in Azure Security Center'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
 
-Il Centro sicurezza di Azure è stato caricato con PowerShell.
+L'onboarding nel Centro sicurezza di Azure con PowerShell è stato completato.
 
 È ora possibile usare i cmdlet di PowerShell con gli script di automazione per eseguire l'iterazione a livello di codice nelle sottoscrizioni e nelle risorse. Ciò consente di risparmiare tempo e riduce la probabilità di errori umani. È possibile usare questo [script di esempio](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) come riferimento.
 
@@ -101,9 +101,9 @@ Il Centro sicurezza di Azure è stato caricato con PowerShell.
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni su come usare PowerShell per automatizzare l'onboarding nel Centro sicurezza, vedere l'articolo seguente:
 
-* [AZ. Security](https://docs.microsoft.com/powershell/module/az.security)
+* [Az.Security](https://docs.microsoft.com/powershell/module/az.security)
 
 Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
-* [Impostazione dei criteri di sicurezza nel centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-* [Gestione e risposta agli avvisi di sicurezza nel centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.

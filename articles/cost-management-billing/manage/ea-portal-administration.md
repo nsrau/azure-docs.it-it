@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 27073cb7cbd78183e519290c676c2499700b0cca
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cc44f05491cc17adb9ca51963d09667400fa1ff6
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442548"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371916"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -175,7 +175,7 @@ Questo documento risponde alle domande frequenti relative alla proprietà delle 
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Quanti proprietari di account Azure possono esistere per ogni sottoscrizione?
 
-Per ogni sottoscrizione è consentito un solo proprietario di account.  È possibile aggiungere altri ruoli tramite l'accesso in base al ruolo o Controllo di accesso (IAM) nella scheda relativa alle sottoscrizioni nell'angolo superiore sinistro della pagina del [portale di Azure](https://portal.azure.com).
+Per ogni sottoscrizione è consentito un solo proprietario di account.  È possibile aggiungere altri ruoli tramite Controllo degli accessi in base al ruolo di Azure nella scheda relativa alle sottoscrizioni nell'angolo superiore sinistro della pagina del [portale di Azure](https://portal.azure.com).
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Un proprietario di account di Azure può essere elencato in più reparti?
 
@@ -191,7 +191,7 @@ Un proprietario di account di Azure può creare e gestire un numero illimitato d
 
 ### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>Come è possibile accedere o visualizzare tutte le sottoscrizioni di un'organizzazione?
 
-Attualmente questa operazione deve essere eseguita in base ai criteri, ovvero per ogni sottoscrizione creata è necessario richiedere che l'account venga aggiunto a un ruolo di sottoscrizione con l'accesso basato sui ruoli.
+Attualmente questa operazione deve essere eseguita in base ai criteri, ovvero per ogni sottoscrizione creata è necessario richiedere che l'account venga aggiunto a un ruolo di sottoscrizione tramite Controllo degli accessi in base al ruolo di Azure.
 
 ### <a name="where-do-i-go-to-create-a-subscription"></a>Da dove è possibile creare una sottoscrizione?
 

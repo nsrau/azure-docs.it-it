@@ -2,21 +2,21 @@
 title: Cenni preliminari sulle specifiche del modello
 description: Viene descritto come creare specifiche di modello e condividerle con altri utenti nell'organizzazione.
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 30e7f26a53e81ebdeebe2acaef44dccab1cf4b27
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448825"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728472"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specifiche del modello di Azure Resource Manager (anteprima)
 
-Una specifica del modello è un nuovo tipo di risorsa per l'archiviazione di un modello di Azure Resource Manager (ARM template) in Azure per una distribuzione successiva. Questo tipo di risorsa consente di condividere i modelli ARM con altri utenti dell'organizzazione. Analogamente a qualsiasi altra risorsa di Azure, è possibile usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per condividere la specifica del modello.
+Una specifica del modello è un tipo di risorsa per l'archiviazione di un modello di Azure Resource Manager (modello ARM) in Azure per una distribuzione successiva. Questo tipo di risorsa consente di condividere i modelli ARM con altri utenti dell'organizzazione. Analogamente a qualsiasi altra risorsa di Azure, è possibile usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per condividere la specifica del modello.
 
-**Microsoft. resources/templateSpecs** è il nuovo tipo di risorsa per le specifiche del modello. È costituito da un modello principale e da un numero qualsiasi di modelli collegati. Azure archivia in modo sicuro le specifiche del modello nei gruppi di risorse. Le specifiche del modello supportano il [controllo delle versioni](#versioning).
+**Microsoft. resources/templateSpecs** è il tipo di risorsa per le specifiche del modello. È costituito da un modello principale e da un numero qualsiasi di modelli collegati. Azure archivia in modo sicuro le specifiche del modello nei gruppi di risorse. Le specifiche del modello supportano il [controllo delle versioni](#versioning).
 
 Per distribuire la specifica del modello, si usano strumenti standard di Azure come PowerShell, l'interfaccia della riga di comando di Azure, portale di Azure, REST e altri SDK e client supportati. Usare gli stessi comandi come per il modello.
 

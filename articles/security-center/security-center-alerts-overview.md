@@ -8,18 +8,18 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: b2d5731ea9e8f2fb13d234fc9d951e221c0ab3e5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7228368645023ffc7debbc84adb8e3b7c27b1bbb
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905477"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728438"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Avvisi di sicurezza nel Centro sicurezza di Azure
 
-Nel Centro sicurezza di Azure sono disponibili diversi avvisi per molti tipi di risorse diversi. Il Centro sicurezza genera avvisi per le risorse distribuite in Azure e anche per le risorse distribuite in ambienti locali e cloud ibridi.
+Nel centro sicurezza sono disponibili diversi avvisi per molti tipi di risorse diversi. Il Centro sicurezza genera avvisi per le risorse distribuite in Azure e anche per le risorse distribuite in ambienti locali e cloud ibridi.
 
 Gli avvisi di sicurezza vengono attivati da rilevamenti avanzati e sono disponibili solo con Azure Defender. È disponibile una versione di valutazione gratuita. È possibile eseguire l'aggiornamento dalla pagina dei **prezzi & impostazioni** . Altre informazioni sui [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -84,6 +84,14 @@ Il Centro sicurezza di Azure si avvale di team dedicati alle ricerche sulla sicu
 * **Ottimizzazione del rilevamento**: gli algoritmi vengono eseguiti su set di dati reali dei clienti e ricercatori che si occupano di sicurezza collaborano con i clienti per convalidare i risultati. Per perfezionare gli algoritmi di Machine Learning vengono usati veri e falsi positivi.
 
 Questi sforzi combinati convergono in rilevamenti nuovi e migliorati, da cui è possibile trarre vantaggio immediatamente, senza che sia richiesta alcuna azione.
+
+## <a name="export-alerts"></a>Esportare gli avvisi
+
+Sono disponibili diverse opzioni per la visualizzazione degli avvisi all'esterno del Centro sicurezza, tra cui:
+
+- **Scaricare il report CSV** nel dashboard degli avvisi fornisce un'esportazione monouso nel volume condiviso cluster.
+- L' **esportazione continua** da impostazioni & prezzi consente di configurare flussi di avvisi di sicurezza e raccomandazioni per log Analytics aree di lavoro e hub eventi. [Altre informazioni sull'esportazione continua](continuous-export.md)
+- Il **connettore Azure Sentinel** trasmette gli avvisi di Azure Defender dal centro sicurezza di Azure in Sentinel di Azure. [Altre informazioni sulla connessione del Centro sicurezza di Azure con Sentinel](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

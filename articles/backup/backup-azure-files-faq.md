@@ -3,12 +3,12 @@ title: Domande frequenti sul backup di file di Azure
 description: In questo articolo vengono fornite le risposte alle domande comuni su come proteggere le condivisioni file di Azure con il servizio Backup di Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c62f8376b220911edd26edbe18955d0103440b81
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 74d8cc9cdb1d9c01c8238f205ae485b61d665cd7
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377421"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729067"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 
@@ -75,6 +75,23 @@ Sì. Vedere la documentazione dettagliata [qui](backup-azure-afs-automation.md).
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-them"></a>È possibile accedere agli snapshot creati da backup di Azure e montarli?
 
 È possibile accedere a tutti gli snapshot creati da Backup di Azure visualizzandoli nel portale, in PowerShell o nell'interfaccia della riga di comando. Per altre informazioni sugli snapshot di condivisioni file di Azure, vedere [Panoramica degli snapshot di condivisioni file di Azure](../storage/files/storage-snapshots-files.md).
+
+### <a name="what-happens-after-i-move-a-backed-up-file-share-to-a-different-subscription"></a>Cosa accade dopo aver spostato una condivisione file di cui è stato eseguito il backup in una sottoscrizione diversa?
+
+Una volta che una condivisione file viene spostata in una sottoscrizione diversa, viene considerata come una nuova condivisione file da backup di Azure. Di seguito sono riportati i passaggi consigliati:
+ 
+Scenario: si può dire che è presente una condivisione file FS1 nella sottoscrizione S1 ed è protetta tramite l'insieme di credenziali V1. Si vuole ora spostare la condivisione file nella sottoscrizione S2.
+ 
+1.  Spostare l'account di archiviazione e la condivisione file desiderati (FS1) in una sottoscrizione diversa (S2).
+2.  Nell'insieme di credenziali V1 attivare Interrompi protezione con l'operazione di eliminazione dei dati per FS1.
+3.  Annullare la registrazione dell'account di archiviazione che ospita FS1 da V1 Vault.
+4.  Riconfigurare il backup per FS1, ora spostato in S2 con un insieme di credenziali (v2) nella sottoscrizione S2. 
+ 
+Si noti che dopo aver riconfigurato il backup con V2, gli snapshot eseguiti con la versione 1 non saranno più gestiti da backup di Azure e di conseguenza sarà necessario eliminare tali snapshot manualmente in base ai requisiti.
+
+### <a name="can-i-move-my-backed-up-file-share-to-a-different-resource-group"></a>È possibile spostare la condivisione file di cui è stato eseguito il backup in un gruppo di risorse diverso?
+ 
+Sì, è possibile spostare la condivisione file di cui è stato eseguito il backup in un gruppo di risorse diverso. Tuttavia, sarà necessario riconfigurare il backup per la condivisione file in quanto verrebbe considerato come una nuova risorsa da backup di Azure. Inoltre, gli snapshot creati prima dello spostamento del gruppo di risorse non saranno più gestiti da backup di Azure. Sarà quindi necessario eliminare manualmente gli snapshot in base ai requisiti.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Qual è il periodo di conservazione massimo configurabile per i backup?
 

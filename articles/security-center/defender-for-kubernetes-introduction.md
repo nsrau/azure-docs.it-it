@@ -1,55 +1,55 @@
 ---
-title: 'Azure Defender per Kubernetes: vantaggi e funzionalità'
-description: Scopri i vantaggi e le funzionalità di Azure Defender per Kubernetes.
+title: Azure Defender per Kubernetes - Vantaggi e funzionalità
+description: Informazioni sui vantaggi e sulle funzionalità di Azure Defender per Kubernetes.
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7fb97f1036515f82fa3e61c18f95eadf0af704d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: MT
+ms.openlocfilehash: 3308a72421b851402642f12daf56359c7e3c9216
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301704"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91449067"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introduzione ad Azure Defender per Kubernetes
 
-Azure Kubernetes Service (AKS) è il servizio gestito di Microsoft per lo sviluppo, la distribuzione e la gestione di applicazioni in contenitori.
+Il servizio Azure Kubernetes è il servizio gestito da Microsoft per lo sviluppo, la distribuzione e la gestione di applicazioni in contenitori.
 
-Il Centro sicurezza di Azure e il servizio contenitore di Azure formano la migliore offerta di sicurezza Kubernetes nativa del cloud e insieme forniscono protezione avanzata dell'ambiente, protezione del carico di lavoro e protezione in fase di esecuzione, come descritto di seguito.
+Insieme, il Centro sicurezza di Azure e il servizio Azure Kubernetes formano la migliore offerta di sicurezza Kubernetes nativa del cloud e forniscono protezione avanzata dell'ambiente, protezione dei carichi di lavoro e protezione in fase di esecuzione, come descritto di seguito.
 
-Per il rilevamento delle minacce per i cluster Kubernetes, abilitare **Azure Defender per Kubernetes**.
+Per rilevare le minacce per i cluster Kubernetes, abilitare **Azure Defender per Kubernetes**.
 
-Il rilevamento delle minacce a livello di host per i nodi AKS di Linux è disponibile se si abilita [Azure Defender per i server](defender-for-servers-introduction.md).
+Per abilitare il rilevamento delle minacce a livello di host per i nodi del servizio Azure Kubernetes per Linux, abilitare [Azure Defender per server](defender-for-servers-introduction.md).
 
 ## <a name="availability"></a>Disponibilità
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Disponibile a livello generale|
-|Prezzi|**Azure Defender per Kubernetes** viene fatturato come indicato nella [pagina dei prezzi](security-center-pricing.md)|
-|Ruoli e autorizzazioni necessari:|L' **amministratore della sicurezza** può ignorare gli avvisi.<br>Il **ruolo con autorizzazioni di lettura per la sicurezza** può visualizzare i risultati.|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
+|Stato della versione:|Disponibile a livello generale|
+|Prezzi:|**Azure Defender per Kubernetes** è soggetto alle tariffe visualizzate nella [pagina dei prezzi](security-center-pricing.md)|
+|Autorizzazioni e ruoli obbligatori:|Il ruolo **Amministratore della sicurezza** può ignorare gli avvisi.<br>Il **ruolo con autorizzazioni di lettura per la sicurezza** può visualizzare i risultati.|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Quali sono i vantaggi di Azure Defender per Kubernetes?
 
 ### <a name="run-time-protection"></a>Protezione in fase di esecuzione
 
-Tramite l'analisi continua delle origini AKS seguenti, il Centro sicurezza offre protezione dalle minacce in tempo reale per gli ambienti in contenitori e genera avvisi per le minacce e attività dannose rilevate a livello di cluster host *e* AKS. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori.
+Tramite l'analisi continua delle origini del servizio Azure Kubernetes seguenti, il Centro sicurezza offre protezione dalle minacce in tempo reale per gli ambienti in contenitori e genera avvisi per le minacce e le attività dannose rilevate a livello di host *e* di cluster del servizio Azure Kubernetes. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori.
 
 Il Centro sicurezza offre protezione dalle minacce a diversi livelli: 
 
-- **Livello host (fornito da Azure Defender per i server)** : usando lo stesso agente log Analytics usato dal centro sicurezza in altre VM, Azure Defender monitora i nodi AKS di Linux per attività sospette, ad esempio il rilevamento della shell Web e la connessione con indirizzi IP sospetti noti. L'agente monitora anche le analisi specifiche del contenitore, ad esempio la creazione di contenitori con privilegi, l'accesso sospetto ai server API e i server Secure Shell (SSH) in esecuzione all'interno di un contenitore docker.
+- **Livello di host (fornito da Azure Defender per server)** : usando lo stesso agente di Log Analytics usato dal Centro sicurezza in altre macchine virtuali, Azure Defender monitora i nodi del servizio Azure Kubernetes per Linux per rilevare attività sospette, come il rilevamento della shell Web e la connessione con indirizzi IP sospetti noti. L'agente monitora anche le analisi specifiche dei contenitori, come la creazione di contenitori con privilegi, l'accesso sospetto ai server API e la presenza di server SSH (Secure Shell) in esecuzione all'interno di un contenitore Docker.
 
-    Per un elenco degli avvisi a livello di host AKS, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-containerhost).
+    Per un elenco degli avvisi a livello di host del servizio Azure Kubernetes, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-containerhost).
 
     >[!IMPORTANT]
     > Se si sceglie di non installare gli agenti negli host, si riceverà solo una parte dei vantaggi della protezione dalle minacce e degli avvisi di sicurezza. Si riceveranno comunque gli avvisi relativi all'analisi di rete e alle comunicazioni con server dannosi.
 
-- **Livello del cluster AKS (fornito da Azure Defender per Kubernetes)** : a livello di cluster, la protezione dalle minacce si basa sull'analisi dei log di controllo di Kubernetes. Per abilitare questo monitoraggio senza **agente** , abilitare Azure Defender. Per generare avvisi a questo livello, il Centro sicurezza monitora i servizi gestiti dal servizio Azure Kubernetes usando i log recuperati da quest'ultimo. Esempi di eventi a questo livello includono dashboard di Kubernetes esposti, creazione di ruoli con privilegi elevati e creazione di montaggi sensibili.
+- **Livello di cluster del servizio Azure Kubernetes (fornito da Azure Defender per Kubernetes)** : la protezione dalle minacce a questo livello è basata sull'analisi dei log di controllo di Kubernetes. Per abilitare questo monitoraggio **senza agente**, abilitare Azure Defender. Per generare avvisi a questo livello, il Centro sicurezza monitora i servizi gestiti dal servizio Azure Kubernetes usando i log recuperati da quest'ultimo. Esempi di eventi a questo livello includono dashboard di Kubernetes esposti, creazione di ruoli con privilegi elevati e creazione di montaggi sensibili.
 
     Per un elenco degli avvisi a livello di cluster del servizio Azure Kubernetes, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-akscluster).
 
@@ -63,39 +63,39 @@ Inoltre, il team globale di ricercatori Microsoft che si occupano di sicurezza m
 
 
 
-## <a name="how-does-security-centers-kubernetes-protection-work"></a>Come funziona la protezione Kubernetes del Centro sicurezza?
+## <a name="how-does-security-centers-kubernetes-protection-work"></a>Come funziona la protezione di Kubernetes del Centro sicurezza?
 
-Di seguito è riportato un diagramma di alto livello dell'interazione tra il Centro sicurezza di Azure, il servizio Azure Kubernetes e i criteri di Azure.
+Di seguito è riportato un diagramma generale dell'interazione tra il Centro sicurezza di Azure, il servizio Azure Kubernetes e Criteri di Azure.
 
-È possibile osservare che gli elementi ricevuti e analizzati dal centro sicurezza includono:
+Come si può vedere, gli elementi ricevuti e analizzati dal Centro sicurezza includono:
 
-- log di controllo dal server API
+- log di controllo del server API
 - eventi di sicurezza non elaborati dall'agente di Log Analytics
-- informazioni di configurazione del cluster dal cluster AKS
-- configurazione del carico di lavoro da criteri di Azure (tramite il **componente aggiuntivo criteri di Azure per Kubernetes**). [Altre informazioni sulle procedure consigliate per la protezione del carico di lavoro usando il controllo di ammissione Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+- informazioni di configurazione del cluster dal cluster del servizio Azure Kubernetes
+- configurazione dei carichi di lavoro da Criteri di Azure (tramite il **componente aggiuntivo Criteri di Azure per Kubernetes**). [Altre informazioni sulle procedure consigliate per la protezione dei carichi di lavoro con il controllo ammissione di Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
-:::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Architettura di alto livello dell'interazione tra il Centro sicurezza di Azure, il servizio Azure Kubernetes e i criteri di Azure" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
-
-
+:::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Architettura generale dell'interazione tra il Centro sicurezza di Azure, il servizio Azure Kubernetes e Criteri di Azure" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
 
 
-## <a name="azure-defender-for-kubernetes---faq"></a>Azure Defender per Kubernetes-domande frequenti
 
-### <a name="can-i-still-get-aks-protections-without-the-log-analytics-agent"></a>Posso comunque ottenere le protezioni AKS senza l'agente di Log Analytics?
 
-Come indicato in precedenza, il piano facoltativo di **Azure Defender per Kubernetes** offre protezioni a livello di cluster, l'agente log Analytics di **Azure Defender per i server** protegge i nodi. 
+## <a name="azure-defender-for-kubernetes---faq"></a>Azure Defender per Kubernetes - Domande frequenti
 
-È consigliabile distribuire entrambi, per la protezione più completa possibile.
+### <a name="can-i-still-get-aks-protections-without-the-log-analytics-agent"></a>È possibile ottenere le protezioni del servizio Azure Kubernetes anche senza l'agente di Log Analytics?
 
-Se si sceglie di non installare l'agente negli host, si riceverà solo un subset dei vantaggi della protezione dalle minacce e degli avvisi di sicurezza. Si riceveranno comunque gli avvisi relativi all'analisi di rete e alle comunicazioni con server dannosi.
+Come già accennato, il piano facoltativo **Azure Defender per Kubernetes** fornisce protezione a livello di cluster, mentre l'agente di Log Analytics di **Azure Defender per server** protegge i nodi. 
+
+È consigliabile distribuire entrambi per ottenere la protezione più completa possibile.
+
+Se si sceglie di non installare gli agenti negli host, si riceverà solo una parte dei vantaggi della protezione dalle minacce e degli avvisi di sicurezza. Si riceveranno comunque gli avvisi relativi all'analisi di rete e alle comunicazioni con server dannosi.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono state illustrate le informazioni sulla protezione Kubernetes del Centro sicurezza, tra cui Azure Defender per Kubernetes. 
+In questo articolo sono state fornite informazioni sulla protezione di Kubernetes del Centro sicurezza, incluso Azure Defender per Kubernetes. 
 
 Per i materiali correlati, vedere gli articoli seguenti: 
 
 - [Abilitare Azure Defender](security-center-pricing.md)
-- [Esportare avvisi in un sistema di sicurezza di Azure o un sistema SIEM di terze parti](continuous-export.md)
+- [Esportare gli avvisi in un sistema di informazioni di sicurezza e gestione degli eventi Azure Sentinel o di terze parti](continuous-export.md)
 - [Tabella di riferimento degli avvisi](alerts-reference.md)
