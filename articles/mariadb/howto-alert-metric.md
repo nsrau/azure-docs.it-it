@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 5687255057fdd5e73478626721c789c98b2ea366
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6ed890fca9dddcbc7f04914a6f920d530d18ed0f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120076"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742843"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Usare il portale di Azure per configurare avvisi per le metriche per Database di Azure per MariaDB
 
@@ -52,7 +52,7 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
    
    Al termine, selezionare **Chiudi**.
 
-   ![Selezionare una metrica](./media/howto-alert-metric/7-set-threshold-time.png)
+   ![Selezionare la metrica 2](./media/howto-alert-metric/7-set-threshold-time.png)
 
 8. Nella sezione **Gruppi di azioni** selezionare **Crea nuovo** per creare un nuovo gruppo di azioni per ricevere le notifiche relative all'avviso.
 
@@ -70,7 +70,7 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 
 11. Specificare un nome per la regola di avviso, una descrizione e il livello di gravità.
 
-    ![Gruppo di azioni](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![Gruppo di azioni 2](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. Selezionare **Crea regola di avviso** per creare l'avviso.
 

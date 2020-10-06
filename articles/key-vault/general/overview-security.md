@@ -3,19 +3,18 @@ title: Sicurezza di Azure Key Vault
 description: Gestire le autorizzazioni di accesso per Azure Key Vault, chiavi e segreti. L'articolo riguarda il modello di autenticazione e autorizzazione per Key Vault e offre informazioni su come proteggere l'insieme di credenziali delle chiavi.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b6163ca0cb02670024fe95459f31ac81c4da756c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596367"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739691"
 ---
 # <a name="azure-key-vault-security"></a>Sicurezza di Azure Key Vault
 
@@ -76,29 +75,16 @@ Quando le regole del firewall vengono applicate, gli utenti possono leggere i da
 
 Per altre informazioni sull'indirizzo di rete di Azure Key Vault, vedere [Endpoint servizio di rete virtuale per Azure Key Vault](overview-vnet-service-endpoints.md)
 
-### <a name="tls-and-https"></a>TLS e HTTPS
+## <a name="tls-and-https"></a>TLS e HTTPS
 
 *   Il front-end Key Vault (piano dati) è un server multi-tenant. Questo significa che gli insiemi di credenziali delle chiavi di diversi clienti possono condividere lo stesso indirizzo IP pubblico. Per ottenere l'isolamento, ogni richiesta HTTP viene autenticata e autorizzata indipendentemente da altre richieste.
 *   È possibile identificare le versioni precedenti di TLS per segnalare le vulnerabilità, ma poiché l'indirizzo IP pubblico è condiviso, non è possibile per il team del servizio Key Vault disabilitare le versioni precedenti di TLS per gli insiemi di credenziali delle chiavi singoli a livello di trasporto.
 *   Il protocollo HTTPS consente al client di partecipare alla negoziazione TLS. I **client possono applicare la versione più recente di TLS**e, ogni volta che un client esegue questa operazione, l'intera connessione utilizzerà la protezione del livello corrispondente. Il fatto che Key Vault supporta ancora le versioni precedenti di TLS non compromettere la sicurezza delle connessioni usando versioni di TLS più recenti.
 *   Nonostante le vulnerabilità note nel protocollo TLS, non esiste alcun attacco noto che consentirebbe a un agente malintenzionato di estrarre tutte le informazioni dall'insieme di credenziali delle chiavi quando l'utente malintenzionato inizia una connessione con una versione di TLS con vulnerabilità. L'utente malintenzionato deve comunque eseguire l'autenticazione e l'autorizzazione e, a condizione che i client legittimi si connettano sempre alle versioni recenti di TLS, non è possibile che le credenziali siano state perse da vulnerabilità nelle versioni precedenti di TLS.
 
+## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-## <a name="monitoring"></a>Monitoraggio
-
-La funzionalità di registrazione di Key Vault salva le informazioni sulle attività eseguite nell'insieme di credenziali. Log di Key Vault:
-
-- Tutte le richieste API REST autenticate, incluse quelle con esito negativo
-  - Operazioni nell'insieme di credenziali delle chiavi stesso. Queste operazioni includono creazione, eliminazione, impostazione di criteri di accesso e aggiornamento degli attributi dell'insieme di credenziali delle chiavi come i tag.
-  - Operazioni su chiavi e segreti nell'insieme di credenziali delle chiavi, tra cui:
-    - Creazione, modifica o eliminazione di queste chiavi o segreti.
-    - Firma, verifica, crittografia, decrittografia, wrapping e annullamento del wrapping delle chiavi, recupero di segreti ed elenco di chiavi e segreti (e delle relative versioni).
-- Richieste non autenticate che generano una risposta 401. Alcuni esempi sono le richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.
-
-È possibile accedere alle informazioni di registrazione entro 10 minuti dall'operazione sull'insieme di credenziali delle chiavi. La gestione dei log nell'account di archiviazione è compito dell'utente.
-
-- Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitando l'accesso agli utenti specificati.
-- Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
+La funzionalità di registrazione di Key Vault salva le informazioni sulle attività eseguite nell'insieme di credenziali. Per informazioni dettagliate, vedere [Key Vault registrazione](logging.md).
 
 Per consigli sulla gestione sicura degli account di archiviazione, vedere la [Guida alla sicurezza di archiviazione di Azure](../../storage/blobs/security-recommendations.md)
 
@@ -106,4 +92,3 @@ Per consigli sulla gestione sicura degli account di archiviazione, vedere la [Gu
 
 - [Endpoint servizio di rete virtuale per Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Controllo degli accessi in base al ruolo: ruoli predefiniti](../../role-based-access-control/built-in-roles.md)
-

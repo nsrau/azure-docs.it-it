@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 5e2d3f0b5abcd7a9dcd4f49c120353adacffcb31
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 36e41db6e1a3cff13f31f0abf2e83e872dfd7c49
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399653"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742333"
 ---
 # <a name="network-monitoring-solutions"></a>Soluzioni di monitoraggio della rete 
 
@@ -103,7 +103,7 @@ Analisi del traffico è una soluzione basata sul cloud che fornisce visibilità 
 
 Analisi del traffico fornisce quindi informazioni fruibili che consentono di controllare l'attività di rete dell'organizzazione, proteggere applicazioni e dati, ottimizzare le prestazioni dei carichi di lavoro e garantire la conformità.
 
-![Mappa geografica che mostra il traffico tra le varie aree geografiche](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+![Mappa geografica che mostra il traffico tra le aree 2](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 Collegamenti correlati:
 * [Post di blog](https://aka.ms/trafficanalytics), [documentazione](https://aka.ms/trafficanalyticsdocs), [domande frequenti](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)

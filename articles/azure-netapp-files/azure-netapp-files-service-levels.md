@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2019
+ms.date: 10/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 818b3b59b1113875b6486ffe64bc8d2d30d613d3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b5c576211fe7bb202e7a27bee5ee3bfd90d74cf9
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325462"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743098"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Livelli di servizio per Azure NetApp Files
 I livelli di servizio sono un attributo di un pool di capacità. I livelli di servizio sono definiti e differenziati dalla velocità effettiva massima consentita per un volume nel pool di capacità in base alla quota assegnata al volume.
@@ -66,7 +66,7 @@ Per un sistema di SAP HANA, questo pool di capacità può essere utilizzato per 
 * Volume di dati SAP HANA: dimensioni di 4 TB con fino a 704 MiB/s
 * Volume di log SAP HANA: dimensione 0,5 TB con fino a 256 MiB/s
 * SAP HANA volume condiviso: dimensioni di 1 TB con fino a 64 MiB/s
-* SAP HANA volume di backup: dimensione 4,5 TB con fino a 256 MiB/s
+* SAP HANA volume di backup: dimensione 6,5 TB con fino a 256 MiB/s
 
 Il diagramma seguente illustra gli scenari per i volumi SAP HANA:
 

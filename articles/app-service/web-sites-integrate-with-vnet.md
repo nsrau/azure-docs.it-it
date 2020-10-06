@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 433d519cc71b8bb218569679c94142658f3c9416
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 141649f7620063b58134caaa878162f3a7e767e7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255247"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739911"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app con una rete virtuale di Azure
 
@@ -144,7 +144,7 @@ La funzionalità di integrazione Sync Network a livello di area non prevede cost
 
 L'uso della funzionalità di integrazione rete virtuale richiesta dal gateway comporta tre tipi di addebiti:
 
-* **Addebiti del piano tariffario del servizio app**: il piano di servizio app deve essere di tipo Standard, Premium o PremiumV2. Per altre informazioni sui costi, vedere [Prezzi di Servizio app][ASPricing].
+* **Costi del piano tariffario del piano di servizio app**: le app devono essere in un piano di servizio app standard, Premium, PremiumV2 o PremiumV3. Per altre informazioni sui costi, vedere [Prezzi di Servizio app][ASPricing].
 * **Costi di trasferimento dei dati**: è previsto un addebito per i dati in uscita, anche se la rete virtuale si trova nello stesso data center. Gli addebiti sono descritti nei [dettagli relativi ai prezzi dei trasferimenti dei dati][DataPricing].
 * **Costi del gateway VPN**: è previsto un costo per il gateway di rete virtuale necessario per la connessione VPN da punto a sito. Per altre informazioni, vedere [Prezzi di Gateway VPN][VNETPricing].
 

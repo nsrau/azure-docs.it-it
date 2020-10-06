@@ -8,13 +8,13 @@ ms.author: heidist
 tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 8e8c32f5596e469de5402a1f712d234a806a69e4
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: 3d2172f76faecfc8347d7e0ca13fb506817f25de
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297995"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740701"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Usare la sintassi di ricerca Lucene "completa" (query avanzate in Azure ricerca cognitiva)
 
@@ -40,13 +40,13 @@ Negli esempi seguenti viene usato l'indice di ricerca NYC Jobs contenente le opp
 
 Dopo aver specificato l'intestazione della richiesta, è possibile riusarla per tutte le query in questo articolo, scambiando solo la stringa **search=**. 
 
-  ![Parametri impostati per l'intestazione della richiesta post](media/search-query-lucene-examples/postman-header.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 ### <a name="set-the-request-url"></a>Impostare l'URL della richiesta
 
 Request è un comando GET associato a un URL contenente l'endpoint di Azure ricerca cognitiva e la stringa di ricerca.
 
-  ![GET dell'intestazione della richiesta post](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 La composizione dell'URL presenta i seguenti elementi:
 
@@ -137,7 +137,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  ![Espressione di ricerca della risposta di esempio del post](media/search-query-lucene-examples/intrafieldfilter.png)
+  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 È possibile definire un'operazione di ricerca in campo con la sintassi **FieldName: searchExpression** , in cui l'espressione di ricerca può essere costituita da una singola parola o una frase o da un'espressione più complessa tra parentesi, facoltativamente con operatori booleani. Ecco alcuni esempi:
 
@@ -199,7 +199,7 @@ In questa query per le opportunità di lavoro contenenti il termine "senior anal
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
-  ![Query di prossimità](media/search-query-lucene-examples/proximity-before.png)
+  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 Riprovare rimuovendo le parole tra il termine "senior analyst". Si noti che vengono restituiti 8 documenti per questa query, rispetto ai 10 per la query precedente.
 
@@ -217,7 +217,7 @@ In questa query "before" cercare le opportunità di lavoro con il termine *compu
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
-  ![Aumento priorità termini "before"](media/search-query-lucene-examples/termboostingbefore.png)
+  :::image type="content" source="media/search-query-lucene-examples/termboostingbefore.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 Nella query "after", ripetere la ricerca, questa volta aumentando la priorità dei risultati con il termine *analyst* rispetto al termine *computer* se nessuna delle due parole esiste. 
 
@@ -226,7 +226,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ```
 Una versione maggiormente leggibile della query precedente è `search=business_title:computer analyst^2`. Per una query di lavoro `^2` viene codificato come `%5E2`, più difficile da vedere.
 
-  ![Aumento priorità termini "after"](media/search-query-lucene-examples/termboostingafter.png)
+  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 L'aumento priorità dei termini si differenzia dai profili di punteggio per il fatto che questi ultimi aumentano la priorità di alcuni campi e non di termini specifici. L'esempio seguente illustra le differenze.
 
@@ -253,7 +253,7 @@ In questa query cercare i processi con il termine senior o Junior: `search=busin
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
-  ![Query Regex](media/search-query-lucene-examples/regex.png)
+  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 > [!Note]
 > Le query Regex non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita per i termini di una query incompleta è la conversione in lettere minuscole.
@@ -275,7 +275,7 @@ In questa query cercare le opportunità di lavoro che contengono il prefisso 'pr
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
-  ![Query con caratteri jolly](media/search-query-lucene-examples/wildcard.png)
+  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 > [!Note]
 > Le query con caratteri jolly non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita per i termini di una query incompleta è la conversione in lettere minuscole.

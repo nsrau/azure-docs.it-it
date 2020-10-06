@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183718"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743574"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Cambiare il percorso BLOB predefinito
 
@@ -69,7 +69,7 @@ Per creare una funzione di Azure, seguire questa procedura:
      
 10. Nella finestra Funzione eseguire il file con estensione _csx_.
 
-    ![Creare una nuova funzione C#](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
+    ![Creare una nuova funzione C# 2](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
     Eseguire i passaggi seguenti.
 
@@ -191,7 +191,7 @@ Per creare una funzione di Azure, seguire questa procedura:
 
     2. Fare clic su **+ Aggiungi**.
         
-        ![Collegamento "Visualizza file"](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
+        ![Aggiungi nuova funzione Aggiungi file](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
     3. Digitare **project.json**, quindi premere **invio**. Incollare il codice seguente nel file **project.json**:
 
@@ -211,7 +211,7 @@ Per creare una funzione di Azure, seguire questa procedura:
     
     4. Fare clic su **Salva**.
 
-        ![Collegamento "Visualizza file"](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
+        ![JSON nuovo progetto di funzione](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
 È stata creata una funzione di Azure. Questa funzione viene attivata ogni volta che il processo di trasformazione dei dati genera un nuovo BLOB.
 

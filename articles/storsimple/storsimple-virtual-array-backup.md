@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41cb02e77fa77c5a7452c5e3e0d2080ee3d472d5
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183225"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742248"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Eseguire il backup di condivisioni o volumi nell'array virtuale StorSimple
 
@@ -76,7 +76,7 @@ Oltre ai backup pianificati, è possibile eseguire un backup manuale (su richies
    
     Viene avviato un backup su richiesta e visualizzata una notifica indicante che il processo di backup è in corso.
    
-    ![avvio di backup](./media/storsimple-virtual-array-backup/takebackup3m.png) 
+    ![avvio del backup 2](./media/storsimple-virtual-array-backup/takebackup3m.png) 
    
     Al termine del processo, viene visualizzata una nuova notifica. Quindi si avvia il processo di backup.
    

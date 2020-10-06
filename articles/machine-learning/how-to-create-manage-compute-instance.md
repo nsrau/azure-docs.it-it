@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: a57ea081bf6fef8c0778af2a6254b3f61564027e
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 1ba3f49c9016d71acf162efb07cd6120b1dcc1ec
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91711471"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743557"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creare e gestire un'istanza di calcolo Azure Machine Learning
 
@@ -108,7 +108,7 @@ Per informazioni sulla creazione di un'istanza di calcolo in studio, vedere [cre
 ### <a name="create-on-behalf-of-preview"></a>Crea per conto di (anteprima)
 
 In qualità di amministratore, è possibile creare un'istanza di calcolo per conto di un data scientist a cui assegnare l'istanza:
-* [Azure Resource Manager modello](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  Per informazioni dettagliate su come trovare TenantID e ObjectID necessari in questo modello, vedere [trovare ID oggetto Identity per la configurazione dell'autenticazione](../healthcare-apis/find-identity-object-ids.md).  È anche possibile trovare questi valori nel portale Azure Active Directory.
+* [Azure Resource Manager modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Per informazioni dettagliate su come trovare TenantID e ObjectID necessari in questo modello, vedere [trovare ID oggetto Identity per la configurazione dell'autenticazione](../healthcare-apis/find-identity-object-ids.md).  È anche possibile trovare questi valori nel portale Azure Active Directory.
 * API REST
 
 Per i data scientist per cui si crea l'istanza di calcolo sono necessarie le seguenti autorizzazioni di [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md) : 
@@ -123,7 +123,7 @@ Il data scientist può avviare, arrestare e riavviare l'istanza di calcolo. Poss
 * RStudio
 * Notebook integrati
 
-## <a name="manage"></a>Gestire
+## <a name="manage"></a>Gestione
 
 Avviare, arrestare, riavviare ed eliminare un'istanza di calcolo. Un'istanza di calcolo non viene ridimensionata automaticamente, quindi assicurarsi di arrestare la risorsa per evitare addebiti continui.
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718a01abacf6f2c3cbc9523cc644aca02dc5ff49
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 55df425367cc8295ef6a3899e2edb47669fe57b7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321192"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741177"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Ripristinare o rimuovere un utente eliminato di recente con Azure Active Directory
 Dopo aver eliminato un utente, l'account rimane in uno stato di sospensione per 30 giorni. Durante tale intervallo di 30 giorni, l'account utente può essere ripristinato, con tutte le relative proprietà. Dopo il superamento di tale periodo di 30 giorni, l'utente viene automaticamente e definitivamente eliminato.
@@ -77,7 +77,7 @@ Quando un account utente viene eliminato dall'organizzazione, l'account è in un
 
 2. Selezionare **Elimina definitivamente**.
 
-    ![Pagina Utenti - Utenti eliminati, con l'opzione Ripristina utente evidenziata](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
+    ![Utenti-pagina utenti eliminati, con l'opzione Elimina utente evidenziata](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver ripristinato o eliminato gli utenti, è possibile eseguire i processi di base seguenti:

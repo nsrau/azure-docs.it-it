@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 8c8b71e4be11a886da3e0889add0a3cdc19a56c3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1cb86f77a6ffcbb0fb45b3a57b57de531822f2b0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962418"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742605"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connessioni ibride del Servizio app di Azure
 
@@ -20,7 +20,7 @@ Connessioni ibride è un servizio disponibile in Azure e una funzionalità del S
 
 All'interno del servizio app, è possibile usare Connessioni ibride per accedere alle risorse dell'applicazione in qualsiasi rete in grado di effettuare chiamate in uscita ad Azure tramite la porta 443. Connessioni ibride fornisce l'accesso dall'app a un endpoint TCP e non consente un nuovo modo di accedere all'app. Quando usata in Servizio app, ogni connessione ibrida è correlata a una singola combinazione di host e porta TCP. Ciò consente alle app di accedere alle risorse in qualsiasi sistema operativo, purché sia un endpoint TCP. La funzionalità Connessioni ibride non conosce né deve conoscere quale sia il protocollo dell'applicazione o a quale risorsa l'utente stia accedendo, Fornisce semplicemente l'accesso alla rete.  
 
-## <a name="how-it-works"></a>Come funziona ##
+## <a name="how-it-works"></a>Funzionamento ##
 Connessioni ibride richiede la distribuzione di un agente di inoltro dove può raggiungere sia l'endpoint desiderato che Azure. L'agente di inoltro, Gestione connessione ibrida (HCM), effettua una chiamata al relay di Azure sulla porta 443. Dal sito dell'app Web, l'infrastruttura del servizio app si connette anche al servizio di inoltro di Azure per conto dell'applicazione. Tramite le connessioni Unite, l'app è in grado di accedere all'endpoint desiderato. La connessione usa TLS 1.2 per la sicurezza e le chiavi di firma di accesso condiviso per l'autenticazione e l'autorizzazione.    
 
 ![Diagramma del flusso di livello generale delle connessioni ibride][1]
@@ -42,7 +42,7 @@ La funzionalità Connessioni ibride offre numerosi vantaggi tra cui:
 - In genere non richiede varchi nei firewall, in quanto le connessioni sono tutte in uscita su porte Web standard.
 - Dal momento che si tratta di una funzionalità a livello di rete, è indipendente dalla lingua usata dall'app e dalla tecnologia usata dall'endpoint.
 - Può essere usata per fornire l'accesso a più reti da una singola app. 
-- È supportata nelle app GA per Windows ed è in anteprima per le app Linux.
+- È supportato in GA per le app native di Windows ed è in anteprima per le app Linux. Non è supportata per le app contenitore di Windows.
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Operazioni che non è possibile eseguire con la funzionalità Connessioni ibride ###
 

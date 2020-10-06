@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89275924"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741194"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
 
@@ -92,10 +92,11 @@ Passare a **Azure Active Directory**  ->  **accessi** nell'interfaccia di [ammin
 | 80002 | Timeout della richiesta di convalida della password dell'agente di autenticazione. | Verificare se Active Directory è raggiungibile dall'agente di autenticazione.
 | 80003 | Risposta non valida ricevuta dall'agente di autenticazione. | Se il problema è riproducibile in modo coerente tra più utenti, controllare la configurazione di Active Directory.
 | 80004 | È stato usato un nome dell'entità utente (UPN) non corretto nella richiesta di accesso. | Chiedere all'utente di accedere con il nome utente corretto.
-| 80005 | Agente di autenticazione: si è verificato un errore. | Errore temporaneo. Riprovare più tardi.
+| 80005 | Agente di autenticazione: si è verificato un errore. | Errore temporaneo. Riprovare in un secondo tempo.
 | 80007 | L'agente di autenticazione non è in grado di connettersi ad Active Directory. | Verificare se Active Directory è raggiungibile dall'agente di autenticazione.
 | 80010 | L'agente di autenticazione non è in grado di decrittografare la password. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente. 
 | 80011 | L'agente di autenticazione non è in grado di recuperare la chiave di decrittografia. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente.
+| 80014 | Richiesta di convalida risposta dopo il superamento del tempo massimo trascorso. | Timeout dell'agente di autenticazione. Aprire un ticket di supporto con il codice di errore, l'ID di correlazione e il timestamp per ottenere altri dettagli sull'errore
 
 >[!IMPORTANT]
 >Gli agenti di autenticazione pass-through autenticano Azure AD utenti convalidando i nomi utente e le password rispetto Active Directory chiamando l' [API Win32 LogonUser](/windows/win32/api/winbase/nf-winbase-logonusera). Di conseguenza, se è stata impostata l'impostazione "Logon to" (accesso a) in Active Directory per limitare l'accesso alla workstation, sarà necessario aggiungere i server che ospitano gli agenti di autenticazione pass-through all'elenco dei server "Logon to". In caso contrario, gli utenti non riusciranno ad accedere Azure AD.

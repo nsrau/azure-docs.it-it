@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d2b74af723e3ba8b1d71e9f481bf96d009540a52
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: af4c333fb539ad533756c538cb3ecde1d9a91413
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962095"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743047"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio app
 
 Le applicazioni nel servizio app Azure possono essere distribuite in diversi modi. Per impostazione predefinita, le app ospitate dal servizio app sono direttamente accessibili a Internet e possono raggiungere solo endpoint ospitati da Internet. Molte applicazioni dei clienti, tuttavia, devono controllare il traffico di rete in ingresso e in uscita. Nel servizio app sono disponibili diverse funzionalità per soddisfare queste esigenze. La sfida è conoscere la funzionalità da utilizzare per risolvere un determinato problema. Questo documento è destinato a consentire ai clienti di determinare la funzionalità da usare in base ad alcuni casi d'uso di esempio.
 
-Esistono due tipi di distribuzione principali per il servizio app Azure. È disponibile il servizio pubblico multi-tenant che ospita i piani di servizio app negli SKU di prezzo gratuito, condiviso, Basic, standard, Premium e Premiumv2. A questo punto, è presente la ambiente del servizio app del singolo tenant, che ospita i piani di servizio App SKU isolati direttamente nella rete virtuale di Azure (VNet). Le funzionalità usate variano a seconda che si trovino in un servizio multi-tenant o in un ambiente del servizio app. 
+Esistono due tipi di distribuzione principali per il servizio app Azure. È disponibile il servizio pubblico multi-tenant che ospita i piani di servizio app negli SKU di prezzo gratuito, condiviso, Basic, standard, Premium, PremiumV2 e PremiumV3. A questo punto, è presente la ambiente del servizio app del singolo tenant, che ospita i piani di servizio App SKU isolati direttamente nella rete virtuale di Azure (VNet). Le funzionalità usate variano a seconda che si trovino in un servizio multi-tenant o in un ambiente del servizio app. 
 
 ## <a name="multi-tenant-app-service-networking-features"></a>Funzionalità di rete del servizio app multi-tenant 
 
@@ -62,7 +62,7 @@ I seguenti casi di utilizzo in uscita suggeriscono come usare le funzionalità d
 
 ### <a name="default-networking-behavior"></a>Comportamento di rete predefinito
 
-Le unità di scala del servizio app Azure supportano molti clienti in ogni distribuzione. I piani di SKU gratuito e condiviso ospitano i carichi di lavoro dei clienti sui ruoli di lavoro multi-tenant. I piani Basic e superiori ospitano i carichi di lavoro dei clienti dedicati a un solo piano di servizio app (ASP). Se si dispone di un piano di servizio app standard, tutte le app del piano vengono eseguite nello stesso thread di lavoro. Se il ruolo di lavoro viene scalato in orizzontale, tutte le app in tale ASP verranno replicate in un nuovo ruolo di lavoro per ogni istanza di ASP. I thread di lavoro usati per Premiumv2 sono diversi da quelli usati per gli altri piani. Ogni distribuzione del servizio app ha un indirizzo IP usato per tutto il traffico in ingresso per le app nella distribuzione del servizio app. Esistono tuttavia da 4 a 11 indirizzi usati per eseguire chiamate in uscita. Questi indirizzi sono condivisi da tutte le app presenti nella distribuzione del servizio app. Gli indirizzi in uscita sono diversi in base ai diversi tipi di lavoro. Questo significa che gli indirizzi usati dagli ASP gratuito, condiviso, Basic, standard e Premium sono diversi dagli indirizzi usati per le chiamate in uscita da Premiumv2 ASP. Se si osservano le proprietà dell'app, è possibile visualizzare gli indirizzi in ingresso e in uscita usati dall'app. Se è necessario bloccare una dipendenza con un ACL IP, usare possibleOutboundAddresses. 
+Le unità di scala del servizio app Azure supportano molti clienti in ogni distribuzione. I piani di SKU gratuito e condiviso ospitano i carichi di lavoro dei clienti sui ruoli di lavoro multi-tenant. I piani Basic e superiori ospitano i carichi di lavoro dei clienti dedicati a un solo piano di servizio app (ASP). Se si dispone di un piano di servizio app standard, tutte le app del piano vengono eseguite nello stesso thread di lavoro. Se il ruolo di lavoro viene scalato in orizzontale, tutte le app in tale ASP verranno replicate in un nuovo ruolo di lavoro per ogni istanza di ASP. I thread di lavoro usati per PremiumV2 e PremiumV3 sono diversi da quelli usati per gli altri piani. Ogni distribuzione del servizio app ha un indirizzo IP usato per tutto il traffico in ingresso per le app nella distribuzione del servizio app. Esistono tuttavia da 4 a 11 indirizzi usati per eseguire chiamate in uscita. Questi indirizzi sono condivisi da tutte le app presenti nella distribuzione del servizio app. Gli indirizzi in uscita sono diversi in base ai diversi tipi di lavoro. Questo significa che gli indirizzi usati dagli ASP gratuito, condiviso, Basic, standard e Premium sono diversi dagli indirizzi usati per le chiamate in uscita da PremiumV2 e PremiumV3 ASP. Se si osservano le proprietà dell'app, è possibile visualizzare gli indirizzi in ingresso e in uscita usati dall'app. Se è necessario bloccare una dipendenza con un ACL IP, usare possibleOutboundAddresses. 
 
 ![Proprietà dell'app](media/networking-features/app-properties.png)
 

@@ -1,14 +1,14 @@
 ---
 title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi alla creazione di definizioni di criteri, al vario SDK e al componente aggiuntivo per Kubernetes.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d4ede1703df922196c89a4c1ca4f37cbc95a6297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6026dc75187c8a70203a2484380eed70d519599d
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545540"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743438"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Risolvere gli errori usando criteri di Azure
 
@@ -52,7 +52,7 @@ Un nuovo criterio o un'assegnazione di iniziativa richiede circa 30 minuti per e
 
 Attendere prima di tutto la quantità di tempo appropriata per il completamento di una valutazione e la disponibilità dei risultati di conformità in portale di Azure o SDK. Per avviare una nuova analisi di valutazione con Azure PowerShell o l'API REST, vedere [analisi di valutazione su richiesta](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 
-### <a name="scenario-evaluation-not-as-expected"></a>Scenario: la valutazione non è come previsto
+### <a name="scenario-compliance-not-as-expected"></a>Scenario: conformità non come previsto
 
 #### <a name="issue"></a>Problema
 
@@ -64,10 +64,21 @@ La risorsa non è nell'ambito corretto per l'assegnazione dei criteri o la defin
 
 #### <a name="resolution"></a>Soluzione
 
-- Per una risorsa non conforme che dovrebbe essere conforme, iniziare [determinando i motivi della mancata conformità](../how-to/determine-non-compliance.md). Il confronto tra la definizione e il valore della proprietà valutato indica il motivo per cui una risorsa non è conforme.
-- Per una risorsa conforme che dovrebbe essere non conforme, leggere la condizione di definizione dei criteri in base alla condizione e valutare le proprietà delle risorse. Verificare che gli operatori logici raggruppino le condizioni corrette insieme e che le condizioni non siano invertite.
+Attenersi alla seguente procedura per risolvere i problemi della definizione dei criteri:
 
-Se la conformità per un'assegnazione di criteri Mostra `0/0` risorse, non è stata determinata alcuna risorsa da applicare nell'ambito dell'assegnazione. Controllare sia la definizione dei criteri che l'ambito di assegnazione.
+1. Attendere prima di tutto la quantità di tempo appropriata per il completamento di una valutazione e la disponibilità dei risultati di conformità in portale di Azure o SDK. Per avviare una nuova analisi di valutazione con Azure PowerShell o l'API REST, vedere [analisi di valutazione su richiesta](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Verificare che i parametri di assegnazione e l'ambito di assegnazione siano impostati correttamente.
+1. Controllare la [modalità di definizione dei criteri](../concepts/definition-structure.md#mode):
+   - Modalità' all'per tutti i tipi di risorsa.
+   - Modalità' indexed ' se la definizione dei criteri controlla i tag o il percorso.
+1. Verificare che l'ambito della risorsa non sia [escluso](../concepts/assignment-structure.md#excluded-scopes) o [esentato](../concepts/exemption-structure.md).
+1. Se la conformità per un'assegnazione di criteri Mostra `0/0` risorse, non è stata determinata alcuna risorsa da applicare nell'ambito dell'assegnazione. Controllare sia la definizione dei criteri che l'ambito di assegnazione.
+1. Per una risorsa non conforme che dovrebbe essere conforme, controllare la [determinazione dei motivi della mancata conformità](../how-to/determine-non-compliance.md). Il confronto tra la definizione e il valore della proprietà valutato indica il motivo per cui una risorsa non è conforme.
+   - Se il **valore di destinazione** è errato, rivedere la definizione dei criteri.
+   - Se il **valore corrente** è errato, convalidare il payload della risorsa tramite `resources.azure.com` .
+1. Verificare la [risoluzione dei problemi: imposizione non come previsto](#scenario-enforcement-not-as-expected) per altri problemi comuni e soluzioni.
+
+Se si riscontra ancora un problema con la definizione di criteri predefinita duplicata e personalizzata, creare un ticket di supporto in creazione di **un criterio** per instradare correttamente il problema.
 
 ### <a name="scenario-enforcement-not-as-expected"></a>Scenario: imposizione non come previsto
 
@@ -81,7 +92,18 @@ L'assegnazione dei criteri è stata configurata per [enforcementMode](../concept
 
 #### <a name="resolution"></a>Soluzione
 
-Aggiornare **enforcementMode** a _Enabled_. Questa modifica consente ad Azure Policy di agire sulle risorse nell'assegnazione dei criteri e di inviare le voci al log attività. Se **enforcementMode** è già abilitato, vedere [valutazione non come previsto](#scenario-evaluation-not-as-expected) per i corsi di azione.
+Attenersi alla seguente procedura per risolvere i problemi relativi all'imposizione dell'assegnazione di criteri:
+
+1. Attendere prima di tutto la quantità di tempo appropriata per il completamento di una valutazione e la disponibilità dei risultati di conformità in portale di Azure o SDK. Per avviare una nuova analisi di valutazione con Azure PowerShell o l'API REST, vedere [analisi di valutazione su richiesta](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Verificare che i parametri di assegnazione e l'ambito di assegnazione siano impostati correttamente e che **enforcementMode** sia _abilitato_. 
+1. Controllare la [modalità di definizione dei criteri](../concepts/definition-structure.md#mode):
+   - Modalità' all'per tutti i tipi di risorsa.
+   - Modalità' indexed ' se la definizione dei criteri controlla i tag o il percorso.
+1. Verificare che l'ambito della risorsa non sia [escluso](../concepts/assignment-structure.md#excluded-scopes) o [esentato](../concepts/exemption-structure.md).
+1. Verificare che il payload della risorsa corrisponda alla logica dei criteri. Questa operazione può essere eseguita [acquisendo una traccia har](../../../azure-portal/capture-browser-trace.md) o esaminando le proprietà del modello ARM.
+1. Verificare i [problemi: conformità non come previsto](#scenario-compliance-not-as-expected) per altri problemi comuni e soluzioni.
+
+Se si riscontra ancora un problema con la definizione di criteri predefinita duplicata e personalizzata, creare un ticket di supporto in creazione di **un criterio** per instradare correttamente il problema.
 
 ### <a name="scenario-denied-by-azure-policy"></a>Scenario: negato da criteri di Azure
 

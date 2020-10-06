@@ -4,12 +4,12 @@ description: Informazioni su come applicare la scalabilità della risorsa app We
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: f784ce9eb4c465c83bea28e05e7f423e0b55c947
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b8d16b4e112c9aebe86c60dc01d380d591fc7624
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294250"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743523"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
 Questo articolo descrive come configurare l'impostazione di scalabilità automatica per la risorsa nel portale di Microsoft Azure.
@@ -59,7 +59,7 @@ Verrà ora illustrata una semplice procedura dettagliata per creare la prima imp
    ![Scalabilità in base alla CPU][8]
 1. Fare clic su **Salva**.
 
-Congratulazioni! A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
+Congratulazioni. A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
 
 > [!NOTE]
 > Gli stessi passaggi sono applicabili ai set di scalabilità di macchine virtuali e al ruolo del servizio cloud.
@@ -117,13 +117,15 @@ Fare clic sul pulsante **Disabilita scalabilità automatica** nella parte superi
 
 Quando si aumenta la scalabilità orizzontale a più istanze, il servizio app può eseguire controlli di integrità sulle istanze per instradare il traffico solo alle istanze integre. A tale scopo, aprire il portale per il servizio app, quindi selezionare **controllo integrità** in **monitoraggio**. Selezionare **Abilita** e specificare un percorso URL valido nell'applicazione, ad esempio `/health` o `/api/health` . Fare clic su **Salva**.
 
+Per abilitare la funzionalità con i modelli ARM, impostare la `healthcheckpath` proprietà della `Microsoft.Web/sites` risorsa sul percorso di controllo integrità nel sito, ad esempio: `"/api/health/"` . Per disabilitare la funzionalità, impostare nuovamente la proprietà sulla stringa vuota `""` .
+
 ### <a name="health-check-path"></a>Percorso controllo integrità
 
 Il percorso deve rispondere entro due minuti con un codice di stato compreso tra 200 e 299 (inclusi). Se il percorso non risponde entro due minuti o restituisce un codice di stato non compreso nell'intervallo, l'istanza viene considerata "non integro". Il controllo dell'integrità si integra con le funzionalità di autenticazione e autorizzazione del servizio app. il sistema raggiungerà l'endpoint anche se queste funzionalità Secuity sono abilitate. Se si usa il proprio sistema di autenticazione, il percorso di controllo integrità deve consentire l'accesso anonimo. Se nel sito è abilitato solo HTTP**s**, la richiesta Healthcheck verrà inviata tramite http**s**.
 
 Il percorso di controllo integrità deve controllare i componenti critici dell'applicazione. Se, ad esempio, l'applicazione dipende da un database e da un sistema di messaggistica, l'endpoint di controllo integrità deve connettersi a tali componenti. Se l'applicazione non è in grado di connettersi a un componente critico, il percorso deve restituire un codice di risposta a 500 per indicare che l'app non è integra.
 
-#### <a name="security"></a>Sicurezza 
+#### <a name="security"></a>Security 
 
 I team di sviluppo di grandi imprese spesso devono rispettare i requisiti di sicurezza per le API esposte. Per proteggere l'endpoint Healthcheck, è necessario prima usare funzionalità come [restrizioni IP](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), [certificati client](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)o una rete virtuale per limitare l'accesso all'applicazione. È possibile proteggere l'endpoint Healthcheck stesso richiedendo che la `User-Agent` della richiesta in ingresso corrisponda a `ReadyForRequest/1.0` . Non è possibile eseguire lo spoofing dell'agente utente perché la richiesta è già stata protetta dalle funzionalità di sicurezza precedenti.
 

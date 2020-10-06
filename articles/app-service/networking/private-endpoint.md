@@ -9,19 +9,19 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 16ce03ad8d6af1908a9ea4d3b7759bb5eb3c1139
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 9f593bd5e1d4970b43b25c434abfa87177b72066
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961551"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743013"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Uso di endpoint privati per app Web di Azure (anteprima)
 
 > [!Note]
 > Con l'aggiornamento dell'anteprima, è stata rilasciata la funzionalità di protezione dell'esfiltrazione dei dati.
 >
-> La versione di anteprima è disponibile in tutte le aree pubbliche per le app Web Windows e Linux PremiumV2 e per le funzioni con livello elastico Premium. 
+> L'anteprima è disponibile in tutte le aree pubbliche per le app Windows e Linux PremiumV2 e PremiumV3 e le funzioni Premium elastiche. 
 
 È possibile usare un endpoint privato per l'app Web di Azure per consentire ai client che si trovano nella rete privata di accedere in modo sicuro all'app tramite un collegamento privato. L'endpoint privato usa un indirizzo IP dello spazio indirizzi della VNet di Azure. Il traffico di rete tra un client nella rete privata e l'app Web attraversa la VNet e un collegamento privato sulla rete backbone Microsoft, eliminando l'esposizione dalla rete Internet pubblica.
 

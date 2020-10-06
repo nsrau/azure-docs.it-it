@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 23c64f956821dd2a204a15c37bf0fcdde4d09ba8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 662c23a29e383800a4591c900e02133c16fa2090
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716116"
+ms.locfileid: "91743319"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -51,11 +51,10 @@ Per ulteriori informazioni sul piano di gestione Key Vault, vedere [Key Vault pi
 
 Key Vault usa l'autenticazione Azure AD che richiede Azure AD entità di sicurezza per concedere l'accesso. Un Azure AD entità di sicurezza può essere un utente, un'entità servizio dell'applicazione, un' [identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md)o un gruppo di qualsiasi tipo di entità di sicurezza.
 
-Per le applicazioni sicure, è consigliabile usare l'identità gestita per le applicazioni distribuite in Azure. Se i servizi di Azure, che non supportano l'identità gestita o le applicazioni distribuite in locale, l' [entità servizio con un certificato](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) è un'alternativa possibile. Il certificato deve essere archiviato in Key Vault e ruotato spesso. 
+### <a name="authentication-best-practices"></a>Procedure consigliate per l'autenticazione
+Si consiglia di usare l'identità gestita per le applicazioni distribuite in Azure. Se si usano i servizi di Azure, che non supportano l'identità gestita o se le applicazioni vengono distribuite in locale, l' [entità servizio con un certificato](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) è un'alternativa possibile. In questo scenario, il certificato deve essere archiviato in Key Vault e ruotato spesso. L'entità servizio con segreto può essere usata per ambienti di sviluppo e test e in locale o in Cloud Shell usando l'entità utente è consigliata.
 
-L'entità servizio con segreto può essere usata per ambienti di sviluppo e test e in locale o in Cloud Shell entità utente è consigliata.
-
-Per lo sviluppo di applicazioni, è possibile usare Azure Identity SDK in diversi ambienti e piattaforme senza modificare il codice. Azure Identity è integrato con l'interfaccia della riga di comando di Azure, Visual Studio, Visual Studio Code e altri utenti. 
+Gli scenari di autenticazione precedenti sono supportati dalla libreria client di identità di Azure e sono integrati con Key Vault SDK. La libreria di identità di Azure può essere usata in diversi ambienti e piattaforme senza modificare il codice. Anche l'identità di Azure recupera automaticamente il token di autenticazione da connesso all'utente di Azure con l'interfaccia della riga di comando di Azure, Visual Studio, Visual Studio Code e altri. 
 
 Per altre informazioni, vedere: 
 

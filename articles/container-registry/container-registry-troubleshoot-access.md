@@ -3,12 +3,12 @@ title: Risolvere i problemi di rete con il registro di sistema
 description: Sintomi, cause e risoluzione dei problemi comuni durante l'accesso a un registro contenitori di Azure in una rete virtuale o dietro a un firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: c2ae8609dbd28a1a39a634e3c065030552aefb06
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: f84b11418344bfeaf790377c1d8644fbc7d7d636
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630951"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743370"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Risolvere i problemi di rete con il registro di sistema
 
@@ -90,6 +90,8 @@ Se è configurato un endpoint di servizio per il registro di sistema, verificare
 Se si vuole limitare l'accesso al registro di sistema usando una rete virtuale in un'altra sottoscrizione di Azure, assicurarsi di registrare il `Microsoft.ContainerRegistry` provider di risorse nella sottoscrizione. [Registrare il provider di risorse](../azure-resource-manager/management/resource-providers-and-types.md) per Azure container Registry usando il portale di Azure, l'interfaccia della riga di comando di Azure o altri strumenti di Azure.
 
 Se nella rete è configurato un firewall di Azure o una soluzione simile, verificare che il traffico in uscita da altre risorse, ad esempio un cluster AKS, sia abilitato per raggiungere gli endpoint del registro di sistema.
+
+Se viene configurato un endpoint privato, verificare che DNS risolva il nome FQDN pubblico del registro di sistema, ad esempio *MyRegistry.azurecr.io* , nell'indirizzo IP privato del registro di sistema. Usare un'utilità di rete, ad esempio `dig` o `nslookup` per la ricerca DNS.
 
 Collegamenti correlati:
 

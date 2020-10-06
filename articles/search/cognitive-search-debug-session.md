@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: b428ff4a9a4f4b9110e88dba57cfad20f2221cf1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 10/05/2020
+ms.openlocfilehash: 941d7f54bcb44653280abe264ff1cffbeae33679
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936164"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743183"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessioni di debug in Azure ricerca cognitiva
 
@@ -35,8 +35,7 @@ Se la pipeline di arricchimento non contiene errori, è possibile usare una sess
 
 Per avviare una sessione di debug, è necessario disporre di una pipeline esistente di arricchimento tramite intelligenza artificiale, che include un'origine dati, un set di competenze, un indicizzatore e un indice. Per configurare una sessione di debug, è necessario assegnare un nome alla sessione e fornire un account di archiviazione per utilizzo generico che verrà usato per memorizzare nella cache le esecuzioni delle competenze durante l'esecuzione dell'indicizzatore. Sarà anche necessario selezionare l'indicizzatore che verrà eseguito. Nell'indicizzatore sono archiviati riferimenti all'origine dati, al set di competenze e all'indice. Per impostazione predefinita, la sessione di debug viene impostata sul primo documento nell'origine dati. In alternativa, è possibile specificare un documento nell'origine dati di cui eseguire il debug.
 
-> [!div class="mx-imgBorder"]
-> ![Creazione di una sessione di debug](media/cognitive-search-debug/debug-session-new.png)
+> :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Creazione di una sessione di debug":::
 
 ## <a name="debug-session-features"></a>Funzionalità delle sessioni di debug
 
@@ -52,8 +51,7 @@ La visualizzazione **Grafo delle competenze** fornisce una rappresentazione visi
 
 Se si seleziona una competenza nel grafo, vengono evidenziate le competenze connesse, i nodi che creano i relativi input e i nodi che ne accettano gli output. Ogni nodo di una competenza visualizza il tipo, gli errori o gli avvisi e i conteggi di esecuzione. Il **grafo delle competenze** è il punto in cui viene selezionata la competenza di cui eseguire il debug o il miglioramento. Quando si seleziona una competenza, i relativi dettagli verranno visualizzati nel riquadro dei dettagli della competenza a destra del grafo.
 
-> [!div class="mx-imgBorder"]
-> ![Grafo delle competenze](media/cognitive-search-debug/skills-graph.png)
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Creazione di una sessione di debug":::
 
 ## <a name="skill-details"></a>Dettagli sulla competenza
 
@@ -75,8 +73,7 @@ Quando si crea una competenza personalizzata o si esegue il debug di un errore c
 
 Il riquadro **Struttura dei dati arricchiti** mostra gli arricchimenti del documento attraverso il set di competenze, specificando il contesto per ogni arricchimento e la competenza di origine. È anche possibile usare l'**analizzatore di espressioni** per visualizzare il contenuto di ogni arricchimento.
 
-> [!div class="mx-imgBorder"]
-> ![Struttura dei dati arricchiti](media/cognitive-search-debug/enriched-data-structure-display.png)
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Creazione di una sessione di debug":::
 
 ## <a name="expression-evaluator"></a>Analizzatore di espressioni
 

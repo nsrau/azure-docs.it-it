@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: c31a5aaa9866a4ce97cd3cd59a8e363834f70587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 481bd4f50eb527bcad2ba79b5ba4b9df4b872bfc
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81312813"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739910"
 ---
 * I sistemi multi-tenant che supportano l'intera gamma di piani tariffari eccetto isolated.
 * Il ambiente del servizio app, che distribuisce nella VNet e supporta le app di piano tariffario isolate.
@@ -23,7 +23,7 @@ L'integrazione di VNet consente all'app di accedere alle risorse nel VNet, ma no
 
 Funzionalità di integrazione di VNet:
 
-* Richiedi un piano tariffario standard, Premium, PremiumV2 o Elastic Premium.
+* Richiedi un piano tariffario standard, Premium, PremiumV2, PremiumV3 o Elastic Premium.
 * Supportare TCP e UDP.
 * Usare app Azure app di servizio e le app per le funzioni.
 

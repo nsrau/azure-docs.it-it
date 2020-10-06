@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3c469d7274bb90e194478af2464cb352efe7490c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294867"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740684"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Creare una query semplice in Azure ricerca cognitiva
 
@@ -37,13 +37,13 @@ Negli esempi seguenti viene usato l'indice di ricerca NYC Jobs contenente le opp
 
 Dopo aver specificato l'intestazione della richiesta, è possibile riusarla per tutte le query in questo articolo, scambiando solo la stringa **search=**. 
 
-  ![Parametri impostati per l'intestazione della richiesta post](media/search-query-lucene-examples/postman-header.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 ### <a name="set-the-request-url"></a>Impostare l'URL della richiesta
 
 Request è un comando GET associato a un URL contenente l'endpoint di Azure ricerca cognitiva e la stringa di ricerca.
 
-  ![GET dell'intestazione della richiesta post](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 La composizione dell'URL presenta i seguenti elementi:
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 La risposta per questa query dovrebbe essere simile alla seguente schermata.
 
-  ![Risposta di esempio di Postman](media/search-query-lucene-examples/postman-sample-results.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 Si sarà notato il punteggio di ricerca nella risposta. Si ottengono punteggi uniformi pari a 1 in assenza di classificazione perché la ricerca non è una ricerca full-text o perché non sono stati applicati criteri. Per ricerche Null senza criteri le righe vengono restituite in ordine arbitrario. Se si includono criteri effettivi, i punteggi di ricerca si convertono in valori significativi.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 Usati insieme, il filtro viene applicato per primo all'intero indice, quindi la ricerca viene eseguita sui risultati del filtro. I filtri quindi possono essere un'utile tecnica per migliorare le prestazioni delle query perché riducono il set di documenti che la query di ricerca deve elaborare.
 
-  ![Filtrare le risposte della query](media/search-query-simple-examples/filtered-query.png)
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 Se si vuole provare questo esempio in Postman usando GET, incollare questa stringa:
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  ![Filtro di intervallo per intervalli numerici](media/search-query-simple-examples/rangefilternumeric.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  ![Filtro di intervallo per intervalli di testo](media/search-query-simple-examples/rangefiltertext.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
 
 È anche possibile provare questi esempi in Postman usando GET:
 
@@ -251,14 +251,14 @@ Con il parametro searchMode predefinito (qualsiasi), vengono restituiti 2800 doc
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  ![modalità di ricerca = qualsiasi](media/search-query-simple-examples/searchmodeany.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="modalità di ricerca = qualsiasi" border="false":::
 
 La modifica del parametro searchMode in `all` implica un effetto cumulativo sui criteri e restituisce un set di risultati ridotto - 21 documenti (documenti contenenti l'intera frase "fire department"), meno le posizioni lavorative all'indirizzo Metrotech Center.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  ![modalità di ricerca = tutto](media/search-query-simple-examples/searchmodeall.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="modalità di ricerca = tutto" border="false":::
 
 ## <a name="example-8-structuring-results"></a>Esempio 8: strutturazione dei risultati
 

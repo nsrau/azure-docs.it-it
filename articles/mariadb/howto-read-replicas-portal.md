@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 41e99d11199ae0f2a411b6e2c0b93ea8efcebca2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 5faed87995d1c49ab635f39264354a791f729b57
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542530"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742860"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Come creare e gestire le repliche di lettura nel database di Azure per MariaDB usando il portale di Azure
 
@@ -116,7 +116,7 @@ Per eliminare un server di origine dalla portale di Azure, attenersi alla proced
 
 3. Digitare il nome del server di origine e fare clic su **Elimina** per confermare l'eliminazione del server di origine.  
 
-   ![Database di Azure per MariaDB-Elimina Master](./media/howto-read-replica-portal/delete-master-confirm.png)
+   ![Database di Azure per MariaDB-Elimina conferma Master](./media/howto-read-replica-portal/delete-master-confirm.png)
 
 ## <a name="monitor-replication"></a>Monitorare la replica
 
@@ -134,7 +134,7 @@ Per eliminare un server di origine dalla portale di Azure, attenersi alla proced
 
 5. Visualizzare l'intervallo di replica per l'intervallo di tempo selezionato. Nell'immagine seguente vengono visualizzati gli ultimi 30 minuti per un carico di lavoro di grandi dimensioni.
 
-   ![Selezionare l'intervallo di tempo](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
+   ![Seleziona intervallo di tempo di 30 minuti](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

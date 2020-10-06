@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70356fd3856e517ca8fb3414a4ae2a8ccf28326e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 60eab197e38c7b6ef3b7f2d9442a0b7583f66d09
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336633"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739732"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -120,6 +120,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
   - Rafforzare la configurazione dei gruppi di sicurezza di rete con Protezione avanzata adattiva per la rete
   - Assicurarsi che i server eseguano solo le applicazioni e i processi che devono eseguire con i controlli applicazione adattivi
   - Monitorare le modifiche apportate a file e voci del Registro di sistema importanti con Monitoraggio dell'integrità dei file
+- Si noti che l'intera sottoscrizione deve essere delegata al tenant di gestione; Gli scenari del Centro sicurezza di Azure non sono supportati con i gruppi di risorse delegati
 
 [Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
 

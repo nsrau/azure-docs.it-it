@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 1fa464eca69f50fba7fa125212b85e0f7f63bcc9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: 60c5051b403d3072292a03c60d7cba95bd0cf1d7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294782"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740633"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Creare e gestire le chiavi API per un servizio ricerca cognitiva di Azure
 
@@ -21,7 +21,7 @@ Tutte le richieste indirizzate a un servizio di ricerca necessitano di una chiav
 
 Le chiavi vengono create con il servizio di ricerca durante il provisioning del servizio. È possibile visualizzare e ottenere valori di chiave nel [portale di Azure](https://portal.azure.com).
 
-![Pagina del portale, recuperare le impostazioni, sezione chiavi](media/search-manage/azure-search-view-keys.png)
+:::image type="content" source="media/search-manage/azure-search-view-keys.png" alt-text="Pagina del portale, recuperare le impostazioni, sezione chiavi" border="false":::
 
 ## <a name="what-is-an-api-key"></a>Definizione di una chiave API
 
@@ -47,7 +47,7 @@ Per accedere al servizio di ricerca vengono usati due tipi di chiavi: amministra
 2. Elencare i [servizi di ricerca](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) per la sottoscrizione.
 3. Selezionare il servizio e nella pagina Panoramica fare clic su **Impostazioni**  > **chiavi** per visualizzare le chiavi di query e di amministrazione.
 
-   ![Pagina del portale, Visualizza impostazioni, sezione chiavi](media/search-security-overview/settings-keys.png)
+   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Pagina del portale, recuperare le impostazioni, sezione chiavi" border="false":::
 
 ## <a name="create-query-keys"></a>Creare chiavi di query
 
@@ -61,7 +61,7 @@ La limitazione dell'accesso e delle operazioni nelle app client è essenziale pe
 4. Fare clic su **Gestisci chiavi di query**.
 5. Usare la chiave di query già generata per il servizio oppure creare fino a 50 nuove chiavi di query. La chiave di query predefinita non è denominata, ma le chiavi di query aggiuntive possono essere denominate per gestibilità.
 
-   ![Creare o usare una chiave di query](media/search-security-overview/create-query-key.png) 
+   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Pagina del portale, recuperare le impostazioni, sezione chiavi" border="false":::
 
 > [!Note]
 > Un esempio di codice che illustra l'utilizzo della chiave di query è disponibile in [eseguire una query su un indice ricerca cognitiva di Azure in C#](./search-get-started-dotnet.md).
@@ -93,7 +93,7 @@ I membri dei ruoli seguenti possono visualizzare e ricreare una chiave: propriet
 > [!Note]
 > Per gli accessi in base al ruolo sui risultati della ricerca è possibile creare filtri di sicurezza per vagliare i risultati in base all'identità, rimuovendo eventuali documenti a cui il richiedente non dovrebbe avere accesso. Per altre informazioni, vedere [Filtri di sicurezza](search-security-trimming-for-azure-search.md) e [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md) (Protezione mediante Active Directory).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Controllo degli accessi in base al ruolo in Azure ricerca cognitiva](search-security-rbac.md)
 + [Gestire usando PowerShell](search-manage-powershell.md) 

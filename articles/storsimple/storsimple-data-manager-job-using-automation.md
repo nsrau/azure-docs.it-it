@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 2562e7463ba0a79cf77d21f3bb619f13283c989d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514937"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743608"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Usare Automazione di Azure per attivare un processo
 
@@ -28,7 +28,7 @@ Prima di iniziare, assicurarsi di disporre di:
 
 *   Azure PowerShell installato nel computer client. [Scaricare Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 *   Una definizione di processo configurata correttamente nel servizio StorSimple Data Manager all'interno di un gruppo di risorse.
-*   Scaricare [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) il file dal repository GitHub. 
+*   Scaricare  [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) il file dal repository GitHub. 
 *   Scaricare [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) lo script dal repository GitHub.
 
 ## <a name="step-by-step-procedure"></a>Procedura dettagliata
@@ -41,7 +41,7 @@ Prima di iniziare, assicurarsi di disporre di:
 
 2. Per aggiungere un nuovo account di automazione, fare clic su **+ Aggiungi**.
 
-    ![Creare un account di Automazione RunAs](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
+    ![Creare un account RunAs di automazione 2](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
 3. In **Aggiungi account di Automazione**:
 
@@ -52,7 +52,7 @@ Prima di iniziare, assicurarsi di disporre di:
    5. Lasciare selezionata l'opzione predefinita **Crea account RunAs**.
    6. Per ottenere un collegamento per l'accesso rapido nel dashboard, selezionare **Aggiungi al dashboard**. Fare clic su **Crea**.
 
-      ![Creare un account di Automazione RunAs](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Creare un account RunAs di automazione 3](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
       Quando la creazione dell'account di automazione è completata, si riceve una notifica.
     

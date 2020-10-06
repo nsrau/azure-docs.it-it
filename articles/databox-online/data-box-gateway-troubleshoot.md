@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: e49cc400fd8af3d284a223363f3384063d862981
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e5280805090a83245e287c0b15a1735ee41e934e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927182"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741806"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Risolvere i problemi di Azure Data Box Gateway
 
@@ -30,13 +30,13 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Per diagnosticare e risolvere gli errori di qualsiasi dispositivo, è possibile eseguire i test di diagnostica. Per eseguire i test di diagnostica, usare la procedura seguente nell'interfaccia utente Web locale.
 
-1. Nell'interfaccia utente Web locale passare a **Risoluzione dei problemi > Test diagnostici**. Selezionare il test che si vuole eseguire e fare clic su **Esegui test**. Vengono eseguiti i test per diagnosticare eventuali problemi con la rete, il dispositivo, il proxy Web, l'ora o le impostazioni cloud. Si riceve una notifica in cui si comunica che il dispositivo sta eseguendo dei test.
+1. Nell'interfaccia utente Web locale passare a **Risoluzione dei problemi > Test diagnostici**. Selezionare il test che si desidera eseguire, quindi fare clic su **Esegui test**. Vengono eseguiti i test per diagnosticare eventuali problemi con la rete, il dispositivo, il proxy Web, l'ora o le impostazioni cloud. Si riceve una notifica in cui si comunica che il dispositivo sta eseguendo dei test.
 
     ![Fare clic su Aggiungi utente](media/data-box-gateway-troubleshoot/run-diag-1.png)
  
 2. Al termine dei test, vengono visualizzati i risultati. Se un test non riesce, viene visualizzato un URL per l'azione consigliata. Fare clic sull'URL per visualizzare l'azione consigliata. 
  
-    ![Fare clic su Aggiungi utente](media/data-box-gateway-troubleshoot/run-diag-2.png)
+    ![Fare clic su Aggiungi utente 2](media/data-box-gateway-troubleshoot/run-diag-2.png)
 
 
 ## <a name="collect-support-package"></a>Ottenere il pacchetto per il supporto
@@ -47,11 +47,11 @@ Per ottenere un pacchetto di supporto, usare la procedura seguente.
 
 1. Nell'interfaccia utente Web locale passare a **Risoluzione dei problemi > Supporto**. Fare clic su **Crea pacchetto per il supporto**. Il sistema inizia a ottenere il pacchetto per il supporto. Questa operazione potrebbe richiedere alcuni minuti.
 
-    ![Fare clic su Aggiungi utente](media/data-box-gateway-troubleshoot/collect-logs-1.png)
+    ![Fare clic su Aggiungi utente 3](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
 2. Una volta completata la creazione del pacchetto di supporto, fare clic su **Scarica pacchetto per il supporto**. Un pacchetto compresso viene scaricato nel percorso selezionato. È possibile decomprimere il pacchetto.
 
-    ![Fare clic su Aggiungi utente](media/data-box-gateway-troubleshoot/collect-logs-2.png)
+    ![Fare clic su Aggiungi utente 4](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>Usare i log per risolvere i problemi
 
@@ -59,7 +59,7 @@ Gli eventuali errori riscontrati durante i processi di caricamento e aggiornamen
 
 1. Per visualizzare i file di log degli errori, fare clic sulla condivisione per visualizzarne il contenuto. 
 
-      ![Fare clic su Aggiungi utente](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
+      ![Fare clic su Aggiungi utente 5](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
 
 2. Fare clic sulla cartella _Microsoft Data Box Gateway_. Questa cartella contiene due sottocartelle:
 

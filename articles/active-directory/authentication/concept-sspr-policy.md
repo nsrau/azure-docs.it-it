@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 990d8ef275982b6d70c51819e47b33f543345023
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: bc6e72a5e5ab9f95ec88b1e8ed711f00b8051208
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531276"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741718"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Criteri password e limitazioni dell'account in Azure Active Directory
 
@@ -41,11 +41,13 @@ La tabella seguente descrive i criteri del nome utente che si applicano sia agli
 
 ## <a name="azure-ad-password-policies"></a><a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Criteri password Azure AD
 
-I criteri password vengono applicati a tutti gli account utente creati e gestiti direttamente in Azure AD. Questo criterio password non può essere modificato, anche se è possibile [configurare password vietate personalizzate per Azure ad la protezione delle password](tutorial-configure-custom-password-protection.md).
+I criteri password vengono applicati a tutti gli account utente creati e gestiti direttamente in Azure AD. Alcune di queste impostazioni dei criteri password non possono essere modificate, ma è possibile [configurare password vietate personalizzate per Azure ad parametri di protezione delle password o di](tutorial-configure-custom-password-protection.md) blocco degli account.
 
-Il criterio password non si applica agli account utente sincronizzati da un ambiente Active Directory Domain Services locale usando Azure AD Connect, a meno che non si abiliti EnforceCloudPasswordPolicyForPasswordSyncedUsers.
+Per impostazione predefinita, un account viene bloccato dopo 10 tentativi di accesso non riusciti con la password errata. L'utente è bloccato per un minuto. Altri tentativi di accesso non riusciti bloccano l'utente per periodi sempre più lunghi. Il [blocco intelligente](howto-password-smart-lockout.md) tiene traccia degli ultimi tre hash delle password non validi per evitare l'incremento del contatore dei blocchi per la stessa password. Se un utente immette la stessa password errata più volte, questo comportamento non comporterà il blocco dell'account. È possibile definire la soglia di blocco intelligente e la durata.
 
-Sono definite le seguenti opzioni relative ai criteri password:
+I criteri di Azure AD password non si applicano agli account utente sincronizzati da un ambiente Active Directory Domain Services locale usando Azure AD Connect, a meno che non si abiliti *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
+
+Sono definite le seguenti opzioni relative ai criteri di Azure AD password. Se non specificato, non è possibile modificare queste impostazioni:
 
 | Proprietà | Requisiti |
 | --- | --- |
@@ -57,7 +59,6 @@ Sono definite le seguenti opzioni relative ai criteri password:
 | Scadenza password (Let password non scadono mai) |<ul><li>Valore predefinito: **false** (indica che la password ha una data di scadenza).</li><li>Il valore può essere configurato per singoli account utente con il cmdlet `Set-MsolUser`.</li></ul> |
 | Cronologia delle modifiche della password | Al cambio della password, l'utente *non può* usare di nuovo la password più recente. |
 | Cronologia delle reimpostazioni della password | Alla reimpostazione di una password dimenticata, l'utente *può* usare di nuovo la password più recente. |
-| Blocco dell'account | Dopo 10 tentativi di accesso non riusciti a causa della password errata, l'utente viene bloccato per un minuto. Altri tentativi di accesso non riusciti bloccano l'utente per periodi sempre più lunghi. Il [blocco intelligente](howto-password-smart-lockout.md) tiene traccia degli ultimi tre hash delle password non validi per evitare l'incremento del contatore dei blocchi per la stessa password. Se un utente immette la stessa password errata più volte, questo comportamento non comporterà il blocco dell'account. |
 
 ## <a name="administrator-reset-policy-differences"></a>Differenze dei criteri di reimpostazione degli amministratori
 
