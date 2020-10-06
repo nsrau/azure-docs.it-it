@@ -4,12 +4,12 @@ description: In questa esercitazione si apprenderà come configurare l'integrazi
 ms.topic: tutorial
 ms.date: 08/29/2018
 ms.custom: mvc
-ms.openlocfilehash: 498513d1e31108d633de8165b2684dffbebdf37d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: bb0eb9226a99f139ff10a8da12a1e22017536c67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326304"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Esercitazione: Distribuire un'applicazione contenitore con CI/CD in un cluster di Service Fabric
 
@@ -46,11 +46,11 @@ Creare un nuovo repository Git locale per il progetto selezionando **Aggiungi al
 
 Nella visualizzazione **Push** in **Team Explorer** selezionare il pulsante **Pubblica repository GIT** nella sezione **Esegui push in Azure DevOps**.
 
-![Pubblicare il repository GIT][push-git-repo]
+![Screenshot della finestra di sincronizzazione di Team Explorer in Visual Studio. In Esegui push ad Azure DevOps, è evidenziato il pulsante di pubblicazione nel repository Git.][push-git-repo]
 
 Controllare la posta elettronica e selezionare l'organizzazione nell'elenco a discesa **Account**. Può essere necessario configurare un'organizzazione, se non è già presente. Immettere il nome del repository e selezionare **Pubblica repository**.
 
-![Pubblicare il repository GIT][publish-code]
+![Screenshot della finestra Esegui push ad Azure DevOps. Vengono evidenziate le impostazioni per la posta elettronica, l'account, il nome del repository e il pulsante Pubblica repository.][publish-code]
 
 Con la pubblicazione del repository viene creato un nuovo progetto team nell'account con lo stesso nome del repository locale. Per creare il repository in un progetto team esistente, fare clic su **Avanzate** accanto al nome del **repository** e selezionare un progetto team. È possibile visualizzare il codice sul Web selezionando **Visualizza nel Web**.
 
@@ -71,7 +71,7 @@ Selezionare l'opzione **Pipeline** nel riquadro a sinistra, quindi fare clic su 
 
 ![Nuova pipeline][new-pipeline]
 
-Selezionare **Azure Repos Git** come origine, il nome del proprio progetto team, il repository del progetto e il ramo predefinito **master** o le compilazioni manuale e pianificata.  Fare quindi clic su **Continue** (Continua).
+Selezionare **Azure Repos Git** come origine, il nome del proprio progetto team, il repository del progetto e il ramo predefinito **master** o le compilazioni manuale e pianificata.  Fare clic su **Continua**.
 
 In **Seleziona un modello** selezionare il modello **Applicazione Azure Service Fabric con supporto Docker** e quindi fare clic su **Applica**.
 
@@ -126,7 +126,7 @@ Fare clic su **Impostazioni di Docker** e quindi su **Configura le impostazioni 
 
 ![Agente della pipeline di versione][release-pipeline-agent]
 
-Aggiungere quindi un elemento alla pipeline in modo da consentire alla definizione della versione di trovare l'output dalla compilazione. Selezionare **Pipeline** e **Elementi**-> **+ Aggiungi**.  In **Origine (definizione di compilazione)** selezionare la definizione di compilazione creata in precedenza.  Fare clic su **Aggiungi** per salvare l'elemento di compilazione.
+Aggiungere quindi un elemento alla pipeline in modo da consentire alla definizione della versione di trovare l'output dalla compilazione. Selezionare **Pipeline** e **Elementi**->**+ Aggiungi**.  In **Origine (definizione di compilazione)** selezionare la definizione di compilazione creata in precedenza.  Fare clic su **Aggiungi** per salvare l'elemento di compilazione.
 
 ![Aggiungere un elemento][add-artifact]
 
@@ -158,7 +158,7 @@ Per controllare lo stato di avanzamento della compilazione, passare alla scheda 
 
 Verificare che la distribuzione venga completata correttamente e che l'applicazione sia in esecuzione nel cluster.  Aprire un Web browser e passare a `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Prendere nota della versione dell'applicazione, che in questo esempio è "1.0.0.20170815.3".
 
-![Service Fabric Explorer][sfx1]
+![Screenshot dell'app di voto in Service Fabric Explorer. Nella scheda Informazioni di base è evidenziata la versione dell'app "1.0.0.20170815.3".][sfx1]
 
 ## <a name="update-the-application"></a>Aggiornare l'applicazione
 
@@ -166,11 +166,11 @@ Apportare modifiche al codice nell'applicazione.  Salvare le modifiche ed esegui
 
 Dopo l'avvio dell'aggiornamento dell'applicazione, è possibile controllare lo stato di aggiornamento in Service Fabric Explorer:
 
-![Service Fabric Explorer][sfx2]
+![Screenshot dell'app di voto in Service Fabric Explorer. È evidenziato il messaggio "Aggiornamento in corso" e lo stato dell'app è "Aggiornamento in corso".][sfx2]
 
 L'aggiornamento dell'applicazione potrebbe richiedere alcuni minuti. Una volta completato l'aggiornamento, l'applicazione eseguirà la versione successiva,  in questo esempio la versione "1.0.0.20170815.4".
 
-![Service Fabric Explorer][sfx3]
+![Screenshot dell'app di voto in Service Fabric Explorer. Nella scheda Informazioni di base è evidenziata la versione aggiornata dell'app "1.0.0.20170815.4".][sfx3]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

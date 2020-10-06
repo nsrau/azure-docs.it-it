@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: e1893c32ed486772e56432f6263626d0ee1a65df
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: ff61af192471bcfc9bdb9f1ce3970d5c22f39579
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531883"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91569784"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Azioni del motore regole di Frontdoor di Azure
 
 Nel [motore regole di Frontdoor di Azure](front-door-rules-engine.md) una regola è costituita da zero o più condizioni di corrispondenza e azioni. Questo articolo fornisce descrizioni dettagliate delle azioni che è possibile usare nel motore regole di Frontdoor di Azure.
 
-Un'azione definisce il comportamento applicato al tipo di richiesta identificata da una o più condizioni di corrispondenza. Nel motore regole di Frontdoor di Azure una regola può contenere fino a cinque azioni, solo una delle quali può essere un'azione di sostituzione della configurazione delle route (inoltro o reindirizzamento).
+Un'azione definisce il comportamento applicato al tipo di richiesta identificata da una o più condizioni di corrispondenza. Nel motore regole di Frontdoor di Azure una regola può contenere fino a cinque azioni. Solo una di queste azioni può essere un'azione di sostituzione della configurazione delle route (inoltro o reindirizzamento).
 
 Le azioni seguenti sono disponibili per l'uso nel motore regole di Frontdoor di Azure.  
 
@@ -35,9 +35,9 @@ Usare questa azione per modificare le intestazioni presenti nelle richieste invi
 
 Azione | Nome intestazione HTTP | valore
 -------|------------------|------
-Accoda | Se questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **Nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore viene aggiunto a quello esistente. | string
-Overwrite | Se questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **Nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore specificato sovrascrive quello esistente. | string
-Delete | Se questa opzione è selezionata, la regola corrisponde e l'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla richiesta. | string
+Accoda | Se questa opzione viene selezionata e la regola corrisponde, l'intestazione specificata in **Nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore viene aggiunto a quello esistente. | string
+Overwrite | Se questa opzione viene selezionata e la regola corrisponde, l'intestazione specificata in **Nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore specificato sovrascrive quello esistente. | string
+Delete | Se questa opzione viene selezionata con regole corrispondenti e l'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla richiesta. | string
 
 ## <a name="modify-response-header"></a>Modifica intestazione risposta
 
@@ -47,9 +47,9 @@ Usare questa azione per modificare le intestazioni presenti nelle risposte resti
 
 Azione | Nome intestazione HTTP | valore
 -------|------------------|------
-Accoda | Se questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **Nome intestazione** viene aggiunta alla risposta con il **valore** specificato. Se l'intestazione è già presente, il **valore** viene aggiunto a quello esistente. | string
+Accoda | Se questa opzione viene selezionata e la regola corrisponde, l'intestazione specificata in **Nome intestazione** viene aggiunta alla risposta con il **valore** specificato. Se l'intestazione è già presente, il **valore** viene aggiunto a quello esistente. | string
 Overwrite | Se questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **Nome intestazione** viene aggiunta alla risposta con il **valore** specificato. Se l'intestazione è già presente, il **valore** sovrascrive quello esistente. | string
-Delete | Se questa opzione è selezionata, la regola corrisponde e l'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla risposta. | string
+Delete | Se questa opzione viene selezionata e la regola corrispondente all'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla risposta. | string
 
 ## <a name="route-configuration-overrides"></a>Sostituzione delle configurazioni della route 
 
@@ -75,10 +75,10 @@ Usare questa azione per inoltrare i client a un nuovo URL. Questa azione contien
 
 Campo | Descrizione 
 ------|------------
-Pool back-end | Selezionare il pool back-end da sostituire e da cui inviare le richieste. Verranno visualizzati tutti i pool back-end preconfigurati attualmente disponibili nel profilo di Frontdoor. 
+Pool back-end | Selezionare il pool back-end per eseguire l'override e rispondere alle richieste. In questo modo, vengono visualizzati anche tutti i pool back-end già configurati nel profilo di Frontdoor. 
 Protocollo di inoltro | Corrispondenza richiesta, HTTP, HTTPS.
-Riscrittura URL | Usare questa azione per riscrivere il percorso di una richiesta instradata all'origine. Se questa opzione è abilitata, vedere di seguito per informazioni sugli altri campi necessari
-Memorizzazione nella cache | Enabled, Disabled. Se questa opzione è abilitata, vedere di seguito per informazioni sugli altri campi necessari. 
+Riscrittura URL | Usare questa azione per riscrivere il percorso di una richiesta instradata all'origine. Se questa opzione è abilitata, vedere gli altri campi necessari seguenti
+Memorizzazione nella cache | Enabled, Disabled. Se questa opzione è abilitata, vedere gli altri campi necessari seguenti. 
 
 #### <a name="url-rewrite"></a>Riscrittura URL
 
@@ -90,11 +90,11 @@ Percorso di inoltro personalizzato | Definire il percorso a cui inoltrare le ric
 
 #### <a name="caching"></a>Memorizzazione nella cache
 
-Usare queste impostazioni per controllare come vengono memorizzati nella cache i file per le richieste che contengono stringhe di query e per definire se memorizzare nella cache il contenuto in base a tutti i parametri o solo a quelli selezionati. È possibile usare altre impostazioni per sovrascrivere il valore TTL (time to live) in modo da controllare per quanto tempo il contenuto deve rimanere nella cache per le richieste specificate dalle condizioni di corrispondenza delle regole. Per forzare la memorizzazione nella cache come azione, impostare il campo Memorizzazione nella cache su "Abilitata". In questo caso, vengono visualizzate le opzioni seguenti: 
+Usare queste impostazioni per controllare il modo in cui i file vengono memorizzati nella cache per le richieste che contengono stringhe di query. Indica se memorizzare nella cache il contenuto basato su tutti i parametri o su parametri selezionati. È possibile usare altre impostazioni per sovrascrivere il valore TTL (time to live) in modo da controllare per quanto tempo il contenuto deve rimanere nella cache. Per forzare la memorizzazione nella cache come azione, impostare il campo Memorizzazione nella cache su "Abilitata". Quando si impone la memorizzazione nella cache, vengono visualizzate le opzioni seguenti: 
 
 Comportamento cache |  Descrizione              
 ---------------|----------------
-Ignora stringhe di query | Una volta memorizzati gli asset nella cache, tutte le richieste successive ignorano le stringhe di query fino alla scadenza degli asset.
+Ignora stringhe di query | Una volta memorizzati gli asset nella cache, tutte le richieste che seguono ignorano le stringhe di query fino alla scadenza degli asset.
 Memorizza nella cache tutti gli URL univoci | Ogni richiesta con un URL univoco, inclusa la stringa di query, viene trattata come asset univoco con la propria cache.
 Ignora stringhe di query specificate | Le stringhe di query dell'URL della richiesta elencate nell'impostazione "Parametri query" vengono ignorate per la memorizzazione nella cache.
 Includi stringhe di query specificate | Le stringhe di query dell'URL della richiesta elencate nell'impostazione "Parametri query" vengono usate per la memorizzazione nella cache.
@@ -107,6 +107,6 @@ Durata cache | La durata della cache prima della scadenza, in giorni, ore, minut
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come configurare la prima [configurazione del motore regole](front-door-tutorial-rules-engine.md). 
+- Informazioni su come configurare il primo [motore regole](front-door-tutorial-rules-engine.md). 
 - Altre informazioni sulle [condizioni di corrispondenza del motore regole](front-door-rules-engine-match-conditions.md)
 - Altre informazioni sul [motore regole di Frontdoor di Azure](front-door-rules-engine.md)

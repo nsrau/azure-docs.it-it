@@ -6,38 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 71f499e1cdd7ccf22d90b21ce04299798978a828
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5f1623ef4dde59e816e3afe5a5f5894c49469580
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926604"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767879"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisiti di sistema di Azure Data Box
 
-Questo articolo descrive i requisiti di sistema importanti per Microsoft Azure Data Box e per i client che si connettono a Data Box. Prima di distribuire Data Box è consigliabile leggere attentamente queste informazioni e quindi farvi riferimento, se necessario, durante la distribuzione e il successivo funzionamento.
+Questo articolo descrive i requisiti di sistema importanti per la Microsoft Azure Data Box e per i client che si connettono al Data Box. È consigliabile esaminare attentamente le informazioni prima di distribuire il Data Box e quindi farvi riferimento in base alle esigenze durante la distribuzione e il funzionamento.
 
 I requisiti di sistema includono:
 
-* **Requisiti software per gli host che si connettono a Data Box:** descrizione delle piattaforme supportate, dei browser per l'interfaccia utente Web locale, dei client SMB e degli eventuali requisiti aggiuntivi per gli host che possono connettersi a Data Box.
-* **Requisiti di rete per Data Box:** informazioni sui requisiti di rete per il funzionamento ottimale di Data Box.
+* **Requisiti software:** Per gli host che si connettono al Data Box, descrive i sistemi operativi supportati, i protocolli di trasferimento di file, gli account di archiviazione, i tipi di archiviazione e i browser per l'interfaccia utente Web locale.
+* **Requisiti di rete:** Per la Data Box, descrive i requisiti di connessione di rete e porta per un funzionamento ottimale del Data Box.
 
 
 ## <a name="software-requirements"></a>Requisiti software
 
-I requisiti software includono le informazioni sui sistemi operativi supportati, sui browser supportati per l'interfaccia utente Web locale e sui client SMB.
+I requisiti software includono i sistemi operativi supportati, i protocolli di trasferimento di file, gli account di archiviazione, i tipi di archiviazione e i browser per l'interfaccia utente Web locale.
 
 ### <a name="supported-operating-systems-for-clients"></a>Sistemi operativi supportati per i client
 
 [!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
 
 
-### <a name="supported-filesystems-for-linux-clients"></a>Filesystem supportati per i client Linux
+### <a name="supported-file-transfer-protocols-for-clients"></a>Protocolli di trasferimento di file supportati per i client
 
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
-
 
 > [!IMPORTANT] 
 > La connessione a condivisioni di Data Box non è supportata tramite REST per gli ordini di esportazione. 
@@ -45,7 +44,6 @@ I requisiti software includono le informazioni sui sistemi operativi supportati,
 ### <a name="supported-storage-accounts"></a>Account di archiviazione supportati
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
-
 
 ### <a name="supported-storage-types"></a>Tipi di archivio supportati
 
@@ -57,11 +55,11 @@ I requisiti software includono le informazioni sui sistemi operativi supportati,
 
 ## <a name="networking-requirements"></a>Requisiti di rete
 
-Il data center disponga di una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE per copiare i dati, ma la velocità dell'operazione ne risentirà.
+Il data center disponga di una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. Se non è disponibile una connessione 10 GbE, è possibile usare un collegamento dati da 1 GbE per copiare i dati, ma le velocità di copia sono interessate.
 
 ### <a name="port-requirements"></a>Requisiti delle porte
 
-La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB o NFS. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *Out* In uscita *o in uscita si* intende la direzione in cui il dispositivo data box invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
+La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB o NFS. In questa tabella, *in (in* *ingresso*) si riferisce alla direzione da cui il client in ingresso richiede l'accesso al dispositivo. *Out* *(o in uscita)* si riferisce alla direzione in cui il dispositivo data box invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 

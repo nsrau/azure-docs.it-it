@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: e5c8a496c60d3bba81040716c74bca7b5cb6095e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 5cec5eda7cf398949865bf6d3d3e8be5b2d5e840
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569425"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767375"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Usare i certificati con Azure Stack dispositivo GPU Pro Edge
 
@@ -101,7 +101,7 @@ Quando si porta un certificato firmato, è necessaria anche la catena di firma c
     |Tipo |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Archiviazione BLOB|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Archiviazione - BLOB|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Certificato singolo a più SAN per entrambi gli endpoint|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 
@@ -392,7 +392,6 @@ Il backup del file con estensione pfx è ora salvato nel percorso selezionato ed
 3. Individuare e selezionare la posizione in cui si desidera esportare il file di formato. cer.
 
     ![Esportare il certificato DER 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
-
 
 4. Selezionare **Fine**.
 

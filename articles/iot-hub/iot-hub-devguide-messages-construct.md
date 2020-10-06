@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: dd2b88d923d0398dc42362242b94b978ccd24252
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 06db7b46d095a79177b80bba6df3d5e9aadad16b
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336719"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766978"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creare e leggere messaggi dell'hub IoT
 
@@ -61,8 +61,8 @@ Per altre informazioni sulla codifica e la decodifica dei messaggi inviati trami
 | iothub-connection-module-id |ID impostato dall'hub IoT sui messaggi da dispositivo a cloud. Contiene il valore **moduleId** del dispositivo che ha inviato il messaggio. | No | connectionModuleId |
 | iothub-connection-auth-generation-id |ID impostato dall'hub IoT sui messaggi da dispositivo a cloud. Contiene il valore **connectionDeviceGenerationId** (come indicato in [Proprietà delle identità dei dispositivi](iot-hub-devguide-identity-registry.md#device-identity-properties)) del dispositivo che ha inviato il messaggio. | No |connectionDeviceGenerationId |
 | iothub-connection-auth-method |Metodo di autenticazione impostato dall'hub IoT sui messaggi da dispositivo a cloud. Questa proprietà contiene informazioni sul metodo di autenticazione usato per autenticare il dispositivo che invia il messaggio.| No | connectionAuthMethod |
-| DT-DataSchema | Questo valore viene impostato dall'hub tutto per i messaggi da dispositivo a cloud. Contiene l'ID del modello di dispositivo impostato nella connessione del dispositivo. Questa funzionalità è disponibile come parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md). | No | N/D |
-| DT-Subject | Nome del componente che invia i messaggi da dispositivo a cloud. Questa funzionalità è disponibile come parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md). | Sì | N/D |
+| DT-DataSchema | Questo valore viene impostato dall'hub tutto per i messaggi da dispositivo a cloud. Contiene l'ID del modello di dispositivo impostato nella connessione del dispositivo. | No | N/D |
+| DT-Subject | Nome del componente che invia i messaggi da dispositivo a cloud. | Sì | N/D |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>Proprietà di sistema dei messaggi dell'hub IoT **da cloud a dispositivo**
 

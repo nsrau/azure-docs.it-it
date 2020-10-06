@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ed624fd5fb86b95e0b79c1c7ed4de50749ec7046
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93d230656fd7ef34e76a143fb3186d23f8d3afed
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512037"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766244"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Usare il riepilogo del dispositivo nel servizio Gestione dispositivi StorSimple
 
@@ -86,7 +86,7 @@ L'area relativa alle informazioni di base riporta alcune proprietà importanti, 
 
 * Il riquadro **Capacità** mostra l'archiviazione primaria di cui è stato eseguito il provisioning e quella rimanente nel dispositivo rispetto all'archiviazione totale disponibile per lo stesso dispositivo. **Provisioning** fa riferimento alla quantità di spazio di archiviazione preparata e allocata per l'uso; **Rimanente** fa riferimento alla capacità rimanente di cui è possibile eseguire il provisioning in questo dispositivo. 
 
-    ![Riquadro Utilizzo](./media/storsimple-8000-device-dashboard/device-summary8.png)
+    ![Riquadro utilizzo 2](./media/storsimple-8000-device-dashboard/device-summary8.png)
 
     Fare clic su questo riquadro per visualizzare come viene effettuato il provisioning della capacità tra i volumi a livelli e i volumi aggiunti in locale. **Rimanente a livelli** è la capacità disponibile di cui è possibile effettuare il provisioning, incluso cloud, mentre **Rimanente locale** è la capacità rimanente sui dischi collegati a questo dispositivo.
 

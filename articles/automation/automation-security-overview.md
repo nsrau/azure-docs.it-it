@@ -4,18 +4,18 @@ description: Questo articolo offre una panoramica dell'autenticazione di account
 keywords: sicurezza in Automazione, proteggere Automazione; autenticazione in Automazione
 services: automation
 ms.subservice: process-automation
-ms.date: 04/23/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8068d6ebe67dee1408420441aacd83726a1986df
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: bcb5f61c93bd4c3ff7c0f81ae808807f7deb71df
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434266"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766097"
 ---
 # <a name="automation-account-authentication-overview"></a>Panoramica dell'autenticazione di account di Automazione
 
-Automazione di Azure consente di automatizzare le attività sulle risorse in Azure, in locale e con altri provider di servizi cloud, ad esempio Amazon Web Services (AWS). È possibile usare i runbook per automatizzare le attività oppure un ruolo di lavoro ibrido per runbook se è necessario gestire attività non di Azure. Entrambi gli ambienti richiedono le autorizzazioni per accedere in modo sicuro alle risorse con i diritti minimi necessari nella sottoscrizione di Azure.
+Automazione di Azure consente di automatizzare le attività sulle risorse in Azure, in locale e con altri provider di servizi cloud, ad esempio Amazon Web Services (AWS). È possibile usare manuali operativi per automatizzare le attività o un ruolo di lavoro ibrido per runbook se si hanno processi aziendali o operativi da gestire all'esterno di Azure. Per lavorare in uno di questi ambienti, è necessario disporre delle autorizzazioni per accedere in modo sicuro alle risorse con i diritti minimi necessari.
 
 Questo articolo illustra i diversi scenari di autenticazione supportati da Automazione di Azure e descrive come iniziare partendo da uno o più ambienti che è necessario gestire.
 
@@ -29,9 +29,44 @@ Le risorse di Automazione per ogni account di Automazione sono associate a una s
 
 Tutte le attività eseguite sulle risorse con Azure Resource Manager e i cmdlet di PowerShell in Automazione di Azure devono eseguire l'autenticazione in Azure con l'autenticazione basata su credenziali dell'identità dell'organizzazione di Azure Active Directory (Azure AD).
 
-## <a name="run-as-account"></a>account RunAs
+## <a name="run-as-accounts"></a>Account RunAs
 
-Gli account RunAs in Automazione di Azure offrono l'autenticazione per la gestione delle risorse in Azure con i cmdlet di PowerShell. Quando si crea un account RunAs, viene creato un nuovo utente dell'entità servizio in Azure AD, a cui viene assegnato il ruolo Collaboratore a livello della sottoscrizione. Per i runbook che usano i ruoli di lavoro ibridi per runbook nelle macchine virtuali di Azure, è possibile usare l'[autenticazione dei runbook con identità gestite](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) invece degli account RunAs per l'autenticazione con le risorse di Azure.
+Gli account RunAs in automazione di Azure forniscono l'autenticazione per la gestione di risorse Azure Resource Manager o risorse distribuite nel modello di distribuzione classica. In automazione di Azure sono disponibili due tipi di account RunAs:
+
+* Account RunAs di Azure
+* Account RunAs classico di Azure
+
+Per altre informazioni su questi due modelli di distribuzione, vedere [Gestione risorse e distribuzione classica](../azure-resource-manager/management/deployment-models.md).
+
+>[!NOTE]
+>Le sottoscrizioni Azure Cloud Solution Provider (CSP) supportano solo il modello di Azure Resource Manager. I servi diversi da Azure Resource Manager non sono disponibili nel programma. Quando si usa una sottoscrizione CSP, non viene creato l'account RunAs classico di Azure, ma l'account RunAs di Azure. Per altre informazioni sulle sottoscrizioni CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
+
+### <a name="run-as-account"></a>account RunAs
+
+L'account RunAs di Azure gestisce le risorse di Azure in base al servizio di distribuzione e gestione Azure Resource Manager per Azure.
+
+Quando si crea un account RunAs, vengono eseguite le attività seguenti:
+
+* Crea un'applicazione Azure AD con un certificato autofirmato, crea un account dell'entità servizio per l'applicazione in Azure AD e assegna il ruolo [collaboratore](../role-based-access-control/built-in-roles.md#contributor) per l'account nella sottoscrizione corrente. È possibile cambiare l'impostazione del certificato in Proprietario o in qualsiasi altro ruolo. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md).
+
+* Crea un asset del certificato di Automazione denominato `AzureRunAsCertificate` nell'account di Automazione specificato. L'asset del certificato contiene la chiave privata del certificato usata dall'applicazione Azure AD.
+
+* Crea un asset della connessione di Automazione denominato `AzureRunAsConnection` nell'account di Automazione specificato. L'asset di connessione contiene l'ID applicazione, l'ID tenant, l'ID sottoscrizione e l'identificazione personale del certificato.
+
+### <a name="azure-classic-run-as-account"></a>Account RunAs classico di Azure
+
+L'account RunAs classico di Azure gestisce le risorse classiche di Azure in base al modello di distribuzione classica. Per creare o rinnovare questo tipo di account RunAs, è necessario essere un coamministratore della sottoscrizione.
+
+Quando si crea un account RunAs classico di Azure, vengono eseguite le attività seguenti.
+
+* Crea un certificato di gestione nella sottoscrizione.
+
+* Crea un asset del certificato di Automazione denominato `AzureClassicRunAsCertificate` nell'account di Automazione specificato. L'asset di certificato contiene la chiave privata del certificato usata dal certificato di gestione.
+
+* Crea un asset della connessione di Automazione denominato `AzureClassicRunAsConnection` nell'account di Automazione specificato. L'asset della connessione contiene il nome della sottoscrizione, l'ID sottoscrizione e il nome dell'asset del certificato.
+
+>[!NOTE]
+>Gli account RunAs classici di Azure non vengono creati per impostazione predefinita mentre si crea un account di Automazione. Questo account viene creato singolarmente seguendo i passaggi descritti nell'articolo [gestire l'account RunAs](manage-runas-account.md#create-a-run-as-account-in-azure-portal) .
 
 ## <a name="service-principal-for-run-as-account"></a>Entità servizio per l'account RunAs
 
@@ -44,6 +79,8 @@ Il controllo degli accessi in base al ruolo è disponibile con Azure Resource Ma
 ## <a name="runbook-authentication-with-hybrid-runbook-worker"></a>Autenticazione dei runbook con ruolo di lavoro ibrido per runbook
 
 I runbook eseguiti in un ruolo di lavoro ibrido per runbook nel data center o in servizi di calcolo in altri ambienti cloud, come AWS, non possono usare lo stesso metodo usato solitamente per l'autenticazione dei runbook per le risorse di Azure. Il motivo è che queste risorse vengono eseguite all'esterno di Azure e di conseguenza devono usare le proprie credenziali di sicurezza definite in Automazione per autenticare le risorse cui accedono in locale. Per altre informazioni sull'autenticazione di runbook con i ruoli di lavoro per runbook, vedere [Eseguire runbook in un ruolo di lavoro ibrido per runbook](automation-hrw-run-runbooks.md).
+
+Per i runbook che usano i ruoli di lavoro ibridi per runbook nelle macchine virtuali di Azure, è possibile usare l'[autenticazione dei runbook con identità gestite](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) invece degli account RunAs per l'autenticazione con le risorse di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,12 +3,12 @@ title: Sicurezza di rete per il bus di servizio di Azure
 description: Questo articolo descrive le funzionalità di sicurezza di rete, ad esempio tag di servizio, regole del firewall IP, endpoint di servizio ed endpoint privati.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb21c8beb6d48ecab04917525011cc4762c46ff3
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341139"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766405"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Sicurezza di rete per il bus di servizio di Azure 
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con il bus di servizio di Azure: 
@@ -16,7 +16,7 @@ Questo articolo descrive come usare le funzionalità di sicurezza seguenti con i
 - Tag di servizio
 - Regole del firewall IP
 - Endpoint servizio di rete
-- Endpoint privati (anteprima)
+- Endpoint privati
 
 
 ## <a name="service-tags"></a>Tag di servizio
@@ -81,8 +81,6 @@ Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../pr
 
 > [!NOTE]
 > Questa funzionalità è supportata con il livello **Premium** del bus di servizio di Azure. Per altre informazioni sul livello Premium, vedere l'articolo [Livelli di messaggistica Premium e Standard del bus di servizio](service-bus-premium-messaging.md).
->
-> Questa funzionalità è attualmente disponibile in **anteprima**. 
 
 
 Per altre informazioni, vedere [come configurare gli endpoint privati per uno spazio dei nomi del bus di servizio](private-link-service.md)

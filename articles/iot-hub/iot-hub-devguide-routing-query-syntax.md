@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 4ff61687f2fa045b51dfcb69488d1fbd87b65f75
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 9b5463ba789a1bcfb707fb03c70f1a8464cb6b59
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336498"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767353"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintassi query per il routing dei messaggi di hub IoT
 
@@ -56,11 +56,11 @@ Le proprietà di sistema identificano contenuto e origine dei messaggi.
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | contentType | string | L'utente specifica il tipo di contenuto del messaggio. Per consentire query sul corpo del messaggio, questo valore deve essere impostato su application/JSON. |
-| contentEncoding | Stringa | L'utente specifica il tipo di codifica del messaggio. Valori consentiti sono UTF-8, UTF-16, UTF-32 Se il contentType è impostato su application/JSON. |
-| iothub-connection-device-id | Stringa | Questo valore viene impostato dall'hub IoT e identifica l'ID del dispositivo. Per la query, usare `$connectionDeviceId`. |
-| iothub-enqueuedtime | Stringa | Questo valore viene impostato dall'hub IoT e rappresenta l'ora effettiva di inserimento in coda del messaggio in UTC. Per la query, usare `enqueuedTime`. |
-| DT-DataSchema | Stringa |  Questo valore viene impostato dall'hub tutto per i messaggi da dispositivo a cloud. Contiene l'ID del modello di dispositivo impostato nella connessione del dispositivo. Questa funzionalità è disponibile come parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md). Per la query, usare `$dt-dataschema`. |
-| DT-Subject | Stringa | Nome del componente che invia i messaggi da dispositivo a cloud. Questa funzionalità è disponibile come parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md). Per la query, usare `$dt-subject`. |
+| contentEncoding | string | L'utente specifica il tipo di codifica del messaggio. Valori consentiti sono UTF-8, UTF-16, UTF-32 Se il contentType è impostato su application/JSON. |
+| iothub-connection-device-id | string | Questo valore viene impostato dall'hub IoT e identifica l'ID del dispositivo. Per la query, usare `$connectionDeviceId`. |
+| iothub-enqueuedtime | string | Questo valore viene impostato dall'hub IoT e rappresenta l'ora effettiva di inserimento in coda del messaggio in UTC. Per la query, usare `enqueuedTime`. |
+| DT-DataSchema | string |  Questo valore viene impostato dall'hub tutto per i messaggi da dispositivo a cloud. Contiene l'ID del modello di dispositivo impostato nella connessione del dispositivo. Per la query, usare `$dt-dataschema`. |
+| DT-Subject | string | Nome del componente che invia i messaggi da dispositivo a cloud. Per la query, usare `$dt-subject`. |
 
 Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre alle proprietà sopra elencate nella tabella precedente, è anche possibile eseguire una query su **connectionDeviceId**, **connectionModuleId**.
 

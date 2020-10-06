@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 08eb5fd4d28421105988d64b99afb441a0b824f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 792486a78dfed606ce8317d9bc037221ae33d508
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290310"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767190"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Arricchimento dei messaggi per i messaggi dell'hub da dispositivo a cloud
 
@@ -62,7 +62,7 @@ Gli arricchimenti vengono applicati per ogni endpoint. Se si specificano cinque 
 
 | **Metodo** | **Comando** |
 | ----- | -----| 
-| Portale | [Azure portal](https://portal.azure.com) | Vedere l' [esercitazione relativa all'arricchimento dei messaggi](tutorial-message-enrichments.md) | 
+| Portale | [Portale di Azure](https://portal.azure.com) | Vedere l' [esercitazione relativa all'arricchimento dei messaggi](tutorial-message-enrichments.md) | 
 | Interfaccia della riga di comando di Azure   | [AZ all hub Message-arricchimento](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
@@ -86,7 +86,7 @@ Per provare ad arricchire i messaggi, vedere l' [esercitazione sull'arricchiment
 
 * Le dimensioni totali dei messaggi, incluse le arricchimenti, non possono superare 256 KB. Se le dimensioni di un messaggio superano 256 KB, l'hub delle cose eliminerà il messaggio. È possibile usare le [metriche dell'hub](iot-hub-metrics.md) Internet per identificare ed eseguire il debug degli errori quando i messaggi vengono eliminati. Ad esempio, è possibile monitorare D2C. telemetria. uscita. non è valido.
 
-* I miglioramenti apportati ai messaggi non si applicano agli eventi di modifica di dispositivi gemelli digitali (parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md)).
+* Gli arricchimenti del messaggio non si applicano agli eventi di modifica del dispositivo gemello digitale.
 
 ## <a name="pricing"></a>Prezzi
 

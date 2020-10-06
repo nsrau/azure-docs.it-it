@@ -8,20 +8,20 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: dd0d3e462f0b2d8b525e63d65d657a8f056d01a9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0438632a36fe14d35210cb5acb8d3a50d0f038b7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331863"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767834"
 ---
 # <a name="write-client-app-authentication-code"></a>Scrivere il codice di autenticazione dell'app client
 
 Dopo aver [configurato un'istanza di dispositivi gemelli digitali di Azure e l'autenticazione](how-to-set-up-instance-portal.md), è possibile creare un'applicazione client che si userà per interagire con l'istanza. Dopo aver configurato un progetto client iniziale, in questo articolo viene illustrato **come scrivere il codice nell'app client per autenticarlo** nell'istanza di Azure Digital gemelli.
 
 Sono disponibili due approcci per eseguire il codice di esempio in questo articolo. È possibile usare quello più adatto alle proprie esigenze, a seconda del linguaggio scelto:
-* La prima sezione del codice di esempio USA Azure Digital Twins .NET (C#) SDK. L'SDK è incluso in Azure SDK per .NET ed è disponibile qui: [*libreria client gemelli digitali di Azure Internet per .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
-* La seconda sezione del codice di esempio è destinata agli utenti che non usano .NET SDK e usano invece gli SDK generati automaticamente da Rest in altri linguaggi. Per altre informazioni su questa strategia, vedere [*procedura: creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest*](how-to-create-custom-sdks.md).
+* La prima sezione del codice di esempio USA Azure Digital Twins .NET (C#) SDK. L'SDK è incluso in Azure SDK per .NET ed è disponibile qui: [*libreria client gemelli digitali di Azure Internet per .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Sono inoltre supportati SDK per [Java](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar ) e [JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1), che possono essere usati in modo analogo.
+* La seconda sezione del codice di esempio è destinata agli utenti che non usano un SDK specificato e usano invece gli SDK generati automaticamente da Rest in altri linguaggi. Per altre informazioni su questa strategia, vedere [*procedura: creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest*](how-to-create-custom-sdks.md).
 
 Per altre informazioni sulle API e sugli SDK per i dispositivi gemelli di Azure, vedere [*procedura: usare gli SDK e le API per i dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md).
 
@@ -32,6 +32,8 @@ Per prima cosa, completare la procedura di configurazione in [*procedura: config
 Per continuare, sarà necessario un progetto di app client in cui si scrive il codice. Se non è già stato configurato un progetto di app client, creare un progetto di base nella lingua preferita da usare con questa esercitazione.
 
 ## <a name="authentication-and-client-creation-net-c-sdk"></a>Autenticazione e creazione di client: .NET (C#) SDK
+
+Questa sezione illustra un esempio in C# per l'uso di .NET SDK fornito.
 
 Per prima cosa, includere i pacchetti seguenti nel progetto per usare .NET SDK e gli strumenti di autenticazione per questa procedura:
 * `Azure.DigitalTwins.Core`
@@ -100,7 +102,7 @@ Inoltre, per usare l'autenticazione in una funzione, ricordarsi di:
 
 ## <a name="authentication-with-an-autorest-generated-sdk"></a>Autenticazione con un SDK generato automaticamente
 
-Se non si usa .NET, è possibile scegliere di creare una libreria SDK in un linguaggio di propria scelta, come descritto in [*procedura: creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest*](how-to-create-custom-sdks.md).
+Se non si usa uno degli SDK forniti (.NET, Java, JavaScript), è possibile scegliere di creare una libreria SDK in un linguaggio di propria scelta, come descritto in [*procedura: creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest*](how-to-create-custom-sdks.md).
 
 In questa sezione viene illustrato come eseguire l'autenticazione in questo caso.
 

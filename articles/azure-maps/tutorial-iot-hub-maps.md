@@ -1,6 +1,6 @@
 ---
-title: "Esercitazione: Implementare l'analisi spaziale di IoT con Mappe di Microsoft Azure"
-description: Integrare l'hub IoT con le API del servizio Mappe di Azure.
+title: "Esercitazione: Implementare l'analisi spaziale di IoT | Mappe di Microsoft Azure"
+description: Esercitazione sull'integrazione dell'hub IoT con le API del servizio Mappe di Microsoft Azure
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 25665e75a361fbaa5479e2717d5e6aa9290c3d3a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3eb405783b16d1bb7de27f6638dba394457601c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056569"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321833"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Esercitazione: Implementare l'analisi spaziale di IoT con Mappe di Azure
 
@@ -153,7 +153,7 @@ Seguire questa procedura per caricare il recinto virtuale usando l'API di carica
       }
       ```
 
-## <a name="create-an-iot-hub"></a>Creazione di un hub IoT
+## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
 L'hub IoT consente la comunicazione bidirezionale sicura e affidabile tra un'applicazione IoT e i dispositivi che gestisce. Per questa esercitazione, si vogliono ottenere informazioni dal dispositivo nel veicolo per determinare la posizione dell'auto a noleggio. In questa sezione viene creato un hub IoT all'interno del gruppo di risorse *ContosoRental*. Questo hub sarà responsabile della pubblicazione degli eventi di telemetria del dispositivo.
 
@@ -214,7 +214,7 @@ Configurare ora la funzione di Azure.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription.png" alt-text="Diagramma della panoramica del sistema.":::
 
-1. Rivedere le impostazioni. Verificare che l'endpoint specifichi la funzione creata all'inizio di questa sezione. Selezionare **Crea**.
+1. Rivedere le impostazioni. Verificare che l'endpoint specifichi la funzione creata all'inizio di questa sezione. Selezionare **Create** (Crea).
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription-confirm.png" alt-text="Diagramma della panoramica del sistema.":::
 
@@ -253,6 +253,7 @@ Quando la funzione di Azure è in esecuzione, è possibile inviare dati di telem
     dotnet run
     ```
 
+
   Il terminale locale dovrebbe essere simile a quello riportato di seguito.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Diagramma della panoramica del sistema.":::
@@ -276,8 +277,6 @@ Per un elenco completo delle API REST di Mappe di Azure, vedere:
 
 * [API REST di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
 
-Per altre informazioni su Plug and Play IoT, vedere:
-
 * [Plug and Play IoT](https://docs.microsoft.com/azure/iot-pnp)
 
 Per ottenere un elenco di dispositivi Microsoft Azure Certified per IoT, visitare:
@@ -287,6 +286,7 @@ Per ottenere un elenco di dispositivi Microsoft Azure Certified per IoT, visitar
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su come inviare i dati di telemetria da dispositivo a cloud e viceversa, vedere:
+
 
 > [!div class="nextstepaction"]
 > [Inviare dati di telemetria da un dispositivo](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)

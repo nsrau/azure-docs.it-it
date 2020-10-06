@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: 0a5cf5ad4a7cbf7d732d1fafdcafd434cba20d13
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 720d8f3b1f3d13427cda56ee68596d190ac40dc7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664937"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767317"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -119,7 +119,7 @@ Questo repository contiene:
 
 * DeviceTwinMQTTWin32: contiene il codice per eseguire una query e sottoscrivere gli eventi di dispositivi gemelli di un dispositivo nell'Hub IoT di Azure in un computer Windows.
 
-* PnPMQTTWin32: contiene il codice per inviare un messaggio di telemetria con le funzionalità di dispositivo di anteprima Plug and Play IoT a un hub IoT di Azure, compilato ed eseguito in un computer Windows. Per altre informazioni, vedere [& Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32: contiene il codice per inviare un messaggio di telemetria con le funzionalità del dispositivo Plug and Play a un hub di Azure, compilato ed eseguito in un computer Windows. Per altre informazioni, vedere [plug and Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **Per Linux:**
 

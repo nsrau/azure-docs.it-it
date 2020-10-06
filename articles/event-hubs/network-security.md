@@ -3,12 +3,12 @@ title: Sicurezza di rete per hub eventi di Azure
 description: Questo articolo descrive come configurare l'accesso da endpoint privati
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ddb816e872625da06e370a7e130b4dd444de8de7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521854"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767787"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Sicurezza di rete per hub eventi di Azure 
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con hub eventi di Azure: 
@@ -16,7 +16,7 @@ Questo articolo descrive come usare le funzionalità di sicurezza seguenti con h
 - Tag di servizio
 - Regole del firewall IP
 - Endpoint servizio di rete
-- Endpoint privati (anteprima)
+- Endpoint privati
 
 
 ## <a name="service-tags"></a>Tag di servizio
@@ -74,9 +74,6 @@ Un endpoint privato è un'interfaccia di rete che connette privatamente e in mod
 
 > [!NOTE]
 > Questa funzionalità è supportata solo con il livello **dedicato**. Per altre informazioni sul livello dedicato, vedere [Panoramica di Hub eventi Dedicato](event-hubs-dedicated-overview.md). 
->
-> Questa funzionalità è attualmente disponibile in **anteprima**. 
-
 
 Per altre informazioni, vedere [come configurare gli endpoint privati per un hub eventi](private-link-service.md)
 

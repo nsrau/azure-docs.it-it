@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 10/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 191213511a6b41e3a8419660a40b8d79a5c747f2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20e48640d52fba7b3262014c2e84cfc56c7110cc
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714935"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767232"
 ---
 # <a name="blob-versioning"></a>Controllo delle versioni dei BLOB
 
@@ -36,13 +36,13 @@ Per informazioni su come abilitare il controllo delle versioni dei BLOB, vedere 
 
 Una versione acquisisce lo stato di un BLOB in un determinato momento. Quando è abilitata la funzionalità di controllo delle versioni dei BLOB per un account di archiviazione, archiviazione di Azure crea automaticamente una nuova versione di un BLOB ogni volta che il BLOB viene modificato o eliminato.
 
-Quando si crea un BLOB con il controllo delle versioni abilitato, il nuovo BLOB è la versione corrente del BLOB (o il BLOB di base). Se successivamente si modifica il BLOB, archiviazione di Azure crea una versione che acquisisce lo stato del BLOB prima della modifica. Il BLOB modificato diventa la nuova versione corrente. Viene creata una nuova versione ogni volta che si modifica il BLOB.
+Quando si crea un BLOB con il controllo delle versioni abilitato, il nuovo BLOB è la versione corrente del BLOB (o il BLOB di base). Se successivamente si modifica il BLOB, archiviazione di Azure crea una versione che acquisisce lo stato del BLOB prima della modifica. Il BLOB modificato diventa la nuova versione corrente. Viene creata una nuova versione ogni volta che si modifica il BLOB. Un BLOB può avere fino a 1000 versioni associate.
 
 Quando si elimina un BLOB con il controllo delle versioni abilitato, archiviazione di Azure crea una versione che acquisisce lo stato del BLOB prima dell'eliminazione. La versione corrente del BLOB viene quindi eliminata, ma le versioni del BLOB vengono mantenute, in modo che possa essere ricreata, se necessario. 
 
 Le versioni BLOB non sono modificabili. Non è possibile modificare il contenuto o i metadati di una versione BLOB esistente.
 
-Il controllo delle versioni dei BLOB è disponibile per gli account per utilizzo generico V2, BLOB in blocchi e archiviazione BLOB. Gli account di archiviazione con uno spazio dei nomi gerarchico abilitato per l'uso con Azure Data Lake Storage Gen2 non sono attualmente supportati.
+Il controllo delle versioni dei BLOB è disponibile per gli account per utilizzo generico V2, BLOB in blocchi e archiviazione BLOB. Gli account di archiviazione con uno spazio dei nomi gerarchico abilitato per l'uso con Azure Data Lake Storage Gen2 non sono attualmente supportati. 
 
 La versione 2019-10-10 e successive dell'API REST di archiviazione di Azure supporta il controllo delle versioni dei BLOB.
 
@@ -198,7 +198,7 @@ La tabella seguente illustra l'autorizzazione necessaria per una firma di access
 
 | **Autorizzazione** | **Simbolo URI** | **Operazioni consentite** |
 |----------------|----------------|------------------------|
-| Elimina         | x              | Eliminare una versione BLOB. |
+| Delete         | x              | Eliminare una versione BLOB. |
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 

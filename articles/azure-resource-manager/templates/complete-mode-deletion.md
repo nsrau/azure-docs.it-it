@@ -2,13 +2,13 @@
 title: Eliminazione in modalità completa
 description: Descrive in che modo i tipi di risorsa gestiscono l'eliminazione in modalità completa in modelli di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 1e27960953aeb16486f893054c7653edb98bbdbc
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.date: 10/06/2020
+ms.openlocfilehash: 72303a7916aec39c05f9b4fa2cbc77de18b7fb3e
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372462"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766711"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminazione di risorse di Azure per distribuzioni in modalità completa
 
@@ -19,6 +19,11 @@ I tipi di risorsa contrassegnati con **Sì** vengono eliminati quando il tipo no
 I tipi di risorsa contrassegnati con No non vengono eliminati automaticamente quando non sono **presenti** nel modello; Tuttavia, vengono eliminati se la risorsa padre viene eliminata. Per una descrizione completa del comportamento, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
 
 Se si esegue la distribuzione in [più di un gruppo di risorse in un modello](cross-scope-deployment.md), le risorse nel gruppo di risorse specificato nell'operazione di distribuzione sono idonee per essere eliminate. Le risorse nei gruppi di risorse secondarie non vengono eliminate.
+
+Le risorse sono elencate in base allo spazio dei nomi del provider di risorse. Per associare uno spazio dei nomi del provider di risorse al nome del servizio di Azure, vedere [provider di risorse per i servizi di Azure](../management/azure-services-resource-providers.md).
+
+> [!NOTE]
+> Usare sempre l' [operazione](template-deploy-what-if.md) di simulazione prima di distribuire un modello in modalità completa. Cosa-se Mostra le risorse che verranno create, eliminate o modificate. Usare il tipo di simulazione per evitare l'eliminazione involontaria delle risorse.
 
 Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="op_single_selector"]

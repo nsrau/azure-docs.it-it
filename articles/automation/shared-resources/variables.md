@@ -3,14 +3,14 @@ title: Gestire variabili in Automazione di Azure
 description: Questo articolo descrive come usare le variabili nei runbook e nelle configurazioni DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 300bfa2ed801b810bcaaeb5bc4d04775d590015b
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4749fcb6698ff1716f2cae257cc0efad458bf9a9
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004564"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766191"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gestire variabili in Automazione di Azure
 
@@ -43,7 +43,7 @@ Quando si crea una variabile con il portale di Azure, è necessario selezionare 
 
 La variabile non è limitata al tipo di dati specificato. È necessario impostarla usando Windows PowerShell se si vuole specificare un valore di tipo diverso. Se si indica `Not defined`, il valore della variabile viene impostato su Null. È necessario impostare il valore con il cmdlet [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) o il cmdlet interno `Set-AutomationVariable`.
 
-Non è possibile usare il portale di Azure per creare o modificare il valore per un tipo di variabile complesso. Tuttavia, è possibile fornire un valore di qualsiasi tipo usando Windows PowerShell. I tipi complessi verranno recuperati come [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
+Non è possibile usare il portale di Azure per creare o modificare il valore per un tipo di variabile complesso. Tuttavia, è possibile fornire un valore di qualsiasi tipo usando Windows PowerShell. I tipi complessi vengono recuperati come [Newtonsoft.Js. LINQ. JProperty](https://www.newtonsoft.com/json/help/html/N_Newtonsoft_Json_Linq.htm) per un tipo di oggetto complesso anziché un tipo PSObject [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 È possibile archiviare più valori in una singola variabile creando una matrice o una tabella hash e salvandola nella variabile.
 
@@ -56,7 +56,7 @@ I cmdlet nella tabella seguente vengono usati per creare e gestire le variabili 
 
 | Cmdlet | Descrizione |
 |:---|:---|
-|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Recupera il valore di una variabile esistente. Se il valore è di tipo semplice, verrà recuperato lo stesso tipo. Se è un tipo complesso, viene recuperato un tipo `PSCustomObject`. <br>**Nota:**  non è possibile usare questo cmdlet per recuperare il valore di una variabile crittografata. L'unico modo per eseguire questa operazione consiste nell'usare il cmdlet `Get-AutomationVariable` interno in un runbook o una configurazione DSC. Vedere [Cmdlet interni per accedere alle variabili](#internal-cmdlets-to-access-variables). |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Recupera il valore di una variabile esistente. Se il valore è di tipo semplice, verrà recuperato lo stesso tipo. Se è un tipo complesso, viene recuperato un tipo `PSCustomObject`. <br>**Nota:** Non è possibile utilizzare questo cmdlet per recuperare il valore di una variabile crittografata. L'unico modo per eseguire questa operazione consiste nell'usare il cmdlet `Get-AutomationVariable` interno in un runbook o una configurazione DSC. Vedere [Cmdlet interni per accedere alle variabili](#internal-cmdlets-to-access-variables). |
 |[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable) | Crea una nuova variabile e ne imposta il valore.|
 |[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable)| Rimuove una variabile esistente.|
 |[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable)| Imposta il valore di una variabile esistente. |
@@ -74,7 +74,7 @@ I cmdlet interni nella tabella seguente vengono usati per accedere alle variabil
 > Evitare di usare le variabili nel parametro `Name` di `Get-AutomationVariable` in un runbook o una configurazione DSC. L'uso delle variabili può complicare l'individuazione delle dipendenze tra runbook e variabili di Automazione in fase di progettazione.
 
 `Get-AutomationVariable` non funziona in PowerShell, ma solo in un runbook o una configurazione DSC. Ad esempio, per visualizzare il valore di una variabile crittografata, è possibile creare un runbook per ottenere la variabile e quindi scriverla nel flusso di output:
- 
+
 ```powershell
 $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
@@ -123,18 +123,18 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-L'esempio seguente illustra come creare una variabile di tipo complesso e quindi recuperarne le proprietà. In questo caso, viene usato un oggetto macchina virtuale recuperato da [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM).
+L'esempio seguente illustra come creare una variabile di tipo complesso e quindi recuperarne le proprietà. In questo caso, viene usato un oggetto macchina virtuale di [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) specificando un subset delle relative proprietà.
 
 ```powershell
-$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"
-New-AzAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
+$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01" | Select Name, Location, Extensions
+New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
 
-$vmValue = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
+$vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
+–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable"
+
 $vmName = $vmValue.Name
-$vmIpAddress = $vmValue.IpAddress
+$vmExtensions = $vmValue.Extensions
 ```
-
 ## <a name="textual-runbook-examples"></a>Esempi di runbook testuali
 
 ### <a name="retrieve-and-set-a-simple-value-from-a-variable"></a>Recuperare e impostare un valore semplice da una variabile

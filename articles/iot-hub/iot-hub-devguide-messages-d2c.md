@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: a451e13b39aea27b4f1e23f9faa30f4b11c1cff1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 256ede9471f3e889dcce9415a6728414b5ab5f75
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021239"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766949"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi
 
@@ -126,7 +126,7 @@ La route di fallback invia tutti i messaggi che non soddisfano le condizioni di 
 
 ## <a name="non-telemetry-events"></a>Eventi non di telemetria
 
-Oltre ai dati di telemetria del dispositivo, il routing dei messaggi consente anche l'invio di eventi di modifica del dispositivo gemello, eventi del ciclo di vita del dispositivo e eventi di modifica del gemello digitale (in anteprima Ad esempio, se viene creata una route con origine dati impostata su **Eventi di modifica del dispositivo gemello**, l'hub IoT invia messaggi all'endpoint che contengono la modifica nel dispositivo gemello. Analogamente, se viene creata una route con l'origine dati impostata su **eventi del ciclo**di vita del dispositivo, l'hub Internet invia un messaggio che indica se il dispositivo è stato eliminato o creato. Infine, nell'ambito del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md), uno sviluppatore può creare route con l'origine dati impostata su **eventi di modifica digitali gemelli** e l'hub Internet invia messaggi ogni volta che viene impostata o modificata una [proprietà](../iot-pnp/iot-plug-and-play-glossary.md) del dispositivo gemello digitale, viene sostituito un dispositivo [gemello](../iot-pnp/iot-plug-and-play-glossary.md) o quando si verifica un evento di modifica per il dispositivo gemello sottostante.
+Oltre ai dati di telemetria del dispositivo, il routing dei messaggi consente anche l'invio di eventi di modifica del dispositivo gemello, eventi del ciclo di vita del dispositivo e eventi di modifica Ad esempio, se viene creata una route con origine dati impostata su **Eventi di modifica del dispositivo gemello**, l'hub IoT invia messaggi all'endpoint che contengono la modifica nel dispositivo gemello. Analogamente, se viene creata una route con l'origine dati impostata su **eventi del ciclo**di vita del dispositivo, l'hub Internet invia un messaggio che indica se il dispositivo è stato eliminato o creato. Infine, come parte del [plug and Play](../iot-pnp/overview-iot-plug-and-play.md)di Internet delle cose, uno sviluppatore può creare route con l'origine dati impostata su **eventi di modifica digitali gemelli** e l'hub Internet invia messaggi ogni volta che viene impostata o modificata una [proprietà](../iot-pnp/iot-plug-and-play-glossary.md) di un dispositivo gemello [digitale o](../iot-pnp/iot-plug-and-play-glossary.md) quando si verifica un evento di modifica per il dispositivo gemello sottostante.
 
 L'hub Internet si [integra anche con griglia di eventi di Azure](iot-hub-event-grid.md) per pubblicare gli eventi del dispositivo per supportare integrazioni in tempo reale e automazione dei flussi di lavoro in base a questi eventi. Vedere le principali [differenze tra il routing dei messaggi e Griglia di eventi](iot-hub-event-grid-routing-comparison.md) per determinare la soluzione ottimale per il proprio scenario.
 

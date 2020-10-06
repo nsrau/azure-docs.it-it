@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Configurare i criteri WAF di filtro geografico - Servizio Frontdoor di Azure'
-description: Questa esercitazione mostra come creare un criterio di filtro geografico semplice e associarlo all'host front-end esistente del servizio Frontdoor.
+description: Questa esercitazione descrive come creare un criterio WAF di filtro geografico e associarlo all'host front-end di Frontdoor.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 20aa038e15b1ae5734ad6f463c6f450368617119
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: f9b5869f7dd472c50ffb2c1c0dce765200f53882
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090032"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324027"
 ---
 # <a name="tutorial-how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Esercitazione: Come configurare un criterio web application firewall di filtro geografico per Frontdoor
 Questa esercitazione mostra come usare Azure PowerShell per creare un criterio di filtro geografico di esempio e associarlo all'host front-end esistente di Frontdoor. Questo criterio di filtro geografico di esempio bloccherà le richieste provenienti da tutti i paesi/aree tranne gli Stati Uniti.

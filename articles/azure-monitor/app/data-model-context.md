@@ -4,12 +4,12 @@ description: Modello di contesto dei dati di telemetria di Application Insights
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: cbd717243ed35fc90772cb2b727f7670bb77ee70
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 76f3be510494a1f005b0080ee8f2390a3fbc3622
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757300"
+ms.locfileid: "91767846"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contesto dei dati di telemetria: modello di dati di Application Insights
 
@@ -85,7 +85,7 @@ Lunghezza massima: 128
 
 ## <a name="authenticated-user-id"></a>ID utente autenticato
 
-ID utente autenticato. Il valore opposto all'ID utente anonimo, questo campo rappresenta l'utente con un nome descrittivo. Le sue informazioni personali non vengono infatti raccolte per impostazione predefinita dalla maggior parte degli SDK.
+ID utente autenticato. Il valore opposto all'ID utente anonimo, questo campo rappresenta l'utente con un nome descrittivo. Questa operazione viene raccolta solo per impostazione predefinita con ASP.NET Framework SDK [`AuthenticatedUserIdTelemetryInitializer`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/WEB/Src/Web/Web/AuthenticatedUserIdTelemetryInitializer.cs) .  
 
 Lunghezza massima: 1024
 
