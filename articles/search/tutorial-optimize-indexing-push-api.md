@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfb2598fb3a207bbdfaade9086efd07827b077dd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cb012fcc701e9dd18dbe1db5304807b4d96c2a86
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998425"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757793"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Esercitazione: Ottimizzare l'indicizzazione con l'API push
 
@@ -325,7 +325,7 @@ do
 
 A questo punto si esegue il wrapping del codice di backoff esponenziale in una funzione per facilitarne la chiamata.
 
-Viene quindi creata un'altra funzione per gestire i thread attivi. Per semplicità, questa funzione non è inclusa, ma è disponibile in [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/OptimizeDataIndexing/ExponentialBackoff.cs). La funzione può essere chiamata con il comando seguente, dove `hotels` rappresenta i dati da caricare, `1000` la dimensione dei batch e `8` il numero di thread simultanei:
+Viene quindi creata un'altra funzione per gestire i thread attivi. Per semplicità, questa funzione non è inclusa, ma è disponibile in [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v10/OptimizeDataIndexing/ExponentialBackoff.cs). La funzione può essere chiamata con il comando seguente, dove `hotels` rappresenta i dati da caricare, `1000` la dimensione dei batch e `8` il numero di thread simultanei:
 
 ```csharp
 ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();

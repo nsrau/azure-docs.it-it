@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 59c5473e88e0c4a8108f651e9543ec90c08290ab
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651007"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759089"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilità geografica e valute supportate per il marketplace commerciale
 
@@ -166,7 +166,7 @@ Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geo
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* Per i clienti in Brasile, commcercial Marketplace tramite Cloud Solution Provider (CSP) USA USD.
+\* Per i clienti in Brasile, il Marketplace commerciale tramite Cloud Solution Provider (CSP) USA USD.
 
 \** Solo immagini di macchine virtuali BYOL e gratuite.
 
@@ -181,7 +181,7 @@ Per modificare il prezzo prima della pubblicazione, è sufficiente esportare il 
 
 Il prezzo di un'offerta viene sempre visualizzato ai clienti nella propria valuta locale. Il prezzo selezionato in Partner Center viene convertito nella valuta locale dei clienti in base al tasso di cambio nel momento in cui è stato salvato il prezzo nel centro per i partner. Il prezzo indicato ai clienti nei negozi online non cambia, a meno che l'offerta non venga ripubblicata.
 
-Microsoft riceve i pagamenti dai clienti nella valuta locale e paga la valuta locale. Microsoft converte la valuta locale del cliente nella valuta locale usando il tasso di cambio del giorno di acquisto.
+Microsoft riceve i pagamenti dai clienti con la valuta locale e paga la valuta selezionata nel centro per i partner. Microsoft converte la valuta locale del cliente utilizzando il tasso di cambio del giorno di acquisto.
 
 > [!NOTE]
 > Microsoft converte i prezzi delle offerte usando i tassi di cambio del tesoro Microsoft.

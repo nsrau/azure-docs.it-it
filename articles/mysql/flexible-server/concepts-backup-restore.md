@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a5f11a6054358584a8511cb967860c89f6491beb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939305"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756535"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Backup e ripristino nel database di Azure per il server flessibile MySQL (anteprima)
 
@@ -24,7 +24,7 @@ Database di Azure per MySQL server flessibile, crea automaticamente backup del s
 
 Il server flessibile esegue backup di snapshot dei file di dati e li archivia in una risorsa di archiviazione con ridondanza locale. Il server esegue anche il backup dei log delle transazioni e li archivia nell'archiviazione con ridondanza locale. Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. Facoltativamente, è possibile configurare il backup del database da 1 a 35 giorni. Tutti i backup vengono crittografati usando la crittografia AES a 256 bit per i dati archiviati inattivi.
 
-Non è possibile esportare i file di backup. I backup possono essere utilizzati solo per operazioni di ripristino in un server flessibile. È anche possibile usare [mysqldump](https://docs.microsoft.com/azure/MySQL/howto-migrate-using-dump-and-restore)   da un client MySQL per copiare un database.
+Non è possibile esportare i file di backup. I backup possono essere utilizzati solo per operazioni di ripristino in un server flessibile. È anche possibile usare [mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)   da un client MySQL per copiare un database.
 
 ## <a name="backup-frequency"></a>Frequenza di backup
 

@@ -2,17 +2,20 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: f54b5c7bec7d2b9af67b967ff34ab43bd1818a7d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 09/15/2020
+ms.openlocfilehash: 16fbffa31563920e28538a961e621c894d105173
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511311"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604912"
 ---
-Questo articolo illustra come iniziare a usare la libreria client di Visione personalizzata con Python per creare un modello di rilevamento oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Python personalizzata.
+Questa guida fornisce istruzioni e codice di esempio per iniziare a usare la libreria client di Visione personalizzata per Python per creare un modello di rilevamento oggetti. Si creerà un progetto, si aggiungeranno tag, si eseguirà il training del progetto e si userà l'URL dell'endpoint di stima del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'applicazione di riconoscimento immagini personalizzata.
 
-## <a name="prerequisites"></a>Prerequisiti
+> [!NOTE]
+> Se si vuole creare un modello di rilevamento oggetti ed eseguirne il training _senza_ scrivere codice, vedere invece le [istruzioni basate sul browser](../../get-started-build-detector.md).
+
+## <a name="prerequisites"></a>Prerequisiti 
 
 - [Python 2.7 o 3.5 e versioni successive](https://www.python.org/downloads/)
 - Strumento [pip](https://pip.pypa.io/en/stable/installing/)
@@ -20,7 +23,7 @@ Questo articolo illustra come iniziare a usare la libreria client di Visione per
 
 ## <a name="install-the-custom-vision-client-library"></a>Installare la libreria client di Visione personalizzata
 
-Per installare la libreria client del servizio Visione personalizzata per Python, eseguire il comando seguente in PowerShell:
+Per scrivere un'app di analisi immagini con Visione personalizzata per Python, è necessaria la libreria client di Visione personalizzata. In PowerShell eseguire questo comando:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
@@ -36,11 +39,11 @@ pip install azure-cognitiveservices-vision-customvision
 
 Creare un nuovo file denominato *sample.py* nella directory del progetto preferita.
 
-### <a name="create-the-custom-vision-service-project"></a>Creare il progetto di Servizio visione artificiale personalizzato
+## <a name="create-the-custom-vision-project"></a>Creare il progetto di Visione personalizzata
 
 Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi di sottoscrizione nelle definizioni appropriate. Inoltre, ottenere l'URL dell'endpoint dalla pagina Impostazioni del sito Visione personalizzata.
 
-Per specificare altre opzioni quando si crea il progetto, come illustrato in [Creare un rilevatore](../../get-started-build-detector.md) nella guida al portale Web, vedere il metodo [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-).  
+Per specificare altre opzioni quando si crea il progetto, come illustrato nella guida del portale Web [Creare un rilevatore](../../get-started-build-detector.md), vedere il metodo **[create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** .  
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -67,7 +70,7 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-### <a name="create-tags-in-the-project"></a>Creare tag nel progetto
+## <a name="create-tags-in-the-project"></a>Creare tag nel progetto
 
 Per creare i tag degli oggetti nel progetto, aggiungere il codice seguente alla fine del file *sample.py*:
 
@@ -77,7 +80,7 @@ fork_tag = trainer.create_tag(project.id, "fork")
 scissors_tag = trainer.create_tag(project.id, "scissors")
 ```
 
-### <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
+## <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
 Quando si aggiungono tag alle immagini nei progetti di rilevamento degli oggetti, è necessario specificare l'area di ogni oggetto contrassegnato usando coordinate normalizzate.
 
@@ -170,7 +173,7 @@ if not upload_result.is_batch_successful:
     exit(-1)
 ```
 
-### <a name="train-the-project-and-publish"></a>Training del progetto e pubblicazione
+## <a name="train-and-publish-the-project"></a>Eseguire il training del progetto e pubblicarlo
 
 Questo codice crea la prima iterazione del modello di previsione e quindi la pubblica nell'endpoint di previsione. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
@@ -189,7 +192,12 @@ trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, pred
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Ottenere e usare l'iterazione pubblicata nell'endpoint di stima
+> [!TIP]
+> Eseguire il training con i tag selezionati
+>
+> Facoltativamente, è possibile eseguire il training solo su un subset dei tag applicati. Questa operazione può essere eseguita se non è ancora stato applicato un numero sufficiente di determinati tag, ma si dispone di un numero sufficiente di altri. Nella chiamata **[train_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** impostare il parametro opzionale *selected_tags* su un elenco di stringhe di ID dei tag da usare. Il modello eseguirà il training in modo da riconoscere solo i tag nell'elenco.
+
+## <a name="use-the-prediction-endpoint"></a>Usare l'endpoint di stima
 
 Per inviare un'immagine all'endpoint di stima e recuperare la stima, aggiungere il codice seguente alla fine del file:
 
@@ -224,7 +232,10 @@ L'output dell'applicazione dovrebbe essere visualizzato nella console. È quindi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stato illustrato come è possibile eseguire ogni passaggio del processo di rilevamento degli oggetti nel codice. Questo esempio esegue una sola iterazione del training, ma spesso è necessario eseguire il training e il test del modello più volte per ottenere una maggiore precisione. La guida di formazione seguente riguarda la classificazione delle immagini, ma i principi sono simili a quelli del rilevamento di oggetti.
+A questo punto è stato eseguito ogni passaggio del processo di rilevamento degli oggetti nel codice. Questo esempio esegue una sola iterazione del training, ma spesso è necessario eseguire il training e il test del modello più volte per ottenere una maggiore precisione. La guida seguente è incentrata sulla classificazione delle immagini, ma i principi sono simili a quelli del rilevamento di oggetti.
 
 > [!div class="nextstepaction"]
 > [Testare un modello e ripeterne il training](../../test-your-model.md)
+
+* Informazioni su Visione personalizzata
+* [Documentazione di riferimento sull'SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)

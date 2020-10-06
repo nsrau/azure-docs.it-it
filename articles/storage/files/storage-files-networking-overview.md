@@ -7,17 +7,17 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 804e469a01be042b4c299fd608f11426e7274b72
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 7164c3dd5c98544f3cb2944cb33cfd0e9703e36d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84464811"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563336"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerazioni sulla rete per File di Azure 
 È possibile connettersi a una condivisione file di Azure in due modi:
 
-- Accedendo direttamente alla condivisione tramite protocolli SMB o FileREST. Questo modello di accesso viene usato principalmente per eliminare il maggior numero possibile di server locali.
+- Accedendo alla condivisione direttamente tramite i protocolli SMB (Server Message Block), NFS (Network File System) (anteprima) o FileREST. Questo modello di accesso viene usato principalmente per eliminare il maggior numero possibile di server locali.
 - Creando una cache della condivisione file di Azure in un server locale o in una VM di Azure con Sincronizzazione file di Azure e accedendo ai dati della condivisione file dal server locale con un protocollo a scelta (SMB, NFS, FTPS e così via) in base al caso d'uso specifico. Questo modello di accesso è utile perché rappresenta la combinazione ideale tra prestazioni locali, scalabilità del cloud e servizi collegabili in modalità serverless, ad esempio Backup di Azure.
 
 Questo articolo è incentrato sulla configurazione della rete per i casi d'uso che richiedono l'accesso diretto alla condivisione file di Azure invece che tramite Sincronizzazione file di Azure. Per altre informazioni sulle considerazioni di rete per una distribuzione di Sincronizzazione file di Azure, vedere [Considerazioni sulla rete per Sincronizzazione file di Azure](storage-sync-files-networking-overview.md).
@@ -29,17 +29,17 @@ Prima di seguire questa guida concettuale, è consigliabile leggere [Pianificazi
 ## <a name="accessing-your-azure-file-shares"></a>Accesso alle condivisioni file di Azure
 Le condivisioni file di Azure distribuite all'interno di un account di archiviazione diventano immediatamente accessibili tramite l'endpoint pubblico dell'account di archiviazione. Questo significa che le richieste autenticate, ad esempio quelle autorizzate dall'identità di accesso di un utente, possono avere origine in modo sicuro all'interno o all'esterno di Azure. 
 
-In molti ambienti dei clienti, un montaggio iniziale della condivisione file di Azure nella workstation locale avrà esito negativo, anche se i montaggi dalle macchine virtuali di Azure riescono. Il motivo è che molte organizzazioni e provider di servizi Internet (ISP) bloccano la porta usata da SMB per comunicare, ovvero la porta 445. Questa pratica deriva dalle linee guida sulla sicurezza relative alle versioni legacy e deprecate del protocollo SMB. Mentre SMB 3.0 è un protocollo sicuro su Internet, le versioni precedenti, in particolare SMB 1.0, non lo sono. Le condivisioni file di Azure possono essere accessibili all'esterno solo tramite SMB 3.0 e il protocollo FileREST (che è anche un protocollo sicuro su Internet) tramite l'endpoint pubblico.
+In molti ambienti dei clienti, un montaggio iniziale della condivisione file di Azure nella workstation locale avrà esito negativo, anche se i montaggi dalle macchine virtuali di Azure riescono. Il motivo è che molte organizzazioni e provider di servizi Internet (ISP) bloccano la porta usata da SMB per comunicare, ovvero la porta 445. Le condivisioni NFS non presentano questo problema. Questa pratica deriva dalle linee guida sulla sicurezza relative alle versioni legacy e deprecate del protocollo SMB. Mentre SMB 3.0 è un protocollo sicuro su Internet, le versioni precedenti, in particolare SMB 1.0, non lo sono. Le condivisioni file di Azure possono essere accessibili all'esterno solo tramite SMB 3.0 e il protocollo FileREST (che è anche un protocollo sicuro su Internet) tramite l'endpoint pubblico.
 
-Poiché il modo più semplice per accedere alla condivisione file di Azure dall'ambiente locale consiste nell'aprire la rete locale sulla porta 445, Microsoft consiglia di eseguire i passaggi seguenti per rimuovere SMB 1.0 dall'ambiente:
+Poiché il modo più semplice per accedere alla condivisione file SMB di Azure dall'ambiente locale consiste nell'aprire la rete locale sulla porta 445, Microsoft consiglia di eseguire i passaggi seguenti per rimuovere SMB 1.0 dall'ambiente:
 
 1. Assicurarsi che SMB 1.0 venga rimosso o disabilitato nei dispositivi dell'organizzazione. Tutte le versioni attualmente supportate di Windows e Windows Server consentono la rimozione o la disabilitazione di SMB 1.0 e, a partire da Windows 10 versione 1709, SMB 1.0 non viene installato in Windows per impostazione predefinita. Per altre informazioni su come disabilitare SMB 1.0, vedere le pagine specifiche del sistema operativo in uso:
     - [Protezione di Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server)
     - [Protezione di Linux](storage-how-to-use-files-linux.md#securing-linux)
-2. Assicurarsi che nessun prodotto all'interno dell'organizzazione richieda SMB 1.0 e rimuovere quelli che lo richiedono. È disponibile la pagina [SMB1 Product Clearinghouse](https://aka.ms/stillneedssmb1), che contiene tutti i prodotti di Microsoft e di terzi parti noti a Microsoft che richiedono SMB 1.0. 
-3. (Facoltativo) Usare un firewall di terze parti con la rete locale dell'organizzazione per impedire il traffico SMB 1.0 in uscita dai confini dell'organizzazione.
+1. Assicurarsi che nessun prodotto all'interno dell'organizzazione richieda SMB 1.0 e rimuovere quelli che lo richiedono. È disponibile la pagina [SMB1 Product Clearinghouse](https://aka.ms/stillneedssmb1), che contiene tutti i prodotti di Microsoft e di terzi parti noti a Microsoft che richiedono SMB 1.0. 
+1. (Facoltativo) Usare un firewall di terze parti con la rete locale dell'organizzazione per impedire il traffico SMB 1.0 in uscita dai confini dell'organizzazione.
 
-Se l'organizzazione richiede che la porta 445 sia bloccata in base a criteri o normative oppure se richiede che il traffico verso Azure segua un percorso deterministico, è possibile usare il gateway VPN di Azure o ExpressRoute per il tunneling del traffico alle condivisioni file di Azure.
+Se l'organizzazione richiede che la porta 445 sia bloccata in base a criteri o normative oppure se richiede che il traffico verso Azure segua un percorso deterministico, è possibile usare il gateway VPN di Azure o ExpressRoute per il tunneling del traffico alle condivisioni file di Azure. Per le condivisioni NFS non è necessaria alcuna operazione, poiché non è necessaria la porta 445.
 
 > [!Important]  
 > Anche se si decide di usare un metodo alternativo per accedere alle condivisioni file di Azure, Microsoft consiglia comunque di rimuovere SMB 1.0 dall'ambiente.
@@ -47,9 +47,9 @@ Se l'organizzazione richiede che la porta 445 sia bloccata in base a criteri o n
 ### <a name="tunneling-traffic-over-a-virtual-private-network-or-expressroute"></a>Tunneling del traffico su una rete privata virtuale o ExpressRoute
 Quando si stabilisce un tunnel di rete tra la rete locale e Azure, si esegue il peering della rete locale con una o più reti virtuali in Azure. Una [rete virtuale](../../virtual-network/virtual-networks-overview.md) è simile a una rete tradizionale gestita in locale. Analogamente a un account di archiviazione o a una VM di Azure, una rete virtuale è una risorsa di Azure distribuita in un gruppo di risorse. 
 
-File di Azure supporta i meccanismi seguenti per eseguire il tunneling del traffico tra le workstation e i server locali e Azure:
+File di Azure supporta i meccanismi seguenti per eseguire il tunneling del traffico tra le workstation e i server locali e le condivisioni file SMB/NFS di Azure:
 
-- [Gateway VPN di Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md): un gateway VPN è un tipo specifico di gateway di rete virtuale, usato per inviare traffico crittografato tra una rete virtuale di Azure e una posizione alternativa, ad esempio l'ambiente locale, attraverso Internet. Un gateway VPN di Azure è una risorsa di Azure che può essere distribuita in un gruppo di risorse insieme a un account di archiviazione o ad altre risorse di Azure. I gateway VPN espongono due tipi diversi di connessioni:
+- un gateway VPN è un tipo specifico di gateway di rete virtuale, usato per inviare traffico crittografato tra una rete virtuale di Azure e una posizione alternativa, ad esempio l'ambiente locale, attraverso Internet. Un gateway VPN di Azure è una risorsa di Azure che può essere distribuita in un gruppo di risorse insieme a un account di archiviazione o ad altre risorse di Azure. I gateway VPN espongono due tipi diversi di connessioni:
     - [VPN da punto a sito](../../vpn-gateway/point-to-site-about.md), ovvero connessioni VPN tra Azure e un singolo client. Questa soluzione è particolarmente utile per i dispositivi che non fanno parte della rete locale dell'organizzazione, ad esempio quelli di telelavoratori che vogliono avere la possibilità di montare la condivisione file di Azure da casa, dal bar o da un hotel mentre sono in viaggio. Per usare una connessione VPN da punto a sito con File di Azure, è necessario configurarla per ogni client da connettere. Per semplificare la distribuzione di una connessione VPN da punto a sito, vedere [Configurare una VPN da punto a sito in Windows per l'uso con File di Azure](storage-files-configure-p2s-vpn-windows.md) e [Configurare una VPN da punto a sito in Linux per l'uso con File di Azure](storage-files-configure-p2s-vpn-linux.md).
     - [VPN da sito a sito](../../vpn-gateway/design.md#s2smulti), ovvero connessioni VPN tra Azure e la rete dell'organizzazione. Una connessione VPN da sito a sito consente di configurare una connessione VPN una sola volta, per un dispositivo o un server VPN ospitato nella rete dell'organizzazione, invece che per ogni dispositivo client che ha la necessità di accedere alla condivisione file di Azure. Per semplificare la distribuzione di una connessione VPN da sito a sito, vedere [Configurare una VPN da sito a sito per l'uso con File di Azure](storage-files-configure-s2s-vpn.md).
 - [ExpressRoute](../../expressroute/expressroute-introduction.md), che consente di creare una route definita tra Azure e la rete locale che non attraversa Internet. Fornendo un percorso dedicato tra il data center locale e Azure, ExpressRoute può risultare utile quando le prestazioni di rete rappresentano un aspetto da considerare. ExpressRoute è un'opzione valida anche laddove i criteri dell'organizzazione o i requisiti ambientali impongono un percorso deterministico verso le risorse nel cloud.
@@ -139,9 +139,16 @@ Per limitare l'accesso a un account di archiviazione consentendolo solo a una re
 - Creare uno o più endpoint privati per l'account di archiviazione e limitare tutto l'accesso all'endpoint pubblico. In questo modo si garantisce che solo il traffico originato dalle reti virtuali desiderate possa accedere alle condivisioni file di Azure nell'account di archiviazione.
 - Limitare l'endpoint pubblico a una o più reti virtuali. Questa operazione può essere eseguita usando una funzionalità della rete virtuale denominata *endpoint di servizio*. Quando si limita il traffico verso un account di archiviazione tramite un endpoint di servizio, si può comunque accedere all'account di archiviazione tramite l'indirizzo IP pubblico.
 
+> [!NOTE]
+> Le condivisioni NFS non possono accedere all'endpoint pubblico dell'account di archiviazione tramite l'indirizzo IP pubblico. Possono accedere all'endpoint pubblico dell'account di archiviazione solo usando le reti virtuali. Le condivisioni NFS possono accedere all'account di archiviazione anche usando endpoint privati.
+
 Per altre informazioni su come configurare il firewall dell'account di archiviazione, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="encryption-in-transit"></a>Crittografia in transito
+
+> [!IMPORTANT]
+> Questa sezione illustra i dettagli della crittografia in transito per le condivisioni SMB. Per informazioni dettagliate sulla crittografia in transito con le condivisioni NFS, vedere [Sicurezza](storage-files-compare-protocols.md#security).
+
 Per impostazione predefinita, la crittografia in transito è abilitata per tutti gli account di archiviazione di Azure. Quindi, quando si monta una condivisione file su SMB o vi si accede tramite il protocollo FileREST (ad esempio tramite il portale di Azure, PowerShell/interfaccia della riga di comando o Azure SDK), File di Azure consentirà la connessione solo se viene eseguita con SMB 3.0 o versione successiva con crittografia oppure HTTPS. I client che non supportano SMB 3.0 oppure che supportano SMB 3.0 ma non la crittografia SMB non potranno montare la condivisione file di Azure se è abilitata la crittografia in transito. Per altre informazioni sui sistemi operativi che supportano SMB 3.0 con crittografia, vedere la documentazione dettagliata per [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md)e [Linux](storage-how-to-use-files-linux.md). Tutte le versioni correnti di PowerShell, interfaccia della riga di comando e SDK supportano HTTPS.  
 
 È possibile disabilitare la crittografia in transito per un account di archiviazione di Azure. Quando la crittografia è disabilitata, File di Azure consentirà anche l'uso di SMB 2.1, SMB 3.0 senza crittografia e chiamate API FileREST non crittografate su HTTP. La crittografia in transito viene in genere disabilitata principalmente per supportare un'applicazione legacy che deve essere eseguita in un sistema operativo meno recente, ad esempio Windows Server 2008 R2 o una distribuzione Linux precedente. File di Azure consente connessioni SMB 2.1 solo all'interno della stessa area di Azure della condivisione file di Azure. Un client SMB 2.1 situato all'esterno dell'area di Azure in cui si trova la condivisione file di Azure, ad esempio in locale o in un'area di Azure differente, non potrà accedere alla condivisione file.

@@ -1,6 +1,6 @@
 ---
 title: Informazioni su Azure AD Connect e Connect Health | Microsoft Docs
-description: Vengono descritti gli strumenti usati per sincronizzare e monitorare l'ambiente locale con Azure AD.
+description: Informazioni sugli strumenti usati per sincronizzare e monitorare l'ambiente locale con Azure AD.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02a30aa4d553910c52a7dde89719450baf9037ce
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 338f957d3e881a76b39b0b7c00288ae2ebf2be59
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278837"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018612"
 ---
 # <a name="what-is-azure-ad-connect"></a>Cos'è Azure AD Connect?
 
@@ -26,7 +26,7 @@ Azure AD Connect è lo strumento di Microsoft progettato per soddisfare e raggiu
 - [Autenticazione pass-through](how-to-connect-pta.md): metodo di accesso che consente agli utenti di usare la stessa password in locale e nel cloud, ma non richiede l'infrastruttura aggiuntiva di un ambiente federato.
 - [Integrazione della federazione](how-to-connect-fed-whatis.md): la federazione è una parte facoltativa di Azure AD Connect e può essere usata per configurare un ambiente ibrido usando un'infrastruttura AD FS locale. Fornisce anche funzionalità di gestione di AD FS, ad esempio rinnovo dei certificati e distribuzioni aggiuntive di server AD FS.
 - [Sincronizzazione](how-to-connect-sync-whatis.md): è responsabile della creazione di utenti, gruppi e altri oggetti.  Deve anche garantire che le informazioni sulle identità per utenti e gruppi locali corrispondano a quelle nel cloud.  Questa sincronizzazione include anche gli hash delle password.
-- [Monitoraggio dell'integrità](): Azure AD Connect Health può offrire un monitoraggio affidabile e una posizione centralizzata nel portale di Azure per visualizzare questa attività. 
+- [Monitoraggio dell'integrità]() Azure AD Connect Health può offrire un monitoraggio affidabile e una posizione centralizzata nel portale di Azure per visualizzare questa attività. 
 
 
 ![Cos'è Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
@@ -35,7 +35,7 @@ Azure AD Connect è lo strumento di Microsoft progettato per soddisfare e raggiu
 
 ## <a name="what-is-azure-ad-connect-health"></a>Cos'è Azure AD Connect Health?
 
-Azure Active Directory (Azure AD) Connect Health offre un monitoraggio affidabile dell'infrastruttura di identità locale. Consente infatti di mantenere una connessione affidabile a Office 365 e Microsoft Online Services.  Per garantire questa affidabilità, vengono usate funzionalità di monitoraggio per i componenti chiave delle identità, rendendo inoltre facilmente accessibili i punti dati chiave relativi a questi componenti.
+Azure Active Directory (Azure AD) Connect Health offre un monitoraggio affidabile dell'infrastruttura di identità locale. Consente infatti di mantenere una connessione affidabile a Microsoft 365 e Microsoft Online Services.  Per garantire questa affidabilità, vengono usate funzionalità di monitoraggio per i componenti chiave delle identità, rendendo inoltre facilmente accessibili i punti dati chiave relativi a questi componenti.
 
 Queste informazioni vengono visualizzate nel [portale di Azure AD Connect Health](https://aka.ms/aadconnecthealth). Usare il portale di Azure AD Connect Health per visualizzare avvisi, informazioni sul monitoraggio delle prestazioni, analisi sull'utilizzo e altre informazioni. Azure AD Connect Health abilita la singola sezione dell'integrità per i componenti chiave per l'identità, in un'unica posizione.
 
@@ -44,7 +44,7 @@ Queste informazioni vengono visualizzate nel [portale di Azure AD Connect Health
 ## <a name="why-use-azure-ad-connect"></a>Perché usare Azure AD Connect?
 L'integrazione delle directory locali con Azure AD rende gli utenti più produttivi, in quanto fornisce un'identità comune per accedere alle risorse cloud e locali. Utenti e organizzazioni possono sfruttare i vantaggi seguenti:
 
-* Gli utenti possono usare un'unica identità per accedere alle applicazioni locali e ai servizi cloud, come ad esempio Office 365.
+* Gli utenti possono usare un'unica identità per accedere alle applicazioni locali e ai servizi cloud, come Microsoft 365.
 * Un unico strumento che offre un'esperienza di distribuzione semplificata per la sincronizzazione e l'accesso.
 * Offre le funzionalità più recenti per gli scenari in uso. Azure AD Connect sostituisce le versioni precedenti degli strumenti di integrazione delle identità, ad esempio DirSync e Azure AD Sync. Per altre informazioni, vedere [Confronto degli strumenti di integrazione directory per la soluzione ibrida di gestione delle identità](plan-hybrid-identity-design-considerations-tools-comparison.md).
 

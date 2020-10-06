@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 488ca52abdd5f8d6cfd1f92a5f91861a17a77d19
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510519"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757028"
 ---
 # <a name="how-to-manage-settings"></a>Come gestire le impostazioni
 
@@ -51,6 +51,8 @@ Se non è disponibile una sottoscrizione, seguire questa procedura:
 
     ![Finestra di dialogo per creare una nuova area di lavoro](media/how-to/create-new-workspace-dialog.png)
 
+>[!Note]
+>Il convertitore personalizzato non supporta la creazione di un'area di lavoro per API Traduzione testuale risorsa (noto anche come Chiave della sottoscrizione di Azure creata all'interno di [VNET abilitato](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
 
 ### <a name="modify-existing-key"></a>Modifica chiave esistente
 
@@ -61,7 +63,7 @@ Se non è disponibile una sottoscrizione, seguire questa procedura:
 
 3. Nella finestra di dialogo immettere la chiave per la sottoscrizione di conversione, quindi fare clic sul pulsante "Salva".
 
-    ![Come aggiungere la chiave di sottoscrizione](media/how-to/how-to-add-subscription-key-dialog.png)
+    ![Finestra di dialogo come aggiungere una chiave di sottoscrizione](media/how-to/how-to-add-subscription-key-dialog.png)
 
 ## <a name="manage-your-workspace"></a>Gestire l'area di lavoro
 

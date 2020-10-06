@@ -47,14 +47,18 @@
               href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Monitorare e risolvere i problemi
           items:
-            - name: 'Monitoraggio, diagnosi e risoluzione dei problemi'
-              href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Metriche in Monitoraggio di Azure
-              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Eseguire la migrazione alle nuove metriche
+            - name: Transizione dalle metriche classiche
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Metriche di Analisi archiviazione (versione classica)
-              href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Monitoraggio (versione classica)
+              items:
+                - name: di Analisi archiviazione
+                  href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+                - name: Metriche
+                  href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+                - name: Log
+                  href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+                - name: 'Monitoraggio, diagnosi e risoluzione dei problemi'
+                  href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Sincronizzazione file di Azure
       items:
         - name: Pianificazione per la distribuzione di Sincronizzazione file di Azure
@@ -205,6 +209,8 @@
               href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Monitorare
       items:
+        - name: Monitorare File di Azure
+          href: storage-files-monitoring.md
         - name: Monitorare Sincronizzazione file di Azure
           href: storage-sync-files-monitoring.md
     - name: Migrazione
@@ -291,6 +297,8 @@
   items:
     - name: Informazioni di riferimento su File di Azure
       href: ../files/reference.md
+    - name: Informazioni di riferimento sul monitoraggio di File di Azure
+      href: storage-files-monitoring-reference.md
     - name: Modello di Resource Manager
       displayName: arm
       href: /azure/templates/microsoft.storage/allversions

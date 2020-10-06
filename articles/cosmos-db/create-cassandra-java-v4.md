@@ -1,6 +1,6 @@
 ---
 title: Creare un'app Java con l'API Cassandra di Azure Cosmos DB usando Java 4.0 SDK
-description: Questa guida introduttiva illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e Java
+description: Questo argomento di avvio rapido illustra come usare l'API Cassandra di Azure Cosmos DB per creare un'applicazione di profilo con il portale di Azure e Java 4.0 SDK.
 ms.service: cosmos-db
 author: TheovanKraay
 ms.author: thvankra
@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4411c2d3b540423c1086fe8b45bd343870a72f5b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 076cb892740b99971400fbc34f60dc1083554555
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319202"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532206"
 ---
-# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Avvio rapido: Creare un'app Java per gestire i dati dell'API Cassandra di Azure Cosmos DB (driver v4)
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Creare un'app Java per gestire i dati dell'API Cassandra di Azure Cosmos DB (driver v4)
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -29,7 +29,7 @@ ms.locfileid: "87319202"
 
 In questo argomento di avvio rapido si crea un account dell'API Cassandra di Azure Cosmos DB e si usa un'app Java Cassandra clonata da GitHub per creare un database e contenitore Cassandra con i [driver Apache Cassandra v4.x](https://github.com/datastax/java-driver/tree/4.x) per Java. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 - Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). In alternativa, è possibile [provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure.
 - [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Indirizzare la variabile di ambiente `JAVA_HOME` alla cartella di installazione di JDK.
@@ -215,7 +215,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 4. Nel portale di Azure aprire **Esplora dati** per modificare e usare questi nuovi dati, nonché eseguire query su di essi. 
 
-    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="Visualizzare i dati in Esplora dati - Azure Cosmos DB":::
+    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="Visualizzare e copiare un nome utente dalla pagina Stringa di connessione del portale di Azure":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

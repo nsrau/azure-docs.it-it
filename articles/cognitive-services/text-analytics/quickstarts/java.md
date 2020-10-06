@@ -1,7 +1,7 @@
 ---
-title: "Avvio rapido: Usare Java per chiamare l'API REST Analisi del testo"
+title: Usare Java per chiamare l'API REST Analisi del testo
 titleSuffix: Azure Cognitive Services
-description: Questo argomento di avvio rapido illustra come ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Analisi del testo in Servizi cognitivi di Azure.
+description: Questo argomento di avvio rapido illustra come usare Java per ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Analisi del testo in Servizi cognitivi di Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,21 +11,21 @@ ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019, devx-track-java
-ms.openlocfilehash: f8f9d76e5f1584ce54897950d7e35e2b22ba958e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6c3c613f8733c8f786d121ab33b09afab244b09e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319780"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532274"
 ---
-# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Avvio rapido: Usare Java per chiamare il servizio cognitivo Analisi del testo di Azure
+# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Usare Java per chiamare il servizio cognitivo Analisi del testo di Azure
 <a name="HOLTop"></a>
 
 Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities) usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con Java.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 

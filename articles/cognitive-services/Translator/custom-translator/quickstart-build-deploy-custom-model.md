@@ -1,46 +1,46 @@
 ---
-title: 'Avvio rapido: Creare, distribuire e usare un modello personalizzato - Traduttore personalizzato'
+title: 'Guida introduttiva: Creare, distribuire e usare un modello personalizzato - Custom Translator'
 titleSuffix: Azure Cognitive Services
 description: Questa guida introduttiva illustra nel dettaglio il processo di creazione di un sistema di traduzione con Custom Translator.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: b0992c4d18fdb9cb5201ab3ef52fba8ee3feb7a2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bb4e3be621e83ed66748e3eba683b983dbac98d7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964380"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528534"
 ---
-# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Avvio rapido: Creare, distribuire e usare un modello personalizzato per la traduzione
+# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Guida introduttiva: Creare, distribuire e usare un modello personalizzato per la traduzione
 
 Questo articolo contiene istruzioni dettagliate per creare un sistema di traduzione con Custom Translator.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 1. Per accedere al portale [Custom Translator](https://portal.customtranslator.azure.ai) è necessario un [account Microsoft](https://signup.live.com) o un [account di Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (account aziendale ospitato su Azure).
 
-2. Una sottoscrizione di Translator effettuata tramite il portale di Azure. Per l'associazione all'area di lavoro nel traduttore personalizzato è necessaria una chiave di sottoscrizione di Translator. Vedere [Come iscriversi a Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Una sottoscrizione all'API Traduzione testuale tramite il portale di Azure. Per l'associazione all'area di lavoro in Custom Translator è necessaria la chiave di sottoscrizione dell'API Traduzione testuale. Vedere [come registrarsi all'API Traduzione testuale](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
 3. Una volta soddisfatti entrambi i prerequisiti, accedere al portale di [Traduttore personalizzato](https://portal.customtranslator.azure.ai) per creare aree di lavoro e progetti, caricare file, nonché creare e distribuire modelli.
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
-La prima volta verrà chiesto di accettare le condizioni d'uso, di creare un'area di lavoro e di associarla alla sottoscrizione di Translator.
+La prima volta verrà chiesto di accettare le condizioni per l'utilizzo, di creare un'area di lavoro e di associarla alla sottoscrizione dell'API Traduzione testuale Microsoft.
 
-![Creare l'area di lavoro](media/quickstart/terms-of-service.png)
-![Creare l'area di lavoro](media/quickstart/create-workspace-1.png)
-![Creare l'area di lavoro](media/quickstart/create-workspace-2.png)
-![Creare l'area di lavoro](media/quickstart/create-workspace-3.png)
-![Creare l'area di lavoro](media/quickstart/create-workspace-4.png)
-![Creare l'area di lavoro](media/quickstart/create-workspace-5.png)
-![Creare l'area di lavoro](media/quickstart/create-workspace-6.png)
+![Creare un'area di lavoro](media/quickstart/terms-of-service.png)
+![Creare un'immagine dell'area di lavoro 1](media/quickstart/create-workspace-1.png)
+![Creare un'immagine dell'area di lavoro 2](media/quickstart/create-workspace-2.png)
+![Creare un'immagine dell'area di lavoro 3](media/quickstart/create-workspace-3.png)
+![Creare un'immagine dell'area di lavoro 4](media/quickstart/create-workspace-4.png)
+![Creare un'immagine dell'area di lavoro 5](media/quickstart/create-workspace-5.png)
+![Creare un'immagine dell'area di lavoro 6](media/quickstart/create-workspace-6.png)
 
-Nelle successive visite al portale del traduttore personalizzato, passare alla pagina Impostazioni, in cui è possibile gestire l'area di lavoro, crearne altre, associare la chiave di sottoscrizione di Translator alle aree di lavoro, aggiungere comproprietari e cambiare la chiave di sottoscrizione.
+Nelle successive visite al portale di Traduttore personalizzato, passare alla pagina Impostazioni, in cui è possibile gestire l'area di lavoro, crearne altre, associare la chiave di sottoscrizione dell'API Traduzione testuale Microsoft alle aree di lavoro, aggiungere comproprietari e cambiare la chiave di sottoscrizione.
 
 ## <a name="create-a-project"></a>Creare un progetto
 
@@ -81,9 +81,15 @@ Quando si è pronti a distribuire il modello con training, fare clic sul pulsant
 
 ![Distribuire un modello con training](media/quickstart/ct-how-to-deploy.png)
 
+## <a name="swap-deployed-model"></a>Scambiare un modello distribuito
+
+Per scambiare un modello distribuito con un altro all'interno di un progetto, fare clic sul pulsante "Scambia" visualizzato accanto al modello desiderato. Durante il processo di scambio, il modello distribuito continuerà a essere disponibile per soddisfare le richieste di traduzione. 
+
+![Scambiare un modello distribuito](media/quickstart/ct-how-to-swap-model.png)
+
 ## <a name="use-a-deployed-model"></a>Usare un modello distribuito
 
-È possibile accedere ai modelli distribuiti tramite Translator specificando il valore di CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Altre informazioni su Translator sono disponibili nella pagina Web [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+I modelli distribuiti sono accessibili tramite l'[API Traduzione testuale V3 di Microsoft specificando il CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Altre informazioni sull'API Traduzione testuale sono disponibili nella pagina Web [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/01/2020
+ms.date: 10/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15581178dc1c00b6905763e8552062869f8378ce
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: eb7d7d6296432146e6e4390b0df62964ffe6f8da
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91704957"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758099"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso di Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -82,6 +82,7 @@ In questa sezione è possibile trovare informazioni su come configurare SSO con 
 
 ## <a name="change-log"></a>Registro modifiche
 
+- 10/05/2020: rilascio di [SAP Hana con scalabilità orizzontale HSR con pacemaker in macchine virtuali di Azure nella Guida alla configurazione di RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md)
 - 09/30/2020: modificare la [disponibilità elevata di SAP Hana in macchine virtuali di Azure in RHEL](./sap-hana-high-availability-rhel.md), [ha per SAP Hana la scalabilità verticale con e su RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) e la [configurazione di pacemaker in RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) per adattare le istruzioni per RHEL 8,1
 - 09/29/2020: le restrizioni e le raccomandazioni sull'uso di PPG sono più ovvie nell'articolo [gruppi di posizionamento di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 
 - 09/28/2020: aggiunta di una nuova guida all'operazione di archiviazione per SAP HANA usando Azure NetApp Files con i volumi del documento [NFS v 4.1 in Azure NetApp files per SAP Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)

@@ -4,12 +4,12 @@ description: Monitorare le prestazioni di un sito Web senza ripetere la distribu
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 603cbde20ae6e8d19e4ad3ae290bbfc925483595
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923824"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758664"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare app Web in fase di esecuzione con Application Insights connessione senza codice
 
@@ -130,7 +130,7 @@ Per correggere, aggiornare il file web.config:
 </dependentAssembly>
 ```
 
-Microsoft sta verificando [qui](https://github.com/Microsoft/ApplicationInsights-Home/issues/301) questo problema.
+Microsoft sta verificando [qui](https://github.com/MohanGsk/ApplicationInsights-Home) questo problema.
 
 
 ### <a name="application-diagnostic-messages"></a>Messaggi di diagnostica applicazioni
@@ -178,7 +178,7 @@ Eliminare uno qualsiasi di questi file trovati nella directory dell'applicazione
 Supporto del sistema operativo per Application Insights Status Monitor sul server
 
 * Windows Server 2008
-* Windows Server 2008 R2
+* Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
@@ -304,7 +304,7 @@ Per le applicazioni già instrumentate in fase di compilazione:
  * Chiamate alle dipendenze (.NET 4.5) e valori restituiti nelle chiamate alle dipendenze (.NET 4.6)
  * Valori di analisi dello stack delle eccezioni
 
-[Altre informazioni](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
+[Scopri di più](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Video
 

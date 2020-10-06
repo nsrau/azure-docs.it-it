@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/05/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 16179ae730e81ff1ff7c107e3af70b5ce24e8813
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6ebb81e6f5adce1dbc301ac905fed5af1ee6a825
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001945"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758306"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Creare una firma di accesso condiviso del servizio per un contenitore o un BLOB con .NET
 
@@ -30,7 +30,7 @@ L'esempio di codice seguente crea una firma di accesso condiviso per un contenit
 
 ### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-Creare un nuovo [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder). Chiamare quindi [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) per ottenere la stringa del token SAS. 
+Una firma di accesso condiviso del servizio è firmata con la chiave di accesso dell'account. Utilizzare la classe [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) per creare le credenziali utilizzate per firmare la firma di accesso condiviso. Successivamente, creare un nuovo oggetto [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) e chiamare il [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) per ottenere la stringa del token SAS.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetContainerSasUri":::
 
@@ -86,7 +86,7 @@ L'esempio di codice seguente crea una firma di accesso condiviso su un BLOB. Se 
 
 ### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-Creare un nuovo [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder). Chiamare quindi [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) per ottenere la stringa del token SAS. 
+Una firma di accesso condiviso del servizio è firmata con la chiave di accesso dell'account. Utilizzare la classe [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) per creare le credenziali utilizzate per firmare la firma di accesso condiviso. Successivamente, creare un nuovo oggetto [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) e chiamare il [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) per ottenere la stringa del token SAS.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetBlobSasUri":::
 
@@ -136,6 +136,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     return blob.Uri + sasBlobToken;
 }
 ```
+
 ---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]

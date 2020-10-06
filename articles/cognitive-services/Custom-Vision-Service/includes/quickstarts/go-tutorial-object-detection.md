@@ -2,24 +2,27 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: a56b95fe4f6b7005e823ebe80fd2e74ed1cf7725
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 09/15/2020
+ms.openlocfilehash: 4b7e0f91dcdf26688cab07ac83142c33de8bbdb1
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511354"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604875"
 ---
-Questo articolo fornisce informazioni e codice di esempio per iniziare a usare la libreria client di Visione personalizzata con Go per creare un modello di rilevamento oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Go personalizzata.
+Questa guida fornisce istruzioni e codice di esempio per iniziare a usare la libreria client di Visione personalizzata per Go per creare un modello di rilevamento oggetti. Si creerà un progetto, si aggiungeranno tag, si eseguirà il training del progetto e si userà l'URL dell'endpoint di stima del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'applicazione di riconoscimento immagini personalizzata.
 
-## <a name="prerequisites"></a>Prerequisiti
+> [!NOTE]
+> Se si vuole creare un modello di rilevamento oggetti ed eseguirne il training _senza_ scrivere codice, vedere invece le [istruzioni basate sul browser](../../get-started-build-detector.md).
+
+## <a name="prerequisites"></a>Prerequisiti 
 
 - [Go 1.8+](https://golang.org/doc/install)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
 ## <a name="install-the-custom-vision-client-library"></a>Installare la libreria client di Visione personalizzata
 
-Per installare la libreria client di Visione personalizzata per Go, eseguire il comando seguente in PowerShell:
+Per scrivere un'app di analisi immagini con Visione personalizzata per Go, è necessaria la libreria client di Visione personalizzata. In PowerShell eseguire questo comando:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...
@@ -38,7 +41,7 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 Creare un nuovo file denominato *sample.go* nella directory del progetto preferita.
 
-### <a name="create-the-custom-vision-service-project"></a>Creare il progetto di Servizio visione artificiale personalizzato
+## <a name="create-the-custom-vision-project"></a>Creare il progetto di Visione personalizzata
 
 Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi di sottoscrizione nelle definizioni appropriate. Inoltre, ottenere l'URL dell'endpoint dalla pagina Impostazioni del sito Visione personalizzata.
 
@@ -88,7 +91,7 @@ func main() {
     project, _ := trainer.CreateProject(ctx, project_name, "", objectDetectDomain.ID, "")
 ```
 
-### <a name="create-tags-in-the-project"></a>Creare tag nel progetto
+## <a name="create-tags-in-the-project"></a>Creare tag nel progetto
 
 Per creare i tag di classificazione per il progetto, aggiungere il codice seguente alla fine del file *sample.go*:
 
@@ -98,7 +101,7 @@ forkTag, _ := trainer.CreateTag(ctx, *project.ID, "fork", "A fork", string(train
 scissorsTag, _ := trainer.CreateTag(ctx, *project.ID, "scissors", "Pair of scissors", string(training.Regular))
 ```
 
-### <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
+## <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
 Quando si aggiungono tag alle immagini nei progetti di rilevamento degli oggetti, è necessario specificare l'area di ogni oggetto contrassegnato usando coordinate normalizzate.
 
@@ -217,7 +220,7 @@ if (!*scissor_batch.IsBatchSuccessful) {
 }     
 ```
 
-### <a name="train-the-project-and-publish"></a>Training del progetto e pubblicazione
+## <a name="train-and-publish-the-project"></a>Eseguire il training del progetto e pubblicarlo
 
 Questo codice crea la prima iterazione del modello di previsione e quindi la pubblica nell'endpoint di previsione. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
@@ -236,7 +239,7 @@ for {
 trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Ottenere e usare l'iterazione pubblicata nell'endpoint di stima
+## <a name="use-the-prediction-endpoint"></a>Usare l'endpoint di stima
 
 Per inviare un'immagine all'endpoint di stima e recuperare la stima, aggiungere il codice seguente alla fine del file:
 
@@ -276,7 +279,11 @@ L'output dell'applicazione dovrebbe essere visualizzato nella console. È quindi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stato illustrato come è possibile eseguire ogni passaggio del processo di rilevamento degli oggetti nel codice. Questo esempio esegue una sola iterazione del training, ma spesso è necessario eseguire il training e il test del modello più volte per ottenere una maggiore precisione. La guida di formazione seguente riguarda la classificazione delle immagini, ma i principi sono simili a quelli del rilevamento di oggetti.
+A questo punto è stato eseguito ogni passaggio del processo di rilevamento degli oggetti nel codice. Questo esempio esegue una sola iterazione del training, ma spesso è necessario eseguire il training e il test del modello più volte per ottenere una maggiore precisione. La guida seguente è incentrata sulla classificazione delle immagini, ma i principi sono simili a quelli del rilevamento di oggetti.
 
 > [!div class="nextstepaction"]
 > [Testare un modello e ripeterne il training](../../test-your-model.md)
+
+* Informazioni su Visione personalizzata
+* [Documentazione di riferimento sull'SDK (esercitazione)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training)
+* [Documentazione di riferimento sull'SDK (previsione)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction)

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una zona e un record di DNS di Azure - Modello di Azure Resource Manager'
+title: Creare una zona e un record di DNS di Azure - Modello di Azure Resource Manager
 titleSuffix: Azure DNS
 description: Informazioni su come creare una zona e un record DNS in DNS Azure. Si tratta di un argomento di avvio rapido dettagliato per la creazione e la gestione della prima zona e del primo record DNS con un modello di Azure Resource Manager.
 services: dns
@@ -8,14 +8,14 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
-ms.openlocfilehash: 4fd87cb17fc222f5014585e8f1e87e3f58a58574
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 8e53e8ad26ddac1006a28fea2ddee9990533e8c9
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596409"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647883"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Avvio rapido: Creare una zona e un record DNS di Azure con un modello di Azure Resource Manager
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Creare una zona e un record DNS di Azure con un modello di Azure Resource Manager
 
 Questo argomento di avvio rapido descrive come usare un modello di Azure Resource Manager per creare una zona DNS con un record A.
 
@@ -25,7 +25,7 @@ Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-dns-new-zone%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -87,11 +87,11 @@ Per distribuire il modello viene usato Azure PowerShell. Oltre ad Azure PowerShe
 
 1. Il gruppo di risorse dovrà contenere le risorse illustrate qui:
 
-    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Gruppo di risorse per la distribuzione della zona DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Modello di Resource Manager per la zona DNS di Azure: output della distribuzione con PowerShell":::
 
 1. Selezionare la zona DNS con il suffisso **<span>azurequickstart.</span>org** per verificare che la zona sia stata creata correttamente con un record **A** che fa riferimento ai valori **1.2.3.4** e **1.2.3.5**.
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Distribuzione della zona DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Modello di Resource Manager per la zona DNS di Azure: output della distribuzione con PowerShell":::
 
 1. Copiare uno dei nomi di server dei nomi dal passaggio precedente.
 
@@ -101,7 +101,7 @@ Per distribuire il modello viene usato Azure PowerShell. Oltre ad Azure PowerShe
    nslookup www.<dns zone name> <name server name>
    ```
 
-   Ad esempio:
+   Ad esempio:\
 
    ```
    nslookup www.2lwynbseszpam.azurequickstart.org ns1-09.azure-dns.com.
@@ -109,13 +109,13 @@ Per distribuire il modello viene usato Azure PowerShell. Oltre ad Azure PowerShe
 
    Verrà visualizzata una schermata simile allo screenshot seguente:
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Nslookup della zona DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Modello di Resource Manager per la zona DNS di Azure: output della distribuzione con PowerShell":::
 
 Il nome host **www<span>.2lwynbseszpam.azurequickstart.</span>org** si risolve in **1.2.3.4** e **1.2.3.5**, così come è stato configurato. Questo risultato conferma il corretto funzionamento della risoluzione dei nomi.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando le risorse create con il circuito ExpressRoute non sono più necessarie, eliminare il gruppo di risorse. Oltre al circuito ExpressRoute verranno rimosse tutte le risorse correlate.
+Quando le risorse create con la zona DNS non sono più necessarie, eliminare il gruppo di risorse. Oltre alla zona DNS verranno rimosse tutte le risorse correlate.
 
 Per eliminare il gruppo di risorse, chiamare il cmdlet `Remove-AzResourceGroup`:
 

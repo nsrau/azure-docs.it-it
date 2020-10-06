@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 82bd284ede23e8880f79c614f4a6e2f588a4293c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b2648382fb19fafcfc342379aa9da974f6f8d1ff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74976996"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528420"
 ---
-# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Guida introduttiva: Creare ed effettuare il provisioning di un dispositivo simulato TPM usando l'SDK per dispositivi C# per il servizio Device Provisioning in hub IoT
+# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Avvio rapido: creare un dispositivo TPM simulato ed effettuarne il provisioning usando l'SDK per dispositivi Java per il servizio Device Provisioning in hub IoT.
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
@@ -23,12 +23,12 @@ Questa procedura illustra come usare gli [esempi di Azure IoT per C#](https://gi
 
 Il codice di esempio usa il simulatore Windows TPM come [modulo di protezione hardware](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) del dispositivo. 
 
-Se non si ha familiarità con il processo di provisioning automatico, è necessario vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). È anche necessario aver completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
+Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica relativa al [provisioning](about-iot-dps.md#provisioning-process). È anche necessario aver completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
 
 Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
 
-- [Gruppi di registrazioni](concepts-service.md#enrollment-group): Usato per registrare più dispositivi correlati.
-- [Registrazioni singole](concepts-service.md#individual-enrollment): Usato per registrare un singolo dispositivo.
+- [Gruppi di registrazioni](concepts-service.md#enrollment-group): usato per registrare più dispositivi correlati.
+- [Registrazioni singole](concepts-service.md#individual-enrollment): usato per registrare un singolo dispositivo.
 
 Questo articolo descrive le registrazioni singole.
 
@@ -49,7 +49,7 @@ Questo articolo descrive le registrazioni singole.
 
 ## <a name="provision-the-simulated-device"></a>Effettuare il provisioning del dispositivo simulato
 
-1. Accedere al portale di Azure. Selezionare il pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning. Nel pannello **Panoramica** prendere nota del valore di **_Ambito ID_** .
+1. Accedere al portale di Azure. Selezionare il pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning. Nel pannello **Panoramica** prendere nota del valore di **_Ambito ID_**.
 
     ![Copiare l'ID ambito del servizio di provisioning dal pannello del portale](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
 
@@ -67,7 +67,7 @@ Questo articolo descrive le registrazioni singole.
 
     Questo comando consentirà di avviare il simulatore di chip TPM in un'altra finestra del prompt dei comandi. In Windows potrebbe essere visualizzato un avviso di sicurezza Windows che chiede se si vuole consentire a Simulator.exe di comunicare su reti pubbliche. Ai fini di questo esempio si può annullare la richiesta.
 
-1. Nella finestra di comando originale vengono visualizzati la **_chiave di verifica dell'autenticità_** , l' **_ID registrazione_** e un **_ID dispositivo_** suggerito, necessari per la registrazione del dispositivo. Prendere nota di questi valori. Questi valori verranno usati per creare una registrazione singola nell'istanza del servizio Device Provisioning. 
+1. Nella finestra di comando originale vengono visualizzati la **_chiave di verifica dell'autenticità_**, l'**_ID registrazione_** e un **_ID dispositivo_** suggerito, necessari per la registrazione del dispositivo. Prendere nota di questi valori. Questi valori verranno usati per creare una registrazione singola nell'istanza del servizio Device Provisioning. 
    > [!NOTE]
    > Non confondere la finestra contenente l'output del comando con quella contenente l'output del simulatore TPM. Potrebbe essere necessario selezionare la finestra di comando originale per portarla in primo piano.
 
@@ -88,7 +88,7 @@ Questo articolo descrive le registrazioni singole.
 
    Dopo la corretta registrazione, l'*ID registrazione* del dispositivo verrà visualizzato nell'elenco della scheda *Individual Enrollments* (Registrazioni singole). 
 
-1. Per registrare il dispositivo simulato premere *INVIO* nella finestra di comando, ossia nella finestra in cui sono stati visualizzati la **_chiave di verifica dell'autenticità_** , l' **_ID registrazione_** e un **_ID dispositivo_** suggerito. Si notino i messaggi che simulano l'avvio e la connessione del dispositivo al servizio Device Provisioning per ottenere le informazioni dell'hub IoT. 
+1. Per registrare il dispositivo simulato premere *INVIO* nella finestra di comando, ossia nella finestra in cui sono stati visualizzati la **_chiave di verifica dell'autenticità_**, l'**_ID registrazione_** e un **_ID dispositivo_** suggerito. Si notino i messaggi che simulano l'avvio e la connessione del dispositivo al servizio Device Provisioning per ottenere le informazioni dell'hub IoT. 
 
 1. Verificare che il provisioning del dispositivo sia stato effettuato. Al termine del provisioning del dispositivo simulato nell'hub IoT collegato al servizio di provisioning, l'ID dispositivo verrà visualizzato nel pannello **Dispositivi IoT** dell'hub. 
 

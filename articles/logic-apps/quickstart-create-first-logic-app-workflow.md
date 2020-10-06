@@ -7,20 +7,20 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/23/2020
-ms.openlocfilehash: 980e3e036257bbf5aa9743025bbfb55065176a39
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c40bec80d9f61cf46221cbfe7dde80f3a7b46f6f
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133300"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658301"
 ---
-# <a name="quickstart-create-your-first-automated-integration-workflow-by-using-azure-logic-apps---azure-portal"></a>Avvio rapido: Creare il primo flusso di lavoro di integrazione automatizzato con App per la logica di Azure - Portale di Azure
+# <a name="quickstart-create-your-first-automated-integration-workflow-by-using-azure-logic-apps---azure-portal"></a>Creare il primo flusso di lavoro di integrazione automatizzato con App per la logica di Azure - Portale di Azure
 
 Questa guida di avvio rapido introduce i concetti generali di base sulla creazione del primo flusso di lavoro usando [App per la logica di Azure](logic-apps-overview.md), ad esempio la creazione di un'app per la logica vuota, l'aggiunta di un trigger e un'azione e il test dell'app per la logica. In questa guida di avvio rapido viene creata un'app per la logica che verifica la presenza di nuovi elementi nel feed RSS di un sito Web a intervalli regolari. Se sono presenti nuovi elementi, l'app per la logica invia un messaggio di posta elettronica per ogni elemento. Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di lavoro simile al seguente:
 
 ![Immagine concettuale che mostra un esempio generale di flusso di lavoro dell'app per la logica.](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-Per questo scenario, sono necessari una sottoscrizione di Azure o l'[iscrizione per un account Azure gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) e un account di posta elettronica di un servizio supportato da App per la logica di Azure, ad esempio Office 365 Outlook, Outlook.com o Gmail. Per altri servizi di posta elettronica supportati, [vedere l'elenco dei connettori](/connectors/). In questo esempio l'app per la logica usa un account Office 365 Outlook. Se si usa un servizio di posta elettronica diverso, la procedura generale complessiva è la stessa, ma l'interfaccia utente potrebbe essere leggermente diversa.
+Per questo scenario, sono necessari una sottoscrizione di Azure o l'[iscrizione per un account Azure gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) e un account di posta elettronica di un servizio supportato da App per la logica di Azure, ad esempio Office 365 Outlook, Outlook.com o Gmail. Per altri servizi di posta elettronica supportati, [vedere l'elenco dei connettori](/connectors/). In questo esempio l'app per la logica usa un account aziendale o dell'istituto di istruzione. Se si usa un servizio di posta elettronica diverso, la procedura generale complessiva è la stessa, ma l'interfaccia utente potrebbe essere leggermente diversa.
 
 > [!IMPORTANT]
 > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
@@ -41,7 +41,7 @@ Per questo scenario, sono necessari una sottoscrizione di Azure o l'[iscrizione 
 
    ![Screenshot che mostra il riquadro di creazione delle app per la logica con i dettagli per la nuova app per la logica.](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | Proprietà | valore | Descrizione |
+   | Proprietà. | valore | Descrizione |
    |----------|-------|-------------|
    | **Nome** | <*logic-app-name*> | Il nome dell'app per la logica, che deve essere univoco tra le varie aree e può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) e punti (`.`). Questo esempio usa "My-First-Logic-app". |
    | **Sottoscrizione** | <*nome sottoscrizione di Azure*> | Il nome della sottoscrizione di Azure |
@@ -78,7 +78,7 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
    ![Screenshot che mostra la finestra Progettazione app per la logica con le impostazioni del trigger RSS, tra cui URL RSS, frequenza e intervallo.](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
-   | Proprietà | valore | Descrizione |
+   | Proprietà. | valore | Descrizione |
    |----------|-------|-------------|
    | **URL feed RSS** | <*RSS-feed-URL*> | Collegamento per il feed RSS che si vuole monitorare. Questo esempio usa il feed RSS del Wall Street Journal all'indirizzo `https://feeds.a.dj.com/rss/RSSMarketsMain.xml`, ma se si vuole, è possibile usare l'URL del proprio feed RSS. |
    | **Interval** | 1 | Numero di intervalli di attesa tra i controlli |
@@ -148,13 +148,13 @@ Aggiungere un'[azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
       ![Screenshot che mostra la finestra Progettazione app per la logica con l'azione "Invia un messaggio di posta elettronica" e un esempio di oggetto del messaggio con la proprietà "Titolo feed" inclusa.](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
 
-      Se nella finestra di progettazione viene visualizzato un ciclo "For each", è stato selezionato un token per una matrice, ad esempio il token **categories-item**. Per questi tipi di token la finestra di progettazione aggiunge automaticamente questo ciclo intorno all'azione che fa riferimento a tale token. In questo modo, l'app per la logica esegue la stessa azione su ogni elemento della matrice. Per rimuovere il ciclo, selezionare i **puntini di sospensione** ( **...** ) nella barra del titolo del ciclo e quindi scegliere **Elimina**.
+      Se nella finestra di progettazione viene visualizzato un ciclo "For each", è stato selezionato un token per una matrice, ad esempio il token **categories-item**. Per questi tipi di token la finestra di progettazione aggiunge automaticamente questo ciclo intorno all'azione che fa riferimento a tale token. In questo modo, l'app per la logica esegue la stessa azione su ogni elemento della matrice. Per rimuovere il ciclo, selezionare i **puntini di sospensione** (**...**) nella barra del titolo del ciclo e quindi scegliere **Elimina**.
 
    1. Nella casella **Corpo** immettere questo testo e selezionare questi token per il corpo del messaggio di posta elettronica. Per aggiungere righe vuote in una casella di modifica, premere MAIUSC+INVIO.
 
       ![Screenshot che mostra la finestra Progettazione app per la logica con l'azione "Invia un messaggio di posta elettronica" e le proprietà selezionate all'interno della casella "Corpo".](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
 
-      | Proprietà | Descrizione |
+      | Proprietà. | Descrizione |
       |----------|-------------|
       | **Titolo feed** | Titolo dell'elemento |
       | **Data di pubblicazione del feed** | Data e ora di pubblicazione dell'elemento |

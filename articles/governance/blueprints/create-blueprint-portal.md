@@ -3,18 +3,18 @@ title: 'Avvio rapido: Creare un progetto nel portale'
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti tramite il portale di Azure.
 ms.date: 08/27/2020
 ms.topic: quickstart
-ms.openlocfilehash: a37c621e0a90a0748d3ddc3fda34612c54712ed9
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bb9aeb4d4b96227f7bf7296854c56df4058fbe69
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051523"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648649"
 ---
-# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Avvio rapido: Definire e assegnare un progetto nel portale
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Definire e assegnare un progetto nel portale
 
 Quando si impara a creare e assegnare progetti è possibile definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Resource Manager (modelli ARM), criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprints per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione. Queste attività includono:
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 
@@ -28,7 +28,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
    Selezionare **Crea** nella pagina **Attività iniziali** per passare direttamente alla creazione di un progetto.
 
-   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="Creare un progetto nella pagina Definizioni di progetto" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="Screenshot del pulsante &quot;Crea progetto&quot; nella pagina Definizioni di progetto." border="false":::
 
 1. Selezionare **Inizia con un progetto vuoto** dalla scheda nella parte superiore dell'elenco di progetti predefiniti.
 
@@ -36,7 +36,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
 1. Nella casella **Località della definizione** selezionare i puntini di sospensione a destra, selezionare il [gruppo di gestione](../management-groups/overview.md) o la sottoscrizione in cui si vuole salvare il progetto e scegliere **Seleziona**.
 
-1. Verificare che le informazioni siano corrette. I campi **Nome progetto** e **Località della definizione** non potranno essere modificati successivamente. Selezionare quindi **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
+1. Verificare che le informazioni siano corrette. I campi **Nome progetto** e **Località della definizione** non potranno essere modificati successivamente. Fare clic su **Avanti: Elementi** nella parte inferiore della pagina o nella scheda **Elementi** nella parte superiore della pagina.
 
 1. Aggiungere un'assegnazione di ruolo al livello di sottoscrizione:
 
@@ -48,7 +48,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
    1. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="Assegnazione di ruolo per un artefatto del progetto" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="Screenshot del pulsante &quot;Crea progetto&quot; nella pagina Definizioni di progetto." border="false":::
 
    > [!NOTE]
    > La maggior parte degli artefatti supporta parametri. Un parametro cui è assegnato un valore durante la creazione del progetto è un _parametro statico_. Se il parametro viene assegnato durante l'assegnazione del progetto, si tratta di un _parametro dinamico_. Per altre informazioni, vedere [Blueprint parameters](./concepts/parameters.md) (Parametri per i progetti).
@@ -143,11 +143,11 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
    1. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="Modello di Resource Manager per l'artefatto del progetto" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="Screenshot del pulsante &quot;Crea progetto&quot; nella pagina Definizioni di progetto." border="false":::
 
 1. Il progetto completo sarà simile al seguente. Notare che ogni elemento ha **_x_ parametri popolati su _y_** nella colonna **Parametri**. I parametri dinamici vengono impostati durante ogni assegnazione del progetto.
 
-   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="Definizione del progetto completata" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="Screenshot del pulsante &quot;Crea progetto&quot; nella pagina Definizioni di progetto." border="false":::
 
 1. Ora che sono stati aggiunti tutti gli elementi pianificati, selezionare **Salva bozza** nella parte inferiore della pagina.
 
@@ -159,9 +159,9 @@ In [Creare un progetto](#create-a-blueprint) non è stata fornita alcuna descriz
 
 1. Nell'elenco di progetti fare clic con il pulsante destro del mouse su quello creato in precedenza e scegliere **Modifica progetto**.
 
-1. In **Descrizione del progetto** fornire alcune informazioni sul progetto e sugli elementi che lo costituiscono. In questo caso, immettere una descrizione simile a quella che segue: **Questo progetto imposta criteri di tag e un'assegnazione di ruolo nella sottoscrizione, crea un gruppo di risorse e distribuisce al suo interno un modello di risorsa e un'assegnazione di ruolo**.
+1. In **Descrizione del progetto** fornire alcune informazioni sul progetto e sugli elementi che lo costituiscono. In questo caso, immettere una descrizione simile a: "Questo progetto imposta criteri di tag e un'assegnazione di ruolo nella sottoscrizione, crea un gruppo di risorse e distribuisce un modello di risorsa e un'assegnazione di ruolo nel gruppo di risorse".
 
-1. Selezionare **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
+1. Fare clic su **Avanti: Elementi** nella parte inferiore della pagina o nella scheda **Elementi** nella parte superiore della pagina.
 
 1. Aggiungere un'assegnazione di ruolo nel gruppo di risorse:
 
@@ -175,11 +175,11 @@ In [Creare un progetto](#create-a-blueprint) non è stata fornita alcuna descriz
 
    1. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="Seconda assegnazione di ruolo per l'artefatto del progetto" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="Screenshot del pulsante &quot;Crea progetto&quot; nella pagina Definizioni di progetto." border="false":::
 
 1. Il progetto completo sarà simile al seguente. Si noti che l'assegnazione di ruolo appena aggiunta indica **1 parametro popolato su 1**. Questo significa che si tratta di un parametro statico.
 
-   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint-2.png" alt-text="Seconda definizione del progetto completato" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint-2.png" alt-text="Screenshot del pulsante &quot;Crea progetto&quot; nella pagina Definizioni di progetto." border="false":::
 
 1. Selezionare **Salva bozza** ora che il progetto è stato aggiornato.
 
@@ -218,7 +218,7 @@ Una volta pubblicato, un progetto può essere assegnato a una sottoscrizione. As
 
    1. Selezionare **Crea** nella parte inferiore della pagina.
 
-      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="Creare una sottoscrizione per una sottoscrizione di assegnazione del progetto" border="false":::
+      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="Screenshot del pulsante &quot;Crea progetto&quot; nella pagina Definizioni di progetto." border="false":::
 
       > [!IMPORTANT]
       > La nuova sottoscrizione viene creata subito dopo aver selezionato **Crea**.
@@ -234,11 +234,11 @@ Una volta pubblicato, un progetto può essere assegnato a una sottoscrizione. As
 
 1. Per **Blocca assegnazione**, lasciare il valore predefinito **Non bloccare**. Per altre informazioni, vedere l'articolo sul [blocco risorse di Azure Blueprints](./concepts/resource-locking.md).
 
-   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="Blocco e identità gestite per l'assegnazione" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="Screenshot del pulsante &quot;Crea progetto&quot; nella pagina Definizioni di progetto." border="false":::
 
 1. In **Identità gestita** lasciare invariata l'impostazione predefinita **Assegnata dal sistema**.
 
-1. Per l'assegnazione di ruolo a livello di sottoscrizione **[gruppo di utenti o nome applicazione]: Collaboratore**, cercare e selezionare un utente, un'app o un gruppo.
+1. Per l'assegnazione di ruolo a livello di sottoscrizione **[Gruppo di utenti o nome applicazione]: Collaboratore**, cercare e selezionare un utente, un'app o un gruppo.
 
 1. Per l'assegnazione di criteri a livello di sottoscrizione, impostare **Nome tag** su **Centro di costo** e **Valore del tag** su **ContosoIT**.
 
@@ -265,7 +265,7 @@ Ora che il progetto è stato assegnato a una sottoscrizione, verificare lo stato
 
 1. Nell'elenco di progetti fare clic con il pulsante destro del mouse su quello assegnato in precedenza e scegliere **Visualizza i dettagli dell'assegnazione**.
 
-   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Visualizzare i dettagli dell'assegnazione nella finestra Progetti assegnati" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Screenshot del pulsante &quot;Crea progetto&quot; nella pagina Definizioni di progetto." border="false":::
 
 1. Nella pagina **Assegnazione progetto** verificare che tutti gli artefatti siano stati distribuiti correttamente e che non si siano verificati errori durante la distribuzione. In caso di errori, vedere [Troubleshooting blueprints](./troubleshoot/general.md) (Risoluzione dei problemi dei progetti) per istruzioni su come determinare gli eventuali problemi.
 

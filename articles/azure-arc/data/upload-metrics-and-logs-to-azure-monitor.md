@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3e3b804e2a3c43eb9579d1c6a1195511df528de2
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: d508e2e24ac35171d87cdba9cb79981dfb8764e3
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629999"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757470"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Caricare i dati di utilizzo, le metriche e i log in monitoraggio di Azure
 
@@ -95,7 +95,7 @@ Seguire questi comandi per creare le metriche caricare un'entità servizio e ass
 Per creare un'entità servizio, eseguire questo comando:
 
 > [!NOTE]
-> Per la creazione di un'entità servizio sono necessarie [determinate autorizzazioni in Azure](/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+> Per la creazione di un'entità servizio sono necessarie [determinate autorizzazioni in Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
 
 ```console
 az ad sp create-for-rbac --name <a name you choose>
@@ -313,7 +313,7 @@ Per caricare le metriche per le istanze gestite di SQL Azure Arc abilitate e i g
    >[!NOTE]
    >Attendere almeno 30 minuti dopo la creazione di istanze di dati abilitate per Azure Arc per il primo caricamento
    >
-   >Assicurarsi che `upload` la metrica immediatamente dopo `export` come monitoraggio di Azure accetti solo le metriche per gli ultimi 30 minuti. [Scopri di più](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)
+   >Assicurarsi che `upload` la metrica immediatamente dopo `export` come monitoraggio di Azure accetti solo le metriche per gli ultimi 30 minuti. [Altre informazioni](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)
 
 
 Se viene visualizzato un errore che indica l'impossibilità di ottenere le metriche durante l'esportazione, verificare che la raccolta dati sia impostata su ```true``` eseguendo il comando seguente:

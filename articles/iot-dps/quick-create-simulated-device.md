@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Effettuare il provisioning di un dispositivo TPM simulato nell'hub IoT di Azure usando C"
+title: Avvio rapido - Effettuare il provisioning di un dispositivo TPM simulato nell'hub IoT di Azure con C#
 description: Questa guida introduttiva usa registrazioni singole. In questa guida di avvio rapido viene creato un dispositivo TPM simulato e ne viene effettuato il provisioning con l'SDK per dispositivi C per il servizio Device Provisioning in hub IoT di Azure.
 author: wesmc7777
 ms.author: wesmc
@@ -12,34 +12,34 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
-ms.openlocfilehash: 5d52cd134c8c0f1702f57bff1f60bffa12ef6f4d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 5d594aeaee7b80bcac28f060a1d86e6c08d2cf05
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687233"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524726"
 ---
-# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato TPM tramite l'SDK IoT di Azure
+# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato TPM tramite Azure IoT C SDK
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
 In questa guida introduttiva si apprenderà come creare ed eseguire un simulatore di dispositivo TPM (Trusted Platform Module) in un computer di sviluppo Windows. Si connetterà il dispositivo simulato a un hub IoT usando un'istanza del servizio Device Provisioning. Verrà usato codice di esempio da [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) per facilitare la registrazione del dispositivo in un'istanza del servizio Device Provisioning e simulare una sequenza di avvio per il dispositivo.
 
-Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). Assicurarsi anche di avere completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare con questa guida introduttiva. 
+Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica relativa al [provisioning](about-iot-dps.md#provisioning-process). Assicurarsi anche di avere completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare con questa guida introduttiva. 
 
 Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
-- [Gruppi di registrazioni](concepts-service.md#enrollment-group): Usato per registrare più dispositivi correlati.
-- [Registrazioni singole](concepts-service.md#individual-enrollment): Usato per registrare un singolo dispositivo.
+- [Gruppi di registrazioni](concepts-service.md#enrollment-group): usato per registrare più dispositivi correlati.
+- [Registrazioni singole](concepts-service.md#individual-enrollment): usato per registrare un singolo dispositivo.
 
 Questo articolo descrive le registrazioni singole.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 I prerequisiti seguenti si riferiscono a un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione dell'SDK.
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con il carico di lavoro ['Sviluppo di applicazioni desktop con C++'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con il carico di lavoro ['Sviluppo di applicazioni desktop con C++'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
 
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
@@ -74,7 +74,7 @@ In questa sezione si preparerà un ambiente di sviluppo usato per compilare [Azu
 
 ## <a name="build-the-sdk-and-run-the-tpm-device-simulator"></a>Compilare l'SDK ed eseguire il simulatore di dispositivo TPM
 
-In questa sezione si compilerà Azure IoT C SDK, che include il codice di esempio del simulatore di dispositivo TPM. Questo esempio offre un [meccanismo di attestazione](concepts-security.md#attestation-mechanism) TPM tramite l'autenticazione di token di firma di accesso condiviso (SAS).
+In questa sezione si compilerà Azure IoT C SDK, che include il codice di esempio del simulatore di dispositivo TPM. Questo esempio offre un [meccanismo di attestazione](concepts-service.md#attestation-mechanism) TPM tramite l'autenticazione di token di firma di accesso condiviso (SAS).
 
 1. Dalla sottodirectory `cmake` creata nel repository Git azure-iot-sdk-c, eseguire il comando seguente per compilare l'esempio. Tramite questo comando di compilazione verrà generata anche una soluzione di Visual Studio per il dispositivo simulato.
 
@@ -123,7 +123,7 @@ In questa sezione verrà compilato ed eseguito un esempio che leggerà la chiave
 
 3. Nella finestra *Esplora soluzioni* di Visual Studio passare alla cartella **Provision\_Tools**. Fare clic con il pulsante destro del mouse sul progetto **tpm_device_provision** e scegliere **Imposta come progetto di avvio**. 
 
-4. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. L'app legge e visualizza un **_ID registrazione_** e una **_Chiave di approvazione_** . Prendere nota di questi valori o copiarli. Questi valori verranno usati nella sezione successiva per la registrazione del dispositivo. 
+4. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. L'app legge e visualizza un **_ID registrazione_** e una **_Chiave di approvazione_**. Prendere nota di questi valori o copiarli. Questi valori verranno usati nella sezione successiva per la registrazione del dispositivo. 
 
 
 <a id="portalenrollment"></a>
@@ -154,7 +154,7 @@ In questa sezione verrà compilato ed eseguito un esempio che leggerà la chiave
 
 In questa sezione si configurerà il codice di esempio per l'uso di [AMQP (Advanced Message Queuing Protocol)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) per inviare la sequenza di avvio del dispositivo all'istanza del servizio Device Provisioning. Con questa sequenza di avvio il dispositivo verrà riconosciuto e assegnato a un hub IoT collegato all'istanza del servizio Device Provisioning.
 
-1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e copiare il valore **_Ambito ID_** .
+1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e copiare il valore **_Ambito ID_**.
 
     ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal portale](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 

@@ -1,47 +1,53 @@
 ---
-title: Informazioni sull'API Analisi del testo - Funzionalità -
+title: Text mining e analisi del testo con l'API Analisi del testo - Servizi cognitivi di Azure
 titleSuffix: Azure Cognitive Services
-description: Usare l'API Analisi del testo di Servizi cognitivi di Azure per l'analisi del sentiment, l'estrazione di frasi chiave, il rilevamento della lingua e il riconoscimento delle entità.
+description: Informazioni sul text mining con l'API Analisi del testo. Usare questa funzionalità per l'analisi del sentiment, il rilevamento della lingua e altre forme di elaborazione del linguaggio naturale.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+keywords: text mining, analisi del sentiment, analisi del testo
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000958"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647462"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
-L'API Analisi del testo è un servizio basato su cloud che garantisce l'elaborazione avanzata in linguaggio naturale su testo non elaborato e include quattro funzioni principali: analisi del sentiment, estrazione di frasi chiave, rilevamento della lingua e riconoscimento di entità denominate.
+L'API Analisi del testo è un servizio basato su cloud che offre funzionalità di elaborazione del linguaggio naturale per text mining e analisi del testo e include analisi del sentiment, opinion mining, estrazione di frasi chiave, rilevamento della lingua e riconoscimento dell'entità denominata.
 
-L'API fa parte di [Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/), una raccolta di algoritmi di Machine Learning e intelligenza artificiale disponibili nel cloud per i progetti di sviluppo.
+L'API fa parte di [Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/), una raccolta di algoritmi di Machine Learning e intelligenza artificiale disponibili nel cloud per i progetti di sviluppo. È possibile usare queste funzionalità con l'[API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) o la [libreria client](quickstarts/text-analytics-sdk.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-L'analisi del testo può avere diversi significati, ma in Servizi cognitivi l'API Analisi del testo offre quattro tipi di analisi, come descritto nella tabella seguente. È possibile usare queste funzionalità con l'[API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) o la [libreria client](quickstarts/text-analytics-sdk.md).
-
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
-Usare l'[analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis.md) per conoscere l'opinione dei clienti su un marchio o su un argomento analizzando il testo non elaborato alla ricerca di indizi su sentiment positivo o negativo. L'API restituisce un punteggio sentiment compreso tra 0 e 1 per ogni documento, dove 1 è il risultato più positivo.<br /> I modelli di analisi vengono formati preventivamente usando un corpo completo di testo e tecnologie di linguaggio naturale di Microsoft. Per [alcune lingue](text-analytics-supported-languages.md), l'API può analizzare e assegnare punteggi a qualsiasi testo non elaborato fornito dall'utente, restituendo direttamente i risultati all'applicazione chiamante.
 
-## <a name="key-phrase-extraction"></a>Estrazione frasi chiave
-[Estrae frasi chiave](how-tos/text-analytics-how-to-keyword-extraction.md) in modo automatico per identificare rapidamente i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso".
+Usare l'[analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis.md) e conoscere l'opinione delle persone su un marchio o su un argomento eseguendo il text mining alla ricerca di indizi su sentiment positivo o negativo. Questa funzionalità dell'API restituisce un punteggio sentiment compreso tra 0 e 1 per ogni documento, dove 1 è il risultato più positivo.
 
-## <a name="language-detection"></a>Rilevamento lingua
-È possibile [rilevare la lingua in cui è stato scritto il testo di input](how-tos/text-analytics-how-to-language-detection.md) e indicare un singolo codice lingua per ogni documento inviato nella richiesta in un'ampia varietà di lingue, varianti, dialetti e alcune lingue regionali/culturali. Il codice lingua è associato a un punteggio che indica il livello di attendibilità.
+A partire dalla versione 3.1 in anteprima, l'opinion mining è una funzionalità di Analisi del sentiment. Nota anche come analisi del sentiment basata su aspetto nell'elaborazione del linguaggio naturale (NLP), questa funzionalità fornisce informazioni più granulari sulle opinioni relative ad aspetti del testo come gli attributi di prodotti o servizi.
+
+## <a name="key-phrase-extraction"></a>Estrazione di frasi chiave
+
+Usare l'[estrazione di frasi chiave](how-tos/text-analytics-how-to-keyword-extraction.md) per identificare rapidamente i concetti principali del testo. Ad esempio, per il testo "Il cibo era delizioso e il personale era meraviglioso", Estrazione frasi chiave restituirà i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso".
+
+## <a name="language-detection"></a>Rilevamento della lingua
+
+Questa funzionalità consente di [rilevare la lingua in cui è stato scritto il testo di input](how-tos/text-analytics-how-to-language-detection.md) e indicare un singolo codice lingua per ogni documento inviato nella richiesta in un'ampia gamma di lingue, varianti, dialetti e alcune lingue regionali/culturali. Il codice lingua è associato a un punteggio che indica il livello di attendibilità.
 
 ## <a name="named-entity-recognition"></a>Riconoscimento di entità denominate
-[Identificare e classificare le entità](how-tos/text-analytics-how-to-entity-linking.md) nel testo, come persone, luoghi, organizzazioni, data/ora, quantità, percentuali, valute e altro ancora. Le entità più note vengono anche riconosciute e collegate ad altre informazioni sul Web.
+
+Riconoscimento entità denominata può [identificare e classificare le entità](how-tos/text-analytics-how-to-entity-linking.md) nel testo come persone, luoghi, organizzazioni e quantità. Anche le entità note vengono riconosciute e collegate a altre informazioni sul Web.
 
 ## <a name="use-containers"></a>Usare i contenitori
 
-[Usare i contenitori di Analisi del testo](how-tos/text-analytics-how-to-install-containers.md) per estrarre frasi chiave, rilevare la lingua e analizzare il sentiment in locale installando contenitori Docker standardizzati più vicino ai dati.
+[Usare i contenitori di Analisi del testo](how-tos/text-analytics-how-to-install-containers.md) come soluzione locale per il text mining e l'uso dell'API. Questi contenitori Docker consentono di estrarre frasi chiave, rilevare la lingua e analizzare il sentiment attenendosi ai dati.
 
 ## <a name="typical-workflow"></a>Flusso di lavoro tipico
 

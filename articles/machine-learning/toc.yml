@@ -128,7 +128,7 @@
     - name: Destinazione del calcolo
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
-    - name: Data
+    - name: Dati
       items:
         - name: Accesso ai dati
           href: concept-data.md
@@ -235,17 +235,23 @@
         - name: Usare i modelli di Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: Creare le risorse di calcolo
+    - name: Creare e gestire risorse di calcolo
       items:
-        - name: Usare Studio
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
-          href: how-to-create-attach-compute-studio.md
-        - name: Usare Python SDK
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
-          href: how-to-create-attach-compute-sdk.md
+        - name: Istanza di calcolo
+          displayName: compute target
+          href: how-to-create-manage-compute-instance.md
+        - name: Cluster di calcolo
+          displayName: 'compute target, low priority, managed identity'
+          href: how-to-create-attach-compute-cluster.md
         - name: Servizio Azure Kubernetes
           displayName: 'AKS, inference'
           href: how-to-create-attach-kubernetes.md
+        - name: Collegare risorse personali
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-attach-compute-targets.md
+        - name: Usare Studio
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity'
+          href: how-to-create-attach-compute-studio.md
     - name: Configurare l'ambiente
       items:
         - name: Configurare gli ambienti di sviluppo

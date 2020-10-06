@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: 676d287969933d4815260f040b164753ec5803e1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: f66eaaa3be0b300f6a0aa68bd43a2c336f4b4d23
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88754872"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526630"
 ---
 # <a name="what-is-azure-hdinsight"></a>Che cos'è Azure HDInsight?
 
@@ -36,7 +36,7 @@ Questa sezione elenca le funzionalità di Azure HDInsight.
 |Funzionalità  |Descrizione  |
 |---------|---------|
 |Cloud nativo     |     Azure HDInsight permette di creare cluster ottimizzati per [Hadoop](./hadoop/apache-hadoop-linux-tutorial-get-started.md), [Spark](./spark/apache-spark-jupyter-spark-sql.md), [Interactive Query (LLAP)](./interactive-query/apache-interactive-query-get-started.md), [Kafka](./kafka/apache-kafka-get-started.md), [Storm](./storm/apache-storm-tutorial-get-started-linux.md), [HBase](./hbase/apache-hbase-tutorial-get-started-linux.md) e  [ML Services](./r-server/r-server-overview.md) in Azure. HDInsight fornisce anche un contratto di servizio end-to-end per tutti i carichi di lavoro di produzione.  |
-|Costi contenuti e scalabilità     | HDInsight consente di [ridimensionare](./hdinsight-administer-use-portal-linux.md#scale-clusters) i carichi di lavoro aumentando o riducendo le prestazioni. È possibile ridurre il costo  [creando cluster su richiesta](./hdinsight-hadoop-create-linux-clusters-adf.md)  e pagando solo per le risorse usate. È anche possibile compilare pipeline di dati per rendere operativi i processi. Calcolo e archiviazione disaccoppiati offrono migliori prestazioni e flessibilità. |
+|Costi contenuti e scalabilità     | HDInsight consente di [ridimensionare](./hdinsight-administer-use-portal-linux.md#scale-clusters) i carichi di lavoro aumentando o riducendo le prestazioni.È possibile ridurre il costo  [creando cluster su richiesta](./hdinsight-hadoop-create-linux-clusters-adf.md)  e pagando solo per le risorse usate. È anche possibile compilare pipeline di dati per rendere operativi i processi. Calcolo e archiviazione disaccoppiati offrono migliori prestazioni e flessibilità. |
 |Sicurezza e conformità    | HDInsight consente di proteggere i dati aziendali usando [Rete virtuale di Azure](./hdinsight-plan-virtual-network-deployment.md), la [crittografia](./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) e l'integrazione con [Azure Active Directory](./domain-joined/hdinsight-security-overview.md). HDInsight soddisfa anche i più diffusi [standard di conformità](https://azure.microsoft.com/overview/trusted-cloud) del settore e governativi.        |
 |Monitoraggio    | Azure HDInsight si integra con i [log di Monitoraggio di Azure](./hdinsight-hadoop-oms-log-analytics-tutorial.md) per fornire una singola interfaccia che consente di monitorare tutti i cluster.        |
 |Disponibilità globale | HDInsight è disponibile in più  [aree](https://azure.microsoft.com/regions/services/)  di qualsiasi altra offerta di analisi di Big Data. Azure HDInsight è anche disponibile in Azure per enti pubblici, Cina e Germania per soddisfare le esigenze aziendali nelle principali aree sovrane. |  
@@ -55,25 +55,25 @@ L'estrazione, trasformazione e caricamento (ETL) è un processo in cui dati stru
 
 È possibile usare HDInsight per eseguire query interattive nell'ordine di grandezza di petabyte su dati strutturati o non strutturati in qualsiasi formato. È anche possibile compilare modelli che le connettono a strumenti di business intelligence. Per altre informazioni, [vedere la storia di questo cliente](https://customers.microsoft.com/story/milliman).
 
-![Architettura di HDInsight: Data warehousing](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "Architettura del data warehousing di HDInsight")
+Architettura di HDInsight: data warehouse
 
 ### <a name="internet-of-things-iot"></a>Internet delle cose
 
 È possibile usare HDInsight per elaborare dati di streaming ricevuti in tempo reale da diversi tipi di dispositivi. Per altre informazioni, [leggere questo post di blog di Azure che annuncia l'anteprima pubblica di Apache Kafka su HDInsight con Azure Managed Disks](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
 
-![Architettura di HDInsight: Internet delle cose](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-iot.png "Architettura IoT di HDInsight")
+Architettura di HDInsight: Internet delle cose
 
 ### <a name="data-science"></a>Data science
 
 HDInsight consente di compilare applicazioni che estraggono informazioni critiche dai dati. È anche possibile usare Azure Machine Learning per prevedere le tendenze future per l'azienda. Per altre informazioni, [vedere la storia di questo cliente](https://customers.microsoft.com/story/pros).
 
-![Architettura di HDInsight: Data science](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-science.png "Architettura data science di HDInsight")
+Architettura di HDInsight: data science
 
 ### <a name="hybrid"></a>Ibrido
 
 È possibile usare HDInsight per estendere l'infrastruttura per Big Data locale esistente ad Azure per sfruttare le funzionalità di analisi avanzata del cloud.
 
-![Architettura di HDInsight: Ibrida](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png "Architettura ibrida di HDInsight")
+Architettura di HDInsight: ibrida
 
 ## <a name="cluster-types-in-hdinsight"></a>Tipi di cluster in HDInsight
 
@@ -129,9 +129,19 @@ Gli strumenti di business intelligence (BI) noti consentono di recuperare, anali
 
 * [Connettere Excel ad Apache Hadoop con Microsoft Hive ODBC Driver](./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md) (richiede Windows)
 
+
+## <a name="in-region-data-residency"></a>Residenza dei dati nell'area geografica 
+
+Spark, Hadoop, LLAP, Storm e MLService non archiviano i dati dei clienti, quindi questi servizi soddisfano automaticamente i requisiti di residenza dei dati nell'area geografica, inclusi quelli specificati in [Centro protezione](https://azuredatacentermap.azurewebsites.net/). 
+
+Kafka e HBase non archiviano i dati dei clienti. Questi dati vengono archiviati automaticamente da Kafka e HBase in una singola area geografica, quindi questo servizio soddisfa i requisiti di residenza dei dati nell'area geografica, inclusi quelli specificati in [Centro protezione](https://azuredatacentermap.azurewebsites.net/). 
+
+
+Gli strumenti di business intelligence (BI) noti consentono di recuperare, analizzare e creare report di dati integrati con HDInsight usando il componente aggiuntivo Power Query o Microsoft Hive ODBC Driver.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un cluster Apache Hadoop in HDInsight](./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
-* [Creare un cluster Apache Spark - Portale](./spark/apache-spark-jupyter-spark-sql-use-portal.md)
+* Creare un cluster Apache Spark - Portale
 * [Pianificare una rete virtuale per Azure HDInsight](hdinsight-plan-virtual-network-deployment.md)
 * [Sicurezza aziendale in Azure HDInsight](./domain-joined/hdinsight-security-overview.md)

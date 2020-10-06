@@ -1,17 +1,17 @@
 ---
-title: 'Avvio rapido: Nuova assegnazione di criteri con i modelli'
+title: Nuova assegnazione di criteri con i modelli
 description: In questo argomento di avvio rapido viene usato un modello di Azure Resource Manager (modello ARM) per creare un'assegnazione di criteri per identificare le risorse non conformi.
 ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 2f012f9cc8f986f8f887096098961e44c4b7dffb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689848"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651423"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Avvio rapido: Creare un'assegnazione di criteri per identificare le risorse non conformi tramite un modello di Resource Manager
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Creare un'assegnazione di criteri per identificare le risorse non conformi tramite un modello di Resource Manager
 
 Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse.
 Questa guida di avvio rapido illustra come usare un modello di Azure Resource Manager per creare un'assegnazione di criteri e identificare le macchine virtuali che non usano dischi gestiti. Alla fine di questo processo, verranno identificate le macchine virtuali che non usano dischi gestiti e che sono quindi _non conformi_ all'assegnazione di criteri.
@@ -20,9 +20,9 @@ Questa guida di avvio rapido illustra come usare un modello di Azure Resource Ma
 
 Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuire il modello di Resource Manager per l'assegnazione di criteri di Azure ad Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Pulsante per distribuire il modello di Resource Manager per l'assegnazione di criteri di Azure ad Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -45,7 +45,7 @@ Nel modello è definita la risorsa seguente:
 
 1. Fare clic sull'immagine seguente per accedere al portale di Azure e aprire il modello:
 
-   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuire il modello di Resource Manager per l'assegnazione di criteri di Azure ad Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Pulsante per distribuire il modello di Resource Manager per l'assegnazione di criteri di Azure ad Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. Selezionare o immettere i valori seguenti:
 
@@ -55,7 +55,7 @@ Nel modello è definita la risorsa seguente:
    | Resource group | Selezionare **Crea nuovo**, specificare un nome e quindi fare clic su **OK**. Nello screenshot il nome del gruppo di risorse è _mypolicyquickstart\<Date in MMDD\>rg_. |
    | Location | Scegliere un'area, Ad esempio **Stati Uniti centrali**. |
    | Nome assegnazione criteri | Specificare un nome per l'assegnazione di criteri. È anche possibile usare il nome visualizzato della definizione dei criteri, ad esempio _Controlla macchine virtuali che non usano dischi gestiti_. |
-   | Nome gruppo di risorse | Specificare il nome di un gruppo di risorse a cui si vogliono assegnare i criteri. In questo argomento di avvio rapido usare il valore predefinito **[resourceGroup().name]** . **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** è una funzione di modello che recupera il gruppo di risorse. |
+   | Nome gruppo di risorse | Specificare il nome di un gruppo di risorse a cui si vogliono assegnare i criteri. In questo argomento di avvio rapido usare il valore predefinito **[resourceGroup().name]**. **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** è una funzione di modello che recupera il gruppo di risorse. |
    | ID definizione criteri | Specificare **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | Accetto le condizioni riportate sopra | (selezionare) |
 
@@ -72,7 +72,7 @@ Alcune risorse aggiuntive:
 
 Selezionare **Assegnazioni** a sinistra nella pagina. Individuare l'assegnazione dei criteri _Audit VMs that do not use managed disks_ (Controllare le macchine virtuali che non usano Managed Disks) creata.
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Pagina di panoramica della conformità ai criteri" border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Pulsante per distribuire il modello di Resource Manager per l'assegnazione di criteri di Azure ad Azure." border="false":::
 
 Le eventuali risorse esistenti non conformi a questa nuova assegnazione verranno visualizzate nella scheda **Non-compliant resources** (Risorse non conformi).
 
@@ -86,7 +86,7 @@ Per rimuovere l'assegnazione creata, eseguire la procedura seguente:
 
 1. Fare clic con il pulsante destro del mouse sull'assegnazione di criteri _Controlla macchine virtuali che non usano dischi gestiti_ e scegliere **Elimina assegnazione**.
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Eliminare un'assegnazione dalla pagina di panoramica della conformità" border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Pulsante per distribuire il modello di Resource Manager per l'assegnazione di criteri di Azure ad Azure." border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

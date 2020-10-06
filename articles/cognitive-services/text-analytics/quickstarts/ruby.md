@@ -1,7 +1,7 @@
 ---
-title: "Avvio rapido: Uso di Ruby per chiamare l'API Analisi del testo"
+title: "Guida introduttiva: Uso di Ruby per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
-description: Questo argomento di avvio rapido illustra come ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Analisi del testo in Servizi cognitivi di Azure.
+description: Questo argomento di avvio rapido illustra come usare Ruby per ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Analisi del testo in Servizi cognitivi di Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
-ms.openlocfilehash: 92a80dc69afbda76d57a09e01efc9b91ecb286ba
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 076276068b62ed1b7b30864e9a4227cd449c680e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027923"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527225"
 ---
-# <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso di Ruby per chiamare il servizio cognitivo Analisi del testo
+# <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di Ruby per chiamare il servizio cognitivo Analisi del testo
 <a name="HOLTop"></a>
 
 Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities) usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con Ruby.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 

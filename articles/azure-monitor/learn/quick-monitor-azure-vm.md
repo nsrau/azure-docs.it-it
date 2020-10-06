@@ -7,14 +7,14 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 40c7b9e5a8b7c38c9468d54e69ca7a73c5f2d46b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 11475de159cf3d59923d6f2129aa46ddf0ef8f2c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516397"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084431"
 ---
-# <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Avvio rapido: Monitorare una macchina virtuale di Azure con Monitoraggio di Azure
+# <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Monitorare una macchina virtuale di Azure con Monitoraggio di Azure.
 [Monitoraggio di Azure](../overview.md) avvia la raccolta di dati dalle macchine virtuali di Azure nel momento in cui vengono create. Questa guida di avvio rapido illustra brevemente i dati raccolti automaticamente per una VM di Azure e come visualizzare tali dati nel portale di Azure. Si abiliterà quindi [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) per la VM per consentire agli agenti nella VM di raccogliere e analizzare i dati del sistema operativo guest, includendo i processi e le relative dipendenze.
 
 Questa guida introduttiva presuppone che esista già una macchina virtuale di Azure. In caso contrario, è possibile creare una [VM Windows](../../virtual-machines/windows/quick-create-portal.md) o una [VM Linux](../../virtual-machines/linux/quick-create-cli.md) seguendo le guide di avvio rapido sulle VM.
@@ -65,7 +65,7 @@ Quando si crea una nuova area di lavoro Log Analytics, è necessario configurarl
 
 2. Selezionare **Dati** e quindi selezionare **Log eventi Windows**.
 
-3. Aggiungere un registro eventi digitandone il nome.  Digitare **Sistema** e quindi selezionare il segno più **+** .
+3. Aggiungere un registro eventi digitandone il nome.  Digitare **Sistema** e quindi selezionare il segno più **+**.
 
 4. Nella tabella selezionare i livelli di gravità **Errore** e **Avviso**.
 
@@ -75,7 +75,7 @@ Quando si crea una nuova area di lavoro Log Analytics, è necessario configurarl
 
 1. Selezionare **Syslog**.  
 
-2. Aggiungere un registro eventi digitandone il nome.  Digitare **Syslog** e quindi selezionare il segno più **+** .  
+2. Aggiungere un registro eventi digitandone il nome.  Digitare **Syslog** e quindi selezionare il segno più **+**.  
 
 3. Nella tabella deselezionare i livelli di gravità **Informativo**, **Avviso** e **Debug**. 
 
@@ -85,15 +85,15 @@ Quando si crea una nuova area di lavoro Log Analytics, è necessario configurarl
 
 7. Fare clic sulla macchina virtuale e quindi selezionare la scheda **Prestazioni** presente nel menu **Monitoraggio** del riquadro **Dati analitici**. Verrà visualizzato un gruppo selezionato di contatori delle prestazioni raccolti dal sistema operativo guest della VM. Scorrere verso il basso per visualizzare altri contatori e spostare il puntatore del mouse su un grafico per visualizzare la media e i percentili in momenti diversi.
 
-    ![Prestazioni](media/quick-monitor-azure-vm/performance.png)
+    ![Screenshot che illustra il riquadro Prestazioni.](media/quick-monitor-azure-vm/performance.png)
 
 9. Selezionare **Mappa** per aprire la funzionalità delle mappe che mostra i processi in esecuzione nella macchina virtuale e le relative dipendenze. Selezionare **Proprietà** per aprire il riquadro delle proprietà, se non è già aperto.
 
-    ![Mappa](media/quick-monitor-azure-vm/map.png)
+    ![Screenshot che illustra il riquadro Mappa.](media/quick-monitor-azure-vm/map.png)
 
 11. Espandere i processi della macchina virtuale. Selezionare uno dei processi per visualizzarne i dettagli ed evidenziarne le dipendenze.
 
-    ![Processi](media/quick-monitor-azure-vm/processes.png)
+    ![Screenshot che illustra il riquadro Mappa con i processi di una macchina virtuale espansa.](media/quick-monitor-azure-vm/processes.png)
 
 12. Selezionare di nuovo la macchina virtuale e quindi **Eventi del log**. 
 

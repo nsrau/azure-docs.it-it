@@ -14,14 +14,14 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5b54af39401ba8c3fede4c9ad80ec8edc963b1d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: de0212739f5cd24cec9ab58bdaf4d2b272f31200
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213682"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054365"
 ---
-# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Avvio rapido: Criteri di denominazione per i gruppi in Azure Active Directory
+# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Guida introduttiva: Criteri di denominazione per i gruppi in Azure Active Directory
 
 In questa guida di avvio rapido si configureranno i criteri di denominazione nell'organizzazione di Azure Active Directory (Azure AD) per i gruppi di Microsoft 365 creati dall'utente, allo scopo di ordinare i gruppi dell'organizzazione ed eseguire ricerche su di essi. È possibile, ad esempio, usare i criteri di denominazione per:
 
@@ -68,6 +68,6 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 In questo argomento di avvio rapido si è appreso come impostare i criteri di denominazione per l'organizzazione di Azure AD mediante il portale di Azure.
 
-Per altre informazioni, inclusi i cmdlet di PowerShell per i criteri di denominazione, i vincoli tecnici, l'aggiunta di un elenco di parole bloccate personalizzate e le esperienze degli utenti finali nelle app di Office 365, passare all'articolo seguente.
+Per altre informazioni, inclusi i cmdlet di PowerShell per i criteri di denominazione, i vincoli tecnici, l'aggiunta di un elenco di parole bloccate personalizzate e le esperienze degli utenti finali nelle app di Microsoft 365, passare all'articolo successivo.
 > [!div class="nextstepaction"]
 > [Criteri di denominazione con PowerShell](groups-naming-policy.md)

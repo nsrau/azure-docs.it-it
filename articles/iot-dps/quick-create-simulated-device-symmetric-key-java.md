@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 8acc8b1e32304705b4221fe5570f7445720eafed
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fa1354c471cf23d85b3c2b0b563ed0463f5e19b2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307914"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528432"
 ---
-# <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>Avvio rapido: Effettuare il provisioning di un dispositivo simulato nell'hub IoT con chiavi simmetriche
+# <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>Effettuare il provisioning di un dispositivo simulato nell'hub IoT con chiavi simmetriche
 
 In questa guida introduttiva si apprenderà come creare ed eseguire un simulatore di dispositivo in un computer di sviluppo Windows. Questo dispositivo simulato verrà configurato per usare una chiave simmetrica per l'autenticazione con un'istanza del servizio Device Provisioning e verrà assegnato a un hub IoT. Si userà un codice di esempio degli [SDK per IoT di Microsoft Azure per Java](https://github.com/Azure/azure-iot-sdk-java) per simulare una sequenza di avvio per il dispositivo che avvia il processo di provisioning. Il dispositivo verrà riconosciuto in base alla registrazione singola nell'istanza del servizio di provisioning e verrà assegnato a un hub IoT.
 
 Anche se questo articolo illustra il provisioning con una registrazione singola, è possibile usare gruppi di registrazioni. Esistono alcune differenze quando si usano i gruppi di registrazioni. È ad esempio necessario usare una chiave di dispositivo derivata con un ID registrazione univoco per il dispositivo. Anche se i gruppi di registrazione di chiave simmetrica non sono limitati per i dispositivi legacy, in [Come eseguire il provisioning di dispositivi legacy usando l'attestazione di chiave simmetrica](how-to-legacy-device-symm-key.md) viene fornito un esempio di gruppo di registrazione. Per altre informazioni, vedere [Attestazione con chiave simmetrica delle registrazioni di gruppo](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). 
+Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica sul [provisioning](about-iot-dps.md#provisioning-process). 
 
 Assicurarsi anche di avere completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare con questa guida introduttiva. Questa guida introduttiva prevede che sia già stata creata un'istanza del servizio Device Provisioning.
 
@@ -32,7 +32,7 @@ Questo articolo si riferisce a una workstation basata su Windows. Tuttavia, è p
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 * Verificare che [Java SE Development Kit 8](https://aka.ms/azure-jdks) o versione successiva sia installato nel computer.
 
@@ -66,13 +66,13 @@ Questo articolo si riferisce a una workstation basata su Windows. Tuttavia, è p
 
 3. Nel pannello **Aggiungi registrazione** immettere le informazioni seguenti e premere il pulsante **Salva**.
 
-   - **Meccanismo**: selezionare **Chiave simmetrica** come *meccanismo* di attestazione dell'identità.
+   - **Meccanismo:** selezionare **Chiave simmetrica** come *meccanismo* di attestazione dell'identità.
 
    - **Genera chiavi automaticamente**: selezionare questa casella.
 
-   - **ID di registrazione**: immettere un ID di registrazione per identificare la registrazione. Usare solo caratteri alfanumerici minuscoli e trattini ("-"). Ad esempio, **symm-key-java-device-007**.
+   - **ID registrazione**: immettere un ID di registrazione per identificare la registrazione. Usare solo caratteri alfanumerici minuscoli e trattini ("-"). Ad esempio, **symm-key-java-device-007**.
 
-   - **ID dispositivo hub IoT:** Immettere un identificatore di dispositivo. Ad esempio, **java-device-007**.
+   - **ID dispositivo hub IoT:** immettere un identificatore di dispositivo. Ad esempio, **java-device-007**.
 
      ![Aggiungere una registrazione singola per l'attestazione della chiave simmetrica nel portale](./media/quick-create-simulated-device-symm-key-java/create-individual-enrollment-java.png)
 

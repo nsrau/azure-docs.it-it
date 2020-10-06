@@ -88,6 +88,8 @@
           href: specify-marketplace-images.md
         - name: Specificare le informazioni di supporto (proprietario dell'account lab)
           href: lab-account-owner-support-information.md
+        - name: Caricare un'immagine personalizzata in Raccolta immagini condivise
+          href: upload-custom-image-shared-image-gallery.md
     - name: Creare e configurare lab per le classi (educatore)
       items:
         - name: Creare e gestire i lab per le classi

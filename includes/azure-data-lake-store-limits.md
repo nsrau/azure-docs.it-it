@@ -1,24 +1,29 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: storage
 author: twooley
 ms.service: storage
 ms.topic: include
-ms.date: 06/22/2018
+ms.date: 09/30/2020
 ms.author: twooley
 ms.custom: include file
-ms.openlocfilehash: 5e5ef3084fa4e13035fe562dd3c5ed2a37b76be2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 358de5761f3535b5f1e75d82539ee8e3ecdbd289
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334671"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665609"
 ---
-Azure Data Lake Storage Gen1 è un repository su vasta scala a livello aziendale per carichi di lavoro di analisi di Big Data. È possibile usare Data Lake Storage Gen1 per acquisire dati di qualsiasi dimensione, tipo e velocità di inserimento in un'unica posizione per le analisi operative ed esplorative. Non esiste alcun limite alla quantità di dati che è possibile archiviare in un account Data Lake Storage Gen1.
+**Azure Data Lake Storage Gen2** non è un servizio dedicato né un tipo di account di archiviazione. Si tratta della versione più recente delle funzionalità dedicate all'analisi di Big Data.  Queste funzionalità sono disponibili in un account di archiviazione per utilizzo generico v2 o BlockBlobStorage e si possono ottenere abilitando la funzionalità **Spazio dei nomi gerarchico** dell'account. Per gli obiettivi di scalabilità, vedere questi articoli. 
+
+- [Obiettivi di scalabilità per archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage).
+- [Obiettivi di scalabilità per gli account di archiviazione standard](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account?toc=/azure/storage/blobs/toc.json#scale-targets-for-standard-storage-accounts).
+
+**Azure Data Lake Storage Gen1** è un servizio dedicato. Si tratta di un repository con iperscalabilità a livello aziendale per i carichi di lavoro di analisi di Big Data. È possibile usare Data Lake Storage Gen1 per acquisire dati di qualsiasi dimensione, tipo e velocità di inserimento in un'unica posizione per le analisi esplorative e operative. Non esiste alcun limite alla quantità di dati archiviabili in un account Data Lake Storage Gen1.
 
 | **Risorsa** | **Limite** | **Commenti** |
 | --- | --- | --- |
-| Numero massimo di account Data Lake Storage Gen1, per sottoscrizione, per area |10 | Per richiedere un aumento del limite, contattare il supporto tecnico. |
-| Numero massimo di ACL di accesso, per file o cartella |32 | Si tratta di un limite rigido. Usare i gruppi per gestire l'accesso con un minor numero di voci. |
-| Numero massimo di ACL predefiniti, per file o cartella |32 | Si tratta di un limite rigido. Usare i gruppi per gestire l'accesso con un minor numero di voci. |
+| Numero massimo di account Data Lake Storage Gen1, per sottoscrizione, per area |10 | Per richiedere un aumento del limite, contattare il supporto. |
+| Numero massimo di elenchi di controllo di accesso, per file o cartella |32 | Si tratta di un limite rigido. Usare i gruppi per gestire l'accesso con meno voci. |
+| Numero massimo di elenchi di controllo di accesso predefiniti, per file o cartella |32 | Si tratta di un limite rigido. Usare i gruppi per gestire l'accesso con meno voci. |

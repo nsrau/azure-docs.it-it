@@ -1,17 +1,17 @@
 ---
-title: Panoramica di Durable Functions - Azure
-description: Introduzione all'estensione Durable Functions per Funzioni di Azure.
+title: Panoramica di Funzioni permanenti - Azure
+description: Introduzione all'estensione Funzioni permanenti per Funzioni di Azure.
 author: cgillum
 ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: d1c4f62f19a36867ebc85a98b0cd38bbbf8ce757
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 28c494bf2867ec5d2d3ee99ef7ee45f8181cfd90
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660683"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669245"
 ---
 # <a name="what-are-durable-functions"></a>Informazioni su Durable Functions
 
@@ -21,10 +21,10 @@ ms.locfileid: "88660683"
 
 Durable Functions supporta attualmente i linguaggi seguenti:
 
-* **C#** : sia le [librerie di classe precompilate](../functions-dotnet-class-library.md) che lo [script C#](../functions-reference-csharp.md).
+* **C#**: sia le [librerie di classe precompilate](../functions-dotnet-class-library.md) che lo [script C#](../functions-reference-csharp.md).
 * **JavaScript**: supportato per la versione 2.x del runtime di Funzioni di Azure. Richiede la versione 1.7.0 dell'estensione Durable Functions, o versione successiva. 
-* **Python**: richiede la versione 1.8.5 o successiva dell'estensione Durable Functions. 
-* **F#** : librerie di classe precompilate e script F#. Lo script F# è supportato solo per la versione 1.x del runtime di Funzioni di Azure.
+* **Python**: richiede la versione 1.8.5 o successiva dell'estensione Durable Functions. Il supporto di Durable Functions è attualmente disponibile in anteprima pubblica.
+* **F#**: librerie di classe precompilate e script F#. Lo script F# è supportato solo per la versione 1.x del runtime di Funzioni di Azure.
 * **PowerShell**: il supporto di Durable Functions è attualmente disponibile in anteprima pubblica. Supportato solo per la versione 3.x del runtime di Funzioni di Azure e PowerShell 7. Richiede la versione 2.2.2 dell'estensione Durable Functions o una versione successiva. Attualmente sono supportati solo i criteri seguenti: [Concatenamento di funzioni](#chaining), [fan-out/fan-in](#fan-in-out), [API HTTP asincrone](#async-http).
 
 Durable Functions ha l'obiettivo di supportare tutti i [linguaggi di Funzioni di Azure](../supported-languages.md). Vedere l'[elenco dei problemi di Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) per ottenere lo stato del lavoro più recente a supporto di linguaggi aggiuntivi.
@@ -42,7 +42,7 @@ Il caso d'uso principale per Durable Functions è la semplificazione dei requisi
 * [Interazione umana](#human)
 * [Aggregatore (entità con stato)](#aggregator)
 
-### <a name="pattern-1-function-chaining"></a><a name="chaining"></a>Modello 1: Concatenamento di funzioni
+### <a name="pattern-1-function-chaining"></a>Modello 1: Concatenamento di funzioni
 
 Nel modello di concatenamento di funzioni, una sequenza di funzioni viene eseguita in un ordine specifico. L'output di una funzione viene applicato all'input di un'altra.
 
@@ -135,7 +135,7 @@ Invoke-ActivityFunction -FunctionName 'F4' -Input $Z
 
 ---
 
-### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>Modello 2: Fan-out/fan-in
+### <a name="pattern-2-fan-outfan-in"></a>Modello 2: Fan-out/fan-in
 
 Nel modello di fan-out/fan-in vengono eseguite più funzioni in parallelo e poi si resta in attesa che vengano completate tutte. Spesso sui risultati restituiti dalle funzioni vengono eseguite alcune operazioni di aggregazione.
 
@@ -255,7 +255,7 @@ L'impostazione automatica di checkpoint che avviene alla chiamata di `Wait-Activ
 > [!NOTE]
 > In rari casi, è possibile che si verifichi un arresto anomalo nella finestra dopo che una funzione di attività è stata completata, ma prima che il completamento venga salvato nella cronologia dell'orchestrazione. In tal caso, la funzione di attività verrebbe rieseguita dall'inizio dopo il ripristino del processo.
 
-### <a name="pattern-3-async-http-apis"></a><a name="async-http"></a>Modello 3: API HTTP asincrone
+### <a name="pattern-3-async-http-apis"></a>Modello 3: API HTTP asincrone
 
 Il modello di API HTTP asincrone riguarda il problema di coordinare lo stato delle operazioni a esecuzione prolungata con client esterni. Un modo comune per implementare questo modello consiste nell'impostare un endpoint HTTP che attiva l'azione a esecuzione prolungata. Quindi, il client viene reindirizzato a un endpoint di stato di cui esegue il polling per rilevare quando viene completata l'operazione.
 
@@ -403,7 +403,7 @@ Il monitoraggio non è attualmente supportato in PowerShell.
 
 Quando viene ricevuta una richiesta, viene creata una nuova istanza di orchestrazione per tale ID di processo. L'istanza esegue il polling di uno stato fino a quando non viene soddisfatta una condizione e terminato il ciclo. Un timer durevole controlla l'intervallo di polling. Quindi, possono essere eseguite più operazioni oppure l'orchestrazione può terminare. Quando `nextCheck` supera `expiryTime`, il monitoraggio termina.
 
-### <a name="pattern-5-human-interaction"></a><a name="human"></a>Modello 5: Interazione umana
+### <a name="pattern-5-human-interaction"></a>Modello 5: Interazione umana
 
 Molti processi automatizzati comportano un'interazione umana di qualche tipo. Il problema in un processo automatizzato con interazione umana è che le persone non sono sempre disponibili e reattive quanto i servizi cloud. I processi automatizzati potrebbero consentire questa interazione tramite timeout e logica di compensazione.
 
@@ -699,7 +699,7 @@ La fatturazione di Durable Functions è analoga a quella delle Funzioni di Azure
 
 ## <a name="jump-right-in"></a>Per iniziare immediatamente
 
-È possibile iniziare a usare Durable Functions in meno di 10 minuti completando una di queste esercitazioni di avvio rapido specifiche del linguaggio:
+È possibile iniziare a usare Durable Functions in meno di 10 minuti completando una di queste esercitazioni introduttive specifiche del linguaggio:
 
 * [C# con Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript con Visual Studio Code](quickstart-js-vscode.md)

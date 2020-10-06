@@ -100,6 +100,8 @@
           href: rbac-migration.md
         - name: Risolvere i problemi di accesso
           href: troubleshooting-access-issues.md
+    - name: Come abilitare la registrazione
+      href: howto-logging.md
     - name: Sviluppo
       items:
         - name: Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure

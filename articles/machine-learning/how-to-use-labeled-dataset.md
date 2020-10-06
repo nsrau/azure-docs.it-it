@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 9ffc134c2bded747346f3639119dde4a6f14231b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7f21d3ed3d5e71c2f87777316e7584011490043a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250709"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757776"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creare ed esplorare il set di dati di Azure Machine Learning con etichette
 
@@ -61,13 +61,20 @@ pip install azureml-contrib-dataset
 >[!NOTE]
 >Lo spazio dei nomi azureml.contrib cambia di frequente perché Microsoft è attualmente impegnata a migliorare il servizio. Qualsiasi elemento in questo spazio dei nomi deve essere pertanto considerato come anteprima e non è completamente supportato da Microsoft.
 
-Sono disponibili le seguenti opzioni di gestione dei file per i flussi di file durante la conversione in un dataframe Pandas.
+Azure Machine Learning offre le seguenti opzioni di gestione dei file per i flussi di file durante la conversione in un dataframe Pandas.
 * Download: Scaricare i file di dati in un percorso locale.
 * Montaggio: Montare i file di dati in un punto di montaggio. Il montaggio funziona solo per un ambiente di calcolo basato su Linux, ad esempio una macchina virtuale con notebook di Azure Machine Learning e l'ambiente di calcolo di Azure Machine Learning.
 
+Nel codice seguente, il `animal_labels` set di dati è l'output di un progetto di assegnazione di etichette precedentemente salvato nell'area di lavoro.
+
 ```Python
+import azureml.core
 import azureml.contrib.dataset
+from azureml.core import Dataset, Workspace
 from azureml.contrib.dataset import FileHandlingOption
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 animal_pd = animal_labels.to_pandas_dataframe(file_handling_option=FileHandlingOption.DOWNLOAD, target_path='./download/', overwrite_download=True)
 
 import matplotlib.pyplot as plt
@@ -82,8 +89,18 @@ imgplot = plt.imshow(img)
 
 È possibile caricare set di dati con etichetta nel set di dati di Torchvision con il metodo [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-torchvision--) anche dalla classe `azureml-contrib-dataset`. Per usare questo metodo, è necessario aver installato [PyTorch](https://pytorch.org/). 
 
+Nel codice seguente, il `animal_labels` set di dati è l'output di un progetto di assegnazione di etichette precedentemente salvato nell'area di lavoro.
+
 ```python
+import azureml.core
+import azureml.contrib.dataset
+from azureml.core import Dataset, Workspace
+from azureml.contrib.dataset import FileHandlingOption
+
 from torchvision.transforms import functional as F
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 
 # load animal_labels dataset into torchvision dataset
 pytorch_dataset = animal_labels.to_torchvision()

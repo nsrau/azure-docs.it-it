@@ -4,12 +4,12 @@ description: Scrivere processori di telemetria e inizializzatori di telemetria p
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d2a0c348eda569e95a3029b9dce76aa981989ddf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b3ccc3516d5b31f4c119c2d5a2bd11a63dbdc611
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264032"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758031"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrare e pre-elaborare i dati di telemetria in Application Insights SDK
 
@@ -292,7 +292,7 @@ protected void Application_Start()
 }
 ```
 
-Vedere altri [esempi](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
+Vedere altri [esempi](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
 
 **App del servizio ASP.NET Core/Worker: caricare l'inizializzatore**
 

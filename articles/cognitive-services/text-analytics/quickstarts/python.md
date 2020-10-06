@@ -1,7 +1,7 @@
 ---
-title: "Avvio rapido: Uso di Python per chiamare l'API Analisi del testo"
+title: "Guida introduttiva: Uso di Python per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
-description: Questo argomento di avvio rapido illustra come ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Analisi del testo in Servizi cognitivi di Azure.
+description: Questo argomento di avvio rapido illustra come usare Python per ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Analisi del testo in Servizi cognitivi di Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,21 +11,21 @@ ms.topic: quickstart
 ms.date: 07/20/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: 34d1b62ed97b966c000ff81e8f7676c30338b6a1
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 0ef870b6b2d3b88b13c16c8c2acbfcee7ed551c1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876768"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527242"
 ---
-# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso dell'API REST di Python per chiamare il servizio cognitivo Analisi del testo 
+# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Uso dell'API REST di Python per chiamare il servizio cognitivo Analisi del testo 
 <a name="HOLTop"></a>
 
 Usare questo argomento di avvio rapido per iniziare ad analizzare la lingua con l'API REST Analisi del testo e Python. Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre le frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities).
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 * [Python 3.x](https://python.org)
 

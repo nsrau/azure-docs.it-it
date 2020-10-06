@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: f557bb271c88b32a9b53cf9b41b911314427530a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 91823ff0d324cd30566948fecd86cc441342f14e
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629948"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757045"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Domande frequenti sul collegamento privato di Azure
 
@@ -24,14 +24,16 @@ ms.locfileid: "91629948"
 - **[Servizio di collegamento privato di Azure](private-link-service-overview.md)**: il servizio di collegamento privato di Azure è un servizio creato da un provider di servizi. Attualmente, un servizio di collegamento privato può essere collegato alla configurazione IP front-end di un Load Balancer Standard. 
 
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Come viene inviato il traffico quando si usa un collegamento privato?
-Il traffico viene inviato privatamente usando la backbone Microsoft. Non attraversa Internet.  
+Il traffico viene inviato privatamente usando la backbone Microsoft. Non attraversa Internet. Il collegamento privato di Azure non archivia i dati dei clienti.
  
 ### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Qual è la differenza tra gli endpoint di servizio e gli endpoint privati?
-- Quando si usano endpoint privati, l'accesso alla rete viene concesso a risorse specifiche dietro a un determinato servizio che fornisce segmentazione granulare, anche il traffico può raggiungere la risorsa del servizio da locale senza usare endpoint pubblici.
+- Gli endpoint privati concedono l'accesso di rete a risorse specifiche associate a un determinato servizio che fornisce segmentazione granulare. Il traffico può raggiungere la risorsa del servizio da locale senza usare endpoint pubblici.
 - Un endpoint del servizio rimane un indirizzo IP instradabile pubblicamente.  Un endpoint privato è un indirizzo IP privato nello spazio degli indirizzi della rete virtuale in cui è configurato l'endpoint privato.
 
 ### <a name="what-is-the-relationship-between-private-link-service-and-private-endpoint"></a>Qual è la relazione tra il servizio di collegamento privato e l'endpoint privato?
-L'endpoint privato consente di accedere a più tipi di risorse di collegamento privato, inclusi i servizi PaaS di Azure e il servizio di collegamento privato. Si tratta di una relazione uno-a-molti. Un servizio di collegamento privato può ricevere connessioni da più endpoint privati. D'altra parte, un endpoint privato può connettersi a un solo servizio di collegamento privato.    
+Più tipi di risorse di collegamento privato supportano l'accesso tramite endpoint privato. Le risorse includono i servizi PaaS di Azure e il servizio di collegamento privato. Si tratta di una relazione uno-a-molti. 
+
+Un servizio di collegamento privato riceve connessioni da più endpoint privati. Un endpoint privato si connette a un servizio di collegamento privato.    
 
 ## <a name="private-endpoint"></a>Endpoint privato 
  
@@ -68,14 +70,14 @@ Sì. Un servizio di collegamento privato può ricevere connessioni da più endpo
 - Le sottoscrizioni solo **restrittive** approvate e con accesso RBAC possono individuare il servizio. 
 - **Tutti** : tutti gli utenti possono individuare il servizio. 
  
-### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>È possibile creare un servizio di collegamento privato con Load Balancer di base? 
-No. Il servizio di collegamento privato su un Load Balancer di base non è supportato.
+### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>È possibile creare un servizio di collegamento privato con il servizio di bilanciamento del carico di base? 
+No. Il servizio di collegamento privato su un servizio di bilanciamento del carico di base non è supportato.
  
 ### <a name="is-a-dedicated-subnet-required-for-private-link-service"></a>È necessaria una subnet dedicata per il servizio di collegamento privato? 
 No. Il servizio di collegamento privato non richiede una subnet dedicata. È possibile scegliere qualsiasi subnet nella VNet in cui viene distribuito il servizio.   
 
-### <a name="i-am-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Sono un provider di servizi che usa il collegamento privato di Azure. È necessario assicurarsi che tutti i miei clienti abbiano uno spazio IP univoco e non si sovrappongano allo spazio IP? 
-No. Il collegamento privato di Azure offre questa funzionalità. Di conseguenza, non è necessario disporre di uno spazio di indirizzi non sovrapposto con lo spazio di indirizzi del cliente. 
+### <a name="im-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Sono un provider di servizi che usa il collegamento privato di Azure. È necessario assicurarsi che tutti i miei clienti abbiano uno spazio IP univoco e non si sovrappongano allo spazio IP? 
+No. Il collegamento privato di Azure offre questa funzionalità. Non è necessario disporre di uno spazio di indirizzi non sovrapposto con lo spazio degli indirizzi del cliente. 
 
 ##  <a name="next-steps"></a>Passaggi successivi
 

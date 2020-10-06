@@ -1,5 +1,5 @@
 ---
-title: Modifiche alla documentazione di SQL Server in Macchine virtuali di Azure| Microsoft Docs
+title: Modifiche alla documentazione di SQL Server in Macchine virtuali di Azure
 description: Informazioni sulle nuove funzionalità e i miglioramenti per le diverse versioni di SQL Server in macchine virtuali di Azure.
 services: virtual-machines-windows
 author: MashaMSFT
@@ -10,18 +10,25 @@ ms.service: virtual-machines-sql
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/20/2020
-ms.openlocfilehash: a596a57b2b4ac914514fcdefe77106c311e53c44
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/21/2020
+ms.openlocfilehash: 6e2665a413b3d43f7e1b294ebfc390c57d995f29
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91272668"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758643"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifiche alla documentazione di SQL Server in Macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL Server predefinita. Questo articolo presenta una sintesi delle modifiche alla documentazione associate alle nuove funzionalità e ai miglioramenti introdotti nelle recenti versioni di [SQL Server in Macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+## <a name="september-2020"></a>Settembre 2020
+
+| Modifiche | Dettagli |
+| --- | --- |
+| **Registrazione RP automatica** | È ora possibile abilitare la funzionalità di [registrazione automatica](sql-vm-resource-provider-automatic-registration.md) per registrare automaticamente tutte le macchine virtuali SQL Server già distribuite nella sottoscrizione, nonché tutte le VM SQL Server aggiunte in futuro.  | 
+
 
 ## <a name="august-2020"></a>Agosto 2020
 
@@ -83,7 +90,7 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 | **Supportabilità di istanze denominate** | È ora possibile usare l'[estensione IaaS di SQL Server](sql-server-iaas-agent-extension-automate-management.md#installation) con un'istanza denominata, se l'istanza predefinita è stata disinstallata correttamente. | 
 | **Miglioramenti del portale** | L'esperienza del portale di Azure per la distribuzione di una VM di SQL Server è stata rinnovata per migliorare l'usabilità. Per altre informazioni, vedere la breve guida di [avvio rapido](sql-vm-create-portal-quickstart.md) e altre indicazioni disponibili nella [guida pratica](create-sql-vm-portal.md) per distribuire una VM di SQL Server.|
 | **Potenziamento del portale** | Ora è possibile cambiare il modello di licenza per una VM di SQL Server passando dal modello con pagamento in base al consumo al modello BYOL (Bring Your Own License) tramite il [portale di Azure](licensing-model-azure-hybrid-benefit-ahb-change.md#vms-already-registered-with-the-resource-provider).|
-| **Semplificazione della distribuzione del gruppo di disponibilità in una VM SQL Server tramite l'interfaccia della riga di comando di Azure** | Distribuire un gruppo di disponibilità in una VM di SQL Server in Azure è ora più facile che mai. È possibile usare l' [interfaccia](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) della riga di comando di Azure per creare il cluster di failover Windows, il servizio di bilanciamento del carico interno e i listener del gruppo di disponibilità dalla riga di comando. Per altre informazioni, vedere [usare l'interfaccia della riga di comando di Azure per configurare un gruppo di disponibilità always on per SQL Server in una macchina virtuale di Azure](availability-group-az-cli-configure.md). | 
+| **Semplificazione della distribuzione del gruppo di disponibilità in una VM SQL Server tramite l'interfaccia della riga di comando di Azure** | Distribuire un gruppo di disponibilità in una VM di SQL Server in Azure è ora più facile che mai. È possibile usare l' [interfaccia](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) della riga di comando di Azure per creare il cluster di failover Windows, il servizio di bilanciamento del carico interno e i listener del gruppo di disponibilità dalla riga di comando. Per altre informazioni, vedere [usare l'interfaccia della riga di comando di Azure per configurare un gruppo di disponibilità always on per SQL Server in una macchina virtuale di Azure](availability-group-az-cli-configure.md). | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 

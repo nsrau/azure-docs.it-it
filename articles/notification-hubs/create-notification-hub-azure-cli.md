@@ -14,14 +14,14 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f1829b6d8ab7b2cab0734ffd3cbab295e6c39678
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5361931328ed107c7cc130b633a40b1582828aa1
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761094"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024127"
 ---
-# <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Avvio rapido: Creare un hub di notifica di Azure con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Creare un hub di notifica di Azure con l'interfaccia della riga di comando di Azure
 
 Hub di notifica di Azure offre un motore di push di facile uso e con scalabilità orizzontale che consente di inviare notifiche a qualsiasi piattaforma (iOS, Android, Windows, Kindle, Baidu e così via) da qualsiasi back-end (cloud o locale). Per altre informazioni sul servizio, vedere [Informazioni su Hub di notifica](notification-hubs-push-notification-overview.md).
 
@@ -29,37 +29,30 @@ In questo argomento di avvio rapido viene creato un hub di notifica con l'interf
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Per Hub di notifica è necessaria la versione 2.0.67 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione e le librerie dipendenti installate. Per installare o eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+> [!IMPORTANT]
+> Per Hub di notifica è necessaria la versione 2.0.67 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione e le librerie dipendenti installate. Per installare o eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-## <a name="prepare-your-environment"></a>Preparare l'ambiente
+## <a name="install-the-azure-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando di Azure
 
-1. Accedere usando il comando [az login](/cli/azure/reference-index#az-login) se si usa un'installazione locale dell'interfaccia della riga di comando.
+Quando si usano riferimenti a estensioni per l'interfaccia della riga di comando di Azure, è prima di tutto necessario installare l'estensione. Le estensioni dell'interfaccia della riga di comando di Azure offrono l'accesso a comandi sperimentali e non definitivi che non sono stati distribuiti come parte dell'interfaccia della riga di comando di base. Per altre informazioni sulle estensioni, incluse le procedure di aggiornamento e disinstallazione, vedere [Usare le estensioni con l'interfaccia della riga di comando di Azure](/cli/azure/azure-cli-extensions-overview).
 
-    ```azurecli
-    az login
-    ```
+Installare l'estensione dell'interfaccia della riga di comando di Azure per gli hub di notifica.
 
-    Seguire le istruzioni visualizzate nel terminale per completare il processo di autenticazione.
+```azurecli
+az extension add --name notification-hub
+```
 
-2. Quando si usano riferimenti a estensioni per l'interfaccia della riga di comando di Azure, è prima di tutto necessario installare l'estensione. Le estensioni dell'interfaccia della riga di comando di Azure offrono l'accesso a comandi sperimentali e non definitivi che non sono stati ancora distribuiti come parte dell'interfaccia della riga di comando di base. Per altre informazioni sulle estensioni, incluse le procedure di aggiornamento e disinstallazione, vedere [Usare le estensioni con l'interfaccia della riga di comando di Azure](/cli/azure/azure-cli-extensions-overview).
+## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-   Installare l'[estensione per Hub di notifica](/cli/azure/ext/notification-hub/notification-hub) eseguendo questo comando:
+L'infrastruttura Hub di notifica di Azure, analogamente a tutte le risorse di Azure, deve essere distribuita in un gruppo di risorse.  I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.  Per altre informazioni sui gruppi di risorse, vedere [Informazioni su Azure Resource Manager](/azure/azure-resource-manager/management/overview).
 
-    ```azurecli
-    az extension add --name notification-hub
-   ```
+Per questo argomento di avvio rapido, creare un gruppo di risorse denominato **spnhubrg** nell'area **eastus** con il comando [az group create](/cli/azure/group#az-group-create) seguente.
 
-3. Creare un gruppo di risorse.
-
-   L'infrastruttura Hub di notifica di Azure, analogamente a tutte le risorse di Azure, deve essere distribuita in un gruppo di risorse. I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.
-
-   Per questo argomento di avvio rapido, creare un gruppo di risorse denominato _spnhubrg_ nell'area _eastus_ con il comando [az group create](/cli/azure/group#az-group-create) seguente:
-
-   ```azurecli
-   az group create --name spnhubrg --location eastus
-   ```
+```azurecli
+az group create --name spnhubrg --location eastus
+```
 
 ## <a name="create-a-notification-hubs-namespace"></a>Creare uno spazio dei nomi per Hub di notifica
 
@@ -109,7 +102,7 @@ Per Hub di notifica è necessaria la versione 2.0.67 o successiva dell'interfacc
 
 2. Ottenere un elenco di spazi dei nomi.
 
-   Per visualizzare informazioni dettagliate sul nuovo spazio dei nomi, usare il comando [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list). Il parametro `--resource-group` è facoltativo se si vogliono visualizzare tutti gli spazi dei nomi per una sottoscrizione.
+   Per visualizzare informazioni dettagliate sul nuovo spazio dei nomi, usare il comando [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-list). Il parametro `--resource-group` è facoltativo se si vogliono visualizzare tutti gli spazi dei nomi per una sottoscrizione.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -135,7 +128,7 @@ Per Hub di notifica è necessaria la versione 2.0.67 o successiva dell'interfacc
 
 3. Ottenere un elenco di hub di notifica.
 
-   L'interfaccia della riga di comando di Azure restituisce un messaggio di esito positivo o di errore con ogni comando eseguito. Risulta comunque utile potere eseguire una query per ottenere un elenco di hub di notifica. Il comando [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) è stato progettato per questa finalità.
+   L'interfaccia della riga di comando di Azure restituisce un messaggio di esito positivo o di errore con ogni comando eseguito. Risulta comunque utile potere eseguire una query per ottenere un elenco di hub di notifica. Il comando [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-list) è stato progettato per questa finalità.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table

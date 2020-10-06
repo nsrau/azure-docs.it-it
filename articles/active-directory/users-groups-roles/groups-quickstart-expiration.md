@@ -14,14 +14,14 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178f6a2c1a71d088eeb1a3ea6f7e39198d401ff4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213736"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054399"
 ---
-# <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Avvio rapido: Impostare la scadenza dei gruppi di Microsoft 365 in Azure Active Directory
+# <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Impostare la scadenza dei gruppi di Microsoft 365 in Azure Active Directory
 
 In questa guida di avvio rapido si impostano i criteri di scadenza per i gruppi di Microsoft 365. Quando gli utenti possono configurare gruppi personalizzati, i gruppi inutilizzati possono moltiplicarsi. Un modo per gestire i gruppi inutilizzati consiste nell'impostare la scadenza per tali gruppi, per ridurre le attività di manutenzione legate all'eliminazione manuale dei gruppi.
 
@@ -33,7 +33,7 @@ I criteri di scadenza sono semplici:
 - Un gruppo di Microsoft 365 eliminato può essere ripristinato entro 30 giorni da un proprietario del gruppo o da un amministratore di Azure AD
 
 > [!NOTE]
-> I gruppi ora usano l'intelligence di Azure AD per il rinnovo automatico in base al fatto che siano stati usati più di recente. Questa decisione di rinnovo si basa sull'attività utente in gruppi nei servizi di Office 365 come Outlook, SharePoint, Teams, Yammer e altri ancora.
+> I gruppi ora usano l'intelligence di Azure AD per il rinnovo automatico in base al fatto che siano stati usati più di recente. Questa decisione di rinnovo si basa sull'attività utente in gruppi nei servizi di Microsoft 365 come Outlook, SharePoint, Teams, Yammer e altri ancora.
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

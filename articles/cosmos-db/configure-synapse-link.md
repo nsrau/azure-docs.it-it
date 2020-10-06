@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: 559c596ed9b7412b277fbfc1cf30cad15e852cef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a634743441866c4f1a9f6d634efe0ff9e368b5e9
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253157"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757844"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurare e usare Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)
 
-Collegamento a Synapse per Azure Cosmos DB è una funzionalità HTAP (Hybrid Transactional and Analytical Processing) nativa del cloud che consente di eseguire analisi quasi in tempo reale su dati operativi in Azure Cosmos DB. Collegamento a Synapse crea una stretta integrazione tra Azure Cosmos DB e Azure Synapse Analytics.
+Il [collegamento di una sinapsi di Azure per Azure Cosmos DB](synapse-link.md) è una funzionalità ibrida di elaborazione transazionale e analitica (HTAP) nativa del cloud che consente di eseguire analisi quasi in tempo reale sui dati operativi in Azure Cosmos DB. Collegamento a Synapse crea una stretta integrazione tra Azure Cosmos DB e Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > Per usare il collegamento sinapsi di Azure, assicurarsi di effettuare il provisioning dell'account Azure Cosmos DB & area di lavoro di Azure sinapsi Analytics in una delle aree supportate. Il collegamento a sinapsi di Azure è attualmente disponibile nelle aree di Azure seguenti: Stati Uniti centro-occidentali, Stati Uniti orientali, Uniti occidentali, Europa settentrionale, Europa occidentale, Stati Uniti centro-meridionali, Asia sudorientale, Australia orientale, U2 est, Regno Unito meridionale.
@@ -46,7 +46,7 @@ Il collegamento sinapsi di Azure è disponibile per Azure Cosmos DB contenitori 
 
 1. Viene quindi chiesto di abilitare Collegamento a Synapse nell'account. Selezionare **Abilita**. Il completamento di questo processo può richiedere da 1 a 5 minuti.
 
-   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Abilitare la funzionalità Collegamento a Synapse":::
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Trovare la funzionalità di anteprima Collegamento a Synapse":::
 
 1. L'account è ora abilitato per l'uso di Collegamento a Synapse. Vedere quindi come creare contenitori abilitati per l'archivio analitico per iniziare automaticamente a replicare i dati operativi dall'archivio transazionale all'archivio analitico.
 
@@ -68,7 +68,7 @@ Il collegamento sinapsi di Azure è disponibile per Azure Cosmos DB contenitori 
 
 1. Selezionare **Nuovo contenitore** e immettere un nome per il database, il contenitore, la chiave di partizione e i dettagli relativi alla velocità effettiva. Attivare l'opzione **Analytical store** (Archivio analitico). Dopo aver abilitato l'archivio analitico, viene creato un contenitore con la proprietà `AnalyicalTTL` impostata sul valore predefinito -1 (conservazione infinita). Questo archivio analitico conserva tutte le versioni cronologiche dei record.
 
-   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Attivare l'archivio analitico per il contenitore Azure Cosmos":::
+   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Trovare la funzionalità di anteprima Collegamento a Synapse":::
 
 1. Se in precedenza Collegamento a Synapse non è stato abilitato per questo account, verrà chiesto di farlo perché è un prerequisito per creare un contenitore abilitato per l'archivio analitico. Se richiesto, selezionare **Enable Synapse Link** (Abilita Collegamento a Synapse). Il completamento di questo processo può richiedere da 1 a 5 minuti.
 

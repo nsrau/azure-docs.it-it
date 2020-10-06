@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 1ba3f49c9016d71acf162efb07cd6120b1dcc1ec
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 3b5698c782b691dd8ae91913115db184fc83a2eb
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743557"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756620"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creare e gestire un'istanza di calcolo Azure Machine Learning
 
@@ -40,13 +40,13 @@ Le istanze di calcolo possono eseguire processi in modo sicuro in un [ambiente d
 
 * Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
-## <a name="create"></a>Crea
+## <a name="create"></a>Create
 
 **Tempo stimato**: circa 5 minuti.
 
 La creazione di un'istanza di calcolo è un processo una volta per l'area di lavoro. È possibile riutilizzare questo calcolo come una workstation di sviluppo o come destinazione di calcolo per il training. È possibile avere più istanze di calcolo collegate all'area di lavoro.
 
-I core dedicati per area per la quota della famiglia di VM e la quota di area totale, applicabile alla creazione dell'istanza di calcolo, sono unificati e condivisi con Azure Machine Learning quota del cluster di calcolo di training. Se si arresta l'istanza di calcolo, la quota non viene rilasciata per garantire che sia possibile riavviare l'istanza di calcolo.
+I core dedicati per area per la quota della famiglia di VM e la quota di area totale, applicabile alla creazione dell'istanza di calcolo, sono unificati e condivisi con Azure Machine Learning quota del cluster di calcolo di training. Se si arresta l'istanza di calcolo, la quota non viene rilasciata per garantire che sia possibile riavviare l'istanza di calcolo. Si noti che non è possibile modificare le dimensioni della macchina virtuale dell'istanza di calcolo dopo che è stata creata.
 
 Nell'esempio seguente viene illustrato come creare un'istanza di calcolo:
 
@@ -161,7 +161,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* Elimina
+* Delete
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -196,7 +196,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
 
     Per altre informazioni, vedere [AZ ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
-* Elimina
+* Delete
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v

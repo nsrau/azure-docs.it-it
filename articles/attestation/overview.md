@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: ad164f8af3e5506ae5ac9121010b99303286dd1f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: a84308ba06a38cea475fcb1bae022da16424a731
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320597"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032997"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Attestazione di Microsoft Azure (anteprima)
 
@@ -85,7 +85,7 @@ I cluster distribuiti in due aree operano in modo indipendente in circostanze no
 - Il servizio [Gestione traffico di Azure](../traffic-manager/index.yml) per l'area rileverà che il probe di integrità è danneggiato e sposterà l'endpoint in un'area abbinata
 - Le connessioni esistenti non funzioneranno e riceveranno un errore interno del server o problemi di timeout
 - Tutte le operazioni del piano di controllo verranno bloccate. I clienti non saranno in grado di creare provider di attestazioni né di aggiornare i criteri nell'area primaria
-- Tutte le chiamate a operazioni del piano dati, incluse le attestazioni, continueranno a funzionare nell'area primaria
+- Tutte le operazioni del piano dati, incluse le chiamate di attestazioni, continueranno a funzionare nell'area primaria
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sui [concetti di base di Attestazione di Azure](basic-concepts.md)

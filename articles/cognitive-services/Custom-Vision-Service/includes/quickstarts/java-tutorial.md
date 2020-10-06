@@ -3,33 +3,36 @@ author: areddish
 ms.custom: devx-track-java
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: cd6388e6c6313ba84978d43d388855b114a4875d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 09/15/2020
+ms.openlocfilehash: f4b64c25bff93683c79aa1aa3eb556988c798cb0
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508539"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604999"
 ---
-Questo articolo mostra come iniziare a usare la libreria client di Visione personalizzata per Java per creare un modello di classificazione immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Java personalizzata. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](../../getting-started-build-a-classifier.md).
+Questa guida fornisce istruzioni e codice di esempio per iniziare a usare la libreria client di Visione personalizzata per Java per creare un modello di classificazione immagini. Si creerà un progetto, si aggiungeranno tag, si eseguirà il training del progetto e si userà l'URL dell'endpoint di stima del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'applicazione di riconoscimento immagini personalizzata.
 
-## <a name="prerequisites"></a>Prerequisiti
+> [!NOTE]
+> Se si vuole creare un modello di classificazione ed eseguirne il training _senza_ scrivere codice, vedere invece le [istruzioni basate sul browser](../../getting-started-build-a-classifier.md).
+
+## <a name="prerequisites"></a>Prerequisiti 
 
 - Un ambiente di sviluppo Java a scelta
 - [JDK 7 o 8](https://aka.ms/azure-jdks) installato.
 - [Maven](https://maven.apache.org/) installato
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="get-the-custom-vision-client-library-and-sample-code"></a>Ottenere la libreria client di Visione personalizzata e il codice di esempio
+## <a name="get-the-custom-vision-client-library"></a>Ottenere la libreria client di Visione personalizzata
 
-Per scrivere un'app Java che usa Visione personalizzata saranno necessari i pacchetti maven di Visione personalizzata. Questi pacchetti sono inclusi nel progetto di esempio che si scaricherà, ma è possibile accedervi singolarmente qui.
+Per scrivere un'app di analisi immagini con Visione personalizzata per Java, sono necessari i pacchetti maven di Visione personalizzata. Questi pacchetti sono inclusi nel progetto di esempio che si scaricherà, ma è possibile accedervi singolarmente qui.
 
 È possibile trovare la libreria client di Visione personalizzata nel repository centrale Maven:
 
 - [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 - [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
-Clonare o scaricare il progetto [Cognitive Services Java SDK Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). Passare alla cartella **Vision/CustomVision/** .
+Clonare o scaricare il progetto [Cognitive Services Java SDK Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). Passare alla cartella **Vision/CustomVision/**.
 
 Questo progetto Java crea un nuovo progetto di classificazione immagini di Visione personalizzata denominato __Sample Java Project__, accessibile tramite il [sito Web di Visione personalizzata](https://customvision.ai/). Quindi carica le immagini per eseguire il training e testare un classificatore. In questo progetto il classificatore ha lo scopo di determinare se un albero è un __abete canadese__ o un __ciliegio giapponese__.
 
@@ -45,21 +48,21 @@ $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
 $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 ```
 
-## <a name="understand-the-code"></a>Informazioni sul codice
+## <a name="examine-the-code"></a>Esaminare il codice
 
 Caricare il progetto `Vision/CustomVision` nell'ambiente IDE Java e aprire il file _CustomVisionSamples.java_. Trovare il metodo **runSample** e impostare come commento la chiamata al metodo **ObjectDetection_Sample**. In questo modo viene eseguito lo scenario di rilevamento oggetti, che non è illustrato in questa guida. Il metodo **ImageClassification_Sample** implementa la funzionalità principale di questo esempio. Passare alla sua definizione ed esaminare il codice.
 
-### <a name="create-a-custom-vision-service-project"></a>Creare un progetto di Servizio visione artificiale personalizzato
+## <a name="create-a-custom-vision-project"></a>Creare un progetto di Visione personalizzata
 
 Il primo frammento di codice crea un progetto di classificazione immagini. Il progetto creato verrà visualizzato nel [sito Web di Visione personalizzata](https://customvision.ai/) visitato in precedenza. Per specificare altre opzioni quando si crea il progetto, come illustrato in [Creare un classificatore](../../getting-started-build-a-classifier.md) nella guida al portale Web, vedere gli overload del metodo [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_).
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_create)]
 
-### <a name="create-tags-in-the-project"></a>Creare tag nel progetto
+## <a name="create-tags-in-the-project"></a>Creare tag nel progetto
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_tags)]
 
-### <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
+## <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
 Le immagini di esempio sono incluse nella cartella **src/main/resources** del progetto. Vengono lette da quella posizione e caricate nel servizio con i tag appropriati.
 
@@ -69,13 +72,13 @@ Il frammento di codice precedente usa due funzioni helper che recuperano le imma
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_helpers)]
 
-### <a name="train-the-classifier-and-publish"></a>Training del classificatore e pubblicazione
+## <a name="train-and-publish-the-project"></a>Eseguire il training del progetto e pubblicarlo
 
 Questo codice crea la prima iterazione del modello di previsione e quindi la pubblica nell'endpoint di previsione. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_train)]
 
-### <a name="use-the-prediction-endpoint"></a>Usare l'endpoint di stima
+## <a name="use-the-prediction-endpoint"></a>Usare l'endpoint di stima
 
 L'endpoint di stima, qui rappresentato dall'oggetto `predictor`, è il riferimento usato per inviare un'immagine al modello corrente e ottenere una stima di classificazione. In questo esempio `predictor` è definito altrove tramite la variabile di ambiente della chiave di stima.
 
@@ -133,3 +136,6 @@ Done!
 
 > [!div class="nextstepaction"]
 > [Testare un modello e ripeterne il training](../../test-your-model.md)
+
+* Informazioni su Visione personalizzata
+* * [Documentazione di riferimento sull'SDK](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable)

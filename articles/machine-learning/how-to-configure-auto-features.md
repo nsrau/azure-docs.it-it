@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: d8779a25b7c6036f3b09badab67733fa55acfee7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0138715e4c9df8ae05c9a3eade64d539eb7cdeda
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907573"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756552"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Conteggi in Machine Learning automatizzato
 
@@ -316,7 +316,7 @@ Per richiamare BERT, è necessario impostare  `enable_dnn: True` nel automl_sett
 
 AutoML esegue i passaggi seguenti per BERT. 
 
-1. **Pre-elaborazione e suddivisione in token di tutte le colonne di testo**. Ad esempio, il trasformatore "StringCast" si trova nel riepilogo conteggi del modello finale. Un esempio di come produrre il riepilogo conteggi del modello è disponibile in [questo notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+1. **Pre-elaborazione e suddivisione in token di tutte le colonne di testo**. Ad esempio, il trasformatore "StringCast" si trova nel riepilogo conteggi del modello finale. Un esempio di come produrre il riepilogo conteggi del modello è disponibile in [questo notebook](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
 2. **Concatena tutte le colonne di testo in una singola colonna di testo**, `StringConcatTransformer` di conseguenza nel modello finale. 
 

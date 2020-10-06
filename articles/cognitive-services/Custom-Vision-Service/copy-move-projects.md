@@ -9,18 +9,18 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 5285dfb23476662a13162788b2ec497b4fe49228
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 78ae0fc94e74755b481f80724ca26b34da99122c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532636"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758575"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copiare e spostare i progetti di Visione personalizzata
 
 Dopo aver creato e sottoposto a Training un progetto di Visione personalizzata, è consigliabile copiare il progetto in un'altra risorsa. Ad esempio, potrebbe essere necessario spostare un progetto da un ambiente di sviluppo in un ambiente di produzione oppure eseguire il backup di un progetto in un account in un'area di Azure diversa per aumentare la sicurezza dei dati.
 
-Le API **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3])** e **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** abilitano questo scenario consentendo di copiare i progetti da un account visione personalizzata ad altri. Questa guida illustra come usare queste API REST con cURL. Per eseguire le richieste, è anche possibile usare un servizio di richiesta HTTP, ad esempio il poster.
+Le API **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** e **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** abilitano questo scenario consentendo di copiare i progetti da un account visione personalizzata ad altri. Questa guida illustra come usare queste API REST con cURL. Per eseguire le richieste, è anche possibile usare un servizio di richiesta HTTP, ad esempio il poster.
 
 ## <a name="business-scenarios"></a>Scenari aziendali
 

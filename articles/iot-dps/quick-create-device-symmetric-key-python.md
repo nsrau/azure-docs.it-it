@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: 7c8254609b8db9c2796d431485507de7083509aa
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 0fe9d59e97ebbc9aba17fea14aed43756300d56e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569413"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528594"
 ---
-# <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Avvio rapido: Effettuare il provisioning di un dispositivo Python con chiavi simmetriche
+# <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Effettuare il provisioning di un dispositivo Python con chiavi simmetriche
 
 Questa guida di avvio rapido illustra come effettuare il provisioning di un computer di sviluppo Windows come un dispositivo in un hub IoT usando Python. Il dispositivo userà una chiave simmetrica per l'autenticazione con un'istanza del servizio Device Provisioning per poter essere assegnato a un hub IoT. Il dispositivo autenticato verrà riconosciuto dal servizio Device Provisioning in base a una registrazione singola e verrà assegnato a un hub IoT. Per effettuare il provisioning del dispositivo, verrà usato il codice di esempio di [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python). 
 
 Questo articolo illustra il provisioning con una registrazione singola, ma è anche possibile usare gruppi di registrazioni. Esistono alcune differenze quando si usano i gruppi di registrazioni. È ad esempio necessario usare una chiave di dispositivo derivata con un ID registrazione univoco per il dispositivo. Anche se i gruppi di registrazione di chiave simmetrica non sono limitati per i dispositivi legacy, in [Come eseguire il provisioning di dispositivi legacy usando l'attestazione di chiave simmetrica](how-to-legacy-device-symm-key.md) viene fornito un esempio di gruppo di registrazione. Per altre informazioni, vedere [Attestazione con chiave simmetrica delle registrazioni di gruppo](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). 
+Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica sul [provisioning](about-iot-dps.md#provisioning-process). 
 
 Assicurarsi anche di avere completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare con questa guida introduttiva. Questa guida introduttiva prevede che sia già stata creata un'istanza del servizio Device Provisioning.
 
@@ -32,7 +32,7 @@ Questo articolo si riferisce a una workstation basata su Windows. Tuttavia, è p
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 * Verificare che nel computer basato su Windows sia installato [Python 3.7](https://www.python.org/downloads/) o versione successiva. Per controllare la versione di Python, eseguire `python --version`.
 
@@ -69,13 +69,13 @@ Questo articolo si riferisce a una workstation basata su Windows. Tuttavia, è p
 
 3. Nel pannello **Aggiungi registrazione** immettere le informazioni seguenti e premere il pulsante **Salva**.
 
-   - **Meccanismo**: selezionare **Chiave simmetrica** come *meccanismo* di attestazione dell'identità.
+   - **Meccanismo:** selezionare **Chiave simmetrica** come *meccanismo* di attestazione dell'identità.
 
    - **Genera chiavi automaticamente**: selezionare questa casella.
 
-   - **ID di registrazione**: immettere un ID di registrazione per identificare la registrazione. Usare solo caratteri alfanumerici minuscoli e trattini ("-"). Ad esempio, **symm-key-python-device-008**.
+   - **ID registrazione**: immettere un ID di registrazione per identificare la registrazione. Usare solo caratteri alfanumerici minuscoli e trattini ("-"). Ad esempio, **symm-key-python-device-008**.
 
-   - **ID dispositivo hub IoT:** Immettere un identificatore di dispositivo. Ad esempio, **python-device-008**.
+   - **ID dispositivo hub IoT:** immettere un identificatore di dispositivo. Ad esempio, **python-device-008**.
 
      ![Aggiungere una registrazione singola per l'attestazione della chiave simmetrica nel portale](./media/quick-create-device-symm-key-python/create-individual-enrollment-python.png)
 

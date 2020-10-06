@@ -65,7 +65,7 @@
       href: load-balancer-multivip-overview.md
     - name: Connessioni in uscita
       href: load-balancer-outbound-connections.md
-    - name: TCP Reset in caso di timeout di inattività
+    - name: Reimpostazione di TCP e timeout di inattività di TCP
       href: load-balancer-tcp-reset.md
     - name: Load Balancer Standard e zone di disponibilità
       href: load-balancer-standard-availability-zones.md
