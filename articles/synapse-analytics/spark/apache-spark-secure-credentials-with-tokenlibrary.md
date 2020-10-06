@@ -9,15 +9,19 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 21b571c859ec8ecc66c1c9a222e0648dc7f28f4f
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 90e7297236994650e0820e883c94a98b29c49fb7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89422123"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249417"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>Protezione delle credenziali tramite servizi collegati con TokenLibrary
-L'accesso ai dati da origini esterne è uno schema comune. A meno che l'origine dati esterna non consenta l'accesso anonimo, è probabile che sia necessario proteggere la connessione con una credenziale, un segreto o una stringa di connessione.  Azure Synapse Analytics fornisce servizi collegati per semplificare il processo di integrazione archiviando i dettagli della connessione in un servizio collegato o in Azure Key Vault. Dopo aver creato un servizio collegato, Apache Spark può farvi riferimento per applicare le informazioni di connessione nel codice. Per altre informazioni, vedere [Servizi collegati](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+L'accesso ai dati da origini esterne è uno schema comune. A meno che l'origine dati esterna non consenta l'accesso anonimo, è probabile che sia necessario proteggere la connessione con una credenziale, un segreto o una stringa di connessione.  
+
+Azure Synapse Analytics fornisce servizi collegati per semplificare il processo di integrazione archiviando i dettagli della connessione in un servizio collegato o in Azure Key Vault. Dopo aver creato un servizio collegato, Apache Spark può farvi riferimento per applicare le informazioni di connessione nel codice. 
+
+Per altre informazioni, vedere [Servizi collegati](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 > [!NOTE]
 > L'accesso ai file da Azure Data Lake Storage nell'area di lavoro usa il passthrough di AAD per l'autenticazione, per cui non è necessario usare TokenLibrary. 
 
@@ -26,7 +30,7 @@ L'accesso ai dati da origini esterne è uno schema comune. A meno che l'origine 
 * Servizio collegato: è necessario creare un servizio collegato all'origine dati esterna e farvi riferimento da TokenLibrary. Per altre informazioni, vedere [Servizi collegati](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 
-## <a name="connecting-to-adls-gen2-outside-of-synapse-workspace"></a>Connessione ad ADLS Gen2 all'esterno dell'area di lavoro di Synapse
+## <a name="connect-to-adls-gen2-outside-of-synapse-workspace"></a>Connettersi ad ADLS Gen2 all'esterno dell'area di lavoro di Synapse
 
 Synapse offre un'esperienza integrata di servizi collegati per Azure Data Lake Storage Gen2.
 
@@ -52,7 +56,7 @@ df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTO
 
 df.show()
 ```
-## <a name="using-the-token-library"></a>Uso di TokenLibrary
+## <a name="use-the-token-library"></a>Usare la libreria di token
 
 Per connettersi ad altri servizi, è possibile effettuare una chiamata diretta a TokenLibrary.
 

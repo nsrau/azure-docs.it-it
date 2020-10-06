@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25e70809becd59ceeb3c45867b9e35119df497a3
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 4b247009669d6008644c9beb54fb687138b81716
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526919"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266412"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrare una foresta esistente e una nuova con un singolo tenant di Azure AD
 
@@ -60,14 +60,14 @@ In questo scenario una foresta esistente viene sincronizzata con un tenant di Az
 4. Fare clic su "Scarica l'agente"
 5. Eseguire l'agente di provisioning cloud di Azure AD Connect
 6. Nella schermata iniziale **accettare** le condizioni di licenza e fare clic su **Installa**.</br>
-![Schermata iniziale](media/how-to-install/install1.png)</br>
+![Screenshot che mostra la schermata iniziale del pacchetto dell'agente di provisioning di Microsoft Azure AD Connect.](media/how-to-install/install1.png)</br>
 
 7. Al termine dell'operazione verrà avviata la configurazione guidata.  Accedere con l'account amministratore globale di Azure AD.  Si noti che se è abilitata la sicurezza avanzata di Internet Explorer, l'accesso verrà bloccato.  In tal caso, chiudere l'installazione, disabilitare la sicurezza avanzata di Internet Explorer in Server Manager e fare clic su **AAD Connect Provisioning Agent Wizard** (Configurazione guidata dell'agente di provisioning AAD Connect) per riavviare l'installazione.
 8. Nella schermata **Connect Active Directory** (Connetti Active Directory) fare clic su **Aggiungi directory** quindi accedere con l'account amministratore di dominio di Active Directory.  NOTA:  L'account amministratore di dominio non dovrebbe avere requisiti per la modifica della password. Se la password scade o viene cambiata, sarà necessario riconfigurare l'agente con le nuove credenziali. Questa operazione aggiungerà la directory locale.  Fare clic su **Avanti**.</br>
-![Schermata iniziale](media/how-to-install/install3.png)</br>
+![Screenshot che mostra la schermata per la connessione di Active Directory.](media/how-to-install/install3.png)</br>
 
 9. Nella schermata **Configurazione completata** fare clic su **Conferma**.  Questa operazione registrerà e riavvierà l'agente.</br>
-![Schermata iniziale](media/how-to-install/install4.png)</br>
+![Screenshot che mostra la schermata di completamento della configurazione.](media/how-to-install/install4.png)</br>
 
 10. Al termine dell'operazione verrà visualizzato un avviso: **Your agent configuration was successfully verified** (La configurazione dell'agente è stata verificata).  È possibile fare clic su **Esci**.</br>
 ![Schermata iniziale](media/how-to-install/install5.png)</br>

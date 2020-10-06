@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 08455d3033040d14c85e4c4170ae34a6d05cfac1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527174"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322054"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows
 
@@ -100,6 +100,8 @@ Per prestazioni ottimali, assicurarsi che la rete soddisfi i requisiti seguenti:
 * La latenza di round trip (RTT) dalla rete del client all'area di Azure in cui sono stati distribuiti i pool di host deve essere inferiore a 150 ms. Usare lo [strumento di valutazione dell'esperienza](https://azure.microsoft.com/services/virtual-desktop/assessment) per visualizzare l'integrità della connessione e l'area di Azure consigliata.
 * Il flusso del traffico di rete può avvenire al di fuori dei confini del paese o dell'area geografica quando le macchine virtuali che ospitano i desktop e le app si collegano al servizio di gestione.
 * Per ottimizzare le prestazioni della rete, si consiglia di collocare le macchine virtuali dell'host della sessione nella stessa area di Azure del servizio di gestione.
+
+È possibile visualizzare una tipica configurazione dell'architettura di Desktop virtuale Windows per le aziende nella [documentazione dell'architettura](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
 ## <a name="supported-remote-desktop-clients"></a>Client Desktop remoto supportati
 

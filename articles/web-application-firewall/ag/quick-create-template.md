@@ -1,19 +1,19 @@
 ---
 title: "Avvio rapido: Creare un'istanza di WAF di Azure v2 nel gateway applicazione - Modello di Azure Resource Manager"
 titleSuffix: Azure Application Gateway
-description: Informazioni su come usare un modello di Azure Resource Manager per creare un'istanza di Web Application Firewall v2 nel gateway applicazione di Azure.
+description: Informazioni su come usare un modello di avvio rapido di Azure Resource Manager per creare un'istanza di Web Application Firewall v2 nel gateway applicazione di Azure.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
-ms.date: 04/02/2020
+ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: b0a430ebfb19ca529ae96698173df27d18e6dd10
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 036503f95a7dc1aaa5690bacc01d07034e6d162f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705198"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266956"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Avvio rapido: Creare un'istanza di WAF di Azure v2 nel gateway applicazione con un modello di Azure Resource Manager
 

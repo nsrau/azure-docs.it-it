@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 409311594cc26680217948e2394420fdaea29024
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 58c1aea944d89872a79d0672a925b1696791c1a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015374"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260853"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Database condiviso di Azure Synapse Analytics
 
@@ -23,7 +23,7 @@ Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavo
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Un database creato con un processo Spark diventerà visibile con lo stesso nome a tutti i pool di Spark (anteprima) correnti e futuri nell'area di lavoro e nel motore SQL su richiesta.
+Un database creato con un processo Spark diventerà visibile con lo stesso nome a tutti i pool di Spark (anteprima) correnti e futuri nell'area di lavoro, incluso il motore SQL su richiesta.
 
 Il database predefinito Spark, denominato `default`, sarà visibile anche nel contesto SQL su richiesta come database denominato `default`.
 

@@ -2,19 +2,19 @@
 title: 'Esercitazione: Distribuire un cluster vSphere in Azure'
 description: Informazioni su come distribuire un cluster vSphere in Azure con la soluzione Azure VMWare
 ms.topic: tutorial
-ms.date: 09/07/2020
-ms.openlocfilehash: 2aa9d64dfa143e77b0edcc0c32a853645803ef67
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/21/2020
+ms.openlocfilehash: 3fab49640364ef1b2e68953d366b20f77556b486
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985941"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578318"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Esercitazione: Distribuire un cloud privato della soluzione Azure VMware in Azure
 
 La soluzione Azure VMware consente di distribuire un cluster vSphere in Azure. La distribuzione iniziale minima è di tre host. È possibile aggiungere altri host uno alla volta, fino a un massimo di 16 host per cluster. 
 
-Poiché la soluzione Azure VMware non consente di gestire il cloud privato con l'istanza locale di vCenter all'avvio, è necessario eseguire una configurazione aggiuntiva e una connessione a tale istanza locale, a una rete virtuale e altre operazioni. Queste procedure e i prerequisiti correlati verranno illustrati in questa esercitazione.
+Poiché la soluzione Azure VMware non consente di gestire il cloud privato con l'istanza locale di vCenter all'avvio, è necessario definire una configurazione aggiuntiva. Queste procedure e i prerequisiti correlati verranno illustrati in questa esercitazione.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -39,28 +39,28 @@ Per creare un cloud privato della soluzione Azure VMware, è possibile usare il 
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-avs-private-cloud-azure-portal-steps.md)]
+[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Anziché usare il portale di Azure creare un cloud privato della soluzione Azure VMware, è possibile usare l'interfaccia della riga di comando di Azure e Azure Cloud Shell. Si tratta di una shell interattiva gratuita in cui sono disponibili gli strumenti comuni di Azure preinstallati e configurati per l'uso con l'account corrente. 
+Anziché usare il portale di Azure creare un cloud privato della soluzione Azure VMware, è possibile usare l'interfaccia della riga di comando di Azure e Azure Cloud Shell.  Per un elenco di comandi che è possibile usare con la soluzione Azure VMware, vedere i [comandi di az vmware](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
 
 #### <a name="open-azure-cloud-shell"></a>Aprire Azure Cloud Shell
 
-Per aprire Cloud Shell, selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile avviare Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/bash](https://shell.azure.com/bash). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere **Invio** per eseguirli.
+Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile avviare Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/bash](https://shell.azure.com/bash). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere **Invio** per eseguirli.
 
 #### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
-```
-azurecli-interactive
+```azurecli-interactive
+
 az group create --name myResourceGroup --location eastus
 ```
 
 #### <a name="create-a-private-cloud"></a>Creare un cloud privato
 
-Specificare un nome per il gruppo di risorse, un nome per il cloud privato, una località e le dimensioni del cluster.
+Specificare un nome per il gruppo di risorse e per il cloud privato, una località e le dimensioni del cluster.
 
 | Proprietà  | Descrizione  |
 | --------- | ------------ |
@@ -71,8 +71,7 @@ Specificare un nome per il gruppo di risorse, un nome per il cloud privato, una 
 | **--network-block**     | Il blocco di rete degli indirizzi IP CIDR da usare per il cloud privato. Il blocco di indirizzi non deve sovrapporsi ai blocchi di indirizzi usati in altre reti virtuali presenti nella sottoscrizione e nelle reti locali.        |
 | **--sku** | Valore SKU: AV36 |
 
-```
-azurecli-interactive
+```azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
 
@@ -95,6 +94,10 @@ Una volta eliminato un cloud privato, non è possibile recuperare le macchine vi
  
 3. Immettere il nome del cloud privato e selezionare **Sì**. Il processo di eliminazione viene completato in poche ore.  
 
+## <a name="azure-vmware-commands"></a>Comandi di Azure VMware
+
+Per un elenco di comandi che è possibile usare con la soluzione Azure VMware, vedere i [comandi di az vmware](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione sono state illustrate le procedure per:
@@ -104,7 +107,8 @@ In questa esercitazione sono state illustrate le procedure per:
 > * Verificare la distribuzione del cloud privato
 > * Eliminare un cloud privato della soluzione Azure VMware
 
-Continuare con l'esercitazione successiva per informazioni su come creare una rete virtuale da usare con il cloud privato come parte della configurazione della gestione locale per i cluster del cloud privato.
+Continuare con l'esercitazione successiva per apprendere come creare una jumpbox, che consente di connettersi all'ambiente in uso per poter gestire il cloud privato in locale.
+
 
 > [!div class="nextstepaction"]
-> [Creare una rete virtuale](tutorial-configure-networking.md)
+> [Accedere a un cloud privato della soluzione Azure VMware](tutorial-access-private-cloud.md)

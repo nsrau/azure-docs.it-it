@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43edb9ba6cdd73ce195a8b4eb60071b6831b7223
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e771a988faca98d009b97b1e705ddac7110a255f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526936"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266497"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Creare un progetto pilota per il provisioning cloud di una foresta di AD sincronizzata esistente 
 
@@ -40,7 +40,7 @@ Per completare questa esercitazione sono necessari i requisiti seguenti
 - Un ambiente di test con il servizio di sincronizzazione di Azure AD Connect versione 1.4.32.0 o successiva
 - Un'unità organizzativa o un gruppo incluso nell'ambito di sincronizzazione e che è possibile usare nel progetto pilota. È consigliabile iniziare con un piccolo set di oggetti.
 - Un server che esegue Windows Server 2012 R2 o versione successiva che ospiterà l'agente di provisioning.  Non può essere lo stesso server di Azure AD Connect.
-- L'ancoraggio di origine per il servizio di sincronizzazione di AAD Connect deve essere *objectGuid* o *ms-ds-consistencyGUID*
+- L'ancoraggio di origine per il servizio di sincronizzazione di Azure AD Connect deve essere *objectGuid* o *ms-ds-consistencyGUID*
 
 ## <a name="update-azure-ad-connect"></a>Aggiornare Azure AD Connect
 
@@ -54,7 +54,7 @@ Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche ril
 3.  Eseguire `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 
 >[!NOTE] 
->Se si esegue l'utilità di pianificazione personalizzata per il servizio di sincronizzazione di AAD Connect, disabilitarla. 
+>Se si esegue l'utilità di pianificazione personalizzata per il servizio di sincronizzazione di Azure AD Connect, disabilitarla. 
 
 ## <a name="create-custom-user-inbound-rule"></a>Creare una regola utente in ingresso personalizzata
 
@@ -62,7 +62,7 @@ Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche ril
  ![Menu dell'editor delle regole di sincronizzazione](media/how-to-cloud-custom-user-rule/user8.png)</br>
  
  2. Selezionare **In ingresso** nell'elenco a discesa Direzione e fare clic su **Aggiungi nuova regola**.
- ![Regola personalizzata](media/how-to-cloud-custom-user-rule/user1.png)</br>
+ ![Screenshot che mostra la finestra per la visualizzazione e la gestione delle regole di sincronizzazione, con l'opzione "In ingresso" e il pulsante per l'aggiunta di una nuova regola selezionati.](media/how-to-cloud-custom-user-rule/user1.png)</br>
  
  3. Nella pagina **Descrizione** immettere quanto segue e fare clic su **Avanti**:
 
@@ -74,7 +74,7 @@ Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche ril
     **Link Type** (Tipo di collegamento): Join<br>
     **Precedence** (Precedenza): specificare un valore univoco nel sistema<br>
     **Tag**: lasciare vuoto questo campo<br>
-    ![Regola personalizzata](media/how-to-cloud-custom-user-rule/user2.png)</br>
+    ![Screenshot che mostra la pagina relativa alla descrizione nella finestra per la creazione di una regola di sincronizzazione in ingresso, con i valori specificati.](media/how-to-cloud-custom-user-rule/user2.png)</br>
  
  4. Nella pagina **Scoping filter** (Filtro di ambito) immettere l'unità organizzativa o il gruppo di sicurezza in base a cui creare il progetto pilota.  Per filtrare in base a unità organizzativa, aggiungere la parte OU del nome distinto. Questa regola verrà applicata a tutti gli utenti inclusi in tale unità organizzativa.  Quindi, se il nome distinto termina con "OU=CPUsers,DC=contoso,DC=com, aggiungere questo filtro.  Quindi fare clic su **Next**. 
 
@@ -83,31 +83,31 @@ Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche ril
     |Scoping OU|DN|ENDSWITH|Nome distinto dell'unità organizzativa.|
     |Scoping group||ISMEMBEROF|Nome distinto del gruppo di sicurezza.|
 
-    ![Regola personalizzata](media/how-to-cloud-custom-user-rule/user3.png)</br>
+    ![Screenshot che mostra la pagina relativa al filtro dell'ambito nella finestra per la creazione di una regola di sincronizzazione in ingresso, con un valore di filtro dell'ambito specificato.](media/how-to-cloud-custom-user-rule/user3.png)</br>
  
  5. Nella pagina **Join Rules** (Regole di unione) fare clic su **Avanti**.
  6. Nella pagina **Transformations** (Trasformazioni) aggiungere una trasformazione costante: impostare su True l'attributo cloudNoFlow. Scegliere **Aggiungi**.
- ![Regola personalizzata](media/how-to-cloud-custom-user-rule/user4.png)</br>
+ ![Screenshot che mostra la pagina relativa alle trasformazioni nella finestra per la creazione di una regola di sincronizzazione in ingresso, con un flusso di trasformazione costante aggiunto.](media/how-to-cloud-custom-user-rule/user4.png)</br>
 
 È necessario seguire la stessa procedura per tutti i tipi di oggetto (utente, gruppo e contatto). Ripetere i passaggi per ogni connettore AD e per ogni foresta AD. 
 
 ## <a name="create-custom-user-outbound-rule"></a>Creare una regola utente in uscita personalizzata
 
  1. Selezionare **In uscita** nell'elenco a discesa Direzione e fare clic su **Aggiungi regola**.
- ![Regola personalizzata](media/how-to-cloud-custom-user-rule/user5.png)</br>
+ ![Screenshot che mostra la direzione "In uscita" selezionata e il pulsante per l'aggiunta di una nuova regola evidenziato.](media/how-to-cloud-custom-user-rule/user5.png)</br>
  
  2. Nella pagina **Descrizione** immettere quanto segue e fare clic su **Avanti**:
 
     **Nome:** assegnare un nome significativo alla regola<br>
     **Descrizione:** aggiungere una descrizione significativa<br>
-    **Connected System** (Sistema connesso): scegliere il connettore AAD per cui si sta scrivendo la regola di sincronizzazione personalizzata<br>
+    **Connected System** (Sistema connesso): scegliere il connettore di Azure AD per cui si sta scrivendo la regola di sincronizzazione personalizzata<br>
     **Connected System Object Type** (Tipo di oggetto sistema connesso): Utente<br>
     **Metaverse Object Type** (Tipo di oggetto metaverse): Persona<br>
     **Link Type** (Tipo di collegamento): JoinNoFlow<br>
     **Precedence** (Precedenza): specificare un valore univoco nel sistema<br>
     **Tag**: lasciare vuoto questo campo<br>
     
-    ![Regola personalizzata](media/how-to-cloud-custom-user-rule/user6.png)</br>
+    ![Screenshot che mostra la pagina relativa alla descrizione con le proprietà specificate.](media/how-to-cloud-custom-user-rule/user6.png)</br>
  
  3. Nella pagina **Scoping filter** (Filtro di ambito) scegliere **cloudNoFlow** uguale **True**. Quindi fare clic su **Next**.
  ![Regola personalizzata](media/how-to-cloud-custom-user-rule/user7.png)</br>
@@ -122,14 +122,14 @@ Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche ril
 2. Scaricare l'agente di provisioning cloud di Azure AD Connect usando la procedura descritta [qui](how-to-install.md#install-the-agent).
 3. Eseguire il provisioning cloud di Azure AD Connect (AADConnectProvisioningAgent.Installer)
 3. Nella schermata iniziale **accettare** le condizioni di licenza e fare clic su **Installa**.</br>
-![Schermata iniziale](media/how-to-install/install1.png)</br>
+![Screenshot che mostra la schermata iniziale dell'agente di provisioning di Microsoft Azure AD Connect.](media/how-to-install/install1.png)</br>
 
 4. Al termine dell'operazione verrà avviata la configurazione guidata.  Accedere con l'account amministratore globale di Azure AD.
 5. Nella schermata **Connect Active Directory** (Connetti Active Directory) fare clic su **Aggiungi directory** quindi accedere con l'account amministratore di Active Directory.  Questa operazione aggiungerà la directory locale.  Fare clic su **Avanti**.</br>
-![Schermata iniziale](media/how-to-install/install3.png)</br>
+![Screenshot che mostra la schermata per la connessione di Active Directory con un valore di directory specificato.](media/how-to-install/install3.png)</br>
 
 6. Nella schermata **Configurazione completata** fare clic su **Conferma**.  Questa operazione registrerà e riavvierà l'agente.</br>
-![Schermata iniziale](media/how-to-install/install4.png)</br>
+![Screenshot che mostra la schermata di completamento della configurazione con il pulsante per la conferma selezionato.](media/how-to-install/install4.png)</br>
 
 7. Al termine dell'operazione verrà visualizzato l'avviso indicante che **la verifica è stata completata correttamente**.  È possibile fare clic su **Esci**.</br>
 ![Schermata iniziale](media/how-to-install/install5.png)</br>

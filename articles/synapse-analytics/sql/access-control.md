@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 52cf3af4b4ab84c12b2e1b5d7f076c43e652157d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031314"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289481"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gestire l'accesso ad aree di lavoro, dati e pipeline
 
@@ -50,7 +50,7 @@ Quando è stato effettuato il provisioning dell'area di lavoro, è stato necessa
 1. Aprire il [portale di Azure](https://portal.azure.com)
 2. Passare all'account Azure Data Lake Storage Gen2
 3. Passare al contenitore (filesystem) selezionato per l'area di lavoro di Azure Synapse
-4. Fare clic su **Controllo di accesso (IAM)**
+4. Selezionare **Controllo di accesso (IAM)**
 5. Assegnare i ruoli seguenti:
    1. Ruolo **Lettore** a: `Synapse_WORKSPACENAME_Users`
    2. Ruolo **Proprietario dei dati dei BLOB di archiviazione** a: `Synapse_WORKSPACENAME_Admins`
@@ -64,17 +64,17 @@ Quando è stato effettuato il provisioning dell'area di lavoro, è stato necessa
 
 1. Passare all'[**interfaccia utente Web di Azure Synapse**](https://web.azuresynapse.net)
 2. Passare a **Gestisci**  > **sicurezza** > **Controllo di accesso**
-3. Fare clic su **Aggiungi amministratore** e selezionare `Synapse_WORKSPACENAME_Admins`
+3. Selezionare **Aggiungi amministratore** e quindi `Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Passaggio 4: Configurare l'accesso dell'amministratore di SQL per l'area di lavoro
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
 2. Passare all'area di lavoro
 3. Passare a **Impostazioni** > **Amministratore di Active Directory**
-4. Fare clic su **Imposta amministratore**
+4. Selezionare **Imposta amministratore**
 5. Selezionare `Synapse_WORKSPACENAME_Admins`
-6. Fare clic su **Seleziona**
-7. Fare clic su **Salva**
+6. Scegliere **Seleziona**
+7. Selezionare **Salva**
 
 > [!NOTE]
 > WORKSPACENAME: sostituire questa parte con il nome effettivo dell'area di lavoro.

@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/28/2020
-ms.openlocfilehash: 35a637df85984bcfd20836bcd87aa5ecf1583170
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 60977b9388af3a93d0ebbbc6aad50628b79e0e44
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461139"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598271"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Avvio rapido: Usare SSMS per connettersi a un database SQL di Azure o a un'istanza gestita di database SQL di Azure ed eseguire query
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,6 +64,8 @@ Ottenere le informazioni necessarie per connettersi al database. Per completare 
 
 ## <a name="connect-to-your-database"></a>Connettersi al database
 
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 In SSMS connettersi al server.
 
 > [!IMPORTANT]
@@ -85,7 +87,7 @@ In SSMS connettersi al server.
    ![Connetti al server](./media/connect-query-ssms/connect.png)  
 
 > [!NOTE]
-> Questa esercitazione usa l'autenticazione di SQL Server.  Per la connessione tramite Azure Active Directory con MFA, tuttavia, assicurarsi di usare [SSMS 18.6 o versione successiva](https://aka.ms/ssms). 
+> Questa esercitazione usa l'autenticazione di SQL Server.
 
 3. Selezionare **Opzioni** nella finestra di dialogo **Connetti al server**. Nel menu a discesa **Connetti al database** selezionare **mySampleDatabase**. Completando l'argomento di avvio rapido nella sezione [Prerequisiti](#prerequisites), viene creato un database AdventureWorksLT denominato mySampleDatabase. Se la copia di lavoro del database AdventureWorks ha un nome diverso da mySampleDatabase, selezionare invece tale nome.
 

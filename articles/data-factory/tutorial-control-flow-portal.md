@@ -1,6 +1,6 @@
 ---
 title: Diramazione e concatenamento delle attività in una pipeline tramite il portale di Azure
-description: Informazioni su come controllare il flusso dei dati in Azure Data Factory con la diramazione e il concatenamento delle attività.
+description: Informazioni su come controllare il flusso dei dati nella pipeline di Azure Data Factory usando il portale di Azure.
 services: data-factory
 author: djpmsft
 ms.author: daperlov
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: c046d2e437004146b5ee4c53dd98942ca1781ad4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983731"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568541"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Diramazione e concatenamento delle attività in una pipeline di Azure Data Factory con il portale di Azure
 
@@ -184,7 +184,7 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
    ![Trascinare l'attività di copia](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. Nella finestra **Proprietà** per l'attività **Copia** nella parte inferiore passare alla scheda **Origine** e fare clic su **+ Nuovo**. In questa attività viene creato un set di dati di origine per l'attività di copia.
 
-   ![Set di dati di origine](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
+   ![Screenshot che mostra come creare un set di dati di origine per l'attività di copia.](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. Nella finestra **Nuovo set di dati** selezionare **Archiviazione BLOB di Azure** e fare clic su **Fine**.
 
    ![Selezionare Archiviazione BLOB di Azure](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
@@ -273,7 +273,7 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
         ![Impostazioni per la seconda attività Web](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Selezionare l'attività **Copia** nella finestra di progettazione della pipeline e fare clic sul pulsante **+->** , quindi selezionare **Errore**.  
 
-    ![Impostazioni per la seconda attività Web](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
+    ![Screenshot che mostra come selezionare l'opzione di errore per l'attività di copia nella finestra di progettazione della pipeline.](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. Trascinare il pulsante **rosso** accanto all'attività Copia sulla seconda attività Web **SendFailureEmailActivity**. È possibile spostare le attività in modo che l'aspetto della pipeline sia simile all'immagine seguente:
 
     ![Pipeline completa con tutte le attività](./media/tutorial-control-flow-portal/full-pipeline.png)
@@ -304,7 +304,7 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
     ![Esecuzione riuscita della pipeline](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
 2. Per **visualizzare le esecuzioni attività** associate a questa esecuzione della pipeline, fare clic sul primo collegamento nella colonna **Azioni**. È possibile tornare alla visualizzazione precedente facendo clic su **Pipeline** in alto. Usare il pulsante **Aggiorna** per aggiornare l'elenco.
 
-    ![Esecuzioni attività](./media/tutorial-control-flow-portal/activity-runs-success.png)
+    ![Screenshot che mostra come visualizzare l'elenco delle esecuzioni di attività.](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
 ## <a name="trigger-a-pipeline-run-that-fails"></a>Attivare un'esecuzione della pipeline con esito negativo
 1. Passare alla scheda **Modifica** a sinistra.

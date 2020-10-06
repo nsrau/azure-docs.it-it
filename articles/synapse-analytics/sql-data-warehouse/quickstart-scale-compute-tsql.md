@@ -1,5 +1,5 @@
 ---
-title: Ridimensionare le risorse di calcolo in Azure Synapse Analytics - T-SQL
+title: 'Avvio rapido: Ridimensionare le risorse di calcolo in Azure Synapse Analytics - T-SQL'
 description: Ridimensionare le risorse di calcolo in Azure Synapse Analytics tramite T-SQL e SQL Server Management Studio (SSMS), aumentandone il numero per ottenere prestazioni migliori o riducendolo per diminuire i costi.
 services: synapse-analytics
 author: Antvgski
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: cb813c9a30b644459f3e586ed4313ca070b5a746
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d11474a3f3b5d8c314f67260fddbbe0a98fe5196
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212922"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569905"
 ---
 # <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Guida introduttiva: Ridimensionare le risorse di calcolo in Azure Synapse Analytics con T-SQL
 
@@ -132,7 +132,7 @@ Per eseguire il poll dello stato di modifica dell'oggetto servizio:
 
 ## <a name="check-data-warehouse-state"></a>Controllare lo stato del data warehouse
 
-Se un data warehouse è sospeso, non è possibile eseguire la connessione con T-SQL. Per visualizzare lo stato corrente del data warehouse, usare un cmdlet PowerShell. Per un esempio, vedere [Controllare lo stato del data warehouse - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
+Se un data warehouse è sospeso, non è possibile eseguire la connessione con T-SQL. Per visualizzare lo stato corrente del data warehouse, usare un cmdlet PowerShell. Per un esempio, vedere [Controllare lo stato del data warehouse - PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
 
 ## <a name="check-operation-status"></a>Controllare lo stato dell'operazione
 
