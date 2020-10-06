@@ -15,6 +15,9 @@
       href: fhir-paas-powershell-quickstart.md
     - name: Distribuire l'API di Azure per FHIR - Interfaccia della riga di comando
       href: fhir-paas-cli-quickstart.md
+    - name: Distribuire l'API di Azure per FHIR - Modello di Resource Manager
+      href: fhir-paas-arm-template-quickstart.md
+      displayName: deploy azure resource manager template
     - name: Distribuire FHIR Server per Azure - Portale
       href: fhir-oss-portal-quickstart.md
     - name: Distribuire FHIR Server per Azure - PowerShell
@@ -80,7 +83,7 @@
     - name: Esportazione dei dati
       expanded: false
       items:
-        - name: Esportazione dei dati
+        - name: Esporta dati
           href: export-data.md
     - name: Trovare ID oggetto identità
       href: find-identity-object-ids.md

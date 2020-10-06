@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: b7b6a7202392e083aaaa5cdc8adcf0c81cfb0e0d
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 18c07266cec68aaf6e95fe4085b9d21244fecff4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403705"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761040"
 ---
 # <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
 
@@ -99,7 +99,7 @@ Determinare se le prestazioni dell'applicazione non soddisfacenti sono dovute al
 
 Dopo avere determinato che il problema è causato dalla rete, selezionare il collegamento della visualizzazione **Topologia** per identificare l'hop problematico nella mappa della topologia. Nell'immagine seguente è illustrato un esempio. Dei 105 ms di latenza totale tra il nodo e l'endpoint applicazione, 96 ms sono dovuti all'hop contrassegnato in rosso. Dopo avere identificato l'hop problematico, è possibile adottare un'azione correttiva. 
 
-![Test di Monitoraggio connettività servizio](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![Topologia dell'endpoint di monitoraggio connettività del servizio](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnostica 
 

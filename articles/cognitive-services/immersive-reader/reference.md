@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: aa85f1323795098d161e6bfb1b9cf9237b2a5501
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330605"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761550"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Guida di riferimento all'SDK per JavaScript immersive (v 1.1)
 
@@ -48,9 +48,9 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 | `token` | string | Token di autenticazione Azure AD. Per altri dettagli, vedere [How-to create a immersive Reader Resource](./how-to-create-immersive-reader.md) . |
 | `subdomain` | string | Sottodominio personalizzato della risorsa Reader immersiva in Azure. Per altri dettagli, vedere [How-to create a immersive Reader Resource](./how-to-create-immersive-reader.md) . |
 | `content` | [Contenuto](#content) | Oggetto contenente il contenuto da visualizzare nel lettore immersivo. |
-| `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del lettore immersivo. facoltativo. |
+| `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del lettore immersivo. Facoltativo. |
 
-#### <a name="returns"></a>Restituisce
+#### <a name="returns"></a>Risultati restituiti
 
 Restituisce un oggetto `Promise<LaunchResponse>` , che viene risolto quando il lettore immersivo viene caricato. Viene `Promise` risolto in un [`LaunchResponse`](#launchresponse) oggetto.
 
@@ -117,7 +117,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 | Nome | Type | Descrizione |
 | ---- | ---- |------------ |
-| `options` | [opzioni di renderButtons](#renderbuttons-options) | Opzioni per la configurazione di determinati comportamenti della funzione renderButtons. facoltativo. |
+| `options` | [opzioni di renderButtons](#renderbuttons-options) | Opzioni per la configurazione di determinati comportamenti della funzione renderButtons. Facoltativo. |
 
 ### <a name="renderbuttons-options"></a>Opzioni di renderButtons
 
@@ -135,7 +135,7 @@ Opzioni per il rendering dei pulsanti Reader immersivi.
 | ------- | ---- | ----------- |
 | Elementi figlio | HTMLDivElement [] | Elementi per il rendering dei pulsanti del lettore immersivi in. |
 
-##### `-elements`
+##### `elements`
 ```Parameters
 Type: HTMLDivElement[]
 Required: false
@@ -210,14 +210,14 @@ Contiene il contenuto da visualizzare nel lettore immersivo.
 | title | string | Testo del titolo visualizzato nella parte superiore del lettore immersivo (facoltativo) |
 | blocchi | [Blocco []](#chunk) | Matrice di blocchi |
 
-##### `-title`
+##### `title`
 ```Parameters
 Type: String
 Required: false
 Default value: "Immersive Reader" 
 ```
 
-##### `-chunks`
+##### `chunks`
 ```Parameters
 Type: Chunk[]
 Required: true
@@ -246,21 +246,21 @@ Singolo blocco di dati, che verrà passato al contenuto del lettore immersivo.
 | lang | string | Lingua del testo, il valore è nel formato di tag del linguaggio IETF BCP 47, ad esempio en, es-ES. La lingua verrà rilevata automaticamente se non è specificata. Vedere le [lingue supportate](#supported-languages). |
 | mimeType | string | Sono supportati i formati testo normale, MathML, HTML & Microsoft Word DOCX. Per altri dettagli, vedere [tipi MIME supportati](#supported-mime-types) . |
 
-##### `-content`
+##### `content`
 ```Parameters
 Type: String
 Required: true
 Default value: null 
 ```
 
-##### `-lang`
+##### `lang`
 ```Parameters
 Type: String
 Required: false
 Default value: Automatically detected 
 ```
 
-##### `-mimeType`
+##### `mimeType`
 ```Parameters
 Type: String
 Required: false
@@ -323,38 +323,38 @@ Contiene proprietà che configurano comportamenti specifici del lettore immersiv
 | onPreferencesChanged | Funzione | Viene eseguito quando le preferenze dell'utente sono state modificate. Per ulteriori informazioni, vedere [come archiviare le preferenze utente](./how-to-store-user-preferences.md) . |
 | customDomain | string | Riservato per utilizzo interno. Dominio personalizzato in cui è ospitato il webapp del lettore immersivo (il valore predefinito è null). |
 
-##### `-uiLang`
+##### `uiLang`
 ```Parameters
 Type: String
 Required: false
 Default value: User's browser language 
 ```
 
-##### `-timeout`
+##### `timeout`
 ```Parameters
 Type: Number
 Required: false
 Default value: 15000
 ```
 
-##### `-uiZIndex`
+##### `uiZIndex`
 ```Parameters
 Type: Number
 Required: false
 Default value: 1000
 ```
 
-##### `-onExit`
+##### `onExit`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-preferences`
+##### `preferences`
 
 > [!CAUTION]
-> **Importante** Non tentare di modificare a livello di codice i valori della `-preferences` stringa inviata da e verso l'applicazione immersiva Reader, perché questo potrebbe causare un comportamento imprevisto che può comportare un'esperienza utente ridotta per i clienti.
+> **Importante** Non tentare di modificare a livello di codice i valori della `-preferences` stringa inviata da e verso l'applicazione immersiva Reader, perché questo potrebbe causare un comportamento imprevisto che può comportare un'esperienza utente ridotta per i clienti. Le applicazioni host non devono mai assegnare un valore personalizzato a o modificare la `-preferences` stringa. Quando si usa l' `-preferences` opzione String, usare solo il valore esatto restituito dall'opzione di `-onPreferencesChanged` callback.
 
 ```Parameters
 Type: String
@@ -362,14 +362,14 @@ Required: false
 Default value: null
 ```
 
-##### `-onPreferencesChanged`
+##### `onPreferencesChanged`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-customDomain`
+##### `customDomain`
 ```Parameters
 Type: String
 Required: false
@@ -396,7 +396,7 @@ type ReadAloudOptions = {
 | velocità | Numero | La velocità di riproduzione deve essere compresa tra 0,5 e 2,5 inclusi. |
 | autoPlay | Boolean | Avvia automaticamente la lettura a voce alta quando viene caricato il lettore immersivo. |
 
-##### `-voice`
+##### `voice`
 ```Parameters
 Type: String
 Required: false
@@ -404,7 +404,7 @@ Default value: "Female" or "Male" (determined by language)
 Values available: "Female", "Male"
 ```
 
-##### `-speed`
+##### `speed`
 ```Parameters
 Type: Number
 Required: false
@@ -435,7 +435,7 @@ type TranslationOptions = {
 | autoEnableDocumentTranslation | Boolean | Tradurre automaticamente l'intero documento. |
 | autoEnableWordTranslation | Boolean | Abilita automaticamente la traduzione in Word. |
 
-##### `-language`
+##### `language`
 ```Parameters
 Type: String
 Required: true
@@ -463,7 +463,7 @@ type DisplayOptions = {
 | increaseSpacing | Boolean | Imposta un valore che indica se la spaziatura del testo viene attivata o disattivata. |
 | fontFamily | string | Imposta il tipo di carattere scelto ("calibri", "ComicSans" o "Sitka"). |
 
-##### `-textSize`
+##### `textSize`
 ```Parameters
 Type: Number
 Required: false
@@ -471,7 +471,7 @@ Default value: 20, 36 or 42 (Determined by screen size)
 Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
 ```
 
-##### `-fontFamily`
+##### `fontFamily`
 ```Parameters
 Type: String
 Required: false

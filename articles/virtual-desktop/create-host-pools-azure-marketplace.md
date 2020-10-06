@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: da944f74fd6214e1b69a3ee7d230e72accd4e2e4
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2830d8b82f5b53300d0af3f48e55b573d78ad295
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084363"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287390"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Esercitazione: Creare un pool di host con il portale di Azure
 
@@ -48,7 +48,8 @@ Per iniziare a creare il nuovo pool di host:
 
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com/).
    
-   >![NOTE] Se si esegue l'accesso al portale di US Gov, passare a invece all'indirizzo [https://portal.azure.us/](https://portal.azure.us/).
+   >[!NOTE]
+   > Se si accede al portale US Gov, passare invece a [https://portal.azure.us/](https://portal.azure.us/).
 
 2. Immettere **Desktop virtuale Windows** nella barra di ricerca, quindi individuare e selezionare **Desktop virtuale Windows** in Servizi.
 

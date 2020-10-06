@@ -170,7 +170,7 @@
               href: vpn-gateway-howto-openvpn-clients.md
             - name: Passare al protocollo OpenVPN o a IKEv2 da SSTP
               href: ikev2-openvpn-from-sstp.md
-        - name: Configurare la gestione delle sessioni VPN da punto a sito
+        - name: Gestione delle sessioni da punto a sito
           href: p2s-session-management.md
         - name: Passaggio a un certificato del gateway CA pubblico per la connessione da punto a sito
           href: vpn-gateway-point-to-site-gateway-public-ca.md

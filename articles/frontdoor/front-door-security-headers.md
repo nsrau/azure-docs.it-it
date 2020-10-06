@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Aggiungere intestazioni di sicurezza con il motore regole - Frontdoor di Azure'
-description: Questo articolo illustra come configurare un'intestazione di sicurezza tramite il motore regole nel servizio Frontdoor di Azure
+description: Questa esercitazione illustra come configurare un'intestazione di sicurezza tramite il motore regole nel servizio Frontdoor di Azure
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 204a7676fd03466929fc67a0879ff28e0318d21d
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 1727193faa028a1d681f2a74df950afeb9570ec9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085238"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270050"
 ---
 # <a name="tutorial-add-security-headers-with-rules-engine"></a>Esercitazione: Aggiungere intestazioni di sicurezza con il motore regole
 

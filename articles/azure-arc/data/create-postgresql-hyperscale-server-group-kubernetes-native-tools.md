@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: bbf41cf48f4891814fa0c2baa750783f98d8574b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f447c6028b1750aa96e531a97e7b0861f66a5749
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91344623"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761669"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Creare un gruppo di server con iperscalabilità PostgreSQL usando gli strumenti di Kubernetes
 
@@ -34,7 +34,7 @@ Per creare un gruppo di server con iperscalabilità PostgreSQL, è necessario cr
 
 ## <a name="create-a-yaml-file"></a>Creare un file YAML
 
-È possibile usare il file [YAML del modello](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/postgresql.yaml) come punto di partenza per creare il file YAML del gruppo di server di scalabilità PostgreSQL personalizzato.  Scaricare questo file nel computer locale e aprirlo in un editor di testo.  È utile usare un editor di testo, ad esempio [vs code](https://code.visualstudio.com/download) che supporta l'evidenziazione della sintassi e la sfilacciatura per i file YAML.
+È possibile usare il file [YAML del modello](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/postsgresql.yaml) come punto di partenza per creare il file YAML del gruppo di server di scalabilità PostgreSQL personalizzato.  Scaricare questo file nel computer locale e aprirlo in un editor di testo.  È utile usare un editor di testo, ad esempio [vs code](https://code.visualstudio.com/download) che supporta l'evidenziazione della sintassi e la sfilacciatura per i file YAML.
 
 Questo è un esempio di file YAML:
 

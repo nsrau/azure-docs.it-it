@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89b8097aa288be710e95e835bb66904ef2c6ab56
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: add8a533f2b4fba9a9e881442e43030adb7e2b53
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421672"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762009"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Aggiunta di membri del gruppo in blocco in Azure Active Directory
 
@@ -75,7 +75,7 @@ Per informazioni dettagliate su ogni voce all'interno dell'operazione in blocco,
 
 ## <a name="bulk-import-service-limits"></a>Limiti del servizio di importazione in blocco
 
-Ogni attività in blocco per l'importazione di un elenco di membri del gruppo può essere eseguita per un massimo di un'ora. Questo consente l'importazione di un elenco di almeno 40.000 membri.
+Ogni attività in blocco per l'importazione di un elenco di membri del gruppo può essere eseguita per un massimo di un'ora. Questo consente l'importazione di un elenco di al massimo 40.000 membri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

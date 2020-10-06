@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8651921dafd5727f79e4ab3919e188d4b8612465
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a405a7a32b1f54732589fb14e34ff52db4992028
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939942"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761686"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Creare un controller di dati di Azure ARC usando l'interfaccia della riga di comando di Azure Data (azdata)
 
@@ -155,7 +155,7 @@ Per creare un controller dati in Azure Red Hat OpenShift, è necessario eseguire
 > [!NOTE]
 >   Usare lo stesso spazio dei nomi qui e nel `azdata arc dc create` comando riportato di seguito. L'esempio è `arc` .
 
-Prima di tutto, scaricare il vincolo del contesto di sicurezza personalizzato (SCC) da [GitHub](https://raw.githubusercontent.com/microsoft/azure_arc/master/data_services/deployment/yaml/arc-data-scc.yaml) e applicarlo al cluster.
+Prima di tutto, scaricare il vincolo del contesto di sicurezza personalizzato (SCC) da [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml) e applicarlo al cluster.
 
 È possibile eseguire il comando seguente per creare il controller dati:
 > [!NOTE]

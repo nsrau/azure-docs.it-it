@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 880d8ee0e6e2b3984f6bea4b994642724085d512
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 28afa98313ef1c9577e90ed161a1d20cbf5faf75
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980535"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440202"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Esercitazione: Distribuire ed esaminare un modello di applicazione Centro di micro-adempimenti
 
@@ -62,11 +62,11 @@ Nel dashboard è possibile eseguire queste operazioni:
    * Visualizzare la planimetria e la posizione dei trasportatori robotizzati all'interno della struttura di adempimenti.
    * Attivare comandi, ad esempio la reimpostazione del sistema di controllo, l'aggiornamento del firmware dei trasportatori e la riconfigurazione della rete.
 
-     ![Screenshot della metà superiore del dashboard del centro di micro-adempimenti di Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Screenshot della metà superiore del dashboard del centro di micro-adempimenti di Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
    * Visualizzare un esempio del dashboard che può essere usato da un operatore per monitorare le condizioni all'interno del centro di adempimenti. 
    * Monitorare l'integrità dei payload in esecuzione nel dispositivo gateway all'interno del centro di adempimenti.    
 
-     ![Screenshot della metà inferiore del dashboard del centro di micro-adempimenti di Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Screenshot della metà inferiore del dashboard del centro di micro-adempimenti di Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## <a name="device-template"></a>Modello di dispositivo
 Se si seleziona la scheda Modelli di dispositivo, si noterà che il modello include due tipi diversi di dispositivo: 

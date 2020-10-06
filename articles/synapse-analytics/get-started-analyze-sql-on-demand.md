@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Introduzione all'analisi dei dati con SQL su richiesta"
+title: "Esercitazione: Introduzione all'analisi dei dati con SQL serverless"
 description: In questa esercitazione si apprenderà come analizzare i dati con SQL su richiesta usando i dati presenti nei database Spark.
 services: synapse-analytics
 author: saveenr
@@ -9,18 +9,18 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 93ebc1c5e89e54f4813f270b9f8b7b13f672fbe3
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 8d26a03a8b61850dc17bc4efff5f8ca12dfca191
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016113"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300225"
 ---
 # <a name="analyze-data-with-sql-on-demand"></a>Analizzare i dati con SQL su richiesta
 
-In questa esercitazione si apprenderà come analizzare i dati con SQL su richiesta usando i dati presenti nei database Spark. 
+In questa esercitazione si apprenderà come analizzare i dati con SQL serverless usando un pool SQL su richiesta e i dati presenti nei database Spark. 
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage--using-sql-on-demand"></a>Analizzare i dati dei taxi di New York in archiviazione BLOB con SQL su richiesta
+## <a name="analyze-nyc-taxi-data-in-blob-storage-using-sql-on-demand-pool"></a>Analizzare i dati dei taxi di New York in archiviazione BLOB con un pool SQL su richiesta
 
 1. Nell'hub **Dati** in **Collegati** fare clic il pulsante destro del mouse su **Archivio BLOB di Azure > Set di dati di esempio > nyc_tlc_yellow** e scegliere **SELECT TOP 100 rows** (Seleziona le prime 100 righe)
 1. Verrà creato un nuovo script SQL con il codice seguente:

@@ -2,20 +2,20 @@
 title: 'Esercitazione: Creare e distribuire un modello'
 description: Creare il primo modello di Azure Resource Manager. L'esercitazione illustra la sintassi del file del modello e spiega come distribuire un account di archiviazione.
 author: mumian
-ms.date: 06/10/2020
+ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 124df19287062a7fc8a6b9cf8b9d32eb3863b581
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 6eb2cf792eb5a458bff8508bc21e1e0690e2e1f3
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069238"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409217"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager
 
-Questa esercitazione presenta i modelli di Azure Resource Manager (ARM). e illustra come creare un modello di base e distribuirlo in Azure. Verrà descritta la struttura del modello e verranno fornite informazioni sugli strumenti necessari per l'utilizzo dei modelli. Per completare l'esercitazione sono necessari circa **12 minuti**, ma il tempo effettivo può variare in base al numero di strumenti da installare.
+Questa esercitazione presenta i modelli di Azure Resource Manager (modelli ARM) e illustra come creare un modello di base e distribuirlo in Azure. Verrà descritta la struttura del modello e verranno fornite informazioni sugli strumenti necessari per l'utilizzo dei modelli. Per completare l'esercitazione sono necessari circa **12 minuti**, ma il tempo effettivo può variare in base al numero di strumenti da installare.
 
 Questa è la prima esercitazione di una serie. Nelle esercitazioni successive della serie si modificherà il modello di base passo dopo passo fino a quando non sono stati esaminati tutti gli elementi fondamentali di un modello di Resource Manager. Questi elementi costituiscono i blocchi predefiniti di modelli molto più complessi. Entro la fine della serie si dovrebbe essere in grado di creare modelli personalizzati, già pronti per automatizzare le distribuzioni con i modelli.
 
@@ -25,7 +25,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="get-tools"></a>Ottenere gli strumenti
 
-Per iniziare, verificare di disporre degli strumenti necessari per creare e distribuire i modelli.
+Per iniziare, verificare di disporre degli strumenti necessari per creare e distribuire i modelli. Installare questi strumenti nel computer locale.
 
 ### <a name="editor"></a>Editor
 

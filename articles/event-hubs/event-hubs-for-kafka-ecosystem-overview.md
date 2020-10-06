@@ -3,12 +3,12 @@ title: Usare Hub eventi dall'app Apache Kafka - Hub eventi di Azure | Microsoft 
 description: Questo articolo fornisce informazioni sul supporto di Apache Kafka in Hub eventi di Azure.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 2c552c9f901fdb886a7ddc3e71505e8e46717c03
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 5c49f8f87d8d399cda33a332f7464ed340ae3a0f
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371491"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761499"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Usare Hub eventi di Azure da applicazioni Apache Kafka
 Hub eventi fornisce un endpoint compatibile con le API Apache Kafka® Producer e consumer che possono essere usate dalla maggior parte delle applicazioni client Apache Kafka esistenti in alternativa all'esecuzione di un cluster Apache Kafka. Hub eventi supporta i client API Producer e consumer di Apache Kafka alla versione 1,0 e successive.
@@ -128,7 +128,7 @@ Autonomo e senza ksqlDB, i flussi Kafka hanno meno funzionalità rispetto a molt
 
 - [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)
 - [Analisi delle sinapsi di Azure (tramite acquisizione di hub eventi)](../event-grid/event-grid-event-hubs-integration.md)
-- [Azure Databricks](/databricks/scenarios/databricks-stream-from-eventhubs)
+- [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/databricks-stream-from-eventhubs)
 - [Apache Samza](https://samza.apache.org/learn/documentation/latest/connectors/eventhubs)
 - [Apache Storm](event-hubs-storm-getstarted-receive.md)
 - [Apache Spark](event-hubs-kafka-spark-tutorial.md)

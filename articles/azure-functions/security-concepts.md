@@ -3,12 +3,12 @@ title: Protezione di Funzioni di Azure
 description: Informazioni su come proteggere l'esecuzione del codice funzione in Azure dagli attacchi comuni.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: e48991788307a47d0e01a7921e0c94d77ddcd5ad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 470ee517b929b7327df76963e21c88db21d363da
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294751"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761414"
 ---
 # <a name="securing-azure-functions"></a>Protezione di Funzioni di Azure
 
@@ -24,7 +24,7 @@ Questa sezione illustra come configurare ed eseguire l'app per le funzioni nel m
 
 ### <a name="security-center"></a>Centro sicurezza
 
-Il Centro sicurezza si integra con l'app per le funzioni nel portale. Offre gratuitamente una rapida valutazione delle potenziali vulnerabilità della sicurezza relative alla configurazione. Le app per le funzioni in esecuzione in un piano dedicato possono anche usare le funzionalità di sicurezza in tempo reale del Centro sicurezza, con un costo aggiuntivo. Per altre informazioni, vedere [Proteggere le app Web e le API del Servizio app di Azure](../security-center/security-center-app-services.md). 
+Il Centro sicurezza si integra con l'app per le funzioni nel portale. Offre gratuitamente una rapida valutazione delle potenziali vulnerabilità della sicurezza relative alla configurazione. Le app per le funzioni in esecuzione in un piano dedicato possono anche usare le funzionalità di sicurezza in tempo reale del Centro sicurezza, con un costo aggiuntivo. Per altre informazioni, vedere [Proteggere le app Web e le API del Servizio app di Azure](https://docs.microsoft.com/azure/security-center/defender-for-app-service-introduction). 
 
 ### <a name="log-and-monitor"></a>Log e monitoraggio
 
@@ -76,7 +76,7 @@ Per altre informazioni sulle chiavi di accesso, vedere l'[articolo sull'associaz
 
 Per impostazione predefinita, le chiavi vengono archiviate in un contenitore di archiviazione BLOB nell'account fornito dall' `AzureWebJobsStorage` impostazione. È possibile usare impostazioni specifiche dell'applicazione per eseguire l'override di questo comportamento e archiviare le chiavi in un percorso diverso.
 
-|Location  |Impostazione | valore | Descrizione  |
+|Location  |Impostazione | Valore | Descrizione  |
 |---------|---------|---------|---------|
 |Account di archiviazione diverso     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Archivia le chiavi nell'archiviazione BLOB di un secondo account di archiviazione, in base all'URL SAS fornito. Le chiavi vengono crittografate prima di essere archiviate usando un segreto univoco per l'app per le funzioni. |
 |File system   | `AzureWebJobsSecretStorageType`   |  `files`       | Le chiavi vengono salvate in modo permanente nella file system, crittografate prima dell'archiviazione usando un segreto univoco per l'app per le funzioni. |

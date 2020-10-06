@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/02/2020
 tags: connectors
-ms.openlocfilehash: f3de582ff69dbd57aa4692fd5c3901602569cf9e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b832edca79cbbff39b7d526a21b1fbe95bd7a2ad
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286615"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761125"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -54,7 +54,7 @@ Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sez
   |--------|------------------|-----------------------------|
   | **Copia file** | No | Non applicabile |
   | **Crea file** | Sì | Sì |
-  | **Crea cartella** | Non applicabile | Non applicabile |
+  | **Creazione cartella** | Non applicabile | Non applicabile |
   | **Elimina file** | Non applicabile | Non applicabile |
   | **Estrai archivio nella cartella** | Non applicabile | Non applicabile |
   | **Recupera contenuto di file** | Sì | Sì |
@@ -252,6 +252,22 @@ Se non è possibile evitare o ritardare lo spostamento del file, è possibile ig
 1. Nell'azione **Crea file** aprire l'elenco **Aggiungi nuovo parametro** , selezionare la proprietà **Ottieni tutti i metadati del file** e impostare il valore su **No**.
 
 1. Se i metadati del file sono necessari in un secondo momento, è possibile usare l'azione **Ottieni metadati del file** .
+
+### <a name="504-error-a-connection-attempt-failed-because-the-connected-party-did-not-properly-respond-after-a-period-of-time-or-established-connection-failed-because-connected-host-has-failed-to-respond-or-request-to-the-sftp-server-has-taken-more-than-000030-seconds"></a>504 errore: "tentativo di connessione non riuscito. risposta non corretta della parte connessa dopo un periodo di tempo oppure connessione stabilita non riuscita perché l'host connesso non ha risposto" o "la richiesta al server SFTP ha richiesto più di" 00:00:30 "secondi"
+
+Questo errore può verificarsi quando l'app per la logica non è in grado di stabilire correttamente una connessione con il server SFTP. Potrebbero essere presenti diversi motivi ed è consigliabile risolvere il problema dai seguenti aspetti. 
+
+1. Il timeout della connessione è di 20 secondi. Verificare che il server SFTP disponga di prestazioni ottimali e che i dispositivi intermidi come il firewall non aggiungano molto sovraccarico. 
+
+2. Se è presente un firewall, assicurarsi che gli indirizzi IP del **connettore gestito** siano inclusi nell'elenco elementi consentiti. È possibile trovare questi indirizzi IP per l'area dell'app per la logica [**qui**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+
+3. Se si tratta di un problema intermittente, verificare l'impostazione di ripetizione dei tentativi per verificare se un numero di tentativi superiore rispetto a quello predefinito può essere utile.
+
+4. Verificare se il server SFTP impone un limite al numero di connessioni da ogni indirizzo IP. In tal caso, potrebbe essere necessario limitare il numero di istanze di app per la logica simultanee. 
+
+5. Aumentando la proprietà [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) a come 1 ora nella configurazione SSH nel server SFTP per ridurre il costo di creazione della connessione.
+
+6. È possibile controllare il log del server SFTP per verificare se la richiesta dall'app per la logica ha raggiunto il server SFTP. È anche possibile eseguire alcune tracce di rete sul firewall e sul server SFTP per approfondire il problema di connettività.
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 

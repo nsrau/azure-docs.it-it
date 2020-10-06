@@ -3,20 +3,20 @@ title: Esportare un progetto Jupyter Notebook dalla versione di anteprima di Azu
 description: Esportare rapidamente un progetto Jupyter Notebook.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: a2e76f2c1956df4d0de59cfb429dc1c9dce85a62
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3153247b9d15167ab437d6c46142bbd41f8e4b23
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892100"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030447"
 ---
-# <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Avvio rapido: Esportare un progetto Jupyter Notebook nella versione di anteprima di Azure Notebooks
+# <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Esportare un progetto Jupyter Notebook nella versione di anteprima di Azure Notebooks
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Questa guida di avvio rapido illustra come scaricare un progetto Azure Notebooks per usarlo in altre soluzioni Jupyter Notebook. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 Progetto Azure Notebooks esistente.
 
@@ -34,7 +34,7 @@ Progetto Azure Notebooks esistente.
 
 Dopo aver scaricato i file di progetto, è possibile usarli con altre soluzioni Jupyter Notebook. Alcune opzioni descritte nelle sezioni seguenti includono: 
 - [Visual Studio Code](#use-notebooks-in-visual-studio-code)
-- [Visual Studio Codespaces](#use-notebooks-in-visual-studio-codespaces)
+- [GitHub Codespaces](#use-notebooks-in-github-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
 - [Azure Lab Services](#use-azure-lab-services)
 - [GitHub](#use-github)
@@ -58,14 +58,13 @@ Dopo aver [scaricato](#export-an-azure-notebooks-project) i file di progetto, è
 
 È anche possibile usare lo [script dell'ambiente Azure Notebooks](#create-an-environment-for-notebooks) con Visual Studio Code per creare un ambiente corrispondente a quello di Azure Notebooks (anteprima).
 
-## <a name="use-notebooks-in-visual-studio-codespaces"></a>Usare i notebook in Visual Studio Codespaces
+## <a name="use-notebooks-in-github-codespaces"></a>Usare Notebooks in GitHub Codespaces
 
-Visual Studio Codespaces offre ambienti ospitati nel cloud in cui è possibile modificare i notebook usando Visual Studio Code o il Web browser. Offre la stessa esperienza Jupyter di VS Code, ma senza la necessità di installare nulla sul dispositivo. Se non si vuole configurare un ambiente locale e si preferisce una soluzione basata sul cloud, la creazione di un codespace è un'ottima opzione. Attività iniziali
-
+GitHub Codespaces offre ambienti ospitati nel cloud, in cui è possibile modificare i notebook usando Visual Studio Code, o nel Web browser. Offre la stessa esperienza Jupyter di VS Code, ma senza la necessità di installare nulla sul dispositivo. Se non si vuole configurare un ambiente locale e si preferisce una soluzione basata sul cloud, la creazione di un codespace è un'ottima opzione. Attività iniziali
 1. [Scaricare](#export-an-azure-notebooks-project) i file di progetto.
-1. [Creare un repository GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) per archiviare i notebook. 
+1. [Creare un repository GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) per archiviare i notebook.   
 1. [Aggiungere i file](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) al repository.
-1. Configurare Visual Studio Codespaces nel [browser](https://docs.microsoft.com/visualstudio/online/how-to/browser), in [Visual Studio](https://docs.microsoft.com/visualstudio/online/how-to/vside) o in [Visual Studio Code](https://docs.microsoft.com/visualstudio/online/how-to/vscode).
+1. [Richiedere l'accesso all'anteprima di GitHub Codespaces](https://github.com/features/codespaces)
 
 ## <a name="use-notebooks-with-azure-machine-learning"></a>Usare i notebook con Azure Machine Learning
 
@@ -93,7 +92,7 @@ Per altre informazioni su Azure ML e sull'esecuzione di Jupyter Notebook, è pos
 
 ## <a name="use-github"></a>Usare GitHub
 
-GitHub offre un modo gratuito basato sul controllo del codice sorgente per archiviare notebook (e altri file), condividere i notebook con altri utenti e collaborare in modo efficace. Se si sta cercando una soluzione per condividere i progetti e collaborare con altri utenti, GitHub è un'ottima opzione e può essere combinato con [Visual Studio Codespaces](#use-notebooks-in-visual-studio-codespaces) per un'esperienza di sviluppo ottimale. Per iniziare a usare GitHub
+GitHub offre un modo gratuito basato sul controllo del codice sorgente per archiviare notebook (e altri file), condividere i notebook con altri utenti e collaborare in modo efficace. Se si sta cercando una soluzione per condividere i progetti e collaborare con altri utenti, GitHub è un'ottima opzione e può essere combinato con [GitHub Codespaces](#use-notebooks-in-github-codespaces) per un'esperienza di sviluppo ottimale. Per iniziare a usare GitHub
 
 1. [Scaricare](#export-an-azure-notebooks-project) i file di progetto.
 1. [Creare un repository GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) per archiviare i notebook. 
@@ -103,6 +102,6 @@ GitHub offre un modo gratuito basato sul controllo del codice sorgente per archi
 
 - [Informazioni su Python in Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial)
 - [Informazioni su Azure Machine Learning Jupyter Notebook](../machine-learning/how-to-run-jupyter-notebooks.md)
-- [Informazioni su Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)
+- [Informazioni su GitHub Codespaces](https://github.com/features/codespaces)
 - [Informazioni su Azure Lab Services](https://azure.microsoft.com/services/lab-services/)
 - [Informazioni su GitHub](https://help.github.com/github/getting-started-with-github/)

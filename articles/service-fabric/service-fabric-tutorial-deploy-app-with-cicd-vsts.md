@@ -4,12 +4,12 @@ description: In questa esercitazione si apprenderà come configurare l'integrazi
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 302ad1dcfaa93564d70fab739726787ef09c79df
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: a26cfaca466e01b154c65b27895f3004f6320e5d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326338"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Esercitazione: Distribuire un'applicazione con integrazione continua/distribuzione continua in un cluster di Service Fabric
 
@@ -65,11 +65,11 @@ Creare un nuovo repository Git locale per il progetto selezionando **Aggiungi al
 
 Nella visualizzazione **Push** in **Team Explorer** selezionare il pulsante **Pubblica repository GIT** nella sezione **Esegui push in Azure DevOps**.
 
-![Pubblicare il repository GIT][push-git-repo]
+![Screenshot della finestra di sincronizzazione di Team Explorer in Visual Studio. Il pulsante di pubblicazione nel repository Git è evidenziato nella sezione Esegui push in Azure DevOps.][push-git-repo]
 
 Controllare la posta elettronica e selezionare il proprio account nell'elenco a discesa **Azure DevOps Domain** (Dominio Azure DevOps). Immettere il nome del repository e selezionare **Pubblica repository**.
 
-![Pubblicare il repository GIT][publish-code]
+![Screenshot delle impostazioni della sezione Esegui push in Azure DevOps con: Posta elettronica, Account, Nome repository e il pulsante Pubblica repository evidenziato.][publish-code]
 
 Con la pubblicazione del repository viene creato un nuovo progetto nell'account con lo stesso nome del repository locale. Per creare il repository in un progetto esistente, fare clic su **Avanzate** accanto al nome del **repository** e selezionare un progetto. È possibile visualizzare il codice sul Web selezionando **Visualizza nel Web**.
 
@@ -87,7 +87,7 @@ Selezionare la scheda **Pipeline**, **Compilazioni** e quindi fare clic su **Nuo
 
 ![Nuova pipeline][new-pipeline]
 
-Selezionare **Azure Repos Git** come origine, **Voting** come progetto team, **Voting** come repository e **master** come ramo predefinito per le compilazioni manuale e pianificata.  Fare quindi clic su **Continue** (Continua).
+Selezionare **Azure Repos Git** come origine, **Voting** come progetto team, **Voting** come repository e **master** come ramo predefinito per le compilazioni manuale e pianificata.  Fare clic su **Continua**.
 
 ![Selezionare il repository][select-repo]
 
@@ -99,7 +99,7 @@ In **Attività** immettere "Hosted VS2017" come **Pool di agenti**.
 
 ![Selezionare le attività][save-and-queue]
 
-In **Trigger** abilitare l'integrazione continua selezionando **Abilita l'integrazione continua**. In **Filtri per rami** **Specifica rami** è automaticamente impostato su **master**. Selezionare **Salva e accoda** per avviare manualmente una compilazione.
+In **Trigger** abilitare l'integrazione continua selezionando **Abilita l'integrazione continua**. In **Filtri per rami****Specifica rami** è automaticamente impostato su **master**. Selezionare **Salva e accoda** per avviare manualmente una compilazione.
 
 ![Selezionare i trigger][save-and-queue2]
 
@@ -123,7 +123,7 @@ Per le credenziali di Azure Active Directory aggiungere l'**Identificazione pers
 
 Fare clic su **Aggiungi** per salvare la connessione cluster.
 
-Aggiungere quindi un artefatto alla pipeline in modo da consentire alla pipeline di versione di trovare l'output dalla compilazione. Selezionare **Pipeline** e **Elementi**-> **+ Aggiungi**.  In **Origine (definizione di compilazione)** selezionare la pipeline di compilazione creata in precedenza.  Fare clic su **Aggiungi** per salvare l'elemento di compilazione.
+Aggiungere quindi un artefatto alla pipeline in modo da consentire alla pipeline di versione di trovare l'output dalla compilazione. Selezionare **Pipeline** e **Elementi**->**+ Aggiungi**.  In **Origine (definizione di compilazione)** selezionare la pipeline di compilazione creata in precedenza.  Fare clic su **Aggiungi** per salvare l'elemento di compilazione.
 
 ![Aggiungere un elemento][add-artifact]
 
@@ -155,7 +155,7 @@ Per controllare lo stato di avanzamento della compilazione, passare alla scheda 
 
 Verificare che la distribuzione venga completata correttamente e che l'applicazione sia in esecuzione nel cluster.  Aprire un Web browser e passare a `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Prendere nota della versione dell'applicazione, che in questo esempio è "1.0.0.20170815.3".
 
-![Service Fabric Explorer][sfx1]
+![Screenshot dell'app di voto in Service Fabric Explorer in esecuzione in una finestra del browser. È evidenziata la versione dell'app "1.0.0.20170815.3".][sfx1]
 
 ## <a name="update-the-application"></a>Aggiornare l'applicazione
 
@@ -163,11 +163,11 @@ Apportare modifiche al codice nell'applicazione.  Salvare le modifiche ed esegui
 
 Dopo l'avvio dell'aggiornamento dell'applicazione, è possibile controllare lo stato di aggiornamento in Service Fabric Explorer:
 
-![Service Fabric Explorer][sfx2]
+![Screenshot dell'app di voto in Service Fabric Explorer. Viene evidenziato il messaggio di stato "In aggiornamento" e un messaggio "Aggiornamento in corso".][sfx2]
 
 L'aggiornamento dell'applicazione potrebbe richiedere alcuni minuti. Una volta completato l'aggiornamento, l'applicazione eseguirà la versione successiva,  in questo esempio la versione "1.0.0.20170815.4".
 
-![Service Fabric Explorer][sfx3]
+![Screenshot dell'app di voto in Service Fabric Explorer in esecuzione in una finestra del browser. È evidenziata la versione aggiornata dell'app "1.0.0.20170815.4".][sfx3]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

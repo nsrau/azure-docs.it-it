@@ -9,14 +9,18 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 08/27/2020
-ms.openlocfilehash: 78ec233e618511c748ed9f51b97161eddc5e8308
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: f5851174ba223bd0ab48512b9e75449dcc927a04
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707527"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300106"
 ---
-# <a name="create-a-synapse-workspace"></a>Creare un'area di lavoro di Synapse
+# <a name="prerequisites"></a>Prerequisiti
+
+Per completare questa esercitazione, è necessario avere accesso a un gruppo di risorse per il quale si dispone del ruolo di **Proprietrio**. Creare l'area di lavoro Synapse in questo gruppo di risorse.
+
+## <a name="create-a-synapse-workspace"></a>Creare un'area di lavoro di Synapse
 
 In questa esercitazione si apprenderà a creare un'area di lavoro di Synapse, un pool SQL e un pool di Apache Spark. 
 

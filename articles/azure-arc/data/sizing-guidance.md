@@ -1,5 +1,5 @@
 ---
-title: Linee guida per il ridimensionamento
+title: Indicazioni sul dimensionamento
 description: Pianificare le dimensioni di una distribuzione di Azure Arc Enabled Data Services.
 services: azure-arc
 ms.service: azure-arc
@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7afe00746b133e8376cf32ba874831c7962e85b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940767"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761482"
 ---
 # <a name="sizing-guidance"></a>Linee guida per il ridimensionamento
 
@@ -27,7 +27,7 @@ Quando si pianifica la distribuzione di Azure Arc Data Services, è necessario p
 ## <a name="general-sizing-requirements"></a>Requisiti di dimensionamento generali
 
 > [!NOTE]
-> Se non si ha familiarità con i concetti illustrati in questo articolo, è possibile leggere altre informazioni su [Kubernetes Resource governance](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) e [Kubernetes size Notation](https://kubernetes.io/docs/concepts/configuration/.manage-resources-containers/#resource-units-in-kubernetes).
+> Se non si ha familiarità con i concetti illustrati in questo articolo, è possibile leggere altre informazioni su [Kubernetes Resource governance](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) e [Kubernetes size Notation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes).
 
 I numeri di core devono essere un valore intero maggiore o uguale a uno.
 

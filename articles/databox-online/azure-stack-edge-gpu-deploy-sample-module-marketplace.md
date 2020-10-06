@@ -1,6 +1,6 @@
 ---
 title: Distribuire il modulo GPU sul dispositivo Microsoft Azure Stack Edge Pro da Azure Marketplace | Microsoft Docs
-description: Viene descritto come abilitare il calcolo e rendere il dispositivo Azure Stack Edge Pro pronto per il calcolo tramite l'interfaccia utente locale.
+description: Viene descritto come distribuire il modulo Internet delle cose abilitate per la GPU sul dispositivo GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: a15e74dd2a1a2737675ef66284f348f33cd753dd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 64d028892298a70e7588863bf9a3f4fc6f4ca609
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899950"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760060"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Distribuire un modulo Internet delle cose abilitate per la GPU da Azure Marketplace sul dispositivo GPU Azure Stack Edge Pro
 
@@ -55,7 +55,7 @@ Prima di iniziare, verificare di avere:
 
 4. Selezionare **continua** per confermare le condizioni per l'utilizzo e l'informativa sulla privacy del provider. 
 
-    ![Ottenere il modulo di esempio](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
+    ![Ottenere il modulo 2 di esempio](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
 
 5. Scegliere la sottoscrizione usata per distribuire il dispositivo Azure Stack Edge Pro.
 
@@ -89,7 +89,7 @@ Prima di iniziare, verificare di avere:
 
 13. Verificare che il modulo sia distribuito nell'hub Internet delle cose nel portale di Azure. Selezionare il dispositivo, selezionare **imposta moduli**per   elencare il modulo nella sezione **moduli IOT Edge**   .
 
-    ![Selezionare Crea](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
+    ![Selezionare Crea 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
 
 ## <a name="monitor-the-module"></a>Monitorare il modulo  
 

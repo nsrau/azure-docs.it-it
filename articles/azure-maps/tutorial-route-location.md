@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Come visualizzare le indicazioni stradali usando il servizio di pianificazione percorso e il controllo mappa di Mappe di Microsoft Azure'
-description: Informazioni su come visualizzare le indicazioni stradali usando il servizio di pianificazione percorso e il controllo mappa di Mappe di Microsoft Azure.
+title: 'Esercitazione: Trovare il percorso per una località | Mappe di Microsoft Azure'
+description: Esercitazione su come trovare un itinerario verso un punto di interesse. Vedere come impostare le coordinate degli indirizzi ed eseguire una query sul servizio di pianificazione percorso di Mappe di Azure per ottenere le indicazioni verso un punto di interesse.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 35a3f6d1e7894eec9baa4ea5432a8e3fec138a21
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 3cb9bee65ab7fa2c29185c40ecb48fd531192187
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085043"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321714"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Esercitazione: Come visualizzare le indicazioni stradali usando il servizio di pianificazione percorso e il controllo mappa di Mappe di Azure
 
@@ -218,7 +218,7 @@ Questa sezione illustra come usare l'API di indicazioni stradali di Mappe di Azu
 
      :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Rendering di una mappa di base del controllo mappa":::
 
-    È possibile ottenere il codice sorgente completo per l'esempio [qui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Un esempio eseguibile è disponibile [qui](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
+È possibile ottenere il codice sorgente completo per l'esempio [qui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Un esempio eseguibile è disponibile [qui](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

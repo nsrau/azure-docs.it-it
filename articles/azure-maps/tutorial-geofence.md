@@ -1,20 +1,20 @@
 ---
-title: 'Esercitazione: Creare un recinto virtuale e monitorare i dispositivi in Mappe di Azure'
-description: Informazioni su come configurare un recinto virtuale. Vedere come tenere traccia dei dispositivi rispetto al recinto virtuale usando il servizio spaziale di Mappe di Azure.
+title: 'Esercitazione: Creare un recinto virtuale e monitorare i dispositivi su una mappa di Microsoft Azure'
+description: Esercitazione su come configurare un recinto virtuale. Informazioni su come tenere traccia dei dispositivi rispetto al recinto virtuale usando il servizio spaziale di Mappe di Azure.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 8/11/2020
+ms.date: 8/20/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b374bbe086281c7f7914334be6ca275f0fd05b7f
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 7a0c39b6d2369a1279fee3905083f0660a4aabb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056510"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335195"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Esercitazione: Configurare un recinto virtuale con Mappe di Azure
 
@@ -254,7 +254,7 @@ I passaggi seguenti illustrano come creare una sottoscrizione di eventi di entra
 
     :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Screenshot che mostra come creare un'app per la logica.":::
 
-4. Selezionare **Crea**.
+4. Selezionare **Create** (Crea).
 
 Ripetere i passaggi da 1 a 4 per l'endpoint di uscita dell'app per la logica creato nella sezione precedente. Al passaggio 3 assicurarsi di scegliere `Geofence Exited` come tipo di evento.
 
@@ -429,14 +429,14 @@ Nella risposta GeoJSON riportata sopra il macchinario è rimasto nel recinto vir
 
 Nella risposta GeoJSON riportata sopra il macchinario è rimasto nel recinto virtuale del cantiere principale, ma è uscito da quello del cantiere secondario. Si noti tuttavia che il valore di `userTime` è successivo al valore di `expiredTime` definito nei dati del recinto virtuale. Di conseguenza, il parametro `isEventPublished` è impostato su `false` e il direttore dei lavori non riceverà una notifica tramite posta elettronica.
 
-### <a name="location-547637988-1221338344"></a>Posizione 5 (47.637988,-122.1338344)
+### <a name="location-5-4763799--122134505"></a>Posizione 5 (47.63799, -122.134505)
 
 1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **Request Name** (Nome richiesta) per la richiesta. Specificare *Location 5* (Posizione 5). Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva**.
 
 2. Selezionare il metodo HTTP **GET**  nella scheda del generatore e immettere l'URL seguente. Sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria e `{udid}` con il valore `udid` salvato nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 3. Selezionare **Send** (Invia). Nella finestra della risposta verrà visualizzato il codice GeoJSON seguente:
@@ -469,13 +469,10 @@ Nella risposta GeoJSON riportata sopra il macchinario è rimasto nel recinto vir
 
 Nella risposta GeoJSON riportata sopra il macchinario è uscito dal recinto virtuale del cantiere principale. Di conseguenza, il parametro `isEventPublished` è impostato su `true` e il direttore dei lavori riceverà una notifica tramite posta elettronica che segnala che il macchinario è uscito da un recinto virtuale.
 
+
+È possibile anche [Inviare notifiche di posta elettronica usando Griglia di eventi e App per la logica](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) e controllare i [Gestori di eventi supportati in Griglia di eventi](https://docs.microsoft.com/azure/event-grid/event-handlers) usando Mappe di Azure.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Gestire tipi di contenuto in App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
-
-> [!div class="nextstepaction"]
-> [Inviare notifiche di posta elettronica usando Griglia di eventi e App per la logica](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
-
-> [!div class="nextstepaction"]
-> [Gestori di eventi supportati in Griglia di eventi](https://docs.microsoft.com/azure/event-grid/event-handlers)

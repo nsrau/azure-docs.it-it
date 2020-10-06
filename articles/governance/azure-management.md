@@ -1,14 +1,14 @@
 ---
 title: Panoramica della gestione di Azure - Governance di Azure
 description: Panoramica delle aree di gestione di applicazioni e risorse di Azure con collegamenti a contenuti sugli strumenti di gestione di Azure.
-ms.date: 07/06/2020
+ms.date: 09/09/2020
 ms.topic: overview
-ms.openlocfilehash: 81d655db706a7330fc541724d490a4885cc2fe8b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0aaa23dd2841802919cfdfcc857a189e072a5c6b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041915"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662135"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Che cosa sono le aree di gestione di Azure?
 
@@ -18,7 +18,9 @@ Per gestione si intendono le attività e i processi necessari per gestire le app
 
 Il diagramma seguente illustra le diverse aree della gestione necessarie per gestire eventuali applicazioni o risorse. Tali diverse aree possono essere considerate come un ciclo di vita. Ogni area è necessaria in successione continua per l'intera durata di una risorsa. A partire dalla distribuzione iniziale, fino al funzionamento continuo e infine al ritiro della risorsa.
 
-:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Discipline della gestione in Azure" border="false":::
+:::image type="complex" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Diagramma delle discipline di Gestione in Azure." border="false":::
+   Diagramma che illustra gli elementi relativi a migrazione, sicurezza, protezione, monitoraggio, configurazione e governance della gamma di servizi che supportano la gestione e la governance in Azure. La sicurezza offre la gestione della sicurezza e la protezione dalle minacce come elementi secondari. La protezione offre backup e ripristino di emergenza come elementi secondari. Il monitoraggio offre il monitoraggio di app, infrastruttura e rete e analisi dei log e diagnostica come elementi secondari. La configurazione offre configurazione, gestione degli aggiornamenti, automazione e scripting come elementi secondari. La governance offre la gestione dei criteri e dei costi come elementi secondari.
+:::image-end:::
 
 Nessun singolo servizio di Azure soddisfa completamente i requisiti di un'area di gestione specifica. Al contrario, ognuno viene realizzato mediante numerosi servizi che interagiscono l’uno con l’altro. Alcuni servizi, come Application Insights, offrono funzionalità mirate di monitoraggio per le applicazioni Web. Altri, come i log di Monitoraggio di Azure, archiviano dati di gestione per altri servizi. Questa funzionalità consente di analizzare i dati di diverso tipo raccolti dai molteplici servizi.
 

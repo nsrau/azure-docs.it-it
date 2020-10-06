@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: 84d1ba6ff343b5f3d1f88d7ae5c618601f416e2c
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 10/02/2020
+ms.openlocfilehash: d63cec0e0697a15efe7f15be5f6f0daaa6d6a372
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513766"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761516"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Ruoli e requisiti per Condivisione dati di Azure 
 
@@ -33,13 +33,12 @@ Di seguito è riportato un riepilogo dei ruoli assegnati all'identità gestita d
 |**Tipo di archivio dati**|**Archivio dati di origine provider di dati**|**Archivio dati di destinazione del consumer di dati**|
 |---|---|---|
 |Archiviazione BLOB di Azure| Lettore dei dati del BLOB di archiviazione | Collaboratore ai dati del BLOB di archiviazione
-|Azure Data Lake Gen1 | Proprietario | Non Supportato
+|Azure Data Lake Gen1 | Proprietario | Non supportato
 |Azure Data Lake Gen2 | Lettore dei dati del BLOB di archiviazione | Collaboratore ai dati del BLOB di archiviazione
-|Azure SQL Server | Collaboratore database SQL | Collaboratore database SQL
 |Cluster di Esplora dati di Azure | Collaboratore | Collaboratore
 |
 
-Per la condivisione basata su SQL, è necessario creare un utente SQL da un provider esterno nel database SQL di Azure con lo stesso nome della risorsa di condivisione dati di Azure. Di seguito è riportato un riepilogo dell'autorizzazione richiesta dall'utente SQL.
+Per la condivisione basata su SQL, è necessario creare un utente SQL da un provider esterno nel database SQL di Azure con lo stesso nome della risorsa di condivisione dati di Azure. Per creare questo utente, è necessaria l'autorizzazione Azure Active Directory amministratore. Di seguito è riportato un riepilogo dell'autorizzazione richiesta dall'utente SQL.
 
 |**Tipo di database SQL**|**provider di dati autorizzazione utente SQL**|**Autorizzazione utente SQL per consumer di dati**|
 |---|---|---|

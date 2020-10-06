@@ -379,7 +379,7 @@
           href: key-vault-parameter.md
     - name: Integrazione continua/Distribuzione continua
       items:
-        - name: Progetto di VS con pipeline
+        - name: Modelli di Azure Resource Manager con pipeline
           href: add-template-to-azure-pipelines.md
         - name: Distribuzione - GitHub Actions
           href: deploy-github-actions.md

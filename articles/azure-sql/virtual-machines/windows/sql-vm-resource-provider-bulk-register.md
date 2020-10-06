@@ -10,20 +10,24 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/21/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: cf1fdd3feff76454f0e801d7bd53c63702000014
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271988"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761261"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrare più macchine virtuali SQL in Azure con il provider di risorse per VM SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Questo articolo descrive come registrare in blocco le macchine virtuali (VM) di SQL Server in Azure con il provider di risorse per macchine virtuali SQL usando il cmdlet `Register-SqlVMs` di PowerShell.
+
+Questo articolo illustra come registrare SQL Server VM in blocco. In alternativa, è possibile registrare [tutte le vm SQL Server automaticamente](sql-vm-resource-provider-automatic-registration.md) o [singole SQL Server VM](sql-vm-resource-provider-register.md). 
+
+## <a name="overview"></a>Panoramica
 
 Il cmdlet `Register-SqlVMs` può essere usato per registrare tutte le macchine virtuali in un elenco specifico di sottoscrizioni, gruppi di risorse o un elenco di macchine virtuali specifiche. Il cmdlet registrerà le macchine virtuali in modalità di gestione _leggera_, quindi genererà sia un [report che un file di log](#output-description). 
 
@@ -239,6 +243,6 @@ Copiare lo script completo e salvarlo come `RegisterSqLVMs.psm1`.
 Per altre informazioni, vedere gli articoli seguenti: 
 
 * [Panoramica di SQL Server in una macchina virtuale Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Domande frequenti su SQL Server in una macchina virtuale Windows](frequently-asked-questions-faq.md)
-* [Informazioni sui prezzi di SQL Server in una macchina virtuale Windows](pricing-guidance.md)
-* [Note sulla versione di SQL Server in una macchina virtuale Windows](../../database/doc-changes-updates-release-notes.md)
+* [Domande frequenti su SQL Server in una VM di Windows](frequently-asked-questions-faq.md)
+* [Informazioni sui prezzi di SQL Server in una VM di Windows](pricing-guidance.md)
+* [Note sulla versione di SQL Server in una VM di Windows](../../database/doc-changes-updates-release-notes.md)

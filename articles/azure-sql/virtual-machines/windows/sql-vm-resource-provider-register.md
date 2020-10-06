@@ -10,21 +10,27 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/13/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a197f8a11186d799f320c03a5bbe980b1f38e126
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b48f0429525822d09f08965128df0ceb1e32898a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91272073"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761312"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL (RP)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Questo articolo descrive come registrare la macchina virtuale SQL Server (VM) in Azure con il provider di risorse VM SQL (RP). La registrazione con il provider di risorse crea la **risorsa** _macchina virtuale SQL_ all'interno della sottoscrizione, che è una risorsa separata dalla risorsa della macchina virtuale. Se si annulla la registrazione della macchina virtuale SQL Server dal provider di risorse, si rimuoverà la **risorsa** _macchina virtuale SQL_, ma la macchina virtuale effettiva non verrà eliminata. 
+Questo articolo descrive come registrare la macchina virtuale SQL Server (VM) in Azure con il provider di risorse VM SQL (RP). 
+
+Questo articolo illustra come registrare una singola macchina virtuale SQL Server con il provider di risorse VM SQL. In alternativa, è possibile registrare [automaticamente](sql-vm-resource-provider-automatic-registration.md) tutte le macchine virtuali SQL Server o generate [tramite script in blocco](sql-vm-resource-provider-bulk-register.md).
+
+## <a name="overview"></a>Panoramica
+
+La registrazione con il provider di risorse crea la **risorsa** _macchina virtuale SQL_ all'interno della sottoscrizione, che è una risorsa separata dalla risorsa della macchina virtuale. Se si annulla la registrazione della macchina virtuale SQL Server dal provider di risorse, si rimuoverà la **risorsa** _macchina virtuale SQL_, ma la macchina virtuale effettiva non verrà eliminata.
 
 La distribuzione di un'immagine di Azure Marketplace di macchina virtuale SQL Server tramite il portale di Azure registra automaticamente una macchina virtuale di SQL Server con il provider di risorse. Tuttavia, se si sceglie di installare autonomamente SQL Server in una macchina virtuale di Azure o di eseguire il provisioning di una macchina virtuale di Azure da un disco rigido virtuale personalizzato, è necessario registrare la macchina virtuale di SQL Server con il provider di risorse per:
 
@@ -58,7 +64,7 @@ Per usare il provider di risorse VM SQL, è necessario prima [registrare la sott
 Per registrare la macchina virtuale di SQL Server con il provider di risorse, è necessario quanto segue: 
 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
-- Una [macchina virtuale di SQL Server](create-sql-vm-portal.md) del modello di risorse di Azure distribuita nel cloud pubblico o Azure per enti pubblici. 
+- Una [macchina virtuale Windows](../../../virtual-machines/windows/quick-create-portal.md) del modello di risorse di azure con [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) distribuita nel cloud pubblico o Azure per enti pubblici. 
 - La versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) o di [PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## <a name="management-modes"></a>Modalità di gestione
@@ -328,11 +334,11 @@ Per annullare la registrazione della macchina virtuale di SQL Server con il prov
 
 1. Selezionare **Elimina**. 
 
-   ![Eliminare un provider di risorse per macchine virtuali SQL](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
+   ![Selezionare Elimina nella parte superiore dello spostamento](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
 
 1. Digitare il nome della macchina virtuale SQL e **deselezionare la casella di controllo accanto alla macchina virtuale**.
 
-   ![Eliminare un provider di risorse per macchine virtuali SQL](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
+   ![Deselezionare la VM per evitare di eliminare la macchina virtuale effettiva e quindi selezionare Elimina per procedere con l'eliminazione della risorsa VM SQL](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
 
    >[!WARNING]
    > Se non si deseleziona la casella di controllo accanto al nome della macchina virtuale, la macchina virtuale verrà *eliminata* completamente. Deselezionare la casella di controllo per annullare la registrazione della macchina virtuale SQL Server dal provider di risorse, operazione che *non eliminerà la macchina virtuale effettiva*. 
@@ -342,7 +348,7 @@ Per annullare la registrazione della macchina virtuale di SQL Server con il prov
 ### <a name="command-line"></a>Riga di comando
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-Per annullare la registrazione della macchina virtuale SQL Server dal provider di risorse con l'interfaccia della riga di comando di Azure, usare il comando [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) . Verrà rimossa la *risorsa* della macchina virtuale SQL Server ma la macchina virtuale non verrà eliminata. 
+Per annullare la registrazione della macchina virtuale SQL Server dal provider di risorse con l'interfaccia della riga di comando di Azure, usare il comando [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest&preserve-view=true#az-sql-vm-delete) . Verrà rimossa la *risorsa* della macchina virtuale SQL Server ma la macchina virtuale non verrà eliminata. 
 
 
 ```azurecli-interactive
@@ -400,7 +406,7 @@ La modalità di gestione predefinita di SQL durante la registrazione con il prov
 
 Sì. la registrazione con il provider di risorse VM SQL installerà un agente nella macchina virtuale.
 
-Il SQL Server estensione IaaS si basa sull'agente per eseguire una query sui metadati per SQL Server. L'unico momento in cui un agente non è installato è quando il provider di risorse VM SQL è regsitered in modalità noagent
+Il SQL Server estensione IaaS si basa sull'agente per eseguire una query sui metadati per SQL Server. L'unico momento in cui un agente non è installato è quando il provider di risorse VM SQL è registrato in modalità noagent
 
 **La registrazione con il provider di risorse VM SQL riavvierà SQL Server nella macchina virtuale?**
 

@@ -103,7 +103,7 @@
       href: elevate-access-global-admin.md
     - name: Amministratori (versione classica)
       href: classic-administrators.md
-    - name: Trasferire sottoscrizione in una directory diversa (anteprima)
+    - name: Trasferire la sottoscrizione in una directory diversa
       href: transfer-subscription.md
     - name: Risolvere problemi
       href: troubleshooting.md

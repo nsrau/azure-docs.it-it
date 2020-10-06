@@ -1,17 +1,17 @@
 ---
 title: Aggiornamenti del servizio del pool di host di Desktop virtuale Windows (versione classica) - Azure
-description: Come creare un pool di host di convalida per monitorare gli aggiornamenti del servizio prima di implementare gli aggiornamenti in produzione.
+description: Informazioni su come creare un pool di host di convalida in Desktop virtuale Windows (versione classica) per monitorare gli aggiornamenti del servizio prima di implementare gli aggiornamenti in produzione.
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 572b74347194070615efadca4ed6b1329b3f89c2
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 291f1e8b8870257c233dc32894ff49b26c0a3501
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526800"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323530"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates-in-windows-virtual-desktop-classic"></a>Esercitazione: Creare un pool di host per convalidare gli aggiornamenti del servizio in Desktop virtuale Windows (versione classica)
 

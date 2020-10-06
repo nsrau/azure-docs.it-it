@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 787e9efa8ef11a83b63719cad51f9b26e055620d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 143713649afd7f9e42f517713b6b2365ee1605a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90562174"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260275"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Esercitazione: Creare una definizione di processo Apache Spark in Synapse Studio
 
@@ -47,11 +47,11 @@ In questa sezione viene creata una definizione di processo Apache Spark per PySp
 
      ![File di esempio](./media/apache-spark-job-definitions/sample-files.png)
 
-3. Fare clic su **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2**, quindi caricare **wordcount.py** e **shakespeare.txt** nel file system di ADLS Gen2. 
+3. Selezionare  **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2**, quindi caricare **wordcount.py** e **shakespeare.txt** nel file system di ADLS Gen2. 
 
      ![Caricamento del file Python](./media/apache-spark-job-definitions/upload-python-file.png)
 
-4. Fare clic sull'hub **Sviluppo**, fare clic sull'icona '+' e selezionare **Definizione di processo Spark** per creare una nuova definizione di processo Spark. 
+4. Selezionare l'hub **Sviluppo**, fare clic sull'icona '+' e selezionare **Definizione di processo Spark** per creare una nuova definizione di processo Spark. 
 
      ![Creazione di una nuova definizione per Python](./media/apache-spark-job-definitions/create-new-definition.png)
 
@@ -75,7 +75,7 @@ In questa sezione viene creata una definizione di processo Apache Spark per PySp
 
      ![Impostare il valore della definizione di processo Spark per Python](./media/apache-spark-job-definitions/create-py-definition.png)
 
-7. Fare clic su **Pubblica** per salvare la definizione di processo Apache Spark.
+7. Selezionare **Pubblica** per salvare la definizione di processo Apache Spark.
 
      ![Pubblicazione della definizione per Python](./media/apache-spark-job-definitions/publish-py-definition.png)
 
@@ -89,11 +89,11 @@ In questa sezione viene creata una definizione di processo Apache Spark per Apac
  
      ![File di esempio Scala](./media/apache-spark-job-definitions/sample-files-scala.png)
 
- 3. Fare clic su **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2**, quindi caricare **wordcount.jar** e **shakespeare.txt** nel file system di ADLS Gen2.
+ 3. Selezionare  **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2**, quindi caricare **wordcount.jar** e **shakespeare.txt** nel file system di ADLS Gen2.
  
      ![Preparazione della struttura di Scala](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
- 4. Fare clic sull'hub **Sviluppo**, fare clic sull'icona '+' e selezionare **Definizione di processo Spark** per creare una nuova definizione di processo Spark. L'immagine di esempio è identica a quella del passaggio 4 di **Creare una definizione di processo Apache Spark (Python) per PySpark**.
+ 4. Selezionare l'hub **Sviluppo**, fare clic sull'icona '+' e selezionare **Definizione di processo Spark** per creare una nuova definizione di processo Spark. L'immagine di esempio è identica a quella del passaggio 4 di **Creare una definizione di processo Apache Spark (Python) per PySpark**.
 
  5. Selezionare **Spark (Scala)** nell'elenco a discesa del linguaggio nella finestra principale della definizione di processo Apache Spark.
 
@@ -116,7 +116,7 @@ In questa sezione viene creata una definizione di processo Apache Spark per Apac
 
      ![Impostare il valore della definizione di processo Spark per Scala](./media/apache-spark-job-definitions/create-scala-definition.png)
 
- 7. Fare clic su **Pubblica** per salvare la definizione di processo Apache Spark.
+ 7. Selezionare **Pubblica** per salvare la definizione di processo Apache Spark.
 
       ![Pubblicazione della definizione per Scala](./media/apache-spark-job-definitions/publish-scala-definition.png)
 
@@ -129,11 +129,11 @@ In questa sezione viene creata una definizione di processo Apache Spark per .NET
 
      ![Esempio di .NET](./media/apache-spark-job-definitions/sample-dotnet.png)
 
- 3. Fare clic su **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2**, quindi caricare **wordcount.zip** e **shakespeare.txt** nel file system di ADLS Gen2.
+ 3. Selezionare  **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2**, quindi caricare **wordcount.zip** e **shakespeare.txt** nel file system di ADLS Gen2.
  
      ![Preparazione della struttura di DotNet](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
- 4. Fare clic sull'hub **Sviluppo**, fare clic sull'icona '+' e selezionare **Definizione di processo Spark** per creare una nuova definizione di processo Spark. L'immagine di esempio è identica a quella del passaggio 4 di **Creare una definizione di processo Apache Spark (Python) per PySpark**.
+ 4. Selezionare l'hub **Sviluppo**, fare clic sull'icona '+' e selezionare **Definizione di processo Spark** per creare una nuova definizione di processo Spark. L'immagine di esempio è identica a quella del passaggio 4 di **Creare una definizione di processo Apache Spark (Python) per PySpark**.
 
  5. Selezionare **.NET Spark (C#/F#)** nell'elenco a discesa del linguaggio nella finestra principale della definizione di processo Apache Spark.
 
@@ -156,7 +156,7 @@ In questa sezione viene creata una definizione di processo Apache Spark per .NET
 
      ![Impostare il valore della definizione di processo Spark per DotNet](./media/apache-spark-job-definitions/create-dotnet-definition.png)
 
- 7. Fare clic su **Pubblica** per salvare la definizione di processo Apache Spark.
+ 7. Selezionare **Pubblica** per salvare la definizione di processo Apache Spark.
 
       ![Pubblicazione della definizione per DotNet](./media/apache-spark-job-definitions/publish-dotnet-definition.png)
 
@@ -165,29 +165,29 @@ In questa sezione viene creata una definizione di processo Apache Spark per .NET
 Dopo aver creato una definizione di processo Apache Spark, è possibile inviarla a un pool di Apache Spark. Assicurarsi di essere il **proprietario dei dati del BLOB di archiviazione** del file system di ADLS Gen2 che si vuole usare. Se non lo si è, è necessario aggiungere l'autorizzazione manualmente.
 
 ### <a name="scenario-1-submit-apache-spark-job-definition"></a>Scenario 1: Inviare la definizione di processo Apache Spark
- 1. Aprire una finestra di definizione di processo Apache Spark facendo clic su di essa.
+ 1. Aprire una finestra di definizione di processo Apache Spark selezionandola.
 
       ![Aprire la definizione di processo Spark da inviare ](./media/apache-spark-job-definitions/open-spark-definition.png)
 
- 2. Fare clic sul pulsante **Invia** per inviare il progetto al pool di Apache Spark. È possibile fare clic sulla scheda **Spark monitoring URL** (URL di monitoraggio Spark) per visualizzare la query su log dell'applicazione Apache Spark.
+ 2. Selezionare il pulsante **Invia** per inviare il progetto al pool di Apache Spark. È possibile selezionare la scheda **Spark monitoring URL** (URL di monitoraggio Spark) per visualizzare la query su log dell'applicazione Apache Spark.
 
-    ![Fare clic sul pulsante Invia per inviare la definizione del processo Spark](./media/apache-spark-job-definitions/submit-spark-definition.png)
+    ![Selezionare il pulsante Invia per inviare la definizione di processo Spark](./media/apache-spark-job-definitions/submit-spark-definition.png)
 
     ![Finestra di dialogo Spark Submission (Invio Spark)](./media/apache-spark-job-definitions/submit-definition-result.png)
 
 ### <a name="scenario-2-view-apache-spark-job-running-progress"></a>Scenario 2: Visualizzare lo stato di esecuzione del processo Apache Spark
 
- 1. Fare clic su **Monitoraggio**, quindi selezionare l'opzione relativa alle **applicazioni Apache Spark**. Verrà visualizzata l'applicazione Apache Spark inviata.
+ 1. Selezionare **Monitoraggio** e quindi l'opzione relativa alle **applicazioni Apache Spark**. Verrà visualizzata l'applicazione Apache Spark inviata.
 
      ![Visualizzare l'applicazione Spark](./media/apache-spark-job-definitions/view-spark-application.png)
 
- 2. Quindi fare clic su un'applicazione Apache Spark. Viene visualizzata la finestra del processo **SparkJobDefinition**. Qui è possibile visualizzare lo stato di esecuzione del processo.
+ 2. Selezionare quindi un'applicazione Apache Spark. Viene visualizzata la finestra del processo **SparkJobDefinition**. Qui è possibile visualizzare lo stato di esecuzione del processo.
      
      ![Visualizzare la finestra LogQuery (Query su log) per l'applicazione Spark](./media/apache-spark-job-definitions/view-job-log-query.png)
 
 ### <a name="scenario-3-check-output-file"></a>Scenario 3: Verificare il file di output
 
- 1. Fare clic su **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2** (hozhaobdbj), aprire la cartella **result** creata in precedenza e verificare se l'output è stato generato.
+ 1. Selezionare **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2** (hozhaobdbj), aprire la cartella **result** creata in precedenza e verificare se l'output è stato generato.
 
      ![Visualizzare il file di output](./media/apache-spark-job-definitions/view-output-file.png)
 
@@ -197,7 +197,7 @@ In questa sezione viene aggiunta una definizione di processo Apache Spark a una 
 
  1. Aprire una definizione di processo Apache Spark esistente.
 
- 2. Fare clic sull'icona nell'angolo in alto a destra della finestra della definizione di processo Apache Spark e selezionare **Existing Pipeline** (Pipeline esistente) o **New pipeline** (Nuova pipeline). Per altre informazioni, fare riferimento alla pagina Pipeline.
+ 2. Selezionare l'icona nell'angolo in alto a destra della finestra della definizione di processo Apache Spark e selezionare **Existing Pipeline** (Pipeline esistente) o **New pipeline** (Nuova pipeline). Per altre informazioni, fare riferimento alla pagina Pipeline.
 
      ![Aggiunta a pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 
@@ -205,5 +205,5 @@ In questa sezione viene aggiunta una definizione di processo Apache Spark a una 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come usare Azure Synapse Studio per creare definizioni di processi Apache Spark e quindi inviarle a un pool di Apache Spark. Successivamente sarà possibile usare Azure Synapse Studio per creare set di dati di Power BI e gestire i dati di Power BI.
+Successivamente sarà possibile usare Azure Synapse Studio per creare set di dati di Power BI e gestire i dati di Power BI. Per altre informazioni, vedere l'articolo [Collegamento di un'area di lavoro Power BI a un'area di lavoro di Synapse](../quickstart-power-bi.md). 
 

@@ -6,12 +6,12 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: b4042e65fb9f7dbff6566bd497f782c3e6d591cb
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e6d464b415c956a0a8486f7c0d41c6e6a32b7c03
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707850"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761601"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Come usare Micrometer con Azure Application Insights Java SDK
 
@@ -24,7 +24,7 @@ Il monitoraggio per applicazioni Micrometer misure le metriche per il codice di 
 
 ## <a name="using-spring-boot-15x"></a>Uso di Spring Boot 1.5x
 Aggiungere le dipendenze seguenti al file pom.xml or build.gradle: 
-* [Application Insights Spring-boot-Starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 o versione successiva
+* [Application Insights Spring-boot-Starter](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter) 2.5.0 o versione successiva
 * Micrometer Azure Registry 1.1.0 o versione successiva
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 o versione successiva (esegue il backport del codice di autoconfigurazione nel framework Spring).
 * [Risorsa di ApplicationInsights](./create-new-resource.md)
@@ -57,7 +57,7 @@ Passaggi
 
      `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 1. Compilare l'applicazione ed eseguirla
-2. Il codice precedente deve avviare l'esecuzione con metriche pre-aggregate raccolte in modo automatico in Monitoraggio di Azure. Per informazioni su come ottimizzare Application Insights Spring Boot Starter, vedere [readme in GitHub](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+2. Il codice precedente deve avviare l'esecuzione con metriche pre-aggregate raccolte in modo automatico in Monitoraggio di Azure. Per informazioni su come ottimizzare Application Insights Spring Boot Starter, vedere [readme in GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter/README.md).
 
 ## <a name="using-spring-2x"></a>Uso di Spring 2.x
 

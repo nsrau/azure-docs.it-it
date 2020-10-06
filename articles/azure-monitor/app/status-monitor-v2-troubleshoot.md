@@ -5,18 +5,17 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 07b5ae99b98c6c6bbf4dc903cd1b583eb655a825
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: df8ebd97ed9e34e0fce85a50297c595732057115
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041401"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761465"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Risoluzione dei problemi relativi a Application Insights Agent (denominato in precedenza Status Monitor v2)
 
 Quando si Abilita il monitoraggio, è possibile che si verifichino problemi che impediscono la raccolta dei dati.
 Questo articolo elenca tutti i problemi noti e fornisce esempi di risoluzione dei problemi.
-Se si riscontra un problema non elencato qui, è possibile contattarci su [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -72,12 +71,10 @@ Dopo aver eseguito il comando di abilitazione, completare i passaggi seguenti:
 ### <a name="iis-nested-applications"></a>Applicazioni annidate IIS
 
 Non è necessario instrumentare le applicazioni annidate in IIS nella versione 1,0.
-Questo problema è stato monitorato [qui](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
 
 ### <a name="advanced-sdk-configuration-isnt-available"></a>La configurazione avanzata dell'SDK non è disponibile.
 
 La configurazione dell'SDK non è esposta all'utente finale nella versione 1,0.
-Questo problema è stato monitorato [qui](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
 
     
     
@@ -131,7 +128,7 @@ Per una descrizione dettagliata di come usare questo cmdlet, vedere le informazi
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>Raccogliere i log ETW usando PerfView
 
-#### <a name="setup"></a>Installazione
+#### <a name="setup"></a>Configurazione
 
 1. Scaricare PerfView.exe e PerfView64.exe da [GitHub](https://github.com/Microsoft/perfview/releases).
 2. Avviare PerfView64.exe.
@@ -140,7 +137,7 @@ Per una descrizione dettagliata di come usare questo cmdlet, vedere le informazi
     - **Zip**
     - **Merge**
     - **Raccolta di simboli .NET**
-5. Impostare i **provider aggiuntivi**seguenti:`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+5. Impostare i **provider aggiuntivi**seguenti: `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
 #### <a name="collecting-logs"></a>Raccolta di log
@@ -156,4 +153,3 @@ Per una descrizione dettagliata di come usare questo cmdlet, vedere le informazi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare le informazioni di [riferimento sulle API](status-monitor-v2-overview.md#powershell-api-reference) per informazioni sui parametri che potrebbero essere stati persi.
-- Se si riscontra un problema non elencato qui, è possibile contattarci su [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).

@@ -1,6 +1,6 @@
 ---
-title: Elimina risorse da Azure
-description: Elimina risorse da Azure
+title: Eliminare le risorse in Azure
+description: Eliminare le risorse in Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,14 +9,14 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: c07a0d8279c8d2f8792f5df3e35d2d630b1a86bd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46c1df8a175657e20dce984d0c8825ae99170246
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939903"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761652"
 ---
-# <a name="delete-resources-from-azure"></a>Elimina risorse da Azure
+# <a name="delete-resources-from-azure"></a>Eliminare le risorse in Azure
 
 > [!NOTE]
 >  Le opzioni per eliminare le risorse in questo articolo sono irreversibili.
@@ -26,7 +26,7 @@ ms.locfileid: "90939903"
 
 In alcuni casi, potrebbe essere necessario eliminare manualmente le risorse di Azure Arc abilitate per i servizi dati in Azure Resource Manager (ARM).  È possibile eliminare queste risorse usando una delle opzioni seguenti.
 
-- [Elimina risorse da Azure](#delete-resources-from-azure)
+- [Eliminare le risorse in Azure](#delete-resources-from-azure)
   - [Eliminare un intero gruppo di risorse](#delete-an-entire-resource-group)
   - [Eliminare risorse specifiche nel gruppo di risorse](#delete-specific-resources-in-the-resource-group)
   - [Eliminare le risorse usando l'interfaccia della riga di comando di Azure](#delete-resources-using-the-azure-cli)
@@ -97,4 +97,4 @@ az resource delete --name <data controller name> --resource-type Microsoft.Azure
 
 ### <a name="delete-a-resource-group-using-the-azure-cli"></a>Eliminare un gruppo di risorse usando l'interfaccia della riga di comando di Azure
 
-È anche possibile usare l'interfaccia della riga di comando di Azure per [eliminare un gruppo di risorse](/azure-resource-manager/management/delete-resource-group).
+È anche possibile usare l'interfaccia della riga di comando di Azure per [eliminare un gruppo di risorse](/azure/azure-resource-manager/management/delete-resource-group).

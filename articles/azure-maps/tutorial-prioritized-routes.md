@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Trovare e visualizzare percorsi per modalità di viaggio specifiche con Mappe di Microsoft Azure'
-description: Informazioni su come usare Mappe di Azure per trovare e visualizzare percorsi per modalità di viaggio specifiche.
+title: 'Esercitazione: Trovare più itinerari per modalità di trasporto | Mappe di Microsoft Azure'
+description: Esercitazione su come usare Mappe di Azure per trovare gli itinerari per modalità di viaggio specifiche verso i punti di interesse. Vedere come visualizzare più itinerari sulle mappe.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: a5b8dba920db0227c400e62ef7ddaf718d27c78a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 0d57e86088ee472c63b433bde14a0e4316cc20a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085060"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321748"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Esercitazione: Trovare e visualizzare percorsi per diverse modalità di viaggio con Mappe di Azure
 
@@ -160,11 +160,13 @@ In questa esercitazione verranno calcolati due itinerari e ne verrà eseguito il
 
     ```
 
+
     Nel gestore dell'evento `ready` del controllo mappa viene creata un'origine dati per archiviare il percorso dall'inizio alla fine. Le [espressioni](data-driven-style-expressions-web-sdk.md) consentono di recuperare il colore e lo spessore delle linee dalle proprietà della funzionalità delle linea del percorso. Per assicurarsi che la linea del percorso non copra le etichette stradali, è stato passato un secondo parametro con il valore `'labels'`.
 
     Viene poi creato un livello simbolo collegato all'origine dati. Questo livello specifica come viene eseguito il rendering dei punti iniziale e finale. Sono state aggiunte espressioni per recuperare l'immagine dell'icona e le informazioni sulle etichette di testo dalle proprietà in ogni oggetto punto. Per altre informazioni sulle espressioni, vedere [Espressioni di stile basate su dai](data-driven-style-expressions-web-sdk.md).
 
 2. Impostare un'azienda fittizia di Seattle, Fabrikam, come punto iniziale e un ufficio di Microsoft come punto finale.  Nel gestore dell'evento `ready` del controllo mappa aggiungere il codice seguente.
+
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -279,7 +281,11 @@ Questa sezione illustra come usare il servizio di pianificazione percorso di Map
 
     Il percorso del camion viene visualizzato con una linea spessa blu. Il percorso dell'auto viene visualizzato con una linea sottile viola. Il percorso dell'auto attraversa il lago Washington tramite l'autostrada I-90, passando nei tunnel sotto le aree residenziali. e pertanto è vietato per i carichi di rifiuti pericolosi. Il percorso del camion, che specifica un tipo di carico `USHazmatClass2`, è indirizzato verso un'autostrada diversa.
 
-    È possibile ottenere il codice sorgente completo per l'esempio [qui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). Un esempio eseguibile è disponibile [qui](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+È possibile ottenere il codice sorgente completo per l'esempio [qui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). Un esempio eseguibile è disponibile [qui](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+
+È possibile anche [Usare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md)
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

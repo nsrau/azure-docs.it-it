@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: df937ba7f23f2789d929a043c7239ababb24374f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1c0247c5adfe60dc2436c832cf3d561882ae3a5d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91285061"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760162"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Controllare le query nei log di monitoraggio di Azure (anteprima)
 Log di controllo delle query di log forniscono dati di telemetria sulle query di log eseguite in monitoraggio di Azure. Sono incluse informazioni quali il momento in cui è stata eseguita una query, l'utente che lo ha eseguito, lo strumento usato, il testo della query e le statistiche sulle prestazioni che descrivono l'esecuzione della query.
@@ -68,6 +68,9 @@ Viene creato un record di controllo ogni volta che viene eseguita una query. Se 
 - Le statistiche sulle prestazioni non sono disponibili per le query provenienti dal proxy di Azure Esplora dati. Tutti gli altri dati per queste query verranno comunque popolati.
 - L'hint *h* sulle stringhe che [offusca i valori letterali stringa](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) non avrà alcun effetto sui log di controllo della query. Le query verranno acquisite esattamente come inviato senza che la stringa venga offuscata. È necessario assicurarsi che solo gli utenti che dispongono dei diritti di conformità per visualizzare questi dati siano in grado di eseguire questa operazione utilizzando le varie modalità RBAC disponibili nelle aree di lavoro Log Analytics.
 - Per le query che includono dati da più aree di lavoro, la query verrà acquisita solo nelle aree di lavoro a cui l'utente ha accesso.
+
+## <a name="costs"></a>Costi  
+Non sono previsti costi per l'estensione Log Analytics, ma è possibile che vengano addebitati costi per i dati inseriti. Controllare i [prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/) in base alla destinazione in cui si intende raccogliere i dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

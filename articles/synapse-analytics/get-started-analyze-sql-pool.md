@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Introduzione all'analisi dei dati con il pool SQL"
+title: "Esercitazione: Introduzione all'analisi dei dati con pool SQL dedicati"
 description: In questa esercitazione si useranno i dati di esempio NYC Taxi per esplorare le funzionalità di analisi del pool SQL.
 services: synapse-analytics
 author: saveenr
@@ -9,16 +9,16 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: b1060bcc8603cb7f7395a50056424b3d6c0ebe5a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 3df0959003923a9a4ff2347330fd5a4f22e52245
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015501"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300123"
 ---
-# <a name="analyze-data-with-sql-pools"></a>Analizzare i dati con i pool SQL
+# <a name="analyze-data-with-sql-dedicated-pools"></a>Analizzare i dati con pool SQL dedicati
 
-Azure Synapse Analytics offre la possibilità di analizzare i dati con il pool SQL. In questa esercitazione si useranno i dati di esempio NYC Taxi per esplorare le funzionalità di analisi del pool SQL.
+Azure Synapse Analytics offre la possibilità di analizzare i dati con un pool SQL dedicato. In questa esercitazione si useranno i dati dei taxi di New York per esplorare le funzionalità di un pool SQL dedicato.
 
 ## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Caricare i dati dei taxi di New York in SQLDB1
 
@@ -71,7 +71,7 @@ Azure Synapse Analytics offre la possibilità di analizzare i dati con il pool S
     ```
 1. L'esecuzione di questo script richiederà circa 1 minuto. Carica 2 milioni righe di dati dei taxi di New York in una tabella denominata **dbo.Trip**
 
-## <a name="explore-the-nyc-taxi-data-in-the-sql-pool"></a>Esplorare i dati di esempio di NYC Taxi nel pool SQL
+## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Esplorare i dati dei taxi di New York nel pool SQL dedicato
 
 1. In Synapse Studio passare all'hub **Data** (Dati).
 1. Passare a **SQLDB1** > **Tables**. Saranno disponibili numerose tabelle.
