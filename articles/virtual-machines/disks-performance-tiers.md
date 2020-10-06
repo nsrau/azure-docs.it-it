@@ -1,6 +1,6 @@
 ---
 title: Modificare le prestazioni di Azure Managed Disks
-description: Informazioni sui livelli di prestazioni per Managed disks e su come modificare i livelli di prestazioni per i dischi gestiti esistenti.
+description: Informazioni sui livelli di prestazioni per Managed disks e informazioni su come modificare i livelli di prestazioni per i dischi gestiti esistenti.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
@@ -8,22 +8,27 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 7da500c3f18b7bf7057b0c5875bc9b39136a6483
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396587"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743727"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Livelli di prestazioni per Managed Disks (anteprima)
 
-Archiviazione su disco di Azure attualmente offre funzionalità di espansione predefinite per ottenere prestazioni più elevate per la gestione di traffico imprevisto a breve termine. Le unità SSD Premium sono in grado di aumentare le prestazioni del disco senza aumentare le dimensioni effettive del disco, consentendo di soddisfare le esigenze di prestazioni del carico di lavoro e di ridurre i costi. questa funzionalità è attualmente in anteprima. Questa soluzione è ideale per gli eventi che richiedono temporaneamente un livello di prestazioni costantemente più elevato, ad esempio l'acquisto di festività, il test delle prestazioni o l'esecuzione di un ambiente di training. Per gestire questi eventi, è possibile selezionare un livello di prestazioni superiore purché necessario e tornare al livello originale quando le prestazioni aggiuntive non sono più necessarie.
+Archiviazione su disco di Azure attualmente offre funzionalità di espansione predefinite per offrire prestazioni più elevate per la gestione di traffico imprevisto a breve termine. Le unità SSD Premium offrono la flessibilità necessaria per aumentare le prestazioni del disco senza aumentare le dimensioni effettive del disco. Questa funzionalità consente di soddisfare le esigenze di prestazioni del carico di lavoro e di ridurre i costi. 
 
-## <a name="how-it-works"></a>Come funziona
+> [!NOTE]
+> Questa funzionalità è attualmente disponibile in anteprima. 
 
-Quando si distribuisce o si effettua il provisioning di un disco per la prima volta, il livello di prestazioni di base per tale disco viene impostato in base alle dimensioni del disco con provisioning È possibile selezionare un livello di prestazioni superiore per soddisfare una domanda più elevata e, quando le prestazioni non sono più necessarie, è possibile tornare al livello di prestazioni iniziale della linea di base.
+Questa funzionalità è ideale per gli eventi che richiedono temporaneamente un livello di prestazioni costantemente superiore, ad esempio l'acquisto di festività, il test delle prestazioni o l'esecuzione di un ambiente di training. Per gestire questi eventi, è possibile usare un livello di prestazioni superiore per tutto il tempo necessario. È quindi possibile tornare al livello originale quando non sono più necessarie le prestazioni aggiuntive.
 
-Le modifiche apportate alla fatturazione cambiano a seconda del livello. Se, ad esempio, si esegue il provisioning di un disco P10 (128 GiB), il livello di prestazioni della linea di base è impostato su P10 (500 IOPS e 100 MB/s) e verrà fatturato in base alla tariffa P10. È possibile aggiornare il livello in modo che corrisponda alle prestazioni di P50 (7500 IOPS e 250 MB/s) senza aumentare le dimensioni del disco, durante i quali verrà addebitata la tariffa di P50. Quando le prestazioni più elevate non sono più necessarie, è possibile tornare al livello P10 e il disco verrà nuovamente fatturato in base alla tariffa P10.
+## <a name="how-it-works"></a>Funzionamento
+
+Quando si distribuisce o si effettua il provisioning di un disco per la prima volta, il livello di prestazioni di base per tale disco viene impostato in base alle dimensioni del disco con provisioning È possibile usare un livello di prestazioni superiore per soddisfare una domanda più elevata. Quando il livello di prestazioni non è più necessario, è possibile tornare al livello di prestazioni iniziale della linea di base.
+
+Le modifiche apportate alla fatturazione cambiano a seconda del livello. Se, ad esempio, si esegue il provisioning di un disco P10 (128 GiB), il livello di prestazioni di base viene impostato come P10 (500 IOPS e 100 MBps). Ti verrà addebitata la tariffa P10. È possibile aggiornare il livello in modo che corrisponda alle prestazioni di P50 (7.500 IOPS e 250 MBps) senza aumentare le dimensioni del disco. Durante l'aggiornamento, ti verrà addebitata la tariffa di P50. Quando non sono più necessarie le prestazioni più elevate, è possibile tornare al livello P10. Il disco verrà nuovamente fatturato in base alla tariffa P10.
 
 | Dimensioni del disco | Livello di prestazioni di base | Può essere aggiornato a |
 |----------------|-----|-------------------------------------|
@@ -46,16 +51,14 @@ Per informazioni sulla fatturazione, vedere [prezzi dei dischi gestiti](https://
 
 ## <a name="restrictions"></a>Restrizioni
 
-- Attualmente supportato solo per le unità SSD Premium.
-- Prima di modificare i livelli, i dischi devono essere scollegati da una macchina virtuale in esecuzione.
-- L'uso dei livelli di prestazioni P60, p70 e P80 è limitato ai dischi di 4096 GiB o versione successiva.
-- Il livello di prestazioni di un disco può essere modificato una sola volta ogni 24 ore.
+- Questa funzionalità è attualmente supportata solo per le unità SSD Premium.
+- Prima di poter modificare il livello del disco, è necessario scollegare il disco da una macchina virtuale in esecuzione.
+- L'uso dei livelli di prestazioni P60, p70 e P80 è limitato ai dischi di 4.096 GiB o versione successiva.
+- Il livello di prestazioni di un disco può essere modificato solo una volta ogni 24 ore.
 
 ## <a name="regional-availability"></a>Disponibilità a livello di area
 
-La regolazione del livello di prestazioni di un disco gestito è attualmente disponibile solo per le unità SSD Premium nelle aree seguenti:
-
-- Stati Uniti centro-occidentali 
+La possibilità di modificare il livello di prestazioni di un disco gestito è attualmente disponibile solo su unità SSD Premium nell'area Stati Uniti centro-occidentali. 
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Creare un disco dati vuoto con un livello superiore rispetto al livello di base
 
@@ -102,7 +105,7 @@ az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se è necessario ridimensionare un disco per sfruttare i livelli di prestazioni più elevati, vedere gli articoli sull'argomento:
+Se è necessario ridimensionare un disco per sfruttare i livelli di prestazioni più elevati, vedere questi articoli:
 
 - [Espandere dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](linux/expand-disks.md)
 - [Espandere un disco gestito collegato a una macchina virtuale Windows](windows/expand-os-disk.md)

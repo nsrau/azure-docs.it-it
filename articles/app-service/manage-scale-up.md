@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8085cbd3d19bd60c50de38950625de2fcd1e5c27
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 617a2717a1d1265d067cb3e1f26531d135d47941
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962486"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743914"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Aumentare le prestazioni di un'app nel servizio app di Azure
 
@@ -36,7 +36,7 @@ Per informazioni sui prezzi e le funzionalità dei singoli piani di servizio app
 ## <a name="scale-up-your-pricing-tier"></a>Passare al piano tariffario superiore
 
 > [!NOTE]
-> Per passare al livello **PremiumV2**, vedere [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md) (Configurare il livello PremiumV2 per il servizio app).
+> Per scalare fino al livello **PremiumV3** , vedere [configurare il livello PremiumV3 per il servizio app](app-service-configure-premium-tier.md).
 >
 
 1. Accedere al [portale di Azure][portal] nel browser.
@@ -78,7 +78,7 @@ Per una tabella dei limiti, delle quote e dei vincoli del servizio e per le funz
 ## <a name="more-resources"></a>Altre risorse
 
 [Scalare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/platform/autoscale-get-started.md)  
-[Configurare il livello PremiumV2 per il servizio app](app-service-configure-premium-tier.md)
+[Configurare il livello PremiumV3 per il servizio app](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/

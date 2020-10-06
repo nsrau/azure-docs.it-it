@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 785fcbbcde0c4efe3c2d1cd84bf19bd03371ab06
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 847c8a07bfa245d0c9859bb3cf6f6ed233934250
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883536"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743880"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire le condivisioni in Azure Data Box Gateway 
 
@@ -94,7 +94,7 @@ Eseguire i passaggi seguenti nel portale di Azure per aggiornare una condivision
 
 1. Passare a **Condivisioni** nel portale di Azure. Fare clic sulla condivisione che si vuole aggiornare.
 
-   ![Selezionare condivisione](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Selezionare Condividi 2](media/data-box-gateway-manage-shares/refresh-1.png)
 
 2. Fare clic su **Aggiorna**. 
 
@@ -124,11 +124,11 @@ Eseguire i passaggi seguenti nel portale di Azure per sincronizzare la chiave di
 1. Passare a **Panoramica** nella risorsa. 
 2. Dall'elenco di condivisioni scegliere e fare clic su una condivisione associata all'account di archiviazione che è necessario sincronizzare. Fare clic su **Sincronizza chiave di archiviazione**. 
 
-     ![Sincronizzare la chiave di archiviazione 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
+     ![Sincronizzare la chiave di archiviazione](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
 3. Fare clic su **Sì** alla richiesta di conferma. Uscire dalla finestra di dialogo dopo aver completato la sincronizzazione.
 
-     ![Sincronizzare la chiave di archiviazione 1](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
+     ![Chiave di archiviazione di sincronizzazione 2](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 
 >[!NOTE]
 > È sufficiente eseguire questa operazione una sola volta per un account di archiviazione specificato. Non è necessario ripetere questa azione per tutte le condivisioni associate allo stesso account di archiviazione.

@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 28401b5900640ed7228d7c7caad0cebbabf00a65
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: f0c923bcb7df930ed4b1380d487ededc6c160844
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532721"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743744"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Eseguire il training di modelli Scikit-learn su larga scala con Azure Machine Learning
 
@@ -66,9 +66,17 @@ Note:
 
 Per definire l' [ambiente](concept-environments.md) Azure ml che incapsula le dipendenze dello script di training, è possibile definire un ambiente personalizzato o usare l'ambiente curato di Azure ml.
 
+#### <a name="use-a-curated-environment"></a>Usare un ambiente curato
+Facoltativamente, Azure ML fornisce ambienti predefiniti e curati se non si vuole definire un ambiente personalizzato. Per altre informazioni, vedere [qui](resource-curated-environments.md).
+Se si vuole usare un ambiente curato, è invece possibile eseguire il comando seguente:
+
+```python
+sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
+```
+
 #### <a name="create-a-custom-environment"></a>Creare un ambiente personalizzato
 
-Per creare un ambiente personalizzato, definire le dipendenze di conda in un file YAML; in questo esempio il file è denominato `conda_dependencies.yml` .
+È anche possibile creare un proprio ambiente personalizzato. Definire le dipendenze conda in un file YAML; in questo esempio il file è denominato `conda_dependencies.yml` .
 
 ```yaml
 dependencies:
@@ -87,14 +95,6 @@ sklearn_env = Environment.from_conda_specification(name='sklearn-env', file_path
 ```
 
 Per altre informazioni sulla creazione e sull'uso degli ambienti, vedere [creare e usare ambienti software in Azure Machine Learning](how-to-use-environments.md).
-
-#### <a name="use-a-curated-environment"></a>Usare un ambiente curato
-Facoltativamente, Azure ML fornisce ambienti predefiniti e curati se non si vuole creare un'immagine personalizzata. Per altre informazioni, vedere [qui](resource-curated-environments.md).
-Se si vuole usare un ambiente curato, è invece possibile eseguire il comando seguente:
-
-```python
-sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
-```
 
 ## <a name="configure-and-submit-your-training-run"></a>Configurare e inviare l'esecuzione del training
 

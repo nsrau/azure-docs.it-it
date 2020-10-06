@@ -4,14 +4,14 @@ description: Informazioni su come controllare le operazioni del piano di control
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 691c6ec0559eceb60d57bf04819701edebbffd83
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462446"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743897"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Come controllare le operazioni del piano di controllo Azure Cosmos DB
 
@@ -69,17 +69,17 @@ Dopo l'abilitazione della registrazione, attenersi alla procedura seguente per t
 
 Gli screenshot seguenti acquisiscono i log quando viene modificato un livello di coerenza per un account Azure Cosmos:
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Controllare i log del piano quando viene aggiunto un VNet":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Abilitare la registrazione delle richieste del piano di controllo":::
 
 Le schermate seguenti acquisiscono i log quando viene creato lo spazio di Portatasto o una tabella di un account Cassandra e quando viene aggiornata la velocità effettiva. I registri del piano di controllo per le operazioni di creazione e aggiornamento nel database e il contenitore vengono registrati separatamente, come illustrato nello screenshot seguente:
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Controllare i log del piano quando viene aggiornata la velocità effettiva":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Abilitare la registrazione delle richieste del piano di controllo":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identificare l'identità associata a un'operazione specifica
 
 Se si desidera eseguire ulteriormente il debug, è possibile identificare un'operazione specifica nel **log attività** utilizzando l'ID attività o il timestamp dell'operazione. Timestamp viene utilizzato per alcuni Gestione risorse client in cui l'ID attività non viene passato in modo esplicito. Il log attività fornisce informazioni dettagliate sull'identità con la quale è stata avviata l'operazione. Lo screenshot seguente mostra come usare l'ID attività e individuare le operazioni associate nel log attività:
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Usare l'ID attività e trovare le operazioni":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Abilitare la registrazione delle richieste del piano di controllo":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Operazioni del piano di controllo per l'account Azure Cosmos
 
@@ -209,6 +209,21 @@ AzureActivity
 | summarize by Caller, HTTPRequest, activityId_g)
 on activityId_g
 | project Caller, activityId_g
+```
+
+Eseguire una query per ottenere gli aggiornamenti di indice o TTL. È quindi possibile confrontare l'output di questa query con un aggiornamento precedente per visualizzare la modifica nell'indice o nella durata (TTL).
+
+```Kusto
+AzureDiagnostics
+| where Category =="ControlPlaneRequests"
+| where  OperationName == "SqlContainersUpdate"
+| project resourceDetails_s
+```
+
+**output**
+
+```json
+{id:skewed,indexingPolicy:{automatic:true,indexingMode:consistent,includedPaths:[{path:/*,indexes:[]}],excludedPaths:[{path:/_etag/?}],compositeIndexes:[],spatialIndexes:[]},partitionKey:{paths:[/pk],kind:Hash},defaultTtl:1000000,uniqueKeyPolicy:{uniqueKeys:[]},conflictResolutionPolicy:{mode:LastWriterWins,conflictResolutionPath:/_ts,conflictResolutionProcedure:}
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

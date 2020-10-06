@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698938"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744135"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuire il servizio Gestione dispositivi StorSimple per l'array virtuale StorSimple
 
@@ -109,7 +109,7 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
 #### <a name="to-regenerate-the-service-registration-key"></a>Per rigenerare la chiave di registrazione del servizio
 1. In **Gestione dispositivi StorSimple** passare a **Gestione&gt;** **Chiavi**.
    
-   ![Pannello Chiavi](./media/storsimple-virtual-array-manage-service/getregkey2.png)
+   ![Pannello chiavi di nuovo](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Nel pannello **Chiavi** fare clic su **Rigenera**.
    
    ![Fare clic su Rigenera](./media/storsimple-virtual-array-manage-service/getregkey5.png)
@@ -118,7 +118,7 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
    ![Confermare la chiave di rigenerazione](./media/storsimple-virtual-array-manage-service/getregkey3.png)
 4. Verrà visualizzata una nuova chiave di registrazione del servizio.
    
-    ![Confermare la chiave di rigenerazione](./media/storsimple-virtual-array-manage-service/getregkey4.png)
+    ![Ulteriore chiave di conferma della rigenerazione](./media/storsimple-virtual-array-manage-service/getregkey4.png)
    
    Copiare la chiave e salvarla per registrare eventuali nuovi dispositivi con il servizio.
 

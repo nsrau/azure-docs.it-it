@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: faf7a6e0331e3891c2ece7461685b14e751c0894
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52ac5b89a0c7173b9b2585f84b5f34361b4b136c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713041"
+ms.locfileid: "91744220"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticare i problemi di configurazione dei collegamenti privati nei Azure Key Vault
 
@@ -22,7 +22,7 @@ Questo articolo consente agli utenti di diagnosticare e risolvere i problemi che
 
 Se non si ha familiarità con questa funzionalità, vedere [integrare Key Vault con il collegamento privato di Azure](private-link-service.md).
 
-### <a name="symptoms-covered-by-this-article"></a>Sintomi trattati in questo articolo
+### <a name="problems-covered-by-this-article"></a>Problemi trattati in questo articolo
 
 - Le query DNS restituiscono ancora un indirizzo IP pubblico per l'insieme di credenziali delle chiavi, anziché un indirizzo IP privato che si prevede di usare la funzionalità dei collegamenti privati.
 - Tutte le richieste effettuate da un determinato client che utilizza il collegamento privato, hanno esito negativo con timeout o errori di rete e il problema non è intermittente.
@@ -31,7 +31,7 @@ Se non si ha familiarità con questa funzionalità, vedere [integrare Key Vault 
 - L'insieme di credenziali delle chiavi ha due endpoint privati. Le richieste che usano uno funzionano correttamente, ma le richieste che usano l'altra non hanno esito positivo.
 - Si dispone di un'altra sottoscrizione, Key Vault o rete virtuale che utilizza collegamenti privati. Si vuole creare una nuova distribuzione simile, ma non è possibile ottenere collegamenti privati per il lavoro.
 
-### <a name="symptoms-not-covered-by-this-article"></a>Sintomi non trattati in questo articolo
+### <a name="problems-not-covered-by-this-article"></a>Problemi non trattati in questo articolo
 
 - Si è verificato un problema di connettività intermittente. In un client specifico, vengono visualizzate alcune richieste che funzionano e alcune non funzionano. *I problemi intermittenti non sono in genere causati da un problema nella configurazione dei collegamenti privati; si tratta di un segno di sovraccarico di rete o client.*
 - Si usa un prodotto Azure che supporta BYOK (Bring Your Own Key) o CMK (chiavi gestite dal cliente) e il prodotto non può accedere all'insieme di credenziali delle chiavi. *Esaminare l'altra documentazione del prodotto. Assicurarsi che specifichi in modo esplicito il supporto per gli insiemi di credenziali delle chiavi con il firewall abilitato. Se necessario, contattare il supporto tecnico per il prodotto specifico.*
@@ -188,7 +188,7 @@ La differenza rilevante rispetto allo scenario precedente è la presenza di un n
 
 Non significa che le richieste eseguite da computer *all'esterno* della rete virtuale, come quella appena usata, useranno i collegamenti privati. È possibile notare che il nome host viene ancora risolto in un indirizzo IP pubblico. Solo *i computer connessi alla rete virtuale* possono usare i collegamenti privati. Ulteriori informazioni su questa operazione seguiranno.
 
-Se l'alias non è visibile `privatelink` , significa che l'insieme di credenziali delle chiavi ha zero connessioni di endpoint privato nello `Approved` stato. Continuare a leggere questo articolo.
+Se l'alias non è visibile `privatelink` , significa che l'insieme di credenziali delle chiavi ha zero connessioni di endpoint privato nello `Approved` stato. Tornare a [questa sezione](#2-confirm-that-the-connection-is-approved-and-succeeded) prima di riprovare.
 
 ### <a name="key-vault-with-private-link-resolving-from-virtual-network"></a>Insieme di credenziali delle chiavi con collegamento privato che risolve la rete virtuale
 

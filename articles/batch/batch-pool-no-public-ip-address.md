@@ -3,15 +3,15 @@ title: Creare un pool di Azure Batch senza indirizzi IP pubblici
 description: Informazioni su come creare un pool senza indirizzi IP pubblici
 author: pkshultz
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: e6922abb48e19157e6905d9ceb71817cfbaff767
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 3106ceef8bc45d70401265f61bacb17cb0dc7262
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570864"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743659"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Creare un pool di Azure Batch senza indirizzi IP pubblici
 
@@ -24,7 +24,7 @@ Per impostazione predefinita, a tutti i nodi di calcolo in un pool di configuraz
 Per limitare l'accesso a questi nodi e ridurre l'individuabilità di questi nodi da Internet, è possibile effettuare il provisioning del pool senza indirizzi IP pubblici.
 
 > [!IMPORTANT]
-> Il supporto per i pool senza indirizzi IP pubblici in Azure Batch è attualmente disponibile in anteprima pubblica per le aree geografiche seguenti: Francia centrale, Asia orientale, Stati Uniti centro-occidentali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Stati Uniti orientali, Europa settentrionale, Stati Uniti orientali 2, Stati Uniti centrali, Europa occidentale.
+> Il supporto per i pool senza indirizzi IP pubblici in Azure Batch è attualmente disponibile in anteprima pubblica per le aree seguenti: Francia centrale, Asia orientale, Stati Uniti centro-occidentali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Stati Uniti orientali, Europa settentrionale, Stati Uniti orientali 2, Stati Uniti centrali, Europa occidentale, Stati Uniti centro-occidentali, Stati Uniti occidentali, Australia orientale
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prerequisiti

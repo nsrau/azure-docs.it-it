@@ -8,14 +8,14 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 852ff5e6ad847ff33f8e32b4c3d9f8b325b80716
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a77a870304e20c179e22b4a4ffe404315894d8a0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664519"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743693"
 ---
-# <a name="create-and-set-custom-ipsec-policies-for-point-to-site"></a>Creare e impostare criteri IPsec personalizzati per la configurazione da punto a sito
+# <a name="create-and-set-custom-ipsec-policies-for-point-to-site-preview"></a>Creare e impostare criteri IPsec personalizzati per la configurazione da punto a sito (anteprima)
 
 Se l'ambiente richiede un criterio IPsec personalizzato per la crittografia, è possibile configurare facilmente un oggetto criteri con le impostazioni necessarie. Questo articolo consente di creare un oggetto criteri personalizzato e quindi di impostarlo usando PowerShell.
 

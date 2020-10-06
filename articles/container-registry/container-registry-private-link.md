@@ -2,13 +2,13 @@
 title: Configurare un collegamento privato
 description: Configurare un endpoint privato in un registro contenitori e abilitare l'accesso tramite un collegamento privato in una rete virtuale locale. L'accesso ai collegamenti privati è una funzionalità del livello di servizio Premium.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: da07d35ad944db8e9b8a7bac0602fff23cd222d8
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 10/01/2020
+ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488746"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743642"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Connettersi privatamente a un registro contenitori di Azure usando il collegamento privato di Azure
 
@@ -79,7 +79,7 @@ az network vnet subnet update \
 
 ### <a name="configure-the-private-dns-zone"></a>Configurare la zona DNS privato
 
-Creare una zona DNS privato per il dominio del registro contenitori di Azure privato. In passaggi successivi si creeranno record DNS per il dominio del registro in questa zona DNS.
+Creare una [zona DNS privata](../dns/private-dns-privatednszone.md) per il dominio del registro contenitori di Azure privato. In passaggi successivi si creeranno record DNS per il dominio del registro in questa zona DNS.
 
 Per usare una zona privata allo scopo di sostituire la risoluzione DNS predefinita per il registro contenitori di Azure, la zona deve essere denominata **privatelink.azurecr.io**. Eseguire il comando [az network private-dns zone create][az-network-private-dns-zone-create] seguente per creare la zona privata:
 
@@ -209,7 +209,7 @@ Configurare un collegamento privato durante la creazione di un registro o aggiun
 1. In **Connettività di rete**selezionare **Endpoint privato** >  **+ Aggiungi**.
 1. Immettere o selezionare le informazioni seguenti:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Immettere il nome di un gruppo esistente o crearne uno nuovo.|
@@ -306,28 +306,46 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 
 Per convalidare la connessione di collegamento privato, connettersi tramite SSH alla macchina virtuale configurata nella rete virtuale.
 
-Eseguire il comando `nslookup` per risolvere l'indirizzo IP del registro attraverso il collegamento privato:
+Eseguire un'utilità, ad esempio `nslookup` o, `dig` per cercare l'indirizzo IP del registro di sistema tramite il collegamento privato. Ad esempio:
 
 ```bash
-nslookup $REGISTRY_NAME.azurecr.io
+dig $REGISTRY_NAME.azurecr.io
 ```
 
 L'output di esempio illustra l'indirizzo IP del registro nello spazio indirizzi della subnet:
 
 ```console
 [...]
-myregistry.azurecr.io       canonical name = myregistry.privatelink.azurecr.io.
-Name:   myregistry.privatelink.azurecr.io
-Address: 10.0.0.6
+; <<>> DiG 9.11.3-1ubuntu1.13-Ubuntu <<>> myregistry.azurecr.io
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52155
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;myregistry.azurecr.io.         IN      A
+
+;; ANSWER SECTION:
+myregistry.azurecr.io.  1783    IN      CNAME   myregistry.privatelink.azurecr.io.
+myregistry.privatelink.azurecr.io. 10 IN A      10.0.0.7
+
+[...]
 ```
 
-Confrontare questo risultato con l'indirizzo IP pubblico nell'output di `nslookup` per lo stesso registro su un endpoint pubblico:
+Confrontare questo risultato con l'indirizzo IP pubblico nell'output di `dig` per lo stesso registro su un endpoint pubblico:
 
 ```console
 [...]
-Non-authoritative answer:
-Name:   myregistry.westeurope.cloudapp.azure.com
-Address: 40.78.103.41
+;; ANSWER SECTION:
+myregistry.azurecr.io.  2881    IN  CNAME   myregistry.privatelink.azurecr.io.
+myregistry.privatelink.azurecr.io. 2881 IN CNAME xxxx.xx.azcr.io.
+xxxx.xx.azcr.io.    300 IN  CNAME   xxxx-xxx-reg.trafficmanager.net.
+xxxx-xxx-reg.trafficmanager.net. 300 IN CNAME   xxxx.westeurope.cloudapp.azure.com.
+xxxx.westeurope.cloudapp.azure.com. 10  IN A 20.45.122.144
+
+[...]
 ```
 
 ### <a name="registry-operations-over-private-link"></a>Operazioni sul registro attraverso il collegamento privato
@@ -361,9 +379,15 @@ Quando si configura una connessione endpoint privato eseguendo la procedura desc
 
 ## <a name="add-zone-records-for-replicas"></a>Aggiungere record della zona per le repliche
 
-Come illustrato in questo articolo, quando si aggiunge una connessione endpoint privato a un registro, vengono creati record DNS nella zona `privatelink.azurecr.io` per il registro e i relativi endpoint dati nelle aree in cui il registro viene [replicato](container-registry-geo-replication.md). 
+Come illustrato in questo articolo, quando si aggiunge una connessione a un endpoint privato a un registro di sistema, si creano record DNS nella `privatelink.azurecr.io` zona per il registro di sistema e i relativi endpoint dati nelle aree in cui viene [replicato](container-registry-geo-replication.md)il registro di sistema. 
 
 Se in seguito si aggiunge una nuova replica, è necessario aggiungere manualmente un nuovo record della zona per l'endpoint dati in tale area. Se, ad esempio, si crea una replica di *myregistry* nella posizione *northeurope*, aggiungere un record della zona per `myregistry.northeurope.data.azurecr.io`. Per la procedura, vedere [Creare record DNS nella zona privata](#create-dns-records-in-the-private-zone) in questo articolo.
+
+## <a name="dns-configuration-options"></a>Opzioni di configurazione DNS
+
+L'endpoint privato in questo esempio si integra con una zona DNS privata associata a una rete virtuale di base. Questa installazione usa direttamente il servizio DNS fornito da Azure per risolvere il nome di dominio completo (FQDN) pubblico del registro di sistema nell'indirizzo IP privato nella rete virtuale. 
+
+Il collegamento privato supporta scenari di configurazione DNS aggiuntivi che usano la zona privata, incluse le soluzioni DNS personalizzate. Ad esempio, si potrebbe avere una soluzione DNS personalizzata distribuita nella rete virtuale o in locale in una rete che si connette alla rete virtuale usando un gateway VPN. Per risolvere il nome di dominio completo (FQDN) pubblico del registro di sistema nell'indirizzo IP privato in questi scenari, è necessario configurare un server d'inoltre a livello di server per il servizio DNS di Azure (168.63.129.16). Le opzioni e i passaggi di configurazione esatti dipendono dalle reti esistenti e dal DNS. Per esempi, vedere [configurazione DNS dell'endpoint privato di Azure](../private-link/private-endpoint-dns.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

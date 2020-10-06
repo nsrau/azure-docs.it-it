@@ -6,14 +6,13 @@ ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-manager: rkarlin
-ms.date: 03/19/2019
-ms.openlocfilehash: 1affa396407ba9804261c799b559e40928b9b1fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 09/30/2020
+ms.openlocfilehash: c8ae10fa059bb9cfd32b95f9bc6d21f30ad9f880
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388428"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744203"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 
@@ -28,7 +27,7 @@ La funzionalità di eliminazione temporanea di Key Vault consente di recuperare 
 
 ## <a name="supporting-interfaces"></a>Supporto di interfacce
 
-La funzionalità di eliminazione temporanea è inizialmente disponibile attraverso le interfacce [Rest](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md)e [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) , oltre ai [modelli ARM](https://docs.microsoft.com/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+La funzionalità di eliminazione temporanea è disponibile tramite l' [API REST](/rest/api/keyvault/), le interfacce dell'interfaccia della riga di comando di [Azure](soft-delete-cli.md), [Azure PowerShell](soft-delete-powershell.md)e [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) , oltre ai [modelli ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Scenari
 
@@ -48,13 +47,13 @@ Il periodo di memorizzazione predefinito è 90 giorni, ma durante la creazione d
 
 Non è possibile riutilizzare il nome di un insieme di credenziali delle chiavi che è stato eliminato temporaneamente finché non viene superato il periodo di conservazione.
 
-### <a name="purge-protection"></a>Ripulisci protezione 
+### <a name="purge-protection"></a>Ripulisci protezione
 
 L'eliminazione della protezione è un comportamento di Key Vault facoltativo e **non è abilitata per impostazione predefinita**. La protezione ripulitura può essere abilitata solo quando l'eliminazione temporanea è abilitata.  È possibile attivarla tramite l' [interfaccia](soft-delete-cli.md#enabling-purge-protection) della riga di comando o [PowerShell](soft-delete-powershell.md#enabling-purge-protection).
 
-Quando la protezione ripulisce è attiva, un insieme di credenziali o un oggetto nello stato eliminato non può essere eliminato fino a quando non viene superato il periodo di conservazione. Gli insiemi di credenziali e gli oggetti eliminati temporaneamente possono comunque essere ripristinati, garantendo che i criteri di conservazione vengano seguiti. 
+Quando la protezione ripulisce è attiva, un insieme di credenziali o un oggetto nello stato eliminato non può essere eliminato fino a quando non viene superato il periodo di conservazione. Gli insiemi di credenziali e gli oggetti eliminati temporaneamente possono comunque essere ripristinati, garantendo che i criteri di conservazione vengano seguiti.
 
-Il periodo di memorizzazione predefinito è 90 giorni, ma è possibile impostare l'intervallo dei criteri di conservazione su un valore compreso tra 7 e 90 giorni attraverso la portale di Azure. Quando l'intervallo dei criteri di conservazione viene impostato e salvato, non è possibile modificarlo per tale insieme di credenziali. 
+Il periodo di memorizzazione predefinito è 90 giorni, ma è possibile impostare l'intervallo dei criteri di conservazione su un valore compreso tra 7 e 90 giorni attraverso la portale di Azure. Quando l'intervallo dei criteri di conservazione viene impostato e salvato, non è possibile modificarlo per tale insieme di credenziali.
 
 ### <a name="permitted-purge"></a>Ripulitura consentita
 
@@ -63,6 +62,8 @@ L'eliminazione permanente di un insieme di credenziali delle chiavi non è possi
 Eccezioni:
 - Quando la sottoscrizione di Azure è stata contrassegnata come *undeletable*. In questo caso solo il servizio può eseguire l'eliminazione effettiva, sotto forma di processo pianificato. 
 - Quando `--enable-purge-protection flag` è abilitato nell'insieme di credenziali. In questo caso, Key Vault attenderà 90 giorni da quando l'oggetto segreto originale è stato contrassegnato per l'eliminazione definitiva dell'oggetto.
+
+Per informazioni sui passaggi, vedere [come usare Key Vault l'eliminazione temporanea con l'interfaccia](soft-delete-cli.md#purging-a-key-vault) della riga di comando: eliminazione di un insieme di credenziali delle chiavi o [come usare Key Vault soft-delete con PowerShell: eliminazione di un insieme di credenziali delle chiavi](soft-delete-powershell.md#purging-a-key-vault).
 
 ### <a name="key-vault-recovery"></a>Recupero di un insieme di credenziali delle chiavi
 
@@ -79,10 +80,10 @@ Al tempo stesso, Key Vault pianificherà l'esecuzione dell'eliminazione dei dati
 Le risorse eliminate temporaneamente vengono conservate per un periodo di tempo impostato, 90 giorni. Durante il periodo di memorizzazione dell'eliminazione temporanea tenere presente quanto segue:
 
 - È possibile elencare tutti gli insiemi di credenziali delle chiavi e gli oggetti di insiemi di credenziali delle chiavi in stato di eliminazione temporanea nella sottoscrizione, nonché accedere alle informazioni di eliminazione e recupero disponibili su di essi.
-    - Gli insiemi di credenziali delle chiavi eliminati possono essere elencati solo da utenti con autorizzazioni speciali. Per la gestione degli insiemi di credenziali delle chiavi eliminati è consigliabile creare un ruolo personalizzato a cui assegnare queste autorizzazioni speciali.
-- Non è possibile creare nello stesso percorso due insiemi di credenziali delle chiavi con lo stesso nome. Analogamente, non è possibile creare un insieme di credenziali delle chiavi in un determinato insieme di credenziali se l'insieme di credenziali delle chiavi contiene un oggetto con lo stesso nome impostato in uno stato eliminato. 
+  - Gli insiemi di credenziali delle chiavi eliminati possono essere elencati solo da utenti con autorizzazioni speciali. Per la gestione degli insiemi di credenziali delle chiavi eliminati è consigliabile creare un ruolo personalizzato a cui assegnare queste autorizzazioni speciali.
+- Non è possibile creare un insieme di credenziali delle chiavi con lo stesso nome nello stesso percorso; un oggetto dell'insieme di credenziali delle chiavi non può quindi essere creato in un insieme di credenziali specificato se l'insieme di credenziali delle chiavi contiene un oggetto con lo stesso nome e che si trova in uno stato eliminato.
 - Solo un utente con privilegi specifici può recuperare un insieme di credenziali delle chiavi o un oggetto di un insieme di credenziali delle chiavi eseguendo un comando di ripristino sulla risorsa proxy corrispondente.
-    - Può recuperare l'insieme di credenziali delle chiavi l'utente che, membro del ruolo personalizzato, dispone dei privilegi necessari per creare un insieme di credenziali delle chiavi nel gruppo di risorse.
+  - Può recuperare l'insieme di credenziali delle chiavi l'utente che, membro del ruolo personalizzato, dispone dei privilegi necessari per creare un insieme di credenziali delle chiavi nel gruppo di risorse.
 - Solo un utente con privilegi specifici può eliminare in modo forzato un insieme di credenziali delle chiavi o un oggetto di un insieme di credenziali delle chiavi eseguendo un comando di eliminazione sulla risorsa proxy corrispondente.
 
 Se l'insieme di credenziali delle chiavi o l'oggetto dell'insieme di credenziali delle chiavi non viene recuperato, alla fine dell'intervallo di memorizzazione il servizio esegue un'operazione di ripulitura sull'insieme di credenziali delle chiavi o sull'oggetto dell'insieme eliminato in modo temporaneo, nonché sui relativi contenuti. È possibile che l'eliminazione della risorsa non venga ripianificata.
@@ -100,4 +101,3 @@ Le due guide seguenti descrivono gli scenari principali di utilizzo dell'elimina
 
 - [Come usare l'eliminazione temporanea di Key Vault con PowerShell](soft-delete-powershell.md) 
 - [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](soft-delete-cli.md)
-

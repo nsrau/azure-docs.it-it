@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 25f74fb78979313acc068320d842d09a982d8d16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ccc9725ffe5304942b740d460a67129f9c1c5d8
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339145"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743846"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire le pianificazioni della larghezza di banda in Azure Data Box Gateway  
 
@@ -40,13 +40,13 @@ Seguire questa procedura nel portale di Azure per aggiungere un utente.
 
 3. In **Aggiungi pianificazione**: 
 
-   1. Indicare il **giorno di inizio**, il **giorno di fine**, l'**orario di inizio** e l'**orario di fine** della pianificazione. 
+   1. Fornire il **giorno di inizio**, il **giorno di fine**, l'ora di **inizio**e l' **ora di fine** della pianificazione. 
    2. Se questa pianificazione verrà eseguita tutto il giorno, sarà possibile selezionare l'opzione **Tutto il giorno**. 
-   3. Per **Velocità larghezza di banda** si intende la larghezza di banda espressa in megabit al secondo (Mbps) usata dal dispositivo nelle operazioni che coinvolgono il cloud (sia caricamento sia download). Specificare un numero compreso tra 1 e 1000 per questo campo. 
+   3. La **velocità della larghezza di banda** è la larghezza di banda in megabit al secondo (Mbps) usata dal dispositivo in operazioni che coinvolgono il cloud (sia uploads che download). Specificare un numero compreso tra 1 e 1000 per questo campo. 
    4. Selezionare una larghezza di banda **Senza limiti** se non si vuole limitare la data di caricamento e download. 
-   5. Scegliere **Aggiungi**.
+   5. Fare clic su **Aggiungi**.
 
-      ![Fare clic su Aggiungi utente](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Fare clic su Aggiungi utente 2](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. Verrà creata una pianificazione con i parametri specificati. Questa pianificazione viene quindi visualizzata nell'elenco delle pianificazioni della larghezza di banda nel portale.
 
@@ -61,11 +61,11 @@ Eseguire la procedura seguente per modificare una pianificazione della larghezza
 
 3. Apportare le modifiche desiderate e salvarle.
 
-    ![Modificare un utente](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
+    ![Modifica utente 2](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
 
 4. Dopo aver modificato la pianificazione, l'elenco di pianificazioni viene aggiornato per riflettere la pianificazione modificata.
 
-    ![Modificare un utente](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![Modificare l'utente 3](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## <a name="delete-a-schedule"></a>Eliminare una pianificazione

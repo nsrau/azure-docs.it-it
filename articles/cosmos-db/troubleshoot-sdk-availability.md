@@ -3,17 +3,17 @@ title: Diagnosticare e risolvere i problemi relativi alla disponibilità di Azur
 description: Informazioni sul comportamento di disponibilità di Azure Cosmos SDK quando si opera in ambienti con più aree.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 09/24/2020
+ms.date: 10/05/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 8dd7ced2dfcfd3c555555d6f0a197623bd8726f2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330435"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743965"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnosticare e risolvere i problemi relativi alla disponibilità di Azure Cosmos SDK in ambienti multiarea
 
@@ -24,7 +24,7 @@ Tutti gli SDK di Azure Cosmos offrono un'opzione per personalizzare le preferenz
 * Proprietà [ConnectionPolicy. PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) in .NET v2 SDK.
 * Proprietà [CosmosClientOptions. ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) o [CosmosClientOptions. ApplicationPreferredRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) in .NET V3 SDK.
 * Metodo [CosmosClientBuilder. preferredRegions](/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) in Java v4 SDK.
-* Il parametro [CosmosClient. preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) in node SDK.
+* Il parametro [CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) in Python SDK.
 * Il parametro [CosmosClientOptions. ConnectionPolicy. preferredLocations](/javascript/api/@azure/cosmos/connectionpolicy#preferredlocations) in JS SDK.
 
 Quando si imposta la preferenza a livello di area, il client si connetterà a un'area come indicato nella tabella seguente:
@@ -49,6 +49,8 @@ Quando si verifica uno degli scenari seguenti, il client che usa Azure Cosmos SD
 * Proprietà *RequestDiagnosticsString* sulle risposte in .NET v2 SDK.
 * Proprietà di *diagnostica* sulle risposte e sulle eccezioni in .NET V3 SDK.
 * Metodo *Getdiagnostics ()* sulle risposte e sulle eccezioni in Java v4 SDK.
+
+Quando si determina l'area successiva in ordine di preferenza, il client SDK utilizzerà l'elenco dell'area account, assegnando la priorità alle aree preferite (se presenti).
 
 Per informazioni dettagliate sulle garanzie dei contratti di contratto durante questi eventi, vedere [contratti di stato per la disponibilità](high-availability.md#slas-for-availability).
 
