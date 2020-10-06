@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7a6b145e9a1efb29bbb6c233f2a09498b4a4ea7f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8bd955e844c9569438c5d35f152ba1bcdfccc306
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288002"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>Supporto Self-help per SQL su richiesta (anteprima)
 
@@ -33,9 +33,9 @@ Se la query non riesce con un messaggio di errore che indica che non è possibil
 
 ## <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>La query non riesce perché non può essere eseguita a causa di vincoli di risorse correnti 
 
-Se la query non riesce con un messaggio che indica che non può essere eseguita a causa di vincoli di risorse correnti, significa che SQL su richiesta non è in grado di eseguirla al momento a causa di tali vincoli: 
+Se la query non riesce e restituisce un messaggio per segnalare che non può essere eseguita a causa di vincoli di risorse correnti, significa che SQL su richiesta non è al momento in grado di eseguirla a causa di tali vincoli: 
 
-- Assicurarsi di usare tipi di dati di dimensioni ragionevoli. Specificare inoltre lo schema per i file Parquet per le colonne di stringhe, che sarà VARCHAR(8000) per impostazione predefinita. 
+- Assicurarsi di usare tipi di dati di dimensioni ragionevoli. Specificare inoltre lo schema per i file Parquet relativi alle colonne di stringhe, che saranno VARCHAR(8000) per impostazione predefinita. 
 
 - Se la query è destinata a file CSV, valutare se [creare statistiche](develop-tables-statistics.md#statistics-in-sql-on-demand-preview). 
 
@@ -61,7 +61,7 @@ Soluzione:
 CREATE DATABASE <DATABASE_NAME>
 ```
 
-  2. Eseguire l’istruzione di creazione nel contesto di <DATABASE_NAME> che non era riuscito in precedenza per il database master. 
+  2. Eseguire l'istruzione di creazione nel contesto di <DATABASE_NAME> che non era riuscito in precedenza per il database master. 
   
   Esempio di creazione di un formato file esterno:
     

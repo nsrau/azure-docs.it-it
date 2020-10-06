@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6fec96d2fb70c0ccf6dc66690d5a61c76038fd74
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b639bc19620a07d9730066f98977080827f07ec0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011124"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570467"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Guida introduttiva: Compilare un'app console con .NET V4 SDK per gestire le risorse dell'account API SQL di Azure Cosmos DB.
 
@@ -22,6 +22,7 @@ ms.locfileid: "89011124"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -70,7 +71,7 @@ az group create \
     --name $resourceGroupName \
     --location $location
 
-# Create a SQL API Cosmos DB account with session consistency and multi-master enabled
+# Create a SQL API Cosmos DB account with session consistency and multi-region writes enabled
 az cosmosdb create \
     --resource-group $resourceGroupName \
     --name $accountName \

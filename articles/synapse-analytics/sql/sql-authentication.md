@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a4b61b89921b41476ff1c2196502092809862a82
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d43c223c0a3e67ff784688255bd75fc61e5c120c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495500"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288019"
 ---
 # <a name="sql-authentication"></a>Autenticazione SQL
 
@@ -61,7 +61,7 @@ CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
 CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
 ```
-Una volta creato l'account di accesso, è possibile creare utenti nei singoli database all'interno dell'endpoint SQL su richiesta e concedere le autorizzazioni necessarie. Per creare un utente, è possibile usare la sintassi seguente:
+Una volta creato l'account di accesso, è possibile creare utenti nei singoli database all'interno dell'endpoint SQL su richiesta e concedere loro le autorizzazioni necessarie. Per creare un utente, è possibile usare la sintassi seguente:
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
 -- or
@@ -126,7 +126,7 @@ L'utente potrà così connettersi al database `master` e creare nuovi database. 
 
 ### <a name="login-managers"></a>Gestione degli account di accesso
 
-L'altro ruolo amministrativo è il ruolo di gestione degli account di accesso. I membri di questo ruolo possono creare nuovi account di accesso nel database master. Se si vuole, è possibile completare la stessa procedura (ovvero creare un account di accesso e aggiungere un utente al ruolo **loginmanager**) per consentire a un utente di creare nuovi account di accesso nel database master. Gli account di accesso non sono generalmente necessari perché è consigliabile usare utenti di database indipendente che eseguono l'autenticazione a livello di database anziché utenti basati su account di accesso. Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+L'altro ruolo amministrativo è il ruolo di gestione degli account di accesso. I membri di questo ruolo possono creare nuovi account di accesso nel database master. Se si vuole, è possibile completare la stessa procedura (ovvero creare un account di accesso e aggiungere un utente al ruolo **loginmanager**) per consentire a un utente di creare nuovi account di accesso nel database master. Gli account di accesso non sono in genere necessari perché è consigliabile usare utenti di database indipendente che eseguono l'autenticazione a livello di database anziché utenti basati su account di accesso. Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ---
 
@@ -205,13 +205,13 @@ Per iniziare, vedere l'elenco di autorizzazioni in [Autorizzazioni (Motore di da
 Quando si gestiscono gli account di accesso e gli utenti nel database SQL, tenere presente quanto segue:
 
 - È necessario essere connessi al database **master** durante l'esecuzione delle istruzioni `CREATE/ALTER/DROP DATABASE`.
-- L'utente corrispondente all'account di accesso **Amministratore del server** non può essere modificato o eliminato.
+- L'utente di database corrispondente all'account di accesso **Amministratore del server** non può essere modificato o eliminato.
 - L'inglese americano è la lingua predefinita dell'account di accesso **Amministratore del server**.
 - Soltanto gli amministratori (**amministratore del server** o amministratore di Azure AD) e i membri del ruolo di database **dbmanager** nel database **master** sono autorizzati a eseguire le istruzioni `CREATE DATABASE` e `DROP DATABASE`.
 - È necessario essere connessi al database master durante l'esecuzione delle istruzioni `CREATE/ALTER/DROP LOGIN` . È tuttavia sconsigliato l'uso di account di accesso. Usare invece gli utenti del database indipendente.
 - Per connettersi a un database utente è necessario specificare il nome del database nella stringa di connessione.
 - Soltanto gli utenti con accesso dell’entità di livello server e i membri del ruolo del database **loginmanager** nel database **master** sono autorizzati a eseguire le istruzioni `CREATE LOGIN`, `ALTER LOGIN` e `DROP LOGIN`.
-- Quando si esegue le istruzioni `CREATE/ALTER/DROP LOGIN` e `CREATE/ALTER/DROP DATABASE` in un'applicazione ADO.NET, non è consentito utilizzare i comandi con parametri. Per ulteriori informazioni, vedere [Comandi e parametri](/dotnet/framework/data/adonet/commands-and-parameters?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- Quando si eseguono le istruzioni `CREATE/ALTER/DROP LOGIN` e `CREATE/ALTER/DROP DATABASE` in un'applicazione ADO.NET, non è consentito usare i comandi con parametri. Per ulteriori informazioni, vedere [Comandi e parametri](/dotnet/framework/data/adonet/commands-and-parameters?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 - Quando si esegue le istruzioni `CREATE/ALTER/DROP DATABASE` e `CREATE/ALTER/DROP LOGIN`, ognuna di queste istruzioni deve essere l'unica istruzione in un batch Transact-SQL. In caso contrario si verifica un errore. Ad esempio, il seguente Transact-SQL controlla se il database esiste. Se esiste, un’istruzione `DROP DATABASE` viene chiamata per rimuovere il database. Poiché l’istruzione `DROP DATABASE` non è l'unica istruzione nel batch, l'esecuzione della seguente istruzione Transact-SQL genera un errore.
 
   ```sql

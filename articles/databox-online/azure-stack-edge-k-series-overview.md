@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 20efae411ae4d2fae9bf3b5e69dbfdd98da1603a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4bae9e28a22a99d092db2bf887f0cd790e04c52a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985648"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318561"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>Che cos'è Azure Stack Edge Mini R?
 
-Azure Stack Edge Mini R è una soluzione Hardware-as-a-Service. Microsoft offre un dispositivo ultra portatile, resistente e gestito dal cloud con una VPU (Vision Porcessing Unit) incorporata che accelera l'inferenza per intelligenza artificiale e include tutte le funzionalità di un gateway di archiviazione di rete. Questi dispositivi sono appropriati per l'uso negli ambienti più rigidi e sono ottimizzati per funzionalità di intelligenza artificiale, analisi ed elaborazione serverless.
+Azure Stack Edge Mini R è un dispositivo di edge computing resistente e ultra portatile progettato per l'uso in ambienti difficili. Azure Stack Edge Mini R è una soluzione di hardware come servizio. Microsoft fornisce un dispositivo gestito dal cloud che funge da gateway di archiviazione di rete e include una VPU (Vision Processing Unit) incorporata che abilita l'inferenza per l'intelligenza artificiale accelerata.
 
 Questo articolo contiene una panoramica della soluzione Azure Stack Edge Mini R, con le principali funzionalità e gli scenari in cui è possibile distribuire questo dispositivo.
 
@@ -28,7 +28,7 @@ Azure Stack Edge Mini R include le funzionalità seguenti:
 
 |Funzionalità |Descrizione  |
 |---------|---------|
-|Hardware resistente| Hardware resistente progettato per gli ambienti più rigidi.|
+|Hardware resistente| Dispositivo resistente progettato per ambienti difficili.|
 |Ultra portatile| Fattore di forma ultra portatile a batteria.|
 |Gestione dal cloud|Il dispositivo e il servizio vengono gestiti tramite il portale di Azure.|
 |Carichi di lavoro per l'edge computing|Consente l'analisi, l'elaborazione e il filtraggio dei dati.<br>Supporta le macchine virtuali e i carichi di lavoro in contenitori. |
@@ -36,7 +36,7 @@ Azure Stack Edge Mini R include le funzionalità seguenti:
 |Connessioni cablate e wireless | Consente i trasferimenti di dati cablati e wireless.|
 |Accesso ai dati     | Indirizzare l'accesso ai dati dai BLOB del servizio di archiviazione di Azure e da File di Azure usando le API cloud per un'ulteriore elaborazione dei dati nel cloud. La cache locale nel dispositivo viene usata per l'accesso rapido ai file usati più di recente.|
 |Modalità disconnessa|  Il dispositivo e il servizio possono essere gestiti facoltativamente tramite l'hub di Azure Stack. È possibile distribuire, eseguire e gestire le applicazioni in modalità offline. <br> La modalità disconnessa supporta scenari di caricamento offline.|
-|Protocolli supportati     |Supporto per protocolli SMB, NFS e REST standard per l'inserimento di dati. <br> Per altre informazioni sulle versioni supportate, vedere i [requisiti di sistema di Azure Stack Edge Mini R](azure-stack-edge-gpu-system-requirements.md).|
+|Protocolli FTP supportati      |Supporto per protocolli SMB, NFS e REST standard per l'inserimento di dati. <br> Per altre informazioni sulle versioni supportate, vedere i [requisiti di sistema di Azure Stack Edge Mini R](azure-stack-edge-gpu-system-requirements.md).|
 |Aggiornamento dati     | Possibilità di aggiornare i file locali con quelli più recenti nel cloud.|
 |Crittografia doppia    | L'uso dell'unità con crittografia automatica offre il primo livello di crittografia. La VPN fornisce il secondo livello di crittografia. Supporto di BitLocker per crittografare i dati in locale e proteggerne il trasferimento nel cloud tramite *HTTPS*.|
 |Limitazione larghezza di banda| Limitare l'utilizzo della larghezza di banda durante le ore di picco.|
@@ -60,13 +60,13 @@ Ecco i vari scenari in cui è possibile usare Azure Stack Edge Mini R per l'infe
 
 La soluzione Azure Stack Edge Mini R è costituita da una risorsa Azure Stack Edge, da un dispositivo fisico Azure Stack Edge Mini R, ultra portatile e resistente, e da un'interfaccia utente Web locale.
 
-* **Dispositivo fisico Azure Stack Edge Mini R**: un dispositivo ultra portatile con una batteria integrata e un case resistente fornito da Microsoft che può essere configurato per l'invio di dati ad Azure. Il dispositivo con la batteria pesa poco più di 3 kg.
+* **Dispositivo fisico Azure Stack Edge Mini R**: dispositivo di calcolo e archiviazione resistente e ultra portatile fornito da Microsoft. Il dispositivo ha una batteria integrata e pesa poco più di 3 kg.
 
     ![Dispositivo Azure Stack Edge Mini R](media/azure-stack-edge-k-series-overview/perspective-view-1.png)
 
 * **Risorsa Azure Stack Edge**: una risorsa del portale di Azure che consente di gestire un dispositivo Azure Stack Edge Mini R resistente da un'interfaccia Web accessibile da aree geografiche diverse. Usare la risorsa Azure Stack Edge per creare e gestire risorse, visualizzare e gestire dispositivi e avvisi e gestire condivisioni.  
 
-* **Interfaccia utente Web locale di Azure Stack Edge Mini R**: usare l'interfaccia utente Web locale per la configurazione iniziale del dispositivo, oltre che per eseguire la diagnostica, arrestare e riavviare il dispositivo Azure Stack Edge Mini R, visualizzare i log di copia e contattare il supporto tecnico Microsoft per inviare una richiesta di servizio.
+* **Interfaccia utente Web locale di Azure Stack Edge Mini R**: interfaccia utente locale basata su browser nel dispositivo Azure Stack Edge Mini R destinata principalmente alla configurazione iniziale del dispositivo. Usare l'interfaccia utente Web locale anche per eseguire la diagnostica, arrestare e riavviare il dispositivo Azure Stack Edge Pro, visualizzare i log di copia e contattare il supporto tecnico Microsoft per inviare una richiesta di servizio.
 
 
 ## <a name="region-availability"></a>Aree di disponibilità
@@ -74,6 +74,8 @@ La soluzione Azure Stack Edge Mini R è costituita da una risorsa Azure Stack Ed
 Il dispositivo fisico Azure Stack Edge Mini R, la risorsa di Azure e l'account di archiviazione di destinazione in cui trasferire i dati non devono necessariamente trovarsi tutti nella stessa area.
 
 - **Aree di disponibilità**: per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
+
+- **Disponibilità del dispositivo**: per un elenco di tutti i paesi in cui il dispositivo Azure Stack Edge Mini R è disponibile, passare alla sezione Disponibilità nella scheda Azure Stack Edge Mini R in [Prezzi di Azure Stack Edge Mini R](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeMiniR).
 
 - **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure. Per prestazioni ottimali, le aree in cui gli account archiviano i dati di Azure Stack Edge Mini R devono trovarsi nelle vicinanze del dispositivo. Un account di archiviazione lontano dal dispositivo si traduce in lunghe latenze e prestazioni ridotte.
 

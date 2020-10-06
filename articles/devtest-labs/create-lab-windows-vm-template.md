@@ -4,15 +4,15 @@ description: In questo argomento di avvio rapido verrà creato un lab in Azure D
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/26/2020
-ms.openlocfilehash: 93bc4cf91b228de72c217c61ec03d61e87046dd3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 2b825b4d4485f401199556b6faaef0017f583cc1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653954"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461190"
 ---
 # <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Avvio rapido: Configurare un lab con un modello di Resource Manager di Azure DevTest Labs
-In questo argomento di avvio rapido verrà creato un lab con una macchina virtuale Windows Server 2019 Datacenter usando un modello di Azure Resource Manager. 
+In questo argomento di avvio rapido verrà creato un lab con una macchina virtuale Windows Server 2019 Datacenter usando un modello di Azure Resource Manager (modello ARM). 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -65,16 +65,16 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente.
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 1. Selezionare **Notifiche** nella parte superiore per visualizzare lo stato della distribuzione e fare clic sul collegamento **Distribuzione in corso**.
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Notifica della distribuzione":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Pagina Distribuisci modello":::
 2. Nella pagina **Distribuzione - Panoramica** attendere il completamento della distribuzione. Questa operazione, in particolare la creazione di una macchina virtuale, richiede tempo. Selezionare quindi **Vai al gruppo di risorse** o il **nome del gruppo di risorse** come illustrato nell'immagine seguente: 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Passare al gruppo di risorse":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Pagina Distribuisci modello":::
 3. Nella pagina **Gruppo di risorse** viene visualizzato l'elenco delle risorse nel gruppo di risorse. Verificare che il lab di tipo `DevTest Lab` sia incluso nelle risorse visualizzate. Verranno inoltre visualizzate le risorse dipendenti, ad esempio la rete virtuale e la macchina virtuale nel gruppo di risorse. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Home page del gruppo di risorse":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Pagina Distribuisci modello":::
 4. Selezionare il lab dall'elenco di risorse per visualizzare la home page per il lab. Verificare che la macchina virtuale Windows Server 2019 Datacenter sia presente nell'elenco **Macchine virtuali personali**. Nell'immagine seguente la sezione **Informazioni di base** è ridotta a icona. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Home page del lab":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Pagina Distribuisci modello":::
 
     > [!IMPORTANT] 
     > Lasciare aperta questa pagina e seguire le istruzioni nella sezione successiva per pulire le risorse al fine di evitare l'addebito di costi per l'esecuzione del lab e della macchina virtuale in Azure. Se si vuole procedere con l'esercitazione successiva per testare l'accesso alla macchina virtuale nel lab, pulire le risorse dopo aver completato l'esercitazione. 
@@ -83,14 +83,14 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente.
 
 1. Prima di tutto, è necessario eliminare il lab per poter eliminare il gruppo di risorse. Non sarà possibile eliminare il gruppo di risorse se contiene un lab al suo interno. Per eliminare il lab, selezionare **Elimina** sulla barra degli strumenti. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Pulsante Elimina il lab":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Pagina Distribuisci modello":::
  2. Nella pagina di conferma digitare il **nome del lab** e selezionare **Elimina**. 
  3. Attendere fino a quando il lab non è stato eliminato. Selezionare l'icona a forma di **Campana** per visualizzare la notifica dell'operazione di eliminazione. L'esecuzione di questo processo richiede tempo. Confermare l'eliminazione del lab, quindi selezionare il **gruppo di risorse** nel menu di navigazione. 
  
-    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Conferma dell'eliminazione della macchina virtuale nelle notifiche":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Pagina Distribuisci modello":::
  1. Nella pagina **Gruppo di risorse** selezionare **Elimina gruppo di risorse** dalla barra degli strumenti. Nella pagina di conferma digitare il **nome del gruppo di risorse** e selezionare **Elimina**. Controllare le notifiche per verificare che il gruppo di risorse sia stato eliminato.
  
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Pulsante Elimina gruppo di risorse":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Pagina Distribuisci modello":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo argomento di avvio rapido è stato creato un lab con una VM. Per informazioni su come accedere al lab, passare all'esercitazione successiva:

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 58c52649750ae03f19188a025fa4baa16a55ae05
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259919"
 ---
 # <a name="introduction"></a>Introduzione
 
@@ -30,7 +30,7 @@ Il connettore dal pool Apache Spark di Azure Synapse a Synapse SQL è un'impleme
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Autenticazione in Azure Synapse Analytics
 
-Azure Synapse Analytics semplifica l'autenticazione tra i sistemi. Un servizio token si connette con Azure Active Directory per ottenere i token di sicurezza da usare per accedere all'account di archiviazione o al server del data warehouse.
+Azure Synapse Analytics semplifica l'autenticazione tra i sistemi. Il servizio token si connette con Azure Active Directory per ottenere i token di sicurezza da usare per accedere all'account di archiviazione o al server del data warehouse.
 
 Per questo motivo, non occorre creare le credenziali o specificarle nell'API del connettore, purché l'autenticazione di AAD sia configurata nell'account di archiviazione e nel server del data warehouse. In caso contrario, è possibile specificare l'autenticazione SQL. Per informazioni più dettagliate, vedere la sezione [Uso](#usage).
 
@@ -91,7 +91,7 @@ L'API riportata sopra funziona sia per le tabelle interne (gestite) sia per quel
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-L'API di scrittura crea la tabella nel pool SQL e quindi richiama Polybase per caricare i dati.  La tabella non deve esistere nel pool SQL. In caso contrario, verrà restituito un errore che indica "Esiste già un oggetto denominato..."
+L'API di scrittura crea la tabella nel pool SQL e quindi richiama Polybase per caricare i dati.  La tabella non deve esistere nel pool SQL. In caso contrario, verrà restituito un errore di questo tipo: "Esiste già un oggetto denominato..."
 
 Valori TableType
 
@@ -106,7 +106,7 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 Tabella esterna del pool SQL
 
-Per eseguire la scrittura in una tabella esterna del pool SQL, nel pool SQL devono essere presenti gli oggetti EXTERNAL DATA SOURCE ed EXTERNAL FILE FORMAT.  Per altre informazioni, vedere [creazione di un'origine dati esterna](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [formati di file esterni](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) nel pool SQL.  Di seguito sono riportati alcuni esempi per la creazione di un'origine dati esterna e di formati di file esterni nel pool SQL.
+Per eseguire la scrittura in una tabella esterna del pool SQL, nel pool SQL devono essere presenti gli oggetti EXTERNAL DATA SOURCE ed EXTERNAL FILE FORMAT.  Per altre informazioni, vedere [creazione di un'origine dati esterna](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [formati di file esterni](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) nel pool SQL.  Di seguito sono riportati alcuni esempi per la creazione di un'origine dati esterna e di formati di file esterni nel pool SQL.
 
 ```sql
 --For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:

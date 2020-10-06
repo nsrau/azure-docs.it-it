@@ -6,19 +6,18 @@ ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 11/04/2019
+ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: 6c330b201c74a2ce56283e30be90cd117b1022f6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 77ab19296d1e310e48cdf3609c9f109dc42f6ec1
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050523"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408301"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Guida introduttiva: Creare una chat room mediante il servizio SignalR
 
-
-Il servizio Azure SignalR è un servizio di Azure che consente agli sviluppatori di compilare facilmente applicazioni Web con funzionalità in tempo reale. Questo servizio è basato su [SignalR per ASP.NET Core 2.1](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-2.1) ma supporta anche [SignalR per ASP.NET Core 3.0](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.0).
+Il servizio Azure SignalR è un servizio di Azure che consente agli sviluppatori di compilare facilmente applicazioni Web con funzionalità in tempo reale. Questo servizio in origine era basato su [SignalR per ASP.NET Core 2.1](https://docs.microsoft.com/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), ma ora supporta le versioni successive.
 
 Questo articolo illustra come iniziare a usare il servizio Azure SignalR. In questo argomento di avvio rapido verrà creata un'applicazione di chat tramite un'app Web ASP.NET Core MVC. Questa app stabilirà una connessione alla risorsa del servizio Azure SignalR per abilitare gli aggiornamenti dei contenuti in tempo reale. L'applicazione Web sarà ospitata in locale e verrà stabilita la connessione con più client browser. Ogni client sarà in grado di eseguire il push degli aggiornamenti dei contenuti a tutti gli altri client. 
 
@@ -26,8 +25,7 @@ Per completare i passaggi descritti in questa guida di avvio rapido è possibile
 
 Il codice per questa esercitazione è disponibile per il download nel [repository GitHub AzureSignalR-samples](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom). È inoltre possibile creare le risorse di Azure usate in questo argomento di avvio rapido seguendo le istruzioni riportate nell'argomento relativo allo [script per la creazione di un servizio SignalR](scripts/signalr-cli-create-service.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note-dotnet.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -64,20 +62,20 @@ In questa sezione verrà aggiunto lo [strumento Secret Manager](https://docs.mic
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
+
     <PropertyGroup>
-        <TargetFramework>netcoreapp2.0</TargetFramework>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
         <UserSecretsId>SignalRChatRoomEx</UserSecretsId>
     </PropertyGroup>
+
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+        <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+        <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.2" />
     </ItemGroup>
-    <ItemGroup>
-        <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
-        <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
-    </ItemGroup>
-    </Project>    
+
+    </Project>
     ```
-    
+
 [Problemi? Segnalarli](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="add-azure-signalr-to-the-web-app"></a>Aggiungere Azure SignalR all'app Web
@@ -101,80 +99,68 @@ In questa sezione verrà aggiunto lo [strumento Secret Manager](https://docs.mic
     È necessario eseguire questo comando nella stessa directory del file con estensione *csproj*.
 
     ```dotnetcli
-    dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"
     ```
 
     Secret Manager verrà usato solo per il test dell'app Web mentre è ospitata in locale. In un'esercitazione successiva si distribuirà l'app Web di chat in Azure. Dopo la distribuzione dell'app Web in Azure, sarà possibile usare un'impostazione dell'applicazione invece di archiviare la stringa di connessione con Secret Manager.
 
-    È possibile accedere al segreto con l'API di configurazione. Con tale API è possibile usare i due punti (:) nel nome di configurazione in tutte le piattaforme supportate. Vedere la [configurazione in base all'ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
+    È possibile accedere al segreto con l'API di configurazione. Con tale API è possibile usare i due punti (:) nel nome di configurazione in tutte le piattaforme supportate. Vedere la [configurazione in base all'ambiente](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
 
 
-4. Aprire *Startup.cs* e aggiornare il metodo `ConfigureServices` per usare il servizio Azure SignalR chiamando il metodo `services.AddSignalR().AddAzureSignalR()`:
+4. Aprire *Startup.cs* e aggiornare il metodo `ConfigureServices` per usare il servizio Azure SignalR chiamando il metodo `AddSignalR()`:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddMvc();
-        services.AddSignalR().AddAzureSignalR();
+        services.AddSignalR();
     }
     ```
 
-    Non passando un parametro a `AddAzureSignalR()`, questo codice usa la chiave di configurazione predefinita per la stringa di connessione della risorsa del servizio SignalR. La chiave di configurazione predefinita è *Azure:SignalR:ConnectionString*.
+    Non passando un parametro a `AddSignalR()`, questo codice usa la chiave di configurazione predefinita per la stringa di connessione della risorsa del servizio SignalR. La chiave di configurazione predefinita è *Azure:SignalR:ConnectionString*.
 
-5. Sempre in *Startup.cs*, aggiornare il metodo `Configure` sostituendo la chiamata a `app.UseStaticFiles()` con il codice seguente e salvare il file, solo per ASP.NET Core 2.
-
-    ```csharp
-    app.UseFileServer();
-    app.UseAzureSignalR(routes =>
-    {
-        routes.MapHub<Chat>("/chat");
-    });
-    ```            
-    Per ASP.NET Core 3 e versioni successive, sostituire il codice precedente con:
+5. In *Startup.cs*aggiornare il metodo `Configure` sostituendolo con il codice seguente.
 
     ```csharp
-    app.UseFileServer();
-    app.UseRouting();
-    app.UseAuthorization();
-
-    app.UseEndpoints(routes =>
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        routes.MapHub<Chat>("/chat");
-    });
+        app.UseRouting();
+        app.UseFileServer();
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapHub<ChatHub>("/chat");
+        });
+    }
     ```
 
 ### <a name="add-a-hub-class"></a>Aggiungere una classe hub
 
-In SignalR un hub è un componente di base che espone un set di metodi che possono essere chiamati dal client. In questa sezione si definisce una classe hub con due metodi: 
+In SignalR un hub è un componente di base che espone un set di metodi che possono essere chiamati dal client. In questa sezione si definisce una classe hub con due metodi:
 
 * `Broadcast`: Questo metodo trasmette un messaggio a tutti i client.
 * `Echo`: Questo metodo invia un messaggio al chiamante.
 
 Entrambi i metodi usano l'interfaccia `Clients` fornita da ASP.NET Core SignalR SDK. Questa interfaccia consente di accedere a tutti i client connessi, rendendo possibile il push del contenuto ai client.
 
-1. Nella directory del progetto aggiungere una nuova cartella denominata *Hub*. Aggiungere un nuovo file di codice hub denominato *Chat.cs* nella nuova cartella.
+1. Nella directory del progetto aggiungere una nuova cartella denominata *Hub*. Aggiungere un nuovo file di codice hub denominato *ChatHub.cs* nella nuova cartella.
 
-2. Aggiungere il codice seguente a *Chat.cs* per definire la classe hub e salvare il file. 
+2. Aggiungere il codice seguente a *ChatHub.cs* per definire la classe hub e salvare il file.
 
-    Aggiornare lo spazio dei nomi per questa classe se è stato usato un nome di progetto diverso da *chattest*.
+    Aggiornare lo spazio dei nomi per questa classe se è stato usato un nome di progetto diverso da *SignalR.Mvc*.
 
     ```csharp
     using Microsoft.AspNetCore.SignalR;
-
-    namespace chattest
+    using System.Threading.Tasks;
+    
+    namespace SignalR.Mvc
     {
-
-        public class Chat : Hub
+        public class ChatHub : Hub
         {
-            public void BroadcastMessage(string name, string message)
-            {
+            public Task BroadcastMessage(string name, string message) =>
                 Clients.All.SendAsync("broadcastMessage", name, message);
-            }
-
-            public void Echo(string name, string message)
-            {
-                Clients.Client(Context.ConnectionId).SendAsync("echo", name, message + " (echo from server)");
-            }
+    
+            public Task Echo(string name, string message) =>
+                Clients.Client(Context.ConnectionId)
+                       .SendAsync("echo", name, $"{message} (echo from server)");
         }
     }
     ```
@@ -183,23 +169,153 @@ Entrambi i metodi usano l'interfaccia `Clients` fornita da ASP.NET Core SignalR 
 
 L'interfaccia utente client per questa app di chat room sarà costituita da HTML e JavaScript in un file denominato *index.html* nella directory *wwwroot*.
 
-Copiare il file *index.html* e le cartelle *css* e *scripts* dalla cartella *wwwroot* del [repository samples](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot). Incollarli nella cartella *wwwroot* del progetto.
+Copiare il file *css/site.css* dalla cartella *wwwroot* del [repository degli esempi](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot). Sostituire il file *css/site.css* del progetto con quello copiato.
 
-Di seguito è riportato il codice principale di *index.html*: 
+Di seguito è riportato il codice principale di *index.html*:
 
-```javascript
-var connection = new signalR.HubConnectionBuilder()
-                            .withUrl('/chat')
-                            .build();
-bindConnectionMessage(connection);
-connection.start()
-    .then(function () {
-        onConnected(connection);
-    })
-    .catch(function (error) {
-        console.error(error.message);
-    });
-```    
+Creare un nuovo file nella directory *wwwroot* denominato *index.html*, quindi copiare e incollare il codice HTML seguente nel file appena creato:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    <title>Azure SignalR Group Chat</title>
+</head>
+<body>
+    <h2 class="text-center" style="margin-top: 0; padding-top: 30px; padding-bottom: 30px;">Azure SignalR Group Chat</h2>
+    <div class="container" style="height: calc(100% - 110px);">
+        <div id="messages" style="background-color: whitesmoke; "></div>
+        <div style="width: 100%; border-left-style: ridge; border-right-style: ridge;">
+            <textarea id="message"
+                      style="width: 100%; padding: 5px 10px; border-style: hidden;"
+                      placeholder="Type message and press Enter to send..."></textarea>
+        </div>
+        <div style="overflow: auto; border-style: ridge; border-top-style: hidden;">
+            <button class="btn-warning pull-right" id="echo">Echo</button>
+            <button class="btn-success pull-right" id="sendmessage">Send</button>
+        </div>
+    </div>
+    <div class="modal alert alert-danger fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>Connection Error...</div>
+                    <div><strong style="font-size: 1.5em;">Hit Refresh/F5</strong> to rejoin. ;)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Reference the SignalR library. -->
+    <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@3.1.8/dist/browser/signalr.min.js"></script>
+
+    <!--Add script to update the page and send messages.-->
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const generateRandomName = () =>
+                Math.random().toString(36).substring(2, 10);
+
+            let username = generateRandomName();
+            const promptMessage = 'Enter your name:';
+            do {
+                username = prompt(promptMessage, username);
+                if (!username || username.startsWith('_') || username.indexOf('<') > -1 || username.indexOf('>') > -1) {
+                    username = '';
+                    promptMessage = 'Invalid input. Enter your name:';
+                }
+            } while (!username)
+
+            const messageInput = document.getElementById('message');
+            messageInput.focus();
+
+            function createMessageEntry(encodedName, encodedMsg) {
+                var entry = document.createElement('div');
+                entry.classList.add("message-entry");
+                if (encodedName === "_SYSTEM_") {
+                    entry.innerHTML = encodedMsg;
+                    entry.classList.add("text-center");
+                    entry.classList.add("system-message");
+                } else if (encodedName === "_BROADCAST_") {
+                    entry.classList.add("text-center");
+                    entry.innerHTML = `<div class="text-center broadcast-message">${encodedMsg}</div>`;
+                } else if (encodedName === username) {
+                    entry.innerHTML = `<div class="message-avatar pull-right">${encodedName}</div>` +
+                        `<div class="message-content pull-right">${encodedMsg}<div>`;
+                } else {
+                    entry.innerHTML = `<div class="message-avatar pull-left">${encodedName}</div>` +
+                        `<div class="message-content pull-left">${encodedMsg}<div>`;
+                }
+                return entry;
+            }
+
+            function bindConnectionMessage(connection) {
+                var messageCallback = function (name, message) {
+                    if (!message) return;
+                    var encodedName = name;
+                    var encodedMsg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                    var messageEntry = createMessageEntry(encodedName, encodedMsg);
+
+                    var messageBox = document.getElementById('messages');
+                    messageBox.appendChild(messageEntry);
+                    messageBox.scrollTop = messageBox.scrollHeight;
+                };
+                connection.on('broadcastMessage', messageCallback);
+                connection.on('echo', messageCallback);
+                connection.onclose(onConnectionError);
+            }
+
+            function onConnected(connection) {
+                console.log('connection started');
+                connection.send('broadcastMessage', '_SYSTEM_', username + ' JOINED');
+                document.getElementById('sendmessage').addEventListener('click', function (event) {
+                    if (messageInput.value) {
+                        connection.send('broadcastMessage', username, messageInput.value);
+                    }
+
+                    messageInput.value = '';
+                    messageInput.focus();
+                    event.preventDefault();
+                });
+                document.getElementById('message').addEventListener('keypress', function (event) {
+                    if (event.keyCode === 13) {
+                        event.preventDefault();
+                        document.getElementById('sendmessage').click();
+                        return false;
+                    }
+                });
+                document.getElementById('echo').addEventListener('click', function (event) {
+                    connection.send('echo', username, messageInput.value);
+
+                    messageInput.value = '';
+                    messageInput.focus();
+                    event.preventDefault();
+                });
+            }
+
+            function onConnectionError(error) {
+                if (error && error.message) {
+                    console.error(error.message);
+                }
+                var modal = document.getElementById('myModal');
+                modal.classList.add('in');
+                modal.style = 'display: block;';
+            }
+
+            const connection = new signalR.HubConnectionBuilder()
+                .withUrl('/chat')
+                .build();
+            bindConnectionMessage(connection);
+            connection.start()
+                .then(() => onConnected(connection))
+                .catch(error => console.error(error.message));
+        });
+    </script>
+</body>
+</html>
+```
 
 Il codice in *index.html* chiama `HubConnectionBuilder.build()` per stabilire una connessione HTTP alla risorsa di Azure SignalR.
 
@@ -217,14 +333,11 @@ In questa sezione si aggiungerà un ambiente di runtime di sviluppo per ASP.NET 
 
     ```json
     {
-        "profiles" : 
-        {
-            "ChatRoom": 
-            {
+        "profiles" : {
+            "ChatRoom": {
                 "commandName": "Project",
                 "launchBrowser": true,
-                "environmentVariables": 
-                {
+                "environmentVariables": {
                     "ASPNETCORE_ENVIRONMENT": "Development"
                 },
                 "applicationUrl": "http://localhost:5000/"
@@ -243,7 +356,7 @@ In questa sezione si aggiungerà un ambiente di runtime di sviluppo per ASP.NET 
     dotnet build
     ```
 
-2. Dopo che la compilazione viene completata correttamente, eseguire questo comando per eseguire l'app Web in locale:
+1. Dopo che la compilazione viene completata correttamente, eseguire questo comando per eseguire l'app Web in locale:
 
     ```dotnetcli
     dotnet run
@@ -252,14 +365,19 @@ In questa sezione si aggiungerà un ambiente di runtime di sviluppo per ASP.NET 
     L'app verrà ospitata in locale sulla porta 5000 come configurato nel profilo di runtime di sviluppo:
 
     ```output
-    E:\Testing\chattest>dotnet run
-    Hosting environment: Development
-    Content root path: E:\Testing\chattest
-    Now listening on: http://localhost:5000
-    Application started. Press Ctrl+C to shut down.    
+    info: Microsoft.Hosting.Lifetime[0]
+          Now listening on: https://localhost:5001
+    info: Microsoft.Hosting.Lifetime[0]
+          Now listening on: http://localhost:5000
+    info: Microsoft.Hosting.Lifetime[0]
+          Application started. Press Ctrl+C to shut down.
+    info: Microsoft.Hosting.Lifetime[0]
+          Hosting environment: Development
+    info: Microsoft.Hosting.Lifetime[0]
+          Content root path: E:\Testing\chattest
     ```
 
-3. Aprire due finestre del browser. In ciascun browser passare a `http://localhost:5000`. Verrà richiesto di immettere il proprio nome. Immettere un nome per entrambi i client e verificare il push del contenuto del messaggio tra i due client usando il pulsante **Invia**.
+1. Aprire due finestre del browser. In ciascun browser passare a `http://localhost:5000`. Verrà richiesto di immettere il proprio nome. Immettere un nome per entrambi i client e verificare il push del contenuto del messaggio tra i due client usando il pulsante **Invia**.
 
     ![Esempio di chat di gruppo di Azure SignalR](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
@@ -273,19 +391,15 @@ Se si è terminato di lavorare con l'applicazione di esempio di avvio rapido, è
 
 > [!IMPORTANT]
 > L'eliminazione di un gruppo di risorse è irreversibile e interessa tutte le risorse del gruppo. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se le risorse per questo esempio sono state create in un gruppo di risorse esistente che contiene anche elementi da mantenere, è possibile eliminare ogni elemento singolarmente dal relativo pannello anziché eliminare il gruppo di risorse.
-> 
-> 
 
 Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse**.
 
 Nella casella di testo **Filtra per nome** digitare il nome del gruppo di risorse. Per le istruzioni di questa guida introduttiva è stato usato un gruppo di risorse denominato *SignalRTestResources*. Nell'elenco dei risultati del gruppo di risorse selezionare i puntini di sospensione ( **...** ) > **Elimina gruppo di risorse**.
 
-   
 ![Selezioni per eliminare un gruppo di risorse](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
-
 Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e selezionare **Elimina**.
-   
+
 Dopo qualche istante, il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
 [Problemi? Segnalarli](https://aka.ms/asrs/qsnetcore).
@@ -298,4 +412,3 @@ In questo argomento di avvio rapido è stata creata una nuova risorsa del serviz
 > [Autenticazione del servizio Azure SignalR](./signalr-concept-authenticate-oauth.md)
 
 [Problemi? Segnalarli](https://aka.ms/asrs/qsnetcore).
-

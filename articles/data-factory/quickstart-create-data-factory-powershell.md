@@ -1,6 +1,6 @@
 ---
 title: Copiare dati in Archiviazione BLOB con Azure Data Factory
-description: Creare una data factory di Azure per copiare i dati da una posizione dell'archivio BLOB di Azure a un'altra posizione.
+description: Creare una data factory di Azure usando PowerShell per copiare i dati da una posizione di archiviazione BLOB di Azure a un'altra posizione.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: ad757e3d65d3094ca6883d747404906a871ed850
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ebcab92c40705bf108d5839a7e67aee345c1bbc7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419341"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292388"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Guida introduttiva: Creare una data factory di Azure con PowerShell
 

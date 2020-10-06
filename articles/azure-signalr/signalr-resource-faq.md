@@ -7,38 +7,18 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: d5dd765dd9b174ffbfec35b63ad5e55ce84193ad
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 5d6b46e288007bc0bbac53a97b1bdd5e727b8ac8
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489562"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405123"
 ---
 # <a name="azure-signalr-service-faq"></a>Domande frequenti sul servizio Azure SignalR
 
 ## <a name="is-azure-signalr-service-ready-for-production-use"></a>Il servizio Azure SignalR può già essere usato per la produzione?
 
-Sì.
-Per l'annuncio della disponibilità generale, vedere [Il servizio Azure SignalR è ora disponibile a livello generale](https://azure.microsoft.com/blog/azure-signalr-service-now-generally-available/). 
-
-[ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) è completamente supportato.
-
-Il supporto per ASP.NET SignalR è ancora in *anteprima pubblica*. [Ecco un esempio di codice](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom).
-
-## <a name="the-client-connection-closes-with-the-error-message-no-server-available-what-does-it-mean"></a>La connessione del client viene chiusa con il messaggio di errore "Nessun server disponibile". Da cosa dipende il problema?
-
-Questo errore si verifica solo quando i client inviano messaggi al servizio Azure SignalR.
-
-Se non sono disponibili server applicazioni e si usa solo l'API REST del servizio Azure SignalR, questo comportamento è *intenzionale*.
-Nell'architettura serverless le connessioni dei client sono in modalità *ascolto* e non inviano messaggi al servizio Azure SignalR.
-Vedere [altre informazioni sull'API REST](./signalr-quickstart-rest-api.md).
-
-Se invece sono disponibili server applicazioni, questo messaggio di errore indica che nessun server applicazioni è connesso all'istanza del servizio Azure SignalR.
-
-Le possibili cause sono:
-- Nessun server applicazioni è connesso al servizio Azure SignalR. Controllare i log dei server applicazioni per trovare possibili errori di connessione. Questo caso è raro nell'impostazione di disponibilità elevata con più di un server applicazioni.
-- Sono presenti problemi di connettività con le istanze del servizio Azure SignalR. Questo problema è temporaneo e le istanze verranno recuperate automaticamente.
-Se persiste per più di un'ora, [aprire un problema in GitHub](https://github.com/Azure/azure-signalr/issues/new) o [creare una richiesta di supporto in Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Sì, sia il supporto per [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) che quello per [ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr) sono disponibili a livello generale.
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>Quando sono presenti più server applicazioni, i messaggi client vengono inviati a tutti i server o solo a uno?
 
@@ -68,7 +48,7 @@ No.
 
 Il servizio Azure SignalR fornisce tutti e tre i trasporti supportati da ASP.NET Core SignalR per impostazione predefinita. Non è configurabile. Il servizio Azure SignalR gestirà le connessioni e i trasporti per tutte le connessioni client.
 
-È possibile configurare i trasporti sul lato client come descritto in [Configurazione di ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2).
+È possibile configurare i trasporti sul lato client come descritto in [Configurazione di ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/configuration#configure-allowed-transports-1).
 
 ## <a name="what-is-the-meaning-of-metrics-like-message-count-or-connection-count-shown-in-the-azure-portal-which-kind-of-aggregation-type-should-i-choose"></a>Qual è il significato di metriche come il numero di messaggi o il numero di connessioni mostrato nel portale di Azure? Quale tipo di aggregazione scegliere?
 
@@ -78,19 +58,22 @@ Nel riquadro di panoramica delle risorse del servizio Azure SignalR è già stat
 
 ## <a name="what-is-the-meaning-of-the-default-serverless-and-classic-service-modes-how-can-i-choose"></a>Qual è il significato delle modalità del servizio `Default`, `Serverless` e `Classic`? Come è possibile scegliere?
 
-Ecco le informazioni sulle modalità:
-* La modalità `Default` *richiede* un server hub. In questa modalità il servizio Azure SignalR instrada il traffico del client alle relative connessioni del server hub connesso. Il servizio Azure SignalR verifica la disponibilità di un server hub connesso. Se non viene trovato un server hub connesso, il servizio rifiuta le connessioni client in ingresso. È anche possibile usare l'*API di gestione* in questa modalità per gestire i client connessi direttamente tramite il servizio Azure SignalR.
-* La modalità `Serverless` *non* consente nessuna connessione server. Ovvero, rifiuterà tutte le connessioni server. Tutti i client devono essere in modalità serverless. I client si connettono al servizio Azure SignalR e gli utenti usano in genere tecnologie serverless come *Funzioni di Azure* per gestire le logiche dell'hub. [Vedere un semplice esempio](https://docs.microsoft.com/azure/azure-signalr/signalr-quickstart-azure-functions-javascript?WT.mc_id=signalrquickstart-github-antchu) che usa la modalità serverless del servizio Azure SignalR.
-* La modalità `Classic` è uno stato misto. Quando un hub include una connessione server, il nuovo client verrà instradato a un server hub. In caso contrario, il client passerà in modalità serverless. 
+Per le nuove applicazioni, è consigliabile usare solo la modalità predefinita e quella serverless. La differenza principale riguarda la presenza di server applicazioni che stabiliscono le connessioni dei server al servizio (ad esempio, l'uso di `AddAzureSignalR()` per connettersi al servizio). Se tali server sono presenti, usare la modalità predefinita, altrimenti usare la modalità serverless.
 
-  Questo potrebbe causare un problema. Se ad esempio tutte le connessioni server vanno perse per un momento, alcuni client passeranno in modalità serverless invece di essere instradati a un server hub.
+La modalità classica è progettata per la compatibilità con le versioni precedenti per le applicazioni esistenti e non deve quindi essere usata per le nuove applicazioni.
 
-Ecco alcune linee guida per la scelta della modalità:
-- Se non è presente alcun server hub, scegliere `Serverless`.
-- Se tutti gli hub includono server hub, scegliere `Default`.
-- Se alcuni hub includono server hub ma altri no, è possibile scegliere `Classic`, ma si potrebbe verificare un problema. Il modo migliore consiste nel creare due istanze, una in modalità `Serverless` e l'altra in modalità `Default`.
+Per altre informazioni sulle modalità del servizio, vedere [questo documento](concept-service-mode.md).
+
+## <a name="can-i-send-message-from-client-in-serverless-mode"></a>È possibile inviare un messaggio dal client in modalità serverless?
+
+È possibile inviare un messaggio dal client se si configura la funzionalità upstream nell'istanza di SignalR. La funzionalità upstream è un set di endpoint in grado di ricevere messaggi ed eventi di connessione dal Servizio SignalR. Se la funzionalità upstream non è configurata, i messaggi del client verranno ignorati.
+
+Per altre informazioni sulla funzionalità upstream, vedere [questo documento](concept-upstream.md).
+
+La funzionalità upstream è attualmente disponibile in anteprima pubblica.
 
 ## <a name="are-there-any-feature-differences-in-using-azure-signalr-service-with-aspnet-signalr"></a>Esistono differenze tra le funzionalità quando si usa il servizio Azure SignalR con ASP.NET SignalR?
+
 Quando si usa il servizio Azure SignalR, alcune API e funzionalità di ASP.NET SignalR non sono supportate:
 - La possibilità di passare uno stato arbitrario tra i client e l'hub (spesso definito `HubState`) non è supportata.
 - La classe `PersistentConnection` non è supportata.

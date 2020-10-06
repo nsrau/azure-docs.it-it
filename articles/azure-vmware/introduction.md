@@ -3,14 +3,14 @@ title: Introduzione
 description: Informazioni sulle funzionalità e i vantaggi della soluzione Azure VMware per distribuire e gestire i carichi di lavoro basati su VMware in Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: 3d6801a6cdec7600cc6003711a08e6af8c86483e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b71427402e08167e5868128ed1e553c69bef425d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005055"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574459"
 ---
-# <a name="what-is-azure-vmware-solution-preview"></a>Che cos'è la soluzione Azure VMware (anteprima)?
+# <a name="what-is-azure-vmware-solution"></a>Che cos'è la soluzione Azure VMware?
 
 La soluzione Azure VMware offre cloud privati in Azure. I cloud privati contengono cluster vSphere, creati da un'infrastruttura di Azure bare metal dedicata. È possibile dimensionare i cluster di cloud privati da 3 a 16 host, con la possibilità di avere più cluster in un singolo cloud privato. Per tutti i cloud privati viene effettuato il provisioning con server vCenter, rete vSAN, vSphere e NSX-T. È possibile eseguire la migrazione dei carichi di lavoro dagli ambienti locali, creare o distribuire nuove macchine virtuali e utilizzare i servizi di Azure dai cloud privati.
 
@@ -28,9 +28,7 @@ I nuovi cloud privati vengono distribuiti tramite il portale di Azure o l'interf
 
 ## <a name="networking"></a>Rete
 
-Quando viene distribuito un cloud privato, vengono create le reti private per la gestione, il provisioning e vMotion. Queste reti private vengono usate per l'accesso a vCenter e NSX-T Manager e per la distribuzione o la migrazione tramite vMotion della macchina virtuale. Tutte le reti private sono accessibili da una rete virtuale in Azure o dagli ambienti locali. La funzionalità Copertura globale ExpressRoute viene usata per connettere i cloud privati agli ambienti locali e questa connessione richiede una rete virtuale con un circuito ExpressRoute nella sottoscrizione.
-
-Durante la distribuzione di un cloud privato viene effettuato il provisioning dell'accesso a Internet e ai servizi di Azure. L'accesso consente alle macchine virtuali nelle reti dei carichi di lavoro di produzione di utilizzare servizi basati su Azure o su Internet. L'accesso a Internet è disabilitato per impostazione predefinita per i nuovi cloud privati e può essere abilitato o disabilitato in qualsiasi momento.
+[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
 Per altre informazioni sulla rete e sull'interconnettività, vedere l'articolo relativo ai [Concetti sulla rete](concepts-networking.md).
 
@@ -46,7 +44,7 @@ Gli aggiornamenti regolari del cloud privato della soluzione Azure VMware e del 
 
 ## <a name="monitoring-your-private-cloud"></a>Monitoraggio del cloud privato
 
-È possibile usare la funzionalità [Log in Monitoraggio di Azure](../azure-monitor/overview.md) per raccogliere i log delle macchine virtuali in esecuzione nel cloud privato della soluzione Azure VMware. È possibile [scaricare e installare l'agente Microsoft Monitoring Agent](../azure-monitor/platform/log-analytics-agent.md#installation-options) nelle macchine virtuali Linux e Windows in esecuzione nei cloud privati della soluzione Azure VMware, usando le stesse query eseguite nelle macchine virtuali locali. È possibile eseguire le stesse query che si eseguono normalmente nelle macchine virtuali. Per altre informazioni sulla creazione di query, vedere [Come scrivere le query](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
+Una volta distribuita la soluzione Azure VMware nella sottoscrizione, i [log di Monitoraggio di Azure](../azure-monitor/overview.md) vengono generati automaticamente. È inoltre possibile raccogliere i log in ognuna delle macchine virtuali nel cloud privato. È possibile [scaricare e installare l'agente MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) nelle macchine virtuali Linux e Windows in esecuzione nei cloud privati della soluzione Azure VMware, nonché abilitare l'[estensione Diagnostica di Azure](../azure-monitor/platform/diagnostics-extension-overview.md). È anche possibile eseguire le stesse query che si eseguono normalmente nelle macchine virtuali. Per altre informazioni sulla creazione di query, vedere [Come scrivere le query](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries). I modelli di monitoraggio nella soluzione Azure VMware sono simili alle macchine virtuali di Azure nella piattaforma IaaS. Per altre informazioni e procedure, vedere [Monitoraggio delle macchine virtuali di Azure con Monitoraggio di Azure](../azure-monitor/insights/monitor-vm-azure.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

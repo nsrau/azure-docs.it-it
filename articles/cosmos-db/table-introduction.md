@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: 6cf9dddbfa6eb6f754c529981307f8ee80cfe7d1
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: f56c3bd2d302fc7163fa8c05c595891f191c6a11
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376996"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568438"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduzione ad Azure Cosmos DB: API di tabella
 
@@ -36,7 +36,7 @@ Se attualmente si usa l'archivio tabelle di Azure, passando all'API Tabelle di A
 | --- | --- | --- |
 | Latenza | Veloce, senza limiti superiori per la latenza. | Latenza pari a singole unità di millisecondi per letture e scritture, supportata da latenza minore di 10 ms per le letture e scritture al 99° percentile, su qualsiasi scala e ovunque nel mondo. |
 | Velocità effettiva | Modello a velocità effettiva variabile. Le tabelle hanno un limite di scalabilità di 20.000 operazioni al secondo. | Altamente scalabile con [velocità effettiva riservata dedicata per tabella](request-units.md), supportata da contratti di servizio. Non esiste un limite superiore di velocità effettiva per gli account, che supportano oltre 10 milioni di operazioni al secondo per tabella. |
-| Distribuzione globale | Singola area con un'area di lettura secondaria leggibile facoltativa per la disponibilità elevata. | [Distribuzione globale chiavi in mano](distribute-data-globally.md) da una a qualsiasi numero di aree. Supporto per [failover automatici e manuali](high-availability.md) in qualsiasi momento, ovunque nel mondo. Funzionalità multimaster che consente a qualsiasi area di accettare operazioni di scrittura. |
+| Distribuzione globale | Singola area con un'area di lettura secondaria leggibile facoltativa per la disponibilità elevata. | [Distribuzione globale chiavi in mano](distribute-data-globally.md) da una a qualsiasi numero di aree. Supporto per [failover automatici e manuali](high-availability.md) in qualsiasi momento, ovunque nel mondo. Più aree di scrittura, per consentire a qualsiasi area di accettare le operazioni di scrittura. |
 | Indicizzazione | Solo indice primario in PartitionKey e RowKey. Nessun indice secondario. | Indicizzazione automatica e completa su tutte le proprietà per impostazione predefinita, senza gestione degli indici. |
 | Query | L'esecuzione di query usa l'indice per la chiave primaria ed esegue l'analisi negli altri casi. | Le query possono trarre vantaggio dall'indicizzazione automatica sulle proprietà, per query con durata ridotta. |
 | Consistenza | Assoluta entro l'area primaria. Eventuale entro l'area secondaria. | [Cinque livelli di coerenza ben definiti](consistency-levels.md) per bilanciare disponibilità, latenza, velocità effettiva e coerenza in base alle esigenze dell'applicazione. |

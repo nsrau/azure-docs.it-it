@@ -1,5 +1,5 @@
 ---
-title: Eseguire query su un database SQL con l'editor di query nel portale di Azure
+title: Eseguire query su un database SQL con l'editor di query nel portale di Azure (anteprima)
 description: Informazioni su come usare l'editor di query per eseguire query T-SQL (Transact-SQL) su un database nel database SQL di Azure.
 titleSuffix: Azure SQL Database
 keywords: connettersi a database sql,query su database sql, portale di azure, portale, editor di query
@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 05/29/2020
-ms.openlocfilehash: ec43ad0c83ea56af935b326a2b13aa3b3dc4fa13
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4eb02c65a8ce486ea152863d8b6c6d0600280893
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441778"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409588"
 ---
-# <a name="quickstart-use-the-azure-portals-query-editor-to-query-an-azure-sql-database"></a>Avvio rapido: Usare l'editor di query del portale di Azure per eseguire query su un database SQL di Azure
+# <a name="quickstart-use-the-azure-portals-query-editor-preview-to-query-an-azure-sql-database"></a>Avvio rapido: Usare l'editor di query del portale di Azure (anteprima) per eseguire query su un database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 L'editor di query è uno strumento del portale di Azure per l'esecuzione di query SQL sul database in Database SQL di Azure o sul data warehouse in Azure Synapse Analytics. 

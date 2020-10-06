@@ -4,19 +4,19 @@ description: Usare Synapse Studio per eseguire il caricamento bulk dei dati in S
 services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
-ms.topic: overview
+ms.topic: quickstart
 ms.subservice: sql
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: fb618f155e659ecd1fa5760117193a9045e6da35
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 142309f75d3b7c93204bb9eaa8e5e0254f879c43
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535128"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568909"
 ---
-# <a name="bulk-loading-with-synapse-sql"></a>Caricamento bulk con Synapse SQL
+# <a name="quickstart-bulk-loading-with-synapse-sql"></a>Avvio rapido: Caricamento bulk con Synapse SQL
 
 La procedura guidata Caricamento bulk di Synapse Studio semplifica enormemente il caricamento dei dati. Consente infatti di creare uno script T-SQL con l'[istruzione COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) per eseguire il caricamento bulk dei dati. 
 
@@ -28,7 +28,7 @@ La procedura guidata Caricamento bulk di Synapse Studio semplifica enormemente i
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Questa procedura guidata genera un'istruzione COPY che usa il pass-through di AAD per l'autenticazione. È necessario che l'[utente di AAD abbia accesso](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) all'area di lavoro con almeno il ruolo di Azure Collaboratore ai dati dei BLOB di archiviazione per l'account ADLS Gen2.
+- Questa procedura guidata genera un'istruzione COPY che usa il pass-through di Azure AD per l'autenticazione. È necessario che l'[utente di Azure AD abbia accesso](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) all'area di lavoro con almeno il ruolo di Azure Collaboratore ai dati dei BLOB di archiviazione per l'account ADLS Gen2.
 
 - È necessario avere le [autorizzazioni richieste per l'uso dell'istruzione COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#permissions) e le autorizzazioni per la creazione di tabelle, se viene creata una nuova tabella in cui caricare i dati.
 
@@ -44,13 +44,13 @@ La procedura guidata Caricamento bulk di Synapse Studio semplifica enormemente i
 
     ![Selezione delle impostazioni del formato di file](./sql/media/bulk-load/bulk-load-file-format-settings.png)
 
-3. Per configurare le impostazioni del formato di file, è possibile fare clic su "Anteprima dati" per vedere come verrà analizzato il file dall'istruzione COPY. Fare clic su "Anteprima dati" ogni volta che si cambia un'impostazione del formato di file per vedere come verrà analizzato il file dall'istruzione COPY con l'impostazione aggiornata: ![Anteprima dei dati](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
+3. Per configurare le impostazioni del formato di file, è possibile selezionare "Anteprima dati" per vedere come verrà analizzato il file dall'istruzione COPY. Selezionare "Anteprima dati" ogni volta che si cambia un'impostazione del formato di file per vedere come verrà analizzato il file dall'istruzione COPY con l'impostazione aggiornata: ![Anteprima dei dati](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
 4. Selezionare il pool SQL che si usa per il caricamento, specificando anche se verrà eseguito per una cartella esistente o per una nuova: ![Selezione della posizione di destinazione](./sql/media/bulk-load/bulk-load-target-location.png)
 
-5. Fare clic su "Configure column mapping" (Configura mapping di colonne) per assicurarsi di avere il mapping di colonne appropriato. Per le nuove tabelle, la configurazione del mapping di colonne è fondamentale per l'aggiornamento dei tipi di dati delle colonne di destinazione: ![Configurazione del mapping di colonne](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
+5. Selezionare "Configure column mapping" (Configura mapping di colonne) per assicurarsi di avere il mapping di colonne appropriato. Per le nuove tabelle, la configurazione del mapping di colonne è fondamentale per l'aggiornamento dei tipi di dati delle colonne di destinazione: ![Configurazione del mapping di colonne](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
 
-6. Fare clic su "Apri script" per generare uno script T-SQL con l'istruzione COPY da caricare dal data lake: ![Apertura dello script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
+6. Selezionare "Apri script" per generare uno script T-SQL con l'istruzione COPY da caricare dal data lake: ![Apertura dello script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

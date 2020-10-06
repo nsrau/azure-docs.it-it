@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.localizationpriority: high
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f89d713003f1f4265a7ab7c467454af750fab48
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: abe09cf10e241ec95ceed767e7038cde07667fc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707804"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322734"
 ---
 ::: zone target="docs"
 
@@ -68,7 +68,12 @@ Verificare la presenza dei dati negli account di archiviazione prima di eliminar
 
       ![Gruppo di risorse per i dischi gestiti](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
-  - Se è stato copiato un file VHDX oppure un disco rigido virtuale differenze o dinamico, questo verrà caricato nell'account di archiviazione di staging come BLOB in blocchi. Passare all'**account di archiviazione di staging > BLOB** e quindi selezionare il contenitore appropriato (StandardSSD, StandardHDD o PremiumSSD). I file VHDX o i dischi rigidi virtuali verranno visualizzati come BLOB in blocchi nell'account di archiviazione di staging.
+    > [!NOTE]
+    > Se un BLOB di pagine non viene convertito correttamente in un disco gestito durante una copia di dati, rimane nell'account di archiviazione e viene applicato addebito per l'archiviazione.
+
+  -  Se è stato copiato un file VHDX oppure un disco rigido virtuale differenze o dinamico, questo verrà caricato nell'account di archiviazione di staging come BLOB in blocchi. Passare all'**account di archiviazione di staging > BLOB** e quindi selezionare il contenitore appropriato (StandardSSD, StandardHDD o PremiumSSD). I file VHDX o i dischi rigidi virtuali verranno visualizzati come BLOB in blocchi nell'account di archiviazione di staging.
+  
+
   
 ::: zone-end
 

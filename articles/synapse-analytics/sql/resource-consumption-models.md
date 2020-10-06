@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: c699186c77bba16e96de2dc8b5968f5a83a5a9ce
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4d00abdd3caf6c77b2227d9edfea3cc23d13e392
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461766"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288223"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo di risorse di Synapse SQL
 
@@ -29,7 +29,7 @@ Raccomandazioni per la scelta del numero ideale di unità Data Warehouse (DWU) p
 
 ### <a name="data-warehouse-units"></a>Unità Data Warehouse
 
-Il pool SQL Synapse rappresenta una raccolta di risorse di analisi di cui viene effettuato il provisioning. Le risorse di analisi sono definite come una combinazione di CPU, memoria e I/O. Queste tre risorse sono aggregate in unità di calcolo note come unità Data Warehouse (DWU). Un'unità DWU rappresenta una misura astratta e normalizzata delle risorse e delle prestazioni di calcolo. Cambiando il livello di servizio si modifica il numero di DWU disponibili per il sistema, regolandone di conseguenza le prestazioni e il costo.
+Il pool SQL Synapse rappresenta una raccolta di risorse di analisi di cui viene effettuato il provisioning. Le risorse di analisi sono definite come una combinazione di CPU, memoria e I/O. Queste tre risorse sono aggregate in unità di calcolo note come unità Data Warehouse (DWU). Un'unità DWU rappresenta una misura astratta e normalizzata delle risorse e delle prestazioni di calcolo. Una modifica al livello di servizio influisce sul numero di DWU disponibili per il sistema, la cui modifica determina a sua volta una variazione delle prestazioni e dei costi del sistema.
 
 Per prestazioni più elevate, è possibile aumentare il numero di unità Data Warehouse. Per prestazioni inferiori, ridurre le unità Data Warehouse. I costi di archiviazione e calcolo vengono fatturati separatamente, pertanto la modifica delle unità Data Warehouse non influisce sui costi di archiviazione.
 
@@ -73,7 +73,7 @@ Ogni livello di prestazioni usa un'unità di misura leggermente diversa per le u
 
 Sia le unità DWU che le unità cDWU supportano l'aumento o la riduzione delle risorse di calcolo, oltre alla sospensione delle operazioni di calcolo quando non è necessario usare il data warehouse. Queste operazioni sono tutte su richiesta. La seconda generazione usa anche una cache basata su disco locale nei nodi di calcolo per migliorare le prestazioni. Quando si ridimensiona o si sospende il sistema, la cache viene invalidata ed è quindi necessario un periodo di aggiornamento della cache prima di ottenere prestazioni ottimali.  
 
-Con l'aumentare delle unità Data Warehouse si aumentano in modo lineare le risorse di calcolo. La seconda generazione offre le migliori prestazioni per le query e la massima scalabilità. Questi sistemi usano anche al massimo la cache.
+Aumentando le unità Data Warehouse si aumentano in modo lineare le risorse di calcolo. La seconda generazione offre le migliori prestazioni per le query e la massima scalabilità. Questi sistemi usano anche al massimo la cache.
 
 #### <a name="capacity-limits"></a>Limiti di capacità
 
@@ -81,7 +81,7 @@ Ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota di [uni
 
 ### <a name="assess-the-number-of-data-warehouse-units-you-need"></a>Valutare il numero di unità di data warehouse necessarie
 
-Il numero ideale di unità Data Warehouse dipende molto dal carico di lavoro e dalla quantità di dati che sono stati caricati nel sistema.
+Il numero ideale di unità Data Warehouse dipende principalmente dal carico di lavoro e dalla quantità di dati che sono stati caricati nel sistema.
 
 Procedure per individuare l'impostazione DWU ottimale per il carico di lavoro:
 
@@ -124,11 +124,11 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 Per cambiare il numero di DWU:
 
-1. Aprire il [portale di Azure](https://portal.azure.com), aprire il database e quindi fare clic su **Ridimensiona**.
+1. Aprire il [portale di Azure](https://portal.azure.com), aprire il database e selezionare **Ridimensiona**.
 
 2. In **Ridimensiona** spostare il dispositivo di scorrimento verso sinistra o destra per modificare l'impostazione delle DWU.
 
-3. Fare clic su **Salva**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
+3. Selezionare **Salva**. Viene visualizzato un messaggio di conferma. Selezionare **Sì** per confermare o **No** per annullare.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -176,11 +176,11 @@ Per altri esempi di API REST, vedere [API REST per Azure Synapse Analytics](../s
 
 ### <a name="check-status-of-dwu-changes"></a>Controllare lo stato delle modifiche alle DWU
 
-Il completamento delle modifiche alle DWU può richiedere alcuni minuti. In caso di operazioni automatiche di ridimensionamento, valutare l'implementazione della logica per assicurare il completamento di determinate operazioni prima di procedere con altre.
+Il completamento delle modifiche alle DWU può richiedere alcuni minuti. In caso di operazioni automatiche di ridimensionamento, valutare l'implementazione della logica per assicurarsi che determinate operazioni siano completate prima di procedere con altre.
 
-Verificando lo stato del database in vari endpoint sarà possibile implementare correttamente l'automazione. Il portale invia notifiche una volta completata un'operazione e indica lo stato corrente del database. Tuttavia non è possibile verificare lo stato in maniera programmatica.
+Verificando lo stato del database in vari endpoint sarà possibile implementare correttamente l'automazione. Il portale invia una notifica quando un'operazione viene completata e indica lo stato corrente del database, ma non consente di verificare lo stato in maniera programmatica.
 
-Non è possibile verificare lo stato del database per le operazioni di scalabilità orizzontale con il portale di Azure.
+Non è possibile verificare lo stato del database per le operazioni di scale-out con il portale di Azure.
 
 Per controllare lo stato delle modifiche alle DWU:
 

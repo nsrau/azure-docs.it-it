@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: af07894fcbfae386849d32492be9d2718a3adcc3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1dd3781b18f82a96f388b0e619ce62b45752a870
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944370"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292473"
 ---
 # <a name="chat-concepts"></a>Concetti sulle chat
 
@@ -28,7 +28,7 @@ Per altre informazioni su linguaggi e funzionalità specifici delle librerie cli
 
 Le conversazioni di chat avvengono all'interno di thread. Un thread di chat può contenere numerosi messaggi e molti utenti. Ogni messaggio appartiene a un solo thread e un utente può fare parte di uno o più thread. 
 
-Ogni utente nel thread di chat è detto membro. Un thread di chat può contenere fino a 250 membri. Solo i membri di un thread di chat possono inviare e ricevere messaggi e aggiungere o rimuovere membri nel thread. La dimensione massima consentita per i messaggi è di circa 28 KB. Servizi di comunicazione archivia la cronologia della chat finché non si esegue un'operazione di eliminazione nel thread di chat. È possibile recuperare tutti i messaggi di un thread di chat mediante l'operazione `List/Get Messages`.
+Ogni utente nel thread di chat è detto membro. Un thread di chat può contenere fino a 250 membri. Solo i membri di un thread di chat possono inviare e ricevere messaggi e aggiungere o rimuovere membri nel thread. La dimensione massima consentita per i messaggi è di circa 28 KB. È possibile recuperare tutti i messaggi di un thread di chat mediante l'operazione `List/Get Messages`. Servizi di comunicazione archivia la cronologia della chat fino a quando non si esegue un'operazione di eliminazione nel thread della chat o nel messaggio oppure fino a quando non ci sono più membri nel thread della chat, che viene quindi ritenuto orfano ed elaborato per l'eliminazione.   
 
 Per i thread di chat con oltre 20 membri le conferme di lettura e l'indicatore di digitazione sono disabilitati. 
 
@@ -130,7 +130,7 @@ A questo scopo è possibile impostare il servizio attendibile come membro di un 
 
 In questo modo la cronologia dei messaggi conterrà sia i messaggi originali che quelli tradotti. Nell'applicazione client è possibile aggiungere la logica per visualizzare il messaggio originale o quello tradotto. Per informazioni su come usare le API Servizi cognitivi per tradurre testo in lingue diverse, vedere [questa guida di avvio rapido](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate). 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagramma che mostra l'interazione tra Servizi cognitivi e Servizi di comunicazione.":::
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagramma che illustra l'architettura della chat di Servizi di comunicazione.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

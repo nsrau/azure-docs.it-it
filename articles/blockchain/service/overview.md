@@ -4,12 +4,12 @@ description: Panoramica del servizio Azure Blockchain
 ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: 2a28baeb6de3c8ca1e8ad89e11d45b492f33588c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e82916d7366ad82746d2d3ddfc979264e113619b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076949"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334821"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Che cos'è il servizio Azure Blockchain?
 
@@ -45,7 +45,7 @@ Come servizio gestito, il servizio Azure Blockchain garantisce che ai nodi dei m
 
 Il servizio Azure Blockchain offre anche metriche avanzate tramite il servizio Monitoraggio di Azure, che fornisce dati analitici sull'utilizzo della CPU, della memoria e dell'archiviazione dei nodi.  Monitoraggio di Azure offre anche dati analitici utili sull'attività di rete blockchain, ad esempio su transazioni e blocchi estratti, profondità della coda delle transazioni e connessioni attive.  Le metriche possono essere personalizzate per offrire visualizzazioni delle informazioni dettagliate importanti per l'applicazione blockchain.  È inoltre possibile definire le soglie tramite avvisi che consentono agli utenti di attivare azioni come l'invio di un messaggio di posta elettronica o di un SMS, l'esecuzione di un'app per la logica e Funzione di Azure o l'invio a un webhook con definizione personalizzata.
 
-![Metriche](./media/overview/metrics.png)
+![Acquisizione di schermata che mostra il monitoraggio, con valori per blocchi, transazioni, transazioni in sospeso e richieste gestite.](./media/overview/metrics.png)
 
 Tramite Log Analytics di Azure, gli utenti possono visualizzare i log relativi al libro mastro Quorum o altre informazioni importanti, ad esempio tentativi di connessione ai nodi delle transazioni.
 
@@ -77,7 +77,7 @@ Per inviare un feedback sul prodotto o richiedere nuove funzionalità, pubblicar
 
 * [Pagina delle domande di Domande e risposte Microsoft relativa al servizio Azure Blockchain](/answers/topics/azure-blockchain-service.html)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-service)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

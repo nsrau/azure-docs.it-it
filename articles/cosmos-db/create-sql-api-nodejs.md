@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 09/22/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 8ec5562af254aa1bcdb030057f61db496a17826b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 25e5d583b2ae94277b155e8e03d61a308a88ec8d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423389"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322751"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Usare Node.js per connettersi ai dati ed eseguire query da un account API SQL di Azure Cosmos DB
 
@@ -22,6 +22,7 @@ ms.locfileid: "87423389"
 > - [.NET V3](create-sql-api-dotnet.md)
 > - [.NET V4](create-sql-api-dotnet-V4.md)
 > - [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > - [Node.js](create-sql-api-nodejs.md)
 > - [Python](create-sql-api-python.md)
 > - [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -176,7 +177,7 @@ Tornare ora al portale di Azure per ottenere i dettagli della stringa di conness
 
 1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) selezionare **Chiavi** nel riquadro di spostamento a sinistra e quindi selezionare **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'URI e la chiave primaria nel file _app.js_ nel passaggio seguente.
 
-   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi":::
+   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Esplora dati nel portale di Azure, riquadro Aggiungi contenitore":::
 
 2. Aprire il file _config.js_.
 

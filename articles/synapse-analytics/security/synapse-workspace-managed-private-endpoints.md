@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: dedf0795e72c4bdace430ba2dd07ade9d792f13c
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e592159777f3b533bc447bb109e9b1308af7ecff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459540"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249503"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Endpoint privati gestiti di Synapse (anteprima)
 
@@ -27,7 +27,9 @@ Azure Synapse supporta i collegamenti privati. Il collegamento privato consente 
 
 Quando si usa un collegamento privato, il traffico tra la rete virtuale e l'area di lavoro attraversa interamente la rete backbone Microsoft. Il collegamento privato protegge da rischi di esfiltrazione dei dati. Per stabilire un collegamento privato a una risorsa, è necessario creare un endpoint privato.
 
-L'endpoint privato usa un indirizzo IP privato della rete virtuale per introdurre in modo efficace il servizio nella rete virtuale. Gli endpoint privati sono associati a una risorsa specifica in Azure e non all'intero servizio. I clienti possono limitare la connettività a una risorsa specifica approvata dall'organizzazione. Altre informazioni su [collegamenti ed endpoint privati](https://docs.microsoft.com/azure/private-link/).
+L'endpoint privato usa un indirizzo IP privato della rete virtuale per introdurre in modo efficace il servizio nella rete virtuale. Gli endpoint privati sono associati a una risorsa specifica in Azure e non all'intero servizio. I clienti possono limitare la connettività a una risorsa specifica approvata dall'organizzazione. 
+
+Altre informazioni su [collegamenti ed endpoint privati](https://docs.microsoft.com/azure/private-link/).
 
 >[!IMPORTANT]
 >Gli endpoint privati gestiti sono supportati solo nelle aree di lavoro di Azure Synapse con una rete virtuale dell'area di lavoro gestita.
@@ -37,7 +39,7 @@ L'endpoint privato usa un indirizzo IP privato della rete virtuale per introdurr
 
 Quando si crea un endpoint privato gestito in Azure Synapse, viene creata una connessione all'endpoint privato con lo stato "In sospeso". Viene avviato un flusso di lavoro di approvazione. Il proprietario della risorsa del collegamento privato ha la responsabilità di approvare la connessione.
 
-Se il proprietario approva la connessione, il collegamento privato viene stabilito. In caso contrario, il collegamento privato non verrà stabilito. In entrambi i casi, l'endpoint privato gestito verrà aggiornato con lo stato della connessione.
+Se il proprietario approva la connessione, il collegamento privato viene stabilito. Se tuttavia il proprietario non approva la connessione, il collegamento privato non verrà stabilito. In entrambi i casi, l'endpoint privato gestito verrà aggiornato con lo stato della connessione.
 
 Solo un endpoint privato gestito in uno stato approvato può inviare il traffico a una risorsa del collegamento privato specificata.
 
@@ -56,4 +58,4 @@ Questi due endpoint privati gestiti vengono creati automaticamente quando si cre
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare endpoint privati gestiti per le origini dati](./how-to-create-managed-private-endpoints.md)
+Per altre informazioni, passare all'articolo [Creare endpoint privati gestiti per le origini dati](./how-to-create-managed-private-endpoints.md).

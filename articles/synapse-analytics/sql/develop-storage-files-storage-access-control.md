@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: 182ab55f8e86d972293222f8a3bcf32dada89328
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987138"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449461"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Controllare l'accesso agli account di archiviazione per SQL su richiesta (anteprima)
 
@@ -53,7 +53,7 @@ Per ottenere un token di firma di accesso condiviso, passare a **Portale di Azur
 >
 > Token di firma di accesso condiviso: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
-È necessario creare credenziali con ambito database o con ambito server per abilitare l'accesso tramite il token di firma di accesso condiviso.
+Per abilitare l'accesso tramite il token di firma di accesso condiviso, è necessario creare una credenziale con ambito database o con ambito server 
 
 ### <a name="managed-identity"></a>[Identità gestita](#tab/managed-identity)
 
@@ -87,7 +87,7 @@ Nella tabella seguente è possibile trovare i tipi di autorizzazione disponibili
 | [Identità gestita](?tabs=managed-identity#supported-storage-authorization-types) | Supportato      | Supportato        | Funzionalità supportata     |
 | [Identità utente](?tabs=user-identity#supported-storage-authorization-types)    | Funzionalità supportata\*      | Funzionalità supportata\*        | Funzionalità supportata\*     |
 
-\* È possibile usare un token di firma di accesso condiviso e l'identità di Azure AD per accedere a una risorsa di archiviazione non protetta con firewall.
+\* È possibile usare un token di firma di accesso condiviso e l'identità di Azure AD per accedere a spazio di archiviazione non protetto con firewall.
 
 > [!IMPORTANT]
 > Quando si accede a uno spazio di archiviazione protetto da firewall, è possibile usare solo l'identità gestita. È necessario usare l'impostazione [Consenti servizi Microsoft attendibili](../../storage/common/storage-network-security.md#trusted-microsoft-services) e [assegnare un ruolo di Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) in modo esplicito all'[identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per tale istanza della risorsa. In questo caso l'ambito di accesso dell'istanza corrisponde al ruolo di Azure assegnato all'identità gestita.
@@ -119,7 +119,7 @@ Per garantire un'esperienza uniforme con il pass-through di Azure AD, per impost
 
 ## <a name="server-scoped-credential"></a>Credenziali con ambito server
 
-Le credenziali con ambito server vengono usate quando l'account di accesso SQL chiama la funzione `OPENROWSET` senza `DATA_SOURCE` per leggere i file in un account di archiviazione. Il nome delle credenziali con ambito server **deve** corrispondere all'URL di archiviazione di Azure. Per aggiungere una credenziale, eseguire [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Sarà necessario specificare un argomento CREDENTIAL NAME, che deve corrispondere a una parte o all'intero percorso dei dati in Archiviazione (vedere di seguito).
+Le credenziali con ambito server vengono usate quando l'account di accesso SQL chiama la funzione `OPENROWSET` senza `DATA_SOURCE` per leggere i file in un account di archiviazione. Il nome delle credenziali con ambito server **deve** corrispondere all'URL di archiviazione di Azure. Per aggiungere una credenziale, eseguire [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Sarà necessario specificare un argomento CREDENTIAL NAME, che deve corrispondere a una parte o all'intero percorso dei dati in Archiviazione (vedere di seguito).
 
 > [!NOTE]
 > L'argomento `FOR CRYPTOGRAPHIC PROVIDER` non è supportato.
@@ -170,7 +170,7 @@ Le credenziali con ambito database non sono necessarie per consentire l'accesso 
 
 ## <a name="database-scoped-credential"></a>Credenziali con ambito database
 
-Le credenziali con ambito database vengono usate quando un'entità chiama la funzione `OPENROWSET` con `DATA_SOURCE` o seleziona i dati da una [tabella esterna](develop-tables-external-tables.md) che non ha accesso ai file pubblici. Le credenziali con ambito database non devono corrispondere al nome dell'account di archiviazione perché verranno usate in modo esplicito nell'origine dati che definisce il percorso di archiviazione.
+Le credenziali con ambito database vengono usate quando un'entità chiama la funzione `OPENROWSET` con `DATA_SOURCE` o seleziona i dati da una [tabella esterna](develop-tables-external-tables.md) che non ha accesso ai file pubblici. Le credenziali con ambito database non devono corrispondere al nome dell'account di archiviazione. Verranno usate in modo esplicito nell'ORIGINE DATI che definisce la posizione di archiviazione.
 
 Le credenziali con ambito database consentono l'accesso ad Archiviazione di Azure usando i tipi di autenticazione seguenti:
 
@@ -268,7 +268,7 @@ L'utente del database può leggere il contenuto dei file dall'origine dati usand
 SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
-                                DATA_SOURCE = [mysample],
+                                DATA_SOURCE = 'mysample',
                                 FORMAT='PARQUET') as rows;
 GO
 ```
@@ -314,7 +314,7 @@ L'utente del database può leggere il contenuto dei file dall'origine dati usand
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = 'mysample', FORMAT='PARQUET') as rows;
 GO
 ```
 

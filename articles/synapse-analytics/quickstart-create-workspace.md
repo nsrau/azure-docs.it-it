@@ -6,80 +6,70 @@ author: pimorano
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 09/03/2020
 ms.author: pimorano
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: da7f115224db10ad1d66e8ffe7b86e58e43ae866
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: cbf7fb8deba86dd966ccb8087823c76b20413db8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052450"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260360"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Avvio rapido: Creare un'area di lavoro di Synapse
-
 Questo argomento di avvio rapido descrive la procedura per creare un'area di lavoro di Azure Synapse Analytics con il portale di Azure.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito prima di iniziare](https://azure.microsoft.com/free/).
+## <a name="create-a-synapse-workspace"></a>Creare un'area di lavoro di Synapse
 
-## <a name="prerequisites"></a>Prerequisiti
+1. Aprire il [portale di Azure](https://portal.azure.com) e nella parte superiore cercare **Synapse**.
+1. Nei risultati della ricerca, in **Servizi** selezionare **Azure Synapse Analytics (anteprima delle aree di lavoro)** .
+1. Selezionare **Aggiungi** per creare un'area di lavoro usando queste impostazioni:
 
-- [Account di archiviazione di Azure Data Lake Storage Gen2 ](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+    |Scheda|Impostazione | Valore consigliato | Descrizione |
+    |---|---|---|---|
+    |Nozioni di base|**Nome area di lavoro**|È possibile assegnare un nome qualsiasi.| In questo documento verrà usato il nome **myworkspace**.|
+    |Nozioni di base|**Area**|Usare la stessa area dell'account di archiviazione.|
 
-## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
+1. Per creare un'area di lavoro, è necessario un account ADLSGEN2. La soluzione più semplice consiste nel crearne una nuova. Se si vuole riutilizzarne una esistente, sarà necessario eseguire alcune operazioni di configurazione aggiuntive. 
+1. OPZIONE 1 Creazione di un nuovo account ADLSGEN2 
+    1. In **Seleziona account Data Lake Storage Gen2** fare clic su **Crea nuovo** e denominarlo **contosolake**.
+    1. In **Seleziona account Data Lake Storage Gen2** fare clic su **File system** e denominarlo **users**.
+1. OPZIONE 2 Vedere le istruzioni in **Preparare un account di archiviazione** nella parte inferiore di questo documento.
+1. L'area di lavoro di Azure Synapse userà questo account di archiviazione come account di archiviazione "primario" e il contenitore per archiviare i dati dell'area di lavoro. L'area di lavoro archivia i dati in tabelle Apache Spark. Archivia i log delle applicazioni Spark in una cartella denominata **/synapse/nome_area_di_lavoro**.
+1. Selezionare **Rivedi e crea** > **Crea**. L'area di lavoro sarò pronta entro pochi minuti.
 
-Accedere al [portale di Azure](https://portal.azure.com/)
+## <a name="open-synapse-studio"></a>Aprire Synapse Studio
 
-## <a name="create-an-azure-synapse-workspace-using-the-azure-portal"></a>Creare un'area di lavoro di Azure Synapse Analytics con il portale di Azure
+Dopo aver creato l'area di lavoro di Azure Synapse, è possibile aprire Synapse Studio in due modi:
 
-1. Nel riquadro di ricerca di Microsoft Azure immettere **area di lavoro Synapse** quindi selezionare questo servizio.
-![Barra di ricerca del portale di Azure con le aree di lavoro di Azure Synapse immesse.](media/quickstart-create-synapse-workspace/workspace-search.png)
-2. Nella pagina **Aree di lavoro Synapse** fare clic su **+ Aggiungi**.
-![Comando per creare una nuova area di lavoro di Azure Synapse evidenziato.](media/quickstart-create-synapse-workspace/create-workspace-02.png)
-3. Compilare il modulo **Area di lavoro Azure Synapse** con le informazioni seguenti:
+* Aprire l'area di lavoro di Synapse nel [portale di Azure](https://portal.azure.com). Nella parte superiore della sezione **Panoramica** selezionare **Avvia Synapse Studio**.
+* Passare a `https://web.azuresynapse.net` e accedere alla propria area di lavoro.
 
-    | Impostazione | Valore consigliato | Descrizione |
-    | :------ | :-------------- | :---------- |
-    | **Sottoscrizione** | *Sottoscrizione in uso* | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
-    | **Gruppo di risorse** | *Any resource group* | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
-    | **Nome area di lavoro** | mysampleworkspace | Specifica il nome dell'area di lavoro, che verrà usato anche per gli endpoint di connessione.|
-    | **Area** | Stati Uniti Orientali 2 | Specifica la località dell'area di lavoro.|
-    | **Data Lake Storage Gen2** | Account: `storage account name` </br> File system: `root file system to use` | Specifica il nome dell'account di archiviazione di ADLS Gen2 da usare come archiviazione primaria e il file system da usare.|
-    ||||
+## <a name="prepare-an-existing-storage-account-for-use-with-synapse-analytics"></a>Preparare un account di archiviazione esistente per l'uso con Synapse Analytics
 
-    ![Flusso di provisioning dell'area di lavoro - Scheda Informazioni di base.](media/quickstart-create-synapse-workspace/create-workspace-03.png)
+1. Aprire il [portale di Azure](https://portal.azure.com).
+1. Passare a un account di archiviazione ADLSGEN2 esistente
+1. Selezionare **Controllo di accesso (IAM)** dal riquadro sinistro. Assegnare quindi i ruoli seguenti o verificare che siano già assegnati:
+    * Assegnare a se stessi al ruolo **Proprietario**.
+    * Assegnare a se stessi il ruolo **Proprietario dei dati dei BLOB di archiviazione**.
+1. Nel riquadro a sinistra selezionare **Contenitori** e creare un contenitore.
+1. È possibile assegnare al contenitore il nome desiderato. In questo documento verrà assegnato il nome **users**.
+1. Accettare l'impostazione predefinita **Livello di accesso pubblico**, quindi selezionare **Crea**.
 
-    È possibile selezionare l'account di archiviazione tramite:
-    - Un elenco di account di archiviazione di ADLS Gen2 disponibili nella sottoscrizione
-    - Immissione manuale del nome dell'account
+### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Configurare l'accesso all'account di archiviazione dall'area di lavoro
 
-    > [!IMPORTANT]
-    > L'area di lavoro di Azure Synapse deve essere in grado di leggere e scrivere nell'account di ADLS Gen2 selezionato. Inoltre, per qualsiasi account di archiviazione collegato come account di archiviazione primario, è necessario avere abilitato lo **spazio dei nomi gerarchico** durante la creazione dell'account di archiviazione.
-    >
-    > Sotto i campi di selezione di ADLS Gen2 è presente una nota che indica che l'identità gestita dell'area di lavoro verrà assegnata al ruolo **Collaboratore ai dati dei BLOB di archiviazione** nel file system di Data Lake Storage Gen2 selezionato, concedendo l'accesso completo ai dati.
+Le identità gestite per l'area di lavoro di Azure Synapse potrebbero già avere accesso all'account di archiviazione. Per verificare, seguire questa procedura:
 
-4. (Facoltativo) Modificare le impostazioni predefinite della scheda **Sicurezza + rete**:
-5. (Facoltativo) Aggiungere eventuali tag nella scheda **Tag**.
-6. Nella scheda **Riepilogo** verranno eseguite le convalide necessarie per assicurare che l'area di lavoro possa essere creata correttamente. Quando la convalida ha esito positivo, fare clic su **Crea** ![Scheda di conferma del flusso di provisioning dell'area di lavoro.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
-7. Una volta completato il processo di provisioning delle risorse, verrà visualizzata una voce per l'area di lavoro creata nell'elenco delle aree di lavoro di Synapse. ![Elenco delle aree di lavoro di Synapse che mostra l'area di lavoro appena sottoposta a provisioning.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
+1. Aprire il [portale di Azure](https://portal.azure.com) e aprire l'account di archiviazione primario scelto per l'area di lavoro.
+1. Selezionare **Controllo di accesso (IAM)** dal riquadro a sinistra.
+1. Assegnare i ruoli seguenti o verificare che siano già assegnati. Per l'identità dell'area di lavoro e il nome dell'area di lavoro verrà usato lo stesso nome.
+    * Per il ruolo **Collaboratore ai dati dei BLOB di archiviazione** nell'account di archiviazione, assegnare **myworkspace** come identità dell'area di lavoro.
+    * Assegnare **myworkspace** come nome dell'area di lavoro.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Per eliminare l'area di lavoro di Azure Synapse, seguire questa procedura.
-> [!WARNING]
-> Con l'eliminazione di un'area di lavoro di Azure Synapse, verranno rimossi anche i motori di analisi e i dati archiviati nel database dei pool SQL contenuti e dei metadati dell'area di lavoro. Non sarà più possibile connettersi agli endpoint SQL e Apache Spark. Tutti gli artefatti del codice verranno eliminati (query, notebook, definizioni di processi e pipeline).
->
-> L'eliminazione dell'area di lavoro **non** influisce sui dati dell'istanza di Data Lake Store Gen2 collegata all'area di lavoro.
-
-Per eliminare l'area di lavoro di Azure Synapse, completare la procedura seguente:
-
-1. Passare all'area di lavoro di Azure Synapse da eliminare.
-1. Premere **Elimina** sulla barra dei comandi.
- ![Panoramica dell'area di lavoro di Azure Synapse con il comando Elimina evidenziato.](media/quickstart-create-synapse-workspace/create-workspace-10.png)
-1. Confermare l'eliminazione e fare clic sul pulsante **Elimina**.
- ![Panoramica dell'area di lavoro di Azure Synapse, finestra di dialogo di conferma dell'eliminazione dell'area di lavoro.](media/quickstart-create-synapse-workspace/create-workspace-11.png)
-1. Quando il processo viene completato, l'area di lavoro di Azure Synapse non sarà più presente nell'elenco di aree di lavoro.
+1. Selezionare **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Successivamente, è possibile [creare pool SQL](quickstart-create-sql-pool-studio.md) o [pool di Apache Spark](quickstart-create-apache-spark-pool-studio.md) per iniziare ad analizzare ed esplorare i dati.
+* [Creare un pool SQL](quickstart-create-sql-pool-studio.md) 
+* [Creare un pool di Apache Spark](quickstart-create-apache-spark-pool-portal.md)
+* [Usare SQL su richiesta](quickstart-sql-on-demand.md)

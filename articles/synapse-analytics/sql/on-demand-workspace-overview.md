@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: fc306dbca3191f04a85f2c5cc88d41336c13e09c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dc47bf73f39d73861c166674a692932d51064e6d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496390"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288529"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL su richiesta (anteprima) in Azure Synapse Analytics 
 
@@ -25,9 +25,11 @@ SQL su richiesta è un servizio di query sui dati del data lake. Consente di acc
 - Una sintassi T-SQL familiare per l'esecuzione di query sul posto, senza la necessità di copiare i dati o caricarli in un archivio speciale. 
 - Connettività integrata tramite l'interfaccia T-SQL, che offre un'ampia gamma di strumenti di business intelligence e query ad hoc, inclusi i driver più diffusi. 
 
-SQL su richiesta è un sistema di elaborazione dei dati distribuito, progettato per dati e risorse di calcolo su vasta scala. SQL su richiesta consente di analizzare i Big Data in pochi secondi o minuti, a seconda del carico di lavoro. Grazie alla tolleranza di errore incorporata per l'esecuzione di query, il sistema garantisce un'affidabilità elevata e alte percentuali di successo anche per query a esecuzione prolungata che coinvolgono set di dati di grandi dimensioni.
+SQL su richiesta è un sistema di elaborazione dei dati distribuito, progettato per dati e funzioni di calcolo su vasta scala. SQL su richiesta consente di analizzare i Big Data in pochi secondi o minuti, a seconda del carico di lavoro. Grazie alla tolleranza di errore incorporata per l'esecuzione di query, il sistema garantisce un'affidabilità elevata e alte percentuali di successo anche per query a esecuzione prolungata che coinvolgono set di dati di grandi dimensioni.
 
-SQL su richiesta è serverless, per cui non è necessario configurare un'infrastruttura o mantenere cluster. Un endpoint predefinito per questo servizio è disponibile in ogni area di lavoro di Azure Synapse, quindi è possibile iniziare a eseguire query sui dati non appena viene creata l'area di lavoro. Non sono previsti addebiti per le risorse riservate. Vengono addebitati solo i costi dei dati analizzati dalle query eseguite, per cui questo si tratta effettivamente di un modello con pagamento a consumo.  
+SQL su richiesta è serverless, per cui non è necessario configurare un'infrastruttura o mantenere cluster. Un endpoint predefinito per questo servizio è disponibile in ogni area di lavoro di Azure Synapse, quindi è possibile iniziare a eseguire query sui dati non appena viene creata l'area di lavoro. 
+
+Non sono previsti addebiti per le risorse riservate. Vengono addebitati solo i costi dei dati elaborati dalle query eseguite e pertanto si tratta effettivamente di un modello con pagamento a consumo.  
 
 Se si usa Apache Spark per Azure Synapse nella pipeline di dati per la preparazione, la pulizia o l'arricchimento dei dati, è possibile [eseguire query su qualsiasi tabella esterna Spark](develop-storage-files-spark-tables.md) creata nel processo, direttamente da SQL su richiesta. Usare [Collegamento privato](../security/how-to-connect-to-workspace-with-private-links.md) per introdurre l'endpoint SQL su richiesta nella [rete virtuale dell'area di lavoro gestita](../security/synapse-workspace-managed-vnet.md).  
 

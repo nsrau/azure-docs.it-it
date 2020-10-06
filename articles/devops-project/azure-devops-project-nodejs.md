@@ -1,6 +1,6 @@
 ---
 title: Creare una pipeline CI/CD per un'app Web progressiva con GatsbyJS e Azure DevOps Starter
-description: DevOps Starter consente di iniziare a usare Azure senza difficoltà. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
+description: Informazioni su come creare un'app Web progressiva NodeJS usando GatsbyJS e l'esperienza di creazione semplificata di Azure DevOps Starter.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: angrobe
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 5453677826e1490977257fd75e10308ee45df00a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: fa6d0f78f984c5e71ccdbcada45ea1bc50be9e95
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421757"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318620"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Creare una pipeline CI/CD in Azure Pipelines per Node.js con Azure DevOps Starter
 

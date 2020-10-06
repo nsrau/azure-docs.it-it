@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2a0751f12f33a36d9e0003977bcf40b66d715615
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: 8884f62ba015cc4b33b75a133f21264dac6430e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986951"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288988"
 ---
 # <a name="access-external-storage-in-synapse-sql-on-demand"></a>Accedere all'archiviazione esterna in Synapse SQL (su richiesta)
 
@@ -116,7 +116,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 
 L'utente con le autorizzazioni per la lettura della tabella può accedere ai file esterni usando un oggetto EXTERNAL TABLE creato nei file e nelle cartelle di archiviazione di Azure.
 
-L'utente con [autorizzazioni per la creazione della tabella esterna](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions), ad esempio CREATE TABLE e ALTER ANY CREDENTIAL o REFERENCES DATABASE SCOPED CREDENTIAL, può usare lo script seguente per creare una tabella nell'origine dati di archiviazione di Azure:
+L'utente con [autorizzazioni per la creazione della tabella esterna](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions&preserve-view=true), ad esempio CREATE TABLE e ALTER ANY CREDENTIAL o REFERENCES DATABASE SCOPED CREDENTIAL, può usare lo script seguente per creare una tabella nell'origine dati di archiviazione di Azure:
 
 ```sql
 CREATE EXTERNAL TABLE [dbo].[DimProductexternal]

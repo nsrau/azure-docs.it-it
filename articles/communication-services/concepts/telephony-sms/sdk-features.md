@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 2d81749e7023bdbf5353e5c8da633674ea8e8ce9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4077bbe0a98f6b7788af9b6c44f73abbc936c6aa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944232"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332239"
 ---
 # <a name="sms-client-library-overview"></a>Panoramica della libreria client per gli SMS
 
@@ -37,7 +37,7 @@ L'elenco seguente presenta il set di funzionalità attualmente disponibili nelle
 | Numero di telefono      | Numeri verdi                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
 | Regolamentazione        | Gestione esplicita                                                                      | ✔️   | ✔️    | ✔️    | ✔️      |
 | Monitoraggio        | Monitorare l'utilizzo dei messaggi inviati e ricevuti                                          | ✔️   | ✔️    | ✔️    | ✔️      |
-| Chiamata PSTN      | Aggiungere funzionalità di chiamata PSTN al numero di telefono abilitato per SMS                    | ✔️   | ✔️    | ✔️    | ✔️      |
+| Chiamata PSTN      | Aggiungere funzionalità di chiamata PSTN al numero verde abilitato per SMS (anteprima privata)                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

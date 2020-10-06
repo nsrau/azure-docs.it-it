@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 33ade2be8b75a4e63f6def2b6c5e1001dde97ff8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7d8f51b12c16afbb8a0cf71e99b9b357719db4be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020491"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319045"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Compilare un'app ToDo con Xamarin usando un account API SQ di Azure Cosmos DB
 
@@ -22,6 +22,7 @@ ms.locfileid: "89020491"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -90,7 +91,7 @@ Tornare al portale di Azure per recuperare le informazioni sulla chiave API e co
 
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare l'account dell'API SQL di Azure Cosmos DB e nel riquadro di spostamento a sinistra fare clic su **Chiavi** e quindi su **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'URI e la chiave primaria nel file APIKeys.cs nel passaggio seguente.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="App ToDo Xamarin in esecuzione in iOS":::
 
 2. In Visual Studio 2019 o Visual Studio per Mac aprire il file APIKeys.cs nella cartella azure-cosmos-db-sql-xamarin-getting-started/src/ToDoItems.Core/Helpers.
 
@@ -108,7 +109,7 @@ Tornare al portale di Azure per recuperare le informazioni sulla chiave API e co
 
 Questa soluzione illustra come creare un'app usando l'API SQL di Azure Cosmos DB e Xamarin.Forms. L'app ha due schede. La prima scheda contiene una visualizzazione elenco che mostra gli elementi ToDo non ancora completati. La seconda scheda mostra gli elementi ToDo completati. Oltre a visualizzare gli elementi ToDo completati nella prima scheda, è anche possibile aggiungere nuovi elementi ToDo, modificare gli elementi esistenti e contrassegnare gli elementi come completati.
 
-:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="Copiare i dati JSON e fare clic su Salva in Esplora dati nel portale di Azure":::
+:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="App ToDo Xamarin in esecuzione in iOS":::
 
 Il codice nella soluzione ToDoItems contiene:
 
@@ -171,27 +172,27 @@ La procedura seguente illustrerà come eseguire l'app tramite il debugger di Vis
 
 1. Selezionare prima di tutto la piattaforma da specificare come destinazione facendo clic sull'elenco a discesa evidenziato e selezionando ToDoItems.iOS per iOS o ToDoItems.Android per Android.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="Selezione di una piattaforma per il debug in Visual Studio per Mac":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="App ToDo Xamarin in esecuzione in iOS":::
 
 2. Per avviare il debug dell'app, premere cmd+INVIO o fare clic sul pulsante di riproduzione.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Avvio del debug in Visual Studio per Mac":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="App ToDo Xamarin in esecuzione in iOS":::
 
 3. Quando il simulatore di iOS o l'emulatore di Android completa l'avvio, l'app mostrerà due schede nella parte inferiore dello schermo per iOS e nella parte superiore dello schermo per Android. La prima scheda mostra gli elementi ToDo non ancora completati e la seconda gli elementi ToDo completati.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Schermata di avvio dell'app ToDo":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="App ToDo Xamarin in esecuzione in iOS":::
 
 4. Per completare un elemento ToDo in iOS, scorrere verso sinistra > toccare il pulsante **Completa**. Per completare un elemento ToDo in Android, tenere premuto a lungo l'elemento > quindi toccare il pulsante Completa.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Completare un elemento ToDo":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="App ToDo Xamarin in esecuzione in iOS":::
 
 5. Per modificare un elemento ToDo > toccare l'elemento > viene visualizzata una nuova schermata che consente di immettere nuovi valori. Se si tocca il pulsante Salva verranno salvate in modo permanente le modifiche ad Azure Cosmos DB.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="Modificare un elemento ToDo":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="App ToDo Xamarin in esecuzione in iOS":::
 
 6. Per aggiungere un elemento ToDo > toccare il pulsante **Aggiungi** in alto a destra nella schermata iniziale > verrà visualizzata una nuova pagina di modifica vuota.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="Aggiungere un elemento ToDo":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="App ToDo Xamarin in esecuzione in iOS":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

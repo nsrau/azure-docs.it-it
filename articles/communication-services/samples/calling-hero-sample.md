@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: caee5686695594604f49dcbade54342a9134abc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5aa168c8f280859112f3ab317ef83d32260cead4
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944352"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460595"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Introduzione all'esempio hero di chiamata di gruppo
 
@@ -30,7 +30,7 @@ L'**esempio hero di chiamata di gruppo** di Servizi di comunicazione di Azure il
 Questa guida di avvio rapido illustra il funzionamento dell'esempio prima che venga eseguito nel computer locale. L'esempio verrà quindi distribuito in Azure con le risorse di Servizi di comunicazione di Azure.
 
 > [!IMPORTANT]
-> [Scaricare l'esempio da GitHub](https://github.com/Azure/Communication/tree/master/samples)
+> [Scaricare l'esempio da GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
 
 ## <a name="overview"></a>Panoramica
 
@@ -38,15 +38,19 @@ L'esempio include sia un'applicazione lato client che un'applicazione lato serve
 
 L'esempio ha l'aspetto seguente:
 
-:::image type="content" source="./media/calling/landing-page.png" alt-text="Screenshot che mostra la pagina di destinazione dell'applicazione di esempio.":::
+:::image type="content" source="./media/calling/landing-page.png" alt-text="Screenshot che mostra la pagina di destinazione dell'applicazione di esempio.&quot;:::
 
-Quando si preme il pulsante "Start a call" (Avvia una chiamata), l'applicazione Web recupera un token di accesso utente dall'applicazione lato server. Questo token viene quindi usato per connettere l'app client a Servizi di comunicazione di Azure. Una volta recuperato il token, verrà chiesto di specificare la fotocamera e il microfono da usare. Sarà possibile disabilitare o abilitare i dispositivi con gli appositi controlli:
+Quando si preme il pulsante &quot;Start a call" (Avvia una chiamata), l'applicazione Web recupera un token di accesso utente dall'applicazione lato server. Questo token viene quindi usato per connettere l'app client a Servizi di comunicazione di Azure. Una volta recuperato il token, verrà chiesto di specificare la fotocamera e il microfono da usare. Sarà possibile disabilitare o abilitare i dispositivi con gli appositi controlli:
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot che mostra la schermata di pre-chiamata dell'applicazione di esempio.":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot che mostra la pagina di destinazione dell'applicazione di esempio.&quot;:::
+
+Quando si preme il pulsante &quot;Start a call":::
 
 Dopo aver configurato il nome visualizzato e i dispositivi, è possibile partecipare alla sessione di chiamata. A questo punto, verrà visualizzato il canvas principale in cui risiede l'esperienza principale della chiamata.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot che mostra la schermata principale dell'applicazione di esempio.":::
+:::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot che mostra la pagina di destinazione dell'applicazione di esempio.&quot;:::
+
+Quando si preme il pulsante &quot;Start a call":::
 
 Componenti della schermata principale della chiamata:
 
@@ -54,14 +58,14 @@ Componenti della schermata principale della chiamata:
 - **Intestazione**: l'area in cui si trovano i controlli principali per la chiamata, che consentono di attivare e disattivare le impostazioni e la barra laterale dei partecipanti, attivare e disattivare il video e il microfono, condividere lo schermo e abbandonare la chiamata.
 - **Barra laterale**: questa barra mostra i partecipanti e le informazioni sulle impostazioni attivate con i controlli dell'intestazione. Il componente può essere rimosso usando la 'X' nell'angolo in alto a destra. La barra laterale dei partecipanti mostrerà l'elenco dei partecipanti e un collegamento per invitare altri utenti alla chat. La barra laterale delle impostazioni consente di configurare il microfono e la fotocamera.
 
-Di seguito sono disponibili altre informazioni sui prerequisiti, i passaggi per configurare l'esempio e le esercitazioni dettagliate per acquisire familiarità con i vari componenti.
+Di seguito sono disponibili ulteriori informazioni sui prerequisiti e i passaggi da seguire per configurare l'esempio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Creare un account Azure con una sottoscrizione attiva. Per informazioni dettagliate, vedere [Creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js (12.18.4 e versioni successive)](https://nodejs.org/en/download/)
 - [Visual Studio (2019 e versioni successive)](https://visualstudio.microsoft.com/vs/)
-- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (assicurarsi di installare la versione corrispondente all'istanza di Visual Studio in uso, a 32 o 64 bit)
+- [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (assicurarsi di installare la versione corrispondente all'istanza di Visual Studio in uso, a 32 o a 64 bit)
 - Creare una risorsa di Servizi di comunicazione di Azure. Per informazioni dettagliate, vedere [Creare una risorsa di Servizi di comunicazione di Azure](../quickstarts/create-communication-resource.md). Per questa guida di avvio rapido è necessario registrare la **stringa di connessione** della risorsa.
 
 ## <a name="locally-deploy-the-service--client-applications"></a>Distribuire in locale il servizio e le applicazioni client
@@ -72,23 +76,17 @@ Per la distribuzione in locale, è necessario avviare entrambe le applicazioni. 
 
 È possibile testare l'esempio in locale aprendo più sessioni del browser con l'URL della chiamata per simulare una chiamata multiutente.
 
-### <a name="before-running-the-sample-for-the-first-time"></a>Prima di eseguire l'esempio per la prima volta
+## <a name="before-running-the-sample-for-the-first-time"></a>Prima di eseguire l'esempio per la prima volta
 
 1. Aprire un'istanza di PowerShell, Terminale Windows, prompt dei comandi o equivalente e passare alla directory in cui clonare l'esempio.
-2. `git clone`
-3. Passare alla **cartella Calling/ClientApp** ed eseguire `npm run setup`
-   1. Se viene visualizzato un errore 1, cercare sopra nell'output un URL a cui è necessario passare per autorizzare il client. L'URL sarà simile a questo: `app.vssps.visualstudio.com/oauth2/authorize?clientid=...`. Quando si visita l'URL in un browser, copiare il comando dalla finestra del browser ed eseguirlo.
-   2. Eseguire di nuovo il comando `npm run setup-vsts-auth` dopo aver completato il passaggio precedente.
-4. Ottenere la `Connection String` dal portale di Azure. Per altre informazioni sulle stringhe di connessione, vedere [Creare risorse di Servizi di comunicazione di Azure](../quickstarts/create-communication-resource.md)
-5. Dopo aver ottenuto la stringa di connessione, aggiungerla al file **Calling/appsetting.json** disponibile nella cartella Service .NET. Immettere la stringa di connessione nella variabile `ResourceConnectionString`.
+2. `git clone https://github.com/Azure/Communication.git`
+3. Ottenere la `Connection String` dal portale di Azure. Per altre informazioni sulle stringhe di connessione, vedere [Creare risorse di comunicazione di Azure](../quickstarts/create-communication-resource.md)
+4. Una volta ottenuto il valore di `Connection String`, aggiungere la stringa di connessione al file **Calling/appsetting.json** nella cartella Service .NET. Immettere la stringa di connessione nella variabile `ResourceConnectionString`.
 
 ### <a name="local-run"></a>Esecuzione locale
 
-1. Passare alla cartella Calling
-2. Aprire la soluzione `Calling.csproj` in Visual Studio
-2. Eseguire il progetto `Calling`*
-
-*Il browser si aprirà all'indirizzo `localhost:5000` in cui il nodo distribuisce l'applicazione client. L'app non è supportata in Internet Explorer.
+1. Passare alla cartella Calling e aprire la soluzione `Calling.csproj` in Visual Studio
+2. Eseguire il progetto `Calling`. Il browser verrà aperto in localhost:5001
 
 #### <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -98,15 +96,18 @@ Per la distribuzione in locale, è necessario avviare entrambe le applicazioni. 
 
 ## <a name="publish-the-sample-to-azure"></a>Pubblicare l'esempio in Azure
 
-1. Fare clic con il pulsante destro del mouse sul progetto `Calling` e scegliere Pubblica.
+1. Fare clic con il pulsante destro del mouse sul progetto `Calling` e selezionare Pubblica.
 2. Creare un nuovo profilo di pubblicazione e selezionare la sottoscrizione di Azure.
-3. Prima della pubblicazione, aggiungere la stringa di connessione con `Edit App Service Settings`, immettere `ResourceConnectionString` come chiave e specificare la stringa di connessione (copiata da appsettings.json) come valore.
+3. Prima della pubblicazione, aggiungere la stringa di connessione con `Edit App Service Settings`, immettere `ResourceConnectionString` come chiave e specificare la stringa di connessione (copiata da appSettings.json) come valore.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse associate. Vedere altre informazioni sulla [pulizia delle risorse](../quickstarts/create-communication-resource.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+>[!div class="nextstepaction"] 
+>[È possibile scaricare l'esempio da GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
 
 Per altre informazioni, vedere gli articoli seguenti:
 
@@ -116,8 +117,8 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 ## <a name="additional-reading"></a>Altre letture
 
-- [Servizi di comunicazione di Azure (anteprima)](https://github.com/Azure/communication-preview), per altre informazioni sull'SDK Web per le chiamate
-- [Redux](https://redux.js.org/): gestione dello stato lato client
-- [FluentUI](https://developer.microsoft.com/fluentui#/): libreria di interfacce utente Microsoft
-- [React](https://reactjs.org/): libreria per la creazione di interfacce utente
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true): framework per la compilazione di applicazioni Web
+- [Pagina GitHub dei servizi di comunicazione di Azure](https://github.com/Azure/communication) - Nella pagina ufficiale di GitHub sono disponibili altri esempi e informazioni
+- [Redux](https://redux.js.org/) - Gestione dello stato lato client
+- [FluentUI](https://developer.microsoft.com/fluentui#/) - Libreria dell'interfaccia utente di Microsoft
+- [React](https://reactjs.org/) - Libreria per la compilazione di interfacce utente
+- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Framework per la compilazione di applicazioni Web

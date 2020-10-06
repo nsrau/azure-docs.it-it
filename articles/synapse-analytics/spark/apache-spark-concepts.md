@@ -1,6 +1,6 @@
 ---
 title: Concetti principali di Apache Spark
-description: Questo articolo fornisce un'introduzione ad Apache Spark in Azure Synapse Analytics e presenta i diversi concetti.
+description: Introduzione ad Apache Spark in Azure Synapse Analytics e i diversi concetti correlati.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 806f4dff49e9650dba073721109e7d54a18ecbbe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 74e85906742207d6cde0b7c4cc5c021c23ee4c7b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052331"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260139"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Concetti principali su Apache Spark in Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Azure Synapse semplifica la creazione e la configurazione delle funzionalità di
 
 ## <a name="spark-pools-preview"></a>Pool di Spark (anteprima)
 
-Un pool di Spark (anteprima) viene creato nel portale di Azure. È la definizione di un pool di Spark che, quando ne viene creata un'istanza, viene usata per creare un'istanza di Spark che elabora i dati. Quando viene creato, un pool di Spark esiste solo in forma di metadati. Non viene utilizzata, eseguita o addebitata alcuna risorsa. Un pool di Spark ha una serie di proprietà che controllano le caratteristiche di un'istanza di Spark. Queste caratteristiche includono, tra le altre, il nome, la dimensione, il comportamento di ridimensionamento e la durata (TTL).
+Un pool di Spark (anteprima) viene creato nel portale di Azure. È la definizione di un pool di Spark che, in caso di creazione di istanze, viene usata per creare un'istanza di Spark che elabora i dati. Quando viene creato, un pool di Spark esiste solo in forma di metadati e non viene utilizzata, eseguita o addebitata alcuna risorsa. Un pool di Spark ha una serie di proprietà che controllano le caratteristiche di un'istanza di Spark. Queste caratteristiche includono, in via esemplificativa, un nome, le dimensioni, il comportamento di scalabilità e la durata (TTL).
 
 Poiché la creazione di pool di Spark non comporta costi o utilizzo di risorse, è possibile crearne un numero illimitato con tutte le configurazioni diverse necessarie. Ai pool di Spark possono anche essere applicate autorizzazioni che consentono agli utenti di accedere solo a determinati pool.
 
@@ -36,7 +36,7 @@ Per informazioni su come creare un pool di Spark e visualizzarne tutte le propri
 
 Le istanze di Spark vengono create quando ci si connette a un pool di Spark, si crea una sessione e si esegue un processo. Dato che più utenti possono avere accesso a un singolo pool di Spark, viene creata una nuova istanza di Spark per ogni utente che si connette. 
 
-Quando si invia un secondo processo, se il pool ha capacità anche l'istanza di Spark esistente avrà capacità, quindi l'istanza esistente elaborerà il processo. In caso contrario e se esiste capacità a livello di pool, verrà creata una nuova istanza di Spark.
+Quando si invia un secondo processo, se è disponibile capacità nel pool, anche l'istanza di Spark esistente avrà la capacità richiesta. Quindi, l'istanza esistente elaborerà il processo. In alternativa, se la capacità è disponibile a livello di pool, verrà creata una nuova istanza di Spark.
 
 ## <a name="examples"></a>Esempi
 
@@ -58,7 +58,7 @@ Quando si invia un secondo processo, se il pool ha capacità anche l'istanza di 
 - Creare un pool di Spark denominato SP1, con una dimensione del cluster predefinita di 20 nodi.
 - Inviare un processo notebook, J1, che usa 10 nodi. Viene creata l'istanza di Spark SI1 per elaborare il processo.
 - Un altro utente, U2, invia un processo, J3, che usa 10 nodi. Viene creata una nuova istanza di Spark, SI2, per elaborare il processo.
-- Inviare ora un altro processo, J2, che usa 10 nodi perché c'è ancora capacità nel pool. L'istanza, J2, viene elaborata da SI1.
+- Inviare ora un altro processo, J2, che usa 10 nodi perché nel pool è ancora disponibile capacità. L'istanza, J2, viene elaborata da SI1.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

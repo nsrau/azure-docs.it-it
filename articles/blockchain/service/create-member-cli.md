@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: f97aab59d38e9b15838a78d0227bc2848615cd92
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3442c3b6023edcde97aabcb13e91120ba6811027
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504365"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323074"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Guida introduttiva: Creare un membro della blockchain del servizio Azure Blockchain usando l'interfaccia della riga di comando di Azure
 
@@ -91,7 +91,7 @@ az blockchain member create \
 | **protocol** | Protocollo Blockchain. Attualmente è supportato il protocollo *Quorum*.
 | **consortium** | Nome del consorzio da creare o a cui eseguire l'aggiunta. Per altre informazioni sui consorzi, vedere [Consorzio del servizio Azure Blockchain](consortium.md).
 | **consortium-management-account-password** | La password dell'account del consorzio è nota anche come password dell'account del membro. La password dell'account del membro viene usata per crittografare la chiave privata per l'account Ethereum creato per il membro. L'account del membro account e la password dell'account del membro si usano per la gestione del consorzio.
-| **sku** | Tipo di livello di servizio. *Standard* o *Basic*. Usare il livello *Basic* per lo sviluppo, il test e i modelli di verifica. Usare il livello *Standard* per le distribuzioni di produzione. È necessario usare anche il livello *Standard* anche se si usa Blockchain Data Manager o si invia un volume elevato di transazioni private. Dopo la creazione di membri non è possibile passare dal piano tariffario Basic a quello Standard.
+| **sku** | Tipo di livello di servizio. *Standard* o *Basic*. Usare il livello *Basic* per lo sviluppo, il test e i modelli di verifica. Usare il livello *Standard* per le distribuzioni di produzione. Usare il livello *Standard* anche se si usa Blockchain Data Manager o si invia un volume elevato di transazioni private. Dopo la creazione di membri non è possibile passare dal piano tariffario Basic a quello Standard.
 
 La creazione del membro della blockchain e delle risorse di supporto richiede circa 10 minuti.
 

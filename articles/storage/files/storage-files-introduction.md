@@ -4,18 +4,18 @@ description: Panoramica di File di Azure, un servizio che consente di creare e u
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 03/10/2018
+ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aff6f99c119ba2854fd7923d2a15efb2e1a6b601
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 2b5fa5211ad8d4de01f2b63e8267e297e13c4485
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666802"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570024"
 ---
 # <a name="what-is-azure-files"></a>Informazioni su File di Azure
-File di Azure offre condivisioni file completamente gestite sul cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. Le condivisioni file di Azure possono essere montate simultaneamente da distribuzioni cloud o locali di Windows, macOS e Linux. Le condivisioni file di Azure possono essere anche memorizzate nella cache in Windows Server con Sincronizzazione file di Azure per l'accesso rapido nelle vicinanze del punto in cui vengono usati i dati.
+File di Azure offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) o il [protocollo NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) standard di settore. Le condivisioni file di Azure possono essere montate simultaneamente da distribuzioni cloud o locali. Le condivisioni file SMB di File di Azure sono accessibili da client Windows, Linux e macOS. Le condivisioni file NFS di File di Azure sono accessibili da client Linux o macOS. Le condivisioni file SMB di File di Azure possono anche essere memorizzate nella cache in Windows Server con Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
 
 ## <a name="videos"></a>Video
 | Introduzione a Sincronizzazione file di Azure | File di Azure con sincronizzazione (Ignite 2019)  |
@@ -30,7 +30,7 @@ Ecco alcuni video sui casi d'uso comuni di File di Azure:
 Le condivisioni file di Azure possono essere usate per:
 
 * **Sostituire o integrare file server locali**:  
-    È possibile usare File di Azure per sostituire completamente o integrare i dispositivi NAS o i file server locali tradizionali. I sistemi operativi più diffusi, come Windows, macOS e Linux, possono montare direttamente condivisioni file di Azure ovunque nel mondo. Le condivisioni file di Azure possono anche essere replicate nei server Windows con Sincronizzazione file di Azure, in locale o nel cloud, per ottenere prestazioni elevate e per un caching efficiente e distribuito dei dati nella posizione in cui vengono usati. Con il rilascio recente dell'[autenticazione AD di File di Azure](storage-files-active-directory-overview.md), le condivisioni file di Azure possono continuare a funzionare con AD in locale per il controllo di accesso. 
+    È possibile usare File di Azure per sostituire completamente o integrare i dispositivi NAS o i file server locali tradizionali. I sistemi operativi più diffusi, come Windows, macOS e Linux, possono montare direttamente condivisioni file di Azure ovunque nel mondo. Le condivisioni file SMB di File di Azure possono anche essere replicate nei server Windows con Sincronizzazione file di Azure, in locale o nel cloud, per ottenere prestazioni elevate e per una memorizzazione nella cache efficiente e distribuita dei dati nella posizione in cui vengono usati. Con il rilascio recente dell'[autenticazione AD di File di Azure](storage-files-active-directory-overview.md), le condivisioni file SMB di File di Azure possono continuare a funzionare con AD in locale per il controllo di accesso. 
 
 * **Applicazioni "lift-and-shift"** :  
     File di Azure semplifica il trasferimento nel cloud in modalità lift-and-shift di applicazioni che prevedono una condivisione file per archiviare i dati delle applicazioni o degli utenti. File di Azure consente sia lo scenario lift-and-shift "classico", in cui l'applicazione e i dati vengono trasferiti in Azure, che lo scenario lift-and-shift "ibrido", in cui i dati dell'applicazione vengono trasferiti in File di Azure e l'applicazione continua a essere eseguita in locale. 
@@ -45,16 +45,20 @@ Le condivisioni file di Azure possono essere usate per:
 
     * **Sviluppo/test/debug**  
         Quando gli sviluppatori o gli amministratori usano VM nel cloud, spesso necessitano di un set di strumenti o di utilità. La copia di tali strumenti e utilità in ogni macchina virtuale può richiedere molto tempo. Montando una condivisione file di Azure in locale nelle macchine virtuali, sviluppatori e amministratori possono accedere rapidamente a strumenti e utilità, senza che siano necessarie attività di copia.
+* **Containerizzazione**:  
+    Le condivisioni di File di Azure possono essere usate come volumi permanenti per i contenitori con stato. I contenitori offrono funzionalità per "compilazione unica ed esecuzione globale" che consentono agli sviluppatori di accelerare l'innovazione. Per i contenitori che accedono a dati non elaborati a ogni avvio, è necessario un file system condiviso per consentire a questi contenitori l'accesso al file system indipendentemente dall'istanza in cui vengono eseguiti.
 
 ## <a name="key-benefits"></a>Vantaggi principali
-* **Accesso condiviso**. Le condivisioni file di Azure supportano il protocollo SMB standard di settore. Di conseguenza, è possibile sostituire facilmente le condivisioni file locali con condivisioni file di Azure senza preoccuparsi della compatibilità delle applicazioni. La possibilità di condividere un file system tra più computer, applicazioni e istanze è un vantaggio importante di File di Azure per le applicazioni che richiedono condivisibilità. 
+* **Accesso condiviso**. Le condivisioni file di Azure supportano i protocolli SMB e NFS standard di settore. Di conseguenza, è possibile sostituire facilmente le condivisioni file locali con condivisioni file di Azure senza preoccuparsi della compatibilità delle applicazioni. La possibilità di condividere un file system tra più computer, applicazioni e istanze è un vantaggio importante di File di Azure per le applicazioni che richiedono condivisibilità. 
 * **Soluzione completamente gestita**. È possibile creare condivisioni file di Azure senza dover gestire l'hardware o un sistema operativo. Di conseguenza, non è necessario applicare patch del sistema operativo server con aggiornamenti critici della sicurezza o sostituire dischi rigidi difettosi.
 * **Script e strumenti**. È possibile usare i cmdlet di PowerShell e l'interfaccia della riga di comando di Azure per creare, montare e gestire le condivisioni file di Azure nell'ambito dell'amministrazione delle applicazioni Azure. Le condivisioni file di Azure possono essere create e gestite con il portale di Azure e Azure Storage Explorer. 
 * **Resilienza**. File di Azure è stato progettato per garantire disponibilità costante. Sostituendo le condivisioni file locali con File di Azure non sarà più necessario occuparsi di problemi di rete o interruzioni dell'alimentazione a livello locale. 
 * **Programmabilità nota**. Le applicazioni eseguite in Azure possono accedere ai dati nella condivisione tramite le [API di I/O del file system](https://msdn.microsoft.com/library/system.io.file.aspx). Gli sviluppatori possono quindi riutilizzare il codice esistente e le competenze acquisite per eseguire la migrazione delle applicazioni esistenti. Oltre alle API di I/O di sistema, è possibile usare [librerie client di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dn261237.aspx) o l'[API REST di Archiviazione di Azure](/rest/api/storageservices/file-service-rest-api).
 
 ## <a name="next-steps"></a>Passaggi successivi
+* [Informazioni sui protocolli di condivisione file disponibili](storage-files-compare-protocols.md)
 * [Creare una condivisione file di Azure](storage-how-to-create-file-share.md)
-* [Eseguire la connessione e il montaggio in Windows](storage-how-to-use-files-windows.md)
-* [Eseguire la connessione e il montaggio in Linux](storage-how-to-use-files-linux.md)
-* [Eseguire la connessione e il montaggio in macOS](storage-how-to-use-files-mac.md)
+* [Connettere e montare una condivisione SMB in Windows](storage-how-to-use-files-windows.md)
+* [Connettere e montare una condivisione SMB in Linux](storage-how-to-use-files-linux.md)
+* [Connettere e montare una condivisione SMB in macOS](storage-how-to-use-files-mac.md)
+* [Come creare una condivisione NFS](storage-files-how-to-create-nfs-shares.md)

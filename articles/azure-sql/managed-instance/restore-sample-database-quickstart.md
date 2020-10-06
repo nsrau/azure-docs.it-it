@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, carlrab, bonova
+ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 0d10105648f434eb1d02a821e972e789bd39d66f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 18f717ca05e93c9a8f06ac8868e9a6e5ff80eadb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708444"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355534"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Avvio rapido: Ripristinare un database in Istanza gestita di SQL di Azure con SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -76,7 +76,7 @@ In SQL Server Management Studio (SSMS) seguire questa procedura per ripristinare
      'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
 
-    ![ripristinare](./media/restore-sample-database-quickstart/restore.png)
+    ![Screenshot che mostra lo script in esecuzione in Esplora oggetti con un messaggio di esito positivo.](./media/restore-sample-database-quickstart/restore.png)
 
 6. Eseguire lo script seguente per tenere traccia dello stato del ripristino.
 

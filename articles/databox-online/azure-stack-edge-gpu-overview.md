@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/07/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: c17cd17dfc3462d5a55753e6a4a364c14f9e2b62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 34dc0717b13cb38c4477cc93f23d57d0a8023dae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899079"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320745"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Che cos'è Azure Stack Edge Pro con GPU?
 
@@ -44,11 +44,10 @@ In Azure Stack Edge Pro sono disponibili le funzionalità seguenti:
 |---------|---------|
 |Inferenza per intelligenza artificiale accelerata| Abilitata dalla GPU incorporata (una o due a seconda del modello).|
 |Edge computing      |Supporta i carichi di lavoro in contenitori e macchine virtuali per consentire l'analisi, l'elaborazione e il filtraggio dei dati. |
-|Prestazioni elevate | Calcolo e trasferimenti di dati con prestazioni elevate.|
 |Accesso ai dati     | Indirizzare l'accesso ai dati dai BLOB del servizio di archiviazione di Azure e da File di Azure usando le API cloud per un'ulteriore elaborazione dei dati nel cloud. La cache locale nel dispositivo viene usata per l'accesso rapido ai file usati più di recente.|
 |Gestione dal cloud     |Il dispositivo e il servizio vengono gestiti tramite il portale di Azure.  |
 |Caricamento offline     | La modalità disconnessa supporta scenari di caricamento offline.|
-|Protocolli di archiviazione supportati     | Supporto per protocolli SMB, NFS e REST standard per l'inserimento di dati. <br> Per altre informazioni sulle versioni supportate, vedere i [requisiti di sistema di Azure Stack Edge Pro](azure-stack-edge-system-requirements.md).|
+|Protocolli FTP supportati      | Supporto per protocolli SMB, NFS e REST standard per l'inserimento di dati. <br> Per altre informazioni sulle versioni supportate, vedere i [requisiti di sistema di Azure Stack Edge Pro](azure-stack-edge-system-requirements.md).|
 |Aggiornamento dati     | Possibilità di aggiornare i file locali con quelli più recenti nel cloud.|
 |Crittografia    | Supporto BitLocker per crittografare i dati in locale e proteggere tramite *https* il trasferimento dei dati nel cloud.|
 |Limitazione larghezza di banda| Limitare l'utilizzo della larghezza di banda durante le ore di picco.|
@@ -73,8 +72,10 @@ La soluzione Azure Stack Edge Pro è costituita dalla risorsa e dal dispositivo 
 Il dispositivo fisico Azure Stack Edge Pro, la risorsa di Azure e l'account di archiviazione di destinazione in cui trasferire i dati non devono necessariamente trovarsi tutti nella stessa area.
 
 - **Disponibilità delle risorse**: per questa versione di anteprima la risorsa è disponibile nelle aree Stati Uniti orientali, Europa occidentale e Asia sud-orientale.
+
+- **Disponibilità del dispositivo**: per un elenco di tutti i paesi in cui il dispositivo Azure Stack Edge Pro è disponibile, passare alla sezione **Disponibilità** nella scheda **Azure Stack Edge Pro** in [Prezzi di Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
-- **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure. Per garantire prestazioni ottimali, le aree in cui gli account archiviano i dati di Azure Stack Edge Pro devono trovarsi nelle vicinanze del dispositivo. Un account di archiviazione lontano dal dispositivo si traduce in lunghe latenze e prestazioni ridotte.
+- **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure. Per prestazioni ottimali, le aree in cui gli account archiviano i dati di Azure Stack Edge Pro devono trovarsi nelle vicinanze del dispositivo. Un account di archiviazione lontano dal dispositivo si traduce in lunghe latenze e prestazioni ridotte.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

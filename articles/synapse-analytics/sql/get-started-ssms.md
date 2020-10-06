@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: dc467eebbd7346777765af7143d13c76627ab648
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 166d598528d8fe38e2bc22b76c659326c5e0ba45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077726"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288784"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Connettersi a Synapse SQL con SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Prima di iniziare, verificare di aver soddisfatto i prerequisiti seguenti:
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
 * Per il pool SQL è necessario un data warehouse esistente. Per crearne uno, vedere [Creare un pool SQL](../quickstart-create-sql-pool-portal.md). Per SQL su richiesta, è già stato effettuato il provisioning di un'istanza nell'area di lavoro al momento della creazione. 
-* Il nome completo dell'istanza di SQL Server. Per trovarlo, vedere [Connettersi a Synapse SQL](connect-overview.md).
+* Il nome completo dell'istanza di SQL Server. Per trovare questo nome, vedere [Connettersi a Synapse SQL](connect-overview.md).
 
 ## <a name="connect"></a>Connessione
 
@@ -52,7 +52,7 @@ Per connettersi a Synapse SQL tramite il pool SQL, seguire questa procedura:
 1. Aprire SQL Server Management Studio (SSMS). 
 1. Nella finestra di dialogo **Connetti al server** compilare i campi e quindi selezionare **Connetti**: 
   
-    ![Connetti al server](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
+    ![Connettersi al server 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
    * **Nome server**: Immettere il **nome server** identificato in precedenza.
    * **Autenticazione**:  scegliere un tipo di autenticazione, ad esempio **Autenticazione di SQL Server** o **Autenticazione integrata di Active Directory**.
@@ -60,7 +60,7 @@ Per connettersi a Synapse SQL tramite il pool SQL, seguire questa procedura:
 
 1. Espandere Azure SQL Server in **Esplora oggetti**. È possibile visualizzare i database associati al server, come il database di esempio AdventureWorksDW. Per vedere le tabelle, espandere il database:
    
-    ![Esplorare AdventureWorksDW](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
+    ![Esplorare AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
 ### <a name="sql-on-demand-preview"></a>SQL su richiesta (anteprima)
@@ -70,16 +70,16 @@ Per connettersi a Synapse SQL tramite SQL su richiesta, seguire questa procedura
 1. Aprire SQL Server Management Studio (SSMS).
 1. Nella finestra di dialogo **Connetti al server** compilare i campi e quindi selezionare **Connetti**: 
    
-    ![Connetti al server](./media/get-started-ssms/connect-object-explorer1.png)
+    ![Connettersi al server 2](./media/get-started-ssms/connect-object-explorer1.png)
    
    * **Nome server**: Immettere il **nome server** identificato in precedenza.
    * **Autenticazione**: scegliere un tipo di autenticazione, ad esempio **Autenticazione di SQL Server** o **Autenticazione integrata di Active Directory**:
    * **Nome utente** e **Password**: se è stata selezionata l'autenticazione di SQL Server, immettere il nome utente e la password.
-   * Fare clic su **Connetti**.
+   * Selezionare **Connetti**.
 
 4. Per l'esplorazione, espandere il server SQL Azure. È possibile visualizzare i database associati al server. Espandere *demo* per visualizzare il contenuto nel database di esempio.
    
-    ![Esplorare AdventureWorksDW](./media/get-started-ssms/explore-tables.png)
+    ![Esplorare AdventureWorksDW 2](./media/get-started-ssms/explore-tables.png)
 
 
 ## <a name="run-a-sample-query"></a>Eseguire una query di esempio
@@ -91,18 +91,18 @@ Ora che è stata stabilita una connessione al database, è possibile eseguire un
 1. Fare clic con il pulsante destro del mouse sul database in Esplora oggetti di SQL Server.
 2. Selezionare **Nuova query**. Viene visualizzata una nuova finestra di query.
    
-    ![Nuova query](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
-3. Copiare questa query T-SQL nella finestra di query:
+    ![Nuova query 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
+3. Copiare la query T-SQL seguente nella finestra di query:
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Consente di eseguire la query. A questo scopo, fare clic su `Execute` oppure usare la combinazione di tasti seguente: `F5`.
+4. Eseguire la query selezionando `Execute` oppure usare il collegamento seguente: `F5`.
    
-    ![Esegui query](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
-5. Osservare i risultati della query. In questo esempio la tabella FactInternetSales include 60398 righe.
+    ![Eseguire la query 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
+5. Osservare i risultati della query. Nell'esempio seguente la tabella FactInternetSales include 60398 righe.
    
-    ![Risultati query](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
+    ![Risultati della query 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
 ### <a name="sql-on-demand"></a>SQL su richiesta
 
@@ -111,18 +111,18 @@ Ora che è stata stabilita una connessione al database, è possibile eseguire un
 1. Fare clic con il pulsante destro del mouse sul database in Esplora oggetti di SQL Server.
 2. Selezionare **Nuova query**. Viene visualizzata una nuova finestra di query.
    
-    ![Nuova query](./media/get-started-ssms/new-query.png)
+    ![Nuova query 2](./media/get-started-ssms/new-query.png)
 3. Copiare la query T-SQL seguente nella finestra di query:
    
     ```sql
     SELECT COUNT(*) FROM demo.dbo.usPopulationView
     ```
-4. Consente di eseguire la query. A questo scopo, fare clic su `Execute` oppure usare la combinazione di tasti seguente: `F5`.
+4. Eseguire la query selezionando `Execute` oppure usare il collegamento seguente: `F5`.
    
-    ![Esegui query](./media/get-started-ssms/execute-query.png)
+    ![Eseguire la query 2](./media/get-started-ssms/execute-query.png)
 5. Osservare i risultati della query. In questo esempio, la vista usPopulationView contiene 3664512 righe.
    
-    ![Risultati query](./media/get-started-ssms/results.png)
+    ![Risultati della query 2](./media/get-started-ssms/results.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare i dati con Power BI](get-started-power-bi-professional.md).

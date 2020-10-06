@@ -1,6 +1,6 @@
 ---
 title: Ottimizzare i processi Spark per ottenere prestazioni ottimali
-description: Questo articolo fornisce un'introduzione ad Apache Spark in Azure Synapse Analytics e presenta i diversi concetti.
+description: Questo articolo offre un'introduzione ad Apache Spark in Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 89040057798ec4c909cac584ed96c187e79b5581
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f8eb87909ffdf9ce15108d78bed425bf6c142262
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089261"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249468"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Ottimizzare i processi di Apache Spark (anteprima) in Azure Synapse Analytics
 
-Informazioni su come ottimizzare la configurazione del cluster [Apache Spark](https://spark.apache.org/) per carichi di lavoro specifici.  Il problema più comune è legato a un carico eccessivo sulla memoria, causato da configurazioni non corrette (in particolare, a executor di dimensioni errate), operazioni con esecuzione prolungata e attività che generano operazioni cartesiane. È possibile velocizzare i processi con una memorizzazione nella cache appropriata e consentendo l'[asimmetria dei dati](#optimize-joins-and-shuffles). Per ottenere prestazioni ottimali, monitorare e analizzare i processi Spark che comportano un'esecuzione prolungata e un consumo eccessivo di risorse.
+Informazioni su come ottimizzare la configurazione di un cluster [Apache Spark](https://spark.apache.org/) per carichi di lavoro specifici.  Il problema più comune è legato a un carico eccessivo sulla memoria, causato da configurazioni non corrette (in particolare, a executor di dimensioni errate), operazioni con esecuzione prolungata e attività che generano operazioni cartesiane. È possibile velocizzare i processi con una memorizzazione nella cache appropriata e consentendo l'[asimmetria dei dati](#optimize-joins-and-shuffles). Per ottenere prestazioni ottimali, monitorare e analizzare i processi Spark che comportano un'esecuzione prolungata e un consumo eccessivo di risorse.
 
 Le sezioni seguenti descrivono alcune raccomandazioni e procedure di ottimizzazione comuni per i processi Spark.
 
@@ -52,7 +52,7 @@ Nelle versioni precedenti di Spark si usano RDD per estrapolare dati. In partico
 
 Spark supporta molti formati, come ad esempio csv, json, xml, parquet, orc e avro. Spark può essere esteso per supportare numerosi formati con origini dati esterne; per altre informazioni, vedere [Pacchetti Apache Spark](https://spark-packages.org).
 
-Il formato migliore per le prestazioni è Parquet con *compressione Snappy*, ovvero l'impostazione predefinita in Spark 2.x. Parquet archivia i dati in formato a colonne ed è altamente ottimizzato in Spark. Inoltre, anche se la *compressione Snappy* può generare file di dimensioni maggiori rispetto alla compressione gzip, a causa della natura suddivisibile di questi file, verranno decompressi più velocemente.
+Il formato migliore per le prestazioni è Parquet con *compressione Snappy*, ovvero l'impostazione predefinita in Spark 2.x. Parquet archivia i dati in formato a colonne ed è altamente ottimizzato in Spark. Inoltre, anche se la *compressione Snappy* può generare file di dimensioni maggiori rispetto alla compressione gzip, a causa della loro natura suddivisibile questi file verranno decompressi più velocemente.
 
 ## <a name="use-the-cache"></a>Usare la cache
 

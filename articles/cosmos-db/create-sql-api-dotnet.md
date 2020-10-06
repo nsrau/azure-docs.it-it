@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c76a6666be805aa088bab7c5716ffd88a30519c1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3b577127013252f03e7a617e7f2b9c8d2c4c9188
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002080"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570400"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Guida introduttiva: Compilare un'app console .NET per gestire le risorse dell'API SQL di Azure Cosmos DB
 
@@ -22,6 +22,7 @@ ms.locfileid: "89002080"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -35,7 +36,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 * Eseguire una query sui dati 
 * eliminare il database
 
-[Documentazione di riferimento dell'API](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+[Documentazione di riferimento dell'API](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet&preserve-view=true) | [Codice sorgente della libreria](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -70,7 +71,7 @@ az group create \
     --name $resourceGroupName \
     --location $location
 
-# Create a SQL API Cosmos DB account with session consistency and multi-master enabled
+# Create a SQL API Cosmos DB account with session consistency and multi-region writes enabled
 az cosmosdb create \
     --resource-group $resourceGroupName \
     --name $accountName \
@@ -166,19 +167,18 @@ Prima di iniziare a compilare l'applicazione, verranno esaminati la gerarchia di
 
 Per altre informazioni sulla gerarchia delle diverse entità, vedere l'articolo sull'[uso di database, contenitori ed elementi in Azure Cosmos DB](databases-containers-items.md). Per interagire con queste risorse, si useranno le classi .NET seguenti:
 
-* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet): questa classe fornisce una rappresentazione logica lato client per il servizio Azure Cosmos DB. L'oggetto client viene usato per configurare ed eseguire richieste nel servizio.
+* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet&preserve-view=true): questa classe fornisce una rappresentazione logica lato client per il servizio Azure Cosmos DB. L'oggetto client viene usato per configurare ed eseguire richieste nel servizio.
 
-* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet): questo metodo crea (se non esiste) o ottiene (se esiste già) una risorsa database come operazione asincrona. 
+* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet&preserve-view=true): questo metodo crea (se non esiste) o ottiene (se esiste già) una risorsa database come operazione asincrona. 
 
-* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet): questo metodo crea (se non esiste) o ottiene (se esiste già) un contenitore come operazione asincrona. È possibile controllare il codice di stato della risposta per determinare se il contenitore è stato appena creato (201) o se è stato restituito un contenitore esistente (200). 
-* [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet): questo metodo crea un elemento nel contenitore. 
+* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet&preserve-view=true): questo metodo crea (se non esiste) o ottiene (se esiste già) un contenitore come operazione asincrona. È possibile controllare il codice di stato della risposta per determinare se il contenitore è stato appena creato (201) o se è stato restituito un contenitore esistente (200). 
+* [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet&preserve-view=true): questo metodo crea un elemento nel contenitore. 
 
-* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet) : questo metodo crea un elemento all'interno del contenitore se non esiste già oppure sostituisce l'elemento se è già esistente. 
+* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet&preserve-view=true) : questo metodo crea un elemento all'interno del contenitore se non esiste già oppure sostituisce l'elemento se è già esistente. 
 
-* [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet
-) : questo metodo crea una query per gli elementi in un contenitore di un database di Azure Cosmos usando un'istruzione SQL contenente valori con parametri. 
+* [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet&preserve-view=true) : questo metodo crea una query per gli elementi in un contenitore di un database di Azure Cosmos usando un'istruzione SQL contenente valori con parametri. 
 
-* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet): elimina il database specificato dall'account Azure Cosmos. Il metodo `DeleteAsync` elimina solo il database. L'eliminazione dell'istanza di `Cosmosclient` deve essere eseguita separatamente, nel metodo DeleteDatabaseAndCleanupAsync. 
+* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet&preserve-view=true): elimina il database specificato dall'account Azure Cosmos. Il metodo `DeleteAsync` elimina solo il database. L'eliminazione dell'istanza di `Cosmosclient` deve essere eseguita separatamente, nel metodo DeleteDatabaseAndCleanupAsync. 
 
  ## <a name="code-examples"></a><a id="code-examples"></a>Esempi di codice
 

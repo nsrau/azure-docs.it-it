@@ -12,13 +12,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: f1fad6554a347acb1de72bfe1e5c3413e6f74d9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/28/2020
+ms.openlocfilehash: 35a637df85984bcfd20836bcd87aa5ecf1583170
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004156"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461139"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Avvio rapido: Usare SSMS per connettersi a un database SQL di Azure o a un'istanza gestita di database SQL di Azure ed eseguire query
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -83,6 +83,9 @@ In SSMS connettersi al server.
    ||||
 
    ![Connetti al server](./media/connect-query-ssms/connect.png)  
+
+> [!NOTE]
+> Questa esercitazione usa l'autenticazione di SQL Server.  Per la connessione tramite Azure Active Directory con MFA, tuttavia, assicurarsi di usare [SSMS 18.6 o versione successiva](https://aka.ms/ssms). 
 
 3. Selezionare **Opzioni** nella finestra di dialogo **Connetti al server**. Nel menu a discesa **Connetti al database** selezionare **mySampleDatabase**. Completando l'argomento di avvio rapido nella sezione [Prerequisiti](#prerequisites), viene creato un database AdventureWorksLT denominato mySampleDatabase. Se la copia di lavoro del database AdventureWorks ha un nome diverso da mySampleDatabase, selezionare invece tale nome.
 
@@ -155,7 +158,7 @@ Eseguire questo codice Transact-SQL [INSERT](/sql/t-sql/statements/insert-transa
 
 ### <a name="update-data"></a>Aggiornare i dati
 
-Eseguire questo codice Transact-SQL [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) per modificare il nuovo prodotto.
+Eseguire questo codice Transact-SQL [UPDATE](/sql/t-sql/queries/update-transact-sql) per modificare il nuovo prodotto.
 
 1. Sostituire la query precedente con quella seguente, che restituisce il nuovo record creato in precedenza:
 

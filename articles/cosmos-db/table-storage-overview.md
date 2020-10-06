@@ -1,6 +1,6 @@
 ---
 title: Panoramica dell'archiviazione tabelle di Azure
-description: Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL.
+description: Informazioni su come usare l'archiviazione tabelle di Azure per archiviare set di dati flessibili, ad esempio i dati utente per le applicazioni Web, le rubriche, le informazioni sui dispositivi o altri tipi di metadati.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 20c799f89394dd8978f120097b054a9adf9f1280
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: abd88c3cdb54747c21ad8772860a3ed6929dbd15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76770747"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318722"
 ---
 # <a name="azure-table-storage-overview"></a>Panoramica di Archiviazione tabelle di Azure
 
@@ -30,7 +30,7 @@ L'archiviazione tabelle di Azure è un servizio che archivia dati NoSQL struttur
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 
-* [Introduzione all'API Tabella di Azure Cosmos DB e all'archiviazione tabelle con .NET SDK](table-storage-how-to-use-dotnet.md)
+* [Introduzione all'API Tabella di Azure Cosmos DB e all'archiviazione tabelle di Azure con .NET SDK](table-storage-how-to-use-dotnet.md)
 
 * Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio tabelle:
 

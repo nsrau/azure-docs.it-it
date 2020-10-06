@@ -1,20 +1,21 @@
 ---
-title: "Avvio rapido: Creare ed eseguire un'immagine del contenitore"
-description: Eseguire rapidamente attività con Registro Azure Container per compilare ed eseguire un'immagine del contenitore Docker su richiesta, nel cloud.
+title: Avvio rapido - Creare un'immagine del contenitore su richiesta in Azure
+description: Usare i comandi di Registro Azure Container per svolgere rapidamente attività di creazione, push ed esecuzione di un'immagine del contenitore Docker su richiesta nel cloud Azure.
 ms.topic: quickstart
-ms.date: 01/31/2020
-ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 09/25/2020
+ms.custom: contperfq1
+ms.openlocfilehash: 36921900f64d458f1f2591897e32c98f6d22a550
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753699"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538213"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Avvio rapido: Compilare ed eseguire un'immagine del contenitore con Attività del Registro Azure Container
 
-In questa guida di avvio rapido si usano i comandi di Attività del Registro Azure Container per compilare, eseguire il push ed eseguire rapidamente un'immagine del contenitore Docker in modalità nativa all'interno di Azure, che illustra come eseguire l'offload del ciclo di sviluppo di tipo "ciclo interno" nel cloud. [Attività del Registro Azure Container][container-registry-tasks-overview] è un gruppo di funzionalità incluse in Registro Azure Container che consente di gestire e modificare le immagini del contenitore per tutto il ciclo di vita del contenitore. 
+In questo argomento di avvio rapido si usano i comandi di [Attività del Registro Azure Container][container-registry-tasks-overview] per svolgere rapidamente attività di creazione, push ed esecuzione di un'immagine del contenitore Docker in modalità nativa in Azure, senza un'installazione locale di Docker. Attività del Registro Azure Container è un gruppo di funzionalità incluse in Registro Azure Container che consente di gestire e modificare le immagini del contenitore per tutto il ciclo di vita del contenitore. Questo esempio illustra come eseguire l'offload del ciclo di sviluppo dell'immagine del contenitore del "ciclo interno" nel cloud con compilazioni su richiesta usando un documento Dockerfile locale. 
 
-Dopo questa guida di avvio rapido è possibile esplorare funzionalità più avanzate di Attività del Registro Azure Container. Attività del Registro Azure Container consente di automatizzare le compilazioni di immagini basate su commit del codice o aggiornamento delle immagini di base oppure di testare più contenitori in parallelo, tra gli altri scenari. 
+Al termine di questo argomento di avvio rapido, è possibile esplorare funzionalità più avanzate di Attività del Registro Azure Container usando le [esercitazioni](container-registry-tutorial-quick-task.md). Attività del Registro Azure Container consente di automatizzare le compilazioni di immagini basate su commit del codice o aggiornamento delle immagini di base oppure di testare più contenitori in parallelo, tra gli altri scenari. 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito][azure-account] prima di iniziare.
 
@@ -45,7 +46,7 @@ In questo esempio viene creato un registro *Basic*, ovvero un'opzione ottimizzat
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Compilare un'immagine da un Dockerfile ed eseguirne il push
 
-A questo punto usare Registro Azure Container per compilare un'immagine ed eseguirne il push. Creare prima una directory di lavoro e quindi un Dockerfile denominato *Dockerfile* che contiene la riga seguente: `FROM hello-world`. Questo è un semplice esempio relativo alla compilazione di un'immagine del contenitore Linux dall'immagine `hello-world` in Docker Hub. È possibile creare un Dockerfile standard personalizzato e compilare immagini per altre piattaforme. Se si sta lavorando con una shell bash, usare il comando seguente per creare il Dockerfile:
+A questo punto usare Registro Azure Container per compilare un'immagine ed eseguirne il push. Creare prima di tutto prima una directory di lavoro locale e quindi creare un documento Dockerfile denominato *Dockerfile* che contiene la riga seguente: `FROM hello-world`. Questo è un semplice esempio relativo alla compilazione di un'immagine del contenitore Linux dall'immagine `hello-world` in Docker Hub. È possibile creare un Dockerfile standard personalizzato e compilare immagini per altre piattaforme. Se si sta lavorando con una shell bash, usare il comando seguente per creare il Dockerfile:
 
 ```bash
 echo FROM hello-world > Dockerfile

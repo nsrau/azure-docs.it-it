@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: c578958616e4b4d2d7d3aef1de1650566e0bd40e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 52964c906df7a96685c8eb80c1d23ef9a9efc6e1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496407"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361841"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Usare l'autenticazione di AAD a più fattori con Synapse SQL (supporto di SSMS per MFA)
 
@@ -22,19 +22,17 @@ Synapse SQL supporta le connessioni da SQL Server Management Studio (SSMS) trami
 
 Questo articolo illustra le differenze tra le varie opzioni di autenticazione, oltre alle limitazioni associate all'uso dell'autenticazione universale. 
 
-**Scaricare la versione più recente di SSMS**: nel computer client scaricare la versione più recente di SSMS da [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). 
-
-**Scaricare la versione più recente di SSMS**: nel computer client scaricare la versione più recente di SSMS da [Scaricare SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+**Scaricare la versione più recente di SSMS**: nel computer client scaricare la versione più recente di SSMS da [Scaricare SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Per tutte le funzionalità descritte in questo articolo, usare almeno la versione 17.2 di luglio 2017.  La finestra di dialogo di connessione più recente dovrebbe avere un aspetto simile al seguente:
 
-![1mfa-universal-connect](./media/mfa-authentication/1mfa-universal-connect.png "Completare la casella Nome utente.")  
+![Screenshot che mostra la finestra di dialogo Connetti al server in cui è possibile selezionare un nome di server e l'opzione di autenticazione.](./media/mfa-authentication/1mfa-universal-connect.png "Completare la casella Nome utente.")  
 
 ## <a name="the-five-authentication-options"></a>Le cinque opzioni di autenticazione  
 
 L'autenticazione universale di Active Directory supporta due metodi di autenticazione non interattivi, ovvero
     - `Active Directory - Password` e
-    - `Active Directory - Integrated`
+    - `Active Directory - Integrated` e
 
 Sono disponibili anche due modelli di autenticazione non interattiva, che possono essere usati in molte applicazioni diverse (ADO.NET, JDCB, ODC e così via). Questi due metodi non aprono mai finestre di dialogo popup:
 
@@ -51,7 +49,7 @@ Per una descrizione di Multi-Factor Authentication (autenticazione a più fattor
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Parametro nome di dominio o ID tenant di Azure AD
 
-A partire dalla [versione 17 di SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), gli utenti che vengono importati come utenti guest nell'istanza corrente di Active Directory da altre istanze di Azure Active Directory possono specificare il nome di dominio o l'ID tenant di Azure AD al momento della connessione. 
+A partire dalla [versione 17 di SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), gli utenti che vengono importati come utenti guest nell'istanza corrente di Active Directory da altre istanze di Azure Active Directory possono specificare il nome di dominio o l'ID tenant di Azure AD al momento della connessione. 
 
 Gli utenti guest includono quelli invitati da altre istanze di Azure AD, gli account Microsoft, ad esempio outlook.com, hotmail.com, live.com, o altri account come gmail.com. Queste informazioni consentono all'**autenticazione universale di Active Directory con MFA** di identificare l'autorità di autenticazione corretta. Questa opzione è necessaria anche per supportare gli account Microsoft (MSA), ad esempio outlook.com, hotmail.com e live.com, o altri account non MSA. 
 
@@ -61,11 +59,11 @@ Se ad esempio il server di Azure è associato al dominio di Azure AD `contosotes
 
 Se l'utente è un utente nativo di Azure AD collegato al server di Azure e non è un account MSA, non è necessario usare l'ID tenant o il nome di dominio. 
 
-Per specificare il parametro (a partire dalla versione 17.2 di SSMS), nella finestra di dialogo **Connetti al database** selezionare l'autenticazione **Active Directory - Universale con supporto MFA**, fare clic su **Opzioni**, immettere un nome nella casella **Nome utente** e quindi fare clic sulla scheda **Proprietà connessione**. 
+Per specificare il parametro (a partire dalla versione 17.2 di SSMS), nella finestra di dialogo **Connetti al database** selezionare l'autenticazione **Active Directory - Universale con supporto MFA**, selezionare **Opzioni**, immettere un nome nella casella **Nome utente** e quindi selezionare la scheda **Proprietà connessione**. 
 
 Selezionare la casella **ID tenant o nome di dominio AD** e specificare l'autorità di autenticazione, ad esempio il nome di dominio (**contosotest.onmicrosoft.com**) o il GUID dell'ID tenant.  
 
-   ![mfa-tenant-ssms](./media/mfa-authentication/mfa-tenant-ssms.png)
+   ![Screenshot che mostra Connetti al server nella scheda Proprietà connessione con i valori specificati.](./media/mfa-authentication/mfa-tenant-ssms.png)
 
 Se si esegue SSMS 18.x o versione successiva, il nome di dominio di AD o l'ID tenant non è più necessario per gli utenti guest, perché in queste versioni viene riconosciuto automaticamente.
 
@@ -80,7 +78,7 @@ Dopo che è stato creato l'utente del database, l'utente `steve@gmail.com` può 
 
 Per impostazione predefinita, al gruppo di utenti è concessa solo l'autorizzazione di connessione. Per qualsiasi altro tipo di accesso ai dati l'autorizzazione deve essere concessa secondo la normale procedura. 
 
-Si noti che `steve@gmail.com`, in qualità di utente guest, deve selezionare la casella e aggiungere il nome di dominio AD `contosotest.onmicrosoft.com` nella finestra di dialogo **Proprietà connessione** di SSMS. L'opzione **ID tenant o nome di dominio AD** è supportata solo per le opzioni di connessione Universale con supporto MFA. Negli altri casi non è disponibile.
+In qualità di utente guest, `steve@gmail.com` deve selezionare la casella e aggiungere il nome di dominio AD `contosotest.onmicrosoft.com` nella finestra di dialogo **Proprietà connessione** di SSMS. L'opzione **ID tenant o nome di dominio AD** è supportata solo per le opzioni di connessione Universale con supporto MFA. Negli altri casi non è disponibile.
 
 ## <a name="universal-authentication-limitations-for-synapse-sql"></a>Limitazioni dell'autenticazione universale per Synapse SQL
 

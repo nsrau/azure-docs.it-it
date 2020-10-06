@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b7b8a0d98db1411a08afdb33fa272bb7e6d6313e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280478"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289022"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Come usare OPENROWSET con SQL su richiesta (anteprima)
 
@@ -119,7 +119,7 @@ L'elemento unstructured_data_path che stabilisce un percorso dei dati può esser
 | Archiviazione BLOB di Azure         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
 | Azure Data Lake Store Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /path/file   |
-| Azure Data Lake Store Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Data Lake Store Gen2 | aufs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -184,7 +184,7 @@ Il parametro ESCAPE_CHAR verrà applicato indipendentemente dal fatto che FIELDQ
 
 FIRSTROW = 'first_row' 
 
-Specifica il numero della prima riga da caricare. Il valore predefinito è 1. Questo valore indica la prima riga nel file di dati specificato. I numeri di riga sono determinati dal conteggio dei caratteri di terminazione. FIRSTROW è in base 1.
+Specifica il numero della prima riga da caricare. Il valore predefinito è 1 e indica la prima riga nel file di dati specificato. I numeri di riga sono determinati dal conteggio dei caratteri di terminazione. FIRSTROW è in base 1.
 
 FIELDQUOTE = 'field_quote' 
 

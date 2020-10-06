@@ -214,6 +214,8 @@
               href: functions-create-scheduled-function.md
         - name: Aggiungere associazioni
           items:
+            - name: Come aggiungere un binding
+              href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - Portale
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: Archiviazione - Python

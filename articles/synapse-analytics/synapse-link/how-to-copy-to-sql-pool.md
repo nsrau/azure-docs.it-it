@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 88962d63519cfeb78be694c4f702b05ed4e7d3df
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 409f1ecee5ccf42a0168d500b40337366e07bfc0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658344"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287851"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-sql-pool-using-apache-spark"></a>Copiare dati da Azure Cosmos DB in un pool SQL con Apache Spark
 
@@ -29,12 +29,12 @@ Collegamento ad Azure Synapse per Azure Cosmos DB consente agli utenti di esegui
 * [Avere la configurazione corretta per importare i dati da Spark a un pool SQL](../spark/synapse-spark-sql-pool-import-export.md)
 
 ## <a name="steps"></a>Passaggi
-In questa esercitazione si effettuerà la connessione all'archivio analitico, in modo da evitare qualsiasi impatto sull'archivio transazionale (non verranno utilizzate unità richiesta). Verranno eseguiti i passaggi seguenti:
+In questa esercitazione si eseguirà la connessione all'archivio analitico, in modo da evitare qualsiasi impatto sull'archivio transazionale. Non verranno utilizzate unità richiesta. Si eseguiranno i passaggi seguenti:
 1. Leggere il contenitore HTAP di Cosmos DB in un dataframe Spark
 2. Aggregare i risultati in un nuovo dataframe
 3. Inserire i dati in un pool SQL
 
-[![Passaggi da Spark a SQL](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
+[![Passaggi da Spark a SQL 1](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
 
 ## <a name="data"></a>Dati
 Nell'esempio si usa un contenitore HTAP denominato **RetailSales**, che fa parte di un servizio collegato denominato **ConnectedData** e presenta lo schema seguente:
@@ -97,7 +97,7 @@ SELECT  [productCode]
  FROM [dbo].[productsales]
 ```
 
-La query presenterà i risultati seguenti in modalità grafico: [![Passaggi da Spark a SQL](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
+La query presenterà i risultati seguenti in modalità grafico: [![Passaggi da Spark a SQL 2](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire query sull'archivio analitico di Azure Cosmos DB con Apache Spark](./how-to-query-analytical-store-spark.md)

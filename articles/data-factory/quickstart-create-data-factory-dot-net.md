@@ -1,6 +1,6 @@
 ---
 title: Creare data factory di Azure con .NET SDK
-description: Creare una data factory di Azure per copiare i dati da una posizione dell'archivio BLOB di Azure a un'altra posizione.
+description: Creare una pipeline e una data factory di Azure usando .NET SDK per copiare i dati da una posizione di archiviazione BLOB di Azure a un'altra posizione.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: d4652ca62a82d14c7e44466161ae9b463818a71f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e8da3dff39f94d6639471a2d1d96691c9cde614d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433980"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322870"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Guida introduttiva: Creare una data factory e una pipeline con .NET SDK
 
@@ -49,7 +49,7 @@ Dalle sezioni in *Procedura: Usare il portale per creare un'entità servizio e a
 
 1. In [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) creare un'applicazione che rappresenti l'applicazione .NET che verrà creata in questa esercitazione. Come URL di accesso è possibile specificare un URL fittizio, come illustrato nell'articolo (`https://contoso.org/exampleapp`).
 2. In [Ottenere i valori per l'accesso](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) ottenere l'**ID dell'applicazione** e l'**ID del tenant**, quindi prendere nota di questi valori che verranno usati più avanti in questa esercitazione. 
-3. In [Certificati e segreti](../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) ottenere la **chiave di autenticazione** e prendere nota di questo valore che verrà usato più avanti in questa esercitazione.
+3. In [Certificati e segreti](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) ottenere la **chiave di autenticazione** e prendere nota di questo valore che verrà usato più avanti in questa esercitazione.
 4. In [Assegnare l'applicazione a un ruolo](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) assegnare l'applicazione al ruolo **Collaboratore** a livello di sottoscrizione, in modo che l'applicazione possa creare le data factory nella sottoscrizione.
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
