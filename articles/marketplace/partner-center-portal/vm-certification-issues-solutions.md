@@ -1,20 +1,20 @@
 ---
-title: Certificazione di macchine virtuali - Problemi e soluzioni
-description: Questo articolo illustra i messaggi di errore comuni per le immagini di macchina virtuale. Vengono inoltre illustrate le soluzioni correlate
+title: Problemi comuni durante la certificazione delle immagini di macchine virtuali per Azure Marketplace
+description: Questo articolo illustra i messaggi di errore e i problemi comuni durante il test e la certificazione delle immagini di VM per Azure Marketplace. Vengono inoltre illustrate le soluzioni correlate.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296451"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803467"
 ---
-# <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemi e soluzioni durante la certificazione della macchina virtuale 
+# <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Problemi comuni durante la certificazione delle immagini di macchine virtuali per Azure Marketplace
 
 Quando si pubblica l'immagine della macchina virtuale (VM) in Azure Marketplace, il team di Azure la convalida per garantirne l'avvio, la sicurezza e la compatibilità con Azure. Se uno dei test di qualità elevata ha esito negativo, la pubblicazione avrà esito negativo e verrà visualizzato un messaggio di errore in cui viene descritto il problema.
 
@@ -217,7 +217,7 @@ Se l'immagine non è installata con una delle seguenti versioni del kernel, aggi
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
 ||7.4|3.10.0-693.50.3|
-||7,5|3.10.0-862.34.2|
+||7.5|3.10.0-862.34.2|
 ||7.6|3.10.0-957.21.3|
 ||7.7|3.10.0-1062.1.1|
 ||8.0|4.18.0-80.4.2|
@@ -330,9 +330,9 @@ Di seguito sono riportati i passaggi per eliminare la "cronologia bash".
 Passaggio 1. Distribuire la macchina virtuale e fare clic sull'opzione "Esegui comando" su portale di Azure.
 ![Esegui comando su portale di Azure](./media/vm-certification-issues-solutions-3.png)
 
-Passaggio 2. Selezionare la prima opzione "RunShellScript" ed eseguire il comando seguente.
+Passaggio 2: Selezionare la prima opzione "RunShellScript" ed eseguire il comando seguente.
 
-Comando: "cat/dev/null > ~/. bash_history && History-c" ![ bash History Command on portale di Azure](./media/vm-certification-issues-solutions-4.png)
+Comando: "cat/dev/null > ~/.bash_history && History-c" ![ bash History Command on portale di Azure](./media/vm-certification-issues-solutions-4.png)
 
 Passaggio 3. Al termine dell'esecuzione del comando, riavviare la macchina virtuale.
 

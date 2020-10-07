@@ -4,12 +4,12 @@ description: Viene descritto come utilizzare Gestione risorse di Azure per la di
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 2dc33093df0d9bc0bd75410bac8d200fe6555257
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293949"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372273"
 ---
 # <a name="what-is-azure-resource-manager"></a>Informazioni su Azure Resource Manager
 
@@ -49,7 +49,7 @@ Con Resource Manager è possibile:
 
 * Definire le dipendenze tra risorse in modo che vengano distribuite nell'ordine corretto.
 
-* Applicare il controllo di accesso a tutti i servizi perché il controllo degli accessi in base al ruolo è integrato in modo nativo nella piattaforma di gestione.
+* Applicare il controllo di accesso a tutti i servizi, perché il controllo degli accessi in base al ruolo di Azure è integrato in modo nativo nella piattaforma di gestione.
 
 * Applicare tag a tutte risorse per organizzarle in modo logico nella sottoscrizione.
 
@@ -83,7 +83,7 @@ Esistono alcuni fattori importanti da considerare quando si definisce il gruppo 
 
    Se l'area del gruppo di risorse è temporaneamente non disponibile, non è possibile aggiornare le risorse nel gruppo di risorse perché i metadati non sono disponibili. Le risorse in altre aree continueranno a funzionare come previsto, ma non è possibile aggiornarle. Per altre informazioni su come creare applicazioni affidabili, vedere [Progettazione di applicazioni Azure affidabili](/azure/architecture/checklist/resiliency-per-service).
 
-* Un gruppo di risorse consente di definire l'ambito di controllo di accesso per operazioni amministrative. Per gestire un gruppo di risorse, è possibile assegnare [criteri di Azure](../../governance/policy/overview.md), [ruoli di Controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md) o [blocchi delle risorse](lock-resources.md).
+* Un gruppo di risorse consente di definire l'ambito di controllo di accesso per operazioni amministrative. Per gestire un gruppo di risorse, è possibile assegnare [Criteri di Azure](../../governance/policy/overview.md), [ruoli di Azure](../../role-based-access-control/role-assignments-portal.md) o [blocchi delle risorse](lock-resources.md).
 
 * È possibile [applicare tag](tag-resources.md) a un gruppo di risorse. Le risorse nel gruppo di risorse non ereditano tali tag.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 310fee91ed98409e5a724d1be8de7bc9ccb5601b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 0db34a615c9d92401e760c702feb0dbbf13ce01d
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570914"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803875"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup online e ripristino dei dati su richiesta in Azure Cosmos DB
 
@@ -88,6 +88,13 @@ Quando si elimina accidentalmente un database di Azure Cosmos, è possibile ripr
 Quando si elimina o si modifica accidentalmente uno o più elementi all'interno di un contenitore (caso di danneggiamento dei dati), è necessario specificare l'ora in cui eseguire il ripristino. Il tempo è importante in caso di danneggiamento dei dati. Poiché il contenitore è attivo, il backup è ancora in esecuzione, pertanto se si attende il superamento del periodo di memorizzazione (il valore predefinito è otto ore), i backup verranno sovrascritti. **Per evitare la sovrascrittura del backup, aumentare la conservazione del backup per l'account per almeno sette giorni. È consigliabile aumentare la conservazione entro 8 ore dal danneggiamento dei dati.**
 
 Se i dati sono stati eliminati o danneggiati per errore, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) entro 8 ore, in modo che il team di Azure Cosmos DB possa aiutare a ripristinare i dati dai backup. In questo modo il team di supporto di Azure Cosmos DB avrà tempo sufficiente per ripristinare l'account.
+
+> [!NOTE]
+> Dopo aver ripristinato i dati, non tutte le funzionalità o le impostazioni di origine vengono trasferite nell'account ripristinato. Le impostazioni seguenti non vengono trasferite al nuovo account:
+
+> * Elenchi di controllo di accesso di VNET
+> * Stored procedure, trigger e funzioni definite dall'utente
+> * Impostazioni per più aree  
 
 Se si effettua il provisioning della velocità effettiva a livello di database, in questo caso il processo di backup e ripristino viene eseguito a livello dell'intero database e non a livello dei singoli contenitori. In questi casi, non è possibile selezionare un subset di contenitori da ripristinare.
 

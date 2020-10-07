@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: 5c05db4d6e0c98935fc13325b5656f8023c6228e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: bbecfac4bfd3d5ce1510cb671b93df5f4982cbc4
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443352"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803858"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastici (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -1023,13 +1023,13 @@ Aggiunge un database o un gruppo di database a un gruppo di destinazione.
 Nome del gruppo di destinazione a cui verrà aggiunto il membro. target_group_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
 [ ** \@ membership_type =** ]' membership_type '  
-Specifica se il membro del gruppo di destinazione deve essere incluso o escluso. target_group_name è di tipo nvarchar(128) e il valore predefinito è "Include". I valori validi per target_group_name sono "Include" o "Exclude".
+Specifica se il membro del gruppo di destinazione deve essere incluso o escluso. target_group_name è di tipo nvarchar(128) e il valore predefinito è "Include". I valori validi per membership_type sono ' include ' o ' exclude '.
 
 [ ** \@ target_type =** ]' target_type '  
 Tipo di database o raccolta di database di destinazione, inclusi tutti i database in un server, tutti i database in un pool elastico, tutti i database in una mappa partizioni o un singolo database. target_type è di tipo nvarchar(128), senza alcun valore predefinito. I valori validi per target_type sono "SqlServer", "SqlElasticPool", "SqlDatabase" o "SqlShardMap".
 
 [ ** \@ refresh_credential_name =** ]' refresh_credential_name '  
-Nome del server. refresh_credential_name è di tipo nvarchar(128), senza alcun valore predefinito.
+Nome delle credenziali con ambito database. refresh_credential_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
 [ ** \@ server_name =** ]' server_name '  
 Nome del server che deve essere aggiunto al gruppo di destinazione specificato. È necessario specificare server_name se target_type è "SqlServer". server_name è di tipo nvarchar(128), senza alcun valore predefinito.
@@ -1041,7 +1041,7 @@ Nome del database da aggiungere al gruppo di destinazione specificato. È necess
 Nome del pool elastico da aggiungere al gruppo di destinazione specificato. È necessario specificare elastic_pool_name se target_type è "SqlElasticPool". elastic_pool_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
 [ ** \@ shard_map_name =** ]' shard_map_name '  
-Nome del pool della mappa partizioni da aggiungere al gruppo di destinazione specificato. È necessario specificare elastic_pool_name se target_type è "SqlSqlShardMap". shard_map_name è di tipo nvarchar(128), senza alcun valore predefinito.
+Nome del pool della mappa partizioni da aggiungere al gruppo di destinazione specificato. Quando target_type è' SqlShardMap ', è necessario specificare elastic_pool_name. shard_map_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
 [ ** \@ target_id =** ] target_group_id output  
 Numero di identificazione della destinazione assegnato al membro del gruppo di destinazione se viene creato e aggiunto correttamente al gruppo di destinazione. target_id è una variabile di output di tipo uniqueidentifier e il valore predefinito è NULL.
@@ -1059,7 +1059,7 @@ Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin
 
 Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sezione Autorizzazioni di questo documento. Solo i membri del ruolo sysadmin possono usare questa stored procedure per modificare gli attributi dei processi di proprietà di altri utenti.
 
-#### <a name="examples"></a>Esempio
+#### <a name="examples"></a>Esempi
 
 Nell'esempio seguente vengono aggiunti tutti i database nei server di Londra e New York al gruppo Servers Maintaining Customer Information. È necessario connettersi al database dei processi specificato al momento della creazione dell'agente processo, in questo caso ElasticJobs.
 
@@ -1128,7 +1128,7 @@ Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin
 
 Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sezione Autorizzazioni di questo documento. Solo i membri del ruolo sysadmin possono usare questa stored procedure per modificare gli attributi dei processi di proprietà di altri utenti.
 
-#### <a name="examples"></a>Esempio
+#### <a name="examples"></a>Esempi
 
 Nell'esempio seguente viene rimosso il server di Londra dal gruppo Servers Maintaining Customer Information. È necessario connettersi al database dei processi specificato al momento della creazione dell'agente processo, in questo caso ElasticJobs.
 
@@ -1187,7 +1187,7 @@ Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin
 
 Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sezione Autorizzazioni di questo documento. Solo i membri del ruolo sysadmin possono usare questa stored procedure per modificare gli attributi dei processi di proprietà di altri utenti.
 
-#### <a name="examples"></a>Esempio
+#### <a name="examples"></a>Esempi
 
 Nell'esempio seguente vengono aggiunti tutti i database nei server di Londra e New York al gruppo Servers Maintaining Customer Information. È necessario connettersi al database dei processi specificato al momento della creazione dell'agente processo, in questo caso ElasticJobs.
 

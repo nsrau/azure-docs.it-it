@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
 ms.openlocfilehash: db3836e6171d187539b8615efcb5ab782c368020
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88752573"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Avvio rapido: Creazione della prima app Web statica
@@ -44,27 +44,27 @@ Aprire quindi Visual Studio Code e passare a **File > Apri cartella** per aprire
 
 1. Posizionare il puntatore del mouse sull'etichetta _App Web statiche_ e selezionare il **segno più**.
 
-    :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Nome applicazione":::
+    :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Logo di Azure":::
 
 1. Nella parte superiore dell'editor verrà visualizzato il riquadro comandi, in cui verrà richiesto di assegnare un nome all'applicazione.
 
     Digitare **my-first-static-web-app** e premere **INVIO**.
 
-    :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Creare l'app Web statica":::
+    :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Logo di Azure":::
 
 1. Selezionare il ramo **master** e premere **INVIO**.
 
-    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Nome del ramo":::
+    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Logo di Azure":::
 
 1. Selezionare **/** come posizione per il codice dell'applicazione e premere **INVIO**.
 
-    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Posizione del codice dell'applicazione":::
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Logo di Azure":::
 
 1. L'estensione cerca la posizione dell'API nell'applicazione. Questo articolo non implementa un'API.
 
     Selezionare **Skip for now** (Ignora per ora) e premere **INVIO**.
 
-    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Posizione dell'API":::
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Logo di Azure":::
 
 1. Selezionare la posizione in cui vengono compilati i file per la produzione nell'app.
 
@@ -72,39 +72,39 @@ Aprire quindi Visual Studio Code e passare a **File > Apri cartella** per aprire
 
     Deselezionare la casella e premere **INVIO**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="Percorso dei file dell'app":::
+    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="Logo di Azure":::
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
     Digitare **dist/angular-basic** e premere **INVIO**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Percorso dei file di un'app Angular":::
+    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Logo di Azure":::
 
     # <a name="react"></a>[React](#tab/react)
 
     Digitare **build** e premere **INVIO**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="Percorso dei file di un'app React":::
+    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="Logo di Azure":::
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
     Digitare **dist** e premere **INVIO**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Percorso dei file di un'app Vue":::
+    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Logo di Azure":::
 
     ---
 
 1. Selezionare la località più vicina e premere **INVIO**.
 
-    :::image type="content" source="media/getting-started/extension-location.png" alt-text="Posizione risorsa":::
+    :::image type="content" source="media/getting-started/extension-location.png" alt-text="Logo di Azure":::
 
 1. Al termine della creazione dell'app, in Visual Studio Code verrà visualizzata una notifica di conferma.
 
-    :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Conferma della creazione":::
+    :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Logo di Azure":::
 
 1. Nella finestra di esplorazione di Visual Studio Code tornare alla sezione _App Web statiche_, fare clic con il pulsante destro del mouse su **Produzione** e quindi scegliere **Apri nel portale** per visualizzare l'app nel portale di Azure.
 
-    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Aprire il portale":::
+    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Logo di Azure":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
@@ -114,7 +114,7 @@ Se non si intende continuare a usare questa applicazione, è possibile eliminare
 
 Nella finestra di esplorazione di Visual Studio Code tornare alla sezione _App Web statiche_, fare clic con il pulsante destro del mouse su **my-first-static-web-app** e quindi scegliere **Elimina**.
 
-:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Eliminare l'app":::
+:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Logo di Azure":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

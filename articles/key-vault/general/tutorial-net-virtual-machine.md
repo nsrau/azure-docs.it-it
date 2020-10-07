@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Usare Azure Key Vault con una macchina virtuale in .NET | Microsoft Docs'
-description: In questa esercitazione si configura un'applicazione ASP.NET Core per la lettura di un segreto dall'insieme di credenziali delle chiavi.
+description: In questa esercitazione si configura un'applicazione ASP.NET Core in una macchina virtuale per la lettura di un segreto dall'insieme di credenziali delle chiavi.
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b4f832750f7a94a6a60cbb1d3ba630925dd4fff2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e1abc26296b1e3bd16bebf95d3489a4e95595e1a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021732"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336718"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Esercitazione: Usare Azure Key Vault con una macchina virtuale in .NET
 

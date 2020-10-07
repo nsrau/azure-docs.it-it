@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
 ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85483296"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Avvio rapido: Creare un database Azure Cosmos DB e un contenitore con un modello di Resource Manager
@@ -57,7 +57,7 @@ Altri esempi di modelli di Azure Cosmos DB sono disponibili nella [raccolta di m
 
 2. Selezionare o immettere i valori seguenti.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Modello di Resource Manager: integrazione di Azure Cosmos DB, portale per la distribuzione":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Distribuzione in Azure":::
 
     Se non specificati, usare i valori predefiniti per creare le risorse di Azure Cosmos DB.
 
@@ -78,7 +78,7 @@ Altri esempi di modelli di Azure Cosmos DB sono disponibili nella [raccolta di m
 
 3. Selezionare **Acquisto**. Al termine della distribuzione dell'account Azure Cosmos DB, si riceverà una notifica:
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Modello di Resource Manager: integrazione di Cosmos DB, notifica nel portale per la distribuzione":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Distribuzione in Azure":::
 
 Per distribuire il modello, si usa il portale di Azure. Oltre al portale di Azure, è anche possibile usare Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-powershell.md).
 

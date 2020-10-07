@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4ca601a3f149d8287137265665379d407d10b988
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 08bbe1000d457cc4f4d6b655051ec640d4dcecf4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192690"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362096"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Esercitazione: Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure
 Questa esercitazione illustra come aggiungere un dominio personalizzato a un endpoint della rete CDN di Azure. Quando si usa un endpoint della rete CDN per distribuire il contenuto, è necessario un dominio personalizzato se si vuole che il nome di dominio sia visibile nell'URL della rete CDN. Avere un nome di dominio visibile può essere pratico per i clienti e utile a scopo di personalizzazione. 
@@ -90,7 +90,7 @@ La procedura per il registrar GoDaddy, ad esempio, è la seguente:
 
 5. Completare i campi seguenti della voce CNAME:
 
-    ![Voce CNAME](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
+    ![Screenshot che mostra la voce CNAME con i valori di Type, Host, Points to e TTL per un sottodominio cdnverify temporaneo.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
     - Digitare: lasciare selezionato *CNAME*.
 
@@ -104,7 +104,7 @@ La procedura per il registrar GoDaddy, ad esempio, è la seguente:
  
     La voce CNAME viene aggiunta alla tabella di record DNS.
 
-    ![Tabella dei record DNS](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
+    ![Screenshot che mostra che la voce CNAME è stata aggiunta alla tabella di record DNS per un sottodominio cdnverify temporaneo.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
 
 
 ## <a name="associate-the-custom-domain-with-your-cdn-endpoint"></a>Associare il dominio personalizzato all'endpoint della rete CDN
@@ -188,7 +188,7 @@ La procedura per il registrar GoDaddy, ad esempio, è la seguente:
 
 5. Completare i campi della voce CNAME:
 
-    ![Voce CNAME](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
+    ![Screenshot che mostra la voce CNAME con i valori di Type, Host, Points to e TTL per un dominio personalizzato permanente.](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
     - Digitare: lasciare selezionato *CNAME*.
 
@@ -202,7 +202,7 @@ La procedura per il registrar GoDaddy, ad esempio, è la seguente:
  
     La voce CNAME viene aggiunta alla tabella di record DNS.
 
-    ![Tabella dei record DNS](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
+    ![Screenshot che mostra che la voce CNAME è stata aggiunta alla tabella di record DNS per un dominio personalizzato permanente.](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
 
 7. Se si ha un record CNAME cdnverify, selezionare l'icona a forma di matita accanto a esso, quindi selezionare l'icona del cestino.
 

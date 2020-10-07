@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 43c11575be084354e4c9287b44b5847d4d086aff
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 56aa0d91372ac2d21a20f28b1044f0811c716b0c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084397"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358033"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-maya"></a>Esercitazione: Configurare materiali basati su PBR (Physically Based Rendering) in Maya
 
@@ -79,7 +79,7 @@ Il processo di creazione di istanze in Maya è semplice.
 1. Nella finestra di dialogo **Duplicate Special Options** (Duplica opzioni speciali) per **Geometry type** (Tipo di geometria) selezionare l'opzione **Instance** (Istanza). 
 1. Selezionare **Duplicate Special** (Duplica speciali).
 
-   ![Creazione di istanze](media/instancing.jpg)
+   ![Screenshot che mostra una finestra Maya con la finestra di dialogo Duplicate Special Options aperta e l'opzione Duplicate Special selezionata.](media/instancing.jpg)
 
 Verrà creata un'istanza dell'oggetto. È possibile spostarla, ruotarla o ridimensionarla indipendentemente dall'oggetto padre e da altre istanze di tale oggetto padre. 
 

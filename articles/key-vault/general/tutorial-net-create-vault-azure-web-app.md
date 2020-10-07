@@ -1,6 +1,6 @@
 ---
 title: Esercitazione - Usare Azure Key Vault con un'app Web di Azure in .NET | Microsoft Docs
-description: In questa esercitazione si configura un'applicazione ASP.NET Core per la lettura di un segreto dall'insieme di credenziali delle chiavi.
+description: In questa esercitazione si configura un'app Web di Azure in un'applicazione ASP.NET Core per la lettura di un segreto dall'insieme di credenziali delle chiavi.
 services: key-vault
 author: msmbaldwin
 manager: rajvijan
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: be18718513e8624db00d502228a3e5af6076d9d7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e537bb74655bce5c8438e22fb9b990b72eab73d7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007078"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336684"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Esercitazione: Usare un'identità gestita per connettere Key Vault a un'app Web di Azure con .NET
 

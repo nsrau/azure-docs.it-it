@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 8a5065e46b6528683058bfdc52f8f4f9bea4884f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "67179835"
 ---
 Un [piano di servizio app](../articles/app-service/overview-hosting-plans.md) specifica la località, le dimensioni e le funzionalità della server farm Web che ospita l'app. Quando si ospitano più app, è possibile limitare i costi configurando le app Web in modo che condividano un singolo piano di servizio app.

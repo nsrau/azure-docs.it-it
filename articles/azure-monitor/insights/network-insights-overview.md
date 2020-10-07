@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/24/2020
-ms.openlocfilehash: 2559c4f54aa19df248ddf756e376809dea516997
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5f076f477c36f96d1807ce7071720225a6df8e03
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330961"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803807"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Monitoraggio di Azure per le reti (anteprima)
 Monitoraggio di Azure per la rete offre una panoramica completa dell' [integrità](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) e delle [metriche](../platform/metrics-supported.md) per tutte le risorse di rete distribuite senza alcuna configurazione.  Consente inoltre di accedere a tutte le funzionalità di monitoraggio della rete, ad esempio il [monitoraggio della connessione](../../network-watcher/connection-monitor-preview.md), [la registrazione dei flussi per i gruppi di sicurezza di rete (gruppi)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [analisi del traffico](../../network-watcher/traffic-analytics.md)e altre funzionalità di [diagnostica](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) di rete.
@@ -108,6 +108,43 @@ Il Toolkit di diagnostica fornisce l'accesso a tutte le funzionalità di diagnos
 
 ![Scheda del Toolkit di diagnostica](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## <a name="troubleshooting"></a>Risoluzione dei problemi 
+
+Per indicazioni generali sulla risoluzione dei problemi, vedere l'articolo dedicato alla [risoluzione dei](troubleshoot-workbooks.md)problemi di Insights basato sulla cartella di lavoro.
+
+Questa sezione illustra la diagnosi e la risoluzione dei problemi più comuni che possono verificarsi quando si usa monitoraggio di Azure per le reti. Usare l'elenco che segue per individuare le informazioni pertinenti a un problema specifico.
+
+### <a name="resolving-performance-issues-or-failures"></a>Risoluzione dei problemi di prestazioni o degli errori
+
+Per risolvere eventuali problemi correlati alla rete identificati con monitoraggio di Azure per le reti, vedere la documentazione sulla risoluzione dei problemi relativi alla risorsa che non funziona correttamente. Di seguito sono elencati i collegamenti per la risoluzione dei problemi relativi ai servizi di uso elevato.
+* Rete virtuale (VNET)
+* Gateway applicazione
+* Gateway VPN
+* ExpressRoute 
+* Load Balancer 
+
+### <a name="why-dont-i-see-the-resources-from-all-the-subscriptions-i-have-selected"></a>Perché non vengono visualizzate le risorse di tutte le sottoscrizioni selezionate
+
+In Network Insights è possibile visualizzare solo le risorse di 5 sottoscrizioni alla volta. 
+
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-network-insights-how-do-i-do-so"></a>Desidero apportare modifiche o aggiungere altre visualizzazioni a Network Insights, come faccio
+
+Per apportare modifiche, selezionare "Modalità di modifica" per modificare la cartella di lavoro, quindi è possibile salvare il lavoro come una nuova cartella di lavoro associata a una sottoscrizione e a un gruppo di risorse designati.
+
+### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Qual è il tempo di granularità dopo che è stata aggiunta una parte delle cartelle di lavoro
+
+La cadenza temporale è automatica, quindi dipende dall'intervallo di tempo selezionato.
+
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Qual è l'intervallo di tempo in cui una parte della cartella di lavoro è bloccata
+
+L'intervallo di tempo dipende dalle impostazioni del dashboard.
+
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-network-insights"></a>È possibile vedere altri dati o creare visualizzazioni personali? Come è possibile apportare modifiche a Network Insights
+
+È possibile modificare la cartella di lavoro visualizzata in qualsiasi pannello laterale e visualizzazione dettagliata delle metriche, usando la modalità di modifica, quindi salvare il lavoro come una nuova cartella di lavoro che avrà tutte le nuove modifiche.
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sul monitoraggio della rete, vedere informazioni su [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md).
+- Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md).

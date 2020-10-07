@@ -1,5 +1,5 @@
 ---
-title: Creare asset tecnici di macchine virtuali di Azure
+title: Crea risorse tecniche per un'offerta di macchina virtuale di Azure Marketplace
 description: Informazioni su come creare e configurare le risorse tecniche necessarie per un'offerta di macchina virtuale (VM) per Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,22 +7,22 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 07c8de2a9d94b51f7183829466bd68d56e19efba
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a83532e2dd6fc8e83206a3b4a055170b40d131fd
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646795"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803518"
 ---
-# <a name="create-azure-virtual-machine-technical-assets"></a>Creare asset tecnici di macchine virtuali di Azure
+# <a name="create-technical-assets-for-an-azure-marketplace-virtual-machine-offer"></a>Crea risorse tecniche per un'offerta di macchina virtuale di Azure Marketplace
 
 Quando si pubblicano le immagini della macchina virtuale (VM) in Azure Marketplace, il team di Azure convalida l'immagine della VM per garantirne l'avvio, la sicurezza e la compatibilità con Azure. Se uno dei test di qualità elevata ha esito negativo, la pubblicazione avrà esito negativo con un messaggio contenente l'errore e i [passaggi di rettifica](https://docs.microsoft.com/azure/marketplace/partner-center-portal/vm-certification-issues-solutions)possibili.
 
 L'articolo descrive come creare e configurare le risorse tecniche necessarie per un'offerta di macchina virtuale (VM) per Azure Marketplace. Una macchina virtuale è costituita da due componenti: il disco rigido virtuale (VHD, Virtual Hard Disk) del sistema operativo e dischi rigidi virtuali facoltativi dei dischi dati associati:
 
-1. **Disco rigido virtuale del sistema operativo**: contiene il sistema operativo e la soluzione distribuiti con l'offerta. Il processo di preparazione del disco rigido virtuale varia a seconda che si tratti di una macchina virtuale basata su Linux o basata su Windows o personalizzata.
+- **VHD del sistema operativo**: contiene il sistema operativo e la soluzione distribuiti con l'offerta. Il processo di preparazione del disco rigido virtuale varia a seconda che si tratti di una macchina virtuale basata su Linux o basata su Windows o personalizzata.
 
-2. Dischi **rigidi virtuali del disco dati** : archiviazione permanente dedicata per una macchina virtuale. Non usare il disco rigido virtuale del sistema operativo (ad esempio, l'unità C:) per archiviare informazioni permanenti.
+- Dischi **rigidi virtuali del disco dati**: archivio permanente dedicato per una macchina virtuale. Non usare il disco rigido virtuale del sistema operativo (ad esempio, l'unità C:) per archiviare informazioni permanenti.
 
 Un'immagine di macchina virtuale contiene un disco del sistema operativo e fino a 16 dischi dati. Usare un disco rigido virtuale per ogni disco dati, anche se il disco è vuoto.
 
@@ -98,17 +98,17 @@ Seguire questa procedura per creare l'immagine di macchina virtuale di base nel 
 4. Selezionare **+ Aggiungi** per aprire **Create a virtual machine experience (Crea un'esperienza di macchina virtuale)** .
 5. Selezionare l'immagine nell'elenco a discesa oppure selezionare **Sfoglia tutte le immagini pubbliche e private** per cercare o esplorare tutte le immagini di macchine virtuali disponibili. Esempio:
 
-    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Mostra un'immagine di macchina virtuale di esempio.":::
+    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Mostra l'inizio della creazione di un gruppo di risorse.":::
 
 6. Selezionare le dimensioni della macchina virtuale per eseguire la distribuzione seguendo queste indicazioni:
     1. Se si prevede di sviluppare il disco rigido virtuale in locale, la dimensione non è rilevante. Valutare l'opportunità di usare una delle macchine virtuali di dimensioni minori.
     2. Se si prevede di sviluppare l'immagine in Azure, valutare l'opportunità di usare una delle dimensioni di macchina virtuale consigliate per l'immagine selezionata.
 
-    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Mostra la selezione delle dimensioni della macchina virtuale.":::
+    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Mostra l'inizio della creazione di un gruppo di risorse.":::
 
 7. In **Dischi** espandere la sezione **Avanzata** e impostare l'opzione **Usa dischi gestiti** su **No**.
 
-    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Mostra l'opzione per l'uso di Managed Disks.":::
+    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Mostra l'inizio della creazione di un gruppo di risorse.":::
 
 8. Indicare gli altri dettagli necessari per creare la macchina virtuale.
 9. Selezionare **Review + create (Revisione e creazione)** per rivedere le scelte effettuate. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
@@ -123,13 +123,13 @@ Creare una macchina virtuale di generazione 2 (Gen2) in portale di Azure.
 2. Selezionare **Crea una risorsa**.
 3. Selezionare **Visualizza tutto** da Azure Marketplace sulla sinistra.
 4. Selezionare un'immagine che supporti Gen2.
-5. Selezionare **Create** (Crea).
+5. Selezionare **Crea**.
 6. Nella scheda **Avanzate**, nella sezione **Generazione macchina virtuale** selezionare l'opzione **Gen 2**.
 7. Nella scheda **Impostazioni di base**, in **Dettagli istanza** passare a **Dimensioni** e aprire il pannello **Selezionare le dimensioni di macchina virtuale**.
 8. Selezionare le dimensioni consigliate per le [macchine virtuali di seconda generazione](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) e le dimensioni supportate.
 9. Eseguire le operazioni del [flusso di creazione del portale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) per completare la creazione della macchina virtuale.
 
-    :::image type="content" source="media/vm/vm-generation.png" alt-text="Mostra l'opzione per selezionare la generazione della macchina virtuale.":::
+    :::image type="content" source="media/vm/vm-generation.png" alt-text="Mostra l'inizio della creazione di un gruppo di risorse.":::
 
 ## <a name="connect-to-your-azure-vm"></a>Connettersi alla macchina virtuale di Azure
 
@@ -157,7 +157,7 @@ Per connettersi a una macchina virtuale basata su Linux, è necessario disporre 
 7. Aprire l'applicazione PuTTY.
 8. Nella finestra di dialogo per la configurazione di PuTTY immettere l'indirizzo IP e il nome DNS della macchina virtuale.
 
-    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Illustra le impostazioni del terminale PuTTy, evidenziando i campi nome host e porta.":::
+    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Mostra l'inizio della creazione di un gruppo di risorse.":::
 
 9. Selezionare **Apri** per aprire un terminale PuTTY.
 10. Quando richiesto, immettere il nome account e la password dell'account di macchina virtuale di Linux.

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322190"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803824"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
@@ -88,7 +88,7 @@ La qualità del video può essere compromessa dalla qualità della rete o dall'a
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>I video registrati con MRC non riflettono la qualità dell'esperienza dal vivo
 
-Un video può essere registrato in Hololens tramite [MRC (Mixed Reality Capture, Acquisizione di Realtà mista)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Il video risultante presenta tuttavia una qualità peggiore rispetto all'esperienza dal vivo per due motivi:
+Un video può essere registrato in HoloLens tramite l' [acquisizione di realtà mista (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Il video risultante presenta tuttavia una qualità peggiore rispetto all'esperienza dal vivo per due motivi:
 * La frequenza di fotogrammi del video è limitata a 30 Hz e non a 60 Hz.
 * Le immagini del video saltano il passaggio di elaborazione della [riproiezione con ritardo della fase](../overview/features/late-stage-reprojection.md), pertanto il video ha un aspetto maggiormente mosso.
 
@@ -193,7 +193,7 @@ Se gli oggetti di cui è stato eseguito il rendering sembrano sportarsi con i mo
 
 Gli ologrammi instabili (oscillazione, distorsione, tremolio o salto degli ologrammi) possono derivare anche da una connettività di rete insufficiente, in particolare da una larghezza di banda di rete insufficiente o una latenza troppo elevata. Un buon indicatore per la qualità della connessione di rete è il valore sulle [statistiche delle prestazioni](../overview/features/performance-queries.md)`ARRServiceStats.VideoFramesReused`. I fotogrammi riusati indicano situazioni in cui è necessario riusare un fotogramma video precedente sul lato client perché non è disponibile alcun nuovo fotogramma video, ad esempio a causa di una perdita di pacchetti o di variazioni nella latenza di rete. Se il valore `ARRServiceStats.VideoFramesReused` è spesso superiore a 0, significa che si è riscontrato un problema di rete.
 
-Un altro valore da esaminare è `ARRServiceStats.LatencyPoseToReceiveAvg`. Deve essere sempre inferiore a 100 ms. Se si visualizzano valori più alti, significa che il data center a cui si è connessi è troppo lontano.
+Un altro valore da esaminare è `ARRServiceStats.LatencyPoseToReceiveAvg`. Deve essere sempre inferiore a 100 ms. La visualizzazione di valori più alti potrebbe indicare che si è connessi a un data center troppo lontano.
 
 Per un elenco delle possibili mitigazioni, vedere le [Linee guida per la connettività di rete](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
@@ -245,7 +245,9 @@ Le superfici complanari possono avere diverse cause:
 
 * Le superfici vengono create espressamente per il tocco, ad esempio decalcomanie o testo sulle pareti.
 
+## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Artefatti grafici che usano il rendering stereo a più passaggi in app C++ native
 
+In alcuni casi, le app C++ native personalizzate che usano una modalità di rendering stereo a più passaggi per il contenuto locale (il rendering a destra e a sinistra in sessioni separate) dopo la chiamata di [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) possono attivare un bug del driver. Il bug produce problemi di rasterizzazione non deterministici, causando la scomparsa casuale di singoli triangoli o parti di triangoli del contenuto locale. Per motivi di prestazioni, è comunque consigliabile eseguire il rendering del contenuto locale con una tecnica di rendering stereo a un singolo passaggio più moderna, ad esempio usando **SV_RenderTargetArrayIndex**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

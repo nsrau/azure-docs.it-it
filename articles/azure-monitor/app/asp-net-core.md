@@ -4,12 +4,12 @@ description: Monitorare le applicazioni Web ASP.NET Core per identificare dispon
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: ac742aae88b3e3c62ffca857dcb690fa71434482
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: eae6117f82f3bb138edb6cea23a2c052e19fb0cf
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006760"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803592"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -25,7 +25,7 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 * **Metodo di distribuzione**: dipendente dal framework o autonomo.
 * **Server Web**: IIS (Internet Information Server) o Kestrel.
 * **Piattaforma di hosting**: la funzionalità App Web del Servizio app di Azure, Macchina virtuale di Azure, Docker, servizio Azure Kubernetes e così via.
-* **Versione runtime di .NET Core**: 1. XX, 2. XX o 3. XX
+* **Versione di .NET Core**: tutte le versioni di .NET Core ufficialmente [supportate](https://dotnet.microsoft.com/download/dotnet-core) .
 * **IDE**: Visual Studio, vs code o riga di comando.
 
 > [!NOTE]
@@ -121,8 +121,8 @@ Per Visual Studio per Mac usare le [linee guida manuali](#enable-application-ins
 
 ### <a name="user-secrets-and-other-configuration-providers"></a>Segreti utente e altri provider di configurazione
 
-Se si vuole archiviare la chiave di strumentazione in ASP.NET Core segreti utente o recuperarla da un altro provider di configurazione, è possibile usare l'overload con un `Microsoft.Extensions.Configuration.IConfiguration` parametro. Ad esempio: `services.AddApplicationInsightsTelemetry(Configuration);`.
-A partire da Microsoft. ApplicationInsights. AspNetCore versione [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), `services.AddApplicationInsightsTelemetry()` la chiamata a leggerà automaticamente la chiave di strumentazione dall' `Microsoft.Extensions.Configuration.IConfiguration` applicazione. Non è necessario fornire esplicitamente `IConfiguration` .
+Se si vuole archiviare la chiave di strumentazione in ASP.NET Core segreti utente o recuperarla da un altro provider di configurazione, è possibile usare l'overload con un `Microsoft.Extensions.Configuration.IConfiguration` parametro. Ad esempio, `services.AddApplicationInsightsTelemetry(Configuration);`
+A partire da Microsoft. ApplicationInsights. AspNetCore versione [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), `services.AddApplicationInsightsTelemetry()` la chiamata a leggerà automaticamente la chiave di strumentazione dall' `Microsoft.Extensions.Configuration.IConfiguration` applicazione. Non è necessario fornire esplicitamente `IConfiguration` .
 
 ## <a name="run-your-application"></a>Eseguire l'applicazione
 
@@ -151,7 +151,7 @@ Il supporto per i [contatori delle prestazioni](./web-monitor-performance.md) in
 
 ### <a name="eventcounter"></a>EventCounter
 
-`EventCounterCollectionModule` è abilitato per impostazione predefinita e raccoglie un set predefinito di contatori dalle app .NET Core 3. X. L'esercitazione [EventCounter](eventcounters.md) elenca il set predefinito di contatori raccolti. Sono inoltre disponibili istruzioni per la personalizzazione dell'elenco.
+`EventCounterCollectionModule` è abilitato per impostazione predefinita. L'esercitazione su [EventCounter](eventcounters.md) include istruzioni sulla configurazione dell'elenco di contatori da raccogliere.
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>Abilitare la telemetria sul lato client per le applicazioni Web
 
@@ -226,9 +226,9 @@ Elenco completo delle impostazioni in `ApplicationInsightsServiceOptions`
 
 Per l'elenco più aggiornato, vedere le [impostazioni configurabili in `ApplicationInsightsServiceOptions` ](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) .
 
-### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150-beta3--above"></a>Raccomandazione di configurazione per Microsoft. ApplicationInsights. AspNetCore SDK 2.15.0-beta3 & precedente
+### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150--above"></a>Raccomandazione di configurazione per Microsoft. ApplicationInsights. AspNetCore SDK 2.15.0 & precedente
 
-A partire da Microsoft. ApplicationInsights. AspNetCore SDK versione [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0-beta3) è consigliabile configurare tutte le impostazioni disponibili in `ApplicationInsightsServiceOptions` , incluso instrumentationkey usando l'istanza di Applications `IConfiguration` . Le impostazioni devono trovarsi nella sezione "ApplicationInsights", come illustrato nell'esempio seguente. La sezione seguente da appsettings.json configura la chiave di strumentazione e disabilita anche il campionamento adattivo e la raccolta dei contatori delle prestazioni.
+A partire da Microsoft. ApplicationInsights. AspNetCore SDK versione [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) è consigliabile configurare tutte le impostazioni disponibili in `ApplicationInsightsServiceOptions` , incluso instrumentationkey usando l'istanza di Applications `IConfiguration` . Le impostazioni devono trovarsi nella sezione "ApplicationInsights", come illustrato nell'esempio seguente. La sezione seguente da appsettings.json configura la chiave di strumentazione e disabilita anche il campionamento adattivo e la raccolta dei contatori delle prestazioni.
 
 ```json
 {
@@ -240,11 +240,11 @@ A partire da Microsoft. ApplicationInsights. AspNetCore SDK versione [2.15.0-bet
 }
 ```
 
-Se `services.AddApplicationInsightsTelemetry(aiOptions)` si usa, questo oggetto sostituisce le impostazioni da `Microsoft.Extensions.Configuration.IConfiguration` .
+Se `services.AddApplicationInsightsTelemetry(aiOptions)` si usa, viene eseguito l'override delle impostazioni da `Microsoft.Extensions.Configuration.IConfiguration` .
 
 ### <a name="sampling"></a>campionamento
 
-Il Application Insights SDK per ASP.NET Core supporta sia il campionamento a frequenza fissa che quello adattivo. Il campionamento adattivo è abilitato per impostazione predefinita. 
+Il Application Insights SDK per ASP.NET Core supporta sia il campionamento a frequenza fissa che quello adattivo. Il campionamento adattivo è abilitato per impostazione predefinita.
 
 Per altre informazioni, vedere [configurare il campionamento adattivo per ASP.NET Core applicazioni](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
 
@@ -335,7 +335,6 @@ public void ConfigureServices(IServiceCollection services)
     services.ConfigureTelemetryModule<EventCounterCollectionModule>(
             (module, o) =>
             {
-                module.Counters.Clear();
                 module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
             }
         );
@@ -447,10 +446,6 @@ Se l'SDK viene installato in fase di compilazione, come illustrato in questo art
 
 No. [Status Monitor](./monitor-performance-live-website-now.md) e [Status Monitor V2](./status-monitor-v2-overview.md) attualmente supportano solo ASP.NET 4. x.
 
-### <a name="is-application-insights-automatically-enabled-for-my-aspnet-core-20-application"></a>Application Insights è abilitato automaticamente per l'applicazione ASP.NET Core 2,0?
-
-Il `Microsoft.AspNetCore.All` metapacchetto 2,0 includeva SDK Application Insights (versione 2.1.0). Se si esegue l'applicazione nel debugger di Visual Studio, Visual Studio Abilita Application Insights e Visualizza i dati di telemetria localmente nell'IDE stesso. La telemetria non è stata inviata al servizio Application Insights a meno che non sia stata specificata una chiave di strumentazione. È consigliabile seguire le istruzioni riportate in questo articolo per abilitare Application Insights, anche per le app 2,0.
-
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>Se eseguo l'applicazione in Linux, tutte le funzionalità sono supportate?
 
 Sì. Il supporto delle funzionalità per l'SDK è lo stesso in tutte le piattaforme, con le eccezioni seguenti:
@@ -473,6 +468,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
         services.AddApplicationInsightsTelemetry();
     }
 ```
+
+Questa limitazione non è applicabile da [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) e versioni più recenti.
 
 ### <a name="is-this-sdk-supported-for-the-new-net-core-3x-worker-service-template-applications"></a>Questo SDK è supportato per le nuove applicazioni modello di servizio del ruolo di lavoro .NET Core 3. X?
 

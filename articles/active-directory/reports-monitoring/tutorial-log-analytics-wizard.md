@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93caf52d8b4a11f9843ad5f18ebf968d1d0730cd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226208"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361909"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Esercitazione: Configurare la procedura guidata di Log Analytics
 
@@ -72,7 +72,7 @@ La configurazione di un'area di lavoro Log Analytics è costituita da due passag
 
 3. Nella pagina Aree di lavoro Log Analytics fare clic su **Aggiungi**.
 
-    ![Aggiunta](./media/tutorial-log-analytics-wizard/add.png)
+    ![Screenshot che mostra il pulsante Aggiungi nella pagina Aree di lavoro Log Analytics.](./media/tutorial-log-analytics-wizard/add.png)
 
 4.  Nella pagina **Crea area di lavoro Log Analytics** seguire questa procedura:
 
@@ -305,7 +305,7 @@ Questa procedura illustra come creare una nuova cartella di lavoro con il modell
 
 3. Nella sezione **Monitoraggio** fare clic su **Cartelle di lavoro**.
 
-    ![Workbooks](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Screenshot che mostra la sezione Monitoraggio nel menu del portale di Azure con l'opzione Cartelle di lavoro selezionata.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. Nella sezione **Avvio rapido** fare clic su **Vuoto**.
 
@@ -357,7 +357,7 @@ Questa procedura illustra come aggiungere una query a un modello di cartella di 
 
 3. Nella sezione **Monitoraggio** fare clic su **Cartelle di lavoro**.
 
-    ![Workbooks](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Screenshot che mostra la sezione Monitoraggio nel menu con l'opzione Cartelle di lavoro selezionata.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. Nella sezione **Accesso condizionale** fare clic su **Informazioni dettagliate e report sull'accesso condizionale**.
 

@@ -8,12 +8,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 8a55ab9b6b87a379fbdebcead4467ec47507d67a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8853a153450a07105ed4bac13de0da6cea95ce2a
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356350"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Creare un'impostazione di scalabilità automatica per le risorse di Azure in base ai dati sulle prestazioni o a una pianificazione
 
@@ -46,7 +46,7 @@ Entro pochi minuti, verrà effettuato il provisioning delle risorse. Usare l'app
 1. Selezionare l'opzione **Monitoraggio** nel riquadro di navigazione a sinistra. Quando la pagina si è caricata, selezionare la scheda **Scalabilità automatica**.
 2. Qui viene mostrato un elenco delle risorse nella sottoscrizione che supporta la scalabilità automatica. Identificare il piano di servizio app che è stato creato in precedenza nell'esercitazione, fare clic su di esso.
 
-    ![Passare alle impostazioni di scalabilità automatica](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
+    ![Screenshot che mostra il portale di Azure con le opzioni Monitoraggio e Scalabilità automatica selezionate.](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
 3. Tra le impostazioni di scalabilità automatica fare clic sul pulsante **Abilita scalabilità automatica**.
 
@@ -59,7 +59,7 @@ I passaggi successivi consentono di compilare la schermata di scalabilità autom
 2. Nel profilo predefinito assicurarsi che l'opzione **Modalità di ridimensionamento** sia impostata su "Ridimensiona in base a un numero di istanze specifico".
 3. Impostare il numero di istanze su **1**. Questa impostazione fa in modo che quando non sono attivi oppure operativi altri profili, il profilo predefinito restituisce 1 come numero di istanze.
 
-   ![Passare alle impostazioni di scalabilità automatica](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![Screenshot mostra la pagina delle impostazioni di Scalabilità automatica con un nome immesso per l'impostazione.](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>Creare un profilo Ricorrenza

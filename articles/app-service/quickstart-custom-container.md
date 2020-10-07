@@ -7,12 +7,12 @@ ms.date: 08/28/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 33eaf6274f2da09ab98a21e6028b0103df817744
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4c95e345255b28ba43e474087cdb80fcab493394
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961364"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356418"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Eseguire un contenitore personalizzato in Azure
 
@@ -57,7 +57,7 @@ Creare un'app Web ASP.NET seguendo questa procedura:
 
 1. Se il file _Dockerfile_ non viene aperto automaticamente, aprirlo da **Esplora soluzioni**.
 
-1. È necessaria un'[immagine padre supportata](#use-a-different-parent-image). Modificare l'immagine padre sostituendo la riga `FROM` con il codice seguente e salvare il file:
+1. È necessaria un'[immagine padre supportata](configure-custom-container.md#supported-parent-images). Modificare l'immagine padre sostituendo la riga `FROM` con il codice seguente e salvare il file:
 
    ```dockerfile
    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
@@ -169,22 +169,16 @@ I log trasmessi sono simili al seguente:
 
 ![App Web aggiornata in Azure](./media/quickstart-custom-container/azure-web-app-updated.png)
 
-## <a name="use-a-different-parent-image"></a>Usare un'immagine padre diversa
-
-È possibile eseguire l'app usando un'altra immagine Docker personalizzata. È tuttavia necessario scegliere l'[immagine padre (di base)](https://docs.docker.com/develop/develop-images/baseimages/) corretta per il framework desiderato:
-
-- Per distribuire app .NET Framework, usare un'immagine padre basata sulla versione [Long-Term Servicing Channel (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) di Windows Server Core 2019. 
-- Per distribuire app .NET Core, usare un'immagine padre basata sulla versione [Semi-Annual Servicing Channel (SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) di Windows Server Nano 1809. 
-
-Il download di un'immagine padre durante l'avvio dell'app richiede tempo. È tuttavia possibile ridurre i tempi di avvio usando una delle immagini padre seguenti, già memorizzate nella cache nel servizio app di Azure.
-
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
-- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809: questa immagine è il contenitore di base usato in tutte le immagini di Microsoft Windows Nano Server in Microsoft [ASP.NET Core](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/).
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione al contenitore Windows in Azure](tutorial-custom-container.md)
+
+In alternativa, consultare altre risorse:
+
+> [!div class="nextstepaction"]
+> [Configurare il contenitore personalizzato](configure-custom-container.md)
+
 ::: zone-end  
 
 ::: zone pivot="container-linux"
@@ -225,7 +219,7 @@ docker --version
 
 Assicurarsi infine che Registro Azure Container sia connesso. A tale scopo, selezionare il logo Docker sulla barra delle attività e quindi passare a **REGISTRIES** (REGISTRI).
 
-![Registri](./media/quickstart-docker/registries.png)
+![Screenshot che mostra il valore Registri con il nodo Azure espanso e un file con estensione io.](./media/quickstart-docker/registries.png)
 
 ## <a name="deploy-the-image-to-azure-app-service"></a>Distribuire l'immagine nel Servizio app di Azure
 
@@ -260,5 +254,10 @@ Vedere ora le altre estensioni di Azure.
 * [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 In alternativa, è possibile ottenere tutte queste soluzioni installando il pacchetto di estensioni [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
+
+Consultare altre risorse:
+
+> [!div class="nextstepaction"]
+> [Configurare il contenitore personalizzato](configure-custom-container.md)
 
 ::: zone-end

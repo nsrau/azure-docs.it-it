@@ -8,18 +8,18 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 12a15a2d0cd45207b4adefc7315e48c6d642c0f7
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 8b6c3608165ed592cc2f0daf475226c9d35de012
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810174"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358784"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Esercitazione: Condividere Ancoraggi nello spazio di Azure tra sessioni e dispositivi
 
 Questa esercitazione illustra come usare [Ancoraggi nello spazio di Azure](../overview.md) per creare ancoraggi durante una sessione e quindi individuarli nello stesso dispositivo o in un differente. Questi stessi ancoraggi potrebbero anche essere individuati da più dispositivi nello stesso luogo e nello stesso momento.
 
-![Persistenza](./media/persistence.gif)
+![Animazione che mostra ancoraggi nello spazio di Azure creati con un dispositivo mobile e usati con un dispositivo diverso nel corso di vari giorni.](./media/persistence.gif)
 
 Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine si avrà un'app che può essere distribuita in due o più dispositivi. Gli ancoraggi nello spazio di Azure creati da un'istanza possono essere condivisi con le altre.
 

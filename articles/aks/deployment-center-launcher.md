@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: 42bdde45b3a289a35c5bf4c4651e5a50a639f049
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 36b2e829e56cf4d3b5ace64af989fa7f71725c44
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251774"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360838"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro distribuzione per Azure Kubernetes
 
@@ -54,7 +54,7 @@ In questa esercitazione si apprenderà come:
 
 1. Selezionare il cluster del servizio Azure Kubernetes e quindi **Centro distribuzione (anteprima)** nel pannello sinistro. Selezionare **Attività iniziali**.
 
-   ![Scheda Impostazioni](media/deployment-center-launcher/settings.png)
+   ![Screenshot che mostra il portale di Azure con una freccia che punta al Centro distribuzione.](media/deployment-center-launcher/settings.png)
 
 1. Scegliere il percorso del codice e selezionare **Avanti**. Selezionare quindi uno dei repository attualmente supportati: **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** o **GitHub**.
 
@@ -66,7 +66,7 @@ In questa esercitazione si apprenderà come:
 
     - **GitHub**: autorizzare e selezionare il repository per l'account GitHub.
 
-        ![GitHub](media/deployment-center-launcher/github.gif)
+        ![Animazione mostra un processo in GitHub per selezionare GitHub come origine e quindi selezionare il repository.](media/deployment-center-launcher/github.gif)
 
 
 1. Il Centro distribuzione analizza il repository e rileva il Dockerfile. Se si vuole aggiornare il Dockerfile, è possibile modificare il numero di porta identificato.
@@ -75,7 +75,7 @@ In questa esercitazione si apprenderà come:
 
     Se il repository non contiene il Dockerfile, il sistema visualizza un messaggio per eseguire il commit di un file.
 
-    ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
+    ![Screenshot mostra il Centro distribuzione con il messaggio Non è stato possibile trovare alcun Dockerfile nel repository.](media/deployment-center-launcher/dockerfile.png)
 
 1. Selezionare un registro contenitori esistente o crearne uno, quindi selezionare **Fine**. La pipeline viene creata automaticamente e accoda una compilazione in [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
 
@@ -87,7 +87,7 @@ In questa esercitazione si apprenderà come:
 
 1. I log riusciti verranno visualizzati al termine della distribuzione.
 
-    ![Log](media/deployment-center-launcher/logs.png)
+    ![Screenshot mostra il Centro distribuzione con Release-1 contrassegnato da un'icona con segno di spunta verde.](media/deployment-center-launcher/logs.png)
 
 ## <a name="examine-the-ci-pipeline"></a>Esaminare la pipeline di integrazione continua
 

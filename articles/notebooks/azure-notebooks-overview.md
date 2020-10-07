@@ -4,10 +4,10 @@ description: Eseguire i notebook di Jupyter nel cloud usando il servizio Azure N
 ms.topic: overview
 ms.date: 04/05/2019
 ms.openlocfilehash: d229e48e5c49a9a672c533fb24231e9329e524c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85831404"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Panoramica di Azure Notebooks (anteprima)

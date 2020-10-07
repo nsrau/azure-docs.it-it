@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d763511032ebff9116702b1f649751a4b7b52afd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56f7224d93293a0a26d09692996d2c4a4ace344b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518997"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803739"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuire un cluster di Azure Service Fabric tra zone di disponibilità
 Zone di disponibilità in Azure è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Una zona di disponibilità è una posizione fisica univoca dotata di alimentazione, raffreddamento e rete indipendenti in un'area di Azure.
@@ -150,7 +150,7 @@ Per abilitare una zona, in un set di scalabilità di macchine virtuali è necess
 
 * Il primo valore è la proprietà **Zones** , che specifica la zona di disponibilità in cui verrà distribuito il set di scalabilità di macchine virtuali.
 * Il secondo valore è la proprietà "singlePlacementGroup", che deve essere impostata su true.
-* Il terzo valore è la proprietà "faultDomainOverride" nell'estensione del set di scalabilità di macchine virtuali Service Fabric. Il valore di questa proprietà deve includere l'area e la zona in cui verrà inserito il set di scalabilità di macchine virtuali. Esempio: "faultDomainOverride": "eastus/AZ1" tutte le risorse del set di scalabilità di macchine virtuali devono essere posizionate nella stessa area perché i cluster di Service Fabric di Azure non dispongono di supporto tra aree.
+* Il terzo valore è la proprietà "faultDomainOverride" nell'estensione del set di scalabilità di macchine virtuali Service Fabric. Il valore di questa proprietà deve includere solo l'area in cui verrà inserito il set di scalabilità di macchine virtuali. Esempio: "faultDomainOverride": "AZ1" tutte le risorse del set di scalabilità di macchine virtuali devono essere posizionate nella stessa area perché i cluster di Service Fabric di Azure non hanno supporto tra aree.
 
 ```json
 {
@@ -183,7 +183,7 @@ Per abilitare una zona, in un set di scalabilità di macchine virtuali è necess
             "systemLogUploadSettings": {
                 "Enabled": true
             },
-            "faultDomainOverride": "eastus/az1"
+            "faultDomainOverride": "az1"
         },
         "typeHandlerVersion": "1.0"
     }

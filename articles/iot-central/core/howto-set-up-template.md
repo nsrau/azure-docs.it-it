@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: aa70c9e5d67c759afe905e9e110d6bcd18555a8c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019241"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803790"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definire un nuovo tipo di dispositivo IoT nell'applicazione Azure IoT Central
 
@@ -123,7 +123,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il valore di telemetria usato nei dashboard e nei moduli. |
-| Nome | Nome del campo nel messaggio di telemetria. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
+| Name | Nome del campo nel messaggio di telemetria. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Telemetria. |
 | Tipo semantico | Tipo semantico dei dati di telemetria, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili. |
 | SCHEMA | Tipo di dati di telemetria, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. Lo schema non è disponibile per i tipi semantici stato ed evento. |
@@ -143,7 +143,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il valore della proprietà usato nei dashboard e nei moduli. |
-| Nome | Nome della proprietà. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
+| Name | Nome della proprietà. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Proprietà. |
 | Tipo semantico | Tipo semantico della proprietà, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili. |
 | SCHEMA | Tipo di dati della proprietà, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. Lo schema non è disponibile per i tipi semantici stato ed evento. |
@@ -164,13 +164,28 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il comando usato nei dashboard e nei moduli. |
-| Nome | Nome del comando. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
+| Name | Nome del comando. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Comando. |
 | Comando | `SynchronousExecutionType`. |
 | Commento | Eventuali commenti sulla funzionalità del comando. |
 | Descrizione | Descrizione della funzionalità del comando. |
 | Richiesta | Se abilitata, una definizione del parametro della richiesta, tra cui: nome, nome visualizzato, schema, unità e unità di visualizzazione. |
 | Risposta | Se abilitata, una definizione della risposta del comando, tra cui: nome, nome visualizzato, schema, unità e unità di visualizzazione. |
+
+#### <a name="offline-commands"></a>Comandi offline
+
+È possibile scegliere i comandi della coda se un dispositivo è attualmente offline abilitando l'opzione **queue if offline** per un comando nel modello di dispositivo.
+
+Questa opzione Usa i messaggi da cloud a dispositivo dell'hub Internet per inviare notifiche ai dispositivi. Per altre informazioni, vedere l'articolo relativo all'hub Internet per l' [invio di messaggi da cloud a dispositivo](../../iot-hub/iot-hub-devguide-messages-c2d.md).
+
+Messaggi da cloud a dispositivo:
+
+- Sono notifiche unidirezionali al dispositivo dalla soluzione.
+- Garantire il recapito di messaggi at-least-once. L'hub tutto rende permanente i messaggi da cloud a dispositivo nelle code per ogni dispositivo, garantendo la resilienza in caso di problemi di connettività e di dispositivo.
+- Richiedere al dispositivo di implementare un gestore di messaggi per elaborare il messaggio da cloud a dispositivo.
+
+> [!NOTE]
+> Questa opzione è disponibile solo nell'interfaccia utente Web IoT Central. Questa impostazione non è inclusa se si esporta un modello o un'interfaccia dal modello di dispositivo.
 
 ## <a name="manage-an-interface"></a>Gestire un'interfaccia
 
@@ -187,7 +202,7 @@ La tabella seguente illustra le impostazioni di configurazione per una propriet�
 | Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il valore della proprietà cloud usato nei dashboard e nei moduli. |
-| Nome | Nome della proprietà cloud. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. |
+| Name | Nome della proprietà cloud. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. |
 | Tipo semantico | Tipo semantico della proprietà, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili. |
 | SCHEMA | Tipo di dati della proprietà cloud, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. |
 
