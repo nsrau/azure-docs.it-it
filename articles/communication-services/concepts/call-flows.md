@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7172e3319e60603d46dc2af87f3818a5c3664285
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9fe5cb13ee352b2c49ab6ae57cabd6116cdfa720
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944728"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91667674"
 ---
 # <a name="call-flows"></a>Flussi di chiamate
 
@@ -44,13 +44,13 @@ Se due dispositivi si trovano in subnet che non possono raggiungersi reciprocame
 
 Per Giorgia, sarà il NAT del bar e per Davide sarà il NAT dell'ufficio. Il dispositivo di Giorgia invierà l'indirizzo esterno del NAT e il dispositivo di Davide eseguirà la stessa operazione. Le librerie client apprendono gli indirizzi esterni da un servizio STUN (Session Traversal Utilities for NAT) che Servizi di comunicazione di Azure fornisce gratuitamente. La logica che gestisce l'handshake tra Giorgia e Davide è integrata nelle librerie client fornite da Servizi di comunicazione di Azure. Non è necessaria alcuna configurazione aggiuntiva.
 
-:::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="Diagramma che illustra una chiamata VoIP che usa una connessione STUN.":::
+:::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="Diagramma che illustra una chiamata VoIP diretta tra gli utenti e Servizi di comunicazione.":::
 
 ### <a name="case-3-voip-where-neither-a-direct-nor-nat-connection-is-possible"></a>Caso 3: VoIP in cui non è possibile una connessione diretta né NAT
 
 Se uno o entrambi i dispositivi client sono protetti da un NAT simmetrico, è necessario un servizio cloud separato per inoltrare il file multimediale tra le due librerie client. Questo servizio viene chiamato TURN (Traversal Using Relays around NAT) e viene fornito da Servizi di comunicazione. La libreria client per le chiamate di Servizi di comunicazione usa automaticamente i servizi TURN in base alle condizioni di rete rilevate. L'uso del servizio TURN di Microsoft viene addebitato separatamente.
 
-:::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagramma che illustra una chiamata VoIP che usa una connessione TURN.":::
+:::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagramma che illustra una chiamata VoIP diretta tra gli utenti e Servizi di comunicazione.":::
  
 ### <a name="case-4-group-calls-with-pstn"></a>Caso 4: Chiamate di gruppo con PSTN
 
@@ -58,7 +58,7 @@ Sia la segnalazione che i file multimediali per le chiamate PSTN usano la risors
 
 Il traffico multimediale PSTN attraversa un componente denominato processore di contenuti multimediali.
 
-:::image type="content" source="./media/call-flows/about-voice-pstn.png" alt-text="Diagramma che illustra una chiamata di gruppo PSTN con Servizi di comunicazione.":::
+:::image type="content" source="./media/call-flows/about-voice-pstn.png" alt-text="Diagramma che illustra una chiamata VoIP diretta tra gli utenti e Servizi di comunicazione.":::
 
 > [!NOTE]
 > Per coloro che hanno familiarità con l'elaborazione di contenuti multimediali, il processore di contenuti multimediali è anche un agente utente back-to-back, come definito in [RFC 3261 SIP: Session Initiation Protocol](https://tools.ietf.org/html/rfc3261), ovvero può tradurre i codec quando si gestiscono le chiamate tra le reti Microsoft e i gestori di rete. Il controller di segnalazione di Servizi di comunicazione di Azure è l'implementazione Microsoft di un proxy SIP per la stessa RFC.
@@ -70,11 +70,11 @@ Il protocollo RTP (Real-Time Protocol) predefinito per le chiamate di gruppo è 
 > [!NOTE]
 > Il processore di contenuti multimediali può fungere da microcontroller (MCU) o unità di trasmissione selettiva (SFU)
 
-:::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Diagramma che illustra il flusso del processo multimediale UDP in Servizi di comunicazione.":::
+:::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Diagramma che illustra una chiamata VoIP diretta tra gli utenti e Servizi di comunicazione.":::
 
 Se la libreria client non può usare UDP per i file multimediali a causa di restrizioni del firewall, verrà effettuato un tentativo con il protocollo TCP (Transmission Control Protocol). Si noti che il componente del processore di contenuti multimediali richiede UDP, quindi, in questo caso, il servizio TURN di Servizi di comunicazione verrà aggiunto alla chiamata di gruppo per convertire TCP in UDP. In questo caso, i costi di TURN verranno addebitati, a meno che le funzionalità di TURN non vengano disabilitate manualmente.
 
-:::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagramma che illustra il flusso del processo multimediale TCP in Servizi di comunicazione.":::
+:::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagramma che illustra una chiamata VoIP diretta tra gli utenti e Servizi di comunicazione.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,15 +3,15 @@ title: "Guida introduttiva: Creare un'app ASP.NET Core in C#"
 description: Informazioni su come eseguire app Web nel Servizio app di Azure distribuendo la prima app ASP.NET Core.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 08/01/2020
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
+ms.date: 09/24/2020
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 95f877c9030d51e68b97a21875ff3ff05b383457
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: aa8eb945ba77e1a4ac5215acf3bdbc12cac0c4c9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973752"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91661126"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Guida introduttiva: Creare un'app Web ASP.NET Core in Azure
 
@@ -175,6 +175,8 @@ Per completare questa guida introduttiva:
 * <a href="https://git-scm.com/" target="_blank">Installare Git</a>
 * <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installare l'ultima versione di .NET Core 3.1 SDK</a>
 
+[Problemi? Segnalarli](https://aka.ms/DotNetAppServiceLinuxQuickStart).
+
 ## <a name="create-the-app-locally"></a>Creare l'app in locale
 
 In una finestra del terminale nel computer creare una directory denominata `hellodotnetcore` e passare dalla directory corrente a questa.
@@ -214,13 +216,23 @@ git add .
 git commit -m "first commit"
 ```
 
+[Problemi? Segnalarli](https://aka.ms/DotNetAppServiceLinuxQuickStart).
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[Problemi? Segnalarli](https://aka.ms/DotNetAppServiceLinuxQuickStart).
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
 
+[Problemi? Segnalarli](https://aka.ms/DotNetAppServiceLinuxQuickStart).
+
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-linux.md)]
 
+[Problemi? Segnalarli](https://aka.ms/DotNetAppServiceLinuxQuickStart).
+
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux.md)]
+
+[Problemi? Segnalarli](https://aka.ms/DotNetAppServiceLinuxQuickStart).
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
@@ -265,6 +277,8 @@ To https://&lt;app-name&gt;.scm.azurewebsites.net:443/&lt;app-name&gt;.git
    d87e6ca..d6b5447  master -> master
 </pre>
 
+[Problemi? Segnalarli](https://aka.ms/DotNetAppServiceLinuxQuickStart).
+
 ## <a name="browse-to-the-app"></a>Passare all'app
 
 Passare all'applicazione distribuita con il Web browser.
@@ -278,6 +292,8 @@ Il codice di esempio .NET Core è in esecuzione nel servizio app in Linux con un
 ![App di esempio in esecuzione in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
 **Congratulazioni** La distribuzione della prima app .NET Core nel Servizio app in Linux è stata completata.
+
+[Problemi? Segnalarli](https://aka.ms/DotNetAppServiceLinuxQuickStart).
 
 ## <a name="update-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice
 
@@ -298,6 +314,8 @@ Al termine della distribuzione, tornare alla finestra del browser aperta nel pas
 
 ![App di esempio aggiornata in esecuzione in Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 
+[Problemi? Segnalarli](https://aka.ms/DotNetAppServiceLinuxQuickStart).
+
 ## <a name="manage-your-new-azure-app"></a>Gestire la nuova app Azure
 
 Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app creata.
@@ -313,6 +331,8 @@ Verrà visualizzata la pagina Panoramica dell'app. Qui è possibile eseguire att
 Il menu a sinistra fornisce varie pagine per la configurazione dell'app. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
+[Problemi? Segnalarli](https://aka.ms/DotNetAppServiceLinuxQuickStart).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

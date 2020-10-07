@@ -1,19 +1,19 @@
 ---
 title: 'Avvio rapido: Connettersi con Python - Database di Azure per PostgreSQL - Server singolo'
 description: Questa guida introduttiva contiene un esempio di codice Python che può essere usato per connettersi ai dati ed eseguire query da Database di Azure per PostgreSQL - Server singolo.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 9fb0c02bcf040b1d27831e72d31ff07a7c38ad0a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6452934828c4e74563daf001271b3ce018ab58e3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901826"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91707898"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare Python per connettersi ed eseguire query sui dati in Database di Azure per PostgreSQL - Server singolo
 
@@ -105,7 +105,7 @@ conn.close()
 
 Quando il codice viene eseguito in modo corretto, genera l'output seguente:
 
-:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Output della riga di comando":::
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Nome del server Database di Azure per PostgreSQL":::
 
 ## <a name="read-data"></a>Leggere i dati
 L'esempio di codice seguente si connette al Database di Azure per PostgreSQL e usa [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) con l'istruzione **SELECT** di SQL per leggere i dati. La funzione accetta una query e restituisce un set di risultati su cui eseguire l'iterazione tramite [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 

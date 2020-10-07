@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 4643e18088fe32f6b02f684b7a71307798b12c12
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 7d146004fb4fa120e08b4d67c1d68d51cc6f3c8f
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441587"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767725"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Guida di avvio rapido: Aggiungere i flag di funzionalità a un'app ASP.NET Core
 
@@ -29,7 +29,7 @@ Le librerie di Gestione funzionalità di .NET Core estendono il framework con il
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-7. Selezionare **Operazioni** > **Gestione funzionalità** > **Aggiungi** per aggiungere un flag di funzionalità denominato *Beta*.
+8. Selezionare **Operazioni** > **Gestione funzionalità** > **Aggiungi** per aggiungere un flag di funzionalità denominato *Beta*.
 
     > [!div class="mx-imgBorder"]
     > ![Abilitare un flag funzionalità denominato Beta](media/add-beta-feature-flag.png)

@@ -4,21 +4,21 @@ description: Informazioni su come eseguire l'onboarding e abilitare il servizio 
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
-ms.author: mlottner
-ms.openlocfilehash: 6f438bd7dd0b3e45fd292947a3b08db80401b825
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/24/2020
+ms.author: rkarlin
+ms.openlocfilehash: 38e78b80fd14aec7557b563b2b33faf7d51bd114
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944411"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759733"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Avvio rapido: Modulo di sicurezza per Azure RTOS (anteprima)
 
@@ -35,7 +35,7 @@ Questo articolo illustra i prerequisiti da soddisfare prima di abilitare il serv
 - NXP i.MX RT1060 EVK
 - Microchip SAM E54 Xplained Pro EVK
 
-Scaricare, compilare ed eseguire uno dei file con estensione zip per la scheda e lo strumento specifici (IAR, semi IDE o PC) a scelta dalla [risorsa GitHub del modulo di sicurezza per Azure RTOS](hhtps://github.com/azure-rtos/azure-iot-preview/releases).
+Scaricare, compilare ed eseguire uno dei file con estensione zip per la scheda e lo strumento specifici (IAR, semi IDE o PC) a scelta dalla [risorsa GitHub del modulo di sicurezza per Azure RTOS](https://github.com/azure-rtos/azure-iot-preview/releases).
 
 ### <a name="azure-resources"></a>Risorse di Azure
 
@@ -63,10 +63,10 @@ L'inserimento di Log Analytics nell'hub IoT è disattivato per impostazione pred
 1. Selezionare **Raccolta di dati**. 
 1. Nell'opzione **Configurazione dell'area di lavoro** impostare l'interruttore su **Sì**. 
 1. Creare una nuova area di lavoro Log Analytics o collegarne una esistente. Assicurarsi che l'opzione **Access to raw security data** (Accesso a dati non elaborati sulla sicurezza) sia selezionata. 
- :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Configurazione di Azure RTOS che mostra l'opzione di raccolta dati e le opzioni per i dati non elaborati sulla sicurezza selezionate":::
+ :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Accesso all'opzione di raccolta dati per Azure RTOS":::
 1. Selezionare **Salva**
 1. Tornare all'elenco delle risorse di Azure e verificare che l'area di lavoro Log Analytics creata o collegata sia abilitata per l'hub IoT.
-    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Controllare l'elenco delle risorse di Azure per verificare l'aggiunta dell'area di lavoro Log Analytics corretta per un hub IoT"::: 
+    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Accesso all'opzione di raccolta dati per Azure RTOS"::: 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

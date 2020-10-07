@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: cd618cf5f2f82b9c87981e961ed401f3409ec9d4
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 0f43b667b94e39548d81e6c6258d987f47074cb1
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580802"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761329"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>Avvio rapido: Interagire con un dispositivo Plug and Play IoT connesso alla soluzione (Java)
 
@@ -71,12 +71,12 @@ Il dispositivo è ora pronto a ricevere comandi e aggiornamenti delle proprietà
 In [Configurare l'ambiente per le esercitazioni e le guide di avvio rapido di Plug and Play IoT](set-up-environment.md) sono state create due variabili di ambiente per configurare l'esempio da connettere all'hub IoT e al dispositivo:
 
 * **IOTHUB_CONNECTION_STRING**: stringa di connessione dell'hub IoT annotata in precedenza.
-* **DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
 In questa guida di avvio rapido si userà una soluzione IoT di esempio scritta in Java per interagire con il dispositivo di esempio appena configurato.
 
 > [!NOTE]
-> In questo esempio viene usato lo spazio dei nomi **com.microsoft.azure.sdk.iot.service.*;** dal **client del servizio hub IoT**. Per altre informazioni su come recuperare l'ID modello, vedere la [Guida per sviluppatori](concepts-developer-guide-device-csharp.md).
+> In questo esempio viene usato lo spazio dei nomi **com.microsoft.azure.sdk.iot.service.*;** dal **client del servizio hub IoT**. Per altre informazioni su come recuperare l'ID modello, vedere la [Guida per sviluppatori](concepts-developer-guide-service.md).
 
 1. Aprire un'altra finestra del terminale da usare come terminale del **servizio**.
 

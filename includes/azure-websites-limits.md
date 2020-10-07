@@ -4,14 +4,14 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 1811590dcf9077a503f89a900f661c52aa442c96
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87425022"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91745698"
 ---
-| Risorsa | Gratuito | Condiviso | Basic | Standard | Premium (v2) | Isolato </th> |
+| Risorsa | Gratuito | Condiviso | Basic | Standard | Premium (v3) | Isolato </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [App Web, per dispositivi mobili o per le API](https://azure.microsoft.com/services/app-service/) per [piano di servizio app di Azure](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Illimitato<sup>2</sup> |Illimitato<sup>2</sup> |Illimitato<sup>2</sup> |Illimitato<sup>2</sup>|
 | [Piano di servizio app](../articles/app-service/overview-hosting-plans.md) |10 per area |10 per gruppo di risorse. |100 per gruppo di risorse |100 per gruppo di risorse |100 per gruppo di risorse |100 per gruppo di risorse|
@@ -52,7 +52,7 @@ ms.locfileid: "87425022"
 <sup>5</sup>Il limite di archiviazione è la dimensione totale del contenuto tra tutte le applicazioni nello stesso piano di servizio app. Le dimensioni totali del contenuto di tutte le app in tutti i piani di servizio app in un unico gruppo di risorse e nell'area non può essere superiore a 500 GB.  
 <sup>6</sup>Queste risorse sono vincolate dalle risorse fisiche nelle istanze dedicate (la dimensione dell'istanza e il numero di istanze).  
 <sup>7</sup>Se si scala un'applicazione di livello base per due istanze, sono presenti 350 connessioni simultanee per ognuna delle due istanze. Per il livello Standard e per i livelli superiori non esistono limiti teorici per i socket Web, ma altri fattori possono limitare il numero di socket Web. Ad esempio, il numero massimo di richieste simultanee consentite (definite da `maxConcurrentRequestsPerCpu`) è: 7.500 per macchina virtuale di piccole dimensioni, 15.000 per macchina virtuale media (7.500 x 2 core) e 75.000 per macchina virtuale di grandi dimensioni (18.750 x 4 core).  
-<sup>8</sup>Il numero massimo di connessioni IP viene calcolato per singola istanza e dipende dalle dimensioni dell'istanza: 1.920 per un'istanza B1/S1/P1V2, 3.968 per un'istanza B2/S2/P2V2, 8.064 per un'istanza B3/S3/P3V2.  
+<sup>8</sup>Il numero massimo di connessioni IP viene calcolato per singola istanza e dipende dalle dimensioni dell'istanza: 1.920 per istanza B1/S1/P1V3, 3.968 per istanza B2/S2/P2V3, 8.064 per istanza B3/S3/P3V3.  
 <sup>9</sup>Il limite di quota del certificato del servizio app per ogni sottoscrizione può essere aumentato fino a un massimo di 200 tramite una richiesta di supporto.  
 <sup>10</sup>Gli SKU del servizio app Isolato possono applicare il bilanciamento del carico interno con Azure Load Balancer, ovvero senza connettività pubblica da Internet. Di conseguenza, alcune funzionalità di un servizio app isolato con carico interno bilanciato devono essere usate da macchine virtuali con accesso diretto all'endpoint di rete con bilanciamento del carico interno.  
 <sup>11</sup>È possibile eseguire file eseguibili e/o script personalizzati su richiesta, in base a una pianificazione, oppure in modo continuativo come attività in background nell'istanza del servizio app. Always On è richiesto per l'esecuzione continua di Processi Web. Non esiste un limite predefinito per il numero di processi Web che possono essere eseguiti in un'istanza del servizio app. Esistono però limiti pratici che dipendono dalle operazioni che il codice dell'applicazione sta provando a eseguire.

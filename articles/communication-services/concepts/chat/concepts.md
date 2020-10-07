@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1dd3781b18f82a96f388b0e619ce62b45752a870
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f33d7efd1c136619767c3eadd93740442ae7239a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292473"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762043"
 ---
 # <a name="chat-concepts"></a>Concetti sulle chat
 
@@ -128,7 +128,7 @@ La segnalazione in tempo reale consente agli utenti di chattare in tempo reale. 
 
 A questo scopo è possibile impostare il servizio attendibile come membro di un thread di chat. Si supponga di voler abilitare il servizio di traduzione. Questo servizio dovrà restare in ascolto dei messaggi scambiati da altri membri [1], chiamare le API Servizi cognitivi per tradurre il contenuto nella lingua desiderata [2,3] e inviare il risultato tradotto come messaggio nel thread di chat [4]. 
 
-In questo modo la cronologia dei messaggi conterrà sia i messaggi originali che quelli tradotti. Nell'applicazione client è possibile aggiungere la logica per visualizzare il messaggio originale o quello tradotto. Per informazioni su come usare le API Servizi cognitivi per tradurre testo in lingue diverse, vedere [questa guida di avvio rapido](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate). 
+In questo modo la cronologia dei messaggi conterrà sia i messaggi originali che quelli tradotti. Nell'applicazione client è possibile aggiungere la logica per visualizzare il messaggio originale o quello tradotto. Per informazioni su come usare le API Servizi cognitivi per tradurre testo in lingue diverse, vedere [questa guida di avvio rapido](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator). 
 
 :::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagramma che illustra l'architettura della chat di Servizi di comunicazione.":::
 

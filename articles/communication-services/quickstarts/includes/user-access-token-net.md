@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: marobert
-ms.openlocfilehash: e4a52095f7fc1c8252ffbbbbedf4520773d3efc1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5c9066f369183de3b4cfe19cc5635e8f1b4a94a2
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91377183"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779363"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,7 +45,7 @@ dotnet build
 Rimanendo nella directory dell'applicazione, installare la libreria di amministrazione di Servizi di comunicazione di Azure per il pacchetto .NET usando il comando `dotnet add package`.
 
 ```console
-dotnet add package Azure.Communication.Administration --version 1.0.0-beta.1
+dotnet add package Azure.Communication.Administration --version 1.0.0-beta.2
 ```
 
 ### <a name="set-up-the-app-framework"></a>Configurare il framework dell'app

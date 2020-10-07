@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: 10b38d5c5802ec4f6bc33b15b3ddef12e8256a78
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e3bc26b8f4d66c95f6f777af06d71172a4b882b9
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586454"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767641"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Guida di avvio rapido: Creare un'app Java Spring con Configurazione app di Azure
 
@@ -32,7 +32,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selezionare **Esplora configurazioni** >  **+ Crea** > **Coppia chiave-valore** per aggiungere le chiavi chiave-valore seguenti:
+7. Selezionare **Esplora configurazioni** >  **+ Crea** > **Coppia chiave-valore** per aggiungere le chiavi chiave-valore seguenti:
 
     | Chiave | Valore |
     |---|---|
@@ -40,7 +40,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
     Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento.
 
-7. Selezionare **Applica**.
+8. Selezionare **Applica**.
 
 ## <a name="create-a-spring-boot-app"></a>Compilare l'app Spring Boot
 

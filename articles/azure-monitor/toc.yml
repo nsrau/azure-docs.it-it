@@ -976,6 +976,8 @@
           href: insights/vminsights-maps.md
         - name: Monitorare le prestazioni
           href: insights/vminsights-performance.md
+        - name: Monitorare le modifiche
+          href: insights/vminsights-change-analysis.md
         - name: Analizzare i dati con le query sui log
           href: insights/vminsights-log-search.md
         - name: Visualizzare i dati con la cartella di lavoro
@@ -1324,6 +1326,8 @@
       href: samples/policy-reference.md
     - name: Ritiro di funzionalità e API
       items:
+        - name: API OperationalInsights
+          href: platform/operationalinsights-api-retirement.md
         - name: API classiche per scalabilità automatica e metrica
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: Funzionalità classiche per avvisi e monitoraggio

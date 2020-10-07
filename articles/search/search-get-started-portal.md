@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/16/2020
-ms.openlocfilehash: 0a28bd0d4101fc9d49413adaaccc0a6d38ec64ed
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 460c37107ac2dbd8bc3377d3716e708331db9904
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307722"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740929"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure nel portale di Azure
 
@@ -35,7 +35,7 @@ Molti clienti iniziano con il servizio gratuito. Questa versione è limitata a t
 
 Sezioni del dashboard del servizio mostrano il numero di indici, indicizzatori e origini dati già disponibili. 
 
-![Elenchi di indici, indicizzatori e origini dati](media/search-get-started-portal/tiles-indexers-datasources.png)
+:::image type="content" source="media/search-get-started-portal/tiles-indexers-datasources.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
 
 ## <a name="create-an-index-and-load-data"></a><a name="create-index"></a> Creare un indice e caricare i dati
 
@@ -49,11 +49,9 @@ Ai fini di questa esercitazione, viene usato un set di dati di esempio predefini
 
 1. [Trovare il servizio di ricerca](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/), quindi nella pagina Panoramica fare clic su **Importa dati** sulla barra dei comandi per creare e popolare un indice di ricerca.
 
-   ![Comando Importa dati](media/search-get-started-portal/import-data-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Elenchi di indici, indicizzatori e origini dati" che può essere riutilizzata in altre operazioni di importazione.
 
-1. Nella procedura guidata fare clic su **Definisci la connessione ai dati** > **Esempi** > **hotels-sample**. Questa origine dati è predefinita. Se si crea un'origine dati personalizzata, è necessario specificare un nome, un tipo e le informazioni di connessione. Dopo la creazione, diventa una "origine dati esistente" che può essere riutilizzata in altre operazioni di importazione.
-
-   ![Selezionare il set di dati di esempio](media/search-get-started-portal/import-datasource-sample.png)
+   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
 
 1. Passare alla pagina successiva.
 
@@ -63,7 +61,7 @@ La procedura guidata supporta la creazione di una [pipeline di arricchimento tra
 
 Questo passaggio per il momento verrà ignorato e si passerà direttamente a **Personalizza indice di destinazione**.
 
-   ![Ignorare il passaggio delle competenze cognitive](media/search-get-started-portal/skip-cog-skill-step.png)
+   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
 
 > [!TIP]
 > È possibile esaminare un esempio di indicizzazione basata su intelligenza artificiale in una [guida di avvio rapido](cognitive-search-quickstart-blob.md) o in un'[esercitazione](cognitive-search-tutorial-blob.md).
@@ -87,7 +85,7 @@ Per impostazione predefinita, la procedura guidata analizza l'origine dati alla 
 
    Se si esegue la procedura guidata una seconda volta usando un'origine dati hotels esistente, l'indice non verrà configurato con attributi predefiniti. Sarà necessario selezionare manualmente gli attributi sulle importazioni future. 
 
-   ![Indice di hotels generato](media/search-get-started-portal/hotelsindex.png)
+   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
 
 2. Passare alla pagina successiva.
 
@@ -100,7 +98,7 @@ Questo oggetto definisce un processo eseguibile. È possibile inserirlo nella pi
 
 Fare clic su **Invia** per creare e contemporaneamente eseguire l'indicizzatore.
 
-  ![Indicizzatore di hotels](media/search-get-started-portal/hotels-indexer.png)
+  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
 
 ## <a name="monitor-progress"></a>Monitorare lo stato
 
@@ -108,7 +106,7 @@ La procedura guidata dovrebbe consentire di visualizzare l'elenco Indicizzatori 
 
 L'aggiornamento della pagina nel portale può richiedere alcuni minuti, ma l'indicizzatore appena creato verrà visualizzato nell'elenco con lo stato "in corso" oppure "operazione riuscita", insieme al numero di documenti indicizzati.
 
-   ![Messaggio di stato dell'indicizzatore](media/search-get-started-portal/indexers-inprogress.png)
+   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
 
 ## <a name="view-the-index"></a>Visualizzare l'indice
 
@@ -116,13 +114,13 @@ La pagina principale del servizio include i collegamenti alle risorse create nel
 
 Attendere l'aggiornamento della pagina del portale. Dopo alcuni minuti, l'indice viene visualizzato con il numero di documenti e le dimensioni di archiviazione.
 
-   ![Elenco di indici nella dashboard del servizio](media/search-get-started-portal/indexes-list.png)
+   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
 
 In questo elenco è possibile fare clic sull'indice *hotels-sample* appena creato, visualizzare il relativo schema e facoltativamente aggiungere nuovi campi. 
 
 La scheda **Campi** visualizza lo schema dell'indice. Scorrere alla fine dell'elenco per immettere un nuovo campo. Nella maggior parte dei casi, non è possibile cambiare i campi esistenti. I campi esistenti hanno una rappresentazione fisica in Ricerca cognitiva di Azure e pertanto non sono modificabili, nemmeno nel codice. Per modificare in modo sostanziale un campo esistente, creare un nuovo indice, eliminando l'originale.
 
-   ![definizione di indice di esempio](media/search-get-started-portal/sample-index-def.png)
+   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
 
 Altri costrutti, ad esempio i profili di punteggio e le opzioni CORS, possono essere aggiunti in qualsiasi momento.
 
@@ -140,15 +138,15 @@ A questo punto dovrebbe essere disponibile un indice di ricerca pronto per le qu
 
 1. Fare clic su **Esplora ricerche** nella barra dei comandi.
 
-   ![Comando di Esplora ricerche](media/search-get-started-portal/search-explorer-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
 
 2. Nell'elenco a discesa **Indice** selezionare *hotels-sample-index*. Fare clic sull'elenco a discesa **Versione API** per visualizzare le API REST disponibili. Per le query seguenti, usare la versione disponibile a livello generale (2020-06-30).
 
-   ![Comandi dell'indice e dell'API](media/search-get-started-portal/search-explorer-changeindex.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
 
 3. Nella barra di ricerca incollare le stringhe di query seguenti e fare clic su **Cerca**.
 
-   ![Stringa di query e pulsante Cerca](media/search-get-started-portal/search-explorer-query-string-example.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Elenchi di indici, indicizzatori e origini dati":::
 
 ## <a name="example-queries"></a>Query di esempio
 

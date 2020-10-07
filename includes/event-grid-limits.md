@@ -5,28 +5,37 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: include
-ms.date: 05/18/2020
+ms.date: 10/18/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 7e7a0424e4454639211c6494aab0700e75269361
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.openlocfilehash: e084256d9c2043d4382ca180ef3178175b301367
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83721231"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91745421"
 ---
-I limiti seguenti si applicano agli argomenti di sistema di Griglia di eventi di Azure e agli argomenti personalizzati, *non* ai domini eventi.
+I limiti seguenti si applicano agli **argomenti** (di sistema, personalizzati e dei partner) di Griglia di eventi di Azure. 
 
 | Risorsa | Limite |
 | --- | --- |
 | Argomenti personalizzati per sottoscrizione di Azure | 100 |
 | Sottoscrizioni di eventi per argomento | 500 |
-| Velocità di pubblicazione per un argomento personalizzato (ingresso) | 5\.000 eventi al secondo per argomento |
-| Dimensioni degli eventi | 1 MB. Tuttavia, le operazioni vengono addebitate in incrementi di 64 kB. Pertanto, gli eventi oltre 64 kB comporteranno addebiti di operazione come se fossero più eventi. Ad esempio, un evento da 130 kB comporterebbe addebiti di operazione come se si trattasse di 3 eventi distinti.  |
+| Velocità di pubblicazione per un argomento personalizzato o di partner (in ingresso) | 5\.000 eventi/sec o 1 MB/sec (a seconda di quale limite viene raggiunto per primo)<br/>Non si applica agli argomenti di sistema. |
+| Dimensioni degli eventi | 1 MB  |
+| Connessioni a endpoint privato per argomento  | 64 | 
+| Regole del firewall IP per argomento | 16 | 
+
+I limiti seguenti si applicano ai **domini** di Griglia di eventi. 
+
+| Risorsa | Limite |
+| --- | --- |
 | Argomenti per dominio eventi | 100,000 |
 | Sottoscrizioni di eventi per argomento all'interno di un dominio | 500 |
 | Sottoscrizioni di eventi per ambito di dominio | 50 |
-| Frequenza di pubblicazione per un dominio eventi (in ingresso) | 5\.000 eventi al secondo |
+| Frequenza di pubblicazione per un dominio eventi (in ingresso) | 5\.000 eventi/sec o 1 MB/sec (a seconda di quale limite viene raggiunto per primo) |
 | Domini eventi per sottoscrizione di Azure | 100 |
-| Connessioni a endpoint privato per argomento o dominio | 64 | 
-| Regole del firewall IP per argomento o dominio | 16 | 
+| Connessioni a endpoint privato per dominio | 64 | 
+| Regole del firewall IP per dominio | 16 | 
+
+

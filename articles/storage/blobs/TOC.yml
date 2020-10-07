@@ -265,8 +265,8 @@
                     - name: Preparare le unità per l'importazione (v2)
         - name: Monitoraggio
           items:
-            - name: Monitorare un account di archiviazione
-              href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Monitorare l'archiviazione BLOB
+              href: monitor-blob-storage.md
             - name: Transizione dalle metriche classiche
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Monitoraggio (versione classica)
@@ -328,7 +328,7 @@
                   href: authorize-active-directory-powershell.md
                 - name: Interfaccia della riga di comando di Azure
                   href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Gestire i diritti di accesso con il controllo degli accessi in base al ruolo
+            - name: Gestire i diritti di accesso con il controllo degli accessi in base al ruolo di Azure
               items:
                 - name: Portale
                   href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -554,7 +554,7 @@
           displayName: ARM
           href: /azure/templates/microsoft.storage/allversions
         - name: Dati di monitoraggio
-          href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: monitor-blob-storage-reference.md
         - name: Criteri di Azure predefiniti
           displayName: 'samples, policies, definitions'
           href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -701,7 +701,7 @@
               href: data-lake-storage-supported-open-source-platforms.md
         - name: Monitoraggio
           items:
-            - name: Monitorare un account di archiviazione
+            - name: Monitorare l'archiviazione BLOB
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Transizione dalle metriche classiche
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

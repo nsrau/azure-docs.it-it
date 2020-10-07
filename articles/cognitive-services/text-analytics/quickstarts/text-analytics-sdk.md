@@ -1,27 +1,28 @@
 ---
-title: 'Avvio rapido: Libreria client di Analisi del testo v3 | Microsoft Docs'
+title: 'Avvio rapido: Text mining con la libreria client di Analisi del testo'
 titleSuffix: Azure Cognitive Services
-description: Usare questo argomento di avvio rapido per connettere le applicazioni all'API Analisi del testo di Servizi cognitivi di Azure.
+description: Usare questo argomento di avvio rapido per eseguire l'analisi del sentiment e altre operazioni con l'API Analisi del testo di Servizi cognitivi di Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+keywords: text mining, analisi del sentiment, analisi del testo
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 2d81175c73928d25c06acb396dac587c7cc73637
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0fbd8b92846f6436128f64680a1fa9b77763a2c8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931183"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91710781"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Avvio rapido: Usare la libreria client di Analisi del testo
 
-Introduzione alla libreria client di Analisi del testo. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
+Questo articolo fornisce informazioni introduttive sulla libreria client di Analisi del testo. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per eseguire il text mining.
 
 Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 
@@ -36,6 +37,8 @@ Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 > * L'ultima versione stabile dell'API Analisi del testo è `3.0`.
 >    * Assicurarsi di seguire solo le istruzioni per la versione in uso.
 > * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Per gli scenari di produzione, è consigliabile usare metodi asincroni in batch per favorire prestazioni e scalabilità. Vedere la documentazione di riferimento di seguito.
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 

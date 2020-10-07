@@ -6,19 +6,19 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 02a0a5dd5cfe3a1ecaa264f1e81c848a8da6c58d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944677"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756755"
 ---
 # <a name="quickstart-handle-sms-events"></a>Avvio rapido: Gestire gli eventi SMS
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Introduzione all'uso dei Servizi di comunicazione di Azure con Griglia di eventi di Azure per gestire gli eventi SMS dei servizi di comunicazione. 
 
@@ -65,11 +65,11 @@ Nella pagina **Crea sottoscrizione evento** immettere un **nome**  per la sottos
 
 Consultare l'elenco completo degli [eventi supportati dai Servizi di comunicazione di Azure](../../concepts/event-handling.md).
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Screenshot che mostra i tipi di evento SMS ricevuto e Rapporto di recapito SMS selezionati.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Screenshot che mostra la selezione del pulsante di sottoscrizione all'evento all'interno della pagina degli eventi di una risorsa.":::
 
 Selezionare **Webhook** per **Tipo di endpoint**. 
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Screenshot che mostra il campo Tipo di endpoint impostato su Webhook.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Screenshot che mostra la selezione del pulsante di sottoscrizione all'evento all'interno della pagina degli eventi di una risorsa.":::
 
 Per **Endpoint** fare clic su **Seleziona un endpoint** e immettere l'URL dell'app Web.
 
@@ -77,7 +77,7 @@ In questo caso, verrà usato l'URL del [Visualizzatore di Griglia di eventi di A
 
 Selezionare **Confermare la selezione**.
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="Screenshot che mostra la finestra di conferma dell'endpoint webhook.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="Screenshot che mostra la selezione del pulsante di sottoscrizione all'evento all'interno della pagina degli eventi di una risorsa.":::
 
 ## <a name="viewing-sms-events"></a>Visualizzazione degli eventi SMS
 
@@ -94,9 +94,9 @@ Consultare l'elenco completo degli [eventi supportati dai Servizi di comunicazio
 
 Dopo aver completato una delle azioni descritte sopra, si noterà che gli eventi `SMS Received` e `SMS Delivery Report Received` vengono inviati all'endpoint. Questi eventi sono visualizzati nel [Visualizzatore di Griglia di eventi di Azure di esempio](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) configurato all'inizio. È possibile premere l'icona a forma di occhio accanto all'evento per visualizzare l'intero payload. Gli eventi hanno un aspetto simile al seguente:
 
-:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot che mostra lo schema di Griglia di eventi di un evento SMS ricevuto.":::
+:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot che mostra la selezione del pulsante di sottoscrizione all'evento all'interno della pagina degli eventi di una risorsa.":::
 
-:::image type="content" source="./media/handle-sms-events/SMS-Delivery-Report-Received.png" alt-text="Screenshot che mostra lo schema di Griglia di eventi di un evento Rapporto di recapito SMS.":::
+:::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Screenshot che mostra la selezione del pulsante di sottoscrizione all'evento all'interno della pagina degli eventi di una risorsa.":::
 
 Vedere altre informazioni sugli [schemi di eventi e altre nozioni relative agli eventi](../../concepts/event-handling.md)
 

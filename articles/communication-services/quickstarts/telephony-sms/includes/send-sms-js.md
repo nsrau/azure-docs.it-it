@@ -10,12 +10,12 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: cdd4988f9a23904c0771852c4539aa9bce2ee683
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ad8266d936c272ee2f6bad254738622c3f81bf03
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944840"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757146"
 ---
 Iniziare a usare Servizi di comunicazione di Azure usando la libreria client SMS JavaScript di Servizi di comunicazione per inviare messaggi SMS.
 
@@ -97,18 +97,22 @@ const smsClient = new SmsClient(connectionString);
 Inviare un messaggio SMS chiamando il metodo `send`. Aggiungere questo codice alla fine del file **send-sms.js**:
 
 ```javascript
-await smsClient.send({
-  from: "<leased-phone-number>",
-  to: ["<to-phone-number>"],
-  message: "Hello World 👋🏻 via Sms"
-}, {
-  enableDeliveryReport: true //Optional parameter
-});
+async function main() {
+  await smsClient.send({
+    from: "<leased-phone-number>",
+    to: ["<to-phone-number>"],
+    message: "Hello World 👋🏻 via Sms"
+  }, {
+    enableDeliveryReport: true //Optional parameter
+  });
+}
+
+main();
 ```
 
-È necessario sostituire `<leased-phone-number>` con un numero di telefono abilitato per SMS associato alla risorsa di Servizi di comunicazione e `<to-phone-number>` con il numero di telefono a cui si desidera inviare un messaggio. Tutti i parametri dei numeri di telefono devono essere conformi allo [standard E.164](../../../concepts/telephony-sms/plan-solution.md#optional-reading-international-public-telecommunication-numbering-plan-e164).
+È necessario sostituire `<leased-phone-number>` con un numero di telefono abilitato per SMS associato alla risorsa di Servizi di comunicazione e `<to-phone-number>` con il numero di telefono a cui si desidera inviare un messaggio.
 
-Il parametro `enableDeliveryReport` è un parametro facoltativo che è possibile usare per configurare la creazione di report di recapito. È utile per gli scenari in cui si vogliono generare eventi quando vengono recapitati messaggi SMS. Per configurare la creazione di report di recapito per i messaggi SMS, vedere la guida di avvio rapido [Gestire gli eventi SMS](../handle-sms-events.md).
+Il parametro `enableDeliveryReport` è facoltativo ed è possibile usarlo per configurare i report di recapito. È utile per gli scenari in cui si vogliono generare eventi quando vengono recapitati messaggi SMS. Per configurare i report di recapito per i messaggi SMS, vedere la guida di avvio rapido [Gestire gli eventi SMS](../handle-sms-events.md).
 
 ## <a name="run-the-code"></a>Eseguire il codice
 

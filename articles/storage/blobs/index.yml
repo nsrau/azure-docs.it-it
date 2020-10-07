@@ -12,12 +12,12 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: b830092f6a54d2dc460c7aba4338c695d27b16b9
-  ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+  ms.openlocfilehash: 21736e257a31e65c6cd9ea4a6e1f65cf21bf61d1
+  ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/11/2020
-  ms.locfileid: "90019105"
+  ms.lasthandoff: 10/05/2020
+  ms.locfileid: "91715755"
 landingContent:
 - title: Informazioni sull'archiviazione BLOB
   linkLists:
@@ -127,7 +127,7 @@ landingContent:
     links:
     - text: Accedere ai dati BLOB con un account Azure AD
       url: authorize-blob-access-portal.md
-    - text: Gestire i diritti di accesso con il controllo degli accessi in base al ruolo
+    - text: Gestire i diritti di accesso con il controllo degli accessi in base al ruolo di Azure
       url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - text: Usare un'identità gestita per autorizzare l'accesso all'archiviazione BLOB
       url: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

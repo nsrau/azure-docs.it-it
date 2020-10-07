@@ -6,16 +6,16 @@ author: fanche
 manager: phans
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: ed40f91c760d7c83466078b3523748175a1701ad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2d0d80be367dda3689566dec2ade6fd7fc7c01fc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944484"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91665364"
 ---
 # <a name="quickstart-add-chat-to-your-app"></a>Avvio rapido: Aggiungere una chat all'app
 
@@ -41,7 +41,7 @@ Iniziare a usare Servizi di comunicazione di Azure usando la libreria client di 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si vuole pulire e rimuovere una sottoscrizione a Servizi di comunicazione, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse associate. Vedere altre informazioni sulla [pulizia delle risorse](../create-communication-resource.md#clean-up-resources).
+Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse associate. Vedere altre informazioni sulla [pulizia delle risorse](../create-communication-resource.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

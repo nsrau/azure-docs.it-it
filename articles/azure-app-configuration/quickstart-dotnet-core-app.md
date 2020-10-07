@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 83da47ce27d452fd77fab3905c9ce48944c42ffb
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: f133572b0c3163f5c5fe0a5c2e48ce5e6d53adcc
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575062"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767749"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Guida di avvio rapido: Creare un'app .NET Core con Configurazione app
 
@@ -28,7 +28,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selezionare **Esplora configurazioni** > **Crea** > **Coppia chiave-valore** per aggiungere le coppie chiave-valore seguenti:
+7. Selezionare **Esplora configurazioni** > **Crea** > **Coppia chiave-valore** per aggiungere le coppie chiave-valore seguenti:
 
     | Chiave | Valore |
     |---|---|
@@ -36,7 +36,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
     Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento.
 
-7. Selezionare **Applica**.
+8. Selezionare **Applica**.
 
 ## <a name="create-a-net-core-console-app"></a>Creare un'app console .NET Core
 

@@ -281,7 +281,7 @@
               href: database/geo-distributed-application-configure-tutorial.md
             - name: Replica geografica attiva
               href: database/active-geo-replication-configure-portal.md
-        - name: Sicurezza
+        - name: Security
           items:
             - name: Configurare la sicurezza
               href: database/secure-database-tutorial.md
@@ -497,12 +497,8 @@
               href: database/database-copy.md
             - name: Eseguire la replica nel database SQL
               href: database/replication-to-sql-database.md
-            - name: Sincronizzazione dati SQL
-              items:
-                - name: Replicare le modifiche dello schema
-                  href: database/sql-data-sync-update-sync-schema.md
-                - name: Monitorare con OMS
-                  href: database/sql-data-sync-monitor-sync.md
+            - name: Replicare le modifiche dello schema (sincronizzazione dei dati)
+              href: database/sql-data-sync-update-sync-schema.md
         - name: Partizionamento orizzontale del database
           items:
             - name: Aggiornare la libreria client
@@ -860,7 +856,7 @@
               href: 'https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/azure-sql/toc.json'
             - name: Posta elettronica database
               href: 'https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/azure-sql/toc.json'
-        - name: Sicurezza
+        - name: Security
           items:
             - name: Proteggere gli endpoint pubblici
               href: managed-instance/public-endpoint-overview.md

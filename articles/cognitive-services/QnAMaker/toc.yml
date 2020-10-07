@@ -10,11 +10,9 @@
   items:
     - name: Con il portale di QnA Maker
       items:
-        - name: 1. Creare la knowledge base
+        - name: Creare la knowledge base
           href: Quickstarts/create-publish-knowledge-base.md
-        - name: 2. Aggiungere domande con i metadati
-          href: Quickstarts/add-question-metadata-portal.md
-        - name: 3. Ottenere risposte con Postman o cURL
+        - name: Eseguire query su una knowledge base
           href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
     - name: Uso di REST
       href: Quickstarts/quickstart-rest-curl.md
@@ -32,10 +30,8 @@
   items:
     - name: Pianificare la knowledge base
       href: Concepts/plan.md
-    - name: Risorse di Azure
+    - name: Pianificare le risorse di QnA Maker
       href: Concepts/azure-resources.md
-    - name: Collaborare con altri utenti
-      href: Concepts/role-based-access-control.md
     - name: Progettare una Knowledge Base
       items:
         - name: Per le lingue
@@ -48,22 +44,12 @@
           href: Concepts/knowledge-base.md
         - name: Tipi di contenuto importati
           href: Concepts/content-types.md
-        - name: Coppie di domande e risposte
-          href: Concepts/question-answer-set.md
-    - name: Ciclo di vita della knowledge base
-      items:
-        - name: Ciclo di vita di sviluppo
-          href: Concepts/development-lifecycle-knowledge-base.md
-          displayName: 'version control, test, index, publish, monitor usage, create'
-        - name: Migliorare con i suggerimenti per l'apprendimento attivo
-          href: Concepts/active-learning-suggestions.md
-    - name: Eseguire query sulla knowledge base
-      items:
-        - name: Ottenere la risposta
-          displayName: 'DefaultAnswer, Default answer'
-          href: Concepts/query-knowledge-base.md
-        - name: Punteggio di attendibilità
-          href: Concepts/confidence-score.md
+    - name: Processo del classificatore
+      displayName: 'DefaultAnswer, Default answer'
+      href: Concepts/query-knowledge-base.md
+    - name: Ciclo di vita di sviluppo
+      href: Concepts/development-lifecycle-knowledge-base.md
+      displayName: 'version control, test, index, publish, monitor usage, create'
     - name: Procedure consigliate
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
@@ -93,7 +79,7 @@
         - name: Eseguire la migrazione a una nuova knowledge base
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: Testare la knowledge base
+        - name: Test
           href: How-To/test-knowledge-base.md
     - name: Gestire coppie di domande e risposte
       items:
@@ -105,50 +91,11 @@
         - name: Ottenere domande alternative suggerite
           href: How-to/improve-knowledge-base.md
           displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
-        - name: Aggiungere file di SharePoint protetti
-          href: How-To/add-sharepoint-datasources.md
-          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
     - name: Eseguire query sulla knowledge base
       href: How-To/metadata-generateanswer-usage.md
       displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
     - name: Analisi e telemetria
       href: How-To/get-analytics-knowledge-base.md
-    - name: Uso delle API REST
-      items:
-        - name: Creare una nuova knowledge base
-          items:
-            - name: C#
-              href: Quickstarts/create-new-kb-csharp.md
-            - name: Go
-              href: Quickstarts/create-new-kb-go.md
-            - name: Java
-              href: Quickstarts/create-new-kb-java.md
-            - name: Python
-              href: Quickstarts/create-new-kb-python.md
-        - name: Pubblicare una knowledge base
-          items:
-            - name: C#
-              href: Quickstarts/publish-kb-csharp.md
-            - name: Go
-              href: Quickstarts/publish-kb-go.md
-            - name: Java
-              href: Quickstarts/publish-kb-java.md
-            - name: Node.js
-              href: Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base
-            - name: Python
-              href: Quickstarts/publish-kb-python.md
-        - name: Ottenere la risposta
-          items:
-            - name: C#
-              href: Quickstarts/get-answer-from-knowledge-base-csharp.md
-            - name: Go
-              href: Quickstarts/get-answer-from-knowledge-base-go.md
-            - name: Java
-              href: Quickstarts/get-answer-from-knowledge-base-java.md
-            - name: Node.js
-              href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
-            - name: Python
-              href: Quickstarts/get-answer-from-knowledge-base-python.md
 - name: Informazioni di riferimento
   items:
     - name: Lingue supportate
@@ -156,9 +103,18 @@
     - name: Limiti
       href: limits.md
     - name: Controllo degli accessi in base al ruolo
-      href: reference-role-based-access-control.md
+      href: Concepts/role-based-access-control.md
+    - name: Apprendimento attivo
+      href: Concepts/active-learning-suggestions.md
+    - name: Punteggio di attendibilità
+      href: Concepts/confidence-score.md
     - name: Risoluzione dei problemi
       href: troubleshooting.md
+    - name: Coppie di domande e risposte
+      href: Concepts/question-answer-set.md
+    - name: Aggiungere file di SharePoint protetti
+      href: How-To/add-sharepoint-datasources.md
+      displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
     - name: Configurazione del servizio
       href: reference-app-service.md
     - name: Formato di contenuto e dati
@@ -173,6 +129,8 @@
       href: reference-markdown-format.md
     - name: Formato dei test in batch
       href: reference-tsv-format-batch-testing.md
+    - name: Crittografia
+      href: qna-maker-encryption-of-data-at-rest.md
     - name: Informazioni di riferimento sulle API REST
       items:
         - name: API di creazione
@@ -181,10 +139,6 @@
           href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer'
         - name: API Train
           href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
-    - name: Esempi
-      items:
-        - name: Bot della Guida di QnA Maker
-          href: 'https://aka.ms/qnamakerhelpbotsample'
     - name: SDK
       items:
         - name: C#
@@ -231,8 +185,6 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Crittografia
-      href: qna-maker-encryption-of-data-at-rest.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prezzi e limiti

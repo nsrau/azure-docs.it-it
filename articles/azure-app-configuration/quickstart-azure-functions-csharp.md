@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 7d4fe0f54ecd11c197f258d190e9eaef14bf2bb7
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: b62bf900e3e7859437b10b7b45801ee0dc575282
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91459924"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767779"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Avvio rapido: Creare un'app Funzioni di Azure con Configurazione app di Azure
 
@@ -29,7 +29,7 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selezionare **Esplora configurazioni** >  **+ Crea** > **Coppia chiave-valore** per aggiungere le chiavi chiave-valore seguenti:
+7. Selezionare **Esplora configurazioni** >  **+ Crea** > **Coppia chiave-valore** per aggiungere le chiavi chiave-valore seguenti:
 
     | Chiave | valore |
     |---|---|
@@ -37,7 +37,7 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
 
     Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento.
 
-7. Selezionare **Applica**.
+8. Selezionare **Applica**.
 
 ## <a name="create-a-functions-app"></a>Creare un'app Funzioni
 
