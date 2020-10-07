@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: e8d11c2122a21b67620987ad9ef74efc99eeb98b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: beafff2276d0b6dc525b586fa2d5943675012981
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654498"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446110"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare un servizio di bilanciamento del carico interno per le macchine virtuali mediante il portale di Azure
 
@@ -42,8 +42,6 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 >Il bilanciamento del carico di SKU Standard è l'impostazione consigliata per i carichi di lavoro di produzione.  Per altre informazioni sugli SKU, vedere **[SKU di Azure Load Balancer](skus.md)** .
 
 In questa sezione verrà creato un servizio di bilanciamento del carico che bilancia il carico delle macchine virtuali. 
-
-È possibile creare un servizio di bilanciamento del carico pubblico o interno. 
 
 Quando si crea un servizio di bilanciamento del carico interno, occorre configurare una rete virtuale in cui eseguire il servizio. 
 
@@ -108,7 +106,7 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 2. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti: 
 
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare il gruppo **myResourceGroupLB** creato nel passaggio precedente.|
@@ -125,7 +123,7 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 4. Nella scheda **Rivedi e crea** selezionare **Crea**.   
     
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Creare un servizio di bilanciamento del carico interno standard" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Creare un servizio di bilanciamento del carico interno Standard." border="true":::
  
 ## <a name="create-load-balancer-resources"></a>Creare risorse di bilanciamento del carico
 
@@ -159,7 +157,7 @@ Creare un probe di integrità denominato **myHealthProbe** per monitorare l'inte
 
 2. In **Impostazioni** selezionare **Probe integrità** e quindi selezionare **Aggiungi**.
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHealthProbe**. |
     | Protocollo | Selezionare **HTTP**. |
@@ -187,7 +185,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
 
 3. Usare questi valori per configurare la regola di bilanciamento del carico:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHTTPRule**. |
     | Versione indirizzo IP | Selezionare **IPv4** |
@@ -213,7 +211,7 @@ In questa sezione verrà illustrato come:
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-In questa sezione verranno create due macchine virtuali (**myVM1** e **myVM2**) con un indirizzo IP pubblico standard in due zone diverse (**Zona 1** e **Zona 2**). 
+In questa sezione verranno create due macchine virtuali (**myVM1** e **myVM2**).
 
 Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilanciamento del carico creato in precedenza.
 
@@ -221,7 +219,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
    
 2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
-    | Impostazione | valore                                          |
+    | Impostazione | Valore                                          |
     |-----------------------|----------------------------------|
     | **Dettagli del progetto** |  |
     | Subscription | Selezionare la sottoscrizione ad Azure |
@@ -243,12 +241,12 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 4. Nella scheda Rete selezionare o immettere:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     |-|-|
     | **Interfaccia di rete** |  |
     | Rete virtuale | **myVNet** |
     | Subnet | **myBackendSubnet** |
-    | IP pubblico | Accettare l'impostazione predefinita **myVM-ip**. </br> IP sarà automaticamente un IP dello SKU standard nella Zona 1. |
+    | IP pubblico | Selezionare **Nessuno** |
     | Gruppo di sicurezza di rete della scheda di interfaccia di rete | Selezionare **Avanzato**|
     | Configura gruppo di sicurezza di rete | Selezionare **Crea nuovo**. </br> Nella pagina **Crea gruppo di sicurezza di rete** immettere **myNSG** in **Nome**. </br> Selezionare **OK**. |
     | **Bilanciamento del carico**  |
@@ -257,21 +255,12 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | Opzioni di bilanciamento del carico | Selezionare **Bilanciamento del carico di Azure** |
     | Selezionare un servizio di bilanciamento del carico | Selezionare **myLoadBalancer**  |
     | Selezionare un pool back-end | Selezionare **myBackendPool** |
-
-5. Selezionare la scheda **Gestione** oppure **Avanti** > **Gestione**.
-
-6. Nella scheda **Gestione** selezionare o immettere:
-    
-    | Impostazione | valore |
-    |-|-|
-    | **Monitoring** |  |
-    | Diagnostica di avvio | Selezionare **Disattivato** |
    
-7. Selezionare **Rivedi e crea**. 
+5. Selezionare **Rivedi e crea**. 
   
-8. Rivedere le impostazioni e quindi selezionare **Crea**.
+6. Rivedere le impostazioni e quindi selezionare **Crea**.
 
-9. Seguire i passaggi da 1 a 8 per creare un'altra macchina virtuale con i valori seguenti e tutte le altre impostazioni identiche a **myVM1**:
+7. Seguire i passaggi da 1 a 8 per creare un'altra macchina virtuale con i valori seguenti e tutte le altre impostazioni identiche a **myVM1**:
 
     | Impostazione | VM 2|
     | ------- | ----- |
@@ -286,8 +275,6 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
 >Il bilanciamento del carico di SKU Standard è l'impostazione consigliata per i carichi di lavoro di produzione.  Per altre informazioni sugli SKU, vedere **[SKU di Azure Load Balancer](skus.md)** .
 
 In questa sezione verrà creato un servizio di bilanciamento del carico che bilancia il carico delle macchine virtuali. 
-
-È possibile creare un servizio di bilanciamento del carico pubblico o interno. 
 
 Quando si crea un servizio di bilanciamento del carico interno, occorre configurare una rete virtuale in cui eseguire il servizio. 
 
@@ -352,7 +339,7 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 2. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti: 
 
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare il gruppo **myResourceGroupLB** creato nel passaggio precedente.|
@@ -368,7 +355,7 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 4. Nella scheda **Rivedi e crea** selezionare **Crea**.   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Creare un servizio di bilanciamento del carico interno standard" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Creare un servizio di bilanciamento del carico interno Standard." border="true":::
 
 ## <a name="create-load-balancer-resources"></a>Creare risorse di bilanciamento del carico
 
@@ -390,7 +377,7 @@ Creare il pool di indirizzi back-end **myBackendPool** per includere le macchine
 
 3. Nella pagina **Aggiungi pool back-end** immettere o selezionare:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myBackendPool**. |
     | Rete virtuale | Selezionare **myVNET**. |
@@ -410,7 +397,7 @@ Creare un probe di integrità denominato **myHealthProbe** per monitorare l'inte
 
 2. In **Impostazioni** selezionare **Probe integrità** e quindi selezionare **Aggiungi**.
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHealthProbe**. |
     | Protocollo | Selezionare **HTTP**. |
@@ -438,7 +425,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
 
 3. Usare questi valori per configurare la regola di bilanciamento del carico:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHTTPRule**. |
     | Versione indirizzo IP | Selezionare **IPv4** |
@@ -461,9 +448,7 @@ In questa sezione verrà illustrato come:
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-Gli SKU degli indirizzi IP pubblici e gli SKU del bilanciamento del carico devono corrispondere. Per un servizio di bilanciamento del carico di base usare macchine virtuali con indirizzi IP di base nel pool back-end. 
-
-In questa sezione verranno create due macchine virtuali (**myVM1** e **myVM2**) con un indirizzo IP pubblico di base.  
+In questa sezione verranno create due macchine virtuali (**myVM1** e **myVM2**).
 
 Le due macchine virtuali verranno aggiunte a un set di disponibilità denominato **myAvailabilitySet**.
 
@@ -473,7 +458,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
    
 2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
-    | Impostazione | valore                                          |
+    | Impostazione | Valore                                          |
     |-----------------------|----------------------------------|
     | **Dettagli del progetto** |  |
     | Subscription | Selezionare la sottoscrizione ad Azure |
@@ -495,7 +480,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 4. Nella scheda Rete selezionare o immettere:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     |-|-|
     | **Interfaccia di rete** |  |
     | Rete virtuale | Selezionare **myVNet** |
@@ -505,21 +490,12 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | Configura gruppo di sicurezza di rete | Selezionare **Crea nuovo**. </br> Nella pagina **Crea gruppo di sicurezza di rete** immettere **myNSG** in **Nome**. </br> Selezionare **OK**. |
     | **Bilanciamento del carico**  |
     | Associare questa macchina virtuale a una soluzione di bilanciamento del carico esistente? | Selezionare **No** |
- 
-5. Selezionare la scheda **Gestione** oppure **Avanti** > **Gestione**.
 
-6. Nella scheda **Gestione** selezionare o immettere:
-    
-    | Impostazione | Valore |
-    |-|-|
-    | **Monitoring** |  |
-    | Diagnostica di avvio | Selezionare **Disattivato** |
-
-7. Selezionare **Rivedi e crea**. 
+5. Selezionare **Rivedi e crea**. 
   
-8. Rivedere le impostazioni e quindi selezionare **Crea**.
+6. Rivedere le impostazioni e quindi selezionare **Crea**.
 
-9. Seguire i passaggi da 1 a 8 per creare un'altra macchina virtuale con i valori seguenti e tutte le altre impostazioni identiche a **myVM1**:
+7. Seguire i passaggi da 1 a 8 per creare un'altra macchina virtuale con i valori seguenti e tutte le altre impostazioni identiche a **myVM1**:
 
     | Impostazione | VM 2 |
     | ------- | ----- |
@@ -554,7 +530,7 @@ In questa sezione si creerà una VM denominata **myTestVM**.  Questa VM verrà u
    
 2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
-    | Impostazione | valore                                          |
+    | Impostazione | Valore                                          |
     |-----------------------|----------------------------------|
     | **Dettagli del progetto** |  |
     | Subscription | Selezionare la sottoscrizione ad Azure |
@@ -575,7 +551,7 @@ In questa sezione si creerà una VM denominata **myTestVM**.  Questa VM verrà u
   
 4. Nella scheda Rete selezionare o immettere:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     |-|-|
     | **Interfaccia di rete** |  |
     | Rete virtuale | **myVNet** |
@@ -583,19 +559,10 @@ In questa sezione si creerà una VM denominata **myTestVM**.  Questa VM verrà u
     | IP pubblico | Selezionare **Nessuno**. |
     | Gruppo di sicurezza di rete della scheda di interfaccia di rete | Selezionare **Avanzato**|
     | Configura gruppo di sicurezza di rete | Selezionare il gruppo **MyNSG** creato nel passaggio precedente.|
-    
-5. Selezionare la scheda **Gestione** oppure **Avanti** > **Gestione**.
-
-6. Nella scheda **Gestione** selezionare o immettere:
-    
-    | Impostazione | valore |
-    |-|-|
-    | **Monitoring** |  |
-    | Diagnostica di avvio | Selezionare **Disattivato** |
-   
-7. Selezionare **Rivedi e crea**. 
+       
+5. Selezionare **Rivedi e crea**. 
   
-8. Rivedere le impostazioni e quindi selezionare **Crea**.
+6. Rivedere le impostazioni e quindi selezionare **Crea**.
 
 ## <a name="install-iis"></a>Installare IIS
 
@@ -647,9 +614,9 @@ In questa sezione si creerà una VM denominata **myTestVM**.  Questa VM verrà u
 
 8. Immettere l'indirizzo IP del passaggio precedente nella barra degli indirizzi del browser. Nel browser verrà visualizzata la pagina predefinita del server Web IIS.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Creare un servizio di bilanciamento del carico interno standard" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Creare un servizio di bilanciamento del carico interno Standard." border="true":::
    
-Per visualizzare il servizio di bilanciamento del carico distribuire il traffico tra tutte e tre macchine virtuali, è possibile personalizzare la pagina predefinita del server Web IIS di ciascuna macchina virtuale e quindi forzare l'aggiornamento del Web browser dal computer client.
+Per visualizzare il servizio di bilanciamento del carico distribuire il traffico tra entrambe le macchine virtuali, è possibile personalizzare la pagina predefinita del server Web IIS di ogni macchina virtuale e quindi forzare l'aggiornamento del Web browser dal computer client.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -659,11 +626,9 @@ Quando non sono più necessari, eliminare il gruppo di risorse, il servizio di b
 
 In questo argomento di avvio rapido:
 
-* È stato creato un servizio di bilanciamento del carico interno Standard o Basic di Azure
+* È stato creato un servizio di bilanciamento del carico di Azure interno Standard o Basic
 * Sono state collegate due macchine virtuali al servizio di bilanciamento del carico.
 * È stata configurata la regola del traffico di bilanciamento del carico, il probe di integrità e quindi è stato testato il servizio di bilanciamento del carico. 
 
 Per altre informazioni su Azure Load Balancer, vedere [Informazioni su Azure Load Balancer](load-balancer-overview.md) e le [domande frequenti su Load Balancer](load-balancer-faqs.md).
 
-* Altre informazioni su [Load Balancer e zone di disponibilità](load-balancer-standard-availability-zones.md).
-* Altre informazioni su [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview).

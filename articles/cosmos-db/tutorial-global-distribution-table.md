@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 627086bdb13acdd29821af399f90fee8deaae432
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f0d62ae3909bc886fa6a56ba7ed32d55d27302dd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76900190"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568663"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Configurare la distribuzione globale in Azure Cosmos DB usando l'API di tabella
 
@@ -34,7 +34,7 @@ Azure Cosmos DB Table API SDK seleziona automaticamente l'endpoint che garantisc
 
 * **Richieste di lettura:** Tutte le richieste di lettura vengono inviate all'area `CurrentRegion` configurata. In base alla prossimità, l'SDK seleziona automaticamente un'area con replica geografica di fallback per la disponibilità elevata.
 
-* **Richieste di scrittura:** L'SDK invia automaticamente tutte le richieste di scrittura all'area di scrittura corrente. In un account multimaster, l'area corrente gestirà anche le richieste di scrittura. In base alla prossimità, l'SDK seleziona automaticamente un'area con replica geografica di fallback per la disponibilità elevata.
+* **Richieste di scrittura:** L'SDK invia automaticamente tutte le richieste di scrittura all'area di scrittura corrente. In un account con operazioni di scrittura in più aree, l'area corrente gestirà anche le richieste di scrittura. In base alla prossimità, l'SDK seleziona automaticamente un'area con replica geografica di fallback per la disponibilità elevata.
 
 Se non si specifica la proprietà `CurrentRegion`, l'SDK userà l'area di scrittura corrente per tutte le operazioni.
 

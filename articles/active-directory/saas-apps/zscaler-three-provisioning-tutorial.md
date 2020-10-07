@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b7cb55b5d14208128c894a007d13f4e73fc54b3b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d217f21b0a2dbdad56f2147c8800bbb50b0fa45e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545807"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265528"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Esercitazione: Configurare Zscaler Three per il provisioning utenti automatico
 
@@ -119,7 +119,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 11. Nella sezione **Mapping degli attributi** esaminare gli attributi utente che vengono sincronizzati da Azure AD a Zscaler Three. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Zscaler Three per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche.
 
-    ![Mapping degli attributi](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
+    ![Screenshot della sezione Mapping degli attributi con i sette mapping visualizzati.](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
 
 12. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Groups to ZscalerThree** (Sincronizza gruppi di Azure Active Directory con ZscalerThree):
 
@@ -127,7 +127,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 13. Nella sezione **Mapping degli attributi** esaminare gli attributi gruppo che vengono sincronizzati da Azure AD a Zscaler Three. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in Zscaler Three per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche.
 
-    ![Mapping degli attributi](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
+    ![Screenshot della sezione Mapping degli attributi con i tre mapping visualizzati.](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Per configurare i filtri di ambito, fare riferimento alle istruzioni riportate nell'[esercitazione sui filtri per la definizione dell'ambito](./../active-directory-saas-scoping-filters.md).
 

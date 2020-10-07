@@ -5,15 +5,29 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 07/27/2020
-ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 09/23/2020
+ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432657"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315083"
 ---
-# <a name="changelog"></a>Log delle modifiche #
+# <a name="changelog"></a>Log delle modifiche
+
+## <a name="236-official-update-september-21-2020"></a>2.3.6 (aggiornamento ufficiale del 21 settembre 2020)
+
+### <a name="features-236"></a>Funzionalità 2.3.6
+
+È stato aggiunto il supporto per solo audio per la tecnologia azureHtml5JS (DASH) Supporto per l'avvio ritardato della trascrizione live Supporto della modifica della lingua nella trascrizione live
+
+### <a name="bug-fixes-236"></a>Correzioni di bug 2.3.6
+
+Quando si usa "playsinline" nelle riproduzioni HLS nei dispositivi Apple, facendo clic sul pulsante "LIVE" il video viene riavviato L'immagine del poster AMP causa talvolta un'eccezione Il pulsante del volume non era presente durante la riproduzione di HLS FairPlay [Accessibilità] Descrizioni comando non definite per i pulsanti quando viene usata la tastiera [Accessibilità] Il rapporto di luminosità è inferiore a 1.3:1 per la barra di stato [Accessibilità] Lo stato attivo della tastiera a volte non torna al pulsante di qualità video [Accessibilità] I controlli non sono visibili nella schermata Video, impedendo così all'assistente vocale di trovarli
+
+### <a name="changes-236"></a>Modifiche 2.3.6
+
+Restituzione di errori significativi per KeyDelivery alle applicazioni chiamanti
 
 ## <a name="235-official-update-june-1-2020"></a>2.3.5 (aggiornamento ufficiale del 1° giugno 2020)
 

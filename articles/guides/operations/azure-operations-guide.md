@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 0a383e8e2c38dbd00e0a55f9debb9b4daf40fa9c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832757"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397811"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
 
@@ -68,7 +68,7 @@ Azure offre diverse soluzioni PaaS, ad esempio la funzionalità App Web del serv
 
 Un sistema SaaS (Software as a Service, software come un servizio) è costituito da software ospitato e gestito in modo centralizzato. Un sistema di questo tipo si basa in genere su un'architettura multi-tenant, in base alla quale viene usata un'unica versione dell'applicazione per tutti i clienti. È possibile scalare orizzontalmente questa architettura in più istanze, per garantire prestazioni ottimali in tutte le posizioni. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale. I fornitori di software SaaS sono responsabili di tutti i componenti dello stack di software, in questo modo si gestiscono solo i servizi forniti.
 
-Microsoft Office 365 è un buon esempio di offerta SaaS. Pagando una quota di sottoscrizione mensile o annuale, i sottoscrittori possono usufruire di Microsoft Exchange, Microsoft OneDrive e delle altre applicazioni della famiglia di prodotti Microsoft Office come servizi. I sottoscrittori hanno sempre a disposizione la versione più recente delle applicazioni e non devono occuparsi della gestione del server di Exchange. Rispetto all'installazione e all'aggiornamento annuale di Office, questa soluzione è più economica e meno impegnativa.
+Microsoft 365 è un buon esempio di offerta SaaS. Pagando una quota di sottoscrizione mensile o annuale, i sottoscrittori possono usufruire di Microsoft Exchange, Microsoft OneDrive e delle altre applicazioni della famiglia di prodotti Microsoft Office come servizi. I sottoscrittori hanno sempre a disposizione la versione più recente delle applicazioni e non devono occuparsi della gestione del server di Exchange. Rispetto all'installazione e all'aggiornamento annuale di Office, questa soluzione è più economica e meno impegnativa.
 
 ## <a name="azure-services"></a>Servizi di Azure
 

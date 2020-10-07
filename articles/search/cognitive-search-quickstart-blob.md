@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 8fba7245475c9873a3e2d3abeda4806d1376e7ca
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: be45292552a7ac62c7131c637b044edc477328e2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300035"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396791"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Avvio rapido: Creare un set di competenze cognitive di Ricerca cognitiva di Azure nel portale di Azure
 
@@ -50,7 +50,7 @@ Nei passaggi seguenti si configura un contenitore BLOB in Archiviazione di Azure
 
 1. Nel contenitore fare clic su **Carica** per caricare i file di esempio scaricati nel primo passaggio. Si noti che è disponibile un'ampia gamma di tipi di contenuto, tra cui immagini e file di applicazioni che non sono disponibili per la ricerca full-text nei formati nativi.
 
-   ![File di origine nell'archivio BLOB di Azure](./media/cognitive-search-quickstart-blob/sample-data.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
 
 A questo punto è possibile procedere con la procedura guidata Importa dati.
 
@@ -60,13 +60,13 @@ A questo punto è possibile procedere con la procedura guidata Importa dati.
 
 1. [Trovare il servizio di ricerca](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/), quindi nella pagina Panoramica fare clic su **Importa dati** sulla barra dei comandi per configurare l'arricchimento cognitivo in quattro passaggi.
 
-   ![Comando Importa dati](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/import-data-cmd2.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
 
 ### <a name="step-1---create-a-data-source"></a>Passaggio 1: Creare un'origine dati
 
 1. In **Definisci la connessione ai dati** scegliere **Archiviazione BLOB di Azure** e selezionare l'account di archiviazione e il contenitore creati. Assegnare un nome origine dati e utilizzare i valori predefiniti per il resto. 
 
-   ![Configurazione del BLOB di Azure](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
 
     Passare alla pagina successiva.
 
@@ -76,7 +76,7 @@ Configurare quindi l'arricchimento tramite intelligenza artificiale per richiama
 
 1. Per questa guida di avvio rapido si usa la risorsa Servizi cognitivi **gratuita**. I dati di esempio sono costituiti da 14 file, pertanto l'allocazione gratuita di 20 transazioni su Servizi cognitivi è sufficiente per questa guida di avvio rapido. 
 
-   ![Collega Servizi cognitivi - Collegamento del servizio di base](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
 
 1. Espandere **Aggiungi arricchimenti** ed effettuare quattro selezioni. 
 
@@ -86,7 +86,7 @@ Configurare quindi l'arricchimento tramite intelligenza artificiale per richiama
 
    Scegliere le competenze di riconoscimento entità (persone, organizzazioni e località) e di analisi delle immagini.
 
-   ![Collega Servizi cognitivi - Selezione dei servizi per il set di competenze](media/cognitive-search-quickstart-blob/skillset.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/skillset.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
 
    Passare alla pagina successiva.
 
@@ -102,7 +102,7 @@ Per questa Guida introduttiva, la procedura guidata ha imposta valori predefinit
 
 + Gli attributi predefiniti sono **Recuperabile** e **Ricercabile**. L'attributo **Ricercabile** indica che è possibile eseguire ricerche full-text in un campo. L'attributo **Recuperabile** indica che i valori dei campi possono essere restituiti nei risultati. La procedura guidata presuppone che si voglia rendere questi campi recuperabili e ricercabili perché sono stati creati con un insieme di competenze.
 
-  ![Campi indice](media/cognitive-search-quickstart-blob/index-fields.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
 
 Osservare il testo barrato e il punto interrogativo sull'attributo **Recuperabile** accanto al campo `content`. Per i documenti BLOB a elevato utilizzo di testo, il campo `content` contiene la maggior parte del contenuto del file, eseguito potenzialmente in migliaia di righe. Un campo come questo è scomodo nei risultati della ricerca ed è opportuno escluderlo per questa demo. 
 
@@ -118,7 +118,7 @@ L'indicizzatore è una risorsa di alto livello che guida il processo di indicizz
 
 1. Nella pagina **Indicizzatore** si può accettare il nome predefinito e fare clic sull'opzione di pianificazione **Una sola volta** per l'esecuzione immediata. 
 
-   ![Definizione di indicizzatore](media/cognitive-search-quickstart-blob/indexer-def.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
 
 1. Fare clic su **Invia** per creare e contemporaneamente eseguire l'indicizzatore.
 
@@ -126,7 +126,7 @@ L'indicizzatore è una risorsa di alto livello che guida il processo di indicizz
 
 Il completamento dell'indicizzazione delle competenze cognitive richiede più tempo rispetto all'indicizzazione tipica basata su testo, in particolare nel caso dell'OCR e dell'analisi delle immagini. Per monitorare lo stato, passare alla pagina Panoramica e fare clic su **Indicizzatori** al centro della pagina.
 
-  ![Notifica di Ricerca cognitiva di Azure](./media/cognitive-search-quickstart-blob/indexer-notification.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-notification.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
 
 Gli avvisi sono normali in considerazione all'ampia gamma di tipi di contenuto. Alcuni tipi di contenuto non sono validi per determinate competenze e a livelli più bassi è facile riscontrare [limiti dell'indicizzatore](search-limits-quotas-capacity.md#indexer-limits). Ad esempio, le notifiche di troncamento a 32.000 caratteri sono un limite dell'indicizzatore per il livello gratuito. Se si esegue la demo con un livello superiore, numerosi avvisi di troncamento non vengono visualizzati.
 
@@ -134,11 +134,11 @@ Per controllare avvisi o errori, fare clic sullo stato Avviso nell'elenco Indici
 
 In questa pagina fare di nuovo clic sullo stato Avviso per visualizzare l'elenco di avvisi simile a quello mostrato di seguito. 
 
-  ![Elenco di avvisi dell'indicizzatore](./media/cognitive-search-quickstart-blob/indexer-warnings.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-warnings.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
 
 Quando si fa clic su una riga di stato specifica, vengono visualizzati i dettagli. Questo avviso indica che il merge è stato interrotto in seguito al raggiungimento di una soglia massima (le dimensioni di questo particolare PDF sono notevoli).
 
-  ![Dettagli dell'avviso](./media/cognitive-search-quickstart-blob/warning-detail.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/warning-detail.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
 
 ## <a name="query-in-search-explorer"></a>Eseguire query in Esplora ricerche
 
@@ -157,7 +157,7 @@ I risultati vengono restituiti in formato JSON, che può essere dettagliato e di
 
 Le stringhe di query fanno distinzione tra maiuscole e minuscole. Se quindi viene visualizzato un messaggio di campo sconosciuto, controllare **Campi** o **Definizione di indice (JSON)** per verificare il nome e l'uso delle maiuscole/minuscole. 
 
-  ![Esempio di Esplora ricerche](./media/cognitive-search-quickstart-blob/search-explorer.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
 
 ## <a name="takeaways"></a>Risultati
 

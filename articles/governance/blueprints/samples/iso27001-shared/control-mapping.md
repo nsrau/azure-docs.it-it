@@ -3,12 +3,12 @@ title: Controlli dell'esempio di progetto Servizi condivisi ISO 27001
 description: Mapping dei controlli dell'esempio di progetto Servizi condivisi ISO 27001. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 7655ae2828972a9b99479c7a94f02b02005a9284
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e0e5aa7bbfb8178b2527e65f7e6371d815b0cccd
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927131"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541204"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Servizi condivisi ISO 27001
 
@@ -34,7 +34,7 @@ Il [Servizio Valutazione della vulnerabilità di SQL](../../../../azure-sql/data
 
 ## <a name="a912-access-to-networks-and-network-services"></a>A.9.1.2 Accesso a reti e servizi di rete
 
-Azure implementa il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-access-control/overview.md) per gestire l'accesso degli utenti alle risorse di Azure. Questo progetto consente di controllare l'accesso alle risorse di Azure assegnando sette definizioni di [Criteri di Azure](../../../policy/overview.md). Questi criteri controllano l'uso dei tipi di risorse e le configurazioni che potrebbero consentire un accesso più permissivo alle risorse.
+Il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-access-control/overview.md) consente di gestire l'accesso degli utenti alle risorse di Azure. Questo progetto consente di controllare l'accesso alle risorse di Azure assegnando sette definizioni di [Criteri di Azure](../../../policy/overview.md). Questi criteri controllano l'uso dei tipi di risorse e le configurazioni che potrebbero consentire un accesso più permissivo alle risorse.
 Identificando le risorse in violazione di questi criteri, è possibile adottare azioni correttive per restringere l'accesso alla risorse di Azure consentendolo solo agli utenti autorizzati.
 
 - Distribuisci i prerequisiti per controllare le macchine virtuali Linux in cui sono presenti account senza password
@@ -47,7 +47,7 @@ Identificando le risorse in violazione di questi criteri, è possibile adottare 
 
 ## <a name="a923-management-of-privileged-access-rights"></a>A.9.2.3 Gestione dei diritti di accesso con privilegi
 
-Questo progetto consente di restringere e controllare i diritti di accesso con privilegi assegnando quattro definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o di scrittura e gli account con autorizzazioni di proprietario e/o di scrittura per cui non è abilitata l'autenticazione a più fattori. Azure implementa il controllo degli accessi in base al ruolo per gestire chi ha accesso alle risorse di Azure. Questo progetto assegna tre definizioni di Criteri di Azure per controllare l'uso dell'autenticazione di Azure Active Directory per istanze di SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft. Questo progetto assegna inoltre una definizione di Criteri di Azure per controllare l'uso di regole personalizzate del controllo degli accessi in base al ruolo. Identificando dove vengono implementate regole personalizzate del controllo degli accessi in base al ruolo, è possibile verificare l'esigenza e la corretta implementazione, perché tali regole sono soggette a errore.
+Questo progetto consente di restringere e controllare i diritti di accesso con privilegi assegnando quattro definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o di scrittura e gli account con autorizzazioni di proprietario e/o di scrittura per cui non è abilitata l'autenticazione a più fattori. Il Controllo degli accessi in base al ruolo di Azure consente di gestire l'accesso degli utenti alle risorse di Azure. Questo progetto assegna tre definizioni di Criteri di Azure per controllare l'uso dell'autenticazione di Azure Active Directory per istanze di SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft. Questo progetto assegna inoltre una definizione di Criteri di Azure per controllare l'uso di regole personalizzate del Controllo degli accessi in base al ruolo di Azure. Identificando dove vengono implementate regole personalizzate del Controllo degli accessi in base al ruolo di Azure, è possibile verificare l'esigenza e la corretta implementazione, perché tali regole sono soggette a errore.
 
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione
 - L'autenticazione MFA deve essere abilitata per gli account con autorizzazioni di scrittura per la sottoscrizione
@@ -69,7 +69,7 @@ Questo progetto assegna tre definizioni di [Criteri di Azure](../../../policy/ov
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revisione dei diritti di accesso utente
 
-Azure implementa il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-access-control/overview.md) che semplifica la gestione dell'accesso degli utenti alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto assegna quattro definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account la cui verifica dovrebbe essere prioritaria, inclusi gli account deprecati e quelli con autorizzazioni elevate.
+Il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-access-control/overview.md) consente di gestire l'accesso degli utenti alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto assegna quattro definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account la cui verifica dovrebbe essere prioritaria, inclusi gli account deprecati e quelli con autorizzazioni elevate.
 
 - Gli account deprecati devono essere rimossi dalla sottoscrizione
 - Gli account deprecati con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
@@ -78,7 +78,7 @@ Azure implementa il [Controllo degli accessi in base al ruolo di Azure](../../..
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 Rimozione o modifica dei diritti di accesso
 
-Azure implementa il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-access-control/overview.md) che semplifica la gestione dell'accesso degli utenti alle risorse in Azure. Usando [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) e il controllo degli accessi in base al ruolo, è possibile aggiornare i ruoli degli utenti in base alle modifiche organizzative. Se necessario, è possibile bloccare l'accesso degli account (oppure rimuoverli), rimuovendo immediatamente i diritti di accesso alle risorse di Azure. Questo progetto assegna due definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account deprecati che sarebbe preferibile rimuovere.
+Il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-access-control/overview.md) consente di gestire l'accesso degli utenti alle risorse in Azure. Usando [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) e il Controllo degli accessi in base al ruolo di Azure, è possibile aggiornare i ruoli degli utenti in base alle modifiche organizzative. Se necessario, è possibile bloccare l'accesso degli account (oppure rimuoverli), rimuovendo immediatamente i diritti di accesso alle risorse di Azure. Questo progetto assegna due definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account deprecati che sarebbe preferibile rimuovere.
 
 - Gli account deprecati devono essere rimossi dalla sottoscrizione
 - Gli account deprecati con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione

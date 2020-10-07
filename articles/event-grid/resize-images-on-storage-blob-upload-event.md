@@ -3,12 +3,12 @@ title: 'Esercitazione: Usare Griglia di eventi di Azure per automatizzare il rid
 description: 'Esercitazione: Griglia di eventi di Azure può attivare i caricamenti BLOB in Archiviazione di Azure. Ciò consente di inviare file di immagini caricati in Archiviazione di Azure ad altri servizi, ad esempio a Funzioni di Azure, perché vengano ridimensionati o migliorati.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 19dfffdcee0fb95ae867b1b26fa51e702658445d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 47ac8cad6d7c2ead8d25aa3525aafdab735f9e71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86105796"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326559"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
@@ -20,11 +20,11 @@ Usare l'interfaccia della riga di comando di Azure e il portale di Azure per agg
 
 # <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
 
-![App Web pubblicata nel browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Screenshot che mostra un'app Web pubblicata in una browser per \.NET v12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-![App Web pubblicata nel browser](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+![Screenshot che mostra un'app Web pubblicata in una browser per \.NET v10 SDK.](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -263,7 +263,7 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
 
 1.  Selezionare **Integrazione**, quindi scegliere **Trigger griglia di eventi** e infine selezionare **Crea sottoscrizione di Griglia di eventi**.
 
-    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Passare ad Aggiungi sottoscrizione di Griglia di eventi nel portale di Azure" :::
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Scegliere la funzione Anteprima nel portale" :::
 
 1. Usare le impostazioni della sottoscrizione di eventi specificate nella tabella.
     
@@ -301,7 +301,7 @@ Fare clic sull'area **Upload photos** (Carica foto) per selezionare e caricare u
 
 Si noti che quando l'immagine caricata scompare, nella sequenza video **Generated Thumbnails** (Anteprime generate) viene mostrata una copia dell'immagine caricata. Questa immagine è stata ridimensionata dalla funzione, aggiunta al contenitore *anteprime* e scaricata dal client Web.
 
-![App Web pubblicata nel browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Screenshot che mostra un'app Web pubblicata con nome "ImageResizer" in una browser per \.NET v12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 

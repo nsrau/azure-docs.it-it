@@ -1,14 +1,15 @@
 ---
 title: Organizzare le risorse con i gruppi di gestione - Governance di Azure
 description: Informazioni sui gruppi di gestione, sul funzionamento delle autorizzazioni e sul relativo utilizzo.
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: c1c054ab67a94b5782187092c572e1e73752c8c2
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.custom: contperfq1
+ms.openlocfilehash: e3bc3ee34227fd23ea9f56070f8ea7776a10a134
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920161"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533806"
 ---
 # <a name="what-are-azure-management-groups"></a>Che cosa sono i gruppi di gestione di Azure?
 
@@ -21,11 +22,13 @@ Ad esempio, è possibile applicare a un gruppo di gestione criteri che limitano 
 
 È possibile creare una struttura flessibile di gruppi di gestione e sottoscrizioni, in modo da organizzare le risorse in una gerarchia per la gestione unificata di accesso e criteri. Il diagramma seguente mostra un esempio di creazione di una gerarchia per la governance tramite gruppi di gestione.
 
-:::image type="content" source="./media/tree.png" alt-text="Esempio di un albero gerarchico dei gruppi di gestione" border="false":::
+:::image type="complex" source="./media/tree.png" alt-text="Diagramma di una gerarchia di gruppi di gestione di esempio." border="false":::
+   Diagramma di un gruppo di gestione radice che contiene sia i gruppi di gestione che le sottoscrizioni. Alcuni gruppi di gestione figlio contengono gruppi di gestione, alcuni contengono sottoscrizioni e alcuni contengono entrambi. Uno degli esempi della gerarchia di esempio è costituito da quattro livelli di gruppi di gestione con il livello figlio costituito da tutte le sottoscrizioni.
+:::image-end:::
 
 È possibile creare una gerarchia che applica un criterio, ad esempio che limita le posizioni delle VM all'area Stati Uniti occidentali nel gruppo denominato "Produzione". Questo criterio erediterà da tutte le sottoscrizioni del Contratto Enterprise (EA) discendenti del gruppo di gestione e verrà applicato a tutte le macchine virtuali all'interno delle sottoscrizioni. Questo criterio di sicurezza non potrà essere modificato dal proprietario della risorsa o della sottoscrizione e garantisce così una governance migliore.
 
-Un altro scenario in cui è utile usare gruppi di gestione è per fornire agli utenti l'accesso a più sottoscrizioni. Spostando più sottoscrizioni all'interno del gruppo di gestione, è possibile creare una [assegnazione di ruolo di Azure](../../role-based-access-control/overview.md) nel gruppo di gestione, che eredita l'accesso a tutte le sottoscrizioni. Una sola assegnazione nel gruppo di gestione può consentire agli utenti di accedere a tutte le risorse necessarie invece di eseguire script di controllo degli accessi in base al ruolo per diverse sottoscrizioni.
+Un altro scenario in cui è utile usare gruppi di gestione è per fornire agli utenti l'accesso a più sottoscrizioni. Spostando più sottoscrizioni all'interno del gruppo di gestione, è possibile creare una [assegnazione di ruolo di Azure](../../role-based-access-control/overview.md) nel gruppo di gestione, che eredita l'accesso a tutte le sottoscrizioni. Una sola assegnazione nel gruppo di gestione può consentire agli utenti di accedere a tutte le risorse necessarie invece di eseguire script di controllo degli accessi in base al ruolo di Azure per diverse sottoscrizioni.
 
 ### <a name="important-facts-about-management-groups"></a>Informazioni importanti sui gruppi di gestione
 
@@ -92,7 +95,7 @@ Il grafico seguente mostra l'elenco dei ruoli e delle azioni supportate per i gr
 |Proprietario                       | X      | X      | X        | X      | X             | X             | X     |
 |Collaboratore                 | X      | X      | X        | X      |               |               | X     |
 |Collaboratore gruppo di gestione\*            | X      | X      | X        | X      |               |               | X     |
-|Lettore                      |        |        |          |        |               |               | X     |
+|Reader                      |        |        |          |        |               |               | X     |
 |Lettore gruppo di gestione\*                 |        |        |          |        |               |               | X     |
 |Collaboratore per i criteri delle risorse |        |        |          |        |               | X             |       |
 |Amministratore accessi utente   |        |        |          |        | X             | X             |       |
@@ -147,7 +150,9 @@ Le definizioni del ruolo sono con ambito assegnabile in qualsiasi punto all'inte
 
 Esaminiamo, ad esempio, una piccola sezione di una gerarchia per un oggetto visivo.
 
-:::image type="content" source="./media/subtree.png" alt-text="sottoalbero" border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagramma di una gerarchia di gruppi di gestione di esempio." border="false":::
+   Il diagramma è incentrato sul gruppo di gestione radice con i gruppi di gestione figlio IT e Marketing. Il gruppo di gestione IT dispone di un singolo gruppo di gestione figlio denominato Produzione mentre il gruppo di gestione Marketing ha due sottoscrizioni figlio Versione di valutazione gratuita.
+:::image-end:::
 
 Supponiamo che nel gruppo di gestione Marketing sia definito un ruolo personalizzato. Il ruolo personalizzato viene quindi assegnato alle due sottoscrizioni di valutazione gratuite.  
 
@@ -164,7 +169,7 @@ Sono disponibili alcune opzioni diverse per correggere questo scenario:
 Esistono alcune limitazioni quando si usano i ruoli personalizzati nei gruppi di gestione. 
 
  - È possibile definire un solo gruppo di gestione negli ambiti assegnabili di un nuovo ruolo. Questa limitazione è prevista per ridurre il numero di situazioni in cui le definizioni del ruolo e le assegnazioni di ruolo sono disconnesse. Questa situazione si verifica quando una sottoscrizione o un gruppo di gestione con un'assegnazione di ruolo viene spostato in un elemento padre diverso che non contiene la definizione del ruolo.  
- - Le azioni del piano dati di Controllo degli accessi in base al ruolo non possono essere definite nei ruoli personalizzati del gruppo di gestione. Questa restrizione è prevista perché si verifica un problema di latenza con le azioni di Controllo degli accessi in base al ruolo che aggiornano i provider di risorse del piano dati.
+ - Le azioni del piano dati del provider di risorse non possono essere definite nei ruoli personalizzati del gruppo di gestione. Questa restrizione è prevista perché si verifica un problema di latenza con l'aggiornamento dei provider di risorse del piano dati.
    Questo problema di latenza è in fase di analisi e queste azioni verranno disabilitate dalla definizione del ruolo per ridurre eventuali rischi.
  - Azure Resource Manager non convalida l'esistenza del gruppo di gestione nell'ambito assegnabile della definizione del ruolo. Se è presente un errore di digitazione o un ID gruppo di gestione non corretto, la definizione del ruolo verrà comunque creata.  
 
@@ -189,7 +194,7 @@ Se il ruolo Proprietario nella sottoscrizione viene ereditato dal gruppo di gest
 
 I gruppi di gestione sono supportati all'interno del [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md). È possibile cercare tutti gli eventi che si verificano per un gruppo di gestione nella stessa posizione centrale delle altre risorse di Azure. È ad esempio possibile vedere tutte le modifiche delle assegnazioni di ruoli o di criteri apportate a uno specifico gruppo di gestione.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Log attività con i gruppi di gestione" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Diagramma di una gerarchia di gruppi di gestione di esempio." border="false":::
 
 Quando si esegue una query sui gruppi di gestione all'esterno del portale di Azure, l'ambito di destinazione per tali gruppi sarà simile a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 

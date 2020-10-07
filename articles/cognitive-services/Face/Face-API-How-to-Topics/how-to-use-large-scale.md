@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c4667b810e4d3d5f13e13572e2420880da5a8a0b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931625"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332390"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Esempio: Usare la funzionalità su larga scala
 
@@ -260,7 +260,7 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 }
 ```
 
-Per altre informazioni sulla gestione dei dati e sulle implementazioni correlate all'identificazione, vedere [Aggiungere visi](how-to-add-faces.md) e [Identificare visi in un'immagine](HowtoIdentifyFacesinImage.md).
+Per altre informazioni sulla gestione dei dati e sulle implementazioni correlate all'identificazione, vedere [Aggiungere visi](how-to-add-faces.md).
 
 ## <a name="summary"></a>Summary
 
@@ -271,7 +271,7 @@ In questa guida si è appreso come eseguire la migrazione del codice PersonGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Seguire le procedure per aggiungere visi a PersonGroup o eseguire l'operazione Identify su PersonGroup.
+Seguire le procedure per aggiungere visi a PersonGroup o scrivere uno script per eseguire l'operazione Identify su PersonGroup.
 
 - [Aggiungere visi](how-to-add-faces.md)
-- [Identificare i visi in un'immagine](HowtoIdentifyFacesinImage.md)
+- [Avvio rapido della libreria client del servizio Viso](../Quickstarts/client-libraries.md)

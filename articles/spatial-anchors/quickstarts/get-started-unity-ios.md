@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 08/14/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4d5ec2411b7b1a65da9a1f4262822cb85a3b386e
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 630e90069cd1b9735dbaec4c0d825be71df7e69c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536263"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539328"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app iOS in Unity con gli ancoraggi nello spazio di Azure
 
@@ -56,7 +56,11 @@ Per completare questa guida introduttiva, accertarsi di disporre di quanto segue
 
 [!INCLUDE [Configure Xcode](../../../includes/spatial-anchors-unity-ios-xcode.md)]
 
-Seguire le istruzioni nell'app per posizionare e richiamare un ancoraggio.
+Nell'app selezionare **BasicDemo** usando i tasti di direzione, quindi fare clic sul pulsante **Vai** per eseguire la demo. Seguire le istruzioni posizionare e richiamare un ancoraggio.
+
+![Screenshot 1](./media/get-started-unity-ios/screenshot-1.jpg)
+![Screenshot 2](./media/get-started-unity-ios/screenshot-2.jpg)
+![Screenshot 3](./media/get-started-unity-ios/screenshot-3.jpg)
 
 Al termine, arrestare l'app premendo **Stop** (Arresta) in Xcode.
 

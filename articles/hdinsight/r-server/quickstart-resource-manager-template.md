@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 7f86d0a090409385497715b70e8199bdf48c6995
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 6b4b4b8bcf5a69fdae9f29284fe965a30d634788
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640328"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539725"
 ---
 # <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-arm-template"></a>Avvio rapido: Creare un cluster ML Services in Azure HDInsight con un modello di Resource Manager
 
@@ -73,7 +73,7 @@ Al termine dell'argomento di avvio rapido, può essere opportuno eliminare il cl
 
 Nel portale di Azure passare al cluster e selezionare **Elimina**.
 
-![Modello di Resource Manager per HBase](./media/quickstart-resource-manager-template/azure-portal-delete-rserver.png)
+![Screenshot mostra un cluster HDInsight con il gruppo di risorse da eliminare.](./media/quickstart-resource-manager-template/azure-portal-delete-rserver.png)
 
 È anche possibile selezionare il nome del gruppo di risorse per aprire la pagina del gruppo di risorse e quindi selezionare **Elimina gruppo di risorse**. Eliminando il gruppo di risorse, si elimina sia il cluster HDInsight che l'account di archiviazione predefinito.
 

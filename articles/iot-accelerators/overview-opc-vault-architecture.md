@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 1e08968034134e2b9ab3b8064387d18663d5c866
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: eb558d967ad657d14158684fba92b13979ea5fe2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71200153"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281589"
 ---
 # <a name="opc-vault-architecture"></a>Architettura OPC Vault
+
+> [!IMPORTANT]
+> Mentre questo articolo viene aggiornato, vedere [Azure IoT industriale](https://azure.github.io/Industrial-IoT/) per il contenuto più aggiornato.
 
 Questo articolo offre una panoramica del microservizio OPC Vault e del modulo OPC Vault IoT Edge.
 
@@ -36,7 +39,7 @@ Il microservizio OPC Vault è progettato per supportare il flusso di lavoro basa
 Per garantire la compatibilità con le soluzioni OPC UA esistenti, i servizi includono il supporto per un modulo Edge basato su un microservizio OPC Vault. In questo modo viene implementata l'interfaccia del **server di individuazione globale e gestione certificati di OPC UA** per la distribuzione di certificati ed elenchi di attendibilità conformemente alla parte 12 della specifica. 
 
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 L'architettura è basata sul microservizio OPC Vault con un modulo IoT Edge OPC Vault per la rete factory e un'esperienza utente Web di esempio per controllare il flusso di lavoro:
 

@@ -3,12 +3,12 @@ title: Creare un lab usando Azure DevTest Labs | Microsoft Docs
 description: Questa esercitazione descrive come creare un lab in Azure DevTest Labs usando il portale di Azure. Un amministratore del lab configura un lab in un'organizzazione, crea le VM al suo interno e configura i criteri.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 9d016b38beb2f338a97ac862a060dc5ec3a77780
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4b59edd4ab1204d6683cf95a02070d10b1abe061
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85476564"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324281"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Esercitazione: Configurare un lab usando Azure DevTest Labs
 Questa esercitazione descrive come creare un lab usando il portale di Azure. Un amministratore del lab configura un lab in un'organizzazione, crea le V M nel lab e configura i criteri. Gli utenti del lab (ad esempio, gli sviluppatori e i tester) richiedono le VM nel lab, si connettono a tali VM e le usano. 
@@ -56,7 +56,7 @@ La procedura seguente illustra come usare il portale di Azure per creare un lab 
     2. In **Nome utente** immettere un nome per l'utente che dispone dell'accesso alla macchina virtuale. 
     3. Per **Password** immettere la password dell'utente. 
 
-        ![Scegli una base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+        ![Screenshot che mostra le impostazioni di base della pagina "Crea risorsa del lab".](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 1. Selezionare la scheda **Impostazioni avanzate**.
     1. In **Make this machine claimable** (Rendi attestabile questa macchina) selezionare **Sì**.
     2. Verificare che **Conteggio istanze** sia impostato su **1**. Se questa opzione è impostata su **2**, vengono create 2 VM con i nomi: `<base image name>00' and <base image name>01`. Ad esempio: `win10vm00` e `win10vm01`.     

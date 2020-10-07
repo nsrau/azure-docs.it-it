@@ -1,100 +1,83 @@
 ---
 title: Introduzione alla ricerca cognitiva di Azure
 titleSuffix: Azure Cognitive Search
-description: Ricerca cognitiva di Azure è un servizio di ricerca completamente gestito e ospitato nel cloud. Descrizioni delle funzionalità, flusso di lavoro di sviluppo, confronto con altri prodotti per la ricerca di Microsoft e informazioni per iniziare.
+description: Ricerca cognitiva di Azure è un servizio di ricerca cloud completamente gestito di Microsoft. Descrizioni dei casi d'uso, flusso di lavoro di sviluppo, confronto con altri prodotti per la ricerca di Microsoft e informazioni per iniziare.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/30/2020
-ms.openlocfilehash: 93ca06b10a57d54d78ba55fbc9e5a157a1bada91
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.custom: contperfq1
+ms.openlocfilehash: 26a448ded06b32fef80fee06568655067a727620
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932832"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320413"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Che cos'è la ricerca cognitiva di Azure?
 
-Ricerca cognitiva di Azure ([precedentemente nota come "Ricerca di Azure"](whats-new.md#new-service-name)) è una soluzione cloud di ricerca distribuita come servizio che offre agli sviluppatori le API e gli strumenti per ottenere un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali. 
+Ricerca cognitiva di Azure ([precedentemente nota come "Ricerca di Azure"](whats-new.md#new-service-name)) è un servizio di ricerca cloud che offre agli sviluppatori le API e gli strumenti per creare un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali.
 
-In una soluzione personalizzata un servizio di ricerca si colloca tra due carichi di lavoro primari: inserimento del contenuto e query. Il codice o uno strumento definisce uno schema e richiama l'inserimento dati (indicizzazione) per caricare un indice in Ricerca cognitiva di Azure. Facoltativamente, è possibile aggiungere competenze cognitive per applicare i processi di intelligenza artificiale durante l'indicizzazione. In questo modo è possibile aggiungere nuove informazioni e strutture utili per la ricerca e scenari di knowledge mining.
-
-Con un indice disponibile, il codice dell'applicazione invia richieste a un servizio di ricerca e gestisce le risposte. L'esperienza di ricerca viene definita nel client tramite funzionalità di Ricerca cognitiva di Azure, con l'esecuzione di query su un indice persistente creato dall'utente, di sua proprietà e archiviato nel servizio.
+Quando si crea un servizio Ricerca cognitiva, si ottiene un motore di ricerca che esegue l'indicizzazione e l'esecuzione di query, l'archiviazione permanente degli indici creati e gestiti e un linguaggio di query per la composizione di query semplici a complesse. Facoltativamente, un servizio di ricerca si integra con altri servizi di Azure sotto forma di *indicizzatori* che automatizzano l'inserimento o il recupero dei dati dalle origini dati di Azure e *set di competenze* che incorporano l'intelligenza artificiale utilizzabile da Servizi cognitivi, ad esempio l'analisi di immagini e testo o l'intelligenza artificiale personalizzata creata in Azure Machine Learning o incorporata all'interno di Funzioni di Azure.
 
 ![Architettura di Ricerca cognitiva di Azure](media/search-what-is-azure-search/azure-search-diagram.svg "Architettura di Ricerca cognitiva di Azure")
 
-La funzionalità viene esposta tramite una semplice [API REST](/rest/api/searchservice/) o un [SDK .NET](search-howto-dotnet-sdk.md) che maschera la complessità intrinseca del recupero delle informazioni. Oltre alle API, il portale di Azure fornisce il supporto di amministrazione e gestione dei contenuti, con strumenti per la creazione di prototipi e per le query degli indici. Poiché il servizio viene eseguito nel cloud, disponibilità e infrastruttura sono gestite da Microsoft.
+A livello di architettura, un servizio di ricerca risiede tra gli archivi dati esterni che contengono i dati non indicizzati e un'app client che invia richieste di query a un indice di ricerca e gestisce la risposta.  Uno schema di indice determina la struttura del contenuto ricercabile. 
 
-## <a name="when-to-use-azure-cognitive-search"></a>Quando usare Ricerca cognitiva di Azure
+I due carichi di lavoro primari di un servizio di ricerca sono *indicizzazione* e *query*.
+
++ L'indicizzazione porta il testo nel servizio di ricerca e lo rende ricercabile. Internamente, il testo in ingresso viene elaborato in token e archiviato negli indici invertiti per le analisi veloci. Durante l'indicizzazione, si ha la possibilità di aggiungere *competenze cognitive*, quelle predefinite di Microsoft o le competenze personalizzate create dall'utente. L'analisi e le trasformazioni successive possono generare nuove informazioni e strutture che non esistevano in precedenza, risultando così particolarmente utili per molti scenari di ricerca e di data mining.
+
++ Dopo che l'indice è stato popolato con dati ricercabili, l'app client invia richieste di query a un servizio di ricerca e gestisce le risposte. Tutte le query vengono eseguite su un indice di ricerca creato dall'utente e di sua proprietà che viene archiviato nel servizio. Nell'app client l'esperienza di ricerca viene definita usando le API di Ricerca cognitiva di Azure e può includere l'ottimizzazione della pertinenza, il completamento automatico, la corrispondenza dei sinonimi, la corrispondenza fuzzy, i criteri di ricerca, il filtro e l'ordinamento.
+
+La funzionalità viene esposta tramite una semplice [API REST](/rest/api/searchservice/) o un [SDK .NET](search-howto-dotnet-sdk.md) che maschera la complessità intrinseca del recupero delle informazioni. È anche possibile usare il portale di Azure per l'amministrazione del servizio e la gestione dei contenuti, con strumenti per la creazione di prototipi e per l'esecuzione di query su indici e set di competenze. Poiché il servizio viene eseguito nel cloud, disponibilità e infrastruttura sono gestite da Microsoft.
+
+## <a name="when-to-use-cognitive-search"></a>Quando usare Ricerca cognitiva
 
 Ricerca cognitiva di Azure è una soluzione particolarmente adatta agli scenari di applicazione seguenti:
 
-+ Consolidamento di tipi di contenuto eterogenei in un indice privato, singolo e in cui è possibile eseguire ricerche. Le query vengono eseguite sempre su un indice creato e caricato dall'utente con i documenti e l'indice risiede sempre nel cloud nel servizio Ricerca cognitiva di Azure dell'utente. È possibile popolare un indice con flussi di documenti JSON da qualsiasi origine o piattaforma. In alternativa, per i contenuti con origine in Azure, è possibile usare un *indicizzatore* per eseguire il pull dei dati in un indice. La definizione dell'indice e la relativa gestione/proprietà sono motivi importanti per usare Ricerca cognitiva di Azure.
++ Consolidamento di tipi di contenuto eterogenei in un indice di ricerca privato definito dall'utente. È possibile popolare un indice con flussi di documenti JSON da qualsiasi origine. Per le origini supportate in Azure, usare un *indicizzatore* per automatizzare l'indicizzazione. Il controllo sullo schema dell'indice e sulla pianificazione degli aggiornamenti è uno dei vantaggi principali di Ricerca cognitiva.
 
-+ Il contenuto non elaborato è costituito da testo non differenziato, file di immagine o file applicazione di grandi dimensioni, ad esempio tipi di contenuto di Office in un'origine dati di Azure, ad esempio archiviazione BLOB di Azure o Cosmos DB. È possibile applicare competenze cognitive durante l'indicizzazione per aggiungere struttura o estrarre testo ricercabile da file di immagini e applicazioni.
++ Facile implementazione delle funzionalità correlate alla ricerca. Le API di ricerca semplificano la costruzione di query, l'esplorazione in base a facet, i filtri (inclusa la ricerca geospaziale), il mapping dei sinonimi, il completamento automatico e l'ottimizzazione della pertinenza. Grazie alle funzionalità predefinite, è possibile soddisfare le aspettative degli utenti finali per un'esperienza di ricerca simile ai motori di ricerca Web commerciali.
 
-+ Facile implementazione delle funzionalità correlate alla ricerca. Le API di Ricerca cognitiva di Azure semplificano la costruzione di query, l'esplorazione in base a facet, i filtri (inclusa la ricerca geospaziale), il mapping dei sinonimi, le query con completamento automatico e l'ottimizzazione della pertinenza. Grazie alle funzionalità predefinite, è possibile soddisfare le aspettative degli utenti finali per un'esperienza di ricerca simile ai motori di ricerca Web commerciali.
++ Il contenuto non elaborato è costituito da testo non differenziato, file di immagine o file applicazione di grandi dimensioni archiviati nell'archiviazione BLOB di Azure o in Cosmos DB. È possibile applicare le [competenze cognitive](cognitive-search-concept-intro.md) durante l'indicizzazione per identificare ed estrarre testo, creare una struttura o nuove informazioni, ad esempio testo tradotto o entità.
 
-+ Indicizzazione di testo non strutturato o estrazione di testo e informazioni dai file di immagine. La funzionalità di [arricchimento tramite intelligenza artificiale](cognitive-search-concept-intro.md) di Ricerca cognitiva di Azure aggiunge l'elaborazione tramite intelligenza artificiale a una pipeline di indicizzazione. Alcuni casi d'uso comuni includono OCR su documenti digitalizzati, riconoscimento di entità ed estrazione di frasi chiave da documenti di grandi dimensioni, rilevamento della lingua e traduzione testuale, nonché analisi del sentiment.
++ Per il contenuto è necessaria un'analisi del testo linguistica o personalizzata. Per il contenuto non in lingua inglese, Ricerca cognitiva di Azure supporta sia gli analizzatori Lucene che i processori di linguaggio naturale Microsoft. È anche possibile configurare gli analizzatori per ottenere un'elaborazione specializzata di contenuto non elaborato, ad esempio l'esclusione tramite filtro dei segni diacritici o il riconoscimento e la conservazione dei criteri nelle stringhe.
 
-+ Possibilità di soddisfare i requisiti linguistici usando gli analizzatori del linguaggio e personalizzati di Ricerca cognitiva di Azure. Per il contenuto non in lingua inglese, Ricerca cognitiva di Azure supporta sia gli analizzatori Lucene che i processori di linguaggio naturale Microsoft. È anche possibile configurare gli analizzatori per ottenere un'elaborazione specializzata di contenuto non elaborato, ad esempio l'esclusione tramite filtro dei segni diacritici.
+Per altre informazioni sulle funzionalità specifiche, vedere [Funzionalità di Ricerca cognitiva di Azure](search-features-list.md)
 
-<a name="feature-drilldown"></a>
+## <a name="how-to-use-cognitive-search"></a>Come usare Ricerca cognitiva
 
-## <a name="feature-descriptions"></a>Descrizione delle funzionalità
-
-| Ricerca&nbsp;di base&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Funzionalità |
-|-------------------|----------|
-|Ricerca di testo in formato libero | [**Ricerca full-text**](search-lucene-query-architecture.md) è un caso d'uso principale per la maggior parte delle app basate sulla ricerca. È possibile formulare query servendosi di una sintassi supportata. <br/><br/>La [**sintassi di query semplice**](query-simple-syntax.md) offre operatori logici, operatori di ricerca di una frase, operatori di suffisso, operatori di precedenza.<br/><br/>La [**sintassi di query Lucene**](query-lucene-syntax.md) include tutte le operazioni della sintassi semplice, con estensioni per ricerche fuzzy, ricerche per prossimità, aumento della priorità dei termini ed espressioni regolari.|
-| Pertinenza | La [**semplicità di assegnazione dei punteggi**](index-add-scoring-profiles.md) è uno dei vantaggi principali di Ricerca cognitiva di Azure. I profili di punteggio vengono usati per modellare la rilevanza in funzione dei valori nei documenti stessi. Ad esempio, si potrebbe decidere che prodotti più recenti o prodotti scontati compaiano prima tra i risultati della ricerca. È inoltre possibile compilare profili di puntaggio utilizzando tag per il punteggio personalizzati in base alle preferenze di ricerca cliente che sono stati rilevati e archiviati separatamente. |
-| Ricerca geografica | Ricerca cognitiva di Azure elabora, filtra e visualizza le posizioni geografiche. Consente agli utenti di esplorare i dati in base alla prossimità di un risultato della ricerca a una posizione fisica. [Guardare questo video](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) o [rivedere questo esempio](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) per altre informazioni. |
-| Filtri e facet | L'[**Esplorazione in base a facet**](search-faceted-navigation.md) viene abilitata tramite un singolo parametro di query. La Ricerca cognitiva di Azure restituisce una struttura di esplorazione in base a facet che è possibile usare come codice alla base di un elenco di categorie per i filtri autoguidati, ad esempio per filtrare gli elementi di un catalogo in base alla fascia di prezzo o al marchio. <br/><br/> È possibile usare i [**filtri**](query-odata-filter-orderby-syntax.md) per incorporare l'esplorazione in base a facet nell'interfaccia utente dell'applicazione, migliorare la formulazione di query e filtrare in base a criteri specificati dall'utente o dallo sviluppatore. Creare filtri mediante la sintassi OData. |
-| Funzioni per l'esperienza utente | [**Completamento automatico**](search-autocomplete-tutorial.md) può essere abilitato per le query con completamento automatico in una barra di ricerca. <br/><br/>[**Suggerimenti per la ricerca**](/rest/api/searchservice/suggesters) funziona anche all'esterno di input di testo parziale in una barra di ricerca, ma i risultati sono documenti effettivi nell'indice anziché nei termini della query. <br/><br/>[**Sinonimi**](search-synonyms.md) associa termini equivalenti, che espandono in modo implicito l'ambito di una query, senza che l'utente debba fornire il termine alternativo. <br/><br/>L'[**evidenziazione dei risultati**](/rest/api/searchservice/Search-Documents) applica la formattazione del testo a una parola chiave corrispondente nei risultati della ricerca. È possibile scegliere i campi che devono restituire i frammenti evidenziati.<br/><br/>L'[**ordinamento**](/rest/api/searchservice/Search-Documents) è disponibile per più campi tramite lo schema dell'indice e viene attivato o disattivato in fase di query con un solo parametro di ricerca.<br/><br/> La [**paginazione**](search-pagination-page-layout.md) e la limitazione dei risultati della ricerca non comportano alcuna difficoltà grazie al controllo accurato che Ricerca cognitiva di Azure offre sui risultati della ricerca.  <br/><br/>|
-
-| Arricchimenti di&nbsp;intelligenza artificiale&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Funzionalità |
-|-------------------|----------|
-|Elaborazione di intelligenza artificiale durante l'indicizzazione | L'[**arricchimento tramite intelligenza artificiale**](cognitive-search-concept-intro.md) per l'analisi di testo e immagini può essere applicato a una pipeline di indicizzazione per estrarre informazioni di testo dal contenuto non elaborato. Alcuni esempi di [competenze predefinite](cognitive-search-predefined-skills.md) includono il riconoscimento ottico dei caratteri (che permette di eseguire ricerche nelle immagini JPEG digitalizzate), il riconoscimento di entità (identificazione di un'organizzazione, un nome o una località) e il riconoscimento di frasi chiave. È anche possibile [sviluppare competenze personalizzate](cognitive-search-create-custom-skill-example.md) da collegare alla pipeline. È anche possibile [integrare competenze create da Azure Machine Learning](./cognitive-search-tutorial-aml-custom-skill.md). |
-| Archiviazione di contenuto arricchito per l'analisi e l'utilizzo in scenari non di ricerca | L'[**archivio conoscenze**](knowledge-store-concept-intro.md) è un'estensione dell'indicizzazione basata su intelligenza artificiale. Con Archiviazione di Azure come back-end, è possibile salvare gli arricchimenti creati durante l'indicizzazione. Questi artefatti possono essere usati per definire set di competenze più efficaci oppure per creare forme e strutture da dati amorfi o ambigui. È possibile creare proiezioni di queste strutture destinate a specifici carichi di lavoro o utenti. È anche possibile analizzare direttamente i dati estratti oppure caricarli in altre app.<br/><br/> |
-| Contenuto memorizzato nella cache | L'[**arricchimento incrementale (anteprima)** ](cognitive-search-incremental-indexing-conceptual.md) limita l'elaborazione ai soli documenti cambiati da modifiche specifiche della pipeline, usando il contenuto memorizzato nella cache per le parti della pipeline che non cambiano. |
-
-| Importazione/indicizzazione di&nbsp;dati | Funzionalità |
-|----------------------------------|----------|
-| Origini dati | Gli indici di Ricerca cognitiva di Azure accettano i dati provenienti da qualsiasi origine, purché vengano inviati come struttura dei dati JSON. <br/><br/> Gli [**indicizzatori**](search-indexer-overview.md) automatizzano l'inserimento dati per le origini dati supportate da Azure e gestiscono la serializzazione JSON. Per estrarre contenuto ricercabile negli archivi dati principali, connettersi a [Database SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) o [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md). Gli indicizzatori BLOB di Azure possono eseguire la *decifrazione del documento* per [estrarre il testo dai principali formati di file](search-howto-indexing-azure-blob-storage.md) inclusi documenti Microsoft Office, PDF e HTML. |
-| Strutture di dati gerarchici e annidati | I [**tipi complessi**](search-howto-complex-data-types.md) e le raccolte consentono di modellare di fatto qualsiasi tipo di struttura JSON come indice di Ricerca cognitiva di Azure. Le cardinalità uno-a-molti e molti-a-molti possono essere espresse in modo nativo tramite raccolte, tipi complessi e raccolte di tipi complessi.|
-| Analisi linguistica | Gli analizzatori sono componenti usati per l'elaborazione del testo durante le operazioni di indicizzazione e di ricerca. Sono disponibili due tipi. <br/><br/>Gli [**analizzatori lessicali personalizzati**](index-add-custom-analyzers.md) sono usati per le query di ricerca complesse che usano la corrispondenza fonetica e le espressioni regolari. <br/><br/>Gli [**analizzatori di linguaggio**](index-add-language-analyzers.md) di Lucene o Microsoft sono usati per gestire in modo intelligente le funzionalità linguistiche specifiche di una lingua tra cui i tempi verbali, il genere, i sostantivi plurali irregolari, ad esempio "uomo" e "uomini", la scomposizione delle parole, il ritorno a capo, per le lingue senza spazi, e altro. <br/><br/>|
-
-
-| Livello di&nbsp;piattaforma&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Funzionalità |
-|-------------------|----------|
-| Strumenti per la creazione di prototipi e l'ispezione | Nel portale è possibile usare la [**procedura guidata di importazione dei dati**](search-import-data-portal.md) per configurare gli indicizzatori, indicizzare la finestra di progettazione e usare [**Esplora ricerche**](search-explorer.md) per testare le query e migliorare i profili di punteggio. È inoltre possibile aprire un indice qualsiasi per visualizzarne lo schema. |
-| Monitoraggio e diagnostica | [**Abilitare le funzionalità di monitoraggio**](search-monitor-usage.md) per andare oltre le metriche sempre visibili a colpo d'occhio nel portale. Le metriche sulle query al secondo, sulla latenza e sulla limitazione vengono acquisite e inserite in report nelle pagine del portale, senza necessità di configurazioni aggiuntive.|
-| Modello di crittografia lato server | La [**crittografia dei dati inattivi gestita da Microsoft**](search-security-overview.md#encrypted-transmissions-and-storage) è incorporata nel livello di archiviazione interno ed è irrevocabile. Facoltativamente, è possibile integrare la crittografia predefinita con [**chiavi di crittografia gestite dal cliente**](search-security-manage-encryption-keys.md). Le chiavi create e gestite in Azure Key Vault vengono usate per crittografare indici e mappe di sinonimi in Ricerca cognitiva di Azure. |
-| Infrastruttura | La **piattaforma a disponibilità elevata** garantisce un'esperienza del servizio di ricerca estremamente affidabile. Se si applica una scala corretta, [Ricerca cognitiva di Azure offre un contratto di servizio con disponibilità del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Completamente gestita e scalabile** come soluzione end-to-end, Ricerca cognitiva di Azure non richiede assolutamente alcun tipo di gestione dell'infrastruttura. Il servizio può essere adattato alle proprie esigenze scalando in due dimensioni per gestire più archivi di documenti, carichi di query maggiori o entrambi.<br/><br/>|
-
-## <a name="how-to-use-azure-cognitive-search"></a>Come usare Ricerca cognitiva di Azure
 ### <a name="step-1-provision-service"></a>Passaggio 1: Servizio di provisioning
-È possibile effettuare il provisioning di un servizio Ricerca cognitiva di Azure nel [portale di Azure](https://portal.azure.com/) o tramite l'[API Azure Resource Management](/rest/api/searchmanagement/). È possibile scegliere il servizio gratuito condiviso con altri sottoscrittori, o un [livello a pagamento](https://azure.microsoft.com/pricing/details/search/) che dedica risorse usate solo dal proprio servizio. Per i livelli a pagamento, è possibile scalare il servizio in due dimensioni: 
 
-- Aggiungere Repliche per aumentare la capacità di gestire carichi di lavoro elevati di query.   
-- Aggiungere Partizioni per aumentare la risorsa di archiviazione per più documenti. 
+È possibile [creare un servizio gratuito](search-create-service-portal.md) condiviso con altri sottoscrittori o scegliere un [livello a pagamento](https://azure.microsoft.com/pricing/details/search/) che dedica risorse usate solo dal proprio servizio. Tutte le guide introduttive e le esercitazioni possono essere completate nel servizio gratuito.
 
-Tramite la gestione separata della risorsa di archiviazione del documento e della velocità effettiva della query, è possibile calibrare le risorse in base ai requisiti di produzione.
+Per i livelli a pagamento, sono disponibili due dimensioni del servizio per calibrare le risorse in base ai requisiti di produzione:
 
-### <a name="step-2-create-index"></a>Passaggio 2: Creare un indice
-Per poter caricare il contenuto ricercabile, è prima necessario definire un indice di Ricerca cognitiva di Azure. Un indice è simile a una tabella di database che contiene i dati e può accettare query di ricerca. È necessario definire lo schema di indice per riflettere la struttura dei documenti in cui si desidera eseguire la ricerca, in modo analogo ai campi in un database.
++ Aggiungere repliche per aumentare la capacità di gestire carichi di lavoro elevati di query
++ Aggiungere partizioni per aumentare lo spazio di archiviazione per più documenti
 
-È possibile creare uno schema nel portale di Azure o a livello di codice usando [.NET SDK](search-howto-dotnet-sdk.md) o l'[API REST](/rest/api/searchservice/).
+### <a name="step-2-create-an-index"></a>Passaggio 2: Creare un indice
+
+Definire lo schema dell'indice del mapping affinché rifletta la struttura dei documenti in cui eseguire le ricerche, in modo analogo ai campi in un database. Un indice di ricerca è una struttura dei dati specializzata ottimizzata per l'esecuzione rapida di query.
+
+È possibile [creare lo schema dell'indice nel portale di Azure](search-what-is-an-index.md) o a livello di codice usando [.NET SDK](search-howto-dotnet-sdk.md) o l'[API REST](/rest/api/searchservice/).
+
+> [!TIP]
+> Iniziare con la guida dell'[Avvio rapido: Importazione guidata dei dati](search-get-started-portal.md) per creare, caricare ed eseguire query su un indice in pochi minuti.
 
 ### <a name="step-3-load-data"></a>Passaggio 3: Caricare dati
+
 Dopo aver definito un indice, si è pronti per caricare il contenuto. È possibile usare un modello push o pull.
 
-Il modello pull recupera i dati da origini dati esterne. È supportato tramite *indicizzatori* che semplificano e automatizzano degli aspetti dell'operazione di inserimento di dati, ad esempio la connessione, la lettura e la serializzazione dei dati. Gli [indicizzatori](/rest/api/searchservice/Indexer-operations) sono disponibili per Azure Cosmos DB, Database SQL di Azure, Archiviazione BLOB di Azure e SQL Server ospitato in una macchina virtuale di Azure. È possibile configurare un indicizzatore per l'aggiornamento dati su richiesta o pianificato.
+Il modello push esegue il push dei documenti JSON in un indice usando le API [REST](search-howto-dotnet-sdk.md) o di un [SDK](/rest/api/searchservice/addupdate-or-delete-documents). Il set di dati esterno può essere praticamente qualsiasi origine dati, purché i documenti siano nel formato JSON.
 
-Il modello push viene fornito tramite il componente SDK o l'API REST per l'invio di documenti aggiornati a un indice. È possibile eseguire il push dei dati da qualsiasi set di dati usando il formato JSON. Per informazioni sul caricamento dei dati, vedere [Aggiungere, aggiornare o eliminare documenti](/rest/api/searchservice/addupdate-or-delete-documents) oppure [Come usare .NET SDK](search-howto-dotnet-sdk.md).
+Il modello pull esegue il pull dei dati dalle origini in Azure e li invia a un indice di ricerca. È implementato tramite [*indicizzatori*](/rest/api/searchservice/Indexer-operations) che semplificano e automatizzano aspetti dell'operazione di inserimento di dati, ad esempio la connessione, la lettura e la serializzazione dei dati. Le origini dati supportate includono Azure Cosmos DB, SQL di Azure e Archiviazione di Azure.
 
-### <a name="step-4-search"></a>Passaggio 4: Ricerca
+### <a name="step-4-send-queries-and-handle-responses"></a>Passaggio 4: Inviare query e gestire le risposte
+
 Dopo avere compilato un indice, è possibile [eseguire query di ricerca](search-query-overview.md) nell'endpoint di servizio tramite semplici richieste HTTP con l'[API REST](/rest/api/searchservice/Search-Documents) o [.NET SDK](/dotnet/api/microsoft.azure.search.idocumentsoperations).
 
 Per creare ed estendere una pagina Web che raccoglie l'input degli utenti e gestisce i risultati, vedere [Creare la prima app di ricerca](tutorial-csharp-create-first-app.md). Per eseguire query su un indice esistente, è anche possibile usare [Postman per le chiamate REST interattive](search-get-started-postman.md) oppure la funzionalità predefinita [Esplora ricerche](search-explorer.md) nel portale di Azure.
@@ -106,8 +89,8 @@ Spesso i clienti chiedono quali siano le differenze tra Ricerca cognitiva di Azu
 | Confronto con | Differenze principali |
 |-------------|-----------------|
 |Bing | [API Ricerca Web Bing](../cognitive-services/bing-web-search/index.yml) ricerca i termini corrispondenti inviati negli indici in Bing.com. Gli indici sono generati da contenuti Web HTML, XML e di altro tipo nei siti pubblici. Con la medesima base, [Ricerca personalizzata Bing ](/azure/cognitive-services/bing-custom-search/) offre la stessa tecnologia di ricerca Web per tipi di contenuto Web aventi come ambito siti Web specifici.<br/><br/>Ricerca cognitiva di Azure esegue le ricerche in un indice definito e popolato con dati e documenti di cui si è proprietari e spesso aventi origini diverse. Ricerca cognitiva di Azure dispone di funzionalità di ricerca Web per alcune origini dati tramite gli [indicizzatori](search-indexer-overview.md), ma è possibile eseguire il push di qualsiasi documento JSON conforme allo schema di indicizzazione in un'unica risorsa ricercabile consolidata. |
-|Ricerca nel database | Molte piattaforme di database includono un'esperienza di ricerca predefinita. SQL Server include la [ricerca full-text](/sql/relational-databases/search/full-text-search). Cosmos DB e tecnologie simili usano indici disponibili per query. Durante la valutazione di prodotti che combinano ricerca e archiviazione, può essere difficile operare una scelta. Molte soluzioni usano entrambe le tecnologie, ovvero un sistema DBMS per l'archiviazione e Ricerca cognitiva di Azure per le funzionalità di ricerca specializzate.<br/><br/>Rispetto alla ricerca DBMS, Ricerca cognitiva di Azure archivia il contenuto da origini eterogenee e offre funzionalità di elaborazione del testo specialistiche, come l'elaborazione del testo con riconoscimento linguistico (stemming, lemmatizzazione, forme delle parole) in [56 lingue](/rest/api/searchservice/language-support). Supporta anche la correzione automatica di parole con errori di digitazione, [sinonimi](/rest/api/searchservice/synonym-map-operations), [suggerimenti](/rest/api/searchservice/suggestions), [controlli per il punteggio](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [facet](./search-filters-facets.md)e [tokenizzazione personalizzata](/rest/api/searchservice/custom-analyzers-in-azure-search). Il [motore di ricerca full-text](search-lucene-query-architecture.md) di Ricerca cognitiva di Azure è basato su Apache Lucene, uno standard del settore per il recupero delle informazioni. Anche se Ricerca cognitiva di Azure salva in modo permanente i dati sotto forma di indice invertito, raramente è una soluzione alternativa a una vera funzionalità di archiviazione dei dati. Per altre informazioni, vedere questo [post di forum](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data). <br/><br/>L'utilizzo delle risorse è un altro punto da considerare in questo ambito. L'indicizzazione e alcune operazioni di query sono spesso onerose dal punto di vista dei calcoli. L'offload della ricerca dal sistema DBMS a una soluzione dedicata nel cloud consente di risparmiare risorse da destinare all'elaborazione delle transazioni. Con l'esternalizzazione della ricerca, inoltre, è possibile modificare facilmente la scala in modo che corrisponda al volume di query.|
-|Soluzione di ricerca dedicata | Presupponendo di aver deciso per la ricerca dedicata con funzionalità complete, è opportuno un confronto finale tra soluzioni locali o servizio cloud. Molte tecnologie di ricerca consentono di controllare le pipeline di query e indicizzazione, offrono l'accesso a sintassi di query e filtro più complete, controllano la priorità e la rilevanza e sono caratterizzate da funzionalità di ricerca intelligente e mirata. <br/><br/>Un servizio cloud è la scelta giusta se si vuole una soluzione chiavi in mano con sovraccarico e manutenzione minimi e scala regolabile. <br/><br/>All'interno del paradigma di cloud, molti provider offrono funzionalità di base simili, con ricerca full-text, ricerca geografica e la possibilità di gestire un certo livello di ambiguità negli input di ricerca. In genere sono una [funzionalità specializzata](#feature-drilldown) o la semplicità e la facilità d'uso generale di API, strumenti e gestione a determinare la scelta ideale. |
+|Ricerca nel database | Molte piattaforme di database includono un'esperienza di ricerca predefinita. SQL Server include la [ricerca full-text](/sql/relational-databases/search/full-text-search). Cosmos DB e tecnologie simili usano indici disponibili per query. Durante la valutazione di prodotti che combinano ricerca e archiviazione, può essere difficile operare una scelta. Molte soluzioni usano entrambe le tecnologie, ovvero un sistema DBMS per l'archiviazione e Ricerca cognitiva di Azure per le funzionalità di ricerca specializzate.<br/><br/>Rispetto alla ricerca DBMS, Ricerca cognitiva di Azure archivia il contenuto da origini eterogenee e offre funzionalità di elaborazione del testo specialistiche, come l'elaborazione del testo con riconoscimento linguistico (stemming, lemmatizzazione, forme delle parole) in [56 lingue](/rest/api/searchservice/language-support). Supporta anche la correzione automatica di parole con errori di digitazione, [sinonimi](/rest/api/searchservice/synonym-map-operations), [suggerimenti](/rest/api/searchservice/suggestions), [controlli per il punteggio](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [facet](./search-filters-facets.md)e [tokenizzazione personalizzata](/rest/api/searchservice/custom-analyzers-in-azure-search). Il [motore di ricerca full-text](search-lucene-query-architecture.md) di Ricerca cognitiva di Azure è basato su Apache Lucene, uno standard del settore per il recupero delle informazioni. Tuttavia, anche se Ricerca cognitiva di Azure salva in modo permanente i dati sotto forma di indice invertito, non costituisce un'alternativa a una vera soluzione di archiviazione dei dati e non è consigliabile usarla a tale scopo. Per altre informazioni, vedere questo [post di forum](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data). <br/><br/>L'utilizzo delle risorse è un altro punto da considerare in questo ambito. L'indicizzazione e alcune operazioni di query sono spesso onerose dal punto di vista dei calcoli. L'offload della ricerca dal sistema DBMS a una soluzione dedicata nel cloud consente di risparmiare risorse da destinare all'elaborazione delle transazioni. Con l'esternalizzazione della ricerca, inoltre, è possibile modificare facilmente la scala in modo che corrisponda al volume di query.|
+|Soluzione di ricerca dedicata | Presupponendo di aver deciso per la ricerca dedicata con funzionalità complete, è opportuno un confronto finale tra soluzioni locali o servizio cloud. Molte tecnologie di ricerca consentono di controllare le pipeline di query e indicizzazione, offrono l'accesso a sintassi di query e filtro più complete, controllano la priorità e la rilevanza e sono caratterizzate da funzionalità di ricerca intelligente e mirata. <br/><br/>Un servizio cloud è la scelta giusta se si vuole una soluzione chiavi in mano con sovraccarico e manutenzione minimi e scala regolabile. <br/><br/>All'interno del paradigma di cloud, molti provider offrono funzionalità di base simili, con ricerca full-text, ricerca geografica e la possibilità di gestire un certo livello di ambiguità negli input di ricerca. In genere sono una [funzionalità specializzata](search-features-list.md) o la semplicità e la facilità d'uso generale di API, strumenti e gestione a determinare la scelta ideale. |
 
 Tra i provider di servizi cloud, Ricerca cognitiva di Azure offre le migliori prestazioni per i carichi di lavoro con ricerca full-text in archivi di contenuti e database in Azure, per le app che fanno principalmente affidamento sulla ricerca per il recupero delle informazioni e l'esplorazione dei contenuti. 
 
@@ -118,44 +101,12 @@ Ecco i principali vantaggi:
 + Scalabilità, affidabilità e massima disponibilità proprie di Azure
 + Elaborazione dei dati non elaborati tramite intelligenza artificiale per agevolare la ricerca, anche nel testo delle immagini, o individuazione di modelli in contenuto non strutturato.
 + Analisi linguistica e personalizzata, con analizzatori per una robusta ricerca full-text in 56 lingue
-+ [Funzionalità di base comuni per le app basate sulla ricerca](#feature-drilldown): assegnazione dei punteggi, esplorazione in base a facet, suggerimenti, sinonimi, ricerca geografica e così via.
-
-> [!Note]
-> Le origini dati diverse da Azure non sono completamente supportate, ma si basano su una metodologia di push più dispendiosa a livello di codice piuttosto che sugli indicizzatori. Usando le API è possibile reindirizzare qualsiasi raccolta di documenti JSON in un indice di Ricerca cognitiva di Azure.
++ [Funzionalità di base comuni per le app basate sulla ricerca](search-features-list.md): assegnazione dei punteggi, esplorazione in base a facet, suggerimenti, sinonimi, ricerca geografica e così via.
 
 Tra i clienti, i casi in grado di sfruttare la gamma più ampia di funzionalità di Ricerca cognitiva di Azure includono cataloghi online, programmi line-of-business e applicazioni di individuazione di documenti.
 
-## <a name="rest-api--net-sdk"></a>API REST | .NET SDK
-
-Sebbene sia possibile eseguire numerose attività nel portale, la Ricerca cognitiva di Azure è pensata per gli sviluppatori che vogliono integrare funzionalità di ricerca nelle applicazioni esistenti. Sono disponibili le seguenti interfacce di programmazione.
-
-|Piattaforma |Descrizione |
-|-----|------------|
-|[REST](/rest/api/searchservice/) | Comandi HTTP supportati da qualsiasi piattaforma e linguaggio di programmazione, inclusi Java, Python e JavaScript|
-|[.NET SDK](search-howto-dotnet-sdk.md) | Il wrapper .NET per l'API REST offre una codifica efficiente in C# e altri linguaggi di codice destinati a .NET Framework |
-
-## <a name="free-trial"></a>Versione di prova gratuita
-I sottoscrittori di Azure possono [effettuare il provisioning di un servizio al livello gratuito](search-create-service-portal.md).
-
-Se non si è abbonati, è possibile [aprire un account Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Si riceveranno crediti per provare i servizi di Azure a pagamento. Quando i crediti saranno esauriti, sarà possibile mantenere l'account e usare i [servizi di Azure gratuiti](https://azure.microsoft.com/free/). Verranno applicati addebiti alla carta di credito solo se l'utente modifica le impostazioni e richiede esplicitamente l'addebito.
-
-In alternativa, è possibile [attivare i vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con l'abbonamento MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento. 
-
-## <a name="how-to-get-started"></a>Attività iniziali
-
-1. Creare un [servizio gratuito](search-create-service-portal.md). Tutte le guide introduttive e le esercitazioni possono essere completate nel servizio gratuito.
-
-2. Eseguire l'[esercitazione sull'uso degli strumenti predefiniti per indicizzazione e query](search-get-started-portal.md). Apprendere concetti importanti e acquisire familiarità con le informazioni disponibili nel portale.
-
-3. Procedere con il codice usando l'API REST o .NET:
-
-   + [Come usare .NET SDK](search-howto-dotnet-sdk.md) illustra il flusso di lavoro principale nel codice gestito.  
-   + [Introduzione all'API REST](https://github.com/Azure-Samples/search-rest-api-getting-started) mostra gli stessi passaggi con l'API REST. È anche possibile usare questa guida introduttiva per chiamare le API REST da Postman o Fiddler: [Esplorare le API REST di Ricerca cognitiva di Azure](search-get-started-postman.md).
-
 ## <a name="watch-this-video"></a>Guardare questo video
 
-I motori di ricerca sono i principali fautori del recupero delle informazioni nelle app per dispositivi mobili, sul Web e negli archivi dati aziendali. La Ricerca cognitiva di Azure offre gli strumenti per creare un'esperienza di ricerca simile a quella dei siti Web commerciali di grandi dimensioni.
-
-In questo video di 15 minuti, il Program Manager Luis Cabrera presenta Ricerca cognitiva di Azure. 
+In questo video di 15 minuti, il Program Manager Luis Cabrera presenta Ricerca cognitiva di Azure.
 
 >[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8d007fa7100a9880878e0b748c2c38402e5ea192
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "60890162"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540235"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Guida introduttiva: Provare una soluzione di monitoraggio remoto basata sul cloud
 
@@ -133,7 +133,7 @@ Se si intende passare alle esercitazioni, lasciare l'acceleratore della soluzion
 
 Se l'acceleratore di soluzione non è più necessario, eliminarlo dalla pagina [Soluzioni di cui è stato effettuato il provisioning](https://www.azureiotsolutions.com/Accelerators#dashboard) selezionandolo e facendo clic su **Elimina soluzione**:
 
-![Eliminare la soluzione](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+![Screenshot che mostra la pagina "Soluzioni di cui è stato effettuato il provisioning" con l'acceleratore di soluzione evidenziato.](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 
 ![Eliminare la soluzione](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)

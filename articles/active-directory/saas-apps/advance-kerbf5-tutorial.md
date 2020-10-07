@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Integrazione dell'accesso Single Sign-On di Azure Active Directory con F5 | Microsoft Docs"
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e F5.
+description: Questo articolo illustra la procedura da eseguire per integrare F5 con Azure Active Directory (Azure AD).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e0e727e73fa1eff21a4b2e481738be49306676a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cbcbcb6a649969c5348c3ad445ff43f10372faeb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306175"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory (AD) con F5
 
@@ -39,8 +39,9 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* F5 supporta l'accesso SSO avviato da **SP e IDP**
-* L'accesso SSO di F5 può essere configurato in tre diversi modi.
+F5 supporta l'accesso SSO avviato da **SP e IDP**.
+
+L'accesso SSO di F5 può essere configurato in tre diversi modi:
 
 - [Configurare l'accesso Single Sign-On di F5 per l'applicazione Advanced Kerberos](#configure-f5-single-sign-on-for-advanced-kerberos-application)
 

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 38cf9f5d5102fa4cc322b1a9c7134db85de87814
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944442"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564783"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Server singolo di Database di Azure per MySQL
 
@@ -20,7 +20,7 @@ ms.locfileid: "90944442"
 - Server unico 
 - Server flessibile (anteprima)
 
-In questo articolo verranno fornite una panoramica e un'introduzione ai concetti di base del modello di distribuzione server singolo. Per informazioni sulla modalità di distribuzione server flessibile, vedere la [panoramica del server flessibile](flexible-server/index.yml)
+In questo articolo verranno fornite una panoramica e un'introduzione ai concetti di base del modello di distribuzione server singolo. Per informazioni sulla modalità di distribuzione server flessibile, vedere la [panoramica del server flessibile](flexible-server/index.yml). Per informazioni su come decidere qual è l'opzione di distribuzione appropriata per il carico di lavoro, vedere [come scegliere l'opzione di server MySQL corretta in Azure](select-right-deployment-type.md).
 
 ## <a name="overview"></a>Panoramica
 

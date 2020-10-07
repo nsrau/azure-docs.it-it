@@ -1,5 +1,5 @@
 ---
-title: Effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure con Node.js
+title: "Avvio rapido: Effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure con Node.js"
 description: Creare un dispositivo X.509 simulato ed effettuarne il provisioning con l'SDK per dispositivi Node.js per il servizio Device Provisioning in hub IoT di Azure. Questa guida di avvio rapido usa registrazioni singole.
 author: wesmc7777
 ms.author: wesmc
@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 844a174e8cd3208e071db165a31d6c82dd1af3b1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: f4d2a5e10db77e9ec9d06e3bcc73552bda280152
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422114"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323941"
 ---
 # <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Guida introduttiva: Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Node.js per il servizio Device Provisioning in hub IoT
 
@@ -24,7 +24,7 @@ Questa guida di avvio rapido descrive come creare un dispositivo X.509 simulato 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Revisione dei [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md).
+- Conoscenza dei concetti relativi al [provisioning](about-iot-dps.md#provisioning-process).
 - Completamento dell'esercitazione [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
 - Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Node.js v4.0 o versioni successive](https://nodejs.org).

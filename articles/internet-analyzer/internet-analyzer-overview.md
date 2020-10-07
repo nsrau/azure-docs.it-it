@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 3d9d1240e31d40a3d9c75d56314acc1721d90b99
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2512092c69390ce604c26ab6c5dd000afafc7c05
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73488137"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360889"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>Che cos'è l'analizzatore Internet? (Anteprima)
 
@@ -90,7 +90,7 @@ Per usare l'analizzatore Internet, configurare una risorsa analizzatore Internet
 
 Quando un utente visita l'applicazione Web, il client JavaScript seleziona due endpoint da misurare in tutti i test configurati. Per ogni endpoint, il client esegue una misurazione _a freddo_ e una _a caldo_. La misurazione _a freddo_ comporta una latenza aggiuntiva oltre alla latenza di rete pura tra l'utente e l'endpoint, ad esempio la risoluzione DNS, l'handshake della connessione TCP e la negoziazione SSL/TLS. La misurazione _a caldo_ viene eseguita immediatamente al termine della misurazione _a freddo_ e sfrutta i vantaggi della gestione della connessione TCP persistente dei browser moderni per ottenere una misura accurata della latenza end-to-end. Quando supportata dal browser dell'utente, viene usata l'API Resource Timing W3C per ottenere tempi di misurazione accurati. Al momento, per l'analisi vengono usate solo le misurazioni della latenza a caldo.
 
-![architettura](./media/ia-overview/architecture.png)
+![Il diagramma mostra un utente finale che si connette a un server applicazioni con client incorporato e ai due endpoint in Internet da numerose opzioni. L'utente carica le misure nell'analizzatore Internet.](./media/ia-overview/architecture.png)
 
 
 ## <a name="scorecards"></a>Scorecard 

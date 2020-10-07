@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 1b12886ee55741f62a1156269423ffadd34cd433
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: e3fce15cdeb1792749224299167b52fc2311d04e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81683304"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318279"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Provisioning di dispositivi con il servizio Device Provisioning in hub IoT di Azure
 Microsoft Azure include un ampio set di servizi cloud pubblici integrati per tutte le esigenze di soluzioni IoT. Il servizio Device Provisioning in hub IoT è un servizio helper per Hub IoT che consente di effettuare il provisioning JIT automatizzato nell'hub IoT corretto senza alcun intervento dell'utente. Consente di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile.
@@ -88,7 +88,7 @@ Il servizio Device Provisioning include molte funzionalità che lo rendono una s
 * **Crittografia per i dati inattivi** per crittografare e decrittografare i dati nel servizio Device Provisioning con la crittografia AES a 256 bit, una delle crittografie a blocchi più solide disponibili, conforme a FIPS 140-2.
 
 
-È possibile approfondire i concetti e le funzionalità del provisioning dei dispositivi in [device concepts](concepts-device.md) (Concetti sui dispositivi), [service concepts](concepts-service.md) (Concetti sul servizio) e [security concepts](concepts-security.md) (Concetti sulla sicurezza).
+Per altre informazioni sui concetti e sulle funzionalità del provisioning di dispositivi, vedere l'argomento relativo alla terminologia del [servizio Device Provisioning](concepts-service.md) insieme agli altri argomenti concettuali nella stessa sezione.
 
 ## <a name="cross-platform-support"></a>Supporto multipiattaforma
 Come tutti i servizi IoT di Azure, il servizio Device Provisioning opera su più piattaforme con vari sistemi operativi. Azure offre SDK open source in un'ampia gamma di [lingue](https://github.com/Azure/azure-iot-sdks) per facilitare la connessione dei dispositivi e la gestione del servizio. Il servizio Device Provisioning supporta i protocolli seguenti per la connessione di dispositivi:
@@ -123,7 +123,9 @@ Il servizio Device Provisioning automatizza il provisioning dei dispositivi con 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo questa panoramica del provisioning dei dispositivi IoT in Azure, il passaggio successivo consiste nel provare uno scenario di IoT end-to-end.
-> [!div class="nextstepaction"]
-> [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md) (Configurare il servizio Device Provisioning in hub IoT con il portale di Azure) 
-> [Create and provision a simulated device](quick-create-simulated-device.md) (Creare un dispositivo simulato ed effettuarne il provisioning) 
-> [Set up device for provisioning](tutorial-set-up-device.md) (Configurare il dispositivo per il provisioning)
+
+[Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](quick-setup-auto-provision.md)
+
+[Creare ed effettuare il provisioning di un dispositivo simulato](quick-create-simulated-device.md)
+
+[Configurare il dispositivo per il provisioning](tutorial-set-up-device.md)

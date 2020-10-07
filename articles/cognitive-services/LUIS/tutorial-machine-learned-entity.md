@@ -1,14 +1,16 @@
 ---
 title: "Esercitazione: Estrarre dati strutturati con un'entità basata su Machine Learning - LUIS"
 description: Estrarre dati strutturati da un'espressione usando l'entità basata su Machine Learning. Per aumentare l'accuratezza dell'estrazione, aggiungere sottoentità con funzionalità.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 01262ee0271849793c4393b1ea8e18c4179ad4e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045604"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334728"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Esercitazione: Estrarre dati strutturati da un'espressione dell'utente con entità basate su Machine Learning in Language Understanding (LUIS)
 
@@ -79,12 +81,12 @@ Per estrarre i dettagli relativi a un ordine di pizza, creare un'entità `Order`
 
 1. Nella casella **Choose an entity type** (Scegli un tipo di entità) selezionare **Add Structure** (Aggiungi struttura), quindi selezionare **Next** (Avanti). La struttura è necessaria per aggiungere le sottoentità, ad esempio dimensione e quantità.
 
-    ![Aggiungere la struttura all'entità](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
+    ![Screenshot che mostra la finestra Choose an entity type (Scegli un tipo di entità) con l'opzione Add structure (Aggiungi struttura) selezionata.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. Nella casella **Add subentities (optional)** (Aggiungi sottoentità - facoltativo) selezionare **+** sulla riga `Order`, aggiungere `Size` e `Quantity` come sottoentità e quindi selezionare **Create** (Crea).
 
     > [!div class="mx-imgBorder"]
-    > ![Aggiungere la struttura all'entità](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
+    > ![Screenshot che mostra la finestra Add subentities (optional) (Aggiungi sottoentità - facoltativo) con sottoentità evidenziate.](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
 
 ## <a name="edit-subentities-to-improve-extraction"></a>Modificare le sottoentità per migliorare l'estrazione
 
@@ -121,7 +123,7 @@ L'aggiunta di un elenco di dimensioni note riconosciute dall'applicazione client
 
 
     > [!div class="mx-imgBorder"]
-    > ![Aggiungere la struttura all'entità](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
+    > ![Screenshot che mostra la finestra the SizeList e gli elementi dell'elenco con l'opzione XLarge selezionata.](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
 
 ### <a name="add-feature-of-sizelist-entity"></a>Aggiungere la funzionalità dell'entità SizeList
 
@@ -160,7 +162,7 @@ L'aggiunta di un'entità predefinita numero consente di semplificare l'estrazion
 Nella pagina dei dettagli per l'entità **Ordine** selezionare l'asterisco, `*`, per entrambe le funzionalità **@ SizeList** e **@ number**. L'asterisco viene visualizzato nella stessa etichetta del nome della funzionalità.
 
 > [!div class="mx-imgBorder"]
-> ![Aggiungere la struttura all'entità](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
+> ![Screenshot che mostra la funzionalità @SizeList con l'asterisco e la richiesta di avviso.](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
 
 <a name="label-text-as-entities-in-example-utterances"></a>
 <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
@@ -200,7 +202,7 @@ Per eseguire il training dell'app, selezionare **Train** (Esegui il training). I
 1. Per modificare la stima in un'entità etichettata, selezionare il segno di spunta sulla stessa riga.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot parziale della nuova espressione di esempio stimata con l'entità](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
+    > ![Screenshot che mostra un'espressione di esempio con segno di spunta evidenziato.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
     A questo punto, l'entità basata su Machine Learning funziona perché è in grado di trovare l'entità all'interno di una nuova espressione di esempio. Quando si aggiungono espressioni di esempio, se l'entità non è stimata correttamente, assegnare un'etichetta all'entità e ai sottoentità. Se l'entità è stimata correttamente, assicurarsi di confermare le stime.
 

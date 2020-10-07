@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e8571da46ca188e975119c387fa4ee0695c4fde
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0454ffc1ed68056b2aedc10a6e904a9a934ab223
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545710"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333495"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Esercitazione: Configurare Zscaler ZSCloud per il provisioning utenti automatico
 
@@ -120,7 +120,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 11. Nella sezione **Mapping degli attributi** esaminare gli attributi utente che vengono sincronizzati da Azure AD a Zscaler ZSCloud. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Zscaler ZSCloud per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche.
 
-    ![Mapping degli attributi](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
+    ![Screenshot della sezione Mapping degli attributi con i sette mapping visualizzati.](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
 
 12. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Groups to ZscalerZSCloud** (Sincronizza gruppi di Azure Active Directory con ZscalerZSCloud):
 
@@ -128,7 +128,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 13. Nella sezione **Mapping degli attributi** esaminare gli attributi gruppo che vengono sincronizzati da Azure AD a Zscaler ZSCloud. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in Zscaler ZSCloud per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche.
 
-    ![Mapping degli attributi](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
+    ![Screenshot della sezione Mapping degli attributi con i tre mapping visualizzati.](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
 
 14. Per configurare i filtri di ambito, fare riferimento alle istruzioni riportate nell'[esercitazione sui filtri per la definizione dell'ambito](./../active-directory-saas-scoping-filters.md).
 

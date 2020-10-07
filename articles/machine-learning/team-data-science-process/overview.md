@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 711c4ce8af613181d35d2850393c6c24d795c280
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: fc9a5e604e6ac52eb0e853725123272ca924fa36
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799265"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362232"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Introduzione a Team Data Science Process
 
@@ -51,7 +51,7 @@ Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, sp
 
 Di seguito si riporta una rappresentazione visiva del **Ciclo di vita del processo di analisi scientifica dei dati di Team**. 
 
-![Ciclo di vita del processo di data science per i team 2](./media/overview/tdsp-lifecycle2.png) 
+![Diagramma che mostra il ciclo di vita di data science, tra cui informazioni commerciali, acquisizione e comprensione dei dati, modellazione e distribuzione.](./media/overview/tdsp-lifecycle2.png) 
 
 Gli obiettivi, le attività e gli elementi di documentazione per ogni fase del ciclo di vita del TDSP sono descritti nell'argomento [Ciclo di vita del processo di data science per i team](lifecycle.md). Queste attività ed elementi sono associati a ruoli di progetto:
 

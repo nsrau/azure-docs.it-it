@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: 8c22ff3cc79d326da09c44167519adbea48b5643
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c6209ae985f8e59e1acae2d8fd6a1c821acae5a7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651336"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449546"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Informazioni su Apache Kafka in Azure HDInsight
 
@@ -33,7 +33,9 @@ Di seguito sono illustrate le caratteristiche specifiche di Kafka in HDInsight:
 
     Per altre informazioni, vedere l'articolo relativo alla [disponibilità elevata con Apache Kafka in HDInsight](apache-kafka-high-availability.md).
 
-* HDInsight consente di modificare il numero dei nodi di lavoro, che ospitano il broker Kafka, dopo la creazione del cluster. Il ridimensionamento può essere eseguito con il portale di Azure, Azure PowerShell e altre interfacce di gestione di Azure. Per Kafka, è consigliabile ribilanciare le repliche delle partizioni dopo le operazioni di ridimensionamento. Il ribilanciamento delle partizioni consente a Kafka di sfruttare il nuovo numero di nodi di lavoro.
+* HDInsight consente di modificare il numero dei nodi di lavoro, che ospitano il broker Kafka, dopo la creazione del cluster. L'operazione di aumento può essere eseguita tramite il portale di Azure, Azure PowerShell e altre interfacce di gestione di Azure. Per Kafka, è consigliabile ribilanciare le repliche delle partizioni dopo le operazioni di ridimensionamento. Il ribilanciamento delle partizioni consente a Kafka di sfruttare il nuovo numero di nodi di lavoro.
+
+   HDInsight Kafka non supporta le operazioni di riduzione e la riduzione del numero di broker all'interno di un cluster. Se si tenta di ridurre il numero di nodi, viene restituito un errore di tipo `InvalidKafkaScaleDownRequestErrorCode`.
 
     Per altre informazioni, vedere l'articolo relativo alla [disponibilità elevata con Apache Kafka in HDInsight](apache-kafka-high-availability.md).
 
@@ -67,7 +69,7 @@ Quelli che seguono sono attività e criteri comuni che possono essere eseguiti u
 |Scalabilità orizzontale|le partizioni Kafka trasmettono nei nodi del cluster HDInsight. È possibile associare processi consumer a singole partizioni per garantire il bilanciamento del carico durante l'utilizzo dei record. Per altre informazioni, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).|
 |Recapito in ordine|all'interno di ogni partizione, i record vengono archiviati nel flusso nell'ordine in cui sono stati ricevuti. Associando un processo consumer per partizione, è possibile garantire che i record vengano elaborati in ordine. Per altre informazioni, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).|
 |Messaggistica|poiché supporta il modello di pubblicazione-sottoscrizione dei messaggi, Kafka viene spesso usato come broker di messaggi.|
-|Rilevamento attività|poiché Kafka offre la registrazione ordinata dei record, può essere usato per tenere traccia delle attività e per ricrearle. Ad esempio, le azioni dell'utente in un sito Web o in un'applicazione.|
+|Rilevamento di attività|poiché Kafka offre la registrazione ordinata dei record, può essere usato per tenere traccia delle attività e per ricrearle. Ad esempio, le azioni dell'utente in un sito Web o in un'applicazione.|
 |Aggregazione|Usando l'elaborazione dei flussi, è possibile aggregare informazioni da flussi diversi per combinarle e centralizzarle in dati operativi.|
 |Trasformazione|Usando l'elaborazione dei flussi, è possibile combinare e arricchire dati da più argomenti di input in uno o più argomenti di output.|
 
@@ -81,4 +83,4 @@ Usare i collegamenti seguenti per informazioni su come usare Apache Kafka in HDI
 
 * [Esercitazione: Usare Apache Spark con Apache Kafka in HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
-* [Esercitazione: Usare Apache Storm con Apache Kafka in HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Esercitazione: usare Apache Storm con Apache Kafka in HDInsight](../hdinsight-apache-storm-with-kafka.md)

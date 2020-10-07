@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4b79ee0999db0a19794cc167ae79ed6e58193b30
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b629ddeb1db8dd94c1c96ecb62fafb9ca7bfc60
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945053"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569666"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Database di Azure per MySQL - Server flessibile (anteprima)
 
@@ -20,7 +20,7 @@ Database di Azure per MySQL basato su MySQL Community Edition è disponibile in 
 - Server unico 
 - Server flessibile (anteprima)
 
-In questo articolo verrà fornita una panoramica e un'introduzione ai concetti di base del modello di distribuzione flessibile del server. 
+In questo articolo verrà fornita una panoramica e un'introduzione ai concetti di base del modello di distribuzione flessibile del server. Per informazioni su come decidere qual è l'opzione di distribuzione appropriata per il carico di lavoro, vedere [come scegliere l'opzione di server MySQL corretta in Azure](./../select-right-deployment-type.md).
 
 ## <a name="overview"></a>Panoramica
 
@@ -50,7 +50,7 @@ Se è configurata la disponibilità elevata con ridondanza della zona, il serviz
 
 Per informazioni dettagliate, vedere i [concetti sulla disponibilità elevata](concepts-high-availability.md).
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagramma concettuale della disponibilità elevata con ridondanza della zona"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagramma concettuale della disponibilità elevata a zona singola"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Applicazione automatica delle patch con la finestra di manutenzione gestita
 
@@ -112,6 +112,15 @@ Il servizio esegue la versione community di MySQL. Questo consente la compatibil
 
 - **Dump e ripristino**: per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, l'esecuzione del dump e del ripristino usando strumenti della community come mysqldump/mydumpere può fornire una soluzione più rapida per la migrazione. Per i dettagli, vedere Eseguire la migrazione con dump e ripristino. 
 - **Servizio Migrazione del database di Azure**: per migrazioni semplici e facilitate al server singolo con tempi di inattività minimi, è possibile sfruttare [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online). 
+
+## <a name="contacts"></a>Contatti
+Per eventuali domande o suggerimenti sull'uso di Database di Azure per MySQL, inviare un messaggio di posta elettronica al team di Database di Azure per MySQL ([@Ask Azure DB per MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Questo indirizzo di posta elettronica non è un alias del supporto tecnico.
+
+Inoltre, prendere in considerazione i seguenti punti di contatto in base alle specifiche esigenze:
+
+- Per contattare il supporto di Azure, [creare un ticket dal portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Per risolvere un problema relativo all'account, inviare una [richiesta di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) nel portale di Azure.
+- Per fornire commenti e suggerimenti o richiedere nuove funzionalità, creare una richiesta tramite [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver letto un'introduzione alla modalità di distribuzione server singolo di Database di Azure per MySQL, si è pronti per:

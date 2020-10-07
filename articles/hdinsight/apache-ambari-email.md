@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 21376eb40fb40abe67f7e03d15aabd7d89ea62f8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 40f8c36b197b0c68b9f04a02dc7731877b27ddd2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80081900"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541663"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Esercitazione: Configurare le notifiche tramite posta elettronica di Apache Ambari in Azure HDInsight
 
@@ -54,7 +54,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 1. Nella finestra **Manage Alert Notifications** (Gestisci notifiche di avviso) selezionare l'icona **+** .
 
-    ![Creazione notifica di avviso Ambari](./media/apache-ambari-email/azure-portal-create-notification.png)
+    ![Screenshot che mostra la finestra di dialogo Manage Alert Notifications (Gestisci notifiche di avviso).](./media/apache-ambari-email/azure-portal-create-notification.png)
 
 1. Nella finestra di dialogo **Create Alert Notification** (Crea notifica di avviso) specificare le informazioni seguenti:
 
@@ -75,7 +75,7 @@ In questa esercitazione verranno illustrate le procedure per:
     |Conferma password|Reimmettere la password.|
     |Avvia TLS|Selezionare questa casella di controllo|
 
-    ![Creazione notifica di avviso Ambari](./media/apache-ambari-email/ambari-create-alert-notification.png)
+    ![Screenshot che mostra la finestra di dialogo Create Alert Notification (Crea notifica di avviso).](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
     Selezionare **Salva**. Si verrà reindirizzati alla finestra **Manage Alert Notifications** (Gestisci notifiche di avviso).
 

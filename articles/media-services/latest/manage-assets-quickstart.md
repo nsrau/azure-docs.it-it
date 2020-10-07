@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 16a5793f9848a6e16856728877727dbefc3e0805
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6b4373efc4979900e676257cc0b2748145165499
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264930"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261414"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Avvio rapido: Caricamento, codifica e streaming di contenuto con il portale
 
@@ -66,7 +66,7 @@ Questa esercitazione illustra come usare il portale di Azure per il caricamento,
 
 Se si passa alla finestra degli asset, si noterà che all'elenco è stato aggiunto un nuovo asset:
 
-![Caricamento](./media/manage-assets-quickstart/upload.png)
+![Screenshot del portale di Azure che mostra la finestra Asset aperta selezionando Asset (nuovo) e un nuovo asset aggiunto selezionando il pulsante Carica.](./media/manage-assets-quickstart/upload.png)
 
 ## <a name="encode"></a>Codificare
 
@@ -78,7 +78,7 @@ Se si passa alla finestra degli asset, si noterà che all'elenco è stato aggiun
 
 Se si passa alla finestra degli asset, si noterà che all'elenco è stato aggiunto un asset di output:
 
-![Codificare](./media/manage-assets-quickstart/encode.png)
+![Screenshot della finestra Asset nel portale di Azure che mostra l'asset ignite.mp4 codificato con Media Encoder Standard aggiunto all'elenco degli asset.](./media/manage-assets-quickstart/encode.png)
 
 ## <a name="monitor-the-job-progress"></a>Monitorare lo stato di avanzamento del processo
 

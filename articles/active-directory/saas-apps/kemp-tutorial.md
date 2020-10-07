@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 1d974badd715d7966f552603a77d77aab95d70f7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 68869d464df01d3cc89493c64d66511b4a6f369d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549968"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300013"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Kemp LoadMaster - Azure AD Integration
 
@@ -197,11 +197,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="ssl-acceleration"></a>Accelerazione SSL
  
-1. Passare all'interfaccia utente Web di Kemp Load Master > Virtual Services > Virtual Services (Servizi virtuali > Servizi virtuali).
+1. Passare all'interfaccia utente Web di Kemp Load Master > Virtual Services > View/Modify Services (Servizi virtuali > Visualizza/Modifica servizi).
 
 1. Fare clic su Modify (Modifica) in Operation (Operazione).
 
-1. In Properties for tcp/x.x.x.:443 (ID:6) - Operating at Layer 7 (Proprietà per TCP/x.x.x.: 443 (ID: 6) - Operativo al livello 7) fare clic su SSL Properties (Proprietà SSL).
+1. Fare clic su SSL Properties (Proprietà SSL), che funziona al livello 7.
     
     ![Server Web di Kemp LoadMaster - Azure AD Integration](./media/kemp-tutorial/kemp-3.png)
     

@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/25/2019
-ms.openlocfilehash: a2239d5ee70e90b9ee7c07b4dca78a45d2ce7ef9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.date: 09/25/2020
+ms.openlocfilehash: fa103c39b540c41536e4f231692b4602afe01a3e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131481"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361212"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Guida introduttiva: Creare e gestire definizioni dei flussi di lavoro delle app per la logica con Visual Studio Code
 
@@ -130,7 +130,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
    Ad esempio, di seguito è riportata una definizione del flusso di lavoro dell'app per la logica di esempio, che inizia con un trigger RSS e un'azione di Office 365 Outlook. In genere gli elementi JSON vengono visualizzati in ordine alfabetico in ogni sezione. Questo esempio però mostra questi elementi approssimativamente nell'ordine in cui i passaggi dell'app per la logica vengono visualizzati nella finestra di progettazione.
 
    > [!IMPORTANT]
-   > Se si vuole riutilizzare questa definizione di app per la logica di esempio, è necessario un account aziendale Office 365, ad esempio @fabrikam.com. Assicurarsi di sostituire l'indirizzo di posta elettronica fittizio con il proprio indirizzo di posta elettronica. Per usare un connettore di posta elettronica diverso, ad esempio Outlook.com o Gmail, sostituire l'azione `Send_an_email_action` con un'azione simile disponibile da un [connettore di posta elettronica supportato da App per la logica di Azure](../connectors/apis-list.md).
+   > Se si vuole riutilizzare questa definizione di app per la logica di esempio, è necessario un account aziendale, ad esempio @fabrikam.com. Assicurarsi di sostituire l'indirizzo di posta elettronica fittizio con il proprio indirizzo di posta elettronica. Per usare un connettore di posta elettronica diverso, ad esempio Outlook.com o Gmail, sostituire l'azione `Send_an_email_action` con un'azione simile disponibile da un [connettore di posta elettronica supportato da App per la logica di Azure](../connectors/apis-list.md).
    >
    > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. 
    > Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). 
@@ -307,4 +307,4 @@ In Visual Studio Code è possibile aprire ed esaminare le versioni precedenti de
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare app per la logica con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+> [Creare app per la logica con stato o senza stato in Visual Studio Code (anteprima)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)

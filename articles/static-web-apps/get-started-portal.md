@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: 66335548381a6f7e3ebf93c97eb212255639644c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: b009b34be69e48ae6205cd9ab88d1583ca9c6561
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604088"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280564"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Avvio rapido: Creazione della prima app Web statica nel portale di Azure
 
@@ -37,9 +37,9 @@ Dopo aver creato il repository, è possibile creare un'app Web statica dal porta
 1. Selezionare **App Web statiche (anteprima)**
 1. Selezionare **Crea**
 
-Per iniziare, nella scheda _Informazioni di base_ configurare la nuova app e collegarla a un repository GitHub.
+Per iniziare, nella sezione _Informazioni di base_ configurare la nuova app e collegarla a un repository GitHub.
 
-:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Scheda Informazioni di base":::
+Sezione :::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Informazioni di base":::
 
 1. Selezionare la _sottoscrizione di Azure_
 1. Selezionare un _gruppo di risorse_ o crearne uno nuovo
@@ -51,7 +51,7 @@ Per iniziare, nella scheda _Informazioni di base_ configurare la nuova app e col
 
 Dopo aver eseguito l'accesso con GitHub, immettere le informazioni sul repository.
 
-:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Dettagli del repository":::
+:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Informazioni di base":::
 
 1. Selezionare l'_organizzazione_ preferita
 1. Selezionare **my-first-web-static-app** nell'elenco a discesa _Repository_
@@ -94,18 +94,18 @@ Dopo aver eseguito l'accesso con GitHub, immettere le informazioni sul repositor
 
 1. Selezionare **Rivedi e crea**.
 
-    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Pulsante Rivedi e crea":::
+    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Informazioni di base":::
 
     > [!NOTE]
     > Per modificare questi valori dopo aver creato l'app, è possibile modificare il [file del flusso di lavoro ](github-actions-workflow.md).
 
 1. Selezionare **Crea**.
 
-    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Pulsante Crea":::
+    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Informazioni di base":::
 
 1. Selezionare **Vai alla risorsa**.
 
-    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Pulsante Vai alla risorsa":::
+    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Informazioni di base":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 

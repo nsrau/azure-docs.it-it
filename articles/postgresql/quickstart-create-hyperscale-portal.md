@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: 1a16283f3d04c9ad331a04c3a36b49055635d76e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e43e20ceb5e84d652fee9ca4db6d5dc871ed1e4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906486"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268453"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Avvio rapido: Creare un gruppo di server Hyperscale (Citus) nel portale di Azure
 
@@ -25,7 +25,7 @@ Il database di Azure per PostgreSQL è un servizio gestito usato per eseguire, g
 
 Dopo la connessione al nodo coordinatore Hyperscale tramite psql, è possibile completare alcune attività di base.
 
-All'interno dei server Hyperscale esistono tre tipi di tabelle:
+All'interno dei server Hyperscale (Citus) sono presenti tre tipi di tabelle:
 
 - Tabelle distribuite o partizionate (ripartite per agevolare il ridimensionamento a favore delle prestazioni e della parallelizzazione)
 - Tabelle di riferimento (vengono mantenute più copie)
@@ -71,7 +71,7 @@ CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Successivamente queste tabelle Postgres verranno spostate nel nodo coordinatore e verrà indicato a Hyperscale di partizionarle tra i ruoli di lavoro. A tale scopo, verrà eseguita una query per ogni tabella specificando la chiave in cui verrà eseguita la partizione. Nell'esempio corrente verrà eseguita la partizione sia della tabella degli eventi che della tabella degli utenti in `user_id`:
+Successivamente queste tabelle Postgres verranno spostate nel nodo coordinatore e verrà indicato a Hyperscale (Citus) di partizionarle tra i ruoli di lavoro. A tale scopo, verrà eseguita una query per ogni tabella specificando la chiave in cui verrà eseguita la partizione. Nell'esempio corrente verrà eseguita la partizione sia della tabella degli eventi che della tabella degli utenti in `user_id`:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
@@ -117,7 +117,7 @@ ORDER BY hour;
 
 Finora le query hanno riguardato esclusivamente github\_events, ma è possibile combinare queste informazioni con github\_users. Dal momento che sia gli utenti che gli eventi sono stati partizionati con lo stesso identificatore (`user_id`), le righe di entrambe le tabelle con ID utente corrispondenti avranno un [percorso condiviso](concepts-hyperscale-colocation.md) negli stessi nodi del database e potranno facilmente essere sottoposte a join.
 
-Se si crea un join su `user_id`, Hyperscale può eseguire il push dell'esecuzione del join nelle partizioni in modo che l'esecuzione avvenga in parallelo nei nodi di lavoro. È ad esempio possibile trovare gli utenti che hanno creato il maggior numero di repository:
+Se si crea un join su `user_id`, Hyperscale (Citus) può eseguire il push dell'esecuzione del join nelle partizioni in modo che l'esecuzione avvenga in parallelo nei nodi di lavoro. È ad esempio possibile trovare gli utenti che hanno creato il maggior numero di repository:
 
 ```sql
 SELECT gu.login, count(*)

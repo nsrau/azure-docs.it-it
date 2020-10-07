@@ -4,12 +4,12 @@ description: 'Esercitazione: Informazioni su come usare Griglia di eventi di Azu
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d45fcedb570e384b851a7ac815ca175c67cc00a0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 64d4b9769e1a228294bd7d8741f6f4b1260fb0dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435032"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270560"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Esercitazione: Trasmettere Big Data a un data warehouse
 [Griglia di eventi](overview.md) di Azure è un servizio intelligente di routing di eventi che consente di rispondere alle notifiche (eventi) inviate da applicazioni e servizi. Per esempio, può attivare una Funzione di Azure per elaborare i dati di Hub eventi che sono stati acquisiti in un archivio BLOB di Azure o Azure Data Lake Store ed eseguire la migrazione dei dati su altri repository di dati. Questo [esempio di integrazione di Hub eventi e di Griglia di eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra come usare Hub eventi con Griglia di eventi per migrare facilmente i dati di Hub eventi acquisiti da una risorsa di archiviazione BLOB a un'istanza di Azure Synapse Analytics (in precedenza SQL Data Warehouse).
@@ -66,7 +66,7 @@ In questo passaggio, implementare l'infrastruttura necessaria con un [modello di
 4. In Cloud Shell, se viene visualizzata un'opzione per scegliere tra **Bash** e **PowerShell**, selezionare **Bash**. 
 5. Se si usa Cloud Shell per la prima volta, creare un account di archiviazione selezionando **Crea risorsa di archiviazione**. Azure Cloud Shell richiede un account di archiviazione di Azure per archiviare alcuni file. 
 
-    ![Creare una risorsa di archiviazione per la shell cloud](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
+    ![Screenshot che mostra la finestra di dialogo "Non sono state montate risorse di archiviazione" con il pulsante "Crea risorsa di archiviazione" selezionato.](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
 6. Attendere finché non viene inizializzata Cloud Shell. 
 
     ![Creare una risorsa di archiviazione per la shell cloud](media/event-grid-event-hubs-integration/cloud-shell-initialized.png)
@@ -209,7 +209,7 @@ Creare una tabella nel data warehouse mediante l'esecuzione dello script [Create
    ![Pubblicare l'app per le funzioni](media/event-grid-event-hubs-integration/publish-function-app.png)
 4. Se si visualizza la schermata seguente, selezionare **Avvia**. 
 
-   ![Avviare il pulsante di pubblicazione](media/event-grid-event-hubs-integration/start-publish-button.png) 
+   ![Screenshot che mostra Visual Studio con il pulsante "Avvia" nella sezione Pubblica.](media/event-grid-event-hubs-integration/start-publish-button.png) 
 5. Nella finestra di dialogo **Pubblica** selezionare **Azure** per **Destinazione**, quindi fare clic su **Avanti**. 
 
    ![Avviare il pulsante di pubblicazione](media/event-grid-event-hubs-integration/publish-select-azure.png)

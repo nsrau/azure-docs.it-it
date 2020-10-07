@@ -3,12 +3,12 @@ title: Panoramica dei criteri di Azure
 description: Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire definizioni di criteri nell'ambiente Azure.
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 662a7510013e2008d8c16cf21376b11c247e0bc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905979"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538957"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -57,15 +57,15 @@ La panoramica di Criteri di Azure riportata di seguito è tratta da Build 2018. 
 
 ## <a name="getting-started"></a>Introduzione
 
-### <a name="azure-policy-and-rbac"></a>Criteri di Azure e controllo degli accessi in base al ruolo
+### <a name="azure-policy-and-azure-rbac"></a>Criteri di Azure e controllo degli accessi in base al ruolo di Azure
 
-Esistono alcune differenze importanti tra Criteri di Azure e il controllo degli accessi in base al ruolo (RBAC). Criteri di Azure valuta lo stato esaminando le proprietà delle risorse rappresentate in Resource Manager e le proprietà di alcuni provider di risorse. Criteri di Azure non limita le azioni, denominate anche _operazioni_. Criteri di Azure garantisce che lo stato delle risorse sia conforme alle regole business senza preoccuparsi dell'utente che ha apportato la modifica o chi dispone delle autorizzazioni per apportare una modifica.
+Esistono alcune differenze importanti tra Criteri di Azure e il controllo degli accessi in base al ruolo di Azure. Criteri di Azure valuta lo stato esaminando le proprietà delle risorse rappresentate in Resource Manager e le proprietà di alcuni provider di risorse. Criteri di Azure non limita le azioni, denominate anche _operazioni_. Criteri di Azure garantisce che lo stato delle risorse sia conforme alle regole business senza preoccuparsi dell'utente che ha apportato la modifica o chi dispone delle autorizzazioni per apportare una modifica.
 
-Il Controllo degli accessi in base al ruolo è incentrato sulle [azioni](../../role-based-access-control/resource-provider-operations.md) dell'utente in ambiti diversi. Se è necessario il controllo di un'azione, il Controllo degli accessi in base al ruolo è lo strumento corretto da usare. Anche se un utente è autorizzato a eseguire un'azione, se il risultato è una risorsa non conforme Criteri di Azure blocca la creazione o l'aggiornamento.
+Il controllo degli accessi in base al ruolo di Azure è incentrato sulla gestione delle [azioni](../../role-based-access-control/resource-provider-operations.md) dell'utente in ambiti diversi. Se è necessario il controllo di un'azione, il controllo degli accessi in base al ruolo di Azure è lo strumento corretto da usare. Anche se un utente è autorizzato a eseguire un'azione, se il risultato è una risorsa non conforme Criteri di Azure blocca la creazione o l'aggiornamento.
 
-La combinazione del Controllo degli accessi in base al ruolo e Criteri di Azure fornisce il controllo completo dell'ambito in Azure.
+La combinazione del controllo degli accessi in base al ruolo di Azure e di Criteri di Azure fornisce il controllo completo dell'ambito in Azure.
 
-### <a name="rbac-permissions-in-azure-policy"></a>Autorizzazioni del controllo degli accessi in base al ruolo in Criteri di Azure
+### <a name="azure-rbac-permissions-in-azure-policy"></a>Autorizzazioni del controllo degli accessi in base al ruolo di Azure in Criteri di Azure
 
 Criteri di Azure dispone di diverse autorizzazioni, note come operazioni, in due provider di risorse:
 

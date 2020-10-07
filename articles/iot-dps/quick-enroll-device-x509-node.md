@@ -1,5 +1,5 @@
 ---
-title: Registrare dispositivi X.509 nel servizio Device Provisioning di Azure con Node.js
+title: 'Avvio rapido: Registrare dispositivi X.509 nel servizio Device Provisioning di Azure con Node.js'
 description: Questa guida introduttiva usa registrazioni di gruppo. In questa guida di avvio rapido verrà eseguita la registrazione dei dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure con l'SDK per servizi Node.js.
 author: wesmc7777
 ms.author: wesmc
@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 0f6d18aa0ce4576db1618d17d8fb3866101f87b1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: e1a7bb40e952f0437f0f8c168c48dc1d48b8cf94
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424359"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330231"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Guida introduttiva: Registrare i dispositivi X.509 nel servizio Device Provisioning con Node.js
 

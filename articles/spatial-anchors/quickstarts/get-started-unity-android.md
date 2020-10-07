@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 608b488a04eafd01e6702850445801705f6dac81
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: c84ebfe9752b8594e97c7c72d706ee25c4852f6e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810355"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538137"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Android in Unity con gli ancoraggi nello spazio di Azure
 
@@ -34,7 +34,7 @@ Si apprenderà come:
 
 Per completare questa guida introduttiva, accertarsi di disporre di quanto segue:
 
-- Un computer Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, inclusi i moduli Android Build Support e Android SDK & NDK Tools.
+- Un computer Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, inclusi i moduli **Android Build Support** con **Android SDK & NDK Tools** e **OpenJDK**.
   - Se in esecuzione in Windows, sarà necessario anche <a href="https://git-scm.com/download/win" target="_blank">Git per Windows</a> e <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Se in esecuzione su macOS, installare Git tramite HomeBrew. Immettere il comando seguente in una singola riga del terminale: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Eseguire quindi `brew install git` e `brew install git-lfs`.
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">abilitato per lo sviluppo</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">idoneo per ARCore</a>.
@@ -57,6 +57,12 @@ Per completare questa guida introduttiva, accertarsi di disporre di quanto segue
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
 Selezionare il dispositivo in **Esegui dispositivo** e quindi selezionare **Compila ed esegui**. Verrà chiesto di salvare un file `.apk` per cui è possibile scegliere qualsiasi nome.
+
+Nell'app selezionare **BasicDemo** usando i tasti di direzione, quindi fare clic sul pulsante **Vai** per eseguire la demo. Seguire le istruzioni posizionare e richiamare un ancoraggio.
+
+![Screenshot 1](./media/get-started-unity-android/screenshot-1.jpg)
+![Screenshot 2](./media/get-started-unity-android/screenshot-2.jpg)
+![Screenshot 3](./media/get-started-unity-android/screenshot-3.jpg)
 
 Seguire le istruzioni nell'app per posizionare e richiamare un ancoraggio.
 

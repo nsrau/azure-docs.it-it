@@ -1,20 +1,20 @@
 ---
-title: Registrare un dispositivo TPM nel servizio Azure Device Provisioning con C#
+title: 'Avvio rapido: Registrare un dispositivo TPM nel servizio Device Provisioning di Azure con C#'
 description: "Avvio rapido: registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con l'SDK per servizi C#. Questa guida introduttiva usa registrazioni singole."
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 09/28/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6176ff91029817e6891f0ee1e043cc3a827c2d6c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 872d1f43f1e9dc180e41a2bf625ca18b74522b40
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999054"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409511"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Guida introduttiva: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con C# Service SDK
 
@@ -128,12 +128,15 @@ Questa sezione illustra come creare un'app console .NET Core che aggiunge una re
    }
    ```
 
-1. Sostituire infine il corpo del metodo `Main` con le righe seguenti:
+1. Sostituire infine il metodo `Main` con le righe seguenti:
 
    ```csharp
-   RunSample().GetAwaiter().GetResult();
-   Console.WriteLine("\nHit <Enter> to exit ...");
-   Console.ReadLine();
+    static async Task Main(string[] args)
+    {
+        await RunSample();
+        Console.WriteLine("\nHit <Enter> to exit ...");
+        Console.ReadLine();
+    }
    ```
 
 1. Compilare la soluzione.

@@ -4,12 +4,12 @@ description: Questa esercitazione illustrerà come configurare l'architettura di
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27cc64eee31755bcefc9d0d82b7d06e52efcf183
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e37cb6a0679ee2e249de4ed8fa31c40d5082ea4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004545"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324128"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Creare soluzioni personalizzate di ripristino di emergenza per argomenti personalizzati in Griglia di eventi
 Il ripristino di emergenza consiste nel recupero da una grave perdita di funzionalità delle applicazioni. Questa esercitazione illustrerà come configurare l'architettura di gestione degli eventi per il ripristino se il servizio Griglia di eventi diventa non integro in una determinata area.
@@ -72,7 +72,7 @@ Prima di tutto, creare due argomenti di Griglia di eventi. Questi fungeranno da 
    * Selezionare il webhook come tipo di endpoint.
    * Impostare l'endpoint sull'URL evento del ricevitore di eventi, che dovrebbe essere simile a: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-     ![Sottoscrizione di eventi primaria di Griglia di eventi](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Screenshot che mostra la pagina "Crea sottoscrizione di eventi - Basic" con valori "Nome", "Tipo di endpoint" ed "Endpoint" evidenziati.](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Ripetere lo stesso flusso per creare l'argomento e la sottoscrizione secondari. Questa volta, sostituire il suffisso "-primario" con "-secondario" per tenerne traccia più facilmente. Infine, verificare di inserirlo in un'altra area di Azure. Anche se è possibile inserirlo in qualsiasi area desiderata, è consigliabile usare le [aree abbinate di Azure](../best-practices-availability-paired-regions.md). Inserire l'argomento e la sottoscrizione secondari in un'area diversa garantisce la trasmissione dei nuovi eventi anche se l'area primaria smette di funzionare.
 

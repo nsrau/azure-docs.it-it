@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 695d1b1124c042b61837f0a1257ac2a201ae4860
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84712514"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539402"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Esercitazione: rilevare i problemi con i dispositivi connessi alla soluzione di monitoraggio
 
@@ -122,7 +122,7 @@ Per disattivare temporaneamente una regola, è possibile disabilitarla nell'elen
 
 Per eliminare definitivamente una regola, è possibile eliminarla nell'elenco di regole. Selezionare la regola da eliminare e quindi scegliere **Delete** (Elimina).
 
-[![Eliminare una regola](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+[![Screenshot che mostra la pagina "Regole" con la finestra "Elimina regola" evidenziata.](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
 
 Dopo aver confermato che si vuole eliminare la regola, l'utente ha la possibilità di eliminare tutti gli avvisi associati alla regola dalla pagina **Manutenzione**.
 

@@ -1,5 +1,5 @@
 ---
-title: Configurare il servizio Device Provisioning in hub IoT di Azure con un modello di Azure Resource Manager
+title: 'Avvio rapido: Configurare il servizio Device Provisioning in hub IoT di Azure con un modello di Azure Resource Manager'
 description: 'Avvio rapido di Azure: configurare il servizio Device Provisioning in hub IoT di Azure con un modello'
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74969582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297148"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Guida introduttiva: Configurare il servizio Device Provisioning in hub IoT con un modello di Azure Resource Manager
 
@@ -300,7 +300,7 @@ Il modello definito nel passaggio precedente usa i parametri per specificare il 
 
 Usare questi comandi dell'interfaccia della riga di comando di Azure per distribuire i modelli e verificare la distribuzione.
 
-1. Per distribuire un modello, passare alla cartella contenente i file dei modelli e dei parametri ed eseguire il [comando seguente per avviare una distribuzione](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+1. Per distribuire un modello, passare alla cartella contenente i file dei modelli e dei parametri ed eseguire il [comando seguente per avviare una distribuzione](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create&preserve-view=true):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -311,7 +311,7 @@ Usare questi comandi dell'interfaccia della riga di comando di Azure per distrib
    ![Output del provisioning](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Per verificare la distribuzione, eseguire questo [comando per elencare le risorse](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) e cercare il servizio di provisioning e l'hub IoT creati nell'output:
+2. Per verificare la distribuzione, eseguire questo [comando per elencare le risorse](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) e cercare il servizio di provisioning e l'hub IoT creati nell'output:
 
     ```azurecli
      az resource list -g {your resource group name}

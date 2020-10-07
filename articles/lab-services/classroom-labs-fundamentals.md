@@ -3,20 +3,20 @@ title: Elementi di base dell'architettura in Azure Lab Services | Microsoft Docs
 description: Questo articolo illustra le risorse di base usate da Lab Services e l'architettura di base di un lab.
 author: emaher
 ms.topic: overview
-ms.date: 06/26/2020
+ms.date: 09/16/2020
 ms.author: enewman
-ms.openlocfilehash: 93e95e1b03cd942e513a6d643f8a9e96399c231b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: ac390fb6624ffc762f77b676c778165e7382f73f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445645"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334039"
 ---
 # <a name="architecture-fundamentals-in-azure-lab-services"></a>Elementi di base dell'architettura in Azure Lab Services
 
 Azure Lab Services è una soluzione SaaS (Software-as-a-Service), il che significa che le risorse richieste da Lab Services vengono gestite automaticamente. Questo articolo illustra le risorse di base usate da Lab Services e l'architettura di base di un lab.  
 
-Un paio di aree di Azure Lab Services consentono di usare le proprie risorse insieme al servizio.  Per altre informazioni sull'uso di VM nella propria rete, vedere come [eseguire il peering di una rete virtuale](how-to-connect-peer-virtual-network.md).  Per riutilizzare le immagini di una raccolta di immagini condivise, vedere come [collegare una raccolta di immagini condivise](how-to-attach-detach-shared-image-gallery.md).
+Un paio di aree di Azure Lab Services consentono di usare risorse personalizzate in combinazione con Lab Services.  Per altre informazioni sull'uso di VM nella propria rete, vedere come [eseguire il peering di una rete virtuale](how-to-connect-peer-virtual-network.md).  Per riutilizzare le immagini di una raccolta di immagini condivise, vedere come [collegare una raccolta di immagini condivise](how-to-attach-detach-shared-image-gallery.md).
 
 Di seguito è riportata l'architettura di base di un lab per le classi.  L'account lab è ospitato nella sottoscrizione. Le VM degli studenti, oltre alle risorse necessarie per supportarle, sono ospitate in una sottoscrizione di proprietà di Lab Services. Ecco una descrizione più dettagliata del contenuto delle sottoscrizioni di Lab Services.
 

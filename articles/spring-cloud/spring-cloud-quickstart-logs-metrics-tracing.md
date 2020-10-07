@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 96a97b9b141d434f201da4c7e36f6715186a652e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a5b4d0591f58d2ce4d3d2e9055c70fdc7118e123
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903044"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326253"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Avvio rapido: Monitoraggio di app Azure Spring Cloud con log, metriche e traccia
 
@@ -63,7 +63,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ### <a name="log-analytics"></a>Log Analytics
 
-1. Passare alla pagina **service | Overview** (servizio | Panoramica) e selezionare **Logs** (Log) nella sezione **Monitoring** (Monitoraggio). Selezionare **Run** (Esegui) in una delle query di esempio per Azure Spring Cloud.
+1. Nel portale di Azure passare alla pagina **servizio | Panoramica** e selezionare **Log** nella sezione **Monitoraggio**. Selezionare **Run** (Esegui) in una delle query di esempio per Azure Spring Cloud.
 
    [ ![Voce di analisi dei log](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
@@ -75,7 +75,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ## <a name="metrics"></a>Metriche
 
-1. Nel portale di Azure passare alla pagina **servizio | Panoramica** e selezionare **Metriche** nella sezione **Monitoraggio**. Aggiungere la prima metrica selezionando `system.cpu.usage` per **Metric** (Metrica) e `Avg` per **Aggregation** (Aggregazione) per visualizzare la sequenza temporale per l'utilizzo complessivo della CPU.
+1. Nel portale di Azure passare alla pagina **servizio | Panoramica** e selezionare **Metriche** nella sezione **Monitoraggio**. Aggiungere la prima metrica selezionando una delle metriche .NET in **Prestazioni (.NET)** o **Richiesta (.NET)** nell'elenco a discesa **Metrica** e `Avg` per **Aggregazione** per visualizzare la sequenza temporale relativa a tale metrica.
 
    [ ![Voce Metriche - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png#lightbox)
     
