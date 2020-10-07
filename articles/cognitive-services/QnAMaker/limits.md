@@ -1,14 +1,16 @@
 ---
 title: Limiti - QnA Maker
 description: QnA Maker prevede metalimiti per alcune parti della knowledge base e del servizio. Per poter eseguire test e pubblicare, è importate rispettare i limiti previsti per la knowledge base.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: cce95574c8ffc245818b61e9843c5f7984de972f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524438"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776256"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 
@@ -18,7 +20,7 @@ QnA Maker limiti indicati di seguito sono una combinazione dei limiti del piano 
 
 Il numero massimo di Knowledge base è basato sui [limiti del livello di ricerca cognitiva di Azure](../../search/search-limits-quotas-capacity.md).
 
-|**Livello ricerca cognitiva di Azure** | **Gratuito** | **Base** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Livello ricerca cognitiva di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Numero massimo di knowledge base pubblicate consentite|2|14|49|199|199|2999|
 
@@ -32,8 +34,8 @@ I nomi file non possono includere i caratteri seguenti:
 
 |Non usare il carattere|
 |--|
-|Virgoletta singola`'`|
-|Virgolette doppie`"`|
+|Virgoletta singola `'`|
+|Virgolette doppie `"`|
 
 ### <a name="maximum-file-size"></a>Dimensione massima dei file
 
@@ -61,7 +63,7 @@ I metadati vengono presentati come coppia chiave-valore basata su testo, ad esem
 
 Il numero massimo di campi di metadati per Knowledge base è basato sui **[limiti del livello di ricerca cognitiva di Azure](../../search/search-limits-quotas-capacity.md)**.
 
-|**Livello ricerca cognitiva di Azure** | **Gratuito** | **Base** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Livello ricerca cognitiva di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Numero massimo di campi di metadati per ogni servizio QnA Maker (attraverso tutte le knowledge base)|1\.000|100*|1\.000|1\.000|1\.000|1\.000|
 
@@ -69,10 +71,10 @@ Il numero massimo di campi di metadati per Knowledge base è basato sui **[limit
 
 Nella tabella seguente sono elencati i caratteri di lunghezza e accettabili per il nome e il valore dei metadati.
 
-|Elemento|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
+|Item|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
 |--|--|--|--|
-|Nome (chiave)|Consente<br>alfanumerico (lettere e cifre)<br>`_`sottolineatura<br> Non devono contenere spazi.|`^[a-zA-Z0-9_]+$`|100|
-|valore|Consente tutti gli elementi eccetto<br>`:`virgola<br>`|`(barra verticale)<br>È consentito un solo valore.|`^[^:|]+$`|500|
+|Nome (chiave)|Consente<br>alfanumerico (lettere e cifre)<br>`_` sottolineatura<br> Non devono contenere spazi.|`^[a-zA-Z0-9_]+$`|100|
+|valore|Consente tutti gli elementi eccetto<br>`:` virgola<br>`|` (barra verticale)<br>È consentito un solo valore.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Limiti di contenuto della Knowledge Base
@@ -81,8 +83,8 @@ Limiti complessivi sul contenuto nella knowledge base:
 * Lunghezza del testo della domanda: 1000
 * Lunghezza del testo della chiave dei metadati: 100
 * Lunghezza del testo del valore dei metadati: 500
-* Caratteri supportati per il nome dei metadati: alfabeti, cifre e`_`
-* Caratteri supportati per il valore dei metadati: tutti tranne `:` e`|`
+* Caratteri supportati per il nome dei metadati: alfabeti, cifre e `_`
+* Caratteri supportati per il valore dei metadati: tutti tranne `:` e `|`
 * Lunghezza del nome file: 200
 * Formati di file supportati: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Numero massimo di domande alternative: 300

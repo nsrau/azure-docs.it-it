@@ -1,16 +1,18 @@
 ---
 title: 'Guida introduttiva: pubblicare la Knowledge base, REST, C#-QnA Maker'
 description: In questa guida di avvio rapido basata su REST e C# viene pubblicata una knowledge base e creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-csharp
 ms.topic: how-to
-ms.openlocfilehash: df8ca85ff0d59817a939936aa6738910bd354996
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2750ecb76cb74fd7650d4f4f0f545f2f76b31c1c
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267021"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777556"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Guida introduttiva: Pubblicare una knowledge base in QnA Maker con C#
 

@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cc9c7dda86d39d31b8c9a6329ac29970888f12d1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d7ff32b33a8eab5c6729d84d38fec2e5b2c87449
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904463"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777208"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Usare il portale di Azure per gestire le condivisioni nella versione Pro di Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Usare il portale di Azure per gestire le condivisioni in Azure Stack Edge Pro
 
 Questo articolo descrive come gestire le condivisioni in Azure Stack Edge Pro. È possibile gestire il Azure Stack Edge Pro tramite la portale di Azure o tramite l'interfaccia utente Web locale. Usare il portale di Azure per aggiungere, eliminare o aggiornare le condivisioni o per sincronizzare la chiave di archiviazione dell'account di archiviazione associato alle condivisioni.
 
@@ -74,7 +74,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Gateway > condivisioni**. Selezionare **+ Aggiungi condivisione** sulla barra dei comandi.
 
-   ![Selezionare Aggiungi condivisione](media/azure-stack-edge-manage-shares/add-local-share-1.png)
+   ![Selezionare Aggiungi condivisione 2](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
 2. In **Aggiungi condivisione** specificare le impostazioni della condivisione. Specificare un nome univoco per la condivisione.
     
@@ -88,7 +88,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 6. Nel campo **Utente locale con tutti i privilegi** selezionare **Crea nuovo** o **Usa esistente**.
 
-7. Selezionare **Crea**. 
+7. Selezionare **Create** (Crea). 
 
    ![Creare una condivisione locale](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 
@@ -106,7 +106,7 @@ Se è stata creata una condivisione prima di configurare il calcolo nel disposit
 
 1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Gateway > condivisioni**. Nell'elenco delle condivisioni selezionare la condivisione da montare. Per la condivisione selezionata, nella colonna **Usata per il calcolo** verrà visualizzato lo stato **Disabilitata**.
 
-   ![Selezionare condivisione](media/azure-stack-edge-manage-shares/select-share-mount.png)
+   ![Selezionare Condividi 3](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
 2. Selezionare **Montaggio**.
 
@@ -130,7 +130,7 @@ Per smontare una condivisione, seguire questa procedura nel portale di Azure.
 
 1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Gateway > condivisioni**.
 
-   ![Selezionare condivisione](media/azure-stack-edge-manage-shares/select-share-unmount.png)
+   ![Selezionare la condivisione 4](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
 2. Nell'elenco delle condivisioni selezionare la condivisione da smontare. È opportuno assicurarsi che la condivisione che si smonta non venga usata da alcun modulo. Se la condivisione viene usata da un modulo, verranno rilevati problemi con il modulo corrispondente. Selezionare **Smonta**.
 
@@ -150,7 +150,7 @@ Eseguire i passaggi seguenti nel portale di Azure per eliminare una condivisione
 
 1. Nell'elenco delle condivisioni fare clic sulla condivisione da eliminare.
 
-   ![Selezionare condivisione](media/azure-stack-edge-manage-shares/delete-share-1.png)
+   ![Selezionare la condivisione 5](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
 2. Fare clic su **Elimina**.
 
@@ -175,7 +175,7 @@ Eseguire i passaggi seguenti nel portale di Azure per aggiornare una condivision
 
 1. Passare a **Condivisioni** nel portale di Azure. Fare clic sulla condivisione che si vuole aggiornare.
 
-   ![Selezionare condivisione](media/azure-stack-edge-manage-shares/refresh-share-1.png)
+   ![Selezionare Condividi 6](media/azure-stack-edge-manage-shares/refresh-share-1.png)
 
 2. Fare clic su **Aggiorna**.
 

@@ -1,14 +1,16 @@
 ---
 title: Configurare un servizio QnA Maker-QnA Maker
 description: Prima di poter creare una Knowledge Base di QnA Maker, è necessario configurare un servizio QnA Maker in Azure. Qualsiasi utente autorizzato a creare nuove risorse in una sottoscrizione può configurare un servizio QnA Maker.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 7ba8134f58a4f0e4e26a3246a44574df295e3c20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9b8769ac5ccf83ebbdaaa0aa0d6452cc98eef7a3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040387"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777839"
 ---
 # <a name="manage-qna-maker-resources"></a>Gestisci risorse QnA Maker
 
@@ -70,7 +72,7 @@ Questa procedura consente di creare le risorse di Azure necessarie per gestire i
 
 2. Vai alle **chiavi**:
 
-    ![Chiave della sottoscrizione](../media/qnamaker-how-to-key-management/subscription-key.PNG)
+    ![Chiave di sottoscrizione](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
 ## <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Trovare le chiavi dell'endpoint di query nel portale di QnA Maker
 
@@ -122,7 +124,7 @@ Passare alla risorsa del servizio app nel portale di Azure e selezionare l'opzio
 
 Se si prevede di avere molte Knowledge base, aggiornare il piano tariffario del servizio ricerca cognitiva di Azure.
 
-Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di ricerca di Azure. È tuttavia possibile creare una nuova risorsa di Ricerca di Azure con lo SKU desiderato, ripristinare i dati nella nuova risorsa e quindi collegarla allo stack di QnA Maker. A questo scopo, seguire questa procedura:
+Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di ricerca di Azure. È tuttavia possibile creare una nuova risorsa di Ricerca di Azure con lo SKU desiderato, ripristinare i dati nella nuova risorsa e quindi collegarla allo stack di QnA Maker. A tale scopo, attenersi alla seguente procedura:
 
 1. Creare una nuova risorsa di ricerca di Azure nella portale di Azure e selezionare lo SKU desiderato.
 
@@ -243,7 +245,7 @@ Per poter caricare l'app dell'endpoint di stima anche quando non è disponibile 
     > ![Nel riquadro Configurazione selezionare * * Impostazioni generali * *, quindi trova * * always on * * e selezionare * * on * * come valore.](../media/qnamaker-how-to-upgrade-qnamaker/configure-app-service-idle-timeout.png)
 
 1. Selezionare **Save (Salva** ) per salvare la configurazione.
-1. Viene chiesto se si vuole riavviare l'app per usare la nuova impostazione. Seleziona **Continua**.
+1. Viene chiesto se si vuole riavviare l'app per usare la nuova impostazione. Selezionare **Continua**.
 
 Altre informazioni su come configurare le [Impostazioni generali](../../../app-service/configure-common.md#configure-general-settings)del servizio app.
 

@@ -1,16 +1,16 @@
 ---
 title: Esecuzione di runbook in Automazione di Azure
-description: Questo articolo offre una panoramica dell'elaborazione dei runbook in Automazione di Azure.
+description: Questo articolo fornisce una panoramica dell'elaborazione di manuali operativi in automazione di Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b5dd445ec4dd9014f107c0a349deed6cde47f968
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 883cf48fd38d79544d08a68f2c18fc2d2efb4706
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325828"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776290"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -89,20 +89,22 @@ Automazione di Azure usa [monitoraggio di Azure](../azure-monitor/overview.md) p
 
 ### <a name="log-analytics-agent-for-windows"></a>Agente di Log Analytics per Windows
 
-L'[agente di Log Analytics per Windows](../azure-monitor/platform/agent-windows.md) funziona con Monitoraggio di Azure per gestire le macchine virtuali Windows e i computer fisici. I computer possono essere eseguiti in Azure o in un ambiente non Azure, ad esempio un data center locale. È necessario configurare l'agente affinché esegua la segnalazione a una o più aree di lavoro Log Analytics.
+L'[agente di Log Analytics per Windows](../azure-monitor/platform/agent-windows.md) funziona con Monitoraggio di Azure per gestire le macchine virtuali Windows e i computer fisici. I computer possono essere eseguiti in Azure o in un ambiente non Azure, ad esempio un data center locale.
 
 >[!NOTE]
 >L'agente di Log Analytics per Windows era noto in precedenza come Microsoft Monitoring Agent (MMA).
 
 ### <a name="log-analytics-agent-for-linux"></a>Agente di Log Analytics per Linux
 
-L'[agente di Log Analytics per Linux](../azure-monitor/platform/agent-linux.md) funziona in modo analogo all'agente per Windows, ma connette i computer Linux a Monitoraggio di Azure. L'agente viene installato con un account utente **nxautomation** che consente l'esecuzione di comandi che richiedono autorizzazioni radice, ad esempio, in un ruolo di lavoro ibrido per runbook. L'account **nxautomation** è un account di sistema che non richiede una password.
+L'[agente di Log Analytics per Linux](../azure-monitor/platform/agent-linux.md) funziona in modo analogo all'agente per Windows, ma connette i computer Linux a Monitoraggio di Azure. L'agente viene installato con un account utente **nxautomation** che consente l'esecuzione di comandi che richiedono autorizzazioni radice, ad esempio, in un ruolo di lavoro ibrido per Runbook. L'account **nxautomation** è un account di sistema che non richiede una password.
 
 L'account **nxautomation** deve essere presente con le autorizzazioni sudo corrispondenti durante l'[installazione di un ruolo di lavoro ibrido per runbook di Linux](automation-linux-hrw-install.md). Se si tenta di installare il ruolo di lavoro e l'account non è presente o non dispone delle autorizzazioni appropriate, l'installazione non riesce.
 
+Non modificare le autorizzazioni della `sudoers.d` cartella o della relativa proprietà. L'autorizzazione sudo è obbligatoria per l'account **nxautomation** e le autorizzazioni non devono essere rimosse. La limitazione di questo problema a determinate cartelle o comandi può comportare una modifica sostanziale.
+
 I log disponibili per l'agente di Log Analytics e l'account **nxautomation** sono:
 
-* /var/opt/microsoft/omsagent/log/omsagent.log - Log dell'agente di Log Analytics 
+* /var/opt/microsoft/omsagent/log/omsagent.log - Log dell'agente di Log Analytics
 * /var/opt/Microsoft/omsagent/run/automationworker/worker.log - Log del ruolo di lavoro di Automazione
 
 >[!NOTE]
@@ -226,7 +228,7 @@ I servizi esterni, ad esempio Azure DevOps Services e GitHub, possono avviare un
 
 Per condividere le risorse tra tutti runbook nel cloud, Azure usa un concetto denominato condivisione equa. Con una condivisione equa, Azure scarica o arresta temporaneamente i processi eseguiti per più di tre ore. I processi dei [runbook di PowerShell](automation-runbook-types.md#powershell-runbooks) e dei [runbook di Python](automation-runbook-types.md#python-runbooks) vengono arrestati, non vengono riavviati e lo stato del processo risulta Arrestato.
 
-Per le attività a esecuzione prolungata di Automazione di Azure è consigliabile usare un ruolo di lavoro ibrido per runbook. I ruoli di lavoro ibridi per runbook non sono limitati da condivisione equa e non hanno una limitazione rispetto alla possibile durata dell'esecuzione di un runbook. Gli altri [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) dei processi si applicano sia ai sandbox di Azure che ai ruoli di lavoro ibridi per runbook. Anche se i ruoli di lavoro ibridi per runbook non sono soggetti al limite di 3 ore della condivisione equa, i runbook devono essere sviluppati per essere eseguiti nei ruoli di lavoro che supportano il riavvio causato da problemi imprevisti dell'infrastruttura locale.
+Per le attività a esecuzione prolungata di Automazione di Azure è consigliabile usare un ruolo di lavoro ibrido per runbook. I ruoli di lavoro ibridi per runbook non sono limitati da condivisione equa e non hanno una limitazione rispetto alla possibile durata dell'esecuzione di un runbook. Gli altri [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) dei processi si applicano sia ai sandbox di Azure che ai ruoli di lavoro ibridi per runbook. Sebbene i ruoli di lavoro ibridi per Runbook non siano limitati dal limite di condivisione equa di tre ore, è necessario sviluppare manuali operativi per l'esecuzione nei ruoli di lavoro che supportano i riavvii da problemi di infrastruttura locale imprevisti.
 
 Un'altra opzione consiste nell'ottimizzare il runbook usando un runbook figlio. Ad esempio, il runbook potrebbe eseguire il ciclo della stessa funzione su diverse risorse, ad esempio, con un'operazione di database su diversi database. È possibile spostare questa funzione in un [runbook figlio](automation-child-runbooks.md) e fare in modo che il runbook lo chiami usando [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook). I runbook figlio vengono eseguiti in parallelo in processi separati.
 

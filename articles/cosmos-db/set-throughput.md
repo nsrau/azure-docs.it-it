@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 00ed8f6ff9839c227f3d8a929a071834c5559226
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 81a31448a588849a410b37868cf579fbb0a9ceb6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605730"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777790"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduzione alla velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Quando si verifica una limitazione di velocità, è possibile aumentare la veloc
 
 L'immagine seguente mostra in che modo una partizione fisica ospita una o più partizioni logiche di un contenitore:
 
-:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partizione fisica" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partizione fisica che ospita una o più partizioni logiche di un contenitore" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Configurare la velocità effettiva in un database
 
@@ -75,7 +75,7 @@ Se il proprio account Azure Cosmos DB contiene già un database con velocità ef
 
 Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le raccolte di un database, è consigliabile eliminare il database vuoto e ricrearne uno nuovo prima di creare le raccolte. L'immagine seguente mostra in che modo una partizione fisica può ospitare una o più partizioni logiche che appartengono a contenitori diversi all'interno di un database:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partizione fisica" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partizione fisica che ospita una o più partizioni logiche di un contenitore" border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Configurare la velocità effettiva in un database e in un contenitore
 
@@ -84,7 +84,7 @@ Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le ra
 * È possibile creare un database di Azure Cosmos denominato *Z* con una velocità effettiva con provisioning standard (manuale) pari a *"K"* UR. 
 * Creare quindi cinque contenitori denominati *A*, *B*, *C*, *D* ed *E* all'interno del database. Quando si crea il contenitore B, abilitare l'opzione **Provision dedicated throughput for this container** (Effettua il provisioning di velocità effettiva dedicata per questo contenitore) e configurare in modo esplicito *"P"* UR di velocità effettiva con provisioning in questo contenitore. Si noti che è possibile configurare la velocità effettiva condivisa e dedicata solo durante la creazione del database e del contenitore. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Impostazione della velocità effettiva a livello di contenitore":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partizione fisica che ospita una o più partizioni logiche di un contenitore":::
 
 * La velocità effettiva di *"K"* UR è condivisa tra i quattro contenitori *A*, *C*, *D* ed *E*. La quantità esatta di velocità effettiva disponibile per *A*, *C*, *D* o *E* varia. Non sono previsti contratti di servizio per la velocità effettiva di ogni singolo contenitore.
 * Il contenitore *B* ha la garanzia di ottenere sempre la velocità effettiva di *"P"* UR ed è supportato da contratti di servizio.
@@ -105,11 +105,11 @@ Per stimare la [velocità effettiva minima di provisioning](concepts-limits.md#s
 
 Il numero effettivo minimo di ur/sec può variare a seconda della configurazione dell'account. È possibile usare le [metriche di monitoraggio di Azure](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) per visualizzare la cronologia della velocità effettiva con provisioning (UR/sec) e l'archiviazione in una risorsa.
 
-È possibile recuperare la velocità effettiva minima di un contenitore o di un database a livello di codice usando gli SDK oppure visualizzare il valore nel portale di Azure. Se si usa .NET SDK, il metodo [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) consente di ridimensionare il valore della velocità effettiva con provisioning. Se si usa Java SDK, il metodo [RequestOptions.setOfferThroughput](sql-api-java-sdk-samples.md) consente di ridimensionare il valore della velocità effettiva con provisioning. 
+È possibile recuperare la velocità effettiva minima di un contenitore o di un database a livello di codice usando gli SDK oppure visualizzare il valore nel portale di Azure. Quando si usa .NET SDK, il [contenitore. ](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) Il metodo ReplaceThroughputAsync consente di ridimensionare il valore della velocità effettiva con provisioning. Quando si usa Java SDK, il metodo [CosmosContainer. replaceProvisionedThroughput](sql-api-java-sdk-samples.md) consente di ridimensionare il valore della velocità effettiva con provisioning.
 
-Se si usa .NET SDK, il metodo [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) consente di recuperare la velocità effettiva minima di un contenitore o di un database. 
+Quando si usa .NET SDK, il metodo [container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) consente di recuperare la velocità effettiva minima di un contenitore o di un database. 
 
-È possibile ridimensionare la velocità effettiva con provisioning di un contenitore o di un database in qualsiasi momento. Un'operazione di ridimensionamento per aumentare la velocità effettiva può richiedere più tempo a causa delle attività di sistema per il provisioning delle risorse necessarie. È possibile controllare lo stato dell'operazione di ridimensionamento nel portale di Azure oppure a livello di codice usando gli SDK. Se si usa .NET SDK, è possibile ottenere lo stato dell'operazione di ridimensionamento usando il metodo `DocumentClient.ReadOfferAsync`.
+È possibile ridimensionare la velocità effettiva con provisioning di un contenitore o di un database in qualsiasi momento. Un'operazione di ridimensionamento per aumentare la velocità effettiva può richiedere più tempo a causa delle attività di sistema per il provisioning delle risorse necessarie. È possibile controllare lo stato dell'operazione di ridimensionamento nel portale di Azure oppure a livello di codice usando gli SDK. Se si usa .NET SDK, è possibile ottenere lo stato dell'operazione di ridimensionamento usando il metodo `Container.ReadThroughputAsync`.
 
 ## <a name="comparison-of-models"></a>Confronto tra modelli
 Questa tabella mostra un confronto tra il provisioning della velocità effettiva standard (manuale) in un database e in un contenitore. 

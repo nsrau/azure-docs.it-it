@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/26/2020
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 897e5b58aed9c47e0b94ee47d1883e2b7a28bacb
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a168b9f721cd9c3d4ab0e8b6a56b764fec3b1fe3
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930801"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779811"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>Assegnare le autorizzazioni di accesso a un'identità
 
@@ -108,7 +108,7 @@ else
 
 ```
 
-Se si verificano problemi durante la connessione a File di Azure, vedere [lo strumento per la risoluzione dei problemi pubblicato per file di Azure errori di montaggio in Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Vengono inoltre fornite [indicazioni](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) per aggirare gli scenari in cui la porta 445 è bloccata. 
+Se si verificano problemi durante la connessione a File di Azure, vedere [lo strumento per la risoluzione dei problemi pubblicato per file di Azure errori di montaggio in Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Vengono inoltre fornite [indicazioni](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) per aggirare gli scenari in cui la porta 445 è bloccata. 
 
 
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Configurare le autorizzazioni NTFS con Esplora file di Windows
@@ -120,7 +120,7 @@ Utilizzare Esplora file di Windows per concedere l'autorizzazione completa a tut
 3. Selezionare **modifica.** per modificare le autorizzazioni.
 4. È possibile modificare le autorizzazioni degli utenti esistenti o selezionare **Aggiungi...** per concedere le autorizzazioni ai nuovi utenti.
 5. Nella finestra di messaggio di richiesta per l'aggiunta di nuovi utenti, immettere il nome utente di destinazione a cui si vuole concedere l'autorizzazione nella casella **immettere i nomi degli oggetti da selezionare** e selezionare **Controlla nomi** per trovare il nome UPN completo dell'utente di destinazione.
-7.    Fare clic su **OK**.
+7.    Selezionare **OK**.
 8.    Nella scheda **sicurezza** selezionare tutte le autorizzazioni che si desidera concedere al nuovo utente.
 9.    Selezionare **Applica**.
 

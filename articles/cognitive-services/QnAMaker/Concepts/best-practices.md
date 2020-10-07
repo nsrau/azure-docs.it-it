@@ -1,14 +1,16 @@
 ---
 title: Procedure consigliate - QnA Maker
 description: Usare queste procedure consigliate per migliorare la knowledge base e fornire risultati migliori per gli utenti finali dell'applicazione/chat bot.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: 9a6f7f7d6edc4544942476050a1ed3c2011af7fb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80053128"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777021"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 
@@ -35,11 +37,11 @@ Le domande migliori sono quelle semplici. Considerare la parola chiave o la fras
 
 ### <a name="add-relevant-alternative-questions"></a>Aggiungere domande alternative rilevanti
 
-È possibile che `toner cartridge`l'utente entri in una domanda con stile di testo `How do I add a toner cartridge to my printer?` colloquiale o con una ricerca di parole chiave, ad esempio. La Knowledge base deve disporre di entrambi gli stili di domande per restituire correttamente la risposta migliore. Se non si è certi delle parole chiave che un cliente sta immettendo, usare Application Insights dati per analizzare le query.
+È possibile che l'utente entri in una domanda con stile di testo colloquiale `How do I add a toner cartridge to my printer?` o con una ricerca di parole chiave, ad esempio `toner cartridge` . La Knowledge base deve disporre di entrambi gli stili di domande per restituire correttamente la risposta migliore. Se non si è certi delle parole chiave che un cliente sta immettendo, usare Application Insights dati per analizzare le query.
 
 ### <a name="good-answers"></a>Risposte di qualità
 
-Le risposte migliori sono semplici risposte ma non troppo semplici. Non usare risposte quali `yes` e. `no` Se la risposta deve essere collegata ad altre origini o fornire un'esperienza avanzata con i supporti e i collegamenti, usare l'assegnazione di tag [dei metadati](../how-to/edit-knowledge-base.md#add-metadata) per distinguere le risposte, quindi [inviare la query](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) con i tag dei metadati nella `strictFilters` proprietà per ottenere la versione di risposta corretta.
+Le risposte migliori sono semplici risposte ma non troppo semplici. Non usare risposte quali `yes` e `no` . Se la risposta deve essere collegata ad altre origini o fornire un'esperienza avanzata con i supporti e i collegamenti, usare l'assegnazione di tag [dei metadati](../how-to/edit-knowledge-base.md#add-metadata) per distinguere le risposte, quindi [inviare la query](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) con i tag dei metadati nella `strictFilters` proprietà per ottenere la versione di risposta corretta.
 
 |Risposta|Richieste di Follup|
 |--|--|
@@ -77,7 +79,7 @@ Esistono alcune domande specifiche per i bot che fanno parte del set di dati chi
 
 ### <a name="adding-custom-chit-chat-with-a-metadata-tag"></a>Aggiunta di una Chit-Chat personalizzata con un tag di metadati
 
-Se si aggiungono le proprie coppie di QnA Chit-Chat, assicurarsi di aggiungere metadati in modo che vengano restituite le risposte. La coppia nome/valore dei metadati `editorial:chitchat`è.
+Se si aggiungono le proprie coppie di QnA Chit-Chat, assicurarsi di aggiungere metadati in modo che vengano restituite le risposte. La coppia nome/valore dei metadati è `editorial:chitchat` .
 
 ## <a name="searching-for-answers"></a>Ricerca di risposte
 
@@ -85,7 +87,7 @@ L'API GenerateAnswer usa entrambe le domande e la risposta per cercare le rispos
 
 ### <a name="searching-questions-only-when-answer-is-not-relevant"></a>Ricerca di domande solo quando la risposta non è pertinente
 
-Utilizzare se [`RankerType=QuestionOnly`](#choosing-ranker-type) non si desidera cercare le risposte.
+Utilizzare [`RankerType=QuestionOnly`](#choosing-ranker-type) se non si desidera cercare le risposte.
 
 Un esempio si verifica quando la Knowledge base è un catalogo di acronimi come domande con la forma completa come risposta. Il valore della risposta non consente di cercare la risposta appropriata.
 
@@ -97,7 +99,7 @@ Assicurarsi di usare al meglio le funzionalità di classificazione supportate da
 Il [Punteggio di confidenza](confidence-score.md) predefinito usato come soglia è 0, ma è possibile [modificare la soglia](confidence-score.md#set-threshold) per la KB in base alle esigenze. Poiché ogni KB è diversa, occorre testare e scegliere la soglia più adatta alla propria KB.
 
 ### <a name="choosing-ranker-type"></a>Scelta del tipo di rango
-Per impostazione predefinita, QnA Maker cerca le domande e le risposte. Se si desidera cercare solo le `RankerType=QuestionOnly` domande, per generare una risposta, utilizzare nel corpo post della richiesta GenerateAnswer.
+Per impostazione predefinita, QnA Maker cerca le domande e le risposte. Se si desidera cercare solo le domande, per generare una risposta, utilizzare `RankerType=QuestionOnly` nel corpo post della richiesta GenerateAnswer.
 
 ### <a name="add-alternate-questions"></a>Aggiungere domande alternative
 Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabilità di una corrispondenza con una query utente. Le domande alternative sono utili quando ci sono più modi per porre la stessa domanda. Ciò può includere modifiche alla struttura della frase e allo stile delle parole.
@@ -130,9 +132,9 @@ Ad esempio, si potrebbero avere due QnA separate con le domande seguenti:
 |dove si *trova* il parcheggio|
 |dove si trova il *percorso* ATM|
 
-Poiché queste due QnA sono formulate con parole molto simili, questa analogia potrebbe causare punteggi molto simili per molte query utente che hanno formula *"dove si `<x>` trova"*. In alternativa, provare a distinguere chiaramente con le query, ad esempio *"dove è il parcheggio* " e *"dove si trova l'ATM"*, evitando parole come "location" che potrebbero essere in molte domande nella Knowledge base.
+Poiché queste due QnA sono formulate con parole molto simili, questa analogia potrebbe causare punteggi molto simili per molte query utente che hanno formula *"dove si `<x>` trova"*. In alternativa, provare a distinguere chiaramente con le query, ad esempio  *"dove è il parcheggio* " e *"dove si trova l'ATM"*, evitando parole come "location" che potrebbero essere in molte domande nella Knowledge base.
 
-## <a name="collaborate"></a>Collaborare
+## <a name="collaborate"></a>Collaborazione
 QnA Maker permette agli utenti di [collaborare](../How-to/collaborate-knowledge-base.md) a una knowledge base. Per accedere alle knowledge base, gli utenti necessitano dell'accesso al gruppo di risorse di QnA Maker in Azure. Alcune organizzazioni potrebbero voler assegnare all'esterno le attività di modifica e manutenzione della knowledge base, mantenendo comunque la possibilità di proteggere l'accesso alle risorse di Azure. Questo modello di approvazione dell'editor di testo può essere ottenuto configurando due [servizi QnA Maker](../How-to/set-up-qnamaker-service-azure.md) identici in diverse sottoscrizioni e se si seleziona uno per il ciclo di test di modifica. Una volta completati i test, il contenuto della knowledge base può essere trasferito con un processo di [importazione-esportazione](../Tutorials/migrate-knowledge-base.md) al servizio QnA Maker del responsabile approvazione che infine pubblicherà la knowledge base e aggiornerà l'endpoint.
 
 

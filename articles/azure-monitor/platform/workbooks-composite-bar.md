@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 76c52d47c7fd7e271f3e74439ee8502117eb83a7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 80846ecb1ad48d9f8ba49f0025772b4e131c23e2
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664306"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776358"
 ---
 # <a name="composite-bar-renderer"></a>Renderer della barra composita
 
@@ -46,7 +46,7 @@ Il renderer della barra composita è supportato per le visualizzazioni Grid, Til
 7. Selezionare "totale" dalle *colonne* e scegliere "barra composita" per il *renderer della colonna*.
 8. Impostare le impostazioni seguenti in *impostazioni della barra composita*.
 
-| Nome colonna | Color        |
+| Nome colonna | Colore        |
 |-------------|--------------|
 | online      | Green        |
 | ripristino  | Giallo       |
@@ -91,7 +91,7 @@ Per aggiungere le impostazioni di raggruppamento:
 
 ![Screenshot delle impostazioni di raggruppamento.](./media/workbooks-composite-bar/group-by-settings.png)
 
-#### <a name="none"></a>nessuno
+#### <a name="none"></a>Nessuno
 
 Nessuna aggregazione significa che non viene visualizzato alcun risultato per la colonna per le righe di gruppo.
 
@@ -124,17 +124,17 @@ Per le visualizzazioni griglia, l'ordinamento delle righe per la colonna con il 
 3. Modificare la visualizzazione in *riquadri*.
 4. Eseguire la query.
 5. Selezionare **le impostazioni del riquadro**.
-6. Selezionare *Left* nei campi title.
+6. Selezionare *Left* nei campi del riquadro.
 7. Immettere le impostazioni seguenti in *Impostazioni campo*.
     1. Usare la colonna: "Server".
     2. Renderer di colonna: "testo".
-8. Selezionare *inferiore* in campi titolo.
+8. Selezionare in *basso* nei campi del riquadro.
 9. Immettere le impostazioni seguenti in *Impostazioni campo*.
     1. USA colonna: "totale".
     2. Renderer della colonna: "barra composita".
     3. Immettere imposta le impostazioni seguenti in "impostazioni della barra composita".
 
-    | Nome colonna | Color        |
+    | Nome colonna | Colore        |
     |-------------|--------------|
     | online      | Green        |
     | ripristino  | Giallo       |
@@ -143,9 +143,9 @@ Per le visualizzazioni griglia, l'ordinamento delle righe per la colonna con il 
     4. Aggiungi etichetta: `["online"] of ["total"] are healthy` .
 10. Selezionare **Applica**.
 
-Impostazioni della barra composita per i titoli:
+Impostazioni della barra composita per i riquadri:
 
-![Screenshot delle impostazioni del titolo della barra composita con le impostazioni descritte in precedenza.](./media/workbooks-composite-bar/tiles-settings.png)
+![Screenshot delle impostazioni del riquadro della barra composita con le impostazioni descritte in precedenza.](./media/workbooks-composite-bar/tiles-settings.png)
 
 La visualizzazione della barra composita per i riquadri con le impostazioni precedenti sarà simile alla seguente:
 
@@ -157,7 +157,7 @@ Per creare un renderer della barra composita per la visualizzazione dei grafici 
 
 1. Selezionare **Aggiungi** e *Aggiungi query*.
 2. Modificare l'origine dati in JSON immettere i dati dell' [esempio precedente](#adding-composite-bar-renderer).
-3. Modificare la visualizzazione in *riquadri*.
+3. Modificare la visualizzazione in *grafici*.
 4. Eseguire la query.
 5. Selezionare **Impostazioni grafico**.
 6. Selezionare *centro contenuto* in Impostazioni formato nodo.
@@ -166,7 +166,7 @@ Per creare un renderer della barra composita per la visualizzazione dei grafici 
     2. Renderer della colonna: "barra composita".
     3. Immettere le impostazioni seguenti in *Impostazioni barra composita*.
 
-    |Nome colonna  |     Color    |
+    |Nome colonna  |     Colore    |
     |-------------|--------------|
     | online      | Green        |
     | ripristino  | Giallo       |

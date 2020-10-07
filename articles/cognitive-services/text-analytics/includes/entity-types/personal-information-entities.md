@@ -5,20 +5,21 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 74586222bbd92b2d6182b34b4667cda0bc599b93
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: eedfe4f24797a9b564479b2f8d3f4d04b0751272
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91709530"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779597"
 ---
 > [!NOTE]
 > Per rilevare le informazioni di integrità protette (PHI), usare il `domain=phi` parametro e la versione del modello `2020-04-01` o versioni successive.
 >
-> ad esempio `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi&model-version=2020-07-01`
+> Ad esempio: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi&model-version=2020-07-01`
  
 Quando si inviano richieste all'endpoint, vengono restituite le categorie di entità seguenti `/v3.1-preview.2/entities/recognition/pii` .
 
@@ -36,9 +37,9 @@ Quando si inviano richieste all'endpoint, vengono restituite le categorie di ent
 | E-mail | N/D | Indirizzi di posta elettronica. | `2019-10-01` | Restituito anche con `domain=phi` .   |
 | URL | N/D | URL per siti Web. | `2019-10-01` | Restituito anche con `domain=phi` . |
 | IP | N/D | Indirizzi IP di rete. | `2019-10-01` | Restituito anche con `domain=phi` . |
-| DateTime | N/D | Date e ore del giorno. | `2019-10-01` |  | 
+| Datetime | N/D | Date e ore del giorno. | `2019-10-01` |  | 
 | DataOra | Data | Date calendario. | `2019-10-01` | Restituito anche con `domain=phi` . |
-| Quantity | N/D | Numeri e quantità numeriche. | `2019-10-01` |  |
+| Quantità | N/D | Numeri e quantità numeriche. | `2019-10-01` |  |
 | Quantity | Età | Età. | `2019-10-01` | | |
 
 ## <a name="azure-information"></a>Informazioni su Azure

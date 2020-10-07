@@ -3,14 +3,14 @@ title: Distribuire un ruolo di lavoro ibrido per runbook di Linux in Automazione
 description: Questo articolo descrive come installare un ruolo di lavoro ibrido per Runbook di automazione di Azure per eseguire manuali operativi in computer basati su Linux nel Data Center locale o nell'ambiente cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/15/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: fb975305e18315fa8d0a39e4fe0ab6902c98b7e7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8295b6bba9703c276bf60a0360ded6f0e195369e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987221"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776273"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -45,6 +45,10 @@ Per aggiungere la funzionalità di Rilevamento modifiche e inventario all'area d
 ### <a name="log-analytics-agent"></a>Agente di Log Analytics
 
 Il ruolo di lavoro ibrido per Runbook richiede l' [agente di log Analytics](../azure-monitor/platform/log-analytics-agent.md) per il sistema operativo Linux supportato.
+
+>[!NOTE]
+>Dopo aver installato l'agente di Log Analytics per Linux, è consigliabile non modificare le autorizzazioni della `sudoers.d` cartella o della relativa proprietà. L'autorizzazione sudo è obbligatoria per l'account **nxautomation** , ovvero il contesto utente in cui è in esecuzione il ruolo di lavoro ibrido per Runbook. Le autorizzazioni non devono essere rimosse. La limitazione di questo problema a determinate cartelle o comandi può comportare una modifica sostanziale.
+>
 
 ### <a name="supported-linux-operating-systems"></a>Sistemi operativi Linux supportati
 

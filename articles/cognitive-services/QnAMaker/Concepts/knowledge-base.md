@@ -1,14 +1,16 @@
 ---
 title: Importazione da origini dati-QnA Maker
 description: Informazioni su come importare coppie di domande e risposte da origini dati-QnA Maker.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: c66f81ccabd77e49ba1c492db25ad9e9edd34e93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5f609dc27aa1251cfad0249d26ef5140936bfe41
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334634"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776953"
 ---
 # <a name="importing-from-data-sources"></a>Importazione da origini dati
 
@@ -28,7 +30,7 @@ Il set di contenuti QnA Chit Chat è disponibile come origine dati di contenuto 
 
 L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Base esistente. L'importazione richiede un file strutturato contenente `.tsv` domande e risposte. Queste informazioni consentono a QnA Maker di raggruppare le coppie domanda/risposta e di attribuirle a una specifica origine dati.
 
-| Domanda  | Risposta  | Source (Sorgente)| Metadati (1 chiave: 1 valore) |
+| Domanda  | Risposta  | Origine| Metadati (1 chiave: 1 valore) |
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editoriale|    `Key:Value`       |

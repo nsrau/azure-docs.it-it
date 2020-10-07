@@ -1,16 +1,18 @@
 ---
 title: 'Guida introduttiva: Creare una knowledge base in REST, C# - QnA Maker'
 description: Questa guida introduttiva basata su C# REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: 343dc5f0b8475a9fad3d9834f97cff0d0f4c75f6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6b64c29e6a26f2f9585e7f2c737f98e4646b1332
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260085"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777710"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c-with-rest"></a>Guida introduttiva: creare una Knowledge base in QnA Maker usando C# con REST
 

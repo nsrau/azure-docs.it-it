@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 59b2307bb2e1f4effce9f68530be86e9ca625c9c
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: e0b02f8d6a46c26b8927b4bac4d2089d3b57c295
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766295"
+ms.locfileid: "91777767"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Gestire un dispositivo GPU Pro Azure Stack Edge tramite Windows PowerShell
 
@@ -429,7 +429,7 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 
 Il controller di gestione battiscopa (BMC) viene usato per monitorare e gestire in remoto il dispositivo. In questa sezione vengono descritti i cmdlet che è possibile utilizzare per gestire la configurazione di BMC. Prima di eseguire uno di questi cmdlet, [connettersi all'interfaccia di PowerShell del dispositivo](#connect-to-the-powershell-interface).
 
-- `Get-HcsNetBmcInterface`: Usare questo cmdlet per ottenere le proprietà di configurazione di rete del BMC, ad esempio,,, `IPv4Address` `IPv4Gateway` `IPv4SubnetMask` `DhcpEnabled` : 
+- `Get-HcsNetBmcInterface`: Usare questo cmdlet per ottenere le proprietà di configurazione di rete del BMC, ad esempio,,, `IPv4Address` `IPv4Gateway` `IPv4SubnetMask` `DhcpEnabled` . 
     
     Di seguito è riportato un output di esempio:
     
@@ -476,7 +476,7 @@ Il controller di gestione battiscopa (BMC) viene usato per monitorare e gestire 
         [10.100.10.10]: PS>
         ```    
 
-- `Set-HcsBmcPassword`: Usare questo cmdlet per modificare la password BMC per `EdgeUser` . 
+- `Set-HcsBmcPassword`: Usare questo cmdlet per modificare la password BMC per `EdgeUser` . Nome utente: `EdgeUser` fa distinzione tra maiuscole e minuscole.
 
     Di seguito è riportato un output di esempio: 
 

@@ -1,16 +1,18 @@
 ---
 title: 'Guida introduttiva: Creare una knowledge base in REST, Python - QnA Maker'
 description: Questa guida introduttiva per Python basata su REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
-ms.openlocfilehash: afee82b66f9803333e27f029ecb487a47ba5dd9e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6155722b81b32e426a91a283910e8bdce926e342
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259728"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777647"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Guida introduttiva: Creare una knowledge base in QnA Maker con Python
 
@@ -26,7 +28,7 @@ In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Python 3.7](https://www.python.org/downloads/)
+* [Python 3,7](https://www.python.org/downloads/)
 * È necessario disporre di un [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Per recuperare la chiave e l'endpoint (che include il nome della risorsa), selezionare **Avvio rapido** per la risorsa nel portale di Azure.
 
 ## <a name="create-a-knowledge-base-python-file"></a>Creare un file Python per la knowledge base

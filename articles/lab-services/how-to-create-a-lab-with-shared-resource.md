@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 9cb5698f95aa220208fb02a35a52ff5363a173ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d6610a2f69b6da34972510a5619c6d16a605289
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443367"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776443"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Come creare un Lab con una risorsa condivisa in Azure Lab Services
 
@@ -31,6 +31,20 @@ La risorsa condivisa può essere il software in esecuzione in una macchina virtu
 Il diagramma mostra anche un gruppo di sicurezza di rete (NSG) che può essere usato per limitare il traffico proveniente dalla macchina virtuale per studenti.  Ad esempio, è possibile scrivere una regola di sicurezza che indica che il traffico proveniente dagli indirizzi IP della macchina virtuale studente può accedere solo a una risorsa condivisa e nient'altro.  Per altre informazioni su come impostare le regole di sicurezza, vedere [gestire un gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md#work-with-security-rules). Se si vuole limitare l'accesso a una risorsa condivisa a un lab specifico, ottenere l'indirizzo IP per il Lab dalle [impostazioni Lab dall'account Lab](manage-labs.md#view-labs-in-a-lab-account) e impostare una regola in ingresso per consentire l'accesso solo da tale indirizzo IP.  Non dimenticare di consentire le porte da 49152 a 65535 per l'indirizzo IP.  Facoltativamente, è possibile trovare l'indirizzo IP privato delle VM dello studente usando la [pagina del pool di macchine virtuali](how-to-set-virtual-machine-passwords.md).
 
 Se la risorsa condivisa è una macchina virtuale di Azure che esegue il software necessario, potrebbe essere necessario modificare le regole del firewall predefinite per la macchina virtuale.
+
+### <a name="tips-for-shared-resources---license-server"></a>Suggerimenti per le risorse condivise-server licenze
+Una delle risorse condivise più comuni è un server licenze. di seguito sono riportati alcuni suggerimenti su come eseguire correttamente l'impostazione.
+#### <a name="server-region"></a>Area Server
+Il server licenze deve essere connesso alla rete virtuale di cui è stato effettuato il peering al Lab, quindi il server licenze deve trovarsi nella stessa area dell'account Lab.
+
+#### <a name="static-private-ip-and-mac-address"></a>Indirizzo MAC e IP privato statico
+Per impostazione predefinita, le macchine virtuali dispongono di un indirizzo IP privato dinamico, [prima di configurare l'indirizzo IP privato su statico per il software](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-pportal). In questo modo l'indirizzo IP privato e l'indirizzo MAC verranno impostati come statici.  
+
+#### <a name="control-access"></a>Controllare l'accesso
+Il controllo dell'accesso al server licenze è una chiave.  Una volta che l'accesso alla macchina virtuale sarà ancora necessario per la manutenzione, la risoluzione dei problemi e l'aggiornamento.  Ecco alcuni modi diversi per eseguire questa operazione.
+- [Configurazione dell'accesso just-in-time (JIT) nel centro sicurezza di Azure.](https://docs.microsoft.com/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc)
+- [Configurazione di un gruppo di sicurezza di rete per limitare l'accesso.](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)
+- [Configurare Bastion per consentire l'accesso sicuro al server licenze.](https://azure.microsoft.com/services/azure-bastion/)
 
 ## <a name="lab-account"></a>Account Lab
 

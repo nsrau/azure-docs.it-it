@@ -1,16 +1,18 @@
 ---
 title: 'Guida introduttiva: Ottenere una risposta dalla knowledge base in REST, Python - QnA Maker'
 description: Questa Guida introduttiva Python basata su REST assiste nell'ottenimento di una risposta da una knowledge base a livello di codice.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
-ms.openlocfilehash: 645ad24b2b275f9a14fda82746347a6f64c735dc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9bad04b060eafcdfea52668237d2d4e0547ce0a0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268007"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777571"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Guida introduttiva: ottenere le risposte a una domanda da una Knowledge base con Python
 

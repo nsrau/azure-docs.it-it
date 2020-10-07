@@ -1,14 +1,16 @@
 ---
 title: Risorse di Azure-QnA Maker
 description: QnA Maker usa diverse origini di Azure, ognuna con uno scopo diverso. Per comprendere il modo in cui vengono usati singolarmente, è possibile pianificare e selezionare il piano tariffario corretto o sapere quando modificare il piano tariffario. La comprensione del modo in cui vengono usate in combinazione consente di individuare e risolvere i problemi quando si verificano.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 06731c97217e3b6a5c498743b83f1d16bab791eb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62f627fb9765f2a86a373f74c33437680c9305af
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548430"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777055"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Risorse di Azure per QnA Maker
 
@@ -174,7 +176,7 @@ Usare queste chiavi quando si effettuano richieste al servizio tramite le API.
 
 |Nome|Location|Scopo|
 |--|--|--|
-|Chiave di creazione|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
+|Chiave di creazione|[Portale di Azure](https://azure.microsoft.com/free/cognitive-services/)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
 |Chiave endpoint query|[Portale di QnA Maker](https://www.qnamaker.ai)|Queste chiavi vengono utilizzate per eseguire una query sull'endpoint della Knowledge base pubblicata per ottenere una risposta per una domanda utente. Questo endpoint di query viene in genere usato in chat bot o nel codice dell'applicazione client che si connette al servizio QnA Maker. Queste chiavi vengono create quando si pubblica la QnA Maker Knowledge base.<br><br>Trovare queste chiavi nella pagina **Impostazioni servizio** . Trovare questa pagina dal menu dell'utente nella parte superiore destra della pagina nel menu a discesa.|
 
 ### <a name="subscription-keys"></a>Chiavi di sottoscrizione

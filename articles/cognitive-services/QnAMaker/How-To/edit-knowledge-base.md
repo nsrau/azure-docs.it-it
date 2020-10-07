@@ -1,14 +1,16 @@
 ---
 title: Modificare una knowledge base - QnA Maker
 description: QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'esperienza di modifica facile da usare.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 34eec343defa4614881e23543f2099040b866997
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324621"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776545"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Modificare le coppie di QnA nella Knowledge base
 

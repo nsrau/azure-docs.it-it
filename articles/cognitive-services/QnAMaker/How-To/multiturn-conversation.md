@@ -1,14 +1,16 @@
 ---
 title: Conversazioni a più turni-QnA Maker
 description: Usare i prompt e il contesto per gestire il multiplo turno, noto come multi-turn, per il bot da una domanda a un'altra. La funzionalità a più turni è la possibilità di avere una conversazione in avanti e indietro in cui il contesto della domanda precedente influenza la domanda e la risposta successive.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: eff2eccac55bc05784636ecd9d2dfb784f86c4ef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322836"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777808"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare i prompt di completamento per creare più turni di una conversazione
 
@@ -92,7 +94,7 @@ Selezionare Visualizza **Opzioni**, quindi selezionare Mostra **contesto**. Nell
 
 Il contesto a più turni viene visualizzato nella prima colonna.
 
-:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Screenshot mostra la sezione del contesto evidenziata." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Screenshot mostra un esempio della struttura in un manuale dell'utente." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 Nell'immagine precedente, **#1** indica il testo in grassetto nella colonna, che indica la domanda corrente. La domanda padre è l'elemento principale della riga. Eventuali domande che seguono sono le coppie di domande e risposte collegate. Questi elementi sono selezionabili, in modo che sia possibile passare immediatamente agli altri elementi di contesto.
 
@@ -167,7 +169,7 @@ Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, o
 
     La domanda padre Visualizza una nuova domanda come una delle scelte.
 
-    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Screenshot mostra la colonna del contesto, per entrambe le domande, indica una relazione di richiesta di completamento." lightbox="../media/conversational-context/child-prompt-created.png":::
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Screenshot mostra un esempio della struttura in un manuale dell'utente." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Dopo aver aggiunto la richiesta di completamento, selezionare **Salva e** Esegui il training nella barra di spostamento superiore.
 

@@ -1,14 +1,16 @@
 ---
 title: Eseguire una query sulla Knowledge base-QnA Maker
 description: È necessario pubblicare una Knowledge base. Una volta pubblicato, la Knowledge base viene sottoposta a query nell'endpoint di stima di runtime tramite l'API generateAnswer.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: cb777aa16fada50811cce1bbf49f28662c62b49b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e903714aab35de40c1179045505e1520c65b3ebc
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220721"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776919"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Eseguire una query sulla Knowledge base per le risposte
 
@@ -29,7 +31,7 @@ Il processo è illustrato nella tabella seguente.
 |1|L'applicazione client invia la query utente all' [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
 |2|QnA Maker pre-elabora la query utente con rilevamento della lingua, ortografia e Word breaker.|
 |3|Questa pre-elaborazione viene eseguita per modificare la query utente per ottenere risultati di ricerca migliori.|
-|4|Questa query modificata viene inviata a un indice di ricerca cognitiva di Azure, che `top` riceve il numero di risultati. Se la risposta corretta non è presente in questi risultati, aumentare leggermente `top` il valore di. In genere, il valore 10 per `top` funziona nel 90% delle query.|
+|4|Questa query modificata viene inviata a un indice di ricerca cognitiva di Azure, che riceve il `top` numero di risultati. Se la risposta corretta non è presente in questi risultati, aumentare leggermente il valore di `top` . In genere, il valore 10 per `top` funziona nel 90% delle query.|
 |5|QnA Maker USA conteggi sintattico e semantico per determinare la somiglianza tra la query utente e i risultati QnA recuperati.|
 |6|Il modello di classificazione Machine-learned usa le diverse funzionalità, dal passaggio 5, per determinare i punteggi di confidenza e il nuovo ordine di rango.|
 |7|I nuovi risultati vengono restituiti all'applicazione client in ordine di rango.|
@@ -42,7 +44,7 @@ Quando si pubblica la Knowledge base, il servizio crea un endpoint HTTP basato s
 
 ### <a name="the-user-query-request-to-generate-an-answer"></a>Richiesta di query utente per generare una risposta
 
-Una query utente è la domanda che l'utente finale chiede alla Knowledge base, ad esempio `How do I add a collaborator to my app?`. La query è spesso in un formato di linguaggio naturale o alcune parole chiave che rappresentano la domanda, ad `help with collaborators`esempio. La query viene inviata alla Knowledge base da una richiesta HTTP nell'applicazione client.
+Una query utente è la domanda che l'utente finale chiede alla Knowledge base, ad esempio `How do I add a collaborator to my app?` . La query è spesso in un formato di linguaggio naturale o alcune parole chiave che rappresentano la domanda, ad esempio `help with collaborators` . La query viene inviata alla Knowledge base da una richiesta HTTP nell'applicazione client.
 
 ```json
 {

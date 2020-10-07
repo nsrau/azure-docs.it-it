@@ -1,14 +1,16 @@
 ---
 title: Ottenere la risposta predefinita QnA Maker
 description: Quando non esiste alcuna corrispondenza con la domanda, viene restituita la risposta predefinita. Potrebbe essere necessario modificare la risposta predefinita dalla risposta predefinita standard.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.openlocfilehash: d37e63d84be58e6ccd2f1e23a1344961d39ffa01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14954f89fcdcbbc1ef4b8654582a3274f4bb0923
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054175"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776817"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Modificare la risposta predefinita per una risorsa QnA Maker
 
@@ -21,7 +23,7 @@ Esistono due tipi di risposte predefinite nella Knowledge base. È importante co
 
 |Tipo di domanda|Descrizione della risposta|
 |--|--|
-|Risposta KB quando non viene determinata alcuna risposta|`No good match found in KB.`-Quando l' [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) non trova alcuna risposta corrispondente alla domanda, `DefaultAnswer` viene restituita l'impostazione del servizio app. Tutte le Knowledge base nella stessa risorsa QnA Maker condividono lo stesso testo di risposta predefinito.<br>È possibile gestire l'impostazione nel portale di Azure, tramite il servizio app o con le API REST per [ottenere](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) o [aggiornare](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) l'impostazione.|
+|Risposta KB quando non viene determinata alcuna risposta|`No good match found in KB.` -Quando l' [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) non trova alcuna risposta corrispondente alla domanda, `DefaultAnswer` viene restituita l'impostazione del servizio app. Tutte le Knowledge base nella stessa risorsa QnA Maker condividono lo stesso testo di risposta predefinito.<br>È possibile gestire l'impostazione nel portale di Azure, tramite il servizio app o con le API REST per [ottenere](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) o [aggiornare](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) l'impostazione.|
 |Testo istruzione richiesta di completamento|Quando si usa una richiesta di completamento in un flusso di conversazione, potrebbe non essere necessaria una risposta nella coppia di QnA perché si desidera che l'utente scelga tra le richieste di completamento. In questo caso, impostare un testo specifico impostando il testo di risposta predefinito, restituito con ogni stima per le richieste di completamento. Il testo deve essere visualizzato come testo istruttivo per la selezione di richieste di completamento. Un esempio di questo testo di risposta predefinito è `Please select from the following choices` . Questa configurazione è illustrata nelle sezioni successive di questo documento. Può anche essere impostato come parte della definizione della Knowledge base di `defaultAnswerUsedForExtraction` usando l' [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 ### <a name="client-application-integration"></a>Integrazione di applicazioni client

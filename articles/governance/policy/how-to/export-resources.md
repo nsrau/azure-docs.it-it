@@ -1,17 +1,17 @@
 ---
-title: Esportare le risorse di criteri di Azure
+title: Esportare risorse di Criteri di Azure
 description: Informazioni su come esportare le risorse di criteri di Azure in GitHub, ad esempio le definizioni dei criteri e le assegnazioni dei criteri.
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 17f0322390cd2cd89ba182a9e3c7c95843cc135e
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 691e0a026c5f4f1a0a68c744ee81b1da8da9e70b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91604431"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777089"
 ---
-# <a name="export-azure-policy-resources"></a>Esportare le risorse di criteri di Azure
+# <a name="export-azure-policy-resources"></a>Esportare risorse di Criteri di Azure
 
 Questo articolo fornisce informazioni su come esportare le risorse di criteri di Azure esistenti. L'esportazione delle risorse è utile e consigliata per il backup, ma è anche un passaggio importante del percorso con la governance del cloud e la gestione dei [criteri come codice](../concepts/policy-as-code.md). Le risorse di criteri di Azure possono essere esportate tramite [portale di Azure](#export-with-azure-portal), l'interfaccia della riga di comando di [Azure](#export-with-azure-cli), [Azure PowerShell](#export-with-azure-powershell)e ognuno degli SDK supportati.
 
@@ -84,7 +84,7 @@ Le definizioni, le iniziative e le assegnazioni di criteri di Azure possono esse
 Di seguito è riportato un esempio di recupero di JSON per una definizione di criteri con il **nome** _VirtualMachineStorage_:
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition --Name 'VirtualMachineStorage'
+Get-AzPolicyDefinition -Name 'VirtualMachineStorage'
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

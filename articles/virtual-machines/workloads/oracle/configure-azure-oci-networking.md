@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 7f5f3f4edccc6d23b8041051028273559bcffecd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5bb26a21317401ddbd0d9b8f8a9a501c78153842
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325930"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776579"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurare un'interconnessione diretta tra Azure e l'infrastruttura cloud Oracle  
 
@@ -96,7 +96,7 @@ Installando gli agenti in entrambi i cloud, è possibile sfruttare Azure [monito
 
 Per eliminare l'interconnessione, è necessario seguire i passaggi seguenti nell'ordine specifico specificato. In caso contrario, viene generato un circuito ExpressRoute "stato di errore".
 
-1. Eliminare la connessione ExpressRoute. Per eliminare la connessione, fare clic sull'icona **Elimina** nella pagina della connessione. Per ulteriori informazioni, vedere la [documentazione di ExpressRoute](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#delete-a-connection-to-unlink-a-vnet).
+1. Eliminare la connessione ExpressRoute. Per eliminare la connessione, fare clic sull'icona **Elimina** nella pagina della connessione. Per ulteriori informazioni, vedere la [documentazione di ExpressRoute](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#clean-up-resources).
 1. Eliminare il FastConnect Oracle dalla console cloud Oracle.
 1. Una volta eliminato il circuito Oracle FastConnect, è possibile eliminare il circuito ExpressRoute di Azure.
 

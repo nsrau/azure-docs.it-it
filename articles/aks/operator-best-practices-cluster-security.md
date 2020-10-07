@@ -5,12 +5,12 @@ description: Procedure consigliate per l'operatore del cluster per la gestione d
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: c2734aa8e4ebf0bdb693a49c3ba785dd134e8c83
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5f249a7e6e7fac13301f0d2717336651b171b422
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003048"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776307"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e gli aggiornamenti dei cluster nel servizio Azure Kubernetes
 
@@ -177,7 +177,7 @@ Per altre informazioni sui filtri disponibili, vedere [Seccomp security profiles
 
 Kubernetes rilascia nuove funzionalità con maggiore frequenza rispetto alle piattaforme di infrastruttura più tradizionali. Gli aggiornamenti di Kubernetes includono nuove funzionalità e correzioni di bug o correzioni rapide per la sicurezza. Le nuove funzionalità passano in genere dallo stato *alpha* allo stato *beta* per diventare infine *stabili* e generalmente disponibili e consigliate per l'uso in ambiente di produzione. Questo ciclo di rilascio dovrebbe consentire di aggiornare Kubernetes senza riscontrare regolarmente modifiche di rilievo o dover modificare le proprie distribuzioni e i modelli.
 
-Il servizio Azure Kubernetes supporta quattro versioni secondarie di Kubernetes. Questo significa che, quando viene introdotta una nuova versione di patch secondaria, vengono ritirate la versione secondaria precedente e le versioni delle patch supportate. Gli aggiornamenti secondari a Kubernetes avvengono su base periodica. Assicurarsi di disporre di un processo di governance che controlli lo stato del sistema ed esegua l'aggiornamento quando necessario in modo da non perdere il diritto al supporto. Per altre informazioni, vedere [Versioni Kubernetes supportate nel servizio Azure Kubernetes][aks-supported-versions]
+AKS supporta tre versioni secondarie di Kubernetes. Questo significa che, quando viene introdotta una nuova versione di patch secondaria, vengono ritirate la versione secondaria precedente e le versioni delle patch supportate. Gli aggiornamenti secondari a Kubernetes avvengono su base periodica. Assicurarsi di disporre di un processo di governance che controlli lo stato del sistema ed esegua l'aggiornamento quando necessario in modo da non perdere il diritto al supporto. Per altre informazioni, vedere [versioni di Kubernetes supportate AKS][aks-supported-versions].
 
 Per verificare le versioni disponibili per il cluster in uso, usare il comando [az aks get-upgrades][az-aks-get-upgrades] come illustrato nell'esempio seguente:
 
@@ -186,6 +186,8 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
 È quindi possibile aggiornare il cluster AKS tramite il comando [az aks upgrade][az-aks-upgrade]. Il processo di aggiornamento isola e svuota un nodo alla volta, pianifica i pod sui nodi rimanenti e quindi distribuisce un nuovo nodo che esegue le versioni più recenti del sistema operativo e di Kubernetes.
+
+È consigliabile testare le nuove versioni secondarie in un ambiente di test di sviluppo, in modo da poter verificare che il carico di lavoro continui a funzionare con la nuova versione di Kubernetes. Kubernetes può deprecare le API, ad esempio nella versione 1,16, che può essere basata sui carichi di lavoro. Quando si importano nuove versioni in produzione, è consigliabile usare [più pool di nodi in versioni separate](use-multiple-node-pools.md) e aggiornare i singoli pool uno alla volta per eseguire progressivamente il Rolling dell'aggiornamento in un cluster. Se si eseguono più cluster, eseguire l'aggiornamento di un cluster alla volta per monitorare progressivamente l'effetto o le modifiche.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version KUBERNETES_VERSION

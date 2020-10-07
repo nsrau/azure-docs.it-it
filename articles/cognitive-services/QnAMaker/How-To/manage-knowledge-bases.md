@@ -1,14 +1,16 @@
 ---
 title: Gestisci Knowledge base-QnA Maker
 description: QnA Maker consente di gestire le Knowledge base fornendo accesso alle impostazioni e al contenuto della Knowledge base.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 08736ce61e6768cfd9ac3d3ded7092a4ab93fca9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551779"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777729"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Creazione della Knowledge base e gestione delle impostazioni
 
@@ -47,7 +49,7 @@ QnA Maker consente di gestire le Knowledge base fornendo accesso alle impostazio
     |**+ Add URL** (+ Aggiungi URL)|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Chit-chat**|Selezionare **Professional**|
 
-1. Nel **passaggio 5**selezionare **Crea la KB**.
+1. Nel **Passaggio 5** selezionare **Create your KB** (Crea la KB).
 
     Il processo di estrazione impiega alcuni minuti per leggere il documento e identificare le domande e risposte.
 

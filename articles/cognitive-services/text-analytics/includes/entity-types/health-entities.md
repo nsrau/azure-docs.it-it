@@ -5,22 +5,23 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 10/02/2020
 ms.author: aahi
-ms.openlocfilehash: 563daca1e5179639b8dd3aaf710d92e54faf6aa1
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 44bce7c6dd2443ea0ed1851325a5b84f325f5fae
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91709527"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779411"
 ---
 ## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>Analisi del testo per categorie di integrità, entità e attributi
 
 [Analisi del testo per l'integrità](../../how-tos/text-analytics-for-health.md) rileva i concetti medici nelle categorie seguenti.  Si noti che in questa anteprima del contenitore è supportato solo testo in lingua inglese e in ogni immagine del contenitore viene fornita una sola versione del modello.
 
 
-| Categoria  | Descrizione  |
+| Category  | Descrizione  |
 |---------|---------|
 | ANATOMIA | concetti che acquisiscono informazioni su sistemi di corpo, anatomia, siti, posizioni o aree geografiche. |
  | Demografia | concetti che acquisiscono informazioni sul sesso e l'età. |

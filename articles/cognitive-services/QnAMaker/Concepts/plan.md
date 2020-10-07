@@ -1,14 +1,16 @@
 ---
 title: Pianificare l'app-QnA Maker
 description: Informazioni su come pianificare l'app QnA Maker. Informazioni sul funzionamento di QnA Maker e sull'interazione con altri servizi di Azure e alcuni concetti della Knowledge base.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/2/2020
-ms.openlocfilehash: 19499aceed96155fa42c78865b1d673a3830f5cc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 84e4d6907c9036503f43cd607b54577fd3d97444
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054213"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776936"
 ---
 # <a name="plan-your-qna-maker-app"></a>Pianificare l'app QnA Maker
 
@@ -18,7 +20,7 @@ Per pianificare l'app QnA Maker, è necessario comprendere come funziona QnA Mak
 
 Ogni [risorsa di Azure](azure-resources.md#resource-purposes) creata con QnA Maker ha uno scopo specifico. Ogni risorsa ha i propri scopi, limiti e piano [tariffario](azure-resources.md#pricing-tier-considerations). È importante comprendere la funzione di queste risorse in modo che sia possibile utilizzare tali informazioni nel processo di pianificazione.
 
-| Resource | Scopo |
+| Risorsa | Scopo |
 |--|--|
 | Risorsa [QnA Maker](azure-resources.md#qna-maker-resource) | Creazione e stima di query |
 | Risorsa [ricerca cognitiva](azure-resources.md#cognitive-search-resource) | Archiviazione e ricerca di dati |

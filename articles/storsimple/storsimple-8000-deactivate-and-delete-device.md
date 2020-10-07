@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 64163011506380eec87457a2d8a2f699ec56dc68
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 07d108306fdca9bfe8f793b61660550e43151d71
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249638"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777824"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Disattivare ed eliminare un dispositivo StorSimple
 
@@ -63,16 +63,16 @@ Se si vuole eliminare completamente il dispositivo senza conservarne i dati, seg
         ![Disattivare il dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. Nel pannello **Disattiva** digitare il nome del dispositivo per confermare e quindi fare clic su **Disattiva**. Si avvia il processo di disattivazione il cui completamento richiede alcuni minuti.
 
-        ![Disattivare il dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+        ![Disattiva il dispositivo StorSimple 2](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 
 3. Dopo la disattivazione, è possibile eliminare completamente il dispositivo. L’eliminazione di un dispositivo lo rimuove dall'elenco dei dispositivi connessi al servizio. Il servizio quindi non può più gestire il dispositivo eliminato. Completare la procedura seguente per eliminare il dispositivo:
    
    1. Passare al servizio Gestione dispositivi StorSimple e fare clic su **Dispositivi**. Nel pannello **Dispositivi** selezionare il dispositivo disattivato che si desidera eliminare, fare clic con il tasto destro del mouse e quindi fare clic su **Elimina**.
 
-        ![Disattivare il dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+        ![Disattiva il dispositivo StorSimple 3](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. Nel pannello **Elimina** digitare il nome del dispositivo per confermare e quindi fare clic su **Elimina**. Il processo di eliminazione richiede alcuni minuti.
 
-        ![Disattivare il dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+        ![Disattiva il dispositivo StorSimple 4](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Si riceverà una notifica una volta completata l'eliminazione. Viene inoltre aggiornato l'elenco dei dispositivi per riflettere l'eliminazione.
 
 ## <a name="deactivate-and-retain-data"></a>Disattivare e conservare i dati
@@ -85,19 +85,19 @@ Se si è interessati all'eliminazione del dispositivo ma si vuole conservarne i 
    
    1. Passare al servizio Gestione dispositivi StorSimple e fare clic su **Dispositivi**. Nel pannello **Dispositivi** selezionare il dispositivo che si desidera disattivare, fare clic con il tasto destro del mouse e quindi fare clic su **Disattiva**.
 
-         ![Disattivare il dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
+         ![Disattiva il dispositivo StorSimple 5](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. Nel pannello **Disattiva** digitare il nome del dispositivo per confermare e quindi fare clic su **Disattiva**. Si avvia il processo di disattivazione il cui completamento richiede alcuni minuti.
 
-         ![Disattivare il dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+         ![Disattiva il dispositivo StorSimple 6](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 2. È ora possibile eseguire il failover dei contenitori del volume e degli snapshot associati. Per le procedure, vedere [Failover e ripristino di emergenza per il dispositivo StorSimple](storsimple-8000-device-failover-disaster-recovery.md)
 3. Dopo la disattivazione e failover, è possibile eliminare completamente il dispositivo. L’eliminazione di un dispositivo lo rimuove dall'elenco dei dispositivi connessi al servizio. Il servizio quindi non può più gestire il dispositivo eliminato. Completare la procedura seguente per eliminare il dispositivo:
    
    1. Passare al servizio Gestione dispositivi StorSimple e fare clic su **Dispositivi**. Nel pannello **Dispositivi** selezionare il dispositivo disattivato che si desidera eliminare, fare clic con il tasto destro del mouse e quindi fare clic su **Elimina**.
 
-       ![Disattivare il dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+       ![Disattiva il dispositivo StorSimple 7](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. Nel pannello **Elimina** digitare il nome del dispositivo per confermare e quindi fare clic su **Elimina**. Il processo di eliminazione richiede alcuni minuti.
 
-       ![Disattivare il dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+       ![Disattiva il dispositivo StorSimple 8](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Si riceverà una notifica una volta completata l'eliminazione. Viene inoltre aggiornato l'elenco dei dispositivi per riflettere l'eliminazione.
 
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>Disattivare ed eliminare un'appliance cloud

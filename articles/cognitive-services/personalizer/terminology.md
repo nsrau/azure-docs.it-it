@@ -1,14 +1,16 @@
 ---
 title: Terminologia-personalizzatore
 description: Il Personalizzatore usa la terminologia dell'apprendimento per rinforzo. Questi termini vengono usati nell'portale di Azure e nelle API.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 8177606ac6e968bd287a23554be7b9dd06d880a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cd0d85be5447aad0f2a3c37041e7d5d5d047a468
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002863"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777293"
 ---
 # <a name="personalizer-terminology"></a>Terminologia del personalizzatore
 
