@@ -1,6 +1,6 @@
 ---
 title: Che cosa sono i modelli di dispositivo in Azure IoT Central | Microsoft Docs
-description: I modelli di dispositivo IoT Central di Azure consentono di specificare il comportamento dei dispositivi connessi all'applicazione.
+description: I modelli di dispositivo IoT Central di Azure consentono di specificare il comportamento dei dispositivi connessi all'applicazione. Un modello di dispositivo specifica i dati di telemetria, le proprietà e i comandi che devono essere implementati dal dispositivo. Un modello di dispositivo definisce anche l'interfaccia utente per il dispositivo in IoT Central, ad esempio i moduli e i dashboard utilizzati da un operatore.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/21/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: cdc85029ec004060abf69b111d8a0ebca42147a4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 75317b5c6af2d0ce89d2db32f4343d9cc73a1a81
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015093"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813169"
 ---
 # <a name="what-are-device-templates"></a>Che cosa sono i modelli di dispositivo?
 
@@ -26,12 +26,10 @@ Un generatore di soluzioni aggiunge modelli di dispositivo a un'applicazione IoT
 Un modello di dispositivo include le sezioni seguenti:
 
 - _Un modello di funzionalità del dispositivo (DCM)_. Questa parte del modello di dispositivo definisce il modo in cui il dispositivo interagisce con l'applicazione. Uno sviluppatore di dispositivi implementa i comportamenti definiti in DCM.
+    - _Interfacce_. Un DCM contiene una o più interfacce che definiscono i dati di telemetria, le proprietà e i comandi che devono essere implementati dal dispositivo.
 - _Proprietà del cloud_. Questa parte del modello di dispositivo consente allo sviluppatore di soluzioni di specificare i metadati del dispositivo da archiviare. Le proprietà del cloud non vengono mai sincronizzate con i dispositivi e esistono solo nell'applicazione. Le proprietà del cloud non influiscono sul codice scritto da uno sviluppatore di dispositivi per implementare il DCM.
 - _Personalizzazioni_. Questa parte del modello di dispositivo consente allo sviluppatore di soluzioni di eseguire l'override di alcune delle definizioni in DCM. Le personalizzazioni sono utili se lo sviluppatore della soluzione vuole perfezionare il modo in cui l'applicazione gestisce un valore, ad esempio modificando il nome visualizzato per una proprietà o il colore usato per visualizzare un valore di telemetria. Le personalizzazioni non influiscono sul codice scritto da uno sviluppatore di dispositivi per implementare il DCM.
 - _Viste_. Questa parte del modello di dispositivo consente allo sviluppatore di soluzioni di definire le visualizzazioni per visualizzare i dati dal dispositivo e i moduli per gestire e controllare un dispositivo. Le visualizzazioni utilizzano le proprietà DCM, cloud e customizations. Le visualizzazioni non influiscono sul codice scritto da uno sviluppatore di dispositivi per implementare il DCM.
-
-> [!NOTE]
-> La [versione dell'aggiornamento plug and Play dell'anteprima pubblica](../../iot-pnp/overview-iot-plug-and-play.md) è destinata agli sviluppatori di dispositivi e agli OEM per iniziare a creare i dispositivi che possono certificare per le cose plug and Play prima del lancio della GA.
 
 ## <a name="device-capability-models"></a>Modelli di funzionalità del dispositivo
 
@@ -108,11 +106,11 @@ In un'interfaccia sono presenti alcuni campi obbligatori:
 
 Sono disponibili alcuni campi facoltativi che è possibile usare per aggiungere altri dettagli al modello di funzionalità, ad esempio il nome visualizzato e la descrizione.
 
-### <a name="interface"></a>Interfaccia
+## <a name="interfaces"></a>Interfacce
 
 DTDL consente di descrivere le funzionalità del dispositivo. Le funzionalità correlate sono raggruppate in interfacce. Le interfacce descrivono le proprietà, la telemetria e i comandi che una parte del dispositivo implementa:
 
-- `Properties`. Le proprietà sono campi dati che rappresentano lo stato del dispositivo. Usare le proprietà per rappresentare lo stato durevole del dispositivo, ad esempio lo stato di spegnimento di un pompa di raffreddamento. Le proprietà possono anche rappresentare le proprietà di base dei dispositivi, ad esempio la versione del firmware del dispositivo. È possibile dichiarare le proprietà in sola lettura o in scrittura.
+- `Properties`. Le proprietà sono campi dati che rappresentano lo stato del dispositivo. Usare le proprietà per rappresentare lo stato durevole del dispositivo, ad esempio lo stato di spegnimento di un pompa di raffreddamento. Le proprietà possono anche rappresentare le proprietà di base dei dispositivi, ad esempio la versione del firmware del dispositivo. È possibile dichiarare le proprietà in sola lettura o in scrittura. Solo i dispositivi possono aggiornare il valore di una proprietà di sola lettura. Un operatore può impostare il valore di una proprietà scrivibile da inviare a un dispositivo.
 - `Telemetry`. I campi di telemetria rappresentano le misurazioni dai sensori. Ogni volta che il dispositivo acquisisce una misura del sensore, deve inviare un evento di telemetria contenente i dati del sensore.
 - `Commands`. I comandi rappresentano i metodi che gli utenti del dispositivo possono eseguire sul dispositivo. Ad esempio, un comando reset o un comando per attivare o disattivare un ventilatore.
 
@@ -159,7 +157,7 @@ Nell'esempio seguente viene illustrata la definizione dell'interfaccia del senso
 }
 ```
 
-Questo esempio mostra due proprietà, un tipo di telemetria e due comandi. Una descrizione del campo minima presenta:
+Questo esempio mostra due proprietà (una sola lettura e una scrivibile), un tipo di telemetria e due comandi. Una descrizione del campo minima presenta:
 
 - `@type` per specificare il tipo di funzionalità: `Telemetry` , `Property` o `Command` .  In alcuni casi, il tipo include un tipo semantico per consentire IoT Central di fare alcune ipotesi sulla gestione del valore.
 - `name` per il valore di telemetria.
@@ -168,7 +166,7 @@ Questo esempio mostra due proprietà, un tipo di telemetria e due comandi. Una d
 
 I campi facoltativi, ad esempio nome visualizzato e descrizione, consentono di aggiungere ulteriori dettagli all'interfaccia e alle funzionalità.
 
-### <a name="properties"></a>Proprietà
+## <a name="properties"></a>Proprietà
 
 Per impostazione predefinita, le proprietà sono di sola lettura. Le proprietà di sola lettura indicano che il dispositivo segnala gli aggiornamenti del valore della proprietà all'applicazione IoT Central. L'applicazione IoT Central non può impostare il valore di una proprietà di sola lettura.
 
@@ -180,13 +178,13 @@ Non usare le proprietà per inviare dati di telemetria dal dispositivo. Una prop
 
 Per le proprietà scrivibili, l'applicazione del dispositivo restituisce un codice di stato desiderato, una versione e una descrizione per indicare se ha ricevuto e applicato il valore della proprietà.
 
-### <a name="telemetry"></a>Telemetria
+## <a name="telemetry"></a>Telemetria
 
 IoT Central consente di visualizzare i dati di telemetria nei dashboard e nei grafici e di usare le regole per attivare le azioni quando vengono raggiunte le soglie. IoT Central USA le informazioni contenute in DCM, ad esempio tipi di dati, unità e nomi visualizzati, per determinare la modalità di visualizzazione dei valori di telemetria.
 
 È possibile usare la funzionalità di esportazione dei dati IoT Central per trasmettere i dati di telemetria ad altre destinazioni, ad esempio archiviazione o hub eventi.
 
-### <a name="commands"></a>Comandi
+## <a name="commands"></a>Comandi:
 
 I comandi sono sincroni o asincroni. Per impostazione predefinita, un comando sincrono deve essere eseguito entro 30 secondi e il dispositivo deve essere connesso all'arrivo del comando. Se il dispositivo risponde nel tempo o il dispositivo non è connesso, il comando ha esito negativo.
 

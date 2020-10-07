@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 7f7f895b61e3c638cb347a2d73bb5ee458b31acd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1cd0c3f48d4dc79294b3ebf9907ac18d23794830
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498821"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804198"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginazione in Azure Cosmos DB
 
@@ -23,7 +23,7 @@ A volte i risultati delle query verranno suddivisi in più pagine. I risultati d
 
 È possibile specificare il numero massimo di elementi restituiti da una query impostando `MaxItemCount` . `MaxItemCount`Viene specificato per ogni richiesta e garantisce che il motore di query restituisca tale numero di elementi o meno. È possibile impostare `MaxItemCount` su `-1` se non si desidera applicare un limite al numero di risultati per esecuzione di query.
 
-Inoltre, esistono altri motivi per cui il motore di query potrebbe dover suddividere i risultati delle query in più pagine. incluse le seguenti:
+Inoltre, esistono altri motivi per cui il motore di query potrebbe dover suddividere i risultati delle query in più pagine. Tra queste sono incluse:
 
 - Il contenitore è stato limitato e non sono disponibili ur per restituire altri risultati di query
 - La risposta dell'esecuzione della query è troppo grande
@@ -56,7 +56,7 @@ Se la query restituisce un token di continuazione, sono presenti ulteriori risul
 
 Nell'API REST di Azure Cosmos DB è possibile gestire i token di continuazione con l' `x-ms-continuation` intestazione. Come per le query con .NET o Java SDK, se l' `x-ms-continuation` intestazione della risposta non è vuota, significa che la query presenta risultati aggiuntivi.
 
-Fino a quando si usa la stessa versione SDK, i token di continuazione non scadono mai. Facoltativamente, è possibile [limitare le dimensioni di un token di continuazione](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Indipendentemente dalla quantità di dati o dal numero di partizioni fisiche nel contenitore, le query restituiscono un singolo token di continuazione.
+Fino a quando si usa la stessa versione SDK, i token di continuazione non scadono mai. Facoltativamente, è possibile [limitare le dimensioni di un token di continuazione](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Indipendentemente dalla quantità di dati o dal numero di partizioni fisiche nel contenitore, le query restituiscono un singolo token di continuazione.
 
 Non è possibile usare i token di continuazione per le query con [Group by](sql-query-group-by.md) o [Distinct](sql-query-keywords.md#distinct) perché queste query richiedono l'archiviazione di una quantità significativa di stato. Per le query con `DISTINCT` , è possibile utilizzare i token di continuazione se si aggiungono `ORDER BY` alla query.
 

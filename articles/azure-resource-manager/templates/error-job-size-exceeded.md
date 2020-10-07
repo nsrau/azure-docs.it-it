@@ -2,13 +2,13 @@
 title: Errore durante il superamento delle dimensioni del processo
 description: Viene descritto come risolvere gli errori quando la dimensione o il modello del processo è troppo grande.
 ms.topic: troubleshooting
-ms.date: 09/25/2020
-ms.openlocfilehash: 06645561964d9634d93061b3be4d100a578cc7e7
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.date: 10/07/2020
+ms.openlocfilehash: 5f0df102611dba8ce49da948b14110fff32dc2a9
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91373176"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812897"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>Risoluzione degli errori per la dimensione del processo superata
 
@@ -38,6 +38,10 @@ La prima opzione consiste nel semplificare il modello. Questa opzione funziona q
 
 È possibile impostare altre risorse come dipendenti dal modello collegato e [ottenere i valori dall'output del modello collegato](linked-templates.md#get-values-from-linked-template).
 
-## <a name="solution-2---use-serial-copy"></a>Soluzione 2: usare la copia seriale
+## <a name="solution-2---reduce-name-size"></a>Soluzione 2-ridurre le dimensioni del nome
+
+Provare ad abbreviare la lunghezza dei nomi usati per [parametri](template-parameters.md), [variabili](template-variables.md)e [output](template-outputs.md). Quando questi valori vengono ripetuti tramite i cicli di copia, un nome grande viene moltiplicato più volte. La dimensione finale del modello è inutilmente grande.
+
+## <a name="solution-3---use-serial-copy"></a>Soluzione 3: usare la copia seriale
 
 La seconda opzione consiste nel modificare il ciclo di copia da [parallelo a elaborazione seriale](copy-resources.md#serial-or-parallel). Usare questa opzione solo quando si ritiene che l'errore provenga dalla distribuzione di un numero elevato di risorse tramite copia. Questa modifica può aumentare significativamente il tempo di distribuzione perché le risorse non vengono distribuite in parallelo.

@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: b51b44f3a3d0889836bb41e0bf2fa37234338cf4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a8879bed4160c7cd1bd74cb196ce271964e384f7
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287084"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813237"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostica di avvio di Azure
 
@@ -25,12 +25,14 @@ Un'esperienza di diagnostica di avvio alternativa consiste nell'usare un account
 
 > [!IMPORTANT]
 > Ai clienti di Azure non verranno addebitati i costi di archiviazione associati alla diagnostica di avvio usando un account di archiviazione gestito fino al 2020 ottobre.
+>
+> I BLOB dei dati di diagnostica di avvio (che includono i log e le immagini di snapshot) vengono archiviati in un account di archiviazione gestito. Ai clienti verranno addebitati solo i GiBs usati dai BLOB, non sulle dimensioni del disco di cui è stato effettuato il provisioning. I contatori degli snapshot verranno usati per la fatturazione dell'account di archiviazione gestito. Poiché gli account gestiti vengono creati in con ridondanza locale standard o ZRS standard, ai clienti verranno addebitati i costi di $0,05/GB al mese per la dimensione dei soli BLOB di dati di diagnostica. Per altre informazioni su questo piano tariffario, vedere [prezzi di Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). I clienti vedranno questo costo associato all'URI della risorsa VM. 
 
 ## <a name="boot-diagnostics-view"></a>Visualizzazione diagnostica di avvio
 Nel pannello della macchina virtuale l'opzione diagnostica di avvio si trova nella sezione *supporto e risoluzione dei problemi* del portale di Azure. Selezionando diagnostica di avvio vengono visualizzate una schermata e informazioni sul log seriale. Il log seriale contiene la messaggistica del kernel e lo screenshot è uno snapshot dello stato corrente delle macchine virtuali. A seconda che la macchina virtuale esegua Windows o Linux, determina come dovrebbe apparire lo screenshot previsto. Per Windows, gli utenti visualizzeranno uno sfondo del desktop e per Linux, gli utenti visualizzeranno una richiesta di accesso.
 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-linux.png" alt-text="Screenshot della diagnostica di avvio Linux":::
-:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Screenshot della diagnostica di avvio di Windows":::
+:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Screenshot della diagnostica di avvio Linux":::
 
 
 ## <a name="limitations"></a>Limitazioni

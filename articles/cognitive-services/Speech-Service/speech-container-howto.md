@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: locale, Docker, contenitore
-ms.openlocfilehash: ed14b0b90fadf02ee23852ebce9a60b758b82573
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 0ba479e8c73cb7b0f397f39124ec32d7b9afbf4f
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766470"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813271"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installare ed eseguire contenitori Docker per le API del servizio riconoscimento vocale 
 
@@ -140,7 +140,7 @@ Le immagini del contenitore per la sintesi vocale sono disponibili nelle Contain
 # <a name="speech-language-detection"></a>[Rilevamento lingua vocale](#tab/lid)
 
 > [!TIP]
-> Per ottenere risultati ottimali, è consigliabile usare il contenitore di rilevamento del linguaggio vocale con i contenitori di riconoscimento vocale o personalizzati. 
+> Per ottenere i risultati più utili, è consigliabile usare il contenitore di rilevamento del linguaggio vocale con i contenitori di riconoscimento vocale o di testo personalizzato. 
 
 | Contenitore | Archivio |
 |-----------|------------|

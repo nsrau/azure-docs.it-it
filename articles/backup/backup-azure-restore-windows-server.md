@@ -3,12 +3,12 @@ title: Ripristinare i file in Windows Server con l'agente di Servizi di ripristi
 description: Questo articolo illustra come ripristinare i dati archiviati in Azure in un computer Windows Server o Windows con l'agente di Servizi di ripristino di Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 0d2f9e8197ac397bf61e4cb293e354a10ba0e1da
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 79a4d32d6dbca5ca5be5d46c6b44a07ef42de061
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178558"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813254"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Ripristinare i file in Windows Server con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -107,7 +107,7 @@ Tali passaggi usano la terminologia seguente:
 
 5. Specificare il file dell'insieme di credenziali che corrisponde all'insieme di credenziali di esempio, quindi fare clic su **Avanti**.
 
-    Se il file dell'insieme di credenziali non è valido (o è scaduto), è necessario scaricarne uno nuovo dall'insieme di credenziali di esempio nel portale di Azure. Dopo aver specificato un insieme di credenziali valido, viene visualizzato il nome dell'insieme di credenziali di backup corrispondente.
+    Se il file dell'insieme di credenziali non è valido (o è scaduto), [scaricare un nuovo file di archivio delle credenziali dall'](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) insieme di credenziali di esempio nel portale di Azure. Dopo aver specificato un insieme di credenziali valido, viene visualizzato il nome dell'insieme di credenziali di backup corrispondente.
 
 6. Nel riquadro **Seleziona server di backup** selezionare il computer di origine nell'elenco dei computer visualizzati e specificare la passphrase. Fare quindi clic su **Avanti**.
 

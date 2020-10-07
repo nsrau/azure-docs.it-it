@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 8334f8bbbdb6cad210839fc724c46834f559bf91
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 106f446c56377c1211d04e388608cd31e2aeef23
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324368"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804215"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK per l'API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "91324368"
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring data V2](sql-api-sdk-java-spring-v2.md)
-> * [Spring data V3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Connettore Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
@@ -39,7 +39,7 @@ ms.locfileid: "91324368"
 |Risorsa  |Collegamento  |
 |---------|---------|
 |Download dell'SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
-|Documentazione sull'API  |  [Documentazione di riferimento per JavaScript SDK](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|Documentazione sull'API  |  [Documentazione di riferimento per JavaScript SDK](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest&preserve-view=true)
 |Istruzioni per l'installazione dell'SDK  |  [Istruzioni di installazione](https://github.com/Azure/azure-sdk-for-js)
 |Contribuire all'SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | Esempi | [Esempi di codice Node.js](sql-api-nodejs-samples.md)

@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 24d50635efb4d7fe18db9836311cf0a85dfcc734
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 39cd25c2c84e92a0b06bc2ee6c6229ecb2d296d5
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118621"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812540"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft Identity Platform e credenziali di tipo password del proprietario della risorsa OAuth 2.0
 
@@ -112,5 +112,4 @@ Se l'utente non ha fornito il nome utente o la password corretti, o il client no
 
 ## <a name="learn-more"></a>Altre informazioni
 
-* È possibile provare ROPC grazie all'[applicazione console di esempio](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* Per determinare se è necessario usare l'endpoint 2.0, vedere le [limitazioni di Microsoft Identity Platform](../azuread-dev/azure-ad-endpoint-comparison.md).
+Per un esempio dell'uso di ROPC, vedere l'esempio di codice dell' [applicazione console .NET Core](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) su GitHub.

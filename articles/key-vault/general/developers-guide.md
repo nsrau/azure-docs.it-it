@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 662c23a29e383800a4591c900e02133c16fa2090
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: a04435b1e2feb537231bb80d2777b9ea2599c241
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743319"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812404"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -61,6 +61,11 @@ Per altre informazioni, vedere:
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Azure Identity SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
+
+Eseguire l'autenticazione a Key Vault nelle applicazioni:
+- [Eseguire l'autenticazione a Key Vault nell'applicazione ospitata in una macchina virtuale in .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
+- [Eseguire l'autenticazione a Key Vault nell'applicazione ospitata in una macchina virtuale in Python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
+- [Eseguire l'autenticazione a Key Vault con il servizio app](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Gestire chiavi, certificati e segreti
 
@@ -112,9 +117,13 @@ Gli articoli e gli scenari seguenti offrono indicazioni specifiche su come usare
 
 Questi articoli illustrano altri scenari e servizi che usano o si integrano con Key Vault.
 
-- [Crittografia dei inattivi con Key Vault](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-
+- La crittografia dei dati inattivi consente la codifica (crittografia) dei dati quando vengono salvati [in](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) modo permanente. Le chiavi di crittografia dei dati vengono spesso crittografate con una chiave di crittografia della chiave in Azure Key Vault per limitare ulteriormente l'accesso.
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) consente di gestire la propria chiave tenant. Ad esempio, anziché affidare a Microsoft la gestione della chiave tenant (impostazione predefinita), l'utente può gestire la propria chiave tenant per garantire la conformità alle normative specifiche che si applicano all'organizzazione. La gestione della propria chiave tenant viene definita Bring Your Own Key o BYOK.
+- Il [servizio di collegamento privato di Azure](private-link-service.md) consente di accedere ai servizi di Azure (ad esempio Azure Key Vault, archiviazione di azure e Azure Cosmos DB) e ai servizi cliente/partner ospitati in Azure tramite un endpoint privato nella rete virtuale.
+- Key Vault integrazione con [griglia di eventi](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)  consente agli utenti di ricevere notifiche quando lo stato di un segreto archiviato in Key Vault è stato modificato. È possibile distribuire una nuova versione dei segreti alle applicazioni o ruotare i segreti prossimi alla scadenza per evitare interruzioni.
+- È possibile proteggere i segreti [DevOps di Azure](https://docs.microsoft.com/azure/devops/pipelines/release/azure-key-vault) dall'accesso indesiderato in Key Vault.
+- [Usare il segreto archiviato in Key Vault in databricks per connettersi ad archiviazione di Azure](https://docs.microsoft.com/azure/key-vault/general/integrate-databricks-blob-storage)
+- Configurare ed eseguire il provider di Azure Key Vault per il [driver CSI dell'archivio segreti](https://docs.microsoft.com/azure/key-vault/general/key-vault-integrate-kubernetes) in Kubernetes
 
 ## <a name="key-vault-overviews-and-concepts"></a>Panoramiche e concetti su Key Vault
 

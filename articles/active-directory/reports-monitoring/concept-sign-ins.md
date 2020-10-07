@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2791b62d8abb1ade199ae3eb72deaf4db56f3725
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 696b295a481d7b986f08f1d758edb8d5adca5717
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361297"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812829"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -31,6 +31,7 @@ L'architettura di report in Azure Active Directory (Azure AD) include i componen
 - **Attività** 
     - **Accessi**: informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
     - **Log**  -  di controllo I [log di controllo](concept-audit-logs.md) forniscono informazioni sulle attività di sistema relative agli utenti e alla gestione dei gruppi, alle applicazioni gestite e alle attività di directory.
+    - Log di provisioning **Provisioning logs**  -  I [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) consentono ai clienti di monitorare l'attività da parte del servizio di provisioning, ad esempio la creazione di un gruppo in ServiceNow o di un utente importato da giorni lavorativi. 
 - **Sicurezza** 
     - **Accessi a rischio** : un [accesso rischioso](../identity-protection/overview-identity-protection.md) è un indicatore del tentativo di accesso da parte di un utente che non è il proprietario legittimo di un account utente.
     - **Utenti contrassegnati per il rischio** : un [utente rischioso](../identity-protection/overview-identity-protection.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
@@ -263,7 +264,7 @@ I grafici dell'utilizzo delle app sono aggregazioni settimanali degli accessi pe
 
 Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
 
-![Creazione di report](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
+![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
 
 Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
 

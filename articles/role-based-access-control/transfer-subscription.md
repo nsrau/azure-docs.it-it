@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: fd8192b48f6923a8fe68abf674d6100c8b8e5a00
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e5b0eb5fc9014a4f8df0f0cc363b5dddb45674af
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761873"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804181"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Trasferire una sottoscrizione di Azure a una directory Azure AD diversa
 
@@ -74,7 +74,7 @@ Diverse risorse di Azure hanno una dipendenza da una sottoscrizione o una direct
 | Azure Data Lake Storage Gen1 | Sì | Sì |  | È necessario ricreare gli ACL. |
 | File di Azure | Sì | Sì |  | È necessario ricreare gli ACL. |
 | Sincronizzazione file di Azure | Sì | Sì |  |  |
-| Azure Managed Disks | Sì | N/D |  |  |
+| Azure Managed Disks | Sì | Sì |  |  Se si usano i set di crittografia del disco per crittografare Managed Disks con chiavi gestite dal cliente, è necessario disabilitare e riabilitare le identità assegnate dal sistema associate ai set di crittografia del disco. È necessario ricreare le assegnazioni di ruolo, ovvero concedere di nuovo le autorizzazioni necessarie per i set di crittografia del disco negli insiemi di credenziali delle chiavi. |
 | Servizi contenitore di Azure per Kubernetes | Sì | Sì |  |  |
 | Servizi di dominio Azure Active Directory | Sì | No |  |  |
 | Registrazioni per l'app | Sì | Sì |  |  |
@@ -313,7 +313,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 
 1. Disabilitare e riabilitare le identità gestite assegnate dal sistema.
 
-    | Servizio di Azure | Ulteriori informazioni | 
+    | Servizio di Azure | Altre informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#system-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
@@ -329,7 +329,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 
 1. Elimina, ricrea e Connetti identità gestite assegnate dall'utente.
 
-    | Servizio di Azure | Ulteriori informazioni | 
+    | Servizio di Azure | Altre informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |

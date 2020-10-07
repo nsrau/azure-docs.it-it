@@ -5,17 +5,37 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/05/2020
-ms.openlocfilehash: 637ac97d1e054599ec297344ff0c5fff600c8487
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 09/23/2020
+ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045349"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812863"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protezione dei dati in analisi di flusso di Azure 
 
 Analisi di flusso di Azure è una piattaforma distribuita come servizio completamente gestita che consente di compilare pipeline di analisi in tempo reale. Tutto il lavoro pesante, ad esempio il provisioning del cluster, il ridimensionamento dei nodi per adattarlo all'utilizzo e la gestione dei checkpoint interni, viene gestito in background.
+
+## <a name="private-data-assets-that-are-stored"></a>Asset di dati privati archiviati
+
+Analisi di flusso di Azure rende permanente i metadati e i dati seguenti per l'esecuzione: 
+
+* Definizione della query e configurazione correlata  
+
+* Funzioni o aggregazioni definite dall'utente  
+
+* Checkpoint necessari per il runtime di analisi di flusso
+
+* Snapshot dei dati di riferimento 
+
+* Dettagli della connessione delle risorse usate dal processo di analisi di flusso
+
+Per soddisfare gli obblighi di conformità in qualsiasi settore o ambiente regolamentato, è possibile leggere altre informazioni sulle [offerte di conformità di Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="in-region-data-residency"></a>Residenza dei dati in-Region
+Analisi di flusso di Azure archivia i dati dei clienti e altri metadati descritti in precedenza. Per impostazione predefinita, i dati dei clienti vengono archiviati da analisi di flusso di Azure in una singola area, in modo che questo servizio soddisfi automaticamente i requisiti di residenza dei dati dell'area, inclusi quelli specificati nel [Centro protezione](https://azuredatacentermap.azurewebsites.net/).
+Inoltre, è possibile scegliere di archiviare tutti gli asset di dati (dati del cliente e altri metadati) correlati al processo di analisi di flusso in un'unica area crittografando i dati in un account di archiviazione di propria scelta.
 
 ## <a name="encrypt-your-data"></a>Crittografare i dati
 
@@ -28,7 +48,14 @@ Questa impostazione deve essere configurata al momento della creazione del proce
 Non è possibile aggiornare o ruotare le chiavi nell'account di archiviazione usando il portale di analisi di flusso. È possibile aggiornare le chiavi usando le API REST.
 
 
-## <a name="configure-storage-account-for-private-data"></a>Configurare l'account di archiviazione per i dati privati 
+### <a name="configure-storage-account-for-private-data"></a>Configurare l'account di archiviazione per i dati privati 
+
+
+Crittografare l'account di archiviazione per proteggere tutti i dati e scegliere in modo esplicito il percorso dei dati privati. 
+
+Per soddisfare gli obblighi di conformità in qualsiasi settore o ambiente regolamentato, è possibile leggere altre informazioni sulle [offerte di conformità di Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+
 
 Usare la procedura seguente per configurare l'account di archiviazione per gli asset di dati privati. Questa configurazione viene eseguita dal processo di analisi di flusso, non dall'account di archiviazione.
 
@@ -46,24 +73,10 @@ Usare la procedura seguente per configurare l'account di archiviazione per gli a
 
    ![Impostazioni dell'account di archiviazione dati privato](./media/data-protection/storage-account-create.png)
 
-## <a name="private-data-assets-that-are-stored"></a>Asset di dati privati archiviati
 
-Tutti i dati privati che devono essere salvati in modo permanente da analisi di flusso vengono archiviati nell'account di archiviazione. Esempi di asset di dati privati includono: 
 
-* Query create e relative configurazioni  
-
-* Funzioni definite dall'utente 
-
-* Checkpoint necessari per il runtime di analisi di flusso
-
-* Snapshot dei dati di riferimento 
-
-Vengono archiviati anche i dettagli della connessione delle risorse, usati dal processo di analisi di flusso. Crittografare l'account di archiviazione per proteggere tutti i dati. 
-
-Per soddisfare gli obblighi di conformità in qualsiasi settore o ambiente regolamentato, è possibile leggere altre informazioni sulle [offerte di conformità di Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
-
-## <a name="known-issues"></a>Problemi noti
-Si verifica un problema noto in cui un processo che usa la chiave gestita dal cliente si verifica in caso di errori quando si usa l'identità gestita per l'autenticazione a qualsiasi input o output. Viene elaborata una correzione per questo problema che diventerà disponibile a breve. 
+### <a name="known-issues"></a>Problemi noti
+Attualmente, esiste una limitazione nota in cui un processo che usa la chiave gestita dal cliente si verifica in caso di errori quando si usa l'identità gestita per l'autenticazione a qualsiasi input o output.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

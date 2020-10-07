@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/21/2017
+ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: e5aa2c1c51fccddc3fb62d7ebdbadee19a2b093e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b009b7c44084e76194c1447fefdb2ff59f8086a
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265178"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812285"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Test della larghezza di banda/velocità effettiva (NTTTCP)
 
@@ -26,7 +26,7 @@ Durante il test della velocità di rete effettiva in Azure, è preferibile usare
 Copiare lo strumento in due macchine virtuali di Azure delle stesse dimensioni. Una macchina virtuale funge da MITTENTE, l'altra da RICEVITORE.
 
 #### <a name="deploying-vms-for-testing"></a>Distribuzione di macchine virtuali per i test
-Ai fini di questo test, le due macchine virtuali devono trovarsi nello stesso servizio cloud o set di disponibilità in modo da poter usare i relativi IP interni ed escludere i servizi di bilanciamento del carico dal test. È possibile eseguire il test con un indirizzo VIP, ma questa tipologia di test non rientra nell'ambito di questo documento.
+Ai fini di questo test, le due macchine virtuali devono trovarsi nello stesso [gruppo di posizionamento di prossimità](../virtual-machines/windows/co-location.md) o nello stesso set di disponibilità, in modo da poter usare i relativi indirizzi IP interni ed escludere i bilanciamenti del carico dal test. È possibile eseguire il test con un indirizzo VIP, ma questa tipologia di test non rientra nell'ambito di questo documento.
 
 Prendere nota dell'indirizzo IP del RICEVITORE. In questo esempio verrà definito "a.b.c.r."
 

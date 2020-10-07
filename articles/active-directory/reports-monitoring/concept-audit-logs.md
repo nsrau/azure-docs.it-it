@@ -17,12 +17,12 @@ ms.date: 09/17/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23cfc2ea17e1801ec4caeea9e8933cfdc72e33d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 994fe6c5005eeeab1399091dca5f72024fdd7262
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331251"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812591"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
@@ -35,6 +35,7 @@ L'architettura di report è costituita dai componenti seguenti:
 - **Attività** 
     - **Accessi**: il [report degli accessi](concept-sign-ins.md) fornisce informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
     - **Log di controllo**: i log consentono la tracciabilità di tutte le modifiche apportate da varie funzionalità all'interno di Azure AD. I log di controllo registrano, ad esempio, le modifiche apportate a qualsiasi risorsa di Azure AD, ad esempio l'aggiunta o la rimozione di utenti, app, gruppi, ruoli e criteri.
+    - Log di provisioning **Provisioning logs**  -  I [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) consentono ai clienti di monitorare l'attività da parte del servizio di provisioning, ad esempio la creazione di un gruppo in ServiceNow o di un utente importato da giorni lavorativi. 
 - **Sicurezza** 
     - **Accessi a rischio** : un [accesso rischioso](../identity-protection/overview-identity-protection.md) è un indicatore di un tentativo di accesso che potrebbe essere stato eseguito da un utente che non è il legittimo proprietario di un account utente. 
     - **Utenti contrassegnati per il rischio** : un [utente rischioso](../identity-protection/overview-identity-protection.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
@@ -91,7 +92,7 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 
 Il filtro del **servizio** consente di effettuare una selezione da un elenco a discesa dei servizi seguenti:
 
-- Tutti
+- All
 - UX di gestione AAD
 - Verifiche di accesso
 - Provisioning degli account
@@ -113,7 +114,7 @@ Il filtro del **servizio** consente di effettuare una selezione da un elenco a d
 
 Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 
-- Tutti
+- All
 - AdministrativeUnit
 - ApplicationManagement
 - Authentication
@@ -127,7 +128,7 @@ Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 - KerberosDomain
 - KeyManagement
 - Etichetta
-- Altro
+- Altri
 - PermissionGrantPolicy
 - Policy
 - ResourceManagement
@@ -140,7 +141,7 @@ Il filtro **attività** è basato sulla selezione del tipo di risorsa Activity e
 
 Il filtro di **stato** consente di filtrare in base allo stato di un'operazione di controllo. Lo stato può essere uno dei seguenti:
 
-- Tutti
+- All
 - Operazione completata
 - Operazioni non riuscite
 
