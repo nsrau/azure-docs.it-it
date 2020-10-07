@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: f376a1f3601c976ff1efdaee1da6181510a9cf64
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88234942"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con Python SDK e Azure Cosmos DB
@@ -157,11 +157,11 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     Premere CTRL+C per interrompere l'esecuzione del programma e chiudere la finestra della console. 
 
-    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Visualizzare e verificare l'output":::
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Visualizzare e copiare i valori di nome utente, password e punto di contatto dal pannello della stringa di connessione del portale di Azure":::
     
 4. Nel portale di Azure aprire **Esplora dati** per modificare e usare questi nuovi dati, nonché eseguire query su di essi. 
 
-    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Visualizzare i dati in Esplora dati":::
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Visualizzare e copiare i valori di nome utente, password e punto di contatto dal pannello della stringa di connessione del portale di Azure":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

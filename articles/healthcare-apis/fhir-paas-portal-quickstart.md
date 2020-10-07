@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.openlocfilehash: 8c0448d31cd89e2ca969b81361b30bac3f9610e9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87851937"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Avvio rapido: Distribuire l'API di Azure per FHIR con il portale di Azure
@@ -37,13 +37,13 @@ Aprire il [portale di Azure](https://portal.azure.com) e fare clic su **Crea una
 
 Selezionare **crea** per creare un nuovo account API di Azure per FHIR:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Creare l'account API di Azure per FHIR":::
+:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Cercare le API per i servizi sanitari":::
 
 ## <a name="enter-account-details"></a>Immettere i dettagli dell'account
 
 Selezionare un gruppo di risorse esistente o crearne uno nuovo, scegliere un nome per l'account, infine fare clic su **Rivedi e crea**:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Dettagli nuova API per i servizi sanitari":::
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Cercare le API per i servizi sanitari":::
 
 Confermare la creazione e attendere la distribuzione dell'API FHIR.
 
@@ -51,7 +51,7 @@ Confermare la creazione e attendere la distribuzione dell'API FHIR.
 
 È anche possibile fare clic su **Avanti: Impostazioni aggiuntive** per visualizzare le impostazioni di autenticazione. La configurazione predefinita per l'API di Azure per FHIR consiste nell'[usare il Controllo degli accessi in base al ruolo Azure per l'assegnazione di ruoli del piano dati](configure-azure-rbac.md). Se viene usata questa modalità di configurazione, l'opzione "Autorità" per il servizio FHIR verrà impostata sul tenant di Azure Active Directory della sottoscrizione:
 
-:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Impostazioni di autenticazione predefinite":::
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Cercare le API per i servizi sanitari":::
 
 Si noti che la casella per l'immissione degli ID oggetto consentiti è disabilitata perché in questo caso viene usato Controllo degli accessi in base al ruolo Azure per la configurazione delle assegnazioni di ruolo.
 

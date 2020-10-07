@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.openlocfilehash: 821b2a36a40f828edf37ff1c2f3eab58b10b4162
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88607566"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Avvio rapido: Creare un account, un database, un contenitore ed elementi di Azure Cosmos dal portale di Azure
@@ -70,17 +70,17 @@ Passare al [portale di Azure](https://portal.azure.com/) per creare un account A
 > - Ridondanza geografica
 > - Scritture in più aree
    
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Pagina del nuovo account per Azure Cosmos DB":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Riquadro Database nel portale di Azure":::
 
 1. Selezionare **Rivedi e crea**. È possibile ignorare le sezioni **Rete** e **Tag**.
 
 1. Esaminare le impostazioni dell'account e quindi selezionare **Crea**. La creazione dell'account richiede alcuni minuti. Attendere che la pagina del portale visualizzi **La distribuzione è stata completata**. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Riquadro Notifiche del portale di Azure":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Riquadro Database nel portale di Azure":::
 
 1. Selezionare **Vai alla risorsa** per passare alla pagina dell'account Azure Cosmos DB. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Pagina dell'account Azure Cosmos DB":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Riquadro Database nel portale di Azure":::
 
 <a id="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>Aggiungere un database e un contenitore 
@@ -91,7 +91,7 @@ Passare al [portale di Azure](https://portal.azure.com/) per creare un account A
     
     Può essere necessario scorrere verso destra per visualizzare la finestra **Aggiungi contenitore**.
     
-    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Esplora dati nel portale di Azure, riquadro Aggiungi contenitore":::
+    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Riquadro Database nel portale di Azure":::
     
 1.  Nel riquadro **Aggiungi contenitore** immettere le impostazioni per il nuovo contenitore.
     
@@ -113,7 +113,7 @@ Aggiungere dati al nuovo database usando Esplora dati.
 
 1. In **Esplora dati** espandere il database **ToDoList** e quindi il contenitore **Elementi**. Selezionare **Elementi** e quindi **Nuovo elemento**. 
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Creare nuovi documenti in Esplora dati nel portale di Azure":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Riquadro Database nel portale di Azure":::
    
 1. Aggiungere la struttura seguente al documento sul lato destro del riquadro **Documenti**:
 
@@ -129,7 +129,7 @@ Aggiungere dati al nuovo database usando Esplora dati.
 
 1. Selezionare **Salva**.
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Copiare i dati JSON e selezionare Salva in Esplora dati nel portale di Azure":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Riquadro Database nel portale di Azure":::
    
 1. Selezionare **Nuovo documento** e creare e salvare un altro documento con un `id` univoco ed eventuali altri valori e proprietà desiderati. I documenti possono avere qualsiasi struttura perché Azure Cosmos DB non impone alcuno schema ai dati.
 

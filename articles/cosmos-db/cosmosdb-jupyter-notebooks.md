@@ -7,10 +7,10 @@ ms.date: 05/19/2020
 author: deborahc
 ms.author: dech
 ms.openlocfilehash: 0299ab1e76e742adb8d2653b8b5d6923aff2f11f
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88588156"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Supporto di notebook di Jupyter predefiniti in Azure Cosmos DB (anteprima)
@@ -23,7 +23,7 @@ I notebook di Jupyter predefiniti in Azure Cosmos DB sono integrati direttamente
 
 Azure Cosmos DB supporta notebook C# e Python per tutte le API, tra cui core (SQL), Cassandra, Gremlin, Table e API per MongoDB. All'interno del notebook è possibile sfruttare i comandi e le funzionalità predefiniti che semplificano la creazione delle risorse di Azure Cosmos DB, il caricamento dei dati, l'esecuzione di query e la visualizzazione dei dati in Azure Cosmos DB. 
 
-:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Supporto dei notebook di Jupyter in Azure Cosmos DB":::
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Visualizzazioni dei notebook di Jupyter in Azure Cosmos DB":::
 
 ## <a name="benefits-of-jupyter-notebooks"></a>Vantaggi dei notebook di Jupyter
 

@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
 ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88642266"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Avvio rapido: Creare e distribuire risorse di Funzioni di Azure da un modello di Resource Manager
@@ -117,7 +117,7 @@ Nell'output copiare l'URL del trigger HTTP, che viene usato per testare la funzi
 
 1. Al termine della pubblicazione, copiare il valore di **URL sito**.
 
-    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Copiare l'URL del sito dal riepilogo della pubblicazione":::
+    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Scegliere una destinazione di pubblicazione esistente":::
 
 1. Aggiungere il percorso `/api/<FUNCTION_NAME>?name=Functions`, dove `<FUNCTION_NAME>` è il nome della funzione. Il formato dell'URL che chiama la funzione attivata tramite HTTP è il seguente:
 
