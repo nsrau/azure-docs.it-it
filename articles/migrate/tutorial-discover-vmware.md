@@ -4,12 +4,12 @@ description: Informazioni su come individuare macchine virtuali VMware locali co
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: cbe1561f58af8f65285ffb005b0232bff8225d3b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: f39ad3cbc357575f735b963346c8a8b0cc95e7c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604054"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442222"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Esercitazione: Individuare le macchine virtuali VMware con Valutazione server
 
@@ -72,6 +72,7 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
 
     ![Verificare che in Impostazioni utente che gli utenti possano registrare le app Active Directory](./media/tutorial-discover-vmware/register-apps.png)
 
+9. In alternativa, l'amministratore tenant/globale può assegnare il ruolo **Sviluppatore applicazione** a un account per consentire la registrazione di app AAD. [Altre informazioni](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 ## <a name="prepare-vmware"></a>Preparare VMware
 
@@ -114,7 +115,7 @@ Configurare un nuovo progetto di Azure Migrate.
 
    ![Caselle per il nome del progetto e l'area](./media/tutorial-discover-vmware/new-project.png)
 
-7. Selezionare **Crea**.
+7. Selezionare **Create** (Crea).
 8. Attendere alcuni minuti durante la distribuzione del progetto di Azure Migrate.
 
 Lo strumento **Azure Migrate: Valutazione server** viene aggiunto per impostazione predefinita al nuovo progetto.
@@ -165,7 +166,7 @@ Prima di distribuire il file OVA, verificarne la sicurezza:
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
-   Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
 
 3. Verificare le versioni più recenti dell'appliance e i valori hash:
 
@@ -173,13 +174,13 @@ Prima di distribuire il file OVA, verificarne la sicurezza:
     
         **Algoritmo** | **Scaricare** | **SHA256**
         --- | --- | ---
-        VMware (11,6 GB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+        VMware (11,9 GB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140333) | bd5c19eec93a62d52cc507a6b7b408d07f33f92b7d39b8a1e3dfec4ec62830d7
 
     - Per Azure per enti pubblici:
     
         **Algoritmo** | **Scaricare** | **SHA256**
         --- | --- | ---
-        VMware (85 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140337) | 47179f47eba2842337bbe533c424dd1da56baccdcf68b1d87b71a5a4280108c2
+        VMware (85,8 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
 
 
 

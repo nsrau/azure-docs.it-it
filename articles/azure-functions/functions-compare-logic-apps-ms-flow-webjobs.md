@@ -4,12 +4,12 @@ description: È possibile confrontare i servizi cloud Microsoft ottimizzati per 
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 2e0d8f356ec8da900b4a38399ba94434c3b1b93d
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 2c17b311811fd2cba46db379fcc766c04dd9d56d
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809970"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403076"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Scegliere i servizi di integrazione e automazione appropriati in Azure
 
@@ -41,7 +41,7 @@ La tabella seguente consente di determinare se per una data integrazione è più
 | **Strumento di progettazione** |Nel browser e app per dispositivi mobili, solo interfaccia utente |Nel browser e in [Visual Studio](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) è disponibile la [visualizzazione Codice](../logic-apps/logic-apps-author-definitions.md) |
 | **Application Lifecycle Management (ALM)** |Progettare ed eseguire test in ambienti non di produzione, passare in produzione quando si è pronti |Azure DevOps: controllo del codice sorgente, test, supporto, automazione e gestibilità in [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) |
 | **Esperienza di amministrazione** |Gestire ambienti di Power Automate e criteri di prevenzione della perdita dei dati, tenere traccia delle licenze: [Interfaccia di amministrazione](https://admin.flow.microsoft.com) |Gestire gruppi di risorse, connessioni, gestione dell'accesso e registrazione: [Azure portal](https://portal.azure.com) |
-| **Sicurezza** |Log di controllo del centro Sicurezza e conformità di Office 365, prevenzione della perdita dei dati, [crittografia di dati inattivi](https://wikipedia.org/wiki/Data_at_rest#Encryption) per dati sensibili |Garanzie di sicurezza di Azure: [Sicurezza di Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), [log di controllo](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
+| **Sicurezza** |Log di controllo di sicurezza di Microsoft 365, prevenzione della perdita dei dati, [crittografia dei dati inattivi](https://wikipedia.org/wiki/Data_at_rest#Encryption) per dati sensibili |Garanzie di sicurezza di Azure: [Sicurezza di Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), [log di controllo](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Confrontare Funzioni di Azure e App per la logica di Azure
 

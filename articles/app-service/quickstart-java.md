@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7f8e87b22e3d8f6e265789f910863b2790024cbf
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 4041623d1c6ae464afd20e3beff753fb89e0a350
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532410"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405072"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Avvio rapido: Creare un'app Java nel Servizio app di Azure
 
@@ -71,21 +71,24 @@ Il processo di distribuzione nel servizio app di Azure userà automaticamente le
 Eseguire il comando Maven seguente per configurare la distribuzione. Questo comando consentirà di configurare il sistema operativo del servizio app, la versione di Java e la versione di Tomcat.
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 ```
 
 ::: zone pivot="platform-windows"
 
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Quando richiesto, selezionare **windows** immettendo `2`.
-2. Usare la versione predefinita di Java, 1.8, premendo INVIO.
-3. Infine, premere INVIO nell'ultima richiesta per confermare le selezioni.
+1. Quando viene visualizzata l'opzione **Sottoscrizione**, selezionare il valore appropriato di `Subscription` immettendo la stampa del numero all'inizio della riga.
+1. Quando viene visualizzata l'opzione **App Web**, accettare l'opzione predefinita `<create>` premendo INVIO.
+1. Quando viene visualizzata l'opzione **Sistema operativo**, selezionare **windows** immettendo `2`.
+1. Usare la versione predefinita di Java, 1.8, premendo INVIO.
+1. Infine, premere INVIO nell'ultima richiesta per confermare le selezioni.
 
     L'output di riepilogo sarà simile al frammento riportato di seguito.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007390755
     ResourceGroup : spring-boot-1599007390755-rg
     Region : westeurope
@@ -106,7 +109,9 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Quando richiesto, selezionare **windows** immettendo `2`.
+1. Quando viene visualizzata l'opzione **Sottoscrizione**, selezionare il valore appropriato di `Subscription` immettendo la stampa del numero all'inizio della riga.
+1. Quando viene visualizzata l'opzione **App Web**, accettare l'opzione predefinita `<create>` premendo INVIO.
+1. Quando viene visualizzata l'opzione **Sistema operativo**, selezionare **windows** immettendo `2`.
 1. Usare la versione predefinita di Java, 1.8, premendo INVIO.
 1. Usare il contenitore Web predefinito, Tomcat 8.5, premendo INVIO.
 1. Infine, premere INVIO nell'ultima richiesta per confermare le selezioni.
@@ -115,6 +120,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003152123
     ResourceGroup : helloworld-1599003152123-rg
     Region : westeurope
@@ -140,12 +146,15 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Quando richiesto, selezionare **linux** premendo INVIO.
-2. Usare la versione predefinita di Java, 1.8, premendo INVIO.
-3. Infine, premere INVIO nell'ultima richiesta per confermare le selezioni.
+1. Quando viene visualizzata l'opzione **Sottoscrizione**, selezionare il valore appropriato di `Subscription` immettendo la stampa del numero all'inizio della riga.
+1. Quando viene visualizzata l'opzione **App Web**, accettare l'opzione predefinita `<create>` premendo INVIO.
+1. Quando viene visualizzata l'opzione **Sistema operativo**, selezionare **linux** premendo INVIO.
+1. Usare la versione predefinita di Java, 1.8, premendo INVIO.
+1. Infine, premere INVIO nell'ultima richiesta per confermare le selezioni.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007116351
     ResourceGroup : spring-boot-1599007116351-rg
     Region : westeurope
@@ -165,13 +174,16 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Quando richiesto, selezionare **linux** premendo INVIO.
+1. Quando viene visualizzata l'opzione **Sottoscrizione**, selezionare il valore appropriato di `Subscription` immettendo la stampa del numero all'inizio della riga.
+1. Quando viene visualizzata l'opzione **App Web**, accettare l'opzione predefinita `<create>` premendo INVIO.
+1. Quando viene visualizzata l'opzione **Sistema operativo**, selezionare **linux** premendo INVIO.
 1. Usare la versione predefinita di Java, 1.8, premendo INVIO.
 1. Usare il contenitore Web predefinito, Tomcat 8.5, premendo INVIO.
 1. Infine, premere INVIO nell'ultima richiesta per confermare le selezioni.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003744223
     ResourceGroup : helloworld-1599003744223-rg
     Region : westeurope
@@ -198,6 +210,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 Proprietà | Obbligatoria | Descrizione | Versione
 ---|---|---|---
 `<schemaVersion>` | false | Specificare la versione dello schema di configurazione. I valori supportati sono: `v1`, `v2`. | 1.5.2
+`<subscriptionId>` | false | Specificare l'ID sottoscrizione. | 0.1.0+
 `<resourceGroup>` | true | Gruppo di risorse di Azure per App Web. | 0.1.0+
 `<appName>` | true | Nome dell'App Web. | 0.1.0+
 `<region>` | true | Specifica l'area in cui verrà ospitata l'app Web. Il valore predefinito è **westeurope**. Le aree valide sono disponibili nella sezione [Aree supportate](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+

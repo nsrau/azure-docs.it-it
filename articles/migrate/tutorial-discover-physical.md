@@ -4,12 +4,12 @@ description: Informazioni su come individuare i server fisici locali con Valutaz
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 0436ce3a02b6e271a62fe827d1a2d9a8b77dbfbe
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600739"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442291"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Esercitazione: Individuare i server fisici con Valutazione server
 
@@ -37,7 +37,7 @@ Prima di iniziare questa esercitazione, verificare che siano rispettati i prereq
 
 **Requisito** | **Dettagli**
 --- | ---
-**Appliance** | È necessario un computer in cui eseguire l'appliance di Azure Migrate. Il computer deve soddisfare i requisiti seguenti:<br/><br/> - Windows Server 2016 installato. L'esecuzione dell'appliance in un computer con Windows Server 2019 non è supportata.<br/><br/> - 16 GB di RAM, otto CPU virtuali, circa 80 GB di spazio di archiviazione su disco e un commutatore virtuale esterno.<br/><br/> - Un indirizzo IP statico o dinamico con accesso a Internet, direttamente o tramite un proxy.
+**Appliance** | È necessario un computer in cui eseguire l'appliance di Azure Migrate. Il computer deve soddisfare i requisiti seguenti:<br/><br/> - Windows Server 2016 installato. _Attualmente la distribuzione di appliance è supportata solo in Windows Server 2016._<br/><br/> - 16-GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco<br/><br/> - Un indirizzo IP statico o dinamico con accesso a Internet, direttamente o tramite un proxy.
 **Server Windows** | Consentire le connessioni in ingresso sulla porta WinRM 5985 (HTTP), in modo che l'appliance possa recuperare i metadati relativi a configurazione e prestazioni.
 **Server Linux** | Consentire le connessioni in ingresso sulla porta 22 (TCP).
 
@@ -69,7 +69,7 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
 
     ![Verificare che in Impostazioni utente che gli utenti possano registrare le app Active Directory](./media/tutorial-discover-physical/register-apps.png)
 
-
+9. In alternativa, l'amministratore tenant/globale può assegnare il ruolo **Sviluppatore applicazione** a un account per consentire la registrazione di app AAD. [Altre informazioni](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 ## <a name="prepare-physical-servers"></a>Preparare i server fisici
 
@@ -94,7 +94,7 @@ Configurare un nuovo progetto di Azure Migrate.
 
    ![Caselle per il nome del progetto e l'area](./media/tutorial-discover-physical/new-project.png)
 
-7. Selezionare **Crea**.
+7. Selezionare **Create** (Crea).
 8. Attendere alcuni minuti durante la distribuzione del progetto di Azure Migrate.
 
 Lo strumento **Azure Migrate: Valutazione server** viene aggiunto per impostazione predefinita al nuovo progetto.
@@ -139,13 +139,13 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 
         **Scenario** | **Download*** | **Valore hash**
         --- | --- | ---
-        Fisico (85 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
+        Server fisico (85,8 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
 
     - Per Azure per enti pubblici:
 
         **Scenario** | **Download*** | **Valore hash**
         --- | --- | ---
-        Fisico (85 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
+        Server fisico (85,8 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Eseguire lo script del programma di installazione di Azure Migrate

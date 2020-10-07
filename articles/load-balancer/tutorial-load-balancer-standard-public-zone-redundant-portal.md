@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d9f16b612b508a6237c748bd135ff32618015b0b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057008"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446105"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico delle macchine virtuali tra zone di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
@@ -93,7 +93,7 @@ Creare un gruppo di sicurezza di rete per definire le connessioni in ingresso al
     - *myNetworkSecurityGroup* come nome del gruppo di sicurezza di rete.
     - *myResourceGroupLBAZ* come nome del gruppo di risorse esistente.
    
-![Crea rete virtuale](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
+![Screenshot che mostra il riquadro Crea gruppo di sicurezza di rete.](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
 ### <a name="create-network-security-group-rules"></a>Creare regole del gruppo di sicurezza di rete
 
@@ -112,7 +112,7 @@ In questa sezione vengono create regole del gruppo di sicurezza di rete per cons
     - *Consenti HTTP* come descrizione della regola di bilanciamento del carico.
 4. Fare clic su **OK**.
  
-   ![Crea rete virtuale](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Screenshot che mostra il riquadro Aggiungi regola di sicurezza in ingresso.](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Ripetere i passaggi da 2 a 4 per creare un'altra regola denominata *myRDPRule* per consentire una connessione RDP in ingresso tramite la porta 3389 con i valori seguenti:
     - *Tag del servizio* come **Origine**
     - *Internet* come **Tag del servizio di origine**

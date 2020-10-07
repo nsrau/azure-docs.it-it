@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 10e17a4fba1adbccf71497c54060fda2f60088ab
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 842513536bf4dbfc0a3e3bd82905b397da9fa6c4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90525338"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439069"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Eseguire la migrazione di VM Hyper-V ad Azure 
 
@@ -133,7 +133,7 @@ Al termine dell'individuazione, è possibile avviare la replica delle VM Hyper-V
 
     ![Impostazioni di calcolo per le VM](./media/tutorial-migrate-hyper-v/compute-settings.png)
 
-12. In **Dischi** specificare se i dischi delle VM devono essere replicati in Azure e selezionare il tipo di disco in Azure (dischi gestiti Premium o SSD/HDD Standard). Quindi fare clic su **Next**.
+12. In **Dischi** specificare i dischi delle VM da replicare in Azure. Quindi fare clic su **Next**.
     - È possibile escludere dischi dalla replica.
     - I dischi esclusi non saranno presenti nella VM di Azure dopo la migrazione. 
 

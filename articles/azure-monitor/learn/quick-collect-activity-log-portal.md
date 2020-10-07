@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 6f13a465aa43f0c45fa99d2ea396a5ca92d75d66
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 47cf0a1f1d40b9e8358d6bdb4a3ea6a501b67da2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85446284"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439215"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Inviare il log attività di Azure all'area di lavoro Log Analytics con il portale di Azure
 Il log attività è un log della piattaforma presente in Azure che fornisce dati analitici sugli eventi a livello di sottoscrizione. Tali dati includono le informazioni relative, ad esempio, alla modifica di una risorsa o all'avvio di una macchina virtuale. È possibile visualizzare il log attività nel portale di Azure o recuperarne le voci con PowerShell e l'interfaccia della riga di comando. Questo argomento di avvio rapido illustra come usare il portale di Azure per creare un'area di lavoro Log Analytics e un'impostazione di diagnostica per inviare il log attività ai log di Monitoraggio di Azure, in cui è possibile analizzarlo usando [query di log](../log-query/log-query-overview.md) e abilitare altre funzionalità, ad esempio [avvisi del log](../platform/alerts-log-query.md) e [cartelle di lavoro](../platform/workbooks-overview.md). 
@@ -24,7 +24,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 Nel portale di Azure cercare e selezionare **Aree di lavoro Log Analytics**. 
 
-![Portale di Azure](media/quick-create-workspace/azure-portal-01.png)
+![Screenshot del portale di Azure che mostra "aree di lavoro log analytics" nella casella di ricerca e le aree di lavoro Log Analytics evidenziate in Servizi.](media/quick-create-workspace/azure-portal-01.png)
   
 Fare clic su **Aggiungi** e quindi specificare i valori per i campi **Gruppo di risorse**, **Nome** (dell'area di lavoro) e **Area**. Il nome dell'area di lavoro deve essere univoco fra tutte le sottoscrizioni di Azure.
 
@@ -36,7 +36,7 @@ Fare clic su **Rivedi e crea** per rivedere le impostazioni e quindi su **Crea**
 ## <a name="create-diagnostic-setting"></a>Creare l'impostazione di diagnostica
 Nel portale di Azure cercare e quindi selezionare **Monitoraggio**. 
 
-![Portale di Azure](media/quick-collect-activity-log/azure-portal-monitor.png)
+![Screenshot del portale di Azure con "monitoraggio" nella casella di ricerca e l'opzione Monitoraggio evidenziata in Servizi.](media/quick-collect-activity-log/azure-portal-monitor.png)
 
 Selezionare **Log attività**. Dovrebbero essere visualizzati gli eventi recenti per la sottoscrizione corrente. Fare clic su **Impostazioni di diagnostica** per visualizzare le impostazioni di diagnostica della sottoscrizione.
 

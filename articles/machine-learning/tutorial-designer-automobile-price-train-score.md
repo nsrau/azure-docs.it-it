@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 55d950435522a18eafda69d152619426fe54d87f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896702"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404919"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione
 
@@ -75,7 +75,7 @@ Una pipeline viene eseguita in una destinazione di calcolo, ossia una risorsa di
     Se è già disponibile una destinazione di calcolo, è possibile selezionarla per eseguire questa pipeline.
 
     > [!NOTE]
-    > Il progettista può eseguire esperimenti di training solo nell'ambiente di calcolo di Aure Machine Learning e in istanze di calcolo di Azure Machine Learning, mentre le altre destinazioni di calcolo non verranno visualizzate.
+    > Il progettista può eseguire esperimenti di training solo nell'ambiente di calcolo di Aure Machine Learning, mentre le altre destinazioni di calcolo non verranno visualizzate.
 
 1. Immettere un nome per la risorsa di calcolo.
 
@@ -221,7 +221,7 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
     > [!IMPORTANT]
     > Assicurarsi che la porta di output sinistra di **Split Data** (Dividi i dati) si connetta a **Train Model** (Training modello). La porta sinistra contiene il set di training. La porta destra contiene il set di test.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Screenshot della configurazione corretta del modulo Train Model. Il modulo Linear Regression si connette alla porta sinistra e il modulo Split Data alla porta destra del modulo Train Model.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Select-column":::
 
 1. Selezionare il modulo **Train Model**.
 
@@ -236,7 +236,7 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
 
     La pipeline dovrebbe avere un aspetto simile al seguente:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Screenshot della configurazione corretta della pipeline dopo l'aggiunta del modulo Train Model.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Select-column":::
 
 ### <a name="add-the-score-model-module"></a>Aggiungere il modulo Score Model (Punteggio modello)
 
@@ -256,7 +256,7 @@ Usare il modulo **Evaluate Model** (Valutazione modello) per valutare il puntegg
 
     La pipeline finale avrà un aspetto analogo al seguente:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Screenshot della configurazione corretta della pipeline.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Select-column":::
 
 ## <a name="submit-the-pipeline"></a>Inviare la pipeline
 
@@ -285,7 +285,7 @@ Al termine dell'esecuzione, è possibile visualizzare i risultati dell'esecuzion
 
     Qui è possibile visualizzare i prezzi stimati e i prezzi effettivi dai dati di test.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Screenshot della visualizzazione di output con la colonna Scored Label evidenziata":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Select-column":::
 
 ### <a name="evaluate-models"></a>Valutare i modelli
 

@@ -1,5 +1,5 @@
 ---
-title: Creare un agente processo elastico con PowerShell
+title: Creare un agente processo elastico con PowerShell (anteprima)
 description: Informazioni su come creare un agente processo elastico tramite PowerShell.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 0fe6a3b1d0e5216d923cfe3997826e7a727f1a2b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: aaf749708b49c57d08a63581f3d911b04aba2103
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077348"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408668"
 ---
-# <a name="create-an-elastic-job-agent-using-powershell"></a>Creare un agente processo elastico con PowerShell
+# <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Creare un agente processo elastico con PowerShell (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 I [processi elastici (anteprima)](job-automation-overview.md#elastic-database-jobs-preview) permettono l'esecuzione di uno o più script di Transact-SQL (T-SQL) in parallelo tra molti database.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: eceb9e4c8c839e4da333e005e879ea6094936092
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f39f5a8f758f390536e5d113629b185252c05d9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525169"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439369"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Esercitazione: Creare una connessione da sito a sito con la rete WAN virtuale di Azure
 
@@ -231,7 +231,7 @@ Se sono necessarie istruzioni per configurare il dispositivo, è possibile usare
 
 È possibile visualizzare e configurare le impostazioni del gateway VPN in qualsiasi momento selezionando **Visualizza/Configura**.
 
-:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Visualizzare la configurazione" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Screenshot che mostra la pagina 'VPN (da sito a sito)' con una freccia che punta all'azione 'Visualizza/Configura'n." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
 Nella pagina **Modifica gateway VPN** è possibile visualizzare le impostazioni seguenti:
 
@@ -240,7 +240,7 @@ Nella pagina **Modifica gateway VPN** è possibile visualizzare le impostazioni 
 * Indirizzo IP BGP predefinito del gateway VPN (assegnato da Azure)
 * Opzione di configurazione per l'indirizzo IP BGP personalizzato: Questo campo è riservato per APIPA (Automatic Private IP Addressing). Azure supporta gli indirizzi IP BGP compresi negli intervalli 169.254.21.* e 169.254.22.*. Azure accetta le connessioni BGP in questi intervalli, ma effettua la connessione con l'IP BGP predefinito.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Visualizzare la configurazione" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Screenshot che mostra la pagina 'VPN (da sito a sito)' con una freccia che punta all'azione 'Visualizza/Configura'n." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

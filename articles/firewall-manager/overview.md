@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 09/23/2020
 ms.author: victorh
-ms.openlocfilehash: ae220a1b70be7178c4c2fea01103991c8729ae79
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 74d83ecc240fa4b48421dbaa1c5cc9e62990655d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855040"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399449"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Che cos'è Gestione firewall di Azure?
 
@@ -78,7 +78,7 @@ Gestione firewall di Azure presenta i problemi noti seguenti:
 
 |Problema  |Descrizione  |Strategia di riduzione del rischio  |
 |---------|---------|---------|
-|Suddivisione del traffico|Office 365 e la suddivisione del traffico PaaS pubblico di Azure non sono supportati al momento. Di conseguenza, se si seleziona un provider di terze parti per V2I o B2I, vengono inviati tramite il servizio partner anche tutti i PaaS pubblici di Azure e il traffico di Office 365.|È attualmente in corso l'analisi della suddivisione del traffico nell'hub.
+|Suddivisione del traffico|La suddivisione del traffico di Microsoft 365 e del traffico PaaS pubblico di Azure non è attualmente supportata. Se si seleziona un provider di terze parti per V2I o B2I, viene quindi inviato tramite il servizio partner anche tutto il traffico PaaS pubblico di Azure e il traffico di Microsoft 365.|È attualmente in corso l'analisi della suddivisione del traffico nell'hub.
 |Un unico hub virtuale protetto per area|Non è possibile avere più hub virtuali protetti per area.|Creare più reti WAN virtuali in un'area.|
 |I criteri di base devono trovarsi nella stessa area dei criteri locali|Creare tutti i criteri locali nella stessa area dei criteri di base. È comunque possibile applicare un criterio creato in un'area in un hub protetto di un'altra area.|Analisi in corso|
 |Applicazione di filtri al traffico tra hub in distribuzioni sicure degli hub virtuali|L'applicazione di filtri alle comunicazioni tra hub virtuali protetti non è ancora supportata. Le comunicazioni tra hub tuttavia funzionano comunque se non sono abilitati filtri per il traffico privato tramite Firewall di Azure.|Analisi in corso|
@@ -87,6 +87,8 @@ Gestione firewall di Azure presenta i problemi noti seguenti:
 |Tutti gli hub virtuali protetti che condividono la stessa rete WAN virtuale devono risiedere nello stesso gruppo di risorse.|Questo comportamento è attualmente allineato agli hub di rete WAN virtuale.|Creare più reti WAN virtuali per consentire la creazione di hub virtuali protetti in gruppi di risorse diversi.|
 |L'aggiunta in blocco di indirizzi IP non riesce|Se si aggiungono più indirizzi IP pubblici, il firewall dell'hub protetto entra in uno stato di errore.|Aggiungere incrementi più piccoli di indirizzi IP pubblici. Ad esempio, aggiungerne 10 alla volta.|
 |Le regole dell'applicazione non riescono in un hub protetto con DNS personalizzato (anteprima) configurato.|Il DNS personalizzato (anteprima) non funziona nelle distribuzioni di hub protetti e nelle distribuzioni di reti virtuali hub in cui è abilitato il tunneling forzato.|La correzione è in corso di analisi.|
+|Protezione DDoS Standard non è supportato con hub virtuali protetti|Protezione DDoS Standard non è integrato con reti WAN virtuali.|Analisi in corso|
+|I log attività non sono supportati completamente|Il criterio firewall non supporta attualmente i log attività.|Analisi in corso|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

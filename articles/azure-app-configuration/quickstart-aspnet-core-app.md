@@ -5,226 +5,153 @@ services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, contperfq1
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 09/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 41675eb1911eede750b5a9cdc19cfe49e4699bac
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 5fd042b91ede91491590a53abf4dec552fbf6487
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590303"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440417"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Guida di avvio rapido: Creare un'app ASP.NET Core con Configurazione app di Azure
 
-In questa guida di avvio rapido si userà Configurazione app di Azure per centralizzare l'archiviazione e la gestione delle impostazioni di un'applicazione ASP.NET Core. ASP.NET Core crea un singolo oggetto configurazione basato su chiave-valore usando le impostazioni di una o più origini dati specificate da un'applicazione. Queste origini dati sono note come *provider di configurazione*. Dato che il client .NET Core di Configurazione app viene implementato come provider di configurazione, il servizio risulta come un'altra origine dati.
+In questa guida di avvio rapido si userà Configurazione app di Azure per centralizzare l'archiviazione e la gestione delle impostazioni di un'app ASP.NET Core. ASP.NET Core crea un singolo oggetto configurazione basato su chiave-valore usando le impostazioni di una o più origini dati specificate da un'app. Queste origini dati sono note come *provider di configurazione*. Dato che il client .NET Core di Configurazione app viene implementato come provider di configurazione, il servizio risulta come un'altra origine dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
-- [ASP.NET Core SDK](https://dotnet.microsoft.com/download)
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/dotnet)
+* [ASP.NET Core SDK](https://dotnet.microsoft.com/download)
 
->[!TIP]
-> Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire le istruzioni della riga di comando riportate in questo articolo.  Include strumenti comuni di Azure preinstallati, tra cui .NET Core SDK. Se è stato eseguito l'accesso alla sottoscrizione di Azure, avviare [Azure Cloud Shell](https://shell.azure.com) da shell.azure.com.  Per altre informazioni su Azure Cloud Shell, [leggere la documentazione](../cloud-shell/overview.md)
+> [!TIP]
+> Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire le istruzioni della riga di comando riportate in questo articolo. Include strumenti comuni di Azure preinstallati, tra cui .NET Core SDK. Se è stato eseguito l'accesso alla sottoscrizione di Azure, avviare [Azure Cloud Shell](https://shell.azure.com) da shell.azure.com. Per altre informazioni su Azure Cloud Shell, [leggere la documentazione](../cloud-shell/overview.md)
 
 ## <a name="create-an-app-configuration-store"></a>Creare un archivio di Configurazione app
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+[!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-6. Selezionare **Esplora configurazioni** > **Crea** > **Coppia chiave-valore** per aggiungere le coppie chiave-valore seguenti:
+7. Selezionare **Operazioni** > **Esplora configurazioni** > **Crea** > **Coppia chiave-valore** per aggiungere le coppie chiave-valore seguenti:
 
-    | Chiave | Valore |
-    |---|---|
-    | TestApp:Settings:BackgroundColor | White |
-    | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | Black |
-    | TestApp:Settings:Message | Dati di Configurazione app di Azure |
+    | Chiave                                | Valore                               |
+    |------------------------------------|-------------------------------------|
+    | `TestApp:Settings:BackgroundColor` | *#FFF*                              |
+    | `TestApp:Settings:FontColor`       | *#000*                              |
+    | `TestApp:Settings:FontSize`        | *24*                                |
+    | `TestApp:Settings:Message`         | *Dati di Configurazione app di Azure* |
 
     Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento. Selezionare **Applica**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Creare un'app Web ASP.NET Core
 
-Usare l'[interfaccia della riga di comando di .NET Core](https://docs.microsoft.com/dotnet/core/tools/) per creare un nuovo progetto di app Web MVC ASP.NET Core. [Azure Cloud Shell](https://shell.azure.com) offre questi strumenti,  disponibili anche nelle piattaforme Windows, macOS e Linux.
+Usare l'[interfaccia della riga di comando di .NET Core](/dotnet/core/tools) per creare un nuovo progetto MVC ASP.NET Core. [Azure Cloud Shell](https://shell.azure.com) offre questi strumenti, disponibili anche nelle piattaforme Windows, macOS e Linux.
 
-1. Creare una nuova cartella per il progetto. Per questa guida di avvio rapido assegnarle il nome *TestAppConfig*.
-
-1. Nella nuova cartella eseguire il comando seguente per creare un nuovo progetto di app Web ASP.NET Core MVC:
+Eseguire il comando seguente per creare un progetto MVC ASP.NET Core in una nuova cartella *TestAppConfig*:
 
 ```dotnetcli
-dotnet new mvc --no-https
+dotnet new mvc --no-https --output TestAppConfig
 ```
 
-## <a name="add-secret-manager"></a>Aggiungere Secret Manager
+[!INCLUDE[Add Secret Manager support to an ASP.NET Core project](../../includes/azure-app-configuration-add-secret-manager.md)]
 
-Per usare Secret Manager, aggiungere un elemento `UserSecretsId` al file con estensione *csproj*.
+## <a name="connect-to-the-app-configuration-store"></a>Connettersi all'archivio di Configurazione app
 
-1. Aprire il file con estensione *csproj*.
-
-1.  Aggiungere un elemento `UserSecretsId` come illustrato di seguito. È possibile usare lo stesso GUID oppure sostituire questo valore con uno proprio.
-
-    > [!IMPORTANT]
-    > `CreateHostBuilder` sostituisce `CreateWebHostBuilder` in .NET Core 3.0.  Selezionare la sintassi corretta in base all'ambiente.
-    
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
-    
-    ```xml
-    <Project Sdk="Microsoft.NET.Sdk.Web">
-    
-        <PropertyGroup>
-            <TargetFramework>netcoreapp2.1</TargetFramework>
-            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-        </PropertyGroup>
-    
-        <ItemGroup>
-            <PackageReference Include="Microsoft.AspNetCore.App" />
-            <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-        </ItemGroup>
-    
-    </Project>
-    ```
-    
-    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
-    
-    ```xml
-    <Project Sdk="Microsoft.NET.Sdk.Web">
-        
-        <PropertyGroup>
-            <TargetFramework>netcoreapp3.1</TargetFramework>
-            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-        </PropertyGroup>
-    
-    </Project>
-    ```
-    ---
-
-1. Salvare il file con estensione *csproj*.
-
-Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo al di fuori dell'albero del progetto. Questo approccio contribuisce a impedire la condivisione accidentale dei segreti dell'app all'interno del codice sorgente.
-
-> [!TIP]
-> Per altre informazioni su Secret Manager, vedere [Archiviazione sicura dei segreti delle app in fase di sviluppo in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
-
-## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di Configurazione app
-
-1. Aggiungere un riferimento al pacchetto NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` eseguendo il comando seguente:
+1. Eseguire il comando seguente per aggiungere un riferimento al pacchetto NuGet [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore):
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
-1. Eseguire il comando seguente per ripristinare i pacchetti per il progetto:
+1. Eseguire il comando seguente nella stessa directory del file con estensione *csproj*. Il comando usa Secret Manager per archiviare un segreto denominato `ConnectionStrings:AppConfig`, che archivia la stringa di connessione per l'archivio di Configurazione app. Sostituire il segnaposto `<your_connection_string>` con la stringa di connessione dell'archivio di Configurazione app. È possibile trovare la stringa di connessione in **Chiavi di accesso** nel portale di Azure.
 
     ```dotnetcli
-    dotnet restore
-    ```
-
-1. Aggiungere un segreto denominato *ConnectionStrings:AppConfig* a Secret Manager.
-
-    Questo segreto contiene la stringa di connessione per accedere all'archivio di Configurazione app. Sostituire il valore nel comando seguente con la stringa di connessione per l'archivio di Configurazione app. È possibile trovare la stringa di connessione in **Chiavi di accesso** nel portale di Azure.
-
-    Questo comando deve essere eseguito nella stessa directory del file con estensione *csproj*.
-
-    ```dotnetcli
-    dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+    dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
     ```
 
     > [!IMPORTANT]
     > Alcune shell troncheranno la stringa di connessione se non è racchiusa tra virgolette. Verificare che l'output del comando `dotnet user-secrets` mostri l'intera stringa di connessione. In caso contrario, eseguire di nuovo il comando racchiudendo la stringa di connessione tra virgolette.
 
-    Secret Manager viene usato solo per testare l'app Web in locale. Quando l'app viene distribuita in [Servizio app di Azure](https://azure.microsoft.com/services/app-service/web), ad esempio, per archiviare la stringa di connessione si usa l'impostazione **Stringhe di connessione** dell'applicazione nel servizio app, invece di Secret Manager.
+    Secret Manager viene usato solo per testare l'app Web in locale. Quando l'app viene distribuita in [Servizio app di Azure](https://azure.microsoft.com/services/app-service/web), usare l'impostazione **Stringhe di connessione** dell'applicazione nel servizio app invece di Secret Manager per archiviare la stringa di connessione.
 
-    Accedere al segreto usando l'API di configurazione. Con l'API di configurazione è possibile usare i due punti (:) nel nome di configurazione in tutte le piattaforme supportate. Vedere la [configurazione in base all'ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
+    Accedere a questo segreto usando l'API di configurazione di .NET Core. Con tale API è possibile usare i due punti (`:`) nel nome della configurazione in tutte le piattaforme supportate. Per altre informazioni, vedere [Chiavi e valori di configurazione](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
-1. Aprire *Program.cs* e aggiungere un riferimento al provider di Configurazione app .NET Core.
+1. In *Program.cs* aggiungere un riferimento allo spazio dei nomi dell'API di configurazione di .NET Core:
 
     ```csharp
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    using Microsoft.Extensions.Configuration;
     ```
 
-1. Aggiornare il metodo `CreateWebHostBuilder` per usare Configurazione app effettuando una chiamata al metodo `config.AddAzureAppConfiguration()`.
+1. Aggiornare il metodo `CreateWebHostBuilder` per usare Configurazione app effettuando una chiamata al metodo `AddAzureAppConfiguration`.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder` sostituisce `CreateWebHostBuilder` in .NET Core 3.0.  Selezionare la sintassi corretta in base all'ambiente.
-
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
-
-    ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
-            })
-            .UseStartup<Startup>();
-    ```
+    > `CreateHostBuilder` sostituisce `CreateWebHostBuilder` in .NET Core 3.x. Selezionare la sintassi corretta in base all'ambiente.
 
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-        {
-            var settings = config.Build();
-            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
-        })
-        .UseStartup<Startup>());
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration(config =>
+                {
+                    var settings = config.Build();
+                    var connection = settings.GetConnectionString("AppConfig");
+                    config.AddAzureAppConfiguration(connection);
+                }).UseStartup<Startup>());
+    ```
+
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration(config =>
+            {
+                var settings = config.Build();
+                var connection = settings.GetConnectionString("AppConfig");
+                config.AddAzureAppConfiguration(connection);
+            })
+            .UseStartup<Startup>();
     ```
 
     ---
 
-1. Passare a *<app root>/Views/Home* e aprire *Index.cshtml*. Sostituire il contenuto con il codice seguente:
+    Con la modifica precedente, il [provider di configurazione per Configurazione app](https://go.microsoft.com/fwlink/?linkid=2074664) è stato registrato con l'API di configurazione di .NET Core.
 
-    ```HTML
-    @using Microsoft.Extensions.Configuration
-    @inject IConfiguration Configuration
+## <a name="read-from-the-app-configuration-store"></a>Leggere valori dall'archivio di Configurazione app
 
-    <style>
-        body {
-            background-color: @Configuration["TestApp:Settings:BackgroundColor"]
-        }
-        h1 {
-            color: @Configuration["TestApp:Settings:FontColor"];
-            font-size: @Configuration["TestApp:Settings:FontSize"]px;
-        }
-    </style>
+Completare i passaggi seguenti per leggere e visualizzare i valori archiviati nell'archivio di Configurazione app. Per accedere all'archivio verrà usata l'API di configurazione di .NET Core. Per visualizzare i valori delle chiavi verrà usata la sintassi Razor.
 
-    <h1>@Configuration["TestApp:Settings:Message"]</h1>
-    ```
+Aprire *\<app root>/Views/Home/Index.cshtml* e sostituire il contenuto con il codice seguente:
 
-1. Passare a *<app root>/Views/Shared* e aprire *_Layout.cshtml*. Sostituire il contenuto con il codice seguente:
+```cshtml
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 
-    ```HTML
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - hello_world</title>
+<style>
+    body {
+        background-color: @Configuration["TestApp:Settings:BackgroundColor"]
+    }
+    h1 {
+        color: @Configuration["TestApp:Settings:FontColor"];
+        font-size: @Configuration["TestApp:Settings:FontSize"]px;
+    }
+</style>
 
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </head>
-    <body>
-        <div class="container body-content">
-            @RenderBody()
-        </div>
+<h1>@Configuration["TestApp:Settings:Message"]</h1>
+```
 
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
+Nel codice precedente le chiavi dell'archivio di Configurazione app vengono usate come segue:
 
-        @RenderSection("Scripts", required: false)
-    </body>
-    </html>
-    ```
+* Il valore della chiave `TestApp:Settings:BackgroundColor` viene assegnato alla proprietà CSS `background-color`.
+* Il valore della chiave `TestApp:Settings:FontColor` viene assegnato alla proprietà CSS `color`.
+* Il valore della chiave `TestApp:Settings:FontSize` viene assegnato alla proprietà CSS `font-size`.
+* Il valore della chiave `TestApp:Settings:Message` viene visualizzato come intestazione.
 
 ## <a name="build-and-run-the-app-locally"></a>Compilare ed eseguire l'app in locale
 
-1. Per compilare l'app usando l'interfaccia della riga di comando di .NET Core, passare alla directory radice dell'applicazione ed eseguire questo comando nella shell dei comandi:
+1. Per compilare l'app usando il interfaccia della riga di comando di .NET Core, passare alla directory radice del progetto. Eseguire il comando seguente nella shell dei comandi:
 
     ```dotnetcli
     dotnet build
@@ -236,23 +163,26 @@ Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo
     dotnet run
     ```
 
-1. Se si sta lavorando sul computer locale, usare un browser per passare a `http://localhost:5000`, che è l'URL predefinito per l'app Web ospitata in locale.  
+1. Se si sta lavorando sul computer locale, usare un browser per passare a `http://localhost:5000`, che è l'URL predefinito per l'app Web ospitata in locale. Se si sta lavorando in Azure Cloud Shell, selezionare il pulsante **Anteprima Web** e quindi **Configura**.
 
-Se si sta lavorando in Azure Cloud Shell, selezionare il pulsante *Anteprima Web* e quindi *Configura*.  
+    ![Individuare il pulsante Anteprima Web](./media/quickstarts/cloud-shell-web-preview.png)
 
-![Individuare il pulsante Anteprima Web](./media/quickstarts/cloud-shell-web-preview.png)
-
-Quando viene richiesto di configurare la porta per l'anteprima, immettere "5000" e selezionare *Apri ed esplora*.  Nella pagina verrà visualizzato il messaggio "Dati di Configurazione app di Azure".
-
-![Avvio dell'app di avvio rapido](./media/quickstarts/aspnet-core-app-launch-local-before.png)
+    Quando viene chiesto di configurare la porta per l'anteprima, immettere *5000* e selezionare **Apri ed esplora**. Nella pagina verrà visualizzato il messaggio "Dati di Configurazione app di Azure".
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-[!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
+[!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stato creato un nuovo archivio di Configurazione app, che è stato usato con un'app Web ASP.NET Core con il [provider di Configurazione app](https://go.microsoft.com/fwlink/?linkid=2074664). Per informazioni su come configurare l'app ASP.NET Core per aggiornare in modo dinamico le impostazioni di configurazione, continuare con l'esercitazione successiva.
+In questo argomento di avvio rapido:
+
+* È stato effettuato il provisioning di un nuovo archivio di Configurazione app.
+* È stato registrato il provider di configurazione .NET Core dell'archivio di Configurazione app.
+* Sono state lette le chiavi dell'archivio di Configurazione app con il provider di configurazione.
+* Sono stati visualizzati i valori delle chiavi dell'archivio di Configurazione app con la sintassi Razor.
+
+Per informazioni su come configurare l'app ASP.NET Core per aggiornare in modo dinamico le impostazioni di configurazione, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
 > [Abilitare la configurazione dinamica](./enable-dynamic-configuration-aspnet-core.md)

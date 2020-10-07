@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9bb3f0d57f7d47e4cb754305627c52003273ca09
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: eb93321e0eb1b3d2dc7963f03715b1aedb4cfdcb
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377013"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403688"
 ---
 # <a name="azure-managed-applications-overview"></a>Panoramica delle applicazioni gestite di Azure
 
@@ -77,7 +77,7 @@ Quando il consumer elimina l'applicazione gestita, viene eliminato anche il grup
 
 ## <a name="azure-policy"></a>Criteri di Azure
 
-È possibile applicare [criteri di Azure](../../governance/policy/overview.md) per controllare l'applicazione gestita. L'applicazione di definizioni di criteri consente di garantire che le istanze distribuite dell'applicazione gestita siano conformi ai requisiti per i dati e la sicurezza. Se l'applicazione interagisce con dati sensibili, assicurarsi di avere valutato come devono essere protetti. Ad esempio, se l'applicazione interagisce con dati di Office 365, applicare una definizione di criteri per verificare che sia abilitata la crittografia dei dati.
+È possibile applicare [criteri di Azure](../../governance/policy/overview.md) per controllare l'applicazione gestita. L'applicazione di definizioni di criteri consente di garantire che le istanze distribuite dell'applicazione gestita siano conformi ai requisiti per i dati e la sicurezza. Se l'applicazione interagisce con dati sensibili, assicurarsi di avere valutato come devono essere protetti. Se ad esempio l'applicazione interagisce con i dati di Microsoft 365, applicare una definizione di criteri per assicurarsi che la crittografia dei dati venga abilitata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

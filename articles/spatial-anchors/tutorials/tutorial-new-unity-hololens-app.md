@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 365fe8c330cadcc01fcd24de28b663cd80b55117
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 8c9e6462beb48e3326de3c2348b73053f717e032
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535880"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441269"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Esercitazione: Istruzioni dettagliate per la creazione di una nuova app HoloLens Unity usando Ancoraggi nello spazio di Azure
 
@@ -204,11 +204,11 @@ Prima di procedere, sarà necessario creare un account di ancoraggi nello spazio
 
 Dopo aver creato l'Identificatore, la chiave e il dominio dell'account di Ancoraggi nello spazio di Azure, incollare `Account Id` in `SpatialAnchorsAccountId`, `Account Key` in `SpatialAnchorsAccountKey` e `Account Domain` in `SpatialAnchorsAccountDomain`.
 
-Infine, associare tutti gli elementi tra loro. Aggiungere il codice seguente nel metodo `SpawnNewAnchoredObject()`. Il codice richiama il metodo `CreateAnchorAsync()` non appena verrà creata la sfera. Quando il metodo restituisce il risultato, il codice seguente aggiorna la sfera un'ultima volta, cambiandone il colore in blu.
+Infine, associare tutti gli elementi tra loro. Aggiungere il codice seguente nel metodo `CreateAndSaveSphere()`. Il codice richiama il metodo `CreateAnchorAsync()` non appena verrà creata la sfera. Quando il metodo restituisce il risultato, il codice seguente aggiorna la sfera un'ultima volta, cambiandone il colore in blu.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Eseguire nuovamente l'app da **Visual Studio**. Muovere la testa e quindi indicare un punto per inserire la sfera. Quando il numero di fotogrammi è sufficiente, la sfera diventerà gialla e verrà avviato il caricamento nel cloud. Al termine del caricamento, la sfera diventerà blu. Facoltativamente, è anche possibile usare la finestra di output in **Visual Studio** per monitorare i messaggi di log inviati dall'app. È possibile osservare `RecommendedForCreateProgress` e, al termine del caricamento, sarà possibile visualizzare l'identificatore dell'ancoraggio restituito dal cloud.
+Eseguire nuovamente l'app da **Visual Studio**. Muovere la testa e quindi indicare un punto per inserire la sfera. Quando il numero di fotogrammi è sufficiente, la sfera diventerà gialla e verrà avviato il caricamento nel cloud. Al termine del caricamento, la sfera diventerà blu. Facoltativamente, durante il debug è anche possibile usare la [finestra Output](https://docs.microsoft.com/visualstudio/ide/reference/output-window) in **Visual Studio** per monitorare i messaggi di log inviati dall'app. Assicurarsi di distribuire la configurazione `Debug` dell'app da Visual Studio per visualizzare i messaggi di log. È possibile osservare `RecommendedForCreateProgress` e, al termine del caricamento, sarà possibile visualizzare l'identificatore dell'ancoraggio restituito dal cloud.
 
 > [!NOTE]
 > Se viene visualizzato "DllNotFoundException: Unable to load DLL 'AzureSpatialAnchors': The specified module could not be found.", è necessario **rimuovere** e **compilare** nuovamente la soluzione.

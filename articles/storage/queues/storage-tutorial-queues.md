@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7474cfbd0182797bd62e97979e83e2aeb5244cbc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 23684dbbc5cb8c2d5fc4880ae8fe1999450928e0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008795"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400571"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Esercitazione: Usare le code di archiviazione di Azure in .NET
 
@@ -227,6 +227,8 @@ Creare un nuovo metodo per recuperare un messaggio dalla coda. Dopo che il messa
    # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
    Questo metodo riceve un messaggio dalla coda chiamando [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), passando 1 nel primo parametro per recuperare solo il messaggio successivo nella coda. Dopo la ricezione del messaggio, eliminarlo dalla coda chiamando [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
+
+   I messaggi inviati alla coda con una versione dell'SDK precedente a v12 vengono automaticamente codificati in Base64. A partire da v12 la funzionalità è stata rimossa. I messaggi recuperati con l'SDK v12 non vengono automaticamente decodificati in Base64. È necessario [decodificare esplicitamente in Base64](/dotnet/api/system.convert.frombase64string) il contenuto.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 

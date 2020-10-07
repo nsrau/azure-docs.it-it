@@ -4,12 +4,12 @@ description: Informazioni su come individuare macchine virtuali Hyper-V locali c
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: eb17ba9fc1b68f09f60e857cd20a3f0885bfdb05
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e62effc31ab5dbc687e0509617b89561c5f2a3b6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603952"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442319"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Esercitazione: Individuare le macchine virtuali Hyper-V con Valutazione server
 
@@ -39,7 +39,7 @@ Prima di iniziare questa esercitazione, verificare che siano rispettati i prereq
 **Requisito** | **Dettagli**
 --- | ---
 **Host Hyper-V** | Gli host Hyper-V in cui si trovano le macchine virtuali possono essere autonomi o raggruppati in cluster.<br/><br/> L'host deve eseguire Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2.<br/><br/> Verificare che le connessioni in ingresso siano consentite sulla porta WinRM 5985 (HTTP), in modo che l'appliance possa connettersi per recuperare i metadati delle macchine virtuali e i dati sulle prestazioni usando una sessione CIM (Common Information Model).
-**Distribuzione dell'appliance** | Il server vCenter ha bisogno di risorse per allocare una macchina virtuale per l'appliance:<br/><br/> - Windows Server 2016<br/><br/> \- 32 GB di RAM<br/><br/> - Otto CPU virtuali<br/><br/> - Circa 80 GB di spazio di archiviazione su disco<br/><br/> - Un commutatore virtuale esterno<br/><br/> - Accesso a Internet attivo per la macchina virtuale, direttamente o tramite un proxy
+**Distribuzione dell'appliance** | L'host Hyper-V richiede risorse da allocare a una VM per l'appliance:<br/><br/> - Windows Server 2016<br/><br/> \- 16 GB di RAM<br/><br/> - Otto CPU virtuali<br/><br/> - Circa 80 GB di spazio di archiviazione su disco<br/><br/> - Un commutatore virtuale esterno<br/><br/> - Accesso a Internet attivo per la macchina virtuale, direttamente o tramite un proxy
 **Macchine virtuali** | Le macchine virtuali possono eseguire qualsiasi versione del sistema operativo Windows o Linux. 
 
 Prima di iniziare, è possibile [esaminare i dati](migrate-appliance.md#collected-data---hyper-v) raccolti dall'appliance durante l'individuazione.
@@ -73,6 +73,8 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
 
     ![Verificare che in Impostazioni utente che gli utenti possano registrare le app Active Directory](./media/tutorial-discover-hyper-v/register-apps.png)
 
+9. In alternativa, l'amministratore tenant/globale può assegnare il ruolo **Sviluppatore applicazione** a un account per consentire la registrazione di app AAD. [Altre informazioni](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
+
 ## <a name="prepare-hyper-v-hosts"></a>Preparare gli host Hyper-V
 
 Configurare un account con accesso come amministratore per gli host Hyper-V. L'appliance usa questo account per l'individuazione.
@@ -93,7 +95,7 @@ Configurare un nuovo progetto di Azure Migrate.
 
    ![Caselle per il nome del progetto e l'area](./media/tutorial-discover-hyper-v/new-project.png)
 
-7. Selezionare **Crea**.
+7. Selezionare **Create** (Crea).
 8. Attendere alcuni minuti durante la distribuzione del progetto di Azure Migrate.
 
 Lo strumento **Azure Migrate: Valutazione server** viene aggiunto per impostazione predefinita al nuovo progetto.
@@ -135,7 +137,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 
 2. Eseguire il comando di PowerShell seguente per generare il codice hash per il file ZIP
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
-    - Esempio di utilizzo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+    - Esempio di utilizzo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
 3.  Verificare le versioni più recenti dell'appliance e i valori hash:
 
@@ -143,13 +145,13 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 
         **Scenario** | **Scaricare** | **SHA256**
         --- | --- | ---
-        Hyper-V (10,4 GB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
+        Hyper-V (8,91 GB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
 
     - Per Azure per enti pubblici:
 
         **Scenario*** | **Scaricare** | **SHA256**
         --- | --- | ---
-        Hyper-V (85 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1ce4f685296f9ee18e1ca63e4a111d9aa4e6982e069df430d7
+        Hyper-V (85,8 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
 ### <a name="create-the-appliance-vm"></a>Creare l'appliance VM
 
@@ -214,7 +216,7 @@ Se i dischi rigidi virtuali sono in esecuzione in SMB, è necessario abilitare l
 1. Nell'appliance VM eseguire questo comando. HyperVHost1/HyperVHost2 sono nomi host di esempio.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. In alternativa, eseguire questa operazione nell'editor Criteri di gruppo locali dell'appliance:

@@ -2,35 +2,35 @@
 title: Creare la prima funzione in Azure con Visual Studio Code
 description: Creare e pubblicare in Azure una semplice funzione attivata tramite HTTP usando l'estensione Funzioni di Azure in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 01/10/2020
+ms.date: 09/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: db5b28ae0bffa16b17cb63471b8d5ba6b5ac94ed
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: a8fefee3903a9ff5ce9bdd05a0fd5bcf07bc5429
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146573"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408558"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Avvio rapido: Creare una funzione in Azure con Visual Studio Code
 
-::: zone pivot="programming-language-csharp"  
-In questo articolo viene usato Visual Studio Code per creare una funzione basata sulla libreria di classi C# che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure. 
-::: zone-end  
+::: zone pivot="programming-language-csharp"
+In questo articolo viene usato Visual Studio Code per creare una funzione basata sulla libreria di classi C# che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure.
+::: zone-end
 ::: zone pivot="programming-language-javascript"
-In questo articolo si userà Visual Studio Code per creare una funzione JavaScript che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure. 
+In questo articolo si userà Visual Studio Code per creare una funzione JavaScript che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure.
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
-In questo articolo si userà Visual Studio Code per creare una funzione TypeScript che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure. 
-::: zone-end   
+In questo articolo si userà Visual Studio Code per creare una funzione TypeScript che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure.
+::: zone-end 
 ::: zone pivot="programming-language-powershell"
-In questo articolo si userà Visual Studio Code per creare una funzione PowerShell che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure. 
-::: zone-end  
-::: zone pivot="programming-language-python" 
-In questo articolo si userà Visual Studio Code per creare una funzione Python che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure. 
-::: zone-end  
-::: zone pivot="programming-language-java" 
-In questo articolo si userà Visual Studio Code per creare una funzione Java che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure. 
+In questo articolo si userà Visual Studio Code per creare una funzione PowerShell che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure.
+::: zone-end
+::: zone pivot="programming-language-python"
+In questo articolo si userà Visual Studio Code per creare una funzione Python che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure.
+::: zone-end
+::: zone pivot="programming-language-java"
+In questo articolo si userà Visual Studio Code per creare una funzione Java che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure.
 ::: zone-end
 
 Le procedure illustrate in questa guida di avvio rapido comportano l'addebito di qualche centesimo (USD) o meno nell'account Azure. 
@@ -38,54 +38,54 @@ Le procedure illustrate in questa guida di avvio rapido comportano l'addebito di
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 È inoltre disponibile una [versione di questo articolo basata sull'interfaccia della riga di comando](functions-create-first-azure-function-azure-cli.md).
 ::: zone-end
-::: zone pivot="programming-language-java"  
+::: zone pivot="programming-language-java"
 > [!NOTE]
 > Se si preferisce non usare Visual Studio Code come strumento di sviluppo, vedere le esercitazioni simili per sviluppatori Java che usano [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [Gradle](./functions-create-first-java-gradle.md) e [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
-::: zone-end  
+::: zone-end
 
 ## <a name="configure-your-environment"></a>Configurare l'ambiente
 
 Prima di iniziare, verificare che siano soddisfatti i requisiti seguenti:
 
-+ Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
-+ [Node.js](https://nodejs.org/), richiesto da Windows per npm. Solo le [versioni Active LTS e Maintenance LT](https://nodejs.org/about/releases/). Usare il comando `node --version` per controllare la versione in uso.
-    Non necessario per lo sviluppo locale in macOS e Linux.   
-::: zone-end   
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js](https://nodejs.org/), versioni Active LTS e Maintenance LTS (10.14.1 consigliata). Usare il comando `node --version` per controllare la versione in uso.  
-::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"
+- [Node.js](https://nodejs.org/), richiesto da Windows per npm. Solo le [versioni Active LTS e Maintenance LT](https://nodejs.org/about/releases/). Usare il comando `node --version` per controllare la versione in uso.
+    Non necessario per lo sviluppo locale in macOS e Linux. 
+::: zone-end 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+- [Node.js](https://nodejs.org/), versioni Active LTS e Maintenance LTS (10.14.1 scelta consigliata). Usare il comando `node --version` per controllare la versione in uso.
+::: zone-end
 ::: zone pivot="programming-language-python"
-+ [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/) e [Python 3.6](https://www.python.org/downloads/release/python-368/) sono supportati da Funzioni di Azure (x64).
-::: zone-end   
+- [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/) e [Python 3.6](https://www.python.org/downloads/release/python-368/) sono supportati da Funzioni di Azure (x64).
+::: zone-end 
 ::: zone pivot="programming-language-powershell"
-+ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
+- [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ Sia [.NET Core 3.1](https://www.microsoft.com/net/download) che [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.2)  
-::: zone-end  
-::: zone pivot="programming-language-java"  
-+ [Java Developer Kit](https://aka.ms/azure-jdks), versione 8
+- Sia [.NET Core 3.1](https://www.microsoft.com/net/download) che [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+::: zone-end
+::: zone pivot="programming-language-java"
+- [Java Developer Kit](https://aka.ms/azure-jdks), versione 8
 
-+ [Apache Maven](https://maven.apache.org), versione 3.0 o successiva.
-::: zone-end  
-+ [Visual Studio Code](https://code.visualstudio.com/) in una delle [piattaforme supportate](https://code.visualstudio.com/docs/supporting/requirements#_platforms).    
-::: zone pivot="programming-language-csharp"  
-+ [Estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) per Visual Studio Code.  
-::: zone-end  
-::: zone pivot="programming-language-python"  
-+ [Estensione Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) per Visual Studio Code.  
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
-+ [Estensione PowerShell per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
-::: zone-end  
-::: zone pivot="programming-language-java"   
-+ [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)  
-::: zone-end  
+- [Apache Maven](https://maven.apache.org), versione 3.0 o successiva.
+::: zone-end
+- [Visual Studio Code](https://code.visualstudio.com/) in una delle [piattaforme supportate](https://code.visualstudio.com/docs/supporting/requirements#_platforms).  
+::: zone pivot="programming-language-csharp"
+- [Estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) per Visual Studio Code.
+::: zone-end
+::: zone pivot="programming-language-python"
+- [Estensione Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) per Visual Studio Code.
+::: zone-end
+::: zone pivot="programming-language-powershell"
+- [Estensione PowerShell per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).
+::: zone-end
+::: zone pivot="programming-language-java"
+- [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+::: zone-end
 
-+ [Estensione Funzioni di Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) per Visual Studio Code. 
+- [Estensione Funzioni di Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) per Visual Studio Code.
 
-## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>Creare il progetto locale 
+## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>Creare il progetto locale
 
 In questa sezione si userà Visual Studio Code per creare un progetto di Funzioni di Azure locale nel linguaggio scelto. Più avanti in questo articolo verrà pubblicato il codice della funzione in Azure. 
 
@@ -101,50 +101,50 @@ In questa sezione si userà Visual Studio Code per creare un progetto di Funzion
 1. Quando richiesto, immettere le informazioni seguenti:
 
     ::: zone pivot="programming-language-csharp"
-    + **Selezionare un linguaggio per il progetto di funzione**: Scegliere `C#`.
+    - **Selezionare un linguaggio per il progetto di funzione**: Scegliere `C#`.
     ::: zone-end
     ::: zone pivot="programming-language-javascript"
-    + **Selezionare un linguaggio per il progetto di funzione**: Scegliere `JavaScript`.
+    - **Selezionare un linguaggio per il progetto di funzione**: Scegliere `JavaScript`.
     ::: zone-end
     ::: zone pivot="programming-language-typescript"
-    + **Selezionare un linguaggio per il progetto di funzione**: Scegliere `TypeScript`.
+    - **Selezionare un linguaggio per il progetto di funzione**: Scegliere `TypeScript`.
     ::: zone-end
     ::: zone pivot="programming-language-powershell"
-    + **Selezionare un linguaggio per il progetto di funzione**: Scegliere `PowerShell`.
+    - **Selezionare un linguaggio per il progetto di funzione**: Scegliere `PowerShell`.
     ::: zone-end
     ::: zone pivot="programming-language-python"
-    + **Selezionare un linguaggio per il progetto di funzione**: Scegliere `Python`.
+    - **Selezionare un linguaggio per il progetto di funzione**: Scegliere `Python`.
 
-    + **Selezionare un alias Python per creare un ambiente virtuale**: Scegliere la posizione dell'interprete Python. Se la posizione non viene visualizzata, digitare il percorso completo del file binario di Python.  
+    - **Selezionare un alias Python per creare un ambiente virtuale**: Scegliere la posizione dell'interprete Python. Se la posizione non viene visualizzata, digitare il percorso completo del file binario di Python.
     ::: zone-end
 
-    ::: zone pivot="programming-language-java"  
-    + **Selezionare un linguaggio per il progetto di funzione**: Scegliere `Java`.
+    ::: zone pivot="programming-language-java"
+    - **Selezionare un linguaggio per il progetto di funzione**: Scegliere `Java`.
 
-    + **Selezionare una versione di Java**: Scegliere una versione tra `Java 8` e `Java 11 (preview)`, in cui eseguire le funzioni in Azure. Scegliere una versione di Java che è stata verificata in locale.
+    - **Selezionare una versione di Java**: Scegliere una versione tra `Java 8` e `Java 11 (preview)`, in cui eseguire le funzioni in Azure. Scegliere una versione di Java che è stata verificata in locale.
 
-    + **Specificare un ID gruppo**: Scegliere `com.function`.
+    - **Specificare un ID gruppo**: Scegliere `com.function`.
 
-    + **Specificare un ID artefatto**: Scegliere `myFunction`.
+    - **Specificare un ID artefatto**: Scegliere `myFunction`.
 
-    + **Specificare una versione**: Scegliere `1.0-SNAPSHOT`.
+    - **Specificare una versione**: Scegliere `1.0-SNAPSHOT`.
 
-    + **Specificare un nome di pacchetto**: Scegliere `com.function`.
+    - **Specificare un nome di pacchetto**: Scegliere `com.function`.
 
-    + **Specificare un nome di app**: Scegliere `myFunction-12345`.
-    ::: zone-end  
+    - **Specificare un nome di app**: Scegliere `myFunction-12345`.
+    ::: zone-end
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-    + **Selezionare un modello per la prima funzione del progetto**: Scegliere `HTTP trigger`.
-    
-    + **Specificare un nome di funzione**: Digitare `HttpExample`.
-    ::: zone-end  
+    - **Selezionare un modello per la prima funzione del progetto**: Scegliere `HTTP trigger`.
+  
+    - **Specificare un nome di funzione**: Digitare `HttpExample`.
+    ::: zone-end
     ::: zone pivot="programming-language-csharp"
-    + **Specificare uno spazio dei nomi**: Digitare `My.Functions`. 
-    ::: zone-end  
+    - **Specificare uno spazio dei nomi**: Digitare `My.Functions`.
+    ::: zone-end
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-    + **Livello di autorizzazione**: Scegliere `Anonymous`, che consente a chiunque di chiamare l'endpoint della funzione. Per informazioni sul livello di autorizzazione, vedere [Chiavi di autorizzazione](functions-bindings-http-webhook-trigger.md#authorization-keys).
-    ::: zone-end  
-    + **Selezionare come si vuole aprire il progetto**: Scegliere `Add to workspace`.
+    - **Livello di autorizzazione**: Scegliere `Anonymous`, che consente a chiunque di chiamare l'endpoint della funzione. Per informazioni sul livello di autorizzazione, vedere [Chiavi di autorizzazione](functions-bindings-http-webhook-trigger.md#authorization-keys).
+    ::: zone-end
+    - **Selezionare come si vuole aprire il progetto**: Scegliere `Add to workspace`.
 
 1. Usando queste informazioni, Visual Studio Code genera un progetto di Funzioni di Azure con un trigger HTTP. È possibile visualizzare i file di progetto locali in Explorer. Per altre informazioni sui file che vengono creati, vedere [File di progetto generati](functions-develop-vs-code.md#generated-project-files). 
 
@@ -160,7 +160,7 @@ In questa sezione si userà Visual Studio Code per creare un progetto di Funzion
 
 ::: zone-end
 
-Dopo aver verificato la corretta esecuzione della funzione nel computer locale, è possibile usare Visual Studio Code per pubblicare il progetto direttamente in Azure. 
+Dopo aver verificato la corretta esecuzione della funzione nel computer locale, è possibile usare Visual Studio Code per pubblicare il progetto direttamente in Azure.
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
@@ -168,7 +168,7 @@ Dopo aver verificato la corretta esecuzione della funzione nel computer locale, 
 
 ## <a name="run-the-function-in-azure"></a>Eseguire la funzione in Azure
 
-1. Nell'area **Azure: Funzioni** nella barra laterale espandere la nuova app per le funzioni nella sottoscrizione. Espandere **Funzioni**, fare clic con il pulsante destro del mouse su (Windows) o premere CTRL + clic (macOS) in **HttpExample** e quindi scegliere **Copy function URL** (Copia URL funzione).
+1. Nell'area **Azure: Funzioni** nella barra laterale espandere la nuova app per le funzioni nella sottoscrizione. Espandere **Funzioni**, fare clic con il pulsante destro del mouse su (Windows) o premere <kbd>CTRL +</kbd> clic (macOS) su **HttpExample** e quindi scegliere **Copy function URL** (Copia URL funzione).
 
     ![Copiare l'URL della funzione per il nuovo trigger HTTP](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
 
@@ -177,7 +177,7 @@ Dopo aver verificato la corretta esecuzione della funzione nel computer locale, 
     ```http
     http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions
     ```
-        
+
     L'esempio seguente mostra la risposta nel browser alla richiesta GET remota restituita dalla funzione: 
 
     ![Risposta della funzione nel browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
