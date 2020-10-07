@@ -4,12 +4,12 @@ description: Istruzioni su come spostare un insieme di credenziali di servizi di
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 69021131f12b57aedcd531997029858b0722933f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 19b1c930ffc0e4b519c25f421662547a4d8dcde6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181511"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773366"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure
 
@@ -142,6 +142,50 @@ Per spostare in una nuova sottoscrizione, inserire il parametro `--destination-s
 
 1. Impostare/verificare i controlli di accesso per i gruppi di risorse.  
 2. Una volta completata la migrazione, è necessario configurare nuovamente la funzionalità di monitoraggio e creazione di report di backup per l'insieme di credenziali. La configurazione precedente andrà persa durante l'operazione di spostamento.
+
+## <a name="move-an-azure-virtual-machine-to-a-different-recovery-service-vault"></a>Spostare una macchina virtuale di Azure in un insieme di credenziali di servizi di ripristino diverso. 
+
+Se si vuole spostare una macchina virtuale di Azure in cui è abilitato backup di Azure, sono disponibili due opzioni. Dipendono dai requisiti aziendali:
+
+- [Non è necessario mantenere i dati di backup precedenti](#dont-need-to-preserve-previous-backed-up-data)
+- [È necessario mantenere i dati di backup precedenti](#must-preserve-previous-backed-up-data)
+
+### <a name="dont-need-to-preserve-previous-backed-up-data"></a>Non è necessario mantenere i dati di backup precedenti
+
+Per proteggere i carichi di lavoro in un nuovo insieme di credenziali, è necessario eliminare la protezione e i dati correnti nell'insieme di credenziali precedente e configurare di nuovo il backup.
+
+>[!WARNING]
+>L'operazione seguente è distruttiva e non può essere annullata. Tutti i dati di backup e gli elementi di backup associati al server protetto verranno eliminati definitivamente. Procedere con cautela.
+
+**Arrestare ed eliminare la protezione corrente nell'insieme di credenziali precedente:**
+
+1. Disabilitare l'eliminazione temporanea nelle proprietà dell'insieme di credenziali. Per disabilitare l'eliminazione temporanea, seguire [questa procedura](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) .
+
+2. Arrestare la protezione ed eliminare i backup dall'insieme di credenziali corrente. Nel menu del dashboard dell'insieme di credenziali selezionare **elementi di backup**. Gli elementi elencati di seguito che devono essere spostati nel nuovo insieme di credenziali devono essere rimossi insieme ai relativi dati di backup. Vedere come [eliminare gli elementi protetti nel cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) ed [eliminare gli elementi protetti in locale](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+3. Se si prevede di spostare AFS (condivisioni file di Azure), SQL Server o server SAP HANA, sarà necessario anche annullarne la registrazione. Nel menu del dashboard dell'insieme di credenziali selezionare **infrastruttura di backup**. Vedere come annullare [la registrazione di SQL Server](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [annullare la registrazione di un account di archiviazione associato a condivisioni file di Azure](manage-afs-backup.md#unregister-a-storage-account)e [annullare la registrazione di un'istanza di SAP Hana](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+
+4. Dopo essere stati rimossi dall'insieme di credenziali precedente, continuare a configurare i backup per il carico di lavoro nel nuovo insieme di credenziali.
+
+### <a name="must-preserve-previous-backed-up-data"></a>È necessario mantenere i dati di backup precedenti
+
+Se è necessario mantenere i dati protetti correnti nell'insieme di credenziali precedente e continuare la protezione in un nuovo insieme di credenziali, sono disponibili opzioni limitate per alcuni carichi di lavoro:
+
+- Per MARS è possibile [arrestare la protezione con Mantieni dati](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) e registrare l'agente nel nuovo insieme di credenziali.
+
+  - Il servizio backup di Azure continuerà a mantenere tutti i punti di ripristino esistenti dell'insieme di credenziali precedente.
+  - È necessario pagare per conservare i punti di ripristino nell'insieme di credenziali precedente.
+  - Sarà possibile ripristinare i dati di cui è stato eseguito il backup solo per i punti di ripristino non scaduti nell'insieme di credenziali precedente.
+  - Sarà necessario creare una nuova replica iniziale dei dati nel nuovo insieme di credenziali.
+
+- Per una macchina virtuale di Azure, è possibile [arrestare la protezione con Mantieni i dati](backup-azure-manage-vms.md#stop-protecting-a-vm) per la macchina virtuale nell'insieme di credenziali precedente, spostare la macchina virtuale in un altro gruppo di risorse e quindi proteggere la macchina virtuale nel nuovo insieme di credenziali. Vedere [linee guida e limitazioni](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) per lo stato di trasferimento di una macchina virtuale in un altro gruppo di risorse.
+
+  Una macchina virtuale può essere protetta solo in un insieme di credenziali alla volta. Tuttavia, la macchina virtuale nel nuovo gruppo di risorse può essere protetta nel nuovo insieme di credenziali perché è considerata una macchina virtuale diversa.
+
+  - Il servizio backup di Azure manterrà i punti di ripristino di cui è stato eseguito il backup nell'insieme di credenziali precedente.
+  - È necessario pagare per conservare i punti di ripristino nell'insieme di credenziali precedente. per informazioni dettagliate, vedere [prezzi di backup di Azure](azure-backup-pricing.md) .
+  - Se necessario, sarà possibile ripristinare la macchina virtuale dall'insieme di credenziali precedente.
+  - Il primo backup nel nuovo insieme di credenziali della macchina virtuale nella nuova risorsa sarà una replica iniziale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

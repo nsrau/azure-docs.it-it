@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06335798addadcd8591625e25ed2eafe8469ae48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463961"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776103"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Correggere i rischi e sbloccare gli utenti
 
@@ -88,6 +88,10 @@ Per sbloccare un account in base al rischio di accesso, gli amministratori hanno
 1. **Accesso da una località o un dispositivo familiare**: un motivo comune del blocco di accessi sospetti è costituito da tentativi di accesso da località o dispositivi non familiari. Gli utenti possono determinare rapidamente se questo motivo è il motivo del blocco tentando di accedere da una posizione o un dispositivo familiare.
 1. **Escludere l'utente dal criterio** : se si ritiene che la configurazione corrente dei criteri di accesso causi problemi per utenti specifici, è possibile escludere gli utenti dal criterio. Per ulteriori informazioni, vedere la sezione esclusioni nell'articolo [procedura: configurare e abilitare i criteri di rischio](howto-identity-protection-configure-risk-policies.md#exclusions).
 1. **Disabilitazione del criterio** : se si ritiene che la configurazione del criterio provochi problemi per tutti gli utenti, è possibile disabilitare il criterio. Per altre informazioni, vedere l'articolo [procedura: configurare e abilitare i criteri di rischio](howto-identity-protection-configure-risk-policies.md).
+
+## <a name="powershell-preview"></a>Anteprima di PowerShell
+
+Usando il modulo di anteprima di Microsoft Graph PowerShell SDK, le organizzazioni possono gestire i rischi usando PowerShell. I moduli di anteprima e il codice di esempio sono disponibili nel [repository di GitHub Azure ad](https://github.com/AzureAD/IdentityProtectionTools).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

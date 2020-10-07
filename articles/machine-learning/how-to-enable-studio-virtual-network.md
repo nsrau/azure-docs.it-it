@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 58395463c494a95a8842cddbe4d51544ce03d212
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4b6f2db8a8245db7dddbabc3a31a0de0d8963b84
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713377"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776086"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
@@ -24,14 +24,15 @@ Questo articolo illustra come usare Azure Machine Learning Studio in una rete vi
 
 > [!div class="checklist"]
 > - Accedere a Studio da una risorsa all'interno di una rete virtuale.
+> - Configurare endpoint privati per gli account di archiviazione.
 > - Consentire a studio di accedere ai dati archiviati all'interno di una rete virtuale.
-> - Informazioni sul modo in cui la sicurezza dell'archiviazione è influenzata da studio.
+> - Informazioni sul modo in cui lo studio influisca sulla sicurezza dell'archiviazione.
 
 Questo articolo è la parte cinque di una serie in cinque parti che illustra come proteggere un flusso di lavoro Azure Machine Learning. È consigliabile leggere prima di tutto la [parte 1: Panoramica di VNet](how-to-network-security-overview.md) per comprendere prima l'architettura complessiva. 
 
 Vedere gli altri articoli di questa serie:
 
-[1. Panoramica di VNet](how-to-network-security-overview.md)  >  [2. Proteggere l'area di lavoro](how-to-secure-workspace-vnet.md)  >  [3. Proteggere l'ambiente di training](how-to-secure-training-vnet.md)  >  [4. Proteggere l'ambiente di inferenza](how-to-secure-inferencing-vnet.md)  >  [5. Abilitare la funzionalità di studio](how-to-enable-studio-virtual-network.md)
+[1. Panoramica di VNet](how-to-network-security-overview.md)  >  [2. Proteggere l'area di lavoro](how-to-secure-workspace-vnet.md)  >  [3. Proteggere l'ambiente di training](how-to-secure-training-vnet.md)  >  [4. Proteggere l'ambiente di inferenza](how-to-secure-inferencing-vnet.md)  >  **5. Abilitare la funzionalità di studio**
 
 
 > [!IMPORTANT]
@@ -46,7 +47,7 @@ Vedere gli altri articoli di questa serie:
 
 + Un' [area di lavoro Azure Machine Learning esistente con collegamento privato abilitato](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
-+ Un account di archiviazione di Azure esistente ha [aggiunto la rete virtuale](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
++ Un account di archiviazione di Azure esistente ha [aggiunto la rete virtuale](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
 ## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>Accedere a Studio da una risorsa all'interno di VNet
 
@@ -56,7 +57,7 @@ Ad esempio, se si usano gruppi di sicurezza di rete (NSG) per limitare il traffi
 
 ## <a name="access-data-using-the-studio"></a>Accedere ai dati tramite studio
 
-Dopo aver [aggiunto un account di archiviazione di Azure alla rete virtuale](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts), è necessario configurare l'account di archiviazione in modo da usare l' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per concedere a Studio l'accesso ai dati. Studio supporta gli account di archiviazione configurati per l'uso di endpoint di servizio o di endpoint privati. Per impostazione predefinita, gli account di archiviazione usano gli endpoint del servizio. Per abilitare gli endpoint privati per l'archiviazione, vedere [usare endpoint privati per archiviazione di Azure](../storage/common/storage-private-endpoints.md)
+Dopo aver aggiunto un account di archiviazione di Azure alla rete virtuale con un [endpoint del servizio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) o un [endpoint privato](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), è necessario configurare l'account di archiviazione in modo da usare l' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per concedere a Studio l'accesso ai dati.
 
 Se non si Abilita l'identità gestita, verrà visualizzato questo errore, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` inoltre, verranno disabilitate le operazioni seguenti:
 
@@ -64,6 +65,9 @@ Se non si Abilita l'identità gestita, verrà visualizzato questo errore, `Error
 * Visualizza i dati nella finestra di progettazione.
 * Inviare un esperimento AutoML.
 * Avviare un progetto di assegnazione di etichette.
+
+> [!NOTE]
+> L' [etichettatura dei dati assistiti da ml](how-to-create-labeling-projects.md#use-ml-assisted-labeling) non supporta gli account di archiviazione predefiniti protetti dietro una rete virtuale. È necessario usare un account di archiviazione non predefinito per l'etichettatura dei dati assistiti da ML. L'account di archiviazione non predefinito può essere protetto dietro la rete virtuale. 
 
 Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una rete virtuale:
 

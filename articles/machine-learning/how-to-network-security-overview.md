@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/30/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: d4690062dead8186022cc53ca47dbc7e17a9376f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 7bc56f6296bf41933348fad9ea4aeb640b9afbf0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631189"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776018"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Panoramica dell'isolamento e della privacy della rete virtuale
 
@@ -70,7 +70,7 @@ Usare la procedura seguente per proteggere l'area di lavoro e le risorse associa
 
 1. Creare un' [area di lavoro privata abilitata](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) per il collegamento per abilitare la comunicazione tra VNet e l'area di lavoro.
 1. Aggiungere Azure Key Vault alla rete virtuale con un [endpoint del servizio](../key-vault/general/overview-vnet-service-endpoints.md) o un [endpoint privato](../key-vault/general/private-link-service.md). Impostare Key Vault su ["Consenti ai servizi Microsoft attendibili di ignorare questo firewall"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
-1. Aggiungere un account di archiviazione di Azure alla rete virtuale con un [endpoint del servizio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) o un [endpoint privato](../storage/common/storage-private-endpoints.md)
+1. Aggiungere l'account di archiviazione di Azure alla rete virtuale con un [endpoint del servizio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) o un [endpoint privato](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
 1. [Configurare container Registry di Azure per l'uso di un endpoint privato](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) e [abilitare la delega della subnet nelle istanze di contenitore di Azure](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
 
 ![Diagramma dell'architettura che mostra il modo in cui l'area di lavoro e le risorse associate comunicano tra di loro sugli endpoint di servizio o privati all'interno di un VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
@@ -141,17 +141,17 @@ Il diagramma di rete seguente mostra un'area di lavoro Azure Machine Learning pr
 
 [Proteggere l'area di lavoro](#secure-the-workspace-and-associated-resources)  >  [Proteggere l'ambiente](#secure-the-training-environment)  >  di training [Proteggere l'ambiente](#secure-the-inferencing-environment)  >  di inferenza **Abilitare la funzionalità**  >  di studio [Configurare le impostazioni del firewall](#configure-firewall-settings)
 
-Sebbene studio possa accedere ai dati in un account di archiviazione configurato con un endpoint del servizio, alcune funzionalità sono disabilitate per impostazione predefinita:
+Se la risorsa di archiviazione si trova in una VNet, è necessario prima eseguire ulteriori passaggi di configurazione per abilitare la funzionalità completa in [Studio](overview-what-is-machine-learning-studio.md). Per impostazione predefinita, la funzionalità seguente è disabilitata:
 
 * Visualizzare in anteprima i dati in studio.
 * Visualizza i dati nella finestra di progettazione.
 * Inviare un esperimento AutoML.
 * Avviare un progetto di assegnazione di etichette.
 
-Per abilitare la funzionalità completa durante l'uso di un endpoint del servizio di archiviazione, vedere [usare Azure Machine Learning Studio in una rete virtuale](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Studio supporta sia gli endpoint di servizio sia gli endpoint privati per gli account di archiviazione.
+Per abilitare la funzionalità di studio completo all'interno di un VNet, vedere [usare Azure Machine Learning Studio in una rete virtuale](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Studio supporta gli account di archiviazione usando gli endpoint di servizio o gli endpoint privati.
 
 ### <a name="limitations"></a>Limitazioni
-- Studio non è in grado di accedere ai dati negli account di archiviazione configurati per l'uso di endpoint privati. Per la funzionalità completa, è necessario usare gli endpoint di servizio per l'archiviazione e usare l'identità gestita.
+- L' [assegnazione di etichette ai dati assistiti da ml](how-to-create-labeling-projects.md#use-ml-assisted-labeling) non supporta gli account di archiviazione predefiniti protetti dietro una rete virtuale. È necessario usare un account di archiviazione non predefinito per l'assegnazione di etichette ai dati assistiti da ML. Si noti che l'account di archiviazione non predefinito può essere protetto dietro la rete virtuale. 
 
 ## <a name="configure-firewall-settings"></a>Configurare le impostazioni del firewall
 

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 07/07/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: be476af3696e0753c8e36cfc34a024f8b585c605
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708317"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776044"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteggere un'area di lavoro Azure Machine Learning con reti virtuali
 
@@ -57,10 +57,9 @@ Il collegamento privato di Azure consente di connettersi all'area di lavoro usan
 
 Per ulteriori informazioni sulla configurazione di un'area di lavoro di collegamento privato, vedere [How to configure private link](how-to-configure-private-link.md).
 
+## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Proteggere gli account di archiviazione di Azure con gli endpoint di servizio
 
-## <a name="secure-azure-storage-accounts"></a>Proteggere gli account di archiviazione di Azure
-
-Questa sezione illustra come proteggere un account di archiviazione di Azure usando gli endpoint di servizio. Tuttavia, è anche possibile usare endpoint privati per proteggere l'archiviazione di Azure. Per altre informazioni, vedere [usare endpoint privati per archiviazione di Azure](../storage/common/storage-private-endpoints.md).
+Azure Machine Learning supporta gli account di archiviazione configurati per l'uso di endpoint di servizio o di endpoint privati. Questa sezione illustra come proteggere un account di archiviazione di Azure usando gli endpoint di servizio. Per gli endpoint privati, vedere la sezione successiva.
 
 > [!IMPORTANT]
 > È possibile inserire sia l'_account di archiviazione predefinito_ per Azure Machine Learning, sia _gli account di archiviazione non predefiniti_ in una rete virtuale.
@@ -95,11 +94,23 @@ Per usare un account di archiviazione di Azure per l'area di lavoro in una rete 
 
    [![Il riquadro "Firewall e reti virtuali" nel portale di Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
+## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Proteggere gli account di archiviazione di Azure con endpoint privati
+
+Azure Machine Learning supporta gli account di archiviazione configurati per l'uso di endpoint di servizio o di endpoint privati. Se l'account di archiviazione Usa endpoint privati, è necessario configurare due endpoint privati per l'account di archiviazione predefinito:
+1. Un endpoint privato con una risorsa secondaria di destinazione **BLOB** .
+1. Un endpoint privato con una risorsa secondaria di destinazione **file** (FileShare).
+
+![Screenshot che mostra la pagina di configurazione degli endpoint privati con le opzioni BLOB e file](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+
+Per configurare un endpoint privato per un account di archiviazione **diverso** da quello predefinito, selezionare il tipo di **risorsa secondaria di destinazione** corrispondente all'account di archiviazione che si vuole aggiungere.
+
+Per altre informazioni, vedere [usare endpoint privati per archiviazione di Azure](../storage/common/storage-private-endpoints.md)
+
 ## <a name="secure-datastores-and-datasets"></a>Archivi dati e set di dati protetti
 
-In questa sezione viene illustrato come usare l'utilizzo di archivio dati e set di dati per l'esperienza SDK in una rete virtuale. Per altre informazioni sull'esperienza di studio, vedere [usare Azure Machine Learning Studio in una rete virtuale](how-to-enable-studio-virtual-network.md).
+Questa sezione illustra come usare l'archivio dati e i set di dati nell'esperienza SDK con una rete virtuale. Per altre informazioni sull'esperienza di studio, vedere [usare Azure Machine Learning Studio in una rete virtuale](how-to-enable-studio-virtual-network.md).
 
-Per accedere ai dati mediante SDK, è necessario utilizzare il metodo di autenticazione richiesto dal singolo servizio in cui sono archiviati i dati. Ad esempio, se si registra un archivio dati per accedere Azure Data Lake Store Gen2, è comunque necessario usare un'entità servizio, come documentato in [connettersi ai servizi di archiviazione di Azure](how-to-access-data.md#azure-data-lake-storage-generation-2).
+Per accedere ai dati tramite l'SDK, è necessario utilizzare il metodo di autenticazione richiesto dal singolo servizio in cui sono archiviati i dati. Ad esempio, se si registra un archivio dati per accedere Azure Data Lake Store Gen2, è comunque necessario usare un'entità servizio, come documentato in [connettersi ai servizi di archiviazione di Azure](how-to-access-data.md#azure-data-lake-storage-generation-2).
 
 ### <a name="disable-data-validation"></a>Disabilitare la convalida dei dati
 
@@ -112,7 +123,7 @@ Per impostazione predefinita, Azure Machine Learning esegue la validità dei dat
 - Archiviazione BLOB di Azure
 - Condivisione file di Azure
 - PostgreSQL
-- Database SQL di Azure
+- database SQL di Azure
 
 L'esempio di codice seguente crea un nuovo archivio dati BLOB di Azure e imposta `skip_validation=True` .
 

@@ -1,14 +1,14 @@
 ---
 title: Collegare l'ID partner per abilitare il credito guadagnato dal partner per le risorse delegate
 description: Informazioni su come associare l'ID partner per ricevere il credito guadagnato dal partner (PEC) sulle risorse dei clienti gestite tramite Azure Lighthouse.
-ms.date: 09/04/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 0a9e7f51e90b38bad24eada5a665ca60bf43452f
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 5caa205ce74152c7ec047952f66c1bf9188ddf02
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89493341"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776171"
 ---
 # <a name="link-your-partner-id-to-enable-partner-earned-credit-on-delegated-resources"></a>Collegare l'ID partner per abilitare il credito guadagnato dal partner per le risorse delegate
 
@@ -20,21 +20,21 @@ Se si caricano [i clienti usando i modelli di gestione risorse di Azure](onboard
 
 ## <a name="associate-your-partner-id-when-you-onboard-new-customers"></a>Associare l'ID partner quando si onboarding di nuovi clienti
 
-Quando si caricano i clienti tramite modelli di Azure Resource Manager, usare la procedura seguente per collegare l'ID partner e abilitare il credito guadagnato dal partner. Per completare questa procedura, è necessario essere a conoscenza dell' [ID partner MPN](/partner-center/partner-center-account-setup#locate-your-mpn-id) .
+Quando si caricano i clienti tramite modelli di Azure Resource Manager (modelli ARM), usare la procedura seguente per collegare l'ID partner e abilitare il credito guadagnato dal partner. Per completare questa procedura, è necessario essere a conoscenza dell' [ID partner MPN](/partner-center/partner-center-account-setup#locate-your-mpn-id) . Assicurarsi di usare l' **ID MPN associato** indicato nel profilo partner.
 
-Per semplicità, è consigliabile creare un account dell'entità servizio nel tenant, associarlo all'ID MPN, quindi concedere l'accesso a tutti i clienti caricati con un [ruolo predefinito di Azure idoneo per PEC](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
+Per semplicità, è consigliabile creare un account dell'entità servizio nel tenant, collegarlo all' **ID MPN associato**, quindi concedere l'accesso a tutti i clienti caricati con un [ruolo predefinito di Azure idoneo per PEC](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
 
 1. [Creare un account dell'entità servizio](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) nel tenant di gestione. Per questo esempio, l'account di automazione PEC dell'entità servizio verrà denominato.
-1. Usando l'account dell'entità servizio, [collegarsi all'ID partner](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) nel tenant di gestione. È sufficiente eseguire questa operazione una sola volta.
-1. Quando si carica [un cliente usando Azure Resource Manager modelli](onboard-customer.md), assicurarsi di includere un'autorizzazione che include l'account di automazione PEC come utente con un [ruolo predefinito di Azure idoneo per PEC](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
+1. Usando l'account dell'entità servizio, [collegarsi all'ID MPN associato](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) nel tenant di gestione. È sufficiente eseguire questa operazione una sola volta.
+1. Quando si carica [un cliente usando i modelli ARM](onboard-customer.md), assicurarsi di includere un'autorizzazione che include l'account di automazione PEC come utente con un [ruolo predefinito di Azure idoneo per PEC](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
 
 Seguendo questa procedura, ogni tenant del cliente gestito verrà associato all'ID partner, consentendo di ricevere PEC per i clienti. Per l'account di automazione PEC non è necessario autenticare o eseguire azioni nel tenant del cliente.
 
 ## <a name="add-your-partner-id-to-previously-onboarded-customers"></a>Aggiungere l'ID partner ai clienti precedentemente caricati
 
-Se è già stato eseguito l'onboarding di un cliente, è possibile che non si voglia eseguire un'altra distribuzione per aggiungere l'entità servizio dell'account di automazione PEC. Al contrario, è possibile associare l'ID MPN a un account utente che ha già accesso per lavorare nel tenant del cliente. Assicurarsi che all'account sia stato concesso un [ruolo predefinito di Azure idoneo per PEC](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
+Se è già stato eseguito l'onboarding di un cliente, è possibile che non si voglia eseguire un'altra distribuzione per aggiungere l'entità servizio dell'account di automazione PEC. È invece possibile collegare l' **ID MPN associato** a un account utente che ha già accesso per lavorare nel tenant del cliente. Assicurarsi che all'account sia stato concesso un [ruolo predefinito di Azure idoneo per PEC](https://docs.microsoft.com/partner-center/azure-roles-perms-pec).
 
-Una volta che l'account è stato [collegato all'ID partner](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) nel tenant di gestione, sarà possibile ricevere PEC per quel cliente.
+Dopo che l'account è stato [collegato all'ID MPN associato](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) nel tenant di gestione, sarà possibile ricevere PEC per quel cliente.
 
 ## <a name="confirm-partner-earned-credit"></a>Conferma credito guadagnato partner
 
@@ -44,6 +44,6 @@ Se è stata eseguita la procedura precedente e l'associazione non è visibile, a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come partecipare al [Microsoft Partner Network](/partner-center/mpn-overview).
+- Altre informazioni sul [Microsoft Partner Network](/partner-center/mpn-overview).
 - Scopri in [che modo PEC viene calcolato e a pagamento](/partner-center/partner-earned-credit-explanation).
 - Eseguire l' [onboarding dei clienti](onboard-customer.md) nel Faro di Azure.

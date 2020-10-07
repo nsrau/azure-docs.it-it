@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b9a400862280cbbc219e87695e363c0ec2e75ee6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018672"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773740"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Aree e zone di disponibilità in Azure
 
@@ -94,10 +94,10 @@ Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondam
 > | Archiviazione account | Gestione API | API di Azure per FHIR |
 > | Gateway applicazione | Configurazione app | Azure Analysis Services |
 > | Backup di Azure | Servizio app | Servizio Azure Blockchain |
-> | Azure Cosmos DB | Automazione | Azure Blueprints |
-> | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Database di Azure per MariaDB |
+> | Azure Cosmos DB | Automazione | Azure Blueprint |
+> | Azure Data Lake Storage Gen2 | Servizi di dominio Azure Active Directory | Database di Azure per MariaDB |
 > | Azure ExpressRoute | Azure Bastion | Modulo di protezione hardware dedicato di Azure |
-> | Database SQL di Azure | Cache Redis di Azure | Azure Dev Spaces |
+> | database SQL di Azure | Cache Redis di Azure | Azure Dev Spaces |
 > | Servizi cloud | Ricerca cognitiva di Azure | Gemelli digitali di Azure |
 > | Servizi cloud: serie AV2 | Esplora dati di Azure | Azure Lab Services |
 > | Servizi cloud: serie dv2 | Condivisione dati di Azure | Azure NetApp Files |
@@ -111,9 +111,9 @@ Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondam
 > | Bilanciamento del carico | Gestione firewall di Azure | Servizi cognitivi: Riconoscimento del parlante |
 > | Bus di servizio | Funzioni di Azure | Data Box Heavy |
 > | Service Fabric | Cache HPC di Azure | Data Catalog |
-> | Set di scalabilità di macchine virtuali | Hub IoT Azure | Data Factory: Data Factory V1 |
+> | Set di scalabilità di macchine virtuali | Hub IoT di Azure | Data Factory: Data Factory V1 |
 > | Macchine virtuali | Servizio Azure Kubernetes | Data Lake Analytics |
-> | Macchine virtuali: serie AV2 | Azure Machine Learning | Machine Learning Studio |
+> | Macchine virtuali: serie AV2 | Azure Machine Learning | Azure Machine Learning Studio (versione classica)|
 > | Macchine virtuali: serie BS | Collegamento privato di Azure | Genomica di Microsoft |
 > | Macchine virtuali: serie DSv2 | Azure Red Hat OpenShift | Rendering remoto |
 > | Macchine virtuali: serie DSv3 | Servizio Azure SignalR | Ancoraggi nello spazio |
@@ -131,7 +131,7 @@ Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondam
 > |  | Servizi cognitivi: Language Understanding | Macchine virtuali: serie HCv1 |
 > |  | Servizi cognitivi: QnA Maker | Macchine virtuali: serie H |
 > |  | Servizi cognitivi: servizi vocali | Macchine virtuali: serie LS |
-> |  | Istanze di contenitore | Macchine virtuali: serie LSv2 |
+> |  | Istanze di Container | Macchine virtuali: serie LSv2 |
 > |  | Registro Container | Macchine virtuali: serie Mv2 |
 > |  | Data Factory | Macchine virtuali: serie NC |
 > |  | Griglia di eventi | Macchine virtuali: serie NCv2 |

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86d88f841f76b367e83f0ae6b81e604e1b7f3e4b
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: e16f33cb8aa7c6ceeb1398dd23ccba31b5f936b1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950120"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776137"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introduzione ad Azure Active Directory Identity Protection e a Microsoft Graph
 
@@ -104,6 +104,8 @@ Inviare questa intestazione come richiesta all'URL dell'API seguente: `https://g
 La risposta, in caso di esito positivo, è una raccolta di rilevamenti dei rischi di identità e di dati associati nel formato JSON OData, che può essere analizzato e gestito in base alle esigenze.
 
 ### <a name="sample"></a>Esempio
+
+Questo esempio illustra l'uso di un segreto condiviso per l'autenticazione. In un ambiente di produzione l'archiviazione di segreti nel codice è in genere imbronciata. Le organizzazioni possono usare le identità gestite per le risorse di Azure per proteggere le credenziali. Per altre informazioni sulle identità gestite, vedere l'articolo [che cosa sono le identità gestite per le risorse di Azure](../managed-identities-azure-resources/overview.md).
 
 Di seguito è riportato il codice di esempio per autenticarsi e chiamare l'API con PowerShell.  
 Aggiungere semplicemente l'ID client, la chiave privata e il dominio del tenant.

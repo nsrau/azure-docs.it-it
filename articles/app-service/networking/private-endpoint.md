@@ -4,24 +4,19 @@ description: Connettersi in privato a un'app Web usando un endpoint privato di A
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 9f593bd5e1d4970b43b25c434abfa87177b72066
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: c6a55958102c89c78fe2cd797bb59cf72f9ec505
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743013"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773145"
 ---
-# <a name="using-private-endpoints-for-azure-web-app-preview"></a>Uso di endpoint privati per app Web di Azure (anteprima)
-
-> [!Note]
-> Con l'aggiornamento dell'anteprima, è stata rilasciata la funzionalità di protezione dell'esfiltrazione dei dati.
->
-> L'anteprima è disponibile in tutte le aree pubbliche per le app Windows e Linux PremiumV2 e PremiumV3 e le funzioni Premium elastiche. 
+# <a name="using-private-endpoints-for-azure-web-app"></a>Uso di endpoint privati per l'app Web di Azure
 
 È possibile usare un endpoint privato per l'app Web di Azure per consentire ai client che si trovano nella rete privata di accedere in modo sicuro all'app tramite un collegamento privato. L'endpoint privato usa un indirizzo IP dello spazio indirizzi della VNet di Azure. Il traffico di rete tra un client nella rete privata e l'app Web attraversa la VNet e un collegamento privato sulla rete backbone Microsoft, eliminando l'esposizione dalla rete Internet pubblica.
 
@@ -99,7 +94,7 @@ Ad esempio, la risoluzione dei nomi sarà:
 Dopo questa configurazione DNS, è possibile raggiungere l'app Web privata con il nome predefinito mywebappname.azurewebsites.net.
 
 
-Se occorre usare un nome DNS personalizzato, è necessario aggiungere il nome personalizzato nell'app Web. Durante l'anteprima, il nome personalizzato deve essere convalidato come qualsiasi nome personalizzato, usando la risoluzione DNS pubblica. Per altre informazioni, vedere [Convalida DNS personalizzata][dnsvalidation].
+Se occorre usare un nome DNS personalizzato, è necessario aggiungere il nome personalizzato nell'app Web. Il nome personalizzato deve essere convalidato come qualsiasi nome personalizzato, usando la risoluzione DNS pubblica. Per altre informazioni, vedere [Convalida DNS personalizzata][dnsvalidation].
 
 Per la console Kudu o l'API REST Kudu (distribuzione con gli agenti self-hosted di Azure DevOps, ad esempio), è necessario creare due record nella zona privata di DNS di Azure o nel server DNS personalizzato. 
 
@@ -118,7 +113,9 @@ Per informazioni dettagliate sui prezzi, vedere [Prezzi di Collegamento privato 
 
 Quando si usa una funzione di Azure in un piano elastico Premium con endpoint privato, per eseguire la funzione nel portale Web di Azure, è necessario avere accesso diretto alla rete oppure si riceverà un errore HTTP 403. In altre parole, il browser deve essere in grado di raggiungere l'endpoint privato per eseguire la funzione dal portale Web di Azure. 
 
-Durante l'anteprima, solo lo slot di produzione viene esposto dietro l'endpoint privato. Gli altri slot devono essere raggiunti dall'endpoint pubblico.
+È possibile connettersi fino a 100 endpoint privato a un'app Web specifica.
+
+L'endpoint privato è disponibile per app Web PremiumV2, PremiumV3, Windows e Linux, in contenitori o non in contenitori e per il piano Premium di funzioni di Azure (talvolta definito piano elastico Premium). 
 
 Vengono introdotti regolarmente miglioramenti per la funzionalità di collegamento privato e l'endpoint privato. Vedere [questo articolo][pllimitations] per informazioni aggiornate sulle limitazioni.
 

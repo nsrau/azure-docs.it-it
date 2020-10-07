@@ -10,12 +10,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: e0c5e6041da933b4a42bc438900f8c4c91cc6dbc
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 4b2f819edd875130c57d487536691b4588dcc71f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91711613"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772669"
 ---
 # <a name="monitoring-azure-files"></a>File di Azure di monitoraggio
 
@@ -66,11 +66,13 @@ Una volta creata l'impostazione di diagnostica nel portale di Azure è possibile
 
 È inoltre necessario specificare una delle seguenti categorie di operazioni per le quali si desidera raccogliere i log. 
 
-| Categoria | Descrizione |
+| Category | Descrizione |
 |:---|:---|
 | StorageRead | Operazioni di lettura sugli oggetti. |
 | StorageWrite | Operazioni di scrittura su oggetti. |
 | StorageDelete | Operazioni DELETE sugli oggetti. |
+
+Per ottenere l'elenco delle operazioni SMB e REST registrate, vedere [operazioni registrate di archiviazione e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [informazioni di riferimento sui dati di monitoraggio file di Azure](storage-files-monitoring-reference.md).
 
 ## <a name="analyzing-metrics"></a>Analisi delle metriche
 
@@ -276,7 +278,7 @@ L'esempio seguente mostra come leggere i dati di metrica per le metriche che sup
 
 È possibile accedere ai log delle risorse come BLOB in un account di archiviazione, come dati degli eventi o tramite query di Log Analytics.
 
-Per un riferimento dettagliato dei campi visualizzati in questi log, vedere informazioni di [riferimento sui dati di monitoraggio di Azure file di Azure](storage-files-monitoring-reference.md).
+Per ottenere l'elenco delle operazioni SMB e REST registrate, vedere [operazioni registrate di archiviazione e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [informazioni di riferimento sui dati di monitoraggio file di Azure](storage-files-monitoring-reference.md).
 
 > [!NOTE]
 > I log di Archiviazione di Azure in Monitoraggio di Azure si trovano in anteprima pubblica ed è possibile verificare l'anteprima in tutte le aree del cloud pubblico. Per registrarsi all'anteprima, vedere [questa pagina](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Questa anteprima abilita i log per BLOB (che includono Azure Data Lake Storage Gen2), file, code, tabelle, account di archiviazione Premium negli account di archiviazione per utilizzo generico v1 e utilizzo generico v2. Gli account di archiviazione della versione classica non sono supportati.
@@ -292,7 +294,7 @@ Le voci di registro vengono create solo se esistono richieste effettuate per l'e
 - Richieste che usano una firma di accesso condiviso o OAuth, incluse le richieste riuscite e non riuscite
 - Richieste ai dati di analisi (dati di log classici nel contenitore **$logs** e dati di metrica della classe nelle tabelle **$metric**)
 
-Le richieste effettuate dal servizio File di Azure stesso, ad esempio la creazione o l'eliminazione di log, non vengono registrate. Per un elenco completo dei dati registrati vedere [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [Formato del log di Analisi archiviazione](storage-files-monitoring-reference.md).
+Le richieste effettuate dal servizio File di Azure stesso, ad esempio la creazione o l'eliminazione di log, non vengono registrate. Per un elenco completo delle richieste SMB e REST registrate, vedere [operazioni registrate di archiviazione e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [file di Azure riferimento ai dati di monitoraggio](storage-files-monitoring-reference.md).
 
 ### <a name="log-anonymous-requests"></a>Richieste di registrazione anonime
 
@@ -303,7 +305,7 @@ Le richieste effettuate dal servizio File di Azure stesso, ad esempio la creazio
 - Errori di timeout per client e server
 - Richieste GET non riuscite con codice di errore 304 (non modificate)
 
-Tutte le altre richieste anonime non riuscite non vengono registrate. Per un elenco completo dei dati registrati vedere [Operazioni registrate di Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [Formato del log di Analisi archiviazione](storage-files-monitoring-reference.md).
+Tutte le altre richieste anonime non riuscite non vengono registrate. Per un elenco completo delle richieste SMB e REST registrate, vedere [operazioni registrate di archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [file di Azure riferimento ai dati di monitoraggio](storage-files-monitoring-reference.md).
 
 ### <a name="accessing-logs-in-a-storage-account"></a>Accesso ai log in un account di archiviazione
 

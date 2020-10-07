@@ -1,28 +1,28 @@
 ---
-title: Connettersi privatamente a un'app Web usando l'endpoint privato di Azure (anteprima)
-description: Questo articolo illustra come connettersi privatamente a un'app Web usando l'endpoint privato di Azure (anteprima).
+title: Connettersi privatamente a un'app Web usando l'endpoint privato di Azure
+description: Questo articolo illustra come connettersi privatamente a un'app Web usando un endpoint privato di Azure.
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: ccbcdbe9204120e1cf181136f566556ec30be871
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3e0f05240aba9b5c92689315e409aaabe793b3f4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054535"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772839"
 ---
-# <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint-preview"></a>Connettersi privatamente a un'app Web usando l'endpoint privato di Azure (anteprima)
+# <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint"></a>Connettersi privatamente a un'app Web usando l'endpoint privato di Azure
 
-Endpoint privato di Azure (anteprima) è il blocco predefinito fondamentale per il collegamento privato di Azure. Con l'endpoint privato è possibile connettersi privatamente all'app Web. In questo articolo si apprenderà come distribuire un'app Web usando un endpoint privato e quindi connettersi all'app Web da una macchina virtuale (VM).
+Endpoint privato di Azure è il blocco predefinito fondamentale per il collegamento privato di Azure. Con l'endpoint privato è possibile connettersi privatamente all'app Web. In questo articolo si apprenderà come distribuire un'app Web usando un endpoint privato e quindi connettersi all'app Web da una macchina virtuale (VM).
 
 Per altre informazioni, vedere [usare endpoint privati per un'app Web di Azure][privateendpointwebapp].
 
 > [!Note]
-> L'endpoint privato (anteprima) è disponibile nelle aree pubbliche per le app Web Windows di livello PremiumV2, le app Web Linux e il piano Premium di funzioni di Azure (talvolta definito piano elastico Premium). 
+> L'endpoint privato è disponibile nelle aree pubbliche per le app Web Windows a livello di PremiumV2, PremiumV3, app Web Linux e il piano Premium di funzioni di Azure (talvolta definito piano elastico Premium). 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -86,7 +86,7 @@ Per creare la macchina virtuale, eseguire le operazioni seguenti:
 In questa sezione si crea un'app Web privata che usa un endpoint privato.
 
 > [!Note]
-> La funzionalità endpoint privato è disponibile solo per il livello PremiumV2.
+> La funzionalità endpoint privato è disponibile solo per il livello PremiumV2 e PremiumV3.
 
 ### <a name="create-the-web-app"></a>Creare l'app Web
 
@@ -103,20 +103,20 @@ In questa sezione si crea un'app Web privata che usa un endpoint privato.
 
 ### <a name="create-the-private-endpoint"></a>Creare l'endpoint privato
 
-1. In proprietà dell'app Web in **Impostazioni**selezionare **rete**e quindi in **connessioni a endpoint privati (anteprima)** selezionare **Configura connessioni a endpoint privato**.
+1. In proprietà dell'app Web in **Impostazioni**selezionare **rete**e quindi in * * connessioni a endpoint privati * * selezionare **Configura connessioni a endpoint privato**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot del collegamento "configurare le connessioni all'endpoint privato" nel riquadro rete dell'app Web.][7]
 
-1. Nella procedura guidata **connessioni a endpoint privato (anteprima)** selezionare **Aggiungi**.
+1. Nella procedura guidata **connessioni endpoint privato** selezionare **Aggiungi**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot del pulsante Aggiungi nella procedura guidata "connessioni a endpoint privati (anteprima)".][8]
+   > ![Screenshot del pulsante Aggiungi nella procedura guidata "connessioni a endpoint privati".][8]
 
 1. Selezionare le informazioni corrette negli elenchi a discesa **sottoscrizione**, **rete virtuale**e **subnet** , quindi fare clic su **OK**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot del riquadro "Aggiungi endpoint privato (anteprima)".][9]
+   > ![Screenshot del riquadro "Aggiungi endpoint privato".][9]
 
 1. Monitorare lo stato di avanzamento della creazione dell'endpoint privato.
 
@@ -180,9 +180,6 @@ In questa sezione si connette privatamente all'app Web usando l'endpoint privato
    > [!div class="mx-imgBorder"]
    > ![Screenshot della pagina di errore "errore 403-accesso negato".][17]
 
-   > [!Important]
-   > Poiché questa funzionalità è in anteprima, è necessario gestire manualmente la voce Domain Name Service (DNS).
-
    Per il DNS, effettuare una delle operazioni seguenti:
  
    - Usare il servizio di zona privata di DNS di Azure.  
@@ -223,7 +220,7 @@ Al termine dell'uso dell'endpoint privato, dell'app Web e della macchina virtual
 
 In questo articolo è stata creata una VM in una rete virtuale, un'app Web e un endpoint privato. È stata effettuata la connessione a una VM da Internet e la comunicazione protetta con l'app Web è stata effettuata tramite un collegamento privato. 
 
-Per altre informazioni sull'endpoint privato (anteprima), vedere [che cos'è endpoint privato di Azure?][privateendpoint].
+Per altre informazioni sull'endpoint privato, vedere [che cos'è endpoint privato di Azure?][privateendpoint].
 
 <!--Image references-->
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png

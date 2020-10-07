@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4f943b11830c19ebb69dd501827deb158cecadf0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 04b5c9464c614c32f178e35e72cee98450007a62
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336752"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772788"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornire l'accesso a chiavi Key Vault, certificati e segreti con un controllo degli accessi in base al ruolo di Azure (anteprima)
 
@@ -64,6 +64,13 @@ Per altre informazioni sulle definizioni dei ruoli predefiniti di Azure, vedere 
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>Uso delle autorizzazioni di segreto, chiave e certificato RBAC di Azure con Key Vault
 
 Il nuovo modello di autorizzazione RBAC di Azure per Key Vault fornisce un'alternativa al modello di autorizzazioni per i criteri di accesso all'insieme di credenziali. 
+
+### <a name="prerequisites"></a>Prerequisiti
+
+Per aggiungere assegnazioni di ruolo, è necessario disporre di
+
+- Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+- autorizzazioni `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, ad esempio [Amministratore accesso utenti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) o [Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Abilitare le autorizzazioni RBAC di Azure per Key Vault
 

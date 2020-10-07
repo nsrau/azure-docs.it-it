@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 198b87d0a458108ce76934217c651d613ab5d75e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18b34ff466f3935cb5cd18d46e6d26e36e756a9b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512074"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774461"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Failover nell'appliance cloud StorSimple
 
@@ -46,15 +46,15 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un'appliance clo
     ![Selezionare il dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
 3. Selezionare e fare clic sul dispositivo di origine. Il dispositivo di origine presenta i contenitori dei volumi di cui effettuare il failover. Passare a **Impostazioni > Contenitori dei volumi**.
 
-    ![Selezionare il dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
+    ![Selezionare il dispositivo 2](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
     
 4. Selezionare un contenitore di volumi di cui si desidera eseguire il failover a un altro dispositivo. Fare clic sul contenitore di volumi per visualizzare l'elenco dei volumi presenti nel contenitore. Selezionare un volume e fare clic con il pulsante destro del mouse su **Porta offline** per portare il volume offline.
 
-    ![Selezionare il dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
+    ![Selezionare il dispositivo 3](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
 
 5. Ripetere questo processo per tutti i volumi nel contenitore di volumi.
 
-     ![Selezionare il dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
+     ![Selezionare il dispositivo 4](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
 
 6. Ripetere il passaggio precedente per tutti i contenitori di volumi di cui si desidera eseguire il failover a un altro dispositivo.
 
@@ -63,7 +63,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un'appliance clo
     ![Fare clic su Failover](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev8.png)
 8. Nel pannello **Failover** attenersi alla procedura seguente:
    
-    1. Fare clic su **Origine**. Selezionare i contenitori dei volumi per il failover. **Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
+    1. Fare clic su **origine**. Selezionare i contenitori dei volumi per il failover. **Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
         ![Seleziona origine](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev11.png)
     2. Fare clic su **Destinazione**. Nell'elenco a discesa dei dispositivi disponibili selezionare l'appliance cloud di destinazione. **Nell'elenco vengono visualizzati solo i dispositivi che hanno una capacità sufficiente a contenere i contenitori dei volumi di origine.**
 
@@ -81,7 +81,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un'appliance clo
 
     1. Selezionare il dispositivo usato come destinazione per il failover.
 
-       ![Selezionare il dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Selezionare il dispositivo 5](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
     2. Fare clic su **Contenitori di volume**. Dovrebbero essere elencati tutti i contenitori di volumi,  insieme ai volumi del dispositivo precedente.
 

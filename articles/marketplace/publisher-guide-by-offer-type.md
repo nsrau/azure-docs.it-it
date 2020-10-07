@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/29/2020
-ms.openlocfilehash: 2dfdfaae2c07adc7d9193ffb00f8549bd4090a6e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.date: 10/06/2020
+ms.openlocfilehash: ff31e29b8c2a36c9aaa3d72eab86340ed405b1ff
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578462"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772652"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guida alla pubblicazione per tipo di offerta
 
@@ -30,18 +30,19 @@ La tabella seguente illustra i tipi di offerta del Marketplace commerciale nel c
 
 | **Tipo di offerta**    | **Descrizione**  |
 | :------------------- | :-------------------|
-| [Applicazione Azure: **applicazione gestita**](./marketplace-managed-apps.md) | Usare il tipo di offerta applicazione Azure: applicazione gestita quando sono necessarie le condizioni seguenti: <br> <ul> <li> Si distribuisce una soluzione basata su sottoscrizione per i clienti che usano una macchina virtuale o un'intera soluzione basata su IaaS. </li> <li>L'utente o il cliente richiedono che la soluzione venga gestita da un partner. </li> <ul> |
-| [Applicazione Azure: **modello di soluzione**](./marketplace-solution-templates.md) | Usare il tipo di offerta applicazione Azure: modello di soluzione quando la soluzione richiede un'automazione aggiuntiva per la distribuzione e la configurazione oltre una singola macchina virtuale. I modelli di soluzione possono usare molti tipi diversi di risorse di Azure, tra cui, tra le altre, le macchine virtuali.  |
-  | [**Contenitore di Azure**](./marketplace-containers.md) | Usare il tipo di offerta contenitore di Azure quando la soluzione è un'immagine del contenitore Docker di cui è stato effettuato il provisioning come servizio contenitore di Azure basato su Kubernetes. |
-| [**Macchina virtuale di Azure**](./marketplace-virtual-machines.md) | Usare il tipo di offerta per le macchine virtuali quando si distribuisce un'appliance virtuale all'abbonamento associato al cliente. |
-| [**Servizio di consulenza**](./consulting-services.md) | I servizi di consulenza consentono di connettere i clienti con servizi per supportare ed estendere l'uso dei servizi di Azure, Dynamics 365 o Power Suite.|
-| [**Dynamics 365**](./appsource-offer-publishing-guide.md) | Puoi pubblicare offerte AppSource che sviluppano o estendono le app Dynamics 365 business Central, Dynamics 365 Customer Engagement, Power Apps e Finance e Operations.|
-| [**Modulo IoT Edge**](./iot-edge-module.md) | I moduli di Azure IoT Edge sono le unità di calcolo più piccole gestite da IoT Edge e possono contenere i servizi di Microsoft, ad esempio analisi di flusso, servizi di terze parti o il codice specifico per la soluzione. |
-| [**Microsoft 365 app Power BI <br/>**](./appsource-offer-publishing-guide.md) | È possibile pubblicare offerte AppSource che compilano o estendono Power BI e Microsoft 365.|
+| [Applicazione Azure: **applicazione gestita**](marketplace-managed-apps.md) | Usare il tipo di offerta applicazione Azure: applicazione gestita quando sono necessarie le condizioni seguenti: <br> <ul> <li>Si distribuisce una soluzione basata su sottoscrizione per i clienti che usano una macchina virtuale o un'intera soluzione basata su IaaS. </li> <li>L'utente o il cliente richiedono che la soluzione venga gestita da un partner. </li> <ul> |
+| [Applicazione Azure: **modello di soluzione**](marketplace-solution-templates.md) | Usare il tipo di offerta applicazione Azure: modello di soluzione quando la soluzione richiede un'automazione aggiuntiva per la distribuzione e la configurazione oltre una singola macchina virtuale. I modelli di soluzione possono usare molti tipi diversi di risorse di Azure, tra cui, tra le altre, le macchine virtuali.  |
+  | [**Contenitore di Azure**](marketplace-containers.md) | Usare il tipo di offerta contenitore di Azure quando la soluzione è un'immagine del contenitore Docker di cui è stato effettuato il provisioning come servizio contenitore di Azure basato su Kubernetes. |
+| [**Macchina virtuale di Azure**](marketplace-virtual-machines.md) | Usare il tipo di offerta per le macchine virtuali quando si distribuisce un'appliance virtuale all'abbonamento associato al cliente. |
+| [**Servizio di consulenza**](consulting-services.md) | I servizi di consulenza consentono di connettere i clienti con servizi per supportare ed estendere l'uso dei servizi di Azure, Dynamics 365 o Power Suite.|
+| [**Dynamics 365**](appsource-offer-publishing-guide.md) | Puoi pubblicare offerte AppSource che sviluppano o estendono le app Dynamics 365 business Central, Dynamics 365 Customer Engagement, Power Apps e Finance e Operations.|
+| [**Modulo IoT Edge**](iot-edge-module.md) | I moduli di Azure IoT Edge sono le unità di calcolo più piccole gestite da IoT Edge e possono contenere i servizi di Microsoft, ad esempio analisi di flusso, servizi di terze parti o il codice specifico per la soluzione. |
+| [**Servizi gestiti**](partner-center-portal/create-new-managed-service-offer.md) | È possibile creare offerte di servizi gestiti e gestire sottoscrizioni o gruppi di risorse delegati dai clienti tramite [Azure Lighthouse](/azure/lighthouse/overview).|
+| [**App Power bi** <br/> **Microsoft 365**](appsource-offer-publishing-guide.md) | È possibile pubblicare offerte AppSource che compilano o estendono Power BI e Microsoft 365.|
 | [**Software come servizio**](plan-saas-offer.md) | Usare il tipo di offerta Software as a Service (SaaS) per consentire al cliente di acquistare una soluzione tecnica basata su SaaS come sottoscrizione. |
-| [**Soluzioni integrate**](./integrated-solutions-for-publishers.md) | È possibile pubblicare soluzioni integrate e allineate al settore che combinano la tecnologia e i servizi come un'unica offerta.|
 
-Per informazioni sui requisiti di Single Sign-On elencando le opzioni e i tipi di offerta, vedere [**requisiti di Azure ad**](./enable-appsource-marketplace-using-azure-ad.md).
+
+Per informazioni sui requisiti di Single Sign-On elencando le opzioni e i tipi di offerta, vedere [**requisiti di Azure ad**](enable-appsource-marketplace-using-azure-ad.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

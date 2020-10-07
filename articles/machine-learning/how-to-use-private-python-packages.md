@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 1afa9173c2ca3704bf4408c271e3cf950ef79077
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 58bb08cad111e0744f7831783169901cd76caef4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302217"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772635"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Usare pacchetti Python privati con Azure Machine Learning
 
@@ -58,7 +58,7 @@ Questo approccio usa il token di accesso personale per l'autenticazione nel repo
 
  1. [Creare un token di accesso personale (Pat)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&preserve-view=true&tabs=preview-page#create-a-pat) per l'istanza di Azure DevOps. Consente di impostare l'ambito del token per la creazione di __pacchetti > lettura__. 
 
- 2. Aggiungere le proprietà URL DevOps di Azure e PAT come area di lavoro usando il metodo [Workspace. set_Connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
+ 2. Aggiungere le proprietà URL DevOps di Azure e PAT come area di lavoro usando il metodo [Workspace.set_Connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
 
      ```python
     from azureml.core import Workspace
@@ -91,7 +91,7 @@ L'ambiente è ora pronto per essere usato nelle esecuzioni di training o nelle d
 
 È possibile utilizzare i pacchetti da un account di archiviazione di Azure all'interno del firewall dell'organizzazione. L'account di archiviazione può avere un set curato di pacchetti o un mirror interno dei pacchetti disponibili pubblicamente.
 
-Per configurare tale archiviazione privata, vedere [proteggere un'area di lavoro di Azure Machine Learning e le risorse associate](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). È anche necessario [inserire il container Registry di Azure (ACR) dietro la VNet](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+Per configurare tale archiviazione privata, vedere [proteggere un'area di lavoro di Azure Machine Learning e le risorse associate](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints). È anche necessario [inserire il container Registry di Azure (ACR) dietro la VNet](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 > [!IMPORTANT]
 > È necessario completare questo passaggio per essere in grado di eseguire il training o la distribuzione di modelli tramite il repository dei pacchetti privati.

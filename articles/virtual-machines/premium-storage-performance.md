@@ -4,15 +4,15 @@ description: Progettare applicazioni a prestazioni elevate con i dischi SSD Prem
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/27/2017
+ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 48157c8d9285c48d49e76f39602075a2a8ac9682
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f89358f4ca34c39527d7e65307ada042ba3df7e0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650715"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776154"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: progettata per prestazioni elevate
 
@@ -305,45 +305,11 @@ Attualmente l'impostazione **Nessuno** è supportata solo nei dischi dati. Non �
 
 ## <a name="optimize-performance-on-linux-vms"></a>Ottimizzare le prestazioni nelle macchine virtuali Linux
 
-Per tutti i dischi Ultra o le unità SSD Premium con cache impostata su **ReadOnly** o **None**, è necessario disabilitare le "barriere" in fase di montaggio del file system. Non sono necessarie barriere per questo scenario perché le scritture relative ai dischi di archiviazione Premium sono durevoli per queste impostazioni della cache. Quando la richiesta di scrittura viene completata in modo corretto, i dati sono stati scritti nell'archivio persistente. Per disabilitare le "barriere", usare uno dei metodi seguenti. Scegliere l'opzione per il file system:
-  
-* Per **reiserFS**, per disabilitare le barriere, usare l'opzione di montaggio `barrier=none`. (Per abilitare le barriere, usare `barrier=flush`.)
-* Per **ext3/ext4**, per disabilitare le barriere, usare l'opzione di montaggio `barrier=0`. (Per abilitare le barriere, usare `barrier=1`.)
-* Per **XFS**, per disabilitare le barriere, usare l'opzione di montaggio `nobarrier`. (Per abilitare le barriere, usare `barrier`.)
-* Per i dischi di Archiviazione Premium con cache impostata su **ReadWrite**, abilitare le barriere per la durabilità della scrittura.
-* Per far sì che le etichette di volume si mantengano dopo il riavvio della VM, è necessario aggiornare /etc/fstab con i riferimenti degli identificatori universalmente univoci (UUID) ai dischi. Per altre informazioni, vedere [Aggiungere un disco gestito a una VM Linux](./linux/add-disk.md).
+Per tutte le unità SSD o i dischi Ultra Premium, potrebbe essere possibile disabilitare "barriere" per i file System sul disco per migliorare le prestazioni quando si è a conoscenza che non sono presenti cache che potrebbero perdere dati.  Se la memorizzazione nella cache su disco di Azure è impostata su ReadOnly o None, è possibile disabilitare le barriere.  Tuttavia, se la memorizzazione nella cache è impostata su ReadWrite, le barriere devono rimanere abilitate per garantire la durabilità della scrittura.  Le barriere sono generalmente abilitate per impostazione predefinita, ma è possibile disabilitare le barriere usando uno dei metodi seguenti a seconda del tipo di file system:
 
-Le distribuzioni Linux seguenti sono state convalidate per le unità SSD Premium. Per prestazioni e stabilità migliori con le unità SSD Premium, si consiglia di aggiornare le macchine virtuali a una di queste versioni o a una versione più recente. 
-
-Alcune versioni richiedono la versione più recente di Linux Integration Services (LIS) 4.0 per Azure. Per scaricare e installare una distribuzione, fare clic sul collegamento riportato nella tabella seguente. Nuove immagini vengono aggiunte all'elenco non appena viene completata la convalida. Le convalide mostrano che le prestazioni variano per ogni immagine. Le prestazioni dipendono dalle caratteristiche del carico di lavoro e dalle impostazioni. Immagini diverse sono ottimizzate per tipi di carico di lavoro diversi.
-
-| Distribuzione | Versione | Kernel supportato | Dettagli |
-| --- | --- | --- | --- |
-| Ubuntu | 12.04 o versione successiva| 3.2.0-75.110+ | &nbsp; |
-| Ubuntu | 14.04 o versione successiva| 3.13.0-44.73+  | &nbsp; |
-| Debian | 7.x, 8.x o versione successiva| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 o versione successiva| 3.12.36-38.1+ | &nbsp; |
-| SUSE | SLES 11 SP4 o versione successiva| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+ o versione successiva| 3.18.4+ | &nbsp; |
-| CentOS | 6.5, 6.6, 6.7, 7.0 o versione successiva| &nbsp; | [LIS4 richiesto](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Vedere la nota nella sezione successiva* |
-| CentOS | 7.1+ o versione successiva| 3.10.0-229.1.2.el7+ | [LIS4 consigliato](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Vedere la nota nella sezione successiva* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ o versione successiva | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ o versione successiva | &nbsp; | UEK4 o RHCK |
-| Oracle | 7.0-7.1 o versione successiva | &nbsp; | UEK4 o RHCK con [LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-| Oracle | 6.4-6.7 o versione successiva | &nbsp; | UEK4 o RHCK con [LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-
-### <a name="lis-drivers-for-openlogic-centos"></a>Driver LIS per Openlogic CentOS
-
-Se si eseguono macchine virtuali OpenLogic CentOS, eseguire il comando seguente per installare i driver più recenti:
-
-```
-sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
-sudo yum install microsoft-hyper-v
-sudo reboot
-```
-
-In alcuni casi il comando precedente aggiornerà anche il kernel. Se è necessario un aggiornamento del kernel, può essere necessario eseguire di nuovo i comandi precedenti dopo il riavvio per installare completamente il pacchetto microsoft-hyper-v.
-
+* Per **ReiserFS**, usare l'opzione di montaggio Barrier = None per disabilitare le barriere.  Per abilitare in modo esplicito le barriere, usare Barrier = Flush.
+* Per **ext3/ext4**, usare l'opzione di montaggio barrier = 0 per disabilitare le barriere.  Per abilitare in modo esplicito le barriere, usare la barriera = 1.
+* Per **XFS**, usare l'opzione di montaggio nobarrier per disabilitare le barriere.  Per abilitare in modo esplicito le barriere, usare la barriera.  Si noti che nelle versioni successive del kernel Linux, la progettazione di XFS file system garantisce sempre durabilità e la disabilitazione delle barriere non ha alcun effetto.  
 
 ## <a name="disk-striping"></a>Striping del disco
 
