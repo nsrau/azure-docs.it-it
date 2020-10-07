@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: cfdb02b0a5942536a608fbc957ed69d1efd97e8e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: deda7644d29fce5deb8d6c76f93da0caf0b22ff8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756895"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536920"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Esercitazione: Creare un'applicazione Scala Maven per Apache Spark in HDInsight usando IntelliJ
 
@@ -98,7 +98,7 @@ Per installare il plug-in di Scala, seguire questa procedura:
 
 5. Nell'elenco degli archetipi selezionare **`org.scala-tools.archetypes:scala-archetype-simple`** . Questo archetipo crea la struttura di directory appropriata e scarica le dipendenze predefinite necessarie per scrivere un programma Scala.
 
-    ![`Creazione di un progetto Maven per IntelliJ IDEA`](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
+    ![Screenshot che mostra l'archetipo selezionato nella finestra New Project (Nuovo progetto).](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
 
 6. Selezionare **Avanti**.
 
@@ -107,7 +107,7 @@ Per installare il plug-in di Scala, seguire questa procedura:
     - **GroupId:** com.microsoft.spark.example
     - **ArtifactId:** SparkSimpleApp
 
-    ![`Creazione di un progetto Maven per IntelliJ IDEA`](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
+    ![Screenshot che mostra l'opzione Artifact Coordinates (Coordinate artefatto) nella finestra (Nuovo progetto).](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
 
 8. Selezionare **Avanti**.
 

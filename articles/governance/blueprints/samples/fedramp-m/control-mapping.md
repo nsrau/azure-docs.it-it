@@ -3,12 +3,12 @@ title: Controlli dell'esempio di progetto FedRAMP Moderate
 description: Mapping dei controllo dell'esempio di progetto FedRAMP Moderate. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
 ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: 264467fa03a1c72c31ea6073f57a7931ece3da64
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: adc91813e40c18d2ecd67d912db214d77776b8a5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296142"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530171"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Mapping dei controllo dell'esempio di progetto FedRAMP Moderate
 
@@ -31,7 +31,7 @@ Questo progetto consente di esaminare gli account che potrebbero non conformi ai
 
 ## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Gestione degli account | Schemi basati sui ruoli
 
-Azure implementa il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-access-control/overview.md) che semplifica la gestione dell'accesso degli utenti alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto assegna inoltre definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare l'uso dell'autenticazione di Azure Active Directory per istanze di SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft. Questo progetto assegna inoltre una definizione di Criteri di Azure per controllare l'uso di regole personalizzate del controllo degli accessi in base al ruolo. Identificando dove vengono implementate regole personalizzate del controllo degli accessi in base al ruolo, è possibile verificare l'esigenza e la corretta implementazione, perché tali regole sono soggette a errore.
+Il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-access-control/overview.md) consente di gestire l'accesso degli utenti alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto assegna inoltre definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare l'uso dell'autenticazione di Azure Active Directory per istanze di SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft. Questo progetto assegna inoltre una definizione di Criteri di Azure per controllare l'uso di regole personalizzate del Controllo degli accessi in base al ruolo di Azure. Identificando dove vengono implementate regole personalizzate del Controllo degli accessi in base al ruolo di Azure, è possibile verificare l'esigenza e la corretta implementazione, perché tali regole sono soggette a errore.
 
 - È consigliabile effettuare il provisioning di un amministratore di Azure Active Directory per SQL Server
 - Controlla l'uso di ruoli di controllo degli accessi in base al ruolo personalizzati
