@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a1dc42815167da308fd87b541c0f21d02b47329b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b6f2e8ff6689a3817ecf9eb43c7cea4a0632fc25
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022514"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297666"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Esercitazione: Esplorare Gemelli digitali di Azure con un'app client di esempio
 
@@ -85,18 +85,18 @@ Assicurarsi di salvare il file prima di procedere.
 
 Ora che è stato definito un modello, i passaggi rimanenti consistono nell'usare l'app di esempio per interagire con l'istanza di Gemelli digitali di Azure. Eseguire il progetto premendo questo pulsante sulla barra degli strumenti:
 
-:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="Pulsante di avvio di Visual Studio (progetto SampleClientApp)":::
+:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
 Viene aperta una finestra della console, in cui viene eseguita l'autenticazione e si attende un comando. 
 * L'autenticazione viene gestita tramite il browser. Il Web browser predefinito verrà aperto con una richiesta di autenticazione. Usare la richiesta per accedere con le credenziali di Azure. È quindi possibile chiudere la scheda o la finestra del browser.
 
 Ecco uno screenshot della console del progetto:
 
-:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Messaggio di benvenuto dall'app da riga di comando":::
+:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
 > [!TIP]
 > Per un elenco di tutti i comandi che è possibile usare con questo progetto, immettere `help` nella console del progetto e premere INVIO.
-> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Output del comando help":::
+> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
 Mantenere in esecuzione la console del progetto per i passaggi rimanenti dell'esercitazione.
 
@@ -117,7 +117,7 @@ L'output dovrebbe indicare che i modelli sono stati creati correttamente.
 
 Verificare se i modelli sono stati creati eseguendo il comando `GetModels true`. Viene eseguita una query sull'istanza di Gemelli digitali di Azure per recuperare tutti i modelli caricati e verranno stampate le relative informazioni complete. Cercare il modello *Room* modificato nei risultati:
 
-:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Risultati di GetModels che mostrano il modello Room aggiornato":::
+:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
 #### <a name="errors"></a>Errors
 
@@ -165,7 +165,7 @@ CreateDigitalTwin dtmi:example:Floor;1 floor1
 
 L'output di questi comandi dovrebbe indicare che i gemelli sono stati creati correttamente. 
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Estratto dei risultati dei comandi CreateDigitalTwin, che mostra floor0, floor1, room0 e room1":::
+:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
 È anche possibile verificare se i gemelli sono stati creati eseguendo il comando `Query`. Questo comando esegue una query nell'istanza di Gemelli digitali di Azure per recuperare tutti i gemelli digitali che contiene. Cercare i gemelli *floor0*, *floor1*, *room0* e *Room1* nei risultati.
 
@@ -205,27 +205,19 @@ CreateRelationship floor1 contains room1 relationship1
 
 L'output di questi comandi conferma che le relazioni sono state create correttamente:
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Estratto dei risultati dei comandi CreateRelationship, che mostra relationship0 e relationship1":::
-
-È anche possibile verificare le relazioni con uno dei comandi seguenti, che eseguono query sulle relazioni nell'istanza di Gemelli digitali di Azure.
-* Per vedere tutte le relazioni provenienti da ogni piano (visualizzazione delle relazioni da un lato):
-    ```cmd/sh
-    GetRelationships floor0
-    GetRelationships floor1
-    ```
-* Per vedere tutte le relazioni in arrivo in ogni stanza (visualizzazione della relazione dall'"altro" lato):
+:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains" lato):
     ```cmd/sh
     GetIncomingRelationships room0
     ```
 * Per eseguire query per recuperare queste relazioni singolarmente: 
     ```cmd/sh
-    GetRelationship floor0 contains relationship0
-    GetRelationship floor1 contains relationship1
+    GetRelationship floor0 relationship0
+    GetRelationship floor1 relationship1
     ```
 
 I gemelli e le relazioni configurati in questa esercitazione formano il grafo concettuale seguente:
 
-:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="Grafo che mostra floor0 connesso tramite relationship0 a room0 e floor1 connesso tramite relationship1 a room1" border="false":::
+:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains" border="false":::
 
 ### <a name="query-the-twin-graph-to-answer-environment-questions"></a>Eseguire una query sul grafo dei gemelli per rispondere alla domande sull'ambiente
 
@@ -239,10 +231,10 @@ Una delle principali funzionalità di Gemelli digitali di Azure è la possibilit
 
     In questo modo è possibile ottenere una panoramica dell'ambiente e assicurarsi che tutti gli elementi siano rappresentati come previsto all'interno di Gemelli digitali di Azure. Il risultato è un output contenente ogni gemello digitale con i relativi dettagli. Ecco un estratto:
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Risultati parziali della query sui gemelli, che mostrano room0 e floor1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
     >[!NOTE]
-    >Il comando `Query` senza argomenti aggiuntivi è l'equivalente di `Query SELECT * FROM DIGITALTWINS`.
+    >Nel progetto di esempio il comando `Query` senza argomenti aggiuntivi è l'equivalente di `Query SELECT * FROM DIGITALTWINS`. Per eseguire query su tutti i gemelli nell'istanza con le [API Query](how-to-use-apis-sdks.md) o i [comandi dell'interfaccia della riga di comando](how-to-use-cli.md), usare la query più lunga (completa).
 
 * **Quali sono tutte le stanze dell'ambiente?** (query per modello)
 
@@ -252,7 +244,7 @@ Una delle principali funzionalità di Gemelli digitali di Azure è la possibilit
 
     È possibile limitare la query ai gemelli di un determinato tipo, per ottenere informazioni più specifiche su quello che rappresentano. Il risultato di questa operazione mostra *room0* e *room1*, ma **non** mostra *floor0* o *floor1* (perché si tratta di piani, non di stanze).
     
-    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Risultati della query per modello, che mostrano solo room0 e room1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
 * **Quali sono tutte le stanze in *floor0*?** (query per relazione)
 
@@ -262,7 +254,7 @@ Una delle principali funzionalità di Gemelli digitali di Azure è la possibilit
 
     È possibile eseguire query in base alle relazioni nel grafo, per ottenere informazioni sul modo in cui i gemelli sono connessi o limitare la query a una determinata area. In *floor0* è presente solo *room0*, che quindi è l'unica stanza nel risultato.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Risultati della query per relazione, che mostrano room0":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
 * **Quali sono gli altri gemelli dell'ambiente con una temperatura superiore a 75?** (query per proprietà)
 
@@ -272,7 +264,7 @@ Una delle principali funzionalità di Gemelli digitali di Azure è la possibilit
 
     È possibile eseguire una query sul grafo in base alle proprietà per rispondere a una serie di domande, anche per trovare outlier nell'ambiente che potrebbero richiedere attenzione. Sono supportati anche altri operatori di confronto, ossia *<* , *>* , *=* o *!=* . I risultati mostrano *room1*, perché ha una temperatura pari a 80.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Risultati della query per proprietà, che mostrano solo room1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
 * **Quali sono tutte le stanze in *floor0* con una temperatura superiore a 75?** (query composta)
 
@@ -282,7 +274,7 @@ Una delle principali funzionalità di Gemelli digitali di Azure è la possibilit
 
     È anche possibile combinare le query precedenti come in SQL, usando operatori di combinazione come `AND`, `OR`, `NOT`. Questa query usa `AND` per rendere più specifica la query precedente sulle temperature dei gemelli. Il risultato include ora solo le stanze con temperature superiori a 75 che si trovano in *floor0*, ovvero in questo caso nessuna stanza. Il set di risultati è vuoto.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Risultati della query composta, senza risultati":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="File Room.json modificato con il numero di versione aggiornato, le proprietà HumidityLevel e RoomName e la relazione contains":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

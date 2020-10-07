@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 34257281470f051f3d385aa729ca5a4f3591e61c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: a0db0ff7db8f0bf5b036e40080ee7ff8eac62b63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586251"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322683"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Esempi Python per Azure Cosmos DB
 
@@ -22,6 +22,7 @@ ms.locfileid: "88586251"
 > * [Esempi di .NET V2 SDK](sql-api-dotnet-samples.md)
 > * [Esempi di .NET V3 SDK](sql-api-dotnet-v3sdk-samples.md)
 > * [Esempi di Java V4 SDK](sql-api-java-sdk-samples.md)
+> * [Esempi di Spring Data V3 SDK](sql-api-spring-data-sdk-samples.md)
 > * [Esempi di Node.js](sql-api-nodejs-samples.md)
 > * [Esempi di Python](sql-api-python-samples.md)
 > * [Raccolta di esempi di codice di Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -33,7 +34,7 @@ Il repository [azure-documentdb-python](https://github.com/Azure/azure-documentd
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Account Cosmos DB. Le opzioni disponibili sono le seguenti:
+- Un account Cosmos DB. Le opzioni disponibili sono le seguenti:
     * All'interno di una sottoscrizione di Azure attiva:
         * [Creare un account Azure gratuito](https://azure.microsoft.com/free) o usare una sottoscrizione esistente 
         * [Crediti mensili di Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)

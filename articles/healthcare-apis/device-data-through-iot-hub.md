@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 04c732b857c06246bdc636f01afd2689c98c2b0d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3b2e4a1ae5ff43283893b286dafb38491a1181b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831618"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308225"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Esercitazione: Ricevere i dati dei dispositivi tramite l'hub IoT di Azure
 
@@ -61,7 +61,7 @@ Ecco l'elenco dei parametri da usare con il comando per creare un endpoint:
 ### <a name="add-a-message-route"></a>Aggiungere una route dei messaggi
 Questo passaggio definisce una route dei messaggi usando l'endpoint creato in precedenza. Creare questa route usando il comando di PowerShell [Add-AzIotHubRoute](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIoTHubRoute) o il comando dell'interfaccia della riga di comando [az iot hub route create](https://docs.microsoft.com/cli/azure/iot/hub/route#az-iot-hub-route-create), in base alle preferenze.
 
-Ecco l'elenco dei parametri da usare con il comando per creare un endpoint:
+Ecco l'elenco dei parametri da usare con il comando per aggiungere una route dei messaggi:
 
 |Parametro di PowerShell|Parametro dell'interfaccia della riga di comando|Descrizione|
 |---|---|---|
