@@ -1,19 +1,19 @@
 ---
-title: Script di PowerShell per modificare la priorità di failover per un account Azure Cosmos a master singolo
-description: Esempio di script di Azure PowerShell - Cambiare la priorità di failover o attivare un failover per un account Azure Cosmos DB a master singolo
+title: Script di PowerShell per modificare la priorità di failover per un account Azure Cosmos con una singola area di scrittura
+description: Esempi di script di Azure PowerShell - Cambiare la priorità di failover o attivare un failover per un account Azure Cosmos con una singola area di scrittura
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: a81938675e72d9ec3a18c920121951e38580b91e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 07561de8236a06a3ac34aa8867a07890aaf0656f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505268"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570605"
 ---
-# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>Cambiare la priorità di failover o attivare un failover di un account Azure Cosmos DB a master singolo tramite PowerShell
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-with-single-write-region-by-using-powershell"></a>Cambiare la priorità di failover o attivare un failover di un account Azure Cosmos con una singola area di scrittura tramite PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
