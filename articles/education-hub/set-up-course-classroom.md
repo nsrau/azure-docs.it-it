@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: 0b797e2416b4d8849da19e4e75127f86a6f17322
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87101055"
 ---
 # <a name="quickstart-set-up-a-course-and-create-a-classroom"></a>Avvio rapido: Configurare un corso e creare una classe
@@ -45,17 +45,17 @@ Seguire questa procedura per creare un corso e una classe scegliendo tra due div
 
 1. Selezionare l'icona **+ Aggiungi** nell'angolo superiore sinistro della tabella per avviare il flusso di lavoro di creazione.
 
-    :::image type="content" source="media/set-up-course-classroom/courses-add.png" alt-text="Aggiungere un corso all'hub di Education di Azure" border="false":::
+    :::image type="content" source="media/set-up-course-classroom/courses-add.png" alt-text="Pagina Corsi dell'hub di Education di Azure" border="false":::
 
 1. È possibile creare un registro del corso usando due metodi: caricando un registro o usando un codice di invito.
     - **Registro**: se si dispone già dei nomi e degli account di accesso di tutti gli studenti, è possibile popolare e caricare un file di registro. Per scaricare un file di esempio del file csv necessario per caricare il registro, selezionare il collegamento **Scarica file di esempio** nell'angolo in alto a destra.
     - **Codice di invito**: se si sceglie di usare un codice di invito, decidere quanti codici possono essere riscattati e definire la scadenza. Per riscattare il codice, si invierà agli studenti il collegamento seguente: https://aka.ms/joinedu.
 
-      :::image type="content" source="media/set-up-course-classroom/enter-invitation-code.png" alt-text="Immettere il codice di invito nell'hub di Education di Azure" border="false":::
+      :::image type="content" source="media/set-up-course-classroom/enter-invitation-code.png" alt-text="Pagina Corsi dell'hub di Education di Azure" border="false":::
 
 1. Selezionare **Crea classe** nell'angolo in basso a destra. Il completamento potrebbe richiedere alcuni istanti.
 
-   :::image type="content" source="media/set-up-course-classroom/create-classroom.png" alt-text="Creare una classe nell'hub di Education di Azure" border="false":::
+   :::image type="content" source="media/set-up-course-classroom/create-classroom.png" alt-text="Pagina Corsi dell'hub di Education di Azure" border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

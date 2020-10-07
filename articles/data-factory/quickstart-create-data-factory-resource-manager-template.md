@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
 ms.openlocfilehash: eb423ebd354adeb8273755d34323b283d53eb8b5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87283895"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Avvio rapido: Creare un'istanza di Azure Data Factory con un modello di Azure Resource Manager
@@ -94,23 +94,23 @@ Altri esempi di modelli di Azure Data Factory sono disponibili nella [raccolta d
 
 1. Selezionare **Vai al gruppo di risorse**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Gruppo di risorse":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Distribuire un modello di Azure Resource Manager per Azure Data Factory":::
 
 2.  Verificare che venga creata l'istanza di Azure Data Factory.
     1. Il nome dell'istanza di Azure Data Factory è nel formato - datafactory\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Data factory di esempio":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Distribuire un modello di Azure Resource Manager per Azure Data Factory":::
 
 2. Verificare che venga creato un account di archiviazione.
     1. Il nome dell'account di archiviazione è nel formato - storage\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Storage Account":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Distribuire un modello di Azure Resource Manager per Azure Data Factory":::
 
 3. Selezionare l'account di archiviazione creato e quindi selezionare **Contenitori**.
     1. Nella pagina **Contenitori** selezionare il contenitore BLOB creato.
         1. Il nome del contenitore BLOB è nel formato - blob\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Contenitore BLOB":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Distribuire un modello di Azure Resource Manager per Azure Data Factory":::
 
 ### <a name="upload-a-file"></a>Caricare un file
 
@@ -126,7 +126,7 @@ Altri esempi di modelli di Azure Data Factory sono disponibili nella [raccolta d
 
 6. Selezionare l'icona **Chiudi** (una **X**) per chiudere la pagina **Carica BLOB**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Caricare il file nella cartella di input":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Distribuire un modello di Azure Resource Manager per Azure Data Factory":::
 
 Lasciare aperta la pagina del contenitore perché è possibile usarla per verificare l'output alla fine di questo argomento di avvio rapido.
 
@@ -136,17 +136,17 @@ Lasciare aperta la pagina del contenitore perché è possibile usarla per verifi
 
 2. Selezionare il riquadro **Crea e monitora**. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Crea e monitora":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Distribuire un modello di Azure Resource Manager per Azure Data Factory":::
 
 2. Selezionare la scheda **Autore** :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false":::.
 
 3. Selezionare la pipeline creata: ArmtemplateSampleCopyPipeline.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Pipeline del modello di Azure Resource Manager":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Distribuire un modello di Azure Resource Manager per Azure Data Factory":::
 
 4. Selezionare **Aggiungi trigger** > **Trigger Now** (Attiva adesso).
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Trigger":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Distribuire un modello di Azure Resource Manager per Azure Data Factory":::
 
 5. Nel riquadro destro in **Pipeline run** (Esecuzione pipeline) scegliere **OK**.
 
@@ -156,7 +156,7 @@ Lasciare aperta la pagina del contenitore perché è possibile usarla per verifi
 
 2. Vengono visualizzate le esecuzioni di attività associate all'esecuzione della pipeline. In questa guida introduttiva la pipeline ha solo un'attività di tipo copia. Viene pertanto visualizzata un'esecuzione per tale attività.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Esecuzione riuscita":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Distribuire un modello di Azure Resource Manager per Azure Data Factory":::
 
 ### <a name="verify-the-output-file"></a>Verificare il file di output
 
@@ -168,7 +168,7 @@ La pipeline crea automaticamente una cartella di output nel contenitore BLOB. qu
 
 3. Verificare che **emp.txt** venga copiato nella cartella di output. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Output":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Distribuire un modello di Azure Resource Manager per Azure Data Factory":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

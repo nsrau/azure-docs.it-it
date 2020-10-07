@@ -4,10 +4,10 @@ description: "Avvio rapido: Usare Griglia di eventi di Azure e il portale di Azu
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87421043"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Avvio rapido: Instradare eventi personalizzati all'endpoint Web con il portale di Azure e Griglia di eventi
@@ -29,7 +29,7 @@ Un argomento di Griglia di eventi fornisce un endpoint definito dall'utente in c
     :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 3. Nella pagina **Argomenti di Griglia di eventi** selezionare **+Aggiungi** sulla barra degli strumenti. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Pulsante Aggiungi argomento di Griglia di eventi":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 4. Nella pagina **Crea argomento** procedere come segue:
     1. Selezionare la **sottoscrizione**di Azure.
     2. Selezionare un gruppo di risorse esistente oppure selezionare **Crea nuovo** e immettere un **nome** per il **gruppo di risorse**.
@@ -37,18 +37,18 @@ Un argomento di Griglia di eventi fornisce un endpoint definito dall'utente in c
     4. Selezionare una **posizione** per l'argomento di Griglia di eventi.
     5. Selezionare **Rivedi e crea** nella parte inferiore della pagina. 
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/create-custom-topic.png" alt-text="Pagina Crea argomento":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/create-custom-topic.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
     6. Nella scheda **Rivedi e crea** della pagina **Crea argomento** selezionare **Crea**. 
     
-        :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Verificare le impostazioni e selezionare Crea":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 5. Al termine della distribuzione, digitare **Argomenti di Griglia di eventi** nella barra di ricerca e selezionare **Argomenti di Griglia di eventi** nell'elenco a discesa come è stato fatto in precedenza. 
 6. Selezionare l'argomento creato dall'elenco. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Selezionare l'argomento dall'elenco":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 
 7. Verrà visualizzata la pagina **Argomento di Griglia di eventi** relativa all'argomento. Tenere aperta questa pagina. Verrà usata in seguito nell'argomento di avvio rapido. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Home page di Argomento di Griglia di eventi":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 
 ## <a name="create-a-message-endpoint"></a>Creare un endpoint del messaggio
 Prima di creare una sottoscrizione per l'argomento personalizzato, creare un endpoint per il messaggio dell'evento. L'endpoint richiede in genere azioni basate sui dati degli eventi. Per semplificare questa guida introduttiva, si distribuisce un'[app Web preesistente](https://github.com/Azure-Samples/azure-event-grid-viewer) che visualizza i messaggi di evento. La soluzione distribuita include un piano di servizio app, un'app Web del servizio app e codice sorgente da GitHub.
@@ -69,16 +69,16 @@ Si sottoscrive un argomento di Griglia di eventi per indicare di quali eventi si
 
 1. Nella pagina **Argomento di Griglia di eventi** relativa all'argomento personalizzato selezionare **+ Sottoscrizione di eventi** sulla barra degli strumenti.
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Pulsante per aggiungere una sottoscrizione di eventi":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 2. Nella pagina **Crea sottoscrizione di eventi** procedere come segue:
     1. Specificare un **nome** per la sottoscrizione di eventi.
     3. Selezionare **Webhook** per **Tipo di endpoint**. 
     4. Scegliere **Seleziona endpoint**. 
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/provide-subscription-values.png" alt-text="Specificare i valori della sottoscrizione di eventi":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-subscription-values.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
     5. Per l'endpoint del webhook, specificare l'URL dell'app Web e aggiungere `api/updates` all'URL della home page. Selezionare **Confermare la selezione**.
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Specificare l'URL endpoint":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
     6. Nella pagina **Crea sottoscrizione di eventi** selezionare **Crea**.
 
 3. Visualizzare nuovamente l'app Web e notare che all'app è stato inviato un evento di convalida della sottoscrizione. Selezionare l'icona a forma di occhio per espandere i dati dell'evento. Griglia di eventi invia l'evento di convalida in modo che l'endpoint possa verificare che voglia ricevere i dati dell'evento. L'app Web include il codice per convalidare la sottoscrizione.
@@ -95,7 +95,7 @@ Il primo esempio usa l'interfaccia della riga di comando di Azure. Ottiene l'URL
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 1. Nel portale di Azure selezionare **Cloud Shell**. Cloud Shell verrà aperto nel riquadro inferiore del Web browser. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Icona per la selezione di Cloud Shell":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 1. Selezionare **Bash** nell'angolo in alto a sinistra della finestra Cloud Shell. 
 
     ![Cloud Shell - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
@@ -125,7 +125,7 @@ Il secondo esempio usa PowerShell per eseguire passaggi simili.
 
 1. Nel portale di Azure selezionare **Cloud Shell** (in alternativa, passare a `https://shell.azure.com/`). Cloud Shell verrà aperto nel riquadro inferiore del Web browser. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Icona per la selezione di Cloud Shell":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 1. In **Cloud Shell** selezionare **PowerShell** nell'angolo in alto a sinistra della finestra Cloud Shell. Vedere l'esempio di immagine di finestra **Cloud Shell** nella sezione sull'interfaccia della riga di comando di Azure.
 2. Impostare le variabili seguenti. Dopo aver copiato e incollato ogni singolo comando, aggiornare il **nome dell'argomento** e il **nome del gruppo di risorse** prima di eseguirlo:
 
@@ -178,7 +178,7 @@ Il secondo esempio usa PowerShell per eseguire passaggi simili.
 ### <a name="verify-in-the-event-grid-viewer"></a>Verificare nel visualizzatore Griglia di eventi
 È stato attivato l'evento e Griglia di eventi ha inviato il messaggio all'endpoint configurato al momento della sottoscrizione. Visualizzare l'app Web per vedere l'evento appena inviato.
 
-:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Visualizzatore Griglia di eventi":::
+:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Se si intende continuare a usare questo evento, non è necessario pulire le risorse create con questo articolo. In caso contrario, eliminare le risorse create in questo articolo.

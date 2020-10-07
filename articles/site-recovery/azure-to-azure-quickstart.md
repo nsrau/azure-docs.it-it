@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
 ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86135713"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Guida introduttiva: Configurare il ripristino di emergenza in un'area di Azure secondaria per una macchina virtuale di Azure
@@ -48,7 +48,7 @@ Al termine del processo di replica, è possibile controllare lo stato di replica
 1. In **Operazioni** selezionare **Ripristino di emergenza**.
 1. Per visualizzare i dettagli della replica selezionare **Informazioni di base** in **Panoramica**. Per altre informazioni, vedere la mappa **Integrità e stato**, **Conformità failover** e **Visualizzazione dell'infrastruttura**.
 
-   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Stato della replica.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Abilitare la replica":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -65,7 +65,7 @@ Per disabilitare la replica, attenersi alla procedura seguente:
 1. In **Panoramica** selezionare **Disabilita replica**.
 1. Per disinstallare l'estensione Site Recovery, passare a **Impostazioni** > **Estensioni** della macchina virtuale.
 
-   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Disabilitare la replica.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Abilitare la replica":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

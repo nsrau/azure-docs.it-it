@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: rohink
 ms.openlocfilehash: 52bf9e061eb57c7ce6ea698b7468b5ba5e11b4e8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78244958"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Guida introduttiva: Creare una zona DNS privato di Azure con il portale di Azure
@@ -76,7 +76,7 @@ In questa sezione è necessario sostituire i parametri seguenti delle procedure 
 
 ## <a name="link-the-virtual-network"></a>Collegare la rete virtuale
 
-Per collegare la zona DNS privata a una rete virtuale, è necessario creare un collegamento di rete virtuale.
+Per collegare la zona DNS privato a una rete virtuale, è necessario creare un collegamento di rete virtuale.
 
 ![Aggiungere un collegamento di rete virtuale](media/private-dns-portal/dns-add-virtual-network-link.png)
 
@@ -143,7 +143,7 @@ Ripetere l'operazione per myVM02.
    ```
    ping myVM01.private.contoso.com
    ```
-   Verrà visualizzato un output simile al seguente:
+   Verrà visualizzato un output simile a questo:
    ```
    PS C:\> ping myvm01.private.contoso.com
 
@@ -163,7 +163,7 @@ Ripetere l'operazione per myVM02.
    ```
    ping db.private.contoso.com
    ```
-   Verrà visualizzato un output simile al seguente:
+   Verrà visualizzato un output simile a questo:
    ```
    PS C:\> ping db.private.contoso.com
 

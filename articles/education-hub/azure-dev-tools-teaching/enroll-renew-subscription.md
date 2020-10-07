@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: edb0de9f235565d09c81ce4466de59698a321f56
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87100913"
 ---
 # <a name="enroll-or-renew-an-azure-dev-tools-for-teaching-subscription"></a>Registrazione o rinnovo delle sottoscrizioni di Azure Dev Tools for Teaching
@@ -33,19 +33,19 @@ Questo articolo descrive la procedura per la registrazione in Azure Dev Tools fo
 
 1. Se si esegue la registrazione per la prima volta, completare le **informazioni sull'istituto**. In caso di rinnovo, le informazioni vengono compilate automaticamente.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-institution-information.png" alt-text="Immettere le informazioni sull'istituto." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-institution-information.png" alt-text="Messaggio di errore di accesso." border="false":::
     
 1. Inserire le **informazioni di fatturazione**. Se l'istituto fa parte di un contratto multilicenza, è possibile immettere il numero di tale contratto. Se si effettua l'iscrizione a una nuova sottoscrizione e si sceglie un metodo di pagamento diverso dalla carta di credito, è possibile che si verifichi un ritardo nell'ottenere l'accesso alla sottoscrizione durante i processi di pagamento. Si riceveranno messaggi di posta elettronica di aggiornamento sullo stato del pagamento.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-billing-information.png" alt-text="Immettere le informazioni di fatturazione." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-billing-information.png" alt-text="Messaggio di errore di accesso." border="false":::
     
 1. Selezionare il **piano di sottoscrizione** e confermare l'**amministratore della sottoscrizione**. Il dominio di posta elettronica dell'amministratore della sottoscrizione consentirà agli studenti nello stesso dominio di accedere facilmente per scaricare i vantaggi del software.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-select-subscription-plan.png" alt-text="Selezionare il piano di sottoscrizione." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-select-subscription-plan.png" alt-text="Messaggio di errore di accesso." border="false":::
     
 1. Confermare tutte le informazioni dell'acquisto e fare clic su **Esegui ordine**. Nella cartella della posta in arrivo si riceveranno messaggi di posta elettronica di conferma, con aggiornamenti sullo stato del pagamento e su eventuali passaggi successivi.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-confirm-place-order.png" alt-text="Confermare l'ordine." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-confirm-place-order.png" alt-text="Messaggio di errore di accesso." border="false":::
 
 ## <a name="renew-an-existing-subscription"></a>Rinnovare una sottoscrizione esistente
 

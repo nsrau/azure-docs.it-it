@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 07/27/2020
 ms.author: aahi
 ms.openlocfilehash: 6849046211ae4216f181dd8ef0ca391c2876363c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87291781"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Avvio rapido: Usare la libreria client di Analisi del testo per Go
