@@ -1,7 +1,7 @@
 ---
 title: Creare un modello di tenant (anteprima) - Servizio Voce
 titleSuffix: Azure Cognitive Services
-description: È possibile generare automaticamente un modello di tenant sicuro e conforme (Riconoscimento vocale personalizzato con dati di Office 365) che sfrutta i dati di Office 365 per offrire un riconoscimento vocale ottimale per termini specifici dell'organizzazione.
+description: È possibile generare automaticamente un modello di tenant sicuro e conforme (Riconoscimento vocale personalizzato con dati di Microsoft 365) che sfrutta i dati di Microsoft 365 per offrire un riconoscimento vocale ottimale per termini specifici dell'organizzazione.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 52e4271fca02dc9b0eab45ca98581ecd85119b59
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5e861182ee57a0b49d3e62a858fc97dbf0890ea3
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934481"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399704"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Esercitazione: Creare un modello di tenant (anteprima)
 
-Il modello di tenant (Riconoscimento vocale con dati di Office 365) è un servizio basato su consenso esplicito per i clienti aziendali di Office 365 che genera automaticamente un modello di riconoscimento vocale personalizzato dai dati di Office 365 dell'organizzazione. Il modello è ottimizzato per termini tecnici, gergo e nomi di persone, in modo sicuro e conforme.
+Il modello di tenant (Riconoscimento vocale personalizzato con dati di Microsoft 365) è un servizio basato su consenso esplicito per i clienti aziendali di Microsoft 365 che genera automaticamente un modello di riconoscimento vocale personalizzato dai dati di Microsoft 365 dell'organizzazione. Il modello è ottimizzato per termini tecnici, gergo e nomi di persone, in modo sicuro e conforme.
 
 > [!IMPORTANT]
-> Se l'organizzazione si registra usando il servizio del modello di tenant, il servizio Voce potrebbe accedere al suo modello linguistico. Il modello viene generato dai messaggi di posta elettronica e dai documenti dei gruppi pubblici di Office 365, che sono visibili a chiunque nell'organizzazione. L'amministratore di Office 365 dell'organizzazione può attivare o disattivare l'uso del modello linguistico a livello di organizzazione tramite il portale di amministrazione di Office 365.
+> Se l'organizzazione si registra usando il servizio del modello di tenant, il servizio Voce potrebbe accedere al suo modello linguistico. Il modello viene generato dai messaggi di posta elettronica e dai documenti dei gruppi pubblici di Microsoft 365, che sono visibili a chiunque nell'organizzazione. L'amministratore dell'organizzazione può attivare o disattivare l'uso del modello linguistico a livello di organizzazione tramite il portale di amministrazione.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -36,7 +36,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="enroll-in-the-tenant-model-service"></a>Eseguire la registrazione nel servizio del modello di tenant
 
-Prima di distribuire il modello di tenant, è necessario eseguire la registrazione nel relativo servizio. La registrazione viene completata nell'interfaccia di amministrazione di Microsoft 365 e può essere eseguita solo dall'amministratore di Microsoft 365.
+Prima di distribuire il modello di tenant, è necessario eseguire la registrazione nel relativo servizio. La registrazione viene completata nell'interfaccia di amministrazione di Microsoft 365 e può essere eseguita solo dall'amministratore.
 
 1. Accedere all'[interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com).
 
@@ -69,7 +69,7 @@ Per usare il modello di tenant con Speech SDK, è necessario avere una risorsa V
 
 ## <a name="create-a-language-model"></a>Creare un modello linguistico
 
-Dopo che l'amministratore ha abilitato il modello di tenant per l'organizzazione, è possibile creare un modello linguistico basato sui dati di Office365.
+Dopo che l'amministratore ha abilitato il modello di tenant per l'organizzazione, è possibile creare un modello linguistico basato sui dati di Microsoft 365.
 
 1. Accedere a [Speech Studio](https://speech.microsoft.com/).
 1. Nell'angolo in alto a destra selezionare **Impostazioni** (icona dell'ingranaggio) e quindi **Tenant Model settings** (Impostazioni modello di tenant).
@@ -79,7 +79,7 @@ Dopo che l'amministratore ha abilitato il modello di tenant per l'organizzazione
    Speech Studio visualizza un messaggio che informa se si è idonei a creare un modello di tenant.
 
    > [!NOTE]
-   > I clienti aziendali di Office 365 in America del Nord sono idonei per la creazione di un modello di tenant (inglese). Per i clienti di Customer Lockbox, Customer Key o Office 365 Government, questa funzionalità non è disponibile. Per determinare se si è un cliente di Customer Lockbox o Customer Key, vedere:
+   > I clienti aziendali in America del Nord sono idonei per la creazione di un modello di tenant (inglese). Per i clienti di Customer Lockbox, Customer Key o Office 365 Government, questa funzionalità non è disponibile. Per determinare se si è un cliente di Customer Lockbox o Customer Key, vedere:
    > * [Customer Lockbox](/microsoft-365/compliance/customer-lockbox-requests)
    > * [Customer Key](/microsoft-365/compliance/customer-key-overview)
    > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
@@ -302,7 +302,7 @@ Quindi è necessario ricompilare ed eseguire il progetto dalla riga di comando. 
    dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>
    ```
 
-In questa esercitazione si è appreso come usare i dati di Office 365 per creare un modello di riconoscimento vocale personalizzato, distribuirlo e usarlo con Speech SDK.
+In questa esercitazione si è appreso come usare i dati di Microsoft 365 per creare un modello di riconoscimento vocale personalizzato, distribuirlo e usarlo con Speech SDK.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
