@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
 ms.openlocfilehash: 2cfce37ff63a8321f40843ced2a7b786bcfc013e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88649602"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Avvio rapido: Creare un registro contenitori con replica geografica usando un modello di Resource Manager
@@ -62,7 +62,7 @@ Altri esempi di modelli di Registro Azure Container sono disponibili nella [racc
 
  3. Se si accettano le condizioni, selezionare **Acquisto**. Dopo la creazione del registro, si riceverà una notifica:
 
-     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Notifica del portale":::
+     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Proprietà modello":::
 
  Per distribuire il modello, si usa il portale di Azure. Oltre al portale di Azure, è possibile usare Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -74,11 +74,11 @@ Usare il portale di Azure o uno strumento quale l'interfaccia della riga di coma
 
 1. Nella pagina **Panoramica** annotare il **Server di accesso** del registro. Usare questo URI quando si usa Docker per assegnare tag ed eseguire il push di immagini nel registro. Per informazioni, vedere [Effettuare il push della prima immagine tramite l'interfaccia della riga di comando di Docker](container-registry-get-started-docker-cli.md).
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Panoramica del registro":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Proprietà modello":::
 
 1. Nella pagina **Repliche** confermare le posizioni della replica principale e della replica aggiunta tramite il modello. Se si vuole, aggiungere altre repliche in questa pagina.
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Repliche del registro":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Proprietà modello":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

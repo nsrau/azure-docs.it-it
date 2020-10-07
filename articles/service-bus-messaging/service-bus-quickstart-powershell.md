@@ -8,10 +8,10 @@ ms.date: 08/12/2020
 ms.author: spelluru
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 178f990e46801cd51e9feb88bbd20181842e4400
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89077688"
 ---
 # <a name="use-azure-powershell-to-create-a-service-bus-namespace-and-a-queue"></a>Usare Azure PowerShell per creare uno spazio dei nomi del bus di servizio e una coda
@@ -34,7 +34,7 @@ In questa guida di avvio rapido si usa Azure Cloud Shell, che è possibile avvia
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Avviare Cloud Shell":::
 3. Nella finestra Cloud Shell in basso passare da **Bash** a **PowerShell**. 
 
-    :::image type="content" source="./media/service-bus-quickstart-powershell/cloud-power-shell.png" alt-text="Passare alla modalità PowerShell":::    
+    :::image type="content" source="./media/service-bus-quickstart-powershell/cloud-power-shell.png" alt-text="Avviare Cloud Shell":::    
 4. Usare il comando seguente per creare un gruppo di risorse di Azure. Se si vuole, aggiornare il nome del gruppo di risorse e la località. 
 
     ```azurepowershell-interactive

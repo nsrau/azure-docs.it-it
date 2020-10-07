@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
 ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89003848"
 ---
 # <a name="what-is-azure-digital-twins"></a>Cos'è il servizio Gemelli digitali di Azure?
@@ -88,7 +88,7 @@ Una soluzione completa che usa Gemelli digitali di Azure può contenere le parti
 
 Il diagramma seguente illustra il punto in cui si trova Gemelli digitali di Azure nel contesto di una soluzione Azure IoT più grande.
 
-:::image type="content" source="media/overview/solution-context.png" alt-text="Diagramma che illustra le origini di input, i servizi di output e la comunicazione bidirezionale con le app client e le risorse di calcolo esterne." border="false" lightbox="media/overview/solution-context.png":::
+:::image type="content" source="media/overview/solution-context.png" alt-text="Screenshot dell'applicazione di esempio Azure Digital Twins explorer, che mostra un grafo dei nodi che rappresentano i gemelli digitali" border="false" lightbox="media/overview/solution-context.png":::
 
 ## <a name="service-limits-in-public-preview"></a>Limiti del servizio durante l'anteprima pubblica
 
