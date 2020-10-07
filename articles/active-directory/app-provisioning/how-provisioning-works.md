@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235724"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801801"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
@@ -169,22 +169,42 @@ Le prestazioni variano a seconda che il processo di provisioning esegua un ciclo
 Tutte le operazioni eseguite dal servizio di provisioning utenti vengono registrate nei [Log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) di Azure AD. Nei log sono incluse tutte le operazioni di lettura e scrittura eseguite nei sistemi di origine e di destinazione, oltre ai dati degli utenti che sono stati letti o scritti durante ogni operazione. Per informazioni su come leggere i log di provisioning nel portale di Azure, vedere la [guida alla creazione di report sul provisioning](./check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Deprovisioning
+Il servizio di provisioning Azure AD mantiene sincronizzati i sistemi di origine e di destinazione effettuando il deprovisioning degli account quando viene rimosso l'accesso utente.
 
-Il servizio di provisioning di Azure AD mantiene sincronizzati i sistemi di origine e di destinazione tramite il deprovisioning degli account quando gli utenti non devono più avere accesso. 
+Il servizio di provisioning supporta l'eliminazione e la disabilitazione degli utenti (detti anche eliminazione temporanea). La definizione esatta di Disable ed Delete varia in base all'implementazione dell'app di destinazione, ma in genere una disabilitazione indica che l'utente non può accedere. Un'eliminazione indica che l'utente è stato rimosso completamente dall'applicazione. Per le applicazioni SCIM, un oggetto Disable è una richiesta di impostazione della proprietà *Active* su false per un utente. 
 
-Il servizio di provisioning di Azure AD eliminerà temporaneamente un utente in un'applicazione quando l'applicazione supporta le eliminazioni automatiche (richiesta di aggiornamento con Active = false) e si verifica uno degli eventi seguenti:
+**Configurare l'applicazione per disabilitare un utente**
 
-* L'account utente viene eliminato in Azure AD
-*   L'utente non è più assegnato all'applicazione
-*   L'utente non soddisfa più un filtro di ambito ed esce dall'ambito
-    * Per impostazione predefinita, il servizio di provisioning di Azure AD elimina temporaneamente o disabilita gli utenti che non rientrano nell'ambito. Se si desidera eseguire l'override di questo comportamento predefinito, è possibile impostare un flag per [ignorare le eliminazioni out-of-scope](../app-provisioning/skip-out-of-scope-deletions.md).
-*   La proprietà AccountEnabled è impostata su False
+Assicurarsi di aver selezionato la casella di controllo per gli aggiornamenti.
 
-Se si verifica uno dei quattro eventi precedenti e l'applicazione di destinazione non supporta le eliminazioni software, il servizio di provisioning invierà una richiesta DELETE per eliminare definitivamente l'utente dall'app. 
+Assicurarsi di disporre del mapping *attivo* per l'applicazione. Se si usa un'applicazione dalla raccolta di app, il mapping può essere leggermente diverso. Assicurarsi di usare il mapping predefinito o predefinito per le applicazioni della raccolta.
 
-30 giorni dopo l'eliminazione in Azure AD, l'utente verrà eliminato definitivamente dal tenant. A questo punto, il servizio di provisioning invierà una richiesta DELETE per eliminare definitivamente l'utente nell'applicazione. In qualsiasi momento durante la finestra di 30 giorni, è possibile [eliminare manualmente un utente in modo permanente](../fundamentals/active-directory-users-restore.md), operazione che invia una richiesta di eliminazione all'applicazione.
 
-Se viene visualizzato un attributo IsSoftDeleted nei mapping degli attributi, esso viene usato per determinare lo stato dell'utente e se inviare una richiesta di aggiornamento con active = false per eliminarlo temporaneamente. 
+**Configurare l'applicazione per eliminare un utente**
+
+Negli scenari seguenti viene attivata un'operazione di disabilitazione o eliminazione: 
+* Un utente viene eliminato temporaneamente in Azure AD (inviato alla proprietà cestino/AccountEnabled impostata su false).
+    30 giorni dopo l'eliminazione in Azure AD, l'utente verrà eliminato definitivamente dal tenant. A questo punto, il servizio di provisioning invierà una richiesta DELETE per eliminare definitivamente l'utente nell'applicazione. In qualsiasi momento durante la finestra di 30 giorni, è possibile [eliminare manualmente un utente in modo permanente](../fundamentals/active-directory-users-restore.md), che invia una richiesta DELETE all'applicazione.
+* Un utente viene eliminato o rimosso definitivamente dal Cestino in Azure AD.
+* Un utente non è assegnato a un'app.
+* Un utente passa dall'ambito all'esterno dell'ambito (non passa più un filtro di ambito).
+    
+Per impostazione predefinita, il servizio di provisioning di Azure AD elimina temporaneamente o disabilita gli utenti che non rientrano nell'ambito. Se si desidera eseguire l'override di questo comportamento predefinito, è possibile impostare un flag per [ignorare le eliminazioni out-of-scope.](skip-out-of-scope-deletions.md)
+
+Se si verifica uno dei quattro eventi precedenti e l'applicazione di destinazione non supporta le eliminazioni software, il servizio di provisioning invierà una richiesta DELETE per eliminare definitivamente l'utente dall'app.
+
+Se viene visualizzato un attributo IsSoftDeleted nei mapping degli attributi, esso viene usato per determinare lo stato dell'utente e se inviare una richiesta di aggiornamento con active = false per eliminarlo temporaneamente.
+
+**Limitazioni note**
+
+* Se un utente gestito in precedenza dal servizio di provisioning non è assegnato da un'app o da un gruppo assegnato a un'app, verrà inviata una richiesta di disabilitazione. A questo punto, l'utente non è gestito dal servizio e non verrà inviata una richiesta di eliminazione quando vengono eliminati dalla directory.
+* Il provisioning di un utente disabilitato in Azure AD non è supportato. Devono essere attivi in Azure AD prima del provisioning.
+* Quando un utente passa da Soft-deleted ad Active, il servizio di provisioning Azure AD attiverà l'utente nell'app di destinazione, ma non ripristinerà automaticamente le appartenenze ai gruppi. L'applicazione di destinazione deve gestire le appartenenze ai gruppi per l'utente in stato inattivo. Se l'applicazione di destinazione non supporta questa operazione, è possibile riavviare il provisioning per aggiornare l'appartenenza al gruppo. 
+
+**Consiglio**
+
+Quando si sviluppa un'applicazione, supporta sempre sia le eliminazioni automatiche che le eliminazioni a freddo. Consente ai clienti di eseguire il ripristino quando un utente viene disabilitato accidentalmente.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

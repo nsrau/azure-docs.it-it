@@ -6,17 +6,17 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.subservice: secrets
+ms.subservice: general
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c6be9e287657b92d51e3f6f8013757655e7b8256
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1c780d1eb9535343373701e6dfe4899a9cba366
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100888"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803926"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Avvio rapido: Creare un insieme di credenziali delle chiavi usando il portale di Azure
 

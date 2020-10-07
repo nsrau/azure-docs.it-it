@@ -4,17 +4,17 @@ description: Informazioni su come eseguire la transizione da metriche di Analisi
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 10/20/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 076f5573b599fbb83486087380174fc2da53986c
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708578"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802838"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transizione alle metriche in monitoraggio di Azure
 
@@ -46,6 +46,8 @@ Per passare alle metriche in monitoraggio di Azure, è consigliabile usare l'app
 Questa sezione descrive alcune delle principali differenze tra le due piattaforme di metrica.
 
 La differenza principale riguarda il modo in cui vengono gestite le metriche. Le metriche classiche sono gestite da archiviazione di Azure, mentre le metriche in monitoraggio di Azure sono gestite da monitoraggio di Azure. Con le metriche classiche, archiviazione di Azure raccoglie i valori delle metriche, li aggrega e li archivia nelle tabelle che si trovano nell'account di archiviazione. Con le metriche in monitoraggio di Azure, archiviazione di Azure invia i dati delle metriche al back-end di monitoraggio di Azure. Monitoraggio di Azure offre un'esperienza di monitoraggio unificata che include i dati del portale di Azure e i dati inseriti. 
+
+Le metriche classiche vengono inviate e archiviate in un account di archiviazione di Azure. Le metriche di monitoraggio di Azure possono essere inviate a più posizioni. Un account di archiviazione può essere uno di questi percorsi, ma non è obbligatorio.  
 
 Per quanto riguarda il supporto delle metriche, le metriche classiche forniscono metriche di **capacità** solo per l'archiviazione BLOB di Azure. Le metriche in monitoraggio di Azure forniscono metriche di capacità per archiviazione BLOB, tabelle, file, code e Premium. Le metriche classiche forniscono la metrica **delle transazioni** su BLOB, tabelle, file di Azure e archiviazione code. Le metriche in monitoraggio di Azure aggiungono archiviazione Premium a tale elenco.
 

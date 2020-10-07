@@ -301,8 +301,6 @@
               href: platform/move-workspace.md
             - name: Progettare per i provider di servizi
               href: platform/service-providers.md
-            - name: Gestire l'accesso
-              href: platform/manage-access.md
             - name: Cluster Hub eventi Dedicato
               href: log-query/logs-dedicated-clusters.md
     - name: Esplora metriche
@@ -751,8 +749,6 @@
             - name: Avvisi di disponibilità
               displayname: 'alerts, global, alerting'
               href: app/availability-alerts.md
-            - name: Test delle prestazioni
-              href: app/performance-testing.md
             - name: Risoluzione dei problemi
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md

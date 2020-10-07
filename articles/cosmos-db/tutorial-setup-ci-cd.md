@@ -8,12 +8,12 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: af3c8713b70911399b2382184dc9fd78d585e03a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 34508abdfa509dc2f8238e8e3b0dbac21c26ff7d
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540286"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801920"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurare una pipeline CI/CD con l'attività di compilazione dell'emulatore di Azure Cosmos DB in Azure DevOps
 
@@ -32,13 +32,13 @@ Per usare l'attività di compilazione, è innanzitutto necessario installarla ne
 Successivamente, scegliere l'organizzazione in cui installare l'estensione. 
 
 > [!NOTE]
-> Per installare un'estensione in un'organizzazione di Azure DevOps, è necessario essere proprietario dell'account o amministratore della raccolta di progetti. Se non si dispone di autorizzazioni, ma si è membri dell'account, in alternativa è possibile richiedere delle estensioni. [Altre informazioni.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
+> Per installare un'estensione in un'organizzazione di Azure DevOps, è necessario essere proprietario dell'account o amministratore della raccolta di progetti. Se non si dispone di autorizzazioni, ma si è membri dell'account, in alternativa è possibile richiedere delle estensioni. [Altre informazioni.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts&preserve-view=true)
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Trovare e installare l'attività di compilazione dell'emulatore di Azure Cosmos DB nel Marketplace di Azure DevOps":::
 
 ## <a name="create-a-build-definition"></a>Creare una definizione di compilazione
 
-Ora che l'estensione è installata, accedere all'organizzazione di Azure DevOps e trovare il progetto nel dashboard dei progetti. È possibile aggiungere una [pipeline di compilazione](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) al progetto o modificarne una esistente. Se si ha già una pipeline di compilazione, è possibile passare direttamente alla sezione [Aggiungere l'attività di compilazione dell'emulatore a una definizione di compilazione](#addEmulatorBuildTaskToBuildDefinition).
+Ora che l'estensione è installata, accedere all'organizzazione di Azure DevOps e trovare il progetto nel dashboard dei progetti. È possibile aggiungere una [pipeline di compilazione](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&preserve-view=true&tabs=new-nav) al progetto o modificarne una esistente. Se si ha già una pipeline di compilazione, è possibile passare direttamente alla sezione [Aggiungere l'attività di compilazione dell'emulatore a una definizione di compilazione](#addEmulatorBuildTaskToBuildDefinition).
 
 1. Per creare una nuova definizione di compilazione, passare alla scheda **Compilazioni** in Azure DevOps. Selezionare **+ Nuovo** \> **Nuova pipeline di compilazione**
 
@@ -51,7 +51,7 @@ Ora che l'estensione è installata, accedere all'organizzazione di Azure DevOps 
 3. Selezionare infine il modello desiderato per la pipeline di compilazione. In questa esercitazione viene selezionato il modello **ASP.NET**. A questo punto la pipeline di compilazione può essere configurata per l'uso dell'attività di compilazione dell'emulatore di Azure Cosmos DB. 
 
 > [!NOTE]
-> Il pool di agenti da selezionare per questa integrazione continua deve avere Docker per Windows installato, a meno che l'installazione non venga eseguita manualmente in un'attività precedente come parte dell'integrazione continua. Per un elenco di pool di agenti tra cui scegliere, vedere l'articolo [Agenti ospitati da Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml). È consigliabile iniziare con `Hosted VS2017`.
+> Il pool di agenti da selezionare per questa integrazione continua deve avere Docker per Windows installato, a meno che l'installazione non venga eseguita manualmente in un'attività precedente come parte dell'integrazione continua. Per un elenco di pool di agenti tra cui scegliere, vedere l'articolo [Agenti ospitati da Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&preserve-view=true&tabs=yaml). È consigliabile iniziare con `Hosted VS2017`.
 
 L'emulatore di Azure Cosmos DB non supporta attualmente il pool di agenti VS2019 ospitati. Tuttavia, l'emulatore viene già installato con VS2019 e per usarlo è possibile avviarlo con i cmdlet di PowerShell seguenti. Se si verificano problemi durante l'uso di VS2019, rivolgersi al team di [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) per assistenza:
 
@@ -92,7 +92,7 @@ Questo passaggio è facoltativo ed è richiesto solo se si configura la pipeline
 
 A questo punto, è possibile configurare i test per usare l'emulatore. L'attività di compilazione dell'emulatore esporta una variabile di ambiente, "CosmosDbEmulator.Endpoint", a cui qualsiasi attività nella pipeline di compilazione può inviare richieste. 
 
-In questa esercitazione si userà l'[attività di test di Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) per eseguire unit test configurati tramite un file con estensione **runsettings**. Per altre informazioni sulla configurazione di unit test, vedere la [documentazione](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). Il codice di esempio completo dell'applicazione Todo da usare in questo documento è disponibile in [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
+In questa esercitazione si userà l'[attività di test di Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) per eseguire unit test configurati tramite un file con estensione **runsettings**. Per altre informazioni sulla configurazione di unit test, vedere la [documentazione](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017&preserve-view=true). Il codice di esempio completo dell'applicazione Todo da usare in questo documento è disponibile in [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
 Di seguito è riportato un esempio di un file con estensione **runsettings** che definisce i parametri da passare agli unit test di un'applicazione. Si noti che la variabile `authKey` usata è la [chiave nota](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) per l'emulatore. `authKey` è la chiave prevista dall'attività di compilazione dell'emulatore e deve essere definita nel file con estensione **runsettings**.
 

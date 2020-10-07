@@ -1,14 +1,16 @@
 ---
 title: 'Avvio rapido: Aggiungere domande e risposte nel portale di QnA Maker'
 description: Questo argomento di avvio rapido illustra come aggiungere coppie di domande e risposte con metadati in modo che gli utenti possano trovare la risposta corretta per la loro domanda.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: a832d9f421d3a1851401c286f129e29d0196ec99
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 930acbd3bbdb8f63b6aa888b292025a76435b289
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331390"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776749"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Avvio rapido: Aggiungere domande e risposte con il portale di QnA Maker
 

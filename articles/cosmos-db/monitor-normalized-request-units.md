@@ -6,18 +6,18 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 06/25/2020
-ms.openlocfilehash: e7005a3786bb2d538450b076c113e159c766d72e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 183b161039b86ce824fd0bfde82cf291d54024fc
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642079"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801478"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Come monitorare le UR/sec normalizzate per un contenitore o un account di Azure Cosmos
 
 Monitoraggio di Azure per Azure Cosmos DB fornisce una visualizzazione delle metriche per monitorare l'account e creare dashboard. Per impostazione predefinita, la metrica Azure Cosmos DB viene raccolta, per questa funzionalità non è necessario abilitare o configurare elementi in modo esplicito.
 
-La metrica di **utilizzo delle UR normalizzata** viene usata per vedere quanto sono saturi gli intervalli di chiavi di partizione rispetto al traffico. Azure Cosmos DB distribuisce equamente la velocità effettiva in tutti gli intervalli di chiavi di partizione. Questa metrica offre una visualizzazione al secondo dell'utilizzo massimo della velocità effettiva per l'intervallo di chiavi di partizione. Usare questa metrica per calcolare l'utilizzo di Ur/s nell'intervallo di chiavi di partizione per il contenitore specificato. Utilizzando questa metrica, se viene visualizzata una percentuale elevata di utilizzo delle unità richiesta in tutti gli intervalli di chiavi di partizione in monitoraggio di Azure, è necessario aumentare la velocità effettiva per soddisfare le esigenze del carico di lavoro. 
+La metrica di **utilizzo delle UR normalizzata** viene usata per vedere quanto sono saturi gli intervalli di chiavi di partizione rispetto al traffico. Azure Cosmos DB distribuisce equamente la velocità effettiva in tutti gli intervalli di chiavi di partizione. Questa metrica offre una visualizzazione al secondo dell'utilizzo massimo della velocità effettiva per l'intervallo di chiavi di partizione. Usare questa metrica per calcolare l'utilizzo di Ur/s nell'intervallo di chiavi di partizione per il contenitore specificato. Utilizzando questa metrica, se viene visualizzata una percentuale elevata di utilizzo delle unità richiesta in tutti gli intervalli di chiavi di partizione in monitoraggio di Azure, è necessario aumentare la velocità effettiva per soddisfare le esigenze del carico di lavoro. Esempio: l'utilizzo normalizzato è definito come il valore massimo dell'utilizzo di Ur/s in tutti gli intervalli di chiavi di partizione. Si supponga, ad esempio, che la velocità effettiva massima sia di 20.000 UR/sec e che siano presenti due intervalli di chiavi di partizione, P_1 e P_2, ciascuno in grado di scalare fino a 10.000 UR/sec. In un secondo specifico, se P_1 ha usato 6000 UR e P_2 8000 UR, l'utilizzo normalizzato corrisponde a MAX(6000 UR / 10.000 UR, 8000 UR / 10.000 UR) = 0,8.
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>Cosa aspettarsi e quando le UR/sec normalizzate sono più elevate
 
@@ -43,13 +43,13 @@ In sintesi, la metrica di **consumo ur normalizzata** viene usata per vedere qua
 
 3. Nel riquadro **Metriche** > **Selezionare una risorsa** > scegliere la **sottoscrizione** e il **gruppo di risorse** richiesti. Per **Tipo di risorsa** selezionare **Account Azure Cosmos DB**, scegliere uno degli account Azure Cosmos esistenti e selezionare **Applica**.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Scegliere un account Azure Cosmos per visualizzare le metriche":::
+   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Riquadro Metriche in Monitoraggio di Azure":::
 
 4. È quindi possibile selezionare una metrica dall'elenco delle metriche disponibili. È possibile selezionare metriche specifiche per unità richiesta, archiviazione, latenza, disponibilità, Cassandra e altre. Per informazioni dettagliate su tutte le metriche disponibili in questo elenco, vedere l'articolo [Metriche per categoria](monitor-cosmos-db-reference.md). In questo esempio, selezionare metrica **consumo ur normalizzato** e **Max** come valore di aggregazione.
 
    Oltre a questi dettagli, è anche possibile selezionare l'**Intervallo di tempo** e la **Granularità temporale** delle metriche. Al massimo, è possibile visualizzare le metriche degli ultimi 30 giorni.  Dopo aver applicato il filtro, viene visualizzato un grafico in base al filtro.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Scegliere una metrica dal portale di Azure":::
+   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Riquadro Metriche in Monitoraggio di Azure":::
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>Filtri per il consumo di unità richiesta normalizzate
 
@@ -59,7 +59,7 @@ In sintesi, la metrica di **consumo ur normalizzata** viene usata per vedere qua
 
 La metrica di utilizzo delle unità richiesta normalizzata per ogni contenitore viene visualizzata come illustrato nell'immagine seguente:
 
-:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Applicare i filtri alla metrica di utilizzo delle unità richiesta normalizzate":::
+:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Riquadro Metriche in Monitoraggio di Azure":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

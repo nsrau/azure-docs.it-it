@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: ae15fc59137e9bf6fb7bfd9fedfb410aa4e0931c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e0b9f10a321fce0b8ccc31bf914fe4f2995c49a
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91337045"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651905"
 ---
 # <a name="analyze-unexpected-charges"></a>Analizzare gli addebiti imprevisti
 
@@ -26,7 +26,7 @@ Il modo in cui si acquistano i servizi di Azure consente di determinare la metod
 
 Gli articoli seguenti illustrano le procedure dettagliate che spiegano come esaminare la fattura in base al tipo di cliente. In ogni articolo sono disponibili istruzioni su come scaricare un file CSV contenente i dettagli relativi all'utilizzo e ai costi per un determinato periodo di fatturazione.
 
-- [Processo di revisione della fattura con pagamento in base al consumo](review-individual-bill.md#compare-invoiced-charges-with-usage-file)
+- [Processo di revisione della fattura con pagamento in base al consumo](review-individual-bill.md#charges)
 - [Processo di revisione della fattura del Contratto Enterprise](review-enterprise-agreement-bill.md)
 - [Processo di revisione della fattura del Contratto del cliente Microsoft](review-customer-agreement-bill.md#analyze-your-azure-usage-charges)
 - [Processo di revisione della fattura del Contratto Microsoft Partner](review-partner-agreement-bill.md#analyze-your-azure-usage-charges)

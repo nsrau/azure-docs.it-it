@@ -1,16 +1,18 @@
 ---
 title: Informazioni su Personalizza esperienze
 description: Personalizza esperienze è un servizio basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizza esperienze, Personalizza esperienze di Azure, Machine Learning
-ms.openlocfilehash: 93b1f0487818cf783cc4a19f79618cfe2285cbd1
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: ae17b799c2b222525db53d5bb8e0afdbbcf19975
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055618"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777242"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 

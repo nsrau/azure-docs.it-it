@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sngun
-ms.openlocfilehash: 881ddfec587df61201f2c251fd0dd0a8164496c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9284fca6a96441ad5e6c23f9c6920ba184e03086
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549968"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801419"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorare i dati Azure Cosmos DB usando le impostazioni di diagnostica in Azure
 
@@ -71,7 +71,7 @@ Le metriche della piattaforma e i log attività vengono raccolti automaticamente
 Per informazioni dettagliate su come creare un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando o PowerShell, vedere l'articolo su come [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../azure-monitor/platform/diagnostic-settings.md) .
 
 
-## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a>Risolvere i problemi relativi alle query di diagnostica
+## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> Risolvere i problemi relativi alle query di diagnostica
 
 1. Come eseguire una query per le operazioni che richiedono più di 3 millisecondi per l'esecuzione:
 
@@ -99,12 +99,12 @@ Per informazioni dettagliate su come creare un'impostazione di diagnostica usand
    | render timechart
    ```
     
-1. Come ottenere le statistiche della chiave di partizione per valutare l'asimmetria tra le 3 partizioni principali per l'account del database:
+1. Come ottenere le statistiche della chiave di partizione per valutare l'asimmetria tra le 3 partizioni principali per un account di database:
 
    ```Kusto
    AzureDiagnostics 
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId 
    ```
 
 1. Come ricevere addebiti per le query costose?
@@ -214,14 +214,6 @@ Per informazioni dettagliate su come creare un'impostazione di diagnostica usand
    | where todouble(sizeKb_d) > 800000
    ```
 
-1. Come ottenere statistiche della chiave di partizione per valutare l'asimmetria tra le prime tre partizioni per l'account del database?
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId
-   ```
-
 1. Come ottenere le latenze di replica P99 o P50 per le operazioni, la richiesta di addebito o la lunghezza della risposta?
 
    ```Kusto
@@ -238,7 +230,7 @@ Per informazioni dettagliate su come creare un'impostazione di diagnostica usand
  
 1. Come ottenere i log Controlplane?
  
-   Ricordarsi di attivare il flag come descritto in [disabilitare l'accesso in scrittura ai metadati basato su chiave](audit-control-plane-logs.md#disable-key-based-metadata-write-access) articleand eseguire le operazioni tramite Azure PowerShell, CLI o ARM.
+   Ricordarsi di attivare il flag come descritto nell'articolo [disabilitare l'accesso in scrittura ai metadati basati su chiave](audit-control-plane-logs.md#disable-key-based-metadata-write-access) ed eseguire le operazioni usando Azure PowerShell, l'interfaccia della riga di comando di Azure o Azure Resource Manager.
  
    ```Kusto  
    AzureDiagnostics 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e1359fd2a59b49f10bb3b2daa4bcbadae921e188
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012450"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801325"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -58,9 +58,9 @@ Come illustrato nella tabella seguente, a seconda della scelta dell'API, è poss
 |----|----|----|
 |API SQL|Database|Contenitore|
 |API Azure Cosmos DB per MongoDB|Database|Raccolta|
-|API Cassandra|Keyspace|Tabella|
+|API Cassandra|Keyspace|Table|
 |API Gremlin|Account di database|Grafico|
-|API di tabella|Account di database|Tabella|
+|API di tabella|Account di database|Table|
 
 Con il provisioning della velocità effettiva a livelli diversi, è possibile ottimizzare i costi in base alle caratteristiche del carico di lavoro. Come accennato in precedenza, è possibile aumentare o ridurre la velocità effettiva con provisioning in modo programmatico e in qualsiasi momento per i singoli contenitori o in modo collettivo in un set di contenitori. Il ridimensionamento elastico della velocità effettiva con il cambiare del carico di lavoro consente di pagare solo la velocità effettiva che è stata configurata. Se il contenitore o un set di contenitori viene distribuito tra più aree, la velocità effettiva configurata nel contenitore o in un set di contenitori è garantita come disponibile in tutte le aree.
 
@@ -80,7 +80,7 @@ Gli SDK nativi (.NET/.NET Core, Java, Node.js e Python) intercettano implicitame
 
 Se si dispone di più di un client che funziona cumulativamente in modo costante al di sopra della frequenza delle richieste, il numero di tentativi predefinito, attualmente impostato su 9, potrebbe non essere sufficiente. In questi casi, il client genera un'eccezione `RequestRateTooLargeException` con codice di stato 429 per l'applicazione. Il numero predefinito di ripetizioni dei tentativi può essere modificato impostando `RetryOptions` nell'istanza di ConnectionPolicy. Per impostazione predefinita, il `RequestRateTooLargeException` codice di stato 429 viene restituito dopo un periodo di attesa cumulativo di 30 secondi se la richiesta continua a funzionare al di sopra della frequenza delle richieste. Ciò si verifica anche quando il numero di ripetizioni dei tentativi corrente è inferiore al numero massimo di tentativi, indipendentemente dal fatto che si tratti del valore predefinito 9 o di un valore definito dall'utente. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) è impostato su 3, quindi, in questo caso, se un'operazione di richiesta è limitata alla frequenza superando la velocità effettiva riservata per il contenitore, l'operazione di richiesta esegue tre tentativi prima di generare l'eccezione all'applicazione. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) è impostato su 60, quindi, in questo caso, se il tempo di attesa per tentativi cumulativi in secondi dalla prima richiesta supera i 60 secondi, viene generata l'eccezione.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet&preserve-view=true) è impostato su 3, quindi, in questo caso, se un'operazione di richiesta è limitata alla frequenza superando la velocità effettiva riservata per il contenitore, l'operazione di richiesta esegue tre tentativi prima di generare l'eccezione all'applicazione. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) è impostato su 60, quindi, in questo caso, se il tempo di attesa per tentativi cumulativi in secondi dalla prima richiesta supera i 60 secondi, viene generata l'eccezione.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 

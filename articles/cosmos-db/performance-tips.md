@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bdf512c66958338992c5959f8e00b4589850ff33
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: efedfb9701d12548b80eccda9cd2aa29bc644ac2
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008370"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802141"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET SDK v2
 
@@ -42,7 +42,7 @@ Se quindi si sta provando a migliorare le prestazioni del database, prendere in 
 
 Per migliorare le prestazioni, è consigliabile l'elaborazione host Windows a 64 bit. L'SDK SQL include un file ServiceInterop.dll nativo che consente di analizzare e ottimizzare le query in locale. Il file ServiceInterop.dll è supportato solo nella piattaforma Windows x64. Per Linux e altre piattaforme non supportate in cui ServiceInterop.dll non è disponibile, viene effettuata una chiamata di rete aggiuntiva al gateway per ottenere la query ottimizzata. Per impostazione predefinita, nei seguenti tipi di applicazioni viene utilizzata l'elaborazione host a 32 bit. Per modificare l'elaborazione dell'host nell'elaborazione a 64 bit, attenersi alla procedura seguente, in base al tipo di applicazione:
 
-- Per le applicazioni eseguibili, è possibile modificare l'elaborazione dell'host impostando la [destinazione della piattaforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) su **x64**  nella finestra delle **proprietà del progetto** , nella scheda **Compila** .
+- Per le applicazioni eseguibili, è possibile modificare l'elaborazione dell'host impostando la [destinazione della piattaforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) su **x64**  nella finestra delle **proprietà del progetto** , nella scheda **Compila** .
 
 - Per i progetti di test basati su VSTest, è possibile modificare l'elaborazione dell' **host selezionando**  >  **impostazioni test**di test  >  **Architettura processore predefinita come x64** nel menu **test** di Visual Studio.
 
@@ -203,7 +203,7 @@ Per ridurre il numero di round trip di rete necessari per recuperare tutti i ris
 > [!NOTE] 
 > La `maxItemCount` proprietà non deve essere utilizzata solo per la paginazione. L'uso principale è quello di migliorare le prestazioni delle query riducendo il numero massimo di elementi restituiti in una singola pagina.  
 
-È anche possibile impostare le dimensioni della pagina usando gli SDK di Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) in `FeedOptions` consente di impostare il numero massimo di elementi da restituire nell'operazione di enumerazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale, a seconda delle dimensioni del documento. Ad esempio:
+È anche possibile impostare le dimensioni della pagina usando gli SDK di Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) in `FeedOptions` consente di impostare il numero massimo di elementi da restituire nell'operazione di enumerazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale, a seconda delle dimensioni del documento. Ad esempio:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

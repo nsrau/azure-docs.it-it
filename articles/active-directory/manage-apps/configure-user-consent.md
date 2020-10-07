@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 433ff5498baeb4c31473e43fc4a5d24f4ba9fd1c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 877e90fa3c1c8a595c438fc6745c142e97b5692c
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605159"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803280"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurare la modalità con cui gli utenti finali forniscono il consenso alle applicazioni
 
@@ -26,21 +26,24 @@ Prima che un'applicazione possa accedere ai dati dell'organizzazione, un utente 
 
 Con la possibilità di concedere alle app l'accesso ai dati, gli utenti possono acquisire facilmente applicazioni utili ed essere produttivi. Tuttavia, in alcune situazioni questa configurazione può rappresentare un rischio se non viene monitorata e controllata con attenzione.
 
+> [!IMPORTANT]
+> Per ridurre il rischio di applicazioni dannose che tentano di ingannare gli utenti per ottenere l'accesso ai dati dell'organizzazione, è consigliabile fornire il consenso utente solo alle applicazioni pubblicate da un [editore verificato](../develop/publisher-verification-overview.md).
+
 ## <a name="user-consent-settings"></a>Impostazioni per il consenso utente
 
-Per controllare i casi in cui gli utenti possono fornire il consenso alle applicazioni, scegliere i criteri di consenso applicabili a tutti gli utenti. Di seguito sono riportate le tre opzioni dei criteri di consenso:
+I criteri di consenso delle app descrivono le condizioni che devono essere soddisfatte prima che un'app possa essere consentita. Questi criteri possono includere condizioni nell'app che richiede l'accesso, nonché le autorizzazioni richieste dall'app.
 
-* **Disable user consent** (Disabilita consenso utente): gli utenti non possono concedere le autorizzazioni alle applicazioni. Gli utenti possono continuare ad accedere alle app a cui hanno precedentemente fornito il consenso o che sono autorizzate dagli amministratori per loro conto, ma non potranno fornire autonomamente il consenso a nuove autorizzazioni o a nuove app. Solo gli utenti a cui è stato concesso un ruolo della directory che include l'autorizzazione per fornire il consenso saranno in grado di consentire nuove autorizzazioni o nuove app.
+Scegliendo i criteri di consenso delle app applicabili a tutti gli utenti, è possibile impostare i limiti quando gli utenti finali sono autorizzati a concedere il consenso alle app e quando dovranno richiedere la revisione e l'approvazione dell'amministratore:
 
-* **Users can consent to apps from verified publishers, but only for permissions you select (preview)** (Gli utenti possono fornire il consenso alle app di editori verificati, ma solo per le autorizzazioni selezionate (anteprima)): tutti gli utenti possono fornire il consenso solo alle app pubblicate da un [editore verificato](../develop/publisher-verification-overview.md) e alle app registrate nel tenant. Gli utenti possono solo dare il consenso alle autorizzazioni classificate come "Low Impact", dette anche "low risk". Ciò che è considerato basso rischio per un'organizzazione, ad esempio un'app che visualizza un indirizzo di posta elettronica degli utenti, può essere considerato un rischio elevato per un'altra organizzazione. Per questo motivo, le autorizzazioni di "basso rischio" vengono impostate dall'amministratore per il tenant.
+* **Disable user consent** (Disabilita consenso utente): gli utenti non possono concedere le autorizzazioni alle applicazioni. Gli utenti possono continuare ad accedere alle app a cui hanno precedentemente fornito il consenso o che sono autorizzate dagli amministratori per loro conto, ma non potranno fornire autonomamente il consenso a nuove autorizzazioni o a nuove app. Solo gli utenti a cui è stato concesso un ruolo della directory che include l'autorizzazione per concedere il consenso saranno in grado di fornire il consenso alle nuove app.
 
-  Assicurarsi di [classificare le autorizzazioni](#configure-permission-classifications-preview) per selezionare le autorizzazioni a cui gli utenti possono fornire il consenso.
+* **Gli utenti possono concedere il consenso alle app da autori verificati o dalla propria organizzazione, ma solo per le autorizzazioni selezionate** . tutti gli utenti possono solo dare il consenso alle app pubblicate da un editore e da app [verificate](../develop/publisher-verification-overview.md) registrate nel tenant. Gli utenti possono solo dare il consenso alle autorizzazioni classificate come "Low Impact". È necessario [classificare le autorizzazioni](configure-permission-classifications.md) per selezionare le autorizzazioni a cui gli utenti possono fornire il consenso.
 
-* **Users can consent to all apps** (Gli utenti possono fornire il consenso a tutte le app): questa opzione consente a tutti gli utenti di fornire il consenso a qualsiasi autorizzazione, che non richiede il consenso dell'amministratore, per qualsiasi applicazione. 
+* **Gli utenti possono concedere il consenso a tutte le app** . questa opzione consente a tutti gli utenti di concedere il consenso a qualsiasi autorizzazione che non richiede il consenso dell'amministratore, per qualsiasi applicazione.
 
-   Per ridurre il rischio di applicazioni dannose che tentano di ingannare gli utenti per ottenere l'accesso ai dati dell'organizzazione, è consigliabile fornire il consenso utente solo alle applicazioni pubblicate da un [editore verificato](../develop/publisher-verification-overview.md).
+* **Criteri di consenso dell'app personalizzati** : per altre opzioni sulle condizioni che controllano quando il consenso dell'utente, è possibile [creare criteri di consenso dell'app personalizzati](manage-app-consent-policies.md#create-a-custom-app-consent-policy)e configurarli in modo da richiedere il consenso dell'utente.
 
-### <a name="configure-user-consent-settings-from-the-azure-portal"></a>Configurare le impostazioni di consenso utente dal portale di Azure
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Per configurare le impostazioni di consenso utente tramite il portale di Azure:
 
@@ -51,14 +54,13 @@ Per configurare le impostazioni di consenso utente tramite il portale di Azure:
 
 :::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Impostazioni per il consenso utente":::
 
-> [!TIP]
-> Si consideri [l'abilitazione del flusso di lavoro di consenso amministratore](configure-admin-consent-workflow.md) per consentire agli utenti di richiedere all'amministratore la revisione e l'approvazione di un'applicazione per la quale l'utente non è autorizzato a fornire il consenso, ad esempio quando il consenso dell'utente è stato disabilitato o quando un'applicazione richiede le autorizzazioni che l'utente non è autorizzato a concedere.
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-### <a name="configure-user-consent-settings-using-powershell"></a>Configurare le impostazioni di consenso utente tramite PowerShell
+È possibile usare il modulo di anteprima di Azure AD PowerShell più recente, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), per scegliere i criteri di consenso dell'app che governano il consenso dell'utente per le applicazioni.
 
-È possibile usare il modulo Azure AD PowerShell Preview più recente, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), per scegliere i criteri di consenso che governano il consenso dell'utente per le applicazioni.
+#### <a name="disable-user-consent"></a>Disabilitare il consenso dell'utente
 
-* **Disable user consent** (Disabilita consenso utente): per disabilitare il consenso dell'utente, impostare i criteri che regolano il consenso dell'utente come vuoti:
+Per disabilitare il consenso dell'utente, impostare i criteri di consenso che regolano il consenso dell'utente in modo che sia vuoto:
 
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
@@ -66,137 +68,52 @@ Per configurare le impostazioni di consenso utente tramite il portale di Azure:
      -PermissionGrantPolicyIdsAssignedToDefaultUserRole @()
   ```
 
-* **Allow user consent for apps from verified publishers, for selected permissions (preview)** (Abilita il consenso utente per app di editori verificati, per autorizzazioni selezionate (anteprima)): per abilitare il consenso utente limitato ad app di editori verificati e app registrate nel tenant e solo per le autorizzazioni classificate come a "Impatto basso", configurare i criteri di consenso predefiniti denominati `microsoft-user-default-low`:
+#### <a name="allow-user-consent-subject-to-an-app-consent-policy"></a>Consenti il consenso dell'utente in conformità ai criteri di consenso dell'app
+
+Per consentire il consenso dell'utente, scegliere i criteri di consenso per le app che devono governare l'autorizzazione degli utenti per concedere il consenso alle app:
 
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
      -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("microsoft-user-default-low")
+     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("{consent-policy-id}")
   ```
 
-   Assicurarsi di [classificare le autorizzazioni](#configure-permission-classifications-preview) per selezionare le autorizzazioni a cui gli utenti possono fornire il consenso.
+Sostituire `{consent-policy-id}` con l'ID dei criteri che si desidera applicare. È possibile scegliere un [criterio di consenso app personalizzato](manage-app-consent-policies.md#create-a-custom-app-consent-policy) creato oppure è possibile scegliere tra i criteri predefiniti seguenti:
 
-* **Allow user consent for all apps** (Abilita consenso utente per tutte le app): per abilitare il consenso dell'utente per tutte le app:
+| ID | Descrizione |
+|:---|:------------|
+| Microsoft-utente-predefinito-basso | **Consenti l'autorizzazione utente per le app da autori verificati, per le autorizzazioni selezionate**<br /> Consenti il consenso utente limitato solo per le app da autori verificati e app registrate nel tenant e solo per le autorizzazioni classificate come "basso effetto". (Non dimenticare di [classificare le autorizzazioni](configure-permission-classifications.md) per selezionare le autorizzazioni a cui gli utenti possono dare il consenso). |
+| Microsoft-User-default-legacy | **Consenti consenso utente per le app**<br /> Questa opzione consente a tutti gli utenti di fornire il consenso per qualsiasi autorizzazione che non richiede il consenso dell'amministratore, per qualsiasi applicazione |
+  
+Ad esempio, per abilitare il consenso dell'utente in base ai criteri predefiniti `microsoft-user-default-low` :
 
-  ```powershell
-  Set-AzureADMSAuthorizationPolicy `
-     -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("microsoft-user-default-legacy")
-  ```
+```powershell
+Set-AzureADMSAuthorizationPolicy `
+   -Id "authorizationPolicy" `
+   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("microsoft-user-default-low")
+```
 
-   Questa opzione consente a tutti gli utenti di fornire il consenso a qualsiasi autorizzazione, che non richiede il consenso dell'amministratore, per qualsiasi applicazione. È consigliabile abilitare il consenso utente solo per le app di editori verificati.
-
-## <a name="configure-permission-classifications-preview"></a>Configurare le classificazioni delle autorizzazioni (anteprima)
-
-Le classificazioni delle autorizzazioni consentono di identificare l'effetto delle diverse autorizzazioni in base ai criteri dell'organizzazione e alle valutazioni dei rischi. È possibile ad esempio usare le classificazioni delle autorizzazioni nei criteri di consenso per identificare il set di autorizzazioni a cui gli utenti possono fornire il consenso.
-
-> [!NOTE]
-> Attualmente è supportata solo la classificazione delle autorizzazioni a "Impatto basso". Solo le autorizzazioni delegate che non richiedono il consenso dell'amministratore possono essere classificate come a "Impatto basso".
-
-### <a name="classify-permissions-using-the-azure-portal"></a>Classificare le autorizzazioni tramite il portale di Azure
-
-1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
-1. Selezionare **Azure Active Directory** > **Applicazioni aziendali** > **Consenso e autorizzazioni** > **Permission classifications (Classificazioni autorizzazioni)** .
-1. Scegliere **Aggiungi autorizzazioni** per classificare un'altra autorizzazione come a "Impatto basso". 
-1. Selezionare l'API e quindi selezionare le autorizzazioni delegate.
-
-In questo esempio è stato classificato il set minimo di autorizzazioni necessarie per Single Sign-On:
-
-:::image type="content" source="media/configure-user-consent/permission-classifications.png" alt-text="Classificazioni delle autorizzazioni":::
+---
 
 > [!TIP]
-> Per l'API Microsoft Graph, le autorizzazioni minime necessarie per eseguire Single Sign-on di base sono `openid`, `profile`, `User.Read` e `offline_access`. Con queste autorizzazioni un'app può leggere i dettagli del profilo dell'utente che ha eseguito l'accesso e può gestire l'accesso anche quando l'utente non usa più l'app.
+> [Abilitare il flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md) per consentire agli utenti di richiedere la revisione e l'approvazione dell'amministratore di un'applicazione a cui l'utente non è autorizzato, ad esempio quando il consenso dell'utente è stato disabilitato o quando un'applicazione richiede autorizzazioni che l'utente non è autorizzato a concedere.
 
-### <a name="classify-permissions-using-powershell"></a>Classificare le autorizzazioni tramite PowerShell
+## <a name="risk-based-step-up-consent"></a>Consenso per step-up basato sul rischio
 
-Per classificare le autorizzazioni, è possibile usare il modulo Azure AD PowerShell Preview più recente, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Le classificazioni delle autorizzazioni vengono configurate nell'oggetto **ServicePrincipal** dell'API che pubblica le autorizzazioni.
+Il consenso incrementale basato sul rischio consente di ridurre l'esposizione degli utenti ad app dannose che effettuano [richieste di consenso illecite](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Se Microsoft rileva una richiesta di consenso dell'utente finale rischiosa, sarà necessario un "passaggio" al consenso dell'amministratore. Questa funzionalità è abilitata per impostazione predefinita, ma comporterà una modifica del comportamento solo quando è abilitato il consenso dell'utente finale.
 
-#### <a name="to-read-the-current-permission-classifications-for-an-api"></a>Per leggere le classificazioni delle autorizzazioni correnti di un'API:
+Quando viene rilevata una situazione di rischio, nella richiesta di consenso viene visualizzato un messaggio che indica che è necessaria l'approvazione dell'amministratore. Se [il flusso di lavoro della richiesta di consenso dell'amministratore](configure-admin-consent-workflow.md) è abilitato, l'utente può inviare la richiesta a un amministratore per un'ulteriore verifica direttamente dalla richiesta di consenso. In caso contrario, verrà visualizzato il messaggio seguente:
 
-1. Recuperare l'oggetto **ServicePrincipal** dell'API. Qui viene recuperato l'oggetto ServicePrincipal dell'API Microsoft Graph:
+* **AADSTS90094:** &lt;NomeVisualizzatoAppClient&gt; richiede l'autorizzazione per accedere alle risorse dell'organizzazione che solo un amministratore può concedere. Prima di usarla, è necessario chiedere a un amministratore di concedere l'autorizzazione a quest'app.
 
-   ```powershell
-   $api = Get-AzureADServicePrincipal `
-       -Filter "servicePrincipalNames/any(n:n eq 'https://graph.microsoft.com')"
-   ```
+In questo caso, verrà registrato anche un evento di controllo con una categoria "ApplicationManagement", un tipo di attività di "Consent to application" (Consenso per l'applicazione) e il motivo dello stato "Risky application detected" (Applicazione rischiosa rilevata).
 
-1. Leggere le classificazioni delle autorizzazioni delegate per l'API:
+> [!IMPORTANT]
+> Gli amministratori devono [valutare attentamente tutte le richieste di consenso](manage-consent-requests.md#evaluating-a-request-for-tenant-wide-admin-consent) prima di approvarne una, soprattutto quando Microsoft ha rilevato il rischio.
 
-   ```powershell
-   Get-AzureADMSServicePrincipalDelegatedPermissionClassification `
-       -ServicePrincipalId $api.ObjectId | Format-Table Id, PermissionName, Classification
-   ```
+### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Disabilitare o riabilitare il consenso incrementale basato sul rischio usando PowerShell
 
-#### <a name="to-classify-a-permission-as-low-impact"></a>Per classificare un'autorizzazione come a "Impatto basso":
-
-1. Recuperare l'oggetto **ServicePrincipal** dell'API. Qui viene recuperato l'oggetto ServicePrincipal dell'API Microsoft Graph:
-
-   ```powershell
-   $api = Get-AzureADServicePrincipal `
-       -Filter "servicePrincipalNames/any(n:n eq 'https://graph.microsoft.com')"
-   ```
-
-1. Individuare l'autorizzazione delegata che si vuole classificare:
-
-   ```powershell
-   $delegatedPermission = $api.OAuth2Permissions | Where-Object { $_.Value -eq "User.ReadBasic.All" }
-   ```
-
-1. Impostare la classificazione delle autorizzazioni usando il nome e l'ID dell'autorizzazione:
-
-   ```powershell
-   Add-AzureADMSServicePrincipalDelegatedPermissionClassification `
-      -ServicePrincipalId $api.ObjectId `
-      -PermissionId $delegatedPermission.Id `
-      -PermissionName $delegatedPermission.Value `
-      -Classification "low"
-   ```
-
-#### <a name="to-remove-a-delegated-permission-classification"></a>Per rimuovere la classificazione delle autorizzazioni delegate:
-
-1. Recuperare l'oggetto **ServicePrincipal** dell'API. Qui viene recuperato l'oggetto ServicePrincipal dell'API Microsoft Graph:
-
-   ```powershell
-   $api = Get-AzureADServicePrincipal `
-       -Filter "servicePrincipalNames/any(n:n eq 'https://graph.microsoft.com')"
-   ```
-
-1. Individuare la classificazione delle autorizzazioni delegate che si vuole rimuovere:
-
-   ```powershell
-   $classifications = Get-AzureADMSServicePrincipalDelegatedPermissionClassification `
-       -ServicePrincipalId $api.ObjectId
-   $classificationToRemove = $classifications | Where-Object {$_.PermissionName -eq "User.ReadBasic.All"}
-   ```
-
-1. Eliminare la classificazione delle autorizzazioni:
-
-   ```powershell
-   Remove-AzureADMSServicePrincipalDelegatedPermissionClassification `
-       -ServicePrincipalId $api.ObjectId `
-       -Id $classificationToRemove.Id
-   ```
-
-## <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configurare il consenso del proprietario del gruppo per le app che accedono ai dati di gruppo
-
-I proprietari dei gruppi possono autorizzare le applicazioni, ad esempio quelle pubblicate da fornitori di terze parti, ad accedere ai dati dell'organizzazione associati a un gruppo. Ad esempio, il proprietario di un team in Microsoft Teams può consentire a un'app di leggere tutti i messaggi del team oppure elencare il profilo di base dei membri di un gruppo.
-
-È possibile configurare gli utenti che possono fornire il consenso alle app che accedono ai dati dei gruppi oppure disabilitare questa funzionalità.
-
-### <a name="configure-group-owner-consent-using-the-azure-portal"></a>Configurare il consenso del proprietario del gruppo usando il portale di Azure
-
-1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
-2. Selezionare **Azure Active Directory** > **Applicazioni aziendali** > **Consenso e autorizzazioni** > **Impostazioni per il consenso utente**.
-3. In **Group owner consent for apps accessing data** (Consenso del proprietario del gruppo per le app che accedono ai dati) selezionare l'opzione che si vuole abilitare.
-4. Per salvare le impostazioni, fare clic su **Save** (Salva).
-
-In questo esempio, tutti i proprietari del gruppo possono fornire il consenso alle app che accedono ai dati dei gruppi:
-
-:::image type="content" source="media/configure-user-consent/group-owner-consent.png" alt-text="Impostazioni di consenso del proprietario del gruppo":::
-
-### <a name="configure-group-owner-consent-using-powershell"></a>Configurare il consenso del proprietario del gruppo usando PowerShell
-
-È possibile usare il modulo Azure AD PowerShell Preview, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), per abilitare o disabilitare la capacità dei proprietari dei gruppi di fornire il consenso alle applicazioni che accedono ai dati dell'organizzazione per i gruppi di cui sono proprietari.
+È possibile usare il modulo Azure AD PowerShell Preview, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), per disabilitare il passaggio al consenso amministratore necessario nei casi in cui Microsoft rilevi un rischio oppure riabilitarlo se è stato disabilitato in precedenza.
 
 1. Accertarsi di usare il modulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Questo passaggio è importante se sono stati installati sia il modulo [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) sia il modulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)).
 
@@ -222,35 +139,25 @@ In questo esempio, tutti i proprietari del gruppo possono fornire il consenso al
         $settings = $template.CreateDirectorySetting()
     }
 
-    $enabledValue = $settings.Values | ? { $_.Name -eq "EnableGroupSpecificConsent" }
-    $limitedToValue = $settings.Values | ? { $_.Name -eq "ConstrainGroupSpecificConsentToMembersOfGroupId" }
+    $riskBasedConsentEnabledValue = $settings.Values | ? { $_.Name -eq "BlockUserConsentForRiskyApps" }
     ```
 
-1. Esaminare i valori delle impostazioni. Sono disponibili due valori delle impostazioni che definiscono gli utenti che possono consentire a un'app di accedere ai dati del gruppo:
+1. Informazioni sul valore delle impostazioni:
 
-    | Impostazione       | Type         | Descrizione  |
+    | Impostazione       | Tipo         | Descrizione  |
     | ------------- | ------------ | ------------ |
-    | _EnableGroupSpecificConsent_   | Boolean | Flag che indica se i proprietari dei gruppi possono concedere autorizzazioni specifiche del gruppo. |
-    | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid | Se _EnableGroupSpecificConsent_ è impostato su "True" e questo valore è impostato sull'ID oggetto di un gruppo, i membri del gruppo identificato saranno autorizzati a concedere autorizzazioni specifiche ai gruppi di cui sono proprietari. |
+    | _BlockUserConsentForRiskyApps_   | Boolean |  Flag che indica se il consenso dell'utente verrà bloccato quando viene rilevata una richiesta rischiosa. |
 
-1. Aggiornare i valori delle impostazioni per la configurazione desiderata:
+1. Valore delle impostazioni di aggiornamento per la configurazione desiderata:
 
     ```powershell
-    # Disable group-specific consent entirely
-    $enabledValue.Value = "False"
-    $limitedToValue.Value = ""
+    # Disable risk-based step-up consent entirely
+    $riskBasedConsentEnabledValue.Value = "False"
     ```
 
     ```powershell
-    # Enable group-specific consent for all users
-    $enabledValue.Value = "True"
-    $limitedToValue.Value = ""
-    ```
-
-    ```powershell
-    # Enable group-specific consent for users in a given group
-    $enabledValue.Value = "True"
-    $limitedToValue.Value = "{group-object-id}"
+    # Re-enable risk-based step-up consent, if disabled previously
+    $riskBasedConsentEnabledValue.Value = "True"
     ```
 
 1. Salvare le impostazioni.
@@ -265,53 +172,12 @@ In questo esempio, tutti i proprietari del gruppo possono fornire il consenso al
     }
     ```
 
-## <a name="configure-risk-based-step-up-consent"></a>Configurare il consenso incrementale basato sul rischio
-
-Il consenso incrementale basato sul rischio consente di ridurre l'esposizione degli utenti ad app dannose che effettuano [richieste di consenso illecite](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Se Microsoft rileva una richiesta di consenso dell'utente finale rischiosa, sarà necessario un "passaggio" al consenso dell'amministratore. Questa funzionalità è abilitata per impostazione predefinita, ma comporterà una modifica del comportamento solo quando è abilitato il consenso dell'utente finale.
-
-Quando viene rilevata una situazione di rischio, nella richiesta di consenso viene visualizzato un messaggio che indica che è necessaria l'approvazione dell'amministratore. Se [il flusso di lavoro della richiesta di consenso dell'amministratore](configure-admin-consent-workflow.md) è abilitato, l'utente può inviare la richiesta a un amministratore per un'ulteriore verifica direttamente dalla richiesta di consenso. In caso contrario, verrà visualizzato il messaggio seguente:
-
-* **AADSTS90094:** &lt;NomeVisualizzatoAppClient&gt; richiede l'autorizzazione per accedere alle risorse dell'organizzazione che solo un amministratore può concedere. Prima di usarla, è necessario chiedere a un amministratore di concedere l'autorizzazione a quest'app.
-
-In questo caso, verrà registrato anche un evento di controllo con una categoria "ApplicationManagement", un tipo di attività di "Consent to application" (Consenso per l'applicazione) e il motivo dello stato "Risky application detected" (Applicazione rischiosa rilevata).
-
-> [!IMPORTANT]
-> Gli amministratori devono [valutare attentamente tutte le richieste di consenso](manage-consent-requests.md#evaluating-a-request-for-tenant-wide-admin-consent) prima di approvarne una, soprattutto quando Microsoft ha rilevato il rischio.
-
-### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Disabilitare o riabilitare il consenso incrementale basato sul rischio usando PowerShell
-
-È possibile usare il modulo Azure AD PowerShell Preview, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), per disabilitare il passaggio al consenso amministratore necessario nei casi in cui Microsoft rilevi un rischio oppure riabilitarlo se è stato disabilitato in precedenza.
-
-È possibile eseguire questa operazione usando la stessa procedura illustrata in precedenza per la [configurazione del consenso del proprietario del gruppo tramite PowerShell](#configure-group-owner-consent-using-powershell), ma sostituendo un valore delle impostazioni diverso. Esistono tre differenze nella procedura: 
-
-1. Esaminare i valori delle impostazioni per il consenso incrementale basato sul rischio:
-
-    | Impostazione       | Type         | Descrizione  |
-    | ------------- | ------------ | ------------ |
-    | _BlockUserConsentForRiskyApps_   | Boolean |  Flag che indica se il consenso dell'utente verrà bloccato quando viene rilevata una richiesta rischiosa. |
-
-1. Sostituire il valore seguente nel passaggio 3:
-
-    ```powershell
-    $riskBasedConsentEnabledValue = $settings.Values | ? { $_.Name -eq "BlockUserConsentForRiskyApps" }
-    ```
-    
-1. Sostituire uno dei seguenti elementi nel passaggio 5:
-
-    ```powershell
-    # Disable risk-based step-up consent entirely
-    $riskBasedConsentEnabledValue.Value = "False"
-    ```
-
-    ```powershell
-    # Re-enable risk-based step-up consent, if disabled previously
-    $riskBasedConsentEnabledValue.Value = "True"
-    ```
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni:
 
+* [Configurare le impostazioni di consenso dell'utente](configure-user-consent.md)
+* [Gestire i criteri di consenso delle app](manage-app-consent-policies.md)
 * [Configurare il flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md)
 * [Informazioni su come gestire il consenso alle applicazioni e valutare le richieste di consenso](manage-consent-requests.md)
 * [Concedere a un'applicazione il consenso amministratore a livello di tenant](grant-admin-consent.md)

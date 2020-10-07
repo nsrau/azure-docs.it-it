@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 7f4849c75b36b1663416ad1a97e3264fabcdaa67
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5256db4547f8c19960a6f470ce3c84b2eef25e24
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201741"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776613"
 ---
 # <a name="getting-started"></a>Introduzione
 
@@ -60,7 +60,7 @@ Azure Databricks è una piattaforma di analisi basata su Apache Spark configurab
 1. Installare Servizi cognitivi per Big Data
     * Creare una nuova libreria nell'area di lavoro di Databricks  
        <img src="media/create-library.png" alt="Create library" width="50%"/>
-    * Immettere le coordinate Maven seguenti:  `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc1` repository: `https://mmlspark.azureedge.net/maven`  
+    * Immettere le coordinate Maven seguenti:  `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc3` repository: `https://mmlspark.azureedge.net/maven`  
       <img src="media/library-coordinates.png" alt="Library Coordinates" width="50%"/>
     * Installare la libreria in un cluster  
       <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>
@@ -136,7 +136,7 @@ display(results.select("text", col("sentiment")[0].getItem("score").alias("senti
 
 ### <a name="expected-results"></a>Risultati previsti
 
-| text                                      |   Valutazione |
+| text                                      |   sentiment |
 |:------------------------------------------|------------:|
 | I am so happy today, its sunny!           |   0,978959  |
 | I am frustrated by this rush hour traffic |   0,0237956 |

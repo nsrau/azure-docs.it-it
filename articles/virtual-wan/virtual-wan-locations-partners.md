@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: e8dcb188dc5aad59738e3eab4169bf9dbd3679ec
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: d1655b42b57edaeeaaaada802a248f56e0ba1470
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449348"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801461"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Posizioni dei partner e degli hub virtuali della rete WAN virtuale di Azure
 
@@ -58,7 +58,7 @@ Questi partner dispongono di offerte di **applicazioni gestite** ora disponibili
 |Partner|Guida alla configurazione/procedura/distribuzione|
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Guida alla distribuzione di Barracuda CloudGen WAN](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
-|[Cisco Cloud Service Router (CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Per distribuire la rete WAN Cisco Services (CSR) nell'hub virtuale, inviare un messaggio di posta elettronica a vwan_public_preview@cisco.com |
+|[Cisco Cloud Service Router (CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Durante l'anteprima pubblica della rete WAN Cisco Services (CSR) nell'hub VWAN, Cisco richiede che il cliente finale venga registrato come cliente Cisco EFT (Early Field Trial) inviando un messaggio di posta elettronica a vwan_public_preview@external.cisco.com e richiedendo la guida alla distribuzione di vManage. |
 
 I partner seguenti sono disponibili per l'inclusione di appliance virtuale di rete nell'hub virtuale nel prossimo futuro: Citrix, versa Networks e VeloCloud.
 

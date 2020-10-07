@@ -14,32 +14,32 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a4d50bcf2493c67880fd5a27b326705b1923feb
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 57d66c844b7e73f1e3326d628f854a9811ca96fd
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728982"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802702"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Trasferimento dell'autenticazione dell'applicazione da Active Directory Federation Services a Azure Active Directory
 
-[Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) offre una piattaforma di identità universale che fornisce a utenti, partner e clienti una singola identità per accedere alle applicazioni e collaborare da qualsiasi piattaforma e dispositivo. Azure AD dispone [di una suite completa di funzionalità di gestione delle identità](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). La standardizzazione dell'autenticazione e dell'autorizzazione dell'applicazione (app) per Azure AD consente i vantaggi offerti da queste funzionalità. 
+[Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) offre una piattaforma di identità universale che fornisce a utenti, partner e clienti una singola identità per accedere alle applicazioni e collaborare da qualsiasi piattaforma e dispositivo. Azure AD dispone [di una suite completa di funzionalità di gestione delle identità](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). La standardizzazione dell'autenticazione e dell'autorizzazione dell'applicazione (app) per Azure AD consente i vantaggi offerti da queste funzionalità.
 
 > [!TIP]
 > Questo articolo è stato scritto per i destinatari degli sviluppatori. I Project Manager e gli amministratori che pianificano lo spostamento di un'applicazione a Azure AD dovrebbero considerare la possibilità di leggere l' [autenticazione dell'applicazione in migrazione a Azure AD](https://aka.ms/migrateapps/whitepaper) white paper (PDF).
 
 ## <a name="introduction"></a>Introduzione
 
-Se si dispone di una directory locale che contiene gli account utente, è probabile che siano presenti molte applicazioni a cui gli utenti eseguono l'autenticazione. Ognuna di queste app viene configurata per consentire agli utenti di accedere usando le proprie identità. 
+Se si dispone di una directory locale che contiene gli account utente, è probabile che siano presenti molte applicazioni a cui gli utenti eseguono l'autenticazione. Ognuna di queste app viene configurata per consentire agli utenti di accedere usando le proprie identità.
 
 
 Gli utenti possono anche eseguire l'autenticazione direttamente con la Active Directory locale. Active Directory Federation Services (AD FS) è un servizio di identità locale basato su standard. AD FS estende la possibilità di usare la funzionalità Single Sign-On (SSO) tra partner commerciali attendibili senza richiedere agli utenti di accedere separatamente a ogni applicazione. Questa operazione è nota come Federazione.
 
-Molte organizzazioni hanno applicazioni SaaS (software as a Service) o LOB (line-of-business) personalizzate federate direttamente a AD FS, insieme alle app basate su Microsoft 365 e Azure AD. 
+Molte organizzazioni hanno applicazioni SaaS (software as a Service) o LOB (line-of-business) personalizzate federate direttamente a AD FS, insieme alle app basate su Microsoft 365 e Azure AD.
 
 ![Applicazioni connesse direttamente in locale](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
 
-**Per aumentare la sicurezza delle applicazioni, l'obiettivo è avere un unico set di controlli di accesso e criteri negli ambienti locali e cloud**. 
+**Per aumentare la sicurezza delle applicazioni, l'obiettivo è avere un unico set di controlli di accesso e criteri negli ambienti locali e cloud**.
 
 ![Applicazioni connesse tramite Azure AD](media/migrate-adfs-apps-to-azure/app-integration-after-migration1.png)
 
@@ -49,17 +49,17 @@ Molte organizzazioni hanno applicazioni SaaS (software as a Service) o LOB (line
 
 La migrazione di tutte le autenticazioni di applicazioni a Azure AD è ottimale, in quanto offre un singolo piano di controllo per la gestione delle identità e degli accessi.
 
-Le applicazioni possono usare protocolli moderni o legacy per l'autenticazione. Prendere in considerazione prima di tutto la migrazione di applicazioni che usano protocolli di autenticazione moderni, ad esempio SAML e Open ID Connect. Queste app possono essere riconfigurate per l'autenticazione con Azure AD tramite un connettore incorporato nella raccolta di app o mediante la registrazione dell'applicazione in Azure AD. Le app che usano protocolli meno recenti possono essere integrate con il [proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-proxy). 
+Le applicazioni possono usare protocolli moderni o legacy per l'autenticazione. Prendere in considerazione prima di tutto la migrazione di applicazioni che usano protocolli di autenticazione moderni, ad esempio SAML e Open ID Connect. Queste app possono essere riconfigurate per l'autenticazione con Azure AD tramite un connettore incorporato nella raccolta di app o mediante la registrazione dell'applicazione in Azure AD. Le app che usano protocolli meno recenti possono essere integrate con il [proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-proxy).
 
 Per ulteriori informazioni, vedere [quali tipi di applicazioni è possibile integrare con Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-management)?
 
-È possibile usare il [report attività dell'applicazione ad FS per eseguire la migrazione delle applicazioni a Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-application-activity) se è [Azure ad Connect Health abilitata](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs). 
+È possibile usare il [report attività dell'applicazione ad FS per eseguire la migrazione delle applicazioni a Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-application-activity) se è [Azure ad Connect Health abilitata](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs).
 
 ### <a name="the-migration-process"></a>Processo di migrazione
 
 Durante il processo di trasferimento dell'autenticazione dell'app a Azure AD, testare adeguatamente le app e la configurazione. Si consiglia di continuare a usare gli ambienti di test esistenti per i test di migrazione che passano all'ambiente di produzione. Se un ambiente di testing non è attualmente disponibile, è possibile configurarne uno usando [app Azure servizio](https://azure.microsoft.com/services/app-service/) o [macchine virtuali di Azure](https://azure.microsoft.com/free/virtual-machines/search/?OCID=AID2000128_SEM_lHAVAxZC&MarinID=lHAVAxZC_79233574796345_azure%20virtual%20machines_be_c__1267736956991399_kwd-79233582895903%3Aloc-190&lnkd=Bing_Azure_Brand&msclkid=df6ac75ba7b612854c4299397f6ab5b0&ef_id=XmAptQAAAJXRb3S4%3A20200306231230%3As&dclid=CjkKEQiAhojzBRDg5ZfomsvdiaABEiQABCU7XjfdCUtsl-Abe1RAtAT35kOyI5YKzpxRD6eJS2NM97zw_wcB), a seconda dell'architettura dell'applicazione.
 
-È possibile scegliere di configurare un tenant di test Azure AD separato da usare durante lo sviluppo delle configurazioni dell'app. 
+È possibile scegliere di configurare un tenant di test Azure AD separato da usare durante lo sviluppo delle configurazioni dell'app.
 
 Il processo di migrazione potrebbe essere simile al seguente:
 
@@ -67,7 +67,7 @@ Il processo di migrazione potrebbe essere simile al seguente:
 
 ![Fase 1 della migrazione ](media/migrate-adfs-apps-to-azure/stage1.jpg)
 
- 
+
 **Fase 2-facoltativo: istanza di test dell'app che punta a testare il tenant di Azure**
 
 Aggiornare la configurazione in modo che punti all'istanza di test dell'app a un tenant di Azure AD di test e apportare le modifiche necessarie. L'app può essere testata con gli utenti nel tenant di test Azure AD. Durante il processo di sviluppo, è possibile usare strumenti come [Fiddler](https://www.telerik.com/fiddler) per confrontare e verificare richieste e risposte.
@@ -92,19 +92,19 @@ Aggiornare la configurazione dell'applicazione di produzione in modo che punti a
 
 ### <a name="line-of-business-lob-apps"></a>App line-of-business (LOB)
 
-Le app line-of-business sono sviluppate internamente dall'organizzazione o disponibili come prodotto in pacchetto standard installato nella data center. Gli esempi includono le app basate su Windows Identity Foundation e le app di SharePoint (non SharePoint Online). 
+Le app line-of-business sono sviluppate internamente dall'organizzazione o disponibili come prodotto in pacchetto standard installato nella data center. Gli esempi includono le app basate su Windows Identity Foundation e le app di SharePoint (non SharePoint Online).
 
-Le app LOB che usano OAuth 2,0, OpenID Connect o WS-Federation possono essere integrate con Azure AD come [registrazioni di app](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users). Integrare app personalizzate che usano SAML 2,0 o WS-Federation come [applicazioni non della raccolta](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) nella pagina applicazioni aziendali nel [portale di Azure](https://portal.azure.com/).
+Le app LOB che usano OAuth 2,0, OpenID Connect o WS-Federation possono essere integrate con Azure AD come [registrazioni di app](../develop/quickstart-register-app.md). Integrare app personalizzate che usano SAML 2,0 o WS-Federation come [applicazioni non della raccolta](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) nella pagina applicazioni aziendali nel [portale di Azure](https://portal.azure.com/).
 
 ## <a name="saml-based-single-sign-on"></a>Single Sign-on basato su SAML
 
-Le app che usano SAML 2,0 per l'autenticazione possono essere configurate per la [Single Sign-on basata su SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) (SSO basato su SAML). Con [SSO basato su SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)è possibile eseguire il mapping degli utenti a ruoli specifici dell'applicazione in base alle regole definite nelle attestazioni SAML. 
+Le app che usano SAML 2,0 per l'autenticazione possono essere configurate per la [Single Sign-on basata su SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) (SSO basato su SAML). Con [SSO basato su SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)è possibile eseguire il mapping degli utenti a ruoli specifici dell'applicazione in base alle regole definite nelle attestazioni SAML.
 
-Per configurare un'applicazione SaaS per l'accesso Single Sign-On basato su SAML, vedere [Configurare l'accesso Single Sign-On basato su SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications). 
+Per configurare un'applicazione SaaS per l'accesso Single Sign-On basato su SAML, vedere [Configurare l'accesso Single Sign-On basato su SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
 
 ![Screenshot utente SAML SSO ](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
 
- 
+
 Molte applicazioni SaaS hanno un' [esercitazione specifica dell'applicazione](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) che illustra in modo dettagliato la configurazione per la Single Sign-on basata su SAML.
 
 ![esercitazione sull'app](media/migrate-adfs-apps-to-azure/app-tutorial.png)
@@ -117,19 +117,19 @@ Quando si esegue il mapping degli attributi, tenere presenti le limitazioni segu
 
 * Negli scenari più comuni, per un'app sono necessarie solo l'attestazione NameID e altre attestazioni dell'ID utente comuni. Per determinare se sono necessarie attestazioni aggiuntive, esaminare le attestazioni che si stanno inviando AD FS.
 
-* Non tutte le attestazioni possono essere problemi perché alcune attestazioni sono protette in Azure AD. 
+* Non tutte le attestazioni possono essere problemi perché alcune attestazioni sono protette in Azure AD.
 
 * La possibilità di usare token SAML crittografati è ora disponibile in anteprima. Vedere [procedura: personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
 
- 
+
 
 ### <a name="software-as-a-service-saas-apps"></a>App SaaS (software as a Service)
 
-Se l'accesso dell'utente ad app SaaS come Salesforce, ServiceNow o giornata lavorativa è integrato con AD FS, si usa l'accesso federato per le app SaaS. 
+Se l'accesso dell'utente ad app SaaS come Salesforce, ServiceNow o giornata lavorativa è integrato con AD FS, si usa l'accesso federato per le app SaaS.
 
-La maggior parte delle applicazioni SaaS può essere già configurata in Azure AD. Microsoft dispone di molte connessioni preconfigurate alle app SaaS nella  [raccolta di app Azure ad](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), che semplifica la transizione. Le applicazioni SAML 2,0 possono essere integrate con Azure AD tramite la raccolta di app Azure AD o come [applicazioni non della raccolta](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app). 
+La maggior parte delle applicazioni SaaS può essere già configurata in Azure AD. Microsoft dispone di molte connessioni preconfigurate alle app SaaS nella  [raccolta di app Azure ad](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), che semplifica la transizione. Le applicazioni SAML 2,0 possono essere integrate con Azure AD tramite la raccolta di app Azure AD o come [applicazioni non della raccolta](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app).
 
-Analogamente, le app che usano OAuth 2.0 oppure OpenID Connect possono essere integrate con Azure AD come [registrazioni di app](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users). Le app che usano protocolli legacy possono usare [Azure ad proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) per l'autenticazione con Azure ad.
+Analogamente, le app che usano OAuth 2.0 oppure OpenID Connect possono essere integrate con Azure AD come [registrazioni di app](../develop/quickstart-register-app.md). Le app che usano protocolli legacy possono usare [Azure ad proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) per l'autenticazione con Azure ad.
 
 Per eventuali problemi relativi all'onboarding delle app SaaS, è possibile contattare l'alias del supporto per l' [integrazione dell'applicazione SaaS](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
@@ -160,10 +160,10 @@ Di seguito sono riportate le procedure di configurazione aggiuntive per eseguire
 * App WS-Federation come le app SharePoint che richiedono token SAML versione 1.1, È possibile configurarli manualmente usando PowerShell. È anche possibile aggiungere un modello generico pre-integrato per le applicazioni SharePoint e SAML 1,1 dalla raccolta. Il protocollo SAML 2,0 è supportato.
 
 * Regole complesse per le trasformazioni di rilascio delle attestazioni. Per informazioni sui mapping di attestazioni supportati, vedere:
-   *  [Mapping di attestazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping) 
+   *  [Mapping di attestazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping)
    * [Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)
 
- 
+
 
 ### <a name="apps-and-configurations-not-supported-in-azure-ad-today"></a>App e configurazioni attualmente non supportate in Azure AD
 
@@ -175,8 +175,7 @@ Attualmente non è possibile eseguire la migrazione delle app che richiedono le 
 
 * Risoluzione artefatto SAML
 
-* Verifica della firma delle richieste SAML firmate  
-Si noti che le richieste firmate vengono accettate, ma la firma non viene verificata.  
+* Verifica della firma delle richieste SAML firmate si noti che le richieste firmate vengono accettate, ma la firma non viene verificata.
 Dato che Azure AD restituirà il token solo agli endpoint preconfigurati nell'applicazione, nella maggior parte dei casi è probabile che la verifica della firma non sia obbligatoria.
 
 **Attestazioni nelle funzionalità del token**
@@ -193,7 +192,7 @@ La migrazione ha inizio con la valutazione della configurazione dell'applicazion
 
 La tabella seguente descrive alcune delle impostazioni di mapping più comuni tra un AD FS attendibilità del componente per Azure AD applicazione aziendale:
 
-* AD FS: trovare l'impostazione nella AD FS attendibilità del componente per l'app. Fare clic con il pulsante destro del mouse sul relying party e scegliere Proprietà. 
+* AD FS: trovare l'impostazione nella AD FS attendibilità del componente per l'app. Fare clic con il pulsante destro del mouse sul relying party e scegliere Proprietà.
 
 * Azure AD: l'impostazione viene configurata all'interno [portale di Azure](https://portal.azure.com/) nelle proprietà Single Sign-on di ogni applicazione.
 
@@ -213,15 +212,15 @@ La tabella seguente descrive alcune delle impostazioni di mapping più comuni tr
 Configurare le applicazioni in modo che puntino a Azure AD rispetto AD FS per SSO. In questo caso, ci stiamo concentrando sulle app SaaS che usano il protocollo SAML. Tuttavia, questo concetto si estende anche alle app LOB personalizzate.
 
 > [!NOTE]
-> I valori di configurazione per Azure AD seguono il modello in cui l'ID tenant di Azure sostituisce {Tenant-ID} e l'ID applicazione sostituisce {Application-ID}. Queste informazioni sono disponibili nella [portale di Azure](https://portal.azure.com/) in proprietà Azure Active Directory >: 
+> I valori di configurazione per Azure AD seguono il modello in cui l'ID tenant di Azure sostituisce {Tenant-ID} e l'ID applicazione sostituisce {Application-ID}. Queste informazioni sono disponibili nella [portale di Azure](https://portal.azure.com/) in proprietà Azure Active Directory >:
 
-* Selezionare ID directory per visualizzare l'ID tenant. 
+* Selezionare ID directory per visualizzare l'ID tenant.
 
 * Selezionare ID applicazione per visualizzare l'ID applicazione.
 
- A livello generale, eseguire il mapping dei seguenti elementi chiave di configurazione delle app SaaS per Azure AD. 
+ A livello generale, eseguire il mapping dei seguenti elementi chiave di configurazione delle app SaaS per Azure AD.
 
- 
+
 
 | Elemento| Valore di configurazione |
 | - | - |
@@ -256,7 +255,7 @@ Di seguito sono riportati esempi di tipi di regole di autorizzazione in AD FS e 
 
 #### <a name="example-1-permit-access-to-all-users"></a>Esempio 1: consentire l'accesso a tutti gli utenti
 
-Consentire l'accesso a tutti gli utenti ha un aspetto simile a AD FS: 
+Consentire l'accesso a tutti gli utenti ha un aspetto simile a AD FS:
 
 ![Fase 1 della migrazione ](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
 
@@ -266,9 +265,9 @@ Viene eseguito il mapping a Azure AD in uno dei modi seguenti:
 Nel [portale di Azure](https://portal.azure.com/):
 * Opzione 1: impostare l'assegnazione utente obbligatoria su No ![modificare i criteri di controllo di accesso per le app SaaS ](media/migrate-adfs-apps-to-azure/permit-access-to-all-users-2.png)
 
-    Si noti che l'impostazione dell'opzione utente assegnazione obbligatoria su Sì richiede che gli utenti siano assegnati all'applicazione per ottenere l'accesso. Se impostato su No, tutti gli utenti hanno accesso. Questa opzione non controlla gli elementi visualizzati dagli utenti nell'esperienza app personali. 
+    Si noti che l'impostazione dell'opzione utente assegnazione obbligatoria su Sì richiede che gli utenti siano assegnati all'applicazione per ottenere l'accesso. Se impostato su No, tutti gli utenti hanno accesso. Questa opzione non controlla gli elementi visualizzati dagli utenti nell'esperienza app personali.
 
- 
+
 * Opzione 2: nella scheda utenti e gruppi assegnare l'applicazione al gruppo automatico "tutti gli utenti". <p>
 Per rendere disponibile il gruppo "tutti gli utenti" predefinito, è necessario [abilitare i gruppi dinamici](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule) nel tenant del Azure ad.
 
@@ -302,10 +301,10 @@ Nella [portale di Azure](https://portal.azure.com/)aggiungere un utente all'app 
 
 ![App SaaS personali in Azure ](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-2.png)
 
- 
-### <a name="map-multi-factor-authentication-rules"></a>Regole Multi-Factor Authentication mappa 
 
-Una distribuzione locale di [multi-factor authentication (](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication) multi-factor authentication) e di ad FS continuerà a funzionare dopo la migrazione perché l'utente è federato con ad FS. È tuttavia consigliabile eseguire la migrazione alle funzionalità di autenticazione a più fattori predefinite di Azure legate ai flussi di lavoro di accesso condizionale di Azure AD. 
+### <a name="map-multi-factor-authentication-rules"></a>Regole Multi-Factor Authentication mappa
+
+Una distribuzione locale di [multi-factor authentication (](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication) multi-factor authentication) e di ad FS continuerà a funzionare dopo la migrazione perché l'utente è federato con ad FS. È tuttavia consigliabile eseguire la migrazione alle funzionalità di autenticazione a più fattori predefinite di Azure legate ai flussi di lavoro di accesso condizionale di Azure AD.
 
 Di seguito sono riportati alcuni esempi di tipi di regole di autenticazione a più fattori in AD FS e il modo in cui è possibile eseguirne il mapping ai Azure AD in base a condizioni diverse:
 
@@ -316,7 +315,7 @@ Impostazioni delle regole di autenticazione a più fattori in AD FS:
 
 #### <a name="example-1-enforce-mfa-based-on-usersgroups"></a>Esempio 1: applicare l'autenticazione a più fattori in base a utenti/gruppi
 
-Il selettore utenti/gruppi è una regola che consente di applicare l'autenticazione a più fattori in un singolo gruppo (SID di gruppo) o in base all'utente (SID primario). Oltre alle assegnazioni di utenti/gruppi, tutte le caselle di controllo aggiuntive nella AD FS funzione dell'interfaccia utente di configurazione dell'autenticazione a più fattori come regole aggiuntive che vengono valutate dopo l'applicazione della regola utenti/gruppi. 
+Il selettore utenti/gruppi è una regola che consente di applicare l'autenticazione a più fattori in un singolo gruppo (SID di gruppo) o in base all'utente (SID primario). Oltre alle assegnazioni di utenti/gruppi, tutte le caselle di controllo aggiuntive nella AD FS funzione dell'interfaccia utente di configurazione dell'autenticazione a più fattori come regole aggiuntive che vengono valutate dopo l'applicazione della regola utenti/gruppi.
 
 
 Specificare le regole di autenticazione a più fattori per un utente o un gruppo in Azure AD:
@@ -325,12 +324,11 @@ Specificare le regole di autenticazione a più fattori per un utente o un gruppo
 
 2. Selezionare **Assegnazioni**. Aggiungere gli utenti o i gruppi su cui si vuole applicare l'autenticazione a più fattori.
 
-3. Configurare le opzioni di **controllo di accesso** come illustrato di seguito:  
-‎
+3. Configurare le opzioni di **controllo di accesso** come illustrato di seguito:
 
 ![Impostazioni dell'autenticazione a più fattori di AAD](media/migrate-adfs-apps-to-azure/mfa-usersorgroups.png)
 
- 
+
  #### <a name="example-2-enforce-mfa-for-unregistered-devices"></a>Esempio 2: applicare l'autenticazione a più fattori per i dispositivi non registrati
 
 Specificare le regole di autenticazione a più fattori per i dispositivi non registrati in Azure AD:
@@ -339,12 +337,11 @@ Specificare le regole di autenticazione a più fattori per i dispositivi non reg
 
 2. Impostare le **assegnazioni** su **tutti gli utenti**.
 
-3. Configurare le opzioni di **controllo di accesso** come illustrato di seguito:  
-‎
+3. Configurare le opzioni di **controllo di accesso** come illustrato di seguito:
 
 ![Impostazioni dell'autenticazione a più fattori di AAD](media/migrate-adfs-apps-to-azure/mfa-unregistered-devices.png)
 
- 
+
 Quando si imposta l'opzione per più controlli in modo da richiedere uno dei controlli selezionati, significa che se una delle condizioni specificate dalla casella di controllo viene soddisfatta dall'utente, viene concesso l'accesso all'app.
 
 #### <a name="example-3-enforce-mfa-based-on-location"></a>Esempio 3: applicare l'autenticazione a più fattori in base alla posizione
@@ -355,7 +352,7 @@ Specificare le regole di autenticazione a più fattori in base alla posizione di
 
 1. Impostare le **assegnazioni** su **tutti gli utenti**.
 
-1. [Configurare le località denominate in Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) altrimenti la Federazione dall'interno della rete aziendale è attendibile. 
+1. [Configurare le località denominate in Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) altrimenti la Federazione dall'interno della rete aziendale è attendibile.
 
 1. Configurare le **regole delle condizioni** per specificare i percorsi per i quali si vuole applicare l'autenticazione a più fattori.
 
@@ -366,7 +363,7 @@ Specificare le regole di autenticazione a più fattori in base alla posizione di
 
 ![Mappare i criteri di controllo di accesso](media/migrate-adfs-apps-to-azure/mfa-location-2.png)
 
- 
+
 ### <a name="map-emit-attributes-as-claims-rule"></a>Mappa creare attributi come regola attestazioni
 
 Di seguito è riportato un esempio di come viene eseguito il mapping degli attributi in AD FS:
@@ -388,14 +385,14 @@ AD FS 2016 include diversi criteri di controllo di accesso predefiniti che è po
 
 ![Controllo degli accessi Azure AD incorporato](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-1.png)
 
- 
+
 Per implementare i criteri predefiniti in Azure AD, è possibile usare i [nuovi criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json) e configurare i controlli di accesso. in alternativa, è possibile usare la finestra di progettazione dei criteri personalizzati ad FS 2016 per configurare i criteri di controllo degli accessi. Nell'Editor regole è presente un elenco completo delle opzioni Consenti e ad eccezione che consentono di apportare tutti i tipi di permutazioni.
 
 ![Criteri di controllo degli accessi Azure AD](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-2.png)
 
 
 
-In questa tabella sono state elencate alcune opzioni utili ed escluse e il modo in cui vengono mappate a Azure AD. 
+In questa tabella sono state elencate alcune opzioni utili ed escluse e il modo in cui vengono mappate a Azure AD.
 
 
 | Opzione | Come configurare l'opzione Consenti in Azure AD?| Come configurare l'opzione except in Azure AD? |
@@ -420,7 +417,7 @@ Quando si mappano le regole di autorizzazione, le app che eseguono l'autenticazi
 
 Per ulteriori informazioni, vedere [prerequisiti per l'utilizzo degli attributi di gruppo sincronizzati da Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-group-claims).
 
-### <a name="setup-user-self-provisioning"></a>Configurare il provisioning automatico degli utenti 
+### <a name="setup-user-self-provisioning"></a>Configurare il provisioning automatico degli utenti
 
 Alcune applicazioni SaaS supportano la possibilità di eseguire il provisioning automatico degli utenti al primo accesso all'applicazione. In Azure Active Directory (Azure AD) il termine provisioning di app si riferisce alla creazione automatica di identità e ruoli utente nelle applicazioni cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a cui gli utenti devono accedere. Gli utenti di cui è stata eseguita la migrazione avranno già un account nell'applicazione SaaS. Per tutti i nuovi utenti aggiunti dopo la migrazione sarà necessario eseguire il provisioning. Testare il [provisioning delle app Saas](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) dopo la migrazione dell'applicazione.
 
@@ -436,7 +433,7 @@ Si continuerà a essere in grado di usare questi account nello stesso modo in cu
 
 Se si sta eseguendo la Federazione con un'organizzazione esterna, è possibile adottare alcuni approcci:
 
-* [Aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator). È possibile inviare in modo proattivo gli inviti di collaborazione B2B dal portale di amministrazione di Azure AD all'organizzazione partner per i singoli membri per continuare a usare le app e le risorse a cui sono abituati. 
+* [Aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator). È possibile inviare in modo proattivo gli inviti di collaborazione B2B dal portale di amministrazione di Azure AD all'organizzazione partner per i singoli membri per continuare a usare le app e le risorse a cui sono abituati.
 
 * [Creare un flusso di lavoro di iscrizione B2B self-service](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal) che genera una richiesta per i singoli utenti dell'organizzazione partner usando l'API di invito B2B.
 
@@ -453,17 +450,17 @@ Passare quindi alla [portale di Azure](https://aad.portal.azure.com/) per verifi
 
 1. Selezionare **Gestisci**  >  **accesso condizionale**. Esaminare l'elenco dei criteri e assicurarsi che non si stia bloccando l'accesso all'applicazione con [criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
-A seconda di come si configura l'app, verificare che SSO funzioni correttamente. 
+A seconda di come si configura l'app, verificare che SSO funzioni correttamente.
 
 | Tipo di autenticazione| Test |
 | - | - |
-| OAuth/OpenID Connect| Selezionare **applicazioni aziendali > le autorizzazioni** e assicurarsi di avere acconsentito all'applicazione da usare nell'organizzazione nelle impostazioni utente per l'app.  
+| OAuth/OpenID Connect| Selezionare **applicazioni aziendali > le autorizzazioni** e assicurarsi di avere acconsentito all'applicazione da usare nell'organizzazione nelle impostazioni utente per l'app.
 ‎ |
-| SSO basato su SAML| Usare il pulsante [test impostazioni SAML](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) disponibile in **Single Sign-on**.  
+| SSO basato su SAML| Usare il pulsante [test impostazioni SAML](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) disponibile in **Single Sign-on**.
 ‎ |
-| SSO basato su password| Scaricare e installare l'estensione per l' [accesso sicuro app](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). Questa estensione consente di avviare tutte le app cloud dell'organizzazione che richiedono l'uso di un processo SSO.  
+| SSO basato su password| Scaricare e installare l'estensione per l' [accesso sicuro app](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). Questa estensione consente di avviare tutte le app cloud dell'organizzazione che richiedono l'uso di un processo SSO.
 ‎ |
-| Proxy dell'applicazione| Verificare che il connettore sia in esecuzione e che sia stato assegnato all'applicazione. Per ulteriore assistenza, vedere la [Guida alla risoluzione dei problemi del proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) .  
+| Proxy dell'applicazione| Verificare che il connettore sia in esecuzione e che sia stato assegnato all'applicazione. Per ulteriore assistenza, vedere la [Guida alla risoluzione dei problemi del proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) .
 ‎ |
 
 > [!NOTE]
@@ -483,9 +480,9 @@ Sebbene la finestra di interruzione pianificata stessa possa essere minima, è c
 
 Al termine della distribuzione, è possibile inviare la comunicazione per informare gli utenti della distribuzione riuscita e ricordare i nuovi passaggi da eseguire.
 
-* Indicare agli utenti di usare le [app personali](https://myapps.microsoft.com) per accedere a tutte le applicazioni migrate. 
+* Indicare agli utenti di usare le [app personali](https://myapps.microsoft.com) per accedere a tutte le applicazioni migrate.
 
-* Ricordare agli utenti che potrebbero dover aggiornare le impostazioni dell'autenticazione a più fattori. 
+* Ricordare agli utenti che potrebbero dover aggiornare le impostazioni dell'autenticazione a più fattori.
 
 * Se la reimpostazione della password self-service viene distribuita, gli utenti potrebbero dover aggiornare o verificare i metodi di autenticazione. Vedere [modelli](https://aka.ms/mfatemplates) di comunicazione dell'utente finale di multi-factor authentication e [SSPR](https://aka.ms/ssprtemplates) .
 

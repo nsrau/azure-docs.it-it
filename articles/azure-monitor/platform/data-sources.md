@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/19/2019
-ms.openlocfilehash: d469566d7ae5feda37944dda5a0702dca6fca19b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 10/06/2020
+ms.openlocfilehash: 8ef498a51f25a6b084a0d048661f3d18a5881644
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515581"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802065"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Origini dei dati di monitoraggio per monitoraggio di Azure
 Monitoraggio di Azure è basato su una [piattaforma di dati di monitoraggio comune](data-platform.md) che include [log](data-platform-logs.md) e [metriche](data-platform-metrics.md). La raccolta dei dati in questa piattaforma consente di analizzare i dati di più risorse insieme usando un set comune di strumenti in monitoraggio di Azure. I dati di monitoraggio possono anche essere inviati ad altre posizioni per supportare determinati scenari e alcune risorse possono scrivere in altre posizioni prima di poter essere raccolti in log o metriche.
@@ -86,7 +86,7 @@ Il [log attività di Azure](platform-logs-overview.md) include i record di integ
 ## <a name="azure-resources"></a>Risorse di Azure
 Le metriche e i log delle risorse forniscono informazioni sul funzionamento _interno_ delle risorse di Azure. Sono disponibili per la maggior parte dei servizi di Azure e il monitoraggio di soluzioni e informazioni dettagliate raccoglie dati aggiuntivi per servizi specifici.
 
-![Raccolta di risorse di Azure](media/data-sources/azure-resources.png)
+![Raccolta di risorse di Azure](media/data-sources/data-source-azure-resources.svg)
 
 
 ### <a name="platform-metrics"></a>Metriche della piattaforma 
@@ -94,7 +94,7 @@ La maggior parte dei servizi di Azure invierà le [metriche della piattaforma](d
 
 | Destination | Descrizione | Informazioni di riferimento |
 |:---|:---|:---|
-| Metriche di Monitoraggio di Azure | Le metriche della piattaforma scriveranno nel database di metriche di monitoraggio di Azure senza alcuna configurazione. Accedere alle metriche della piattaforma da Esplora metriche.  | [Introduzione a Esplora metriche di Azure](metrics-getting-started.md)<br>[Metriche supportate con il monitoraggio di Azure](metrics-supported.md) |
+| Metriche di Monitoraggio di Azure | Le metriche della piattaforma scriveranno nel database di metriche di monitoraggio di Azure senza alcuna configurazione. Accedere alle metriche della piattaforma da Esplora metriche.  | [Introduzione a Esplora metriche di Azure](metrics-getting-started.md)<br>[Metriche supportate con monitoraggio di Azure](metrics-supported.md) |
 | Log di Monitoraggio di Azure | Copiare le metriche della piattaforma nei log per la tendenza e altre analisi usando Log Analytics. | [Da Diagnostica di Azure direttamente a Log Analytics](./resource-logs.md#send-to-log-analytics-workspace) |
 | Hub eventi | Trasmettere le metriche ad altre località usando gli hub eventi. |[Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](stream-monitoring-data-event-hubs.md) |
 
@@ -180,7 +180,7 @@ Il [monitoraggio delle soluzioni](../insights/solutions.md) e delle [informazion
 |:---|:---|:---|
 | Log di Monitoraggio di Azure | Archivia i dati di monitoraggio per AKS, inclusi inventario, log ed eventi. I dati delle metriche vengono inoltre archiviati nei log per sfruttare le funzionalità di analisi nel portale. | [Conoscere le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori](../insights/container-insights-analyze.md) |
 | Metriche di Monitoraggio di Azure | I dati delle metriche vengono archiviati nel database delle metriche per guidare la visualizzazione e gli avvisi. | [Visualizzare le metriche del contenitore in Esplora metriche](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Servizio Azure Kubernetes | Consente di accedere direttamente ai log del contenitore del servizio Azure Kubernetes (AKS/stderr), agli eventi e alle metriche Pod nel portale. | [Come visualizzare i log Kubernetes, gli eventi e le metriche pod in tempo reale](../insights/container-insights-livedata-overview.md) |
+| Servizio Azure Kubernetes | Consente di accedere direttamente ai log del contenitore del servizio Azure Kubernetes (AKS/stderr), agli eventi e alle metriche Pod nel portale. | [Come visualizzare i log Kubernetes, gli eventi e le metriche pod in tempo reale ](../insights/container-insights-livedata-overview.md) |
 
 ### <a name="azure-monitor-for-vms"></a>Monitoraggio di Azure per le macchine virtuali
 [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) offre un'esperienza personalizzata per il monitoraggio delle macchine virtuali. Una descrizione dei dati raccolti da Monitoraggio di Azure per le macchine virtuali è inclusa nella sezione del [sistema operativo (Guest)](#operating-system-guest) precedente.
@@ -199,7 +199,7 @@ Oltre ai livelli standard di un'applicazione, potrebbe essere necessario monitor
 ## <a name="other-services"></a>Altri servizi
 Altri servizi in Azure scrivono i dati nella piattaforma dati di monitoraggio di Azure. Ciò consente di analizzare i dati raccolti da questi servizi con i dati raccolti da monitoraggio di Azure e di sfruttare gli stessi strumenti di analisi e visualizzazione.
 
-| Service | Destination | Descrizione | Informazioni di riferimento |
+| Servizio | Destination | Descrizione | Informazioni di riferimento |
 |:---|:---|:---|:---|
 | [Centro sicurezza di Azure](../../security-center/index.yml) | Log di Monitoraggio di Azure | Il Centro sicurezza di Azure archivia i dati di sicurezza raccolti in un'area di lavoro Log Analytics che consente di analizzarli con altri dati di log raccolti da monitoraggio di Azure.  | [Raccolta dati nel Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../../sentinel/index.yml) | Log di Monitoraggio di Azure | Azure Sentinel archivia i dati raccolti da origini dati diverse in un'area di lavoro Log Analytics che consente di analizzarli con altri dati di log raccolti da monitoraggio di Azure.  | [Connettere le origini dati](../../sentinel/quickstart-onboard.md) |

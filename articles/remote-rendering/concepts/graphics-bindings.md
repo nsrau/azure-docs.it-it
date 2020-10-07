@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 332213adf64e17c0935ddf612acac5bbca413a87
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561874"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802294"
 ---
 # <a name="graphics-binding"></a>Binding di grafica
 
@@ -120,7 +120,10 @@ Dove `ptr` qui sopra deve essere un puntatore a un oggetto `ABI::Windows::Percep
 
 #### <a name="render-remote-image"></a>Eseguire il rendering dell'immagine remota
 
-All'inizio di ogni fotogramma è necessario eseguire il rendering del fotogramma remoto nel buffer nascosto. Questa operazione viene eseguita chiamando `BlitRemoteFrame`, che inserisce le informazioni relative a colore e profondità nella destinazione di rendering del binding attuale. È quindi importante che questa operazione venga eseguita dopo il binding del buffer nascosto come destinazione di rendering.
+All'inizio di ogni frame, il frame remoto deve essere sottoposto a rendering nel buffer nascosto. Questa operazione viene eseguita chiamando `BlitRemoteFrame` , che riempie le informazioni relative a colore e profondità per entrambi gli occhi nella destinazione di rendering attualmente associata. È quindi importante eseguire questa operazione dopo aver associato il buffer completo al back-down come destinazione di rendering.
+
+> [!WARNING]
+> Dopo che l'immagine remota è stata blit nel backBuffer, è necessario eseguire il rendering del contenuto locale usando una tecnica di rendering stereo a passaggio singolo, ad esempio usando **SV_RenderTargetArrayIndex**. L'uso di altre tecniche di rendering stereo, ad esempio il rendering di ogni occhio in un passaggio separato, può comportare un notevole calo delle prestazioni o artefatti grafici e deve essere evitato.
 
 ```cs
 AzureSession currentSession = ...;

@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
-ms.openlocfilehash: 8366c0681f1ac29d9e265225dfaeeab44aa4b8ca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b4b5fe5d7dffbcacc804500cc1f3f8f07f0090d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252970"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758541"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Aggiungere o aggiornare una carta di credito per Azure
 
@@ -32,7 +32,7 @@ Con un Contratto del cliente Microsoft, i metodi di pagamento sono associati ai 
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Gestire le carte di credito per una sottoscrizione di Azure
 
-Le sezioni seguenti sono valide per i clienti con un account di fatturazione del Programma di Microsoft Online Services. Vedere [Verificare il tipo di account in uso](#check-the-type-of-your-account). Se si ha un tipo di account di fatturazione del Programma di Microsoft Online Services, i metodi di pagamento sono associati alle singole sottoscrizioni di Azure. Se si verifica un errore dopo aver aggiunto la carta di credito, vedere [La carta di credito viene rifiutata al momento dell'iscrizione ad Azure](/troubleshoot-declined-card.md).
+Le sezioni seguenti sono valide per i clienti con un account di fatturazione del Programma di Microsoft Online Services. Vedere [Verificare il tipo di account in uso](#check-the-type-of-your-account). Se si ha un tipo di account di fatturazione del Programma di Microsoft Online Services, i metodi di pagamento sono associati alle singole sottoscrizioni di Azure. Se si verifica un errore dopo aver aggiunto la carta di credito, vedere [La carta di credito viene rifiutata al momento dell'iscrizione ad Azure](/azure/cost-management-billing/manage/troubleshoot-declined-card).
 
 ### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>Cambiare la carta di credito per una sottoscrizione aggiungendo una nuova carta di credito
 
