@@ -1,6 +1,6 @@
 ---
 title: Usare l'archiviazione tabelle di Azure e l'API Tabella di Azure Cosmos DB con C++
-description: Archiviare dati strutturati nel cloud usando l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB.
+description: Archiviare dati strutturati nel cloud usando l'archiviazione tabelle di Azure o l'API Tabella di Azure Cosmos DB tramite C++.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: cpp
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 3d38fa2afe35976283e5129eab7d7f8ef3a1103b
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: ed3ea64bf76eafd965e13f4dab1911840ed8139a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236489"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282851"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Come usare l'archiviazione tabelle di Azure e l'API del servizio tabelle di Azure Cosmos DB con C++
 

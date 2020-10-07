@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6383505a7b6912e6fb673f711aac68136c6c7638
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e9eeca39dfbbefd36c9662aa0fc8b16d2c804158
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015204"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252987"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: esempi .NET dell'API SQL
 
@@ -21,6 +21,7 @@ ms.locfileid: "89015204"
 > * [Esempi di .NET V2 SDK](sql-api-dotnet-samples.md)
 > * [Esempi di .NET V3 SDK](sql-api-dotnet-v3sdk-samples.md)
 > * [Esempi di Java V4 SDK](sql-api-java-sdk-samples.md)
+> * [Esempi di Spring Data V3 SDK](sql-api-spring-data-sdk-samples.md)
 > * [Esempi di Node.js](sql-api-nodejs-samples.md)
 > * [Esempi di Python](sql-api-python-samples.md)
 > * [Raccolta di esempi di codice di Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
