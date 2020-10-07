@@ -12,10 +12,10 @@ ms.author: sachinp
 ms.reviewer: vanto, sstein
 ms.date: 02/11/2019
 ms.openlocfilehash: d62d568b4924a2bfa67740b3e5f0cc1377519d47
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91335042"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-using-the-azure-portal"></a>Avvio rapido: Creare una regola del firewall a livello di server con il portale di Azure

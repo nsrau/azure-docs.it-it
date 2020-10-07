@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 61b6d5ea903d00519c58556bc99da7065741a6e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184061"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396536"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Informazioni su Azure Active Directory B2C
 
@@ -105,7 +105,7 @@ Facendo clic sul pulsante **Create** (Crea), Azure AD B2C reindirizza l'utente a
 
 Quando un cliente seleziona una delle opzioni in **Business Customers** (Clienti aziendali), il sito Web di WoodGrove Groceries richiama un criterio di Azure AD B2C diverso rispetto a quello per i clienti privati.
 
-Questo criterio offre all'utente la possibilità di usare le proprie credenziali aziendali per l'iscrizione e l'accesso. Nell'esempio dell'app WoodGrove viene chiesto agli utenti di accedere con un account Office 365 o Azure AD. Questo criterio usa un'[applicazione di Azure AD multi-tenant](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) e l'endpoint di Azure AD `/common` per federare Azure AD B2C con qualsiasi cliente di Office 365 nel mondo.
+Questo criterio offre all'utente la possibilità di usare le proprie credenziali aziendali per l'iscrizione e l'accesso. Nell'esempio dell'app WoodGrove agli utenti viene chiesto di accedere con un account aziendale o dell'istituto di istruzione. Questo criterio usa un'[applicazione di Azure AD multi-tenant](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) e l'endpoint di Azure AD `/common` per federare Azure AD B2C con qualsiasi cliente di Microsoft 365 nel mondo.
 
 ### <a name="authenticate-partners"></a>Autenticare i partner
 

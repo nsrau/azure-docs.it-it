@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 4adec4579cf1a413aeac54782b4f9a833d557ad9
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 38b4713383368f0c64983738f2ed65f60edb9e67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029971"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334090"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Esercitazione: Automatizzare le attività per elaborare i messaggi di posta elettronica con App per la logica di Azure, Funzioni di Azure e Archiviazione di Azure
 
@@ -323,7 +323,7 @@ Aggiungere quindi una condizione per selezionare solo i messaggi di posta elettr
 
    1. Nella prima riga sotto **E** fare clic all'interno della casella di sinistra. Nell'elenco di contenuto dinamico visualizzato selezionare la proprietà **Con allegato**.
 
-      ![Creare una condizione](./media/tutorial-process-email-attachments-workflow/build-condition.png)
+      ![Screenshot che mostra la proprietà "E" per la condizione e la selezione della proprietà "Con allegato".](./media/tutorial-process-email-attachments-workflow/build-condition.png)
 
    1. Nella casella centrale mantenere l'operatore **è uguale a**.
 
@@ -389,7 +389,7 @@ Questo passaggio aggiunge la funzione di Azure creata in precedenza all'app per 
 
    ![Aggiungere un'azione all'interno di "È true"](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-1. Nella casella di ricerca cercare "Funzioni di Azure" e selezionare questa azione: **Scegliere una funzione di Azure - Funzioni di Azure**
+1. Nella casella di ricerca immettere "Funzioni di Azure" e selezionare questa azione: **Scegliere una funzione di Azure - Funzioni di Azure**
 
    ![Selezionare l'azione "Scegliere una funzione di Azure"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -458,7 +458,7 @@ Aggiungere quindi un'azione che crea un BLOB nel contenitore di archiviazione pe
 
    Al termine, l'azione si presenterà come in questo esempio:
 
-   ![Azione "Crea BLOB" completata](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
+   ![Screenshot che mostra un esempio di azione di creazione BLOB completata.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
 1. Salvare l'app per la logica.
 

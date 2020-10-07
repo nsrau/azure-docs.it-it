@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: af1df529ae0f6bb03a8d3f36e51619f273780dfe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4411bd490ab72aa27fbf16a8598a9ff0dae7a5b5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086796"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358917"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Esercitazione: Configurare i gruppi di disponibilità per SQL Server nelle macchine virtuali RHEL in Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -908,7 +908,7 @@ In tutte le istanze di SQL Server salvare le credenziali usate per l'account di 
 
 1. Dopo aver aggiunto le repliche secondarie, sarà possibile visualizzarle in Esplora oggetti di SSMS espandendo il nodo **Disponibilità elevata Always On**:
 
-    ![availability-group-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
+    ![Screenshot che mostra le repliche di disponibilità primarie e secondarie.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
 ### <a name="add-a-database-to-the-availability-group"></a>Aggiungere un database al gruppo di disponibilità
 

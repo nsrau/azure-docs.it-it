@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: fb86b25fc24ea505ae258cc44d5554a019723af6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ddba41acfcfe497059a661b701906cda0d4d77c6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019170"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398358"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Esercitazione: Parte 2 - Visualizzare i messaggi instradati
 
@@ -82,7 +82,7 @@ La coda del Bus di servizio viene usata per la ricezione di messaggi designati c
 
    ![Le opzioni di Office365](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
-8. Accedere all'account di Office 365 per configurare la connessione. Se si verifica un timeout, riprovare. Specificare gli indirizzi di posta elettronica per i destinatari del messaggio di posta elettronica. Specificare anche l'oggetto e digitare il messaggio che si desidera il destinatario visualizzi nel corpo. Per i test, inserire il proprio indirizzo di posta elettronica come destinatario.
+8. Accedere all'account aziendale o dell'istituto di istruzione per configurare la connessione. Se si verifica un timeout, riprovare. Specificare gli indirizzi di posta elettronica per i destinatari del messaggio di posta elettronica. Specificare anche l'oggetto e digitare il messaggio che si desidera il destinatario visualizzi nel corpo. Per i test, inserire il proprio indirizzo di posta elettronica come destinatario.
 
    Selezionare **Aggiungi contenuto dinamico** per visualizzare il contenuto del messaggio che è possibile includere. Selezionare **Contenuto**: includerà il messaggio di posta elettronica.
 

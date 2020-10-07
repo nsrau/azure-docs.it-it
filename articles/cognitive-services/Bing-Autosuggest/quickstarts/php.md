@@ -1,7 +1,7 @@
 ---
 title: "Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e PHP"
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come avviare rapidamente il suggerimento in tempo reale di termini di ricerca con l'API Suggerimenti automatici Bing.
+description: Come imparare rapidamente a suggerire termini di ricerca in tempo reale con l'API Suggerimenti automatici Bing e PHP.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 6552c345678b6996f4a35e9e1fc7a1838505ff09
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 534702a9122fd19be1b47dc1fcbd54ba7bfad14c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930183"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332611"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e PHP
 

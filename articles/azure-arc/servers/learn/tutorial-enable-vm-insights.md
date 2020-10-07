@@ -2,17 +2,17 @@
 title: 'Esercitazione: monitorare una macchina virtuale ibrida con Monitoraggio di Azure per le macchine virtuali'
 description: Informazioni su come raccogliere e analizzare i dati da una macchina virtuale ibrida in Monitoraggio di Azure.
 ms.topic: tutorial
-ms.date: 08/12/2020
-ms.openlocfilehash: 76df7d403fdce6fc3ac77c0b24849aedffb57ce0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/23/2020
+ms.openlocfilehash: 97ab390570f434295a5aa836ef994640f6dc14f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213173"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335416"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Esercitazione: Monitorare una macchina virtuale ibrida con Monitoraggio di Azure per le macchine virtuali
 
-[Monitoraggio di Azure](../overview.md) può raccogliere dati direttamente dalle macchine virtuali ibride in un'area di lavoro Log Analytics per l'analisi dettagliata e la correlazione. Questa operazione comporta in genere l'installazione dell'[agente di Log Analytics](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) nella macchina virtuale usando uno script, manualmente o un metodo automatico a seconda degli standard di gestione della configurazione. Nei server abilitati per Arc (anteprima) è stato introdotto di recente il supporto per installare le [estensioni macchina virtuale](../manage-vm-extensions.md) agente di Log Analytics e Dependency Agent per Windows e Linux, per consentire a Monitoraggio di Azure di raccogliere i dati dalle macchine virtuali non di Azure.
+[Monitoraggio di Azure](../overview.md) può raccogliere dati direttamente dalle macchine virtuali ibride in un'area di lavoro Log Analytics per l'analisi dettagliata e la correlazione. Questa operazione comporta in genere l'installazione dell'[agente di Log Analytics](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) nella macchina virtuale usando uno script, manualmente o un metodo automatico a seconda degli standard di gestione della configurazione. Nei server abilitati per Arc è stato introdotto di recente il supporto per installare le [estensioni macchina virtuale](../manage-vm-extensions.md) agente di Log Analytics e Dependency Agent per Windows e Linux, per consentire a Monitoraggio di Azure di raccogliere i dati dalle macchine virtuali non di Azure.
 
 Questa esercitazione illustra come configurare e raccogliere i dati dalle macchine virtuali Linux o Windows abilitando Monitoraggio di Azure per le macchine virtuali seguendo un set di procedure facilitate, che semplificano l'esperienza e impiegano meno tempo.  
 
@@ -40,15 +40,15 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Dal riquadro a sinistra nella sezione **Monitoraggio** selezionare **Informazioni dettagliate** e quindi **Abilita**.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Selezionare l'opzione Informazioni dettagliate dal menu a sinistra" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Cercare i server abilitati per Arc in Tutti i servizi" border="false":::
 
 1. Nella pagina **Onboarding di Informazioni dettagliate** di Monitoraggio di Azure verrà richiesto di creare un'area di lavoro. Per questa esercitazione, non è consigliabile selezionare un'area di lavoro Log Analytics esistente se ne è già presente una. Selezionare l'impostazione predefinita,ovvero un'area di lavoro con un nome univoco nella stessa area della macchina virtuale connessa registrata. Questa area di lavoro viene creata e configurata automaticamente.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Pagina Abilita Monitoraggio di Azure per le macchine virtuali" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Cercare i server abilitati per Arc in Tutti i servizi" border="false":::
 
 1. Durante la configurazione, si riceveranno messaggi di stato. Questo processo richiede alcuni minuti per l'installazione delle estensioni nella macchina virtuale connessa.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Messaggio di stato per l'avanzamento di Abilita Monitoraggio di Azure per le macchine virtuali" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Cercare i server abilitati per Arc in Tutti i servizi" border="false":::
 
     Al termine, si riceverà un messaggio indicante che l'onboarding della macchina virtuale è stato completato e che le Informazioni dettagliate sono state distribuite.
 
@@ -56,11 +56,11 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 Al termine della distribuzione e della configurazione, selezionare **Informazioni dettagliate**, quindi selezionare la scheda **Prestazioni**. Nella scheda Prestazioni verrà visualizzato un gruppo selezionato di contatori delle prestazioni raccolti dal sistema operativo guest della macchina virtuale. Scorrere verso il basso per visualizzare altri contatori e spostare il puntatore del mouse su un grafico per visualizzare i valori di media e percentile acquisiti a partire dal momento in cui è stata installata l'estensione macchina virtuale Log Analytics nella macchina virtuale.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Grafici delle prestazioni di Monitoraggio di Azure per le macchine virtuali per la macchina virtuale selezionata" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Cercare i server abilitati per Arc in Tutti i servizi" border="false":::
 
 Selezionare **Mappa** per aprire la funzionalità mappe che mostra i processi in esecuzione nella macchina virtuale e le relative dipendenze. Selezionare **Proprietà** per aprire il riquadro delle proprietà, se non è già aperto.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Mappe di Monitoraggio di Azure per le macchine virtuali per la macchina virtuale selezionata" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Cercare i server abilitati per Arc in Tutti i servizi" border="false":::
 
 Espandere i processi della macchina virtuale. Selezionare uno dei processi per visualizzarne i dettagli ed evidenziarne le dipendenze.
 

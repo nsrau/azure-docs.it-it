@@ -1,14 +1,16 @@
 ---
 title: Novità - Language Understanding (LUIS)
 description: Questo articolo viene aggiornato regolarmente e include le novità sull'API Language Understanding di Servizi cognitivi di Azure.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 06/15/2020
-ms.openlocfilehash: d178ee2f5db74949f4a8ad68df93bf3c4407c58a
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.openlocfilehash: fffe337a59ff343164a155fcd0f4d5616a32bf41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789209"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334617"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novità di Language Understanding
 
@@ -18,17 +20,17 @@ Ecco cosa c'è di nuovo nel servizio. Le novità riguardano note sulla versione,
 
 ### <a name="june-2020"></a>Giugno 2020
 
-* [Anteprima della creazione di 3,0](luis-migration-authoring-entities.md) SDK
-    * Versione 3.2.0-Preview. 3- [.NET-NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
-    * Versione 4.0.0-Preview. 3- [JS-NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
+* SDK di [creazione v3.0 (anteprima)](luis-migration-authoring-entities.md) -
+    * Versione 3.2.0-preview.3 - [.NET - NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
+    * Versione 4.0.0-preview.3 - [JS - NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
 * Applicazione delle procedure di DevOps con LUIS
     * Concetti
-        * [Procedure DevOps per LUIS](luis-concept-devops-sourcecontrol.md)
-        * [Flussi di lavoro di integrazione continua e recapito continuo per LUIS DevOps](luis-concept-devops-automation.md)
-        * [Test per LUIS DevOps](luis-concept-devops-testing.md)
+        * [Procedure della metodologia DevOps per LUIS](luis-concept-devops-sourcecontrol.md)
+        * [Flussi di lavoro di integrazione continua e recapito continuo per DevOps LUIS](luis-concept-devops-automation.md)
+        * [Test per DevOps LUIS](luis-concept-devops-testing.md)
     * Procedure
-        * [Applicare DevOps per lo sviluppo di app LUIS usando le azioni di GitHub](luis-how-to-devops-with-github.md)
-    * [Completare il repository GitHub del codice](https://github.com/Azure-Samples/LUIS-DevOps-Template)
+        * [Applicare DevOps per lo sviluppo di app LUIS usando GitHub Actions](luis-how-to-devops-with-github.md)
+    * [Repository GitHub di codice completo](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 
 ### <a name="may-2020---build"></a>Maggio 2020 - //Build
 

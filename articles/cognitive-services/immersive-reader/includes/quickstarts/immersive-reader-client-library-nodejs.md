@@ -12,10 +12,10 @@ ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js
 ms.openlocfilehash: c34ed97339076a4412f8b6bf36ddf342205c88be
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91377590"
 ---
 Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è stato progettato per l'inclusività e implementa tecniche comprovate per migliorare la comprensione della lettura per nuovi lettori, studenti di lingue e persone con differenze di apprendimento, come la dislessia. È possibile usare lo strumento di lettura immersiva nelle applicazioni per isolare il testo stimolare l'attenzione, visualizzare immagini per le parole di uso comune, evidenziare parti del discorso, leggere il testo selezionato ad alta voce, tradurre parole e frasi in tempo reale e altro ancora.

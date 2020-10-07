@@ -4,12 +4,12 @@ description: Informazioni su come richiamare i processi aziendali dall'app del S
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: ddd57bfe653766d133824f42098d9ad9adb1e56b
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 5aa563e55c64893d57522dd1154a64c7e90a1690
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962197"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397437"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Esercitazione: Inviare messaggi di posta elettronica e richiamare altri processi aziendali dal Servizio app
 
@@ -84,7 +84,8 @@ Distribuire un'app con il framework del linguaggio desiderato nel Servizio app. 
 1. Nella parte inferiore della finestra di progettazione fare clic su **Nuovo passaggio**, digitare **Gmail** nella casella di ricerca azioni e trovare e selezionare **Invia messaggio di posta elettronica (v2)** .
     
     > [!TIP]
-    > È possibile cercare altri tipi di integrazioni, ad esempio SendGrid, MailChimp, Office 365 e SalesForce. Per altre informazioni, vedere la [Documentazione di App per la logica](../logic-apps/index.yml).
+    > È possibile cercare altri tipi di integrazioni, ad esempio SendGrid, MailChimp, Microsoft 365 e SalesForce. Per altre informazioni, vedere la [Documentazione di App per la logica](../logic-apps/index.yml).
+
 1. Nella finestra di dialogo **Gmail** selezionare **Accedi** e accedere all'account Gmail da cui si vuole inviare il messaggio di posta elettronica.
 
     ![Screenshot che mostra la finestra di dialogo Gmail che consente di accedere all'account Gmail da cui si desidera inviare il messaggio di posta elettronica.](./media/tutorial-send-email/gmail-sign-in.png)

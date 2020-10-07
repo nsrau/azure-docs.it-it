@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: b656774762f5930c5665166a701bda7333940307
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: af8479f6460a6cc555d7ea67dcfe65c779878624
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322432"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357863"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rilevare e diagnosticare le eccezioni di runtime con Azure Application Insights
 
@@ -97,7 +97,7 @@ Tutti i dati raccolti da Application Insights sono archiviati in Log Analytics d
 
     ![Codice](media/tutorial-runtime-exceptions/codelens.png)
 
-1. Fare clic su **Analizza l'impatto** per aprire Analytics in Application Insights,  che viene popolato con diverse query che forniscono informazioni dettagliate sulle richieste non riuscite, ad esempio gli utenti, le aree e i browser interessati.<br><br>![Analisi](media/tutorial-runtime-exceptions/analytics.png)<br>
+1. Fare clic su **Analizza l'impatto** per aprire Analytics in Application Insights,  che viene popolato con diverse query che forniscono informazioni dettagliate sulle richieste non riuscite, ad esempio gli utenti, le aree e i browser interessati.<br><br>![Screenshot che mostra la finestra di Application Insights in cui sono presenti diverse query.](media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>Aggiungere un elemento di lavoro
 Se si connette Application Insights a un sistema di verifica come Azure DevOps o GitHub, è possibile creare un elemento di lavoro direttamente da Application Insights.

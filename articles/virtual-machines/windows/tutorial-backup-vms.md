@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b5b3d1240c621a1bcdc135825e70fe164452a428
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5dc41522add580b96e178328f47bd88fc1fbf052
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500396"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397063"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Esercitazione: Backup e ripristino di file per macchine virtuali Windows in Azure
 
@@ -59,7 +59,7 @@ Questo esempio spiega come ripristinare il file di immagine usato nella pagina W
 
 1. Aprire un browser e connettersi all'indirizzo IP della macchina virtuale per visualizzare la pagina IIS predefinita.
 
-    ![Pagina Web IIS predefinita](./media/tutorial-backup-vms/iis-working.png)
+    ![Screenshot che mostra la pagina Web IIS predefinita.](./media/tutorial-backup-vms/iis-working.png)
 
 1. Connettersi alla macchina virtuale.
 1. Nella macchina virtuale aprire **Esplora file**, passare a \inetpub\wwwroot ed eliminare il file **iisstart.png**.

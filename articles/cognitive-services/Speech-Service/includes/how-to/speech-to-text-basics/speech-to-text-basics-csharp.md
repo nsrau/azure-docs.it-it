@@ -5,16 +5,22 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d9e21c317240d27c8b32bd3daec0fcc66013e54
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: dbca2cba2738da6733f6221db5d67a3b79675528
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89564989"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377507"
 ---
+Una delle principali funzionalità del servizio Voce è la possibilità di riconoscere e trascrivere la voce umana, ovvero di convertire la voce in testo scritto. Questa guida di avvio rapido illustra come usare Speech SDK in app e prodotti per eseguire la conversione della voce in testo scritto di alta qualità.
+
+## <a name="skip-to-samples-on-github"></a>Passare agli esempi su GitHub
+
+Per passare direttamente al codice di esempio, vedere gli [esempi di avvio rapido C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet) in GitHub.
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che si abbia un account Azure e una sottoscrizione del servizio Voce. Se l'account e la sottoscrizione non sono disponibili, [provare il servizio Voce gratuitamente](../../../get-started.md).
+Questo articolo presuppone che si abbia un account Azure e una sottoscrizione del servizio Voce. Se l'account e la sottoscrizione non sono disponibili, [provare il servizio Voce gratuitamente](../../../overview.md#try-the-speech-service-for-free).
 
 ## <a name="install-the-speech-sdk"></a>Installare Speech SDK
 

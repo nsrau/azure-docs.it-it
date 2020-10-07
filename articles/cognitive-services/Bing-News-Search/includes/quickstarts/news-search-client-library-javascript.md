@@ -8,24 +8,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: cc96233ea6e2d02f3c3a2036466e3934aa234f5b
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 3760213c7f469dfe89599c0f01afe98168efde2d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407975"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376973"
 ---
 Seguire questo argomento di avvio rapido per iniziare a cercare notizie con la libreria client di Ricerca notizie Bing per JavaScript. Anche se Ricerca notizie Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, la libreria client offre un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Node.js](https://nodejs.org/en/)
-
-Per configurare un'applicazione console usando la libreria client di Ricerca notizie Bing:
-1. Eseguire `npm install ms-rest-azure` nell'ambiente di sviluppo.
-2. Eseguire `npm install azure-cognitiveservices-newssearch` nell'ambiente di sviluppo.
-
+* La versione più recente di [Node.js](https://nodejs.org/en/download/).
+* L'[SDK di Ricerca notizie Bing per JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch)
+     *  Per installarlo, eseguire `npm install @azure/cognitiveservices-newssearch`
+* La classe `CognitiveServicesCredentials` del pacchetto `@azure/ms-rest-azure-js` per autenticare il client.
+     * Per installarlo, eseguire `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -34,7 +33,7 @@ Per configurare un'applicazione console usando la libreria client di Ricerca not
 1. Creare un'istanza di `CognitiveServicesCredentials`. Creare variabili per la chiave di sottoscrizione e un termine di ricerca.
 
     ```javascript
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
     let search_term = 'Winter Olympics'
     ```
@@ -42,7 +41,7 @@ Per configurare un'applicazione console usando la libreria client di Ricerca not
 2. Creare un'istanza del client:
     
     ```javascript
-    const NewsSearchAPIClient = require('azure-cognitiveservices-newssearch');
+    const NewsSearchAPIClient = require('@azure/cognitiveservices-newssearch');
     let client = new NewsSearchAPIClient(credentials);
     ```
 

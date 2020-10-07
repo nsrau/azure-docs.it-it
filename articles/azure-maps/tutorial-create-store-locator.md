@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Creare un'applicazione di localizzazione di punti vendita con Mappe di Azure | Microsoft Docs"
-description: Informazioni su come creare applicazioni Web del localizzatore di punti vendita. Usare l'SDK Web di Mappe di Azure per creare una pagina Web, eseguire query nel servizio di ricerca e visualizzare i risultati su una mappa.
+description: Esercitazione su come creare applicazioni Web del localizzatore di punti vendita. Usare l'SDK Web di Mappe di Azure per creare una pagina Web, eseguire query nel servizio di ricerca e visualizzare i risultati su una mappa.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/11/2020
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 61c085cb721f9e1a8d9c44146a9d96cd5a08562c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 9c2160a241243b59ca7adda99fe2100d416c55be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085315"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335263"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure
 
 Questa esercitazione illustra il processo di creazione di un semplice localizzatore di punti vendita con Mappe di Azure. I localizzatori di punti vendita sono molto diffusi. Molti dei concetti usati in questo tipo di applicazione sono applicabili a molti altri tipi di applicazioni. L'offerta di un localizzatore di punti vendita ai clienti è essenziale per la maggior parte delle aziende che vendono direttamente ai consumatori. In questa esercitazione verranno illustrate le procedure per:
-    
+
 > [!div class="checklist"]
 > * Creare una nuova pagina Web con l'API Controllo mappa di Azure.
 > * Caricare dati personalizzati da un file e visualizzarli in una mappa.
@@ -924,34 +924,21 @@ Se si ridimensiona la finestra del browser fino a una larghezza inferiore a 700 
 
 ![Screenshot della versione del localizzatore di punti vendita per schermi di piccole dimensioni](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)
 
+In questa esercitazione è stato illustrato come creare un localizzatore di punti vendita di base con Mappe di Azure. Il localizzatore di punti vendita creato in questa esercitazione può includere tutte le funzionalità necessarie. È possibile aggiungere funzionalità al localizzatore di punti vendita o usare funzionalità più avanzate per ottenere un'esperienza utente più personalizzata: 
+
+ * Abilitare i [suggerimenti durante la digitazione](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) nella casella di ricerca.  
+ * Aggiungere il [supporto per più lingue](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
+ * Consentire all'utente di [filtrare le posizioni lungo un tragitto](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
+ * Aggiungere la possibilità di [impostare filtri](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
+ * Aggiungere il supporto per specificare un valore di ricerca iniziale mediante una stringa di query. Quando si include questa opzione nel localizzatore di punti vendita, gli utenti possono aggiungere ai segnalibri e condividere le ricerche. Questa opzione consente anche di passare con facilità le ricerche a questa pagina da un'altra pagina.  
+ * Distribuire il localizzatore di punti vendita come [app Web del Servizio app di Azure](https://docs.microsoft.com/azure/app-service/quickstart-html). 
+ * Archiviare i dati in un database e cercare le posizioni nelle vicinanze. Per altre informazioni, vedere la [Panoramica dei tipi di dati spaziali di SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017&preserve-view=true) e [Query dei dati spaziali per Nearest Neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017&preserve-view=true).
+
+Per [visualizzare il codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [visualizzare l'esempio in esecuzione](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) e ottenere altre informazioni su copertura e funzionalità di Mappe di Azure, usare [Livelli di zoom e griglia riquadri](zoom-levels-and-tile-grid.md). È possibile anche [usare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md) da applicare alla logica di business.
+
 ## <a name="next-steps"></a>Passaggi successivi
-
-In questa esercitazione viene illustrato come creare un localizzatore di punti vendita di base con Mappe di Azure. Il localizzatore di punti vendita creato in questa esercitazione può includere tutte le funzionalità necessarie. È possibile aggiungere funzionalità al localizzatore di punti vendita o usare funzionalità più avanzate per ottenere un'esperienza utente più personalizzata: 
-
-> [!div class="checklist"]
-> * Abilitare i [suggerimenti durante la digitazione](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) nella casella di ricerca.  
-> * Aggiungere il [supporto per più lingue](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
-> * Consentire all'utente di [filtrare le posizioni lungo un tragitto](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
-> * Aggiungere la possibilità di [impostare filtri](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
-> * Aggiungere il supporto per specificare un valore di ricerca iniziale mediante una stringa di query. Quando si include questa opzione nel localizzatore di punti vendita, gli utenti possono aggiungere ai segnalibri e condividere le ricerche. Questa opzione consente anche di passare con facilità le ricerche a questa pagina da un'altra pagina.  
-> * Distribuire il localizzatore di punti vendita come [app Web del Servizio app di Azure](https://docs.microsoft.com/azure/app-service/quickstart-html). 
-> * Archiviare i dati in un database e cercare le posizioni nelle vicinanze. Per altre informazioni, vedere la [Panoramica dei tipi di dati spaziali di SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview) e [Query dei dati spaziali per Nearest Neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor).
-
-> [!div class="nextstepaction"]
-> [Visualizzare il codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-> [!div class="nextstepaction"]
-> [Visualizzare l'esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
-
-Per altre informazioni sulla copertura e sulle funzionalità di Mappe di Azure:
-
-> [!div class="nextstepaction"]
-> [Livelli di zoom e griglia riquadri](zoom-levels-and-tile-grid.md)
 
 Per altri esempi di codice e un'esperienza di codifica interattiva:
 
 > [!div class="nextstepaction"]
 > [Come usare il controllo mappa](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]
-> [Usare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md)

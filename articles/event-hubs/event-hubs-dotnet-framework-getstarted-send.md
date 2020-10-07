@@ -4,12 +4,12 @@ description: "Guida introduttiva: Questo articolo offre una procedura dettagliat
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e3f8aee3480f5200a23344553268da1864f892c7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ea3ad7e90a947269833a03a4cacf3d4fe76a6620
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021290"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334277"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Guida introduttiva: Inviare o ricevere eventi da Hub eventi di Azure tramite .NET Framework
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -29,7 +29,7 @@ Questa sezione illustra come creare un'applicazione console .NET Framework per i
 
 In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console** . Assegnare al progetto il nome **Sender**.
    
-![Creare un'applicazione console](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
+![Screenshot che mostra la finestra "Nuovo progetto" con l'opzione "App console (.NET Framework)" selezionata e con nome di progetto "Sender" e pulsante "OK" evidenziato.](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Aggiungere il pacchetto NuGet di Hub eventi
 

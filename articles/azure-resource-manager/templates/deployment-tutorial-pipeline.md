@@ -4,12 +4,12 @@ description: Informazioni su come creare, testare e distribuire modelli di Azure
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892678"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333238"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Esercitazione: Integrazione continua dei modelli di Azure Resource Manager con Azure Pipelines
 
@@ -180,7 +180,7 @@ Per creare una pipeline con un passaggio per distribuire un modello:
     * **Modalità di distribuzione**: selezionare **Incrementale**.
     * **Nome distribuzione**: immettere **DeployPipelineTemplate**. Selezionare **Avanzate** per poter visualizzare **Nome distribuzione**.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines passaggio](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
+    ![Screenshot che mostra la pagina di distribuzione del modello di Resource Manager con i valori obbligatori immessi.](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
 
 1. Selezionare **Aggiungi**.
 
@@ -188,7 +188,7 @@ Per creare una pipeline con un passaggio per distribuire un modello:
 
     Il file yml sarà simile al seguente:
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines YAML](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    ![Screenshot che mostra la pagina Revisione con la nuova pipeline denominata Esamina il codice YAML della pipeline.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. Selezionare **Salva ed esegui**.
 1. Nel riquadro **Salva ed esegui** selezionare di nuovo **Salva ed esegui**. Una copia del file YAML verrà salvata nel repository connesso. È possibile visualizzare tale file accedendo al repository.
