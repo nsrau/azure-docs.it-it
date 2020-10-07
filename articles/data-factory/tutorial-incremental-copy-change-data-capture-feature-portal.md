@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6e41109c65a047990577d1f2c77bdcd5219b6ed3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085719"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537457"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Caricare dati in modo incrementale dall'istanza gestita di SQL di Azure in Archiviazione di Azure tramite la tecnologia Change Data Capture
 
@@ -127,10 +127,10 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 7. Fare clic su **Crea**.
 8. Una volta completata la distribuzione, fare clic su **Vai alla risorsa**
 
-   ![Home page di Data factory](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
+   ![Screenshot che mostra un messaggio in cui si informa che la distribuzione è completa e un'opzione per passare alla risorsa.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
 
-   ![Home page di Data factory](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
+   ![Screenshot che mostra la data factory distribuita.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
 10. Fare clic sul riquadro **Crea e monitora** per avviare l'interfaccia utente di Azure Data Factory in una scheda separata.
 11. Nella pagina **Attività iniziali** passare alla scheda **Modifica** nel pannello a sinistra, come mostrato nell'immagine seguente:
 
@@ -289,10 +289,10 @@ In questo passaggio verrà creata una pipeline che controlla prima di tutto il n
 
 11. Fare clic su Anteprima per verificare che la query restituisca correttamente le righe modificate.
 
-    ![Attività di copia: impostazioni sink](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
+    ![Screenshot che mostra l'anteprima per verificare la query.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
 12. Passare alla scheda **Sink** e specificare il set di dati di archiviazione di Azure per il campo **Set di dati sink**.
 
-    ![Attività di copia: impostazioni sink](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
+    ![Screenshot che mostra la scheda Sink.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
 13. Fare clic per tornare all'area di disegno della pipeline principale e connettere l'attività **Ricerca** all'attività **Condizione if** una alla volta. Trascinare il pulsante **verde** associato all'attività **Ricerca** sull'attività **Condizione if**.
 
     ![Connettere le attività di ricerca e di copia](./media/tutorial-incremental-copy-change-data-capture-feature-portal/connect-lookup-if.png)
@@ -333,7 +333,7 @@ In questo passaggio verrà creato un trigger di finestra a cascata per eseguire 
     ```
 4. Fare clic sulla scheda **Sink** dell'attività **Copia** e fare clic su **Apri** per modificare le proprietà del set di dati. Fare clic sulla scheda **Parametri** e aggiungere un nuovo parametro denominato **triggerStart**    
 
-    ![Configurazione set di dati sink: 3](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
+    ![Screenshot che mostra l'aggiunta di un nuovo parametro alla scheda Parametri.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
 5. Configurare quindi le proprietà del set di dati per archiviare i dati in una sottodirectory **customers/incremental** con le partizioni basate su data.
    1. Fare clic sulla scheda **Connessione** delle proprietà del set di dati e aggiungere contenuto dinamico per le sezioni **Directory** e **File**. 
    2. Immettere l'espressione seguente nella sezione **Directory** facendo clic sul collegamento al contenuto dinamico nella casella di testo:

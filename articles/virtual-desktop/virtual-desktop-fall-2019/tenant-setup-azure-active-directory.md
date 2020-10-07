@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e2858daaa834552da5a85063fd9973d2c35209d7
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f41584194f8f5e8afde630405116b8b169cb5656
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005619"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542037"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Esercitazione: Creare un tenant in Desktop virtuale Windows (versione classica)
 
@@ -126,7 +126,7 @@ Per trovare l'ID sottoscrizione di Azure:
 1. Nella stessa sessione del [portale di Azure](https://portal.azure.com) cercare e selezionare **Sottoscrizioni**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot dei risultati della ricerca di "Azure Active Directory" nel portale di Azure. Il risultato nella categoria "Servizi" è evidenziato.](../media/tenant-search-subscription.png)
+   > ![Screenshot dei risultati della ricerca di "Azure Active Directory" nel portale di Azure. Il risultato della ricerca di "Servizi" è evidenziato.](../media/tenant-search-subscription.png)
 
 2. Selezionare la sottoscrizione di Azure da usare per ricevere le notifiche del servizio Desktop virtuale Windows.
 3. Cercare **ID sottoscrizione** e quindi passare il puntatore del mouse sul valore fino a visualizzare l'icona degli Appunti. Selezionare l'icona degli Appunti e incollare l'ID in una posizione da cui sia possibile usarlo in seguito come valore **AzureSubscriptionId**.

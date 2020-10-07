@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 91a4e2f6a770282e9d031c31fdf1af15f0cd00bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb7a32199117be76e411155910d558ef187398ab
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067557"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448253"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Raccogliere dati da una macchina virtuale di Azure con Monitoraggio di Azure
 
@@ -87,7 +87,7 @@ Monitoraggio di Azure può raccogliere gli eventi dai registri eventi di Windows
 
 7. Quando si configurano i contatori delle prestazioni di Windows per la prima volta per una nuova area di lavoro Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
 
-    ![Contatori delle prestazioni di Windows predefiniti selezionati](media/quick-collect-azurevm/windows-perfcounters-default.png)
+    ![Screenshot del riquadro Contatori delle prestazioni di Windows con un elenco di contatori selezionati e il pulsante Aggiungi i contatori delle prestazioni selezionati selezionato.](media/quick-collect-azurevm/windows-perfcounters-default.png)
 
     Fare clic su **Aggiungi i contatori delle prestazioni selezionati**.  Vengono aggiunti e preimpostati con un intervallo di esempio tra le raccolte di dieci secondi.
   
@@ -107,7 +107,7 @@ Monitoraggio di Azure può raccogliere gli eventi dai registri eventi di Windows
 
 6. Quando si configurano i contatori delle prestazioni di Linux per la prima volta per una nuova area di lavoro Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
 
-    ![Contatori delle prestazioni di Windows predefiniti selezionati](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
+    ![Screenshot del riquadro Contatori delle prestazioni di Linux con un elenco di contatori selezionati e il pulsante Aggiungi i contatori delle prestazioni selezionati selezionato.](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Selezionare **Applica la configurazione seguente alle macchine virtuali** e quindi **Aggiungi i contatori delle prestazioni selezionati**.  Vengono aggiunti e preimpostati con un intervallo di esempio tra le raccolte di dieci secondi.  
 

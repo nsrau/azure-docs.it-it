@@ -7,13 +7,13 @@ ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 05/01/2020
-ms.openlocfilehash: 2d89782b836db0daaf75c0337ad3b7f475824177
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/21/2020
+ms.openlocfilehash: f557794265f3bbf48fae97fc04e5e9b068b54f63
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882883"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540405"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Esercitazione: Usare Video Indexer con App per la logica e Power Automate
 
@@ -21,7 +21,7 @@ L'[API REST Video Indexer v2](https://api-portal.videoindexer.ai/docs/services/O
 
 Per semplificare ulteriormente l'integrazione, sono supportati i connettori per  [App per la logica](https://azure.microsoft.com/services/logic-apps/) e [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) compatibili con l'API. È possibile usare i connettori per configurare flussi di lavoro personalizzati per indicizzare ed estrarre in modo efficiente informazioni dettagliate da una grande quantità di file audio e video, senza scrivere una sola riga di codice. Inoltre, l'uso dei connettori per l'integrazione offre una maggiore visibilità sull'integrità del flusso di lavoro e un modo semplice per eseguirne il debug.  
 
-Per iniziare rapidamente a usare i connettori di Video Indexer, viene illustrata una procedura dettagliata di un esempio di soluzione di App per la logica e Power Automate che è possibile configurare. Questa esercitazione illustra come configurare i flussi mediante App per la logica.
+Per iniziare rapidamente a usare i connettori di Video Indexer, viene illustrata una procedura dettagliata di un esempio di soluzione di App per la logica e Power Automate che è possibile configurare. Questa esercitazione illustra come configurare i flussi mediante App per la logica. Tuttavia, gli editor e le funzionalità sono quasi identici in entrambe le soluzioni, quindi i diagrammi e le spiegazioni sono applicabili sia ad App per la logica che a Power Automate.
 
 Lo scenario "Caricare e indicizzare automaticamente i video" descritto in questa esercitazione è costituito da due diversi flussi che interagiscono tra loro. 
 * Il primo flusso viene attivato quando viene aggiunto o modificato un BLOB in un account di Archiviazione di Azure. Carica il nuovo file in Video Indexer con un URL di callback per inviare una notifica al termine dell'operazione di indicizzazione. 
@@ -53,7 +53,12 @@ Per configurare il primo flusso, è necessario specificare la chiave API di Vide
 
 ![Nome della connessione e chiave API](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
-Quando ci si può connettere agli account di Archiviazione di Azure e Video Indexer, trovare e selezionare il trigger "Quando viene aggiunto o modificato un BLOB" in **Progettazione app per la logica**. Selezionare il contenitore in cui verranno inseriti i file video. 
+> [!TIP]
+> Se in precedenza è stato connesso un account di archiviazione di Azure o un account di Video Indexer a un'app per la logica, i dettagli della connessione sono archiviati e si verrà connessi automaticamente. <br/>È possibile modificare la connessione facendo clic su **Cambia connessione** alla fine di un'azione di Archiviazione di Azure (finestra di archiviazione) o di Video Indexer (finestra del lettore).
+
+Quando ci si può connettere agli account di Archiviazione di Azure e Video Indexer, trovare e selezionare il trigger "Quando viene aggiunto o modificato un BLOB" in **Progettazione app per la logica**.
+
+Selezionare il contenitore in cui verranno inseriti i file video. 
 
 ![Screenshot della finestra di dialogo Quando viene aggiunto o modificato un BLOB in cui è possibile selezionare un contenitore.](./media/logic-apps-connector-tutorial/container.png)
 
@@ -75,7 +80,7 @@ Per il momento, lasciare vuoto il campo URL callback. Verrà aggiunto solo dopo 
 
 È possibile usare il valore predefinito per gli altri parametri o impostarli in base alle esigenze. 
 
-Fare clic su "Salva" e procedere alla configurazione del secondo flusso per estrarre le informazioni dopo il caricamento e l'indicizzazione. 
+Fare clic su **Salva** e procedere alla configurazione del secondo flusso per estrarre le informazioni dopo il caricamento e l'indicizzazione. 
 
 ## <a name="set-up-the-second-flow---json-extraction"></a>Configurare il secondo flusso - estrazione del codice JSON  
 
@@ -115,6 +120,12 @@ Assicurarsi che entrambi i flussi siano stati salvati ed è fatta.
 
 Provare la soluzione di App per la logica o Power Automate appena creata aggiungendo un video al contenitore BLOB di Azure e dopo alcuni minuti verificare se le informazioni dettagliate vengono visualizzate nella cartella di destinazione. 
 
+## <a name="generate-captions"></a>Generare i sottotitoli
+
+Vedere il blog seguente per i passaggi che illustrano [come generare sottotitoli con Video Indexer e App per la logica](https://techcommunity.microsoft.com/t5/azure-media-services/generating-captions-with-video-indexer-and-logic-apps/ba-p/1672198). 
+
+L'articolo illustra anche come indicizzare automaticamente un video copiandolo in OneDrive e come archiviare i sottotitoli generati da Video Indexer in OneDrive.
+ 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Dopo aver completato questa esercitazione, se necessario è possibile mantenere attiva questa soluzione di App per la logica e Power Automate. Se invece si sceglie di non mantenerla attiva e non si vogliono ricevere addebiti, disattivare entrambi i flussi se si usa Power Automate. Disabilitare entrambi i flussi se si usa App per la logica. 

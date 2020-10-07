@@ -1,17 +1,15 @@
 ---
 title: Creare un pacchetto e distribuire contenitori
 description: In questa esercitazione si apprenderà come generare una definizione di applicazione di Azure Service Fabric usando Yeoman e creare il pacchetto dell'applicazione.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5840539b6c51a0070a98f03dbda3c596fd5c2516
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78252755"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539878"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Esercitazione: creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric usando Yeoman
 
@@ -278,7 +276,7 @@ Aprire un browser e passare a Service Fabric Explorer all'indirizzo http:\//cont
 
 Per connettersi all'applicazione in esecuzione, aprire un Web browser e passare all'URL del cluster, ad esempio http:\//containertestcluster.eastus.cloudapp.azure.com:80. Viene visualizzata l'applicazione di voto nell'interfaccia utente Web.
 
-![votingapp][votingapp]
+![Screenshot che mostra l'app di voto di Azure con i pulsanti Cats, Dogs e Reset e i totali.][votingapp]
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 

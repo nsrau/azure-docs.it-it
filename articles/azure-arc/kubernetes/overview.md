@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Questo articolo offre una panoramica di Kubernetes con abilitazione di per Azure Arc.
 keywords: Kubernetes, Arc, Azure, contenitori
 ms.custom: references_regions
-ms.openlocfilehash: fb8a7b7c2e1e5b3de7d1ccdb4054e44825231458
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 61317f7f5f2bf17c88fc019294574993c1854e59
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604802"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540643"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Che cos'è Kubernetes con abilitazione di Azure Arc (anteprima)?
 
@@ -60,6 +60,21 @@ Kubernetes con abilitazione di Azure Arc è attualmente supportato in queste are
 * Stati Uniti orientali 
 * Europa occidentale
 
+## <a name="frequently-asked-questions"></a>Domande frequenti
+
+* Qual è la differenza tra Kubernetes con abilitazione di Azure Arc e il servizio Azure Kubernetes?
+
+    Il servizio Azure Kubernetes è l'offerta di ambiente Kubernetes gestito di Azure. Semplifica la distribuzione di un cluster Kubernetes gestito in Azure. servizio Azure Kubernetes riduce la complessità e i costi operativi di gestione di Kubernetes, affidando la maggior parte di queste attività ad Azure. I master di Kubernetes sono gestiti da Azure. È possibile gestire solo i nodi agente.
+
+    Kubernetes con abilitazione di Azure Arc consente di connettere i cluster Kubernetes ad Azure per estendere funzionalità di gestione di Azure come Monitoraggio di Azure e Criteri di Azure. La manutenzione del cluster Kubernetes sottostante è a carico dell'utente.
+
+* È necessario connettere ad Azure Arc i cluster del servizio Azure Kubernetes in esecuzione in Azure?
+
+    No. Tutte le funzionalità di Kubernetes con abilitazione di Azure Arc, come Monitoraggio di Azure e Criteri di Azure (Gatekeeper) sono disponibili in modalità nativa nel servizio Azure Kubernetes, che include già una rappresentazione di risorse in Azure. Anche la configurazione del cluster (GitOps) è disponibile in modalità nativa nel servizio Azure Kubernetes ed è attualmente in fase di anteprima privata. Usare questo [modulo di iscrizione](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5acO18Lmx5Bk_qao2CrOcFUQ0UyRllDR1BEV1BPNENYRERYN1pFWTQ4WC4u) per ottenere l'accesso a questa funzionalità.
+    
+* È necessario connettere ad Azure Arc il cluster del servizio Azure Kubernetes in Azure Stack HCI? E lo stesso vale per i cluster Kubernetes in esecuzione nell'hub di Azure Stack o nel motore di Azure Stack?
+
+    Sì, la connessione di questi cluster ad Azure Arc presenta dei vantaggi. Fornisce una rappresentazione delle risorse per questi cluster Kubernetes in Azure Resource Manager. Usando questa rappresentazione delle risorse, è possibile estendere a questi cluster funzionalità come la configurazione del cluster, Monitoraggio di Azure, Criteri di Azure (Gatekeeper)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

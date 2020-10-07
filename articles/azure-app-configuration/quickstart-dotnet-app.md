@@ -7,14 +7,14 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 6795d10950ddd7b03dfa505ab44d2f43837c9045
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 4edf48b73ee4d50679cbec377ed47749d2c94776
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590269"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569615"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Guida introduttiva: Creare un'app .NET Framework con Configurazione app di Azure
 
@@ -22,7 +22,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
@@ -88,23 +88,15 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
         string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
 
         Console.WriteLine(message);
+        Console.ReadKey();
     }
     ```
 
 ## <a name="build-and-run-the-app-locally"></a>Compilare ed eseguire l'app in locale
 
-1. Impostare una variabile di ambiente denominata **ConnectionString** sulla stringa di connessione dell'archivio di Configurazione app. Se si usa il prompt dei comandi di Windows, eseguire il comando seguente:
+1. Aggiornare il file **App.config** sostituendo `${ConnectionString}` con la stringa di connessione effettiva all'istanza di Configurazione app. È possibile trovarla nella scheda **Chiavi di accesso** della risorsa Configurazione app nel portale di Azure.
 
-    ```cmd
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
-    ```
-
-    Se si usa Windows PowerShell, eseguire il comando seguente:
-
-    ```azurepowershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-    ```
-1. Riavviare Visual Studio per rendere effettiva la modifica. Premere CTRL+F5 per compilare ed eseguire l'app console.
+1. Premere CTRL+F5 per compilare ed eseguire l'app console.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

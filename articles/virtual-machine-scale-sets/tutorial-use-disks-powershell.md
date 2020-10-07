@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 0334b13fa73eb2fd648184f44bf0856c0d2a9ed9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: bcd06ce879282ab9897d7e22006bac19a5c22b8e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076796"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565089"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Creare e usare dischi con un set di scalabilità di macchine virtuali con Azure PowerShell
 
@@ -87,6 +87,8 @@ Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni d
 
 ## <a name="create-and-attach-disks"></a>Creare e collegare dischi
 È possibile creare e collegare i dischi quando si crea un set di scalabilità oppure con un set di scalabilità esistente.
+
+A partire dalla versione `2019-07-01` dell'API, è possibile impostare le dimensioni del disco del sistema operativo in un set di scalabilità di macchine virtuali con la proprietà [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk). Dopo il provisioning, può essere necessario espandere o ripartizionare il disco per utilizzare l'intero spazio. Vedere altre informazioni sull'[espansione del disco](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os).
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Collegare dischi al momento della creazione del set di scalabilità
 Creare un set di scalabilità di macchine virtuali con [New-AzVmss](/powershell/module/az.compute/new-azvmss). Quando richiesto, immettere un nome utente e una password per le istanze di macchina virtuale. Per distribuire il traffico alle singole istanze di macchine virtuali, viene creato anche un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico include regole per la distribuzione del traffico sulla porta TCP 80, oltre che per consentire il traffico di Desktop remoto sulla porta TCP 3389 e la comunicazione remota di PowerShell sulla porta TCP 5985.

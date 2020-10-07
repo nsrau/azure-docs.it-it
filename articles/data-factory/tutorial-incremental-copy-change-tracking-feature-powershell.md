@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 6fab092b0467228fd4fcdbcf95f99fd0981fb1e4
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3bd18f697c25f7e81f227e7e1456ba0b3d2150c6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079223"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541748"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>Caricare dati in modo incrementale da un database SQL di Azure all'archiviazione BLOB di Azure tramite il rilevamento delle modifiche con PowerShell
 
@@ -453,10 +453,10 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
     ![Riquadro Monitoraggio e gestione](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
 5. L'applicazione **Integrazione dati** viene avviata in una scheda separata. È possibile visualizzare tutte le **esecuzioni di pipeline** e i rispettivi stati. Notare che nell'esempio seguente lo stato dell'esecuzione della pipeline è **Riuscito**. È possibile controllare i parametri passati alla pipeline facendo clic sul collegamento nella colonna **Parametri**. Se si è verificato un errore, verrà visualizzato un collegamento nella colonna **Errore**. Fare clic sul collegamento nella colonna **Azioni**.
 
-    ![Esecuzioni di pipeline](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
+    ![Screenshot che mostra le esecuzioni della pipeline per una data factory.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. Quando si fa clic sul collegamento nella colonna **Azioni**, viene visualizzata la pagina seguente, che mostra tutte le **esecuzioni di attività** per la pipeline.
 
-    ![Esecuzioni attività](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
+    ![Screenshot che mostra le esecuzioni attività per una data factory con il collegamento Pipeline evidenziato.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. Per tornare alla visualizzazione **Esecuzioni di pipeline**, fare clic su **Pipeline**, come mostrato nell'immagine.
 
 
@@ -632,10 +632,10 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Monitorare la pipeline di copia incrementale
 1. Nell'applicazione **Integrazione dati** aggiornare la visualizzazione **Esecuzioni di pipeline**. Verificare che la pipeline IncrementalCopyPipeline sia visualizzata nell'elenco. Fare clic sul collegamento nella colonna **Azioni**.  
 
-    ![Esecuzioni di pipeline](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
+    ![Screenshot che mostra le esecuzioni della pipeline per una data factory che include la pipeline corrente.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. Quando si fa clic sul collegamento nella colonna **Azioni**, viene visualizzata la pagina seguente, che mostra tutte le **esecuzioni di attività** per la pipeline.
 
-    ![Esecuzioni attività](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
+    ![Screenshot che mostra le esecuzioni della pipeline per una data factory con diverse voci contrassegnate come riuscite.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. Per tornare alla visualizzazione **Esecuzioni di pipeline**, fare clic su **Pipeline**, come mostrato nell'immagine.
 
 ### <a name="review-the-results"></a>Esaminare i risultati

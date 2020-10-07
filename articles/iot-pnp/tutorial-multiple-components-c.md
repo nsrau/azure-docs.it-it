@@ -1,28 +1,28 @@
 ---
-title: Connettere il codice C del dispositivo di esempio Plug and Play IoT (anteprima) all'hub IoT | Microsoft Docs
-description: Compilare ed eseguire il codice C di un dispositivo Plug and Play IoT (anteprima) di esempio che usa più componenti e si connette a un hub IoT. Usare lo strumento Azure IoT Explorer per visualizzare le informazioni inviate dal dispositivo all'hub.
+title: Connettere il codice C di un dispositivo di esempio Plug and Play IoT all'hub IoT | Microsoft Docs
+description: Compilare ed eseguire il codice C di un dispositivo Plug and Play IoT di esempio che usa più componenti e si connette a un hub IoT. Usare lo strumento Azure IoT Explorer per visualizzare le informazioni inviate dal dispositivo all'hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 29017ec11429b26018093980ca71c317b12085b5
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 1873d2acb96c0c94c7e0d678e450596c60ca51fb
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505752"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575402"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-applications-running-on-linux-or-windows-to-iot-hub-c"></a>Esercitazione: Connettere le applicazioni di un dispositivo Plug and Play IoT con più componenti in esecuzione in Linux o Windows a un hub IoT (C)
 
 [!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
-Questa esercitazione illustra come creare un'applicazione di un dispositivo Plug and Play IoT di esempio con componenti e interfaccia radice, connetterla all'hub IoT e usare lo strumento Azure IoT Explorer per visualizzare le informazioni inviate all'hub. L'applicazione di esempio è scritta in C ed è inclusa in Azure IoT SDK per dispositivi per C. Un generatore di soluzioni può usare lo strumento Azure IoT Explorer per conoscere le funzionalità di un dispositivo Plug and Play IoT senza dover visualizzare il codice del dispositivo.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Questa esercitazione illustra come creare un'applicazione di un dispositivo Plug and Play IoT di esempio con componenti, connetterla all'hub IoT e usare lo strumento Azure IoT Explorer per visualizzare le informazioni inviate all'hub. L'applicazione di esempio è scritta in C ed è inclusa in Azure IoT SDK per dispositivi per C. Un generatore di soluzioni può usare lo strumento Azure IoT Explorer per conoscere le funzionalità di un dispositivo Plug and Play IoT senza dover visualizzare il codice del dispositivo.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 È possibile completare questa esercitazione in Linux o Windows. I comandi della shell in questa esercitazione seguono la convenzione Linux per i separatori di percorso '`/`'. Se si usa Windows, assicurarsi di sostituire questi separatori con '`\`'.
 
@@ -52,34 +52,13 @@ gcc --version
 
 Per completare questa esercitazione in Windows, installare il software seguente nell'ambiente Windows locale:
 
-* [Visual Studio (Community, Professional o Enterprise)](https://visualstudio.microsoft.com/downloads/): assicurarsi di includere il carico di lavoro **Sviluppo di applicazioni desktop con C++** quando si [installa](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) Visual Studio.
+* [Visual Studio (Community, Professional o Enterprise)](https://visualstudio.microsoft.com/downloads/): assicurarsi di includere il carico di lavoro **Sviluppo di applicazioni desktop con C++** quando si [installa](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 
-### <a name="azure-iot-explorer"></a>Azure IoT Explorer
-
-Per interagire con il dispositivo di esempio nella seconda parte di questa esercitazione, usare lo strumento**Azure IoT Explorer**. [Scaricare e installare la versione di Azure IoT Explorer più recente](./howto-use-iot-explorer.md) per il sistema operativo in uso.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Eseguire il comando seguente per ottenere la _stringa di connessione dell'hub IoT_ per l'hub. Prendere nota della stringa di connessione, poiché verrà usata più avanti in questa esercitazione:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> È anche possibile usare lo strumento Azure IoT Explorer per trovare la stringa di connessione dell'hub IoT.
-
-Eseguire il comando seguente per ottenere la _stringa di connessione del dispositivo_ aggiunto all'hub. Prendere nota della stringa di connessione, poiché verrà usata più avanti in questa esercitazione:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
-
 ## <a name="download-the-code"></a>Scaricare il codice
+
+Se è stata completato l'argomento [Avvio rapido: Connettere un'applicazione di un dispositivo Plug and Play IoT di esempio in esecuzione in Linux o in Windows all'hub IoT (C)](quickstart-connect-device-c.md), il codice è già stato scaricato.
 
 In questa esercitazione viene preparato un ambiente di sviluppo che è possibile usare per clonare e compilare Azure IoT Hub SDK per dispositivi per C.
 
@@ -102,7 +81,7 @@ Il completamento di questa operazione richiederà alcuni minuti.
 1. Aprire la cartella radice del repository clonato. Dopo alcuni secondi, il supporto **CMake** in Visual Studio crea tutti gli elementi necessari per l'esecuzione e il debug del progetto.
 1. Quando Visual Studio è pronto, in **Esplora soluzioni** passare alla cartella *iothub_client/samples/pnp/pnp_temperature_controller/* di esempio.
 1. Fare clic con il pulsante destro del mouse sul file *pnp_temperature_controller.c* e selezionare **Aggiungi configurazione di debug**. Selezionare **Predefinita**.
-1. In Visual Studio viene aperto il file *launch.vs.json*. Modificare questo file come illustrato nel frammento di codice seguente per impostare le variabili di ambiente richieste:
+1. In Visual Studio viene aperto il file *launch.vs.json*. Modificare questo file come illustrato nel frammento di codice seguente per impostare le variabili di ambiente richieste. L'ID ambito e la chiave primaria di registrazione sono stati annotati quando sono state completate le [guide di avvio rapido e le esercitazioni per configurare l'ambiente per Plug and Play IoT](set-up-environment.md):
 
     ```json
     {
@@ -115,8 +94,10 @@ Il completamento di questa operazione richiederà alcuni minuti.
           "projectTarget": "",
           "name": "pnp_temperature_controller.c",
           "env": {
-            "IOTHUB_DEVICE_SECURITY_TYPE": "connectionString",
-            "IOTHUB_DEVICE_CONNECTION_STRING": "<Your device connection string>"
+            "IOTHUB_DEVICE_SECURITY_TYPE": "DPS",
+            "IOTHUB_DEVICE_DPS_ID_SCOPE": "<Your ID scope>",
+            "IOTHUB_DEVICE_DPS_DEVICE_ID": "my-pnp-device",
+            "IOTHUB_DEVICE_DPS_DEVICE_KEY": "<Your enrollment primary key>"
           }
         }
       ]
@@ -148,12 +129,11 @@ Per compilare l'esempio:
     cmake --build .
     ```
 
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+Per altre informazioni sulla configurazione di esempio, vedere il file [Leggimi dell'esempio](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/pnp/readme.md).
+
 Per eseguire l'esempio:
-
-1. Creare due variabili di ambiente per configurare l'esempio in modo da usare una stringa di connessione per la connessione all'hub IoT:
-
-    * **IOTHUB_DEVICE_SECURITY_TYPE** con il valore `"connectionString"`
-    * **IOTHUB_DEVICE_CONNECTION_STRING** per archiviare la stringa di connessione del dispositivo annotata in precedenza.
 
 1. Dalla cartella _cmake_ passare alla cartella che contiene il file eseguibile ed eseguirlo:
 
@@ -165,7 +145,8 @@ Per eseguire l'esempio:
 
     ```cmd
     REM Windows
-    iothub_client\samples\pnp\pnp_temperature_controller\Debug\pnp_temperature_controller.exe
+    cd iothub_client\samples\pnp\pnp_temperature_controller\Debug
+    pnp_temperature_controller.exe
     ```
 
 Il dispositivo è ora pronto a ricevere comandi e aggiornamenti delle proprietà e ha iniziato a inviare dati di telemetria all'hub. Lasciare l'esempio in esecuzione mentre si completano i passaggi successivi.
@@ -316,4 +297,4 @@ La funzione `main`, infine, elimina definitivamente i diversi componenti e chiud
 In questa esercitazione si è appreso come connettere un dispositivo Plug and Play IoT con componenti a un hub IoT. Per altre informazioni sui modelli di dispositivo Plug and Play IoT, vedere:
 
 > [!div class="nextstepaction"]
-> [Guida per gli sviluppatori alla modellazione di Plug and Play IoT (anteprima)](concepts-developer-guide.md)
+> [Guida per sviluppatori alla modellazione di Plug and Play IoT](concepts-developer-guide-device-csharp.md)

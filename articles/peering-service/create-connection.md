@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/2/2020
 ms.author: derekol
 Customer intent: With Azure Peering service enhancing the customer connectivity to Microsoft cloud services .
-ms.openlocfilehash: f04ae0d2e541be0a7984e944298fa8d7b47fd126
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: f8f0ee71a8dd00498d868bb6dc11b3fa083df766
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "84870575"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530219"
 ---
 # <a name="tutorial-create-a-peering-service-connection"></a>Esercitazione: Creare una connessione al Servizio di peering
 
@@ -43,13 +43,13 @@ Questa esercitazione illustra come creare una risorsa del servizio di peering e 
 
 1. Selezionare **Prefix Key** (Chiave prefisso) e aggiungere la chiave di prefisso fornita dal provider (ISP o IXP). Questa chiave consente a Microsoft di convalidare il prefisso e il provider che ha allocato il prefisso IP.
 
-    ![Scheda Configurazione per la registrazione del servizio di peering](./media/peering-service-portal/peering-serviceconfiguration.png)
+    ![Screenshot che mostra la scheda Configurazione della pagina per la creazione di una connessione al servizio di peering in cui è possibile immettere la chiave del prefisso.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Selezionare il pulsante **Rivedi e crea** nell'angolo inferiore sinistro della pagina. Viene visualizzata la pagina **Rivedi e crea** e Azure convalida la configurazione.
 
  1. Quando viene visualizzato il messaggio **Convalida superata**, come illustrato di seguito, selezionare **Crea**.
 
-> ![Scheda Configurazione per la registrazione del servizio di peering](./media/peering-service-portal/peering-service-prefix.png)
+> ![Screenshot che mostra la scheda Rivedi e crea della pagina per la creazione di una connessione al servizio di peering.](./media/peering-service-portal/peering-service-prefix.png)
 
 1. Dopo la registrazione di una connessione al servizio di peering, viene eseguita un'ulteriore convalida sui prefissi inclusi. È possibile esaminare lo stato della convalida nella sezione **Prefissi** del nome della risorsa. Se la convalida non riesce, viene visualizzato un messaggio simile a uno dei messaggi di errore seguenti:
 

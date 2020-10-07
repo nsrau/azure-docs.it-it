@@ -1,5 +1,5 @@
 ---
-title: Usare SQL su richiesta (anteprima) per analizzare i set di dati aperti di Azure in Azure Synapse Studio (anteprima)
+title: 'Esercitazione: Usare SQL su richiesta (anteprima) per analizzare i set di dati aperti di Azure in Azure Synapse Studio (anteprima)'
 description: Questa esercitazione illustra come eseguire facilmente l'analisi esplorativa dei dati combinando diversi set di dati aperti di Azure con SQL su richiesta (anteprima) e visualizzare i risultati in Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2fc98e927fcf9686f0f39dae600f944b485c5a06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089142"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539521"
 ---
-# <a name="use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Usare SQL su richiesta per analizzare i set di dati aperti di Azure e visualizzare i risultati in Azure Synapse Studio
+# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Esercitazione: Usare SQL su richiesta per analizzare i set di dati aperti di Azure e visualizzare i risultati in Azure Synapse Studio
 
 Questa esercitazione illustra come eseguire l'analisi esplorativa dei dati combinando diversi set di dati aperti di Azure con SQL su richiesta e visualizzare i risultati in Azure Synapse Studio.
 
@@ -135,7 +135,7 @@ Anche in questo caso, è possibile visualizzare facilmente i dati tracciando l'*
 
 ![Istogramma che mostra il numero giornaliero di corse per il 2016](./media/tutorial-data-analyst/7.png)
 
-Dal grafico del tracciato si evince un modello settimanale, con sabato come giorno di punta. Durante i mesi estivi, il numero di corse di taxi è inferiore a causa delle vacanze. Sono anche visibili anche alcuni cali significativi nel numero di corse di taxi senza un modello chiaro che evidenzi quando e perché si verificano.
+Dal grafico del tracciato si evince un modello settimanale, con il sabato come giorno di punta. Durante i mesi estivi, il numero di corse di taxi è inferiore a causa delle vacanze. Sono anche visibili anche alcuni cali significativi nel numero di corse di taxi senza un modello chiaro che evidenzi quando e perché si verificano.
 
 A questo punto, è necessario verificare se tali cali sono correlati alle festività pubbliche incrociando il set di dati delle corse dei taxi di New York con quello delle festività pubbliche:
 

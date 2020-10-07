@@ -10,24 +10,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 08/08/2020
+ms.date: 09/29/2020
 ms.author: curtand
-ms.custom: pim
+ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a081bc5a8040fa3ccd0599341eb2671bbe2d4d
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a0b7bcfa6569edd93373f493cfaa7deff2976d35
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047820"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540830"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Che cos'è Azure AD Privileged Identity Management?
 
- Privileged Identity Management (PIM) di Azure Active Directory (Azure AD) è un servizio che permette di gestire, controllare e monitorare l'accesso a risorse importanti nell'organizzazione. Queste risorse includono le risorse in Azure AD, Azure e in altri Servizi online Microsoft, ad esempio Office 365 o Microsoft Intune.
+ Privileged Identity Management (PIM) di Azure Active Directory (Azure AD) è un servizio che permette di gestire, controllare e monitorare l'accesso a risorse importanti nell'organizzazione. Queste risorse sono incluse in Azure AD, in Azure e in altri Microsoft Online Services, ad esempio Microsoft 365 o Microsoft Intune. Il video seguente illustra le funzionalità e i concetti importanti di PIM.
+<br><br>
+
+> [!VIDEO https://www.youtube.com/embed/f-0K7mRUPpQ]
 
 ## <a name="reasons-to-use"></a>Vantaggi
 
-Le organizzazioni vogliono ridurre al minimo il numero di utenti che hanno accesso a informazioni o risorse protette per ridurre le probabilità che un attore malintenzionato acceda al sistema, o che un utente autorizzato abbia inavvertitamente effetto su una risorsa sensibile. Tuttavia, gli utenti devono comunque eseguire operazioni con privilegi, nelle app di Azure AD, Azure, Office 365 o SaaS. Le organizzazioni possono concedere agli utenti l'accesso con privilegi JIT alle risorse di Azure e ad Azure AD. È necessario procedere con una supervisione di ciò che gli utenti fanno con i loro privilegi di amministratori.
+Le organizzazioni vogliono ridurre al minimo il numero di utenti che hanno accesso a informazioni o risorse protette per ridurre le probabilità che un attore malintenzionato acceda al sistema, o che un utente autorizzato abbia inavvertitamente effetto su una risorsa sensibile. Tuttavia, gli utenti devono comunque eseguire operazioni con privilegi, nelle app di Azure AD, Azure, Microsoft 365 o SaaS. Le organizzazioni possono concedere agli utenti l'accesso con privilegi JIT alle risorse di Azure e ad Azure AD. È necessario procedere con una supervisione di ciò che gli utenti fanno con i loro privilegi di amministratori.
 
 ## <a name="what-does-it-do"></a>Funzione
 

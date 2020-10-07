@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: eb3096cadc8197aeda9258bd3123c2eb760a44af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540282"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530069"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Esercitazione: Stabilire l'accesso privato al sito per Funzioni di Azure
 
@@ -73,7 +73,7 @@ Il primo passaggio di questa esercitazione consiste nel creare una nuova macchin
 1. Scegliere la scheda _Rete_ e selezionare **Crea nuova** per configurare una nuova rete virtuale.
 
     >[!div class="mx-imgBorder"]
-    >![Creare una nuova rete virtuale per la nuova VM](./media/functions-create-private-site-access/create-vm-networking.png)
+    >![Screenshot che mostra la scheda "Rete" con l'azione "Crea nuova" evidenziata nella sezione "Rete virtuale".](./media/functions-create-private-site-access/create-vm-networking.png)
 
 1. In _Crea rete virtuale_ usare le impostazioni della tabella sotto l'immagine:
 

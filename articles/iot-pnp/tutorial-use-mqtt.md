@@ -1,5 +1,5 @@
 ---
-title: Usare MQTT per creare un client del dispositivo Plug and Play IoT (anteprima) | Microsoft Docs
+title: Usare MQTT per creare un client del dispositivo Plug and Play IoT | Microsoft Docs
 description: Usare direttamente il protocollo MQTT per creare un client del dispositivo Plug and Play IoT senza usare Azure IoT SDK per dispositivi
 author: ericmitt
 ms.author: ericmitt
@@ -7,45 +7,38 @@ ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 56463b03fe633959585e14271050bcdaacb25663
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2e05165a78a54d6aaa49c28a649a97235891f927
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535207"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577918"
 ---
-# <a name="use-mqtt-to-develop-an-iot-plug-and-play-preview-device-client"></a>Usare MQTT per sviluppare un client del dispositivo Plug and Play IoT (anteprima)
+# <a name="use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Usare MQTT per sviluppare un client del dispositivo Plug and Play IoT
 
 Se possibile, per creare i client del dispositivo Plug and Play IoT, è consigliabile usare una delle istanze di Azure IoT SDK per dispositivi. Tuttavia, in scenari come l'uso di un dispositivo con vincoli di memoria, potrebbe essere necessario usare una libreria MQTT per comunicare con l'hub IoT.
 
 L'esempio di questa esercitazione usa la libreria MQTT [Eclipse Mosquitto](http://mosquitto.org/) e Visual Studio. I passaggi di questa esercitazione presuppongono che si usi Windows nel computer di sviluppo.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 Per completare questa esercitazione in Windows, installare il software seguente nell'ambiente Windows locale:
 
-* [Visual Studio (Community, Professional o Enterprise)](https://visualstudio.microsoft.com/downloads/): assicurarsi di includere il carico di lavoro **Sviluppo di applicazioni desktop con C++** quando si [installa](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) Visual Studio
+* [Visual Studio (Community, Professional o Enterprise)](https://visualstudio.microsoft.com/downloads/): assicurarsi di includere il carico di lavoro **Sviluppo di applicazioni desktop con C++** quando si [installa](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) Visual Studio
 * [Git](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/)
-* [Azure IoT Explorer](howto-install-iot-explorer.md)
 
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Eseguire il comando seguente per ottenere la firma di accesso condiviso per connettere il dispositivo all'hub. Prendere nota di questa stringa, perché verrà usata più avanti in questa esercitazione:
-
-```azurecli-interactive
-az iot hub generate-sas-token -d <YourDeviceID> -n <YourIoTHubName>
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-Usare la stringa di connessione all'hub IoT per configurare lo strumento **Azure IoT Explorer**:
+Usare lo strumento *Azure IoT Explorer* per aggiungere un nuovo dispositivo all'hub IoT. L'hub IoT e lo strumento Azure IoT Explorer sono stati configurati quando sono state completate le [guide di avvio rapido e le esercitazioni per configurare l'ambiente per il dispositivo Plug and Play IoT](set-up-environment.md):
 
 1. Avviare lo strumento **Azure IoT Explorer**.
-1. Nella pagina **Impostazioni** incollare la stringa di connessione all'hub IoT nelle impostazioni delle **configurazioni dell'app**.
-1. Selezionare **Save and Connect** (Salva e connetti).
-1. Il dispositivo aggiunto in precedenza è incluso nell'elenco visualizzato nella pagina principale.
+1. Nella pagina **Hub IoT** selezionare **View devices in this hub** (Visualizza i dispositivi in questo hub).
+1. Nella pagina **Dispositivi** selezionare **+ Nuovo**.
+1. Creare un dispositivo denominato *my-mqtt-device* che usa una chiave simmetrica generata automaticamente.
+1. Nella pagina **Identità del dispositivo** espandere **Connection string with SAS token** (Stringa di connessione con token di firma di accesso condiviso).
+1. Scegliere la **Chiave primaria** da usare come **Chiave simmetrica**, impostare la scadenza su 60 minuti e selezionare **Genera**.
+1. Copiare la **stringa di connessione con token di firma di accesso condiviso** generata. Questo valore verrà usato più avanti nell'esercitazione.
 
 ## <a name="clone-sample-repo"></a>Clonare il repository di esempio
 
@@ -89,11 +82,11 @@ Per visualizzare il codice di esempio in Visual Studio, aprire il file della sol
 
 In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **TelemetryMQTTWin32** e scegliere **Imposta come progetto di avvio**.
 
-Nel progetto **TelemetryMQTTWin32** aprire il file di origine **MQTT_Mosquitto.cpp**. Aggiornare le definizioni delle informazioni di connessione con i dettagli del dispositivo annotati in precedenza. Sostituire il segnaposto della stringa del token per:
+Nel progetto **TelemetryMQTTWin32** aprire il file di origine **MQTT_Mosquitto.cpp**. Aggiornare le definizioni delle informazioni di connessione con i dettagli del dispositivo annotati in precedenza. Sostituire i segnaposto della stringa del token come segue:
 
-* Identificatore `IOTHUBNAME` con il nome dell'hub IoT creato.
-* Identificatore `DEVICEID` con il nome del dispositivo creato.
-* Identificatore `PWD` con il valore della firma di accesso condiviso generato per il dispositivo.
+* L'identificatore `IOTHUBNAME` con il nome dell'hub IoT.
+* L'identificatore `DEVICEID` con `my-mqtt-device`.
+* L'identificatore `PWD` con la parte corretta della stringa di connessione con token di firma di accesso condiviso generata per il dispositivo. Usare la parte della stringa di connessione da `SharedAccessSignature sr=` fino alla fine.
 
 Verificare che il codice funzioni correttamente, avviando Azure IoT Explorer, quindi restare in ascolto dei dati di telemetria.
 
@@ -103,18 +96,18 @@ Eseguire l'applicazione (CTRL+F5). Dopo un paio di secondi verrà visualizzato u
 
 In Azure IoT Explorer è possibile verificare che il dispositivo non è di tipo Plug and Play IoT:
 
-:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Dispositivo non di tipo Plug and Play IoT in Azure IoT Explorer":::
+:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Output dell'applicazione di esempio MQTT":::
 
 ### <a name="make-the-device-an-iot-plug-and-play-device"></a>Impostare il dispositivo come Plug and Play IoT
 
 Il dispositivo Plug and Play IoT deve seguire una serie di semplici convenzioni. Se un dispositivo invia un ID modello quando si connette, diventa un dispositivo Plug and Play IoT.
 
-In questo esempio si aggiunge un ID modello** al pacchetto di connessione MQTT. Passare l'ID modello come parametro di stringa di query in `USERNAME` e cambiare `api-version` in `2020-05-31-preview`:
+In questo esempio aggiungere un ID modello al pacchetto di connessione MQTT. Passare l'ID modello come parametro di stringa di query in `USERNAME` e cambiare `api-version` in `2020-09-30`:
 
 ```c
 // computed Host Username and Topic
 //#define USERNAME IOTHUBNAME ".azure-devices.net/" DEVICEID "/?api-version=2018-06-30"
-#define USERNAME IOTHUBNAME ".azure-devices.net/" DEVICEID "/?api-version=2020-05-31-preview&model-id=dtmi:com:example:Thermostat;1"
+#define USERNAME IOTHUBNAME ".azure-devices.net/" DEVICEID "/?api-version=2020-09-30&model-id=dtmi:com:example:Thermostat;1"
 #define PORT 8883
 #define HOST IOTHUBNAME //".azure-devices.net"
 #define TOPIC "devices/" DEVICEID "/messages/events/"
@@ -124,16 +117,13 @@ Ricompilare ed eseguire l'esempio.
 
 Il dispositivo gemello ora include l'ID modello:
 
-:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="Visualizzare l'ID modello in Azure IoT Explorer":::
+:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="Output dell'applicazione di esempio MQTT":::
 
 È ora possibile esplorare il componente Plug and Play IoT:
 
-:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="Visualizzare i componenti in Azure IoT Explorer":::
+:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="Output dell'applicazione di esempio MQTT":::
 
 È ora possibile modificare il codice del dispositivo per implementare i dati di telemetria, le proprietà e i comandi definiti nel modello. Per vedere un'implementazione di esempio del termostato usando la libreria Mosquitto, vedere [Uso di MQTT PnP con l'hub IoT di Azure senza IoT SDK in Windows](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32) su GitHub.
-
-> [!NOTE]
-> Per impostazione predefinita, una firma di accesso condiviso è valida solo per 60 minuti.
 
 > [!NOTE]
 >Il client usa il file del certificato radice `IoTHubRootCA_Baltimore.pem` per verificare l'identità dell'hub IoT a cui si connette.
@@ -147,9 +137,7 @@ Le definizioni seguenti riguardano gli argomenti MQTT usati dal dispositivo per 
 * `DEVICE_TELEMETRY_MESSAGE` definisce l'argomento usato dal dispositivo per inviare dati di telemetria all'hub IoT.
 
 Per altre informazioni su MQTT, vedere gli [esempi di MQTT per Azure IoT](https://github.com/Azure-Samples/IoTMQTTSample/) nel repository GitHub.
-
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
-
+  
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione si è appreso come modificare un client di dispositivo MQTT per seguire le convenzioni di Plug and Play IoT. Per altre informazioni su Plug and Play IoT, vedere:

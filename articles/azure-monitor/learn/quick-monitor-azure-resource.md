@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 0e29b25f5d846cae1563ea90271cf007d02e248c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a17546f11db881ecacd39986bcd80d9d63b24644
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324268"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448203"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Avvio rapido: Monitorare una risorsa di Azure con Monitoraggio di Azure
 [Monitoraggio di Azure](../overview.md) avvia la raccolta di dati dalle risorse di Azure nel momento in cui vengono create. Questa guida di avvio rapido illustra brevemente i dati raccolti automaticamente per una risorsa e come visualizzare tali dati nel portale di Azure per una determinata risorsa. In un secondo momento, si potrà aggiungere la configurazione necessaria per raccogliere altri dati nonché passare al menu di Monitoraggio di Azure per usare gli stessi strumenti per accedere ai dati raccolti per tutte le risorse nella sottoscrizione.
@@ -40,11 +40,11 @@ Il log attività offre informazioni dettagliate sulle operazioni per ogni risors
 1. Nella parte superiore del menu per la risorsa selezionare **Log attività**.
 2. Il filtro corrente è impostato sugli eventi correlati alla risorsa. Se non vengono visualizzati eventi, provare a modificare **Intervallo di tempo** per ampliare l'ambito temporale.
 
-    ![Log attività](media/quick-monitor-azure-resource/activity-log-resource.png)
+    ![Screenshot di un log attività di una risorsa nel portale di Azure che mostra un elenco di operazioni per la risorsa generato usando i criteri di filtro predefiniti.](media/quick-monitor-azure-resource/activity-log-resource.png)
 
 4. Se si vogliono visualizzare eventi di altre risorse nella sottoscrizione, modificare i criteri nel filtro oppure rimuovere le proprietà di filtro.
 
-    ![Log attività](media/quick-monitor-azure-resource/activity-log-all.png)
+    ![Screenshot di un log attività di una risorsa nel portale di Azure che mostra un elenco di operazioni per la risorsa generato usando i criteri di filtro modificati.](media/quick-monitor-azure-resource/activity-log-all.png)
 
 
 
@@ -54,15 +54,15 @@ Le metriche sono valori numerici che descrivono alcuni aspetti della risorsa in 
 1. Nella sezione **Monitoraggio** del menu della risorsa selezionare **Metriche**. Verrà aperto Esplora metriche con l'ambito impostato sulla risorsa.
 2. Fare clic su **Aggiungi metrica** per aggiungere una metrica al grafico.
    
-   ![Esplora metriche](media/quick-monitor-azure-resource/metrics-explorer-01.png)
+   ![Screenshot di Esplora metriche nel portale di Azure che mostra le metriche per una risorsa. L'elenco a discesa Metrica è aperto per l'aggiunta di nuove metriche.](media/quick-monitor-azure-resource/metrics-explorer-01.png)
    
 4. Selezionare un'opzione per **Metrica** nell'elenco a discesa e quindi una per **Aggregazione**. In questo modo si definisce come verrà eseguito il campionamento dei dati raccolti in ogni intervallo di tempo.
 
-    ![Esplora metriche](media/quick-monitor-azure-resource/metrics-explorer-02.png)
+    ![Screenshot di Esplora metriche nel portale di Azure che mostra le metriche per una risorsa. L'elenco a discesa Aggregazione è aperto ed è selezionata l'opzione Media.](media/quick-monitor-azure-resource/metrics-explorer-02.png)
 
 5. Fare clic su **Aggiungi metrica** per aggiungere altre combinazioni di metrica e aggregazione al grafico.
 
-    ![Esplora metriche](media/quick-monitor-azure-resource/metrics-explorer-03.png)
+    ![Screenshot di Esplora metriche nel portale di Azure che mostra le metriche per una risorsa.](media/quick-monitor-azure-resource/metrics-explorer-03.png)
 
 
 

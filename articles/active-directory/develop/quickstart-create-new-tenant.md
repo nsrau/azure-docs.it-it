@@ -1,6 +1,7 @@
 ---
-title: Creare un tenant di Azure Active Directory
-description: Informazioni su come creare un tenant di Azure AD per la registrazione e la creazione di applicazioni.
+title: 'Avvio rapido: Creare un tenant di Azure Active Directory'
+titleSuffix: Microsoft identity platform
+description: Questa guida di avvio rapido illustra come creare un tenant di Azure Active Directory da usare nello sviluppo di applicazioni che usano Microsoft Identity Platform per l'autenticazione e l'autorizzazione.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120814"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575980"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Avvio rapido: Configurare un tenant
 
@@ -26,6 +27,10 @@ Microsoft Identity Platform consente agli sviluppatori di creare app che si rivo
 Un tenant è una rappresentazione di un'organizzazione. È un'istanza dedicata di Azure AD che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft, come l'iscrizione ad Azure, Microsoft Intune o Microsoft 365.
 
 Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e possiede una propria rappresentazione di identità aziendali e dell'istituto di istruzione, identità di consumer (se si tratta di un tenant di Azure AD B2C) e registrazioni di app. La registrazione di un'app all'interno del tenant può consentire le autenticazioni dagli account solo all'interno del tenant o in tutti i tenant.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="determining-environment-type"></a>Scelta del tipo di ambiente
 
@@ -71,6 +76,5 @@ Per iniziare a creare app che consentono l'accesso agli account di social e loca
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Registrare un'app](quickstart-register-app.md) e integrarla con Microsoft Identity Platform. 
-* Informazioni sulle [nozioni di base dell'autenticazione](./authentication-vs-authorization.md).
-* Per informazioni sulla relazione tra sottoscrizioni e un tenant di Azure AD, vedere [Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+> [!div class="nextstepaction"]
+> [Registrare un'app](quickstart-register-app.md) da integrare con Microsoft Identity Platform.

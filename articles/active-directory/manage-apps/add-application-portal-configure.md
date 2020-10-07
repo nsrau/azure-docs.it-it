@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 1cc7d7755d22568b9b66216709dc0c3765d58657
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d2a538cac1e8bcf9c67c88b206cacd928bfb73c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300154"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448220"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare le proprietà per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -47,7 +47,7 @@ Per modificare le proprietà dell'applicazione:
 3. Esaminare le opzioni disponibili per la configurazione:
     - **Abilitata per l'accesso degli utenti?** determina se gli utenti assegnati all'applicazione potranno eseguire l'accesso.
     - **Assegnazione di utenti obbligatoria** determina se gli utenti non assegnati all'applicazione potranno eseguire l'accesso.
-    - **Visibile agli utenti?** determina se gli utenti assegnati a un'app possono vederla in [App personali](https://myapps.microsoft.com) e nell'icona di avvio delle app di Office 365. (Vedere il menu waffle nell'angolo in alto a sinistra di un sito Web di Office 365 o Microsoft 365).
+    - **Visibile agli utenti?** determina se gli utenti assegnati a un'app possono vederla in [Le mie app](https://myapps.microsoft.com) e nell'icona di avvio delle app di Microsoft 365. Vedere il menu waffle nell'angolo in alto a sinistra del sito Web Microsoft 365.
     
     > [!TIP]
     > L'assegnazione degli utenti viene eseguita nella sezione **Utenti e gruppi** del riquadro di spostamento.
@@ -86,7 +86,17 @@ Per usare un logo personalizzato:
 > [!TIP]
 > È possibile automatizzare la gestione delle app usando l'API Graph. Vedere [Automatizzare la gestione delle app con l'API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
+## <a name="add-notes"></a>Aggiungere note
 
+È possibile usare il campo delle note per aggiungere informazioni pertinenti per la gestione dell'applicazione in Azure AD. Il campo delle note è a testo libero con dimensioni massime di 1024 caratteri.
+
+1. Nel portale di Azure AD selezionare **Applicazioni aziendali**. Trovare e selezionare l'applicazione da configurare.
+2. Nella sezione **Gestisci** selezionare **Proprietà** per aprire il riquadro **Proprietà** per la modifica.
+3. Aggiornare il campo delle note, quindi selezionare **Salva**.
+
+    ![Screenshot della schermata Proprietà che mostra come cambiare le note](media/add-application-portal/notes-application.png)
+
+    
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se non si intende continuare con questa serie di argomenti di avvio rapido, è consigliabile eliminare l'app per pulire il tenant di test. La procedura di eliminazione dell'app è illustrata nell'ultimo argomento di avvio rapido di questa serie. Vedere [Eliminare un'app](delete-application-portal.md).

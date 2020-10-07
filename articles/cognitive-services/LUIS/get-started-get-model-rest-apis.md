@@ -1,23 +1,21 @@
 ---
 title: 'Avvio rapido: Cambiare il modello con le API REST - LUIS'
 titleSuffix: Azure Cognitive Services
-description: In questo avvio rapido dell'API REST si usa un'app LUIS pubblica disponibile per stabilire l'intenzione di un utente partendo da un testo discorsivo.
+description: In questo avvio rapido sull'API REST verranno aggiunte espressioni di esempio per modificare un modello ed eseguire il training dell'app.
 services: cognitive-services
-author: diberry
 manager: nitinme
-ms.custom: seodec18, devx-track-python, devx-track-javascript, devx-track-csharp
+ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/03/2020
-ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: a62b12ccbc6f7d96dc1a2a9b49ab5eec0175f49d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 84b3b592f46124dcd5b4e59775361c243dc67754
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078640"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534676"
 ---
 # <a name="quickstart-change-model-with-rest-apis"></a>Avvio rapido: Cambiare il modello con le API REST
 

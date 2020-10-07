@@ -8,20 +8,18 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4526e4916a89b53ae13a31bcdef6cd4715dd7e8c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7714ec29b3cbe17c7700b48111ea2b455aa18b7e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979590"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532228"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
 Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio.
 
-## <a name="feature-announcements-in-2020"></a>Annunci di funzionalità nel 2020
-
-### <a name="september-2020"></a>Settembre 2020
+## <a name="september-2020"></a>Settembre 2020
 
 Creare un'identità per un servizio di ricerca in Azure Active Directory, quindi usare le autorizzazioni di controllo degli accessi in base al ruolo per concedere all'identità le autorizzazioni di sola lettura per le origini dati di Azure. Se le regole IP non sono disponibili, è possibile scegliere la funzionalità di [eccezione del servizio attendibile](search-indexer-howto-access-trusted-service-exception.md).
 
@@ -34,13 +32,13 @@ Creare un'identità per un servizio di ricerca in Azure Active Directory, quindi
 | [API REST di gestione (2020-08-01-Preview)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Aggiunge una risorsa collegamento privato condivisa per Funzioni di Azure e Azure SQL per database MySQL. | Anteprima pubblica. |
 | [.NET SDK 4.0 per la gestione](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | .NET SDK | Aggiornamento di Azure SDK per l'SDK di gestione, destinato all'API REST versione 2020-08-01. | Disponibile a livello generale. |
 
-### <a name="august-2020"></a>Agosto 2020
+## <a name="august-2020"></a>Agosto 2020
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
 | [Crittografia doppia](search-security-overview.md#encryption) | Security | Abilitare la crittografia doppia a livello di archiviazione configurando la crittografia della chiave gestita dal cliente nei nuovi servizi di ricerca. Creare un nuovo servizio, [configurare e applicare chiavi gestite dal cliente](search-security-manage-encryption-keys.md) a indici o mappe di sinonimi e sfruttare i vantaggi della crittografia doppia su tale contenuto. | Disponibile a livello generale in tutti i servizi di ricerca creati dopo il 1° agosto 2020 in queste aree: Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti centro-meridionali, US Gov Virginia, US Gov Arizona. Per creare il servizio, usare il portale, le API REST di gestione o gli SDK. |
 
-### <a name="july-2020"></a>Luglio 2020
+## <a name="july-2020"></a>Luglio 2020
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
@@ -48,7 +46,7 @@ Creare un'identità per un servizio di ricerca in Azure Active Directory, quindi
 | [Libreria client azure.search.documents](/python/api/overview/azure/search-documents-readme)  | Azure SDK per Python| Libreria client Python rilasciata dal team di Azure SDK, progettata per coerenza con altre librerie client Python. <br/><br/>La versione 11 è destinata all'API REST Ricerca api-version=2020-06-30. | Disponibile a livello generale. </br> Installare il [pacchetto azure-search-documents](https://pypi.org/project/azure-search-documents/) da PyPI. |
 | [@azure/search-documents libreria client](/javascript/api/overview/azure/search-documents-readme)  | Azure SDK per JavaScript | Libreria client JavaScript rilasciata dal team di Azure SDK, progettata per coerenza con altre librerie client JavaScript. <br/><br/>La versione 11 è destinata all'API REST Ricerca api-version=2020-06-30. | Disponibile a livello generale. </br> Installare il [pacchetto @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents) da npm. |
 
-### <a name="june-2020"></a>Giugno 2020
+## <a name="june-2020"></a>Giugno 2020
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
@@ -57,40 +55,40 @@ Creare un'identità per un servizio di ricerca in Azure Active Directory, quindi
 | [**Algoritmo di pertinenza Okapi BM25**](https://en.wikipedia.org/wiki/Okapi_BM25) | Query | Nuovo algoritmo di classificazione della pertinenza usato automaticamente per tutti i nuovi servizi di ricerca creati dopo il 15 luglio. Per i servizi creati precedentemente è possibile acconsentire esplicitamente impostando la proprietà `similarity` sui campi di indice. | Disponibile a livello generale. </br> Usare l'[API REST di ricerca 2020-06-30](/rest/api/searchservice/) o versioni successive oppure l'API REST 2019-05-06. |
 | **executionEnvironment** | Sicurezza (indicizzatori) | Impostare in modo esplicito questa proprietà di configurazione dell'indicizzatore su `private` per forzare tutte le connessioni a origini dati esterne su un endpoint privato. Applicabile solo ai servizi di ricerca che usano il collegamento privato di Azure. | Disponibile a livello generale. </br> Usare l'[API REST di ricerca 2020-06-30](/rest/api/searchservice/) per impostare questo parametro di configurazione generale. |
 
-### <a name="may-2020-microsoft-build"></a>Maggio 2020 (Microsoft Build)
+## <a name="may-2020-microsoft-build"></a>Maggio 2020 (Microsoft Build)
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
 | [**Sessioni di debug**](cognitive-search-debug-session.md) | Arricchimento con intelligenza artificiale | Le sessioni di debug forniscono un'interfaccia basata su portale per esaminare e risolvere i problemi relativi a un set di competenze esistente. Le correzioni create nella sessione di debug possono essere salvate nei set di competenze di produzione. Introduzione a [questa esercitazione](cognitive-search-tutorial-debug-sessions.md). | Anteprima pubblica, nel portale. |
-| [**Regole IP per il supporto del firewall in ingresso**](service-configure-firewall.md) | Security | Limitano l'accesso a un endpoint di servizio di ricerca a indirizzi IP specifici. | Disponibile a livello generale. </br> Usare l'[API REST di gestione 2020-03-13](/rest/api/searchmanagement/) o versioni successive oppure il portale. |
+| [**Regole IP per il supporto del firewall in ingresso**](service-configure-firewall.md) | Sicurezza | Limitano l'accesso a un endpoint di servizio di ricerca a indirizzi IP specifici. | Disponibile a livello generale. </br> Usare l'[API REST di gestione 2020-03-13](/rest/api/searchmanagement/) o versioni successive oppure il portale. |
 | [**Collegamento privato di Azure per un endpoint di ricerca privato**](service-create-private-endpoint.md) | Sicurezza| Scherma un servizio di ricerca dalla rete Internet pubblica eseguendolo come una risorsa collegamento privato, accessibile solo alle app client e ad altri servizi di Azure nella stessa rete virtuale. | Disponibile a livello generale. </br> Usare l'[API REST di gestione 2020-03-13](/rest/api/searchmanagement/) o versioni successive oppure il portale. |
 | [**Identità gestita dal sistema (anteprima)** ](search-howto-managed-identities-data-sources.md) | Sicurezza (indicizzatori) | Registra un servizio di ricerca come servizio attendibile con Azure Active Directory per configurare le connessioni a un'origine dati di Azure supportata per l'indicizzazione. Si applica agli [indicizzatori](search-indexer-overview.md) che inseriscono contenuto da origini dati di Azure, ad esempio database SQL di Azure, Azure Cosmos DB e Archiviazione di Azure. | Anteprima pubblica. </br> Usare il portale per registrare il servizio di ricerca. |
 | [**Parametro di query sessionId**](index-similarity-and-scoring.md), [scoringStatistics=parametro globale](index-similarity-and-scoring.md#scoring-statistics) | Query (pertinenza) | Aggiungere sessionID a una query per stabilire una sessione per il calcolo dei punteggi di ricerca, con scoringStatistics=global per raccogliere i punteggi da tutte le partizioni, per calcoli più coerenti dei punteggi di ricerca. | Disponibile a livello generale. </br> Usare l'[API REST di ricerca 2020-06-30](/rest/api/searchservice/) o versioni successive oppure l'API REST 2019-05-06. |
 | [**featuresMode (anteprima)** ](index-similarity-and-scoring.md#featuresMode-param) | Query | Aggiungere questo parametro di query per espandere un punteggio di pertinenza in modo da visualizzare maggiori dettagli: punteggio di somiglianza per campo, frequenza di termini per campo e numero di token univoci corrispondenti per campo. È possibile utilizzare questi punti dati negli algoritmi di assegnazione dei punteggi personalizzati. Per un esempio in cui viene illustrata questa funzionalità, vedere [Aggiungere Machine Learning (LearnToRank) per la pertinenza della ricerca](https://github.com/Azure-Samples/search-ranking-tutorial). | Anteprima pubblica. </br> Usare l'[API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/index-preview) o l'API REST 2019-05-06-Preview. |
 
-### <a name="march-2020"></a>Marzo 2020
+## <a name="march-2020"></a>Marzo 2020
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
-| [**Eliminazione temporanea BLOB nativa (anteprima)** ](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indicizzatori | Un indicizzatore di Archiviazione BLOB di Azure in Ricerca cognitiva di Azure riconoscerà i BLOB in stato di eliminazione temporanea e rimuoverà il documento di ricerca corrispondente durante l'indicizzazione. | Anteprima pubblica. </br> Usare l'[API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/index-preview) e l'API REST 2019-05-06-Preview, con Esegui indicizzatore su un'origine dati BLOB di Azure con l'eliminazione temporanea nativa abilitata. |
+| [**Eliminazione temporanea BLOB nativa (anteprima)** ](search-howto-index-changed-deleted-blobs.md) | Indicizzatori | Un indicizzatore di Archiviazione BLOB di Azure in Ricerca cognitiva di Azure riconoscerà i BLOB in stato di eliminazione temporanea e rimuoverà il documento di ricerca corrispondente durante l'indicizzazione. | Anteprima pubblica. </br> Usare l'[API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/index-preview) e l'API REST 2019-05-06-Preview, con Esegui indicizzatore su un'origine dati BLOB di Azure con l'eliminazione temporanea nativa abilitata. |
 | [**API REST di gestione (2020-03-13)** ](/rest/api/searchmanagement/management-api-versions) | REST | Nuova API REST stabile per la creazione e la gestione di un servizio di ricerca. Aggiunge il supporto del firewall IP e del collegamento privato | Disponibile a livello generale. |
 
-### <a name="february-2020"></a>Febbraio 2020
+## <a name="february-2020"></a>Febbraio 2020
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
-| [**Rilevamento di informazioni personali (anteprima)** ](cognitive-search-skill-pii-detection.md) | Arricchimento con intelligenza artificiale | Nuova competenza cognitiva usata durante l'indicizzazione che estrae informazioni personali da un testo di input e offre diverse opzioni per mascherarle. | Anteprima pubblica. </br> Usare il portale oppure l'[API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/index-preview) o l'API REST 2019-05-06-Preview. |
+| [**Rilevamento di informazioni personali (anteprima)** ](cognitive-search-skill-pii-detection.md) | Arricchimento con intelligenza artificiale | Una nuova competenza cognitiva usata durante l'indicizzazione che estrae informazioni personali da un input di testo e offre la possibilità di mascherarle in vari modi. | Anteprima pubblica. </br> Usare il portale oppure l'[API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/index-preview) o l'API REST 2019-05-06-Preview. |
 | [**Ricerca di entità personalizzate (anteprima)** ](cognitive-search-skill-custom-entity-lookup.md )| Arricchimento con intelligenza artificiale | Nuova competenza cognitiva che cerca il testo in un elenco personalizzato di parole e frasi definito dall'utente. Con questo elenco vengono etichettati tutti i documenti con entità corrispondenti. La competenza supporta anche un grado di corrispondenza fuzzy che può essere applicato per trovare corrispondenze simili ma non esatte. | Anteprima pubblica. </br> Usare il portale oppure l'[API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/index-preview) o l'API REST 2019-05-06-Preview. |
 
-### <a name="january-2020"></a>Gennaio 2020
+## <a name="january-2020"></a>Gennaio 2020
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
 | [**Chiavi di crittografia gestite dal cliente**](search-security-manage-encryption-keys.md) |Sicurezza | Aggiunge un ulteriore livello di crittografia oltre alla crittografia incorporata della piattaforma. Usando una chiave di crittografia creata e gestita personalmente, è possibile crittografare il contenuto dell'indice e le mappe di sinonimi prima che il payload raggiunga un servizio di ricerca. | Disponibile a livello generale. </br> Usare l'API REST di ricerca 2019-05-06 o versioni successive. Per il codice gestito, il pacchetto corretto è ancora [.NET SDK versione 8.0-preview](search-dotnet-sdk-migration-version-9.md) anche se la funzionalità non è più in anteprima. |
-| [**Regole IP per il supporto del firewall in ingresso (anteprima)** ](service-configure-firewall.md) | Security | Limitano l'accesso a un endpoint di servizio di ricerca a indirizzi IP specifici. L'API di anteprima include le nuove proprietà **IpRule** e **NetworkRuleSet** nell'[API CreateOrUpdate ](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Questa funzionalità di anteprima è disponibile in specifiche aree. |  Anteprima pubblica con api-version=2019-10-01-Preview.  |
+| [**Regole IP per il supporto del firewall in ingresso (anteprima)** ](service-configure-firewall.md) | Sicurezza | Limitano l'accesso a un endpoint di servizio di ricerca a indirizzi IP specifici. L'API di anteprima include le nuove proprietà **IpRule** e **NetworkRuleSet** nell'[API CreateOrUpdate ](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Questa funzionalità di anteprima è disponibile in specifiche aree. |  Anteprima pubblica con api-version=2019-10-01-Preview.  |
 | [**Collegamento privato di Azure per un endpoint di ricerca privato (anteprima)** ](service-create-private-endpoint.md) | Sicurezza| Scherma un servizio di ricerca dalla rete Internet pubblica eseguendolo come una risorsa collegamento privato, accessibile solo alle app client e ad altri servizi di Azure nella stessa rete virtuale. | Anteprima pubblica con api-version=2019-10-01-Preview.  |
 
-## <a name="feature-announcements-in-2019"></a>Annunci di funzionalità nel 2019
+## <a name="features-in-2019"></a>Funzionalità del 2019
 
 ### <a name="december-2019"></a>Dicembre 2019
 

@@ -1,5 +1,5 @@
 ---
-title: Connettere SQL su richiesta a Power BI Desktop e creare report
+title: 'Esercitazione: Connettere SQL su richiesta a Power BI Desktop e creare report'
 description: Questa esercitazione illustra come connettere SQL su richiesta in Azure Synapse Analytics a Power BI Desktop e creare un report demo in base a una vista.
 services: synapse analytics
 author: azaricstefan
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 325a2015e4107a20dfaec22e904cf3cc6ce3085d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089176"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539555"
 ---
 # <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Esercitazione: Usare SQL su richiesta con Power BI Desktop e creare un report
 
-In questa esercitazione verranno illustrate le procedure per:
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,7 @@ In questa esercitazione verranno illustrate le procedure per:
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
 - [Power BI Desktop](https://powerbi.microsoft.com/downloads/): necessario per visualizzare i dati e creare report.
-- [Area di lavoro di Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio): necessaria per creare database, origini dati esterne e visualizzazioni.
+- [Area di lavoro di Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio): necessaria per creare il database, l'origine dati esterna e la vista.
 
 Facoltativo:
 

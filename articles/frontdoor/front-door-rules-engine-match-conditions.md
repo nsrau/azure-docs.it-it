@@ -1,5 +1,5 @@
 ---
-title: Condizioni di corrispondenza del motore regole di Frontdoor di Azure
+title: Condizioni di corrispondenza dei motori di regole di Frontdoor di Azure
 description: Questo articolo fornisce un elenco delle condizioni di corrispondenza disponibili con il motore regole del servizio Frontdoor di Azure.
 services: frontdoor
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1b2b891a0b6b67efef38005d3a4d67eecf41afbd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531866"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91569772"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole di Frontdoor di Azure
 
-Nel [motore regole di Frontdoor di Azure](front-door-rules-engine.md) una regola è costituita da zero o più condizioni di corrispondenza e da un'azione. Questo articolo fornisce descrizioni dettagliate delle condizioni di corrispondenza che è possibile usare nel motore regole di Frontdoor di Azure.
+Nel [motore di regole di Frontdoor di Azure](front-door-rules-engine.md) una regola è costituita da zero o più condizioni di corrispondenza e da un'azione. Questo articolo fornisce descrizioni dettagliate delle condizioni di corrispondenza che è possibile usare nel motore regole di Frontdoor di Azure.
 
-La prima parte di una regola è costituita da una o più condizioni di corrispondenza. Una regola può contenere fino a 10 condizioni di corrispondenza. Una condizione di corrispondenza identifica specifici tipi di richieste per cui verranno eseguite le azioni definite. Se si usano più condizioni di corrispondenza, verranno raggruppate insieme tramite la logica AND. Per tutte le condizioni di corrispondenza che supportano più valori (come indicato di seguito come "delimitati da spazi"), viene usato l'operatore "OR".
+La prima parte di una regola è costituita da una o più condizioni di corrispondenza. Una regola può contenere fino a 10 condizioni di corrispondenza. Una condizione di corrispondenza identifica tipi specifici di richieste per cui vengono eseguite le azioni definite. Se si usano più condizioni di corrispondenza, verranno raggruppate insieme tramite la logica AND. Per tutte le condizioni di corrispondenza che supportano più valori (come indicato di seguito come "delimitati da spazi"), si presuppone l'operatore "OR".
 
 Ad esempio, è possibile usare una condizione di corrispondenza per:
 
@@ -84,7 +84,7 @@ Non corrispondenza IP | Indirizzo IP (delimitato da spazi)
   - **Esempio di indirizzo IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* corrisponde alle richieste provenienti dall'indirizzo 1:2:3:4:5:6:7:8 o 10:20:30:40:50:60:70:80.
 - La sintassi per un blocco di indirizzi IP è l'indirizzo IP di base seguito da una barra e dalle dimensioni del prefisso. Ad esempio:
   - **Esempio di indirizzo IPv4**: *5.5.5.64/26* corrisponde alle richieste provenienti dagli indirizzi compresi tra 5.5.5.64 e 5.5.5.127.
-  - **Esempio di indirizzo IPv6**: *1:2:3:/48* corrisponde alle richieste provenienti dagli indirizzi compresi tra 1:2:3:0:0:0:0:0 e 1:2:3:ffff:ffff:ffff:ffff:ffff.
+  - **Esempio di indirizzo IPv6**: *1:2:3:/48* corrisponde a qualsiasi richiesta proveniente dagli indirizzi compresi tra 1:2:3:0:0:0:0:0 e 1:2:3: ffff:ffff:ffff:ffff:ffff.
 
 ## <a name="request-body"></a>Corpo della richiesta
 
@@ -204,11 +204,11 @@ Per le regole che accettano valori dall'elenco di operatori standard, gli operat
 - Non è maggiore di
 - Non è maggiore o uguale a
 
-Per gli operatori numerici, ad esempio *minore di* e *maggiore o uguale a*, il confronto si basa sulla lunghezza. In questo caso, il valore della condizione di corrispondenza deve essere un numero intero uguale alla lunghezza da confrontare. 
+Per gli operatori numerici, ad esempio *minore di* e *maggiore o uguale a*, il confronto si basa sulla lunghezza. Il valore nella condizione di corrispondenza deve essere un numero intero che equivale alla lunghezza da confrontare. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come configurare la prima [configurazione del motore regole](front-door-tutorial-rules-engine.md). 
+- Informazioni su come configurare il primo [motore di regole](front-door-tutorial-rules-engine.md). 
 - Altre informazioni sulle [azioni del motore regole](front-door-rules-engine-actions.md)
 - Altre informazioni sul [motore regole di Frontdoor di Azure](front-door-rules-engine.md)

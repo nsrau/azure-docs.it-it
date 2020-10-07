@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: dea009d6d246d68f0686c3dc85f3518ccb13705c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719071"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575198"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Esercitazione: Monitorare e gestire un'applicazione Analisi video - rilevamento movimento e oggetti
 
@@ -27,7 +27,7 @@ In questa esercitazione verranno illustrate le procedure per:
 Prima di iniziare, è necessario completare le esercitazioni seguenti:
 
 * Esercitazione [Creare un'applicazione Analisi video live in Azure IoT Central](./tutorial-video-analytics-create-app.md).
-* Una delle esercitazioni precedenti, [Creare un'istanza di IoT Edge per Analisi video live (macchina virtuale Linux)](tutorial-video-analytics-iot-edge-vm.md) or [Creare un'istanza di IoT Edge per Analisi video live (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md).
+* Una delle precedenti esercitazioni, [Creare un'istanza di IoT Edge per Analisi video live (VM Linux)](tutorial-video-analytics-iot-edge-vm.md) o [Creare un'istanza di IoT Edge per Analisi video live (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md).
 
 Per eseguire l'applicazione visualizzatore video, è necessario che nel computer locale sia installato [Docker](https://www.docker.com/products/docker-desktop).
 
@@ -61,7 +61,7 @@ Se si hanno due telecamere connesse al dispositivo gateway IoT Edge, ripetere i 
 
 Selezionare la scheda **Dispositivi downstream** per il dispositivo **LVA Gateway 001** per vedere i dispositivi telecamera appena aggiunti:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Controllare":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Aggiungere la telecamera":::
 
 I dispositivi telecamera vengono visualizzati anche nell'elenco nella pagina **Dispositivi** nell'applicazione.
 
@@ -98,7 +98,7 @@ Selezionare **Salva**.
 
 Dopo alcuni secondi verrà visualizzato il messaggio di conferma **Accettato** per ogni impostazione:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Rilevamento di oggetti":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Aggiungere la telecamera":::
 
 ## <a name="start-lva-processing"></a>Avviare l'elaborazione di Analisi video live
 
@@ -108,13 +108,13 @@ Eseguire il comando **Start LVA Processing**.
 
 Dopo che il comando è stato completato, visualizzare la relativa cronologia per assicurarsi che non siano presenti errori:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Comando per l'avvio dell'elaborazione di Analisi video live":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Aggiungere la telecamera":::
 
 ## <a name="monitor-the-cameras"></a>Monitorare le telecamere
 
 Passare al dispositivo **camera-003** e selezionare la scheda **Dashboard**:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Dashboard della telecamera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Aggiungere la telecamera":::
 
 Il riquadro **Detection Count** mostra il numero medio di rilevamenti per ogni oggetto delle classi di rilevamento selezionato durante un intervallo di rilevamento di un secondo.
 
@@ -157,7 +157,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 Passare al dispositivo **camera-003** e selezionare la scheda **Dashboard**. Fare quindi clic su uno dei collegamenti ipertestuali di rilevamento degli oggetti acquisiti nel riquadro **Inference Event Video**. Il video viene visualizzato in una pagina aperta dal lettore video locale:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Frammento di video":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Aggiungere la telecamera":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>Modificare i dispositivi simulati nei dashboard dell'applicazione
 
@@ -182,7 +182,7 @@ I dashboard dell'applicazione vengono originariamente popolati con le proprietà
 
 Il dashboard **Real Camera Monitor** mostra ora i valori per il dispositivo telecamera reale:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Dashboard dell'applicazione per le telecamere reali":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Aggiungere la telecamera":::
 
 ## <a name="pause-processing"></a>Sospendere l'elaborazione
 

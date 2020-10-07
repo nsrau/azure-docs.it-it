@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d4846a69f548c99de735cc9d9e06bd6bb263b4bd
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: a0bc934d32a2d09fcd6b52ec1f186855bf0da92c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439688"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449618"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Esercitazione: Sviluppare moduli IoT Edge per dispositivi Windows
 
@@ -295,7 +295,7 @@ Si è verificato che le immagini dei contenitori di cui è stata eseguita la com
 
 Il codice di IotEdgeModule1 riceve i messaggi tramite la coda di input e li passa attraverso la coda di output. Il manifesto della distribuzione ha dichiarato le route che hanno passato i messaggi da SimulatedTemperatureSensor a IotEdgeModule1 e quindi hanno inoltrato i messaggi da IotEdgeModule1 all'hub IoT. L'estensione Azure IoT Edge Tools per Visual Studio consente di visualizzare i messaggi che arrivano all'hub IoT dai singoli dispositivi.
 
-1. In Visual Studio Cloud Explorer selezionare il nome del dispositivo IoT Edge in cui è stata eseguita la distribuzione.
+1. In Cloud Explorer di Visual Studio selezionare il nome del dispositivo IoT Edge in cui è stata eseguita la distribuzione.
 
 2. Dal menu **Azioni** scegliere **Start Monitoring Built-in Event Endpoint** (Avvia il monitoraggio dell'endpoint evento predefinito).
 

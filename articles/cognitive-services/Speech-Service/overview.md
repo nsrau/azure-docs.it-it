@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 57577c840c93888b2b96971994724f085ad44ebe
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: b15a034a73882287e70afcbcaa9c72ee931c9f78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569306"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91630203"
 ---
 # <a name="what-is-the-speech-service"></a>Informazioni sul Servizio di riconoscimento vocale
 
@@ -29,10 +29,10 @@ Le funzionalità seguenti fanno parte del servizio Voce. Per altre informazioni 
 | Service | Funzionalità | Descrizione | SDK | REST |
 |---------|---------|-------------|-----|------|
 | [Riconoscimento vocale](speech-to-text.md) | Riconoscimento vocale in tempo reale | Il riconoscimento vocale trascrive o traduce in tempo reale flussi audio o file locali in testo da utilizzare o visualizzare in applicazioni, dispositivi o strumenti. È possibile usare il riconoscimento vocale con [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) per derivare le finalità dell'utente dal parlato trascritto e agire sui comandi vocali. | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Riconoscimento vocale in batch](batch-transcription.md) | Il riconoscimento vocale in batch consente la trascrizione asincrona in testo di una quantità elevata di dati audio vocali memorizzati in Archiviazione BLOB di Azure. Oltre a convertire l'audio vocale in testo, il riconoscimento vocale in batch consente anche di eseguire la diarizzazione e l'analisi del sentiment. | No | [Sì](https://westus.cris.ai/swagger/ui/index) |
+| | [Riconoscimento vocale in batch](batch-transcription.md) | Il riconoscimento vocale in batch consente la trascrizione asincrona in testo di una quantità elevata di dati audio vocali memorizzati in Archiviazione BLOB di Azure. Oltre a convertire l'audio vocale in testo, il riconoscimento vocale in batch consente anche di eseguire la diarizzazione e l'analisi del sentiment. | No | [Sì](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
 | | [Conversazione per più dispositivi](multi-device-conversation.md) | Connessione di più dispositivi o client in una conversazione per l'invio di messaggi vocali o di testo, con il supporto semplificato per la trascrizione e la traduzione| Sì | No |
 | | [Trascrizione conversazione](conversation-transcription-service.md) | Abilita il riconoscimento vocale in tempo reale, l'identificazione voce e la diarizzazione. È ideale per la trascrizione di riunioni dal vivo grazie alla capacità di distinguere i parlanti. | Sì | No |
-| | [Creare modelli conversione voce/testo personalizzati](#customize-your-speech-experience) | Se si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, linguistici e di pronuncia personalizzati destinati a un ambiente rumoroso o una terminologica specifica del settore. | No | [Sì](https://westus.cris.ai/swagger/ui/index) |
+| | [Creare modelli conversione voce/testo personalizzati](#customize-your-speech-experience) | Se si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, linguistici e di pronuncia personalizzati destinati a un ambiente rumoroso o una terminologica specifica del settore. | No | [Sì](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
 | [Sintesi vocale](text-to-speech.md) | Sintesi vocale | Sintesi vocale converte il testo di input in una voce sintetizzata simile a quella di un essere umano usando [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). È possibile scegliere tra voci standard e voci neurali (vedere [Supporto per le lingue](language-support.md)). | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Creare voci personalizzate](#customize-your-speech-experience) | Creazione di caratteri voce personalizzati univoci per il proprio marchio o prodotto. | No | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Traduzione vocale](speech-translation.md) | Traduzione vocale | La traduzione vocale consente di attivare la traduzione vocale end-to-end in tempo reale e in più lingue in applicazioni, strumenti e dispositivi. È possibile usare questo servizio per il riconoscimento vocale e la traduzione vocale. | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
@@ -74,13 +74,13 @@ Per aggiungere una risorsa del servizio vocale (gratuita o a pagamento) al propr
    - Assegnare un nome univoco alla nuova risorsa. Il nome consente di distinguere tra più sottoscrizioni collegate allo stesso servizio.
    - Scegliere la sottoscrizione di Azure a cui è associata la nuova risorsa per determinare le modalità di fatturazione.
    - Scegliere l'[area](regions.md) in cui verrà usata la risorsa.
-   - Scegliere un piano tariffario gratuito (F0) o a pagamento (S0). Per informazioni complete sulle quote di utilizzo e sui prezzi per ogni livello, selezionare **Visualizza i dettagli completi sui prezzi**.
+   - Scegliere un piano tariffario gratuito (F0) o a pagamento (S0). Per informazioni complete sulle quote di utilizzo e sui prezzi per ogni livello, selezionare **Visualizza i dettagli completi sui prezzi**. Per informazioni sui limiti relativi alle risorse che è possibile creare per ogni sottoscrizione, vedere [Limiti di Servizi cognitivi di Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Creare un nuovo gruppo di risorse per questa sottoscrizione di riconoscimento vocale o assegnarla a un gruppo di risorse esistente. I gruppi di risorse consentono di mantenere organizzate le diverse sottoscrizioni di Azure.
    - Selezionare **Crea**. Si passerà alla pagina di panoramica della distribuzione e verranno visualizzati i messaggi sullo stato della distribuzione.
-
+<!--
 > [!NOTE]
-> È possibile creare un numero illimitato di sottoscrizioni di livello standard in una o più aree. Tuttavia, è possibile creare solo una sottoscrizione gratuita. Le distribuzioni di modelli nel livello gratuito che rimangono inutilizzate per 7 giorni verranno automaticamente rimosse.
-
+> You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
+-->
 È necessario qualche secondo per distribuire la nuova risorsa del servizio Voce. Al termine della distribuzione, selezionare **Vai alla risorsa** e quindi nel riquadro di spostamento a sinistra selezionare **Chiavi** per visualizzare le chiavi di sottoscrizione del servizio Voce. Ogni sottoscrizione dispone di due chiavi, entrambi utilizzabili nell'applicazione. Per copiare e incollare rapidamente una chiave nell'editor di codice o in un'altra posizione, selezionare il pulsante Copia accanto a ogni chiave e cambiare finestra per incollare il contenuto degli Appunti nella posizione desiderata.
 
 > [!IMPORTANT]
@@ -128,7 +128,7 @@ Altri prodotti offrono modelli di conversione voce/testo ottimizzati per scopi s
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [API REST: Riconoscimento vocale](rest-speech-to-text.md)
 - [API REST: Sintesi vocale](rest-text-to-speech.md)
-- [API REST: Trascrizione e personalizzazione batch](https://westus.cris.ai/swagger/ui/index)
+- [API REST: Trascrizione e personalizzazione batch](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

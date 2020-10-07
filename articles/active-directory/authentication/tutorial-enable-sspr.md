@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30a51f4b07f62b6e3491f74de78ea0d04bbb1775
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0797ff744dbbf9fb139503d73be7d60118762ac2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399974"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530732"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Esercitazione: Consentire agli utenti di sbloccare l'account o reimpostare le password con la reimpostazione della password self-service di Azure Active Directory
 
@@ -116,7 +116,7 @@ Se gli utenti necessitano di ulteriore assistenza per il processo di reimpostazi
 Dopo aver abilitato e configurato la reimpostazione della password self-service, testare il processo con un utente che fa parte del gruppo selezionato nella sezione precedente, ad esempio *Test-SSPR-Group*. Nell'esempio seguente viene usato l'account *testuser*. Specificare l'account utente che fa parte del gruppo abilitato per la reimpostazione della password self-service nella prima sezione di questa esercitazione.
 
 > [!NOTE]
-> Per eseguire il test della reimpostazione della password self-service, usare un account non amministratore. Gli amministratori sono sempre abilitati per la reimpostazione della password self-service e devono usare due metodi di autenticazione per reimpostare la propria password.
+> Per eseguire il test della reimpostazione della password self-service, usare un account non amministratore. Per impostazione predefinita, gli amministratori sono abilitati per la reimpostazione della password self-service e devono usare due metodi di autenticazione per reimpostare la propria password. Per altre informazioni, vedere [Differenze dei criteri di reimpostazione degli amministratori](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 1. Per visualizzare il processo di registrazione manuale, aprire una nuova finestra del browser in modalità InPrivate o anonima e passare a [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). All'accesso successivo gli utenti verranno reindirizzati a questo portale di registrazione.
 1. Accedere con un utente di test non amministratore, ad esempio *testuser*, e registrare le informazioni di contatto dei metodi di autenticazione.

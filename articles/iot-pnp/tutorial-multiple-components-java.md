@@ -1,62 +1,39 @@
 ---
-title: Connettere il codice Java di un dispositivo Plug and Play IoT (anteprima) di esempio con componenti a un hub IoT | Microsoft Docs
-description: Compilare ed eseguire il codice Java del dispositivo Plug and Play IoT (anteprima) di esempio che usa più componenti e si connette a un hub IoT. Usare lo strumento Azure IoT Explorer per visualizzare le informazioni inviate dal dispositivo all'hub.
+title: Connettere il codice Java di un dispositivo Plug and Play IoT di esempio con componenti a un hub IoT | Microsoft Docs
+description: Compilare ed eseguire il codice Java di un dispositivo Plug and Play IoT di esempio che usa più componenti e si connette a un hub IoT. Usare lo strumento Azure IoT Explorer per visualizzare le informazioni inviate dal dispositivo all'hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1d16d8c54939c4f659b6a1530e2d360b957a09ad
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: a7c1f0d207a113b2c12010cbc0a8876edd9269bc
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351885"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577255"
 ---
-# <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-java"></a>Esercitazione: Connettere un'applicazione di un dispositivo Plug and Play IoT (anteprima) di esempio con più componenti a un hub IoT (Java)
+# <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-java"></a>Esercitazione: Connettere un'applicazione di un dispositivo Plug and Play IoT di esempio con più componenti a un hub IoT (Java)
 
 [!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
 Questa esercitazione rapido illustra come creare un'applicazione di un dispositivo Plug and Play IoT di esempio con più componenti, connetterla all'hub IoT e usare l'interfaccia della riga di comando di Azure per visualizzare i dati di telemetria inviati. L'applicazione di esempio è scritta in Java ed è inclusa in Azure IoT SDK per dispositivi per Java. Un integratore di soluzioni può usare l'interfaccia della riga di comando di Azure per conoscere le funzionalità di un dispositivo Plug and Play IoT senza doverne visualizzare il codice.
 
-Questa esercitazione illustra come creare un'applicazione di un dispositivo Plug and Play IoT di esempio con componenti e interfaccia radice, connetterla all'hub IoT e usare lo strumento Azure IoT Explorer per visualizzare le informazioni inviate all'hub. L'applicazione di esempio è scritta in Java ed è inclusa in Azure IoT SDK per dispositivi per Java. Un integratore di soluzioni può usare lo strumento Azure IoT Explorer per conoscere le funzionalità di un dispositivo Plug and Play IoT senza doverne visualizzare il codice.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Questa esercitazione illustra come creare un'applicazione di un dispositivo Plug and Play IoT di esempio con componenti, connetterla all'hub IoT e usare lo strumento Azure IoT Explorer per visualizzare le informazioni inviate all'hub. L'applicazione di esempio è scritta in Java ed è inclusa in Azure IoT SDK per dispositivi per Java. Un integratore di soluzioni può usare lo strumento Azure IoT Explorer per conoscere le funzionalità di un dispositivo Plug and Play IoT senza doverne visualizzare il codice.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
+
 Per completare questa esercitazione in Windows, installare il software seguente nell'ambiente Windows locale:
 
-* Java SE Development Kit 8. In [Supporto a lungo termine di Java per Azure e Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) selezionare **Java 8** nella sezione **Supporto a lungo termine**.
+* Java SE Development Kit 8. In [Supporto a lungo termine di Java per Azure e Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) selezionare **Java 8** nella sezione **Supporto a lungo termine**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
-
-### <a name="azure-iot-explorer"></a>Azure IoT Explorer
-
-Per interagire con il dispositivo di esempio nella seconda parte di questo argomento di avvio rapido, usare lo strumento**Azure IoT Explorer**. [Scaricare e installare la versione di Azure IoT Explorer più recente](./howto-use-iot-explorer.md) per il sistema operativo in uso.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Eseguire il comando seguente per ottenere la _stringa di connessione dell'hub IoT_ per l'hub. Prendere nota della stringa di connessione, poiché verrà usata più avanti in questo argomento di avvio rapido:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> È anche possibile usare lo strumento Azure IoT Explorer per trovare la stringa di connessione dell'hub IoT.
-
-Eseguire il comando seguente per ottenere la _stringa di connessione del dispositivo_ aggiunto all'hub. Prendere nota della stringa di connessione, poiché verrà usata più avanti in questo argomento di avvio rapido:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
 
 ## <a name="download-the-code"></a>Scaricare il codice
 
-In questa esercitazione viene preparato un ambiente di sviluppo che è possibile usare per clonare e compilare Azure IoT Hub SDK per dispositivi per Java.
+Se è stata completato l'argomento [Avvio rapido: Connettere un'applicazione di un dispositivo Plug and Play IoT di esempio in esecuzione in Windows a un hub IoT (Java)](quickstart-connect-device-java.md), il repository è già stato clonato.
 
 Aprire un prompt dei comandi nella directory di propria scelta. Eseguire il comando seguente per clonare il repository GitHub di [SDK e librerie di Azure IoT per Java](https://github.com/Azure/azure-iot-sdk-java) in questo percorso:
 
@@ -68,21 +45,19 @@ Il completamento di questa operazione richiederà alcuni minuti.
 
 ## <a name="build-the-code"></a>Compilare il codice
 
-In Windows passare alla cartella radice del repository dell'SDK Java clonato. Passare quindi alla cartella *\device\iot-device-samples\pnp-device-sample\temperature-controller-device-sample*.
+In Windows passare alla cartella radice del repository dell'SDK Java clonato. Eseguire il comando seguente per creare le dipendenze:
 
-Eseguire il comando seguente per compilare l'applicazione di esempio:
-
-```java
-mvn clean package
+```cmd/sh
+mvn install -T 2C -DskipTests
 ```
 
 ## <a name="run-the-device-sample"></a>Eseguire l'esempio del dispositivo
 
-Creare una variabile di ambiente denominata **IOTHUB_DEVICE_CONNECTION_STRING** per archiviare la stringa di connessione del dispositivo annotata in precedenza.
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
-Per eseguire l'applicazione di esempio, usare il comando seguente:
+Per eseguire l'applicazione di esempio, passare alla cartella *\device\iot-device-samples\pnp-device-sample\temperature-controller-device-sample* ed eseguire il comando seguente:
 
-```java
+```cmd/sh
 mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
 ```
 
@@ -166,7 +141,7 @@ Usare lo strumento Azure IoT Explorer per visualizzare i dati di telemetria e le
 
 :::image type="content" source="media/tutorial-multiple-components-java/multiple-component.png" alt-text="Dispositivo a più componenti in Azure IoT Explorer":::
 
-È anche possibile usare lo strumento Azure IoT Explorer per chiamare i comandi in uno dei due componenti del termostato o nell'interfaccia radice.
+È anche possibile usare lo strumento Azure IoT Explorer per chiamare i comandi in uno dei due componenti del termostato o nel componente predefinito.
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
@@ -175,4 +150,4 @@ Usare lo strumento Azure IoT Explorer per visualizzare i dati di telemetria e le
 In questa esercitazione si è appreso come connettere un dispositivo Plug and Play IoT con componenti a un hub IoT. Per altre informazioni sui modelli di dispositivo Plug and Play IoT, vedere:
 
 > [!div class="nextstepaction"]
-> [Guida per gli sviluppatori alla modellazione di Plug and Play IoT (anteprima)](concepts-developer-guide.md)
+> [Guida per sviluppatori alla modellazione di Plug and Play IoT](concepts-developer-guide-device-csharp.md)

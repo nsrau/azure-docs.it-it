@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5888eeea98a80eeacb97e625d199a3b1912d1943
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 51ad23e67a77c28d0ad8a147168a0094f5de1796
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015136"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578003"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Esercitazione: Inviare notifiche push in base Location Based con Hub di notifica e i dati spaziali Bing
 
@@ -387,7 +387,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
 10. Poiché non vengono passate le coordinate reali (è possibile che al momento non ci si trovi entro i limiti) e si usano valori di test predefiniti, al momento dell'aggiornamento verrà visualizzata una notifica:
 
-    ![Screenshot di un desktop di Windows che visualizza il messaggio TEST.](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
+    ![Screenshot di un desktop Windows che visualizza il messaggio TEST.](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

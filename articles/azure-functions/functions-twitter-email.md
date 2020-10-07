@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
-ms.openlocfilehash: 29b35493342b92813aa808069ebdd7ca8a7bbc56
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: feb6b36f8e5e7bbec83d8882552484f68abfd56d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208559"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537753"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creare una funzione che si integra con le app per la logica di Azure
 
@@ -182,7 +182,7 @@ A questo punto l'app è connessa a Twitter. Connettersi ora all'analisi del test
 
 2. In **Scegliere un'azione** digitare **Analisi del testo** e quindi scegliere l'azione **Rileva sentiment**.
     
-    ![Nuovo passaggio e quindi Aggiungi un'azione.](media/functions-twitter-email/11-detect-sentiment.png)
+    ![Screenshot che mostra la sezione "Scegliere un'azione" con "Analisi del testo" nella casella di ricerca e l'azione "Rileva sentiment" selezionata. ](media/functions-twitter-email/11-detect-sentiment.png)
 
 3. Digitare un nome per la connessione, ad esempio `MyCognitiveServicesConnection`, incollare la chiave dell'API Servizi cognitivi e l'endpoint di Servizi cognitivi conservato nell'editor di testo e fare clic su **Crea**.
 
@@ -202,7 +202,7 @@ Dopo aver configurato il rilevamento dei sentiment, è possibile aggiungere una 
   
 4. Selezionare l'app per le funzioni creata in precedenza.
 
-    ![Selezionare la funzione](media/functions-twitter-email/15-select-function.png)
+    ![Screenshot che mostra una sezione "Scegli un'azione" con un'app per le funzioni selezionata.](media/functions-twitter-email/15-select-function.png)
 
 5. Selezionare la funzione creata per questa esercitazione.
 
@@ -228,7 +228,7 @@ L'ultima parte del flusso di lavoro consiste nell'attivare l'invio di un messagg
 
 3. In **È true** fare clic su **Aggiungi un'azione**, cercare `outlook.com`, fare clic su **Invia un messaggio di posta elettronica** e accedere all'account Outlook.com.
 
-    ![Configurare la posta elettronica per l'azione Invia un messaggio di posta elettronica.](media/functions-twitter-email/20-add-outlook.png)
+    ![Screenshot che mostra la sezione "È true" con il valore "outlook.com" immesso nella casella di ricerca e l'azione "Invia un messaggio di posta elettronica" selezionata.](media/functions-twitter-email/20-add-outlook.png)
 
     > [!NOTE]
     > Se non è disponibile un account Outlook.com, è possibile scegliere un altro connettore, ad esempio Gmail o Office 365 Outlook.

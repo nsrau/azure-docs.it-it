@@ -1,6 +1,6 @@
 ---
 title: Eseguire la copia incrementale di più tabelle con PowerShell
-description: In questa esercitazione viene creata una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database di SQL Server a un database del database SQL di Azure.
+description: In questa esercitazione verrà creata una data factory di Azure con una pipeline che carica dati differenziali da più tabelle di un database di SQL Server al database SQL di Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: d32c4da4604307bca406f7f5d5e5a94b69efe7ac
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250962"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541833"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Caricare dati in modo incrementale da più tabelle in SQL Server al database SQL di Azure con PowerShell
 
@@ -821,11 +821,11 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'**attivit
 4. Nella pagina **Data factory** selezionare **Crea e monitora** per avviare Azure Data Factory in una scheda separata.
 
 5. Nella pagina **Attività iniziali** selezionare **Monitoraggio** sul lato sinistro. 
-![Esecuzioni di pipeline](media/doc-common-process/get-started-page-monitor-button.png)    
+![Screenshot che mostra la pagina Attività iniziali per Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. È possibile visualizzare tutte le esecuzioni di pipeline e i rispettivi stati. Notare che nell'esempio seguente lo stato dell'esecuzione della pipeline è **Riuscito**. Per verificare i parametri passati alla pipeline, selezionare il collegamento nella colonna **Parametri**. Se si è verificato un errore, verrà visualizzato un collegamento nella colonna **Errore**.
 
-    ![Esecuzioni di pipeline](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
+    ![Screenshot che mostra le esecuzioni della pipeline per una data factory che include la pipeline corrente.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. Quando si seleziona il collegamento nella colonna **Azioni**, vengono visualizzate tutte le esecuzioni di attività per la pipeline. 
 
 8. Per tornare alla visualizzazione **Pipeline Runs** (Esecuzioni di pipeline), selezionare **Tutte le esecuzioni della pipeline**. 
