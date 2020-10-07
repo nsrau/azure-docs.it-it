@@ -11,12 +11,12 @@ ms.date: 09/04/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43b69deb242fd1ad80d9cdc4667070d2dbfefcd5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: da4e1cfc68dff4ad2bc0552c6d35fe1230779306
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255609"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312958"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>Cos'è l'agente di amministrazione di Azure AD Connect? 
 L'agente di amministrazione di Azure AD Connect è un nuovo componente di Azure Active Directory Connect che può essere installato in un server Azure Active Directory Connect. Viene usato per raccogliere dati specifici dall'ambiente di Active Directory che consentono a un tecnico del supporto Microsoft di risolvere i problemi quando si apre un caso di supporto. 
@@ -46,7 +46,7 @@ Quando richiesto, immettere le credenziali di amministratore globale di Azure AD
 
 Dopo l'installazione dell'agente, nell'elenco "Installazione applicazioni" del Pannello di controllo del server verranno visualizzati i due nuovi programmi seguenti: 
 
-![agente di amministrazione](media/whatis-aadc-admin-agent/adminagent1.png)
+![Screenshot dell'elenco Installazione applicazioni che include i nuovi programmi aggiunti.](media/whatis-aadc-admin-agent/adminagent1.png)
 
 ## <a name="what-data-in-my-sync-service-is-shown-to-the-microsoft-service-engineer"></a>Quali dati del servizio di sincronizzazione vengono mostrati al tecnico del supporto Microsoft? 
 Quando si apre un caso di supporto, il tecnico del supporto Microsoft può vedere, per un determinato utente, i dati pertinenti in Active Directory, lo spazio connettore Active Directory nel server Azure Active Directory Connect, lo spazio connettore Azure Active Directory nel server Azure Active Directory Connect e il metaverse nel server Azure Active Directory Connect. 
@@ -69,7 +69,7 @@ Una volta installato l'agente, se non si vuole che il tecnico del supporto Micro
 3. Salvare il file di configurazione.
 4. Riavviare il servizio agente di amministrazione di Azure AD Connect come illustrato di seguito
 
-![agente di amministrazione](media/whatis-aadc-admin-agent/adminagent2.png)
+![Screenshot che mostra dove riavviare il servizio agente di amministrazione di Azure AD.](media/whatis-aadc-admin-agent/adminagent2.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

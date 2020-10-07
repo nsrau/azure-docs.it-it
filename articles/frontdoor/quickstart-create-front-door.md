@@ -1,24 +1,24 @@
 ---
-title: 'Guida introduttiva: Configurare la disponibilità elevata con il servizio Frontdoor di Azure'
-description: Questo argomento di avvio rapido illustra come usare il servizio Frontdoor di Azure per le applicazioni Web globali con disponibilità e prestazioni elevate.
+title: 'Avvio rapido: Configurare la disponibilità elevata con il servizio Frontdoor di Azure - Portale di Azure'
+description: Questo argomento di avvio rapido mostra come usare il servizio Frontdoor di Azure per le applicazioni Web globali con disponibilità e prestazioni elevate mediante il portale di Azure.
 services: front-door
-documentationcenter: ''
+documentationcenter: na
 author: duongau
-editor: ''
-ms.assetid: ''
+manager: KumudD
+Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2020
+ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: 16ebfe7ae39d63f455e39c677acc61b31d40bb5a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 4846438f8479fe622570aa515a4d8b40cccc57b8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569238"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252307"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Guida introduttiva: Creare una frontdoor per un'applicazione Web globale a disponibilità elevata
 
@@ -38,35 +38,33 @@ Se non è già disponibile un'app Web, seguire questa procedura per configurarne
 
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-1. Nella home page o nel menu di Azure selezionare **Crea una risorse**.
+1. Nell'angolo in alto a sinistra dello schermo selezionare **Crea una risorsa** >  **App Web**.
 
-1. Selezionare **Web** > **App Web**.
+    :::image type="content" source="media/quickstart-create-front-door/front-door-create-web-app.png" alt-text="Creare un'app Web nel portale di Azure":::
 
-   ![Creare un'app Web nel portale di Azure](media/quickstart-create-front-door/create-web-app-azure-front-door.png)
+1. Nella scheda **Informazioni di base** della pagina **Crea app Web** immettere o selezionare le informazioni seguenti.
 
-1. In **App Web** selezionare la **Sottoscrizione** da usare.
-
-1. Per **Gruppo di risorse** selezionare **Crea nuovo**. Immettere *FrontDoorQS_rg1* per **Nome** e selezionare **OK**.
-
-1. In **Dettagli istanza** immettere un valore univoco per **Nome** dell'app Web. Questo esempio usa *WebAppContoso-1*.
-
-1. Selezionare uno **stack di runtime**, in questo esempio *.NET Core 2.1 (LTS)* .
-
-1. Selezionare un'area, ad esempio *Stati Uniti centrali.*
-
-1. In **Piano Windows** selezionare **Crea nuovo**. Immettere *myAppServicePlanCentralUS* per **Nome** e selezionare **OK**.
-
-1. Assicurarsi che l'opzione **SKU e dimensioni** sia impostata su **Standard S1, 100 ACU totali, 1,75 GB di memoria**.
+    | Impostazione                 | Valore                                              |
+    | ---                     | ---                                                |
+    | **Sottoscrizione**               | Selezionare la propria sottoscrizione. |    
+    | **Gruppo di risorse**       | Selezionare **Crea nuovo** e immettere *FrontDoorQS_rg1* nella casella di testo.|
+    | **Nome**                   | Immettere un **Nome** univoco per l'app Web. Questo esempio usa *WebAppContoso-1*. |
+    | **Pubblica** | Selezionare **Codice**. |
+    | **Stack di runtime**         | Selezionare **.NET Core 2.1 (LTS)** . |
+    | **Sistema operativo**          | Selezionare **Windows**. |
+    | **Area**           | Selezionare **Stati Uniti centrali**. |
+    | **Piano Windows** | Selezionare **Crea nuovo** e immettere *myAppServicePlanCentralUS* nella casella di testo. |
+    | **SKU e dimensioni** | Selezionare **Standard S1 100 ACU totali, 1,75 GB di memoria**. |
 
 1. Selezionare **Rivedi e crea**, esaminare la scheda **Riepilogo** e quindi selezionare **Crea**. Il completamento della distribuzione potrebbe richiedere diversi minuti.
 
-   ![Esaminare il riepilogo per l'app Web](media/quickstart-create-front-door/web-app-summary-azure-front-door.png)
+    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Creare un'app Web nel portale di Azure":::
 
 Al termine della distribuzione, creare una seconda app Web. Seguire la stessa procedura con gli stessi valori, ad eccezione dei valori seguenti:
 
 | Impostazione          | valore     |
 | ---              | ---  |
-| **Gruppo di risorse**   | Selezionare **Nuovo** e immettere *FrontDoorQS_rg2* |
+| **Gruppo di risorse**   | Selezionare **Crea nuovo** e immettere *FrontDoorQS_rg2* |
 | **Nome**             | Immettere un nome univoco per l'app Web, in questo esempio *WebAppContoso-2*  |
 | **Area**           | Scegliere un'area diversa, in questo esempio *Stati Uniti centro-meridionali* |
 | **Piano di servizio app** > **Piano Windows**         | Selezionare **Nuovo**, immettere *myAppServicePlanSouthCentralUS*, quindi selezionare **OK** |
@@ -75,35 +73,55 @@ Al termine della distribuzione, creare una seconda app Web. Seguire la stessa pr
 
 Configurare Frontdoor di Azure per indirizzare il traffico degli utenti in base alla latenza più bassa tra i due server di app Web. Per iniziare, aggiungere un host front-end per Frontdoor di Azure.
 
-1. Nella home page o nel menu di Azure selezionare **Crea una risorse**. Selezionare **Rete** > **Frontdoor**.
+1. Nella home page o nel menu di Azure selezionare **Crea una risorse**. Selezionare **Rete** > **Visualizza tutto** > **Frontdoor**.
 
-1. In **Crea una frontdoor** selezionare una **Sottoscrizione**.
+1. Nella scheda **Informazioni di base** della pagina **Crea una frontdoor** immettere o selezionare le informazioni seguenti e quindi selezionare **Avanti: Configurazione**.
 
-1. Per **Gruppo di risorse**selezionare **Nuovo**, quindi immettere *FrontDoorQS_rg0* e selezionare **OK**.  In alternativa, è possibile usare un gruppo di risorse esistente.
-
-1. Se è stato creato un gruppo di risorse, selezionare un valore per **Località del gruppo di risorse**, quindi selezionare **Avanti: Configurazione**.
+    | Impostazione | Valore |
+    | --- | --- |
+    | **Sottoscrizione** | Selezionare la propria sottoscrizione. |    
+    | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere *FrontDoorQS_rg0* nella casella di testo.|
+    | **Località del gruppo di risorse** | Selezionare **Stati Uniti centrali**. |
 
 1. In **Front-end/domini** selezionare **+** per aprire **Aggiungi un host front-end**.
 
 1. Per **Nome host**, immettere un nome host univoco globale. Questo esempio usa *contoso-frontend*. Selezionare **Aggiungi**.
 
-   ![Aggiungere un host front-end per Frontdoor di Azure](media/quickstart-create-front-door/add-frontend-host-azure-front-door.png)
+    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Creare un'app Web nel portale di Azure":::
 
 Successivamente, creare un pool back-end che contenga le due app Web.
 
 1. Sempre in **Crea una frontdoor**, in **Pool back-end**, selezionare **+** per aprire **Aggiungi un pool back-end**.
 
-1. Per **Nome**, immettere *myBackEndPool*.
+1. In **Nome** immettere *myBackendPool*, quindi selezionare **Aggiungi un back-end**.
 
-1. Selezionare **Aggiungi un back-end**. Per **Tipo host back-end**, selezionare *Servizio app*.
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Creare un'app Web nel portale di Azure":::
 
-1. Selezionare la sottoscrizione e quindi scegliere la prima app Web creata da **Nome host back-end**. In questo esempio l'app Web è *WebAppContoso-1*. Selezionare **Aggiungi**.
+1. Nel pannello **Aggiungi un back-end** selezionare le informazioni seguenti e quindi selezionare **Aggiungi**.
 
-1. Selezionare di nuovo **Aggiungi un back-end**. Per **Tipo host back-end**, selezionare *Servizio app*.
+    | Impostazione | Valore |
+    | --- | --- |
+    | **Tipo di host back-end** | Selezionare **Servizio app**. |   
+    | **Sottoscrizione** | Selezionare la propria sottoscrizione. |    
+    | **Nome host back-end** | Selezionare la prima app Web creata. In questo esempio l'app Web è *WebAppContoso-1*. |
 
-1. Selezionare di nuovo la sottoscrizione e quindi scegliere la seconda app Web creata da **Nome host back-end**. Selezionare **Aggiungi**.
+    **Lasciare i valori predefiniti per tutti gli altri campi.*
 
-   ![Aggiungere un host back-end alla frontdoor](media/quickstart-create-front-door/add-backend-host-pool-azure-front-door.png)
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Creare un'app Web nel portale di Azure":::
+
+1. Selezionare di nuovo **Aggiungi un back-end**. Selezionare le informazioni seguenti e quindi selezionare **Aggiungi**.
+
+    | Impostazione | Valore |
+    | --- | --- |
+    | **Tipo di host back-end** | Selezionare **Servizio app**. |   
+    | **Sottoscrizione** | Selezionare la propria sottoscrizione. |    
+    | **Nome host back-end** | Selezionare la seconda app Web creata. In questo esempio l'app Web è *WebAppContoso-2*. |
+
+    **Lasciare i valori predefiniti per tutti gli altri campi.*
+
+1. Selezionare **Aggiungi** nel pannello **Aggiungi un pool back-end** per completare la configurazione del pool back-end.
+
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Creare un'app Web nel portale di Azure":::
 
 Infine, aggiungere una regola di routing. Una regola di routing esegue il mapping dell'host front-end al pool back-end. La regola inoltra una richiesta di `contoso-frontend.azurefd.net` a **myBackendPool**.
 
@@ -111,12 +129,14 @@ Infine, aggiungere una regola di routing. Una regola di routing esegue il mappin
 
 1. In **Aggiungi una regola**, per **Nome**, immettere *LocationRule*. Accettare tutti i valori predefiniti, quindi selezionare **Aggiungi** per aggiungere la regola di routing.
 
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Creare un'app Web nel portale di Azure":::
+
    >[!WARNING]
    > È **necessario** assicurarsi che ognuno degli host front-end nella frontdoor abbia una regola di routing con un percorso predefinito (`\*`) associato. Questo vuol dire che tra tutte le regole di gestione deve esisterne almeno una per ognuno degli host front-end definita nel percorso predefinito (`\*`). In caso contrario, è possibile che il traffico degli utenti finali non venga instradato correttamente.
 
 1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
-   ![Servizio Frontdoor di Azure configurato](media/quickstart-create-front-door/configuration-azure-front-door.png)
+    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Creare un'app Web nel portale di Azure":::
 
 ## <a name="view-azure-front-door-in-action"></a>Visualizzare Frontdoor di Azure in azione
 
@@ -141,7 +161,7 @@ Per testare il failover globale istantaneo, provare a eseguire i passaggi seguen
 
 1. Aggiornare il browser. Questa volta dovrebbe essere visualizzato un messaggio di errore.
 
-   ![Entrambe le istanze dell'app Web sono state arrestate](media/quickstart-create-front-door/web-app-stopped-message.png)
+   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Creare un'app Web nel portale di Azure":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

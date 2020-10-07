@@ -1,22 +1,24 @@
 ---
-title: 'Avvio rapido: Creare un progetto di rilevamento oggetti con la libreria client di Visione personalizzata'
-description: 'Avvio rapido: Creare un progetto, aggiungere tag, caricare immagini, eseguire il training del progetto e rilevare oggetti usando la libreria client di Visione personalizzata.'
+title: 'Avvio rapido: Rilevamento oggetti con la libreria client di Visione personalizzata'
+titleSuffix: Azure Cognitive Services
+description: 'Avvio rapido: Creare un progetto di rilevamento oggetti, aggiungere tag, caricare immagini, eseguire il training del progetto e rilevare oggetti usando la libreria client di Visione personalizzata.'
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/17/2020
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.date: 09/14/2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+keywords: visione personalizzata
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 404e76ec8fe4d874695c77ee18542c7db6665796
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 75ed10046dfbc9e0a0c35614237bc2422d84da13
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919336"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327452"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk"></a>Guida introduttiva: Creare un progetto di rilevamento oggetti con Custom Vision SDK
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-client-library"></a>Avvio rapido: Creare un progetto di rilevamento oggetti con la libreria client di Visione personalizzata
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-tutorial-od.md)]

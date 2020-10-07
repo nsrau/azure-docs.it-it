@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84706439"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283871"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Esercitazione: Garantire la sicurezza dell'istanza gestita di SQL di Azure con le entità server (account di accesso) di Azure AD
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,7 +104,7 @@ Per esempi relativi alla connessione all'istanza gestita di SQL, vedere gli arti
     GO
     ```
 
-    ![native-login.png](./media/aad-security-configure-tutorial/native-login.png)
+    ![Screenshot della scheda Risultati in Esplora oggetti di SSMS che mostra i parametri name, principal_id, sid, type e type_desc dell'account di accesso appena aggiunto.](./media/aad-security-configure-tutorial/native-login.png)
 
 Per altre informazioni, vedere [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
@@ -153,13 +153,13 @@ Dopo aver creato l'entità server (account di accesso) di Azure AD e aver conces
    - Active Directory - Password
    - Active Directory - Integrata </br>
 
-     ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
+     ![Screenshot della finestra di dialogo Connetti al server in SSMS con Active Directory - Universale con supporto MFA selezionato nell'elenco a discesa Autenticazione.](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
      Per altre informazioni, vedere [Autenticazione universale (supporto di SSMS per Multi-Factor Authentication)](../database/authentication-mfa-ssms-overview.md).
 
 1. Selezionare **Active Directory - Universale con supporto MFA**. Verrà visualizzata una finestra di accesso per Multi-Factor Authentication (MFA). Accedere con la password di Azure AD.
 
-    ![mfa-login-prompt.png](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
+    ![Screenshot della finestra di accesso a Multi-Factor Authentication con il cursore nel campo Immetti password.](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
 1. In **Esplora oggetti** di SSMS fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
 1. Nella finestra di query usare la sintassi seguente per creare un account di accesso per un altro account Azure AD:
@@ -222,7 +222,7 @@ Il funzionamento delle autorizzazioni per i singoli database nell'istanza gestit
 
 A questo punto, dopo aver creato un database denominato **MyMITestDB** e un account di accesso che dispone solo delle autorizzazioni predefinite, il passaggio successivo consiste nel creare un utente da tale account di accesso. Al momento, l'account di accesso può connettersi all'istanza gestita e visualizzare tutti i database, ma non può interagire con essi. Se si accede con l'account Azure AD con le autorizzazioni predefinite e si prova a espandere il database appena creato, verrà visualizzato l'errore seguente:
 
-![ssms-db-not-accessible.png](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
+![Screenshot del messaggio di errore restituito da Esplora oggetti di SSMS "Il database MyMITestDB non è accessibile. (ObjectExplorer)".](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
 
 Per altre informazioni sulla concessione delle autorizzazioni per i database, vedere [Introduzione alle autorizzazioni del motore di database](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
 
@@ -326,7 +326,7 @@ Per consentire all'utente di visualizzare i dati nel database, è possibile conc
 1. Creare una nuova connessione all'istanza gestita con l'utente che è stato aggiunto al ruolo `db_datareader`.
 1. Espandere il database in **Esplora oggetti** per visualizzare la tabella.
 
-    ![ssms-test-table.png](./media/aad-security-configure-tutorial/ssms-test-table.png)
+    ![Screenshot di Esplora oggetti in SSMS che mostra la struttura delle cartelle per le tabelle in MyMITestDB. La cartella dbo.TestTable è evidenziata.](./media/aad-security-configure-tutorial/ssms-test-table.png)
 
 1. Aprire una nuova finestra di query ed eseguire l'istruzione SELECT seguente:
 
@@ -337,7 +337,7 @@ Per consentire all'utente di visualizzare i dati nel database, è possibile conc
 
     I dati della tabella sono visibili? Dovrebbe essere possibile visualizzare le colonne restituite.
 
-    ![ssms-test-table-query.png](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
+    ![Screenshot della scheda Risultati in Esplora oggetti di SSMS che mostra le intestazioni di colonna AccountNum, City, Name e State della tabella.](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
 
 ## <a name="impersonate-azure-ad-server-level-principals-logins"></a>Rappresentare le entità di livello server (account di accesso) di Azure AD
 

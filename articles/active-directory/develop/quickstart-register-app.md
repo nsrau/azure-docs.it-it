@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 5f34215d57bd5dae8c9a5e6e8f4630b7ed0c827e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436724"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258133"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform
 
@@ -59,13 +59,13 @@ Al termine della registrazione, nel portale di Azure viene visualizzato il riqua
 
 L'ID client viene usato anche nel codice dell'applicazione o, in genere, in una libreria di autenticazione usata nell'applicazione, come fattore per la convalida dei token di sicurezza ricevuti dalla piattaforma di gestione delle identità.
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot del portale di Azure in un Web browser che mostra il riquadro Panoramica della registrazione dell'app.":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot del portale di Azure in un Web browser che mostra il riquadro Registra un'applicazione.":::
 
 ## <a name="add-a-redirect-uri"></a>Aggiungere un URI di reindirizzamento
 
 Un URI di reindirizzamento corrisponde alla posizione a cui Microsoft Identity Platform reindirizza il client di un utente e invia i token di sicurezza dopo l'autenticazione.
 
-In un'applicazione Web di produzione, ad esempio, l'URI di reindirizzamento è spesso un endpoint pubblico in cui viene eseguita l'app, ad esempio `https://contoso.com/auth-response`. Durante lo sviluppo capita di aggiungere l'endpoint in cui l'app viene eseguita in locale, ad esempio `https://127.0.0.1/auth-response`.
+In un'applicazione Web di produzione, ad esempio, l'URI di reindirizzamento è spesso un endpoint pubblico in cui viene eseguita l'app, ad esempio `https://contoso.com/auth-response`. Durante lo sviluppo capita di aggiungere l'endpoint in cui l'app viene eseguita in locale, ad esempio `https://127.0.0.1/auth-response` o `http://localhost/auth-response`.
 
 Per aggiungere e modificare gli URI di reindirizzamento per le applicazioni registrate, configurarne le [impostazioni della piattaforma](#configure-platform-settings).
 
@@ -80,7 +80,7 @@ Per configurare le impostazioni dell'applicazione in base alla piattaforma o al 
 1. In **Configurazioni della piattaforma** selezionare **Aggiungi una piattaforma**.
 1. In **Configura le piattaforme** selezionare il riquadro relativo al tipo di applicazione (piattaforma) per configurarne le impostazioni.
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Screenshot del riquadro Configurazione della piattaforma nel portale di Azure" border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Screenshot del portale di Azure in un Web browser che mostra il riquadro Registra un'applicazione." border="false":::
 
     | Piattaforma | Impostazioni di configurazione |
     | -------- | ---------------------- |
@@ -101,7 +101,7 @@ Le credenziali vengono usate dalle applicazioni client riservate che accedono a 
 
 È possibile aggiungere sia certificati che segreti client (una stringa) come credenziali della registrazione dell'app client riservata.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot del portale di Azure che mostra il riquadro Certificati e segreti in una registrazione dell'app":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot del portale di Azure in un Web browser che mostra il riquadro Registra un'applicazione.":::
 
 ### <a name="add-a-certificate"></a>Aggiungere un certificato
 

@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: Ricerca interattiva nelle mappe con Mappe di Azure'
-description: Informazioni su come creare mappe interattive e ricercabili. Informazioni su come creare un account Mappe di Azure, ottenere una chiave primaria e usare Web SDK per configurare le applicazioni mappa.
+description: 'Avvio rapido: Informazioni su come creare mappe interattive e ricercabili. Informazioni su come creare un account Mappe di Azure, ottenere una chiave primaria e usare Web SDK per configurare le applicazioni mappa'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/10/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fa5cab35416f2629d39ec04803f90fae1a2e5f6d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 99257b7bef83d0acef484118c7d53aea8eda168c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031048"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264287"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Avvio rapido: Creare una mappa per la ricerca interattiva con Mappe di Azure
 
@@ -62,7 +62,7 @@ Dopo che è stato creato l'account di Mappe, recuperare la chiave primaria che c
 >[!NOTE]
 > Se si usa la chiave di sottoscrizione invece della chiave primaria, non verrà eseguito il rendering corretto della mappa. Inoltre, per motivi di sicurezza, si consiglia di eseguire la rotazione tra le chiavi primarie e secondarie. Per eseguire la rotazione delle chiavi, aggiornare l'app per usare la chiave secondaria, distribuire, quindi premere il pulsante di ciclo/aggiornamento accanto alla chiave primaria per generare una nuova chiave primaria. La chiave primaria precedente verrà disabilitata. Per altre informazioni sulla rotazione delle chiavi, vedere [Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Ottenere la chiave primaria di Mappe di Azure nel portale di Azure":::
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Creare un account di Mappe nel portale":::
 
 ## <a name="download-the-demo-application"></a>Scaricare l'applicazione demo
 
@@ -78,7 +78,7 @@ Dopo che è stato creato l'account di Mappe, recuperare la chiave primaria che c
 4. Provare l'esperienza di ricerca interattiva. Nella casella di ricerca nell'angolo in alto a sinistra dell'applicazione Web demo cercare **restaurants**.
 5. Spostare il puntatore del mouse sull'elenco di indirizzi e posizioni visualizzato sotto la casella di ricerca. Osservare che l'indicatore corrispondente sulla mappa visualizza le informazioni sulla posizione corrispondente. Per la privacy delle aziende private, sono visualizzati nomi e indirizzi fittizi.
 
-    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Applicazione Web per la ricerca interattiva nelle mappe":::
+    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Creare un account di Mappe nel portale":::
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
@@ -92,17 +92,15 @@ Se non si intende continuare con le esercitazioni, pulire le risorse eseguendo q
 2. Accedere alla pagina del portale di Azure. Selezionare **Tutte le risorse** dalla pagina principale del portale. In alternativa, fare clic sull'icona di menu nell'angolo superiore sinistro. Selezionare **Tutte le risorse**.
 3. Selezionare il proprio account di Mappe di Azure. Nella parte superiore della pagina fare clic su **Elimina**.
 
+Per altri esempi di codice e un'esperienza interattiva di codifica, vedere queste guide:
+
+[Trovare un indirizzo usando il servizio di ricerca di Mappe di Azure](how-to-search-for-address.md)
+
+[Usare il controllo mappa di Mappe di Azure](how-to-use-map-control.md)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa guida introduttiva vengono creati l'account di Mappe di Azure e un'applicazione demo. Per altre informazioni su Mappe di Azure, esaminare queste esercitazioni:
 
 > [!div class="nextstepaction"]
 > [Eseguire ricerche vicino a punti di interesse con Mappe di Azure](tutorial-search-location.md)
-
-Per altri esempi di codice e un'esperienza interattiva di codifica, vedere queste guide:
-
-> [!div class="nextstepaction"]
-> [Trovare un indirizzo usando il servizio di ricerca di Mappe di Azure](how-to-search-for-address.md)
-
-> [!div class="nextstepaction"]
-> [Usare il controllo mappa di Mappe di Azure](how-to-use-map-control.md)

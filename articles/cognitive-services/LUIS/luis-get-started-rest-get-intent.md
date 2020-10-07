@@ -1,7 +1,7 @@
 ---
 title: 'Avvio rapido: Usare cURL e REST per ottenere la finalità - LUIS'
 titleSuffix: Azure Cognitive Services
-description: In questo avvio rapido dell'API REST si usa un'app LUIS pubblica disponibile per stabilire l'intenzione di un utente partendo da un testo discorsivo.
+description: In questo avvio rapido sull'API REST vengono usati cURL e REST per stabilire l'intenzione di un utente partendo da un testo discorsivo.
 services: cognitive-services
 author: nitinme
 manager: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/19/2020
 ms.author: nitinme
-ms.openlocfilehash: 8ab76bcdfc62ed0af52e6c99ef6c7b14ebeef25f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7a8cbfa307f14a6660dcace3315384bc523ad888
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316257"
 ---
 # <a name="quickstart-use-curl-and-rest-to-get-intent"></a>Avvio rapido: Usare cURL e REST per ottenere la finalità
 

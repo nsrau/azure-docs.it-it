@@ -3,12 +3,12 @@ title: 'Guida introduttiva: Inviare eventi personalizzati a una funzione di Azur
 description: "Guida introduttiva: usare Griglia di eventi di Azure e l'interfaccia della riga di comando o il portale di Azure per pubblicare un argomento e sottoscrivere l'evento. Come endpoint viene usata una funzione di Azure."
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 26ddfd1aeb61d3786edcdfca1acf5e293e4145ae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115095"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324399"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Guida introduttiva: Indirizzare eventi personalizzati a una funzione di Azure con Griglia di eventi
 
@@ -17,14 +17,17 @@ La griglia di eventi di Azure è un servizio di gestione degli eventi per il clo
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-azure-function"></a>Creare la funzione di Azure
+Prima di sottoscrivere l'argomento personalizzato, creare una funzione per gestire gli eventi. 
 
-Prima di sottoscrivere l'argomento personalizzato, creare una funzione per gestire gli eventi. Nel portale di Azure fare clic su"Crea una risorsa", digitare "funzioni" e quindi scegliere "App per le funzioni" e fare clic su Crea. Selezionare "Crea nuovo" per il gruppo di risorse e assegnare un nome. Verrà usato per il resto dell'esercitazione. Assegnare un nome all'app per le funzioni, lasciare l'interruttore "Pubblica" impostato su "Codice", selezionare qualsiasi runtime e area e quindi fare clic su Crea.
+1. Creare un'app per le funzioni usando istruzioni da [Creare un'app per le funzioni](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+2. Creare una funzione usando il **Trigger Griglia di eventi**. Se si usa questo trigger per la prima volta, potrebbe essere necessario fare clic su "Installa" per installare l'estensione.
+    1. Nella pagina **App per le funzioni** selezionare **Funzioni** dal menu a sinistra, cercare **Griglia di eventi** nei modelli e quindi selezionare **Azure Event Grid trigger** (Trigger Griglia di eventi di Azure). 
 
-Quando è pronta, passare all'app per le funzioni e fare clic su "+ Nuova funzione". Selezionare "Nel portale" come ambiente di sviluppo e fare clic su Continua. In Crea una funzione scegliere "Altri modelli" per visualizzare altri modelli e quindi cercare e selezionare il trigger di Griglia di eventi di Azure. Se si usa questo trigger per la prima volta, potrebbe essere necessario fare clic su "Installa" per installare l'estensione.
+        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Selezionare il trigger di Griglia di eventi":::
+3. Nella pagina **Nuova funzione** immettere un nome per la funzione e selezionare **Crea funzione**.
 
-![Trigger di Griglia di eventi per la funzione](./media/custom-event-to-function/grid-trigger.png)
-
-Dopo aver installato l'estensione, fare clic su Continua, assegnare un nome alla funzione e quindi fare clic su Crea.
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Selezionare il trigger di Griglia di eventi":::
+4. Usare la pagina **Codice e test** per visualizzare il codice esistente per la funzione e aggiornarlo. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -81,7 +84,11 @@ Si sottoscrive un argomento di Griglia di eventi per indicare di quali eventi si
     5. Per l'endpoint funzione selezionare la sottoscrizione di Azure e il gruppo di risorse in cui si trova l'app per le funzioni e quindi l'app per le funzioni e la funzione create in precedenza. Selezionare **Confermare la selezione**.
 
        ![Specificare l'URL endpoint](./media/custom-event-to-function/provide-endpoint.png)
-
+    6. Questo passaggio è facoltativo, ma consigliato per scenari di produzione. Nella pagina **Crea sottoscrizione di eventi** passare alla scheda **Funzionalità avanzate** e impostare i valori per **Numero massimo di eventi per batch** e **Dimensioni batch preferite in KB**. 
+    
+        L'invio in batch può fornire una velocità effettiva elevata. Per **Numero massimo di eventi per batch** impostare il numero massimo di eventi che una sottoscrizione includerà in un batch. L'opzione per le dimensioni batch preferite consente di impostare il limite superiore preferito per le dimensioni batch in KB, ma questo valore può essere superato se le dimensioni di un singolo evento sono superiori a questa soglia.
+    
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Selezionare il trigger di Griglia di eventi":::
     6. Nella pagina **Crea sottoscrizione di eventi** selezionare **Crea**.
 
 ## <a name="send-an-event-to-your-topic"></a>Inviare un evento all'argomento

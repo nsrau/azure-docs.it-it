@@ -1,6 +1,6 @@
 ---
-title: Modificare gli account delle app di Microsoft Identity Platform | Azure
-description: Configurare un'applicazione registrata con Microsoft Identity Platform per modificare gli utenti o gli account che possono accedere all'applicazione.
+title: 'Avvio rapido: Modificare gli account delle app di Microsoft Identity Platform | Azure'
+description: In questa guida di avvio rapido si configura un'applicazione registrata con Microsoft Identity Platform per cambiare chi, o quale account, può accedere all'applicazione.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 2850ca3f23e61be54702878c0683af9fdb1fad91
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d143bde9c22bc726f00b5c209d1b7fbc131905b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826860"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258014"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Guida introduttiva: Modificare gli account supportati da un'applicazione
 
@@ -27,11 +27,7 @@ In questa guida introduttiva verrà illustrato come modificare la configurazione
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per iniziare, assicurarsi di soddisfare questi prerequisiti:
-
-* Acquisire informazioni su [autorizzazioni supportate e consenso](v2-permissions-and-consent.md), la cui conoscenza è importante per creare applicazioni che dovranno essere usate da altri utenti o applicazioni.
-* Avere un tenant in cui sono registrate applicazioni.
-  * Se non si hanno app registrate, vedere come [registrare applicazioni con Microsoft Identity Platform](quickstart-register-app.md).
+* Completamento di [Avvio rapido: Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md)
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Accedere al portale di Azure e selezionare l'app
 
@@ -78,13 +74,5 @@ Per impostazione predefinita, la concessione implicita OAuth 2.0 è disabilitata
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le altre guide introduttive correlate sulla gestione delle app:
-
-* [Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md)
-* [Configurare un'applicazione client per l'accesso ad API Web](quickstart-configure-app-access-web-apis.md)
-* [Configurare un'applicazione per l'esposizione di API Web](quickstart-configure-app-expose-web-apis.md)
-* [Rimuovere un'applicazione registrata con Microsoft Identity Platform](quickstart-remove-app.md)
-
-Per altre informazioni su due oggetti di Azure AD che rappresentano un'applicazione registrata e la relazione tra essi, vedere [Oggetti applicazione e oggetti entità servizio](app-objects-and-service-principals.md).
-
-Per altre informazioni sulle linee guida sulla personalizzazione da seguire per lo sviluppo di applicazioni con Azure Active Directory, vedere [Linee guida sulla personalizzazione delle applicazioni](howto-add-branding-in-azure-ad-apps.md).
+> [!div class="nextstepaction"]
+> [Linee guida sulla personalizzazione per le applicazioni](howto-add-branding-in-azure-ad-apps.md)

@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: ca330357e88ff6f4824c74a6048769638542cc29
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d6c447deedbdcc4f2439fc069f368db88b3560b9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556105"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278040"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>Esercitazione: Assegnare il ruolo con autorizzazioni di lettura nella directory a un gruppo di Azure AD e gestire le assegnazioni di ruolo
 
@@ -55,7 +55,7 @@ Per altre informazioni sui vantaggi derivanti dall'assegnazione del ruolo con au
 
 Per verificare e gestire il gruppo che è stato creato, tornare al riquadro **Gruppi** nel portale di Azure e cercare il nome del gruppo. È possibile aggiungere altri proprietari e membri nel menu **Proprietari** e **Membri** dell'impostazione **Gestisci** dopo aver selezionato il gruppo. È anche possibile esaminare i **Ruoli assegnati** per il gruppo.
 
-:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="azure-ad-group-created":::
+:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="aad-new-group":::
 
 ### <a name="add-azure-sql-managed-identity-to-the-group"></a>Aggiungere l'identità gestita di SQL di Azure al gruppo
 
@@ -68,17 +68,17 @@ Per i passaggi successivi, l'amministratore globale o l'utente amministratore ru
 
 1. Trovare il nome della risorsa **Istanza gestita di SQL** nel portale di Azure.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="azure-ad-managed-instance":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="aad-new-group":::
 
    Durante la creazione dell'istanza gestita di SQL, è stata creata un'identità di Azure per l'istanza. L'identità creata ha lo stesso nome del prefisso del nome dell'istanza gestita di SQL. Per trovare l'entità servizio per l'identità dell'istanza gestita di SQL creata come un'applicazione Azure AD, seguire questa procedura:
 
     - Passare alla risorsa **Azure Active Directory**. Nell'impostazione **Gestisci** selezionare **Applicazioni aziendali**. L'**ID oggetto** è l'identità dell'istanza.
     
-    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="azure-ad-managed-instance-service-principal":::
+    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="aad-new-group":::
 
 1. Passare alla risorsa **Azure Active Directory**. In **Gestita** passare a **Gruppi**. Selezionare il gruppo creato. Nell'impostazione **Gestisci** del gruppo selezionare **Membri**. Selezionare **Aggiungi membri** e aggiungere l'entità servizio dell'istanza gestita di SQL come membro del gruppo cercando il nome trovato sopra.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="azure-ad-add-managed-instance-service-principal":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="aad-new-group":::
 
 > [!NOTE]
 > Potrebbero essere necessari alcuni minuti per propagare le autorizzazioni dell'entità servizio attraverso il sistema di Azure e consentire l'accesso all'API Graph di Azure AD. Potrebbe essere necessario attendere alcuni minuti prima di effettuare il provisioning di un amministratore di Azure AD per l'istanza gestita di SQL.

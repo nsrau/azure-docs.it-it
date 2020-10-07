@@ -14,12 +14,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04ea92e18fc6efb8b375a22cc34baf1d33b78802
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b82dcc633f0f2bb13cb84f80873117f9eb94a24f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313163"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Esercitazione:  Integrare una singola foresta di AD mediante la sincronizzazione dell'hash delle password
 
@@ -184,7 +184,7 @@ A questo punto è necessario creare un tenant di Azure Active Directory in modo 
 2. Selezionare l'**icona +** e cercare **Azure Active Directory**.
 3. Selezionare **Azure Active Directory** dai risultati della ricerca.
 4. Selezionare **Create** (Crea).</br>
-![Creare](media/tutorial-password-hash-sync/create1.png)</br>
+![Screenshot che mostra come creare un tenant di Azure AD.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Specificare un **nome per l'organizzazione** e il **nome di dominio iniziale**. Selezionare quindi **Crea**. Verrà così creata la directory.
 6. A questo punto, selezionare il collegamento **qui** per gestire la directory.
 
@@ -192,10 +192,10 @@ A questo punto è necessario creare un tenant di Azure Active Directory in modo 
 Ora che si ha un tenant di Azure AD, si creerà un account di amministratore globale.  Questo account viene usato per creare l'account del connettore di Azure AD durante l'installazione di Azure AD Connect.  L'account del connettore di Azure AD viene usato per scrivere informazioni in Azure AD.   Per creare l'account di amministratore globale, eseguire le operazioni seguenti.
 
 1.  In **Gestisci** selezionare **Utenti**.</br>
-![Creare](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Screenshot che mostra l'opzione Utente selezionata nella sezione Gestione in cui si crea un amministratore globale in Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Selezionare **Tutti gli utenti** e selezionare **+Nuovo utente**.
 3.  Specificare un nome e un nome utente per questo utente. Sarà l'amministratore globale per il tenant. Se necessario, è anche possibile modificare **Ruolo directory** in **Amministratore globale**. È anche possibile visualizzare la password temporanea. Al termine, seleziona **Crea**.</br>
-![Creare](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Screenshot che mostra il pulsante Crea selezionato quando si crea un amministratore globale in Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Al termine dell'operazione, aprire un nuovo Web browser e accedere a myapps.microsoft.com usando il nuovo account di amministratore globale e la password temporanea.
 5. Modificare la password dell'amministratore globale in una da ricordare.
 
@@ -206,7 +206,7 @@ A questo punto è possibile scaricare e installare Azure AD Connect.  Dopo averl
 2. Trovare il file **AzureADConnect.msi**e farvi doppio clic.
 3. Nella schermata iniziale, selezionare la casella che consente di accettare le condizioni di licenza e fare clic su **Continua**.  
 4. Nella schermata Impostazioni rapide fare clic su **Usa impostazioni rapide**.</br>  
-![Creare](media/tutorial-password-hash-sync/express1.png)</br>
+![Screenshot che mostra la schermata Impostazioni rapide e il pulsante Usa impostazioni rapide.](media/tutorial-password-hash-sync/express1.png)</br>
 5. Nella schermata Connessione ad Azure AD immettere il nome utente e la password dell'amministratore globale per Azure AD. Fare clic su **Avanti**.  
 6. Nella schermata Connessione a Servizi di dominio Active Directory immettere il nome utente e la password di un account amministratore dell'organizzazione. Fare clic su **Avanti**.  
 7. Nella schermata Pronto per la configurazione fare clic su **Installa**.

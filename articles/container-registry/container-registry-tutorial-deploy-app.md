@@ -4,12 +4,12 @@ description: Distribuire un'app Web basata su Linux a due diverse aree di Azure 
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bcbce3c60aa0b4613b1dd1840c335c800193e549
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74456096"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328690"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Esercitazione: Distribuire un'app Web da un Registro Azure Container con replica geografica
 
@@ -58,7 +58,7 @@ In **App Web per contenitori** che viene visualizzata dopo aver selezionato "Dis
 
 Selezionare **Crea** per eseguire il provisioning dell'app Web per l'area degli *Stati Uniti occidentali*.
 
-![App Web nella configurazione di Linux nel portale di Azure][deploy-app-portal-02]
+![Screenshot che mostra l'app Web per contenitori con il pulsante Crea evidenziato.][deploy-app-portal-02]
 
 ## <a name="view-the-deployed-web-app"></a>Visualizzare l'app Web distribuita
 
@@ -68,11 +68,11 @@ Nel portale, selezionare **Servizi app**, quindi l'app Web di cui è stato esegu
 
 Selezionare l'URL con collegamento ipertestuale dell'app Web in alto a destra nella panoramica di **Servizio app** per visualizzare l'applicazione in esecuzione nel browser.
 
-![App Web nella configurazione di Linux nel portale di Azure][deploy-app-portal-04]
+![Screenshot che mostra la panoramica dei servizi app con l'URL dell'app Web evidenziato.][deploy-app-portal-04]
 
 Una volta distribuita l'immagine Docker dal registro contenitori con replica geografica, il sito visualizza un'immagine che rappresenta l'area di Azure che ospita il registro contenitori.
 
-![Applicazione Web distribuita visualizzata in un browser][deployed-app-westus]
+![Screenshot che mostra l'applicazione Web distribuita in un browser.][deployed-app-westus]
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>Distribuire una seconda istanza di App Web per contenitori
 
@@ -88,9 +88,9 @@ Usare la procedura descritta nella sezione precedente per distribuire una second
 
 Selezionare **Crea** per eseguire il provisioning dell'app Web per l'area degli *Stati Uniti orientali*.
 
-![App Web nella configurazione di Linux nel portale di Azure][deploy-app-portal-06]
+![Screenshot che mostra la finestra Crea dell'app Web per contenitori con il pulsante Crea evidenziato.][deploy-app-portal-06]
 
-## <a name="view-the-deployed-web-app"></a>Visualizzare l'app Web distribuita
+## <a name="view-the-second-deployed-web-app"></a>Visualizzare la seconda app Web distribuita
 
 Come visto prima, è possibile visualizzare l'applicazione in esecuzione passando al relativo URL nel browser.
 

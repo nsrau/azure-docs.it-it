@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 80fcebec76788ca9ec754b35c57f9965f38c2c0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d2a0d79a5cdd53f8376c088fc986c20908575eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037100"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329458"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Esercitazione: Estendere i file server Windows con Sincronizzazione file di Azure
 
@@ -314,6 +314,8 @@ I file sono ora sincronizzati tra la condivisione file di Azure e Windows Server
 ![Sincronizzazione Archiviazione di Azure riuscita](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
+
+Per pulire le risorse create in questa esercitazione, rimuovere prima di tutto gli endpoint dal servizio di sincronizzazione archiviazione. Annullare quindi la registrazione del server con il servizio di sincronizzazione archiviazione, rimuovere i gruppi di sincronizzazione ed eliminare il servizio di sincronizzazione.
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

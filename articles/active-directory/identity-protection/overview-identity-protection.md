@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffe7f58f27d028dd114f548521feeeb74bb12cf1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437701"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265273"
 ---
 # <a name="what-is-identity-protection"></a>Informazioni su Identity Protection
 
@@ -53,8 +53,8 @@ Identity Protection consente di identificare i rischi suddivisi nelle classifica
 | Indirizzo IP anonimo | Accesso da indirizzo IP anonimo (ad esempio Tor Browser, VPN per navigazione in anonimato). |
 | Proprietà di accesso insolite | Accesso con proprietà non osservate di recente per l'utente specificato. |
 | Indirizzo IP collegato a malware | Accesso da indirizzo IP collegato a malware. |
-| Credenziali perse | Questo rilevamento dei rischi indica che le credenziali valide dell'utente sono andate perse. |
-| Password spraying | Indica che più nomi utente vengono attaccati usando password comuni in modo simile a un attacco di forza bruta unificato. |
+| Credenziali perse | Indica che le credenziali valide dell'utente sono andate perse. |
+| Password spraying | Indica che è in corso un attacco unificato di forza bruta contro più nomi utente usando password comuni. |
 | Intelligence per le minacce di Azure AD | Le origini di intelligence Microsoft per le minacce interne ed esterne hanno identificato uno schema di attacco noto. |
 
 Per maggiori dettagli su questi rischi e su come/quando vengono calcolati, vedere l'articolo [Che cosa sono i rischi?](concept-identity-protection-risks.md).
@@ -96,13 +96,13 @@ Per poter accedere, Identity Protection richiede che gli utenti abbiano uno dei 
 
 Attualmente, il ruolo di operatore per la sicurezza non può accedere al report degli accessi a rischio.
 
-Gli amministratori di accesso condizionale possono anche creare criteri che tengono conto del rischio di accesso come condizione. Per altre informazioni, vedere l'articolo [Accesso condizionale: condizioni](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
+Gli amministratori dell'accesso condizionale possono anche creare criteri che tengono conto del rischio di accesso come condizione. Per altre informazioni, vedere l'articolo [Accesso condizionale: condizioni](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
 ## <a name="license-requirements"></a>Requisiti relativi alle licenze
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Funzionalità | Dettagli  | App di Azure AD Free/Office 365 | Azure AD Premium P1|Azure AD Premium P2 |
+| Funzionalità | Dettagli  | Azure AD Free/App di Microsoft 365 | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
 | Criteri di rischio | Criteri di rischio utente (tramite Identity Protection)  | No | No |Sì | 
 | Criteri di rischio | Criteri di rischio di accesso (tramite Identity Protection o accesso condizionale)  | No |  No |Sì |

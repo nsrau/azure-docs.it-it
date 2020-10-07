@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 9eee3d5bc53ebe40ba4462f394ffe30cea6b70fa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e98b21d5afebdbd2654d032493b92eb5e6e7fdc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998380"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320558"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Che cos'è il modulo di protezione hardware gestito di Azure Key Vault (anteprima)?
 
@@ -33,7 +33,7 @@ Il modulo di protezione hardware gestito di Azure Key Vault è un servizio cloud
 
 - **Gestione centralizzata delle chiavi**: le chiavi con valore elevato di importanza critica nell'intera organizzazione vengono gestite in un'unica posizione. Con le autorizzazioni granulari per chiave è possibile controllare l'accesso a ogni chiave in base al principio dei privilegi di accesso minimi.
 - **Controllo di accesso isolato**: il modello di controllo degli accessi in base al ruolo locale del modulo di protezione hardware gestito consente agli amministratori designati del cluster di moduli di protezione hardware di avere il controllo completo su tali moduli e nemmeno gli amministratori del gruppo di gestione, della sottoscrizione o del gruppo di risorse possono aggirare questo controllo.
-- **Moduli di protezione hardware convalidati in base agli standard FIPS 140-2 livello 3**: è possibile proteggere i dati e soddisfare i requisiti di conformità con i moduli di protezione hardware convalidati in base agli standard FIPS (Federal Information Protection Standard) 140-2 livello 3. I moduli di protezione hardware gestiti usano la famiglia di moduli Marvell LiquidSecurity.
+- **Moduli di protezione hardware convalidati in base agli standard FIPS 140-2 livello 3**: è possibile proteggere i dati e soddisfare i requisiti di conformità con i moduli di protezione hardware convalidati in base agli standard FIPS (Federal Information Protection Standard) 140-2 livello 3. I moduli di protezione hardware gestiti usano schede HSM Marvell LiquidSecurity.
 - **Monitoraggio e controllo**: integrazione completa con Monitoraggio di Azure. È possibile ottenere i log completi di tutte le attività tramite Monitoraggio di Azure e usare Azure Log Analytics per l'analisi e gli avvisi.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integrazione con i servizi PaaS/SaaS di Azure e Microsoft 

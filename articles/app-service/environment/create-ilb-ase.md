@@ -4,15 +4,15 @@ description: Informazioni su come creare un ambiente del servizio app con serviz
 author: ccompy
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
-ms.date: 08/05/2019
+ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f2124dd77e3e5d9828ea457a6bccdf7d1bc05405
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1bda52227737b082927dd1449fa6469cf849ff15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961772"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273263"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creare e usare un ambiente del servizio app con bilanciamento del carico interno 
 
@@ -100,15 +100,26 @@ In un ambiente del servizio app ILB sono supportati sia i processi Web che Funzi
 
 ## <a name="dns-configuration"></a>Configurazione del DNS 
 
-Quando si usa un indirizzo VIP esterno, il DNS viene gestito da Azure. Qualsiasi app creata nell'ambiente del servizio app viene aggiunta automaticamente al DNS di Azure, che è un DNS pubblico. In un ambiente del servizio app ILB, è necessario gestire il proprio DNS. Il suffisso di dominio usato con un ambiente del servizio app ILB dipende dal nome dell'ambiente del servizio app. Il suffisso di dominio è *&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net*. L'indirizzo IP del bilanciamento del carico interno è riportato nel portale in **Indirizzi IP**. 
+Sei si usa un ambiente del servizio app esterno, le app create al suo interno vengono registrate con DNS di Azure. In un ambiente del servizio app esterno per rendere le app disponibili pubblicamente non sono previsti passaggi aggiuntivi. In un ambiente del servizio app ILB, è necessario gestire il proprio DNS. È possibile farlo nel proprio server DNS o nelle zone private di DNS di Azure.
 
-Per configurare il DNS:
+Per configurare DNS nel proprio server DNS con l'ambiente del servizio app ILB:
 
-- creare una zona per *&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net*
-- creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB
-- creare un record A in tale zona che punti @ all'indirizzo IP del servizio ILB
-- creare una zona in *&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net* denominata SCM
-- creare un record A nella zona che punti * all'indirizzo IP del servizio ILB
+1. Creare una zona per <ASE name>.appserviceenvironment.net
+2. creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB
+3. creare un record A in tale zona che punti @ all'indirizzo IP del servizio ILB
+4. Creare una zona in <ASE name>.appserviceenvironment.net denominata scm
+5. creare un record A nella zona che punti * all'indirizzo IP del servizio ILB
+
+Per configurare DNS nelle zone private di DNS di Azure:
+
+1. Creare una zona privata di DNS di Azure denominata <ASE name>.appserviceenvironment.net
+2. creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB
+3. creare un record A in tale zona che punti @ all'indirizzo IP del servizio ILB
+4. Creare un record A in tale zona che punta *.scm all'indirizzo IP del servizio ILB
+
+Le impostazioni DNS per il suffisso di dominio predefinito dell'ambiente del servizio app non limitano l'accesso alle app solo a questi nomi. In un ambiente del servizio app ILB è possibile impostare un nome di dominio personalizzato senza alcuna convalida nelle app. Se poi si vuole creare una zona denominata contoso.net, è possibile farlo e puntarla all'indirizzo IP di ILB. Il nome del dominio personalizzato funziona per le richieste di app ma non per il sito scm. Il sito scm è disponibile solo in <appname>.scm.<asename>.appserviceenvironment.net.
+
+La zona denominata .<asename>.appserviceenvironment.net è unica a livello globale. Prima del mese di maggio 2019, i clienti potevano specificare il suffisso di dominio dell'ambiente del servizio app ILB. Se si voleva, era possibile usare contoso.com per il suffisso di domino, che avrebbe incluso il sito scm. Con questo modello si verificavano problemi, come la gestione del certificato SSL predefinito, la mancanza di accesso Single Sign-On al sito scm e il requisito di usare un certificato con caratteri jolly. Il processo di aggiornamento del certificato predefinito dell'ambiente del servizio app ILB era inoltre complicato e causava il riavvio dell'applicazione. Per risolvere questi problemi, il comportamento dell'ambiente del servizio app ILB è stato cambiato e prevede ora l'uso di un suffisso di domino basato sul nome dell'ambiente del servizio app con un suffisso di proprietà di Microsoft. La modifica del comportamento dell'ambiente del servizio app ILB influisce solo su tali ambienti creati dopo maggio 2019. Gli ambienti del servizio app ILB preesistenti continuano a gestire il certificato predefinito dell'ambiente e la rispettiva configurazione DNS.
 
 ## <a name="publish-with-an-ilb-ase"></a>Pubblicare con un ambiente del servizio app ILB
 

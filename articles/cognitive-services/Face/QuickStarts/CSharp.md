@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: fe6def8a935fcc6f093c4489409a3bcde829ac10
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 8c1e47db4f5f5bb64c31d16c26f6c3860b5bcb29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294935"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323057"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST Viso e C#
 
@@ -75,7 +75,7 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>Ricevere l'input dell'immagine
 
-Aggiungere il codice seguente al metodo **Main** della classe **Program**. Questo codice scrive un prompt nella console che richiede all'utente di immettere l'URL di un'immagine. Viene quindi chiamato un altro metodo, **MakeAnalysisRequest**, per elaborare l'immagine nel percorso specificato.
+Aggiungere il codice seguente al metodo **Main** della classe **Program**. Questo codice scrive un prompt nella console che chiede all'utente di immettere il percorso del file di immagine locale. Viene quindi chiamato un altro metodo, **MakeAnalysisRequest**, per elaborare l'immagine nel percorso specificato.
 
 ```csharp
         static void Main(string[] args)
@@ -159,7 +159,7 @@ Nei passaggi seguenti verranno definiti i metodi helper.
 
 ### <a name="process-the-input-image-data"></a>Elaborare i dati di immagine di input
 
-Aggiungere il metodo seguente alla classe **Program**. Questo metodo converte l'immagine all'URL specificato in una matrice di byte.
+Aggiungere il metodo seguente alla classe **Program**. Questo metodo converte in una matrice di byte l'immagine in corrispondenza del percorso file specificato.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.

@@ -4,18 +4,18 @@ description: Usare Blockchain Data Manager per Servizio Azure Blockchain per inv
 ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 69790787bc888448f2f40178bd12ee7058cc5892
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79533182"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283455"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Esercitazione: Usare Blockchain Data Manager per inviare dati ad Azure Cosmos DB
 
 In questa esercitazione si usa Blockchain Data Manager per il servizio Azure Blockchain per registrare i dati delle transazioni blockchain in Azure Cosmos DB. Blockchain Data Manager consente di acquisire, trasformare e distribuire i dati del libro mastro della blockchain agli argomenti di Griglia di eventi di Azure. In Griglia di eventi di Azure è possibile usare un connettore per l'app per la logica di Azure per creare documenti in un database Azure Cosmos DB. Al termine dell'esercitazione, è possibile esplorare i dati delle transazioni blockchain in Esplora dati di Azure Cosmos DB.
 
-[![Dettagli della transazione blockchain](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+[![Screenshot che mostra i dettagli delle transazioni blockchain.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
 In questa esercitazione:
 
@@ -271,7 +271,7 @@ Dopo aver connesso Blockchain Data Manager ad Azure Cosmos DB, è possibile visu
 
 1. Esplorare i messaggi selezionando l'ID elemento e trovare il messaggio con l'hash della transazione corrispondente.
 
-    [![Dettagli della transazione blockchain](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+    [![Screenshot che mostra i dettagli delle transazioni blockchain di un elemento selezionato.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
     Il messaggio non elaborato contiene i dettagli sulla transazione. Tuttavia, le informazioni sulle proprietà sono crittografate.
 

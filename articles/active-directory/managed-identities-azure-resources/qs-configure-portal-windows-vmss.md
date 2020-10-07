@@ -1,5 +1,5 @@
 ---
-title: Configurare le identità gestite in set di scalabilità di macchine virtuali di Azure - Azure AD
+title: Configurare identità gestite con set di scalabilità di macchine virtuali - Azure AD
 description: Istruzioni dettagliate per la configurazione di identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite il portale di Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9ab1adeac5f8c67e06682f49fdded88e6a350e7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 43b986b6bb25dff1227247b1d249ce565553877a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262674"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329134"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configurare identità gestite per risorse di Azure in un set di scalabilità di macchine virtuali tramite il portale di Azure
 
@@ -59,7 +59,7 @@ Per abilitare l'identità gestita assegnata dal sistema in un set di scalabilit�
 
 3. In **Assegnata dal sistema**, **Stato**, selezionare **Abilita** e quindi fare clic su **Salva**:
 
-   ![Schermata della pagina Configurazione](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
+   ![Screenshot che mostra la pagina "Identità (anteprima)" con l'opzione "Assegnata dal sistema" selezionata, lo stato "Abilita" e il pulsante "Salva" evidenziato.](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
 
 ### <a name="remove-system-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Rimuovere un'identità gestita assegnata dal sistema da un set di scalabilità di macchine virtuali
 
@@ -88,7 +88,7 @@ Attualmente il portale di Azure non supporta l'associazione di un'identità gest
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure che contiene il set di scalabilità di macchine virtuali.
 2. Passare al set di scalabilità di macchine virtuali desiderato e fare clic su **Identità**, **Assegnata dall'utente** e quindi **\+Aggiungi**.
 
-   ![Aggiungere l'identità assegnata dall'utente al set di scalabilità di macchine virtuali](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
+   ![Screenshot che mostra la pagina "Identità" con l'opzione "Assegnata dall'utente" selezionata e il pulsante "Aggiungi" evidenziato.](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
 
 3. Fare clic sull'identità assegnata dall'utente da aggiungere al set di scalabilità di macchine virtuali e quindi su **Aggiungi**.
    

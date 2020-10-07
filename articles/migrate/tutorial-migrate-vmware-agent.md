@@ -4,12 +4,12 @@ description: Informazioni su come eseguire una migrazione di macchine virtuali V
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: bf33c61783b6d7399cd880f53009033a97625bca
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: f437c0f3b9f786863d3b58f10d1a7384b0f1e8ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378849"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296145"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Eseguire la migrazione di macchine virtuali VMware in Azure (basata su agente)
 
@@ -251,7 +251,7 @@ Selezionare le VM di cui eseguire la migrazione.
 
 1. Nel progetto di Azure Migrate selezionare **Server**, **Azure Migrate: Migrazione server**, quindi **Replica**.
 
-    ![Replicare le VM](./media/tutorial-migrate-vmware-agent/select-replicate.png)
+    ![Screenshot della schermata Server in Azure Migrate. Il pulsante Replica è selezionato in Azure Migrate: Migrazione del server in Strumenti di migrazione.](./media/tutorial-migrate-vmware-agent/select-replicate.png)
 
 2. In **Replica** > **Impostazioni origine** > **I computer sono virtualizzati?** selezionare **Sì, con VMware vSphere**.
 3. In **Appliance locale** selezionare il nome dell'appliance di Azure Migrate configurata.
@@ -259,7 +259,7 @@ Selezionare le VM di cui eseguire la migrazione.
 5. In **Server di elaborazione** selezionare il nome dell'appliance di replica.
 6. In **Credenziali guest** specificare l'account amministratore di macchine virtuali che verrà usato per l'installazione push del servizio Mobility. Fare quindi clic su **Avanti: Macchine virtuali**.
 
-    ![Replicare le VM](./media/tutorial-migrate-vmware-agent/source-settings.png)
+    ![Screenshot della scheda Impostazioni origine nella schermata Replica. Il campo Credenziali guest è evidenziato e il valore è impostato su VM-admin-account.](./media/tutorial-migrate-vmware-agent/source-settings.png)
 
 7. In **Macchine virtuali** selezionare le macchine virtuali da replicare.
 

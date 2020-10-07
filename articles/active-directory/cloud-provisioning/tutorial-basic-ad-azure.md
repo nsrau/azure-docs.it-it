@@ -10,18 +10,18 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8a6fc1291615760320deb488511fdd9d964d25d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266310"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Esercitazione: Ambiente Active Directory di base
 
 Questa esercitazione illustra come creare un ambiente Active Directory di base. 
 
-![Create](media/tutorial-single-forest/diagram1.png)
+![Diagramma che mostra un ambiente di base di Azure AD.](media/tutorial-single-forest/diagram1.png)
 
 È possibile usare l'ambiente creato nell'esercitazione per testare vari aspetti degli scenari di identità ibrida e tale ambiente sarà un prerequisito per alcune delle esercitazioni.  Se si dispone già di un ambiente Active Directory esistente, è possibile usarlo come sostituto.  Queste informazioni sono destinate a singoli utenti che iniziano da zero.
 
@@ -200,7 +200,7 @@ A questo punto occorre creare un tenant di Azure Active Directory per poter sinc
 2. Selezionare l'**icona +** e cercare **Azure Active Directory**.
 3. Selezionare **Azure Active Directory** dai risultati della ricerca.
 4. Selezionare **Crea**.</br>
-![Creare](media/tutorial-single-forest/create1.png)</br>
+![Screenshot che mostra la pagina di Azure Active Directory nel portale di Azure.](media/tutorial-single-forest/create1.png)</br>
 5. Specificare un **nome per l'organizzazione** e il **nome di dominio iniziale**. Selezionare quindi **Crea**. Verrà così creata la directory.
 6. A questo punto, selezionare il collegamento **qui** per gestire la directory.
 
@@ -208,7 +208,7 @@ A questo punto occorre creare un tenant di Azure Active Directory per poter sinc
 Ora che si dispone di un tenant di Azure AD, verrà creato un account amministratore globale.  Per creare l'account di amministratore globale, eseguire le operazioni seguenti.
 
 1.  In **Gestisci** selezionare **Utenti**.</br>
-![Creare](media/tutorial-single-forest/administrator1.png)</br>
+![Screenshot che mostra il menu "Panoramica" con l'opzione "Utenti" selezionata.](media/tutorial-single-forest/administrator1.png)</br>
 2.  Selezionare **Tutti gli utenti** e selezionare **+Nuovo utente**.
 3.  Specificare un nome e un nome utente per questo utente. Sarà l'amministratore globale per il tenant. Se necessario, è anche possibile modificare **Ruolo directory** in **Amministratore globale**. È anche possibile visualizzare la password temporanea. Al termine, seleziona **Crea**.</br>
 ![Creare](media/tutorial-single-forest/administrator2.png)</br>

@@ -5,20 +5,20 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 3b68df1b3fc2f03d7659205fe03fdae09ecc3f7a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4ac748c606d8ec3c8ba754c34d9c9e7512344a83
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827333"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292686"
 ---
 ## <a name="configure-the-sample-project"></a>Configurare il progetto di esempio
 
-Configurare quindi un'applicazione client di esempio che interagirà con l'istanza di Gemelli digitali di Azure. Se non è già stato fatto, scaricare il progetto di esempio dalla pagina di destinazione degli [*esempi di Gemelli digitali di Azure*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) selezionando il pulsante *Scarica ZIP* sotto il titolo.
+Configurare quindi un'applicazione client di esempio che interagirà con l'istanza di Gemelli digitali di Azure.
 
-Passare al file scaricato nel computer e decomprimerlo.
+Nel computer passare al file scaricato in precedenza dagli [*esempi di Gemelli digitali di Azure*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) e decomprimerlo se non è già stato fatto.
 
-Dall'interno della cartella decompressa, passare a _AdtSampleApp_. Aprire _**AdtE2ESample.sln**_ in Visual Studio 2019. 
+All'interno della cartella passare a _AdtSampleApp_. Aprire _**AdtE2ESample.sln**_ in Visual Studio 2019. 
 
 In Visual Studio usare il riquadro *Esplora soluzioni* per creare una copia del file _SampleClientApp > **serviceConfig.json.TEMPLATE**_ (è possibile usare i menu di scelta rapida per copiare e incollare). Rinominare la copia *serviceConfig.json*. Questo file verrà usato come file JSON preimpostato con le variabili di configurazione necessarie per eseguire il progetto.
 

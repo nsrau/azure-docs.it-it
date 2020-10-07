@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
-ms.openlocfilehash: cdf21ed85933c2a629c5752659e9cc50107a3762
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: c4aa9c22a0350c5d946d2fd45a983eac34681512
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309306"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320932"
 ---
 # <a name="language-support-for-immersive-reader"></a>Supporto delle lingue per lo strumento di lettura immersiva
 
@@ -30,7 +30,8 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Arabo (Arabia Saudita) | ar-SA |
 | Bulgaro | bg |
 | Bulgaro (Bulgaria) | bg-BG |
-| Catalano | ca-ES |
+| Catalano | ca |
+| Catalano (Catalogna) | ca-ES |
 | Cinese | zh |
 | Cinese (Cina) | zh-CN |
 | Cinese (Hong Kong - R.A.S.) | zh-HK |
@@ -40,7 +41,8 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Cinese semplificato | zh-Hans |
 | Cinese semplificato (Cina) | zh-Hans-CN |
 | Cinese semplificato (Singapore) | zh-Hans-SG |
-| Cinese tradizionale | zh-Hant-CN |
+| Cinese tradizionale | zh-Hant |
+| Cinese tradizionale (Cina) | zh-Hant-CN |
 | Cinese tradizionale (RAS di Hong Kong) | zh-Hant-HK |
 | Cinese tradizionale (RAS di Macao) | zh-Hant-MO |
 | Cinese tradizionale (Taiwan) | zh-Hant-TW |
@@ -103,7 +105,7 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Slovacco | sk |
 | Slovacco (Slovacchia) | sk-SK |
 | Sloveno | sl |
-| Sloveno (Slovenia) | sl-SL |
+| Sloveno (Slovenia) | sl-SI |
 | Spagnolo | es |
 | Spagnolo (America Latina) | es-419 |
 | Spagnolo (Messico) | es-MX |
@@ -126,13 +128,15 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Linguaggio | Tag |
 |----------|-----|
 | Afrikaans | af |
+| Arabo | ar |
 | Arabo (Egitto) | ar-EG |
 | Arabo (Arabia Saudita) | ar-SA |
 | Bengalese | bn |
 | Bosniaco | bs |
 | Bulgaro | bg |
 | Bulgaro (Bulgaria) | bg-BG |
-| Catalano | ca-ES |
+| Catalano | ca |
+| Catalano (Catalogna) | ca-ES |
 | Cinese | zh |
 | Cinese (Cina) | zh-CN |
 | Cinese (Hong Kong - R.A.S.) | zh-HK |
@@ -142,7 +146,8 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Cinese semplificato | zh-Hans |
 | Cinese semplificato (Cina) | zh-Hans-CN |
 | Cinese semplificato (Singapore) | zh-Hans-SG |
-| Cinese tradizionale | zh-Hant-CN |
+| Cinese tradizionale | zh-Hant |
+| Cinese tradizionale (Cina) | zh-Hant-CN |
 | Cinese tradizionale (RAS di Hong Kong) | zh-Hant-HK |
 | Cinese tradizionale (RAS di Macao) | zh-Hant-MO |
 | Cinese tradizionale (Taiwan) | zh-Hant-TW |
@@ -152,6 +157,7 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Ceco (Repubblica Ceca) | cs-CZ |
 | Danese | da |
 | Danese (Danimarca) | da-DK |
+| Dari (Afghanistan) | prs |
 | Olandese | nl |
 | Olandese (Paesi Bassi) | nl-NL |
 | Inglese | en |
@@ -176,6 +182,7 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Tedesco (Austria) | de-AT |
 | Tedesco (Germania) | de-DE |
 | Tedesco (Svizzera)| de-CH |
+| Gujarati | gu |
 | Greco | el |
 | Greco (Grecia) | el-GR |
 | Creolo haitiano | ht |
@@ -198,6 +205,8 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Kiswahili | sw |
 | Coreano | ko |
 | Coreano (Corea) | ko-KR |
+| Curdo centrale | ku |
+| Curdo settentrionale | kmr |
 | Lettone | lv |
 | Lituano | lt |
 | Malgascio | mg |
@@ -206,8 +215,11 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Malayalam | ml |
 | Maltese | mt |
 | Maori | mi |
+| Marathi | mr |
 | Norvegese Bokmål| nb |
 | Norvegese Bokmål (Norvegia) | nb-NO |
+| Oriya | oppure |
+| Pashto (Afghanistan) | ps |
 | Persiano | fa |
 | Polacco | pl |
 | Polacco (Polonia) | pl-PL |
@@ -227,7 +239,7 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Slovacco | sk |
 | Slovacco (Slovacchia) | sk-SK |
 | Sloveno | sl |
-| Sloveno (Slovenia) | sl-SL |
+| Sloveno (Slovenia) | sl-SI |
 | Spagnolo | es |
 | Spagnolo (America Latina) | es-419 |
 | Spagnolo (Messico) | es-MX |
@@ -257,12 +269,14 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 
 | Linguaggio | Tag |
 |----------|-----|
+| Arabo | ar |
 | Arabo (Egitto) | ar-EG |
 | Arabo (Arabia Saudita) | ar-SA |
 | Basco | eu |
 | Bulgaro | bg |
 | Bulgaro (Bulgaria) | bg-BG |
-| Catalano | ca-ES |
+| Catalano | ca |
+| Catalano (Catalogna) | ca-ES |
 | Cinese semplificato | zh-Hans |
 | Cinese semplificato (Cina) | zh-Hans-CN |
 | Cinese semplificato (Singapore) | zh-Hans-SG |
@@ -338,7 +352,7 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Slovacco | sk |
 | Slovacco (Slovacchia) | sk-SK |
 | Sloveno | sl |
-| Sloveno (Slovenia) | sl-SL |
+| Sloveno (Slovenia) | sl-SI |
 | Spagnolo | es |
 | Spagnolo (America Latina) | es-419 |
 | Spagnolo (Messico) | es-MX |
@@ -365,7 +379,8 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Basco | eu |
 | Bulgaro | bg |
 | Bulgaro (Bulgaria) | bg-BG |
-| Catalano | ca-ES |
+| Catalano | ca |
+| Catalano (Catalogna) | ca-ES |
 | Croato | hr |
 | Croato (Croazia) | hr-HR |
 | Ceco | cs |
@@ -423,7 +438,7 @@ Questo articolo elenca le lingue supportate per le funzionalità dello strumento
 | Slovacco | sk |
 | Slovacco (Slovacchia) | sk-SK |
 | Sloveno | sl |
-| Sloveno (Slovenia) | sl-SL |
+| Sloveno (Slovenia) | sl-SI |
 | Spagnolo | es |
 | Spagnolo (America Latina) | es-419 |
 | Spagnolo (Messico) | es-MX |

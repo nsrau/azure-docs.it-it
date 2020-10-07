@@ -2,13 +2,13 @@
 title: Informazioni su Griglia di eventi di Azure
 description: Informazioni su come inviare i dati degli eventi un'origine ai gestori con Griglia di eventi di Azure. Creare applicazioni basate su eventi e integrarle con i servizi di Azure.
 ms.topic: overview
-ms.date: 07/07/2020
-ms.openlocfilehash: 87ac29c2324c63977c57d60b11b3b930c23a4dd9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/24/2020
+ms.openlocfilehash: 73d218058c5f95d8c2d2324f1a0e1e77b24f1364
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326500"
 ---
 # <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
@@ -20,16 +20,17 @@ Griglia di eventi di Azure viene distribuito per ottimizzare la disponibilità t
 
 Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure). 
 
-![Modello di Griglia di eventi per origini e gestori](./media/overview/functional-model.png)
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Modello di Griglia di eventi per origini e gestori" lightbox="./media/overview/functional-model.png":::
 
 Questa immagine illustra in che modo Griglia di eventi collega origini e gestori, ma non costituisce un elenco completo delle integrazioni supportate.
 
 ## <a name="event-sources"></a>Origini eventi
 
-Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Griglia di eventi:
+Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Griglia di eventi. Per altre informazioni su un'origine nell'elenco, selezionare il collegamento.
 
 - [Configurazione app di Azure](event-schema-app-configuration.md)
 - [Archiviazione BLOB di Azure](event-schema-blob-storage.md)
+- [Servizi di comunicazione di Azure](event-schema-communication-services.md) 
 - [Registro Azure Container](event-schema-container-registry.md)
 - [Hub eventi di Azure](event-schema-event-hubs.md)
 - [Hub IoT Azure](event-schema-iot-hub.md)

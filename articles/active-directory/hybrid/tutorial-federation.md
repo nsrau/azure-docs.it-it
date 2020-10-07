@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a68c3719ea742a5c02f8be167fc1989ae4683c0
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 00257dc549754f7466fdf1dd2d0293de944b0944
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279194"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287033"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Esercitazione: Attuare la federazione di un ambiente con singola foresta di AD sul cloud
 
@@ -205,7 +205,7 @@ A questo punto è necessario creare un tenant di Azure Active Directory in modo 
 2. Selezionare l'**icona +** e cercare **Azure Active Directory**.
 3. Selezionare **Azure Active Directory** dai risultati della ricerca.
 4. Selezionare **Create** (Crea).</br>
-![Creare](media/tutorial-password-hash-sync/create1.png)</br>
+![Screenshot che mostra come creare un tenant di Azure AD.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Specificare un **nome per l'organizzazione** e il **nome di dominio iniziale**. Selezionare quindi **Crea**. Verrà così creata la directory.
 6. A questo punto, selezionare il collegamento **qui** per gestire la directory.
 
@@ -213,10 +213,10 @@ A questo punto è necessario creare un tenant di Azure Active Directory in modo 
 Ora che si ha un tenant di Azure AD, si creerà un account di amministratore globale.  Questo account viene usato per creare l'account del connettore di Azure AD durante l'installazione di Azure AD Connect.  L'account del connettore di Azure AD viene usato per scrivere informazioni in Azure AD.   Per creare l'account di amministratore globale, eseguire le operazioni seguenti.
 
 1.  In **Gestisci** selezionare **Utenti**.</br>
-![Creare](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Screenshot che mostra l'opzione Utente selezionata nella sezione Gestione in cui si crea un amministratore globale in Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Selezionare **Tutti gli utenti** e selezionare **+Nuovo utente**.
 3.  Specificare un nome e un nome utente per questo utente. Sarà l'amministratore globale per il tenant. Se necessario, è anche possibile modificare **Ruolo directory** in **Amministratore globale**. È anche possibile visualizzare la password temporanea. Al termine, seleziona **Crea**.</br>
-![Creare](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Screenshot che mostra il pulsante Crea selezionato quando si crea un amministratore globale in Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Al termine dell'operazione, aprire un nuovo Web browser e accedere a myapps.microsoft.com usando il nuovo account di amministratore globale e la password temporanea.
 5. Modificare la password dell'amministratore globale in una da ricordare.
 
@@ -226,12 +226,12 @@ Ora che si hanno un tenant e un amministratore globale, è necessario aggiungere
 1. Tornare al [portale di Azure](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) e assicurarsi di aver chiuso il pannello **Tutti gli utenti**.
 2. A sinistra selezionare **Nomi di dominio personalizzati**.
 3. Selezionare **Aggiungi dominio personalizzato**.</br>
-![Federazione](media/tutorial-federation/custom1.png)</br>
+![Screenshot che mostra il pulsante Aggiungi dominio personalizzato evidenziato.](media/tutorial-federation/custom1.png)</br>
 4. In **Nomi di dominio personalizzati** immettere il nome del dominio personalizzato nella casella e fare clic su **Aggiungi dominio**.
 5. Nella schermata del nome di dominio personalizzato verranno visualizzate le informazioni relative a TXT o MX.  Aggiungere queste informazioni alle informazioni DNS del registrar per il dominio.  A tale scopo, accedere al registrar, immettere le informazioni TXT o MX nelle impostazioni DNS per il dominio.  In questo modo Azure potrà verificare il dominio.  Per la verifica, Azure potrebbe impiegare fino a 24 ore.  Per altre informazioni, vedere la documentazione [Aggiungere un dominio personalizzato](../../active-directory/fundamentals/add-custom-domain.md).</br>
-![Federazione](media/tutorial-federation/custom2.png)</br>
+![Screenshot che mostra dove aggiungere le informazioni TXT o MX.](media/tutorial-federation/custom2.png)</br>
 6. Per assicurarsi che sia eseguita la verifica del dominio, selezionare il pulsante Verifica.</br>
-![Federazione](media/tutorial-federation/custom3.png)</br>
+![Screenshot che mostra un messaggio di verifica riuscita dopo aver selezionato Verifica.](media/tutorial-federation/custom3.png)</br>
 
 ## <a name="download-and-install-azure-ad-connect"></a>Scaricare e installare Azure AD Connect
 A questo punto è possibile scaricare e installare Azure AD Connect.  Dopo averlo installato, si passerà all'installazione rapida.  Eseguire le operazioni seguenti:
@@ -242,7 +242,7 @@ A questo punto è possibile scaricare e installare Azure AD Connect.  Dopo averl
 4. Nella schermata Impostazioni rapide fare clic su **Personalizza**.  
 5. Selezionare la schermata Installazione dei componenti necessari. Fare clic su **Installa**.  
 6. Nella schermata Accesso utente selezionare **Federazione tramite ADFS** e fare clic su **Avanti**.
-![Federazione](media/tutorial-federation/fed1.png)
+![Screenshot che mostra dove selezionare Federazione tramite ADFS.](media/tutorial-federation/fed1.png)
 
 1. Nella schermata Connessione ad Azure AD immettere il nome utente e la password dell'amministratore globale creato in precedenza e fare clic su **Avanti**.
 2. Nella finestra Connessione delle directory fare clic su **Aggiungi directory**.  Quindi selezionare **Crea un nuovo account AD**, immettere il nome utente e la password di contoso\Administrator e fare clic su **OK**.
@@ -257,7 +257,7 @@ A questo punto è possibile scaricare e installare Azure AD Connect.  Dopo averl
 11. Selezionare **Usa un certificato installato nei server federativi** e fare clic su **Sfoglia**.
 12. Immettere DC1 nella casella di ricerca e selezionarlo quando viene trovato.  Fare clic su **OK**.
 13. Dall'elenco a discesa **File di certificato** selezionare il certificato **adfs.contoso.com** creato in precedenza.  Fare clic su **Avanti**.
-![Federazione](media/tutorial-federation/fed2.png)
+![Screenshot che mostra dove selezionare il file di certificato creato.](media/tutorial-federation/fed2.png)
 
 1. Nella schermata Server AD FS fare clic su **Sfoglia** e immettere DC1 nella casella di ricerca. Selezionarlo quando viene trovato.  Fare clic su **OK**.  Fare clic su **Avanti**.
 ![Federazione](media/tutorial-federation/fed3.png)

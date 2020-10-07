@@ -1,20 +1,22 @@
 ---
-title: 'Avvio rapido: Creare una classificazione di immagini con la libreria client di Visione personalizzata'
-description: 'Guida introduttiva: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una previsione usando Custom Vision SDK'
+title: 'Avvio rapido: Classificazione di immagini con la libreria client di Visione personalizzata'
+titleSuffix: Azure Cognitive Services
+description: 'Avvio rapido: Creare un progetto di classificazione immagini, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando la libreria client di Visione personalizzata'
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/17/2020
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.date: 09/14/2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+keywords: visione personalizzata, riconoscimento immagini, app di riconoscimento immagini, analisi delle immagini, software di riconoscimento immagini
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 805a88824d0fdf3102fb56ebcb02eb0d6dfa36bc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6583086c4b64c50f0cbef1fc12b7f4dc9e36be1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919378"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321060"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-client-library"></a>Avvio rapido: Creare un progetto di classificazione di immagini con la libreria client di Visione personalizzata
 

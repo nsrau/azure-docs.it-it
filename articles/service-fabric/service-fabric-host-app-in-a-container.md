@@ -3,12 +3,12 @@ title: Distribuire un'applicazione .NET in un contenitore in Azure Service Fabri
 description: Informazioni su come aggiungere un'applicazione .NET esistente a contenitori con Visual Studio ed eseguire il debug dei contenitori in Service Fabric in locale. L'applicazione aggiunta a contenitori viene inviata tramite push a un Registro Azure Container e distribuita in un cluster di Service Fabric. Quando viene distribuita in Azure, l'applicazione usa database SQL di Azure per salvare in modo permanente i dati.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 4970cf6492da38ad76a51df88eeb73538c850c67
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4ef696156b6386c7aa1a027dcc61c988ba4692a2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258881"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314301"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Esercitazione: Distribuire un'applicazione .NET in un contenitore Windows in Azure Service Fabric
 
@@ -39,7 +39,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 2. Verificare che l'applicazione di Fabrikam Fiber CallCenter venga compilata ed eseguita senza errori.  Avviare Visual Studio come **amministratore** e aprire il file [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Premere F5 per eseguire il debug dell'applicazione ed eseguirla.
 
-   ![Esempio Web Fabrikam][fabrikam-web-page]
+   ![Screenshot della home page dell'applicazione Fabrikam Fiber CallCenter in esecuzione nell'host locale. La pagina mostra un dashboard con un elenco di chiamate al supporto.][fabrikam-web-page]
 
 ## <a name="containerize-the-application"></a>Distribuire l'applicazione in un contenitore
 
@@ -235,7 +235,7 @@ Ora che l'applicazione è pronta, è possibile distribuirla nel cluster in Azure
 
 Seguire lo stato della distribuzione nella finestra di output. Al termine della distribuzione dell'applicazione, aprire un browser e digitare l'indirizzo del cluster e la porta dell'applicazione. Ad esempio: `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
-![Esempio Web Fabrikam][fabrikam-web-page-deployed]
+![Screenshot della home page dell'applicazione Fabrikam Fiber CallCenter in esecuzione in azure.com. La pagina mostra un dashboard con un elenco di chiamate al supporto.][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configurare l'integrazione e la distribuzione continue con un cluster di Service Fabric
 

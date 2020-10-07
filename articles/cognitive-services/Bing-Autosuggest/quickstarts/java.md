@@ -1,7 +1,7 @@
 ---
 title: "Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Java"
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come avviare rapidamente il suggerimento in tempo reale di termini di ricerca con l'API Suggerimenti automatici Bing.
+description: Come imparare rapidamente a suggerire termini di ricerca in tempo reale con l'API Suggerimenti automatici Bing e Java.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 4850daf8544129e29333be6a807c91106cc11f05
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dc20b6abaf04b3743218e35d258bc8beab33c542
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321089"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277445"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Java
 

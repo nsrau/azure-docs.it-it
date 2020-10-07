@@ -1,27 +1,29 @@
 ---
 title: Cos'è l'API Rilevamento anomalie?
 titleSuffix: Azure Cognitive Services
-description: Usare gli algoritmi avanzati dell'API Rilevamento anomalie per identificare le anomalie nei dati di serie temporali.
+description: Usare gli algoritmi dell'API Rilevamento anomalie per applicare il rilevamento anomalie nei dati di serie temporali.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: aahi
-ms.openlocfilehash: ba094709d78d92b678e3aa5ad9995923888caf00
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: rilevamento anomalie, Machine Learning, algoritmi
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 2e48c189df23ed94cd54e1bc9097b7d9709c9ed3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319317"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Cos'è l'API Rilevamento anomalie?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico. L'API Rilevamento anomalie si adatta identificando e applicando automaticamente i modelli di mapping più appropriati ai dati, indipendentemente dal settore, dallo scenario o dal volume. Usando i dati di serie temporali, l'API determina i limiti per il rilevamento di anomalie, i valori previsti e quali punti dati sono anomalie.
+L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali senza bisogno di conoscere i concetti di Machine Learning. Gli algoritmi dell'API Rilevamento anomalie si adattano identificando e applicando automaticamente i modelli più appropriati ai dati, indipendentemente dal settore, dallo scenario o dal volume di dati. Usando i dati di serie temporali, l'API determina i limiti per il rilevamento di anomalie, i valori previsti e quali punti dati sono anomalie.
 
 ![Rilevare cambiamenti del modello delle richieste di servizi](./media/anomaly_detection2.png)
 
@@ -33,7 +35,7 @@ Con il Rilevamento anomalie è possibile rilevare automaticamente le anomalie in
 
 |Funzionalità  |Descrizione  |
 |---------|---------|
-|Rilevare le anomalie appena si verificano in tempo reale. | Rilevare le anomalie nei dati di streaming usando i punti dati visualizzati in precedenza per determinare se la versione più recente è un'anomalia. Questa operazione genera un modello usando i punti dati inviati dall'utente e determina se il punto di destinazione è un'anomalia. Chiamando l'API con ogni nuovo punto dati generato, è possibile monitorare i dati durante la creazione. |
+|Rilevamento anomalie in tempo reale. | Rilevare le anomalie nei dati di streaming usando i punti dati visualizzati in precedenza per determinare se la versione più recente è un'anomalia. Questa operazione genera un modello usando i punti dati inviati dall'utente e determina se il punto di destinazione è un'anomalia. Chiamando l'API con ogni nuovo punto dati generato, è possibile monitorare i dati durante la creazione. |
 |Rilevare le anomalie nel set di dati come batch. | Usare le serie temporali per rilevare eventuali anomalie che potrebbero esistere in tutti i dati. Questa operazione genera un modello usando tutti i dati di serie temporali, in cui ogni punto è analizzato con lo stesso modello.         |
 |Rilevare i punti di modifica nel set di dati come batch. | Usare la serie temporale per rilevare eventuali punti di modifica della tendenza presenti nei dati. Questa operazione genera un modello usando tutti i dati di serie temporali, in cui ogni punto è analizzato con lo stesso modello.    |
 | Ottenere informazioni aggiuntive sui dati. | Ottenere informazioni dettagliate utili su eventuali anomalie osservate, inclusi i valori previsti, i limiti e le posizioni delle anomalie. |

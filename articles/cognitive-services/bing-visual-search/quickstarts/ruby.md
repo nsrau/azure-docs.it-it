@@ -1,7 +1,7 @@
 ---
 title: "Guida introduttiva: Ottenere informazioni dettagliate sulle immagini con l'API REST e Ruby - Ricerca visiva Bing"
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come caricare un'immagine nell'API Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
+description: Questo argomento di avvio rapido illustra come caricare un'immagine usando l'API Ricerca visiva Bing e Ruby e quindi ottenere informazioni dettagliate sull'immagine.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 20c5ef930af8cc279f63432e9e3a14a0767ca592
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ba5d07017c0244c370a8dc6945a7958beb0f224f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870339"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324570"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Ruby
 

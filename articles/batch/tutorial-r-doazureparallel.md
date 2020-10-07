@@ -5,12 +5,12 @@ ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.custom: mvc
-ms.openlocfilehash: dc5c022b4722f844e0b3c117bb5961843865bd55
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 2c988075031be326f01e02bceff1c948295d5845
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418178"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292864"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Esercitazione: Eseguire una simulazione in parallelo in R con Azure Batch 
 
@@ -193,7 +193,7 @@ hist(closingPrices_s)
 
 L'output è simile al seguente:
 
-![Distribuzione dei prezzi di chiusura](media/tutorial-r-doazureparallel/closing-prices-local.png)
+![Screenshot che mostra un istogramma dei prezzi di chiusura](media/tutorial-r-doazureparallel/closing-prices-local.png)
   
 Una simulazione locale viene completata in pochi secondi o anche meno:
 

@@ -2,18 +2,18 @@
 title: 'Esercitazione: Nuova assegnazione di criteri con il portale di Azure'
 description: In questa esercitazione di avvio rapido viene usato il portale di Azure per creare un'assegnazione di Criteri di Azure per identificare le risorse non conformi.
 ms.topic: tutorial
-ms.date: 08/12/2020
-ms.openlocfilehash: 4ba301b066137dbdb85ccea0a02ffcac88128e6b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/23/2020
+ms.openlocfilehash: fbfe7090db1b4e1a8f802b30fdf749466ea26f1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213237"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321867"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Esercitazione: Creare un'assegnazione di criteri per identificare le risorse non conformi
 
 Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse.
-Questa esercitazione illustra il processo di creazione di un'assegnazione di criteri per identificare i server abilitati per Azure Arc (anteprima) e per identificare le macchine virtuali in cui non è installato l'agente di Log Analytics nelle macchine virtuali con abilitazione di Azure Arc.
+Questa esercitazione illustra il processo di creazione di un'assegnazione di criteri per identificare i server con abilitazione di Azure Arc e per identificare le macchine virtuali in cui non è installato l'agente di Log Analytics nelle macchine virtuali con abilitazione di Azure Arc.
 
 Al termine di questo processo, verranno identificate le macchine virtuali in cui non è installato l'agente di Log Analytics per Windows o Linux e che sono quindi _non conformi_ all'assegnazione di criteri.
 
@@ -31,11 +31,11 @@ In questa esercitazione si crea un'assegnazione di criteri e si assegna la defin
 
 1. Selezionare **Assegnazioni** a sinistra nella pagina Criteri di Azure. Un'assegnazione è un criterio che è stato assegnato per l'implementazione in un ambito specifico.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Selezionare la pagina Assegnazioni dalla pagina Panoramica dei criteri" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Cercare Criteri in Tutti i servizi" border="false":::
 
 1. Selezionare **Assegna criterio** nella parte superiore della pagina **Criteri - Assegnazioni**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Assegnare una definizione dei criteri nella pagina Assegnazioni" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Cercare Criteri in Tutti i servizi" border="false":::
 
 1. Nella pagina **Assegna criterio** selezionare il valore di **Ambito** facendo clic sui puntini di sospensione e quindi selezionando un gruppo di gestione o una sottoscrizione. Facoltativamente, selezionare un gruppo di risorse. L'ambito determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri Fare quindi clic su **Seleziona** nella parte inferiore della pagina **Ambito**.
 
@@ -51,9 +51,9 @@ In questa esercitazione si crea un'assegnazione di criteri e si assegna la defin
 
    Per un elenco parziale di tutti i criteri predefiniti disponibili, vedere [Esempi di Criteri di Azure](../../../governance/policy/samples/index.md).
 
-1. Eseguire una ricerca nell'elenco delle definizioni dei criteri per trovare la definizione _\[Anteprima]: L'agente di Log Analytics deve essere installato nelle macchine virtuali Windows in Azure Arc_ se è stato abilitato l'agente Server con abilitazione di Azure Arc (anteprima) in una macchina virtuale basata su Windows. Per una macchina virtuale basata su Linux, trovare la definizione _\[Anteprima]: L'agente di Log Analytics deve essere installato nelle macchine virtuali Linux in Azure Arc_ corrispondente. Fare clic su tale criterio e fare clic su **Select** (Seleziona).
+1. Eseguire una ricerca nell'elenco delle definizioni dei criteri per trovare la definizione _\[Anteprima]: L'agente di Log Analytics deve essere installato nelle macchine virtuali Windows in Azure Arc_ se è stato abilitato l'agente Server con abilitazione di Azure Arc in una macchina virtuale basata su Windows. Per una macchina virtuale basata su Linux, trovare la definizione _\[Anteprima]: L'agente di Log Analytics deve essere installato nelle macchine virtuali Linux in Azure Arc_ corrispondente. Fare clic su tale criterio e fare clic su **Select** (Seleziona).
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Trovare la definizione di criteri corretta" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Cercare Criteri in Tutti i servizi" border="false":::
 
 1. Il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome dei criteri selezionato, che è possibile modificare. Per questo esempio, lasciare _\[Anteprima]: L'agente di Log Analytics deve essere installato nelle macchine virtuali Windows in Azure Arc_ o _\[Anteprima]: L'agente di Log Analytics deve essere installato nelle macchine virtuali Linux in Azure Arc_, a seconda del tipo selezionato. È anche possibile aggiungere una **descrizione** facoltativa. La descrizione fornisce informazioni dettagliate su questa assegnazione dei criteri.
    Il campo **Assegnato da** verrà compilato automaticamente in base all'utente che ha eseguito l'accesso. Questo campo è facoltativo, quindi è possibile inserire valori personalizzati.
@@ -68,7 +68,7 @@ A questo punto si è pronti per identificare le risorse non conformi e comprende
 
 Selezionare **Assegnazioni** a sinistra nella pagina. Individuare quindi l'assegnazione dei criteri **\[Anteprima]: L'agente di Log Analytics deve essere installato nelle macchine virtuali Windows in Azure Arc** o **\[Anteprima]: L'agente di Log Analytics deve essere installato nelle macchine virtuali Linux in Azure Arc** creata.
 
-:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Dettagli della conformità nella pagina Conformità ai criteri" border="false":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Cercare Criteri in Tutti i servizi" border="false":::
 
 Le eventuali risorse esistenti non conformi a questa nuova assegnazione verranno visualizzate nella scheda **Non-compliant resources** (Risorse non conformi).
 
@@ -92,12 +92,11 @@ Per rimuovere l'assegnazione creata, eseguire la procedura seguente:
 
 1. Fare clic con il pulsante destro del mouse sull'assegnazione dei criteri e selezionare **Elimina assegnazione**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Eliminare un'assegnazione dalla pagina Conformità" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Cercare Criteri in Tutti i servizi" border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata assegnata una definizione dei criteri a un ambito ed è stato valutato il report di conformità.
-La definizione dei criteri garantisce che tutte le risorse nell'ambito siano conformi e identifica quelle che non lo sono. A questo punto si è pronti per monitorare i server con abilitazione per Azure Arc (anteprima) con Monitoraggio di Azure per le macchine virtuali.
+In questa esercitazione è stata assegnata una definizione dei criteri a un ambito ed è stato valutato il report di conformità. La definizione dei criteri garantisce che tutte le risorse nell'ambito siano conformi e identifica quelle che non lo sono. A questo punto si è pronti per monitorare i server con abilitazione di Azure Arc con Monitoraggio di Azure per le macchine virtuali.
 
 Per informazioni su come monitorare e visualizzare le prestazioni, eseguire il processo e le relative dipendenze dalla macchina virtuale, procedere all'esercitazione:
 

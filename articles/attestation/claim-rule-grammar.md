@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a0f3e517e60037de6456bc3a549e072e58e2fa67
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3ed5c3f8232047787c6f05628f1eef35a7533999
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89244739"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285419"
 ---
 # <a name="claim-and-claim-rules"></a>Attestazioni e regole di attestazione
 
@@ -60,7 +60,7 @@ La condizione è strutturata come segue:
 Identifier:[ClaimPropertyCondition, ClaimPropertyCondition,…]
 ```
 
-La condizione è costituita da singole condizioni basate su varie proprietà di un'attestazione. Una condizione può avere un identificatore facoltativo, che può essere usato per fare riferimento alle attestazioni che la soddisfano. Questo riferimento può essere usato nelle altre condizioni o nell'azione della stessa regola.
+L'elenco di condizioni è costituito da singole condizioni basate su varie proprietà di un'attestazione. Una condizione può avere un identificatore facoltativo, che può essere usato per fare riferimento alle attestazioni che la soddisfano. Questo riferimento può essere usato nelle altre condizioni o nell'azione della stessa regola.
 
 Ad esempio
 

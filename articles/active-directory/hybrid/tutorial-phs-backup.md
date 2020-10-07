@@ -12,12 +12,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9cd70d534cebf35938285208dc76bd4a6d94533
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 3d9f59906c566d80344891c0796a85b0a4972e68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279007"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313094"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Esercitazione:  Configurare PHS come backup per AD FS in Azure AD Connect
 
@@ -74,7 +74,7 @@ A questo punto verrà illustrato come passare alla sincronizzazione dell'hash de
 
 1. Passare a [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Accedere con uno degli account utente creati nel nuovo tenant.  Per accedere, sarà necessario usare il formato seguente: (user@domain.onmicrosoft.com). Usare la stessa password che l'utente usa per accedere in locale.</br>
-   ![Verificare](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Screenshot che mostra un messaggio di operazione riuscita durante il test dell'accesso. ](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="switch-back-to-federation"></a>Tornare alla federazione
 Ora verrà illustrato come tornare alla federazione.  A tale scopo, eseguire queste operazioni:
@@ -91,7 +91,7 @@ Ora verrà illustrato come tornare alla federazione.  A tale scopo, eseguire que
 10. Dopo aver completato la configurazione, fare clic su **Avanti**.
 ![Configurare](media/tutorial-phs-backup/backup4.png)</br>
 11. Nella schermata **Verifica la connettività della federazione** fare clic su **Verifica**.  Per il corretto completamento di questa operazione, può essere necessario configurare i record DNS (aggiungere i record A e AAAA).
-![Verificare](media/tutorial-phs-backup/backup5.png)</br>
+![Screenshot che mostra la schermata Verifica la connettività della federazione e il pulsante Verifica.](media/tutorial-phs-backup/backup5.png)</br>
 12. Fare clic su **Esci**.
 
 ## <a name="reset-the-ad-fs-and-azure-trust"></a>Reimpostare la relazione di trust tra AD FS e Azure
@@ -106,7 +106,7 @@ Ora è necessario reimpostare la relazione di trust tra AD FS e Azure.
 6.  Nella schermata **Connetti ad AD FS** immettere il nome utente e la password di contoso\Administrator e fare clic su **Avanti**.
 7.  Nella schermata **Certificati** fare clic su **Avanti**.
 
-## <a name="test-signing-in-with-one-of-our-users"></a>Testare l'accesso con uno degli utenti
+## <a name="test-signing-in-with-a-user"></a>Testare l'accesso con un utente
 
 1.  Passare a [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Accedere con uno degli account utente creati nel nuovo tenant.  Per accedere, sarà necessario usare il formato seguente: (user@domain.onmicrosoft.com). Usare la stessa password che l'utente usa per accedere in locale.

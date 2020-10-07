@@ -1,6 +1,6 @@
 ---
 title: Eseguire lo streaming di file video con Servizi multimediali di Azure - .NET | Microsoft Docs
-description: Seguire i passaggi di questa esercitazione per creare un nuovo account di Servizi multimediali di Azure, codificare un file ed eseguirne lo streaming su Azure Media Player.
+description: Seguire i passaggi di questa esercitazione per creare un nuovo account di Servizi multimediali di Azure con .NET, codificare un file ed eseguirne lo streaming in Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ec60f775fbeb176f9442aff11117c85c5028a81f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 530089b9c6b9544201b0f07368cac3d1a695a4f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267089"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268690"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - .NET
 
@@ -70,7 +70,7 @@ Quando si esegue l'app, vengono visualizzati gli URL che è possibile usare per 
 1. Premere CTRL+F5 per eseguire l'applicazione *EncodeAndStreamFiles*.
 2. Scegliere il protocollo **HLS** di Apple (termina con *manifest(format=m3u8-aapl)* ) e copiare l'URL di streaming dalla console.
 
-![Output](./media/stream-files-tutorial-with-api/output.png)
+![Screenshot dell'output dell'app EncodeAndStreamFiles in Visual Studio che mostra tre URL di streaming da usare in Azure Media Player.](./media/stream-files-tutorial-with-api/output.png)
 
 Nel [codice di origine](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) dell'esempio è possibile vedere come viene creato l'URL. Per creare un URL, è necessario concatenare il nome host dell'endpoint di streaming e il percorso del localizzatore di streaming.  
 

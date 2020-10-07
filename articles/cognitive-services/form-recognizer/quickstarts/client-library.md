@@ -1,26 +1,28 @@
 ---
-title: 'Avvio rapido: Libreria client di Riconoscimento modulo | Microsoft Docs'
-description: Introduzione alla libreria client di [nome prodotto].
+title: 'Avvio rapido: Libreria client di Riconoscimento modulo'
+titleSuffix: Azure Cognitive Services
+description: Usare la libreria client di Riconoscimento modulo per creare un'app per l'elaborazione di moduli che estrae coppie chiave/valore e dati di tabelle dai documenti personalizzati.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 09/21/2020
 ms.author: pafarley
-ms.custom: devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 0aa72b595bf60184aa840922a3d8a6496bb983a7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+keywords: elaborazione di moduli, elaborazione dati automatica
+ms.openlocfilehash: eb3fc3ebe5c3d9f659758a14ba620018671d95f5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934354"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318911"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Avvio rapido: Usare la libreria client di Riconoscimento modulo
 
-Introduzione alla libreria client di Riconoscimento modulo. Riconoscimento modulo è un servizio cognitivo che usa la tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. Seguire questi passaggi per installare il pacchetto SDK e provare il codice di esempio per le attività di base.
+Iniziare a usare la libreria client di Riconoscimento modulo nel linguaggio preferito. Riconoscimento modulo di Azure è un servizio cognitivo che consente di creare software di elaborazione dati automatica tramite la tecnologia di Machine Learning. Il servizio identifica ed estrae testo, coppie chiave-valore e dati delle tabelle dai documenti dei moduli, quindi restituisce dati strutturati che includono le relazioni nel file originale. Seguire questi passaggi per installare il pacchetto SDK e provare il codice di esempio per le attività di base.
 
 Usare la libreria client di Riconoscimento modulo per:
 

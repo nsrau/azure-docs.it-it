@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come aggiungere un endpoint HTTPS a u
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b309a13288c8ea95f453c1e80549a979e3f89921
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c675f8ece8369bcfc0055343221ac82aea59dec1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441528"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326236"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Esercitazione: Aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core usando Kestrel
 
@@ -354,7 +354,7 @@ In Esplora soluzioni selezionare l'applicazione **Voting** e impostare la propri
 
 Salvare tutti i file e premere F5 per eseguire l'applicazione in locale.  Al termine della distribuzione dell'applicazione, l'URL https:\//localhost:443 verrà aperto in un Web browser. Se si usa un certificato autofirmato, verrà visualizzato un avviso che informa che la sicurezza del sito Web non è considerata attendibile dal PC.  Continuare e passare alla pagina Web.
 
-![Applicazione di voto][image2]
+![Screenshot dell'app di voto di esempio di Service Fabric in esecuzione in una finestra del browser con l'URL https://localhost/.][image2]
 
 ## <a name="install-certificate-on-cluster-nodes"></a>Installare il certificato nei nodi del cluster
 
@@ -371,7 +371,7 @@ Installare quindi il certificato nel cluster remoto usando gli [script di PowerS
 > [!Warning]
 > Per le applicazioni di sviluppo e test è sufficiente un certificato autofirmato. Per le applicazioni di produzione, usare invece un certificato di un'[autorità di certificazione (CA)](https://wikipedia.org/wiki/Certificate_authority).
 
-## <a name="open-port-443-in-the-azure-load-balancer"></a>Aprire la porta 443 nel servizio di bilanciamento del carico di Azure
+## <a name="open-port-443-in-the-azure-load-balancer-and-virtual-network"></a>Aprire la porta 443 nel servizio di bilanciamento del carico di Azure e nella rete virtuale
 
 Aprire la porta 443 nel servizio di bilanciamento del carico, se non è già aperta.
 
@@ -396,13 +396,33 @@ $slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.Bac
 $slb | Set-AzLoadBalancer
 ```
 
+Eseguire la stessa operazione per la rete virtuale associata.
+
+```powershell
+$rulename="allowAppPort$port"
+$nsgname="voting-vnet-security"
+$RGname="voting_RG"
+$port=443
+
+# Get the NSG resource
+$nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $RGname
+
+# Add the inbound security rule.
+$nsg | Add-AzNetworkSecurityRuleConfig -Name $rulename -Description "Allow app port" -Access Allow `
+    -Protocol * -Direction Inbound -Priority 3891 -SourceAddressPrefix "*" -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange $port
+
+# Update the NSG.
+$nsg | Set-AzNetworkSecurityGroup
+```
+
 ## <a name="deploy-the-application-to-azure"></a>Distribuzione dell'applicazione in Azure
 
 Salvare tutti i file, passare da Debug a Release e premere F6 per ricompilare.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Voting** e scegliere **Pubblica**. Selezionare l'endpoint di connessione del cluster creato in [Distribuire un'applicazione in un cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md) oppure selezionare un altro cluster.  Fare clic su **Pubblica** per pubblicare l'applicazione nel cluster remoto.
 
 Al termine della distribuzione dell'applicazione, aprire un Web browser e passare a `https://mycluster.region.cloudapp.azure.com:443`, aggiornando l'URL con l'endpoint di connessione del cluster. Se si usa un certificato autofirmato, verrà visualizzato un avviso che informa che la sicurezza del sito Web non è considerata attendibile dal PC.  Continuare e passare alla pagina Web.
 
-![Applicazione di voto][image3]
+![Screenshot dell'app di voto di esempio di Service Fabric in esecuzione in una finestra del browser con l'URL https://mycluster.region.cloudapp.azure.com:443.][image3]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

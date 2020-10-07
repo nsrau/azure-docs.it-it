@@ -1,6 +1,6 @@
 ---
 title: Eseguire la copia incrementale di una tabella con PowerShell
-description: In questa esercitazione si crea una pipeline di Azure Data Factory che copia i dati in modo incrementale da un database SQL di Azure a un archivio BLOB di Azure.
+description: In questa esercitazione viene creata una pipeline di Azure Data Factory che copia i dati in modo incrementale da un database SQL di Azure ad Archiviazione BLOB di Azure.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 3bd2744c651544fc7dfe41b350168a7f387c0928
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 267c82981ca91dc8fd437222c80368b5ab6f4a46
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254447"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320864"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Caricare i dati in modo incrementale dal database SQL di Azure ad Archiviazione BLOB di Azure con PowerShell
 
@@ -63,7 +63,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Database SQL di Azure**. Usare il database come archivio dati di origine. Se non si ha un database nel database SQL di Azure, vedere la procedura per crearne uno descritta in [Creare un database nel database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md).
+* **Database SQL di Azure**. Usare il database come archivio dati di origine. Se non si ha un database in Database SQL di Azure, vedere la procedura per crearne uno descritta in [Creare un database in Database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md).
 * **Archiviazione di Azure**. Usare l'archivio BLOB come archivio dati sink. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md) per informazioni su come crearne uno. Creare un contenitore denominato adftutorial. 
 * **Azure PowerShell**. Seguire le istruzioni descritte in [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 

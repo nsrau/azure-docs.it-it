@@ -1,7 +1,7 @@
 ---
 title: "Guida introduttiva: Ottenere informazioni dettagliate sulle immagini con l'API REST e Python - Ricerca visiva Bing"
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come caricare un'immagine nell'API Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
+description: Questo argomento di avvio rapido illustra come caricare un'immagine usando l'API Ricerca visiva Bing e Python e quindi ottenere informazioni dettagliate sull'immagine.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: scottwhi
 ms.custom: devx-track-python
-ms.openlocfilehash: 7c76ec8600ade26098206a5d18559e795db53178
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ef265ab0cff9514695b40995e842518803e2e4c0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853076"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324587"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Python
 

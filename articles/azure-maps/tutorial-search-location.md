@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Cercare località vicine su una mappa | Mappe di Microsoft Azure'
-description: Informazioni su come cercare i punti di interesse su una mappa. Vedere come usare l'SDK Web di Mappe di Azure per aggiungere le funzionalità di ricerca e le caselle popup interattive a una mappa.
+description: Esercitazione su come cercare i punti di interesse su una mappa. Vedere come usare l'SDK Web di Mappe di Azure per aggiungere le funzionalità di ricerca e le caselle popup interattive a una mappa.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 6ed463cbda3ceb560f907529dc8de54a772932ea
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 4d6728d4fbde4b7d6cc8ed06e961642264ad31bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085077"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321697"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Esercitazione: Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -26,44 +26,14 @@ Questa esercitazione illustra come configurare un account con Mappe di Azure e q
 > * Creare una nuova pagina Web usando l'API del controllo mappa
 > * Usare il servizio di ricerca di Mappe per trovare un punto di interesse più vicino
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
-## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
-
-Accedere al [portale di Azure](https://portal.azure.com).
+## <a name="prerequisites"></a>Prerequisiti
 
 <a id="createaccount"></a>
-
-## <a name="create-an-account-with-azure-maps"></a>Creare un account con Mppe di Azure
-
-Creare un nuovo account di Mappe con i passaggi seguenti:
-
-1. Nell'angolo superiore sinistro del [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa**.
-2. Nella casella *Cerca nel Marketplace* digitare **Mappe**.
-3. Fra i *risultati* selezionare **Mappe**. Fare clic sul pulsante **Crea** visualizzato sotto la mappa.
-4. Nella pagina **Crea account di Mappe** immettere i valori seguenti:
-    * La *sottoscrizione* da usare per l'account.
-    * Il nome del *gruppo di risorse* per l'account. Per il gruppo di risorse è possibile selezionare l'opzione *Crea nuovo* o *Usa esistente*.
-    * Il *nome* del nuovo account.
-    * *Piano tariffario* dell'account.
-    * Leggere la *Licenza* e l'*Informativa sulla Privacy* e selezionare la casella di controllo per accettare le condizioni.
-    * Fare clic sul pulsante **Create** (Crea).
-
-![Creare l'account di Mappe di Azure nel portale di Azure](./media/tutorial-search-location/create-account.png)
-
 <a id="getkey"></a>
 
-## <a name="get-the-primary-key-for-your-account"></a>Ottenere la chiave primaria per l'account
-
-Dopo che è stato creato l'account di Mappe, recuperare la chiave che consente di eseguire query nelle API di Mappe. Nella chiamata dei servizi di Mappe di Azure è consigliabile usare la chiave primaria dell'account come chiave di sottoscrizione.
-
-1. Aprire l'account di Mappe nel portale.
-2. Nella sezione delle impostazioni selezionare **Autenticazione**.
-3. Copiare il valore di **Chiave primaria** negli Appunti. Salvarlo in locale per usarlo in seguito in questa esercitazione.
-
-![Ottenere la chiave primaria nel portale di Azure](./media/tutorial-search-location/get-key.png)
-
-Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
+1. Accedere al [portale di Azure](https://portal.azure.com). Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+2. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
@@ -275,21 +245,9 @@ La mappa creata finora analizza solo i dati di longitudine/latitudine per i risu
 
     ![Controllo mappa e servizio di ricerca di Azure](./media/tutorial-search-location/popup-map.png)
 
+Per visualizzare il codice completo per questa esercitazione, fare clic [qui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html). Per visualizzare l'esempio in esecuzione, fare clic [qui](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+
 ## <a name="next-steps"></a>Passaggi successivi
-
-In questa esercitazione sono state illustrate le procedure per:
-
-> [!div class="checklist"]
-> * Creare un account con Mppe di Azure
-> * Ottenere la chiave primaria per l'account
-> * Creare una nuova pagina Web usando l'API del controllo mappa
-> * Usare il servizio di ricerca per trovare il punto di interesse più vicino
-
-> [!div class="nextstepaction"]
-> [Visualizzare il codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-> [!div class="nextstepaction"]
-> [Visualizzare l'esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 L'esercitazione successiva illustra come visualizzare un itinerario tra due posizioni.
 

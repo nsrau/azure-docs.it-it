@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 115f01bffc4664798682923cb83a99a23a8ce274
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 3f64086ed97594416b5964cf648c857c2f271480
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958338"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331098"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure mediante Azure PowerShell
 
@@ -53,6 +53,8 @@ Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtu
 1. Creare le configurazioni delle subnet usando `New-AzVirtualNetworkSubnetConfig`.
 2. Crea la rete virtuale con le configurazioni delle subnet usando `New-AzVirtualNetwork`. 
 3. Creare l'indirizzo IP pubblico usando `New-AzPublicIpAddress`. 
+> [!NOTE]
+> I [criteri degli endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoint-policies-overview.md) non sono attualmente supportati in una subnet del gateway applicazione.
 
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 7a9e0cc3977892fd899b4a25e17ad72f13481506
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c5505b9437a4bd8dced6a090817b17d5e29374f2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608814"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327939"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Esercitazione: Creare un criterio WAF nella rete CDN di Azure usando il portale di Azure
 
@@ -72,17 +72,22 @@ Per creare una regola personalizzata, selezionare **Aggiungi regola personalizza
 
 La schermata seguente mostra una regola di corrispondenza personalizzata per bloccare una richiesta se la stringa di query contiene il valore **blockme**.
 
-![Cambiare la modalità del criterio WAF](../media/waf-cdn-create-portal/custommatch.png)
+![Aggiungi regola di corrispondenza personalizzata](../media/waf-cdn-create-portal/custommatch.png)
 
 Le regole relative ai limiti di frequenza richiedono due campi aggiuntivi: **Durata limite di frequenza** e **Soglia limite di frequenza (richieste)** come illustrato nell'esempio seguente:
 
-![Cambiare la modalità del criterio WAF](../media/waf-cdn-create-portal/customrate.png)
+![Aggiungi regola per il limite di frequenza](../media/waf-cdn-create-portal/customrate.png)
 
 ### <a name="default-rule-set-drs"></a>Set di regole predefinite
 
 Il set di regole predefinite gestito da Azure è abilitato per impostazione predefinita. Per disabilitare una singola regola in un gruppo di regole, espandere le regole all'interno di tale gruppo, selezionare la casella di controllo davanti al numero della regola e quindi selezionare **Disabilita** nella scheda visualizzata sopra. Per cambiare i tipi di azioni per le singole regole all'interno del set di regole, selezionare la casella di controllo davanti al numero della regola, quindi selezionare la scheda **Modifica azione**.
 
  ![Modificare il set di regole WAF](../media/waf-cdn-create-portal/managed2.png)
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non sono più necessari, rimuovere il gruppo di risorse e tutte le risorse correlate.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

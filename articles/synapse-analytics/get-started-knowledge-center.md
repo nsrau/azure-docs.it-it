@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: c01d1bcb682a5f711dcba3cc7b32ef69b2642ef6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 47b8c45e22569cc758d00fb8534f409ecebf58ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900772"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299932"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Esplorare il Knowledge Center di Synapse
 
@@ -46,7 +46,6 @@ Nel **Knowledge Center** sono disponibili tre opzioni:
 1. Fare clic su Esegui. Il testo selezionato verrà eseguito.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Caricamento di altri dati di NYC Taxi
-
 1. Nel **Knowledge Center** fare clic su **Browse available samples** (Sfoglia gli esempi disponibili) 
 1. Selezionare la scheda **Script SQL** nella parte superiore
 1. Selezionare **Load the New York Taxicab dataset** (Carica il set di dati relativi ai taxi di New York)
@@ -58,5 +57,6 @@ Nel **Knowledge Center** sono disponibili tre opzioni:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Usare un pool SQL per l'analisi](get-started-analyze-sql-pool.md)
+* [Introduzione ad Azure Synapse Analytics](get-started.md)
+* [Creare un'area di lavoro](quickstart-create-workspace.md)
+* [Usare SQL su richiesta](quickstart-sql-on-demand.md)
