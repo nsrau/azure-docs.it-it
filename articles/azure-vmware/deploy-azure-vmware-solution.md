@@ -3,12 +3,12 @@ title: Distribuire e configurare la soluzione Azure VMware
 description: Informazioni su come usare le informazioni raccolte nella fase di pianificazione per distribuire il cloud privato della soluzione Azure VMware.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 08d2d48820505dad9bba74fe3ac84f45525f4525
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: af2a9e4fcb4125683342ad739e3890671f64b0bf
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578924"
+ms.locfileid: "91598184"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Distribuire e configurare la soluzione Azure VMware
 
@@ -40,7 +40,7 @@ Usare le informazioni raccolte nell'articolo [Pianificazione della distribuzione
 Dopo la distribuzione della soluzione Azure VMware, verrà creata la jump box della rete virtuale che si connette a vCenter e NSX. Dopo la configurazione dei circuiti ExpressRoute e di Copertura globale ExpressRoute, la jump box non è necessaria.  Risulta tuttavia utile per raggiungere vCenter e NSX nella soluzione Azure VMware.  
 
 
-:::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Creare la jump box della soluzione Azure VMware":::
+:::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Creare la jump box della soluzione Azure VMware" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
 Per creare una macchina virtuale nella rete virtuale [identificata o creata come parte del processo di distribuzione](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution), seguire queste istruzioni: 
 
@@ -60,7 +60,7 @@ La jump box si trova nella rete virtuale in cui la soluzione Azure VMware si con
 
 Nell'elenco di route valide dovrebbero essere visualizzate le reti create come parte della distribuzione della soluzione Azure VMware. Verranno visualizzate più reti derivate dalla rete [`/22` definita](production-ready-deployment-steps.md#ip-address-segment) durante il [passaggio di distribuzione](#deploy-azure-vmware-solution) disponibile in precedenza in questo articolo.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Creare la jump box della soluzione Azure VMware":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Creare la jump box della soluzione Azure VMware" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 In questo esempio la rete 10.74.72.0/22 specificata come input durante la distribuzione deriva le reti /24.  Se vengono visualizzati valori analoghi, è possibile connettersi a vCenter nella soluzione Azure VMware.
 
