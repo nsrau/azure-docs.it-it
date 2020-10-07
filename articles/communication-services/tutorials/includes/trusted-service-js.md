@@ -9,10 +9,10 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
 ms.openlocfilehash: d4ef8baa123f805d380b14fa24abff65903cb41d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90944201"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
@@ -132,7 +132,7 @@ Eseguire la funzione di Azure in locale premendo `F5`. Questa operazione consent
 
 Aprire l'URL nel browser per visualizzare il corpo della risposta con l'ID utente di comunicazione, il token e la scadenza del token.
 
-:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Screenshot che illustra un esempio di risposta per la funzione di Azure creata.":::
+:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Diagramma dell'architettura del servizio attendibile":::
 
 ## <a name="deploy-the-function-to-azure"></a>Distribuire la funzione in Azure
 

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.custom: aaddev, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89442147"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Avvio rapido: Configurare un'applicazione per esporre un'API Web
@@ -95,7 +95,7 @@ Per aggiungere l'ambito di esempio `Employees.Write.All`, seguire la procedura d
 
 Se sono stati aggiunti entrambi, gli ambiti di esempio descritti nelle sezioni precedenti verranno visualizzati nel riquadro **Esporre un'API** della registrazione dell'app dell'API Web, come illustrato nell'immagine seguente:
 
-:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Screenshot del riquadro Esporre un'API che mostra due ambiti esposti.":::
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Riquadro Esporre un'API di una registrazione dell'app nel portale di Azure":::
 
 Come illustrato nell'immagine, la stringa completa di un ambito è costituita dalla concatenazione del valore **URI ID applicazione** dell'API Web e del valore di **Nome ambito** dell'ambito.
 

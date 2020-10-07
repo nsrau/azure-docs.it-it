@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
 ms.openlocfilehash: cdddd9a90911499421351adf0f41ef90f0e2f9a5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90906554"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>Avvio rapido: Creare un server di Database di Azure per MySQL nel portale di Azure
@@ -39,7 +39,7 @@ Seguire questa procedura per creare un database di Azure per il server MySQL:
 3. Compilare il modulo dei dettagli del nuovo server con le informazioni seguenti:
     
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Creare il modulo del server":::
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Opzione Database di Azure per MySQL":::
 
 **Impostazione** | **Valore consigliato** | **Descrizione campo** 
 ---|---|---
@@ -67,7 +67,7 @@ Per impostazione predefinita, vengono creati i database seguenti nel server: **i
 Per impostazione predefinita, il server creato viene protetto con un firewall e non è accessibile pubblicamente. Per concedere l'accesso all'indirizzo IP, passare alla risorsa server nel portale di Azure e selezionare **Sicurezza delle connessioni** dal menu a sinistra per la risorsa server. Se non si è certi di come trovare una risorsa, vedere [Come aprire una risorsa](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
 
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Sicurezza delle connessioni - Regole del firewall":::
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Opzione Database di Azure per MySQL":::
    
 Selezionare ora **Aggiungi indirizzo IP client corrente** e quindi selezionare **Salva**. È possibile aggiungere altri indirizzi IP o fornire un intervallo IP per la connessione al server da tali IP. Per altre informazioni, vedere [Come gestire le regole del firewall nel server di Database di Azure per MySQL](./concepts-firewall-rules.md)
 
@@ -83,7 +83,7 @@ Selezionare ora **Aggiungi indirizzo IP client corrente** e quindi selezionare *
     >Se si avvia Cloud Shell per la prima volta, verrà richiesto di creare un gruppo di risorse e un account di archiviazione. Questo passaggio è occasionale e verrà automaticamente collegato per tutte le sessioni. 
 
    >[!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="Visualizzazione completa di Cloud Shell nel portale":::
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="Opzione Database di Azure per MySQL":::
 2. Eseguire questo comando nel terminale Azure Cloud Shell. Sostituire i valori con il nome effettivo del server e il nome di accesso dell'utente amministratore. Il nome utente dell'amministratore richiede un valore '@\<servername>', come indicato di seguito per Database di Azure per MySQL  
 
   ```azurecli-interactive
@@ -136,7 +136,7 @@ La creazione di un server di Database di Azure per MySQL in un gruppo di risorse
 
 Per eliminare il server, è possibile fare clic sul pulsante **Elimina** nella pagina **Panoramica** del server come illustrato di seguito:
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="Eliminare le risorse":::
+> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="Opzione Database di Azure per MySQL":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.openlocfilehash: d604ca8c8979ec98b990f8002ce29d0df92ac2af
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90945069"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server-preview"></a>Avvio rapido: Usare MySQL Workbench per connettersi ed eseguire query sui dati in Database di Azure per MySQL - Server flessibile (anteprima)
@@ -53,7 +53,7 @@ Per connettersi al server flessibile di Database di Azure per MySQL tramite MySQ
 
 2. Nella finestra di dialogo **Setup New Connection** (Configura nuova connessione) immettere le informazioni seguenti nella scheda **Parameters** (Parametri):
 
-    :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Setup New Connection (Configura nuova connessione)":::
+    :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Azure Database for MySQL Flexible Server name":::
 
     | **Parameters** | **Valore consigliato** | **Descrizione campo** |
     |---|---|---|
@@ -108,7 +108,7 @@ Per connettersi al server flessibile di Database di Azure per MySQL tramite MySQ
 
     Lo screenshot mostra un esempio di codice SQL in MySQL Workbench e l'output dopo l'esecuzione.
 
-    :::image type="content" source="./media/connect-workbench/3-workbench-sql-tab.png" alt-text="Scheda SQL in MySQL Workbench per l'esecuzione del codice SQL di esempio":::
+    :::image type="content" source="./media/connect-workbench/3-workbench-sql-tab.png" alt-text="Azure Database for MySQL Flexible Server name":::
 
 2. Per eseguire l'esempio di codice SQL, fare clic sull'icona saetta nella barra degli strumenti della scheda **File SQL**.
 3. Si notino i tre risultati a schede nella sezione **Griglia risultati** nella parte centrale della pagina.

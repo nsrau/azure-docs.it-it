@@ -4,10 +4,10 @@ description: 'Avvio rapido: Questo articolo fornisce informazioni su come esegui
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 612a7515c14b77569b34c91d9b43413353b4d0e8
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90061548"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Avvio rapido: Streaming di dati con Hub eventi tramite il protocollo Kafka

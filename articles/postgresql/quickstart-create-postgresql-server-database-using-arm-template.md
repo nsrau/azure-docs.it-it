@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
 ms.openlocfilehash: b73bf82b7fba4c7c618dbae81873efabec61051d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90906434"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare un modello di Resource Manager per creare un database di Azure per PostgreSQL: server singolo
@@ -76,7 +76,7 @@ Nella pagina **Distribuire Database di Azure per PostgreSQL con la rete virtuale
 
 3. Immettere i valori per **Nome server**, **Account di accesso amministratore** e **Password di accesso amministratore**.
 
-    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Finestra Distribuisci Database di Azure per PostgreSQL con la rete virtuale, modello di avvio rapido di Azure, portale di Azure":::
+    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Distribuzione in Azure":::
 
 4. Modificare le altre impostazioni predefinite in base alle esigenze:
 

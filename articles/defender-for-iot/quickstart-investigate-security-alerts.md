@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 172ae82288c2cb948839b69955b9491715eb4690
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90944136"
 ---
 # <a name="quickstart-investigate-security-alerts"></a>Avvio rapido: Esaminare gli avvisi di sicurezza
@@ -44,12 +44,12 @@ L'apertura di ogni avviso aggregato consente di visualizzare la descrizione dett
 
 1. Selezionare e aprire un avviso di sicurezza dall'elenco in **Hub IoT** > **Sicurezza** > **Avvisi**. 
 1. Esaminare la **descrizione**, la **gravità**, l'**origine del rilevamento**, i **dettagli del dispositivo** di tutti i dispositivi che hanno emesso questo avviso nel periodo di aggregazione.
-:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Eseguire i drill-down ed esaminare i dettagli di ogni dispositivo in un avviso aggregato "::: 
+:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Esaminare i nuovi avvisi di sicurezza IoT con il flag per gli avvisi Nuovo"::: 
 1. Dopo aver esaminato le specifiche degli avvisi, utilizzare le istruzioni del **passaggio di correzione manuale** per correggere e/o risolvere il problema che ha causato l'avviso. 
-:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Seguire i passaggi di correzione manuale per risolvere o correggere gli avvisi di sicurezza del dispositivo":::
+:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Esaminare i nuovi avvisi di sicurezza IoT con il flag per gli avvisi Nuovo":::
 
 1. Se sono necessarie ulteriori indagini, **Esaminare gli avvisi in Log Analytics** usando l'apposito collegamento. 
-:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="Per esaminare ulteriormente un avviso, usare il collegamento per esaminare l'avviso in Log Analytics disponibile sullo schermo":::
+:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="Esaminare i nuovi avvisi di sicurezza IoT con il flag per gli avvisi Nuovo":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

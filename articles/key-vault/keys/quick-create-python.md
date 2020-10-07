@@ -9,10 +9,10 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python
 ms.openlocfilehash: 44942067756f82c224decc218de17bf7dbc69734
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89482130"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Avvio rapido: Libreria client delle chiavi di Azure Key Vault per Python
@@ -131,7 +131,7 @@ La chiamata a un metodo `create` genera una chiamata all'API REST di Azure per l
 
 Durante la gestione della richiesta, Azure autentica l'identità del chiamante (l'entità servizio) usando l'oggetto credenziali fornito al client.
 
-Verifica inoltre che il chiamante sia autorizzato a eseguire l'azione richiesta. Questa autorizzazione è stata concessa all'entità servizio in precedenza usando il [comando `az keyvault set-policy`](#give-the-service-principal-access-to-your-key-vault).
+Verifica inoltre che il chiamante sia autorizzato a eseguire l'azione richiesta. Questa autorizzazione è stata concessa all'entità servizio in precedenza usando il comando [`az keyvault set-policy`](#give-the-service-principal-access-to-your-key-vault).
 
 ## <a name="retrieve-a-key"></a>Recuperare una chiave
 

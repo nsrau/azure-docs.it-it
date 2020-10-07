@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/19/2020
 ms.openlocfilehash: 97a16bd81fd79646fb3693ec2dc4b8a40b9a6a3b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90896154"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Avvio rapido: Usare un modello di Resource Manager per creare un server di Database di Azure per MySQL
@@ -76,7 +76,7 @@ Nella pagina **Deploy Azure Database for MySQL with VNet** (Distribuisci Databas
 
 3. Immettere i valori per **Nome server**, **Account di accesso amministratore** e **Password di accesso amministratore**.
 
-    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Finestra Distribuisci Database di Azure per MySQL con la rete virtuale, modello di avvio rapido di Azure, portale di Azure":::
+    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Distribuzione in Azure":::
 
 4. Modificare le altre impostazioni predefinite in base alle esigenze:
 

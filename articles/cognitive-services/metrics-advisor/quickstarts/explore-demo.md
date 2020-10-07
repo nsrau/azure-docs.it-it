@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: fbc73e20b8cc2baa1cc5c5a5b2f674fb1b2dde84
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90944621"
 ---
 # <a name="quickstart-explore-the-metrics-advisor-demo-with-example-data"></a>Avvio rapido: Esplorare la demo di Advisor metriche con dati di esempio
@@ -44,14 +44,14 @@ Fare clic sul feed di dati *Sample - Cost/Revenue - City/Category* (Esempio - Co
 * Log relativi agli aggiornamenti del feed di dati.   
 * Informazioni e impostazioni del feed di dati.
 
-:::image type="content" source="../media/data-feed-view.png" alt-text="Visualizzazione feed di dati" lightbox="../media/data-feed-view.png":::
+:::image type="content" source="../media/data-feed-view.png" alt-text="Elenco dei dati di esempio" lightbox="../media/data-feed-view.png":::
 
 
 ## <a name="view-time-series-visualizations-and-configurations"></a>Visualizzare le visualizzazioni e le configurazioni delle serie temporali
 
 Fare clic sulla metrica *cost* nel feed di dati *Sample - Cost/Revenue - City/Category*. Si vedranno le serie temporali associate suddivise per dimensioni, con le visualizzazioni in base ai dati cronologici della metrica. La banda blu intorno ai dati della metrica rappresenta l'intervallo di valori previsto dai modelli di Machine Learning di Advisor metriche. I punti che ricadono all'esterno di questa banda verranno contrassegnati in rosso, a indicare che si tratta di anomalie rilevate. 
 
-:::image type="content" source="../media/series-visualization.png" alt-text="Visualizzazione serie" lightbox="../media/series-visualization.png":::
+:::image type="content" source="../media/series-visualization.png" alt-text="Elenco dei dati di esempio" lightbox="../media/series-visualization.png":::
 
 Il rilevamento anomalie può essere configurato modificando le **configurazioni di rilevamento** sul lato sinistro della pagina dei dettagli della metrica. Sono disponibili più metodi di rilevamento anomalie che possono essere usati in combinazione. Si possono anche provare diverse sensibilità, direzioni di rilevamento e altre configurazioni. Il collegamento **Advanced configuration** (Configurazione avanzata) nella parte inferiore della finestra delle **configurazioni di rilevamento** consente di creare impostazioni di rilevamento più complesse e personalizzate, che possono essere usate su gruppi o singole serie. 
 
@@ -59,7 +59,7 @@ Il rilevamento anomalie può essere configurato modificando le **configurazioni 
 
 Nella parte inferiore del riquadro **Add feedback** è presente un collegamento a un **hub eventi imprevisti** che indirizza alla pagina di analisi degli eventi imprevisti per analizzare la causa radice di uno specifico evento.  
 
-:::image type="content" source="../media/incident-link.png" alt-text="Collegamento all'evento imprevisto" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Elenco dei dati di esempio" lightbox="../media/incident-link.png":::
 
 ## <a name="explore-anomaly-detection-results-and-perform-root-cause-analysis"></a>Esplorare i risultati del rilevamento anomalie ed eseguire l'analisi della causa radice
 
@@ -67,7 +67,7 @@ Quando si fa clic sul collegamento **To incident hub** (Vai all'hub eventi impre
 
 La sezione **Diagnostics** (Diagnostica) mostra un albero dell'evento imprevisto, oltre a diverse schede per la diagnosi dell'evento imprevisto.
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnostica dell'evento imprevisto" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Elenco dei dati di esempio" lightbox="../media/incident-diagnostic.png":::
 
 Individuando la causa radice dell'evento imprevisto, è possibile intervenire e mitigare il problema prima che la situazione peggiori. È anche possibile esplorare altre informazioni dettagliate facendo clic sulle altre funzionalità di diagnostica disponibili. 
 

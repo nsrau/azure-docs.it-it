@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 9/22/2020
 ms.custom: mvc
 ms.openlocfilehash: 78824ef6f557a2df431e664158da9d858df0603f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90946289"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>Avvio rapido: Creare un server flessibile di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
@@ -139,4 +139,4 @@ az postgres flexible-server delete --resource-group myresourcegroup --name mydem
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
->[Distribuire un'app Django con Servizio app e PostgreSQL](tutorial-django-app-service-postgres.md)
+>[Distribuire un'app Django con il servizio app e PostgreSQL](tutorial-django-app-service-postgres.md)

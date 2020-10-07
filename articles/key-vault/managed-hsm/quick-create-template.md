@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 4d1488d6dd2e5d08ae774ca88b7ab41b2020efe5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90998390"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Avvio rapido: Creare un modulo di protezione hardware gestito usando un modello di Azure Resource Manager
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per seguire la procedura descritta in questo articolo sono necessari gli elementi seguenti:
+Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti:
 
 - Una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial).
 - Interfaccia della riga di comando di Azure versione 2.12.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli)

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.custom: aaddev, contperfq1
 ms.reviewer: lenalepa, aragra, sureshja
 ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89442285"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Avvio rapido: Configurare un'applicazione client per l'accesso a un'API Web
@@ -59,7 +59,7 @@ Dopo aver registrato sia l'app client che l'API Web e aver esposto l'API creando
 
 Dopo aver aggiunto le autorizzazioni per l'API, le autorizzazioni selezionate dovrebbero essere visualizzate in **Autorizzazioni configurate**. L'immagine seguente illustra l'autorizzazione delegata di esempio *Employees.Read.All* aggiunta alla registrazione dell'app client.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Riquadro Autorizzazioni configurate nel portale di Azure che mostra l'autorizzazione appena aggiunta":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Diagramma a linee che mostra un'API Web con ambiti esposti a destra e un'app client a sinistra con gli ambiti selezionati come autorizzazioni":::
 
 Notare anche l'autorizzazione *User.Read* per l'API Microsoft Graph. Questa autorizzazione viene aggiunta automaticamente quando si registra un'app nel portale di Azure.
 
@@ -136,11 +136,11 @@ Nel riquadro **Autorizzazioni API** potrebbe essere visualizzata anche una tabel
 
 Il pulsante **Concedi consenso amministratore per {tenant}** consente a un amministratore di fornire il consenso amministratore alle autorizzazioni configurate per l'applicazione. Quando si seleziona il pulsante, viene visualizzata una finestra di dialogo che chiede di confermare l'azione di consenso.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Pulsante Concedi consenso amministratore nel riquadro Autorizzazioni configurate nel portale di Azure":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Diagramma a linee che mostra un'API Web con ambiti esposti a destra e un'app client a sinistra con gli ambiti selezionati come autorizzazioni":::
 
 Dopo aver fornito il consenso, le autorizzazioni che richiedono il consenso amministratore vengono visualizzate come autorizzate:
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Tabella Configura le autorizzazioni nel portale di Azure che mostra il consenso amministratore concesso per l'autorizzazione Files.Read.All":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Diagramma a linee che mostra un'API Web con ambiti esposti a destra e un'app client a sinistra con gli ambiti selezionati come autorizzazioni":::
 
 Se non si è un amministratore o se non sono state configurate autorizzazioni per l'applicazione, il pulsante **Concedi consenso amministratore** è *disabilitato*. In caso di autorizzazioni concesse ma non ancora configurate, verrà chiesto di decidere come gestirle quando si fa clic sul pulsante del consenso amministratore. È possibile aggiungerle alle autorizzazioni configurate o rimuoverle.
 

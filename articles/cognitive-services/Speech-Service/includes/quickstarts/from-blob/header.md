@@ -12,10 +12,10 @@ ms.date: 03/13/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 9ced792ab076c312c827d4a74c08cfa7971b7e17
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89569417"
 ---
 In questa procedura si usa l'API REST di trascrizione batch per eseguire il riconoscimento vocale dai file in un processo batch. Un processo batch esegue la trascrizione del parlato senza alcuna interazione dell'utente. Offre un semplice modello di programmazione, senza la necessità di gestire la concorrenza, i modelli di riconoscimento vocale personalizzato o altri dettagli. Comporta opzioni di controllo avanzate, sfruttando al tempo stesso le risorse del servizio Voce di Azure.
