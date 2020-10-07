@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
 ms.openlocfilehash: 2b2c043e70aac14c7fc6f0b58aae257624b05d13
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80673270"
 ---
 In un progetto Java i binding vengono definiti come annotazioni di binding nel metodo della funzione. Il file *function.json* viene quindi generato automaticamente in base a queste annotazioni.

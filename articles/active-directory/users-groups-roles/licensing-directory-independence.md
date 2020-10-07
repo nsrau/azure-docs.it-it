@@ -15,10 +15,10 @@ ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1db812fb9c1503771bec0b1795ee8c15bb70014a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84727705"
 ---
 # <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>Informazioni sull'interazione tra più organizzazioni di Azure Active Directory

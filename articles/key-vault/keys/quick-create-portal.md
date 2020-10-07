@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 41f3d60d91b7418d6e9733b8351d4830b31dbace
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81420285"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-the-azure-portal"></a>Avvio rapido: Impostare e recuperare una chiave da Azure Key Vault con il portale di Azure
@@ -36,7 +36,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 4. Nella sezione Key Vault scegliere **Crea**.
 5. Nella pagina **Crea insieme di credenziali delle chiavi** specificare le informazioni seguenti:
     - **Name**: è necessario un nome univoco. Per questa guida di avvio rapido si userà **Example-Vault**. 
-    - **Sottoscrizione**: scegliere una sottoscrizione.
+    - **Sottoscrizione** Scegliere una sottoscrizione.
     - In **Gruppo di risorse** scegliere **Crea nuovo** e immettere il nome del gruppo di risorse.
     - Scegliere un percorso nel menu a discesa **Percorso**.
     - Lasciare invariati i valori predefiniti delle altre opzioni.
@@ -69,7 +69,7 @@ Dopo avere ricevuto il messaggio che indica che la chiave è stata creata, è po
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre guide di avvio rapido ed esercitazioni relative a Key Vault si basano su questa guida di avvio rapido. Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, è consigliabile non cancellare le risorse create.
+Altre guide introduttive ed esercitazioni relative a Key Vault si basano su questa guida introduttiva. Se si prevede di usare le guide introduttive e le esercitazioni successive, è consigliabile non cancellare le risorse create.
 Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'istanza di Key Vault e le risorse correlate. Per eliminare il gruppo di risorse tramite il portale:
 
 1. Immettere il nome del gruppo di risorse nella casella di ricerca nella parte superiore del portale. Quando nei risultati della ricerca viene visualizzato il gruppo di risorse usato in questo avvio rapido, selezionarlo.

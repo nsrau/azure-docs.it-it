@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/05/2019
 ms.author: glenga
 ms.openlocfilehash: 5e1a2622df0038141dd5cb05237f93d5e33e0bfb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78190917"
 ---
 In un progetto di libreria di classi C# i binding vengono definiti come attributi di binding nel metodo della funzione. Il file *function.json* richiesto da Funzioni viene quindi generato automaticamente in base a questi attributi.

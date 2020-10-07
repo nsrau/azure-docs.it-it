@@ -9,10 +9,10 @@ ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 609b62312329b3a8f9f16d15458a0a47f5eb377f
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85115209"
 ---
 È possibile usare le query in Esplora dati per recuperare e filtrare i dati.
@@ -23,11 +23,11 @@ ms.locfileid: "85115209"
    
 1. Per modificare la query, selezionare **Modifica filtro**, sostituire la query predefinita con `ORDER BY c._ts DESC`, quindi selezionare **Applica filtro**.
    
-   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png" alt-text="Cambiare la query predefinita aggiungendo ORDER BY c._ts DESC e facendo clic su Applica filtro":::
+   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png" alt-text="La query predefinita in Esplora dati è SELECT * FROM c":::
 
    La query modificata elenca i documenti in ordine decrescente in base al timestamp, quindi il secondo documento creato appare ora in cima all'elenco. 
    
-   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png" alt-text="Query cambiata in ORDER BY c._ts DESC e facendo clic su Applica filtro":::
+   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png" alt-text="La query predefinita in Esplora dati è SELECT * FROM c":::
 
 Se si ha familiarità con la sintassi SQL, è possibile immettere qualsiasi [query SQL](../articles/cosmos-db/sql-api-sql-query.md) supportata nella casella del predicato della query. È anche possibile usare Esplora dati per creare stored procedure, funzioni definite dall'utente e trigger per eseguire la logica di business sul lato server. 
 

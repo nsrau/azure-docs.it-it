@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4c8222cdcd21e10864c256007aff45fb83ed6afd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84731410"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Individuazione dell'area di autenticazione principale per le pagine di accesso di Azure Active Directory
