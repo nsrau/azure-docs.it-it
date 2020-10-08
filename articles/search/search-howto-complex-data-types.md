@@ -8,13 +8,13 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 5b430d5a8f0c2702617b7f6b3935e1b169753552
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/07/2020
+ms.openlocfilehash: ee1c0957761fc1c8b9ca80477defae8cef044827
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530855"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824470"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Come modellare tipi di dati complessi in Azure ricerca cognitiva
 
@@ -35,11 +35,13 @@ Per iniziare, si consiglia il [set di dati degli Alberghi](https://github.com/Az
 
 Il documento JSON seguente è costituito da campi semplici e campi complessi. I campi complessi, ad esempio `Address` e `Rooms` , presentano sottocampi. `Address` dispone di un singolo set di valori per quei sottocampi, poiché si tratta di un singolo oggetto nel documento. Al contrario, `Rooms` dispone di più set di valori per i relativi sottocampi, uno per ogni oggetto nella raccolta.
 
+
 ```json
 {
   "HotelId": "1",
   "HotelName": "Secret Point Motel",
   "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"]
   "Address": {
     "StreetAddress": "677 5th Ave",
     "City": "New York",
@@ -48,17 +50,26 @@ Il documento JSON seguente è costituito da campi semplici e campi complessi. I 
   "Rooms": [
     {
       "Description": "Budget Room, 1 Queen Bed (Cityside)",
-      "Type": "Budget Room",
-      "BaseRate": 96.99
+      "RoomNumber": 1105,
+      "BaseRate": 96.99,
     },
     {
       "Description": "Deluxe Room, 2 Double Beds (City View)",
       "Type": "Deluxe Room",
-      "BaseRate": 150.99
-    },
+      "BaseRate": 150.99,
+    }
+    . . .
   ]
 }
 ```
+
+<un nome = "indicizzazione-tipi complessi></a>
+
+## <a name="indexing-complex-types"></a>Indicizzazione di tipi complessi
+
+Durante l'indicizzazione, è possibile avere un massimo di 3000 elementi in tutte le raccolte complesse in un singolo documento. Un elemento di una raccolta complessa è un membro di tale raccolta, quindi, nel caso di Room (l'unica raccolta complessa nell'esempio di Hotel), ogni stanza è un elemento. Nell'esempio precedente, se il "Motel del punto segreto" avesse 500 stanze, il documento dell'hotel avrebbe 500 elementi della stanza. Per le raccolte complesse annidate, anche ogni elemento annidato viene conteggiato, oltre all'elemento esterno (padre).
+
+Questo limite si applica solo alle raccolte complesse e non ai tipi complessi (ad esempio, Address) o alle raccolte di stringhe (ad esempio, tag).
 
 ## <a name="creating-complex-fields"></a>Creazione di campi complessi
 
@@ -93,7 +104,7 @@ Nell'esempio seguente viene illustrato uno schema di indice JSON con semplici ca
 
 ## <a name="updating-complex-fields"></a>Aggiornamento di campi complessi
 
-Tutte le [regole di reindicizzazione](search-howto-reindex.md) applicabili ai campi in generale sono comunque valide per i campi complessi. Riaffermando alcune delle regole principali, l'aggiunta di un campo non richiede la ricompilazione dell'indice, ma la maggior parte delle modifiche.
+Tutte le [regole di reindicizzazione](search-howto-reindex.md) applicabili ai campi in generale sono comunque valide per i campi complessi. Riaffermando alcune delle regole principali, l'aggiunta di un campo a un tipo complesso non richiede la ricompilazione dell'indice, ma la maggior parte delle modifiche.
 
 ### <a name="structural-updates-to-the-definition"></a>Aggiornamenti strutturali alla definizione
 

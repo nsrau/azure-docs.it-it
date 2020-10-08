@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: eab9004b37da83b5d571ff700c32215354286c94
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a3ceb78a85546e5e75c4c484f131b67ff7fc9249
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443855"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824143"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Impostazioni di connettività per SQL di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "91443855"
 Questo articolo presenta le impostazioni che controllano la connettività al server per il database SQL di Azure e l'analisi delle sinapsi di Azure. Queste impostazioni si applicano a **tutti i** database SQL e ai database di Azure sinapsi associati al server.
 
 > [!IMPORTANT]
-> Questo articolo *non* si applica al **istanza gestita SQL di Azure**
+> Questo articolo *non* si applica a **Istanza gestita di SQL di Azure**.
 
 Le impostazioni di connettività sono accessibili dalla schermata **Firewall e reti virtuali**, come illustrato nello screenshot seguente:
 
@@ -38,6 +38,9 @@ Quando **l'impostazione Nega accesso pubblico alla rete** è impostata su **Sì*
  ![Screenshot della connettività con Nega accesso alla rete pubblica][2]
 
 Eventuali tentativi di impostare **l'opzione Nega accesso alla rete pubblica** su **Sì** senza endpoint privati esistenti nel server logico avranno esito negativo con un messaggio di errore simile al seguente:  
+
+> [!NOTE]
+> Per definire le regole del firewall della rete virtuale in un server logico già configurato con endpoint privati, impostare **Nega accesso alla rete pubblica** su **No**.
 
 ```output
 Error 42102

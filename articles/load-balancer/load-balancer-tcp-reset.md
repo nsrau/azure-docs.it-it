@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2019
+ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: f77dd21a2c017ee41f955fdf5e0848df190dec2a
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 060048bf786f424d5df6eb8fb4813877acb0fea0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651276"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823215"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Reimpostazione Load Balancer TCP e timeout di inattività
 
@@ -40,7 +40,11 @@ Esaminare attentamente l'intero scenario per decidere se l'abilitazione dei TCP 
 
 ## <a name="configurable-tcp-idle-timeout"></a>Timeout di inattività TCP configurabile
 
-Azure Load Balancer ha un'impostazione di timeout di inattività di 4 minuti a 120 minuti. Per impostazione predefinita, questa proprietà è impostata su 4 minuti. Se un periodo di inattività è più lungo del valore di timeout, non ci sono garanzie che venga mantenuta la sessione TCP o HTTP tra il client e il servizio cloud.
+Azure Load Balancer presenta l'intervallo di timeout di inattività seguente:
+-  da 4 minuti a 100 minuti per le regole in uscita
+-  da 4 minuti a 30 minuti per Load Balancer le regole e le regole NAT in ingresso
+
+Per impostazione predefinita, questa proprietà è impostata su 4 minuti. Se un periodo di inattività è più lungo del valore di timeout, non ci sono garanzie che venga mantenuta la sessione TCP o HTTP tra il client e il servizio cloud.
 
 Quando la connessione viene chiusa, l'applicazione client potrebbe ricevere il messaggio di errore seguente: "La connessione sottostante è stata chiusa: una connessione che doveva restare attiva è stata chiusa dal server in modo imprevisto".
 

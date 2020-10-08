@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d398cfe063dbbb2bc87a3debf1669afa6a16b43e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891994"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822995"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI output di analisi di flusso di Azure
 
@@ -44,6 +44,9 @@ Analisi di flusso di Azure crea un set di dati e uno schema di tabella di Power 
 
 Power BI usa i criteri di conservazione FIFO. I dati verranno raccolti in una tabella fino al raggiungimento di 200.000 righe.
 
+> [!NOTE]
+> Non è consigliabile usare più output per scrivere nello stesso set di dati, in quanto possono causare diversi problemi. Ogni output tenta di creare il set di dati Power BI in modo indipendente, che può generare più set di dati con lo stesso nome. Inoltre, se gli output non hanno schemi coerenti, il set di dati modifica lo schema in ogni scrittura, causando un numero eccessivo di richieste di modifica dello schema. Anche se si evitano questi problemi, più output saranno meno performanti rispetto a un singolo output Unito.
+
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Convertire tipi di dati da Analisi di flusso di Azure a Power BI
 
 Analisi di flusso di Azure consente di aggiornare il modello di dati in modo dinamico in fase di esecuzione se viene modificato lo schema di output. Vengono rilevate tutte le modifiche al nome e al tipo di colonna e l'aggiunta o la rimozione di colonne.
@@ -68,7 +71,7 @@ Precedente/Corrente | Int64 | string | Datetime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | string | string | Double
 Double | Double | string | string | Double
-string | Stringa | Stringa | Stringa | string 
+string | string | string | string | string 
 Datetime | string | string |  Datetime | string
 
 ## <a name="output-batch-size"></a>Dimensione del batch di output

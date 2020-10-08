@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: bbd3cb88b017209adff58a646e274caf31ab425f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c297a189f3b13ca8e72daf4eef009bc28fac32bf
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486443"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823192"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Risolvere i problemi di analisi video in tempo reale su IoT Edge
 
@@ -308,7 +308,7 @@ Per configurare l'analisi video in tempo reale sul modulo IoT Edge per generare 
     `/var/local/mediaservices/logs:/var/lib/azuremediaservices/logs`
 
     > [!NOTE] 
-    > Questo comando associa le cartelle dei log tra il dispositivo perimetrale e il contenitore. Se si vogliono raccogliere i log in un percorso diverso, usare il comando seguente, sostituendo **$LOG _LOCATION_ON_EDGE_DEVICE** con il percorso che si vuole usare:`/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
+    > Questo comando associa le cartelle dei log tra il dispositivo perimetrale e il contenitore. Se si vogliono raccogliere i log in un percorso diverso, usare il comando seguente, sostituendo **$LOG _LOCATION_ON_EDGE_DEVICE** con il percorso che si vuole usare: `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
 
 1. Selezionare **Aggiorna**.
 1. Selezionare **Rivedi e crea**. Un messaggio di convalida con esito positivo viene pubblicato sotto un banner verde.
@@ -321,9 +321,11 @@ Per configurare l'analisi video in tempo reale sul modulo IoT Edge per generare 
     `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
 
     > [!NOTE] 
-    > Questo comando associa le cartelle dei log tra il dispositivo perimetrale e il contenitore. Se si vogliono raccogliere i log in un percorso diverso, usare il comando seguente, sostituendo **$DEBUG _LOG_LOCATION_ON_EDGE_DEVICE** con il percorso che si vuole usare:  
-    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE"`  
-
+    > Questo comando associa le cartelle dei log tra il dispositivo perimetrale e il contenitore. Se si vogliono raccogliere i log in una posizione diversa nel dispositivo:
+    > 1. Creare un'associazione per il percorso del log di debug nella sezione **binds** , sostituendo il **$DEBUG _LOG_LOCATION_ON_EDGE_DEVICE** e **$debug _LOG_LOCATION** con il percorso desiderato: `/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
+    > 2. Usare il comando seguente, sostituendo **$DEBUG _LOG_LOCATION** con il percorso usato nel passaggio precedente:  
+    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`  
+    
     d. Selezionare **Salva**.
 
 1. Riprodurre il problema.

@@ -8,12 +8,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/02/2020
 tags: connectors
-ms.openlocfilehash: b832edca79cbbff39b7d526a21b1fbe95bd7a2ad
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: cb851734dc8f71347168e7ac16ac0752845dda7b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761125"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823617"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -54,7 +54,7 @@ Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sez
   |--------|------------------|-----------------------------|
   | **Copia file** | No | Non applicabile |
   | **Crea file** | Sì | Sì |
-  | **Creazione cartella** | Non applicabile | Non applicabile |
+  | **Crea cartella** | Non applicabile | Non applicabile |
   | **Elimina file** | Non applicabile | Non applicabile |
   | **Estrai archivio nella cartella** | Non applicabile | Non applicabile |
   | **Recupera contenuto di file** | Sì | Sì |
@@ -259,7 +259,7 @@ Questo errore può verificarsi quando l'app per la logica non è in grado di sta
 
 1. Il timeout della connessione è di 20 secondi. Verificare che il server SFTP disponga di prestazioni ottimali e che i dispositivi intermidi come il firewall non aggiungano molto sovraccarico. 
 
-2. Se è presente un firewall, assicurarsi che gli indirizzi IP del **connettore gestito** siano inclusi nell'elenco elementi consentiti. È possibile trovare questi indirizzi IP per l'area dell'app per la logica [**qui**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+2. Se è presente un firewall, assicurarsi che gli indirizzi IP del **connettore gestito** vengano aggiunti all'elenco approvato. È possibile trovare questi indirizzi IP per l'area dell'app per la logica [**qui**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
 
 3. Se si tratta di un problema intermittente, verificare l'impostazione di ripetizione dei tentativi per verificare se un numero di tentativi superiore rispetto a quello predefinito può essere utile.
 
@@ -279,4 +279,3 @@ Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)
-
